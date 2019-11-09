@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f0d732917a6587307e6d60581e0189687cc7e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164775"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832860"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -33,7 +33,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 - Du behöver inte längre hantera lokala administratörs konton.
 - Med Azure RBAC kan du ge rätt åtkomst till virtuella datorer baserat på behov och ta bort den när den inte längre behövs.
 - Innan du tillåter åtkomst till en virtuell dator kan villkorlig åtkomst för Azure AD framtvinga ytterligare krav som: 
-   - Multifaktorautentisering
+   - Multi-Factor Authentication
    - Inloggnings risk
 - Automatisera och skala Azure AD Join för Azure-baserade virtuella Windows-datorer.
 
@@ -166,7 +166,7 @@ Efter en liten stund tilldelas säkerhets objekt rollen i det valda omfånget.
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Använda Azure Cloud Shell upplevelse
 
-I följande exempel används [AZ roll tilldelning skapa](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den virtuella datorns administratörs inloggnings roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](https://docs.microsoft.com/cli/azure/account#az-account-show), och omfånget ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control).
+I följande exempel används [AZ roll tilldelning skapa](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den virtuella datorns administratörs inloggnings roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](https://docs.microsoft.com/cli/azure/account#az-account-show), och omfånget ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../virtual-machines/linux/login-using-aad.md).
 
 ```AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -206,7 +206,7 @@ Du är nu inloggad på den virtuella Windows Server 2019 Azure-datorn med roll b
 > [!NOTE]
 > Du kan spara. RDP-fil lokalt på datorn för att starta framtida fjärr skrivbords anslutningar till den virtuella datorn i stället för att behöva gå till översikts sidan för den virtuella datorn i Azure Portal och med alternativet Connect.
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 
@@ -217,30 +217,30 @@ AADLoginForWindows-tillägget måste kunna installeras för att den virtuella da
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 
    > [!NOTE]
-   > Om tillägget startas om efter det första felet kommer loggen med distributions felet att sparas som CommandExecution_YYYYMMDDHHMMSSSSS. log. 
+   > Om tillägget startas om efter det första felet sparas loggen med distributions felet som CommandExecution_YYYYMMDDHHMMSSSSS. log. 
 
 1. Öppna en kommando tolk på den virtuella datorn och verifiera dessa frågor mot den Instance Metadata Service-slutpunkt (IMDS) som körs på Azure-värden returnerar:
 
    | Kommando som ska köras | Förväntad utdata |
    | --- | --- |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Korrigera information om den virtuella Azure-datorn |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | Giltigt klient-ID som är associerat med Azure-prenumerationen |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | Giltig åtkomsttoken utfärdat av Azure Active Directory för den hanterade identitet som har tilldelats den här virtuella datorn |
+   | klammer-H metadata: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Korrigera information om den virtuella Azure-datorn |
+   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Giltigt klient-ID som är associerat med Azure-prenumerationen |
+   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Giltig åtkomsttoken utfärdat av Azure Active Directory för den hanterade identitet som har tilldelats den här virtuella datorn |
 
    > [!NOTE]
    > Åtkomsttoken kan avkodas med hjälp av ett verktyg som [http://calebb.net/](http://calebb.net/). Verifiera att "AppID" i åtkomsttoken matchar den hanterade identitet som tilldelats den virtuella datorn.
 
 1. Se till att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
    
-   - spiral https://login.microsoftonline.com/ -D –
-   - spiral https://login.microsoftonline.com/`<TenantID>` /-D –
+   - spiral https://login.microsoftonline.com/-D –
+   - spiral https://login.microsoftonline.com/`<TenantID>`/-D –
 
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen.
 
-   - spiral https://enterpriseregistration.windows.net/ -D-
-   - spiral https://device.login.microsoftonline.com/ -D-
-   - spiral https://pas.windows.net/ -D-
+   - spiral https://enterpriseregistration.windows.net/-D-
+   - spiral https://device.login.microsoftonline.com/-D-
+   - spiral https://pas.windows.net/-D-
 
 1. Enhetens tillstånd kan visas genom att köra `dsregcmd /status`. Målet är för enhets tillstånd att visas som `AzureAdJoined : YES`.
 
@@ -251,7 +251,7 @@ Om AADLoginForWindows-tillägget Miss lyckas med en viss felkod kan du utföra f
 
 #### <a name="issue-1-aadloginforwindows-extension-fails-to-install-with-terminal-error-code-1007-and-exit-code--2145648574"></a>Problem 1: AADLoginForWindows-tillägget kan inte installeras med Terminal-felkoden "1007" och avslutnings kod:-2145648574.
 
-Den här avslutnings koden översätts till DSREG_E_MSI_TENANTID_UNAVAILABLE eftersom tillägget inte kan skicka frågor till Azure AD-klientens information.
+Den här avslutnings koden översätts till DSREG_E_MSI_TENANTID_UNAVAILABLE eftersom tillägget inte kan skicka frågor till information om Azure AD-klienten.
 
 1. Kontrol lera att den virtuella Azure-datorn kan hämta TenantID från Instance Metadata Service.
 
@@ -263,19 +263,19 @@ Den här avslutnings koden översätts till DSREG_E_MSI_TENANTID_UNAVAILABLE eft
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problem 2: AADLoginForWindows-tillägget kan inte installeras med avslutnings koden:-2145648607
 
-Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom tillägget inte kan komma åt https://enterpriseregistration.windows.net -slutpunkten.
+Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom tillägget inte kan komma åt https://enterpriseregistration.windows.net-slutpunkten.
 
 1. Verifiera att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
 
-   - spiral https://login.microsoftonline.com/ -D –
-   - spiral https://login.microsoftonline.com/`<TenantID>` /-D –
+   - spiral https://login.microsoftonline.com/-D –
+   - spiral https://login.microsoftonline.com/`<TenantID>`/-D –
    
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen. Om du behöver hitta klient-ID: t kan du hovra över ditt konto namn för att hämta katalog-ID eller välja Azure Active Directory > Egenskaper > katalog-ID i Azure Portal.
 
-   - spiral https://enterpriseregistration.windows.net/ -D-
-   - spiral https://device.login.microsoftonline.com/ -D-
-   - spiral https://pas.windows.net/ -D-
+   - spiral https://enterpriseregistration.windows.net/-D-
+   - spiral https://device.login.microsoftonline.com/-D-
+   - spiral https://pas.windows.net/-D-
 
 1. Om något av kommandona Miss lyckas med "Det gick inte att matcha värd `<URL>`", kan du prova att köra det här kommandot för att avgöra vilken DNS-server som används av den virtuella datorn.
    
@@ -312,7 +312,7 @@ Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutni
 
 ![Ditt konto har kon figurer ATS för att förhindra att du använder den här enheten.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Kontrol lera att du har [KONFIGURERAT RBAC-principer](https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad#configure-rbac-policy-for-the-virtual-machine) för den virtuella datorn som ger användaren antingen Administratörs inloggning för den virtuella datorn eller användar inloggnings rollen för den virtuella datorn:
+Kontrol lera att du har [KONFIGURERAT RBAC-principer](../../virtual-machines/linux/login-using-aad.md) för den virtuella datorn som ger användaren antingen Administratörs inloggning för den virtuella datorn eller användar inloggnings rollen för den virtuella datorn:
  
 #### <a name="unauthorized-client"></a>Obehörig klient
 

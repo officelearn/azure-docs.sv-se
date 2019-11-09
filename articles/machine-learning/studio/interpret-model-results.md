@@ -1,6 +1,6 @@
 ---
 title: Tolka modellresultat
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Hur du väljer den optimala parameter uppsättningen för en algoritm med hjälp av och visualisering av Poäng modellens utdata.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: cdeded35e1afb9313f2dd2c5842aef511ea0dd61
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621669"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839851"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Tolka modell resultat i Azure Machine Learning Studio (klassisk)
 I det här avsnittet beskrivs hur du visualiserar och tolkar förutsägelse resultat i Azure Machine Learning Studio (klassisk). När du har tränat en modell och gjort förutsägelser ovanpå den ("score modellen"), måste du förstå och tolka resultatet av förutsägelsen.
@@ -26,7 +26,7 @@ Det finns fyra viktiga typer av maskin inlärnings modeller i den klassiska vers
 
 * Klassificering
 * Redundanskluster
-* Regression
+* regression
 * Rekommenderade system
 
 Modulerna som används för förutsägelser ovanpå dessa modeller är:
@@ -137,7 +137,7 @@ När du har publicerat och kört webb tjänsten och angett några värden för i
 
 Figur 10. Webb tjänst resultat för klassificering av multiklass
 
-## <a name="regression"></a>Regression
+## <a name="regression"></a>regression
 Regressions problem skiljer sig från klassificerings problem. I ett klassificerings problem försöker du förutse diskreta klasser, till exempel vilken klass en Iris blomma tillhör. Men som du kan se i följande exempel på ett Regressions problem försöker du förutsäga en kontinuerlig variabel, till exempel priset på en bil.
 
 **Exempel experiment**

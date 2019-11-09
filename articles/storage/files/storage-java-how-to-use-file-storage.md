@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 00130114b793b5f4d4459eee3404fc4adaf6a8b4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699400"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837459"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Utveckla för Azure Files med Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -165,7 +165,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 }
 ```
 
-## <a name="upload-a-file"></a>Ladda upp en fil
+## <a name="upload-a-file"></a>Överför en fil
 I det här avsnittet får du lära dig hur du laddar upp en fil från lokal lagring till rot katalogen för en resurs.
 
 Det första steget när du laddar upp en fil är att hämta en referens till den katalog där den ska finnas. Det gör du genom att anropa **getRootDirectoryReference** -metoden för Share-objektet.
@@ -185,7 +185,7 @@ Nu när du har en referens till resursens rot Katalog kan du ladda upp en fil ti
         cloudFile.uploadFromFile(filePath);
 ```
 
-## <a name="download-a-file"></a>Ladda ned en fil
+## <a name="download-a-file"></a>Hämta en fil
 En av de vanligaste åtgärderna som du utför för Azure Files är att ladda ned filer. I följande exempel hämtar koden SampleFile. txt och visar dess innehåll.
 
 ```java
@@ -227,7 +227,7 @@ Om du vill veta mer om andra Azure Storage-API: er, följer du dessa länkar.
 * [Azure för Java-utvecklare](/java/azure)/)
 * [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage SDK för Android](https://github.com/azure/azure-storage-android)
-* [Azure Storage Client SDK-referens](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Client SDK-referens](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Överföra data med kommandoradsverktyget AzCopy](../common/storage-use-azcopy.md)

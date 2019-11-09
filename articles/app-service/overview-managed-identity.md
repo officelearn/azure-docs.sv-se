@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a5176f74964e0809cea39aa160943cc6f3451237
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176519"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847308"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -41,9 +41,9 @@ För att konfigurera en hanterad identitet i portalen skapar du först ett progr
 
 2. Om du använder en Function-app navigerar du till **plattforms funktioner**. För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
 
-3. Välj **hanterad identitet**.
+3. Välj **identitet**.
 
-4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Save** (Spara).
+4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Spara**.
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -168,7 +168,7 @@ Först måste du skapa en användardefinierad identitets resurs.
 
 3. Om du använder en Function-app navigerar du till **plattforms funktioner**. För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
 
-4. Välj **hanterad identitet**.
+4. Välj **identitet**.
 
 5. Klicka på **Lägg till**i fliken **tilldelade användare** .
 
@@ -193,7 +193,7 @@ Alla resurser av typen `Microsoft.Web/sites` kan skapas med en identitet genom a
 > [!NOTE] 
 > Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet är `type`-egenskapen `SystemAssigned,UserAssigned`
 
-Genom att lägga till den användardefinierade typen och en meddelad Azure för att skapa och hantera identiteten för ditt program.
+Genom att lägga till en användardefinierad typ anger Azure att använda den användar tilldelnings identitet som angetts för ditt program.
 
 En webbapp kan till exempel se ut så här:
 ```json
@@ -251,17 +251,17 @@ Det finns ett enkelt REST-protokoll för att hämta en token i App Service och A
 
 En app med en hanterad identitet har två miljövariabler definierade:
 
-- MSI_ENDPOINT – URL: en till den lokala token service.
-- MSI_SECRET – ett-sidhuvud som används för att minska risken för att SSRF-attacker (Server sidans begäran). Värdet roteras av plattformen.
+- MSI_ENDPOINT-URL: en till den lokala token-tjänsten.
+- MSI_SECRET – ett-sidhuvud som används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran). Värdet roteras av plattformen.
 
 **MSI_ENDPOINT** är en lokal URL som din app kan begära token från. Om du vill hämta en token för en resurs gör du en HTTP GET-begäran till den här slut punkten, inklusive följande parametrar:
 
 > |Parameternamn|För|Beskrivning|
 > |-----|-----|-----|
-> |Klusterresursen|Söka i data|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
-> |API-version|Söka i data|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
+> |klusterresursen|Fråga|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
+> |API-version|Fråga|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
 > |hemlighet|Huvud|Värdet för MSI_SECRET-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).|
-> |clientid|Söka i data|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
+> |clientid|Fråga|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
 
 > [!IMPORTANT]
 > Om du försöker hämta tokens för användarspecifika identiteter måste du inkludera egenskapen `clientid`. Annars försöker token-tjänsten hämta en token för en tilldelad identitet, som kan vara eller inte finns.
@@ -272,7 +272,7 @@ Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 > |-------------|----------|
 > |access_token|Den begärda åtkomsttoken. Den anropande webb tjänsten kan använda denna token för att autentisera till den mottagande webb tjänsten.|
 > |expires_on|Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token.|
-> |Klusterresursen|App-ID-URI för den mottagande webb tjänsten.|
+> |klusterresursen|App-ID-URI för den mottagande webb tjänsten.|
 > |token_type|Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 Svaret är detsamma som [svaret på AAD-begäran om tjänst-till-tjänst-](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)åtkomsttoken.
@@ -429,7 +429,7 @@ En systemtilldelad identitet kan tas bort genom att inaktivera funktionen med hj
 Om du tar bort en tilldelad identitet på det här sättet tas även den bort från AAD. Systemtilldelade identiteter tas också bort automatiskt från AAD när app-resursen tas bort.
 
 > [!NOTE]
-> Det finns också en program inställning som kan ställas in, WEBSITE_DISABLE_MSI, som bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats, och om du fortsätter med verktyg visas den hanterade identiteten som "på" eller "aktive rad". Därför rekommenderas inte användning av den här inställningen.
+> Det finns också en program inställning som kan ställas in WEBSITE_DISABLE_MSI, som bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats, och om du fortsätter med verktyg visas den hanterade identiteten som "på" eller "aktive rad". Därför rekommenderas inte användning av den här inställningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

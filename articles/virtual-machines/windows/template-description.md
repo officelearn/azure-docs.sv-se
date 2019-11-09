@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749105"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838892"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -282,7 +282,7 @@ Nätverks gränssnittet måste finnas om du vill ange den här egenskapen. Därf
 Flera profil element används när du definierar en resurs för virtuella datorer. Vissa är obligatoriska och vissa är valfria. Till exempel krävs hardwareProfile-, osProfile-, storageProfile-och networkProfile-element, men diagnosticsProfile är valfritt. Dessa profiler definierar inställningar som:
    
 - [ändra](sizes.md)
-- [namn](/azure/architecture/best-practices/naming-conventions) och autentiseringsuppgifter
+- [namn](/azure/architecture/best-practices/resource-naming) och autentiseringsuppgifter
 - disk-och [operativ system inställningar](cli-ps-findimage.md)
 - [nätverks gränssnitt](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - startdiagnostik
@@ -360,7 +360,7 @@ Om du vill skapa en virtuell dator från en hanterad avbildning ändrar du image
 
 ### <a name="attach-data-disks"></a>Anslut data diskar
 
-Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar](sizes.md) beror på storleken på den operativ system disk som du använder. Med storleken på de virtuella datorerna som angetts som Standard_DS1_v2 är det maximala antalet data diskar som kan läggas till i dem två. I exemplet läggs en hanterad data disk till i varje virtuell dator:
+Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar](sizes.md) beror på storleken på den operativ system disk som du använder. När de virtuella datorerna har angetts till Standard_DS1_v2 är det maximala antalet data diskar som kan läggas till i dem två. I exemplet läggs en hanterad data disk till i varje virtuell dator:
 
 ```
 "dataDisks": [

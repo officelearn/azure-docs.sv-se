@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599725"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832609"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visa loggar för en Service Fabric container service
 Azure Service Fabric är en behållar Orchestrator och stöder både [Linux-och Windows-behållare](service-fabric-containers-overview.md).  Den här artikeln beskriver hur du visar behållar loggar för en pågående container tjänst eller en död behållare så att du kan diagnostisera och felsöka problem.
 
 ## <a name="access-the-logs-of-a-running-container"></a>Komma åt loggarna för en behållare som körs
-Behållar loggar kan nås med hjälp av [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Öppna Service Fabric Explorer från klustrets hanterings slut punkt genom att gå till [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer)i en webbläsare.  
+Behållar loggar kan nås med hjälp av [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Öppna Service Fabric Explorer från klustrets hanterings slut punkt genom att gå till `http://mycluster.region.cloudapp.azure.com:19080/Explorer`i en webbläsare.  
 
 Behållar loggar finns på den klusternod som behållar tjänst instansen körs på. Exempel: Hämta loggarna för webb klient delen av [exempel programmet Linux-röstning](service-fabric-quickstart-containers-linux.md). I trädvyn expanderar du **kluster**>**program**>**VotingType**>**Fabric:/röstning/azurevotefront**.  Expandera sedan partitionen (d1aa737e-f22a-e347-be16-eec90be24bc1, i det här exemplet) och se att behållaren körs på klusternoden *_lnxvm_0*.
 
-I trädvyn letar du upp kod paketet på *_lnxvm_0* -noden genom att expandera **noder**> **_lnxvm_0**>**Fabric:/röstning**>**azurevotfrontPkg**>**Code** Paket>**kod**.  Välj sedan alternativet **behållar loggar** för att Visa behållar loggarna.
+I trädvyn letar du reda på kod paketet på *_lnxvm_0* -noden genom att expandera **noder**> **_Lnxvm_0**>**Fabric:/röstning**>**azurevotfrontPkg**>**kod paket**>**kod**.  Välj sedan alternativet **behållar loggar** för att Visa behållar loggarna.
 
 ![Service Fabric-plattform][Image1]
 
@@ -44,7 +44,7 @@ Service Fabric (version 6.1 eller senare) har stöd för bevarande av containrar
 
 Inställningen **ContainersRetentionCount** anger antalet behållare som ska bevaras när de får fel. Om ett negativt värde anges kommer alla containrar med fel att bevaras. Om attributet **ContainersRetentionCount** inte anges kommer inga behållare att behållas. Attributet **ContainersRetentionCount** har även stöd för programparametrar, så att användarna kan ange olika värden för test- och produktionskluster. Använd placeringsbegränsningar för att rikta in containertjänsten på en viss nod när den här funktionen används för att förhindra att containertjänsten flyttas till andra noder. Alla containrar som bevaras med den här funktionen måste tas bort manuellt.
 
-Inställningen **RunInteractive** motsvarar Docker `--interactive` -och `tty` - [flaggor](https://docs.docker.com/engine/reference/commandline/run/#options). När den här inställningen är inställd på True i manifest filen används dessa flaggor för att starta behållaren.  
+Inställningen **RunInteractive** motsvarar docker `--interactive` och `tty` [flaggor](https://docs.docker.com/engine/reference/commandline/run/#options). När den här inställningen är inställd på True i manifest filen används dessa flaggor för att starta behållaren.  
 
 ### <a name="rest"></a>REST
 Använd funktionen [Hämta container loggar som distribuerats på noden](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) för att hämta loggarna för en kraschad behållare. Ange namnet på noden som containern kördes på, program namn, namn på tjänst manifest och kod paket namn.  Ange `&Previous=true`. Svaret innehåller behållar loggarna för den döda behållaren för kod paket instansen.
@@ -66,7 +66,7 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Använd kommandot [sfctl service get-container-logs](service-fabric-sfctl-service.md) för att hämta loggarna för en kraschad behållare.  Ange namnet på noden som containern kördes på, program namn, namn på tjänst manifest och kod paket namn. `--previous` Ange flaggan.  Svaret innehåller behållar loggarna för den döda behållaren för kod paket instansen.
+Använd kommandot [sfctl service get-container-logs](service-fabric-sfctl-service.md) för att hämta loggarna för en kraschad behållare.  Ange namnet på noden som containern kördes på, program namn, namn på tjänst manifest och kod paket namn. Ange `--previous` flagga.  Svaret innehåller behållar loggarna för den döda behållaren för kod paket instansen.
 
 ```
 sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
@@ -77,7 +77,7 @@ Svar:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Arbeta genom självstudien [skapa en Linux-container](service-fabric-tutorial-create-container-images.md).
+- Arbeta genom [självstudien skapa en Linux-container](service-fabric-tutorial-create-container-images.md).
 - Läs mer om [Service Fabric och behållare](service-fabric-containers-overview.md)
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png

@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 10/15/2019
-ms.openlocfilehash: 31c3cd944651b9ba4ca4fcaa275e5b0ccedd947c
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/06/2019
+ms.openlocfilehash: ded95800c482d43fcaf27993869f1e71eee68f47
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831824"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Schemalägg maskin inlärnings pipeliner med Azure Machine Learning SDK för python
 
 I den här artikeln får du lära dig hur du program mässigt schemalägger en pipeline för att köras på Azure. Du kan välja att skapa ett schema baserat på förfluten tid eller ändringar i fil systemet. Tidsbaserade scheman kan användas för att ta hand om rutin uppgifter, till exempel övervakning av data drift. Ändrings scheman kan användas för att reagera på oregelbundna eller oförutsägbara ändringar, till exempel nya data som laddas upp eller gamla data redige ras. När du har lärt dig hur du skapar scheman får du lära dig hur du hämtar och inaktiverar dem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -54,11 +54,11 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>Skapa ett schema
 
-Om du vill köra en pipeline regelbundet skapar du ett schema. En `Schedule` kopplar en pipeline, ett experiment och en utlösare. Utlösaren kan antingen vara en `ScheduleRecurrence` som beskriver vänte tiden mellan körningar eller en data lagrings Sök väg som anger en katalog som ska bevakas för ändringar. I båda fallen behöver du pipeline-identifieraren och namnet på experimentet som schemat ska skapas i.
+Om du vill köra en pipeline regelbundet skapar du ett schema. En `Schedule` kopplar en pipeline, ett experiment och en utlösare. Utlösaren kan antingen vara en`ScheduleRecurrence` som beskriver vänte tiden mellan körningar eller en data lagrings Sök väg som anger en katalog som ska bevakas för ändringar. I båda fallen behöver du pipeline-identifieraren och namnet på experimentet som schemat ska skapas i.
 
 ### <a name="create-a-time-based-schedule"></a>Skapa ett tidsbaserat schema
 
-@No__t_0-konstruktorn har ett obligatoriskt `frequency`-argument som måste vara någon av följande strängar: "minut", "timme", "Week" eller "Month". Det kräver också ett heltals `interval` argument som anger hur många av de `frequency` enheterna som ska förflyta mellan schema startar. Valfria argument ger dig mer information om start tider, enligt beskrivningen i [SCHEDULERECURRENCE SDK-dokument](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+`ScheduleRecurrence`-konstruktorn har ett obligatoriskt `frequency`-argument som måste vara någon av följande strängar: "minut", "timme", "Week" eller "Month". Det kräver också ett heltals `interval` argument som anger hur många av de `frequency` enheterna som ska förflyta mellan schema startar. Valfria argument ger dig mer information om start tider, enligt beskrivningen i [SCHEDULERECURRENCE SDK-dokument](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
 
 Skapa en `Schedule` som börjar köras var 15: e minut:
 
@@ -75,7 +75,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Pipelines som utlöses av fil ändringar kan vara mer effektiva än tidsbaserade scheman. Du kanske till exempel vill utföra ett förbehandlings steg när en fil ändras eller när en ny fil läggs till i en data katalog. Du kan övervaka ändringar i ett data lager eller ändringar i en angiven katalog i data lagret. Om du övervakar en angiven katalog kommer ändringar i under kataloger i den katalogen _inte_ att utlösa någon körning.
 
-Om du vill skapa en fil som är reaktiv `Schedule` måste du ange parametern `datastore` i anropet till [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Om du vill övervaka en mapp anger du argumentet `path_on_datastore`.
+Om du vill skapa en fil som är reaktiv `Schedule`måste du ange parametern `datastore` i anropet till [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Om du vill övervaka en mapp anger du argumentet `path_on_datastore`.
 
 Med argumentet `polling_interval` kan du ange, i minuter, den frekvens som data lagret är markerat för ändringar.
 
@@ -94,9 +94,9 @@ Förutom de argument som beskrivits tidigare kan du ange argumentet `status` til
 
 ## <a name="view-your-scheduled-pipelines"></a>Visa dina schemalagda pipelines
 
-I webbläsaren navigerar du till din Machine Learning service-arbetsyta. Gå till avsnittet **till gångar** i navigerings fönstret och välj **pipeliner**. Den här länken tar dig till en lista över de pipeliner som publicerats i arbets ytan.
+Navigera till Azure Machine Learning i webbläsaren. I avsnittet **slut punkter** i navigerings fönstret väljer du pipeline- **slutpunkter**. Då går du till en lista över de pipeliner som publicerats i arbets ytan.
 
-![Sidan pipelines i arbets ytan](media/how-to-schedule-a-pipeline/pipelines-list.png)
+![Sidan pipeliner i AML](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
 På den här sidan kan du se översikts information om alla pipeliner på arbets ytan: namn, beskrivningar, status och så vidare. Gå in genom att klicka i din pipeline. På den resulterande sidan finns det mer information om din pipeline och du kan öka detalj nivån i enskilda körningar.
 

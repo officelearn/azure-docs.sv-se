@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f52fc91d218e1a5448f6e6e7465f6416a04fd67d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825244"
+ms.locfileid: "73837136"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -49,7 +49,9 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 * Använder [SSH.net-biblioteket](https://github.com/sshnet/SSH.NET), som är ett SSH-bibliotek med öppen källkod som stöder .net.
 
-* Som standard kan SFTP och SSH-åtgärder läsa eller skriva filer som är *1 GB eller mindre* , men bara i *15 MB* -segment i taget. För att hantera filer som är större än 15 MB kan SFTP-SSH-åtgärder använda [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). Om du vill överföra stora filer behöver du också både Läs-och Skriv behörighet. Åtgärden Kopiera fil stöder dock endast 15 MB filer eftersom den åtgärden inte stöder meddelande segment. SFTP – SSH-utlösare stöder inte segment.
+* Som standard kan SFTP och SSH-åtgärder läsa eller skriva filer som är *1 GB eller mindre* , men bara i *15 MB* -segment i taget.
+
+  För att hantera filer som är större än 15 MB kan SFTP-SSH-åtgärder använda [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). Åtgärden Kopiera fil stöder dock endast 15 MB filer eftersom den åtgärden inte stöder meddelande segment. SFTP – SSH-utlösare stöder inte segment. Om du vill överföra stora filer behöver du både Läs-och Skriv behörighet för rotmappen på din SFTP-server.
 
 * Tillhandahåller åtgärden **Skapa mapp** , som skapar en mapp på den angivna sökvägen på SFTP-servern.
 
@@ -61,7 +63,7 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Dina SFTP-server-och kontoautentiseringsuppgifter som låter din Logic app komma åt ditt SFTP-konto. Du måste också ha åtkomst till en privat SSH-nyckel och lösen ordet för den privata SSH-nyckeln. Om du vill använda segment vid överföring av stora filer behöver du både Läs-och Skriv behörighet.
+* Dina SFTP-server-och kontoautentiseringsuppgifter som låter din Logic app komma åt ditt SFTP-konto. Du måste också ha åtkomst till en privat SSH-nyckel och lösen ordet för den privata SSH-nyckeln. Om du vill använda segment vid överföring av stora filer behöver du både Läs-och Skriv behörighet för rotmappen på din SFTP-server. Annars får du fel meddelandet "401 obehörig".
 
   > [!IMPORTANT]
   >

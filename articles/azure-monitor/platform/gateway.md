@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/30/2019
-ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162014"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847287"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -26,7 +26,7 @@ Log Analytics Gateway är en HTTP-proxy för vidarebefordran som stöder HTTP-tu
 
 Log Analytics Gateway stöder:
 
-* Rapporterar till samma fyra Log Analytics arbets ytans agenter som finns bakom den och som har kon figurer ATS med Azure Automation hybrid Runbook Worker.  
+* Rapporterar till samma Log Analytics arbets ytor som kon figurer ATS på varje agent och som är konfigurerade med Azure Automation hybrid Runbook Worker.  
 * Windows-datorer där Microsoft Monitoring Agent är direkt ansluten till en Log Analytics arbets yta i Azure Monitor.
 * Linux-datorer där en Log Analytics-agent för Linux är direkt ansluten till en Log Analytics arbets yta i Azure Monitor.  
 * System Center Operations Manager 2012 SP1 med UR7, Operations Manager 2012 R2 med UR3 eller en hanterings grupp i Operations Manager 2016 eller senare som är integrerad med Log Analytics.  
@@ -99,7 +99,7 @@ Följande tabell visar ungefär hur många agenter som kan kommunicera med en ga
 |Gateway |Agenter som stöds (ungefärligt)|  
 |--------|----------------------------------|  
 |CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 2 kärnor<br> Minne: 4 GB<br> Nätverks bandbredd: 1 Gbit/s| 600|  
-|CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 4 kärnor<br> Minne: 8 GB<br> Nätverks bandbredd: 1 Gbit/s| 1 000|  
+|CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 4 kärnor<br> Minne: 8 GB<br> Nätverks bandbredd: 1 Gbit/s| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Ladda ned Log Analytics Gateway
 
@@ -335,7 +335,7 @@ Ett fel i steg 3 innebär att modulen inte har importer ATS. Felet kan inträffa
 | `Remove-OMSGatewayAllowedClientCertificate` |Ämne (obligatoriskt) |Tar bort klient certifikatets ämne från listan över tillåtna |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Hämtar de för närvarande tillåtna klient certifikats ämnena (endast lokalt konfigurerade tillåtna ämnen, inte automatiskt hämtade tillåtna ämnen) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du vill samla in händelser som loggats av gatewayen bör du ha Log Analytics-agenten installerad.
 

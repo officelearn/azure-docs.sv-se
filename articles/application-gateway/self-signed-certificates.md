@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967146"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833377"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
 
@@ -23,13 +23,13 @@ Application Gateway litar på din webbplats certifikat som standard om det är s
 > [!NOTE]
 > Självsignerade certifikat är inte betrodda som standard och de kan vara svåra att underhålla. De kan också använda inaktuella hash-och chiffersviter som kanske inte är starka. Köp ett certifikat som signerats av en välkänd certifikat utfärdare för bättre säkerhet.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln får du lära dig att:
 
 - Skapa din egen anpassade certifikat utfärdare
 - Skapa ett självsignerat certifikat signerat av din anpassade certifikat utfärdare
 - Ladda upp ett självsignerat rot certifikat till en Application Gateway för att autentisera backend-servern
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **[Openssl](https://www.openssl.org/) på en dator som kör Windows eller Linux** 
 
@@ -40,7 +40,7 @@ I den här artikeln får du lära dig hur du:
 
 - **En Application Gateway v2-SKU**
    
-  Om du inte har en befintlig Application Gateway, se [snabb start: Dirigera webbtrafik med Azure Application Gateway – Azure Portal](quick-create-portal.md).
+  Om du inte har en befintlig Application Gateway, se [snabb start: direkt webb trafik med Azure Application Gateway-Azure Portal](quick-create-portal.md).
 
 ## <a name="create-a-root-ca-certificate"></a>Skapa ett rot certifikat för certifikat utfärdare
 
@@ -87,7 +87,7 @@ Använd följande kommando för att generera nyckeln för Server certifikatet.
 CSR är en offentlig nyckel som tilldelas en certifikat utfärdare när ett certifikat begärs. CA: n utfärdar certifikatet för den här specifika begäran.
 
 > [!NOTE]
-> CN (eget namn) för Server certifikatet måste skilja sig från utfärdarens domän. I det här fallet är till exempel CN för utfärdaren www.contoso.com och Server certifikatets CN är www.fabrikam.com
+> CN (eget namn) för Server certifikatet måste skilja sig från utfärdarens domän. I det här fallet är till exempel CN för utfärdaren `www.contoso.com` och Server certifikatets CN är `www.fabrikam.com`.
 
 
 1. Använd följande kommando för att generera CSR:
@@ -96,9 +96,9 @@ CSR är en offentlig nyckel som tilldelas en certifikat utfärdare när ett cert
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisationens information för den anpassade certifikat utfärdaren: Land, delstat, org, OU och det fullständigt kvalificerade domän namnet. Det här är domänen för webbplatsen och den bör inte vara samma som utfärdaren.
+1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisationens information för den anpassade certifikat utfärdaren: land, delstat, org, OU och det fullständigt kvalificerade domän namnet. Det här är domänen för webbplatsen och den bör inte vara samma som utfärdaren.
 
-   ![Servercertifikat](media/self-signed-certificates/server-cert.png)
+   ![Server certifikat](media/self-signed-certificates/server-cert.png)
 
 ### <a name="generate-the-certificate-with-the-csr-and-the-key-and-sign-it-with-the-cas-root-key"></a>Generera certifikatet med CSR och nyckeln och signera det med certifikat utfärdarens rot nyckel
 
@@ -130,7 +130,7 @@ Konfigurera SSL i webb servern med hjälp av filerna fabrikam. CRT och fabrikam.
 
 ### <a name="iis"></a>IIS
 
-Anvisningar om hur du importerar certifikat och laddar upp dem som server certifikat i IIS finns i [How to: Installera importerade certifikat på en webb server i Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
+Anvisningar om hur du importerar certifikat och laddar upp dem som server certifikat i IIS finns i [så här gör du: Installera importerade certifikat på en webb server i Windows server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
 Anvisningar för SSL-bindning finns i [så här konfigurerar du SSL i IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
@@ -161,7 +161,7 @@ Följande konfiguration är ett exempel på [nginx Server block](https://nginx.o
    ![Betrodda rot certifikat](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > Det förutsätts att DNS har kon figurer ATS för att peka på webb serverns namn (i det här exemplet www.fabrikam.com) till din webb servers IP-adress. Om inte, kan du redigera hosts- [filen](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) för att matcha namnet.
+   > Det förutsätts att DNS har kon figurer ATS för att peka på webb serverns namn (i det här exemplet www.fabrikam.com) till din webb servers IP-adress. Om inte, kan du redigera [hosts-filen](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) för att matcha namnet.
 1. Bläddra till din webbplats och klicka på Lås ikonen i webbläsarens Adress fält för att kontrol lera plats-och certifikat information.
 
 ## <a name="verify-the-configuration-with-openssl"></a>Verifiera konfigurationen med OpenSSL

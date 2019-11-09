@@ -1,7 +1,7 @@
 ---
-title: Använda Video Indexer-webbplats för att anpassa en språkmodell - Azure
-titlesuffix: Azure Media Services
-description: Den här artikeln visar hur du anpassar en språkmodell med Video Indexer-webbplatsen.
+title: Använd Video Indexer webbplats för att anpassa en språk modell – Azure
+titleSuffix: Azure Media Services
+description: Den här artikeln visar hur du anpassar en språk modell med Video Indexer webbplats.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,142 +10,142 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: f98cdcab2d108f8dd9d40e3770498ad17b2a8a88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799623"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838446"
 ---
-# <a name="customize-a-language-model-with-the-video-indexer-website"></a>Anpassa en språkmodell med Video Indexer-webbplats
+# <a name="customize-a-language-model-with-the-video-indexer-website"></a>Anpassa en språk modell med Video Indexer webbplats
 
-Video Indexer kan du skapa anpassade språkmodeller om du vill anpassa taligenkänning genom att ladda upp anpassning text, nämligen text från domänen vars ordförråd som motorn efter behov. När du tränar modellen, identifieras nya ord visas i texten anpassning. 
+Med Video Indexer kan du skapa anpassade språk modeller för att anpassa tal igenkänning genom att överföra anpassnings text, nämligen text från den domän vars vokabulär du vill att motorn ska anpassa sig till. När du tränar din modell kommer nya ord som visas i anpassnings texten att identifieras. 
 
-En detaljerad översikt och bästa praxis för anpassade språkmodeller finns i [anpassa en språkmodell med Video Indexer](customize-language-model-overview.md).
+En detaljerad översikt och bästa praxis för anpassade språk modeller finns i [Anpassa en språk modell med video Indexer](customize-language-model-overview.md).
 
-Du kan använda Video Indexer-webbplatsen att skapa och redigera anpassade språkmodeller i ditt konto, enligt beskrivningen i det här avsnittet. Du kan också använda API: et, enligt beskrivningen i [anpassa språkmodellen med API: er](customize-language-model-with-api.md).
+Du kan använda Video Indexer webbplats för att skapa och redigera anpassade språk modeller i ditt konto, enligt beskrivningen i det här avsnittet. Du kan också använda API: et enligt beskrivningen i [Anpassa språk modell med hjälp av API: er](customize-language-model-with-api.md).
 
-## <a name="create-a-language-model"></a>Skapa en språkmodell
+## <a name="create-a-language-model"></a>Skapa en språk modell
 
 1. Gå till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och logga in.
-2. Om du vill anpassa en modell i ditt konto, klickar du på den **innehåll modellanpassning** knappen i det övre högra hörnet på sidan.
+2. Om du vill anpassa en modell i ditt konto klickar du på knappen **anpassning av innehålls modell** i det övre högra hörnet på sidan.
 
-   ![Anpassa innehållsmodellen](./media/content-model-customization/content-model-customization.png)
+   ![Anpassa innehålls modell](./media/content-model-customization/content-model-customization.png)
 
-3. Välj den **språk** fliken.
+3. Välj fliken **språk** .
 
-    Du kan se en lista över språk som stöds. 
+    Du ser en lista över språk som stöds. 
 
-    ![Anpassa språkmodellen](./media/customize-language-model/customize-language-model.png)
+    ![Anpassa språk modell](./media/customize-language-model/customize-language-model.png)
 
-4. Under det språk som du vill, klickar du på **Lägg till modell**.
-5. Ange ett namn för språkmodell och tryck på RETUR.
+4. Klicka på **Lägg till modell**under det språk som du vill använda.
+5. Skriv in namnet på språk modellen och tryck på RETUR.
 
-    Detta skapar modellen och ger möjlighet att överföra textfiler till modellen.
-6. Lägg till en textfil, klicka på **Lägg till filen**. Detta öppnar Utforskaren.
+    Detta skapar modellen och ger alternativet att ladda upp textfiler till modellen.
+6. Om du vill lägga till en textfil klickar du på **Lägg till fil**. Då öppnas Utforskaren.
 
-7. Navigera till och markera textfilen. Du kan lägga till flera textfiler en språkmodell.
+7. Navigera till och välj text filen. Du kan lägga till flera textfiler i en språk modell.
 
-    Du kan också lägga till en textfil genom att klicka på den **...**  knappen på höger sida av språkmodellen och välja **Lägg till filen**.
-8. När du är klar överför textfiler, klicka på gröna **träna** alternativet.
+    Du kan också lägga till en textfil genom att klicka på knappen **...** på höger sida av språk modellen och välja **Lägg till fil**.
+8. När du är färdig med att ladda upp textfilerna klickar du på alternativet grönt **träna** .
 
-    ![Träna språkmodell](./media/customize-language-model/train-model.png)
+    ![Träna språk modell](./media/customize-language-model/train-model.png)
 
-Utbildning-processen kan ta några minuter. När utbildningen är klar kan du se **Trained** bredvid modellen. Du kan förhandsgranska, hämta och ta bort filen från modellen.
+Inlärnings processen kan ta några minuter. När utbildningen är färdig ser du **tränad** bredvid modellen. Du kan förhandsgranska, ladda ned och ta bort filen från modellen.
 
-![Tränade språkmodell](./media/customize-language-model/preview-model.png)
+![Tränad språk modell](./media/customize-language-model/preview-model.png)
 
-### <a name="using-a-language-model-on-a-new-video"></a>Med hjälp av en språkmodell på en ny video
+### <a name="using-a-language-model-on-a-new-video"></a>Använda en språk modell i en ny video
 
-Om du vill använda din språkmodell på en ny video, gör du något av följande:
+Gör något av följande om du vill använda din språk modell på en ny video:
 
-* Klicka på den **överför** knappen överst på sidan 
+* Klicka på knappen **överför** överst på sidan 
 
     ![Ladda upp](./media/customize-language-model/upload.png)
-* Ta bort filen ljud- eller videoklipp i cirkeln eller bläddra efter din fil
+* Ta bort ljud-eller video filen i cirkeln eller bläddra efter filen
 
     ![Ladda upp](./media/customize-language-model/upload2.png)
 
-Detta ger dig möjlighet att välja den **Video källspråk**. Klicka på listrutan och välj en språkmodell som du skapade i listan. Det bör stå språket i din språkmodell och det namn som du gav den inom parentes.
+Detta ger dig möjlighet att välja **språk för video källan**. Klicka på list rutan och välj en språk modell som du skapade i listan. Det bör säga språket för din språk modell och det namn som du gav det inom parentes.
 
-Klicka på den **överför** alternativet längst ned på sidan och nya videon kommer att indexeras med hjälp av språkmodeller.
+Klicka på alternativet **överför** längst ned på sidan så kommer din nya video att indexeras med din språk modell.
 
-### <a name="using-a-language-model-to-reindex"></a>Med hjälp av en språkmodell att indexera
+### <a name="using-a-language-model-to-reindex"></a>Använda en språk modell för att indexera om
 
-Om du vill använda din språkmodell för att indexera en video i din samling, gå till din **konto videor** på den [Video Indexer](https://www.videoindexer.ai/) startsida och hovra över namn på videon som du vill indexera.
+Om du vill använda din språk modell för att indexera om en video i din samling, går du till dina **konto videor** på [video Indexer](https://www.videoindexer.ai/) start sida och hovrar över namnet på videon som du vill indexera om.
 
-Du kan se alternativ för att redigera din video, ta bort du video och indexera videon. Klicka på alternativet för att indexera videon.
+Du ser alternativ för att redigera videon, ta bort videon och indexera om videon. Klicka på alternativet för att indexera om videon.
 
-![Reindex](./media/customize-language-model/reindex1.png)
+![Indexera om](./media/customize-language-model/reindex1.png)
 
-Detta ger dig möjlighet att välja den **Video källspråk** att indexera videon med. Klicka på listrutan och välj en språkmodell som du skapade i listan. Det bör stå språket i din språkmodell och det namn som du gav den inom parentes.
+Det ger dig möjlighet att välja det **språk för video källa** som du vill indexera om videon med. Klicka på list rutan och välj en språk modell som du skapade i listan. Det bör säga språket för din språk modell och det namn som du gav det inom parentes.
 
-![Reindex](./media/customize-language-model/reindex.png)
+![Indexera om](./media/customize-language-model/reindex.png)
 
-Klicka på den **indexera** knappen och videon ska indexeras med du språkmodellen.
+Klicka på knappen för att indexera om och din video kommer att indexeras på **nytt** med hjälp av språk modellen.
 
-## <a name="edit-a-language-model"></a>Redigera en språkmodell
+## <a name="edit-a-language-model"></a>Redigera en språk modell
 
-Du kan redigera en språkmodell genom att ändra dess namn, lägga till filer och ta bort filer från den.
+Du kan redigera en språk modell genom att ändra dess namn, lägga till filer i den och ta bort filer från den.
 
-Om du lägger till eller ta bort filer från språkmodellen du behöver träna modellen igen genom att klicka i gröna **träna** alternativet.
+Om du lägger till eller tar bort filer från språk modellen måste du träna modellen igen genom att klicka på alternativet för grönt **träna** .
 
-### <a name="rename-the-language-model"></a>Byt namn på språkmodellen
+### <a name="rename-the-language-model"></a>Byt namn på språk modellen
 
-Du kan ändra namnet på språkmodellen genom att klicka på **...**  på höger sida av språket modellera och välja **Byt namn på**. 
+Du kan ändra namnet på språk modellen genom att klicka på **...** på höger sida av språk modellen och välja **Byt namn**. 
 
-Typen i det nya namnet och därefter ange.
+Skriv det nya namnet och tryck på RETUR.
 
 ### <a name="add-files"></a>Lägg till filer
 
-Lägg till en textfil, klicka på **Lägg till filen**. Detta öppnar Utforskaren.
+Om du vill lägga till en textfil klickar du på **Lägg till fil**. Då öppnas Utforskaren.
 
-Navigera till och markera textfilen. Du kan lägga till flera textfiler en språkmodell.
+Navigera till och välj text filen. Du kan lägga till flera textfiler i en språk modell.
 
-Du kan också lägga till en textfil genom att klicka på den **...**  knappen på höger sida av språkmodellen och välja **Lägg till filen**.
+Du kan också lägga till en textfil genom att klicka på knappen **...** på höger sida av språk modellen och välja **Lägg till fil**.
 
 ### <a name="delete-files"></a>Ta bort filer
 
-Om du vill ta bort en fil från språkmodellen klickar du på den **...**  på höger sida av textfilen och välj **ta bort**. Detta öppnar ett nytt fönster som talar om att borttagningen inte kan ångras. Klicka på den **ta bort** alternativet i nytt fönster.
+Om du vill ta bort en fil från språk modellen klickar du på knappen **...** på höger sida av text filen och väljer **ta bort**. Då visas ett nytt fönster som anger att borttagningen inte kan utföras. Klicka på alternativet **ta bort** i det nya fönstret.
 
-Den här åtgärden tar bort filen helt från språkmodellen.
+Den här åtgärden tar bort filen helt från språk modellen.
 
-## <a name="delete-a-language-model"></a>Ta bort en språkmodell
+## <a name="delete-a-language-model"></a>Ta bort en språk modell
 
-Ta bort en språkmodell från ditt konto genom att klicka på den **...**  på höger sida av språkmodellen och välj **ta bort**.
+Om du vill ta bort en språk modell från ditt konto klickar du på knappen **...** på höger sida av språk modellen och väljer **ta bort**.
 
-Detta öppnar ett nytt fönster som talar om att borttagningen inte kan ångras. Klicka på den **ta bort** alternativet i nytt fönster.
+Då visas ett nytt fönster som anger att borttagningen inte kan utföras. Klicka på alternativet **ta bort** i det nya fönstret.
 
-Den här åtgärden tar bort språkmodellen helt från ditt konto. En video som använde har tagits bort språkmodellen behåller samma index tills du indexera om videon. Om du indexera om videon, kan du tilldela en ny språkmodell till videon. I annat fall använder Video Indexer dess standardmodell för att indexera om videon. 
+Den här åtgärden tar bort språk modellen helt från ditt konto. Alla videoklipp som använder den borttagna språk modellen behåller samma index tills du Omindexerar videon igen. Om du indexerar om videon kan du tilldela en ny språk modell till videon. Annars kommer Video Indexer använda sin standard modell för att indexera om videon. 
 
-## <a name="customize-language-models-by-correcting-transcripts"></a>Anpassa språkmodeller genom att korrigera avskrifter
+## <a name="customize-language-models-by-correcting-transcripts"></a>Anpassa språk modeller genom att korrigera avskrifter
 
-Video Indexer stöder automatisk anpassning av modeller med faktiska korrigeringar användare gör i avskrifter av deras videor språk.
+Video Indexer stöder automatisk anpassning av språk modeller baserat på de faktiska korrigeringarna som användarna gör i avskrifterna av sina videor.
 
-1. Om du vill göra ändringar av en avskrift för att öppna videon som du vill redigera från ditt konto-videor. Välj den **tidslinje** fliken.
+1. Om du vill göra ändringar i en avskrift öppnar du den video som du vill redigera från dina konto videor. Välj fliken **tids linje** .
 
-    ![Anpassa språkmodellen](./media/customize-language-model/timeline.png)
-1. Klicka på pennikonen för att redigera avskrifter av din avskrift. 
+    ![Anpassa språk modell](./media/customize-language-model/timeline.png)
+1. Klicka på Penn ikonen för att redigera avskriften för avskriften. 
 
-    ![Anpassa språkmodellen](./media/customize-language-model/edits.png)
+    ![Anpassa språk modell](./media/customize-language-model/edits.png)
 
-    Video Indexer samlar in alla rader som har korrigerats av dig i utskrift av videon och lägger till dem automatiskt i en textfil med namnet ”från avskrift redigeringar”. Dessa ändringar används för att träna modellen för specifika språk som användes för att indexera den här videon igen. 
+    Video Indexer fångar alla rader som korrigeras av dig i avskriften av videon och lägger till dem automatiskt i en textfil med namnet "från avskrifts redigeringar". Dessa ändringar används för att träna om den specifika språk modell som användes för att indexera den här videon. 
     
-    Om du inte angav en språkmodell vid indexering av den här videon, kommer alla ändringar för den här videon att lagras i en modell för standard-språk som kallas konto anpassningar av inom det identifierade språket av videon. 
+    Om du inte angav någon språk modell när du indexerade videon, lagras alla redigeringar för videon i en standard språk modell som kallas konto anpassningar på det identifierade språket i videon. 
     
-    Om flera ändringar har gjorts till samma rad, används bara den senaste versionen av den korrigerade raden för att uppdatera språkmodellen.  
+    Om flera ändringar har gjorts på samma rad används bara den senaste versionen av den korrigerade raden för att uppdatera språk modellen.  
     
     > [!NOTE]
-    > Endast text korrigeringar används för anpassning. Det innebär att ändringar som inte rör ord (till exempel punkter eller blanksteg) inte ingår. 
+    > Endast text korrigeringar används för anpassningen. Det innebär att korrigeringar som inte omfattar faktiska ord (till exempel skiljetecken eller blank steg) inte ingår. 
     
-1. Avskriften ändringar visas i fliken språk på innehållsmodellen anpassningssidan visas.
+1. Avskrifts korrigeringar visas på fliken språk på sidan anpassning av innehålls modell.
 
-    ![Anpassa språkmodellen](./media/customize-language-model/customize.png)
+    ![Anpassa språk modell](./media/customize-language-model/customize.png)
 
-   Om du vill titta på ”från avskrift redigeringar”-fil för var och en av dina språkmodeller, klickar du på den för att öppna den. 
+   Om du vill titta på filen "från avskrifts redigeringar" för var och en av dina språk modeller, klickar du på den för att öppna den. 
 
-    ![Från avskrift redigeringar](./media/customize-language-model/from-transcript-edits.png)
+    ![Från avskrifts redigeringar](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa språkmodellen med API: er](customize-language-model-with-api.md)
+[Anpassa språk modellen med hjälp av API: er](customize-language-model-with-api.md)

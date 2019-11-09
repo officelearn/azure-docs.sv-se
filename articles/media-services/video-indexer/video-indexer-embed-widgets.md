@@ -1,6 +1,6 @@
 ---
 title: Bädda in Video Indexer widgetar i dina program
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Lär dig hur du bäddar in Video Indexer widgetar i ditt program.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 99d6647ab5e7fa8f35cef883dd00ae9fea866370
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162607"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839107"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -235,7 +235,7 @@ Om du till exempel vill bädda in en widget som bara innehåller personer och S�
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-Rubriken för iframe-fönstret kan också anpassas genom att tillhandahålla `&title=<YourTitle>` till iframe-URL: en. (Den anpassar HTML-\<title > värde).
+Rubriken för iframe-fönstret kan också anpassas genom att tillhandahålla `&title=<YourTitle>` till iframe-URL: en. (Den anpassar HTML-\<rubrik > värde).
     
 Om du till exempel vill ge iframe-fönstret rubriken "mina insikter" ser URL: en ut så här:
 

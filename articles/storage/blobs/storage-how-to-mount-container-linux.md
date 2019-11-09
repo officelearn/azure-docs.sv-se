@@ -1,25 +1,25 @@
 ---
 title: Så här monterar du Azure Blob Storage som ett fil system i Linux | Microsoft Docs
 description: Montera en Azure Blob Storage-behållare med säkring på Linux
-author: normesta
+author: rishabpoh
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/1/2019
-ms.author: normesta
+ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 35a4313d10231aec74685069a67d803ea32e68b1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845017"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847547"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Montera Blob Storage som ett fil system med blobfuse
 
 ## <a name="overview"></a>Översikt
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) är en virtuell filsystemsdrivrutin för Azure-blobblagring. Med Blobfuse kan du komma åt dina befintliga block BLOB-data i ditt lagrings konto via Linux-filsystemet. Blobfuse använder det virtuella katalog schemat med Forward-snedstrecket "/" som avgränsare.  
 
-Den här guiden visar hur du använder blobfuse och monterar en Blob Storage-behållare på Linux och åtkomst till data. Läs mer om blobfuse i informationen i [blobfuse](https://github.com/Azure/azure-storage-fuse)-lagringsplatsen.
+Den här guiden visar hur du använder blobfuse och monterar en Blob Storage-behållare på Linux och åtkomst till data. Läs mer om blobfuse i informationen i [blobfuse-lagringsplatsen](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
 > Blobfuse garanterar inte 100% POSIX-kompatibilitet eftersom det bara översätter begär anden till [BLOB REST-API: er](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Till exempel är Rename-åtgärder atomiska i POSIX, men inte i blobfuse.
@@ -42,7 +42,7 @@ Som exempel i en Enterprise Linux 6-distribution:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-På samma sätt kan du ändra URL `.../rhel/7/...` : en så att den pekar på en Enterprise Linux 7-distribution.
+På samma sätt kan du ändra URL: en till `.../rhel/7/...` för att peka på en Enterprise Linux 7-distribution.
 
 Ett annat exempel på en Ubuntu 14,04-distribution:
 ```bash
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-På samma sätt kan du ändra URL `.../ubuntu/16.04/...` : `.../ubuntu/18.04/...` en till eller till referens till en annan Ubuntu-version.
+På samma sätt kan du ändra URL: en till `.../ubuntu/16.04/...` eller `.../ubuntu/18.04/...` för att referera till en annan Ubuntu-version.
 
 ### <a name="install-blobfuse"></a>Installera blobfuse
 
@@ -97,7 +97,7 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-`accountName` Är prefixet för ditt lagrings konto – inte den fullständiga URL: en.
+`accountName` är prefixet för ditt lagrings konto – inte den fullständiga URL: en.
 
 Skapa den här filen med:
 
@@ -111,7 +111,7 @@ chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]
-> Om du har skapat konfigurations filen i Windows, se till att köra `dos2unix` för att rensa filen till UNIX-format. 
+> Om du har skapat konfigurations filen i Windows, se till att köra `dos2unix` för att sanera och konvertera filen till UNIX-format. 
 >
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Skapa en tom katalog för montering
@@ -122,10 +122,10 @@ mkdir ~/mycontainer
 ## <a name="mount"></a>Montera
 
 > [!NOTE]
-> För en fullständig lista över monterings alternativ kontrollerar [du blobfuse](https://github.com/Azure/azure-storage-fuse#mount-options)-lagringsplatsen.  
+> För en fullständig lista över monterings alternativ kontrollerar [du blobfuse-lagringsplatsen](https://github.com/Azure/azure-storage-fuse#mount-options).  
 > 
 
-Om du vill montera blobfuse kör du följande kommando med användaren. Det här kommandot monterar den behållare som anges i '/path/to/fuse_connection.cfg ' på platsen '/mycontainer '.
+Om du vill montera blobfuse kör du följande kommando med användaren. Det här kommandot monterar den behållare som anges i "/path/to/fuse_connection. cfg" på platsen "/mycontainer".
 
 ```bash
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120

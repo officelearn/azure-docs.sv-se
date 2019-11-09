@@ -1,17 +1,17 @@
 ---
 title: Azure Resource Manager mallar för Azure Cosmos DB
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB.
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/07/2019
+ms.author: thvankra
+ms.openlocfilehash: 7c508d736c7c04cc6df2b42e0a90a2906052adbc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582815"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835525"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Resource Manager mallar för Azure Cosmos DB
 
@@ -37,8 +37,6 @@ Följande tabeller innehåller länkar till Azure Resource Manager mallar för A
 |**Mall**|**Beskrivning**|
 |---| ---|
 |[Skapa ett Azure Cosmos-konto, ett tecken utrymme, en tabell](manage-cassandra-with-resource-manager.md#create-resource) | Den här mallen skapar ett API för Cassandra-konto i två regioner med stöd för flera huvud servrar. Azure Cosmos-kontot kommer att ha två tabeller som delar data flöde på grund av på grund av tecken utrymmes nivå. |
-|[Uppdatera data flödet (RU/s) för ett tecken utrymme](manage-cassandra-with-resource-manager.md#keyspace-ru-update) | Den här mallen uppdaterar data flödet för ett disk utrymme i ett API för Cassandra-konto. |
-|[Uppdatering av data flöde (RU/s) för en tabell](manage-cassandra-with-resource-manager.md#table-ru-update) | Den här mallen uppdaterar data flödet för en tabell i ett API för Cassandra-konto. |
 
 ## <a name="gremlin-api"></a>Gremlin-API
 

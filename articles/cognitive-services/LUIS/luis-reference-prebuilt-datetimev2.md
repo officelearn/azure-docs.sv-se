@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465076"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837356"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2-fördefinierad entitet för en LUIS-app
 
@@ -119,7 +119,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 |typ|**sträng** – en av under [typerna för datetimeV2](#subtypes-of-datetimev2)
 |Start|**int** – indexet i uttryck som entiteten börjar på.|
 |endIndex|**int** – indexet i uttryck som entiteten slutar på.|
-|Lösning|Har en `values` matris som har ett, två eller fyra [matchnings värden](#values-of-resolution).|
+|lösning|Har en `values` matris som har ett, två eller fyra [matchnings värden](#values-of-resolution).|
 |ändamål|Slutvärdet för en tid, eller ett datum intervall, i samma format som `value`. Används endast om `type` är `daterange`, `timerange`eller `datetimerange`|
 
 * * * 
@@ -147,7 +147,7 @@ Varje element i `values` matrisen kan ha följande fält:
 |--|--|
 |Timex|tid, datum eller datum intervall uttryckt i TIMEX-format som följer [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3-attribut för anteckningen med TimeML-språket. Den här anteckningen beskrivs i [TIMEX-rikt linjerna](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
 |typ|Under typen, som kan vara något av följande: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
-|värde|**Valfritt.** Ett DateTime-objekt i formatet åååå: MM: DD (Date), HH: mm: SS (Time) åååå: MM: dd HH: mm: SS (datetime). Om `type` är `duration`är värdet antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date`, `time`eller varaktighet.|
+|värde|**Valfritt.** Ett DateTime-objekt i formatet ÅÅÅÅ-MM-DD (Date), HH: mm: SS (Time) ÅÅÅÅ-MM-dd HH: mm: SS (datetime). Om `type` är `duration`är värdet antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date`, `time`eller varaktighet.|
 
 ## <a name="valid-date-values"></a>Giltiga datum värden
 

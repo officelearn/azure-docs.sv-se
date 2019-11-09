@@ -1,6 +1,6 @@
 ---
 title: 'NET # anpassade neurala-nätverk'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 'Syntax guide för net # neurala Networks Specification-språk. Lär dig hur du skapar anpassade neurala-nätverks modeller i Azure Machine Learning Studio (klassisk).'
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 0c413bbc3c3b0bd4b1a6e6d6ff40dc1061bbc834
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684834"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839747"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Azure Machine Learning Studio (klassisk)
 
@@ -89,17 +89,17 @@ Följande uttryck definierar till exempel en konstant `x`:
 
 `Const X = 28;`
 
-Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Till exempel:
+Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Exempel:
 
 `Const { X = 28; Y = 4; }`
 
-Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Till exempel:
+Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Exempel:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Lager deklaration
 
-Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Till exempel:
+Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Exempel:
 
 ```Net#
 input Data auto;

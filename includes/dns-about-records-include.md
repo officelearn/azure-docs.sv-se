@@ -4,24 +4,24 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187973"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832058"
 ---
 ### <a name="record-names"></a>Registrera namn
 
-DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa postnamnet ”www” i zonen ”contoso.com” skapar till exempel det fullständigt kvalificerade postnamnet ”www.contoso.com”.
+DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa post namnet `www` i zonen `contoso.com` ger till exempel det fullständigt kvalificerade post namnet `www.contoso.com`.
 
-En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I till exempel DNS-zonen "contoso.com" har en toppost också det fullständigt kvalificerade namnet "contoso.com" (kallas ibland en *naken* domän).  Enligt konventionen används det relativa namnet ”\@” används för att representera topposter.
+En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I till exempel DNS-zonen `contoso.com`har en Apex-post också det fullständigt kvalificerade namnet `contoso.com` (Detta kallas ibland en *blott* -domän).  Enligt konventionen används det relativa namnet\@för att representera Apex-poster.
 
 ### <a name="record-types"></a>Typer av poster
 
 Varje DNS-post har ett namn och en typ. Posterna är indelade i olika typer beroende på den data de innehåller. Den vanligaste typen är en ”A”-post som mappar ett namn till en IPv4-adress. En annan vanlig typ är en ”MX”-post som mappar ett namn till en e-postserver.
 
-Azure DNS stöder alla vanliga DNS-posttyper: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT. Observera att [SPF-poster representeras med hjälp av TXT-poster](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS stöder alla vanliga DNS-posttyper: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV och TXT. Observera att [SPF-poster representeras med hjälp av TXT-poster](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Postuppsättningar
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 9743f25d89bed4e54b3deed815d1cf29030caff6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955476"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832218"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -66,7 +66,7 @@ Det finns ingen anledning till. Ett globalt administratörs-eller program admini
 Det finns prestanda övervaknings räknare som installeras tillsammans med anslutnings tjänsten. Så här visar du dem:  
 
 1. Välj **Start**, skriv "perfmon" och tryck på RETUR.
-2. Välj **prestanda övervakare** och klicka på ikonen för grönt **+** .
+2. Välj **prestanda övervakare** och klicka på ikonen grönt **+** .
 3. Lägg till de **Microsoft AAD Application Proxy Connector** -räknare som du vill övervaka.
 
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Måste Azure AD-programproxy-anslutningen finnas i samma undernät som resursen?
@@ -95,7 +95,7 @@ Metoden PrincipalsAllowedToDelegateToAccount används när anslutnings servrar f
 Om kopplings servrarna och webb program tjänst kontot finns i samma domän, kan du använda Active Directory användare och datorer för att konfigurera Delegerings inställningarna för varje anslutnings dator konton, så att de kan delegera till mål-SPN.
 
 Om kopplings servrarna och webb program tjänst kontot finns i olika domäner används resursbaserade delegering. Delegerings behörigheterna konfigureras på mål webb servern och webb program tjänst kontot. Den här metoden för begränsad delegering är relativt ny. Metoden introducerades i Windows Server 2012, som stöder delegering mellan domäner genom att tillåta resurs-(webb tjänst)-ägaren att styra vilka dator-och tjänst konton som kan delegera till den. Det finns inget användar gränssnitt som hjälper dig med den här konfigurationen, så du måste använda PowerShell.
-Mer information finns i dokumentet [förstå Kerberos-begränsad delegering med programproxyn](http://aka.ms/kcdpaper).
+Mer information finns i dokumentet [förstå Kerberos-begränsad delegering med programproxyn](https://aka.ms/kcdpaper).
 
 ## <a name="pass-through-authentication"></a>Direktautentisering
 

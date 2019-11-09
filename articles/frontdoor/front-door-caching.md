@@ -1,6 +1,6 @@
 ---
-title: Azure ytterdörren Service – cachelagring | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur Azure ytterdörren tjänsten övervakar hälsotillståndet för serverdelen
+title: Azure frontend service – caching | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå hur Azure-frontend-tjänsten övervakar hälso tillståndet för dina arbets ändar
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,108 +11,108 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70ee0af0b39e80aa90d143303b3c522fbb3cc780
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962914"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839222"
 ---
-# <a name="caching-with-azure-front-door-service"></a>Cachelagring med Azure ytterdörren Service
-Följande dokument anger beteende för ytterdörren med regler för routning som har aktiverat cachelagring.
+# <a name="caching-with-azure-front-door-service"></a>Cachelagring med Azure-tjänsten för front dörr
+Följande dokument anger beteendet för front dörren med routningsregler som har aktiverat cachelagring.
 
-## <a name="delivery-of-large-files"></a>Leveransen av stora filer
-Azure ytterdörren-tjänst ger stora filer utan ett tak för filstorlek. Ytterdörren använder en teknik som kallas objekt storlekar. När en stor fil har begärts, hämtar Front Door mindre delar av filen från serverdelen. När en Front Door-miljö tagit emot en fullständig begäran eller en byteintervallbegäran för en fil begär den filen från serverdelen i segment om 8 MB.
+## <a name="delivery-of-large-files"></a>Leverans av stora filer
+Azure frontend-tjänsten levererar stora filer utan fil storlek. Front dörren använder en teknik som kallas objekt segment. När en stor fil har begärts, hämtar Front Door mindre delar av filen från serverdelen. När en Front Door-miljö tagit emot en fullständig begäran eller en byteintervallbegäran för en fil begär den filen från serverdelen i segment om 8 MB.
 
-</br>När segmentet anländer till ytterdörren-miljö, är det cachelagras och hanteras direkt av användaren. Ytterdörren hämtar sedan före nästa segment parallellt. Den här före hämtning säkerställer att innehållet förblir en segment före användaren, vilket minskar svarstider. Den här processen fortsätter tills hela filen hämtas (om så krävs), alla byte-intervall finns (om så krävs), eller klienten avslutar anslutningen.
+</br>När segmentet har fått till gång till den främre dörren är det cachelagrat och betjänas direkt för användaren. Front dörren sedan för att hämta nästa segment parallellt. Den här för hämtningen garanterar att innehållet förblir ett segment före användaren, vilket minskar svars tiden. Den här processen fortsätter tills hela filen har hämtats (om det begärs), alla byte-intervall är tillgängliga (om de begärs) eller om klienten avslutar anslutningen.
 
-</br>Mer information om byte-intervall begäran [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
-Ytterdörren cachelagras alla segment när de tas emot och så hela filen inte behöver cachelagras på ytterdörren-cachen. Efterföljande begäranden om filen eller byte-intervall hämtas från cachen. Om inte alla segment cachelagras, förhämtning används för att begära segment från serverdelen. Denna optimering förlitar sig på serverdelen förmåga att byte-intervall supportförfrågningar; Om serverdelen inte stöder begäranden med byte-intervall kan inte denna optimering är effektivt.
+</br>Mer information om byte Range-begäran finns i [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Frontend-dörren cachelagrar alla segment när de tas emot och så att hela filen inte behöver cachelagras på frontend-cachen. Efterföljande begär Anden för fil-eller byte-intervallen hanteras från cachen. Om inte alla segment cachelagras används för hämtning för att begära segment från Server delen. Den här optimeringen är beroende av Server dels kapaciteten för att stödja byte range-begäranden. om Server delen inte stöder byte intervall begär Anden, är den här optimeringen inte effektiv.
 
 ## <a name="file-compression"></a>Filkomprimering
-Åtkomsten kan dynamiskt innehåll komprimeras på kanten, vilket resulterar i ett mindre och snabbare svar på dina klienter. Alla filer är berättigade för komprimering. En fil måste dock vara av en MIME-typ som berättigade komprimering lista. Ytterdörren tillåter för närvarande inte den här listan som ska ändras. Den aktuella listan är:</br>
-- ”application/eot”
-- ”application/teckensnitt”
-- "application/font-sfnt"
-- "application/javascript"
-- "application/json"
-- "application/opentype"
-- "application/otf"
-- "application/pkcs7-mime"
-- ”application/truetype”
-- "application/ttf",
-- "application/vnd.ms-fontobject"
-- ”application/xhtml + xml”
-- ”application/xml”
-- "application/xml+rss"
-- "application/x-font-opentype"
-- "application/x-font-truetype"
-- "application/x-font-ttf"
-- "application/x-httpd-cgi"
-- ”application/x-mpegurl”
-- "application/x-opentype"
-- "application/x-otf"
-- "application/x-perl"
-- "application/x-ttf"
-- "application/x-javascript"
-- ”teckensnitt/eot”
-- ”teckensnitt/inget”
-- "font/otf"
-- "font/opentype"
-- ”bild/svg + xml”
-- "text/css"
-- "text/csv"
+Front dörren kan dynamiskt komprimera innehåll på gränsen, vilket resulterar i ett mindre och snabbare svar på dina klienter. Alla filer är berättigade till komprimering. En fil måste dock vara av en MIME-typ som är berättigad till komprimerings lista. För närvarande tillåter inte front dörren att den här listan ändras. Den aktuella listan är:</br>
+- "Application/EOT varningszon"
+- "program/teckensnitt"
+- "program/Font-sfnt"
+- "program/java script"
+- "Application/JSON"
+- "program/OpenType"
+- "Application/OTF"
+- "Application/PKCS7-MIME"
+- "program/TrueType"
+- "Application/ttf",
+- "Application/VND. MS-fontobject"
+- "application/xhtml + xml"
+- "Application/XML"
+- "Application/XML + RSS"
+- "program/x-Font-OpenType"
+- "program/x-Font-TrueType"
+- "program/x-Font-ttf"
+- "Application/x-httpd-cgi"
+- "Application/x-mpegurl"
+- "Application/x-OpenType"
+- "Application/x-OTF"
+- "Application/x-perl"
+- "Application/x-ttf"
+- "Application/x-Java Script"
+- "font/EOT varningszon"
+- "font/ttf"
+- "font/OTF"
+- "font/OpenType"
+- "bild/SVG + XML"
+- "text/CSS"
+- "text/CSV"
 - "text/html"
-- "text/javascript"
+- "text/Java Script"
 - "text/js", "text/plain"
-- "text/richtext"
-- "text/tab-separated-values"
+- "text/RichText"
+- "text/tabbavgränsade-values"
 - "text/xml"
-- "text/x-script"
-- "text/x-component"
-- "text/x-java-source"
+- "text/x-skript"
+- "text/x-komponent"
+- "text/x-Java-källa"
 
-Filen måste dessutom innehålla mellan 1 KB och 8 MB i storlek, inklusive.
+Dessutom måste filen också vara mellan 1 KB och 8 MB i storlek.
 
-Dessa profiler stöder följande komprimering skriver:
-- [gzip (GNU zip)](https://en.wikipedia.org/wiki/Gzip)
+Dessa profiler stöder följande komprimerings kodningar:
+- [Gzip (GNU zip)](https://en.wikipedia.org/wiki/Gzip)
 - [Brotli](https://en.wikipedia.org/wiki/Brotli)
 
-Om en begäran har stöd för gzip- och Brotli komprimering, företräde Brotli komprimering.</br>
-När en begäran för en tillgång anger komprimering och begäran resultaten i en cachemiss, utför ytterdörren komprimering av tillgången direkt på POP-servern. Därefter hämtas den komprimerade filen från cachen. Det resulterande objektet returneras med ett transfer-encoding: chunked.
+Om en begäran stöder gzip och Brotli komprimering prioriteras Brotli-komprimeringen.</br>
+När en begäran för en till gång anger komprimering och begäran resulterar i en cache missar, utför front dörren komprimering av till gången direkt på POP-servern. Efteråt hanteras den komprimerade filen från cachen. Det resulterande objektet returneras med en överförings kodning: segment.
 
-## <a name="query-string-behavior"></a>Uppträdande för frågesträngar
-Med åtkomsten, kan du styra hur filerna cachelagras för en webbegäran som innehåller en frågesträng. I en webb-begäran med en frågesträng är frågesträngen som del av den begäran som inträffar efter ett frågetecken (?). En frågesträng kan innehålla en eller flera nyckel / värde-par, där fältnamnet och dess värde avgränsas med ett likhetstecken (=). Varje nyckel / värde-par är avgränsade med ett et-tecken (&). Till exempel http://www.contoso.com/content.mov?field1=value1&field2=value2. Om det finns fler än en nyckel / värde-par i en frågesträng för en begäran, spelar ingen deras inbördes ordning.
-- **Ignorera frågesträngar**: Standardläget. I det här läget ytterdörren skickar frågesträngarna från begäranden till serverdelen på den första begäran och cachelagrar tillgången. Alla efterföljande begäranden om tillgången som hämtas från miljön ytterdörren Ignorera frågesträngarna tills den cachelagra tillgången upphör att gälla.
+## <a name="query-string-behavior"></a>Fråga om sträng beteende
+Med front dörren kan du styra hur filer cachelagras för en webbegäran som innehåller en frågesträng. I en webbegäran med en frågesträng är frågesträngen den del av begäran som inträffar efter ett frågetecken (?). En frågesträng kan innehålla ett eller flera nyckel/värde-par, där fält namnet och dess värde skiljs åt av ett likhets tecken (=). Varje nyckel/värde-par avgränsas med ett et-tecken (&). Till exempel `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Om det finns fler än ett nyckel/värde-par i en frågesträng i en begäran spelar det ingen roll.
+- **Ignorera frågesträngar**: standard läge. I det här läget skickar front dörren de frågesträngar från begär Ande till Server delen på den första begäran och cachelagrar till gången. Alla efterföljande begär Anden för till gången som hanteras från Front dörrens miljö ignorerar frågesträngarna tills den cachelagrade till gången upphör att gälla.
 
-- **Cachelagra varje unik URL**: I det här läget behandlas varje begäran med en unik URL, inklusive frågesträngen som en unik tillgång med sin egen cache. Till exempel svar från serverdelen för en begäran om `www.example.ashx?q=test1` är cachelagras på ytterdörren miljön och returneras för efterföljande cacheminnen med samma frågesträngen. En begäran om `www.example.ashx?q=test2` cachelagras som en separat tillgång med sin egen time-to-live-inställningen.
+- **Cachelagra varje unik URL**: i det här läget behandlas varje begäran med en unik URL, inklusive frågesträngen, som en unik till gång med sin egen cache. Till exempel cachelagras svaret från Server delen för en begäran om `www.example.ashx?q=test1` i front dörrens miljö och returneras för efterföljande cache med samma frågesträng. En begäran om `www.example.ashx?q=test2` cachelagras som en separat till gång med en egen tids-till-Live-inställning.
 
-## <a name="cache-purge"></a>Rensa cache
-Ytterdörren cachelagrar tillgångar tills tillgångens time to live (TTL) upphör att gälla. När tillgångens TTL upphör att gälla när en klient begär tillgången, ytterdörren miljö kommer att hämta en ny uppdaterad kopia av tillgången som fungerar klientbegäran och store uppdatera cachen.
-</br>Rekommenderade metoder för att se till att användarna alltid hämta den senaste kopian av dina tillgångar är att version tillgångarna för varje uppdatering och publicera dem som nya URL: er. Ytterdörren kommer omedelbart att hämta nya tillgångar för nästa klientbegäranden. Ibland kanske du vill rensa cachelagrat innehåll från alla kantnoder och tvinga dem alla att hämta nya uppdaterade tillgångar. Detta kan bero på uppdateringar i ditt webbprogram eller för att snabbt uppdatera tillgångar som innehåller felaktig information.
+## <a name="cache-purge"></a>Rensning av cache
+Front dörren kommer att cachelagra till gångar tills till gångens TTL (Time-to-Live) går ut. När TTL-värdet för till gången har gått ut, kommer den främre dörren att hämta en ny uppdaterad kopia av till gången för att betjäna klientbegäran och lagra cachen när en klient begär till gången.
+</br>Det bästa sättet att se till att användarna alltid får den senaste kopian av dina till gångar är att version till dina till gångar för varje uppdatering och publicera dem som nya URL: er. Front dörren kommer omedelbart att hämta de nya till gångarna för nästa klient begär Anden. Ibland kanske du vill rensa cachelagrat innehåll från alla Edge-noder och tvinga dem att hämta nya, uppdaterade till gångar. Detta kan bero på uppdateringar i ditt webb program eller för att snabbt uppdatera till gångar som innehåller felaktig information.
 
-</br>Välj vilka resurser som du vill ta bort från edge-noder. Om du vill ta bort alla tillgångar, klickar du på Rensa alla kryssrutan. I annat fall Skriv sökvägen för varje tillgång som du vill ta bort i textrutan sökväg. Nedan format som stöds i sökvägen.
-1. **Den enda URL Rensa**: Ta bort enskilda tillgångar genom att ange en fullständig URL med filnamnstillägget, till exempel /pictures/strasbourg.png;
-2. **Jokerteckensrensning**: Asterisk (\*) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slutpunkt med /\* i sökvägen eller rensa alla undermappar och filer under en viss mapp genom att ange mappen följt av /\*, till exempel /bilder/\*.
-3. **Rot domän Rensa**: Rensa roten för slutpunkten med ”/” i sökvägen.
+</br>Välj vilka till gångar du vill rensa från Edge-noderna. Om du vill rensa alla till gångar klickar du på kryss rutan rensa alla. Annars skriver du sökvägen till varje till gång som du vill tömma i text rutan sökväg. Under formaten stöds i sökvägen.
+1. **Enkel URL-rensning**: rensa enskilda till gångar genom att ange den fullständiga URL: en med fil namns tillägget, till exempel/Pictures/Strasbourg.png;
+2. **Jokertecken har rensats**: Asterisk (\*) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slut punkt med/\* i sökvägen eller ta bort alla undermappar och filer under en särskild mapp genom att ange mappen följt av/\*, till exempel/Pictures/\*.
+3. **Rot domän rensning**: Rensa roten för slut punkten med "/" i sökvägen.
 
-Cache återställningspunkter på åtkomsten är skiftlägeskänsliga. Dessutom är de oberoende av frågan sträng, vilket innebär att rensa en URL kommer Rensa alla frågesträng varianter av den. 
+Rensningar av cacheminnen på front dörren är inte Skift läges känsliga. Dessutom är de frågesträngen oberoende, vilket innebär att en URL rensas och alla frågesträngar tas bort. 
 
-## <a name="cache-expiration"></a>Förfallotid för cache
-I följande prioritetsordning rubriker används för att avgöra hur lång tid ett objekt som är lagrade i vår cache:</br>
-1. Cache-Control: s-maxage =\<sekunder >
-2. Cache-Control: max-age=\<seconds>
-3. Förfaller: \<http-date >
+## <a name="cache-expiration"></a>Förfallo tid för cache
+Följande ordning på rubriker används för att avgöra hur länge ett objekt lagras i cacheminnet:</br>
+1. Cache-Control: s-MaxAge =\<sekunder >
+2. Cache-kontroll: Max-Age =\<sekunder >
+3. Upphör att gälla: \<http-datum >
 
-Cache-Control-svarshuvuden som indikerar att svaret inte cachelagras, till exempel Cache-Control: privat Cache-Control: no-cache och Cache-Control: no-store respekteras. Om det finns flera begäranden pågående på en POP för samma URL, kan de dela svaret. Om det finns inga Cache-Control är standardbeteendet AFD cachelagrar resurs för X tid där X slumpmässigt plockas mellan 1 till 3 dagar.
+Cache-Control Response-huvuden som indikerar att svaret inte cachelagras, t. ex. Cache-Control: Private, Cache-Control: no-cache och Cache-Control: No-Store har besvarats. Men om det finns flera begär anden i en POP för samma URL, kan de dela svaret. Om det inte finns någon cache-kontroll är standard beteendet att AFD cachelagrar resursen för X-tid där X plockas slumpmässigt mellan 1 och tre dagar.
 
 
-## <a name="request-headers"></a>Begärandehuvud
+## <a name="request-headers"></a>Begärandehuvuden
 
-Följande begärandehuvuden kommer inte att vidarebefordras till en serverdel när du använder cachelagring.
+Följande begärandehuvuden kommer inte att vidarebefordras till en server del när cachelagring används.
 - Auktorisering
-- Content-Length
-- Transfer-Encoding
+- Innehålls längd
+- Överförings kodning
 
 ## <a name="next-steps"></a>Nästa steg
 

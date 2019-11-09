@@ -1,7 +1,7 @@
 ---
-title: Justering av Word - Translator Text API
+title: Justering av ord – Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Ta emot word justering information från Translator Text API.
+description: Om du vill ta emot information om anpassning använder du metoden Översätt och inkluderar den valfria includeAlignment-parametern.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,36 +11,36 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5818d3f4d2ebed7cbcd46aadf538640914d3b7d4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594776"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837231"
 ---
-# <a name="how-to-receive-word-alignment-information"></a>Ta emot word justering information
+# <a name="how-to-receive-word-alignment-information"></a>Så här tar du emot information om Word-anpassning
 
-## <a name="receiving-word-alignment-information"></a>Ta emot word justering information
-Att ta emot information om justering, använda metoden Översätt och ta med valfria includeAlignment-parameter.
+## <a name="receiving-word-alignment-information"></a>Ta emot Word-justerings information
+Om du vill ta emot information om anpassning använder du metoden Översätt och inkluderar den valfria includeAlignment-parametern.
 
-## <a name="alignment-information-format"></a>Justering informationsformat
-Justering returneras som ett strängvärde i följande format för varje ord i källan. Information för varje ord är avgränsade med blanksteg, inklusive för icke-blankstegsavgränsad språk (skript) som kinesiska:
+## <a name="alignment-information-format"></a>Format för justerings information
+Justeringen returneras som ett sträng värde av följande format för varje ord i källan. Informationen för varje ord avgränsas med ett blank steg, inklusive för icke-separerade språk (skript) som kinesiska:
 
-[[SourceTextStartIndex]:\[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Exempel på justerings sträng: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-Med andra ord avgränsas start och slut-index, ett streck separerar språk och blanksteg mellan ord. Ett ord som kan anpassas till noll, ett eller flera ord på andra språk och justerade orden kanske inte är sammanhängande. Om det finns ingen information om justering ska textjustering elementet vara tomt. Metoden returnerar inget fel i så fall.
+Kolon separerar exempelvis start-och slut index, strecket separerar språken och avståndet separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Metoden returnerar inga fel i detta fall.
 
 ## <a name="restrictions"></a>Begränsningar
-Justering returneras bara i det här läget för en delmängd av språkpar:
-* från engelska till andra språk.
-* från ett annat språk till engelska förutom kinesiska, förenklad kinesiska, traditionell kinesiska och lettiska till engelska
-* från japanska till koreanska eller koreanska till japanska du får inte justering information om meningen är en kapslade översättning. Exempel på en kapslade översättning är ”detta är ett test”, ”jag älskar du” och andra hög frekvens meningar.
+Justering returneras bara för en delmängd av språk paren i detta läge:
+* från engelska till ett annat språk.
+* från andra språk till engelska utom förenklad kinesiska, traditionell kinesiska och lettiska till engelska
+* från japanska till koreanska eller från koreanska till japanska får du ingen justerings information om meningen är en konserverad översättning. Exempel på en konserverad översättning är "det här är ett test", "Jag älskar dig" och andra meningar med hög frekvens.
 
 ## <a name="example"></a>Exempel
 
-Exempel på JSON
+Exempel-JSON
 
 ```json
 [

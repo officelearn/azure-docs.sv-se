@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Data Lake Analytics med hjälp av Azure-portalen
-description: Den här artikeln beskriver hur du använder Azure-portalen för att hantera Data Lake Analytics-konton, datakällor, användare och jobb.
+title: Hantera Azure Data Lake Analytics med hjälp av Azure Portal
+description: Den här artikeln beskriver hur du använder Azure Portal för att hantera Data Lake Analytics-konton, data källor, användare & jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,17 +9,17 @@ ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813448"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839466"
 ---
-# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure portal
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av Azure portal.
+Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av Azure Portal.
 
 
 <!-- ################################ -->
@@ -29,95 +29,95 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 
 ### <a name="create-an-account"></a>Skapa ett konto
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **skapa en resurs** > **information + analys** > **Datasjöanalys**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Klicka på **skapa en resurs** > informations-och **analys** > **data Lake Analytics**.
 3. Välj värden för följande objekt: 
-   1. **Namn på**: Namnet på Data Lake Analytics-kontot.
-   2. **Prenumeration**: Den Azure-prenumeration som används för kontot.
-   3. **Resursgrupp**: Azure-resursgruppen där kontot skapas i. 
-   4. **Plats**: Azure-datacentret för Data Lake Analytics-kontot. 
-   5. **Data Lake Store**: Standardplatsen som ska användas för Data Lake Analytics-kontot. Azure Data Lake Store-konto och Data Lake Analytics-konto måste vara på samma plats.
+   1. **Namn**: namnet på data Lake Analytics kontot.
+   2. **Prenumeration**: den Azure-prenumeration som används för kontot.
+   3. **Resurs grupp**: Azure-resurs gruppen där kontot ska skapas. 
+   4. **Plats**: Azure-datacenter för det data Lake Analytics kontot. 
+   5. **Data Lake Store**: standard arkivet som ska användas för data Lake Analytics-kontot. Azure Data Lake Store konto och Data Lake Analytics kontot måste finnas på samma plats.
 4. Klicka på **Skapa**. 
 
-### <a name="delete-a-data-lake-analytics-account"></a>Ta bort ett Data Lake Analytics-konto
+### <a name="delete-a-data-lake-analytics-account"></a>Ta bort ett Data Lake Analytics konto
 
-Innan du tar bort ett Data Lake Analytics-konto kan du ta bort dess Data Lake Store-standardkontot.
+Ta bort standard Data Lake Stores kontot innan du tar bort ett Data Lake Analytics konto.
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **Ta bort**.
-3. Skriv namnet på kontot.
+3. Ange konto namnet.
 4. Klicka på **Ta bort**.
 
 <!-- ################################ -->
 <!-- ################################ -->
 
-## <a name="manage-data-sources"></a>Hantera datakällor
+## <a name="manage-data-sources"></a>Hantera data källor
 
-Data Lake Analytics stöder följande datakällor:
+Data Lake Analytics stöder följande data Källor:
 
 * Data Lake Store
 * Azure Storage
 
-Du kan använda Datautforskaren för att söka efter datakällor och utföra grundläggande hanteringsåtgärder. 
+Du kan använda Datautforskaren för att bläddra bland data källor och utföra grundläggande fil hanterings åtgärder. 
 
-### <a name="add-a-data-source"></a>Lägg till en datakälla
+### <a name="add-a-data-source"></a>Lägg till en data Källa
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
-2. Klicka på **datakällor**.
-3. Klicka på **Lägg till datakälla**.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
+2. Klicka på **data källor**.
+3. Klicka på **Lägg till data källa**.
     
-   * Om du vill lägga till ett Data Lake Store-konto, behöver du kontonamn och åtkomst till kontot för att kunna köra frågor till dessa.
-   * Om du vill lägga till Azure Blob storage, behöver du storage-konto och kontonyckeln. Du hittar dem genom att gå till storage-konto i portalen.
+   * Om du vill lägga till ett Data Lake Store-konto behöver du konto namnet och åtkomst till kontot för att kunna fråga det.
+   * Du behöver lagrings kontot och konto nyckeln för att lägga till Azure Blob Storage. Du hittar dem genom att gå till lagrings kontot i portalen.
 
-## <a name="set-up-firewall-rules"></a>Konfigurera brandväggsregler
+## <a name="set-up-firewall-rules"></a>Konfigurera brand Väggs regler
 
-Du kan använda Data Lake Analytics att ytterligare låsa åtkomsten till ditt Data Lake Analytics-konto på nätverksnivå. Du kan aktivera en brandvägg, ange en IP-adress eller definiera ett IP-adressintervall för dina betrodda klienter. När du har aktiverat dessa åtgärder kan endast klienter som har IP-adresser inom det angivna intervallet ansluta till arkivet.
+Du kan använda Data Lake Analytics för att ytterligare låsa åtkomsten till ditt Data Lake Analytics-konto på nätverks nivå. Du kan aktivera en brand vägg, ange en IP-adress eller definiera ett IP-adressintervall för dina betrodda klienter. När du har aktiverat dessa åtgärder kan endast klienter som har IP-adresserna inom det definierade intervallet ansluta till butiken.
 
-Om andra Azure-tjänster som Azure Data Factory eller virtuella datorer kan ansluta till Data Lake Analytics-konto, se till att **Tillåt Azure Services** stängs **på**. 
+Om andra Azure-tjänster, t. ex. Azure Data Factory eller virtuella datorer, ansluter till Data Lake Analytics konto kontrollerar du att **Tillåt Azure-tjänster** **är aktiverat.** 
 
 ### <a name="set-up-a-firewall-rule"></a>Konfigurera en brandväggsregel
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
-2. På menyn till vänster, klickar du på **brandväggen**.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
+2. Klicka på **brand vägg**på menyn till vänster.
 
 ## <a name="add-a-new-user"></a>Lägg till en ny användare
 
-Du kan använda den **guiden Lägg till användare** att etablera nya Data Lake-användare.
+Du kan använda **guiden Lägg till användare** för att enkelt etablera nya data Lake användare.
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
-2. Till vänster under **komma igång**, klickar du på **guiden Lägg till användare**.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
+2. Till vänster, under **komma igång**klickar du på **guiden Lägg till användare**.
 3. Välj en användare och klicka sedan på **Välj**.
-4. Välj en roll och klicka sedan på **Välj**. Om du vill konfigurera nya utvecklare att använda Azure Data Lake, Välj den **Data Lake Analytics-utvecklare** roll.
-5. Välj åtkomstkontrollistor (ACL) för U-SQL-databaser. När du är nöjd med dina val klickar du på **Välj**.
-6. Välj ACL: er för filer. För standard-store inte ändrar ACL: er för rotmappen ”/” och för mappen/System. Klicka på **Välj**.
-7. Granska dina valda ändringar och klicka sedan på **kör**.
-8. När guiden har slutförts klickar du på **klar**.
+4. Välj en roll och klicka sedan på **Välj**. Om du vill konfigurera en ny utvecklare att använda Azure Data Lake väljer du rollen **data Lake Analytics utvecklare** .
+5. Välj åtkomst kontrol listor (ACL: er) för U-SQL-databaserna. När du är nöjd med dina val klickar du på **Välj**.
+6. Välj ACL: er för filer. Ändra inte ACL: er för rotmappen "/" och för mappen/system för standard arkivet. Klicka på **Välj**.
+7. Granska alla valda ändringar och klicka sedan på **Kör**.
+8. När guiden har slutförts klickar du på **klart**.
 
-## <a name="manage-role-based-access-control"></a>Hantera rollbaserad åtkomstkontroll
+## <a name="manage-role-based-access-control"></a>Hantera rollbaserade Access Control
 
-Liksom andra Azure-tjänster, kan du använda rollbaserad åtkomstkontroll (RBAC) för att styra hur användarna samverkar med tjänsten.
+Precis som andra Azure-tjänster kan du använda rollbaserad Access Control (RBAC) för att styra hur användare interagerar med tjänsten.
 
-Standard RBAC-roller har följande funktioner:
-* **Ägare**: Kan skicka jobb, övervaka jobb, avbryta jobb från alla användare och konfigurerar du kontot.
-* **Deltagare**: Kan skicka jobb, övervaka jobb, avbryta jobb från alla användare och konfigurerar du kontot.
-* **Reader**: Övervaka jobb.
+Standard-RBAC-rollerna har följande funktioner:
+* **Ägare**: kan skicka jobb, övervaka jobb, avbryta jobb från valfri användare och konfigurera kontot.
+* **Deltagare**: kan skicka jobb, övervaka jobb, avbryta jobb från valfri användare och konfigurera kontot.
+* **Läsare**: kan övervaka jobb.
 
-Aktivera U-SQL-utvecklare kan använda Data Lake Analytics-tjänsten med hjälp av rollen Data Lake Analytics-utvecklare. Du kan använda rollen Data Lake Analytics-utvecklare för att:
+Använd rollen som Data Lake Analytics utvecklare för att göra det möjligt för U-SQL-utvecklare att använda tjänsten Data Lake Analytics. Du kan använda rollen Data Lake Analytics utvecklare för att:
 * Skicka jobb.
-* Övervakare för jobbets status och förlopp för jobb som skickats av någon användare.
-* Se U-SQL-skript från jobb som skickats av någon användare.
+* Övervaka jobb status och förlopp för jobb som skickats av en användare.
+* Se U-SQL-skripten från jobb som skickats av någon användare.
 * Avbryt endast dina egna jobb.
 
-### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Lägg till användare eller säkerhetsgrupper i ett Data Lake Analytics-konto
+### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Lägga till användare eller säkerhets grupper i ett Data Lake Analytics konto
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
-2. Klicka på **åtkomstkontroll (IAM)**  > **Lägg till rolltilldelning**.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
+2. Klicka på **åtkomst kontroll (IAM)**  > **Lägg till roll tilldelning**.
 3. Välj en roll.
 4. Lägg till en användare.
 5. Klicka på **OK**.
 
 >[!NOTE]
->Om en användare eller en grupp måste du skicka jobb, behöver de också behörighet för store-kontot. Mer information finns i [skyddar data som lagras i Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
+>Om en användare eller en säkerhets grupp behöver skicka jobb måste de också ha behörighet för Store-kontot. Mer information finns i [skydda data som lagrats i data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
 >
 
 <!-- ################################ -->
@@ -127,42 +127,42 @@ Aktivera U-SQL-utvecklare kan använda Data Lake Analytics-tjänsten med hjälp 
 
 ### <a name="submit-a-job"></a>Skicka ett jobb
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 
-2. Klicka på **nytt jobb**. Konfigurera för varje jobb:
+2. Klicka på **nytt jobb**. För varje jobb konfigurerar du:
 
-    1. **Jobbnamn**: Namnet på jobbet.
-    2. **Prioritet**: Låga tal har högre prioritet. Om två jobb i kö, körs som har lägre prioritetsvärde första.
-    3. **Parallellitet**: Maximalt antal beräkningsprocesser att reservera för det här jobbet.
+    1. **Jobb namn**: namnet på jobbet.
+    2. **Prioritet**: lägre tal har högre prioritet. Om två jobb placeras i kö körs värdet med lägre prioritet först.
+    3. **Parallelitet**: det maximala antalet beräknings processer som ska reserveras för det här jobbet.
 
 3. Klicka på **Skicka jobb**.
 
 ### <a name="monitor-jobs"></a>Övervaka jobb
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
-2. Klicka på **visa alla jobb**. En lista över alla aktiva och nyligen klar jobb i kontot visas.
-3. Du kan också klicka på **Filter** för att hitta jobb efter **tidsintervall**, **jobbnamn**, och **författare** värden. 
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
+2. Klicka på **Visa alla jobb**. En lista över alla aktiva och senast avslutade jobb i kontot visas.
+3. Du kan också klicka på **filter** för att hitta jobben efter **tidsintervall**, **jobb namn**och **författar** värden. 
 
 ### <a name="monitoring-pipeline-jobs"></a>Övervaka pipeline-jobb
-Jobb som ingår i en pipeline fungerar tillsammans, vanligtvis sekventiellt för att utföra ett specifikt scenario. Du kan till exempel ha en pipeline som rensar, extraherar, omvandlar, aggregerar användning för customer insights. Pipeline-jobb identifieras med hjälp av egenskapen ”Pipeline” när jobbet har skickats. Jobb som schemalagts med ADF V2 har den här egenskapen som fylls i automatiskt. 
+Jobb som ingår i en pipeline fungerar tillsammans, vanligt vis i turordning, för att uppnå ett speciellt scenario. Du kan till exempel ha en pipeline som rensar, extraherar, transformerar och sammanställer användning för kund insikter. Pipeline-jobb identifieras med hjälp av egenskapen "Pipeline" när jobbet skickades. Jobb som schemalagts med ADF v2 har automatiskt den här egenskapen ifylld. 
 
-Visa en lista över U-SQL-jobb som ingår i pipelines: 
+Så här visar du en lista över U-SQL-jobb som ingår i pipelines: 
 
-1. Gå till ditt Data Lake Analytics-konton i Azure-portalen.
-2. Klicka på **jobbet Insights**. Fliken ”alla jobb” blir som standard, som visar en lista över körs, i kö och avslutade jobb.
-3. Klicka på den **Pipeline-jobb** fliken. En lista över pipeline-jobb visas tillsammans med statistik för varje pipeline.
+1. I Azure Portal går du till dina Data Lake Analytics-konton.
+2. Klicka på **Job Insights (jobb insikter**). Fliken "alla jobb" är standard som visar en lista över aktiva, köade och avslutade jobb.
+3. Klicka på fliken **pipeline-jobb** . En lista med pipeline-jobb visas tillsammans med sammanställd statistik för varje pipeline.
 
 ### <a name="monitoring-recurring-jobs"></a>Övervaka återkommande jobb
-Ett återkommande jobb är en som har samma affärslogik men använder olika indata varje gång den körs. Vi rekommenderar bör återkommande jobb alltid lyckas och har relativt stabil körningstid; övervakning av dessa beteenden kan se till att jobbet är felfri. Återkommande jobb identifieras med hjälp av egenskapen ”återkommande”. Jobb som schemalagts med ADF V2 har den här egenskapen som fylls i automatiskt.
+Ett återkommande jobb är ett som har samma affärs logik men använder olika indata varje gång den körs. Vi rekommenderar att återkommande jobb alltid lyckas och har relativt stabil körnings tid. genom att övervaka dessa beteenden kan du se till att jobbet är felfritt. Återkommande jobb identifieras med hjälp av egenskapen "upprepning". Jobb som schemalagts med ADF v2 har automatiskt den här egenskapen ifylld.
 
-Visa en lista över U-SQL-jobb som är återkommande: 
+Så här visar du en lista över U-SQL-jobb som är återkommande: 
 
-1. Gå till ditt Data Lake Analytics-konton i Azure-portalen.
-2. Klicka på **jobbet Insights**. Fliken ”alla jobb” blir som standard, som visar en lista över körs, i kö och avslutade jobb.
-3. Klicka på den **återkommande jobb** fliken. En lista över återkommande jobb visas tillsammans med statistik för varje återkommande jobb.
+1. I Azure Portal går du till dina Data Lake Analytics-konton.
+2. Klicka på **Job Insights (jobb insikter**). Fliken "alla jobb" är standard som visar en lista över aktiva, köade och avslutade jobb.
+3. Klicka på fliken **återkommande jobb** . En lista med återkommande jobb visas tillsammans med sammanställd statistik för varje återkommande jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Hantera Azure Data Lake Analytics med hjälp av principer](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)
+* [Hantera Azure Data Lake Analytics med Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+* [Hantera Azure Data Lake Analytics med hjälp av principer](data-lake-analytics-account-policies.md)

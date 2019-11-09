@@ -1,6 +1,6 @@
 ---
 title: Hantera webb tjänster med API Management
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: En guide som visar hur du hanterar AzureML-webbtjänster med API Management. Hantera dina REST API-slutpunkter genom att definiera användar åtkomst, användnings begränsning och övervakning av instrument paneler.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 084f3a1ecc7e44dc404d63a75b4561f8d5cb57cb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671581"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839816"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio (klassiska) webb tjänster med API Management
 ## <a name="overview"></a>Översikt
@@ -24,7 +24,7 @@ Den här guiden visar hur du snabbt kommer igång med API Management för att ha
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
 Azure API Management är en Azure-tjänst som låter dig hantera dina REST API-slutpunkter genom att definiera användar åtkomst, användnings begränsning och övervakning av instrument paneler. Mer information finns på [webbplatsen för Azure API Management](https://azure.microsoft.com/services/api-management/) . Information om hur du kommer igång med Azure API Management finns i [import-och publicerings guiden](/azure/api-management/import-and-publish). Den här guiden, som den här guiden bygger på, omfattar fler ämnen, inklusive aviserings konfiguration, nivå priser, svars hantering, användarautentisering, skapa produkter, prenumerationer för utvecklare och användnings instrument paneler.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att kunna slutföra den här guiden:
 
 * Ett Azure-konto.
@@ -35,7 +35,7 @@ Du behöver följande för att kunna slutföra den här guiden:
 
 Du kan hantera Azure Machine Learning-webbtjänsten med en API Management instans.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **+ Skapa en resurs**.
 3. I sökrutan skriver du "API Management" och väljer sedan "API Management"-resursen.
 4. Klicka på **Skapa**.
@@ -166,7 +166,7 @@ När en åtgärd har anropats visar Developer-portalen den **begärda URL:** en 
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Bilaga A – skapa och testa en enkel AzureML-webbtjänst
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Nedan visas stegen för att skapa ett enkelt AzureML-experiment och distribuera det som en webb tjänst. Webb tjänsten tar sig in i en kolumn med godtycklig text och returnerar en uppsättning funktioner som visas som heltal. Till exempel:
+Nedan visas stegen för att skapa ett enkelt AzureML-experiment och distribuera det som en webb tjänst. Webb tjänsten tar sig in i en kolumn med godtycklig text och returnerar en uppsättning funktioner som visas som heltal. Exempel:
 
 | Text | Hash-text |
 | --- | --- |
@@ -220,7 +220,7 @@ Du kommer också att behöva **arbets ytan**, **tjänsten**och **api_key** av di
 
 ![Sök-arbets yta-och-tjänst](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
-Du hittar **api_key** genom att klicka på experimentet på instrument panelen för webb tjänsten.
+Du kan hitta **api_key** genom att klicka på experimentet på instrument panelen för webb tjänster.
 
 ![Sök-API-nyckel](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
@@ -241,7 +241,7 @@ Du ser något som liknar
 ##### <a name="sample-code"></a>Exempel kod
 Ett annat sätt att testa dina resurs poster är från klient koden. Om du klickar på **begär/svara** på instrument panelen och rullar till slutet visas exempel kod för C#, python och R. Du kommer också att se syntaxen för begäran om resurs poster, inklusive URI, rubriker och brödtext för begäran.
 
-I den här hand boken visas ett arbets python-exempel. Du måste ändra den med **arbets ytan**, **tjänsten**och **api_key** i experimentet.
+I den här hand boken visas ett arbets python-exempel. Du måste ändra den med **arbets ytan**, **tjänsten**och **api_key** av experimentet.
 
     import urllib2
     import json
@@ -273,7 +273,7 @@ I den här hand boken visas ett arbets python-exempel. Du måste ändra den med 
 #### <a name="test-bes-endpoint"></a>Testa BES-slutpunkt
 Klicka på **batch-körning** på instrument panelen och rulla längst ned. Exempel kod för C#, python och R visas. Du kan också se syntaxen för BES-begäranden för att skicka ett jobb, starta ett jobb, Hämta status eller resultat för ett jobb och ta bort ett jobb.
 
-I den här hand boken visas ett arbets python-exempel. Du måste ändra den med **arbets ytan**, **tjänsten**och **api_key** i experimentet. Dessutom måste du ändra **lagrings kontots namn**, **lagrings konto nyckel**och **namn på lagrings behållare**. Slutligen måste du ändra platsen för **indatafilen** och platsen för **utdatafilen**.
+I den här hand boken visas ett arbets python-exempel. Du måste ändra den med **arbets ytan**, **tjänsten**och **api_key** av experimentet. Dessutom måste du ändra **lagrings kontots namn**, **lagrings konto nyckel**och **namn på lagrings behållare**. Slutligen måste du ändra platsen för **indatafilen** och platsen för **utdatafilen**.
 
     import urllib2
     import json

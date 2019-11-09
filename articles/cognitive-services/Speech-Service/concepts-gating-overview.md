@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: c0a097c17a24c68f7ebe4ec06a01b9ab7d9943b0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507147"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836793"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>Översikt över anpassade neurala Voice hantera
 
@@ -28,7 +28,7 @@ Som en del av Microsofts engagemang för att utforma ansvarig AI har vi sammanst
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>Vägledning för att distribuera anpassad röst för neurala
 
 - [Rikt linjer för ansvarig distribution](concepts-guidelines-responsible-deployment-synthetic.md): våra främsta rekommendationer baserat på vår forskning
-- [Neurala text till tal-transparens](https://aka.ms/neural-tts-transparency-note): vad du behöver veta om tekniken för att använda IT-ett ansvarsfullt sätt
+- Information [om röst personal](https://aka.ms/disclosure-voice-talent): vad du behöver veta och informera röst personal om tekniken för att använda IT-ett ansvarsfullt sätt
 - [Utlämnings design](concepts-disclosure-guidelines.md): utforma upplevelser så att användarna vet när en syntetisk röst används och litar på tjänsten
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Varför den anpassade neurala-rösten är en gated-teknik
@@ -41,11 +41,11 @@ För att få åtkomst till anpassad neurala röst måste du börja med att fylla
 
 Åtkomst till den anpassade röst tjänsten för neurala omfattas av Microsofts enda val som baseras på våra berättigande villkor, först konsumentsajter process och tillgänglighet för att stödja ett begränsat antal kunder under den här för hands versionen.
 
-Som en del av program processen måste du bekräfta för att få uttryckligt skriftligt tillstånd från röst personal innan du skapar ett röst teckensnitt, vilket innefattar att dela neurala- [TTS-anteckningen](https://aka.ms/neural-tts-transparency-note). Du måste också godkänna att när du distribuerar röst teckensnittet, kommer implementeringen att avslöja tjänstens [syntetiska egenskaper](concepts-disclosure-guidelines.md) , ge till gång till Microsoft syntetisk Speech service i dina användar villkor och stödja en feedback-kanal Det gör att användare av tjänsten kan rapportera problem och dela information med Microsoft. Lär dig mer om våra användnings villkor [här](https://aka.ms/neural-tts-transparency-note).
+Som en del av program processen måste du bekräfta för att få uttryckligt skriftligt tillstånd från röst personal innan du skapar ett röst teckensnitt, vilket innefattar delning av [meddelandet för röst personal](https://aka.ms/disclosure-voice-talent). Du måste också godkänna att när du distribuerar röst teckensnittet, kommer implementeringen att avslöja tjänstens [syntetiska egenskaper](concepts-disclosure-guidelines.md) , ge till gång till Microsoft syntetisk Speech service i dina användar villkor och stödja en feedback-kanal Det gör att användare av tjänsten kan rapportera problem och dela information med Microsoft. Lär dig mer om våra användnings villkor [här](https://aka.ms/custom-neural-code-of-conduct).
 
 ## <a name="reference-docs"></a>Referensdokument
 
-* [Oh-anteckning](https://aka.ms/neural-tts-transparency-note)
+* [Utlämnande av röst personal](https://aka.ms/disclosure-voice-talent)
 * [Rikt linjer för ansvarig distribution av syntetisk röst teknik](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Lämna ut](concepts-disclosure-guidelines.md)
 

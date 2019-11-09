@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815706"
+ms.locfileid: "73832794"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure-instrumentpaneler
 Det här dokumentet vägleder dig genom strukturen i en Azure-instrumentpanel med hjälp av följande instrument panel som exempel:
@@ -295,7 +295,7 @@ Nu ska vi dela upp relevanta avsnitt i JSON.  Egenskaperna på den översta niv�
 
 ### <a name="the-id-property"></a>Egenskapen ID
 
-Azure-resurs-ID, omfattas [av namngivnings konventionerna för Azure-resurser](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). När portalen skapar en instrument panel väljer den vanligt vis ett ID i form av ett GUID, men du kan använda ett giltigt namn när du skapar dem program mässigt. 
+Azure-resurs-ID, omfattas [av namngivnings konventionerna för Azure-resurser](/azure/architecture/best-practices/resource-naming). När portalen skapar en instrument panel väljer den vanligt vis ett ID i form av ett GUID, men du kan använda ett giltigt namn när du skapar dem program mässigt. 
 
 ### <a name="the-name-property"></a>Egenskapen namn
 Namnet är segmentet för resurs-ID: t som inte innehåller information om prenumeration, resurs typ eller resurs grupp. Det är i stort sett det sista segmentet i resurs-ID: t.

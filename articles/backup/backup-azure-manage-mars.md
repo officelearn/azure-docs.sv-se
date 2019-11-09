@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 68c991396c92e6f288d1cc17d6b7dcf1ec79343f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165490"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834306"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services agent med hjälp av tjänsten Azure Backup
 
@@ -181,7 +181,7 @@ Det finns två sätt att sluta skydda säkerhets kopior av filer och mappar:
 
     ![Stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Du uppmanas att ange en PIN-kod för säkerhet (personal Identification Number) som du måste generera manuellt. Det gör du genom att först logga in på Azure Portal.
-5. Gå till **Recovery Services valv**  > **Inställningar**  > **Egenskaper**.
+5. Gå till **Recovery Services valv** > **Inställningar** > **Egenskaper**.
 6. Under **säkerhets-PIN**väljer du **generera**. Kopiera den här PIN-koden. PIN-koden är bara giltig i fem minuter.
 7. I hanterings konsolen klistrar du in PIN-koden och väljer sedan **OK**.
 
@@ -209,4 +209,4 @@ Om du har stoppat skyddet och bevarar data och valt att återuppta skyddet kan d
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om vilka scenarier och begränsningar som stöds finns i [support mat ris för mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Läs mer om hur du [säkerhetskopierar principen för ad hoc-säkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md).
+- Läs mer om hur du [säkerhetskopierar principen för ad hoc-säkerhetskopiering](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).

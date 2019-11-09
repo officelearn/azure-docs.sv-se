@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88aabb676d3a15dd2efff3acd751818301519ae1
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0634b069c79495ad6de536b27ebd9981eeb36128
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972698"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837086"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuera resurser med Resource Manager-mallar och Azure PowerShell
 
@@ -33,9 +33,11 @@ Om du vill distribuera till en **prenumeration**använder du [New-AzDeployment](
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-För närvarande stöds endast distributioner av hanterings grupper via REST API. Se [distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](resource-group-template-deploy-rest.md).
+Mer information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
 
-I exemplen i den här artikeln används resurs grupps distributioner. Mer information om distribution av prenumerationer finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
+För närvarande stöds endast distributioner av hanterings grupper via REST API. Mer information om distributioner på hanterings grupp nivå finns i [Skapa resurser på hanterings grupps nivå](deploy-to-management-group.md).
+
+I exemplen i den här artikeln används resurs grupps distributioner.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -76,7 +78,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-I föregående exempel krävs en offentligt tillgänglig URI för mallen som fungerar i de flesta fall eftersom din mall inte ska innehålla känsliga data. Om du behöver ange känsliga data (som ett administratörs lösen ord) skickar du det värdet som en säker parameter. Men om du inte vill att din mall ska vara offentligt tillgänglig kan du skydda den genom att lagra den i en privat lagrings behållare. Information om hur du distribuerar en mall som kräver en SAS-token (signatur för delad åtkomst) finns i [distribuera privat mall med SAS-token](resource-manager-powershell-sas-token.md). Information om hur du går igenom en själv studie kurs finns i [Tutorial: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md).
+I föregående exempel krävs en offentligt tillgänglig URI för mallen som fungerar i de flesta fall eftersom din mall inte ska innehålla känsliga data. Om du behöver ange känsliga data (som ett administratörs lösen ord) skickar du det värdet som en säker parameter. Men om du inte vill att din mall ska vara offentligt tillgänglig kan du skydda den genom att lagra den i en privat lagrings behållare. Information om hur du distribuerar en mall som kräver en SAS-token (signatur för delad åtkomst) finns i [distribuera privat mall med SAS-token](resource-manager-powershell-sas-token.md). Information om hur du går igenom självstudierna finns i [Självstudier: integrera Azure Key Vault i Resource Manager malldistribution](./resource-manager-tutorial-use-key-vault.md).
 
 ## <a name="deploy-from-azure-cloud-shell"></a>Distribuera från Azure Cloud Shell
 
@@ -101,7 +103,7 @@ Om du vill skicka parameter värden kan du använda antingen infogade parametrar
 
 ### <a name="inline-parameters"></a>Infogade parametrar
 
-Ange parameterns namn med kommandot `New-AzResourceGroupDeployment` om du vill skicka infogade parametrar. Om du till exempel vill skicka en sträng och matris till en mall använder du:
+Om du vill skicka infogade parametrar anger du namnet på parametern med kommandot `New-AzResourceGroupDeployment`. Om du till exempel vill skicka en sträng och matris till en mall använder du:
 
 ```powershell
 $arrayParam = "value1", "value2"

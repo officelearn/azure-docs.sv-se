@@ -1,7 +1,7 @@
 ---
 title: Vanliga frågor – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Innehåller svar på vanliga frågor om den anpassade översättare.
+description: Den här artikeln innehåller svar på vanliga frågor om Azure Cognitive Services anpassade översättare.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 3dacfc0d8371ad9e8fa66d8bb1c5fafa59271ce0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 97d399f4a8ec704fd90eb6c49f0835be7e9e4537
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388171"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836601"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Vanliga frågor och svar om anpassad översättare
 
@@ -45,7 +45,7 @@ Distribuerade system kan nås via Microsoft Translator Text API v3 genom att ang
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hur gör jag för att hoppa över justerings-och menings brytningar om mina data redan är meningen?
 
-Den anpassade översättaren hoppar över menings justering och menings brytningar för TMX-filer och textfiler med tillägget `.align`. `.align`-filer ger användarna möjlighet att hoppa över den anpassade översättningen av menings-och justerings processen för de filer som är perfekt justerade och behöver ingen ytterligare bearbetning. Vi rekommenderar att du endast använder `.align`-tillägget för filer som är perfekt justerade.
+Den anpassade översättaren hoppar över menings justering och menings brytningar för TMX-filer och text-filer med tillägget `.align`. `.align` filer ger användare möjlighet att hoppa över den anpassade översättningen av meningar och justeringar för de filer som är perfekt justerade och behöver ingen ytterligare bearbetning. Vi rekommenderar att du endast använder `.align` tillägget för filer som är perfekt justerade.
 
 Om antalet extraherade meningar inte stämmer överens med de två filerna med samma bas namn kommer den anpassade översättare fortfarande att köra menings justeringen på `.align` filer.
 

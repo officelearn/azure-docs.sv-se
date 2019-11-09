@@ -1,7 +1,7 @@
 ---
 title: Vad är nytt i API för textanalys
-titlesuffix: Text Analytics - Azure Cognitive Services
-description: Lär dig mer om ny utveckling med tjänsten Textanalys
+titleSuffix: Text Analytics - Azure Cognitive Services
+description: Den här artikeln innehåller information om nya versioner och funktioner för Azure Cognitive Services Textanalys.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 44ef6fb118be4d1110a693faded6c57bc8b4e2fd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4eb8f7f9077ce04ee8138580a836637b89cf8c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499963"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835589"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -44,7 +44,7 @@ Nästa version av Attitydanalys är nu tillgänglig för offentlig för hands ve
 * Automatisk etikettering för olika sentiment i text.
 * Sentiment analys och utdata på en dokument-och menings nivå. 
 
-Det stöder engelska (`en`), japanska (`ja`), Kinesisk (förenklad) (`zh-Hans`), traditionell kinesiska (`zh-Hant`), franska (`fr`), italienska (`it`), spanska (`es`), nederländska (`nl`), portugisiska (`pt`) och tyska (`de`). och är tillgängligt i följande regioner: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`och `West US 2`.
+Den stöder engelska (`en`), japanska (`ja`) Kinesisk (förenklad) (`zh-Hans`), traditionell kinesiska (`zh-Hant`), franska (`fr`), italienska (`it`), spanska (`es`), nederländska (`nl`), portugisiska (`pt`) och tyska (`de`) och är tillgänglig i följande regioner: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`och `West US 2`.
 
 > [!div class="nextstepaction"]
 > [Läs mer om Attitydanalys v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)

@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174175"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832712"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
@@ -97,7 +97,7 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Granska dina inställningar för extern SharePoint Online-delning
 
-- Om du vill inkludera SharePoint Online-webbplatser i dina åtkomst paket för externa användare ser du till att inställningen för extern delning på organisations nivå har angetts till **vem som helst** (användarna behöver inte logga in) eller **nya och befintliga gäster** (gäster måste signera i eller ange en verifierings kod). Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Om du vill inkludera SharePoint Online-webbplatser i dina åtkomst paket för externa användare kontrollerar du att inställningen för extern delning på organisations nivå har angetts till **vem som helst** (användarna inte behöver logga in) eller **nya och befintliga gäster** (gäster måste logga in eller ange en verifierings kod). Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Om du vill begränsa en extern delning utanför hantering av rättigheter kan du ange inställningen för extern delning till **befintliga gäster**. Sedan kommer endast nya användare som bjuds in via rättighets hantering att kunna få åtkomst till dessa webbplatser. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
@@ -113,7 +113,7 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 ### <a name="review-your-teams-sharing-settings"></a>Granska dina team delnings inställningar
 
-- Om du vill inkludera team i dina åtkomst paket för externa användare ser du till att **Tillåt gäst åtkomst i Microsoft Teams** är **aktiverat** för att tillåta gäst åtkomst. Mer information finns i [Konfigurera gäst åtkomst i administrations Center för Microsoft Teams](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+- Om du vill inkludera team i dina åtkomst paket för externa användare ser du till att **Tillåt gäst åtkomst i Microsoft Teams** är **aktiverat** för att tillåta gäst åtkomst. Mer information finns i [Konfigurera gäst åtkomst i administrations Center för Microsoft Teams](/microsoftteams/set-up-guests#configure-guest-access-in-the-teams-admin-center).
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Hantera livs cykeln för externa användare
 
@@ -143,7 +143,7 @@ Du kan välja vad som händer när en extern användare, som har bjudits in till
 
 1. Om du vill ta bort gäst användar kontot i den här katalogen kan du ange antalet dagar innan det tas bort. Om du vill ta bort gäst användar kontot så fort de förlorar sin senaste tilldelning till alla åtkomst paket, anger du **antalet dagar innan externa användare tas bort från katalogen** till **0**.
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

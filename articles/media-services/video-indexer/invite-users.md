@@ -1,6 +1,6 @@
 ---
 title: Bjud in användare till Video Indexer – Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Den här artikeln visar hur du bjuder in användare till Video Indexer.
 services: media-services
 author: ReutAmior
@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 740b03179fad91e9042a54f8e74a622b3125b832
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: c1395bc3b329630a1ecbd479d275c30c9c787bb1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950183"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839017"
 ---
-# <a name="quickstart-invite-users-to-video-indexer"></a>Snabbstart: Bjud in användare till Video Indexer
+# <a name="quickstart-invite-users-to-video-indexer"></a>Snabb start: Bjud in användare till Video Indexer
 
 Om du vill samar beta med dina kollegor kan du bjuda in dem till ditt Video Indexer-konto. 
 

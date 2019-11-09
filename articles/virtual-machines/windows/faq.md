@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 068ae6fd581a55892c115f3a7e38d10304f057d8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 95b7644ab8e0254a53eb4a0872a5af98a0894aec
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170213"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839228"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor om Virtuella Windows-datorer
 Den här artikeln behandlar några vanliga frågor om virtuella Windows-datorer som skapats i Azure med hjälp av distributions modellen Resource Manager. Linux-versionen av det här avsnittet finns i [vanliga frågor och svar om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -75,10 +75,10 @@ Ja. Om du snabbt vill skapa en virtuell Linux-dator för att testa, se [skapa en
 Ja, det är nu möjligt. Den virtuella datorn måste först stoppas. Sedan kan du lägga till eller ta bort ett nätverkskort (om det inte är det sista NÄTVERKSKORTet på den virtuella datorn). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Finns det några dator namns krav?
-Ja. Dator namnet får innehålla högst 15 tecken. Se [namn konventions regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention) för mer information om hur du namnger dina resurser.
+Ja. Dator namnet får innehålla högst 15 tecken. Se [namn konventions regler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#sample-naming-convention) för mer information om hur du namnger dina resurser.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Finns det några resurs grupp namns krav?
-Ja. Resurs gruppens namn får innehålla högst 90 tecken. Se [namn konventions regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming) för mer information om resurs grupper.
+Ja. Resurs gruppens namn får innehålla högst 90 tecken. Se [namn konventions regler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) för mer information om resurs grupper.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Vilka är användar namns kraven när du skapar en virtuell dator?
 
@@ -108,7 +108,7 @@ Det finns varierande krav på lösen ords längd, beroende på vilket verktyg du
 * Ha färre tecken
 * Ha övre tecken
 * Ha en siffra
-* Ha ett specialtecken (regex match [\W_])
+* Ha ett specialtecken (regex match [\ W_])
 
 Följande lösen ord är inte tillåtna:
 

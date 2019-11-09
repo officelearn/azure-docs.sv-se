@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dc439c352bb3e6e56fae4b83d783da94720bfe1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4af18eaa0dc5622dcc52603e6fb4e569f505feeb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818399"
+ms.locfileid: "73838116"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ ML pipelines använder fjärrberäknings mål för beräkning och lagring av mel
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 
@@ -411,14 +411,14 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>Visa resultat från en publicerad pipeline
 
 Se listan över alla publicerade pipeliner och deras körnings information:
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
+1. Logga in på [Azure Machine Learning](https://ml.azure.com).
 
 1. [Se din arbets yta](how-to-manage-workspace.md#view) för att hitta listan över pipeliner.
  ![lista över maskin inlärnings pipeliner](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Välj en enskild pipeline för att se körnings resultaten.
 
-De här resultaten är också tillgängliga i din arbets yta i [Azure Machine Learning Studio]] (https://ml.azure.com).
+De här resultaten är också tillgängliga i din arbets yta i [Azure Machine Learning](https://ml.azure.com).
 
 ### <a name="disable-a-published-pipeline"></a>Inaktivera en publicerad pipeline
 

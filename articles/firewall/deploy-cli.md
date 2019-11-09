@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 94db17405457be91795d1588bee68a0deea68246
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114812"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831970"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuera och konfigurera Azure-brandväggen med Azure CLI
 
@@ -38,10 +38,10 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
-> * Skapa en standardväg
+> * skapa en standardväg
 > * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
-> * Testa brandväggen
+> * testa brandväggen.
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure Portal](tutorial-firewall-deploy-portal.md) eller [Azure PowerShell](deploy-ps.md).
 
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -179,7 +179,7 @@ fwprivaddr="$(az network firewall ip-config list -g Test-FW-RG -f Test-FW01 --qu
 
 Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
-## <a name="create-a-default-route"></a>Skapa en standardväg
+## <a name="create-a-default-route"></a>skapa en standardväg
 
 Skapa en tabell med avaktiverad BGP Route-spridning
 
@@ -251,7 +251,7 @@ az network firewall network-rule create \
    --action Allow
 ```
 
-## <a name="test-the-firewall"></a>Testa brandväggen
+## <a name="test-the-firewall"></a>testa brandväggen.
 
 Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
@@ -284,7 +284,7 @@ Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   [www.google.com](www.google.com) begäranden ska lyckas och www.microsoft.com -begäranden ska misslyckas. Detta visar att brand Väggs reglerna fungerar som förväntat.
+   De `www.google.com` begär Anden ska lyckas och `www.microsoft.com` begär Anden ska Miss lyckas. Detta visar att brand Väggs reglerna fungerar som förväntat.
 
 Nu har du verifierat att brand Väggs reglerna fungerar:
 
@@ -302,4 +302,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+* [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)

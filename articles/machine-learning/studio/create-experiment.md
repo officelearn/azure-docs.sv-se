@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: skapa ett data vetenskaps experiment'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Den här snabbstarten om maskininlärning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 99cc453387ed32c4d7cbba31c1fec2ff24a8255f
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621880"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839948"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)
 

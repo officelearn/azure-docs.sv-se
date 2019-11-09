@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Översätt metod
 titleSuffix: Azure Cognitive Services
-description: Använd metoden Translator Text API Översätt.
+description: Förstå parametrarna, rubrikerna och bröd meddelanden för Azure Cognitive Services Translator Text API Översätt metod för att översätta text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: b809171549a8f3cbbbb6ccad1553608598afa345
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161711"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835787"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3,0: Översätt
 
@@ -42,11 +42,11 @@ Parametrarna för begäran som skickades till frågesträngen är:
   </tr>
   <tr>
     <td>som</td>
-    <td><em>Valfri parameter</em>.<br/>Anger språket för inmatad text. Hitta vilka språk som kan omvandlas från genom att leta upp <a href="./v3-0-languages.md">språk som stöds</a> med hjälp av <code>translation</code>-omfånget. Om parametern <code>from</code> inte anges används automatisk språk identifiering för att fastställa käll språket. <br/><br/>Du måste använda parametern <code>from</code> i stället för automatisk identifiering när du använder funktionen för <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamiskt ord listor</a> .</td>
+    <td><em>Valfri parameter</em>.<br/>Anger språket för inmatad text. Hitta vilka språk som kan översättas från genom att leta upp <a href="./v3-0-languages.md">språk som stöds</a> med hjälp av <code>translation</code>-omfånget. Om parametern <code>from</code> inte anges används automatisk språk identifiering för att fastställa käll språket. <br/><br/>Du måste använda <code>from</code> parameter i stället för automatisk identifiering när du använder funktionen för <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamiskt ord listor</a> .</td>
   </tr>
   <tr>
     <td>till</td>
-    <td><em>Obligatorisk parameter</em>.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de <a href="./v3-0-languages.md">språk som stöds</a> som ingår i <code>translation</code>-omfånget. Använd till exempel <code>to=de</code> för att översätta till tyska.<br/>Det går att översätta till flera språk samtidigt genom att upprepa parametern i frågesträngen. Använd exempelvis <code>to=de&to=it</code> för att översätta till tyska och italienska.</td>
+    <td><em>Obligatorisk parameter</em>.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de <a href="./v3-0-languages.md">språk som stöds</a> som ingår i <code>translation</code>s omfånget. Använd till exempel <code>to=de</code> för att översätta till tyska.<br/>Det går att översätta till flera språk samtidigt genom att upprepa parametern i frågesträngen. Använd till exempel <code>to=de&to=it</code> för att översätta till tyska och italienska.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -58,7 +58,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td><em>Valfri parameter</em>.<br/>Anger hur svordomar ska behandlas i översättningar. Möjliga värden är: <code>NoAction</code> (standard), <code>Marked</code> eller <code>Deleted</code>. Information om hur du hanterar svordomar finns i <a href="#handle-profanity">svordoms hantering</a>.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger hur svordomar ska behandlas i översättningar. Möjliga värden är: <code>NoAction</code> (standard) <code>Marked</code> eller <code>Deleted</code>. Information om hur du hanterar svordomar finns i <a href="#handle-profanity">svordoms hantering</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
@@ -74,7 +74,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td><em>Valfri parameter</em>.<br/>Anger ett återställnings språk om språket i inmatad text inte kan identifieras. Automatisk identifiering av språk används när parametern <code>from</code> utelämnas. Om identifieringen Miss lyckas, kommer <code>suggestedFrom</code>-språket att antas.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger ett återställnings språk om språket i inmatad text inte kan identifieras. Automatisk identifiering av språk används när parametern <code>from</code> utelämnas. Om identifieringen Miss lyckas kommer det <code>suggestedFrom</code> språket att antas.</td>
   </tr>
   <tr>
     <td>fromScript</td>
@@ -86,7 +86,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td><em>Valfri parameter</em>.<br/>Anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system. Möjliga värden är: <code>true</code> (standard) eller <code>false</code>.<br/><br/><code>allowFallback=false</code> anger att översättningen bara ska använda system som är utbildade för den <code>category</code> som anges av begäran. Om en översättning för språk X till språk Y kräver länkning genom ett Pivot-språk E, måste alla system i kedjan (X-> E och E-> Y) vara anpassade och ha samma kategori. Om det inte finns något system med en viss kategori returnerar begäran en 400-status kod. <code>allowFallback=true</code> anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system.
+    <td><em>Valfri parameter</em>.<br/>Anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system. Möjliga värden är: <code>true</code> (standard) eller <code>false</code>.<br/><br/><code>allowFallback=false</code> anger att översättningen bara ska använda system som är utbildade för de <code>category</code> som anges i begäran. Om en översättning för språk X till språk Y kräver länkning genom ett Pivot-språk E, måste alla system i kedjan (X-> E och E-> Y) vara anpassade och ha samma kategori. Om det inte finns något system med en viss kategori returnerar begäran en 400-status kod. <code>allowFallback=true</code> anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system.
 </td>
   </tr>
 </table> 
@@ -137,11 +137,11 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
       * `language`: en sträng som representerar koden för det identifierade språket.
 
-      * `score`: ett flyt värde som anger förtroendet i resultatet. Poängen är mellan noll och en och en låg poäng indikerar en låg exakthet.
+      * `score`: ett flyt värde som indikerar förtroendet i resultatet. Poängen är mellan noll och en och en låg poäng indikerar en låg exakthet.
 
     Egenskapen `detectedLanguage` finns bara i result-objektet när språk automatisk identifiering begärs.
 
-  * `translations`: en matris med översättnings resultat. Storleken på matrisen matchar antalet mål språk som anges i parametern `to`. Varje element i matrisen innehåller:
+  * `translations`: en matris med översättnings resultat. Storleken på matrisen matchar antalet mål språk som anges i `to` Frågeparametern. Varje element i matrisen innehåller:
 
     * `to`: en sträng som representerar språk koden för mål språket.
 
@@ -157,15 +157,15 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     * `alignment`: ett objekt med en enskild sträng egenskap med namnet `proj`, som mappar inmatad text till översatt text. Justerings informationen anges bara när parametern för begäran `includeAlignment` är `true`. Justeringen returneras som ett sträng värde av följande format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Kolonet separerar start-och slut index, strecket separerar språken och blank steg separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Se [Hämta justerings information](#obtain-alignment-information) för ett exempel och begränsningar.
 
-    * `sentLen`: ett objekt som returnerar menings gränser i indata-och utmatnings texter.
+    * `sentLen`: ett objekt returnerar menings gränser i indata-och utmatnings texter.
 
       * `srcSentLen`: en heltals mat ris som representerar längden på meningarna i indata. Matrisens längd är antalet meningar och värdena är längden på varje mening.
 
       * `transSentLen`: en heltals mat ris som representerar längden på meningarna i den översatta texten. Matrisens längd är antalet meningar och värdena är längden på varje mening.
 
-    Menings gränser inkluderas endast när parametern request `includeSentenceLength` är `true`.
+    Menings gränser inkluderas bara när parametern för begäran `includeSentenceLength` är `true`.
 
-  * `sourceText`: ett objekt med en enskild sträng egenskap med namnet `text`, vilket ger inmatad text i standard skriptet för käll språket. Egenskapen `sourceText` finns bara när indatamängden uttrycks i ett skript som inte är det vanliga skriptet för språket. Om indatatypen till exempel är Arabiskt skriven i latinskt skript, kommer `sourceText.text` att vara samma arabiska text som konverteras till enskriftspråk.
+  * `sourceText`: ett objekt med en enskild sträng egenskap med namnet `text`, vilket ger inmatad text i standard skriptet för käll språket. `sourceText` egenskapen finns bara när indatamängden uttrycks i ett skript som inte är det vanliga skriptet för språket. Om till exempel indatatypen är Arabiskt skriven i latinskt skript, är `sourceText.text` samma arabiska text som konverteras till enskriftspråk.
 
 Exempel på JSON-svar finns i avsnittet [exempel](#examples) .
 
@@ -209,7 +209,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
   <tr>
     <td>408</td>
-    <td>Begäran kunde inte uppfyllas eftersom en resurs saknas. Se fel meddelandet information. När du använder en anpassad <code>category</code>, indikerar detta ofta att det anpassade översättnings systemet ännu inte är tillgängligt för att betjäna begär Anden. Begäran bör göras om efter en vänte tid (t. ex. 1 minut).</td>
+    <td>Begäran kunde inte uppfyllas eftersom en resurs saknas. Se fel meddelandet information. När du använder en anpassad <code>category</code>visar detta ofta att det anpassade översättnings systemet ännu inte är tillgängligt för att betjäna begär Anden. Begäran bör göras om efter en vänte tid (t. ex. 1 minut).</td>
   </tr>
   <tr>
     <td>429</td>
@@ -217,11 +217,11 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
   <tr>
     <td>500</td>
-    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet <code>X-RequestId</code> och klient-ID: n från begär ande huvudet <code>X-ClientTraceId</code>.</td>
+    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begär ande identifierare från svars huvud <code>X-RequestId</code>och klient-ID: n från begärans huvud <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet <code>X-RequestId</code> och klient-ID: n från begär ande huvudet <code>X-ClientTraceId</code>.</td>
+    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begär ande identifierare från svars huvud <code>X-RequestId</code>och klient-ID: n från begärans huvud <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -249,7 +249,7 @@ Svars texten är:
 ]
 ```
 
-Matrisen `translations` innehåller ett-element som innehåller översättningen av den enda texten i indatatypen.
+`translations` matrisen innehåller ett-element som innehåller översättningen av den enda texten i indatatypen.
 
 ### <a name="translate-a-single-input-with-language-auto-detection"></a>Översätt en enstaka inmatning med språk automatisk identifiering
 
@@ -371,13 +371,13 @@ Om du inte vill få några svordomar i översättningen, oavsett om det finns sv
   </tr>
   <tr>
     <td><code>Marked</code></td>
-    <td>Svordomar ord ersätts med en markör i utdata. Markören är beroende av parametern <code>ProfanityMarker</code>.<br/><br/>
-För <code>ProfanityMarker=Asterisk</code>, kommer svordoms-ord att ersättas med <code>***</code>:<br/>
+    <td>Svordomar ord ersätts med en markör i utdata. Markören beror på <code>ProfanityMarker</code> parameter.<br/><br/>
+För <code>ProfanityMarker=Asterisk</code>ersätts svordomar av ord med <code>***</code>:<br/>
     <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
-    <strong>Exempel översättning (engelska)</strong>: \* \* \*.<br/><br/>
-För <code>ProfanityMarker=Tag</code> är svordomar ord omgiven av XML-taggar &lt;profanity &gt; och &lt;/Profanity &gt;:<br/>
+    <strong>Exempel översättning (engelska)</strong>: \*\*\*.<br/><br/>
+För <code>ProfanityMarker=Tag</code>är svordomar ord omgiven av XML-taggar &lt;svordomar&gt; och &lt;/Profanity&gt;:<br/>
     <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
-    <strong>Exempel översättning (engelska)</strong>: &lt;profanity &gt;jackass &lt;/Profanity &gt;.
+    <strong>Exempel översättning (engelska)</strong>: han är &lt;svordomar&gt;Jackass&lt;/Profanity&gt;.
   </tr>
 </table> 
 
@@ -418,7 +418,7 @@ Den senaste begäran returnerar:
 
 ### <a name="translate-content-with-markup-and-decide-whats-translated"></a>Översätt innehåll med markering och Bestäm vad som översätts
 
-Det är vanligt att översätta innehåll som innehåller markeringar som innehåll från en HTML-sida eller innehåll från ett XML-dokument. Inkludera Frågeparametern `textType=html` vid översättning av innehåll med taggar. Dessutom är det ibland användbart att undanta ett särskilt innehåll från översättningen. Du kan använda attributet `class=notranslate` för att ange innehåll som ska finnas kvar på det ursprungliga språket. I följande exempel kommer innehållet i det första `div`-elementet inte att översättas, medan innehållet i det andra `div`-elementet kommer att översättas.
+Det är vanligt att översätta innehåll som innehåller markeringar som innehåll från en HTML-sida eller innehåll från ett XML-dokument. Inkludera Frågeparametern `textType=html` vid översättning av innehåll med taggar. Dessutom är det ibland användbart att undanta ett särskilt innehåll från översättningen. Du kan använda attributet `class=notranslate` för att ange innehåll som ska finnas kvar på det ursprungliga språket. I följande exempel kommer innehållet i det första `div`-elementet inte att översättas, medan innehållet i det andra `div` element kommer att översättas.
 
 ```
 <div class="notranslate">This will not be translated.</div>
@@ -481,7 +481,7 @@ Observera följande begränsningar:
 
 ### <a name="obtain-sentence-boundaries"></a>Hämta menings gränser
 
-Om du vill få information om menings längden i käll texten och översatt text anger du `includeSentenceLength=true` i frågesträngen.
+Om du vill få information om menings längden i käll texten och översatt text anger du `includeSentenceLength=true` på frågesträngen.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

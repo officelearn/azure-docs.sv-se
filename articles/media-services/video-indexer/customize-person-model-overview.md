@@ -1,7 +1,7 @@
 ---
-title: Anpassa en Person-modell i Video Indexer - Azure
-titlesuffix: Azure Media Services
-description: Den här artikeln ger en översikt över vad är en Person-modell i Video Indexer och hur du anpassar den.
+title: Anpassa en person modell i Video Indexer – Azure
+titleSuffix: Azure Media Services
+description: Den här artikeln ger en översikt över vad som är en person modell i Video Indexer och hur du anpassar den.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,24 +10,24 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: c74b913fc3ac35039d914fc97c9c438d2e4a3069
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fabba98cb137975da749411ca9accb5a951742d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799432"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838300"
 ---
-# <a name="customize-a-person-model-in-video-indexer"></a>Anpassa en Person-modell i Video Indexer
+# <a name="customize-a-person-model-in-video-indexer"></a>Anpassa en person modell i Video Indexer
 
-Video Indexer stöder kändisigenkänning i dina videor. Funktionen för igenkänning av kändisar täcker ungefär en miljon ansikten baserat på vanliga datakälla, till exempel IMDB och Wikipedia övre LinkedIn Påverkare. Ansikten som inte känns igen av Video Indexer identifieras fortfarande men lämnas Namnlös. Kunder kan skapa anpassade Person modeller och aktivera Video Indexer att känna igen ansikten som inte känns igen som standard. Kunder kan skapa dessa modeller för Person genom att länka ett namn med avbildningar av personens ansikte.  
+Video Indexer stöder kändis-igenkänning i dina videor. Kändis igenkännings funktionen täcker cirka 1 000 000 ansikten baserat på den begärda data källan, till exempel IMDB-, Wikipedia-och Top LinkedIn-påverkan. Ansikten som inte känns igen av Video Indexer har fortfarande identifierats, men får inget namn. Kunder kan skapa anpassade person modeller och aktivera Video Indexer för att identifiera ansikten som inte känns igen som standard. Kunder kan bygga dessa person modeller genom att para ihop en persons namn med bildfiler för personens ansikte.  
 
-Om ditt konto caters till olika användningsfall, kan du dra nytta av att kunna skapa flera Person modeller per konto. Om innehållet i ditt konto är avsedd att sorteras i olika kanaler, kan du till exempel vill skapa en separat Person-modell för varje kanal. 
+Om ditt konto har olika användnings fall kan du dra nytta av att kunna skapa flera person modeller per konto. Om innehållet i ditt konto till exempel är avsett att sorteras i olika kanaler, kanske du vill skapa en separat person modell för varje kanal. 
 
 > [!NOTE]
-> Varje Person modell stöder upp till 1 miljon personer och varje konto har en gräns på 50 Person modeller. 
+> Varje persons modell har stöd för upp till 1 000 000 personer och varje konto har en gräns på 50 person modeller. 
 
-När en modell har skapats kan använda du den genom att ange modell-ID för en specifik Person modell när du överför/indexera eller omindexering en video. Utbildning utseende för en video och uppdaterar specifik anpassade modellen som videon var associerad med. 
+När en modell har skapats kan du använda den genom att ange modell-ID: t för en speciell person modell vid överföring/indexering eller Omindexering av en video. Träna en ny ansikte för en video, uppdaterar den anpassade modell som videon var kopplad till. 
 
-Om du inte behöver stöd för flera Person-modellen kan inte tilldela någon modell-ID till videon vid uppladdning/indexera eller omindexering. I det här fallet använder Video Indexer Person standardmodellen i ditt konto. 
+Om du inte behöver stöd för flera person modeller tilldelar du inte ett ID för person modeller till videon när du laddar upp/indexerar eller Omindexerar. I det här fallet använder Video Indexer standard modellen för personer i ditt konto. 
 
-Du kan använda Video Indexer-webbplatsen att redigera ansikten som upptäcktes på en video och hantera flera anpassade Person modeller i ditt konto, enligt beskrivningen i den [anpassa en Person modell med hjälp av en webbplats](customize-person-model-with-website.md) avsnittet. Du kan också använda API: et, enligt beskrivningen i [anpassa en Person modell med API: er](customize-person-model-with-api.md).
+Du kan använda Video Indexer webbplats för att redigera ansikten som upptäcktes i en video och för att hantera flera anpassade person modeller i ditt konto, enligt beskrivningen i avsnittet [Anpassa en person modell med hjälp av en webbplats](customize-person-model-with-website.md) . Du kan också använda API: et enligt beskrivningen i [Anpassa en person modell med hjälp av API: er](customize-person-model-with-api.md).

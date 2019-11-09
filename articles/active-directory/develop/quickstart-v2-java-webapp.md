@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 0046443bef0e71215157dfe89aaae45b2a91c330
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 93ae820f8c98b749ef8f71b17bf3d540d7886ed6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200269"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832132"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -32,7 +32,7 @@ När du har slutfört den här snabb starten kommer ditt program att godkänna i
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill köra det här exemplet behöver du:
 
@@ -42,22 +42,22 @@ Om du vill köra det här exemplet behöver du:
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 > Det finns två alternativ för att starta ditt snabb starts program: Express (alternativ 1) eller manuell (alternativ 2)
-> 
+>
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
-> 
+>
 > 1. Gå till [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt.
-> 
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
-> 
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
-> 
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+>
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+>
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
-> 
+>
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 
+>
 > 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](/azure/active-directory/develop/) .
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
@@ -66,10 +66,9 @@ Om du vill köra det här exemplet behöver du:
 > 1. På sidan **Översikt** hittar du program- **ID: t** och **katalogens ID-** värden för programmet. Kopiera dessa värden för senare.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
 >    - I **omdirigerings-URI: er**lägger du till `http://localhost:8080/msal4jsamples/secure/aad` och `http://localhost:8080/msal4jsamples/graph/me`.
->    - I **Avancerade inställningar**lägger du till `https://localhost:8080/msal4jsample/sign-out` till **utloggnings-URL**.
 >    - Välj **Spara**.
 > 1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet**i avsnittet **klient hemligheter** :
-> 
+>
 >    - Ange en nyckel Beskrivning (för instansens program hemlighet).
 >    - Välj en nyckel varaktighet **i ett år**.
 >    - Nyckelvärdet visas när du väljer **Lägg till**.
@@ -77,16 +76,16 @@ Om du vill köra det här exemplet behöver du:
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
-> 
+>
 > För att kod exemplet för den här snabb starten ska fungera måste du:
-> 
+>
 > 1. Lägg till svars-URL: er som `http://localhost:8080/msal4jsamples/secure/aad` och `http://localhost:8080/msal4jsamples/graph/me`.
 > 1. Skapa en klient hemlighet.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-code-sample"></a>Steg 2: Hämta kod exemplet
 
@@ -97,7 +96,7 @@ Om du vill köra det här exemplet behöver du:
  1. Extrahera zip-filen till en lokal mapp.
  1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
 
- 1. Öppna filen Application. properties, som finns i src/main/Resources/Folder och Ersätt värdet för fälten *AAD. clientId*, *AAD. Authority* och *AAD. SecretKey* med respektive värde för **program-ID**, Klient **-ID** och **klient hemlighet** som följande:
+ 1. Öppna filen Application. properties, som finns i src/main/Resources/Folder och Ersätt värdet för fälten *AAD. clientId*, *AAD. Authority* och *AAD. SecretKey* med respektive värde för **program-ID**, **klient-ID** och **klient hemlighet** som följande:
 
     ```file
     aad.clientId=Enter_the_Application_Id_here
@@ -108,7 +107,7 @@ Om du vill köra det här exemplet behöver du:
     ```
 
 > [!div renderon="docs"]
-> Var:
+> Där:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
@@ -145,12 +144,12 @@ Lägg till MSAL4J i ditt program genom att använda maven eller Gradle för att 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
-    <version>0.6.0-preview</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ```$xslt
-compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.6.0-preview'
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 ```
 
 ### <a name="msal-initialization"></a>MSAL-initiering

@@ -5,21 +5,22 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e7de815b7254fb071b3094f9ae636b712b38684b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 7a85ed93d9ee01255d809cce84ebe24e6c3f71d1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797691"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847399"
 ---
 # <a name="sensor-partner-integration"></a>Integrering av sensor partner
-Den här artikeln innehåller information om Azure FarmBeats **Translator** -komponenten.
+
+Den här artikeln innehåller information om Azure FarmBeats **Translator** -komponenten som möjliggör integrering av sensor partner.
 
 Med den här komponenten kan partners utveckla sensorer som integreras med FarmBeats, genom att använda vår API och skicka kundenhets data och telemetri till FarmBeats-datahubben. Data visualiseras med FarmBeats-acceleratorn. Data kan användas för data fusion och för att bygga dator språk/artificiella informations modeller.
 
 ## <a name="link-farmbeats-account"></a>Länka FarmBeats-konto
 
-När kunderna har köpt och distribuerat enheter/sensorer kan de komma åt enhets data och telemetri på enhets partners SaaS portal (program vara som en tjänst). Enhets partner måste göra det möjligt för kunder att länka sitt konto till sin FarmBeats-instans på Azure. Följande autentiseringsuppgifter måste fyllas i av kund/SI:
+När kunderna har köpt och distribuerat enheter/sensorer kan de komma åt enhets data och telemetri på enhets partners SaaS portal (program vara som en tjänst). Enhets partner måste göra det möjligt för kunder att länka sitt konto till sin FarmBeats-instans på Azure. Följande autentiseringsuppgifter krävs för att kunna fylla i med kund-/system integrerare:
 
    - Visnings namn (ett valfritt fält för användare som definierar ett namn för den här integrationen)
    - API-slutpunkt
@@ -41,14 +42,11 @@ Kunder kan ta bort kopplingen mellan en befintlig FarmBeats-integrering. Avlänk
 
 ## <a name="edit-farmbeats-integration"></a>Redigera FarmBeats-integrering
 
-Kunden kan redigera FarmBeats-integreringen. Det primära scenariot för redigering är när klient hemligheten eller anslutnings strängen ändras på grund av förfallo datum, i det här fallet kan kunden bara redigera följande fält.
+Kunden kan redigera FarmBeats-integrerings inställningarna om klient hemligheten eller anslutnings strängen ändras. I det här fallet kan kunden bara redigera följande fält:
 
    - Visnings namn (om tillämpligt)
    - Klient hemlighet (ska visas i formatet "2x8 * * * * * * * * *" eller Visa/Dölj i stället för klartext)
    - Anslutnings sträng (ska visas i formaten "2x8 * * * * * * * * * *" eller Visa/Dölj i stället för klartext)
-
-   > [!NOTE]
-   > Redigera bör inte avbryta skapandet av metadata-objekt.
 
 ## <a name="view-last-telemetry-sent"></a>Visa senaste telemetri som skickats
 
@@ -183,7 +181,7 @@ ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. T
   description  | Ange en meningsfull beskrivning av modellen
   properties  | Ytterligare egenskaper från tillverkaren
   **Mäta**  |
-  hardwareId  | Unikt ID för sensorn som angetts per tillverkare
+  HardwareId  | Unikt ID för sensorn som angetts per tillverkare
   SensorModelId  | ID för associerad sensor modell.
   location  | Sensor latitud (-90 till + 90)/Longitude (-180 till 180)/Elevation (i meter)
   Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Detta måste vara samma namn som det definieras i enhets modellen
@@ -192,7 +190,7 @@ ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. T
   description  | Ange en meningsfull beskrivning
   properties  | Ytterligare egenskaper från tillverkaren
 
- Information om varje objekt och deras egenskaper finns i [Swagger](httpa://aka.ms/FarmBeatsDatahubSwagger).
+ Information om varje objekt och deras egenskaper finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
  > API: erna returnerar unika ID: n för varje instans som skapats. Detta ID måste behållas av Translator för enhets hantering och metadata-synkronisering.

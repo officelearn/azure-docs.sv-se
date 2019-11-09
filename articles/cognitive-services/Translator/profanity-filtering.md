@@ -1,7 +1,7 @@
 ---
 title: Filtrering av svordomar – Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Använd att filtrera svordomar i Translator Text API.
+description: Använd funktionen för svordomar för att fastställa nivån på svordomar som har översatts i din text i Azure Cognitive Services Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 114dea098db5c824a1235ba1635f547383bf6743
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595191"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836231"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Lägg till svordoms-filtrering med Translator Text API
 
@@ -26,11 +26,11 @@ Om du vill undvika att se svordomar i översättningen, även om det finns svord
 Metoden Översätt () använder parametern "alternativ", som innehåller det nya elementet "ProfanityAction". De godkända värdena för ProfanityAction är "noaction", "märkta" och "Deleted".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Godkända värden för ProfanityAction och exempel
-|ProfanityAction-värde | Action | Exempel: Källa-Japansk | Exempel: Mål – engelska|
+|ProfanityAction-värde | Åtgärd | Exempel: källa-Japansk | Exempel: Target – engelska|
 | :---|:---|:---|:---|
-| NoAction | Standard. Samma som att inte ställa in alternativet. Svordomar skickas från källa till mål. | 彼は変態です。 | Han är en Jerk. |
-| Klassificera | Svordomar ord omges av XML- \<taggar som är svordomar >... \</Profanity >. | 彼は変態です。 | Han är en \<svordom > Jerk\</Profanity >. |
-| Borttagen | Svordomar-ord tas bort från utdata utan ersättning. | 彼は。 | Han är en. |
+| Noaction | Standard. Samma som att inte ställa in alternativet. Svordomar skickas från källa till mål. | 彼は変態です från en omfattande | Han är en Jerk. |
+| Klassificera | Svordomar ord omges av XML-taggar \<svordomar >... \</Profanity >. | 彼は変態です från en omfattande | Han är \<svordomar > Jerk\</Profanity >. |
+| Borttagen | Svordomar-ord tas bort från utdata utan ersättning. | 彼は från en omfattande | Han är en. |
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

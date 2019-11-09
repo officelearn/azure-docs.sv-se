@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 293a90591a77825279c8ebbae64516b6126d8621
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588270"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838218"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuera Azure Datautforskaren till din Virtual Network (förhands granskning)
 
@@ -220,30 +220,32 @@ Använd ExpressRoute för att ansluta till ett lokalt nätverk till Azure-Virtua
 
 Om du vill skydda utgående trafik med hjälp av [Azure-brandväggen](/azure/firewall/overview) eller en virtuell installation för att begränsa domän namn, måste följande fullständigt kvalificerade domän namn (FQDN) tillåtas i brand väggen.
 
-* prod.warmpath.msftcloudes.com:443
-* production.diagnostics.monitoring.core.windows.net:443
-* graph.windows.net:443
-* *. update.microsoft.com:443
-* shavamanifestcdnprod1.azureedge.net:443
-* login.live.com:443
-* wdcp.microsoft.com:443
-* login.microsoftonline.com:443
-* azureprofilerfrontdoor.cloudapp.net:443
-* *. core.windows.net:443
-* *. servicebus.windows.net:443
-* shoebox2.metrics.nsatc.net:443
-* production.diagnostics.monitoring.core.windows.net:443
-* prod-dsts.dsts.core.windows.net:443
-* ocsp.msocsp.com:80
-* *. windowsupdate.com:80
-* ocsp.digicert.com:80
-* go.microsoft.com:80
-* dmd.metaservices.microsoft.com:80
-* www.msftconnecttest.com:80
-* crl.microsoft.com:80
-* www.microsoft.com:80
-* adl.windows.com:80
-* crl3.digicert.com:80
+```
+prod.warmpath.msftcloudes.com:443
+production.diagnostics.monitoring.core.windows.net:443
+graph.windows.net:443
+*.update.microsoft.com:443
+shavamanifestcdnprod1.azureedge.net:443
+login.live.com:443
+wdcp.microsoft.com:443
+login.microsoftonline.com:443
+azureprofilerfrontdoor.cloudapp.net:443
+*.core.windows.net:443
+*.servicebus.windows.net:443
+shoebox2.metrics.nsatc.net:443
+production.diagnostics.monitoring.core.windows.net:443
+prod-dsts.dsts.core.windows.net:443
+ocsp.msocsp.com:80
+*.windowsupdate.com:80
+ocsp.digicert.com:80
+go.microsoft.com:80
+dmd.metaservices.microsoft.com:80
+www.msftconnecttest.com:80
+crl.microsoft.com:80
+www.microsoft.com:80
+adl.windows.com:80
+crl3.digicert.com:80
+```
 
 Du måste också definiera [routningstabellen](/azure/virtual-network/virtual-networks-udr-overview) i under nätet med [hanterings adresser](#azure-data-explorer-management-ip-addresses) och [hälso övervaknings adresser](#health-monitoring-addresses) med nästa hopp- *Internet* för att förhindra problem med asymmetriska vägar.
 

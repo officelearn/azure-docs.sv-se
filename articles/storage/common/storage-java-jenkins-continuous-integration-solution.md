@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: dc62696700a5c34c28f5f8c4f347dbb4c5183cab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986533"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839136"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en Jenkins-lösning för kontinuerlig integrering
 
@@ -45,10 +45,10 @@ Fördelarna med att använda Blob Service som värd för dina Agile-utvecklings 
      
       `java -jar jenkins.war`
 
-  3. Öppna `http://localhost:8080/` i webbläsaren för att öppna Jenkins-instrumentpanelen, som du kommer att använda för att installera och konfigurera plugin-programmet för Azure Storage.
+  3. `http://localhost:8080/` öppna Jenkins i webbläsaren och öppna instrument panelen för som du kommer att använda för att installera och konfigurera Azure Storage-plugin-programmet.
      
       Även om en typisk Jenkins CI-lösning skulle konfigureras att köras som en tjänst, räcker det att köra Jenkins-kriget på kommando raden för den här självstudien.
-* Ett Azure-konto. Du kan registrera dig för ett Azure-konto <https://www.azure.com>på.
+* Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <https://www.azure.com>.
 * Ett Azure-lagringskonto. Om du inte redan har ett lagrings konto kan du skapa ett med hjälp av stegen i [skapa ett lagrings konto](../common/storage-quickstart-create-account.md).
 * Du rekommenderas att använda Jenkins CI-lösningen men det är inte obligatoriskt, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob Service som lagrings plats för Jenkins CI build-artefakter.
 
@@ -92,25 +92,25 @@ I instruktions syfte måste du först skapa ett jobb som ska skapa flera filer o
 
 5. I avsnittet **efter build-åtgärder** i jobb konfigurationen väljer du **Lägg till åtgärd efter skapande** och väljer **Ladda upp artefakter till Azure Blob Storage**.
 6. För **lagrings konto namn**väljer du det lagrings konto som ska användas.
-7. Ange behållar namnet för **container namn**. (Behållaren kommer att skapas om den inte redan finns när bygg artefakterna laddas upp.) Du kan använda miljövariabler, så i det här exemplet `${JOB_NAME}` anger du behållar namnet.
+7. Ange behållar namnet för **container namn**. (Behållaren kommer att skapas om den inte redan finns när bygg artefakterna laddas upp.) Du kan använda miljövariabler, så i det här exemplet anger du `${JOB_NAME}` som behållar namn.
    
     **Tips**
    
     Under **kommando** avsnittet där du har angett ett skript för **kommando kommandot kör Windows** , är en länk till miljövariablerna som identifieras av Jenkins. Välj den länken om du vill lära dig om miljö variabel namn och beskrivningar. Miljövariabler som innehåller specialtecken, till exempel miljövariabeln **BUILD_URL** , tillåts inte som ett behållar namn eller en gemensam virtuell sökväg.
 8. Välj **gör ny behållare offentlig som standard** i det här exemplet. (Om du vill använda en privat behållare måste du skapa en signatur för delad åtkomst för att tillåta åtkomst, vilket ligger utanför den här artikelns omfattning. Du kan läsa mer om signaturer för delad åtkomst i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).)
 9. Valfritt Välj **Rensa behållare innan** du överför om du vill att behållaren ska rensas efter innehåll innan Bygg artefakter laddas upp (lämna den omarkerad om du inte vill rensa innehållet i behållaren).
-10. Ange`text/*.txt` **i listan över artefakter som ska överföras**.
-11. I den här självstudien anger `${BUILD\_ID}/${BUILD\_NUMBER}`du för **gemensam virtuell sökväg för uppladdade artefakter**.
+10. Ange `text/*.txt`för **lista över artefakter som ska överföras**.
+11. I den här självstudien anger du `${BUILD\_ID}/${BUILD\_NUMBER}`för **vanliga virtuella Sök vägar för uppladdade artefakter**.
 12. Spara inställningarna genom att välja **Spara** .
 13. I Jenkins-instrumentpanelen väljer du **Skapa nu** för att köra **MyJob**. Granska konsolens utdata för status. Status meddelanden för Azure Storage tas med i konsolens utdata när åtgärden efter build börjar ladda upp Bygg artefakter.
 14. När jobbet har slutförts kan du undersöka build-artefakterna genom att öppna den offentliga blobben.
-    1. Logga in på [Azure Portal](https://portal.azure.com).
+    1. Logga in på [Azure-portalen](https://portal.azure.com).
     2. Välj **Lagring**.
     3. Välj det lagrings konto namn som du använde för Jenkins.
     4. Välj **behållare**.
     5. Välj behållaren med namnet **myjob**, som är den gemena versionen av det jobb namn som du tilldelade när du skapade Jenkins-jobbet. Behållar namn och blob-namn är gemener (och Skift läges känsliga) i Azure Storage. I listan över blobbar för behållaren med namnet **myjob**bör du se **Hej. txt** och **date. txt**. Kopiera URL: en för något av dessa objekt och öppna den i webbläsaren. Text filen som överfördes som en Bygg artefakt visas.
 
-Endast en åtgärd efter build-åtgärd som laddar upp artefakter till Azure Blob Storage kan skapas per jobb. Åtgärden för att överföra artefakter till Azure Blob Storage kan ange olika filer (inklusive jokertecken) och sökvägar till filer i **listan över artefakter som ska överföras** med hjälp av semikolon som avgränsare. Om din Jenkins-version t. ex. skapar JAR-filer och TXT-filer i arbets ytans **Bygg** -mapp, och du vill överföra både till Azure Blob Storage, använder du följande värde för **listan över artefakter som ska laddas upp** : `build/\*.jar;build/\*.txt`. Du kan också använda Double-kolon-syntax för att ange en sökväg som ska användas i BLOB-namnet. Om du till exempel vill att jar v7 ska laddas upp med **binärfiler** i BLOB-sökvägen och txt-filerna som ska överföras med hjälp av **meddelanden** i BLOB-sökvägen använder du följande värde för **listan över artefakter som ska** överföras `build/\*.jar::binaries;build/\*.txt::notices`:.
+Endast en åtgärd efter build-åtgärd som laddar upp artefakter till Azure Blob Storage kan skapas per jobb. Åtgärden för att överföra artefakter till Azure Blob Storage kan ange olika filer (inklusive jokertecken) och sökvägar till filer i **listan över artefakter som ska överföras** med hjälp av semikolon som avgränsare. Om din Jenkins-version t. ex **. skapar jar** -filer och txt-filer i arbets ytans installationsmapp och du vill överföra både till Azure Blob Storage, använder du följande värde för **listan över artefakter som ska överföras** : `build/\*.jar;build/\*.txt`. Du kan också använda Double-kolon-syntax för att ange en sökväg som ska användas i BLOB-namnet. Om du till exempel vill att jar v7 ska laddas upp med **binärfiler** i BLOB-sökvägen och txt-filerna för att laddas upp med **meddelanden** i BLOB-sökvägen använder du följande värde för **listan över artefakter som ska överföras** : `build/\*.jar::binaries;build/\*.txt::notices`.
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Så här skapar du ett build-steg som hämtas från Azure Blob Storage
 Följande steg illustrerar hur du konfigurerar ett build-steg för att ladda ned objekt från Azure Blob Storage, vilket är användbart om du vill inkludera objekt i din version. Ett exempel på att använda det här mönstret är jar v7 som du kanske vill spara i Azure Blob Storage.
@@ -128,16 +128,16 @@ När du har kört en version kan du kontrol lera utdata från versions historik 
 ## <a name="components-used-by-the-blob-service"></a>Komponenter som används av Blob Service
 Det här avsnittet innehåller en översikt över Blob Service-komponenterna.
 
-* **Lagrings konto**: All åtkomst till Azure Storage görs via ett lagrings konto. Ett lagrings konto är den högsta nivån i namn området för åtkomst till blobbar. Ett konto kan innehålla ett obegränsat antal behållare, så länge den totala storleken är under 100 TB.
-* **Behållare**: En behållare ger gruppering av en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
-* **BLOB**: En fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block-och sid-blobar. De flesta filer är block-blobar. En enda Block-Blob kan vara upp till 200 GB. I den här självstudien används block blobbar. Page blobbar, en annan Blob-typ, kan vara upp till 1 TB i storlek och är mer effektivt när intervall med byte i en fil ändras ofta. Mer information om blobbar finns i [förstå block-blobbar, bifoga blobbar och sid](https://msdn.microsoft.com/library/azure/ee691964.aspx)-blobar.
-* **URL-format**: Blobbar är adresser bara med följande URL-format:
+* **Lagringskonto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Ett lagrings konto är den högsta nivån i namn området för åtkomst till blobbar. Ett konto kan innehålla ett obegränsat antal behållare, så länge den totala storleken är under 100 TB.
+* **Behållare**: en behållare ger en gruppering av en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
+* **BLOB**: en fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block-och sid-blobar. De flesta filer är block-blobar. En enda Block-Blob kan vara upp till 200 GB. I den här självstudien används block blobbar. Page blobbar, en annan Blob-typ, kan vara upp till 1 TB i storlek och är mer effektivt när intervall med byte i en fil ändras ofta. Mer information om blobbar finns i [förstå block-blobbar, bifoga blobbar och sid-blobar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **URL-format**: blobbar är adresser bara med följande URL-format:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
     (Formatet ovan gäller för det globala Azure-molnet. Om du använder ett annat Azure-moln använder du slut punkten i [Azure Portal](https://portal.azure.com) för att fastställa URL-slutpunkten.)
   
-    I formatet ovan `storageaccount` representerar namnet på ditt lagrings konto, `container_name` representerar namnet på din behållare och `blob_name` representerar namnet på din BLOB. I behållarens namn kan du ha flera sökvägar, avgränsade med ett **/** snedstreck. Exempel på behållar namnet som används för den här självstudien var **MyJob**, och **\_$ {build\_ID}/$ {build Number}** användes för den gemensamma virtuella sökvägen, vilket resulterade i att bloben har en URL med följande format:
+    I formatet ovan representerar `storageaccount` namnet på ditt lagrings konto, `container_name` representerar namnet på din behållare och `blob_name` representerar namnet på din BLOB. I behållarens namn kan du ha flera sökvägar, avgränsade med ett snedstreck, **/** . Exempel namnet på den behållare som används för den här självstudien var **MyJob**, och **$ {build\_ID}/$ {build\_Number}** användes för den gemensamma virtuella sökvägen, vilket resulterade i att bloben har en URL med följande format:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
@@ -148,7 +148,7 @@ Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problem
 ## <a name="next-steps"></a>Nästa steg
 * [Möta Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java)
-* [Azure Storage Client SDK-referens](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Client SDK-referens](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage/)
 

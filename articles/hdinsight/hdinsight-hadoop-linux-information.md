@@ -1,25 +1,25 @@
 ---
 title: Tips för att använda Hadoop på Linux-baserade HDInsight – Azure
 description: Få implementerings tips för att använda Linux-baserade HDInsight-kluster (Hadoop) i en välbekant Linux-miljö som körs i Azure-molnet.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f50702688b9a261ed98c2eb3a5892d1bdbe8d11b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308087"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834093"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
 Azure HDInsight-kluster ger Apache Hadoop på en välbekant Linux-miljö, som körs i Azure-molnet. För de flesta saker bör det fungera exakt som vilken annan Hadoop-on-Linux-installation som helst. Det här dokumentet anropar vissa skillnader som du bör vara medveten om.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras i systemet.
 
@@ -34,7 +34,7 @@ Om [den inte är domänansluten bör](./domain-joined/hdinsight-security-overvie
 
 Domänanslutna HDInsight stöder flera användare och mer detaljerade behörigheter och roll inställningar. Mer information finns i [Hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md).
 
-## <a name="domain-names"></a>Domännamn
+## <a name="domain-names"></a>Domän namn
 
 Det fullständigt kvalificerade domän namnet (FQDN) som ska användas vid anslutning till klustret från Internet är `CLUSTERNAME.azurehdinsight.net` eller `CLUSTERNAME-ssh.azurehdinsight.net` (endast för SSH).
 
@@ -42,13 +42,13 @@ Internt har varje nod i klustret ett namn som tilldelas under kluster konfigurat
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Ersätt `CLUSTERNAME` med namnet på klustret. När du uppmanas till det anger du lösen ordet för administratörs kontot. Det här kommandot returnerar ett JSON-dokument som innehåller en lista över värdarna i klustret. [JQ](https://stedolan.github.io/jq/) används för att extrahera `host_name` elementets värde för varje värd.
+Ersätt `CLUSTERNAME` med namnet på klustret. När du uppmanas till det anger du lösen ordet för administratörs kontot. Det här kommandot returnerar ett JSON-dokument som innehåller en lista över värdarna i klustret. [JQ](https://stedolan.github.io/jq/) används för att extrahera `host_name`-elementets värde för varje värd.
 
 Om du behöver hitta namnet på noden för en speciell tjänst kan du fråga Ambari för den komponenten. Om du till exempel vill hitta värdarna för noden HDFS Name, använder du följande kommando:
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och hämtar [](https://stedolan.github.io/jq/) sedan bara `host_name` värdet för värdarna JQ.
+Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och hämtar sedan [JQ](https://stedolan.github.io/jq/) endast `host_name` värde för värdarna.
 
 ## <a name="remote-access-to-services"></a>Fjärråtkomst till tjänster
 
@@ -63,7 +63,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och häm
     >
     > Om du vill använda alla funktioner i Ambari-webbgränssnittet använder du en SSH-tunnel för att dirigera webb trafik till klustrets huvud nod. Se [använda SSH-tunnlar för att komma åt Apache Ambari Web UI, ResourceManager, JobHistory, NameNode, Oozie och andra webb-UIS](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (rest)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Autentisera med hjälp av kluster administratörs användare och lösen ord.
@@ -84,14 +84,14 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och häm
 
 Mer information finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
-## <a name="file-locations"></a>Filplatser
+## <a name="file-locations"></a>Fil platser
 
 Hadoop-relaterade filer hittar du på klusternoderna på `/usr/hdp`. Den här katalogen innehåller följande under kataloger:
 
 * **2.6.5.3006-29**: Katalog namnet är den version av Hadoop-plattformen som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
-* **aktuell**: Den här katalogen innehåller länkar till under kataloger i **2.6.5.3006-29-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
+* **aktuell**: den här katalogen innehåller länkar till under kataloger i **2.6.5.3006-29-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
 
-Du hittar exempel data och jar-filer på Hadoop Distributed File System `/example` på och. `/HdiSamples`
+Du hittar exempel data och JAR-filer på Hadoop Distributed File System på `/example` och `/HdiSamples`.
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage och Data Lake Storage
 
@@ -105,41 +105,40 @@ När du använder HDInsight lagras datafilerna på ett skalbart och flexibelt s�
 
 Mer information finns i [förstå blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Till exempel visar följande kommando filer i `/example/data` mappen oavsett om de lagras på Azure Storage eller data Lake Storage:
+När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Följande kommando listar till exempel filer i mappen `/example/data` oavsett om de lagras på Azure Storage eller Data Lake Storage:
 
     hdfs dfs -ls /example/data
 
 I HDInsight frigörs data lagrings resurserna (Azure Blob Storage och Azure Data Lake Storage) från beräknings resurser. Därför kan du skapa HDInsight-kluster för att utföra beräkningarna efter behov, och senare ta bort klustret när arbetet är klart, samtidigt som dina datafiler sparas säkert i moln lagringen så länge du behöver.
 
-
 ### <a name="URI-and-scheme"></a>URI och schema
 
 Vissa kommandon kan kräva att du anger schemat som en del av URI: n vid åtkomst till en fil. Till exempel kräver Storm-HDFS-komponenten att du anger schemat. När du använder lagrings utrymme som inte är standard (lagring läggs till som ytterligare lagrings utrymme i klustret), måste du alltid använda schemat som en del av URI: n.
 
-Använd något av följande URI-scheman när du använder __Azure Storage__:
+Använd något av följande URI-scheman när du använder [**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md):
 
-* `wasb:///`: Få åtkomst till standard lagring med okrypterad kommunikation.
+* `wasb:///`: få åtkomst till standard lagring med okrypterad kommunikation.
 
-* `wasbs:///`: Få åtkomst till standard lagring med krypterad kommunikation.  Wasbs-schemat stöds endast från HDInsight version 3,6 och senare.
+* `wasbs:///`: få åtkomst till standard lagring med krypterad kommunikation.  Wasbs-schemat stöds endast från HDInsight version 3,6 och senare.
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Används vid kommunikation med ett lagrings konto som inte är standard. Till exempel när du har ett ytterligare lagrings konto eller när du har åtkomst till data som lagras i ett offentligt tillgängligt lagrings konto.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: används vid kommunikation med ett lagrings konto som inte är standard. Till exempel när du har ett ytterligare lagrings konto eller när du har åtkomst till data som lagras i ett offentligt tillgängligt lagrings konto.
 
-Använd följande URI-schema när du använder __Azure Data Lake Storage Gen2__:
+Använd följande URI-schema när du använder [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-storage-gen2.md):
 
-* `abfs://`: Få åtkomst till standard lagring med krypterad kommunikation.
+* `abfs://`: få åtkomst till standard lagring med krypterad kommunikation.
 
-* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Används vid kommunikation med ett lagrings konto som inte är standard. Till exempel när du har ett ytterligare lagrings konto eller när du har åtkomst till data som lagras i ett offentligt tillgängligt lagrings konto.
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: används vid kommunikation med ett lagrings konto som inte är standard. Till exempel när du har ett ytterligare lagrings konto eller när du har åtkomst till data som lagras i ett offentligt tillgängligt lagrings konto.
 
-Använd något av följande URI-scheman när du använder __Azure Data Lake Storage gen1__:
+Använd något av följande URI-scheman när du använder [**Azure Data Lake Storage gen1**](./hdinsight-hadoop-use-data-lake-store.md):
 
-* `adl:///`: Få åtkomst till standard Data Lake Storage för klustret.
+* `adl:///`: få åtkomst till standard Data Lake Storage för klustret.
 
-* `adl://<storage-name>.azuredatalakestore.net/`: Används vid kommunikation med ett Data Lake Storage som inte är standard. Används också för att komma åt data utanför rot katalogen i ditt HDInsight-kluster.
+* `adl://<storage-name>.azuredatalakestore.net/`: används vid kommunikation med ett Data Lake Storage som inte är standard. Används också för att komma åt data utanför rot katalogen i ditt HDInsight-kluster.
 
 > [!IMPORTANT]  
 > När du använder Data Lake Storage som standard Arkiv för HDInsight måste du ange en sökväg i arkivet som ska användas som roten för HDInsight-lagring. Standard Sök vägen är `/clusters/<cluster-name>/`.
 >
-> När du `/` använder `adl:///` eller för att komma åt data, kan du bara komma åt data som lagras i `/clusters/<cluster-name>/`roten (till exempel) i klustret. Använd `adl://<storage-name>.azuredatalakestore.net/` formatet för att komma åt data var som helst i arkivet.
+> När du använder `/` eller `adl:///` för att få åtkomst till data, kan du bara komma åt data som lagras i roten (till exempel `/clusters/<cluster-name>/`) i klustret. Använd `adl://<storage-name>.azuredatalakestore.net/` formatet om du vill komma åt data var som helst i butiken.
 
 ### <a name="what-storage-is-the-cluster-using"></a>Vilket lagrings utrymme är klustret använder
 
@@ -150,15 +149,15 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 ```
 
 > [!NOTE]  
-> Det här kommandot returnerar den första konfigurationen som tillämpas på servern`service_config_version=1`() som innehåller den här informationen. Du kan behöva visa en lista över alla konfigurations versioner för att hitta den senaste versionen.
+> Det här kommandot returnerar den första konfigurationen som tillämpas på servern (`service_config_version=1`), som innehåller den här informationen. Du kan behöva visa en lista över alla konfigurations versioner för att hitta den senaste versionen.
 
 Det här kommandot returnerar ett värde som liknar följande URI: er:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`Om du använder ett Azure Storage-konto.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` om du använder ett Azure Storage konto.
 
     Konto namnet är namnet på Azure Storage kontot. Behållar namnet är BLOB-behållaren som är roten i kluster lagringen.
 
-* `adl://home`Om du använder Azure Data Lake Storage. Använd följande REST-anrop för att hämta Data Lake Storage namn:
+* `adl://home` om du använder Azure Data Lake Storage. Använd följande REST-anrop för att hämta Data Lake Storage namn:
 
      ```bash
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
@@ -186,8 +185,8 @@ Det finns olika sätt att komma åt data utanför HDInsight-klustret. Följande 
 
 Om du använder __Azure Storage__, se följande länkar för hur du kan komma åt dina data:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Kommando rads kommandon för att arbeta med Azure. När du har installerat använder `az storage` du kommandot för att få hjälp med att `az storage blob` använda lagring, eller för BLOB-/regionsspecifika kommandon.
-* [blobxfer.py](https://github.com/Azure/blobxfer): Ett Python-skript för att arbeta med blobbar i Azure Storage.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): kommando rads kommandon för att arbeta med Azure. När du har installerat använder du kommandot `az storage` för att få hjälp med lagring eller `az storage blob` för BLOB-/regionsspecifika kommandon.
+* [blobxfer.py](https://github.com/Azure/blobxfer): ett Python-skript för att arbeta med blobbar i Azure Storage.
 * Olika SDK: er:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -204,7 +203,7 @@ Om du använder __Azure Data Lake Storage__, se följande länkar för hur du ka
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
-* [Data Lake Tools för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
+* [Data Lake verktyg för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
@@ -215,8 +214,8 @@ Med funktionen för kluster skalning kan du dynamiskt ändra antalet datanoder s
 
 De olika kluster typerna påverkas av skalning enligt följande:
 
-* **Hadoop**: När du skalar ned antalet noder i ett kluster startas vissa av tjänsterna i klustret om. Skalnings åtgärder kan orsaka att jobb körs eller väntar på att gå sönder vid slutförandet av skalnings åtgärden. Du kan skicka jobben igen när åtgärden har slutförts.
-* **HBase**: Regionala servrar bal anse ras automatiskt inom några minuter, när skalnings åtgärden har slutförts. Använd följande steg för att balansera regionala servrar manuellt:
+* **Hadoop**: vid skalning av antalet noder i ett kluster startas vissa av tjänsterna i klustret om. Skalnings åtgärder kan orsaka att jobb körs eller väntar på att gå sönder vid slutförandet av skalnings åtgärden. Du kan skicka jobben igen när åtgärden har slutförts.
+* **HBase**: regionala servrar bal anse ras automatiskt inom några minuter, när skalnings åtgärden har slutförts. Använd följande steg för att balansera regionala servrar manuellt:
 
     1. Anslut till HDInsight-klustret med SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
@@ -228,20 +227,20 @@ De olika kluster typerna påverkas av skalning enligt följande:
 
             balancer
 
-* **Storm**: Du bör balansera om alla Storm-topologier som körs när en skalnings åtgärd har utförts. Med ombalansering kan topologin justera inställningar för parallellitet baserat på det nya antalet noder i klustret. Använd något av följande alternativ för att balansera om topologier som körs:
+* **Storm**: du bör balansera om alla Storm-topologier som körs när en skalnings åtgärd har utförts. Med ombalansering kan topologin justera inställningar för parallellitet baserat på det nya antalet noder i klustret. Använd något av följande alternativ för att balansera om topologier som körs:
 
     * **SSH**: Anslut till servern och Använd följande kommando för att balansera om en topologi:
 
             storm rebalance TOPOLOGYNAME
 
-        Du kan också ange parametrar för att åsidosätta de parallella tips som ursprungligen tillhandahölls av topologin. Till exempel `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` omkonfigureras topologin till 5 arbets processer, 3 körningar för Blue-kanalen-komponenten och 10 körningar för den gula-bult-komponenten.
+        Du kan också ange parametrar för att åsidosätta de parallella tips som ursprungligen tillhandahölls av topologin. `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` konfigurerar till exempel topologin till 5 arbets processer, 3 körningar för den blå-kanalen komponenten och 10 körningar för den gula-bult-komponenten.
 
-    * **Storm-gränssnitt**: Använd följande steg för att balansera om en topologi med storm-ANVÄNDARGRÄNSSNITTET.
+    * **Storm-gränssnitt**: Använd följande steg för att balansera om en topologi med storm-användargränssnittet.
 
-        1. Öppna `https://CLUSTERNAME.azurehdinsight.net/stormui` i webbläsaren, där `CLUSTERNAME` är namnet på ditt Storm-kluster. Om du uppmanas till det anger du namnet på HDInsight-klusterresursen (admin) och lösen ordet du angav när du skapade klustret.
+        1. Öppna `https://CLUSTERNAME.azurehdinsight.net/stormui` i webbläsaren, där `CLUSTERNAME` är namnet på din Storm-kluster. Om du uppmanas till det anger du namnet på HDInsight-klusterresursen (admin) och lösen ordet du angav när du skapade klustret.
         2. Välj den topologi du vill balansera om och välj sedan knappen **balansera** om. Ange fördröjningen innan ombalanserings åtgärden utförs.
 
-* **Kafka**: Du bör balansera om partition repliker efter skalnings åtgärder. Mer information finns i dokumentet [med hög tillgänglighet för data med Apache Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) -dokument.
+* **Kafka**: du bör balansera om partition repliker efter skalnings åtgärder. Mer information finns i dokumentet [med hög tillgänglighet för data med Apache Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) -dokument.
 
 För detaljerad information om skalning av HDInsight-klustret, se:
 
@@ -279,7 +278,7 @@ Om du vill använda en annan version av en komponent laddar du upp den version d
 > [!IMPORTANT]
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex.: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Apache-projekt har även projekt webbplatser [https://apache.org](https://apache.org)på, till exempel: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex. [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Apache-projekt har även projekt webbplatser på [https://apache.org](https://apache.org), till exempel: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Nästa steg
 

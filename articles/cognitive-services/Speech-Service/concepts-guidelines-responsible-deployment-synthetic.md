@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: fe8730b0d97ae3783282cdd401fd5889ed08ad9a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507169"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836768"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Rikt linjer för ansvarig distribution av syntetisk röst teknik
 Här följer Microsofts allmänna design rikt linjer för att använda syntetisk röst teknik. Dessa utvecklades i studier som Microsoft genomförde med röst personal, konsumenter, samt individer med tal sjukdomar för att vägleda utvecklingen av syntetisk röst.
@@ -39,7 +39,7 @@ I tvetydiga, transaktions scenarier (till exempel ett Call Support Center) kan a
 När du arbetar med röst personal, till exempel röst aktörer, för att skapa syntetiska röster, gäller rikt linjerna nedan.
 
 ### <a name="obtain-meaningful-consent-from-voice-talent"></a>Få ett meningsfullt godkännande från röst personal
-Röst personal förväntar sig att ha kontroll över deras röst teckensnitt (hur och var den ska användas) och ersätts när den används. System ägare bör därför få uttryckligt skriftligt tillstånd från röst personal och ha tydliga avtals krav för användnings fall, varaktigheten för användning, kompensation och så vidare. Vissa röst personal är inte medvetna om den potentiella skadliga användningen av tekniken och bör vara sammanutbildad av systemets ägare om funktionerna i tekniken. Mer information om röst personal och medgivande finns i vår [Oh-anteckning](https://aka.ms/neural-tts-transparency-note).
+Röst personal förväntar sig att ha kontroll över deras röst teckensnitt (hur och var den ska användas) och ersätts när den används. System ägare bör därför få uttryckligt skriftligt tillstånd från röst personal och ha tydliga avtals krav för användnings fall, varaktigheten för användning, kompensation och så vidare. Vissa röst personal är inte medvetna om den potentiella skadliga användningen av tekniken och bör vara sammanutbildad av systemets ägare om funktionerna i tekniken. Mer information om röst personal och medgivande finns i vår information [om röst personal](https://aka.ms/disclosure-voice-talent).
 
 
 ## <a name="considerations-for-those-with-speech-disorders"></a>Att tänka på med tal sjukdomar
@@ -57,13 +57,13 @@ Individer med tal sjukdomar vill göra uppdateringar av sin syntetiska röst fö
 
 ## <a name="reference-docs"></a>Referensdokument
 
-* [Oh-anteckning](https://aka.ms/neural-tts-transparency-note)
+* [Utlämnande av röst personal](https://aka.ms/disclosure-voice-talent)
 * [Översikt över hantera](concepts-gating-overview.md)
 * [Lämna ut](concepts-disclosure-guidelines.md)
 * [Design mönster för utlämnande](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Oh-anteckning](https://aka.ms/neural-tts-transparency-note)
+* [Utlämnande av röst personal](https://aka.ms/disclosure-voice-talent)
 * [Lämna ut](concepts-disclosure-guidelines.md)
 * [Design mönster för utlämnande](concepts-disclosure-patterns.md)

@@ -1,7 +1,7 @@
 ---
-title: Använda Video Indexer-Redigeraren för att skapa projekt
-titlesuffix: Azure Media Services
-description: Det här avsnittet visar hur du använder Video Indexer-Redigeraren för att skapa projekt.
+title: Använd Video Indexer redigeraren för att skapa projekt
+titleSuffix: Azure Media Services
+description: Det här avsnittet visar hur du använder Video Indexer redigeraren för att skapa projekt.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,21 +10,21 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518141"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839171"
 ---
-# <a name="use-the-video-indexer-editor-to-create-projects"></a>Använda Video Indexer-Redigeraren för att skapa projekt
+# <a name="use-the-video-indexer-editor-to-create-projects"></a>Använd Video Indexer redigeraren för att skapa projekt
 
-Video Indexer-webbplats, kan du använda dina videor djupa insikter till: hitta rätt medieinnehållet, leta upp de delar som du är intresserad av och använda resultatet för att skapa ett helt nytt projekt. När du skapat projektet kan återges och hämtas från Video Indexer och användas i din egen Redigera program eller underordnad arbetsflöden.
+Med Video Indexer webbplats kan du använda dina videor med djupgående insikter för att: hitta rätt medie innehåll, hitta de delar som du är intresse rad av och Använd resultatet för att skapa ett helt nytt projekt. När projektet har skapats kan projektet renderas och hämtas från Video Indexer och användas i dina egna redigerings program eller i efterföljande arbets flöden.
 
-Vissa scenarier där du kan vara användbara den här funktionen är: 
+Vissa scenarier där den här funktionen kan vara användbar är: 
 
-* Skapa film visar för släpfordon.
-* Med gamla klipp av videor i news-sändningar.
+* Skapa film markeringar för släp vagnar.
+* Använda gamla klipp av videor i nyhets brev.
 * Skapa kortare innehåll för sociala medier.
 
 Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapar ett projekt från en video i ditt konto.
@@ -32,103 +32,103 @@ Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapa
 ## <a name="create-new-project-and-manage-videos"></a>Skapa nytt projekt och hantera videor
 
 1. Gå till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och logga in.
-1. Välj den **projekt** fliken. Om du har skapat projekt innan, visas alla dina andra projekt här.
+1. Välj fliken **projekt** . Om du har skapat projekt tidigare visas alla dina andra projekt här.
 1. Klicka på **Skapa nytt projekt**.  
 
     ![Nytt projekt](./media/video-indexer-view-edit/new-project.png)
-1. Namnge ditt projekt genom att klicka på pennikonen. Ersätt texten där det står ”Namnlös project” med ditt projektnamn och klicka på kontrollen.
+1. Ge projektet ett namn genom att klicka på Penn ikonen. Ersätt texten som säger "namnlöst projekt" med ditt projekt namn och klicka på krysset.
 
     ![Nytt projekt](./media/video-indexer-view-edit/new-project3.png)
     
-### <a name="add-videos-to-the-project"></a>Lägg till videor i projektet
+### <a name="add-videos-to-the-project"></a>Lägga till videor i projektet
 
 > [!NOTE]
-> Projekt kan för närvarande kan bara innehålla videor som indexeras i samma språk. När du har valt en video på ett språk du inte lägga till videor i ditt konto som är i ett annat språk.
+> För närvarande kan projekt bara innehålla videor som indexerats på samma språk. När du har valt en video på ett språk kan du inte lägga till videor i ditt konto på ett annat språk.
 
-1. Lägg till videor som du vill arbeta med i det här projektet genom att välja **lägga till videor**.
+1. Lägg till videor som du vill arbeta med i det här projektet genom att välja **Lägg till videor**.
 
-    Du kommer se alla videor i ditt konto och en sökruta där det står ”Sök efter text, nyckelord eller visuellt innehåll”. Att söka efter videor som har en angiven person, etikett, varumärke, nyckelord eller förekomsten i avskrift och OCR.
+    Du kommer att se alla videor i ditt konto och en sökruta med texten "söka efter text, nyckelord eller visuellt innehåll". Om du vill söka efter videor som har en angiven person, etikett, varumärke, nyckelord eller förekomst i avskriften och OCR.
     
-    I bilden nedan har söker vi till exempel efter videor som nämner ”GitHub”.
+    I bilden nedan söker vi till exempel efter videor som nämner "GitHub".
     
     ![GitHub](./media/video-indexer-view-edit/github.png)
 
-    Du kan filtrera resultatet ytterligare genom att välja **filtrera resultaten**. Du kan filtrera att visa videor som har en viss person i dem eller ange att du bara vill se videon resultat som är en i ett visst språk eller ha en specifik ägare. <br/> Du kan också ange omfattningen av din fråga. Till exempel om du vill söka efter ”GitHub” i OCR väljer **Visual Text**.
+    Du kan filtrera resultaten ytterligare genom att välja **filter resultat**. Du kan filtrera för att visa videor som har en viss person i dem eller för att ange att du bara vill visa video resultat som är ett visst språk eller som har en specifik ägare. <br/> Du kan också ange omfattningen för frågan. Om du till exempel vill söka efter "GitHub" i OCR väljer du **visuell text**.
 
     ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
-    Du kan även lägga till flera filter i frågan. Använd den **+** / **-** knappar för att lägga till/ta bort filter. Använd **ta bort filter** att ta bort alla filter.
-1. Om du vill lägga till videor, markerar du dem och välj sedan **Lägg till**.
-1. Du kommer nu se alla videor som du har valt. Det här är de videor som du ska markera klipp för ditt projekt.
+    Du kan skikta flera filter till frågan. Använd knapparna **+** / **-** för att lägga till/ta bort filter. Använd **Rensa filter** för att ta bort alla filter.
+1. Om du vill lägga till videor markerar du dem och väljer sedan **Lägg till**.
+1. Nu visas alla videor som du har valt. Det här är de videor från vilka du ska välja klipp för ditt projekt.
 
-    Du kan ändra ordning på videor genom att dra och släppa eller genom att välja på menyknappen i listan och välja **Flytta ned** eller **Flytta upp**. På menyn lista kommer du även att kunna ta bort videon från det här projektet. 
+    Du kan ändra ordningen på videor genom att dra och släppa eller genom att välja menyn List meny och välja **Flytta ned** eller **Flytta upp**. Du kan också ta bort videon från det här projektet från menyn lista. 
 
-    ![Ordna](./media/video-indexer-view-edit/rearrange.png)
+    ![Ordna om](./media/video-indexer-view-edit/rearrange.png)
     
-    Har du möjlighet att lägga till fler videor i det här projektet när som helst genom att välja **lägga till videor**. Du kan också lägga till flera förekomster av samma videon i projektet. Du kanske vill göra detta om du vill visa ett klipp från en video och sedan ett klipp från en annan och sedan ett annat klipp från den första videon. 
+    Du kan när som helst lägga till fler videor i projektet genom att välja **Lägg till videor**. Du kan också lägga till flera förekomster av samma video i projektet. Du kanske vill göra detta om du vill visa ett klipp från en video och sedan ett klipp från en annan och ett annat klipp från den första videon. 
 
-### <a name="select-clips-to-use-in-your-project"></a>Välj klipp ska användas i ditt projekt
+### <a name="select-clips-to-use-in-your-project"></a>Välj klipp som ska användas i projektet
 
-Om du klickar på pilen till höger i varje video nedåt öppnas dig insikter i videon baserat på tidsstämplar (klipp av videon). 
+Om du klickar på nedåtpilen till höger om varje video kommer du att öppna insikterna i videon baserat på tidsstämplar (klipp i videon). 
 
-1. Välj **visa insikter** för att anpassa vilka insikter du vill se och som du inte vill se. 
+1. Välj **Visa insikter** för att anpassa vilka insikter du vill se och vilka du inte vill se. 
 
     ![Visa insikter](./media/video-indexer-view-edit/insights.png)
-1. Använd sökrutan som säger ”söka i avskriften, visual text, personer och etiketter” för att skapa frågor för specifika klipp.
-1. Lägg till filter för att ange ytterligare information om på vilka scener som du letar efter genom att välja **filteralternativ**.
+1. Om du vill skapa frågor för vissa klipp använder du sökrutan med texten "Sök i avskrift, visuell text, personer och etiketter".
+1. Lägg till filter för att ytterligare ange information om vilka scener du letar efter genom att välja **filter alternativ**.
 
     ![Filtrera alternativ](./media/video-indexer-view-edit/filter-options.png)
 
-    Du kan till exempel vill se klipp där GitHub nämns medan Donovan Brown som visas på skärmen. För det behöver du lägga till ett ”inkluderar”-filter som har ”användare” som typ av information. Sedan måste du ange ”Donovan Brown” i sökrutan för filtret.
+    Du kanske till exempel vill se klipp där GitHub anges medan Donovan Brown är på skärmen. För detta måste du lägga till ett "inkludera"-filter som har "personer" som typ av insikter. Sedan måste du skriva in "Donovan Brown" i Sök fältet för filtret.
     
-    ![Inkludera](./media/video-indexer-view-edit/include.png)
+    ![omfattar](./media/video-indexer-view-edit/include.png)
     
-    Om du vill att klipp där GitHub nämns Donovan Brown är _inte_ på skärmen helt enkelt ändrar du filtret ”inkluderar” i ett ”exkluderingsfilter”, med hjälp av listrutan. 
+    Om du vill att klipp där GitHub anges medan Donovan Brown _inte_ finns på skärmen, ändrar du bara filtret "ta med" till ett "exkludera"-filter med hjälp av list rutan. 
 
-1. Lägg till ett klipp i projektet genom att välja segment som du vill lägga till. Du kan avmarkera klippet genom att klicka på segmentet igen.
+1. Lägg till ett klipp i projektet genom att välja det segment som du vill lägga till. Du kan avmarkera det här klippet genom att klicka på segmentet igen.
     
-    Lägg till alla segment i en video genom att klicka på menyalternativet lista bredvid video och välja **välja alla segment**. 
+    Lägg till alla segment i en video genom att klicka på meny alternativet lista bredvid videon och markera **Markera alla segment**. 
 
     ![Lägg till alla](./media/video-indexer-view-edit/add-all.png)
 
-    Du kan radera alla ditt val genom att välja Radera markering.
+    Du kan avmarkera alla alternativ genom att välja Rensa markering.
 
 > [!TIP]
-> När du att välja och ordning klippen, kan du förhandsgranska video i spelaren till höger på sidan. 
+> När du väljer och sorterar dina klipp kan du förhandsgranska videon i spelaren på höger sida av sidan. 
 
 ![Förhandsversion](./media/video-indexer-view-edit/preview.png)
 
-Kom ihåg att spara projektet när du gör ändringar genom att välja **spara projektet**. 
+Kom ihåg att spara projektet när du gör ändringar genom att välja **Spara projekt**. 
 
 ### <a name="render-and-download-the-project"></a>Rendera och ladda ned projektet
 
 > [!NOTE]
-> För Video Indexer betald konton, har återgivning av projektet kodningskostnader. Video Indexer utvärderingskonton är begränsad till 5 timmar för rendering.
+> För Video Indexer betalda konton har åter givningen av projektet kodnings kostnader. Video Indexer utvärderings konton är begränsade till 5 timmars åter givning.
 
-1. När du är klar kan du se till att projektet har sparats. Du kan nu rendera det här projektet. Välj **återges och ladda ned**. 
+1. När du är färdig kontrollerar du att projektet har sparats. Nu kan du återge det här projektet. Välj **rendera och hämta**. 
 
     ![Spara](./media/video-indexer-view-edit/save.png)
 
-    Det är ett popup-fönster som talar om att Video indexer renderas en fil och sedan länken kommer att skickas till e-post. Välj Fortsätt. 
+    Det kommer att finnas en popup-meny som visar att video Indexer kommer att återge en fil och sedan skickas länken till e-postmeddelandet. Välj Fortsätt. 
     
-    Du kan även se ett meddelande som projektet återges på sidan. När det är klart att återges, visas ett nytt meddelande som projektet har gjorts. Klicka på meddelandet för att ladda ned projektet. Hämtar projektet i mp4-format.
+    Du ser också ett meddelande om att projektet återges ovanpå sidan. När den är klar visas ett nytt meddelande om att projektet har Render ATS. Klicka på meddelandet för att ladda ned projektet. Projektet laddas ned i MP4-format.
 
-    ![Rendering klar](./media/video-indexer-view-edit/rendering-done.png)
+    ![Rendera gjorda](./media/video-indexer-view-edit/rendering-done.png)
 
-1. Du kan komma åt sparade projekt från den **projekt** fliken. 
+1. Du kan komma åt sparade projekt från fliken **projekt** . 
 
-    Om du väljer det här projektet kan se du alla insikter och tidslinje för det här projektet. Om du väljer **Videoredigerare**, du kan fortsätta att göra ändringar för det här projektet. Redigeringar omfattar att lägga till eller ta bort videor och klipp eller byta namn på projektet.
+    Om du väljer det här projektet visas alla insikter och tids linjen för projektet. Om du väljer **video redigerare**kan du fortsätta att göra ändringar i det här projektet. Redigeringarna inkluderar att lägga till eller ta bort videor och klipp eller att byta namn på projektet.
 
-    ![Redigeraren för video](./media/video-indexer-view-edit/video-editor.png)
+    ![Video redigerare](./media/video-indexer-view-edit/video-editor.png)
      
-## <a name="create-a-project-from-your-video"></a>Skapa ett projekt från din video
+## <a name="create-a-project-from-your-video"></a>Skapa ett projekt från videon
 
 Du kan skapa ett nytt projekt direkt från en video i ditt konto. 
 
-1. Gå till den **biblioteket** fliken på Video Indexer-webbplats.
-1. Öppna videon som du vill använda för att skapa projektet. På sidan insikter och tidslinje, Välj den **Videoredigerare** knappen.
+1. Gå till fliken **bibliotek** på video Indexer webbplats.
+1. Öppna den video som du vill använda för att skapa projektet. På sidan insikter och tids linje väljer du knappen för **video redigeraren** .
 
-    Detta tar dig till samma sida som du använde för att skapa ett nytt projekt. Till skillnad från det nya projektet kan du se tidsstämplad insikter segmenten i videon som du hade började redigera tidigare.
+    Detta tar dig till samma sida som du använde för att skapa ett nytt projekt. Till skillnad från det nya projektet ser du de tidsstämplade insikts segmenten i videon som du började redigera tidigare.
 
 ## <a name="see-also"></a>Se också
 

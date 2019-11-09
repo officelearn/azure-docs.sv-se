@@ -7,35 +7,34 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 07/16/2019
+ms.date: 11/07/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839793"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använd underhålls scheman för att hantera uppdateringar och underhåll av tjänster
 
-Underhålls scheman är nu tillgängliga i alla Azure SQL Data Warehouse regioner. Funktionen underhålls schema integrerar Service Health planerade underhålls aviseringar, Resource Health kontrol lera övervakning och tjänsten för schemaläggning av Azure SQL Data Warehouse underhåll.
+Funktionen underhålls schema integrerar Service Health planerade underhålls aviseringar, Resource Health kontrol lera övervakning och tjänsten för schemaläggning av Azure SQL Data Warehouse underhåll.
 
-Du använder underhålls schemaläggning för att välja en tids period när det är praktiskt att ta emot nya funktioner, uppgraderingar och korrigeringar. Du väljer ett primärt och ett sekundärt underhålls fönster inom en sju dagars period. Om du vill använda den här funktionen måste du identifiera ett primärt och sekundärt fönster inom olika dags intervall.
+Du bör använda underhålls schemaläggning för att välja en tids period när det är praktiskt att ta emot nya funktioner, uppgraderingar och korrigeringar. Du måste välja ett primärt och ett sekundärt underhålls fönster inom en sju dagars period. varje fönster måste ligga inom olika dags intervall.
 
-Du kan till exempel schemalägga ett primärt fönster på lördag 22:00 till söndag 01:00 och sedan schemalägga ett sekundärt fönster på onsdag 19:00 till 22:00. Om SQL Data Warehouse inte kan utföra underhåll under ditt primära underhålls fönster, kommer det att försöka utföra underhållet igen under det sekundära underhålls fönstret. Underhåll av tjänsten kan ske under både den primära och den sekundära Windows. För att säkerställa snabb avslutning av alla underhålls åtgärder kan DW400 (c) och lägre informations lager nivåer slutföra underhållet utanför ett angivet underhålls fönster.
+Du kan till exempel schemalägga ett primärt fönster på lördag 22:00 till söndag 01:00 och sedan schemalägga ett sekundärt fönster på onsdag 19:00 till 22:00. Om SQL Data Warehouse inte kan utföra underhåll under ditt primära underhålls fönster, kommer det att försöka utföra underhållet igen under det sekundära underhålls fönstret. Underhåll av tjänsten kan uppstå under både den primära och den sekundära Windows. För att säkerställa snabb slut för ande av alla underhålls åtgärder kan DW400c och lägre informations lager nivåer slutföra underhållet utanför ett angivet underhålls fönster.
 
 Alla nyskapade Azure SQL Data Warehouse-instanser får ett Systemdefinierat underhålls schema som tillämpas under distributionen. Schemat kan redige ras så snart distributionen är klar.
 
-Varje underhålls period kan vara mellan tre och åtta timmar. Underhåll kan ske när som helst i fönstret. När underhållet startar avbryts alla aktiva sessioner och transaktioner som inte allokeras kommer att återställas. Du bör förvänta dig flera korta förluster i anslutningen eftersom tjänsten distribuerar ny kod till ditt data lager. Du får ett meddelande direkt efter att ditt underhåll av data lagret har slutförts.
+Även om en underhålls period kan vara mellan tre och åtta timmar innebär detta inte att data lagret är offline under hela tiden. Underhåll kan ske när som helst inom det fönstret och du bör förvänta dig att en enskild från koppling under perioden är cirka 5 -6 minuter, eftersom tjänsten distribuerar ny kod till data lagret. DW400c och lägre kan få flera korta förluster i anslutningen vid olika tidpunkter under underhålls perioden. När underhållet startar avbryts alla aktiva sessioner och transaktioner som inte allokeras kommer att återställas. Se till att informations lagret inte har några tids krävande transaktioner innan du väljer underhålls period för att minimera instans stillestånd.
 
- Alla underhålls åtgärder bör slutföras inom det schemalagda underhålls fönstret. Inget underhåll sker utanför de angivna underhållsperioderna utan föregående meddelande. Om informations lagret har pausats under ett schemalagt underhåll uppdateras det under återställnings åtgärden. 
+Alla underhålls åtgärder bör slutföras inom de angivna underhålls Fönstren, såvida vi inte behöver distribuera en tids känslig uppdatering. Om informations lagret har pausats under ett schemalagt underhåll uppdateras det under återställnings åtgärden. Du får ett meddelande direkt efter att ditt underhåll av data lagret har slutförts.
 
 ## <a name="alerts-and-monitoring"></a>Aviseringar och övervakning
 
-Genom att integrera med Service Health-meddelanden och Resource Health kontroll övervakaren kan kunderna hålla dig informerad om kommande underhålls aktiviteter. Den nya automationen drar nytta av Azure Monitor. Du kan välja hur du vill bli meddelad om kommande underhålls händelser. Du kan också välja vilka automatiserade flöden som hjälper dig att hantera drift stopp och minimera drifts påverkan.
-
-Ett meddelande om 24-timmarsformat föregås av alla underhålls händelser som inte är för DWC400c och lägre nivåer. Se till att informations lagret inte har några tids krävande transaktioner innan du väljer underhålls period för att minimera instans stillestånd.
+Genom att integrera med Service Health-meddelanden och Resource Health kontroll övervakaren kan kunderna hålla dig informerad om kommande underhålls aktiviteter. Den här automationen utnyttjar Azure Monitor. Du kan välja hur du vill bli meddelad om kommande underhålls händelser. Du kan också välja vilka automatiserade flöden som hjälper dig att hantera drift stopp och minimera drifts påverkan.
+Ett meddelande om 24-timmarsformat föregås av alla underhålls händelser som inte är för DWC400c och lägre nivåer.
 
 > [!NOTE]
 > I händelse av att vi krävs för att distribuera en tidpunkts kritisk uppdatering kan avancerade aviserings tider minska avsevärt.

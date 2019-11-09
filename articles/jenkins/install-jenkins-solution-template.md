@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 531199303f7b00083bcd7139ac00ac36bde5c583
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837524"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Skapa en Jenkins-server på en virtuell Azure Linux-dator från Azure Portal
 
@@ -33,7 +33,7 @@ Jenkins har stöd för en modell där Jenkins-servern delegerar arbete till en e
 
 ## <a name="connect-to-jenkins"></a>Ansluta till Jenkins
 
-Navigera till din virtuella dator (till exempel http://jenkins2517454.eastus.cloudapp.azure.com/)) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
+Navigera till den virtuella datorn (till exempel `http://jenkins2517454.eastus.cloudapp.azure.com/`) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
 
 ![Låsa upp Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

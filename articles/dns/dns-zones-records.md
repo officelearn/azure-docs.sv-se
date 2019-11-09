@@ -15,22 +15,22 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: fdf9b60e38ad37334fe6183bb1a9c60cce9f85e1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772263"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832049"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och-poster
 
 Den här sidan förklarar viktiga begrepp för domäner, DNS-zoner och DNS-poster och post uppsättningar och hur de stöds i Azure DNS.
 
-## <a name="domain-names"></a>Domännamn
+## <a name="domain-names"></a>Domän namn
 
 Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ” **.** ”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. Domänerna i DNS-hierarkin distribueras globalt, värdbaserade av DNS-namnservrar runtom i världen.
 
-En domän namns registrator är en organisation som gör det möjligt att köpa ett domän namn, till exempel "contoso.com".  Genom att köpa ett domän namn får du behörighet att kontrol lera DNS-hierarkin under det namnet, till exempel så att du kan dirigera namnet www.contoso.com till företagets webbplats. Registratorn kan vara värd för domänen på sina egna namnservrar åt dig, eller så kan du ange alternativa namnservrar.
+En domän namns registrator är en organisation som gör det möjligt att köpa ett domän namn, till exempel `contoso.com`.  Genom att köpa ett domän namn får du behörighet att kontrol lera DNS-hierarkin under det namnet, till exempel så att du kan dirigera namnet `www.contoso.com` till företagets webbplats. Registratorn kan vara värd för domänen på sina egna namnservrar åt dig, eller så kan du ange alternativa namnservrar.
 
 Azure DNS tillhandahåller en globalt distribuerad namn server infrastruktur med hög tillgänglighet, som du kan använda för att vara värd för din domän. Genom att vara värd för dina domäner i Azure DNS kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API: er, verktyg, fakturering och support som andra Azure-tjänster.
 
@@ -54,12 +54,12 @@ I Azure DNS anges TTL-värdet för post uppsättningen, inte för varje post, s�
 
 Azure DNS stöder [poster med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Jokertecken returneras som svar på en fråga med ett matchande namn (om det inte finns en närmare matchning från en post uppsättning som inte är jokertecken). Azure DNS stöder post uppsättningar med jokertecken för alla post typer utom NS och SOA.
 
-Om du vill skapa en post uppsättning med jokertecken använder du post\*uppsättningens namn. Du kan också använda ett namn med\*' ' som dess vänstra etikett, till exempel "\*. foo".
+Om du vill skapa en post uppsättning med jokertecken använder du post uppsättnings namnet\*. Du kan också använda ett namn med "\*" som sin vänstra etikett, till exempel "\*. foo".
 
 ### <a name="caa-records"></a>CAA-poster
 
 CAA-poster låter domän ägare ange vilka certifikat utfärdare som har behörighet att utfärda certifikat för deras domän. Detta gör det möjligt för ca: er att undvika certifikat som utfärdas i vissa fall. CAA-poster har tre egenskaper:
-* **Flaggor**: Detta är ett heltal mellan 0 och 255 som används för att representera den kritiska flagga som har särskilda innebörder per [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Flaggor**: Detta är ett heltal mellan 0 och 255 som används för att representera den kritiska flagga som har en särskild betydelse per [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Tagg**: en ASCII-sträng som kan vara något av följande:
     * **problem**: Använd det här om du vill ange ca: er som tillåts utfärda certifikat (alla typer)
     * **issuewild**: Använd det här om du vill ange ca: er som tillåts utfärda certifikat (endast certifikat för jokertecken)
@@ -70,13 +70,13 @@ CAA-poster låter domän ägare ange vilka certifikat utfärdare som har behöri
 
 CNAME-postuppsättningar kan inte samexistera med andra postuppsättningar med samma namn. Du kan till exempel inte skapa en CNAME-postuppsättning med det relativa namnet "www" och en A-post med det relativa namnet "www" på samma gång.
 
-Eftersom zonens Apex (namn =\@) alltid innehåller ns-och SOA-postuppsättningar som skapades när zonen skapades, kan du inte skapa en CNAME-postuppsättning på zonens Apex.
+Eftersom zonens Apex (namn =\@) alltid innehåller NS-och SOA-postuppsättningar som skapades när zonen skapades, kan du inte skapa en CNAME-postuppsättning på zonens spetsiga nivå.
 
 Dessa begränsningar uppstår i DNS-standarder och är inte begränsningar för Azure DNS.
 
 ### <a name="ns-records"></a>NS-poster
 
-NS-postuppsättningen vid zonens Apex (namn\@) skapas automatiskt med varje DNS-zon och tas bort automatiskt när zonen tas bort (den kan inte tas bort separat).
+NS-postuppsättningen vid zonens Apex (namn\@) skapas automatiskt med varje DNS-zon och tas bort automatiskt när zonen tas bort (det går inte att ta bort den separat).
 
 Den här post uppsättningen innehåller namnen på de Azure DNS namnservrar som har tilldelats zonen. Du kan lägga till fler namnservrar i den här NS-postuppsättningen för att stödja samvärdbaserade domäner med fler än en DNS-Provider. Du kan också ändra TTL och metadata för den här post uppsättningen. Du kan dock inte ta bort eller ändra de förifyllda Azure DNS namnservrarna. 
 
@@ -84,7 +84,7 @@ Detta gäller endast NS-postuppsättningen i zonens Apex. Andra NAMNSERVER post 
 
 ### <a name="soa-records"></a>SOA-poster
 
-En SOA-postuppsättning skapas automatiskt vid Apex för varje zon (Name = '\@') och tas bort automatiskt när zonen tas bort.  Det går inte att skapa eller ta bort SOA-poster separat.
+En SOA-postuppsättning skapas automatiskt vid Apex för varje zon (namn =\@) och tas bort automatiskt när zonen tas bort.  Det går inte att skapa eller ta bort SOA-poster separat.
 
 Du kan ändra alla egenskaper för SOA-posten förutom egenskapen Host, som är förkonfigurerad så att den refererar till det primära namn server namnet som tillhandahålls av Azure DNS.
 
@@ -98,7 +98,7 @@ Zon serie numret i SOA-posten uppdateras inte automatiskt när ändringar görs 
 
 [SRV-poster](https://en.wikipedia.org/wiki/SRV_record) används av olika tjänster för att ange server platser. När du anger en SRV-post i Azure DNS:
 
-* *Tjänsten* och *protokollet* måste anges som en del av namnet på post uppsättningen, prefixet med under streck.  Till exempel "SIP\_".\_ tcp.name '.  För en post i zonens Apex behöver du inte ange\@i post namnet. Använd bara tjänsten och protokollet, till exempel "SIP".\_ \_ TCP.
+* *Tjänsten* och *protokollet* måste anges som en del av namnet på post uppsättningen, prefixet med under streck.  Till exempel "\_SIP.\_tcp.name '.  För en post i zonens Apex behöver du inte ange\@i post namnet. Använd bara tjänsten och protokollet, till exempel "\_SIP.\_TCP.
 * *Prioritet*, *vikt*, *port*och *mål* anges som parametrar för varje post i post uppsättningen.
 
 ### <a name="txt-records"></a>TXT-poster
@@ -113,7 +113,7 @@ Flera strängar i en DNS-post ska inte förväxlas med flera TXT-poster i en TXT
 
 ## <a name="tags-and-metadata"></a>Taggar och metadata
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>Taggar
 
 Taggar är en lista över namn-värdepar och används av Azure Resource Manager för att märka resurser.  Azure Resource Manager använder taggar för att aktivera filtrerade vyer av din Azure-faktura och du kan också ange en princip för vilka taggar krävs. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -135,8 +135,8 @@ På nivån för Azure DNS REST API anges ETags med HTTP-huvuden.  Deras beteende
 
 | Huvud | Beteende |
 | --- | --- |
-| Inga |PLACERINGen lyckas (inga etag-kontroller) |
-| Om etag- \<matchning > |PLACERINGen lyckas endast om resursen finns och etag matchar |
+| Ingen |PLACERINGen lyckas (inga etag-kontroller) |
+| If-Match \<etag > |PLACERINGen lyckas endast om resursen finns och etag matchar |
 | If-Match * |PLACERINGen lyckas endast om resursen finns |
 | If-None-Match * |PLACERINGen lyckas endast om resursen inte finns |
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 09/26/2019
-ms.openlocfilehash: 072fafac7294757afb26511af569ea75ace0d20a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: df857fb938ade329a971578ac206f16f1357d7e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811924"
+ms.locfileid: "73838761"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -137,7 +137,7 @@ När du har loggat in använder du följande steg för att slutföra konfigurati
 
 1. Från Partner Center väljer du **inställningar** > inställningar för **utvecklare** > **program** > **Kom igång**och anger din e-postadress till arbetet.
 2. Slutför informationen på utgivarens profil sida.
-3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](http://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
+3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
 
     >[!Important]
     >*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*

@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24efd9d67e5bcc083ce1a02dcf0850a39189afe8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2596091324acde5c4fdc3f7c467849f90266fec9
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173104"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847236"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>Molnbaserad autentisering: mellanlagrad distribution (offentlig för hands version)
 
@@ -33,7 +33,7 @@ Dessa funktioner bör beaktas innan du växlar till molnbaserad autentisering.  
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Du har en Azure AD-klient med federerade domäner.
 
@@ -117,18 +117,18 @@ Aktivera sömlös SSO på AD-skogar med hjälp av PowerShell. Om du har mer än 
 
 2. Gå till mappen% ProgramFiles%\\Microsoft Azure Active Directory Connect.
 
-3. Importera den sömlös SSO PowerShell-modulen med hjälp av följande kommando: `Import-Module .\\AzureADSSO.psd1`.
+3. Importera den sömlös SSO PowerShell-modulen med hjälp av följande kommando: `Import-Module .\AzureADSSO.psd1`.
 
 4. Kör PowerShell som administratör. Anropa `New-AzureADSSOAuthenticationContext`i PowerShell. Det här kommandot bör ge dig en dialog ruta där du kan ange din klients globala administratörs behörigheter.
 
-5. Anropa `Get-AzureADSSOStatus \| ConvertFrom-Json`. Med det här kommandot får du en lista över AD-skogar (titta på \"domäner\" listan) där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
+5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Med det här kommandot får du en lista över AD-skogar (titta på \"domäner\" listan) där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
 
    > **Exempel:** 
    > ![exempel på Windows PowerShell-utdata](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Anropa `\$creds = Get-Credential`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda AD-skogen.
+6. Anropa `$creds = Get-Credential`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda AD-skogen.
 
-7. Anropa `Enable-AzureADSSOForest -OnPremCredentials \$creds`. Det här kommandot skapar AZUREADSSOACC-datornamnet från den lokala domänkontrollanten för den här speciella Active Directorys skogen som krävs för sömlös SSO.
+7. Anropa `Enable-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot skapar AZUREADSSOACC-datornamnet från den lokala domänkontrollanten för den här speciella Active Directorys skogen som krävs för sömlös SSO.
 
 8. Sömlös SSO kräver att URL: er är i zonen Intranät. Gå till snabb starten för [sömlös enkel inloggning](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) för att distribuera dessa URL: er med hjälp av grup principer.
 
@@ -228,7 +228,7 @@ Så här kan du spåra användar inloggningar som fortfarande händer på AD FS 
 2.  Om du vill inaktivera funktionen för mellanlagrad distribution drar du tillbaka till tillståndet **"off"** för att stänga av den mellanlagrade distributionen.
 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 -   **F: kan en kund använda den här funktionen i produktionen?**
 
@@ -240,7 +240,7 @@ Så här kan du spåra användar inloggningar som fortfarande händer på AD FS 
 
 -   **F: kan vi använda PowerShell för att utföra stegvis distribution?**
 
--   A: Ja, se dokumentationen för att använda PowerShell för att utföra stegvis distribution här.
+-   A: Ja, se dokumentationen för att använda PowerShell för att utföra stegvis distribution [här](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Nästa steg
 - [AzureAD 2,0-förhandsgranskning](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

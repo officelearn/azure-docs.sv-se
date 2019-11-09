@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2edc644f003af2b33054a5cbdbaee81c9baa38cd
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825509"
+ms.locfileid: "73847452"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center 
 
@@ -145,6 +145,11 @@ Rapportering görs av partner värdet (Microsoft partner-ID) och GUID. Du kan oc
 Mer information finns i [vanliga frågor och svar om att spåra Azure kund användning med GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
 
+## <a name="establish-a-billing-profile"></a>Upprätta en fakturerings profil
+
+Om du publicerar en [Dynamics 365 för kund engagemang & Power Apps](./create-new-customer-engagement-offer.md) eller [Dynamics 365 for Operations](./create-new-operations-offer.md) -erbjudandet måste du slutföra din **fakturerings profil**.
+
+Fakturerings adressen är förifylld från ditt MPN-ID och du kan uppdatera den här adressen senare. Fälten skatte-och moms-ID är valfria.  Det går inte att redigera lands namnet och företags namnet.
 
 ## <a name="multi-user-account-management"></a>Hantering av flera användar konton
 

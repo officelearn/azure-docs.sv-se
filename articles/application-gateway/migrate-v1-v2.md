@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/10/2019
 ms.author: victorh
-ms.openlocfilehash: c4bc0ec2bf15a29962909f14f55854c06f0a6561
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e32443e01e8b44ff5a891afc76378a53b13d7ddd
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932505"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833324"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2
 
@@ -23,14 +23,14 @@ Det finns två steg i en migrering:
 1. Migrera konfigurationen
 2. Migrera klient trafiken
 
-Den här artikeln beskriver migrering av konfiguration. Migreringen av klient trafiken varierar beroende på din miljö. Några övergripande rekommendationer finns dock. [](#migrate-client-traffic)
+Den här artikeln beskriver migrering av konfiguration. Migreringen av klient trafiken varierar beroende på din miljö. Några [övergripande rekommendationer finns](#migrate-client-traffic)dock.
 
 ## <a name="migration-overview"></a>Migrering – en översikt
 
 Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
-* Skapar en ny Standard_v2-eller WAF_v2-gateway i ett undernät för virtuellt nätverk som du anger.
-* Kopierar sömlöst den konfiguration som är kopplad till v1-standard-eller WAF-gatewayen till den nyligen skapade Standard_V2-eller WAF_V2-gatewayen.
+* Skapar en ny Standard_v2 eller WAF_v2 gateway i ett undernät för virtuellt nätverk som du anger.
+* Kopierar sömlöst den konfiguration som är kopplad till v1-standard-eller WAF-gatewayen till den nyligen skapade Standard_V2 eller WAF_V2 Gateway.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
@@ -49,10 +49,10 @@ Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellga
 
 Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös konfiguration och inställningar:
 
-* Om du inte har installerat Azure AZ-moduler, eller om du inte vill avinstallera Azure AZ-modulerna, är det bästa alternativet att använda `Install-Script` alternativet för att köra skriptet.
+* Om du inte har installerat Azure AZ-moduler, eller om du inte vill avinstallera Azure AZ-modulerna, är det bästa alternativet att använda alternativet `Install-Script` för att köra skriptet.
 * Om du behöver behålla Azure AZ-modulerna är det bästa valet att ladda ned skriptet och köra det direkt.
 
-Du kan ta reda på om du har installerat Azure AZ- `Get-InstalledModule -Name az`moduler genom att köra. Om du inte ser några installerade AZ-moduler kan du använda `Install-Script` -metoden.
+Du kan kontrol lera om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az`. Om du inte ser några installerade AZ-moduler kan du använda metoden `Install-Script`.
 
 ### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
 
@@ -72,7 +72,7 @@ Kör skriptet så här:
 
 1. Använd `Connect-AzAccount` för att ansluta till Azure.
 
-1. Används `Import-Module Az` för att importera AZ-modulerna.
+1. Använd `Import-Module Az` för att importera AZ-modulerna.
 
 1. Kör `Get-Help AzureAppGWMigration.ps1` för att undersöka de nödvändiga parametrarna:
 
@@ -89,7 +89,7 @@ Kör skriptet så här:
    ```
 
    Parametrar för skriptet:
-   * **resourceId: [String]: Krävs** – det här är Azure-resurs-ID: t för din befintliga standard v1-eller WAF v1-Gateway. Om du vill hitta strängvärdet navigerar du till Azure Portal, väljer din Application Gateway-eller WAF-resurs och klickar på länken **Egenskaper** för gatewayen. Resurs-ID finns på sidan.
+   * **resourceId: [sträng]: krävs** – det här är Azure-resurs-ID: t för din befintliga standard v1-eller WAF v1-Gateway. Om du vill hitta strängvärdet navigerar du till Azure Portal, väljer din Application Gateway-eller WAF-resurs och klickar på länken **Egenskaper** för gatewayen. Resurs-ID finns på sidan.
 
      Du kan också köra följande Azure PowerShell-kommandon för att hämta resurs-ID:
 
@@ -98,9 +98,9 @@ Kör skriptet så här:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [sträng]:  Krävs** – det här är det IP-adressutrymme som du har tilldelat (eller vill allokera) för ett nytt undernät som innehåller din nya v2-Gateway. Detta måste anges i CIDR-notation. Exempel: 10.0.0.0/24. Du behöver inte skapa det här under nätet i förväg. Skriptet skapar det åt dig om det inte finns.
-   * **appgwName: [sträng]: Valfritt**. Det här är en sträng som du anger som namn på den nya Standard_v2-eller WAF_v2-gatewayen. Om den här parametern inte anges kommer namnet på din befintliga v1-Gateway att användas med suffixet *_v2* APPEND.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Valfritt**.  En kommaavgränsad lista med PSApplicationGatewaySslCertificate-objekt som du skapar för att representera SSL-certifikaten från din v1-Gateway måste överföras till den nya v2-gatewayen. För varje SSL-certifikat som har kon figurer ATS för din standard v1-eller WAF v1-Gateway, kan du skapa ett `New-AzApplicationGatewaySslCertificate` nytt PSApplicationGatewaySslCertificate-objekt via kommandot som visas här. Du behöver sökvägen till SSL-cert-filen och lösen ordet.
+   * **subnetAddressRange: [sträng]: krävs** – det här är det IP-adressutrymme som du har tilldelat (eller vill allokera) för ett nytt undernät som innehåller din nya v2-Gateway. Detta måste anges i CIDR-notation. Till exempel: 10.0.0.0/24. Du behöver inte skapa det här under nätet i förväg. Skriptet skapar det åt dig om det inte finns.
+   * **appgwName: [sträng]: valfritt**. Det här är en sträng som du anger för att använda som namn på den nya Standard_v2 eller WAF_v2 Gateway. Om den här parametern inte anges kommer namnet på din befintliga v1-Gateway att användas med suffixet *_v2* bifogad.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: valfritt**.  En kommaavgränsad lista med PSApplicationGatewaySslCertificate-objekt som du skapar för att representera SSL-certifikaten från din v1-Gateway måste överföras till den nya v2-gatewayen. För var och en av dina SSL-certifikat som har kon figurer ATS för din standard v1-eller WAF v1-Gateway, kan du skapa ett nytt PSApplicationGatewaySslCertificate-objekt via kommandot `New-AzApplicationGatewaySslCertificate` som visas här. Du behöver sökvägen till SSL-cert-filen och lösen ordet.
 
        Den här parametern är bara valfri om du inte har HTTPS-lyssnare som har kon figurer ATS för din v1-gateway eller WAF. Om du har minst en HTTPS Listener-installation måste du ange den här parametern.
 
@@ -114,14 +114,14 @@ Kör skriptet så här:
         -Password $password
       ```
 
-      Du kan skicka in `$mySslCert1, $mySslCert2` (kommaavgränsade) i föregående exempel som värden för den här parametern i skriptet.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Valfritt**. En kommaavgränsad lista med PSApplicationGatewayTrustedRootCertificate-objekt som du skapar för att representera de [betrodda rot certifikaten](ssl-overview.md) för autentisering av Server dels instanserna från v2-gatewayen.  
+      Du kan skicka in `$mySslCert1, $mySslCert2` (kommaavgränsad) i föregående exempel som värden för den här parametern i skriptet.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: valfritt**. En kommaavgränsad lista med PSApplicationGatewayTrustedRootCertificate-objekt som du skapar för att representera de [betrodda rot certifikaten](ssl-overview.md) för autentisering av Server dels instanserna från v2-gatewayen.  
 
       Om du vill skapa en lista över PSApplicationGatewayTrustedRootCertificate-objekt, se [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
-   * **privateIpAddress: [String]: Valfritt**. En speciell privat IP-adress som du vill koppla till din nya v2-Gateway.  Detta måste vara från samma VNet som du allokerar för din nya v2-Gateway. Om detta inte anges allokerar skriptet en privat IP-adress för din v2-Gateway.
-    * **publicIpResourceId: [String]: Valfritt**. Resurs-ID för en offentlig IP-adress (standard-SKU) i din prenumeration som du vill tilldela till den nya v2-gatewayen. Om detta inte anges allokerar skriptet en ny offentlig IP-adress i samma resurs grupp. Namnet är v2-gatewayens namn med *-IP* tillagt.
-   * **validateMigration: [växel]: Valfritt**. Använd den här parametern om du vill att skriptet ska utföra vissa grundläggande konfigurations jämförelser när v2-gatewayen har skapats och konfigurations kopian. Ingen validering görs som standard.
-   * **enableAutoScale: [växel]: Valfritt**. Använd den här parametern om du vill att skriptet ska aktivera autoskalning på den nya v2-gatewayen när den har skapats. Autoskalning är inaktiverat som standard. Du kan alltid aktivera den manuellt senare på den nyligen skapade v2-gatewayen.
+   * **privateIpAddress: [sträng]: valfritt**. En speciell privat IP-adress som du vill koppla till din nya v2-Gateway.  Detta måste vara från samma VNet som du allokerar för din nya v2-Gateway. Om detta inte anges allokerar skriptet en privat IP-adress för din v2-Gateway.
+    * **publicIpResourceId: [sträng]: valfritt**. Resurs-ID för en offentlig IP-adress (standard-SKU) i din prenumeration som du vill tilldela till den nya v2-gatewayen. Om detta inte anges allokerar skriptet en ny offentlig IP-adress i samma resurs grupp. Namnet är v2-gatewayens namn med *-IP* tillagt.
+   * **validateMigration: [växel]: valfritt**. Använd den här parametern om du vill att skriptet ska utföra vissa grundläggande konfigurations jämförelser när v2-gatewayen har skapats och konfigurations kopian. Ingen validering görs som standard.
+   * **enableAutoScale: [växel]: valfritt**. Använd den här parametern om du vill att skriptet ska aktivera autoskalning på den nya v2-gatewayen när den har skapats. Autoskalning är inaktiverat som standard. Du kan alltid aktivera den manuellt senare på den nyligen skapade v2-gatewayen.
 
 1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att slutföra.
 
@@ -149,14 +149,14 @@ Här följer några scenarier där din aktuella Application Gateway (standard) k
 
 * **En anpassad DNS-zon (till exempel contoso.com) som pekar på klient delens IP-adress (med en A-post) som är associerad med din standard v1-eller WAF v1-Gateway**.
 
-    Du kan uppdatera DNS-posten så att den pekar på klient delens IP-adress eller DNS-etikett som är associerad med din Standard_v2-Programgateway. Beroende på vilken TTL som kon figurer ATS på din DNS-post kan det ta en stund innan all klient trafik migreras till din nya v2-Gateway.
+    Du kan uppdatera DNS-posten så att den pekar på klient delens IP-adress eller DNS-etikett som är associerad med Standard_v2 Application Gateway. Beroende på vilken TTL som kon figurer ATS på din DNS-post kan det ta en stund innan all klient trafik migreras till din nya v2-Gateway.
 * **En anpassad DNS-zon (till exempel contoso.com) som pekar på DNS-etiketten (till exempel: *myappgw.eastus.cloudapp.Azure.com* med hjälp av en CNAME-post) som är associerad med din v1-Gateway**.
 
    Du kan välja mellan två alternativ:
 
   * Om du använder offentliga IP-adresser på din Application Gateway kan du göra en kontrollerad, detaljerad migrering med hjälp av en Traffic Manager-profil för att stegvis dirigera trafik (viktad Traffic routing-metod) till den nya v2-gatewayen.
 
-    Du kan göra detta genom att lägga till DNS-etiketterna för både v1-och v2-programgatewayer i [Traffic Manager profilen](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)och skapa en CNAME-post (till exempel www.contoso.com) till Traffic Manager-domänen (till exempel contoso.trafficmanager.net) .
+    Du kan göra detta genom att lägga till DNS-etiketterna för både v1-och v2-programgatewayer i [Traffic Manager profilen](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)och att skapa en CNAME-anpassad DNS-post (till exempel `www.contoso.com`) till Traffic Manager-domänen (till exempel contoso.trafficmanager.net).
   * Eller så kan du uppdatera din DNS-post för anpassade domäner så att den pekar på DNS-etiketten för den nya v2 Application Gateway. Beroende på vilken TTL som kon figurer ATS på din DNS-post kan det ta en stund innan all klient trafik migreras till din nya v2-Gateway.
 * **Klienterna ansluter till klient delens IP-adress för din Application Gateway**.
 
@@ -190,7 +190,7 @@ Nej. För närvarande stöder skriptet inte certifikat i nyckel valvet. Detta ko
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag har stött på problem med att använda det här skriptet. Hur kan jag få hjälp?
   
-Du kan skicka ett e- appgwmigrationsup@microsoft.compostmeddelande till, öppna ett support ärende med Azure-supporten eller göra båda.
+Du kan skicka ett e-postmeddelande till appgwmigrationsup@microsoft.com, öppna ett support ärende med Azure-support eller gör båda.
 
 ## <a name="next-steps"></a>Nästa steg
 

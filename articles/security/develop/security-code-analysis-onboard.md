@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8936bc21af951cbabb90188b6a31d610caf80395
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241763"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839352"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding och installation
 
@@ -51,7 +51,7 @@ Krav för att komma igång med Microsofts säkerhets kod analys:
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installera tillägget Microsoft Security code Analysis
 
-1. När tillägget har delats med din Azure DevOps-organisation går du till din Azure DevOps-organisations sida. En exempel-URL för en sådan sida http://dev.azure.com/contoso är.
+1. När tillägget har delats med din Azure DevOps-organisation går du till din Azure DevOps-organisations sida. En exempel-URL för en sådan sida är `https://dev.azure.com/contoso`.
 1. Välj shopping bag-ikonen i det övre högra hörnet bredvid ditt namn och välj sedan **Hantera tillägg**.
 1. Välj tillägget Microsoft säkerhets kod analys och öppna sedan guiden Azure DevOps UI för att starta installationen.
 1. I list rutan väljer du Azure DevOps-organisationen för att installera tillägget på.
@@ -65,7 +65,7 @@ När du har installerat tillägget visas de säkra utvecklings uppgifterna och d
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Lägga till specifika bygg uppgifter till din Azure DevOps-pipeline
 
 1. Öppna ditt team projekt från din Azure DevOps-organisation.
-1. Välj **pipeline** > -**versioner**.
+1. Välj **pipelines** > **builds**.
 1. Välj den pipeline som du vill lägga till tillägg för build-uppgifter för:
    - Ny pipeline: Välj **ny** och följ stegen som beskrivs för att skapa en ny pipeline.
    - Redigera pipeline: Välj en befintlig pipeline och välj sedan **Redigera** för att börja redigera pipelinen.

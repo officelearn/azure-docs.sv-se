@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 494beb6ba2bf8a9409962b4418089cdad0e182e1
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114786"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831846"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuera och konfigurera Azure-brandväggen med Azure PowerShell
 
@@ -38,16 +38,16 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
-> * Skapa en standardväg
+> * skapa en standardväg
 > * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
-> * Testa brandväggen
+> * testa brandväggen.
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure Portal](tutorial-firewall-deploy-portal.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här proceduren kräver att du kör PowerShell lokalt. Du måste ha installerat Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
@@ -137,7 +137,7 @@ $AzfwPrivateIP
 
 Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
-## <a name="create-a-default-route"></a>Skapa en standardväg
+## <a name="create-a-default-route"></a>skapa en standardväg
 
 Skapa en tabell med avaktiverad BGP Route-spridning
 
@@ -210,7 +210,7 @@ $NIC.DnsSettings.DnsServers.Add("209.244.0.4")
 $NIC | Set-AzNetworkInterface
 ```
 
-## <a name="test-the-firewall"></a>Testa brandväggen
+## <a name="test-the-firewall"></a>testa brandväggen.
 
 Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
@@ -241,7 +241,7 @@ Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   [www.google.com](www.google.com) begäranden ska lyckas och www.microsoft.com -begäranden ska misslyckas. Detta visar att brand Väggs reglerna fungerar som förväntat.
+   De `www.google.com` begär Anden ska lyckas och `www.microsoft.com` begär Anden ska Miss lyckas. Detta visar att brand Väggs reglerna fungerar som förväntat.
 
 Nu har du verifierat att brand Väggs reglerna fungerar:
 
@@ -258,4 +258,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+* [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)

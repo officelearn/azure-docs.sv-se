@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: d8e23188aa07b1b271c3adc7c5550b18c0c60977
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/04/2019
+ms.openlocfilehash: 89b86124d6da0d0d659ed0673585eadbf1008aa3
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827691"
+ms.locfileid: "73847298"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -34,7 +34,7 @@ Om du vill skapa ett HDInsight-kluster som använder Data Lake Storage Gen2 för
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet
 
-Skapa en användardefinierad hanterad identitet om du inte redan har en. 
+Skapa en användardefinierad hanterad identitet om du inte redan har en.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Klicka på **skapa en resurs**längst upp till vänster.
@@ -49,7 +49,7 @@ Mer information om hur hanterade identiteter fungerar i Azure HDInsight finns i 
 
 ### <a name="create-a-data-lake-storage-gen2-account"></a>Skapa ett Data Lake Storage Gen2 konto
 
-Skapa ett Azure Data Lake Storage Gen2-lagringskonto. 
+Skapa ett Azure Data Lake Storage Gen2-lagringskonto.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Klicka på **skapa en resurs**längst upp till vänster.
@@ -57,7 +57,7 @@ Skapa ett Azure Data Lake Storage Gen2-lagringskonto.
 1. Klicka på **Skapa**.
 1. På skärmen **skapa lagrings konto** :
     1. Välj rätt prenumeration och resurs grupp.
-    1. Ange ett namn för ditt Data Lake Storage Gen2-konto. Mer information om namngivnings konventioner för lagrings konto finns i [namngivnings konventioner för Azure-resurser](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage).
+    1. Ange ett namn för ditt Data Lake Storage Gen2-konto. Mer information om namngivnings konventioner för lagrings konto finns i [namngivnings konventioner för Azure-resurser](/azure/architecture/best-practices/resource-naming#storage).
     1. Klicka på fliken **Avancerat** .
     1. Klicka på **aktive rad** bredvid **hierarkiskt namn område** under **data Lake Storage Gen2**.
     1. Klicka på **Granska + skapa**.
@@ -73,28 +73,28 @@ Tilldela den hanterade identiteten till rollen **Storage BLOB data-ägare** på 
 
 1. I [Azure Portal](https://portal.azure.com)går du till ditt lagrings konto.
 1. Välj ditt lagrings konto och välj sedan **åtkomst kontroll (IAM)** om du vill visa inställningarna för åtkomst kontroll för kontot. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
-    
+
     ![Skärm bild som visar inställningar för åtkomst kontroll för lagring](./media/hdinsight-hadoop-use-data-lake-storage-gen2/portal-access-control.png)
-    
+
 1. Lägg till en ny roll genom att klicka på knappen **+ Lägg till roll tilldelning** .
 1. I fönstret **Lägg till roll tilldelning** väljer du rollen **Storage BLOB data-ägare** . Välj sedan den prenumeration som har den hanterade identitets-och lagrings kontot. Sedan söker du efter den användarspecifika hanterade identitet som du skapade tidigare. Välj slutligen den hanterade identiteten så visas den under **valda medlemmar**.
-    
+
     ![Skärm bild som visar hur du tilldelar en RBAC-roll](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
-    
+
 1. Välj **Spara**. Den användardefinierade identitet som du har valt visas nu under den valda rollen.
 1. När den här inledande installationen är klar kan du skapa ett kluster via portalen. Klustret måste finnas i samma Azure-region som lagrings kontot. I avsnittet **lagring** på menyn skapa kluster väljer du följande alternativ:
-        
+
     * För **primär lagrings typ**väljer du **Azure Data Lake Storage Gen2**.
     * Under **Välj ett lagrings konto**söker du efter och väljer det nyligen skapade data Lake Storage Gen2 lagrings kontot.
-        
+
         ![Lagrings inställningar för att använda Data Lake Storage Gen2 med Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
-    
+
     * Under **identitet**väljer du rätt prenumeration och den nyligen skapade hanterade identiteten som skapats av användaren.
 
         ![Identitets inställningar för att använda Data Lake Storage Gen2 med HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
 
 > [!Note]
-> Om du vill lägga till ett sekundärt Data Lake Storage Gen2 konto, på lagrings konto nivå, tilldelar du bara den hanterade identitet som skapats tidigare till det nya Data Lake Storage Gen2 lagrings konto som du vill lägga till. Vi rekommenderar att du inte kan lägga till ett sekundärt Data Lake Storage Gen2 konto via bladet "ytterligare lagrings konton" i HDInsight. 
+> Om du vill lägga till ett sekundärt Data Lake Storage Gen2 konto, på lagrings konto nivå, tilldelar du bara den hanterade identitet som skapats tidigare till det nya Data Lake Storage Gen2 lagrings konto som du vill lägga till. Vi rekommenderar att du inte kan lägga till ett sekundärt Data Lake Storage Gen2 konto via bladet "ytterligare lagrings konton" i HDInsight.
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Skapa ett kluster med Data Lake Storage Gen2 via Azure CLI
 
@@ -113,10 +113,10 @@ Kodfragmentet nedan visar följande inledande steg:
 
 1. Loggar in på ditt Azure-konto.
 1. Anger den aktiva prenumeration där åtgärderna för att skapa ska utföras.
-1. Skapar en ny resurs grupp för de nya distributions aktiviteterna. 
+1. Skapar en ny resurs grupp för de nya distributions aktiviteterna.
 1. Skapar en användardefinierad hanterad identitet.
 1. Lägger till ett tillägg i Azure CLI för att använda funktioner för Data Lake Storage Gen2.
-1. Skapar ett nytt Data Lake Storage Gen2-konto med hjälp av `--hierarchical-namespace true`-flaggan. 
+1. Skapar ett nytt Data Lake Storage Gen2-konto med hjälp av `--hierarchical-namespace true`-flaggan.
 
 ```azurecli
 az login
@@ -171,7 +171,87 @@ Livscykeln för en användartilldelad identitet hanteras separat från livscykel
 
 Om du vill ange behörigheter för användare för att fråga data använder du Azure AD-säkerhetsgrupper som tilldelat objekt i ACL: er. Tilldela inte fil åtkomst behörighet till enskilda användare eller tjänst huvud namn direkt. När du använder Azure AD-säkerhetsgrupper för att styra behörighets flödet kan du lägga till och ta bort användare eller tjänstens huvud namn utan att återställa ACL: er till en hel katalog struktur. Du behöver bara lägga till eller ta bort användarna från rätt Azure AD-säkerhetsgrupp. ACL: er ärvs inte, så om du tillämpar ACL: er igen måste du uppdatera ACL: en på alla filer och under kataloger.
 
+## <a name="access-files-from-the-cluster"></a>Åtkomst till filer från klustret
+
+Det finns flera sätt som du kan använda för att komma åt filerna i Data Lake Storage Gen2 från ett HDInsight-kluster.
+
+* **Via det fullständiga namnet**. Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
+
+    ```
+    abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
+    ```
+
+* **Via det förkortade sökvägsformatet**. Med den här metoden ersätter du sökvägen upp till kluster roten med:
+
+    ```
+    abfs:///<file.path>/
+    ```
+
+* **Med den relativa sökvägen**. Med den här metoden anger du bara den relativa sökvägen till den fil som du vill öppna.
+
+    ```
+    /<file.path>/
+    ```
+
+### <a name="data-access-examples"></a>Exempel på data åtkomst
+
+Exempel baseras på en [ssh-anslutning](./hdinsight-hadoop-linux-use-ssh-unix.md) till klustrets huvud nod. I exemplen används alla tre URI-scheman. Ersätt `CONTAINERNAME` och `STORAGEACCOUNT` med relevanta värden
+
+#### <a name="a-few-hdfs-commands"></a>Några HDFS-kommandon
+
+1. Skapa en enkel fil på lokal lagrings plats.
+
+    ```bash
+    touch testFile.txt
+    ```
+
+1. Skapa kataloger i kluster lagringen.
+
+    ```bash
+    hdfs dfs -mkdir abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
+    hdfs dfs -mkdir abfs:///sampledata2/
+    hdfs dfs -mkdir /sampledata3/
+    ```
+
+1. Kopiera data från lokal lagring till kluster lagring.
+
+    ```bash
+    hdfs dfs -copyFromLocal testFile.txt  abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
+    hdfs dfs -copyFromLocal testFile.txt  abfs:///sampledata2/
+    hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
+    ```
+
+1. Lista katalog innehåll i kluster lagringen.
+
+    ```bash
+    hdfs dfs -ls abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
+    hdfs dfs -ls abfs:///sampledata2/
+    hdfs dfs -ls /sampledata3/
+    ```
+
+#### <a name="creating-a-hive-table"></a>Skapa en Hive-tabell
+
+Tre fil platser visas i syfte att illustrera. För faktisk körning använder du endast en av `LOCATION` posterna.
+
+```hql
+DROP TABLE myTable;
+CREATE EXTERNAL TABLE myTable (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE
+LOCATION 'abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/example/data/';
+LOCATION 'abfs:///example/data/';
+LOCATION '/example/data/';
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Azure HDInsight-integrering med Data Lake Storage Gen2 för hands version – ACL och säkerhets uppdatering](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Introduktion till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
+* [Självstudie: extrahera, transformera och läsa in data med hjälp av interaktiv fråga i Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

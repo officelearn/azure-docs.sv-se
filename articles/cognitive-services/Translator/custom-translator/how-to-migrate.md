@@ -1,7 +1,7 @@
 ---
 title: Vill du migrera Microsoft Translator Hub-arbetsytan och-projekt? – Anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Migrera Hub-arbetsytan och projekt till anpassad översättare.
+description: Den här artikeln förklarar hur du migrerar din hubb och dina projekt till Azure Cognitive Services anpassad översättare.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,19 +9,19 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675505"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836581"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub-arbetsytan och projekt till anpassad översättare
 
 Du kan enkelt migrera [Microsoft Translator Hub](https://hub.microsofttranslator.com/) -arbetsytan och-projekt till anpassad översättare. Migrering initieras från Microsoft Hub genom att välja en arbets yta eller ett projekt och sedan välja en arbets yta i anpassad översättare och sedan välja de utbildningar som du vill överföra. När migreringen startar överförs de valda utbildnings inställningarna till alla relevanta dokument. Distribuerade modeller är utbildade och kan distribueras när de är klara.
 
 De här åtgärderna utförs under migreringen:
-* Alla dokument och projekt definitioner får sina namn överförda med tillägget "hub_" som redan har prefixet "". Automatiskt genererade test-och justerings data får namnet hub_systemtune_ \<modelid > eller hub_systemtest_ \<modelid >.
+* Alla dokument och projekt definitioner får sina namn överförda med tillägget "hub_" som redan har prefixet till namnet. Automatiskt genererade test-och justerings data får namnet hub_systemtune_\<ModelID > eller hub_systemtest_\<ModelID >.
 * Alla utbildningar som befann sig i det distribuerade läget när migreringen sker kommer automatiskt att tränas med dokumenten i hubb inlärningen. Den här utbildningen kommer inte att debiteras för din prenumeration. Om automatisk distribution valdes för migreringen distribueras den tränade modellen när den är klar. Vanliga värd avgifter kommer att tillämpas.
 * Alla migrerade utbildningar som inte befann sig i det distribuerade läget kommer att placeras i det migrerade utkastet. I det här läget har du möjlighet att träna en modell med den migrerade definitionen, men regelbundna utbildnings avgifter kommer att gälla.
 * BLEU-poängen som migreras från hubben i någon punkt finns i TrainingDetails-sidan i modellen i rubriken "Bleu score i MT Hub".
@@ -78,7 +78,7 @@ Så här migrerar du en arbets yta:
 
     ![Migrera från hubben](media/how-to/how-to-migrate-workspace-from-hub.png)
 
-4. På nästa sida väljer du något av följande två alternativ:
+4. På nästa sida väljer du något av dessa två alternativ:
 
     a. Endast distribuerade utbildningar: om du väljer det här alternativet migreras bara dina distribuerade system och relaterade dokument.
 

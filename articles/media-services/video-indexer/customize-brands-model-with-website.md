@@ -1,7 +1,7 @@
 ---
-title: Använda Video Indexer-webbplats för att anpassa en varumärken modell – Azure
-titlesuffix: Azure Media Services
-description: Den här artikeln visar hur du anpassar en varumärken modell med Video Indexer-webbplatsen.
+title: Använd Video Indexer webbplats för att anpassa en varumärkes-modell – Azure
+titleSuffix: Azure Media Services
+description: Den här artikeln visar hur du anpassar en-modell med Video Indexer webbplats.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,85 +10,85 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 721fde63aeae8704761b3c21f489dcad77cb89e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b2f7a8b43c1723beb0dd8da82814f74cd7b135
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799600"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838350"
 ---
-# <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Anpassa en varumärken modell med Video Indexer-webbplats
+# <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Anpassa en varumärke modell med Video Indexer webbplats
 
-Video Indexer stöder varumärke identifiering från tal- och visual text under indexering och omindexering av video-och ljudinnehåll. Funktionen för identifiering av varumärke identifierar omnämnanden av produkter, tjänster och företag som föreslås av Bings varumärken databas. Till exempel identifierar om Microsoft nämns i en video- eller ljudinnehåll innehåll eller om den visas i visual text i en video, Video Indexer den som ett varumärke i innehållet. En anpassad varumärken modell kan du välja huruvida du Video Indexer identifierar varumärken från Bing varumärken databas, undanta vissa varumärken inte har identifierats (skapa en lista med blockerade användare av i stort sett) och inkludera varumärken som ska ingå i din modell som kanske inte är i Bings varumärken databasen (skapa en lista för tillåten av i stort sett).
+Video Indexer stöder varumärkes identifiering från tal-och visuell text vid indexering och Omindexering av video-och ljud innehåll. Funktionen varumärkes identifiering identifierar omnämnanden av produkter, tjänster och företag som föreslås av Bing-databasens varumärken. Om Microsoft till exempel nämns i ett video-eller ljud innehåll eller om det visas i visuell text i en video identifierar Video Indexer det som ett varumärke i innehållet. Med en modell med anpassade varumärken kan du välja om du Video Indexer ska identifiera varumärken från Bing-databaserna, undanta vissa varumärken från att identifieras (i grunden skapar en svart lista med varumärken) och inkluderar varumärken som ska ingå i din modell Det kanske inte finns i Bing-databasens varumärken (i grunden skapar du en vit lista över varumärken).
 
-En detaljerad översikt finns i [översikt](customize-brands-model-overview.md).
+En detaljerad översikt finns i [Översikt](customize-brands-model-overview.md).
 
-Du kan använda Video Indexer-webbplatsen för att skapa, använda och redigera anpassade varumärken modeller har identifierats i en video, enligt beskrivningen i det här avsnittet. Du kan också använda API: et, enligt beskrivningen i [anpassa varumärken modellen med hjälp av API: er](customize-brands-model-with-api.md).
+Du kan använda Video Indexer webbplats för att skapa, använda och redigera anpassade varumärke modeller som identifieras i en video, enligt beskrivningen i det här avsnittet. Du kan också använda API: et enligt beskrivningen i [Anpassa varumärkes-modellen med hjälp av API: er](customize-brands-model-with-api.md).
 
-## <a name="edit-the-settings-of-the-brands-model"></a>Redigera inställningar av modellen varumärken  
+## <a name="edit-the-settings-of-the-brands-model"></a>Redigera inställningarna för modellen varumärken  
 
-Du har möjlighet att ange om du vill att varumärken från Bing varumärken databasen ska identifieras. För detta måste du redigera inställningarna för din modell varumärken.
+Du har möjlighet att ange om du vill att märken från Bing-databasen ska identifieras eller inte. För det här måste du redigera inställningarna för din varumärkes-modell.
 
 1. Gå till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och logga in.
-2. Om du vill anpassa en modell i ditt konto, klickar du på den **innehåll modellanpassning** knappen i det övre högra hörnet på sidan.
+2. Om du vill anpassa en modell i ditt konto klickar du på knappen **anpassning av innehålls modell** i det övre högra hörnet på sidan.
  
-   ![Anpassa innehållsmodellen](./media/content-model-customization/content-model-customization.png) 
-3. Om du vill redigera varumärken, Välj den **varumärken** fliken.
+   ![Anpassa innehålls modell](./media/content-model-customization/content-model-customization.png) 
+3. Om du vill redigera varumärken väljer du fliken **varumärken** .
 
-    ![Anpassa varumärken modell](./media/customize-brand-model/customize-brand-model.png)
-4. Kontrollera den **visa varumärken som föreslås av Bing** alternativ, om du vill använda för Video Indexer att inkludera varumärken som föreslås av Bing. Lämna alternativet är avmarkerat om du inte vill att Video Indexer för att identifiera varumärken som föreslås av Bing i ditt innehåll. 
+    ![Anpassa varumärkes-modellen](./media/customize-brand-model/customize-brand-model.png)
+4. Markera alternativet **Visa varumärken som föreslås av Bing** , om du vill att video Indexer ska innehålla varumärken som föreslås av Bing. Lämna alternativet avmarkerat om du inte vill att Video Indexer ska identifiera varumärken som föreslås av Bing i ditt innehåll. 
 
 ## <a name="include-brands-in-the-model"></a>Inkludera varumärken i modellen
 
-Den **inkluderar varumärken** avsnittet representerar anpassade varumärken som du vill använda för Video Indexer att identifiera även om de inte föreslås av Bing.  
+Avsnittet **Inkludera varumärken** representerar anpassade varumärken som du vill ska video Indexer identifiera även om de inte föreslås av Bing.  
 
 ### <a name="add-a-brand"></a>Lägg till ett varumärke
 
-1. Klicka på ”+ Lägg till varumärke”.
+1. Klicka på "+ Lägg till märke".
 
-    ![Anpassa varumärken modell](./media/customize-brand-model/add-brand.png)
+    ![Anpassa varumärkes-modellen](./media/customize-brand-model/add-brand.png)
 
-    Ange ett namn (krävs), en kategori (valfritt), en beskrivning (valfritt) och referera URL (valfritt).
-    Kategorifältet är avsedd att hjälpa dig tagga dina varumärken. Det här fältet visas som varumärken *taggar* när du använder API: er för Video Indexer. Varumärket ”Azure” kan till exempel taggade eller kategoriserade som ”moln”.
+    Ange ett namn (obligatoriskt), kategori (valfritt), beskrivning (valfritt) och referens-URL (valfritt).
+    Kategori fältet är avsett att hjälpa dig att tagga dina varumärken. Det här fältet visas som märkes *taggar* när du använder video Indexer-API: er. Till exempel kan märket "Azure" märkas eller kategoriseras som "moln".
 
-    Referens för URL-fält kan vara någon referens-webbplats för varumärke, till exempel en länk till dess Wikipedia-sida.
-2. Klicka på ”Lägg till varumärke” och du ser att varumärket har lagts till i **inkluderar varumärken** lista.
+    Fältet referens-URL kan vara vilken referens webbplats som helst för varumärket, till exempel en länk till en wikipedia-sida.
+2. Klicka på Lägg till märke så ser du att varumärket har lagts till i listan **med inkluderade märken** .
 
 ### <a name="edit-a-brand"></a>Redigera ett varumärke
 
-1. Klicka på pennikonen bredvid varumärket som du vill redigera.
+1. Klicka på Penn ikonen bredvid det märke som du vill redigera.
 
-    Du kan uppdatera kategori, beskrivning och URL: en för referens för ett varumärke. Du kan inte ändra namnet på ett varumärke eftersom namnen på varumärken är unika. Om du vill ändra namnet, ta bort hela varumärket (se nästa avsnitt) och skapa ett nytt varumärke med det nya namnet.
-2. Klicka på den **uppdatera** knappen för att uppdatera varumärket med den nya informationen.
+    Du kan uppdatera kategori, beskrivning eller referens-URL för ett varumärke. Du kan inte ändra namnet på ett varumärke eftersom namn på varumärken är unika. Om du behöver ändra märkes namnet tar du bort hela varumärket (se nästa avsnitt) och skapar ett nytt varumärke med det nya namnet.
+2. Klicka på knappen **Uppdatera** för att uppdatera varumärket med den nya informationen.
 
 ### <a name="delete-a-brand"></a>Ta bort ett varumärke
 
-1. Klicka på Papperskorgen bredvid varumärket som du vill ta bort.
-2. Klicka på ”Ta bort” och varumärket inte längre visas i din *inkluderar varumärken* lista.
+1. Klicka på pappers korgs ikonen bredvid det märke som du vill ta bort.
+2. Klicka på "ta bort" och varumärket visas inte längre i listan *med inkluderade märken* .
 
-## <a name="exclude-brands-from-the-model"></a>Exkludera varumärken från modellen
+## <a name="exclude-brands-from-the-model"></a>Uteslut varumärken från modellen
 
-Den **undanta varumärken** avsnittet representerar de varumärken som du vill använda för Video Indexer inte att identifiera.
+Avsnittet **exkludera varumärken** representerar de varumärken som du vill använda för video Indexer inte att identifiera.
 
 ### <a name="add-a-brand"></a>Lägg till ett varumärke
 
-1. Klicka på ”+ Lägg till varumärke”.
+1. Klicka på "+ Lägg till märke".
 
     Ange ett namn (obligatoriskt), kategori (valfritt).
-2. Klicka på ”Lägg till varumärke” och du ser att varumärket har lagts till i *undanta varumärken* lista.
+2. Klicka på Lägg till märke så ser du att varumärket har lagts till i listan *Uteslut varumärken* .
 
 ### <a name="edit-a-brand"></a>Redigera ett varumärke
 
-1. Klicka på pennikonen bredvid varumärket som du vill redigera.
+1. Klicka på Penn ikonen bredvid det märke som du vill redigera.
 
-    Du kan bara uppdatera kategorin för ett varumärke. Du kan inte ändra namnet på ett varumärke eftersom namnen på varumärken är unika. Om du vill ändra namnet, ta bort hela varumärket (se nästa avsnitt) och skapa ett nytt varumärke med det nya namnet.
-2. Klicka på den **uppdatera** knappen för att uppdatera varumärket med den nya informationen.
+    Du kan bara uppdatera kategorin för ett varumärke. Du kan inte ändra namnet på ett varumärke eftersom namn på varumärken är unika. Om du behöver ändra märkes namnet tar du bort hela varumärket (se nästa avsnitt) och skapar ett nytt varumärke med det nya namnet.
+2. Klicka på knappen **Uppdatera** för att uppdatera varumärket med den nya informationen.
 
 ### <a name="delete-a-brand"></a>Ta bort ett varumärke
 
-1. Klicka på Papperskorgen bredvid varumärket som du vill ta bort.
-2. Klicka på ”Ta bort” och varumärket inte längre visas i din *undanta varumärken* lista.
+1. Klicka på pappers korgs ikonen bredvid det märke som du vill ta bort.
+2. Klicka på "ta bort" och varumärket visas inte längre i listan med *exkluderade märken* .
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa varumärken modell med API: er](customize-brands-model-with-api.md)
+[Anpassa varumärkes-modellen med API: er](customize-brands-model-with-api.md)

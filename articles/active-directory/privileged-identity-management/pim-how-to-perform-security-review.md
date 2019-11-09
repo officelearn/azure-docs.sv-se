@@ -1,10 +1,10 @@
 ---
-title: Granska åtkomst till Azure AD-roller i PIM-Azure Active Directory | Microsoft Docs
-description: Lär dig hur du granskar åtkomsten till Azure AD-roller i Azure AD Privileged Identity Management (PIM).
+title: Granska åtkomst till Azure AD-roller i PIM – Azure AD | Microsoft Docs
+description: Lär dig hur du granskar åtkomsten till Azure Active Directory roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b9f16d6c7f738e64f154506228c832e31e0f5b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 76eccb5d62b68865b7a117312be62753f203e2cb
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809046"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847097"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Granska åtkomst till Azure AD-roller i Privileged Identity Management
 

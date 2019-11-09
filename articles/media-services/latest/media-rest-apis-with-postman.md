@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 11/07/2019
 ms.author: juliako
-ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675731"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839588"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera PostMan för Media Services REST API-anrop
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du konfigurerar **Postman** så att den kan använda
 
 Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 - Hämta information som krävs för att [få åtkomst till API: er](access-api-cli-how-to.md)
@@ -91,6 +91,11 @@ Innan du börjar ändra AMS v3-resurser måste du hämta och ange Azure AD-token
 4. Svaret kommer tillbaka med token och anger miljövariabeln AccessToken till token-värdet.  
 
     ![Hämta AAD-token](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+## <a name="troubleshooting"></a>Felsökning 
+
+* Om programmet Miss lyckas med "HTTP 504: Gateway-tidsgräns" kontrollerar du att plats variabeln inte uttryckligen har angetts till ett annat värde än den förväntade platsen för Media Services kontot. 
+* Om du får ett fel meddelande om att det inte gick att hitta kontot kontrollerar du också att egenskapen location i meddelandets JSON-meddelande har angetts till den plats där Media Servicess kontot finns. 
 
 ## <a name="see-also"></a>Se också
 

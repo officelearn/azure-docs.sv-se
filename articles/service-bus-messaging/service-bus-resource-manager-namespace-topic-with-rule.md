@@ -1,6 +1,6 @@
 ---
-title: Skapa Azure Service Bus ämnesprenumeration och regel med hjälp av Azure Resource Manager-mall | Microsoft Docs
-description: Skapa ett Service Bus-namnområde med ämne, prenumeration och regel med hjälp av Azure Resource Manager-mall
+title: Skapa Azure Service Bus ämnes prenumeration och regel med hjälp av Azure Resource Manager-mall | Microsoft Docs
+description: Skapa ett Service Bus-namnområde med ämne, prenumeration och regel med hjälp av Azure Resource Manager mall
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6631528c9d1f2dfc6dcd3e9d6da81115a9ece637
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444751"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832081"
 ---
-# <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med ämne, prenumeration och regel med en Azure Resource Manager-mall
+# <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med ämne, prenumeration och regel med hjälp av en Azure Resource Manager mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde med ämne, prenumeration och regel (filter). Den här artikeln beskriver hur du ange vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde med ett ämne, en prenumeration och regel (filter). Artikeln förklarar hur du anger vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar][Authoring Azure Resource Manager templates].
 
-Läs mer om praxis och mönster på Azure-resurser namngivningskonventioner, [rekommenderade namnkonventioner för Azure-resurser][Recommended naming conventions for Azure resources].
+Mer information om praxis och mönster på namngivnings konventioner för Azure-resurser finns i [rekommenderade namn konventioner för Azure-resurser][Recommended naming conventions for Azure resources].
 
-Läs den fullständiga mallen, den [Service Bus-namnområde med ämne, prenumeration och regel][Service Bus namespace with topic, subscription, and rule] mall.
+En fullständig mall finns i [Service Bus namnrymd med ämne, prenumeration och regel][Service Bus namespace with topic, subscription, and rule] mall.
 
 > [!NOTE]
-> Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
+> Följande Azure Resource Manager mallar är tillgängliga för hämtning och distribution.
 > 
-> * [Skapa ett Service Bus-namnområde med kön och auktorisering](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Skapa ett Service Bus-namnområde med kö och auktoriseringsregel](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
 > * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
-> * [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
+> * [Skapa ett Service Bus-namnområde med ämne och prenumeration](service-bus-resource-manager-namespace-topic.md)
 > 
-> Om du vill söka efter de senaste mallarna, Besök den [Azure-Snabbstartsmallar][Azure Quickstart Templates] galleriet och söka efter Service Bus.
+> Om du vill söka efter de senaste mallarna går du till galleriet för [Azure snabb starts mallar][Azure Quickstart Templates] och söker efter Service Bus.
 > 
 > 
 
-## <a name="what-do-you-deploy"></a>Vad du distribuera?
+## <a name="what-do-you-deploy"></a>Vad distribuerar du?
 
-Med den här mallen kan du distribuera ett Service Bus-namnområde med ämne, prenumeration och regel (filter).
+Med den här mallen distribuerar du ett Service Bus-namnområde med ämne, prenumeration och regel (filter).
 
-[Service Bus-ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) tillhandahålla en en-till-många-kommunikation i en *Publicera/prenumerera på* mönster. När du använder ämnen och prenumerationer, kommunicerar komponenter i ett distribuerat program inte direkt med varandra, utbyter de istället meddelanden via ämne som fungerar som en mellanhand. En prenumeration till ett ämne liknar en virtuell kö som tar emot kopior av meddelanden som skickades till ämnet. Ett filter på prenumerationen kan du ange vilka meddelanden som skickas till ett ämne bör visas inom en viss ämnesprenumeration.
+[Service Bus ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) ger en en-till-många-form av kommunikation i ett mönster för *publicering/prenumeration* . När du använder ämnen och prenumerationer kommunicerar komponenter i ett distribuerat program inte direkt med varandra, i stället Exchange-meddelanden via ämne som fungerar som en mellanhand. En prenumeration på ett ämne liknar en virtuell kö som tar emot kopior av meddelanden som har skickats till ämnet. Ett filter för prenumerationen gör att du kan ange vilka meddelanden som skickas till ett ämne som ska visas i en speciell ämnes prenumeration.
 
 ## <a name="what-are-rules-filters"></a>Vad är regler (filter)?
 
-Meddelanden som har specifika egenskaper måste bearbetas på olika sätt i många scenarier. Om du vill aktivera den här anpassade bearbetning, kan du konfigurera prenumerationer för att hitta meddelanden som har specifika egenskaper och utför ändringar i dessa egenskaper. Du kan bara kopiera en delmängd av de här meddelandena till virtuella prenumerationskön även om Service Bus-prenumerationer visas alla meddelanden som skickas till ämnet. Det åstadkoms med hjälp av prenumerationsfilter. Mer information om regler (filter) finns [regler och åtgärder](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+I många fall måste meddelanden med särskilda egenskaper bearbetas på olika sätt. Om du vill aktivera den här anpassade bearbetningen kan du konfigurera prenumerationer för att hitta meddelanden som har vissa egenskaper och sedan utföra ändringar i dessa egenskaper. Även om Service Bus prenumerationer visar alla meddelanden som skickas till ämnet, kan du bara kopiera en delmängd av dessa meddelanden till kön för virtuella prenumerationer. Det utförs med hjälp av prenumerations filter. Mer information om regler (filter) finns i [regler och åtgärder](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
@@ -59,12 +59,12 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 ## <a name="parameters"></a>Parametrar
 
-Med Azure Resource Manager kan definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager definierar du parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Definiera en parameter för de värden som varierar beroende på vilket projekt du distribuerar eller baserat på den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Namnet på Service Bus-namnområdet för att skapa.
+Namnet på Service Bus namn området som ska skapas.
 
 ```json
 "serviceBusNamespaceName": {
@@ -73,7 +73,7 @@ Namnet på Service Bus-namnområdet för att skapa.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-Namnet på det ämne som skapats i Service Bus-namnområdet.
+Namnet på ämnet som skapats i Service Bus namn området.
 
 ```json
 "serviceBusTopicName": {
@@ -82,7 +82,7 @@ Namnet på det ämne som skapats i Service Bus-namnområdet.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-Namnet på den prenumeration som skapats i Service Bus-namnområdet.
+Namnet på prenumerationen som skapades i Service Bus namn området.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -90,7 +90,7 @@ Namnet på den prenumeration som skapats i Service Bus-namnområdet.
 }
 ```
 ### <a name="servicebusrulename"></a>serviceBusRuleName
-Namnet på rule(filter) som skapats i Service Bus-namnområdet.
+Namnet på regeln (filtret) som skapats i namn området Service Bus.
 
 ```json
    "serviceBusRuleName": {
@@ -98,7 +98,7 @@ Namnet på rule(filter) som skapats i Service Bus-namnområdet.
   }
 ```
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-Service Bus-API-versionen av mallen.
+Mallens Service Bus-API-version.
 
 ```json
 "serviceBusApiVersion": { 
@@ -109,7 +109,7 @@ Service Bus-API-versionen av mallen.
        }
 ```
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-Skapar en standard Service Bus-namnområde av typen **Messaging**med ämnet och prenumerationen och regler.
+Skapar ett standard Service Bus-namnområde av typ **meddelanden**, med ämne och prenumeration och regler.
 
 ```json
  "resources": [{
@@ -161,7 +161,7 @@ Skapar en standard Service Bus-namnområde av typen **Messaging**med ämnet och 
     }]
 ```
 
-JSON-syntax och egenskaper finns i [namnområden](/azure/templates/microsoft.servicebus/namespaces), [ämnen](/azure/templates/microsoft.servicebus/namespaces/topics), [prenumerationer](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions), och [regler](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
+Information om JSON-syntax och egenskaper finns i [namn områden](/azure/templates/microsoft.servicebus/namespaces), [ämnen](/azure/templates/microsoft.servicebus/namespaces/topics), [prenumerationer](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions)och [regler](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
 
 ## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
@@ -179,9 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande avsnitt som visar hur du skapar ett prenumerationsfilter: [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel med en Azure Resource Manager-mall](service-bus-resource-manager-namespace-topic-with-rule.md)
+Se följande avsnitt som visar hur du skapar ett prenumerations filter: [skapa ett Service Bus-namnområde med ämne, prenumeration och regel med hjälp av en Azure Resource Manager mall](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-Lär dig hur du hanterar dessa resurser genom att visa de här artiklarna:
+Lär dig hur du hanterar dessa resurser genom att läsa följande artiklar:
 
 * [Hantera Azure Service Bus](service-bus-management-libraries.md)
 * [Hantera Service Bus med PowerShell](service-bus-manage-with-ps.md)
@@ -192,7 +192,7 @@ Lär dig hur du hanterar dessa resurser genom att visa de här artiklarna:
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-[Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
+[Recommended naming conventions for Azure resources]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 

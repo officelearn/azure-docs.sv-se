@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 102490335e91c95b53b5a6d37a00809d34d31e90
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 809e40f6616e8ab022a31d8dd29d4a5386c5e844
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168584"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838410"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverks gränssnitt
 
@@ -33,7 +33,7 @@ Om du behöver lägga till, ändra eller ta bort IP-adresser för ett nätverks 
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
-- Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.
+- Om du använder portalen öppnar du https://portal.azure.comoch loggar in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
@@ -49,7 +49,7 @@ När du skapar en virtuell dator med hjälp av Azure Portal skapar portalen ett 
 
     |Inställning|Krävs?|Information|
     |---|---|---|
-    |Namn|Ja|Namnet måste vara unikt inom den resurs grupp du väljer. Med tiden har du troligen flera nätverks gränssnitt i din Azure-prenumeration. Förslag när du skapar en namngivnings konvention för att göra det enklare att hantera flera nätverks gränssnitt finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). Namnet kan inte ändras efter att nätverks gränssnittet har skapats.|
+    |Namn|Ja|Namnet måste vara unikt inom den resurs grupp du väljer. Med tiden har du troligen flera nätverks gränssnitt i din Azure-prenumeration. Förslag när du skapar en namngivnings konvention för att göra det enklare att hantera flera nätverks gränssnitt finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Namnet kan inte ändras efter att nätverks gränssnittet har skapats.|
     |Virtuellt nätverk|Ja|Välj det virtuella nätverket för nätverks gränssnittet. Du kan bara tilldela ett nätverks gränssnitt till ett virtuellt nätverk som finns i samma prenumeration och plats som nätverks gränssnittet. När ett nätverks gränssnitt har skapats kan du inte ändra det virtuella nätverk som det har tilldelats. Den virtuella dator som du lägger till nätverks gränssnittet till måste också finnas på samma plats och i samma prenumeration som nätverks gränssnittet.|
     |Undernät|Ja|Välj ett undernät i det virtuella nätverk som du har valt. Du kan ändra det undernät som nätverks gränssnittet tilldelas efter att det har skapats.|
     |Tilldelning av privat IP-adress|Ja| I den här inställningen väljer du tilldelnings metod för IPv4-adressen. Välj mellan följande tilldelnings metoder: **dynamiska:** när du väljer det här alternativet tilldelar Azure automatiskt nästa tillgängliga adress från det valda under nätets adress utrymme. **Statisk:** När du väljer det här alternativet måste du manuellt tilldela en tillgänglig IP-adress från det valda under nätets adress utrymme. Statiska och dynamiska adresser ändras inte förrän du ändrar dem eller nätverks gränssnittet har tagits bort. Du kan ändra tilldelnings metoden när nätverks gränssnittet har skapats. Azure DHCP-servern tilldelar den här adressen till nätverks gränssnittet i den virtuella datorns operativ system.|
@@ -81,7 +81,7 @@ Du kan visa och ändra de flesta inställningar för ett nätverks gränssnitt n
 1. Skriv *nätverks gränssnitt*i rutan som innehåller text *Sök resurserna* överst i Azure Portal. När **nätverks gränssnitt** visas i Sök resultaten väljer du det.
 2. Välj det nätverks gränssnitt som du vill visa eller ändra inställningarna för i listan.
 3. Följande objekt visas för det nätverks gränssnitt som du har valt:
-   - **Översikt:** Innehåller information om nätverks gränssnittet, till exempel IP-adresser som tilldelats det, det virtuella nätverk/undernät som nätverks gränssnittet är tilldelat och den virtuella dator som nätverks gränssnittet är kopplat till (om det är kopplat till ett). Följande bild visar översikts inställningarna för ett nätverks gränssnitt med namnet **mywebserver256**: ![Network Interface Overview @ no__t-2
+   - **Översikt:** Innehåller information om nätverks gränssnittet, till exempel IP-adresser som tilldelats det, det virtuella nätverk/undernät som nätverks gränssnittet är tilldelat och den virtuella dator som nätverks gränssnittet är kopplat till (om det är kopplat till ett). Följande bild visar översikts inställningarna för ett nätverks gränssnitt med namnet **mywebserver256**: översikt över ![nätverks gränssnitt](./media/virtual-network-network-interface/nic-overview.png)
 
      Du kan flytta ett nätverks gränssnitt till en annan resurs grupp eller prenumeration genom att välja (**ändra**) bredvid **resurs gruppen** eller **prenumerations namnet**. Om du flyttar nätverks gränssnittet måste du flytta alla resurser som är relaterade till nätverks gränssnittet med det. Om nätverks gränssnittet är kopplat till en virtuell dator, till exempel, måste du också flytta den virtuella datorn och andra virtuella dator-relaterade resurser. Information om hur du flyttar ett nätverks gränssnitt finns i [Flytta resurs till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). Artikeln innehåller förutsättningar och hur du flyttar resurser med hjälp av Azure Portal, PowerShell och Azure CLI.
    - **IP-konfigurationer:** Offentliga och privata IPv4-och IPv6-adresser som tilldelas till IP-konfigurationer visas här. Om en IPv6-adress har tilldelats en IP-konfiguration visas inte adressen. Mer information om IP-konfigurationer och hur du lägger till och tar bort IP-adresser finns i [Konfigurera IP-adresser för ett Azure-nätverks gränssnitt](virtual-network-network-interface-addresses.md). IP-vidarebefordring och tilldelning av undernät konfigureras också i det här avsnittet. Mer information om de här inställningarna finns i [Aktivera eller inaktivera IP-vidarebefordran](#enable-or-disable-ip-forwarding) och [Ändra tilldelning av undernät](#change-subnet-assignment).
@@ -168,7 +168,7 @@ Du kan ändra under nätet, men inte det virtuella nätverket, som ett nätverks
 Du kan bara lägga till ett nätverks gränssnitt i eller ta bort ett nätverks gränssnitt från en program säkerhets grupp med hjälp av portalen om nätverks gränssnittet är kopplat till en virtuell dator. Du kan använda PowerShell eller Azure CLI för att lägga till ett nätverks gränssnitt i eller ta bort ett nätverks gränssnitt från en program säkerhets grupp, oavsett om nätverks gränssnittet är kopplat till en virtuell dator eller inte. Lär dig mer om [program säkerhets grupper](security-overview.md#application-security-groups) och hur du [skapar en program säkerhets grupp](manage-network-security-group.md).
 
 1. I rutan *Sök efter resurser, tjänster och dokument* högst upp i portalen börjar du skriva namnet på en virtuell dator som har ett nätverks gränssnitt som du vill lägga till i eller ta bort från, en program säkerhets grupp. När namnet på den virtuella datorn visas i Sök resultatet väljer du det.
-2. Under **INSTÄLLNINGAR** väljer du **Nätverk**.  Välj **Konfigurera program säkerhets grupper**, Välj de program säkerhets grupper som du vill lägga till nätverks gränssnittet i eller avmarkera de program säkerhets grupper som du vill ta bort nätverks gränssnittet från och välj **sedan Spara**. Endast nätverks gränssnitt som finns i samma virtuella nätverk kan läggas till i samma program säkerhets grupp. Program säkerhets gruppen måste finnas på samma plats som nätverks gränssnittet.
+2. Under **INSTÄLLNINGAR** väljer du **Nätverk**.  Välj **Konfigurera program säkerhets grupper**, Välj de program säkerhets grupper som du vill lägga till nätverks gränssnittet i eller avmarkera de program säkerhets grupper som du vill ta bort nätverks gränssnittet från och välj sedan **Spara**. Endast nätverks gränssnitt som finns i samma virtuella nätverk kan läggas till i samma program säkerhets grupp. Program säkerhets gruppen måste finnas på samma plats som nätverks gränssnittet.
 
 **Kommandon**
 

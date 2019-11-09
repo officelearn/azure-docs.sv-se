@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: absha
-ms.openlocfilehash: 4b233117bc0f967368aeac7baec8c4875aa16826
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ef2bbf8804e96a3e25f053d189c6d85bfa845b0b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051418"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833178"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Felsöka App Service problem i Application Gateway
 
@@ -39,10 +39,10 @@ När du använder app Services bakom en Programgateway skiljer sig även det dom
 
 ## <a name="sample-configuration"></a>Exempel på konfiguration
 
-- HTTP-lyssnare: Basic eller flera platser
+- HTTP-lyssnare: grundläggande eller flera platser
 - Backend-adresspool: App Service
-- HTTP-inställningar: **Välj värd namn från backend-adress** aktive rad
-- Provtagning **Välj värd namn för HTTP-inställningar** aktiverat
+- HTTP-inställningar: **Välj värdnamn från backend-adressen** aktive rad
+- Avsökning: **Välj värdnamn för HTTP-inställningar** aktiverat
 
 ## <a name="cause"></a>Orsak
 
@@ -76,14 +76,14 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-I föregående exempel ser du att svars huvudet har status kod 301 för omdirigering. Plats huvudet har App Service-värdnamnet i stället för det ursprungliga värd namnet www.contoso.com.
+I föregående exempel ser du att svars huvudet har status kod 301 för omdirigering. Plats huvudet har App Service-värdnamnet i stället för det ursprungliga värd namnet `www.contoso.com`.
 
-## <a name="solution-rewrite-the-location-header"></a>Lösa Skriv om plats rubriken
+## <a name="solution-rewrite-the-location-header"></a>Lösning: Skriv om plats rubriken
 
-Ange värd namnet i plats rubriken till Application gatewayens domän namn. Det gör du genom att skapa en Rewrite- [regel](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) med ett villkor som utvärderar om plats rubriken i svaret innehåller azurewebsites.net. Det måste också utföra en åtgärd för att skriva om plats huvudet till Application Gateway-värdnamnet. Mer information finns i anvisningar om [hur du skriver om plats rubriken](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Ange värd namnet i plats rubriken till Application gatewayens domän namn. Det gör du genom att skapa en [Rewrite-regel](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) med ett villkor som utvärderar om plats rubriken i svaret innehåller azurewebsites.net. Det måste också utföra en åtgärd för att skriva om plats huvudet till Application Gateway-värdnamnet. Mer information finns i anvisningar om [hur du skriver om plats rubriken](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
 
 > [!NOTE]
-> Stödet för omskrivning av HTTP-huvud är bara tillgängligt för [Standard_v2-och WAF_v2-SKU: n](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) för Application Gateway. Om du använder v1 SKU rekommenderar vi att du [migrerar från v1 till v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Du vill använda omskrivning och andra [avancerade funktioner](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) som är tillgängliga med v2-SKU: n.
+> Stödet för omskrivning av HTTP-huvud är bara tillgängligt för [Standard_v2 och WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) för Application Gateway. Om du använder v1 SKU rekommenderar vi att du [migrerar från v1 till v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Du vill använda omskrivning och andra [avancerade funktioner](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) som är tillgängliga med v2-SKU: n.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Alternativ lösning: Använd ett anpassat domän namn
 
@@ -97,9 +97,9 @@ Du måste äga en anpassad domän och följa den här processen:
 
     ![App Service, anpassad domän lista](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- App Service är redo att godkänna värd namnet www.contoso.com. Ändra CNAME-posten i DNS så att den pekar tillbaka till programgatewayens FQDN, till exempel appgw.eastus.cloudapp.azure.com.
+- App Service är redo att acceptera värd namnet `www.contoso.com`. Ändra CNAME-posten i DNS så att den pekar tillbaka till programgatewayens FQDN, till exempel `appgw.eastus.cloudapp.azure.com`.
 
-- Kontrol lera att din domän www.contoso.com matchar programgatewayens FQDN-namn när du gör en DNS-fråga.
+- Se till att din domän `www.contoso.com` matchar programgatewayens FQDN-namn när du gör en DNS-fråga.
 
 - Ange anpassad avsökning för att inaktivera **Välj värdnamn från Server delens HTTP-inställningar**. Avmarkera kryss rutan i avsöknings inställningarna i Azure Portal. I PowerShell använder du inte växeln **-PickHostNameFromBackendHttpSettings** i kommandot **set-AzApplicationGatewayProbeConfig** . I fältet värdnamn för avsökningen anger du din app service FQDN, example.azurewebsites.net. Avsöknings begär Anden som skickas från programgatewayen har detta fullständiga domän namn i värd huvudet.
 
@@ -110,7 +110,7 @@ Du måste äga en anpassad domän och följa den här processen:
 
 - Associera den anpassade avsökningen tillbaka till Server delens HTTP-inställningar och kontrol lera att Server delen är felfri.
 
-- Programgatewayen bör nu vidarebefordra samma värdnamn, www.contoso.com, till App Service. Omdirigeringen sker på samma värdnamn. Kontrol lera följande exempel på begäran och svarshuvuden.
+- Programgatewayen bör nu vidarebefordra samma värdnamn `www.contoso.com`till App Service. Omdirigeringen sker på samma värdnamn. Kontrol lera följande exempel på begäran och svarshuvuden.
 
 Använd PowerShell-skriptet nedan om du vill implementera föregående steg med PowerShell för en befintlig installation. Observera att vi inte har använt växlarna **-PickHostname** i konfigurationen för avsöknings-och http-inställningar.
 

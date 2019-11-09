@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795706"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832097"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Översikt över insikter i Azure Monitor
 Insikter ger en anpassad övervaknings miljö för specifika program och tjänster. De lagrar data i [Azure Monitor data plattform](../platform/data-platform.md) och använder andra Azure Monitor funktioner för analys och avisering, men kan samla in ytterligare data och ge en unik användar upplevelse i Azure Portal. Få till gång till insikter från avsnittet om **insikter** på Azure Monitor-menyn i Azure Portal.
@@ -47,8 +47,8 @@ Se [Vad är Azure Monitor for VMS?](vminsights-overview.md)
 
 ![Azure Monitor för virtuella datorer](media/insights-overview/vm-insights.png)
 
-## <a name="azure-monitor-for-network-preview"></a>Azure Monitor för nätverk (för hands version)
-Azure Monitor för nätverk ger en omfattande vy över hälsa och mått för alla nätverks resurser. Med den avancerade Sök funktionen kan du identifiera resurs beroenden, aktivera scenarier som att identifiera resurser som är värdar för din webbplats genom att helt enkelt söka efter namnet på din webbplats.
+## <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (för hands version)
+[Azure Monitor för nätverk](network-insights-overview.md) ger en omfattande vy över hälso tillstånd och mått för alla nätverks resurser. Med den avancerade Sök funktionen kan du identifiera resurs beroenden, aktivera scenarier som att identifiera resurser som är värdar för din webbplats genom att helt enkelt söka efter namnet på din webbplats.
 
 ![Azure Monitor för nätverk](media/insights-overview/network-insights.png)
 

@@ -1,22 +1,26 @@
 ---
-title: 'Konfigurera en VPN-klient för P2S VPN-anslutningar: Azure AD-autentisering | Microsoft Docs'
+title: 'Konfigurera en VPN-klient för OpenVPN-protokoll P2S anslutningar: Azure AD-autentisering | Microsoft Docs'
 description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.author: cherylmc
-ms.openlocfilehash: 704dcd6335766a6058de4e520b8dcbca0d304c9d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/07/2019
+ms.author: alzam
+ms.openlocfilehash: da863144da5ec4361673c913392495d3d622f5a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721464"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837973"
 ---
-# <a name="configure-a-vpn-client-for-p2s-vpn-connections-azure-ad-authentication-preview"></a>Konfigurera en VPN-klient för P2S VPN-anslutningar: Azure AD-autentisering (för hands version)
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering (för hands version)
 
 Den här artikeln hjälper dig att konfigurera en VPN-klient för att ansluta till ett virtuellt nätverk med hjälp av punkt-till-plats-VPN och Azure Active Directory autentisering. Innan du kan ansluta och autentisera med Azure AD måste du först konfigurera Azure AD-klienten. Mer information finns i [Konfigurera en Azure AD-klient](openvpn-azure-ad-tenant.md).
+
+> [!NOTE]
+> Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar.
+>
 
 ## <a name="profile"></a>Arbeta med klient profiler
 

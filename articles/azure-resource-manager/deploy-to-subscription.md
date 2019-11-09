@@ -4,14 +4,14 @@ description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 04a46700b68bcf498956f93c96ce2dccf1b555fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832722"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -23,7 +23,7 @@ Om du vill distribuera mallar på prenumerations nivån använder du Azure CLI, 
 
 Du kan distribuera följande resurs typer på prenumerations nivån:
 
-* [distributioner](/azure/templates/microsoft.resources/deployments) 
+* [distributioner](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -36,10 +36,16 @@ Du kan distribuera följande resurs typer på prenumerations nivån:
 
 Schemat som används för distributioner på prenumerations nivå skiljer sig från schemat för distributioner av resurs grupper.
 
-För schemat använder du:
+För mallar använder du:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+För parameter-filer använder du:
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Distributions kommandon
@@ -76,14 +82,14 @@ För distributioner på prenumerations nivå måste du ange en plats för distri
 
 Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall med namnet **azuredeploy. JSON** skapas ett standard distributions namn för **azuredeploy**.
 
-För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn men annan plats. Om du får felkoden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
+För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får felkoden `InvalidDeploymentLocation`använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
 ## <a name="use-template-functions"></a>Använda mall funktioner
 
 För distributioner på prenumerations nivå finns det några viktiga överväganden när du använder mallarna:
 
 * Funktionen [resourceGroup ()](resource-group-template-functions-resource.md#resourcegroup) stöds **inte** .
-* Funktionen [resourceId ()](resource-group-template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används på prenumerations nivå distributioner. Hämta till exempel resurs-ID för en princip definition med `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* Funktionen [resourceId ()](resource-group-template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används på prenumerations nivå distributioner. Du kan till exempel hämta resurs-ID för en princip definition med `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Du kan också använda funktionen [subscriptionResourceId ()](resource-group-template-functions-resource.md#subscriptionresourceid) för att hämta resurs-ID för en resurs på en prenumerations nivå.
 * Funktionerna [Reference ()](resource-group-template-functions-resource.md#reference) och [List ()](resource-group-template-functions-resource.md#list) stöds.
 
 ## <a name="create-resource-groups"></a>Skapa resurs grupper

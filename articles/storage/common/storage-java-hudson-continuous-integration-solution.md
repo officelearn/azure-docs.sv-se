@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 10bfc3ce4666ee1653110099a3c8d22a58d80f35
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 75b0ea106be04cd77b18bfed8487edb6a7b7f65b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985304"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839187"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
 ## <a name="overview"></a>Översikt
@@ -42,17 +42,17 @@ Du behöver följande för att kunna använda Blob Service med din Hudson CI-lö
   
     Om du för närvarande inte har en Hudson CI-lösning kan du köra en Hudson CI-lösning med hjälp av följande metod:
   
-  1. På en Java-aktiverad dator laddar du ned Hudson-KRIGen från <http://hudson-ci.org/>.
+  1. Hämta Hudson-KRIGet från <http://hudson-ci.org/>på en Java-aktiverad dator.
   2. Kör Hudson-KRIGet i en kommando tolk som öppnas i den mapp som innehåller Hudson-KRIGet. Om du till exempel har hämtat version 3.1.2:
      
       `java -jar hudson-3.1.2.war`
 
   3. Öppna `http://localhost:8080/`i webbläsaren. Då öppnas Hudson-instrumentpanelen.
   4. Vid första användningen av Hudson slutför du den första installationen på `http://localhost:8080/`.
-  5. När du har slutfört den inledande installationen avbryter du den aktiva instansen av Hudson-krig, startar Hudson-kriget igen och öppnar `http://localhost:8080/`Hudson-instrumentpanelen igen, som du kommer att använda för att installera och konfigurera Azure Storage-plugin-programmet.
+  5. När du har slutfört den inledande installationen avbryter du den aktiva instansen av Hudson-krig, startar Hudson-WAR igen och öppnar Hudson-instrumentpanelen på nytt, `http://localhost:8080/`, som du kommer att använda för att installera och konfigurera Azure Storage-plugin-programmet.
      
       Även om en typisk Hudson CI-lösning skulle konfigureras att köras som en tjänst, räcker det att köra Hudson-kriget på kommando raden för den här självstudien.
-* Ett Azure-konto. Du kan registrera dig för ett Azure-konto <https://www.azure.com>på.
+* Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <https://www.azure.com>.
 * Ett Azure-lagringskonto. Om du inte redan har ett lagrings konto kan du skapa ett med hjälp av stegen i [skapa ett lagrings konto](../common/storage-quickstart-create-account.md).
 * Du rekommenderas att använda Hudson CI-lösningen men det är inte obligatoriskt, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob Service som lagrings plats för Hudson CI build-artefakter.
 
@@ -111,12 +111,12 @@ För instruktions syfte måste du först skapa ett jobb som ska skapa flera file
 8. Klicka på **gör ny behållare offentlig som standard** i det här exemplet. (Om du vill använda en privat behållare måste du skapa en signatur för delad åtkomst för att tillåta åtkomst. Det ligger utanför den här artikelns omfattning. Du kan läsa mer om signaturer för delad åtkomst i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).)
 9. Valfritt Klicka på **Rensa behållare innan** du överför om du vill att behållaren ska rensas efter innehåll innan Bygg artefakter laddas upp (lämna den omarkerad om du inte vill rensa innehållet i behållaren).
 10. Ange **text/*. txt**för **lista över artefakter som ska överföras**.
-11. Ange **$\_{build ID}/$ {build\_Number}** för **gemensam virtuell sökväg för överförda artefakter**.
+11. För en **gemensam virtuell sökväg för uppladdade artefakter**anger du **$ {build\_ID}/$ {build\_Number}** .
 12. Klicka på **Spara** för att spara inställningarna.
 13. I Hudson-instrumentpanelen klickar du på **Skapa nu** för att köra **MyJob**. Granska konsolens utdata för status. Status meddelanden för Azure Storage tas med i konsolens utdata när åtgärden efter build börjar överföra Bygg artefakter.
 14. När jobbet har slutförts kan du undersöka build-artefakterna genom att öppna den offentliga blobben.
     
-    a. Logga in på [Azure Portal](https://portal.azure.com).
+    a. Logga in på [Azure-portalen](https://portal.azure.com).
     
     b. Klicka på **lagring**.
     
@@ -126,7 +126,7 @@ För instruktions syfte måste du först skapa ett jobb som ska skapa flera file
     
     e. Klicka på behållaren med namnet **myjob**, som är den gemena versionen av det jobb namn som du tilldelade när du skapade Hudson-jobbet. Behållar namn och blob-namn är gemener (och Skift läges känsliga) i Azure Storage. I listan över blobbar för behållaren med namnet **myjob** bör du se **Hej. txt** och **date. txt**. Kopiera URL: en för något av dessa objekt och öppna den i webbläsaren. Text filen som överfördes som en Bygg artefakt visas.
 
-Endast en åtgärd efter build-åtgärd som laddar upp artefakter till Azure Blob Storage kan skapas per jobb. Åtgärden för att överföra artefakter till Azure Blob Storage kan ange olika filer (inklusive jokertecken) och sökvägar till filer i **listan över artefakter som ska överföras** med hjälp av semikolon som avgränsare. Om din Hudson-version t. ex. skapar jar-filer och txt-filer i din arbets ytas installationsmapp och du vill överföra både till Azure Blob Storage, använder du följande för att **Visa en lista över artefakter att överföra** värdet: **build/\*. jar; Build/\*. txt**. Du kan också använda Double-kolon-syntax för att ange en sökväg som ska användas i BLOB-namnet. Om du till exempel vill att jar v7 ska laddas upp med **binärfiler** i BLOB-sökvägen och txt-filerna för att laddas upp med hjälp av **meddelanden** i BLOB-sökvägen använder du följande för **listan över artefakter som du vill överföra** värde: **build/\*. jar: : binärfiler; build/\*. txt:: meddelanden**.
+Endast en åtgärd efter build-åtgärd som laddar upp artefakter till Azure Blob Storage kan skapas per jobb. Åtgärden för att överföra artefakter till Azure Blob Storage kan ange olika filer (inklusive jokertecken) och sökvägar till filer i **listan över artefakter som ska överföras** med hjälp av semikolon som avgränsare. Om din Hudson-version t. ex **. skapar jar** -filer och txt-filer i arbets ytans installationsmapp och du vill överföra både till Azure Blob Storage, använder du följande för att **Visa en lista över artefakter att överföra** värdet: **build/\*. jar; build/\*. txt**. Du kan också använda Double-kolon-syntax för att ange en sökväg som ska användas i BLOB-namnet. Om du till exempel vill att jar v7 ska laddas upp med **binärfiler** i BLOB-sökvägen och txt-filerna för att laddas upp med hjälp av **meddelanden** i BLOB-sökvägen, använder du följande i **listan över artefakter för att överföra** värdet: **build/\*. jar:: binärfiler; build/\*. txt:: meddelanden**.
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Så här skapar du ett build-steg som hämtas från Azure Blob Storage
 Följande steg visar hur du konfigurerar ett build-steg för att ladda ned objekt från Azure Blob Storage. Detta är användbart om du vill inkludera objekt i din version, till exempel jar v7 som du behåller i Azure Blob Storage.
@@ -144,23 +144,23 @@ När du har kört en version kan du kontrol lera utdata från versions historik 
 ## <a name="components-used-by-the-blob-service"></a>Komponenter som används av Blob Service
 Här följer en översikt över Blob Service-komponenterna.
 
-* **Lagringskonto**: All åtkomst till Azure Storage görs via ett lagrings konto. Detta är den högsta nivån i namn området för åtkomst till blobbar. Ett konto kan innehålla ett obegränsat antal behållare, så länge den totala storleken är under 100 TB.
-* **Behållare**: En behållare ger gruppering av en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
-* **BLOB**: En fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block-och sid-blobar. De flesta filer är block-blobar. En enda Block-Blob kan vara upp till 200 GB. I den här självstudien används block blobbar. Page blobbar, en annan Blob-typ, kan vara upp till 1 TB i storlek och är mer effektivt när intervall med byte i en fil ändras ofta. Mer information om blobbar finns i [förstå block-blobbar, bifoga blobbar och sid](https://msdn.microsoft.com/library/azure/ee691964.aspx)-blobar.
-* **URL-format**: Blobbar är adresser bara med följande URL-format:
+* **Lagrings konto**: all åtkomst till Azure Storage görs via ett lagrings konto. Detta är den högsta nivån i namn området för åtkomst till blobbar. Ett konto kan innehålla ett obegränsat antal behållare, så länge den totala storleken är under 100 TB.
+* **Behållare**: en behållare ger en gruppering av en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
+* **BLOB**: en fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block-och sid-blobar. De flesta filer är block-blobar. En enda Block-Blob kan vara upp till 200 GB. I den här självstudien används block blobbar. Page blobbar, en annan Blob-typ, kan vara upp till 1 TB i storlek och är mer effektivt när intervall med byte i en fil ändras ofta. Mer information om blobbar finns i [förstå block-blobbar, bifoga blobbar och sid-blobar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **URL-format**: blobbar är adresser bara med följande URL-format:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
     (Formatet ovan gäller för det globala Azure-molnet. Om du använder ett annat Azure-moln använder du slut punkten i [Azure Portal](https://portal.azure.com) för att fastställa URL-slutpunkten.)
   
-    I formatet ovan `storageaccount` representerar namnet på ditt lagrings konto, `container_name` representerar namnet på din behållare och `blob_name` representerar namnet på din BLOB. I behållarens namn kan du ha flera sökvägar, avgränsade med ett **/** snedstreck. Exempel namnet på containern i den här självstudien var **MyJob**, och **\_$ {build ID}/$ {build\_Number}** användes för den gemensamma virtuella sökvägen, vilket resulterade i att bloben har en URL med följande format:
+    I formatet ovan representerar `storageaccount` namnet på ditt lagrings konto, `container_name` representerar namnet på din behållare och `blob_name` representerar namnet på din BLOB. I behållarens namn kan du ha flera sökvägar, avgränsade med ett snedstreck, **/** . Exempel namnet på containern i den här självstudien var **MyJob**, och **$ {build\_ID}/$ {build\_Number}** användes för den gemensamma virtuella sökvägen, vilket resulterade i att bloben har en URL med följande format:
   
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## <a name="next-steps"></a>Nästa steg
 * [Möta Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java)
-* [Azure Storage Client SDK-referens](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Client SDK-referens](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage/)
 

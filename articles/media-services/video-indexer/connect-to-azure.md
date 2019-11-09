@@ -1,6 +1,6 @@
 ---
 title: Skapa ett Video Indexer konto i Azure Portal
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Den här artikeln visar hur du skapar ett Video Indexer konto i Azure Portal.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815677"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838381"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
@@ -127,7 +127,7 @@ Om anslutningen till Azure misslyckades kan du försöka felsöka problemet geno
     2. Välj [autentiseringsmetod för tjänstens huvud namn](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
     3. Hämta klient-ID och klient hemlighet enligt beskrivningen i avsnittet [Hämta klient-ID och klient hemlighet](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret) .
 
-        När du har valt **Inställningar**->**nycklar**, Lägg till **Beskrivning**, tryck på **Spara**, fylls nyckel värdet i.
+        När du har valt **inställningar**->**nycklar**, Lägg till **Beskrivning**, tryck på **Spara**, fylls nyckel värdet i.
 
         Om nyckeln upphör att gälla måste konto ägaren kontakta Video Indexer support för att förnya nyckeln.
 
@@ -142,13 +142,13 @@ Ange följande information i dialog rutan:
 
 |Inställning|Beskrivning|
 |---|---|
-|Video Indexer-kontoregion|Namnet på Video Indexer konto region. För bättre prestanda och lägre kostnader rekommenderar vi starkt att du anger namnet på den region där Azure Media Services resursen och Azure Storage kontot finns. |
+|Video Indexer konto region|Namnet på Video Indexer konto region. För bättre prestanda och lägre kostnader rekommenderar vi starkt att du anger namnet på den region där Azure Media Services resursen och Azure Storage kontot finns. |
 |Azure Active Directory-klient (AAD)|Namnet på Azure AD-klienten, till exempel "contoso.onmicrosoft.com". Klient informationen kan hämtas från Azure Portal. Placera markören över namnet på den inloggade användaren i det övre högra hörnet. Hitta namnet till höger om **domänen**.|
 |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas under. Prenumerations-ID kan hämtas från Azure Portal. Klicka på **alla tjänster** i den vänstra panelen och Sök efter "prenumerationer". Välj **prenumerationer** och välj önskat ID i listan med dina prenumerationer.|
-|Azure Media Services-resursgruppens namn|Namnet på resurs gruppen där du skapade Media Services-kontot.|
-|Mediatjänstresursnamn|Namnet på det Azure Media Services konto som du skapade i föregående avsnitt.|
+|Namn på Azure Media Services resurs grupp|Namnet på resurs gruppen där du skapade Media Services-kontot.|
+|Medie tjänst resurs namn|Namnet på det Azure Media Services konto som du skapade i föregående avsnitt.|
 |Program-ID:t|Azure AD-programmets ID (med behörigheter för det angivna Media Services kontot) som du skapade i föregående avsnitt.|
-|Programnyckel|Den Azure AD-programnyckel som du skapade i föregående avsnitt. |
+|Program nyckel|Den Azure AD-programnyckel som du skapade i föregående avsnitt. |
 
 ## <a name="considerations"></a>Överväganden
 
@@ -165,7 +165,7 @@ Följande Azure Media Services relaterade överväganden gäller:
 
 * Om du ansluter till ett nytt Media Services konto startar Video Indexer automatiskt standard **slut punkten för direkt uppspelning** i den:
 
-    ![Slutpunkten för direktuppspelning av Media Services](./media/create-account/ams-streaming-endpoint.png)
+    ![Slut punkt för Media Services strömning](./media/create-account/ams-streaming-endpoint.png)
 
     Slut punkter för direkt uppspelning har en betydande start tid. Därför kan det ta flera minuter innan du anslöt ditt konto till Azure, tills dina videor kan strömmas och bevakas i Video Indexer-webbprogrammet.
 
@@ -173,7 +173,7 @@ Följande Azure Media Services relaterade överväganden gäller:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan interagera med ditt utvärderings konto och/eller med dina Video Indexer-konton som är anslutna till Azure genom att följa instruktionerna i: [Använd API: er](video-indexer-use-apis.md).
+Du kan interagera med ditt utvärderings konto och/eller med dina Video Indexer-konton som är anslutna till Azure genom att följa anvisningarna i: [använda API: er](video-indexer-use-apis.md).
 
 Du bör använda samma Azure AD-användare som du använde när du anslöt till Azure.
 

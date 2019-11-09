@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 3251637d5a5bd0593a9eaf559963921a68a6ccdc
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d119ffdcb952405f17e0df152c817df9a8a63110
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102765"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833645"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Snabbstart: Skapa en Java-app på Azure App Service i Windows
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Snabb start: skapa en Java-app på Azure App Service i Windows
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Information om hur du distribuerar till App Service på _Linux_finns i [skapa Java-webbapp på Linux](./containers/quickstart-java.md).
@@ -66,7 +66,7 @@ Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
+        <version>1.8.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -104,7 +104,7 @@ Uppdatera följande platshållare i konfigurationen av plugin-program:
 
 | Platshållare | Beskrivning |
 | ----------- | ----------- |
-| `SUBSCRIPTION_ID` | Unikt ID för den prenumeration som du vill distribuera appen till. Standard prenumerationens ID kan hittas från Cloud Shell eller CLI med hjälp `az account show` av kommandot. För alla tillgängliga prenumerationer använder du `az account list` kommandot.|
+| `SUBSCRIPTION_ID` | Unikt ID för den prenumeration som du vill distribuera appen till. Standard prenumerationens ID kan hittas från Cloud Shell eller CLI med kommandot `az account show`. Använd kommandot `az account list` för alla tillgängliga prenumerationer.|
 | `RESOURCEGROUP_NAME` | Namnet på den nya resursgrupp där du vill skapa din app. Genom att lägga alla resurser för en app i en grupp, kan du hantera dem tillsammans. Genom att till exempel ta bort resursgruppen skulle du ta bort alla resurser som är associerade med appen. Uppdatera det här värdet med ett unikt nytt resurs grupp namn, till exempel *myResourceGroup*. Du använder den här resursgruppens namn för att rensa alla Azure-resurser i ett senare avsnitt. |
 | `WEBAPP_NAME` | Appens namn kommer att ingå i värd namnet för appen när den distribueras till Azure (WEBAPP_NAME. azurewebsites. net). Uppdatera det här värdet med ett unikt namn för den nya App Service-appen, som blir värd för din Java-app, till exempel *contoso*. |
 | `REGION` | En Azure-region där appen finns, till exempel *westus2*. Du kan hämta en lista över regioner från Cloud Shell eller CLI med kommandot `az account list-locations`. |

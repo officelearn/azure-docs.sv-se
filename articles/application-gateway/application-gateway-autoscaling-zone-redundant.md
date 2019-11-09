@@ -1,26 +1,26 @@
 ---
 title: Automatisk skalning och zonredundant Application Gateway v2
-description: Den här artikeln beskriver Azure Application Standard_v2 och WAF_v2 SKU, som innehåller funktioner för automatisk skalning och zon-redundanta funktioner.
+description: Den här artikeln beskriver Azure Application Standard_v2 och WAF_v2 SKU, som innehåller funktioner för automatisk skalning och zon redundant.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 3b552d37ce176e76bc0a4230a24a910543e5ea0d
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965126"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847260"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
-Application Gateway och brand vägg för webbaserade program (WAF) är även tillgängliga under en Standard_v2-och WAF_v2-SKU. V2-SKU: n erbjuder prestanda förbättringar och ger stöd för viktiga nya funktioner som automatisk skalning, zon redundans och stöd för statiska VIP. Befintliga funktioner under standard-och WAF-SKU: n fortsätter att stödjas i den nya v2-SKU: n, med några undantag som anges i [jämförelse](#differences-with-v1-sku) avsnittet.
+Application Gateway och brand vägg för webbaserade program (WAF) är också tillgängliga under en Standard_v2 och WAF_v2 SKU. V2-SKU: n erbjuder prestanda förbättringar och ger stöd för viktiga nya funktioner som automatisk skalning, zon redundans och stöd för statiska VIP. Befintliga funktioner under standard-och WAF-SKU: n fortsätter att stödjas i den nya v2-SKU: n, med några undantag som anges i [jämförelse](#differences-with-v1-sku) avsnittet.
 
 Den nya v2-SKU: n innehåller följande förbättringar:
 
-- Automatisk **skalning**: Application Gateway-eller WAF-distributioner under SKU: n för automatisk skalning kan skalas upp eller ned baserat på ändrade trafik belastnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Den här SKU: n erbjuder verklig elastiskhet. I Standard_v2-och WAF_v2-SKU: n kan Application Gateway använda både fast kapacitet (automatisk skalning inaktive rad) och i autoskalning aktiverat läge. Läget för fast kapacitet är användbart för scenarier med konsekventa och förutsägbara arbets belastningar. Autoskalning-läget är fördelaktigt i program som ser varians i program trafik.
+- Automatisk **skalning**: Application Gateway-eller WAF-distributioner under SKU: n för automatisk skalning kan skalas upp eller ned baserat på ändrade trafik belastnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Den här SKU: n erbjuder verklig elastiskhet. I Standard_v2 och WAF_v2 SKU: n kan Application Gateway använda både fast kapacitet (autoskalning inaktive rad) och i autoskalning aktiverat läge. Läget för fast kapacitet är användbart för scenarier med konsekventa och förutsägbara arbets belastningar. Autoskalning-läget är fördelaktigt i program som ser varians i program trafik.
 - **Zon redundans**: en Application Gateway-eller WAF-distribution kan spänna över flera Tillgänglighetszoner och du tar bort behovet av att etablera separata Application Gateway instanser i varje zon med en Traffic Manager. Du kan välja en enskild zon eller flera zoner där Application Gateway instanser distribueras, vilket gör det mer flexibelt för zon haverit. Backend-poolen för program kan distribueras på samma sätt i tillgänglighets zoner.
 
   Zon redundans är bara tillgängligt där Azure-zoner är tillgängliga. I andra regioner stöds alla andra funktioner. Mer information finns i [Vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
@@ -35,13 +35,13 @@ Den nya v2-SKU: n innehåller följande förbättringar:
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Standard_v2-och WAF_v2-SKU: n är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, norra Europa, västra Europa, Sydostasien, Frankrike Central, Storbritannien, västra, Östra Japan, västra Japan, östra Australien , Sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, Asien, östra, Korea, centrala, Republiken Korea, södra Indien, Storbritannien, södra, centrala Indien, västra Indien, södra Indien.
+Standard_v2 och WAF_v2 SKU: n är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, norra Europa, Västeuropa, Sydostasien, Frankrike Central, Storbritannien, västra, Östra Japan, västra Japan, östra Australien , Sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, Asien, östra, Korea, centrala, Republiken Korea, södra Indien, Storbritannien, södra, centrala Indien, västra Indien, södra Indien.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Med v2-SKU: n drivs pris sättnings modellen av förbrukning och är inte längre kopplad till instans antal eller storlekar. Priserna för v2-SKU har två komponenter:
 
-- **Fast pris** – det här är ett Tim pris (eller delvis tim) för att etablera en Standard_v2-eller WAF_v2-Gateway. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris.
+- **Fast pris** – det här är ett Tim pris (eller delvis tim) för att etablera en Standard_v2 eller WAF_v2 Gateway. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris.
 - **Pris för kapacitets enhet** – det här är en förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Debiteringen av kapacitetsenheter beräknas per timme eller delvis utnyttjade timmar. Kapacitetsenheter har tre aspekter: beräkningsenheter, beständiga anslutningar och dataflöde. Beräkningsenheter mäter förbrukad processorkapacitet. Faktorer som påverkar beräknings enheten är TLS-anslutningar/s, URL-omskrivning och bearbetning av WAF-regler. Beständig anslutning är ett mått på upprättade TCP-anslutningar till Application Gateway under ett visst fakturerings intervall. Data flödet är Genomsnittligt antal megabitar/s som bearbetats av systemet under ett angivet fakturerings intervall.  Faktureringen görs på en kapacitets enhets nivå för allt ovanför antalet reserverade instanser.
 
 Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
@@ -49,7 +49,7 @@ Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 bestän
 Vägledning för beräknings enhet:
 
 - **Standard_v2** – varje beräknings enhet kan ha cirka 50 anslutningar per sekund med RSA 2048-bitars TLS-certifikat.
-- **WAF_v2** – varje beräknings enhet kan stödja cirka 10 samtidiga begär Anden per sekund för 70-30% blandning av trafik med 70% begär Anden som är mindre än 2 KB get/post och återstående högre. WAF prestanda påverkas inte av svars storleken för närvarande.
+- **WAF_v2** – varje beräknings enhet har stöd för cirka 10 samtidiga begär Anden per sekund för 70-30% blandning av trafik med 70% begär Anden som är mindre än 2 KB get/post och återstående högre. WAF prestanda påverkas inte av svars storleken för närvarande.
 
 > [!NOTE]
 > Varje instans kan för närvarande stödja ca 10 kapacitets enheter.
@@ -68,7 +68,7 @@ Mer information om priser finns på [sidan med priser](https://azure.microsoft.c
 
 **Exempel 1**
 
-En Application Gateway-Standard_v2 tillhandahålls utan automatisk skalning i manuellt skalnings läge med en fast kapacitet på fem instanser.
+En Application Gateway Standard_v2 tillhandahålls utan automatisk skalning i manuellt skalnings läge med en fast kapacitet på fem instanser.
 
 Fast pris = 744 (timmar) * $0,20 = $148,8 <br>
 Kapacitets enheter = 744 (timmar) * 10 kapacitets enhet per instans * 5 instanser * $0,008 per kapacitets enhet timme = $297,6
@@ -77,7 +77,7 @@ Total pris = $148,8 + $297,6 = $446,4
 
 **Exempel 2**
 
-En Application Gateway standard_v2 har tillhandahållits för en månad, med minst 0 instanser, och under den tiden får den 25 nya SSL-anslutningar/SEK, vilket är genomsnittet på 8,88-Mbit/s-data överföring. Förutsatt att anslutningar är korta, är ditt pris:
+En Application Gateway standard_v2 tillhandahålls under en månad, utan minsta antal instanser, och under den tiden får du 25 nya SSL-anslutningar/SEK, i genomsnitt 8,88-Mbit/s-data överföring. Förutsatt att anslutningar är korta, är ditt pris:
 
 Fast pris = 744 (timmar) * $0,20 = $148,8
 
@@ -85,7 +85,7 @@ Kapacitets enhets pris = 744 (timmar) * max (25/50 beräknings enhet för anslut
 
 Total pris = $148.8 + 23.81 = $172,61
 
-Som du kan se debiteras du bara för 4 kapacitets enheter, inte för hela instansen. 
+Som du kan se debiteras du bara för fyra kapacitets enheter, inte för hela instansen. 
 
 > [!NOTE]
 > Funktionen Max returnerar det största värdet i ett värde par.
@@ -93,7 +93,7 @@ Som du kan se debiteras du bara för 4 kapacitets enheter, inte för hela instan
 
 **Exempel 3**
 
-En Application Gateway standard_v2 har tillhandahållits för en månad, med minst 5 instanser. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
+En Application Gateway standard_v2 skapas i en månad, med minst fem instanser. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
 
 Fast pris = 744 (timmar) * $0,20 = $148,8
 
@@ -101,11 +101,11 @@ Kapacitets enhets pris = 744 (timmar) * max (0/50 beräknings enhet för anslutn
 
 Total pris = $148.80 + 297.60 = $446,4
 
-I det här fallet debiteras du för alla de 5 instanserna, även om det inte finns någon trafik.
+I det här fallet debiteras du för alla de fem instanserna, även om det inte finns någon trafik.
 
 **Exempel 4**
 
-En Application Gateway-standard_v2 tillhandahålls för en månad, med minst 5 instanser, men den här tiden är ett genomsnitt på 125-Mbit/s-data överföring och 25 SSL-anslutningar per sekund. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
+En Application Gateway standard_v2 tillhandahålls för en månad, med minst fem instanser, men den här gången är ett genomsnitt på 125-Mbit/s-data överföring och 25 SSL-anslutningar per sekund. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
 
 Fast pris = 744 (timmar) * $0,20 = $148,8
 
@@ -113,7 +113,7 @@ Kapacitets enhets pris = 744 (timmar) * max (25/50 beräknings enhet för anslut
 
 Total pris = $148.80 + 339.26 = $488,06
 
-I det här fallet debiteras du för de fullständiga 5 instanserna, plus 7 kapacitets enheter (som är 7/10 av en instans).  
+I det här fallet debiteras du för de fullständiga fem instanserna, plus sju kapacitets enheter (som är 7/10 av en instans).  
 
 **Exempel 5**
 
@@ -132,7 +132,7 @@ Total pris = $267,84 + $85,71 = $353,55
 
 Application Gateway-och WAF kan konfigureras för skalning i två lägen:
 
-- Automatisk **skalning** – när automatisk skalning är aktiverat skalar Application Gateway-och WAF v2-SKU: erna upp eller ned baserat på program trafik krav. Det här läget ger bättre elastiskhet för ditt program och eliminerar behovet av att gissa storleken på programgatewayen eller antalet instanser. I det här läget kan du också spara kostnader genom att inte kräva att gatewayen körs vid den högsta etablerade kapaciteten för förväntad högsta trafik belastning. Du måste ange ett minsta och alternativt maximalt antal instanser. Lägsta kapacitet garanterar att Application Gateway och WAF v2 inte hamnar under det minsta antal instanser som anges, även om trafik saknas. Varje instans räknas som 10 ytterligare reserverade kapacitets enheter. 0 betyder ingen reserverad kapacitet och är helt automatisk skalning av natur. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris. Du kan också ange ett maximalt antal instanser, vilket säkerställer att Application Gateway inte skalas bortom det angivna antalet instanser. Du kommer att fortsätta debiteras för den mängd trafik som hanteras av gatewayen. Antalet instanser kan vara mellan 0 och 125. Standardvärdet för maximalt antal instanser är 20 om inget värde anges.
+- Automatisk **skalning** – när automatisk skalning är aktiverat skalar Application Gateway-och WAF v2-SKU: erna upp eller ned baserat på program trafik krav. Det här läget ger bättre elastiskhet för ditt program och eliminerar behovet av att gissa storleken på programgatewayen eller antalet instanser. I det här läget kan du också spara kostnader genom att inte kräva att gatewayen körs vid den högsta etablerade kapaciteten för förväntad högsta trafik belastning. Du måste ange ett minsta och alternativt maximalt antal instanser. Lägsta kapacitet garanterar att Application Gateway och WAF v2 inte hamnar under det minsta antal instanser som anges, även om trafik saknas. Varje instans räknas som 10 ytterligare reserverade kapacitets enheter. Noll betyder ingen reserverad kapacitet och är helt automatisk skalning av natur. Observera att noll ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris. Du kan också ange ett maximalt antal instanser, vilket säkerställer att Application Gateway inte skalas bortom det angivna antalet instanser. Du kommer att fortsätta debiteras för den mängd trafik som hanteras av gatewayen. Antalet instanser kan vara mellan 0 och 125. Standardvärdet för maximalt antal instanser är 20 om inget värde anges.
 - **Manuellt** – du kan alternativt välja manuellt läge där gatewayen inte kan skalas om. I det här läget, om det finns mer trafik än vad Application Gateway eller WAF kan hantera, kan det leda till förlust av trafik. Med manuellt läge är det obligatoriskt att ange instans antal. Antalet instanser kan variera mellan 1 och 125 instanser.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Funktions jämförelse mellan v1 SKU och v2 SKU
@@ -151,12 +151,13 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 | Värd för flera platser                             | &#x2713; | &#x2713; |
 | Omdirigering av trafik                               | &#x2713; | &#x2713; |
 | Brandvägg för webbaserade program (WAF)                    | &#x2713; | &#x2713; |
+| Anpassade WAF-regler                                  |          | &#x2713; |
 | Secure Sockets Layer-avslutning (SSL)            | &#x2713; | &#x2713; |
 | SSL-kryptering från slut punkt till slut punkt                         | &#x2713; | &#x2713; |
 | Sessionstillhörighet                                  | &#x2713; | &#x2713; |
 | Anpassade felsidor                                | &#x2713; | &#x2713; |
 | WebSocket-stöd                                 | &#x2713; | &#x2713; |
-| HTTP/2-stöd                                    | &#x2713; | &#x2713; |
+| Stöd för HTTP/2                                    | &#x2713; | &#x2713; |
 | Anslutningstömning                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
@@ -167,7 +168,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 |Avvikelse|Information|
 |--|--|
 |Certifikat för autentisering|Stöds ej.<br>Mer information finns i [Översikt över slutpunkt-till-slutpunkt-SSL med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Blanda Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
+|Mixa Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
 |Användardefinierad väg (UDR) i Application Gateway undernät|Stöds inte|
 |NSG för inkommande port intervall| – 65200 till 65535 för Standard_v2 SKU<br>– 65503 till 65534 för standard-SKU.<br>Mer information finns i [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestanda loggar i Azure Diagnostics|Stöds ej.<br>Azure-mått ska användas.|

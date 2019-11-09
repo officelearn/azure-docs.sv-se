@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931320"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832007"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -48,7 +48,7 @@ För ExpressRoute Monitor-kapacitet ska Azure-noderna endast anslutas som direkt
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Vilka protokoll mellan TCP och ICMP ska väljas för övervakning?
 Om du övervakar nätverket med hjälp av Windows Server-baserade noder rekommenderar vi att du använder TCP som övervaknings protokoll eftersom det ger bättre noggrannhet. 
 
-ICMP rekommenderas för noder i Windows-datorer/klient operativ system. Den här plattformen does'nt tillåter att TCP-data skickas över RAW-Sockets, vilket NPM använder för att identifiera nätverkstopologi.
+ICMP rekommenderas för noder i Windows-datorer/klient operativ system. Den här plattformen tillåter inte att TCP-data skickas över RAW-socketar som används av NPM för att identifiera nätverkstopologi.
 
 Du kan få mer information om de relativa fördelarna med varje protokoll [här](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -98,6 +98,42 @@ I NPM används en Probabilistic-mekanism för att tilldela fel sannolikhet till 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Hur kan jag skapa aviseringar i NPM?
 [I avsnittet aviseringar i dokumentationen](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) hittar du stegvisa instruktioner.
 
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Vad är standard Log Analytics frågor för aviseringar
+Fråga om prestanda övervakaren
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+Fråga om tjänst anslutnings övervakare
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+ExpressRoute övervaka frågor: krets frågor
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+Privat peering
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Microsoft-peering
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+Vanlig fråga   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>Kan NPM övervaka routrar och servrar som enskilda enheter?
 NPM identifierar bara IP-och värd namnet för underliggande nätverks hopp (växlar, routrar, servrar osv.) mellan käll-och mål-IP-adresser. Den identifierar även svars tiden mellan dessa identifierade hopp. Dessa underliggande hopp övervakas inte separat.
 
@@ -110,17 +146,23 @@ Bandbredds användning är summan av inkommande och utgående bandbredd. Den utt
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>Kan vi hämta information om inkommande och utgående bandbredd för ExpressRoute?
 Inkommande och utgående värden för både primär och sekundär bandbredd kan fångas.
 
-Om du vill ha information om peering-nivå använder du ovanstående fråga i loggs ökning
+För information om MS peering-nivå använder du nedanstående fråga i loggs ökning
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+För information om privat peering-nivå använder du ovanstående fråga i loggs ökning
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-Använd nedanstående fråga för information om krets nivå 
+För information om krets nivåer använder du den angivna frågan i loggs ökning
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Vilka regioner stöds för NPM-prestanda övervakaren?
 NPM kan övervaka anslutningar mellan nätverk i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -131,7 +173,7 @@ NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner stöds för NPM ExpressRoute-övervakaren?
 NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Varför har vissa hopp marker ATS som oidentifierade i vyn nätverkstopologi?
 NPM använder en modifierad version av traceroute för att identifiera topologin från käll agenten till målet. Ett oidentifierat hopp representerar att nätverks hoppet inte svarade på käll agentens traceroute-begäran. Om tre efterföljande nätverks hopp inte svarar på agentens traceroute, markerar lösningen de svar som inte svarar som oidentifierade och försöker inte identifiera fler hopp.
@@ -139,11 +181,11 @@ NPM använder en modifierad version av traceroute för att identifiera topologin
 Ett hopp kan inte svara på en traceroute i ett eller flera av följande scenarier:
 
 * Routrarna har kon figurer ATS för att inte avslöja sin identitet.
-* Nätverks enheterna tillåter inte ICMP_TTL_EXCEEDED-trafik.
-* En brand vägg blockerar ICMP_TTL_EXCEEDED-svaret från nätverks enheten.
+* Nätverks enheterna tillåter inte ICMP_TTL_EXCEEDED trafik.
+* En brand vägg blockerar ICMP_TTL_EXCEEDED svaret från nätverks enheten.
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Jag får aviseringar om fel test, men jag ser inte de höga värdena i NPM förlust och svars tid. Hur gör jag för att kontrollerar du vad som är ohälsosamt?
-NPM genererar en avisering om slut punkt till slut punkt mellan källa och mål korsar tröskelvärde utelåsning för valfri sökväg mellan dem. Vissa nätverk har fler än en sökväg som ansluter samma källa och mål. NPM genererar en avisering. sökvägen är felaktig. Förlusten och svars tiden som visas i graferna är det genomsnittliga värdet för alla sökvägar, och därför kanske det inte visar exakt värdet för en enskild sökväg. För att förstå var tröskelvärdet har brutits, kan du leta efter kolumnen "undertyp" i aviseringen. Om problemet orsakas av en sökväg, kommer under typens värde att NetworkPath (för test av prestanda övervakare), EndpointPath (för övervakning av tjänst anslutnings övervakare) och ExpressRoutePath (för ExpressRotue övervaknings test). 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Jag får aviseringar om fel test, men jag ser inte de höga värdena i NPM förlust och svars tid. Hur gör jag för att kontrollerar du vad som är ohälsosamt?
+NPM genererar en avisering om slut punkt till slut punkt mellan källa och mål korsar tröskelvärdet för valfri sökväg mellan dem. Vissa nätverk har flera vägar som ansluter samma källa och mål. NPM genererar en avisering. sökvägen är felaktig. Förlusten och svars tiden som visas i graferna är det genomsnittliga värdet för alla sökvägar, och därför kanske det inte visar exakt värdet för en enskild sökväg. För att förstå var tröskelvärdet har brutits, kan du leta efter kolumnen "undertyp" i aviseringen. Om problemet orsakas av en sökväg, kommer under typens värde att NetworkPath (för test av prestanda övervakare), EndpointPath (för övervakning av tjänst anslutnings övervakare) och ExpressRoutePath (för ExpressRotue övervaknings test). 
 
 Exempel frågan för att hitta är en felaktig sökväg:
 

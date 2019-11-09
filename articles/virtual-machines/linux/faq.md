@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0648b9b321aabc7c9e56997c320a63386542498c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e7c577e28b30e68020532049affba59f355341cf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083379"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838496"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Vanliga frågor om Virtuella Linux-datorer
 Den här artikeln beskriver några vanliga frågor om virtuella Linux-datorer som skapats i Azure med hjälp av distributions modellen Resource Manager. För Windows-versionen av det här avsnittet, se [vanliga frågor och svar om virtuella Windows-datorer](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Vad kan jag köra på en virtuell Azure-dator?
-Alla prenumeranter kan köra serverprogramvara på en virtuell Azure-dator. Mer information finns i [Linux på Azure-](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) godkända distributioner
+Alla prenumeranter kan köra serverprogramvara på en virtuell Azure-dator. Mer information finns i [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hur mycket lagringsutrymme kan jag använda med en virtuell dator?
 Varje data disk kan vara upp till 32 767 GiB. Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Managed Disks är de rekommenderade disk lagrings erbjudanden som används med Azure Virtual Machines för beständig data lagring. Du kan använda flera Managed Disks till varje virtuell dator. Managed Disks erbjuder två typer av varaktiga lagrings alternativ: Premium-och standard Managed Disks. Information om priser finns i [Managed disks priser](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure Managed Disks är de rekommenderade disk lagrings erbjudanden som används med Azure Virtual Machines för beständig data lagring. Du kan använda flera Managed Disks till varje virtuell dator. Managed Disks tillhandahåller två lagringsalternativ: Premium och Standard. Information om priser finns i [Managed disks priser](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure Storage-konton kan också tillhandahålla lagring för operativ system disken och alla data diskar. Varje disk är en VHD-fil som lagras som en sidblob. Information om priser finns i [Information om lagringspriser](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -52,10 +52,10 @@ De två nya regionerna i Kanada Central och Kanada, öst registreras inte automa
 Ja, det är nu möjligt. Den virtuella datorn måste först stoppas. Sedan kan du lägga till eller ta bort ett nätverkskort (om det inte är det sista NÄTVERKSKORTet på den virtuella datorn). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Finns det några dator namns krav?
-Ja. Dator namnet får innehålla högst 64 tecken. Se [namn konventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions) för mer information om hur du namnger dina resurser.
+Ja. Dator namnet får innehålla högst 64 tecken. Se [namn konventions regler och begränsningar](/azure/architecture/best-practices/resource-naming) för mer information om hur du namnger dina resurser.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Finns det några resurs grupp namns krav?
-Ja. Resurs gruppens namn får innehålla högst 90 tecken. Se [namn konventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions) för mer information om resurs grupper.
+Ja. Resurs gruppens namn får innehålla högst 90 tecken. Se [namn konventions regler och begränsningar](/azure/architecture/best-practices/resource-naming) för mer information om resurs grupper.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Vilka är användar namns kraven när du skapar en virtuell dator?
 
@@ -88,14 +88,14 @@ Lösen ord måste också uppfylla 3 av följande 4 komplexitets krav:
 * Ha färre tecken
 * Ha övre tecken
 * Ha en siffra
-* Ha ett specialtecken (regex match [\W_])
+* Ha ett specialtecken (regex match [\ W_])
 
 Följande lösen ord är inte tillåtna:
 
 <table>
     <tr>
         <td style="text-align:center">abc@123</td>
-        <td style="text-align:center">P@$$w0rd</td>
+        <td style="text-align:center">P @ $ $w 0rd</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
         <td style="text-align:center">PA $ $word</td>

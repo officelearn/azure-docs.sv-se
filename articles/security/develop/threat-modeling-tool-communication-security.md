@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1c9562f413fa0ed52d61d0b38df358f1a2cd03f9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 54d34a120c575fd01f746131d909058951d1facf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498677"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839243"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Säkerhets ram: kommunikations säkerhet | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -136,7 +136,7 @@ I följande exempel finns en grundläggande URL-omskrivning regel som tvingar al
   </system.webServer>
 </configuration>
 ```
-Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdirigering) när användaren begär en sida med HTTP. 301 omdirigerar begäran till samma URL som den begärda användaren, men ersätter HTTP-delen av begäran med HTTPS. Exempelvis omdirigeras HTTP://contoso.com till HTTPS://contoso.com. 
+Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdirigering) när användaren begär en sida med HTTP. 301 omdirigerar begäran till samma URL som den begärda användaren, men ersätter HTTP-delen av begäran med HTTPS. Exempelvis omdirigeras `HTTP://contoso.com` till `HTTPS://contoso.com`. 
 
 ## <a id="http-hsts"></a>Aktivera HTTP Strict Transport Security (HSTS)
 

@@ -1,18 +1,18 @@
 ---
 title: Agera värd åt flera webbplatser i Azure Application Gateway
-description: Den här artikeln innehåller en översikt över Azure Application Gateway multisite-stöd.
+description: Den här artikeln innehåller en översikt över stödet för Azure Application Gateway för flera platser.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 1/17/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715858"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835345"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
@@ -23,9 +23,9 @@ Om du har flera webbplatser så kan du konfigurera fler än ett webbprogram inom
 > [!IMPORTANT]
 > Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
 
-Begäranden för http://contoso.com dirigeras till ContosoServerPool och http://fabrikam.com dirigeras till FabrikamServerPool.
+Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
-På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara http://blog.contoso.com och http://app.contoso.com på samma distribution av en programgateway.
+På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara `http://blog.contoso.com` och `http://app.contoso.com` på samma distribution av en programgateway.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Värdhuvuden och servernamnsindikator (SNI)
 

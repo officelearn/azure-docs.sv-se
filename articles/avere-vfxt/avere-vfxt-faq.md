@@ -4,20 +4,20 @@ description: Vanliga frågor och svar om AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: f42a9cf5aaa3256865bcf388aa5bd422664c73dd
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255404"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847370"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
-I den här artikeln får du svar på frågor som kan hjälpa dig att avgöra om AVERT vFXT för Azure passar dina behov. Den ger grundläggande information om AVERT vFXT och förklarar hur det fungerar med andra Azure-komponenter och med produkter från externa leverantörer. 
+I den här artikeln får du svar på frågor som kan hjälpa dig att avgöra om AVERT vFXT för Azure passar dina behov. Den ger grundläggande information om AVERT vFXT och förklarar hur det fungerar med andra Azure-komponenter och med produkter från externa leverantörer.
 
-## <a name="general"></a>Allmänt 
+## <a name="general"></a>Allmänt
 
 ### <a name="what-is-avere-vfxt-for-azure"></a>Vad är Avere vFXT för Azure?
 
@@ -67,7 +67,7 @@ Aver vFXT for Azure stöds i alla regioner utom för suveräna regioner (Kina, T
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Hur gör jag för att få hjälp med att använda AVERT vFXT?
 
-En specialiserad support grupp ger hjälp med AVERT vFXT för Azure. Följ instruktionerna i [få hjälp med systemet](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) för att öppna ett support ärende från Azure Portal. 
+En specialiserad support grupp ger hjälp med AVERT vFXT för Azure. Följ instruktionerna i [få hjälp med systemet](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) för att öppna ett support ärende från Azure Portal.
 
 ### <a name="is-avere-vfxt-highly-available"></a>Är AVERT vFXT hög tillgängligt?
 
@@ -75,7 +75,7 @@ Ja, aver vFXT körs exklusivt som en HA-lösning.
 
 ### <a name="does-avere-vfxt-for-azure-also-support-other-cloud-services"></a>Stöder AVERT vFXT för Azure även andra moln tjänster?
 
-Ja, kunder kan använda mer än en moln leverantör med AVERT vFXT-klustret. Det stöder AWS S3 standard buckets, Google Cloud Services standard buckets och Azure Blob-behållare. 
+Ja, kunder kan använda mer än en moln leverantör med AVERT vFXT-klustret. Det stöder AWS S3 standard buckets, Google Cloud Services standard buckets och Azure Blob-behållare.
 
 > [!NOTE] 
 > En program varu avgift gäller att använda AVERT vFXT i AWS eller Google Cloud, men inte med Azure.
@@ -84,11 +84,11 @@ Ja, kunder kan använda mer än en moln leverantör med AVERT vFXT-klustret. Det
 
 ### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Kan du beskriva vad en aver vFXT-miljö "ser ut som"?
 
-Aver vFXT är en klustrad apparat som består av flera virtuella Azure-datorer. Ett Python-bibliotek hanterar skapande, borttagning och ändring av kluster. Läs [Vad är AVERT vFXT för Azure?](avere-vfxt-overview.md) om du vill veta mer. 
+Aver vFXT är en klustrad apparat som består av flera virtuella Azure-datorer. Ett Python-bibliotek hanterar skapande, borttagning och ändring av kluster. Läs [Vad är AVERT vFXT för Azure?](avere-vfxt-overview.md) om du vill veta mer.
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Vilken typ av virtuella Azure-datorer är det att AVERT vFXT körs på?  
 
-Ett AVERT vFXT för Azure-kluster använder Microsoft Azure E32s_v3 virtuella datorer. 
+Ett AVERT vFXT för Azure-kluster använder Microsoft Azure E32s_v3 virtuella datorer.
 
 <!-- ### Can I mix and match virtual machine types for my cluster?
 
@@ -134,7 +134,7 @@ Nej, du måste använda det Python-skript som stöds för att lägga till eller 
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>Finns det en "VM"-version av program varan som kan köras i min egen lokala miljö?
 
-Nej, systemet erbjuds som en klustrad apparat och testas på vissa typer av virtuella datorer. Den här begränsningen hjälper kunder att undvika att skapa ett system som inte har stöd för höga prestanda krav i ett typiskt AVERT vFXT-arbetsflöde. 
+Nej, systemet erbjuds som en klustrad apparat och testas på vissa typer av virtuella datorer. Den här begränsningen hjälper kunder att undvika att skapa ett system som inte har stöd för höga prestanda krav i ett typiskt AVERT vFXT-arbetsflöde.
 
 ## <a name="technical-disks"></a>Teknisk: diskar
 
@@ -168,8 +168,8 @@ Data överförs över diskarna, men krypteras inte. Diskarna kan dock vara krypt
 
 Om du använder lokal lagring med aver vFXT bör du ha en 1 Gbit/s och en bättre nätverks anslutning. Om du har en liten mängd data och vill kopiera data till molnet innan du kör jobb, kan VPN-anslutningen vara tillräckligt. 
 
-> [!TIP] 
-> Den långsammare nätverks länken är, det långsammare är att de första kall läsningarna blir. Långsamma läsningar ökar svars tiden för arbets pipelinen. 
+> [!TIP]
+> Den långsammare nätverks länken är, det långsammare är att de första kall läsningarna blir. Långsamma läsningar ökar svars tiden för arbets pipelinen.
 
 ### <a name="can-i-run-avere-vfxt-in-a-different-virtual-network-than-my-compute-cluster"></a>Kan jag köra AVERT vFXT i ett annat virtuellt nätverk än mitt beräknings kluster?
 
@@ -189,22 +189,22 @@ Den Avera vFXT-miljön är som alla andra virtuella Azure-datorer i så att den 
 
 ### <a name="what-are-the-bandwidth-requirements-for-avere-vfxt"></a>Vilka är bandbredds kraven för AVERT vFXT?
 
-Det övergripande kravet på bandbredd beror på två faktorer: 
+Det övergripande kravet på bandbredd beror på två faktorer:
 
-* Mängden data som begärs från källan 
+* Mängden data som begärs från källan
 * Klient systemets tolerans för svars tid under inledande data inläsning  
 
 För latens känsliga miljöer bör du använda en fiber lösning med en minsta länk hastighet på 1 Gbit/s. Använd ExpressRoute om det är tillgängligt.  
 
 ### <a name="can-i-run-avere-vfxt-with-public-ip-addresses"></a>Kan jag köra AVERT vFXT med offentliga IP-adresser?
 
-Nej, aver vFXT är avsett att användas i en nätverks miljö som skyddas via bästa praxis.  
+Nej, aver vFXT är avsett att användas i en nätverks miljö som skyddas via bästa praxis.
 
-### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Kan jag begränsa Internet åtkomst från mitt klusters virtuella nätverk? 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Kan jag begränsa Internet åtkomst från mitt klusters virtuella nätverk?
 
-I allmänhet kan du konfigurera ytterligare säkerhet i VNet vid behov, men vissa begränsningar kan störa klustrets drift.
+I allmänhet kan du konfigurera ytterligare säkerhet på det virtuella nätverket efter behov, men vissa begränsningar kan störa klustrets drift.
 
-Till exempel kan en begränsning av utgående Internet åtkomst från ditt VNet orsaka problem för klustret, om du inte även lägger till en regel som uttryckligen tillåter åtkomst till AzureCloud. Den här situationen beskrivs i [kompletterande dokumentation på GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Om du till exempel begränsar utgående Internet åtkomst från det virtuella nätverket uppstår problem med klustret, såvida du inte även lägger till en regel som uttryckligen tillåter åtkomst till AzureCloud. Den här situationen beskrivs i [kompletterande dokumentation på GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 Om du behöver hjälp med anpassad säkerhet kontaktar du supporten enligt beskrivningen i [få hjälp med systemet](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 
@@ -212,7 +212,7 @@ Om du behöver hjälp med anpassad säkerhet kontaktar du supporten enligt beskr
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>Hur många Core-filmerare har en enda aver vFXT-miljö stöd för?
 
-Ett AVERT vFXT-kluster har stöd för upp till 20 Core-Filskydd. 
+Ett AVERT vFXT-kluster har stöd för upp till 20 Core-Filskydd.
 
 ### <a name="how-does-the-avere-vfxt-environment-store-data"></a>Hur lagrar vFXT-miljön data?
 
@@ -220,16 +220,16 @@ AVERT vFXT är inte lagrings utrymme. Det är ett cacheminne som läser och skri
 
 ### <a name="which-core-filers-does-avere-vfxt-support"></a>Vilka Core-stöder vFXT-support?
 
-I allmänhet stöder AVERT vFXT för Azure följande system som core-filer: 
+I allmänhet stöder AVERT vFXT för Azure följande system som core-filer:
 
 * Dell EMC-Isilon (OneFS 7,1, 7,2, 8,0 och 8,1) 
-* NetApp ONTAP (klustrat läge 9,4, 9,3, 9,2, 9.1 P1, 8.0-8.3) och (7-läge 7. *, 8.0-8.3) 
+* NetApp ONTAP (klustrat läge 9,4, 9,3, 9,2, 9.1 P1, 8.0-8.3) och (7-läge 7. *, 8.0-8.3)
 
-  > [!NOTE] 
-  > Azure NetApp Files stöds för närvarande inte. 
+  > [!NOTE]
+  > Azure NetApp Files stöds för närvarande inte.
 
-* Azure Blob-behållare (endast lokalt redundant lagring) 
-* AWS S3-buckets 
+* Azure Blob-behållare (endast lokalt redundant lagring)
+* AWS S3-buckets
 * Google Cloud-buckets
 
 ### <a name="why-doesnt-avere-vfxt-support-all-nfs-filers"></a>Varför stöder inte AVERT vFXT alla NFS-filer?
@@ -254,11 +254,13 @@ Ditt lagrings konto måste vara ett GPv2-konto (General-Purpose v2) och konfigur
 
 ### <a name="can-i-use-archive-blob-storage"></a>Kan jag använda Arkiv Blob Storage?
 
-Nej. Service avtals avtalet (SLA) för Arkiv lag ring är inte kompatibelt med det lokala katalog-och fil åtkomst behovet i det AVERT vFXT systemet. 
+Nej. Service avtals avtalet (SLA) för Arkiv lag ring är inte kompatibelt med det lokala katalog-och fil åtkomst behovet i det AVERT vFXT systemet.
 
 ### <a name="can-i-use-cool-blob-storage"></a>Kan jag använda cool Blob Storage?
 
-Du kan använda den låg frekventa nivån, men Observera att antalet åtgärder är mycket högre. 
+Blob-lagring på låg nivå rekommenderas vanligt vis inte för ett AVERT vFXT för Azure core-filer. Låg frekvent nivå erbjuder lägre kostnader för lagring men högre drifts kostnader. (Se [Block Blob-prissättning](<https://azure.microsoft.com/pricing/details/storage/blobs/>) för mer information.) Om data kommer att kommas åt och ändras eller tas bort ofta, bör du överväga att använda frekvent nivå.
+
+[Åtkomst nivåer](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) ger mer information om när det kan vara bra att använda lagring på låg frekvent nivå som vFXT kärnor.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Hur gör jag för att kryptera BLOB-behållaren?
 
@@ -266,13 +268,13 @@ Du kan konfigurera BLOB-kryptering antingen i Azure (föredra) eller på den Ave
 
 ### <a name="can-i-use-my-own-encryption-key-for-a-blob-core-filer"></a>Kan jag använda min egen krypterings nyckel för en BLOB core-filer?
 
-Som standard krypteras data via Microsoft-hanterade nycklar för Azure Blob-, tabell-och Queue-lagring, plus Azure Files. Du kan ta med din egen nyckel för kryptering av Blob Storage och Azure Files. Om du väljer att använda AVERT vFXT-kryptering måste du använda den AVERT-genererade nyckeln och lagra den lokalt. 
+Som standard krypteras data via Microsoft-hanterade nycklar för Azure Blob-, tabell-och Queue-lagring, plus Azure Files. Du kan ta med din egen nyckel för kryptering av Blob Storage och Azure Files. Om du väljer att använda AVERT vFXT-kryptering måste du använda den AVERT-genererade nyckeln och lagra den lokalt.
 
 ## <a name="purchasing"></a>Inköp
 
 ### <a name="how-do-i-get-avere-vfxt-for-azure-licensing"></a>Hur gör jag för att skaffa ett AVERT vFXT för Azure-licensiering?
 
-Det är enkelt att få ett AVERT vFXT för Azure-licens via Azure Marketplace. Registrera dig för ett Azure-konto och följ sedan anvisningarna i [distribuera AVERT vFXT-klustret](avere-vfxt-deploy.md) för att skapa ett AVERT vFXT-kluster. 
+Det är enkelt att få ett AVERT vFXT för Azure-licens via Azure Marketplace. Registrera dig för ett Azure-konto och följ sedan anvisningarna i [distribuera AVERT vFXT-klustret](avere-vfxt-deploy.md) för att skapa ett AVERT vFXT-kluster.
 
 ### <a name="how-much-does-avere-vfxt-cost"></a>Hur mycket kostar det att vFXT?
 
@@ -280,7 +282,7 @@ I Azure finns det ingen ytterligare licens avgift för att använda ett AVERT vF
 
 ### <a name="can-avere-vfxt-vms-be-run-as-low-priority"></a>Kan du använda vFXT virtuella datorer med låg prioritet?
 
-Nej, AVERT vFXT-kluster kräver tjänsten Always On. Kluster kan stängas av när de inte behövs. 
+Nej, AVERT vFXT-kluster kräver tjänsten Always On. Kluster kan stängas av när de inte behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 

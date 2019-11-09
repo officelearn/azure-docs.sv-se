@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3f987b9e05bcdcda9afe26a1eb1354e5e2450ac5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820158"
+ms.locfileid: "73846538"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto (för hands version)
 
@@ -86,7 +86,7 @@ I följande tabell visas mappning mellan olika API-typer för Azure Cosmos-konto
 
 ### <a name="fetch-the-private-ip-addresses"></a>Hämta de privata IP-adresserna
 
-När den privata slut punkten har allokerats kan du fråga IP-adresserna. För att visa IP-adresserna från Azure Portal. Välj **alla resurser**, Sök efter den privata slut punkt som du skapade tidigare i det här fallet är den "dbPrivateEndpoint3" och välj fliken Översikt för att se DNS-inställningar och IP-adresser:
+När den privata slut punkten har allokerats kan du fråga IP-adresserna. Om du vill visa IP-adresserna från Azure Portal väljer du **alla resurser**, söker efter den privata slut punkt som du skapade tidigare i det här fallet är den "dbPrivateEndpoint3" och väljer fliken Översikt för att visa DNS-inställningar och IP-adresser:
 
 ![Privata IP-adresser i Azure Portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 
@@ -354,7 +354,7 @@ Om du lägger till eller tar bort regioner i ett Azure Cosmos-konto måste du l�
 
 Om du till exempel distribuerar ett Azure Cosmos-konto i tre regioner: "västra USA", "Central USA" och "Västeuropa". När du skapar en privat slut punkt för ditt konto reserveras 4 privata IP-adresser i under nätet. En för varje region, som räknas till totalt 3, och en för den globala/oberoende slut punkten.
 
-Senare om du lägger till en ny region, till exempel "östra USA" till Azure Cosmos-kontot. Den nya regionen är som standard inte tillgänglig från den befintliga privata slut punkten. Azure Cosmos-konto administratören bör uppdatera den privata slut punkts anslutningen innan du öppnar den med den nya regionen. 
+Senare om du lägger till en ny region, till exempel "östra USA" till Azure Cosmos-kontot. Den nya regionen är som standard inte tillgänglig från den befintliga privata slut punkten. Azure Cosmos-konto administratören bör uppdatera den privata slut punkts anslutningen innan du får åtkomst till den från den nya regionen. 
 
 När du kör kommandot ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` innehåller kommandots utdata `actionsRequired`-parametern, som är inställt på "återskapa". Det här värdet anger att den privata slut punkten ska uppdateras. Därefter kör Azure Cosmos-konto administratören `Set-AzPrivateEndpoint`-kommandot för att utlösa uppdateringen av den privata slut punkten.
 

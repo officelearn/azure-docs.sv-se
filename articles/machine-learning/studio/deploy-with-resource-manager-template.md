@@ -1,6 +1,6 @@
 ---
 title: Distribuera Studio-arbetsytan (klassisk) med Azure Resource Manager
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Så här distribuerar du en arbets yta för Azure Machine Learning Studio (klassisk) med Azure Resource Manager-mall
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: d4679eb056aaad1c404d0e0f8b7723d7c57ef1d4
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 5ca45d772e3804dce4e27e5a6d4388acca4d1486
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621706"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837680"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Distribuera Azure Machine Learning Studio-arbetsytan (klassisk) med Azure Resource Manager
 

@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Video Indexer - Azure
-titlesuffix: Azure Media Services
+title: Vanliga frågor om Video Indexer – Azure
+titleSuffix: Azure Media Services
 description: Få svar på vanliga frågor om Video Indexer.
 services: media-services
 author: Juliako
@@ -10,162 +10,162 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799507"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838234"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-Den här artikeln får du svar på vanliga frågor om Video Indexer.
+I den här artikeln får du svar på vanliga frågor om Video Indexer.
 
 ## <a name="general-questions"></a>Allmänna frågor
 
 ### <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
-Video Indexer är en tjänst för artificiell intelligens som ingår i Microsoft Azure Media Services. Video Indexer ger en orkestrering av flera machine learning-modeller som hjälper dig att enkelt extrahera djupa insikter från en video. För att tillhandahålla avancerade och korrekt information Video Indexer gör användning av flera kanaler videon: ljud-, tal- och visuella objekt. Video Indexer insikter som kan användas på många sätt, som förbättrar innehåll identifieringsmöjlighet och tillgänglighet, skapa nya möjligheter för intäkter, eller skapa nya upplevelser som använder insikterna. Video Indexer tillhandahåller en webbaserat gränssnitt för testning, konfiguration och anpassning av modeller i ditt konto. Utvecklare kan använda ett REST-baserat API för att integrera Video Indexer i produktionssystemet. 
+Video Indexer är en artificiell intelligens-tjänst som är en del av Microsoft Azure Media Services. Video Indexer tillhandahåller ett dirigering av flera maskin inlärnings modeller som gör att du enkelt kan extrahera djupgående insikter från en video. För att tillhandahålla avancerade och exakta insikter kan Video Indexer använda flera kanaler i videon: ljud, tal och visuell information. Video Indexer insikter kan användas på många sätt, t. ex. att förbättra möjligheterna för innehåll och tillgänglighet, skapa nya Sälj möjligheter eller skapa nya upplevelser som använder insikterna. Video Indexer tillhandahåller ett webbaserat gränssnitt för testning, konfiguration och anpassning av modeller i ditt konto. Utvecklare kan använda ett REST-baserat API för att integrera Video Indexer i produktions systemet. 
 
 ### <a name="what-can-i-do-with-video-indexer"></a>Vad kan jag göra med Video Indexer?
 
-Några av de åtgärder som Video Indexer kan utföra på mediefiler är:
+Några av de åtgärder som Video Indexer kan utföra på mediafiler är:
 
-* Identifiera och extrahera tal och identifiera talare.
-* Identifiera och extrahera anvisningarna på skärmen text i en video.
-* Identifierar objekt i en videofil.
-* Identifiera varumärken (till exempel: Microsoft) från ljudspår och anvisningarna på skärmen text i en video.
-* Identifiera och känna igen ansikten från en databas med kändisar och en användardefinierad databas med ansikten.
-* Extrahera avsnitt diskuteras men inte nödvändigtvis nämns i ljud-och videoinnehåll.
-* Skapa undertexter eller undertexter ljudspåret.
+* Identifiera och extrahera tal och identifiera högtalare.
+* Identifiera och extrahera text på skärmen i en video.
+* Identifiera objekt i en videofil.
+* Identifiera varumärken (till exempel: Microsoft) från ljud spår och text på skärmen i en video.
+* Identifiera och identifiera ansikten från en databas med kändisar och en användardefinierad databas med ansikten.
+* Att extrahera ämnen som diskuteras men som inte nödvändigt vis nämns i ljud-och video innehåll.
+* Skapa textning eller under texter från ljud spåret.
 
-Mer information och fler Video Indexer-funktioner finns i [översikt](video-indexer-overview.md).
+Mer information och mer Video Indexer funktioner finns i [Översikt](video-indexer-overview.md).
 
-### <a name="how-do-i-get-started-with-video-indexer"></a>Hur kommer jag igång med Video Indexer?
+### <a name="how-do-i-get-started-with-video-indexer"></a>Hur gör jag för att kom igång med Video Indexer?
 
-Video Indexer omfattar en kostnadsfri utvärderingsversion som ger dig 600 minuter i webbaserat gränssnitt och 2 400 minuter via API: et. Du kan [logga in på Video Indexer webbaserat gränssnitt](https://www.videoindexer.ai/) och prova själv med alla webbidentitet och utan att behöva konfigurera en Azure-prenumeration. 
+Video Indexer innehåller ett kostnads fritt utvärderings erbjudande som ger dig 600 minuter i det webbaserade gränssnittet och 2 400 minuter via API: et. Du kan [Logga in på video Indexer webbaserat gränssnitt](https://www.videoindexer.ai/) och testa det åt dig själv med valfri webb identitet och utan att behöva konfigurera en Azure-prenumeration. 
 
-Index videor och ljud sig i skala, kan du ansluta Video Indexer till en betald Microsoft Azure-prenumeration. Du hittar mer information om priser på den [priser](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) sidan.
+För att indexera videor och ljud flyger i stor skala kan du ansluta Video Indexer till en betald Microsoft Azure-prenumeration. Du hittar mer information om prissättning på sidan med [priser](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) .
 
-Du hittar mer information om att komma igång [börjar](video-indexer-get-started.md).
+Du hittar mer information om att komma igång i [komma igång](video-indexer-get-started.md).
 
-### <a name="do-i-need-coding-skills-to-use-video-indexer"></a>Behöver jag kodning för att använda Video Indexer?
+### <a name="do-i-need-coding-skills-to-use-video-indexer"></a>Måste jag koda kunskaper för att använda Video Indexer?
 
-Du kan använda Video Indexer webbaserat gränssnitt för att utvärdera, konfigurera och hantera ditt konto med **ingen kodning krävs**.  När du är redo att utveckla mer komplexa program kan du använda den [Video Indexer API](https://api-portal.videoindexer.ai/) att integrera Video Indexer i dina program, webbplatser, eller [anpassade arbetsflöden med serverlös teknik som Azure Logic Apps](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) eller Azure Functions.
+Du kan använda det webbaserade Video Indexer-gränssnittet för att utvärdera, konfigurera och hantera ditt konto utan att **behöva koda**.  När du är redo att utveckla mer komplexa program kan du använda [video INDEXER API](https://api-portal.videoindexer.ai/) för att integrera video Indexer i dina egna program, webbplatser eller [anpassade arbets flöden med hjälp av Server lös teknik som Azure Logic Apps](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) eller Azure Functions.
 
-### <a name="do-i-need-machine-learning-skills-to-use-video-indexer"></a>Behöver jag machine learning-kunskaper för att använda Video Indexer?
+### <a name="do-i-need-machine-learning-skills-to-use-video-indexer"></a>Behöver jag Machine Learning-kunskaper för att använda Video Indexer?
 
-Nej, ger Video Indexer integrering av flera machine learning-modeller i en pipeline. Indexera en video- eller ljudinnehåll filen via Video Indexer hämtar en fullständig uppsättning insights har extraherat på en delad tidslinje utan någon machine learning-kunskaper eller kunskap om i algoritmer som behövs för kundens del.
+Nej, Video Indexer ger en integrering av flera Machine Learning-modeller i en pipeline. Indexering av en video-eller ljudfil via Video Indexer hämtar en fullständig uppsättning insikter som extraheras på en delad tids linje utan några maskin inlärnings kunskaper eller kunskaper om algoritmer som behövs på kundens del.
 
-### <a name="what-media-formats-does-video-indexer-support"></a>Vilka media-format stöder Video Indexer?
+### <a name="what-media-formats-does-video-indexer-support"></a>Vilka Media format stöder Video Indexer?
 
-Video Indexer har stöd för de vanligaste medieformat. Referera till den [Azure Media Encoder standard format](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) listan och visa mer information.
+Video Indexer stöder de flesta vanliga medieformaten. Mer information finns i listan [Azure Media Encoder standardformat](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) .
 
-### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Hur gör jag för att överföra en media till Video Indexer?
+### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Hur överför jag ett medium till Video Indexer?
 
-I Video Indexer webbaserad portal du kan ladda upp en mediefil med hjälp av dialogrutan för filöverföring eller genom att peka till en URL som direkt är värd för källfilen (se [exempel](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Alla värdar mediet innehåll med en iFrame eller bädda in kod inte fungerar URL: er (se [exempel](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). Video Indexer API måste du ange indatafilen via en URL eller en bytematris. Överföringar via en URL med hjälp av API är begränsade till 10 GB, men har inte en tidsgräns för varaktighet. Mer information finns i denna [instruktionsguide](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+I Video Indexer webbaserad portal kan du ladda upp en mediefil med hjälp av dialog rutan fil uppladdning eller genom att peka på en URL som är direkt värd för käll filen (se [exemplet](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Alla webb adresser som är värdar för medie innehåll med en iFrame-eller inbäddnings kod fungerar inte (se [exemplet](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). Video Indexer-API: et kräver att du anger indatafilen via en URL eller en byte mat ris. Uppladdningar via en URL med hjälp av API: et är begränsade till 10 GB, men saknar tids gräns för varaktighet. Mer information finns i den här [instruktions hand boken](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
 
-### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Hur lång tid tar det Video-indexeraren extrahera insikter från media?
+### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Hur lång tid tar det Video Indexer för att extrahera insikter från media?
 
-Hur lång tid det tar för att indexera en video- eller ljudinnehåll fil, båda med Video Indexer API: et och Video Indexer webbaserat gränssnitt som beror på flera parametrar, t.ex filen längd och kvalitet, antal insikter hittades i filen, antalet [reserverade enheter för](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) tillgängliga, och om den [slutpunkt för direktuppspelning](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) har aktiverats eller inte. Vi rekommenderar att du kör några testfiler med ditt eget innehåll och dra ett medelvärde för att få en bättre uppfattning.
+Hur lång tid det tar att indexera en video-eller ljudfil, både via Video Indexer-API och det Video Indexer webbaserade gränssnittet, är beroende av flera parametrar, till exempel fil längd och kvalitet, antalet insikter som finns i filen, antalet [reserverade enheter](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) som är tillgängliga och om [slut punkten för direkt uppspelning](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) är aktive rad eller inte. Vi rekommenderar att du kör några testfiler med ditt eget innehåll och tar ett genomsnitt för att få en bättre uppfattning.
 
-### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Kan jag skapa anpassade arbetsflöden för att automatisera processer med Video Indexer?
+### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Kan jag skapa anpassade arbets flöden för att automatisera processer med Video Indexer?
 
-Ja, du kan integrera Video Indexer i serverlös teknik som Logic Apps, Flow och [Azure Functions](https://azure.microsoft.com/services/functions/). Du hittar mer information på den [Logikapp](https://azure.microsoft.com/services/logic-apps/) och [Flow](https://flow.microsoft.com/en-us/) anslutningsappar för Video Indexer [här](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). 
+Ja, du kan integrera Video Indexer i lösningar utan server som Logic Apps, Flow och [Azure Functions](https://azure.microsoft.com/services/functions/). Du hittar mer information om [Logic app](https://azure.microsoft.com/services/logic-apps/) och [Flow](https://flow.microsoft.com/en-us/) -kopplingar för video Indexer [här](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). 
 
-### <a name="in-which-azure-regions-is-video-indexer-available"></a>I vilka Azure-regioner finns Video indexer?
+### <a name="in-which-azure-regions-is-video-indexer-available"></a>I vilka Azure-regioner är video Indexer tillgängliga?
 
-Du kan se vilka Azure-regioner Video Indexer är tillgänglig på den [regioner](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all) sidan.
+Du kan se vilka Azure-regioner Video Indexer är tillgängliga på sidan [regioner](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all) .
 
-### <a name="what-is-the-sla-for-video-indexer"></a>Vad är serviceavtalet för Video Indexer?
+### <a name="what-is-the-sla-for-video-indexer"></a>Vad är service avtalet för Video Indexer?
 
-Azure Media Service-serviceavtalet täcker Video Indexer och finns på den [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) sidan. SERVICEAVTALET endast gäller för Video Indexer betald konton och gäller inte för den kostnadsfria utvärderingsversionen.
+Service avtalet för Azure Media service omfattar Video Indexer och finns på sidan med [service avtal](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) . Service avtalet gäller endast Video Indexer betalda konton och gäller inte för den kostnads fria utvärderings versionen.
 
-## <a name="privacy-questions"></a>Integritetsfrågor
+## <a name="privacy-questions"></a>Sekretess frågor
 
-### <a name="are-video-and-audio-files-indexed-by-video-indexer-stored"></a>Indexeras video-och ljudfiler av Video Indexer lagras?
+### <a name="are-video-and-audio-files-indexed-by-video-indexer-stored"></a>Indexeras video-och ljudfiler med Video Indexer lagrade?
 
-Ja, om du tar bort filen från Video Indexer kan antingen använda Video Indexer-webbplatsen eller API: et, video och ljud filerna lagras. För den kostnadsfria utvärderingsversionen, video och ljud filer som du lagras index i Azure-regionen östra USA. I annat fall lagras din video och ljud filer i lagringskontot för din Azure-prenumeration.
+Ja, om du inte tar bort filen från Video Indexer, eller om du använder Video Indexer webbplats eller API, lagras dina video-och ljudfiler. För den kostnads fria utvärderings versionen lagras video-och ljudfiler som du indexerar i Azure-regionen USA, östra. Annars lagras dina video-och ljudfiler i Azure-prenumerationens lagrings konto.
 
-### <a name="can-i-delete-my-files-that-are-stored-in-video-indexer-portal"></a>Kan jag ta bort min filer som lagras i Video Indexer-portalen?
+### <a name="can-i-delete-my-files-that-are-stored-in-video-indexer-portal"></a>Kan jag ta bort mina filer som är lagrade i Video Indexer-portalen?
 
-Ja, du kan alltid ta bort videon och ljudfiler samt alla metadata och information som extraherats från dem med hjälp av Video Indexer. När du tar bort en fil från Video Indexer filen och dess metadata och information tas bort permanent från Video Indexer. Om du har implementerat en egen lösning för säkerhetskopiering i Azure storage, förblir filen i din Azure-lagring.
+Ja, du kan alltid ta bort video-och ljudfiler samt alla metadata och insikter som extraheras från dem genom att Video Indexer. När du har tagit bort en fil från Video Indexer tas filen och dess metadata och insikter permanent bort från Video Indexer. Men om du har implementerat en egen lösning för säkerhets kopiering i Azure Storage finns filen kvar i din Azure-lagring.
 
-### <a name="can-i-control-user-access-to-my-video-indexer-account"></a>Kan jag styra användarnas åtkomst till min Video Indexer-konto?
+### <a name="can-i-control-user-access-to-my-video-indexer-account"></a>Kan jag kontrol lera användar åtkomst till mitt Video Indexer konto?
 
-Ja, kontoadministratörer kan bjuda in och dra tillbaka inbjudan personer på sina konton, samt tilldela vem som har redigeringen av behörigheter och vem som har skrivskyddad åtkomst.
+Ja, endast konto administratörer kan bjuda in och ta bort inbjudan till sina konton, samt tilldela vem som har redigerings behörigheter och som har skrivskyddad åtkomst.
 
-### <a name="who-has-access-to-my-video-and-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Vem har tillgång till min video och ljud-filer som har blivit indexerade och/eller lagras av Video Indexer och metadata och information som extraherades?
+### <a name="who-has-access-to-my-video-and-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Vem har till gång till mina video-och ljudfiler som har indexerats och/eller lagrats av Video Indexer och de metadata och insikter som har extraherats?
 
-Din video- eller ljudinnehåll innehåll som har offentliga som dess sekretessinställningarna kan användas av alla som har en länk till video- eller ljudinnehåll innehållet och dess insikter. Din video- eller ljudinnehåll innehåll som har privata som dess sekretessinställningarna kan bara användas av användare som har bjudits in till kontot för video- eller ljudinnehåll innehållet. Sekretessinställningarna för ditt innehåll gäller även för metadata och insikter som extraherar Video Indexer. Du tilldelar sekretessinställningen när du laddar upp din video- eller ljudinnehåll-fil. Du kan också ändra sekretessinställningarna efter indexering.
+Ditt video-eller ljud innehåll som är offentligt som sekretess inställningar kan nås av alla som har länken till video-eller ljud innehållet och dess insikter. Ditt video-eller ljud innehåll som är privat som sekretess inställningar kan endast nås av användare som har bjudits in till kontot för video-eller ljud innehållet. Sekretess inställningen för ditt innehåll gäller även för metadata och insikter som Video Indexer extraheras. Du tilldelar sekretess inställningen när du laddar upp video-eller ljud filen. Du kan också ändra sekretess inställningen efter indexering.
 
-### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Vilken åtkomst har Microsoft att min video- eller ljudinnehåll filer som har blivit indexerade och/eller lagras av Video Indexer och metadata och information som extraherades?
+### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Vilken åtkomst har Microsoft till mina video-eller ljudfiler som har indexerats och/eller lagrats av Video Indexer och de metadata och insikter som har extraherats?
 
-Per den [Azure Online Services-villkoren](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST) du helt äger innehållet och Microsoft har endast åtkomst till ditt innehåll och metadata och insikter som Video Indexer extraherar från ditt innehåll enligt OST och Microsoft Sekretesspolicy.
+Enligt [Azure Online Services-villkoren](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (ost) har du helt eget innehåll, och Microsoft kommer bara att få åtkomst till ditt innehåll och de metadata och insikter som video Indexer extraherar från ditt innehåll enligt osten och Microsofts sekretess policy.
 
-### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Finns de anpassade modeller som jag skapar i min Video Indexer-konto för andra konton?
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Är de anpassade modeller som jag skapar i mitt Video Indexer-konto tillgängligt för andra konton?
 
- Nej, anpassade modeller som du skapar i ditt konto är inte tillgängliga för något annat konto. Video Indexer för närvarande kan du skapa anpassade [varumärken](customize-brands-model-overview.md), [språk](customize-language-model-overview.md), och [person](customize-person-model-overview.md) modeller i ditt konto. Dessa modeller är endast tillgängliga i det konto som du skapade modeller.
+ Nej, de anpassade modeller som du skapar i ditt konto är inte tillgängliga för något annat konto. Med Video Indexer kan du för närvarande bygga anpassade [varumärken](customize-brands-model-overview.md), [språk](customize-language-model-overview.md)och [person](customize-person-model-overview.md) modeller i ditt konto. Dessa modeller är bara tillgängliga i det konto som du skapade modellerna i.
   
-### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Innehållet som indexeras av Video Indexer hålls inom Azure-regionen där jag använder Video Indexer?
+### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Är innehållet indexerat av Video Indexer kvar i Azure-regionen där jag använder Video Indexer?
 
-Ja, innehållet och dess insikter hålls inom Azure-region om du inte har en manuell konfiguration i Azure-prenumerationen som använder flera Azure-regioner. 
+Ja, innehållet och dess insikter lagras i Azure-regionen, såvida du inte har en manuell konfiguration i din Azure-prenumeration som använder flera Azure-regioner. 
 
-### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Vad är sekretesspolicyn för Video Indexer?
+### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Vad är sekretess policyn för Video Indexer?
 
-Video Indexer omfattas av den [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). Sekretesspolicyn förklarar de personuppgifter som Microsoft bearbetar, hur Microsoft behandlar det och i vilket syfte Microsoft bearbetar den. Läs mer om sekretess i [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+Video Indexer täcks av [Microsofts sekretess policy](https://privacy.microsoft.com/privacystatement). I sekretess policyn förklaras de personliga data som Microsoft bearbetar, hur Microsoft bearbetar dem och i vilka syfte används Microsoft. Läs mer om sekretess på [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ### <a name="what-certifications-does-video-indexer-have"></a>Vilka certifieringar har Video Indexer?
 
-Video Indexer har för närvarande SOC-certifiering. Om du vill granska Video Indexer-certifiering, finns det [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
+Video Indexer har för närvarande SOC-certifiering. Information om hur du granskar Video Indexers certifiering finns i [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
 
 ## <a name="api-questions"></a>API-frågor
 
-### <a name="what-apis-does-video-indexer-offer"></a>Vilka API: er finns i Video Indexer?
+### <a name="what-apis-does-video-indexer-offer"></a>Vilka API: er Video Indexer erbjudandet?
 
-Video Indexer API: er kan indexera, extraherar metadata, tillgångshantering, översättning, bädda in, anpassning av modeller och mycket mer. Du hittar mer detaljerad information om hur du använder Video Indexer API genom att referera till den [Utvecklarportalen för Video Indexer](https://api-portal.videoindexer.ai/).
+Video Indexer s API: er möjliggör indexering, extrahering av metadata, till gångs hantering, översättning, inbäddning, anpassning av modeller och mycket annat. Mer detaljerad information om hur du använder Video Indexer API finns på [video Indexer Developer-portalen](https://api-portal.videoindexer.ai/).
 
-### <a name="what-client-sdks-does-video-indexer-offer"></a>Vilka klient-SDK: er finns i Video Indexer?
+### <a name="what-client-sdks-does-video-indexer-offer"></a>Vilka klient-SDK: er Video Indexer erbjudandet?
 
-Det finns ingen klient som erbjuds av SDK: er. Video Indexer-teamet arbetar med SDK: er och planer för att leverera dem snart.
+Det finns för närvarande inga tillgängliga klient-SDK: er. Video Indexers teamet arbetar på SDK: er och planerar att leverera dem snart.
 
-### <a name="how-do-i-get-started-with-video-indexers-api"></a>Hur kommer jag igång med Video Indexer API?
+### <a name="how-do-i-get-started-with-video-indexers-api"></a>Hur gör jag för att kom igång med Video Indexer s API?
 
-Följ [Självstudier: Kom igång med Video Indexer API](video-indexer-use-apis.md).
+Följ [Självstudier: kom igång med video INDEXER API](video-indexer-use-apis.md).
 
-### <a name="what-is-the-difference-between-the-video-indexer-api-and-the-azure-media-service-v3-api"></a>Vad är skillnaden mellan Video Indexer API och API: et för Azure Media Services v3?
+### <a name="what-is-the-difference-between-the-video-indexer-api-and-the-azure-media-service-v3-api"></a>Vad är skillnaden mellan Video Indexer API och Azure Media service v3 API?
 
-Det finns för närvarande vissa överlappningar i funktioner som erbjuds av Video Indexer API och API: et för Azure Media Services v3. Du hittar mer information om hur du kan jämföra båda tjänsterna [här](compare-video-indexer-with-media-services-presets.md).
+För närvarande finns det några överlappande i funktioner som erbjuds av Video Indexer API och Azure Media service v3 API. Du hittar mer information om hur du jämför båda tjänsterna [här](compare-video-indexer-with-media-services-presets.md).
 
 ### <a name="what-is-an-api-access-token-and-why-do-i-need-it"></a>Vad är en API-åtkomsttoken och varför behöver jag det?
 
-Video Indexer API innehåller ett API för auktorisering och ett Operations-API. Auktoriseringar API: et innehåller anrop som ger dig åtkomst-token. Varje anrop till åtgärds-API:t ska associeras med en åtkomsttoken, som matchar auktoriseringsområdet för anropet.
+Video Indexer-API: et innehåller ett API för auktorisering och ett API för åtgärder. API: erna för auktorisering innehåller anrop som ger dig åtkomst till token. Varje anrop till åtgärds-API:t ska associeras med en åtkomsttoken, som matchar auktoriseringsområdet för anropet.
 
-Åtkomst-token behövs för att använda API: er för Video Indexer av säkerhetsskäl. Detta säkerställer att alla anrop kommer från dig eller de som har behörigheter för åtkomst till ditt konto. 
+Åtkomsttoken krävs för att använda Video Indexer-API: er i säkerhets syfte. Detta säkerställer att alla samtal kommer från dig eller de som har åtkomst behörighet till ditt konto. 
 
-### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Vad är skillnaden mellan-kontots åtkomsttoken, åtkomsttoken för användaren och Video åtkomst-token?
+### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Vad är skillnaden mellan kontots åtkomst-token, token för användar åtkomst och token för video åtkomst?
 
-* Kontonivå – med hjälp av kontot på åtkomsttoken kan du utföra åtgärder på kontonivå eller videonivå. Till exempel ladda upp en video, lista alla videor, hämta videoinsikter.
-* Användarnivå - administratörsnivå användartoken kan du utföra åtgärder på användarnivå. Till exempel hämta associerade konton.
-* Videonivå – med hjälp av video på åtkomsttoken kan du utföra åtgärder på en specifik video. Till exempel få videoinsikter, ladda ned textning, få widgetar osv.
+* Konto nivå – åtkomsttoken på konto nivå gör att du kan utföra åtgärder på konto nivå eller video nivå. Du kan till exempel Ladda upp en video, lista alla videor, få video insikter.
+* Användar nivå – åtkomsttoken på användar nivå gör att du kan utföra åtgärder på användar nivå. Till exempel hämta associerade konton.
+* Video nivå – åtkomst-token på video nivå gör att du kan utföra åtgärder på en enskild video. Till exempel få videoinsikter, ladda ned textning, få widgetar osv.
 
-### <a name="how-often-do-i-need-to-get-a-new-access-token-when-do-access-tokens-expire"></a>Hur ofta behöver jag hämta en ny åtkomsttoken? När åtkomsttoken upphör att gälla?
+### <a name="how-often-do-i-need-to-get-a-new-access-token-when-do-access-tokens-expire"></a>Hur ofta måste jag skaffa en ny åtkomsttoken? När upphör åtkomsttoken att gälla?
 
-Åtkomsttoken går ut varje timme, så måste du generera en ny åtkomsttoken varje timme. 
+Åtkomsttoken upphör att gälla varje timme, så du måste skapa en ny åtkomsttoken varje timme. 
 
 ## <a name="billing-questions"></a>Frågor om fakturering
 
 ### <a name="how-much-does-video-indexer-cost"></a>Hur mycket kostar Video Indexer?
 
-Video Indexer använder en enkel användningsbaserad prismodell som baseras på varaktigheten för innehåll indata som du indexera. Ytterligare kostnader kan tillkomma för kodning, strömning, lagring, nätverksanvändning och media reserverade enheter. Mer information finns i den [priser](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) sidan.
+Video Indexer använder en enkel pris modell enligt principen betala per användning baserat på varaktigheten för det inmatade innehållet som du indexerar. Ytterligare kostnader kan tillkomma för kodning, strömning, lagring, nätverks användning och reserverade enheter. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) .
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>När faktureras jag för att använda Video Indexer?
 
 När du skickar en video till indexering definierar användaren om indexeringen ska analysera videon, ljudet eller båda. Detta avgör vilka SKU:er som debiteras. Om ett kritiskt fel inträffar under bearbetningen skickas en felkod. I sådant fall genomförs ingen debitering.  Ett kritiskt fel kan bero på en bugg i koden eller ett kritiskt problem i ett av tjänstens interna beroenden. Fel som felaktiga identifieringar eller insiktsextrahering anses inte vara kritiska, så ett svar returneras. När ett giltigt (ingen felkod) svar returneras genomförs debiteringen.
  
-### <a name="does-video-indexer-offer-a-free-trial"></a>Erbjuder Video Indexer en kostnadsfri utvärderingsversion?
+### <a name="does-video-indexer-offer-a-free-trial"></a>Erbjuder Video Indexer en kostnads fri utvärderings version?
 
-Ja, Video Indexer erbjuder en kostnadsfri utvärderingsversion som ger fullständig tjänst och API-funktioner. Det finns en kvot på 600 minuter värt av videor för webbaserat gränssnitt användare och 2 400 minuter för API-användare. 
+Ja, Video Indexer erbjuder en kostnads fri utvärderings version som ger fullständiga service-och API-funktioner. Det finns en kvot på 600 minuter för videor för webbaserade gränssnitts användare och 2 400 minuter för API-användare. 
 
 ## <a name="next-steps"></a>Nästa steg
 

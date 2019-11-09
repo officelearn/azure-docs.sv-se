@@ -1,6 +1,6 @@
 ---
 title: Använd exempeldatauppsättningarna
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Beskrivningar av de data uppsättningar som används i exempel modeller som ingår i Machine Learning Studio (klassisk). Du kan använda dessa exempel data uppsättningar för dina experiment.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: f22d27f7900ce9dda3a8e65451acb9b743a25811
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 84ac2b43c9ec2e46bcd2967cf411f1bb1f60f42a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618913"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839397"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Använd exempel data uppsättningarna i Azure Machine Learning Studio (klassisk)
 [top]: #machine-learning-sample-datasets
@@ -127,21 +127,21 @@ Data uppsättningen innehåller ytterligare information för varje misstänkt re
 <tr>
   <td>CRM begär-etiketter delade</td>
   <td>
-Etiketter från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels">orange_small_train_appetency. labels</a>).
+Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels">orange_small_train_appetency. labels</a>).
   </td>
 </tr>
 
 <tr>
   <td>CRM omsättnings etiketter delade</td>
   <td>
-Etiketter från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels">orange_small_train_churn. labels</a>).
+Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels">orange_small_train_churn. labels</a>).
   </td>
 </tr>
 
 <tr>
   <td>CRM-datauppsättning delad</td>
   <td>
-Dessa data kommer från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train. data. zip</a>).
+Dessa data kommer från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train. data. zip</a>).
 <p></p>
 Data uppsättningen innehåller 50 000-kunder från det franska telekom-företaget orange. Varje kund har 230 anonymiserats-funktioner, men 190 av som är numeriska och 40 är kategoriska. Funktionerna är mycket glesa.
   </td>
@@ -150,7 +150,7 @@ Data uppsättningen innehåller 50 000-kunder från det franska telekom-företag
 <tr>
   <td>CRM försäljar etiketter delade</td>
   <td>
-Etiketter från KDD-bägaren 2009 för kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling. labels</a>).
+Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling. labels</a>).
   </td>
 </tr>
 
@@ -397,7 +397,7 @@ Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="h
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a></td>
   <td>
-Dessa data kommer från KDD-bägaren 2010 student prestanda utvärderings utmaning (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student Performance Evaluation</a>). De data som används är Algebra_2008_2009 Training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Utmanings data uppsättning från KDD-bägare 2010 utbildnings data utvinnings utmaning. Hitta den vid <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">hämtningar. jsp</a>.
+Dessa data kommer från KDD-bägaren 2010 student prestanda utvärderings utmaning (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student Performance Evaluation</a>). De data som används är Algebra_2008_2009 inlärnings uppsättning (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Utmanings data uppsättning från KDD-bägare 2010 utbildnings data utvinnings utmaning. Hitta den vid <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">hämtningar. jsp</a>.
 <p></p>
 Data uppsättningen har laddats ned och lagrats i Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a>) och innehåller loggfiler från ett student Utlärnings-system. De tillhandahållna funktionerna inkluderar problem-ID och dess kort beskrivning, Student-ID, tidsstämpel och hur många försök student som gjorts innan problemet löses på rätt sätt. Den ursprungliga data uppsättningen innehåller 8,9 M-poster; den här data uppsättningen har inaktiverats för de första 100 000 raderna. Data uppsättningen har 23 tabbavgränsade kolumner av olika typer: numeric, kategoriska och timestamp.
   </td>

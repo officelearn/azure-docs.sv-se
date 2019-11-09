@@ -1,6 +1,6 @@
 ---
 title: Skapa en arbetsyta
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Machine Learning Studio (klassisk)-arbets yta. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: c5aa5a0ea4a74c2047e600fa3c46e226d12f69c0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647087"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839917"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta
 

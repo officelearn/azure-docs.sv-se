@@ -1,6 +1,6 @@
 ---
 title: Hur en modell blir en webb tjänst
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: En översikt över Mechanics för hur din Azure Machine Learning Studio (klassiska) modell förloppet från ett utvecklings experiment till en webb tjänst.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce1e7d3b3b9908d5c4608f6ab62e9b743f80c0b0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671234"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838014"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio (klassisk) modell går från ett experiment till en webb tjänst
 Azure Machine Learning Studio (klassisk) tillhandahåller en interaktiv arbets yta som gör att du kan utveckla, köra, testa och iterera ett ***experiment*** som representerar en förutsägelse analys modell. Det finns en mängd olika moduler som kan:

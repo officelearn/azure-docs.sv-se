@@ -1,7 +1,7 @@
 ---
 title: Språk stöd – Translator Text API
 titleSuffix: Azure Cognitive Services
-description: En lista över naturliga språk som stöds av Translator Text API.
+description: Translator Text API stöder följande språk för text översättning med hjälp av NMT (neurala Machine Translation).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909983"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837333"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Språk-och region stöd för Translator Text API
 
@@ -30,10 +30,10 @@ Translator Text API har stöd för följande språk för text till text översä
 > [!NOTE]
 > V2 föråldrades den 30 april 2018. Migrera dina program till v3 för att kunna dra nytta av nya funktioner som är tillgängliga exklusivt i v3.
 
-* Endast statistisk: Inget neurala system är tillgängligt för det här språket.
-* Tillgänglig neurala: Ett neurala system är tillgängligt. Använd parametern `category=generalnn` för att få åtkomst till neurala-systemet.
-* Neurala standard: Neurala är standard översättnings systemet. Använd parametern `category=smt` för att få åtkomst till statistik systemet för användning med Microsoft Translator Hub.
-* Endast neurala: Endast neurala översättning är tillgängligt.
+* Endast statistisk: inget neurala system är tillgängligt för det här språket.
+* Neurala tillgängligt: ett neurala-system är tillgängligt. Använd parametern `category=generalnn` för att få åtkomst till neurala-systemet.
+* Neurala standard: neurala är standard översättnings systemet. Använd parametern `category=smt` för att få åtkomst till statistik systemet för användning med Microsoft Translator Hub.
+* Endast neurala: endast översättning av neurala är tillgängligt.
 
 **V3 Translator-API** V3-Translator-API: et är neurala som standard och statistik system är bara tillgängliga när det inte finns något neurala-system.
 
@@ -57,8 +57,8 @@ Translator Text API har stöd för följande språk för text till text översä
 |Nederländska| `nl`    |Neurala tillgänglig|  Neural|
 |Svenska|   `en`    |Neurala tillgänglig|  Neural|
 |Estniska|  `et`    |Neurala tillgänglig|  Neural|
-|Fijianska|    `fj`    |Endast statistik|  Statistikuppgifter|
-|Filippinska|  `fil`   |Endast statistik|  Statistikuppgifter|
+|Fijian|    `fj`    |Endast statistik|  Statistikuppgifter|
+|Filipino|  `fil`   |Endast statistik|  Statistikuppgifter|
 |Finska|   `fi`    |Neurala tillgänglig|  Neural|
 |Franska|    `fr`    |Neurala tillgänglig|  Neural|
 |Tyska|    `de`    |Neurala tillgänglig|  Neural|
@@ -72,7 +72,7 @@ Translator Text API har stöd för följande språk för text till text översä
 |Indonesiska|    `id`    |Endast statistik|  Statistikuppgifter|
 |Italienska|   `it`    |Neurala tillgänglig|  Neural|
 |Japanska|  `ja`    |Neurala tillgänglig|  Neural|
-|Kiswahili| `sw`    |Endast statistik|  Statistikuppgifter|
+|Swahili| `sw`    |Endast statistik|  Statistikuppgifter|
 |Klingon|   `tlh`   |Endast statistik|  Statistikuppgifter|
 |Klingon (plqaD)|   `tlh-Qaak`  |Endast statistik|  Statistikuppgifter|
 |Koreanska |`ko`   |Neurala tillgänglig|  Neural|
@@ -88,7 +88,7 @@ Translator Text API har stöd för följande språk för text till text översä
 |Queretaro Otomi|   `otq`   |Endast statistik|  Statistikuppgifter|
 |Rumänska|  `ro`    |Neurala tillgänglig|  Neural|
 |Ryska|   `ru`    |Neurala tillgänglig|  Neural|
-|Samoa|    `sm`    |Endast statistik|  Statistikuppgifter|
+|Samoan|    `sm`    |Endast statistik|  Statistikuppgifter|
 |Serbiska (kyrillisk)|    `sr-Cyrl`   |Endast statistik|  Statistikuppgifter|
 |Serbiska (latinsk)|   `sr-Latn`   |Endast statistik   |Statistikuppgifter|
 |Slovakiska|    `sk`    |Neurala tillgänglig|  Neural|
@@ -99,7 +99,7 @@ Translator Text API har stöd för följande språk för text till text översä
 |Tamilska| `ta`    |Endast statistik|  Statistikuppgifter|
 |Telugu|    `te`    |Endast neurala|   Neural|
 |Thai|  `th`    |Neurala tillgänglig|  Neural|
-|Tongan|    `to`    |Endast statistik|  Statistikuppgifter|
+|Tonganska|    `to`    |Endast statistik|  Statistikuppgifter|
 |Turkiska|   `tr`    |Neurala tillgänglig   |Neural|
 |Ukrainska| `uk`    |Neurala tillgänglig|  Neural|
 |Urdu|  `ur`    |Endast statistik|  Statistikuppgifter|
@@ -107,32 +107,32 @@ Translator Text API har stöd för följande språk för text till text översä
 |Walesiska| `cy`    |Neurala tillgänglig|  Neural|
 |Yucatec Maya|  `yua`   |Endast statistik|  Statistikuppgifter|
 
-## <a name="transliteration"></a>Transkribering
+## <a name="transliteration"></a>Translitteration
 
 Metoden translittererad stöder följande språk. I "till/från", "<-->" anger att språket kan överföras från eller till något av de angivna skripten. "-->" Anger att språket bara kan vara translittererad från ett skript till ett annat.
 
 | Språk    | Språkkod | Skript | Till/från | Skript|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabiska | `ar` | Arabiska`Arab` | <--> | Latin`Latn` |
-|Bangla  | `bn` | Bengali`Beng` | <--> | Latin`Latn` |
-| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad`Hans`| <--> | Latin`Latn` |
-| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad`Hans`| <--> | Kinesiska, traditionell`Hant`|
-| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell`Hant`| <--> | Latin`Latn` |
-| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell`Hant`| <--> | Kinesiska, förenklad`Hans` |
-| Gujarati | `gu`  | Gujarati`Gujr` | --> | Latin`Latn` |
-| Hebreiska | `he` | Hebreiska`Hebr` | <--> | Latin`Latn` |
-| Hindi | `hi` | Devanagari`Deva` | <--> | Latin`Latn` |
-| Japanska | `ja` | Japanska`Jpan` | <--> | Latin`Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latin`Latn` |
-| Malayalam | `ml` | Malayalam`Mlym` | --> | Latin`Latn` |
-| Marathi | `mr` | Devanagari`Deva` | --> | Latin`Latn` |
-| Odia | `or` | Odia`Orya` | <--> | Latin`Latn` |
-| Punjabi | `pa` | Gurmukhi`Guru`  | <--> | Latin`Latn`  |
-| Serbiska (kyrillisk) | `sr-Cyrl` | Kyrillisk`Cyrl`  | --> | Latin`Latn` |
-| Serbiska (latinsk) | `sr-Latn` | Latin`Latn` | --> | Kyrillisk`Cyrl`|
-| Tamilska | `ta` | Tamilska`Taml` | --> | Latin`Latn` |
-| Telugu | `te` | Telugu`Telu` | --> | Latin`Latn` |
-| Thai | `th` | Thai`Thai` | <--> | Latin`Latn` |
+| Arabiska | `ar` | Arabisk `Arab` | <--> | Latinska `Latn` |
+|Bangla  | `bn` | Bengali-`Beng` | <--> | Latinska `Latn` |
+| Kinesiska (förenklad) | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Latinska `Latn` |
+| Kinesiska (förenklad) | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Traditionell kinesiska `Hant`|
+| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
+| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
+| Gujarati | `gu`  | Gujarati-`Gujr` | --> | Latinska `Latn` |
+| Hebreiska | `he` | Hebreisk `Hebr` | <--> | Latinska `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latinska `Latn` |
+| Japanska | `ja` | Japansk `Jpan` | <--> | Latinska `Latn` |
+| Kannada | `kn` | Kannada-`Knda` | --> | Latinska `Latn` |
+| Malayalam | `ml` | Malayalam-`Mlym` | --> | Latinska `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | --> | Latinska `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latinska `Latn` |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latinska `Latn`  |
+| Serbiska (kyrillisk) | `sr-Cyrl` | Kyrilliska `Cyrl`  | --> | Latinska `Latn` |
+| Serbiska (latinsk) | `sr-Latn` | Latinska `Latn` | --> | Kyrilliska `Cyrl`|
+| Tamilska | `ta` | Tamil `Taml` | --> | Latinska `Latn` |
+| Telugu | `te` | Telugu-`Telu` | --> | Latinska `Latn` |
+| Thai | `th` | Thai-`Thai` | <--> | Latinska `Latn` |
 
 ## <a name="dictionary"></a>Ordlista
 
@@ -165,7 +165,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Indonesiska      | `id`          |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-| Kiswahili      | `sw`          |
+| Swahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
@@ -191,7 +191,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Vietnamesiska      | `vi`          |
 | Walesiska      | `cy`          |
 
-## <a name="detect"></a>Detect
+## <a name="detect"></a>Upptäcka
 
 Translator Text API identifierar alla språk som är tillgängliga för översättning och transkriberingsspråk.
 
@@ -229,10 +229,10 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Ungerska      | `hu`          |
 | Isländska | `is` |
 | Indonesiska|   `id`    |
-| Iriska | `ga`  |
+| Irländska | `ga`  |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-|Kiswahili| `sw`    |
+|Swahili| `sw`    |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
@@ -243,7 +243,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Portugisiska      | `pt`          |
 | Rumänska      | `ro`          |
 | Ryska      | `ru`          |
-|Samoa|    `sm`    |
+|Samoan|    `sm`    |
 | Serbiska (latinsk)      | `sr-Latn`          |
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |

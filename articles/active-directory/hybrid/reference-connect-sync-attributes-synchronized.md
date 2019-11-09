@@ -1,6 +1,6 @@
 ---
-title: Attribut som synkroniseras av Azure AD Connect | Microsoft Docs
-description: Visar en lista över attribut som synkroniseras till Azure Active Directory.
+title: Attribut synkroniserade med Azure AD Connect | Microsoft Docs
+description: Visar en lista över de attribut som synkroniseras till Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,55 +16,55 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e95b230d4f9699f15296ba94946c7063cabd0516
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784302"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847195"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut som synkroniseras till Azure Active Directory
-Det här avsnittet listas de attribut som synkroniseras av Azure AD Connect-synkronisering.  
-Attribut är grupperade efter relaterade Azure AD-app.
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect synkronisering: attribut synkroniserade till Azure Active Directory
+I det här avsnittet visas de attribut som synkroniseras med Azure AD Connect Sync.  
+Attributen grupperas av den relaterade Azure AD-appen.
 
 ## <a name="attributes-to-synchronize"></a>Attribut som ska synkroniseras
-En vanlig fråga är *vad är en lista över minsta attribut som ska synkroniseras*. Standardwebbplatsen och den rekommenderade metoden är att hålla standardattributen så att en fullständig GAL (globala adresslistan) kan konstrueras i molnet och för att få alla funktioner i Office 365-arbetsbelastningar. I vissa fall kan det finns vissa attribut som organisationen inte vill synkroniserade till molnet eftersom dessa attribut innehåller känslig eller personligt identifierbar information (personligt identifierbar information) data, som i det här exemplet:  
-![felaktigt attribut](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
+En vanlig fråga är *vilken lista med minsta attribut som ska synkroniseras*. Standardvärdet och den rekommenderade metoden är att behålla standardattributen så att en fullständig GAL (global adress lista) kan skapas i molnet och för att få alla funktioner i Office 365-arbetsbelastningar. I vissa fall finns det attribut som din organisation inte vill synkronisera till molnet eftersom dessa attribut innehåller känsliga eller PII-data (personligt identifierbar information), som i det här exemplet:  
+![Felaktiga attribut](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-I det här fallet utgå från listan med attribut i det här avsnittet och identifiera de attribut som innehåller känslig eller identifierbar information data och kan inte synkroniseras. Sedan avmarkera dessa attribut under installationen med hjälp av [Azure AD-app och attributfiltrering](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+I det här fallet börjar du med listan med attribut i det här avsnittet och identifierar de attribut som skulle innehålla känsliga eller PII-data och kan inte synkroniseras. Avmarkera sedan attributen under installationen med hjälp av [filtrering av Azure AD-appar och-attribut](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
-> När avmarkera attribut, bör du vara försiktig och endast avmarkera dessa attribut som är absolut inte möjligt att synkronisera. Avmarkera andra attribut kan ha en negativ inverkan på funktioner.
+> När du avmarkerar attribut bör du vara försiktig och bara avmarkera dessa attribut absolut inte möjligt att synkronisera. Om du avmarkerar andra attribut kan det påverka funktionerna negativt.
 >
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
 | Attributnamn | Användare | Kommentar |
 | --- |:---:| --- |
-| accountEnabled |X |Anger om ett konto har aktiverats. |
-| CN |X | |
+| accountEnabled |X |Definierar om ett konto är aktiverat. |
+| nomenklatur |X | |
 | displayName |X | |
-| objectSID |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
-| pwdLastSet |X |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
-|samAccountName|X| |
-| sourceAnchor |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
-| usageLocation |X |mekanisk egenskap. Användarens land/region. Används för licensuppgifter. |
-| userPrincipalName |X |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| objectSID |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| pwdLastSet |X |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
+|Sam|X| |
+| sourceAnchor |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
+| usageLocation |X |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
+| userPrincipalName |X |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="exchange-online"></a>exchange online
-| Attributnamn | Användare | Kontakta | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
-| accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| assistent |X |X | | |
-| altRecipient |X | | |Kräver Azure AD Connect version 1.1.552.0 eller efter. |
+| accountEnabled |X | | |Definierar om ett konto är aktiverat. |
+| - |X |X | | |
+| altRecipient |X | | |Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 | authOrig |X |X |X | |
 | c |X |X | | |
-| CN |X | |X | |
-| CO |X |X | | |
-| Företagets |X |X | | |
+| nomenklatur |X | |X | |
+| företag |X |X | | |
+| company |X |X | | |
 | countryCode |X |X | | |
-| Avdelning |X |X | | |
-| description |X |X |X | |
+| avdelning |X |X | | |
+| description | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -85,16 +85,16 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | extensionAttribute9 |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| Hemtelefon |X |X | | |
-| info |X |X |X |Det här attributet används för närvarande inte för grupper. |
+| homePhone |X |X | | |
+| statusinformation |X |X |X |Det här attributet används inte för närvarande för grupper. |
 | Initialer |X |X | | |
-| L |X |X | | |
+| l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| ansvarig |X |X | | |
-| Medlem | | |X | |
-| mobila |X |X | | |
+| Cachehanteraren |X |X | | |
+| höra | | |X | |
+| enheter |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
 | msDS-PhoneticDisplayName |X |X |X | |
 | msExchArchiveGUID |X | | | |
@@ -106,18 +106,18 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
-| msExchBypassModerationLink | | |X |Tillgängliga i Azure AD Connect version 1.1.524.0 |
+| msExchBypassModerationLink | | |X |Tillgängligt i Azure AD Connect version 1.1.524.0 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
 | msExchELCExpirySuspensionStart |X | | | |
 | msExchELCMailboxFlags |X | | | |
 | msExchEnableModeration |X | |X | |
-| msExchExtensionCustomAttribute1 |X |X |X |Det här attributet används för närvarande inte av Exchange Online. |
-| msExchExtensionCustomAttribute2 |X |X |X |Det här attributet används för närvarande inte av Exchange Online. |
-| msExchExtensionCustomAttribute3 |X |X |X |Det här attributet används för närvarande inte av Exchange Online. |
-| msExchExtensionCustomAttribute4 |X |X |X |Det här attributet används för närvarande inte av Exchange Online. |
-| msExchExtensionCustomAttribute5 |X |X |X |Det här attributet används för närvarande inte av Exchange Online. |
+| msExchExtensionCustomAttribute1 |X |X |X |Det här attributet används inte för närvarande av Exchange Online. |
+| msExchExtensionCustomAttribute2 |X |X |X |Det här attributet används inte för närvarande av Exchange Online. |
+| msExchExtensionCustomAttribute3 |X |X |X |Det här attributet används inte för närvarande av Exchange Online. |
+| msExchExtensionCustomAttribute4 |X |X |X |Det här attributet används inte för närvarande av Exchange Online. |
+| msExchExtensionCustomAttribute5 |X |X |X |Det här attributet används inte för närvarande av Exchange Online. |
 | msExchHideFromAddressLists |X |X |X | |
 | msExchImmutableID |X | | | |
 | msExchLitigationHoldDate |X |X |X | |
@@ -145,21 +145,21 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
 | msOrg-IsOrganizational | | |X | |
-| objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
 | otherTelephone |X |X | | |
-| Personsökare |X |X | | |
+| personsökare |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Postnummer |X |X | | |
+| Post nummer |X |X | | |
 | proxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används både för synkronisering av lösen ord och Federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
+| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
 | St |X |X | | |
 | streetAddress |X |X | | |
 | targetAddress |X |X | | |
@@ -168,23 +168,23 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licensuppgifter. |
+| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userCertificate |X |X | | |
-| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>sharepoint online
-| Attributnamn | Användare | Kontakta | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
-| accountEnabled |X | | |Anger om ett konto har aktiverats. |
+| accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | authOrig |X |X |X | |
 | c |X |X | | |
-| CN |X | |X | |
-| CO |X |X | | |
-| Företagets |X |X | | |
+| nomenklatur |X | |X | |
+| företag |X |X | | |
+| company |X |X | | |
 | countryCode |X |X | | |
-| Avdelning |X |X | | |
+| avdelning |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -207,23 +207,23 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
-| Hemtelefon |X |X | | |
-| info |X |X |X | |
+| homephone |X |X | | |
+| statusinformation |X |X |X | |
 | Initialer |X |X | | |
 | ipPhone |X |X | | |
-| L |X |X | | |
+| l |X |X | | |
 | e-post |X |X |X | |
-| mailNickname |X |X |X | |
+| MailNickName |X |X |X | |
 | managedBy | | |X | |
-| ansvarig |X |X | | |
-| Medlem | | |X | |
+| Cachehanteraren |X |X | | |
+| höra | | |X | |
 | middleName |X |X | | |
-| mobila |X |X | | |
+| enheter |X |X | | |
 | msExchTeamMailboxExpiration |X | | | |
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointLinkedBy |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
-| objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
@@ -231,17 +231,17 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | otherMobile |X |X | | |
 | otherPager |X |X | | |
 | otherTelephone |X |X | | |
-| Personsökare |X |X | | |
+| personsökare |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Postnummer |X |X | | |
-| postOfficeBox |X |X | |Det här attributet används för närvarande inte av SharePoint Online. |
+| Post nummer |X |X | | |
+| postOfficeBox |X |X | |Det här attributet används inte för närvarande av SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
+| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
 | St |X |X | | |
 | streetAddress |X |X | | |
 | targetAddress |X |X | | |
@@ -252,190 +252,190 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region
-. Används för licensuppgifter. |
-| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+. Används för licens tilldelning. |
+| userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>Teams och Skype för företag Online
-| Attributnamn | Användare | Kontakta | Grupp | Kommentar |
+## <a name="teams-and-skype-for-business-online"></a>Team och Skype för företag – Online
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
-| accountEnabled |X | | |Anger om ett konto har aktiverats. |
+| accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
-| CN |X | |X | |
-| CO |X |X | | |
-| Företagets |X |X | | |
-| Avdelning |X |X | | |
+| nomenklatur |X | |X | |
+| företag |X |X | | |
+| company |X |X | | |
+| avdelning |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
-| Hemtelefon |X |X | | |
+| homephone |X |X | | |
 | ipPhone |X |X | | |
-| L |X |X | | |
+| l |X |X | | |
 | e-post |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| ansvarig |X |X | | |
-| Medlem | | |X | |
-| mobila |X |X | | |
+| Cachehanteraren |X |X | | |
+| höra | | |X | |
+| enheter |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
-| msRTCSIP-ApplicationOptions |X | | | |
-| msRTCSIP-DeploymentLocator |X |X | | |
-| msRTCSIP-Line |X |X | | |
-| msRTCSIP-OptionFlags |X |X | | |
-| msRTCSIP-OwnerUrn |X | | | |
-| msRTCSIP-PrimaryUserAddress |X |X | | |
-| msRTCSIP-UserEnabled |X |X | | |
-| objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| msRTCSIP – ApplicationOptions |X | | | |
+| msRTCSIP – DeploymentLocator |X |X | | |
+| msRTCSIP-rad |X |X | | |
+| msRTCSIP – OptionFlags |X |X | | |
+| msRTCSIP – OwnerUrn |X | | | |
+| msRTCSIP – PrimaryUserAddress |X |X | | |
+| msRTCSIP – UserEnabled |X |X | | |
+| objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Postnummer |X |X | | |
+| Post nummer |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
+| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
 | St |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licensuppgifter. |
-| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
+| userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Attributnamn | Användare | Kontakta | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
-| accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| CN |X | |X |Namn eller alias. Oftast prefixet för värdet [e]. |
-| displayName |X |X |X |En sträng som representerar det namn som ofta visas som eget namn (Förnamn Efternamn). |
-| e-post |X |X |X |fullständiga e-postadress. |
-| Medlem | | |X | |
-| objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| accountEnabled |X | | |Definierar om ett konto är aktiverat. |
+| nomenklatur |X | |X |Eget namn eller alias. Oftast är prefixet för [mail]-värdet. |
+| displayName |X |X |X |En sträng som representerar det namn som ofta visas som eget namn (förnamn efter namn). |
+| e-post |X |X |X |fullständig e-postadress. |
+| höra | | |X | |
+| objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X |mekanisk egenskap. Används av Azure AD. Innehåller alla sekundära e-postadresser för användaren. |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. |
-| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
-| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licensuppgifter. |
-| userPrincipalName |X | | |Den här UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. |
+| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
+| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
+| userPrincipalName |X | | |Detta UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="intune"></a>Intune
-| Attributnamn | Användare | Kontakta | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
-| accountEnabled |X | | |Anger om ett konto har aktiverats. |
+| accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
-| CN |X | |X | |
+| nomenklatur |X | |X | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | e-post |X |X |X | |
-| mailNickname |X |X |X | |
-| Medlem | | |X | |
-| objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| MailNickName |X |X |X | |
+| höra | | |X | |
+| objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
-| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
-| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licensuppgifter. |
-| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
+| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
+| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
+| userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Attributnamn | Användare | Kontakta | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
-| accountEnabled |X | | |Anger om ett konto har aktiverats. |
+| accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
-| CN |X | |X | |
-| CO |X |X | | |
-| Företagets |X |X | | |
+| nomenklatur |X | |X | |
+| företag |X |X | | |
+| company |X |X | | |
 | countryCode |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| L |X |X | | |
+| l |X |X | | |
 | managedBy | | |X | |
-| ansvarig |X |X | | |
-| Medlem | | |X | |
-| mobila |X |X | | |
-| objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| Cachehanteraren |X |X | | |
+| höra | | |X | |
+| enheter |X |X | | |
+| objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | physicalDeliveryOfficeName |X |X | | |
-| Postnummer |X |X | | |
+| Post nummer |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
+| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
 | St |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licensuppgifter. |
-| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
+| userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
-## <a name="3rd-party-applications"></a>3 partsprogram
-Den här gruppen är en uppsättning attribut som används som minimal attribut som behövs för en generisk arbetsbelastning eller ett program. Det kan användas för en arbetsbelastning som inte visas i ett annat avsnitt eller för en icke-Microsoft-app. Den används för följande:
+## <a name="3rd-party-applications"></a>program från tredje part
+Den här gruppen är en uppsättning attribut som används som de minimala attribut som behövs för en allmän arbets belastning eller ett program. Den kan användas för en arbets belastning som inte listas i ett annat avsnitt eller för en app som inte kommer från Microsoft. Den används explicit för följande:
 
-* Yammer (endast användare används)
-* [Hybrid Business-to-Business (B2B) mellan org samarbetsscenarier erbjuds av resurser som SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* Yammer (endast användare förbrukas)
+* [Hybrid samarbets scenarier för företag till företag (B2B) över org som erbjuds av resurser som SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalog inte används för att stödja Office 365, Dynamics eller Intune. Den har en liten uppsättning huvudattributen.
+Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalogen inte används för att stödja Office 365, Dynamics eller Intune. Den har en liten uppsättning Core-attribut.
 
-| Attributnamn | Användare | Kontakta | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
-| accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| CN |X | |X | |
+| accountEnabled |X | | |Definierar om ett konto är aktiverat. |
+| nomenklatur |X | |X | |
 | displayName |X |X |X | |
-| employeeID |X |  |  | |
+| Anställnings |X |  |  | |
 | givenName |X |X | | |
 | e-post |X | |X | |
 | managedBy | | |X | |
 | mailNickName |X |X |X | |
-| Medlem | | |X | |
-| objectSID |X | | |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
+| höra | | |X | |
+| objectSID |X | | |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
+| pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
-| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licensuppgifter. |
-| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| sourceAnchor |X |X |X |mekanisk egenskap. Oföränderlig identifierare som upprätthåller relationen mellan tillägg och Azure AD. |
+| usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
+| userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="windows-10"></a>Windows 10
-En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till Azure AD. Mer information om i vilka scenarier finns i [ansluta domänanslutna enheter till Azure AD för Windows 10 inträffar](../active-directory-azureadjoin-devices-group-policy.md). Dessa attribut synkroniseras alltid och Windows 10 visas inte som en app som du kan avmarkera. En domänansluten dator i Windows 10 identifieras genom att använda det attributet userCertificate fylls i.
+En Windows 10-domänansluten dator (enhet) synkroniserar vissa attribut till Azure AD. Mer information om scenarier finns i [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelser](../active-directory-azureadjoin-devices-group-policy.md). Dessa attribut synkroniseras alltid och Windows 10 visas inte som en app som du kan avmarkera. En domänansluten Windows 10-dator identifieras genom att attributet userCertificate har fyllts i.
 
 | Attributnamn | Enhet | Kommentar |
 | --- |:---:| --- |
 | accountEnabled |X | |
-| deviceTrustType |X |Hårdkodad värde för domänanslutna datorer. |
+| deviceTrustType |X |Hårdkodad-värde för domänanslutna datorer. |
 | displayName |X | |
 | ms-DS-CreatorSID |X |Kallas även registeredOwnerReference. |
 | objectGUID |X |Kallas även deviceID. |
 | objectSID |X |Kallas även onPremisesSecurityIdentifier. |
-| operatingSystem |X |Kallas även deviceOSType. |
+| Opera ting system |X |Kallas även deviceOSType. |
 | operatingSystemVersion |X |Kallas även deviceOSVersion. |
 | userCertificate |X | |
 
-Dessa attribut för **användaren** är utöver de andra apparna som du har valt.  
+De här attributen för **användaren** är förutom de andra appar som du har valt.  
 
 | Attributnamn | Användare | Kommentar |
 | --- |:---:| --- |
-| domainFQDN |X |Kallas även DNS-domännamn. Till exempel contoso.com. |
-| domainNetBios |X |Kallas även NetBIOS-namn. Till exempel CONTOSO. |
+| domainFQDN |X |Kallas även dnsDomainName. Till exempel contoso.com. |
+| domainNetBios |X |Kallas även netBiosName. Till exempel CONTOSO. |
 | msDS-KeyCredentialLink |X |När användaren har registrerats i Windows Hello för företag. | 
 
-## <a name="exchange-hybrid-writeback"></a>Tillbakaskrivning av Exchange-hybrid
-Dessa attribut skrivs tillbaka från Azure AD till en lokal Active Directory när du väljer för att aktivera **Exchange-hybrid**. Beroende på din Exchange-version kan färre attribut synkroniseras.
+## <a name="exchange-hybrid-writeback"></a>Exchange hybrid tillbakaskrivning
+Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när du väljer att aktivera **Exchange hybrid**. Beroende på din Exchange-version kan färre attribut synkroniseras.
 
-| Attributnamn (lokala AD) | Attributnamn (Connect Användargränssnittet) | Användare | Kontakta | Grupp | Kommentar |
+| Attributnamn (lokal AD) | Attributnamn (Connect UI) | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |---|
-| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Hämtad från Molnakarvärde i Azure AD. Det här attributet är ny i Exchange 2016 och Windows Server 2016 AD. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Arkiv: Ger kunder möjlighet att arkivera e-post. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – Online röstbrevlåda: Används av Microsoft Lync Server-integrering för att indikera att Lync Server lokala att användaren har röstmeddelanden i online services. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Tvister skäl: Aktiverar molntjänster för att avgöra vilka användare som är under tvister håll. |
-| proxyAddresses| proxyAddresses |X |X |X |Endast x500-adress från Exchange Online har infogats. |
-| publicDelegates| ms-Exch-Public-Delegates  |X | | |Gör en Exchange Online-postlåda som ska beviljas SendOnBehalfTo behörighet till användare med lokala Exchange-postlåda. Kräver Azure AD Connect version 1.1.552.0 eller efter. |
+| msDS-ExternalDirectoryObjectID| ms-DS-extern-Directory-Object-ID |X | | |Härlett från cloudAnchor i Azure AD. Det här attributet är nytt i Exchange 2016 och Windows Server 2016 AD. |
+| msExchArchiveStatus| MS-ArchiveStatus |X | | |Online-Arkiv: gör det möjligt för kunder att arkivera e-post. |
+| msExchBlockedSendersHash| MS-BlockedSendersHash |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
+| msExchSafeRecipientsHash| MS-SafeRecipientsHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
+| msExchSafeSendersHash| MS-SafeSendersHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
+| msExchUCVoiceMailSettings| MS-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – online röst meddelande: används av Microsoft Lync Server integration för att indikera att den lokala Lync-servern har röst meddelanden i onlinetjänster. |
+| msExchUserHoldPolicies| MS-EXC-hUserHoldPolicies |X | | |Tvister: aktiverar moln tjänster för att avgöra vilka användare som omfattas av tvister. |
+| proxyAddresses| proxyAddresses |X |X |X |Endast x500-adressen från Exchange Online har infogats. |
+| publicDelegates| MS-multikommunikation – offentligt – ombud  |X | | |Tillåter att en Exchange Online-postlåda beviljas SendOnBehalfTo-rättigheter till användare med lokal Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 
-## <a name="exchange-mail-public-folder"></a>Offentlig mapp för Exchange-e-post
-Dessa attribut synkroniseras från den lokala Active Directory till Azure AD när du väljer för att aktivera **offentlig mapp för Exchange-e-post**.
+## <a name="exchange-mail-public-folder"></a>Offentlig Exchange-e-postmapp
+Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du väljer att aktivera **offentlig Exchange-e-postmapp**.
 
 | Attributnamn | PublicFolder | Kommentar |
 | --- | :---:| --- |
@@ -447,13 +447,13 @@ Dessa attribut synkroniseras från den lokala Active Directory till Azure AD nä
 | targetAddress | X |  |
 
 ## <a name="device-writeback"></a>Tillbakaskrivning av enheter
-Enhetsobjekt skapas i Active Directory. De här objekten kan vara enheter som är anslutna till Azure AD eller domänanslutna Windows 10-datorer.
+Enhets objekt skapas i Active Directory. Dessa objekt kan vara enheter som är anslutna till Azure AD-eller domänanslutna Windows 10-datorer.
 
 | Attributnamn | Enhet | Kommentar |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |
-| dn |X | |
+| namnet |X | |
 | msDS-CloudAnchor |X | |
 | msDS-DeviceID |X | |
 | msDS-DeviceObjectVersion |X | |
@@ -467,10 +467,10 @@ Enhetsobjekt skapas i Active Directory. De här objekten kan vara enheter som ä
 | msDS-RegisteredOwner |X | |
 
 ## <a name="notes"></a>Anteckningar
-* När du använder ett alternativt ID, är lokala attributet userPrincipalName synkroniserad med Azure AD-attributet onPremisesUserPrincipalName. Alternativt ID-attributet för exempel e-post, synkroniseras med Azure AD-attributet userPrincipalName.
-* I listorna över objekttypen **användaren** gäller även för objekttypen **iNetOrgPerson**.
+* När du använder ett alternativt ID synkroniseras det lokala attributet userPrincipalName med Azure AD-attributet onPremisesUserPrincipalName. Det alternativa ID-attributet, till exempel mail, synkroniseras med Azure AD-attributet userPrincipalName.
+* I listorna ovan gäller objekt typ **användaren** även för objekt typen **InetOrgPerson**.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
+Läs mer om [Azure AD Connect Sync](how-to-connect-sync-whatis.md) -konfigurationen.
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

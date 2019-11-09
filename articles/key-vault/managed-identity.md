@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720252"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837498"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Tillhandahåll Key Vault autentisering med en hanterad identitet
 
@@ -34,14 +34,14 @@ För att slutföra den här guiden måste du ha följande resurser.
    - [Skapa ett nyckel valv med Azure PowerShell](quick-create-powershell.md)
    - [Skapa ett nyckel valv med Azure Portal](quick-create-portal.md).
 - Ett befintligt App Service program som du vill bevilja åtkomst till nyckel valvet. Du kan snabbt skapa en genom att följa stegen i [App Service-dokumentationen](../app-service/overview.md).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview). Du kan också använda [Azure Portal](http://portal.azure.com).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview). Du kan också använda [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Lägga till en tilldelad identitet 
 
 Först måste du lägga till en tilldelad identitet till ett program. 
  
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Azure portal 
 
 För att konfigurera en hanterad identitet i portalen skapar du först ett program som vanligt och aktiverar sedan funktionen. 
 
@@ -49,7 +49,7 @@ För att konfigurera en hanterad identitet i portalen skapar du först ett progr
 
 1. Välj **hanterad identitet**. 
 
-1. Växla **status** till **på på**fliken systemtilldelad. Klicka på **Spara**. 
+1. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Spara**. 
 
     ![](./media/managed-identity-system-assigned.png)
 
@@ -76,7 +76,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-`PrincipalId`Anteckna, som kommer att behövas i nästa avsnitt.
+Anteckna `PrincipalId`som kommer att behövas i nästa avsnitt.
 
 ```json
 {
@@ -87,7 +87,7 @@ az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 ## <a name="grant-your-app-access-to-key-vault"></a>Ge appen åtkomst till Key Vault 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1.  Navigera till Key Vault resurs. 
 
@@ -111,7 +111,7 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Key Vault säkerhet: Identitets-och åtkomst hantering @ no__t-0
+- [Azure Key Vault säkerhet: identitets-och åtkomst hantering](overview-security.md#identity-and-access-management)
 - [Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll](key-vault-group-permissions-for-apps.md)
 - [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
 - [Skydda nyckel valvet](key-vault-secure-your-key-vault.md).

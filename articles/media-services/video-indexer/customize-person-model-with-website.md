@@ -1,7 +1,7 @@
 ---
-title: Använda Video Indexer-webbplats för att anpassa en Person modell – Azure
-titlesuffix: Azure Media Services
-description: Den här artikeln visar hur du anpassar en Person modell med Video Indexer-webbplatsen.
+title: Använd Video Indexer webbplats för att anpassa en person modell – Azure
+titleSuffix: Azure Media Services
+description: Den här artikeln visar hur du anpassar en person modell med Video Indexer webbplats.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,196 +10,196 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 060d94d6181e894c18d268845b48eb802c52730c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800124"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838277"
 ---
-# <a name="customize-a-person-model-with-the-video-indexer-website"></a>Anpassa en Person modell med Video Indexer-webbplats
+# <a name="customize-a-person-model-with-the-video-indexer-website"></a>Anpassa en person modell med Video Indexer webbplats
 
-Video Indexer stöder kändisigenkänning för videoinnehåll. Funktionen för igenkänning av kändisar täcker ungefär en miljon ansikten baserat på vanliga datakälla, till exempel IMDB och Wikipedia övre LinkedIn Påverkare. En detaljerad översikt finns i [anpassa en Person-modell i Video Indexer](customize-person-model-overview.md).
+Video Indexer stöder kändis igenkänning för video innehåll. Kändis igenkännings funktionen täcker cirka 1 000 000 ansikten baserat på den begärda data källan, till exempel IMDB-, Wikipedia-och Top LinkedIn-påverkan. En detaljerad översikt finns [i anpassa en person modell i video Indexer](customize-person-model-overview.md).
 
-Du kan använda Video Indexer-webbplatsen för att redigera ansikten som upptäcktes på en video, enligt beskrivningen i det här avsnittet. Du kan också använda API: et, enligt beskrivningen i [anpassa en Person modell med API: er](customize-person-model-with-api.md).
+Du kan använda Video Indexer webbplats för att redigera ansikten som upptäcktes i en video, enligt beskrivningen i det här avsnittet. Du kan också använda API: et enligt beskrivningen i [Anpassa en person modell med hjälp av API: er](customize-person-model-with-api.md).
 
-## <a name="central-management-of-person-models-in-your-account"></a>Central hantering av Person modeller i ditt konto
+## <a name="central-management-of-person-models-in-your-account"></a>Central hantering av person modeller i ditt konto
 
-1. Om du vill visa, redigera och ta bort Person-modeller i ditt konto, bläddra till Video Indexer-webbplatsen och logga in.
-2. Klicka på knappen innehållsmodellen anpassning i det övre högra hörnet på sidan.
+1. Om du vill visa, redigera och ta bort person modellerna i ditt konto bläddrar du till Video Indexer webbplats och loggar in.
+2. Klicka på anpassnings knappen för innehålls modell i det övre högra hörnet på sidan.
 
-    ![Innehållsmodellen anpassning](./media/customize-face-model/content-model-customization.png)
+    ![Anpassning av innehålls modell](./media/customize-face-model/content-model-customization.png)
 3. Välj fliken personer.
 
-    Standard Person modellen visas i ditt konto. Den Person som standard-modellen innehåller alla ansikten du redigeras eller ändras i insikter om dina videor som du inte har angett en anpassad modell Person under indexering. 
+    Du kan se standard modellen för personer i ditt konto. Standard person modellen innehåller alla ansikten som du kan ha redigerat eller ändrat i insikterna för dina videor där du inte har angett en anpassad person modell under indexeringen. 
 
-    Om du har skapat andra Person modeller, visas de på den här sidan också. 
+    Om du har skapat andra person modeller visas de även på den här sidan. 
 
-    ![Innehållsmodellen anpassning](./media/customize-face-model/content-model-customization-people-tab.png)
+    ![Anpassning av innehålls modell](./media/customize-face-model/content-model-customization-people-tab.png)
 
-## <a name="create-a-new-person-model"></a>Skapa en ny Person-modell
+## <a name="create-a-new-person-model"></a>Skapa en ny person modell
 
-1. Klicka på den **+ Lägg till modell** knappen.
+1. Klicka på knappen **+ Lägg till modell** .
 
     ![Lägg till en ny person](./media/customize-face-model/add-new-person.png)
-2. Ange namnet på modellen och klicka på knappen Kontrollera bredvid namnet.
+2. Ange namnet på modellen och klicka på kryss knappen bredvid namnet.
 
     ![Lägg till en ny person](./media/customize-face-model/add-new-person2.png)
 
-    Du har skapat en ny Person-modell. Du kan nu lägga till ansikten till den nya Person-modellen.
-3. Klicka på menyknappen i listan och välj **+ Lägg till person**.
+    Du har skapat en ny person modell. Nu kan du lägga till ansikten i den nya person modellen.
+3. Klicka på Meny knappen lista och välj **+ Lägg till person**.
 
     ![Lägg till en ny person](./media/customize-face-model/add-new-person3.png)
     
-## <a name="add-a-new-person-to-a-person-model"></a>Lägg till en ny person till en Person-modell
+## <a name="add-a-new-person-to-a-person-model"></a>Lägg till en ny person till en person modell
 
 > [!NOTE]
-> Video Indexer kan du lägga till flera personer med samma namn i en Person-modell. Men rekommenderar vi att du ger unque namn till varje person i din modell för användbarhet och tydlighet.
+> Med Video Indexer kan du lägga till flera personer med samma namn i en person modell. Vi rekommenderar dock att du ger unque namn till varje person i din modell för användbarhet och tydlighet.
 
-1. Klicka på menyknappen lista bredvid den Person-modell som du vill lägga till de står inför att för att lägga till ett nytt ansikte till en Person-modell.
+1. Om du vill lägga till en ny ansikts till en person modell klickar du på list meny knappen bredvid den person modell som du vill lägga till ansikte till.
 1. Klicka på **+ Lägg till person** på menyn.
 
-    ![Lägg till ett nytt ansikte till personen](./media/customize-face-model/add-new-face.png)
+    ![Lägg till en ny ansikte till personen](./media/customize-face-model/add-new-face.png)
  
-    Ett popup-fönster uppmanas du att fylla i personens information. Ange namnet på personen och klicka på knappen Kontrollera.
+    Ett popup-fönster gör att du kan fylla i personens information. Skriv namnet på personen och klicka på knappen kontrol lera.
 
-    ![Lägg till ett nytt ansikte till personen](./media/customize-face-model/add-new-face2.png)
+    ![Lägg till en ny ansikte till personen](./media/customize-face-model/add-new-face2.png)
  
-Du kan sedan välja i Utforskaren eller dra och släpp ansikte avbildningarna av de står inför. Video Indexer tar alla standardavbildning filtyper (t.ex.: JPG, PNG med mera).
+Du kan sedan välja från Utforskaren eller dra och släppa ansiktenas ansikts bilder. Video Indexer kommer att ha alla standard avbildnings fil typer (t. ex. JPG, PNG och mer).
 
-Video Indexer ska kunna identifiera förekomster av den här personen i framtida videor som du indexerar och aktuella videor som du hade redan indexeras, med hjälp av Person-modellen där du har lagt till den här nya ansikte till. Igenkänning av personen i din aktuella videor kan ta lite tid att gälla, eftersom det här är en batchprocess.
+Video Indexer ska kunna identifiera förekomster av den här personen i de kommande videor som du indexerar och de aktuella videor som du redan har indexerat med hjälp av den person modell som du har lagt till i den nya ytan. Det kan ta lite tid att känna till att personen i dina aktuella videor börjar gälla, eftersom det är en batch-process.
 
 
-## <a name="rename-a-person-model"></a>Byt namn på en Person-modell
+## <a name="rename-a-person-model"></a>Byta namn på en person modell
 
-Du kan byta namn på någon Person-modell i ditt konto, inklusive den Person som standard-modellen. Även om du byter namn på din standard Person modell kommer den fortfarande att fungera som person standardmodellen i ditt konto.
+Du kan byta namn på alla person modeller i ditt konto, inklusive standard modellen för personer. Även om du byter namn på din standard modell för personer fungerar den fortfarande som standard modell för personer i ditt konto.
 
-1. Klicka på menyknappen lista bredvid den Person-modell som du vill byta namn på.
-2. Klicka på **Byt namn på** på menyn.
+1. Klicka på list meny knappen bredvid den person modell som du vill byta namn på.
+2. Klicka på **Byt namn** på menyn.
 
-    ![Byt namn på en person](./media/customize-face-model/rename-person.png)
-3. Klicka på det aktuella namnet på modellen och Skriv namnet på ditt nya.
+    ![Byta namn på en person](./media/customize-face-model/rename-person.png)
+3. Klicka på modellens aktuella namn och skriv in det nya namnet.
 
-    ![Byt namn på en person](./media/customize-face-model/rename-person2.png)
-4. Klicka på knappen Kontrollera för din modell till att byta namn.
+    ![Byta namn på en person](./media/customize-face-model/rename-person2.png)
+4. Klicka på knappen kontrol lera att din modell har bytt namn.
 
-## <a name="delete-a-person-model"></a>Ta bort en Person-modell
+## <a name="delete-a-person-model"></a>Ta bort en person modell
 
-Du kan ta bort alla Person-modell som du skapade i ditt konto. Men du kan inte ta bort din modell för standard-person.
+Du kan ta bort alla person modeller som du har skapat i ditt konto. Du kan dock inte ta bort din standard modell för personer.
 
 1. Klicka på **ta bort** på menyn.
 
     ![Ta bort en person](./media/customize-face-model/delete-person.png)
     
-    Ett popup-fönster ska visas och meddelar dig om att den här åtgärden tar bort Person modellen och alla personer och filer som ingår. Den här åtgärden kan inte ångras. 
+    Ett popup-fönster visas och du får ett meddelande om att den här åtgärden tar bort person modellen och alla personer och filer som den innehåller. Det går inte att utföra den här åtgärden. 
 
     ![Ta bort en person](./media/customize-face-model/delete-person2.png)
-1. Klicka på Ta bort igen om du är säker.
+1. Om du är säker klickar du på ta bort igen.
 
 > [!NOTE]
-> Befintliga videor som har indexerats med hjälp av den här (borttagna) Person modellen stöder inte möjligheten att uppdatera namnen på ansikten som visas i videon. Du kommer att kunna redigera namnen på ansikten i följande videor förrän du indexera om dem med hjälp av en annan Person-modell. Om du indexera utan att ange en Person-modell, att standardmodellen användas. 
+> Befintliga videor som indexerades med den här (nu borttagna) person modellen stöder inte möjligheten att uppdatera namnen på de ansikten som visas i videon. Du kommer bara att kunna redigera namnen på ansikten i dessa videor när du har indexerat dem igen med en annan person modell. Om du indexerar utan att ange en person modell kommer standard modellen att användas. 
 
-## <a name="manage-existing-people-in-a-person-model"></a>Hantera befintliga personer i en Person-modell
+## <a name="manage-existing-people-in-a-person-model"></a>Hantera befintliga personer i en person modell
 
-Om du vill titta på innehållet i någon av dina Person-modeller, klickar du på pilen bredvid namnet på den Person-modellen.
-Listrutan visar alla personer i den specifika Person-modellen. Om du klickar på knappen lista menyn bredvid varje för personerna som du ser hantera, byta namn på och ta bort alternativ.  
+Om du vill titta på innehållet i någon av dina person modeller klickar du på pilen bredvid namnet på person modellen.
+I list rutan visas alla personer i den specifika person modellen. Om du klickar på list meny knappen bredvid var och en av personerna visas alternativ för hantera, Byt namn och ta bort.  
 
-![Lägg till ett nytt ansikte till personen](./media/customize-face-model/manage-people.png)
+![Lägg till en ny ansikte till personen](./media/customize-face-model/manage-people.png)
 
-### <a name="rename-a-person"></a>Byt namn på en person
+### <a name="rename-a-person"></a>Byta namn på en person
 
-1. Om du vill byta namn på en person i din modell Person, klicka på menyknappen i listan och välj **Byt namn på** meny.
-1. Klicka på det aktuella namnet på den person och skriver in namnet på din nya.
-1. Klicka på knappen Kontrollera och personen som kommer att byta namn.
+1. Om du vill byta namn på en person i din person modell klickar du på Meny knappen lista och väljer **Byt namn** på list menyn.
+1. Klicka på personens aktuella namn och skriv det nya namnet.
+1. Klicka på knappen kontrol lera och personen får ett nytt namn.
 
 ### <a name="delete-a-person"></a>Ta bort en person
 
-1. Om du vill ta bort en person från din Person-modell, klicka på menyknappen i listan och välj **ta bort** från listmenyn.
+1. Om du vill ta bort en person från din person modell klickar du på Meny knappen lista och väljer **ta bort** på menyn lista.
 1. Ett popup-fönster visar att den här åtgärden tar bort personen och att den här åtgärden inte kan ångras.
-1. Klicka på Ta bort igen och personen som tas bort från modellen Person.
+1. Klicka på ta bort igen så tas personen bort från person modellen.
 
 ### <a name="manage-a-person"></a>Hantera en person
 
-Om du klickar på **hantera**, visas alla ytor som den här personen som tränas från. Dessa ansikten komma från förekomster av den personen i videor som använder den här modellen för Person eller från avbildningar som du har laddat upp manuellt. 
+Om du klickar på **Hantera**visas alla ansikten som den här person modellen tränas från. Dessa ansikten kommer från förekomster av den personen i videor som använder den här person modellen eller från bilder som du har laddat upp manuellt. 
 
-Du kan lägga till flera ansikten personen genom att klicka på Lägg till bilder.
+Du kan lägga till fler ansikten till personen genom att klicka på Lägg till bilder.
 
-Du kan använda fönstret hantera att byta namn på personen och ta bort personen från Person-modellen.
+Du kan använda fönstret Hantera för att byta namn på personen och ta bort personen från person modellen.
 
-## <a name="use-a-person-model-to-index-a-video"></a>Använd en modell för personen för att indexera en video
+## <a name="use-a-person-model-to-index-a-video"></a>Använda en person modell för att indexera en video
 
-Du kan använda en Person-modell som indexerar videon nya genom att tilldela personen modellen vid uppladdning av videon.
+Du kan använda en person modell för att indexera din nya video genom att tilldela person modellen under uppladdningen av videon.
 
-Om du vill använda din Person modell på en ny video, gör du följande:
+Gör så här om du vill använda din person modell på en ny video:
 
-1. Klicka på den **överför** knappen överst på sidan.
+1. Klicka på knappen **överför** överst på sidan.
 
     ![Ladda upp](./media/customize-face-model/upload.png)
-1. Ta bort videofilen i cirkeln eller bläddra till din fil.
-1. Klicka på pilen i avancerade alternativ.
+1. Släpp video filen i cirkeln eller bläddra efter filen.
+1. Klicka på pilen avancerade alternativ.
 
     ![Ladda upp](./media/customize-face-model/upload2.png)
-1. Klicka på listrutan och välja modellen med personen som du skapade.
+1. Klicka på list rutan och välj den person modell som du har skapat.
 
     ![Ladda upp](./media/customize-face-model/upload3.png)
-1. Klicka på alternativet ladda upp i längst ned på sidan och nya videon kommer att indexeras med hjälp av Person-modellen.
+1. Klicka på alternativet överför längst ned på sidan så kommer din nya video att indexeras med din person modell.
 
-Om du inte anger en Person modell under överföringen indexerar Video Indexer videon med hjälp av standard Person-modellen i ditt konto.
+Om du inte anger någon person modell under uppladdningen kommer Video Indexer att indexera videon med standard modellen för personer i ditt konto.
 
-## <a name="use-a-person-model-to-reindex-a-video"></a>Använd en modell för personen för att indexera en video 
+## <a name="use-a-person-model-to-reindex-a-video"></a>Använda en person modell för att indexera om en video 
 
-Om du vill använda en Person-modell för att indexera en video i din samling, går du till ditt konto-videor på startsidan för Video Indexer och hovra över namnet på den video som du vill indexera.
+Om du vill använda en person modell för att indexera om en video i din samling går du till dina konto videor på Video Indexer start sida och hovrar över namnet på videon som du vill indexera om.
 
-Du kan se alternativ för att redigera, ta bort och indexera videon. 
+Du ser alternativ för att redigera, ta bort och indexera om videon. 
 
-1. Klicka på alternativet för att indexera videon.
+1. Klicka på alternativet för att indexera om videon.
 
-    ![Reindex](./media/customize-face-model/reindex.png)
+    ![Indexera om](./media/customize-face-model/reindex.png)
 
-    Nu kan du välja modellen Person att indexera videon med.
-1. Klicka på listrutan och välj den Person-modell som du vill använda. 
+    Nu kan du välja den person modell som du vill indexera om videon med.
+1. Klicka på list rutan och välj den person modell som du vill använda. 
 
-    ![Reindex](./media/customize-face-model/reindex2.png)
+    ![Indexera om](./media/customize-face-model/reindex2.png)
 
-1. Klicka på den **indexera** knappen och videon ska indexeras med hjälp av Person-modellen.
+1. Klicka på knappen för att **Indexera** om och din video kommer att indexeras igen med hjälp av din person modell.
 
-Alla nya ändringar du gör ansikten har identifierats som dessutom utsetts i videon som du precis omindexerade sparas i modellen Person som du använde för att indexera videon.
+Alla nya ändringar som du gör i ansikten som identifieras och identifieras i videon som du just har omindexerat sparas i den person modell som du använde för att indexera om videon.
 
 ## <a name="managing-people-in-your-videos"></a>Hantera personer i dina videor
 
-Du kan hantera ansikten som identifieras och personer som har identifierats i videor du indexera genom att redigera och ta bort ansikten.
+Du kan hantera de ansikten som identifieras och personer som har identifierats i videor som du indexerar genom att redigera och ta bort ansikten.
 
-Tar bort ett ansikte, tar bort ett specifikt ansikte från insikter om videon.
+Om du tar bort ett ansikte tas en speciell ansikte bort från videoklippets insikter.
 
-Redigerar ett ansikte, byter namn på ett ansikte som har identifierats och eventuellt identifieras i videon. När du redigerar ett ansikte i videon sparas det namnet som en person post i modellen Person som har tilldelats till videon vid uppladdning och indexering.
+Redigera ett ansikte, byter namn på en ansikte som identifieras och eventuellt identifieras i videon. När du redigerar en ansikte i videon sparas namnet som en person post i den person modell som har tilldelats videon under uppladdningen och indexeringen.
 
-Om du inte tilldelar en Person modell till videon under överföringen, sparas redigeringarna i ditt konto standardmodell person.
+Om du inte tilldelar en person modell till videon under överföringen sparas din redigering i kontots standard modell för personer.
 
 ### <a name="edit-a-face"></a>Redigera ett ansikte
 
 
 > [!NOTE]
-> Om en Person modell har två eller flera olika personer med samma namn, kan du inte tagga det namnet i videor som använder den Person-modellen. Du kommer endast att kunna göra ändringar i personer som delar samma namn på fliken personer av sidan innehållsmodellen anpassning i Video Indexer. Därför rekommenderar vi att du ger unika namn till varje person i din modell Person.
+> Om en person modell har två eller flera olika personer med samma namn kommer du inte att kunna tagga det namnet i videor som använder den person modellen. Du kommer bara att kunna göra ändringar i personer som delar namnet på fliken personer på sidan anpassning av innehålls modell i Video Indexer. Därför rekommenderar vi att du ger unika namn till varje person i din person modell.
 
-1. Bläddra till Video Indexer-webbplatsen och logga in.
+1. Bläddra till Video Indexer webbplats och logga in.
 1. Sök efter en video som du vill visa och redigera i ditt konto.
-1. Om du vill redigera ett ansikte i videon, gå till fliken insikter och klicka på pennikonen i det övre högra hörnet i fönstret.
+1. Om du vill redigera en ansikte i videon går du till fliken insikter och klickar på Penn ikonen i det övre högra hörnet i fönstret.
 
-    ![Redigera ett ansikte i videon](./media/customize-face-model/edit-face.png)
-1. Klicka på någon av de identifierade ansiktena och ändra deras namn från ”okänt #X” (eller det namn som tidigare tilldelats ansiktet). 
-1. Klicka på kryssikonen bredvid det nya namnet när du har skrivit i det nya namnet. Detta sparar det nya namnet och identifierar och alla förekomster av den här ansikte i andra aktuella videor och i framtiden videor som du överför-namn. Igenkänning av ansikte i dina aktuella videor kan ta lite tid att gälla, eftersom det här är en batchprocess.
+    ![Redigera en ansikte i videon](./media/customize-face-model/edit-face.png)
+1. Klicka på någon av de identifierade ansikten och ändra deras namn från "okänd #X" (eller det namn som tidigare tilldelats till FACET). 
+1. När du har skrivit det nya namnet klickar du på kryss ikonen bredvid det nya namnet. Detta sparar det nya namnet och identifierar och namnger alla förekomster av den här ytan i dina andra aktuella videor och i de kommande videor som du överför. Det kan ta lite tid att identifiera ansikte i dina andra aktuella videor, eftersom det är en batch-process.
 
-Om du namnger ett ansikte med namnet på en befintlig person i modellen Person som videon använder sammanfogar detta identifierade ansikts-avbildningar från den här videon för den personen med som redan finns i modellen. Om du ger ett ansikte med ett helt nytt namn, skapar detta en ny Person-post i modellen Person som med hjälp av videon. 
+Om du namnger en ansikte med namnet på en befintlig person i den person modell som videon använder, så sammanfogas identifierade ansikts bilder från den här videon med det som redan finns i modellen. Om du namnger en ansikte med ett helt nytt namn, skapas en ny person post i den person modell som videon använder. 
 
     ![Edit a face in your video](./media/customize-face-model/edit-face2.png)
 
 ### <a name="delete-a-face"></a>Ta bort ett ansikte
 
-Gå till fönstret insikter och klicka på pennikonen i det övre högra hörnet i fönstret för att ta bort en identifierad ansikte i videon. Klicka på alternativet Ta bort under av de står inför. Detta tar bort som identifierats ansikte från videon. Personens ansikte identifieras i de andra videor som den visas fortfarande, men du kan ta bort ansiktet från dessa videor samt när de har indexerats. Personen fortsätter om den hade fått även att finnas i Person modellen som används för att indexera videon som du tog bort ansiktet såvida inte ta bort personen som specifikt från Person-modellen.
+Om du vill ta bort ett identifierat ansikte i videon går du till fönstret insikter och klickar på Penn ikonen i det övre högra hörnet i fönstret. Klicka på alternativet ta bort under namnet på FACET. Detta tar bort den identifierade ytan från videon. Personens ansikte kommer fortfarande att identifieras i de andra videor där den visas, men du kan ta bort ansikte från dessa videor även när de har indexerats. Personen, om den hade namngetts, fortsätter även att finnas i den person modell som användes för att indexera videon som du tog bort från, såvida du inte specifikt tar bort personen från person modellen.
 
-![Ta bort ett ansikte i videon](./media/customize-face-model/delete-face.png)
+![Ta bort en ansikte i videon](./media/customize-face-model/delete-face.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa Person modell med API: er](customize-person-model-with-api.md)
+[Anpassa person modellen med hjälp av API: er](customize-person-model-with-api.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b81060bc3d8409a9ccb74ba85c85e6f779650ffd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b18e9688141ee64eb7dfcb82ce58db198e324b5b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792424"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847540"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Uppgradera versioner av Azure Search .NET Management SDK
 
@@ -46,7 +46,5 @@ Om din version Miss lyckas kan det bero på att du har implementerat några av S
 
 När du har åtgärdat eventuella build-fel kan du göra ändringar i programmet för att dra nytta av nya funktioner om du vill. Nya funktioner i SDK beskrivs i [Vad är nytt i version 2](#WhatsNew).
 
-## <a name="conclusion"></a>Sammanfattning
-Vi välkomnar din feedback om SDK. Om du stöter på problem kan du be oss om hjälp i [Azure Search MSDN-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Om du hittar en bugg kan du ange ett problem i [Azure .NET SDK GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/issues). Var noga med att ange din ärende rubrik med "[Azure Search]".
-
-Tack för att du använder Azure Search!
+## <a name="next-steps"></a>Nästa steg
+Vi välkomnar din feedback om SDK. Om du stöter på problem kan du skicka dina frågor till [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest). Om du hittar en bugg kan du ange ett problem i [Azure .NET SDK GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/issues). Se till att märka din ärende rubrik med "[search]".

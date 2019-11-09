@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/23/2019
-ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/07/2019
+ms.openlocfilehash: 16fc15a574655f20e3e6e37f164773b41ffe0b78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821960"
+ms.locfileid: "73839338"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -246,7 +246,7 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
 - **Bekräfta kända begränsningar för redundans grupper**
 
-  Storleks ändring av databas och ändra instans stöds inte för instanser i gruppen för växling vid fel. Du måste tillfälligt ta bort en redundans grupp för att kunna utföra dessa åtgärder.
+  Database Rename stöds inte för instanser i redundans gruppen. Du måste tillfälligt ta bort en växlings grupp för att kunna byta namn på en databas.
 
 ## <a name="failover-groups-and-network-security"></a>Failover-grupper och nätverks säkerhet
 
@@ -296,7 +296,7 @@ När du ställer in en redundans grupp mellan primära och sekundära hanterade 
    > [!IMPORTANT]
    > Felkonfigurerade NSG säkerhets regler leder till låsta databas kopierings åtgärder.
 
-7. Den sekundära instansen är konfigurerad med rätt DNS-zon-ID. DNS-zon är en egenskap hos en hanterad instans och dess ID ingår i värd namns adressen. Zon-ID: t genereras som en slumpmässig sträng när den första hanterade instansen skapas i varje VNet och samma ID tilldelas till alla andra instanser i samma undernät. DNS-zonen kan inte ändras när den har tilldelats. Hanterade instanser som ingår i samma redundanskonfiguration måste dela DNS-zonen. Du gör detta genom att skicka den primära instansens zon-ID som värdet för parametern DnsZonePartner när du skapar den sekundära instansen. 
+7. Den sekundära instansen är konfigurerad med rätt DNS-zon-ID. DNS-zon är en egenskap hos en hanterad instans och ett virtuellt kluster, och dess ID ingår i värd namns adressen. Zon-ID: t genereras som en slumpmässig sträng när den första hanterade instansen skapas i varje VNet och samma ID tilldelas till alla andra instanser i samma undernät. DNS-zonen kan inte ändras när den har tilldelats. Hanterade instanser som ingår i samma redundanskonfiguration måste dela DNS-zonen. Du gör detta genom att skicka den primära instansens zon-ID som värdet för parametern DnsZonePartner när du skapar den sekundära instansen. 
 
    > [!NOTE]
    > En detaljerad själv studie kurs om hur du konfigurerar Redundansrelationer med hanterade instanser finns i [lägga till en hanterad instans i en failover-grupp](sql-database-managed-instance-failover-group-tutorial.md).

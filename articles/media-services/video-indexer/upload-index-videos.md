@@ -1,6 +1,6 @@
 ---
 title: Ladda upp och indexera videor med Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Det här avsnittet visar hur du använder API:er för att ladda upp och indexera videor med Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372381"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839148"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -37,7 +37,7 @@ När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikel
 - Längden på fråge-URL: en är begränsad till 6144 tecken där Frågesträngens URL-längd är begränsad till 4096 tecken.
 - Uppladdnings storleken med alternativet byte mat ris är begränsad till 2 GB.
 - Tids gränsen nåddes för byte mat ris-alternativet efter 30 min.
-- URL: en som anges i parametern `videoURL` måste vara kodad.
+- Den URL som anges i `videoURL` param måste vara kodad.
 - Indexering av Media Services till gångar har samma begränsning som indexering från URL: en.
 - Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil.
 
@@ -65,7 +65,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
-    - Exempel: https: \//test. com/notifyme? projectName = projekt &-ID = 1234ABCD & State = bearbetad
+    - Exempel: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person som identifierades i videon:
   - Egenskaper
     
@@ -76,7 +76,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
       |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
       |personName|Namnet på personen|
         
-    - Exempel: https: \//test. com/notifyme? projectName = projekt & ID = 1234ABCD & FaceID = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personName = Inigo_Montoya 
+    - Exempel: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Anteckningar
 

@@ -12,12 +12,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2bb721002ad072bb850869ed52b9738380ff9e6e
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 168ec65cfd0ff4e87c33324daa353b554111c8aa
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636130"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838560"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Ringa ett telefonsamtal med Twilio i ett Java-program på Azure
 I följande exempel visas hur du kan använda Twilio för att ringa ett samtal från en webb sida som finns i Azure. Det resulterande programmet kommer att uppmana användaren att ange Telefonsamtals värden, som du ser i följande skärm bild.
@@ -26,12 +26,12 @@ I följande exempel visas hur du kan använda Twilio för att ringa ett samtal f
 
 Du måste göra följande för att använda koden i det här avsnittet:
 
-1. Hämta ett Twilio-konto och autentiseringstoken. Kom igång med Twilio genom att utvärdera priserna på [https://www.twilio.com/pricing][twilio_pricing]. Du kan registrera dig på [https://www.twilio.com/try-twilio][try_twilio]. Information om det API som tillhandahålls av Twilio finns i [https://www.twilio.com/api][twilio_api].
-2. Hämta Twilio-JAR. I [https://github.com/twilio/twilio-java][twilio_java_github]kan du ladda ned GitHub-källorna och skapa en egen jar-fil eller ladda ned en förbyggd jar-fil (med eller utan beroenden).
+1. Hämta ett Twilio-konto och autentiseringstoken. För att komma igång med Twilio ska du utvärdera priserna på [https://www.twilio.com/pricing][twilio_pricing]. Du kan registrera dig på [https://www.twilio.com/try-twilio][try_twilio]. Information om det API som tillhandahålls av Twilio finns [https://www.twilio.com/api][twilio_api].
+2. Hämta Twilio-JAR. På [https://github.com/twilio/twilio-java][twilio_java_github]kan du ladda ned GitHub-källorna och skapa en egen jar-fil eller ladda ned en förbyggd jar-fil (med eller utan beroenden).
    Koden i det här avsnittet skrevs med hjälp av den färdiga TwilioJava-3.3.8.
 3. Lägg till JAR i din Java-build-sökväg.
 4. Om du använder Sol förmörkelse för att skapa Java-programmet inkluderar du Twilio JAR i program distributions filen (WAR) med hjälp av funktionen distributions sammansättning i Sol förmörkelse. Om du inte använder Sol förmörkelse för att skapa Java-programmet ser du till att Twilio JAR ingår i samma Azure-roll som Java-programmet och läggs till i programmets klass Sök väg.
-5. Se till att ditt cacerts-Equifax innehåller certifikat utfärdarens säkra certifikat utfärdare med MD5 finger avtryck 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1B: EG: D4 (serie numret är 35: DE: F4: CF och det SHA1-finger avtryck är D2:32:09: AD: 23: D 3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3A). Detta är certifikat utfärdarens certifikat (ca) för [https://api.twilio.com][twilio_api_service] tjänsten, som anropas när du använder Twilio-API: er. Information om hur du lägger till det här CA-certifikatet i din JDK CAcert-butik finns i [lägga till ett certifikat i certifikat arkivet för Java-ca][add_ca_cert].
+5. Se till att ditt cacerts-Equifax innehåller certifikat utfärdarens säkra certifikat utfärdare med MD5 finger avtryck 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1B: EG: D4 (serie numret är 35: DE: F4: CF och det SHA1-finger avtryck är D2:32:09: AD: 23: D 3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3A). Detta är certifikat utfärdarens certifikat (CA) för [https://api.twilio.coms][twilio_api_service] tjänsten, som anropas när du använder Twilio-API: er. Information om hur du lägger till det här CA-certifikatet i din JDK CAcert-butik finns i [lägga till ett certifikat i certifikat arkivet för Java-ca][add_ca_cert].
 
 Dessutom rekommenderar vi att du [skapar ett Hello World program med hjälp av Azure Toolkit for Eclipse][azure_java_eclipse_hello_world]eller med andra metoder för att vara värd för Java-program i Azure om du inte använder Sol förmörkelse.
 
@@ -177,12 +177,12 @@ Följande är de övergripande stegen för att köra programmet. information om 
 När du är redo att distribuera till Azure omkompilerar du för distribution till molnet, distribuerar till Azure och kör http://*your_hosted_name*. cloudapp.net/TwilioCloud/callform.jsp i webbläsaren (Ersätt värdet för *your_hosted_name*).
 
 ## <a name="next-steps"></a>Nästa steg
-Den här koden angavs för att visa grundläggande funktioner med Twilio i Java på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Exempel:
+Den här koden angavs för att visa grundläggande funktioner med Twilio i Java på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Till exempel:
 
 * I stället för att använda ett webb formulär kan du använda Azure Storage-blobbar eller SQL Database för att lagra telefonnummer och samtals text. Information om hur du använder Azure Storage-blobar i Java finns i [så här använder du tjänsten Blob Storage från Java][howto_blob_storage_java]. 
-* Du kan använda **RoleEnvironment. getConfigurationSettings** för att hämta Twilio-konto-ID och autentiseringstoken från distributionens konfigurations inställningar, i stället för att hårdkoda värdena i MakeCall. jsp. Information om klassen **RoleEnvironment** finns i [använda Azure Service runtime-biblioteket i JSP][azure_runtime_jsp] och dokumentationen för Azure Service Runtime-paketet på [http://dl.windowsazure.com/javadoc][azure_javadoc].
-* MakeCall. jsp-koden tilldelar en Twilio-URL [https://twimlets.com/message][twimlet_message_url]till **URL** -variabeln. Den här URL: en innehåller ett TwiML-svar (Twilio Markup Language) som informerar Twilio hur du går vidare med anropet. Den TwiML som returneras kan till exempel innehålla **&lt;&gt;** verb som resulterar i att text läses till samtals mottagaren. I stället för att använda Twilio-URL: en kan du bygga din egen tjänst för att svara på Twilio: s begäran. Mer information finns i [så här använder du Twilio för röst-och SMS-funktioner i Java][howto_twilio_voice_sms_java]. Mer information om TwiML finns i [https://www.twilio.com/docs/api/twiml][twiml], och mer information om **&lt; säg&gt;** och andra Twilio-verb finns på. [https://www.twilio.com/docs/api/twiml/say][twilio_say]
-* Läs rikt linjerna för Twilio- [https://www.twilio.com/docs/security][twilio_docs_security]säkerhet på.
+* Du kan använda **RoleEnvironment. getConfigurationSettings** för att hämta Twilio-konto-ID och autentiseringstoken från distributionens konfigurations inställningar, i stället för att hårdkoda värdena i MakeCall. jsp. Information om klassen **RoleEnvironment** finns i [använda Azure Service runtime-biblioteket i JSP][azure_runtime_jsp].
+* MakeCall. jsp-koden tilldelar en Twilio URL [https://twimlets.com/message][twimlet_message_url]till **URL** -variabeln. Den här URL: en innehåller ett TwiML-svar (Twilio Markup Language) som informerar Twilio hur du går vidare med anropet. Den TwiML som returneras kan till exempel innehålla ett **&lt;säger&gt;** verb som resulterar i att text läses till samtals mottagaren. I stället för att använda Twilio-URL: en kan du bygga din egen tjänst för att svara på Twilio: s begäran. Mer information finns i [så här använder du Twilio för röst-och SMS-funktioner i Java][howto_twilio_voice_sms_java]. Mer information om TwiML finns på [https://www.twilio.com/docs/api/twiml][twiml]och mer information om **&lt;säga&gt;** och andra Twilio-verb finns på [https://www.twilio.com/docs/api/twiml/say][twilio_say].
+* Läs rikt linjerna för Twilio-säkerhet på [https://www.twilio.com/docs/security][twilio_docs_security].
 
 Mer information om Twilio finns i [https://www.twilio.com/docs][twilio_docs].
 
@@ -204,7 +204,6 @@ Mer information om Twilio finns i [https://www.twilio.com/docs][twilio_docs].
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
-[azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say

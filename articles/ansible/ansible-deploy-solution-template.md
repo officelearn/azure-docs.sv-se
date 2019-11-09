@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6aa721ee6cf6680518a28d050c22d8649f0f531f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241719"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833159"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Snabb start: Distribuera Ansible lösnings mal len för Azure till CentOS
 
@@ -23,7 +23,7 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 - **Azure Command-Line Interface (CLI) 2.0** – [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) är en plattformsoberoende kommandoradsmiljö för hantering av Azure-resurser. 
 - **Hanterade identiteter för Azure-resurser** – Funktionen [Hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview) hjälper dig att skydda autentiseringsuppgifterna för molnprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
@@ -59,7 +59,7 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
        - [Premium Storage och hanterade diskar för virtuella datorer med höga prestanda](/azure/virtual-machines/windows/premium-storage)
        - [Standard SSD Managed Disks för arbetslastningar för virtuella Azure-datorer](/azure/virtual-machines/windows/disks-standard-ssd)
    - **Offentlig IP-adress** – Ange den här inställningen om du vill kommunicera med den virtuella datorn utanför den virtuella datorn. Standardvärdet är en ny offentlig IP-adress med namnet `ansible-pip`. Om du vill ange en annan IP-adress väljer du pilen för att ange attributen, till exempel namn, SKU och tilldelning för IP-adressen. 
-   - **Domännamnsetikett** – Ange det offentliga domännamnet för den virtuella datorn. Namnet måste vara unikt och uppfylla namngivningskraven. Mer information om hur du anger ett namn för den virtuella datorn finns i [Namngivningskonventioner för Azure-resurser](/azure/architecture/best-practices/naming-conventions).
+   - **Domännamnsetikett** – Ange det offentliga domännamnet för den virtuella datorn. Namnet måste vara unikt och uppfylla namngivningskraven. Mer information om hur du anger ett namn för den virtuella datorn finns i [Namngivningskonventioner för Azure-resurser](/azure/architecture/best-practices/resource-naming).
    - **Ansible-version** – Ange ett versionsnummer eller värdet `latest` för att distribuera den senaste versionen. Välj informationsikonen bredvid **Ansible-version** för att visa mer information om tillgängliga versioner.
 
      ![Ytterligare inställningar för Ansible på en flik på Azure-portalen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)

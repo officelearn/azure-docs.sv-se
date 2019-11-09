@@ -1,7 +1,7 @@
 ---
-title: Regioner där Video Indexer - Azure
-titlesuffix: Azure Media Services
-description: Den här artikeln handlar om Azure-regioner som Video Indexer är tillgängligt.
+title: Regioner där Video Indexer är tillgängligt – Azure
+titleSuffix: Azure Media Services
+description: Den här artikeln pratar om Azure-regioner där Video Indexer är tillgängligt.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,28 +10,28 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 404aaf91c0cb30df0a83353ef7397987ec3f8e80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b67c89e02091d57b4f2dc901005c2dae36deafc2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799420"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838191"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Azure-regioner där Video Indexer finns
 
-Video Indexer API: er innehåller en **plats** parameter som du bör ange till Azure-region som anropet ska dirigeras. Det här måste vara en [Azure-region som Video Indexer är tillgängligt](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
+Video Indexer-API: er innehåller en **plats** parameter som du bör ange till den Azure-region som anropet ska dirigeras till. Det måste vara en [Azure-region där video Indexer är tillgängligt](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
 ## <a name="locations"></a>Platser
 
-Den **plats** parametern måste anges kodnamnet Azure-region som sitt värde. Om du använder Video Indexer i förhandsgranskningsläge, bör du placera *”utvärderingsversion”* som värde. I annat fall för att få kodnamnet för Azure-region som ditt konto tillhör och att ditt samtal ska vidarebefordras till, du kan köra följande rad i [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+**Plats** parametern måste tilldelas Azure-regions kod namnet som värde. Om du använder Video Indexer i förhands gransknings läge ska du ställa in *"utvärdering"* som värde. Om du vill hämta kod namnet för den Azure-region som ditt konto finns i och att ditt anrop ska dirigeras till kan du köra följande rad i [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 ```bash
 az account list-locations
 ```
 
-När du kör raden ovan kan du hämta en lista över alla Azure-regioner. Gå till Azure-region som har den *displayName* du letar efter och använda dess *namn* värde för den **plats** parametern.
+När du har kört raden som visas ovan får du en lista över alla Azure-regioner. Navigera till den Azure-region som har det *visnings* namn du söker och använd dess *Name* -värde för parametern **location** .
 
-Till exempel för Azure-regionen USA, västra 2 (visas nedan), använder du ”västra USA 2” för den **plats** parametern.
+För Azure-regionen Västra USA 2 (visas nedan) använder du till exempel "westus2" för **plats** parametern.
 
 ```json
    {
@@ -46,6 +46,6 @@ Till exempel för Azure-regionen USA, västra 2 (visas nedan), använder du ”v
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anpassa språkmodellen med API: er](customize-language-model-with-api.md)
-- [Anpassa varumärken modell med API: er](customize-brands-model-with-api.md)
-- [Anpassa Person modell med API: er](customize-person-model-with-api.md)
+- [Anpassa språk modellen med hjälp av API: er](customize-language-model-with-api.md)
+- [Anpassa varumärkes-modellen med API: er](customize-brands-model-with-api.md)
+- [Anpassa person modellen med hjälp av API: er](customize-person-model-with-api.md)

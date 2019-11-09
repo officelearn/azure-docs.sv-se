@@ -1,6 +1,6 @@
 ---
 title: 'Granska Azure Media Services Video Indexer utdata som skapats av v2-API: et'
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 'Det här avsnittet undersöker Video Indexer utdata som genereras av v2-API: et.'
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 0a42c2dce3976a1bf83c85644f56f4c1d8abc9c8
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300921"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839542"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer utdata som skapats av API
 
@@ -38,7 +38,7 @@ I den här artikeln granskas JSON-innehållet som returneras av API: t **Get vid
 |accountId|Spel listans konto-ID.|
 |id|Spelnings listans ID.|
 |namn|Spel listans namn.|
-|beskrivning|Spelnings listans beskrivning.|
+|description|Spelnings listans beskrivning.|
 |Användar|Namnet på den användare som skapade spelnings listan.|
 |Create|Tid för skapande av spelnings lista.|
 |privacyMode|Spelnings listans sekretess läge (privat/offentlig).|
@@ -78,7 +78,7 @@ I det här avsnittet visas en sammanfattning av insikterna.
 |namn|Namnet på videon. Till exempel Azure Monitor.|
 |id|ID för videon. Till exempel 63c6d532ff.|
 |privacyMode|Din uppdelning kan ha ett av följande lägen: **privat**, **offentlig**. **Offentligt** – videon är synlig för alla i ditt konto och alla som har en länk till videon. **Privat** – videon är synlig för alla i ditt konto.|
-|Giltighet|Innehåller en varaktighet som beskriver tiden en insikt inträffade. Varaktigheten är i sekunder.|
+|giltighet|Innehåller en varaktighet som beskriver tiden en insikt inträffade. Varaktigheten är i sekunder.|
 |thumbnailVideoId|ID för videon från vilken miniatyren togs.
 |thumbnailId|Videons miniatyr-ID. För att få den faktiska miniatyr bilden, anropa [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) och pass IT ThumbnailVideoId och thumbnailId.|
 |ytor|Kan innehålla noll eller flera ansikten. Mer detaljerad information finns i [ansikten](#faces).|
@@ -156,7 +156,7 @@ En ansikte kan ha ett ID, ett namn, en miniatyr bild, andra metadata och en list
 |avskrifts|[Avskrifts](#transcript) dimensionen.|
 |stöd|[OCR](#ocr) -dimensionen.|
 |reserverade|Dimensionen [nyckelord](#keywords) .|
-|Delar|Kan innehålla ett eller flera [block](#blocks)|
+|delar|Kan innehålla ett eller flera [block](#blocks)|
 |ytor|Dimensionen [ansikten](#faces) .|
 |Etiketter|Dimensionen [Etiketter](#labels) .|
 |bilder|Dimensionen [dum par](#shots) .|
@@ -189,7 +189,7 @@ Exempel:
 }
 ```
 
-#### <a name="blocks"></a>Delar
+#### <a name="blocks"></a>delar
 
 Attribut | Beskrivning
 ---|---
@@ -243,7 +243,7 @@ Exempel:
 |tillit|Igenkännings förtroendet.|
 |language|OCR-språket.|
 |instanser|En lista med tidsintervall där denna OCR visades (samma OCR kan förekomma flera gånger).|
-|Våghöjd|Höjden på OCR-rektangeln|
+|våghöjd|Höjden på OCR-rektangeln|
 |översta|Den översta platsen i px|
 |från| Den vänstra platsen i px|
 |LED|Bredden på OCR-rektangeln|
@@ -307,7 +307,7 @@ Exempel:
 |id|Ansikts-ID.|
 |namn|Namnet på FACET. Det kan vara okänt #0, en identifierad kändis eller en kundutbildad person.|
 |tillit|Förtroende för ansikts identifiering.|
-|beskrivning|En beskrivning av kändis. |
+|description|En beskrivning av kändis. |
 |thumbnailId|ID för miniatyr bilden för den aktuella ytan.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing-kändis, dess Bing-ID.|
@@ -495,8 +495,8 @@ Företags-och produkt märkes namn identifieras i tal till text avskrift och/ell
 |namn|Namn på varumärken.|
 |referenceId | Suffixet för varumärkes Wikipedia-URL: en. Till exempel är "Target_Corporation" suffixet för [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Varumärkets Wikipedia-URL, om sådan finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|beskrivning|Beskrivningen av varumärkena.|
-|tags|En lista med fördefinierade taggar som har associerats med det här varumärket.|
+|description|Beskrivningen av varumärkena.|
+|tagg|En lista med fördefinierade taggar som har associerats med det här varumärket.|
 |tillit|Konfidens värdet för Video Indexer varumärkes detektor (0-1).|
 |instanser|En lista med tidsintervall för det här varumärket. Varje instans har en brandType, som anger om detta varumärke visas i avskriften eller i OCR.|
 

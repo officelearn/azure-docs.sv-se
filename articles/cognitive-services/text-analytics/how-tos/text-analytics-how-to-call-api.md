@@ -1,7 +1,7 @@
 ---
 title: Anropa API:t för textanalys
 titleSuffix: Azure Cognitive Services
-description: Läs om hur du anropar Textanalys REST API.
+description: Den här artikeln förklarar hur du kan anropa Azure-Cognitive Services Textanalys REST API och Postman.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697853"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837216"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Så här anropar du Textanalys REST API
 
 Anrop till **API för textanalys** är http post/GET-anrop, som du kan formulera på valfritt språk. I den här artikeln använder vi REST och [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) för att demonstrera viktiga begrepp.
 
-Varje begäran måste innehålla din åtkomst nyckel och en HTTP-slutpunkt. Slut punkten anger den region som du valde under registreringen, tjänst-URL: en och en resurs som används på begäran `sentiment`: `keyphrases`, `languages`, och `entities`. 
+Varje begäran måste innehålla din åtkomst nyckel och en HTTP-slutpunkt. Slut punkten anger den region som du valde under registreringen, tjänst-URL: en och en resurs som används på begäran: `sentiment`, `keyphrases`, `languages`och `entities`. 
 
 Kom ihåg att Textanalys är tillstånds lös så att det inte finns några data till gångar att hantera. Texten laddas upp, analyseras vid inleverans och resultaten returneras omedelbart till det anropande programmet.
 
@@ -40,11 +40,11 @@ Indata måste vara JSON i rå ostrukturerad text. XML stöds inte. Schemat är e
 
 Du kan för närvarande skicka samma dokument för alla Textanalys åtgärder: sentiment, nyckel fras, språk identifiering och enhets identifiering. (Schemat kan troligt vis variera för varje analys i framtiden.)
 
-| Element | Giltiga värden | Obligatorisk? | Användning |
+| Element | Giltiga värden | Krävs? | Användning |
 |---------|--------------|-----------|-------|
-|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Obligatorisk | Systemet använder de ID: n som du anger för att strukturera utdata. Språk koder, nyckel fraser och sentiment resultat genereras för varje ID i begäran.|
-|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Obligatorisk | För språk identifiering kan text uttryckas på valfritt språk. För sentiment analys, extrahering av nyckel fraser och enhets identifiering måste texten vara på ett [språk som stöds](../text-analytics-supported-languages.md). |
-|`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../text-analytics-supported-languages.md) | Varierar | Krävs för sentiment-analys, extrahering av nyckel fraser och länkning av entiteter. valfritt för språk identifiering. Det finns inget fel om du exkluderar det, men analysen har minskats utan den. Språk koden ska motsvara den `text` du anger. |
+|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Krävs | Systemet använder de ID: n som du anger för att strukturera utdata. Språk koder, nyckel fraser och sentiment resultat genereras för varje ID i begäran.|
+|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Krävs | För språk identifiering kan text uttryckas på valfritt språk. För sentiment analys, extrahering av nyckel fraser och enhets identifiering måste texten vara på ett [språk som stöds](../text-analytics-supported-languages.md). |
+|`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../text-analytics-supported-languages.md) | Varierar | Krävs för sentiment-analys, extrahering av nyckel fraser och länkning av entiteter. valfritt för språk identifiering. Det finns inget fel om du exkluderar det, men analysen har minskats utan den. Språk koden ska motsvara `text` som du anger. |
 
 Mer information om gränser finns i [textanalys översikt > data begränsningar](../overview.md#data-limits). 
 
@@ -67,7 +67,7 @@ Tjänsten accepterar en begäran på upp till 1 MB. Om du använder Postman (ell
 
 2. Ange de tre begärandehuvuden:
 
-   + `Ocp-Apim-Subscription-Key`: din åtkomst nyckel, hämtas från Azure Portal.
+   + `Ocp-Apim-Subscription-Key`: din åtkomst nyckel som hämtats från Azure Portal.
    + `Content-Type`: Application/JSON.
    + `Accept`: Application/JSON.
 

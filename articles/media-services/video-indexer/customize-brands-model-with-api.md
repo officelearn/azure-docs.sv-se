@@ -1,7 +1,7 @@
 ---
-title: Använd Azure Video Indexer för att anpassa varumärken modell
-titlesuffix: Azure Media Services
-description: Den här artikeln visar hur du använder Azure Video Indexer för att anpassa varumärken modell.
+title: Använd Azure Video Indexer för att anpassa varumärkes-modellen
+titleSuffix: Azure Media Services
+description: Den här artikeln visar hur du använder Azure Video Indexer för att anpassa varumärkes-modellen.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,24 +10,24 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4289c592644d7570ff0dd9ce6aed0cd77f51f25e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799645"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838325"
 ---
-# <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en varumärken modell med Video Indexer API
+# <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en modell med ett varumärke med Video Indexer-API
 
-Video Indexer stöder varumärke identifiering från tal- och visual text under indexering och omindexering av video-och ljudinnehåll. Funktionen för identifiering av varumärke identifierar omnämnanden av produkter, tjänster och företag som föreslås av Bings varumärken databas. Till exempel identifierar om Microsoft nämns i en video- eller ljudinnehåll innehåll eller om den visas i visual text i en video, Video Indexer den som ett varumärke i innehållet. En anpassad varumärken modell kan du undanta vissa varumärken från att identifieras och är varumärken som ska ingå i din modell som inte kanske är i Bings varumärken databasen.
+Video Indexer stöder varumärkes identifiering från tal-och visuell text vid indexering och Omindexering av video-och ljud innehåll. Funktionen varumärkes identifiering identifierar omnämnanden av produkter, tjänster och företag som föreslås av Bing-databasens varumärken. Om Microsoft till exempel nämns i ett video-eller ljud innehåll eller om det visas i visuell text i en video identifierar Video Indexer det som ett varumärke i innehållet. Med en modell med anpassade varumärken kan du undanta vissa varumärken från att identifieras och innehålla varumärken som ska ingå i din modell som kanske inte finns i Bing-databasen.
 
-En detaljerad översikt finns i [översikt](customize-brands-model-overview.md).
+En detaljerad översikt finns i [Översikt](customize-brands-model-overview.md).
 
-Du kan använda API: er för Video Indexer för att skapa, använda och redigera anpassade varumärken modeller har identifierats i en video, enligt beskrivningen i det här avsnittet. Du kan också använda Video Indexer-webbplats, enligt beskrivningen i [anpassa varumärken modellen med Video Indexer-webbplatsen](customize-brands-model-with-api.md).
+Du kan använda Video Indexer API: er för att skapa, använda och redigera anpassade varumärke modeller som identifieras i en video, enligt beskrivningen i det här avsnittet. Du kan också använda Video Indexer webbplats som beskrivs i [Anpassa varumärkes-modellen med hjälp av video Indexer webbplats](customize-brands-model-with-api.md).
 
 ## <a name="create-a-brand"></a>Skapa ett varumärke
 
-Detta skapar en ny anpassad varumärke och lägger till den anpassade varumärken modellen för det angivna kontot.
+Detta skapar ett nytt anpassat varumärke och lägger till det i anpassade varumärkes-modellen för det angivna kontot.
 
 ### <a name="request-url"></a>URL för begäran
 
@@ -35,19 +35,19 @@ Detta skapar en ny anpassad varumärke och lägger till den anpassade varumärke
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
+[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>Begäranparametrar
+### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
+|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
 |---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
+|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
-Förutom dessa parametrar måste du ange en begäran brödtext JSON-objekt som innehåller information om det nya varumärket följa formatet för exemplet nedan.
+Förutom dessa parametrar måste du ange ett JSON-objekt för begär ande texten som innehåller information om det nya varumärket som följer efter formatet i exemplet nedan.
 
 ```json
 {
@@ -59,15 +59,15 @@ Förutom dessa parametrar måste du ange en begäran brödtext JSON-objekt som i
 }
 ```
 
-Ange **aktiverat** till true placerar varumärket i den *inkludera* för Video Indexer att identifiera. Ange **aktiverat** till false placerar du varumärket i den *undanta* lista, så Video Indexer inte identifierar den.
+Inställningen **aktive rad** till True placerar varumärket i listan *ta med* för video Indexer att identifiera. Inställningen **Enabled** to false placerar varumärket i *uteslutnings* listan, så video Indexer inte att identifiera det.
 
-Den **referenceUrl** värdet kan vara valfri referens webbplatser för varumärke, till exempel en länk till dess Wikipedia-sida.
+**ReferenceUrl** -värdet kan vara alla referens webbplatser för varumärket, till exempel en länk till en wikipedia-sida.
 
-Den **taggar** värdet är en lista över taggar för varumärket. Detta visas i varumärken *kategori* i Video Indexer-webbplatsen. Varumärket ”Azure” kan till exempel taggade eller kategoriserade som ”moln”.
+**Tags** -värdet är en lista med taggar för varumärket. Detta visas i fältet för märkes *kategori* på video Indexer webbplats. Till exempel kan märket "Azure" märkas eller kategoriseras som "moln".
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller information om varumärket som du nyss skapade följande formatet för exemplet nedan.
+Svaret innehåller information om det varumärke som du nyss skapade enligt formatet i exemplet nedan.
 
 ```json
 {
@@ -89,7 +89,7 @@ Svaret innehåller information om varumärket som du nyss skapade följande form
 
 ## <a name="delete-a-brand"></a>Ta bort ett varumärke
 
-Tar bort ett varumärke från varumärken anpassade modellen för det angivna kontot. Konton som har angetts i den **accountId** parametern. När namnet har varumärket inte längre i den *inkludera* eller *undanta* anpassar listor.
+Tar bort ett varumärke från anpassade varumärkes-modellen för det angivna kontot. Kontot anges i **accountId** -parametern. När det har anropats kommer varumärket inte längre att finnas i listorna *Inkludera* eller *exkludera* varumärken.
 
 ### <a name="request-url"></a>URL för begäran
 
@@ -97,28 +97,28 @@ Tar bort ett varumärke från varumärken anpassade modellen för det angivna ko
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
+[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
-### <a name="request-parameters"></a>Begäranparametrar
+### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
+|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
 |---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|id|heltal|Ja|Märkes-id (genereras när varumärket skapades)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
+|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|id|heltal|Ja|Varumärkes-ID: t (som genereras när varumärket skapades)|
+|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+Ingen ytterligare begär ande text krävs för det här anropet.
 
 ### <a name="response"></a>Svar
 
-Det finns inget returnerade innehåll när varumärket har tagits bort.
+Det finns inget returnerat innehåll när varumärket har tagits bort.
 
-## <a name="get-a-specific-brand"></a>Hämta ett visst Kaffemärke
+## <a name="get-a-specific-brand"></a>Skaffa ett speciellt varumärke
 
-På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med hjälp av märkes-id.
+På så sätt kan du söka efter information om ett varumärke i anpassade varumärkes-modellen för det angivna kontot med hjälp av märkes-ID.
 
 ### <a name="request-url"></a>URL för begäran
 
@@ -126,24 +126,24 @@ På så sätt kan du söka efter information om ett varumärke i anpassade varum
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
+[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>Begäranparametrar
+### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
+|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
 |---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|id|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
+|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|id|heltal|Ja|Varumärkes-ID: t (som genereras när varumärket skapades)|
+|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+Ingen ytterligare begär ande text krävs för det här anropet.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller information om varumärket du sökte (med märkes-ID) följa formatet för exemplet nedan.
+Svaret innehåller information om det märke som du sökte efter (med varumärkes-ID) enligt exemplet nedan.
 
 ```json
 {
@@ -164,11 +164,11 @@ Svaret innehåller information om varumärket du sökte (med märkes-ID) följa 
 ```
 
 > [!NOTE]
-> **aktiverad** anges till **SANT** anger att varumärket i den *inkludera* för Video Indexer att identifiera, och **aktiverat** som FALSKT innebär att den varumärke som tillhör den *undanta* lista, så Video Indexer inte identifierar den.
+> **aktive rad** anges till **True** anger att varumärket är i listan *inkludering* för video Indexer att identifiera, och **aktiverat** som false betyder att varumärket är i *uteslutnings* listan, så video Indexer inte identifierar det.
 
-## <a name="update-a-specific-brand"></a>Uppdatera ett visst kaffemärke
+## <a name="update-a-specific-brand"></a>Uppdatera ett speciellt varumärke
 
-På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med varumärke-ID.
+På så sätt kan du söka efter information om ett varumärke i anpassade varumärkes-modellen för det angivna kontot med hjälp av märkes-ID.
 
 ### <a name="request-url"></a>URL för begäran
 
@@ -176,20 +176,20 @@ På så sätt kan du söka efter information om ett varumärke i anpassade varum
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
+[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
-### <a name="request-parameters"></a>Begäranparametrar
+### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
+|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
 |---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|id|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
+|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|id|heltal|Ja|Varumärkes-ID: t (som genereras när varumärket skapades)|
+|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
-Förutom dessa parametrar måste du ange en begäran brödtext JSON-objekt som innehåller uppdaterad information om varumärket som du vill uppdatera följande formatet för exemplet nedan.
+Förutom dessa parametrar måste du ange ett JSON-objekt för begär ande texten som innehåller uppdaterad information om det varumärke som du vill uppdatera enligt exemplet nedan.
 
 ```json
 {
@@ -205,11 +205,11 @@ Förutom dessa parametrar måste du ange en begäran brödtext JSON-objekt som i
 ```
 
 > [!NOTE]
-> I det här exemplet varumärket som skapades i begärandetexten exemplet i den **skapa ett varumärke** avsnittet här uppdateras med en ny tagg och nya beskrivning. Den **aktiverat** värdet har också ändrats till false om du vill placera den i den *undanta* lista.
+> I det här exemplet kommer varumärket som skapades i exempel begär ande texten i avsnittet **skapa ett märke** att uppdateras här med en ny tagg och ny beskrivning. Det **aktiverade** värdet har också ändrats till false för att kunna läggas till i *uteslutnings* listan.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller den uppdaterade informationen om varumärket som du har uppdaterat följande formatet för exemplet nedan.
+Svaret innehåller den uppdaterade informationen om det varumärke som du uppdaterade efter formatet i exemplet nedan.
 
 ```json
 {
@@ -229,9 +229,9 @@ Svaret innehåller den uppdaterade informationen om varumärket som du har uppda
 }
 ```
 
-## <a name="get-all-of-the-brands"></a>Hämta alla varumärkena
+## <a name="get-all-of-the-brands"></a>Hämta alla varumärken
 
-Det här returnerar alla de varumärken i anpassade varumärken modellen för det angivna kontot, oavsett om varumärket är avsedd att vara i den *inkludera* eller *undanta* varumärken lista.
+Detta returnerar alla varumärken i den anpassade varumärkes-modellen för det angivna kontot, oavsett om varumärket är avsett att finnas i listan *med inkluderade* eller *exkluderade* märken.
 
 ### <a name="request-url"></a>URL för begäran
 
@@ -239,23 +239,23 @@ Det här returnerar alla de varumärken i anpassade varumärken modellen för de
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
+[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
-### <a name="request-parameters"></a>Begäranparametrar
+### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
+|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
 |---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
+|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+Ingen ytterligare begär ande text krävs för det här anropet.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller en lista över alla varumärken i ditt konto och var och en av deras information som följer formatet på exemplet nedan.
+Svaret innehåller en lista över alla varumärken i ditt konto och var och en av sina uppgifter efter formatet i exemplet nedan.
 
 ```json
 [
@@ -287,11 +287,11 @@ Svaret innehåller en lista över alla varumärken i ditt konto och var och en a
 ```
 
 > [!NOTE]
-> Varumärket med namnet *exempel* finns i den *inkludera* för Video Indexer för att identifiera och varumärket med namnet *exempel2* finns i den *undanta* lista , så Video Indexer inte identifierar den.
+> Varumärket *varumärke är i* listan *Inkludera* för video Indexer för att identifiera och varumärket med namnet *Example2* finns i *uteslutnings* listan så video Indexer inte att identifiera det.
 
-## <a name="get-brands-model-settings"></a>Hämta inställningarna för varumärken
+## <a name="get-brands-model-settings"></a>Hämta inställningar för varumärkes modell
 
-Det här returnerar modellinställningarna varumärken i det angivna kontot. Varumärken modellinställningarna representerar om identifiering från Bing varumärken databasen har aktiverats eller inte. Om Bing varumärken inte är aktiverad, identifierar Video Indexer endast varumärken från varumärken anpassade modellen för det angivna kontot.
+Detta returnerar modell inställningarna för varumärkena i det angivna kontot. Modell inställningarna för varumärken representerar om identifiering från Bing-databasen är aktive rad eller inte. Om Bing-varumärken inte är aktiverade, identifierar Video Indexer bara varumärken från den anpassade varumärke modellen för det angivna kontot.
 
 ### <a name="request-url"></a>URL för begäran
 
@@ -299,23 +299,23 @@ Det här returnerar modellinställningarna varumärken i det angivna kontot. Var
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
+[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
-### <a name="request-parameters"></a>Begäranparametrar
+### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
+|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
 |---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
+|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+Ingen ytterligare begär ande text krävs för det här anropet.
 
 ### <a name="response"></a>Svar
 
-Svaret visar om Bing varumärken är aktiverade följa formatet för exemplet nedan.
+Svaret visar om Bing-varumärken är aktiverade efter formatet i exemplet nedan.
 
 ```json
 {
@@ -325,30 +325,30 @@ Svaret visar om Bing varumärken är aktiverade följa formatet för exemplet ne
 ```
 
 > [!NOTE]
-> **useBuiltIn** är inställd på Sant representerar den Bing varumärken är aktiverade. Om *useBuiltin* är FALSKT, Bing varumärken är inaktiverade. Den **tillstånd** värde kan ignoreras eftersom den har ersatts.
+> **useBuiltIn** anges till true anger att Bing-varumärken är aktiverade. Om *useBuiltin* är falskt inaktive ras Bing-varumärken. Värdet för **tillstånd** kan ignoreras eftersom det är inaktuellt.
 
-## <a name="update-brands-model-settings"></a>Uppdatera inställningarna för varumärken
+## <a name="update-brands-model-settings"></a>Uppdatera modell inställningar för varumärke
 
-Detta uppdaterar modellinställningarna varumärken i det angivna kontot. Varumärken modellinställningarna representerar om identifiering från Bing varumärken databasen har aktiverats eller inte. Om Bing varumärken inte är aktiverad, identifierar Video Indexer endast varumärken från varumärken anpassade modellen för det angivna kontot.
+Detta uppdaterar modell inställningarna för varumärke i det angivna kontot. Modell inställningarna för varumärken representerar om identifiering från Bing-databasen är aktive rad eller inte. Om Bing-varumärken inte är aktiverade, identifierar Video Indexer bara varumärken från den anpassade varumärke modellen för det angivna kontot.
 
 ### <a name="request-url"></a>URL för begäran:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
+[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>Begäranparametrar
+### <a name="request-parameters"></a>Parametrar för begäran
 
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
+|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
 |---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
+|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
-Förutom dessa parametrar måste du ange en begäran brödtext JSON-objekt som innehåller information om det nya varumärket följa formatet för exemplet nedan.
+Förutom dessa parametrar måste du ange ett JSON-objekt för begär ande texten som innehåller information om det nya varumärket som följer efter formatet i exemplet nedan.
 
 ```json
 {
@@ -357,12 +357,12 @@ Förutom dessa parametrar måste du ange en begäran brödtext JSON-objekt som i
 ```
 
 > [!NOTE]
-> **useBuiltIn** är inställd på Sant representerar den Bing varumärken är aktiverade. Om *useBuiltin* är FALSKT, Bing varumärken är inaktiverade.
+> **useBuiltIn** anges till true anger att Bing-varumärken är aktiverade. Om *useBuiltin* är falskt inaktive ras Bing-varumärken.
 
 ### <a name="response"></a>Svar
 
-Det finns inget returnerade innehåll när inställningen varumärken modellen har uppdaterats.
+Det finns inget returnerat innehåll när modell inställningen för varumärkena har uppdaterats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa varumärken modell med hjälp av webbplats](customize-brands-model-with-website.md)
+[Anpassa varumärkes-modellen med hjälp av webbplats](customize-brands-model-with-website.md)

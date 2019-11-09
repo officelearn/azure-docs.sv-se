@@ -1,6 +1,6 @@
 ---
 title: Application Lifecycle Management
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Använd metod tips för program livs cykel hantering i den klassiska versionen av Azure Machine Learning Studio
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: d5e2ee72c30933305356cd2a7792d1972fa938da
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2dd401918edc0b2d08390b1012efbf44fe2be1e9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684719"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839419"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Hantering av program livs cykel i Azure Machine Learning Studio (klassisk)
 Azure Machine Learning Studio (klassisk) är ett verktyg för att utveckla maskin inlärnings experiment som används i Azure Cloud Platform. Det är precis som Visual Studio IDE och skalbar moln tjänst som är kopplad till en enda plattform. Du kan införliva ALM-metoder (standard Application Lifecycle Management) från versioner av olika till gångar till automatiserad körning och distribution i den klassiska versionen av Azure Machine Learning Studio. I den här artikeln beskrivs några av alternativen och metoderna.

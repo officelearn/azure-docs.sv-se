@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 1/16/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: d01ff17966d2e6b9aeaaf3c1f69817dbc84c3a6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2e50217b361b62a468e872fe489381911de9c2c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57792641"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835354"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
@@ -23,9 +23,9 @@ Om du har flera webbplatser så kan du konfigurera fler än ett webbprogram inom
 > [!IMPORTANT]
 > Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
 
-Begäranden för http://contoso.com dirigeras till ContosoServerPool och http://fabrikam.com dirigeras till FabrikamServerPool.
+Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
-På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara http://blog.contoso.com och http://app.contoso.com på samma distribution av en programgateway.
+På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara `http://blog.contoso.com` och `http://app.contoso.com` på samma distribution av en programgateway.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Värdhuvuden och servernamnsindikator (SNI)
 

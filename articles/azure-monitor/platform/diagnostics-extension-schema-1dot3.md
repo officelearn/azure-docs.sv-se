@@ -7,20 +7,20 @@ ms.topic: reference
 author: rboucher
 ms.author: robb
 ms.date: 09/20/2018
-ms.openlocfilehash: 1d378571a02f30c223338eef5c7d142ed02ff4c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3d79fe6a415b7d1f862797bf41caed89bfe50a41
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555545"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834749"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Konfigurations schema för Azure-diagnostik 1,3 och senare
 > [!NOTE]
 > Azure-diagnostik-tillägget är den komponent som används för att samla in prestanda räknare och annan statistik från:
 > - Azure Virtual Machines
-> - Skalningsuppsättningar för virtuell dator
+> - Skalningsuppsättningar för Virtual Machines
 > - Service Fabric
-> - Cloud Services
+> - Molntjänster
 > - Nätverkssäkerhetsgrupper
 >
 > Den här sidan är bara relevant om du använder någon av dessa tjänster.
@@ -411,7 +411,7 @@ Tillagt i version 1,3.
 Elementet på den översta nivån i konfigurations filen för diagnostik.  
 
 **Attribut** för xmlns – XML-namnområdet för diagnostikens konfigurations fil är:  
-http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+`http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |Underordnade element|Beskrivning|  
@@ -560,7 +560,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Gör att du kan generera en prestanda räknar tabell som är optimerad för snabba frågor. Varje prestanda räknare som definieras i **PerformanceCounters** -elementet lagras i mått tabellen förutom prestanda räknar tabellen.  
 
- Attributet **resourceId** måste anges.  Resurs-ID för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **bläddra**  -> **resurs grupper**  ->  **< namn \>** . Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .  
+ Attributet **resourceId** måste anges.  Resurs-ID för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **bläddra** -> **resurs grupper** ->  **< namn\>** . Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
@@ -594,7 +594,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**DataSource**|Händelse loggarna i Windows som ska samlas in. Nödvändigt attribut:<br /><br /> **namn** – XPath-frågan som beskriver de Windows-händelser som ska samlas in. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser anger du "*"|  
+|**DataSource**|Händelse loggarna i Windows som ska samlas in. Nödvändigt attribut:<br /><br /> **namn** – XPath-frågan som beskriver de Windows-händelser som ska samlas in. Till exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser anger du "*"|  
 
 
 
@@ -676,7 +676,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Tillagt i version 1,3.  
 
- Valfritt  
+ Valfri  
 
  Lagrar privat information om lagrings kontot (namn, nyckel och slut punkt). Den här informationen skickas till den virtuella datorn, men kan inte hämtas från den.  
 

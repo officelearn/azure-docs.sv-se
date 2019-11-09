@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097368"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838536"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
@@ -60,7 +60,7 @@ Lös problemet genom att använda [fel söknings verktyget för Azure Files mont
 
 Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om inställningen [Säker överföring krävs ](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. En krypterad kommunikationskanal tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
 
-Mer information finns i [Krav för att montera en Azure-filresurs med Linux och paketet cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+Mer information finns i [Krav för att montera en Azure-filresurs med Linux och paketet cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 

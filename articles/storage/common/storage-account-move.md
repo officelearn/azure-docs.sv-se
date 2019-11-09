@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 76648428e6adcaed579b0e4f1896fdf83e11a8b6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348859"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838705"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Flytta ett Azure Storage-konto till en annan region
 
@@ -39,7 +39,7 @@ I den här artikeln får du lära dig att:
 
 <a id="prepare" />
 
-## <a name="prepare"></a>Förbered
+## <a name="prepare"></a>Förbereda
 
 För att komma igång, exportera och sedan ändra en Resource Manager-mall. 
 
@@ -51,11 +51,11 @@ Den här mallen innehåller inställningar som beskriver ditt lagrings konto.
 
 Exportera en mall med hjälp av Azure Portal:
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj **alla resurser** och välj sedan ditt lagrings konto.
 
-3. Välj**Exportera mall**för > **Inställningar** > .
+3. Välj > **inställningar** > **Exportera mall**.
 
 4. Välj **Hämta** på bladet **Exportera mall** .
 
@@ -115,7 +115,7 @@ Distribuera mallen med hjälp av Azure Portal:
 
 6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in filen **Template. JSON** som du laddade ned i det sista avsnittet.
 
-7. I filen **Template. JSON** anger du ett namn på mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för lagrings konto namnet till `mytargetaccount`.
+7. I filen **Template. JSON** anger du ett namn på mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för det lagrings konto namn som ska `mytargetaccount`.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Distribuera mallen med hjälp av Azure Portal:
          "location": "centralus"
          }]          
     ```
-    Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** =  **, centrala.**
+    Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är regions namnet utan blank steg, **Central usa** = **centrala**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Distribuera mallen med hjälp av PowerShell:
 
-1. I filen **Template. JSON** anger du ett namn på mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för lagrings konto namnet till `mytargetaccount`.
+1. I filen **Template. JSON** anger du ett namn på mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för det lagrings konto namn som ska `mytargetaccount`.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -188,7 +188,7 @@ Distribuera mallen för att skapa ett nytt lagrings konto i mål regionen.
 
 - **Prenumeration**: Välj en Azure-prenumeration.
 
-- **Resursgrupp**: Välj **Skapa ny** och ge resurs gruppen ett namn.
+- **Resursgrupp**: Välj **Skapa ny** och ge resursgruppen ett namn.
 
 - **Plats**: Välj en Azure-plats.
 
@@ -219,7 +219,7 @@ Vissa funktioner exporteras till en mall, så du måste lägga till dem i det ny
 
 I följande tabell visas dessa funktioner tillsammans med rikt linjer för att lägga till dem i ditt nya lagrings konto.
 
-| Funktion    | Riktlinjer    |
+| Funktion    | Vägledning    |
 |--------|-----------|
 | **Principer för livs cykel hantering** | [Hantera Azure Blob Storage-livscykeln](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statiska webbplatser** | [Vara värd för en statisk webbplats i Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
@@ -234,19 +234,19 @@ I följande tabell visas dessa funktioner tillsammans med rikt linjer för att l
 
 Här är några sätt att flytta data över.
 
-:heavy_check_mark: **Azure Storage Explorer**
+: heavy_check_mark: **Azure Storage Explorer**
 
   Det är enkelt att använda och lämpligt för små data uppsättningar. Du kan kopiera behållare och fil resurser och sedan klistra in dem i mål kontot.
 
   Se [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
 
-:heavy_check_mark: **AzCopy**
+: heavy_check_mark: **AzCopy**
 
   Detta är den bästa metoden. Den är optimerad för prestanda.  Ett sätt att det går snabbare är att data kopieras direkt mellan lagrings servrar, så AzCopy inte använder datorns nätverks bandbredd. Använd AzCopy på kommando raden eller som en del av ett anpassat skript.
 
   Se [Kom igång med AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-:heavy_check_mark: **Azure Data Factory** 
+: heavy_check_mark: **Azure Data Factory** 
 
   Använd bara det här verktyget om du behöver funktioner som inte stöds i den aktuella versionen av AzCopy. I den aktuella versionen av AzCopy kan du till exempel inte kopiera blobbar mellan konton som har ett hierarkiskt namn område. AzCopy bevarar inte heller fil åtkomst kontrol listor eller fil-tidsstämplar (till exempel: skapa och ändra tidsstämplar). 
 

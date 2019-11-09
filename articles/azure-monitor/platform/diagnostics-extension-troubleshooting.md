@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161966"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834693"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure-diagnostik fel sökning
 I den här artikeln beskrivs felsöknings information som är relevant för att använda Azure-diagnostik. Mer information om Azure Diagnostics finns i [Azure-diagnostik översikt](diagnostics-extension-overview.md).
@@ -22,7 +22,7 @@ I den här artikeln beskrivs felsöknings information som är relevant för att 
 
 **Plugin-program för diagnostik (DiagnosticsPlugin. exe)** : konfigurerar, startar och hanterar övervaknings agentens livs längd. Det är den huvudsakliga processen som startas av Start programmet.
 
-**Övervaknings agent (MonAgent \*. exe processer)** : övervakar, samlar in och överför diagnostikdata.  
+**Övervaknings agent (MonAgent\*. exe processer)** : övervakar, samlar in och överför diagnostikdata.  
 
 ## <a name="logartifact-paths"></a>Logg-/artefakt Sök vägar
 Här följer Sök vägarna till några viktiga loggar och artefakter. Vi refererar till den här informationen i resten av dokumentet.
@@ -31,33 +31,33 @@ Här följer Sök vägarna till några viktiga loggar och artefakter. Vi referer
 | Artefakt | Sökväg |
 | --- | --- |
 | **Azure-diagnostik konfigurations fil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > \Config.txt |
-| **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics \<version > \ |
-| **Lokalt Arkiv för diagnostikdata** | C:\Resources\Directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Övervaknings agentens konfigurations fil** | C:\Resources\Directory \<CloudServiceDeploymentID >. \<RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > \ |
+| **Lokalt Arkiv för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Tables |
+| **Övervaknings agentens konfigurations fil** | C:\Resources\Directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure-diagnostik tilläggs paket** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > |
 | **Sökväg till logg insamlings verktyget** | %SystemDrive%\Packages\GuestAgent\ |
 | **MonAgentHost logg fil** | C:\Resources\Directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num >. log |
 
-### <a name="virtual-machines"></a>Virtuella maskiner
+### <a name="virtual-machines"></a>Virtuella datorer
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure-diagnostik konfigurations fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<version > \RuntimeSettings |
-| **Loggfiler** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion > \ |
-| **Lokalt Arkiv för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion > \WAD0107\Tables |
-| **Övervaknings agentens konfigurations fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Status fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<version > \Status |
-| **Azure-diagnostik tilläggs paket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion >|
+| **Azure-diagnostik konfigurations fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \RuntimeSettings |
+| **Loggfiler** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \ |
+| **Lokalt Arkiv för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
+| **Övervaknings agentens konfigurations fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
+| **Status fil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \Status |
+| **Azure-diagnostik tilläggs paket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
 | **Sökväg till logg insamlings verktyget** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost logg fil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mått data visas inte i Azure Portal
-Azure-diagnostik tillhandahåller mått data som kan visas i Azure Portal. Om du har problem med att se data i portalen kontrollerar du tabellen WADMetrics \* i Azure-diagnostik lagrings konto för att se om motsvarande mått poster finns där.
+Azure-diagnostik tillhandahåller mått data som kan visas i Azure Portal. Om du har problem med att se data i portalen kontrollerar du tabellen WADMetrics\* i Azure-diagnostik lagrings konto för att se om motsvarande mått poster finns där.
 
 Här är **PartitionKey** för tabellen resurs-ID, virtuell dator eller skal uppsättning för virtuell dator. **RowKey** är mått namnet (även kallat prestanda räknarens namn).
 
-Om resurs-ID: t är felaktigt kontrollerar du **diagnostisk** **konfiguration**  > **mått**  > **ResourceID** för att se om resurs-ID: t är korrekt.
+Om resurs-ID: t är felaktigt kontrollerar du **diagnostisk** **konfiguration** > **mått** > **ResourceID** för att se om resurs-ID: t är korrekt.
 
-Om det inte finns några data för det här måttet kontrollerar du **diagnostisk konfiguration**  > **PerformanceCounter** för att se om måttet (prestanda räknaren) ingår. Vi aktiverar följande räknare som standard:
+Om det inte finns några data för det här måttet kontrollerar du **diagnostisk konfiguration** > **PerformanceCounter** för att se om måttet (prestanda räknaren) ingår. Vi aktiverar följande räknare som standard:
 - \Processor(_Total)\% processortid
 - \Memory\Tillgängliga byte
 - \ ASP.NET program (__totalt__) \ begär anden/SEK
@@ -83,7 +83,7 @@ Om konfigurationen är korrekt men du fortfarande inte kan se mått data kan du 
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure-diagnostik startar inte
 Information om varför Azure-diagnostik inte kunde starta finns i filen **DiagnosticsPluginLauncher. log** och **DiagnosticsPlugin. log** på platsen för loggfiler som angavs tidigare.
 
-Om dessa loggar indikerar `Monitoring Agent not reporting success after launch` innebär det att det inte gick att starta MonAgentHost. exe. Titta på loggarna på den plats som har angetts för `MonAgentHost log file` i föregående avsnitt.
+Om dessa loggar indikerar `Monitoring Agent not reporting success after launch`innebär det att det inte gick att starta MonAgentHost. exe. Titta på loggarna på den plats som har angetts för `MonAgentHost log file` i föregående avsnitt.
 
 Den sista raden i loggfilerna innehåller slut koden.  
 
@@ -126,9 +126,9 @@ Diagnostik-konfigurationen innehåller instruktioner för en viss typ av data so
 - **Spårnings loggar**: fjärråtkomst till den virtuella datorn och lägger till en TextWriterTraceListener i appens konfigurations fil.  Se https://msdn.microsoft.com/library/sk36c28t.aspx för att konfigurera text lyssnaren.  Kontrol lera att `<trace>`-elementet har `<trace autoflush="true">`.<br />
 Om du inte ser spårnings loggar som genereras, se mer information om spårnings loggar som saknas.
 
-- **ETW-spår**: fjärråtkomst till den virtuella datorn och installera PerfView.  I PerfView kör du **File**  > **User Command**  > **lyssnar etwprovder1**  > **etwprovider2**och så vidare. **Lyssnings** kommandot är Skift läges känsligt och det får inte innehålla blank steg mellan den kommaavgränsade listan över ETW-providers. Om kommandot inte kan köras kan du välja knappen **Logga** längst ned till höger i Perfview-verktyget för att se vad som har försökt köra och vad resultatet var.  Om du antar att indatatypen är korrekt öppnas ett nytt fönster. Om några sekunder börjar du se ETW-spår.
+- **ETW-spår**: fjärråtkomst till den virtuella datorn och installera PerfView.  I PerfView kör du **File** > **User Command** > **lyssnar etwprovder1** > **etwprovider2**och så vidare. **Lyssnings** kommandot är Skift läges känsligt och det får inte innehålla blank steg mellan den kommaavgränsade listan över ETW-providers. Om kommandot inte kan köras kan du välja knappen **Logga** längst ned till höger i Perfview-verktyget för att se vad som har försökt köra och vad resultatet var.  Om du antar att indatatypen är korrekt öppnas ett nytt fönster. Om några sekunder börjar du se ETW-spår.
 
-- **Händelse loggar**: fjärråtkomst till den virtuella datorn. Öppna `Event Viewer` och kontrol lera att händelserna finns.
+- **Händelse loggar**: fjärråtkomst till den virtuella datorn. Öppna `Event Viewer`och kontrol lera att händelserna finns.
 
 #### <a name="is-data-getting-captured-locally"></a>Samlas data in lokalt?
 Se sedan till att data samlas in lokalt.
@@ -216,7 +216,7 @@ Den här koden genererar fyra tabeller:
 ## <a name="references"></a>Referenser
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Så här kontrollerar du konfiguration av diagnostiskt tillägg
-Det enklaste sättet att kontrol lera konfiguration av tillägg är att gå till [Azure Resource Explorer](http://resources.azure.com)och sedan gå till den virtuella datorn eller moln tjänsten där Azure-diagnostik tillägget (IaaSDiagnostics/PaaDiagnostics) är.
+Det enklaste sättet att kontrol lera konfiguration av tillägg är att gå till [Azure Resource Explorer](https://resources.azure.com)och sedan gå till den virtuella datorn eller moln tjänsten där Azure-diagnostik tillägget (IaaSDiagnostics/PaaDiagnostics) är.
 
 Alternativt kan du fjärrskriva Skriv bordet till datorn och titta på Azure-diagnostik konfigurations filen som beskrivs i avsnittet logg artefakter Sök väg.
 
@@ -260,7 +260,7 @@ Plugin-programmet returnerar följande avslutnings koder:
 En ny fil med namnet `<relevantLogFile>.csv` skapas i samma sökväg som motsvarande `.tsf`s fil.
 
 >[!NOTE]
-> Du behöver bara köra det här verktyget mot filen main. TSF (till exempel PerformanceCountersTable. TSF). De medföljande filerna (till exempel PerformanceCountersTables_\*\*001. TSF, PerformanceCountersTables_\*\*002. TSF och så vidare) bearbetas automatiskt.
+> Du behöver bara köra det här verktyget mot filen main. TSF (till exempel PerformanceCountersTable. TSF). De medföljande filerna (till exempel PerformanceCountersTables_\*\*001. TSF, PerformanceCountersTables_\*\*002. TSF osv.) bearbetas automatiskt.
 
 ### <a name="more-about-missing-trace-logs"></a>Mer om spårnings loggar som saknas
 
@@ -295,7 +295,7 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 Portal upplevelsen på de virtuella datorerna visar vissa prestanda räknare som standard. Om du inte ser prestanda räknarna och du vet att data genereras på grund av att de är tillgängliga i lagring, kontrollerar du följande:
 
-- Om data i lagring har räknar namn på engelska. Om räknar namnen inte är på engelska kan Portal mått diagrammet inte identifiera det. **Minskning**: ändra datorns språk till engelska för system konton. Det gör du genom att välja **kontroll panelen**  > **region**  > **administrations**  > **Kopiera inställningar**. Avmarkera sedan **välkomst skärmen och system konton** så att det anpassade språket inte tillämpas på system kontot.
+- Om data i lagring har räknar namn på engelska. Om räknar namnen inte är på engelska kan Portal mått diagrammet inte identifiera det. **Minskning**: ändra datorns språk till engelska för system konton. Det gör du genom att välja **kontroll panelen** > **region** > **administrations** > **Kopiera inställningar**. Avmarkera sedan **välkomst skärmen och system konton** så att det anpassade språket inte tillämpas på system kontot.
 
 - Om du använder jokertecken (\*) i prestanda räknar namnen kan portalen inte korrelera den konfigurerade och insamlade räknaren när prestanda räknarna skickas till Azure Storage-mottagaren. **Minskning**: se till att du kan använda jokertecken och expandera (\*) genom att dirigera prestanda räknarna till ["Azure Monitor"-mottagaren](diagnostics-extension-schema.md#diagnostics-extension-111).
 

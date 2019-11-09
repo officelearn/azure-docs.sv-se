@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 41173e088b000530030b24400640f8003f330db6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581109"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833937"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTP-slutpunkter i Azure Logic Apps
 
@@ -43,7 +43,7 @@ Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/l
 
    I det här exemplet används en begär ande utlösare, men du kan använda en utlösare som kan ta emot inkommande HTTP-begäranden. Alla principer gäller identiskt för dessa utlösare. Mer information om begär ande utlösare finns i [ta emot och svara på inkommande https-anrop med hjälp av Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
-1. Välj **inbyggd i**rutan Sök. I rutan Sök anger du `request` som filter. Välj **när en HTTP-begäran tas emot**från listan utlösare.
+1. Välj **inbyggd i**rutan Sök. I sökrutan anger du `request` som ditt filter. Välj **när en HTTP-begäran tas emot**från listan utlösare.
 
    ![Sök efter och välj begär ande utlösare](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
@@ -178,7 +178,7 @@ När du vill att URL-adressen för slut punkten ska acceptera parametrar, anger 
     URL-adressen till HTTP-slutpunkten innehåller nu den relativa sökvägen, till exempel:
 
     ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
 1. Om du vill testa HTTP-slutpunkten kopierar du och klistrar in den uppdaterade URL: en i ett annat webbläsarfönster, men ersätter `{postalCode}` med `123456`och trycker på RETUR.
@@ -231,7 +231,7 @@ Du kan kapsla arbets flöden i din Logic app genom att lägga till andra Logic A
 
 1. Under steget där du vill anropa en annan Logic app väljer du **nytt steg** > **lägger till en åtgärd**.
 
-1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger du `logic apps` som filter. I listan åtgärder väljer du **Välj ett Logic Apps arbets flöde**.
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I sökrutan anger du `logic apps` som ditt filter. I listan åtgärder väljer du **Välj ett Logic Apps arbets flöde**.
 
    ![Kapsla Logic app i aktuell Logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 

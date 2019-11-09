@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: d3035572e629bc11207cc473b51e3edb4f6a5a13
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 7ecc76a8b1f57d4e397746c28dc4cd56b90c3599
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302820"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834713"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 > Registreringsprocessen kan ta lite tid att slutföra.
 >
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 För registrerings steg med portalen öppnar du en Cloud Shell-session som anges ovan och följer dessa Azure CLI-steg:
 
@@ -77,7 +77,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Skriv **Azure NetApp Files** i sökrutan Azure Portal och välj sedan **Azure NetApp Files** i listan som visas.
 
@@ -90,7 +90,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 3. I fönstret nytt NetApp-konto anger du följande information: 
    1. Ange **myaccount1** som konto namn. 
    2. Välj din prenumeration.
-   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK** 
+   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK**. 
    4. Välj din konto plats.  
 
       ![Fönstret nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
@@ -111,7 +111,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
     > [!NOTE]
     > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) .
-    > Använd `Get-AzLocation | select Location` om du vill hämta regions namnet som stöds av våra kommando rads verktyg.
+    > Använd `Get-AzLocation | select Location` för att hämta regions namnet som stöds av våra kommando rads verktyg.
     >
 
 1. Skapa en ny resurs grupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
@@ -138,7 +138,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
     > [!NOTE]
     > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) .
-    > Använd `az account list-locations -query "[].{Region:name}" --out table` om du vill hämta regions namnet som stöds av våra kommando rads verktyg.
+    > Använd `az account list-locations -query "[].{Region:name}" --out table` för att hämta regions namnet som stöds av våra kommando rads verktyg.
     >
 
 2. Skapa en ny resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) :
@@ -161,7 +161,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Från bladet Azure NetApp Files hantering väljer du ditt NetApp-konto (**myaccount1**).
 
@@ -180,7 +180,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     2. Välj **Premium** för Service nivån. 
     3. Ange **4 (TIB)** som pool-storlek. 
 
-5. Klicka på **OK**
+5. Klicka på **OK**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +224,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="create-nfs-volume-for-azure-netapp-files"></a>Skapa NFS-volym för Azure NetApp Files
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Från bladet Azure NetApp Files hantering i ditt NetApp-konto klickar du på **volymer**.
 
@@ -258,7 +258,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
       Se [överväganden](azure-netapp-files-create-volumes.md#considerations) och [bästa praxis](azure-netapp-files-create-volumes.md#best-practice) om NFS-versioner. 
       
 > [!IMPORTANT] 
-> Åtkomst till NFSv 4.1-funktionen kräver vit listning.  Skicka en begäran till <anffeedback@microsoft.com> om du vill begära vit listning. 
+> Åtkomst till NFSv 4.1-funktionen kräver vit listning.  Skicka en begäran till <anffeedback@microsoft.com>för att begära vit listning. 
 
   ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
@@ -346,7 +346,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
     SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
     VOLUME_SIZE_GiB=100 # 100 GiB
-    UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+    UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within subscription and region
 
     az netappfiles volume create \
         --resource-group $RESOURCE_GROUP \
@@ -358,7 +358,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
         --vnet $VNET_ID \
         --subnet $SUBNET_ID \
         --usage-threshold $VOLUME_SIZE_GiB \
-        --creation-token $UNIQUE_FILE_PATH \
+        --file-path $UNIQUE_FILE_PATH \
         --protocol-types "NFSv3"
     ```
 
@@ -366,7 +366,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att ta bort en resurs grupp går inte att ångra.  
 

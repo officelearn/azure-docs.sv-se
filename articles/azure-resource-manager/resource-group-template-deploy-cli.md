@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286025"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834482"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
@@ -37,9 +37,11 @@ Om du vill distribuera till en **prenumeration**använder du [AZ Deployment Crea
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-För närvarande stöds endast distributioner av hanterings grupper via REST API. Se [distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](resource-group-template-deploy-rest.md).
+Mer information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
 
-I exemplen i den här artikeln används resurs grupps distributioner. Mer information om distribution av prenumerationer finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
+För närvarande stöds endast distributioner av hanterings grupper via REST API. Mer information om distributioner på hanterings grupp nivå finns i [Skapa resurser på hanterings grupps nivå](deploy-to-management-group.md).
+
+I exemplen i den här artikeln används resurs grupps distributioner.
 
 ## <a name="deploy-local-template"></a>Distribuera lokal mall
 
@@ -102,7 +104,7 @@ Om du vill skicka parameter värden kan du använda antingen infogade parametrar
 
 ### <a name="inline-parameters"></a>Infogade parametrar
 
-Ange värdena i `parameters` om du vill skicka infogade parametrar. Om du till exempel vill skicka en sträng och matris till en mall är ett bash-gränssnitt använder du:
+Ange värdena i `parameters`för att skicka infogade parametrar. Om du till exempel vill skicka en sträng och matris till en mall är ett bash-gränssnitt använder du:
 
 ```azurecli
 az group deployment create \
@@ -139,7 +141,7 @@ I stället för att skicka parametrar som infogade värden i skriptet, kan det v
 
 Mer information om parameter filen finns i [create Resource Manager parameter File](resource-manager-parameter-files.md).
 
-Om du vill skicka en lokal parameter fil använder du `@` för att ange en lokal fil med namnet Storage. Parameters. JSON.
+Om du vill skicka en lokal parameter fil använder `@` för att ange en lokal fil med namnet Storage. Parameters. JSON.
 
 ```azurecli-interactive
 az group deployment create \

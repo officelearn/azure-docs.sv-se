@@ -1,7 +1,7 @@
 ---
-title: Video Indexer-begrepp
-titlesuffix: Azure Media Services
-description: Det här avsnittet beskrivs några koncept för tjänsten Video Indexer.
+title: Video Indexer begrepp
+titleSuffix: Azure Media Services
+description: I det här avsnittet beskrivs några begrepp i Video Indexers tjänsten.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,32 +10,32 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 156eceba856bf159d4821360639a0641d3ed02be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3795b699f5518efdbef117fb24d118041ed3e78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799063"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839566"
 ---
-# <a name="video-indexer-concepts"></a>Video Indexer-begrepp
+# <a name="video-indexer-concepts"></a>Video Indexer begrepp
  
-Den här artikeln beskriver några koncept för tjänsten Video Indexer.
+I den här artikeln beskrivs några begrepp i Video Indexers tjänsten.
     
 ## <a name="summarized-insights"></a>Sammanfattande insikter
 
-Sammanfattande insights innehåller en sammansatt vy av data: ytor, ämnen, känslor. I stället för att gå över var och en av tusentals tidsintervall och kontrollera vilka ansiktena är i den, till exempel sammanfattade insights innehåller alla ansikten och för vart och ett tidsintervall som det visas i och % av tiden visas.
+Sammanfattade insikter innehåller en sammanställd vy av data: ansikten, ämnen, känslor. I stället för att gå över varje tusentals tidsintervall och kontrol lera vilka ansikten som finns, innehåller de sammanfattande insikterna alla ansikten och för var och en, de tidsintervall som visas i och% av tiden som visas.
 
-## <a name="time-range-vs-adjusted-time-range"></a>tidsintervallet jämfört med justerade tidsintervall
+## <a name="time-range-vs-adjusted-time-range"></a>tidsintervall jämfört med justerat tidsintervall
 
-TimeRange är tidsintervallet i den ursprungliga videon. AdjustedTimeRange är tidsintervallet i förhållande till den aktuella spellistan. Eftersom du kan skapa en spellista från olika rader med olika videor, kan du ta en video för 1 timme och använder bara 1 rad från den, till exempel 10:00-10:15. I så fall kan du har en spellista med 1 rad där tidsintervallet är 10:00-10:15 men adjustedTimeRange är 00:00-00:15.
+TimeRange är tidsintervallet i den ursprungliga videon. AdjustedTimeRange är tidsintervallet i förhållande till den aktuella spelnings listan. Eftersom du kan skapa en spelnings lista från olika rader med olika videoklipp kan du ta en timmes video och använda bara 1 rad från den, till exempel 10:00-10:15. I så fall har du en spelnings lista med 1 rad där tidsintervallet är 10:00-10:15 men adjustedTimeRange är 00:00-00:15.
  
-## <a name="blocks"></a>block
+## <a name="blocks"></a>delar
 
 Block är avsedda att göra det enklare att gå igenom data. Blocken kan till exempel delas in baserat på när talare ändras eller det förekommer en lång paus.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kommer igång finns i [hur du registrerar dig och ladda upp din första video](video-indexer-get-started.md).
+Information om hur du kommer igång finns i [så här registrerar du och laddar upp din första video](video-indexer-get-started.md).
 
 ## <a name="see-also"></a>Se också
 

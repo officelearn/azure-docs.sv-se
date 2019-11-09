@@ -1,10 +1,10 @@
 ---
-title: Skapa en åtkomst granskning av Azure AD-roller i PIM-Azure Active Directory | Microsoft Docs
+title: Skapa en åtkomst granskning av Azure AD-roller i PIM – Azure AD | Microsoft Docs
 description: Lär dig hur du skapar en åtkomst granskning av Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,20 +14,20 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72d9f0c7df12bd6746cd5cf0336e7bd58b6cc88d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809033"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847116"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Skapa en åtkomst granskning av Azure AD-roller i Privileged Identity Management
 
-Krav för användare att få åtkomst till privilegierade Azure Active Directory (Azure AD) roller kan ändras med tiden. För att minska risken för inaktuella roll tilldelningar bör du regelbundet granska åtkomst. Du kan använda Azure AD Privileged Identity Management (PIM) för att skapa åtkomst granskningar för privilegierade Azure AD-roller. Du kan också konfigurera återkommande åtkomst granskningar som sker automatiskt.
+För att minska risken för inaktuella roll tilldelningar bör du regelbundet granska åtkomst. Du kan använda Azure AD Privileged Identity Management (PIM) för att skapa åtkomst granskningar för privilegierade Azure AD-roller. Du kan också konfigurera återkommande åtkomst granskningar som sker automatiskt.
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för privilegierade Azure AD-roller.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [Privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 

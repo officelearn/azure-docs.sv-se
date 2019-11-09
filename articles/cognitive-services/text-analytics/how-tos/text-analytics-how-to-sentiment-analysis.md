@@ -1,7 +1,7 @@
 ---
-title: Sentiment-analys med hjälp av Textanalys REST API från Azure Cognitive Services
+title: Utför sentiment-analys med Textanalys REST API
 titleSuffix: Azure Cognitive Services
-description: Lär dig att identifiera sentiment med hjälp av Textanalys REST API.
+description: Den här artikeln visar hur du kan identifiera sentiment i text med Azure Cognitive Services Textanalys REST API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a930a22472dd4329c555539704747af9a2359c33
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494439"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837152"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: identifiera sentiment med Textanalys
 
@@ -276,7 +276,7 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för sentiment-an
 + POST-begäran är till en `/sentiment` slut punkt genom att använda en anpassad [åtkomst nyckel och en slut punkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för din prenumeration.
 + Svars utdata som består av en sentiment Poäng för varje dokument-ID kan strömmas till alla appar som accepterar JSON. Exempel på appar är Excel och Power BI, så att du kan namnge några.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
  [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)</br>
  [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)

@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5ae6844cf11ffa095f56c429e17b9c39ad0c76aa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5272d9aa77f78d0cef316f9f227f9e269ab7e186
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822905"
+ms.locfileid: "73839904"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudie: Läsa in data till Azure SQL Data Warehouse
 
@@ -61,7 +61,7 @@ Följ de här stegen för att skapa en tom SQL Data Warehouse.
    | ------- | --------------- | ----------- | 
    | **Databasnamn** | SampleDW | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). | 
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-   | **Resursgrupp** | SampleRG | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+   | **Resursgrupp** | SampleRG | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
    | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. Observera att ett informationslager är en typ av databas.|
 
     ![skapa ett informationslager](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -70,7 +70,7 @@ Följ de här stegen för att skapa en tom SQL Data Warehouse.
 
     | Inställning | Föreslaget värde | Beskrivning | 
     | ------- | --------------- | ----------- |
-    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). | 
+    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). | 
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |

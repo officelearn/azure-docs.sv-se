@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22e3131a204589a506b2d5f1e2508c37ad3b4100
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474303"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847207"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -208,6 +208,9 @@ function Set-MfaState {
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> Vi ändrade nyligen beteendet och PowerShell-skriptet ovan enligt detta. Tidigare har skriptet sparat av MFA-metoderna, inaktiverat MFA och återställt metoderna. Detta behövs inte längre nu när standard beteendet för inaktivera inte tar bort metoderna.
 
 ## <a name="plan-conditional-access-policies"></a>Planera principer för villkorlig åtkomst
 

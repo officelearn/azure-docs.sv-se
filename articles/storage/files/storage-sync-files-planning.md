@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826828"
+ms.locfileid: "73846734"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -169,7 +169,7 @@ Observera att volym besparingarna gäller endast för servern. dina data i Azure
 > Datadeduplicering och moln nivåer stöds inte för närvarande på samma volym på Server 2019 på grund av ett fel som åtgärdas i en framtida uppdatering.
 
 **Windows Server 2012 R2**  
-Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym. Om datadeduplicering har Aktiver ATS på en volym måste moln nivån vara inaktive rad. 
+Azure File Sync stöder inte datadeduplicering och moln nivåer på samma volym på Windows Server 2012 R2. Om datadeduplicering har Aktiver ATS på en volym måste moln nivån vara inaktive rad. 
 
 **Anteckningar**
 - Om datadeduplicering installeras innan du installerar Azure File Sync agent krävs en omstart för att stödja datadeduplicering och moln nivåer på samma volym.
@@ -250,22 +250,22 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Region | Data Center plats |
 |--------|---------------------|
 | Östra Australien | New South Wales |
-| Sydöstra Australien | Victoria |
+| Australien, sydöstra | Victoria |
 | Södra Brasilien | Sao Paulo (delstat) |
-| Centrala Kanada | Toronto |
+| Kanada, centrala | Toronto |
 | Östra Kanada | Quebec City |
 | Indien, centrala | Pune |
 | Centrala USA | Iowa |
 | Östasien | Hong Kong SAR |
-| Östra USA | Virginia |
+| USA, östra | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |
 | Frankrike, södra * | Marseille |
 | Sydkorea, centrala | Seoul |
 | Sydkorea, södra | Busan |
-| Östra Japan | Tokyo, Saitama |
+| Japan, östra | Tokyo, Saitama |
 | Västra Japan | Osaka |
-| Norra centrala USA | Illinois |
+| USA, norra centrala | Illinois |
 | Norra Europa | Irland |
 | Sydafrika, norra | Johannesburg |
 | Södra Afrika, västra * | Kapstaden |
@@ -279,9 +279,9 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Virginia (USA-förvaltad region) | Virginia |
 | Förenade Arabemiraten, norra | Dubai |
 | Förenade Arabemiraten Central * | Abu Dhabi |
-| Västra Europa | Nederländerna |
-| Västra centrala USA | Wyoming |
-| Västra USA | Kalifornien |
+| Europa, västra | Nederländerna |
+| USA, västra centrala | Wyoming |
+| USA, västra | Kalifornien |
 | Västra USA 2 | Washington |
 
 Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
@@ -298,27 +298,27 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Östra Australien      | Sydöstra Australien|
-| Sydöstra Australien | Östra Australien     |
+| Östra Australien      | Australien, sydöstra|
+| Australien, sydöstra | Östra Australien     |
 | Södra Brasilien        | Södra centrala USA   |
-| Centrala Kanada      | Östra Kanada        |
-| Östra Kanada         | Centrala Kanada     |
+| Kanada, centrala      | Östra Kanada        |
+| Östra Kanada         | Kanada, centrala     |
 | Indien, centrala       | Södra Indien        |
 | Centrala USA          | USA, östra 2          |
 | Östasien           | Sydostasien     |
-| Östra USA             | Västra USA            |
+| USA, östra             | USA, västra            |
 | USA, östra 2           | Centrala USA         |
 | Frankrike, centrala      | Frankrike, södra       |
 | Frankrike, södra        | Frankrike, centrala     |
-| Östra Japan          | Västra Japan         |
-| Västra Japan          | Östra Japan         |
+| Japan, östra          | Västra Japan         |
+| Västra Japan          | Japan, östra         |
 | Sydkorea, centrala       | Sydkorea, södra        |
 | Sydkorea, södra         | Sydkorea, centrala      |
-| Norra Europa        | Västra Europa        |
-| Norra centrala USA    | Södra centrala USA   |
+| Norra Europa        | Europa, västra        |
+| USA, norra centrala    | Södra centrala USA   |
 | Sydafrika, norra  | Sydafrika, västra  |
 | Sydafrika, västra   | Sydafrika, norra |
-| Södra centrala USA    | Norra centrala USA   |
+| Södra centrala USA    | USA, norra centrala   |
 | Södra Indien         | Indien, centrala      |
 | Sydostasien      | Östasien          |
 | Storbritannien, södra            | Storbritannien, västra            |
@@ -326,10 +326,10 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
 | US Gov, Iowa         | Virginia (USA-förvaltad region)    |
 | Virginia (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
-| Västra Europa         | Norra Europa       |
-| Västra centrala USA     | Västra USA 2          |
-| Västra USA             | Östra USA            |
-| Västra USA 2           | Västra centrala USA    |
+| Europa, västra         | Norra Europa       |
+| USA, västra centrala     | Västra USA 2          |
+| USA, västra             | USA, östra            |
+| Västra USA 2           | USA, västra centrala    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

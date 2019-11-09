@@ -11,24 +11,24 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822782"
+ms.locfileid: "73839051"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans
 
 Den här snabb starten visar hur du konfigurerar en virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans med SQL Server Management Studio (SSMS). En snabb start som visar hur du ansluter från en lokal klient dator med en punkt-till-plats-anslutning finns i [Konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här snabb starten används de resurser som skapats i [skapa en hanterad instans](sql-database-managed-instance-get-started.md) som start punkt.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Skapa ett nytt undernät i det hanterade instans-VNet
 
@@ -46,7 +46,7 @@ Följande steg skapar ett nytt undernät i den hanterade instansens VNet så att
 
    | Inställning| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
-   | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
+   | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är användbart för den här snabb starten.|
    | **Nätverkssäkerhetsgrupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
    | **Routningstabell** | Ingen | Standardvärdet är användbart för den här snabb starten.|
@@ -78,15 +78,15 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
    | **Prenumeration** | En giltig prenumeration | Måste vara en prenumeration där du har behörighet att skapa nya resurser. |
    | **Resursgrupp** |Den resurs grupp som du angav i snabb starten för att [skapa hanterade instanser](sql-database-managed-instance-get-started.md) .|Den här resurs gruppen måste vara den som VNet finns i.|
    | **Plats** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
-   | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
-   |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
+   | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
+   |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösen ordet när som helst när du [ansluter till den virtuella datorn](#connect-to-virtual-machine).|
    | **Storlek på virtuell dator** | Vilken giltig storlek som helst | Standardvärdet i den här mallen för **Standard_B2s** räcker för den här snabb starten. |
    | **Plats**|[resourceGroup (). location].| Ändra inte det här värdet. |
    | **Virtual Network namn**|Det virtuella nätverk där du skapade den hanterade instansen.|
    | **Namn på undernät**|Namnet på det undernät som du skapade i föregående procedur| Välj inte det undernät där du skapade den hanterade instansen.|
    | **artefakt plats** | [Deployment (). Properties. templateLink. URI] | Ändra inte det här värdet. |
-   | **SAS-token för artefakt plats** | Lämna tomt | Ändra inte det här värdet. |
+   | **SAS-token för artefakt plats** | lämna tomt | Ändra inte det här värdet. |
 
    ![Skapa en virtuell klientdator](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 

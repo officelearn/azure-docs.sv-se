@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72e94b864b15d5c4872ebf6ba9f0d1a00a0e92b0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f9b9773e595d1ff00d92bd757c4b85eb6c219b26
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924853"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897564"
 ---
 # <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>Skapa en stegvis ögonblicks bild (för hands version) för hanterade diskar
 
@@ -45,7 +45,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 När den är installerad loggar du in på PowerShell-sessionen med `az login`.
 
-Om du vill skapa en stegvis ögonblicks bild med Azure PowerShell anger du konfigurationen med [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) med parametern `-Incremental` och skickar den som en variabel till [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) via `-Snapshot`-parametern.
+Om du vill skapa en stegvis ögonblicks bild med Azure PowerShell anger du konfigurationen med [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) med parametern `-Incremental` och skickar den som en variabel till [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) via `-Snapshot`-parametern.
 
 Ersätt `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`och `<yourDesiredSnapShotNameHere>` med dina värden. sedan kan du använda följande skript för att skapa en stegvis ögonblicks bild:
 

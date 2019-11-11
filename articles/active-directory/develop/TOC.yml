@@ -241,6 +241,8 @@
                   href: migrate-android-adal-msal.md
                 - name: Migrera till MSAL.iOS och MacOS
                   href: migrate-objc-adal-msal.md
+                - name: Migrera till MSAL Java
+                  href: migrate-adal-msal-java.md
                 - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer från ADAL.NET till MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: Autentiseringsflöden som stöds
@@ -390,6 +392,10 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Tillämpningskonfiguration
           items:
+            - name: Utbildningsguide för Azure-portalappsregistreringar (föråldrad)
+              href: app-registrations-training-guide-for-app-registrations-legacy-users.md
+            - name: Utbildningsguide för appregistreringsportalen
+              href: app-registration-portal-training-guide.md
             - name: Konvertera en app för en enda klient till en app för flera klienter
               href: howto-convert-app-to-be-multi-tenant.md
             - name: Skapa tjänstens huvudnamn
@@ -446,6 +452,12 @@
                   href: request-custom-claims.md
                 - name: Konfiguration av omdirigerings-URI
                   href: redirect-uris-ios.md
+            - name: MSAL Java
+              items:
+                - name: Serialisering för tokencache
+                  href: msal-java-token-cache-serialization.md
+                - name: Lägga till och ta bort konton från tokencachen
+                  href: msal-java-get-remove-accounts-token-cache.md
         - name: Arbeta med Visual Studio
           items:
             - name: Använda den Active Directory-anslutna tjänsten
@@ -594,8 +606,6 @@
               href: reference-saml-tokens.md
         - name: Tillämpningskonfiguration
           items:
-            - name: Utbildningsguide för appregistreringar
-              href: app-registrations-training-guide.md
             - name: Program och tjänsternas huvudnamn
               href: app-objects-and-service-principals.md
             - name: Hur och varför program läggs till i Azure AD

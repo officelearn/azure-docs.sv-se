@@ -91,6 +91,8 @@
       items:
         - name: Konfigurera liveavsökningar
           href: container-instances-liveness-probe.md
+        - name: Konfigurera beredskapsavsökning
+          href: container-instances-readiness-probe.md
         - name: Stoppa och starta containrar
           href: container-instances-stop-start.md
         - name: Uppdatera containrar som körs

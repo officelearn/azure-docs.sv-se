@@ -13,10 +13,10 @@
 - name: Begrepp
   items:
     - name: Azure-delegerad resurshantering
-      displayName: delegation
+      displayName: 'delegation, projection'
       href: ./concepts/azure-delegated-resource-management.md
     - name: Miljöer för hantering av flera klienter
-      displayName: scenarios
+      displayName: 'scenarios, supported, enhanced, services, limitations, current'
       href: ./concepts/cross-tenant-management-experience.md
     - name: 'Klientorganisationer, roller och användare'
       displayName: 'Azure AD, Azure Active Directory'
@@ -39,16 +39,22 @@
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publicera erbjudanden om hanterade tjänster på Azure Marketplace
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'managed services offer, azure marketplace, publish, marketplace'
       href: ./how-to/publish-managed-services-offers.md
     - name: Visa och hantera kunder
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Visa och hantera tjänstleverantörer
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'customer, update'
       href: ./how-to/view-manage-service-providers.md
-    - name: Distribuera en princip som kan åtgärdas
-      href: ./how-to/deploy-policy-remediation.md
+    - name: Azure Policy-integration
+      items:
+        - name: Distribuera en skalanpassad princip
+          displayName: storage
+          href: ./how-to/policy-at-scale.md
+        - name: Distribuera en princip som kan åtgärdas
+          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+          href: ./how-to/deploy-policy-remediation.md
 - name: Referens
   items:
     - name: Azure CLI

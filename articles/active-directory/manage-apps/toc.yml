@@ -353,6 +353,10 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: CORS-problem i programproxyn
               href: application-proxy-understand-cors-issues.md
+    - name: Skydda hybridåtkomst (i molnet och lokalt)
+      items:
+        - name: Skydda äldre appar med appars leveranskontroller eller nätverk
+          href: secure-hybrid-access.md
 - name: Referens
   items:
     - name: Programetablering (SCIM)

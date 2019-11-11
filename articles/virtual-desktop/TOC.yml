@@ -96,6 +96,8 @@
       href: troubleshoot-vm-configuration.md
     - name: Felsöka en virtuell Windows 7-dator i Windows Virtual Desktop
       href: troubleshoot-windows-7-vm.md
+    - name: Felsöka Windows Virtual Desktop-hanteringsverktyget
+      href: troubleshoot-management-tool.md
     - name: Anslutningar för fjärrskrivbordsklienten
       href: troubleshoot-client-connection.md
     - name: Windows Virtual Desktop PowerShell

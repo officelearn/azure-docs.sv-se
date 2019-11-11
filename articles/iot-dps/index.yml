@@ -3,9 +3,8 @@ documentType: LandingData
 title: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten
 metadata:
   title: 'Dokumentation om Azure IoT Hub Device Provisioning-tjänsten (förhandsversion) – självstudier, API-referens'
-  description: Översikt över Azure IoT Hub Device Provisioning-tjänsten.
+  description: 'Azure IoT Hub Device Provisioning Service – självstudier, snabbstarter, instruktioner och API-referens'
   author: nberdy
-  manager: briz
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page

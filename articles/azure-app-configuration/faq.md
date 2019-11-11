@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: dbfb6a1c4c53b1bd255560e688d3dc0cf3835a3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d286cbab33a1fb6a2d2a2cb70caed11b21af735
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469634"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904094"
 ---
 # <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
 
@@ -42,9 +42,19 @@ Konfiguration av appar kompletterar Key Vault och de två bör användas sida vi
 
 Även om app-konfigurationen tillhandahåller härdnings säkerhet är Key Vault fortfarande den bästa platsen för att lagra program hemligheter. Key Vault tillhandahåller kryptering på maskin varu nivå, detaljerade åtkomst principer och hanterings åtgärder, till exempel certifikat rotation.
 
+Du kan skapa konfigurations värden för appar som refererar hemligheter som lagras i Key Vault. Mer information finns i [använda Key Vault referenser i en ASP.net Core-app](./use-key-vault-references-dotnet-core.md).
+
 ## <a name="does-app-configuration-encrypt-my-data"></a>Krypterar app-konfigurationen mina data?
 
 Ja. App-konfigurationen krypterar alla nyckel värden som den innehåller och krypterar nätverkskommunikationen. Nyckel namn används som index för att hämta konfigurations data och är inte krypterade.
+
+## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Hur skiljer sig app-konfigurationen från Azure App Service inställningar?
+
+Med Azure App Service kan du definiera inställningar för appar för varje App Service instans. De här inställningarna skickas som miljövariabler till program koden. Du kan associera en inställning med en angiven distributions plats om du vill. Mer information finns i [Konfigurera appinställningar](/azure/app-service/configure-common#configure-app-settings).
+
+Med hjälp av Azure App-konfigurationen kan du däremot definiera inställningar som kan delas mellan flera appar, inklusive appar som körs i App Service. De här inställningarna kan nås i program kod via konfigurationsprovidern för .NET och Java, via Azure SDK eller direkt via REST-API: er.
+
+Du kan också importera och exportera inställningar mellan App Service-och app-konfiguration. På så sätt kan du snabbt konfigurera ett nytt konfigurations Arkiv för appar baserat på befintliga App Service inställningar, eller enkelt dela konfigurationen med en befintlig app som förlitar sig på App Service inställningar.
 
 ## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Finns det några storleks begränsningar för nycklar och värden som lagras i appens konfiguration?
 

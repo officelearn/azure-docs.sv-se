@@ -1,102 +1,105 @@
 ---
-title: Prestandajusteringsvägledning för att använda Powershell med Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Tips om hur du kan förbättra prestanda när du använder Azure PowerShell med Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Azure Data Lake Storage Gen1 prestanda justering – PowerShell
+description: Tips om hur du kan förbättra prestandan när du använder Azure PowerShell med Azure Data Lake Storage Gen1.
 author: stewu
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195868"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904567"
 ---
-# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Prestandajusteringsvägledning för att använda PowerShell med Azure Data Lake Storage Gen1
+# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för att använda PowerShell med Azure Data Lake Storage Gen1
 
-Den här artikeln innehåller de egenskaper som kan ställa in för att få bättre prestanda när du använder PowerShell för att arbeta med Azure Data Lake Storage Gen1:
+Den här artikeln beskriver de egenskaper som du kan finjustera för att få bättre prestanda när du använder PowerShell för att arbeta med Data Lake Storage Gen1.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="performance-related-properties"></a>Prestanda-relaterade egenskaper
+## <a name="performance-related-properties"></a>Prestanda relaterade egenskaper
 
 | Egenskap            | Standard | Beskrivning |
 |---------------------|---------|-------------|
-| PerFileThreadCount  | 10      | Med den här parametern kan du välja antalet parallella trådar för att ladda upp eller ned varje fil. Siffran representerar det högsta antal trådar som går att allokera per fil, men du kan få färre trådar beroende på ditt scenario (till exempel om du laddar upp en 1 KB-fil, får du en tråd även om du ber om 20 trådar).  |
-| ConcurrentFileCount | 10      | Den här parametern är specifikt för att ladda upp och ned mappar. Den här parametern anger antalet samtidiga filer som kan laddas upp eller ned. Siffran representerar det maximala antalet samtidiga filer som kan laddas upp eller ned i taget, men du kan få mindre samtidighet beroende på ditt scenario (till exempel om du laddar upp två filer får du två samtidiga filer uppladdningar även om du ber för 15). |
+| PerFileThreadCount  | 10      | Med den här parametern kan du välja antalet parallella trådar för att ladda upp eller ned varje fil. Det här talet representerar Max antalet trådar som kan allokeras per fil, men du kan få färre trådar beroende på ditt scenario (om du till exempel laddar upp en 1 KB-fil får du en tråd även om du ber om 20 trådar).  |
+| ConcurrentFileCount | 10      | Den här parametern är specifikt för att ladda upp och ned mappar. Den här parametern anger antalet samtidiga filer som kan laddas upp eller ned. Det här antalet representerar det maximala antalet samtidiga filer som kan överföras eller hämtas samtidigt, men du kan få mindre samtidighet beroende på ditt scenario (om du t. ex. överför två filer, får du två samtidiga filer, även om du ber för 15). |
 
-**Exempel**
+**Exempel:**
 
 Det här kommandot laddar ned filer från Data Lake Storage Gen1 till användarens lokala enhet med 20 trådar per fil och 100 samtidiga filer.
 
-    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+```PowerShell
+Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
+    -PerFileThreadCount 20 `
+    -ConcurrentFileCount 100 `
+    -Path /Powershell/100GB `
+    -Destination C:\Performance\ `
+    -Force `
+    -Recurse
+```
 
-## <a name="how-do-i-determine-the-value-for-these-properties"></a>Hur tar jag reda på värdet för dessa egenskaper?
+## <a name="how-to-determine-property-values"></a>Så här avgör du egenskaps värden
 
-Nästa fråga som du kanske är att avgöra vilket värde som ska ange för prestandarelaterade-egenskaper. Här är några riktlinjer som du kan använda.
+Nästa fråga som du kan ha är att avgöra vilket värde som ska tillhandahållas för prestanda relaterade egenskaper. Här är några riktlinjer som du kan använda.
 
-* **Steg 1: Fastställa det totala trådantalet** – börja med att beräkna det totala trådantalet att använda. Som en generell riktlinje bör du använda sex trådar för varje fysisk kärna.
+* **Steg 1: Fastställ det totala antalet trådar** -börja genom att beräkna det totala antalet trådar som ska användas. Som en allmän rikt linje bör du använda sex trådar för varje fysisk kärna.
 
-        Total thread count = total physical cores * 6
+    `Total thread count = total physical cores * 6`
 
-    **Exempel**
+    **Exempel:**
 
     Vi antar att du kör PowerShell-kommandon från en virtuell D14-dator med 16 kärnor
 
-        Total thread count = 16 cores * 6 = 96 threads
+    `Total thread count = 16 cores * 6 = 96 threads`
 
+* **Steg 2: beräkna PerFileThreadCount** – vi beräknar vår PerFileThreadCount baserat på filernas storlek. För filer som är mindre än 2,5 GB behöver du inte ändra den här parametern eftersom standardvärdet 10 är tillräckligt. För filer som är större än 2,5 GB ska du använda 10 trådar som bas för de första 2,5 GB och lägga till 1 tråd för varje ytterligare 256-MB ökning i fil storleken. Om du kopierar en mapp med många olika filstorlekar bör du överväga att gruppera dem enligt liknande filstorlekar. Olika stora filstorlekar kan orsaka bristfälliga prestanda. Om du inte kan gruppera liknande filstorlekar ska du ställa in PerFileThreadCount baserat på den största filstorleken.
 
-* **Steg 2: Beräkna PerFileThreadCount** – vi beräknar vår PerFileThreadCount baserat på storleken på filerna. För filer som är mindre än 2,5 GB finns ingen anledning att ändra den här parametern eftersom standardvärdet 10 är tillräckligt. För filer som är större än 2,5 GB, bör du använda 10 trådar som bas för de första 2,5 GB och lägga till 1 tråd för varje ytterligare ökning 256 MB i storlek. Om du kopierar en mapp med många olika filstorlekar bör du överväga att gruppera dem enligt liknande filstorlekar. Olika stora filstorlekar kan orsaka bristfälliga prestanda. Om du inte kan gruppera liknande filstorlekar ska du ställa in PerFileThreadCount baserat på den största filstorleken.
+    `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 
-        PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
+    **Exempel:**
 
-    **Exempel**
+    Förutsatt att du har 100 filer som sträcker sig från 1 GB till 10 GB, använder vi 10 GB som största fil storlek för Equation, som skulle kunna läsas som följande.
 
-    Anta att du har 100 filer från 1 GB till 10 GB och använder vi 10 GB som den största filstorleken för beräkning, vilket skulle ungefär som följande.
+    `PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads`
 
-        PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads
+* **Steg 3: beräkna ConcurrentFilecount** – Använd det totala antalet trådar och PerFileThreadCount för att beräkna ConcurrentFilecount baserat på följande ekvation:
 
-* **Steg 3: Beräkna ConcurrentFilecount** – Använd det totala trådantalet och PerFileThreadCount för att beräkna ConcurrentFileCount baserat på följande formel:
+    `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 
-        Total thread count = PerFileThreadCount * ConcurrentFileCount
-
-    **Exempel**
+    **Exempel:**
 
     Utifrån de exempelvärden vi har använt
 
-        96 = 40 * ConcurrentFileCount
+    `96 = 40 * ConcurrentFileCount`
 
     Så, **ConcurrentFileCount** är **2,4**, vilket vi kan runda av till **2**.
 
 ## <a name="further-tuning"></a>Ytterligare justering
 
-Du kan behöva justera ytterligare eftersom det finns en mängd filstorlekar att arbeta med. Beräkningen ovan fungerar bra om alla eller de flesta av filerna är större och närmare intervallet 10 GB. Om det finns i stället många olika filstorlekar med många filer som är mindre kan du minska PerFileThreadCount. Du kan öka ConcurrentFileCount genom att minska PerFileThreadCount. Så om vi antar att de flesta av våra filer är mindre än intervallet 5 GB, kan vi göra om vår beräkning:
+Du kan behöva justera ytterligare eftersom det finns en mängd filstorlekar att arbeta med. Den föregående beräkningen fungerar bra om alla eller de flesta filerna är större och närmare intervallet på 10 GB. Om det finns i stället många olika filstorlekar med många filer som är mindre kan du minska PerFileThreadCount. Du kan öka ConcurrentFileCount genom att minska PerFileThreadCount. Så om vi antar att de flesta av våra filer är mindre inom 5 GB-intervallet kan vi göra om vår beräkning:
 
-    PerFileThreadCount = 10 + ((5 GB - 2.5 GB) / 256 MB) = 20
+`PerFileThreadCount = 10 + ((5 GB - 2.5 GB) / 256 MB) = 20`
 
-Därför **ConcurrentFileCount** blir 96/20, vilket är 4,8, avrundat till **4**.
+Därför blir **ConcurrentFileCount** 96/20, som är 4,8, avrundat till **4**.
 
 Du kan fortsätta att finjustera inställningarna genom att ändra **PerFileThreadCount** upp och ned beroende på distributionen av din filstorlek.
 
 ### <a name="limitation"></a>Begränsning
 
-* **Antalet filer som är mindre än ConcurrentFileCount**: Om antalet filer som du laddar upp är mindre än den **ConcurrentFileCount** att du har beräknat och sedan ska du minska **ConcurrentFileCount** ska vara lika med antalet filer. Du kan använda eventuella återstående trådar för att öka **PerFileThreadCount**.
+* **Antalet filer är mindre än ConcurrentFileCount**: Om antalet filer som du laddar upp är mindre än **ConcurrentFileCount** du har beräknat ska du minska **ConcurrentFileCount** så att det motsvarar antalet filer. Du kan använda eventuella återstående trådar för att öka **PerFileThreadCount**.
 
-* **För många trådar**: Om du ökar trådantalet för mycket utan att öka klusterstorleken riskerar försämrade prestanda. Det kan uppstå konkurrensproblem när du växlar innehåll på processorn.
+* **För många trådar**: Om du ökar antalet trådar för mycket utan att öka klusterstorleken riskerar du att prestanda försämras. Det kan uppstå konkurrensproblem när du växlar innehåll på processorn.
 
-* **Otillräcklig samtidighet**: Om samtidigheten inte är tillräcklig kan klustret vara för litet. Du kan öka antalet noder i klustret, vilket ger dig större samtidighet.
+* **Otillräcklig samtidighet**: Om samtidigheten inte är tillräcklig kan klustret vara för litet. Du kan öka antalet noder i klustret, vilket ger dig mer samtidighet.
 
-* **Begränsningsfel**: Du kan se begränsningsfel om konkurrensen är för högt. Om du råkar ut för begränsningsfel ska du antingen minska samtidigheten eller kontakta oss.
+* **Begränsningsfel**: Om konkurrensen är för hög kan det leda till begränsningsfel. Om du råkar ut för begränsningsfel ska du antingen minska samtidigheten eller kontakta oss.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använda Azure Data Lake Storage Gen1 för stordatakrav](data-lake-store-data-scenarios.md) 
+
+* [Använd Azure Data Lake Storage Gen1 för Big data-krav](data-lake-store-data-scenarios.md) 
 * [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Använd Azure Data Lake Analytics med Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Använda Azure Data Lake Analytics med Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Använd Azure HDInsight med Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

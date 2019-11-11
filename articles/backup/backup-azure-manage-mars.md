@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 049b09f7927da2cc841130a0adeaa90768037db8
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834306"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903195"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services agent med hjälp av tjänsten Azure Backup
 
@@ -62,7 +62,7 @@ Skapa en princip på följande sätt:
             – Säkerhets kopieringar som gjorts på lördag den senaste veckan i månaden vid midnatt och 6:00 PM behålls i 12 månader.
             – Säkerhets kopieringar som gjorts på en lördag under den senaste veckan i mars behålls i 10 år.
 
-           ![Retention example](./media/backup-configure-vault/retention-example.png)
+    ![Exempel på kvarhållning](./media/backup-configure-vault/retention-example.png)
 
 11. I **Välj typ av första säkerhets kopiering** bestämmer du om du vill ta den första säkerhets kopian över nätverket eller använda säkerhets kopiering offline (mer information om offline-säkerhetskopiering finns i den här [artikeln](backup-azure-backup-import-export.md)). Om du vill ta den första säkerhets kopieringen över nätverket väljer du **automatiskt över nätverket** och klickar på **Nästa**.
 

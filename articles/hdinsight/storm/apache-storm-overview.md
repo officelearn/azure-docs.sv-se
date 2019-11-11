@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 71ccdb7ac6666cde1841599cdaf95b67bc54e6a5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 73a3359955bf50929f083d542e6a0583b356a280
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800031"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903757"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
@@ -70,7 +70,7 @@ Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm p
 
 Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer information om hur du skapar ett Storm-kluster finns i [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="ease-of-use"></a>Enkel användning
+## <a name="ease-of-use"></a>Användarvänlighet
 
 * __Secure Shell-anslutningar (SSH)__ : Du kan komma åt huvudnoderna i ditt Storm-kluster via Internet med SSH. Du kan köra kommandon direkt i klustret med hjälp av SSH.
 
@@ -113,10 +113,10 @@ Nedan följer några vanliga scenarier där du kan använda Storm i HDInsight:
 * Sociala analyser
 * Extrahering, transformering och inläsning (ETL)
 * Nätverksövervakning
-* Sök
+* Search
 * Mobile engagement
 
-Information om verkliga scenarier finns i [hur företag använder Apache Storm](https://storm.apache.org/documentation/Powered-By.html) -dokument.
+Information om verkliga scenarier finns i [hur företag använder Apache Storm](https://storm.apache.org/Powered-By.html) -dokument.
 
 ## <a name="development"></a>Utveckling
 

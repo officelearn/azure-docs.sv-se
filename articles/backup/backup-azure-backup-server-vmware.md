@@ -1,18 +1,18 @@
 ---
 title: Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
-description: Använd Azure Backup Server för att säkerhetskopiera virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
+description: I den här artikeln lär du dig hur du använder Azure Backup Server för att säkerhetskopiera virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3d8983835c587ffeec9dd2bc418f1c01afbeb571
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: df41907ee10b54ab3bfaeb548e085617f7d79084
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264501"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903234"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -62,11 +62,11 @@ Konfigurera en säker kanal enligt följande:
 
 4. Spara filen på Azure Backup Server dator med fil namns tillägget. zip.
 
-5. Högerklicka på **Download. zip** > **Extract all**. Zip-filen extraherar dess innehåll till mappen **certifikat** , som innehåller:
+5. Högerklicka på **Download. zip** > **extrahera alla**. Zip-filen extraherar dess innehåll till mappen **certifikat** , som innehåller:
    - Rot certifikat filen med ett tillägg som börjar med en numrerad sekvens som. 0 och. 1.
    - CRL-filen har ett tillägg som börjar med en sekvens som. R0 eller. R1. CRL-filen är associerad med ett certifikat.
 
-         ![Downloaded certificates](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+    ![Hämtade certifikat](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 6. I mappen **certifikat** högerklickar du på rot certifikat filen > **byter namn**.
 
@@ -82,7 +82,7 @@ Konfigurera en säker kanal enligt följande:
 
 10. På sidan **certifikat Arkiv** väljer du **Placera alla certifikat i följande Arkiv**och klickar sedan på **Bläddra** för att välja certifikat arkivet.
 
-         ![Certificate storage](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+    ![Certifikat lagring](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 11. I **Välj certifikat Arkiv**väljer du **betrodda rot certifikat utfärdare** som målmapp för certifikaten. Klicka sedan på **OK**.
 
@@ -100,11 +100,9 @@ Om du har säkra gränser i din organisation och inte vill använda HTTPS-protok
 
 1. Kopiera och klistra in följande text i en. txt-fil.
 
-      ```text
-      Windows Registry Editor Version 5.00
-      [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-      "IgnoreCertificateValidation"=dword:00000001
-      ```
+       ```text
+      Windows Registry Editor version 5,00 [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare] "IgnoreCertificateValidation" = DWORD: 00000001
+       ```
 
 2. Spara filen på den Azure Backup Server datorn med namnet **DisableSecureAuthentication. reg**.
 
@@ -123,14 +121,14 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 
     ![Lägg till roll](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. I **create role** > **roll namn**, anger du *BackupAdminRole*. Roll namnet kan vara vad du vill, men det bör vara igenkännligt för rollens syfte.
+4. I **skapa roll** > **roll namn**anger du *BackupAdminRole*. Roll namnet kan vara vad du vill, men det bör vara igenkännligt för rollens syfte.
 
 5. Välj behörigheterna som sammanfattas i tabellen nedan och klicka sedan på **OK**.  Den nya rollen visas i listan på **roll** panelen.
    - Klicka på ikonen bredvid den överordnade etiketten för att expandera den överordnade och Visa de underordnade privilegierna.
    - Om du vill välja VirtualMachine-privilegier måste du gå flera nivåer till den överordnade underordnade hierarkin.
    - Du behöver inte markera alla underordnade behörigheter inom en överordnad behörighet.
 
-             ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+    ![Hierarki för överordnad underordnad behörighet](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>Roll behörigheter
 
@@ -165,7 +163,7 @@ VirtualMachine. State. RemoveSnapshot | VirtualMachine. State. RemoveSnapshot
 
 2. I panelen **vCenter-användare och-grupper** väljer du fliken **användare** och klickar sedan på ikonen Lägg till användare (symbolen +).
 
-         ![vCenter Users and Groups panel](./media/backup-azure-backup-server-vmware/usersandgroups.png)
+    ![panelen vCenter-användare och grupper](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
 3. I dialog rutan **ny användare** lägger du till användar informationen > **OK**. I den här proceduren är användar namnet BackupAdmin.
 
@@ -183,7 +181,7 @@ VirtualMachine. State. RemoveSnapshot | VirtualMachine. State. RemoveSnapshot
 
     ![Lägg till BackupAdmin-användare](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
-7. I **tilldelad roll**väljer du **BackupAdminRole** > **OK**i den nedrullningsbara listan.
+7. I den **tilldelade rollen**väljer du **BackupAdminRole** > **OK**i list rutan.
 
     ![Tilldela användare till roll](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
 
@@ -219,9 +217,9 @@ Lägg till vCenter Server i Azure Backup Server.
 
     ![Öppna guiden för att lägga till produktions server](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2. I **guiden för att lägga till produktions server** > **Välj sidan typ av produktions server** väljer du **VMware-servrar**och klickar sedan på **Nästa**.
+2. I **guiden för att lägga till produktions server** > sidan **Välj typ av produktions server** väljer du **VMware-servrar**och klickar sedan på **Nästa**.
 
-         ![Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
+    ![Guiden för att lägga till produktions server](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
 3. Ange FQDN eller IP-adressen för VMware-servern i **Välj datorer**  **Server namn/IP-adress**. Om alla ESXi-servrar hanteras av samma vCenter anger du vCenter-namnet. Annars lägger du till ESXi-värden.
 
@@ -266,7 +264,7 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
     - När du väljer en mapp, eller virtuella datorer eller mappar i mappen, väljs även för säkerhets kopiering. Du kan avmarkera mappar och virtuella datorer som du inte vill säkerhetskopiera.
 1. Om en virtuell dator eller mapp redan säkerhets kopie ras kan du inte välja den. Detta säkerställer att dubbla återställnings punkter inte skapas för en virtuell dator.
 
-         ![Select group members](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+    ![Välj grupp medlemmar](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Klicka sedan på **Nästa**.
 
@@ -290,14 +288,14 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
    - **Utöka automatiskt:** Om du aktiverar den här inställningen och data i den skyddade gruppen utökar den inledande allokeringen, försöker Azure Backup Server öka disk storleken med 25 procent.
    - **Information om lagringspool:** Visar status för lagringspoolen, inklusive total och återstående disk storlek.
 
-         ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+    ![Granska diskallokering](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
 1. På sidan **Välj metod för skapande av replik** anger du hur du vill att den första säkerhets kopieringen ska utföras och klickar sedan på **Nästa**.
    - Standardvärdet sker **automatiskt över nätverket** och **nu**.
    - Om du använder standardvärdet rekommenderar vi att du anger en tid med låg belastning. Välj **senare** och ange dag och tid.
    - Överväg att replikera data offline med hjälp av flyttbara media för stora mängder data eller mindre än optimala nätverks förhållanden.
 
-         ![Choose replica creation method](./media/backup-azure-backup-server-vmware/replica-creation.png)
+    ![Välj metod för skapande av replik](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
 1. I **alternativ för konsekvens kontroll**väljer du hur och när du vill automatisera konsekvens kontroller. Klicka sedan på **Nästa**.
       - Du kan köra konsekvens kontroller när replik data blir inkonsekventa eller enligt ett angivet schema.
@@ -305,25 +303,25 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 1. På sidan **Ange online skydds data** väljer du de virtuella datorer eller VM-mappar som du vill säkerhetskopiera. Du kan välja medlemmar individuellt eller klicka på **Välj alla** för att välja alla medlemmar. Klicka sedan på **Nästa**.
 
-          ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+    ![Ange skydds data online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. På sidan **Ange schema för onlinesäkerhetskopiering** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure.
 
     - Moln återställnings punkter för data kommer att genereras enligt schemat. Klicka sedan på **Nästa**.
     - När återställnings punkten har skapats överförs den till Recovery Services valvet i Azure.
 
-          ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+    ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 1. På sidan **Ange princip för kvarhållning av online** anger du hur länge du vill behålla återställnings punkterna som skapas med säkerhets kopieringar per dag/vecka/månad/år till Azure. Klicka sedan på **Nästa**.
 
     - Det finns ingen tids gräns för hur länge du kan lagra data i Azure.
     - Den enda begränsningen är att du inte kan ha mer än 9999 återställnings punkter per skyddad instans. I det här exemplet är den skyddade instansen VMware-servern.
 
-          ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
+    ![Ange bevarande princip online](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 1. På sidan **Sammanfattning** granskar du inställningarna och klickar sedan på **Skapa grupp**.
 
-         ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+    ![Skydds grupp medlem och inställnings Sammanfattning](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6,7
 
@@ -335,25 +333,26 @@ Om du vill säkerhetskopiera vSphere 6,7 gör du följande:
 
 - Ange register nycklarna enligt följande:
 
-```text
- Windows Registry Editor Version 5.00
+       ```text
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
-```
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+       ```
 
 ## <a name="next-steps"></a>Nästa steg
 

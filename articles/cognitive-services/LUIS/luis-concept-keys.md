@@ -1,5 +1,5 @@
 ---
-title: Redigerings-och körnings nycklar – LUIS
+title: Använda redigerings-och körnings nycklar med LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS använder två nycklar, redigerings nyckeln för att skapa din modell och körnings nyckeln för att skicka frågor till förutsägelse slut punkten med User yttranden.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487502"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901705"
 ---
 # <a name="authoring-and-runtime-keys"></a>Redigering och körningsnycklar
 

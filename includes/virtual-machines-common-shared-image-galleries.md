@@ -6,14 +6,14 @@ author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 9a564bf7f633903c58a5719327216baee2df6550
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 18c85995c545e1b603333fd6788b70cd863865ce
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026166"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905021"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -31,11 +31,12 @@ Om du har ett stort antal hanterade avbildningar som du behöver underhålla och
 
 Funktionen för delad bild galleri har flera resurs typer:
 
-| Resource | Beskrivning|
+| Resurs | Beskrivning|
 |----------|------------|
-| **Hanterad avbildning** | En grundläggande bild som kan användas separat eller som används för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från generaliserade virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
+| **Hanterad avbildning** | En grundläggande bild som kan användas separat eller som används för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från [generaliserade](#generalized-and-specialized-images) virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
+| **Ögonblicks bild** | En kopia av en virtuell hård disk som kan användas för att skapa en **avbildnings version**. Ögonblicks bilder kan hämtas från en [specialiserad](#generalized-and-specialized-images) virtuell dator (en som inte har generaliserats), sedan används separat eller med ögonblicks bilder av data diskar för att skapa en specialiserad avbildnings version.
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
-| **Bild definition** | Avbildningar definieras i ett galleri och bär information om avbildningen och kraven för att använda den i din organisation. Du kan inkludera information, till exempel om avbildningen är Windows eller Linux, lägsta och högsta minnes krav och viktig information. Det är en definition av en typ av bild. |
+| **Bild definition** | Avbildningar definieras i ett galleri och bär information om avbildningen och kraven för att använda den i din organisation. Du kan inkludera information, till exempel om avbildningen är generaliserad eller specialiserad, kraven på operativ system, minsta och högsta mängd minne och viktig information. Det är en definition av en typ av bild. |
 | **Avbildnings version** | En **avbildnings version** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Som en hanterad avbildning används avbildnings versionen för att skapa nya diskar för den virtuella datorn när du använder en **avbildnings version** för att skapa en virtuell dator. Avbildnings versioner kan användas flera gånger. |
 
 <br>
@@ -58,7 +59,7 @@ Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du f
 
 Följande är andra parametrar som kan ställas in på din avbildnings definition så att du enkelt kan spåra dina resurser:
 
-* Operativ system tillstånd – du kan ange operativ systemets tillstånd till generaliserad eller specialiserad, men endast generaliserad stöds för närvarande. Avbildningar måste skapas från virtuella datorer som har generaliserats med hjälp av Sysprep för Windows eller `waagent -deprovision` för Linux.
+* Operativ system tillstånd – du kan ange operativ systemets tillstånd till [generaliserad eller specialiserad](#generalized-and-specialized-images).
 * Operativ system – kan vara antingen Windows eller Linux.
 * Beskrivning – Använd beskrivning för att ge mer detaljerad information om varför avbildnings definitionen finns. Du kan till exempel ha en avbildnings definition för din klient server som har programmet förinstallerat.
 * EULA – kan användas för att peka på ett licens avtal för slutanvändare som är speciellt för avbildnings definitionen.
@@ -68,21 +69,43 @@ Följande är andra parametrar som kan ställas in på din avbildnings definitio
 * Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
 * Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
 
+## <a name="generalized-and-specialized-images"></a>Generaliserade och specialiserade avbildningar
+
+Det finns två operativ system tillstånd som stöds av det delade avbildnings galleriet. Vanligt vis kräver avbildningar att den virtuella datorn som användes för att skapa avbildningen har generaliserats innan avbildningen togs. Att generalisera är en process som tar bort dator-och användarspecifik information från den virtuella datorn. För Windows används Sysprep för även. För Linux kan du använda [waagent](https://github.com/Azure/WALinuxAgent) -`-deprovision` eller `-deprovision+user` parametrar.
+
+Specialiserade virtuella datorer har inte genomgått någon process för att ta bort datorspecifik information och konton. Virtuella datorer som skapats från specialiserade avbildningar har inte heller någon `osProfile` kopplad till sig. Det innebär att specialiserade avbildningar kommer att ha vissa begränsningar.
+
+- Konton som kan användas för att logga in på den virtuella datorn kan också användas på alla virtuella datorer som skapats med hjälp av den specialiserade avbildningen som skapas från den virtuella datorn.
+- Virtuella datorer kommer att ha **dator namnet** på den virtuella dator som avbildningen hämtades från. Du bör ändra dator namnet för att undvika kollisioner.
+- `osProfile` är hur känslig information överförs till den virtuella datorn med hjälp av `secrets`. Detta kan orsaka problem med hjälp av nyckel valv, WinRM och andra funktioner som använder `secrets` i `osProfile`. I vissa fall kan du använda hanterade tjänst identiteter (MSI) för att undvika de här begränsningarna.
+
+> [!IMPORTANT]
+> Specialiserade avbildningar är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Kända för hands versions begränsningar** Virtuella datorer kan bara skapas från specialiserade avbildningar med hjälp av portalen eller API: et. Är inget CLI-eller PowerShell-stöd för förhands granskningen.
+
+
 ## <a name="regional-support"></a>Regional support
 
 Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien Central och Australien, Central 2 måste du ha din prenumeration vit listas. Om du vill begära vit listning går du till: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-| Käll regioner |
-|---------------------|-----------------|------------------|-----------------|
-| Australien, centrala   | Centrala USA-EUAP | Sydkorea, centrala    | Västra centrala USA |
-| Australien, centrala 2 | Östasien       | Sydkorea, södra      | Västra Europa     |
-| Östra Australien      | East US         | Norra centrala USA | Indien, västra      |
-| Sydöstra Australien | USA, östra 2       | Norra Europa     | Västra USA         |
-| Södra Brasilien        | USA, östra 2 EUAP  | Södra centrala USA | Västra USA 2       |
-| Centrala Kanada      | Frankrike, centrala  | Södra Indien      | Östra Kina      |
-| Östra Kanada         | Frankrike, södra    | Sydostasien   | Kina, östra 2    |
-| Indien, centrala       | Östra Japan      | Storbritannien, södra         | Norra Kina     |
-| Centrala USA          | Västra Japan      | Storbritannien, västra          | Kina, norra 2   |
+
+| Käll regioner        |                   |                    |                    |
+| --------------------- | ----------------- | ------------------ | ------------------ |
+| Australien, centrala     | Kina, östra        | Indien, södra        | Europa, västra        |
+| Australien, centrala 2   | Kina, östra 2      | Sydostasien     | Storbritannien, södra           |
+| Östra Australien        | Kina, norra       | Östra Japan         | Storbritannien, västra            |
+| Australien, sydöstra   | Kina, norra 2     | Västra Japan         | US DoD, centrala     |
+| Södra Brasilien          | Asien, östra         | Sydkorea, centrala      | US DoD, östra        |
+| Centrala Kanada        | USA, östra           | Sydkorea, södra        | Arizona (USA-förvaltad region)     |
+| Kanada, östra           | USA, östra 2         | USA, norra centrala   | Texas (USA-förvaltad region)       |
+| Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | Virginia (USA-förvaltad region)    |
+| Centrala USA            | Frankrike, centrala    | USA, södra centrala   | Indien, västra         |
+| Centrala USA-EUAP       | Frankrike, södra      | Västra centrala USA    | USA, västra            |
+|                       |                   |                    | Västra USA 2          |
+
+
 
 ## <a name="limits"></a>Begränsningar 
 
@@ -215,17 +238,18 @@ Om du vill visa en lista över alla delade avbildnings Galleri resurser över pr
  
 Ja. Det finns tre scenarier baserat på de typer av avbildningar som du kan ha.
 
- Scenario 1: Om du har en hanterad avbildning kan du skapa en avbildnings definition och avbildnings version från den.
+ Scenario 1: om du har en hanterad avbildning kan du skapa en avbildnings definition och avbildnings version från den.
 
- Scenario 2: Om du har en ohanterad, generaliserad avbildning kan du skapa en hanterad avbildning från den och sedan skapa en avbildnings definition och avbildnings version från den. 
+ Scenario 2: om du har en ohanterad avbildning kan du skapa en hanterad avbildning från den och sedan skapa en avbildnings definition och avbildnings version från den. 
 
- Scenario 3: Om du har en virtuell hård disk i det lokala fil systemet måste du ladda upp den virtuella hård disken, skapa en hanterad avbildning. sedan kan du skapa och avbildnings definition och avbildnings version från den.
-- Om den virtuella hård disken är en virtuell Windows-dator kan du läsa [Ladda upp en generaliserad virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+ Scenario 3: om du har en virtuell hård disk i det lokala fil systemet måste du ladda upp den virtuella hård disken till en hanterad avbildning. sedan kan du skapa en avbildnings definition och avbildnings version från den.
+
+- Om den virtuella hård disken är en virtuell Windows-dator kan du läsa [Ladda upp en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - Om den virtuella hård disken är för en virtuell Linux-dator läser du [Ladda upp en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Kan jag skapa en avbildnings version från en specialiserad disk?
 
-Nej, vi stöder för närvarande inte specialiserade diskar som avbildningar. Om du har en specialiserad disk måste du [skapa en virtuell dator från den virtuella hård](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) disken genom att koppla den anpassade disken till en ny virtuell dator. När du har en virtuell dator som körs måste du följa anvisningarna för att skapa en hanterad avbildning från den virtuella [Windows-datorn](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) eller [Linux-datorn](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). När du har en generaliserad hanterad avbildning kan du starta processen för att skapa en delad avbildnings beskrivning och avbildnings version.
+Ja, stöd för specialiserade diskar som bilder är i för hands version. Du kan bara skapa en virtuell dator från en specialiserad avbildning med hjälp av portalen ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) eller [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) och API. Det finns inget PowerShell-stöd för förhands granskningen.
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Kan jag flytta den delade avbildnings Galleri resursen till en annan prenumeration när den har skapats?
 
@@ -235,7 +259,7 @@ Nej, du kan inte flytta den delade avbildnings Galleri resursen till en annan pr
 
 Nej, du kan inte replikera avbildnings versioner över moln.
 
-### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Kan jag replikera mina image-versioner mellan prenumerationer? 
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Kan jag replikera mina image-versioner mellan prenumerationer?
 
 Nej, du kan replikera avbildnings versionerna mellan regioner i en prenumeration och använda dem i andra prenumerationer via RBAC.
 
@@ -262,7 +286,7 @@ Det finns två sätt som du kan använda för att ange hur många avbildningar a
 1. Antalet regionala repliker som anger antalet repliker som du vill skapa per region. 
 2. Antal vanliga repliker som är standardvärdet per region, om antalet regionala repliker inte har angetts. 
 
-Ange det regionala replik antalet genom att skicka platsen tillsammans med antalet repliker som du vill skapa i den regionen: "Södra centrala USA = 2". 
+Ange det regionala replik antalet genom att skicka platsen tillsammans med antalet repliker som du vill skapa i regionen: "södra centrala USA = 2". 
 
 Om det regionala replik antalet inte anges med varje plats, blir standard antalet repliker det vanliga antalet repliker som du har angett. 
 

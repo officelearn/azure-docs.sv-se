@@ -1,7 +1,7 @@
 ---
 title: Avancerad läsare för iOS SDK-referens
 titleSuffix: Azure Cognitive Services
-description: Referens för iOS SDK för avancerad läsare
+description: Den fördjupade läsaren för iOS SDK är en SWIFT-CocoaPod som gör att du kan integrera den fördjupade läsaren i iOS-programmet.
 services: cognitive-services
 author: metanMSFT
 ms.service: cognitive-services
@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: 1f85740c358bd0949fed9c954537f0926538995d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 67d6b8c22c5635bd789078a7f91b02f8b07e5e70
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388123"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903131"
 ---
 # <a name="immersive-reader-sdk-reference-for-ios"></a>Avancerad läsare SDK-referens för iOS
 
 Den fördjupade läsaren för iOS SDK är en SWIFT-CocoaPod som gör att du kan integrera den fördjupade läsaren i iOS-programmet.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 SDK visar en enskild funktion `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`.
 
@@ -42,9 +42,9 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 | `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
 | `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
 | `onSuccess` | ()-> void | En avslutning som anropas när den fördjupade läsaren har startat. |
-| `onFailure` | (_ fel: [fel](#error))-> void | En avslutning som anropas när den fördjupade läsaren inte kan läsas in. Den här stängningen returnerar ett [`Error`-](#error) objekt som representerar en felkod och ett fel meddelande som är kopplat till felet. Mer information finns i [fel koderna](#error-codes). |
+| `onFailure` | (_ fel: [fel](#error))-> void | En avslutning som anropas när den fördjupade läsaren inte kan läsas in. Den här stängningen returnerar ett [`Error`](#error) -objekt som representerar en felkod och ett fel meddelande som är kopplat till felet. Mer information finns i [fel koderna](#error-codes). |
 
-## <a name="types"></a>Nodtyper
+## <a name="types"></a>Typer
 
 ### <a name="content"></a>Innehåll
 
@@ -91,7 +91,7 @@ struct Error {
 | Programmera | Beskrivning |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt, se `message` för mer information. |
-| standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
+| Standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
 | TokenExpired | Angiven token har upphört att gälla. |
 | Begränsas | Anrops frekvens gränsen har överskridits. |
 | InternalError | Ett internt fel inträffade i den fördjupade Smartkortsläsarens visnings kontroll. Se `message` för mer information.|

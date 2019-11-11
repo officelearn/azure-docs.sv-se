@@ -9,12 +9,12 @@ ms.author: estfan
 ms.topic: article
 ms.date: 10/01/2019
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 275d02219087d07a058f486c263d1886839dd4cf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5b946e36c5da9f122adce1f8e3b99523a789a66f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799767"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901083"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure Functions från Azure Logic Apps
 
@@ -114,7 +114,7 @@ Innan du kan skapa en Azure-funktion som börjar inifrån din Logic app med hjä
 
    * Mellan befintliga steg i din Logic app-arbetsflöde flyttar du musen över pilen, väljer plus tecknet (+) och väljer sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök anger du "Azure Functions" som filter. Välj den här åtgärden i listan åtgärder: **Välj en Azure-funktion**
+1. I rutan Sök anger du "Azure Functions" som filter. I listan åtgärder väljer du åtgärden **Välj en Azure-funktion** , till exempel:
 
    ![Hitta "Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -126,24 +126,24 @@ Innan du kan skapa en Azure-funktion som börjar inifrån din Logic app med hjä
 
    1. Ange ett namn för din funktion i rutan **funktions namn** .
 
-   1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts.
+   1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts. När du är klar väljer du **Skapa**.
 
-      ![Definiera din funktion](./media/logic-apps-azure-functions/function-definition.png)
+   Exempel:
 
-      I mallens kod refererar`context`- *objektet* till meddelandet som din Logi Kap App skickar via fältet **begär ande text** i ett senare steg. Använd följande syntax för att få åtkomst till `context` objektets egenskaper inifrån din funktion:
+   ![Definiera din funktion](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-      `context.body.<property-name>`
+   I mallens kod refererar`context`- *objektet* till meddelandet som din Logi Kap App skickar via fältet **begär ande text** i ett senare steg. Använd följande syntax för att få åtkomst till `context` objektets egenskaper inifrån din funktion:
 
-      Om du till exempel vill referera till egenskapen `content` i objektet `context` använder du följande syntax:
+   `context.body.<property-name>`
 
-      `context.body.content`
+   Om du till exempel vill referera till egenskapen `content` i objektet `context` använder du följande syntax:
 
-      Mallkod innehåller också en `input` variabel som lagrar värdet från `data`-parametern så att din funktion kan utföra åtgärder på det värdet. I JavaScript-funktioner är `data` variabeln också en genväg till `context.body`.
+   `context.body.content`
 
-      > [!NOTE]
-      > `body`-egenskapen här gäller för `context`-objektet och är inte samma som **Body** -token från en åtgärds utdata, som du också kan skicka till din funktion.
+   Mallkod innehåller också en `input` variabel som lagrar värdet från `data`-parametern så att din funktion kan utföra åtgärder på det värdet. I JavaScript-funktioner är `data` variabeln också en genväg till `context.body`.
 
-   1. När du är klar väljer du **Skapa**.
+   > [!NOTE]
+   > `body`-egenskapen här gäller för `context`-objektet och är inte samma som **Body** -token från en åtgärds utdata, som du också kan skicka till din funktion.
 
 1. I rutan **begär ande innehåll** anger du funktionens indatatyper, som måste formateras som ett JavaScript Object Notation (JSON)-objekt.
 
@@ -167,7 +167,7 @@ Om du vill anropa befintliga Azure Functions från dina Logic Apps kan du lägga
 
 1. Under steget där du vill lägga till funktionen väljer du **nytt steg**.
 
-1. Under **Välj en åtgärd**i rutan Sök anger du "Azure Functions" som filter. Välj den här åtgärden i listan åtgärder: **Välj en Azure-funktion**
+1. Under **Välj en åtgärd**i rutan Sök anger du "Azure Functions" som filter. I listan åtgärder väljer du åtgärden **Välj en Azure-funktion** .
 
    ![Hitta "Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

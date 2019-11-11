@@ -8,25 +8,27 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: 28205d6db85d7a5051f283445d95dd2375e174c8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7f9696e9803e9ab168c59b6c5e7413a4f754a6ae
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325869"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904437"
 ---
 # <a name="configure-liveness-probes"></a>Konfigurera liveavsökningar
 
-Program i behållare kan köras under längre tids perioder som resulterar i brutna tillstånd som kan behöva repare ras genom att du startar om behållaren. Azure Container Instances stöder direktmigreringar för att inkludera konfigurationer så att din behållare kan startas om om kritiska funktioner inte fungerar.
+Program i behållare kan köras under längre tids perioder, vilket resulterar i brutna tillstånd som kan behöva repare ras genom att starta om behållaren. Azure Container Instances stöder stöd för direktmigrering så att du kan konfigurera dina behållare i din behållar grupp för omstart om kritiska funktioner inte fungerar. Direktmigreringen avsökningen fungerar som en Kubernetes för [Direktmigrering](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 I den här artikeln förklaras hur du distribuerar en behållar grupp som innehåller en livemigrering, som demonstrerar den automatiska omstarten av en simulerad ej hälso behållar behållare.
 
+Azure Container Instances också stöd för [beredskaps avsökningar](container-instances-readiness-probe.md), som du kan konfigurera för att säkerställa att trafiken når en behållare endast när den är redo för den.
+
 ## <a name="yaml-deployment"></a>YAML-distribution
 
-Skapa en `liveness-probe.yaml` fil med följande kodfragment. Den här filen definierar en behållar grupp som består av en NGNIX-behållare som slutligen blir skadad.
+Skapa en `liveness-probe.yaml`-fil med följande kodfragment. Den här filen definierar en behållar grupp som består av en NGNIX-behållare som slutligen blir skadad.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: livenesstest
 properties:
@@ -63,7 +65,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Start kommando
 
-Distributionen definierar ett start kommando som ska köras när behållaren först börjar köras, som definieras av `command` egenskapen som accepterar en sträng mat ris. I det här exemplet startar en bash-session och skapar en fil som heter `healthy` `/tmp` i katalogen genom att skicka det här kommandot:
+Distributionen definierar ett start kommando som ska köras när behållaren först börjar köras, som definieras av egenskapen `command`, som accepterar en sträng mat ris. I det här exemplet startar en bash-session och skapar en fil med namnet `healthy` i katalogen `/tmp` genom att skicka det här kommandot:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
@@ -73,21 +75,21 @@ Distributionen definierar ett start kommando som ska köras när behållaren fö
 
 ### <a name="liveness-command"></a>Lives-kommandot
 
-Den här distributionen definierar `livenessProbe` ett som stöder `exec` ett Live-kommando som fungerar som en Live-kontroll. Om det här kommandot avslutas med ett värde som inte är noll stoppas behållaren och startas om, vilket innebär att det inte gick `healthy` att hitta någon signal om att det går att hitta filen. Om kommandot avslutas med slut koden 0 utförs ingen åtgärd.
+Den här distributionen definierar ett `livenessProbe` som stöder ett `exec` Live-kommando som fungerar som en Live-kontroll. Om det här kommandot avslutas med ett värde som inte är noll stoppas behållaren och startas om, vilket innebär att det inte gick att hitta den `healthy` filen. Om kommandot avslutas med slut koden 0 utförs ingen åtgärd.
 
-`periodSeconds` Egenskapen anger att Live-kommandot ska köras var femte sekund.
+Egenskapen `periodSeconds` anger att kommandot Lives ska köras var femte sekund.
 
 ## <a name="verify-liveness-output"></a>Verifiera Live-utdata
 
-Inom de första 30 sekunderna `healthy` finns filen som skapats av Start kommandot. När Live-kommandot söker efter `healthy` filens existens returnerar status koden noll, signaleringen lyckades, så att ingen omstart sker.
+Under de första 30 sekunderna finns `healthy`-filen som skapats av Start kommandot. När Live-kommandot söker efter `healthy` filens existens returnerar status koden noll, vilket signalerar att det lyckades, så att ingen omstart sker.
 
-Efter 30 sekunder börjar den `cat /tmp/healthy` Miss lyckas, vilket innebär att det uppstår fel i händelse av fel och avlivning.
+Efter 30 sekunder börjar `cat /tmp/healthy` att Miss lyckas, vilket orsakar att det uppstår fel i händelse av fel och avlivning.
 
 Dessa händelser kan visas från Azure Portal eller Azure CLI.
 
 ![Felaktig händelse för portalen][portal-unhealthy]
 
-Genom att visa händelser i Azure Portal utlöses händelser av typen `Unhealthy` när Live-kommandot Miss växlar. Den efterföljande händelsen är av typen `Killing`och betecknar en container borttagning så att en omstart kan påbörjas. Antalet omstarter för behållaren ökar varje stund då detta inträffar.
+Genom att visa händelserna i Azure Portal utlöses händelser av typen `Unhealthy` när Live-kommandot Miss Missing. Den efterföljande händelsen är av typen `Killing`, vilket indikerar en container borttagning så att en omstart kan påbörjas. Antalet omstarter för containern ökar varje tidpunkt som den här händelsen inträffar.
 
 Omstarter slutförs på plats så att resurser som offentliga IP-adresser och Node-/regionsspecifika innehåll bevaras.
 
@@ -97,7 +99,7 @@ Om den kontinuerliga avsökningen Miss lyckas och utlöser för många omstarter
 
 ## <a name="liveness-probes-and-restart-policies"></a>Direktmigreringar och principer för omstart
 
-Restart-principer ersätter omstarts beteendet som utlöses av direktmigreringar. Om du till exempel ställer in en `restartPolicy = Never` *och* en Direktmigrering, kommer behållar gruppen inte att starta om vid en misslyckad direktmigreringens kontroll. Behållar gruppen följer i stället behållar gruppens omstarts princip `Never`.
+Restart-principer ersätter omstarts beteendet som utlöses av direktmigreringar. Om du till exempel ställer in en `restartPolicy = Never` *och* en Direktmigrering, kommer behållar gruppen inte att starta om på grund av en misslyckad direktmigreringens kontroll. Behållar gruppen följer i stället behållar gruppens omstarts princip för `Never`.
 
 ## <a name="next-steps"></a>Nästa steg
 

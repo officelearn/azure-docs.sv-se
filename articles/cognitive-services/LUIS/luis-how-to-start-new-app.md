@@ -9,33 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 227efcdbcb7d8e776dd77b38c5d1dedd54d71b6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d3f8696388a33a8ea112aae438c6bbe9af520c61
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500314"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904281"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
-Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i [Luis](https://www.luis.ai) -portalen eller via Luis redigerings- [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i LUIS-portalen eller via LUIS redigerings- [API: er](developer-reference-resource.md).
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="using-the-luis-portal"></a>Använda LUIS-portalen
 
-Du kan skapa en ny app i LUIS-portalen på flera sätt:
+Du kan skapa en ny app i för hands versionen av portalen på flera sätt:
 
 * Börja med en tom app och skapa avsikter, yttranden och entiteter.
 * Börja med en tom app och Lägg till en [fördefinierad domän](luis-how-to-use-prebuilt-domains.md).
-* Importera en LUIS-app från en JSON-fil som redan innehåller avsikter, yttranden och entiteter.
+* Importera en LUIS-app från en `.lu` eller `.json` fil som redan innehåller avsikter, yttranden och entiteter.
 
 ## <a name="using-the-authoring-apis"></a>Använda API: erna för redigering
 Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
-* [Börja](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) med en tom app och skapa avsikter, yttranden och entiteter.
-* [Börja](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) med en fördefinierad domän.  
+* [Lägg till program](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) – starta med en tom app och skapa avsikter, yttranden och entiteter.
+* [Lägg till fördefinierad applikations](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) start med en fördefinierad domän, inklusive avsikter, yttranden och entiteter.  
 
 
 <a name="export-app"></a>
@@ -47,51 +47,36 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
 ## <a name="create-new-app-in-luis"></a>Skapa en ny app i LUIS
 
-1. På sidan **Mina appar** väljer du **+ skapa**.
+1. På sidan **Mina appar** väljer du din prenumeration och redigerar resurs och sedan **skapa**. Om du använder en kostnads fri utvärderings nyckel lär du dig hur du [skapar en redigerings resurs](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
-    ![Lista över LUIS-appar](./media/luis-create-new-app/apps-list.png)
+    ![Lista över LUIS-appar](./media/create-app-in-portal.png)
 
 
-2. Ge ditt program namnet "TravelAgent" i dialog rutan.
+1. I dialog rutan anger du namnet på programmet, t. ex. `Pizza Tutorial`.
 
-    ![Dialog rutan skapa ny app](./media/luis-create-new-app/create-app.png)
+    ![Dialog rutan skapa ny app](./media/create-pizza-tutorial-app-in-portal.png)
 
-3. Välj din program kultur (för TravelAgent-appen, välj engelska) och välj sedan **klar**. 
+1. Välj din program kultur och välj sedan **slutförd**. En beskrivning och en förutsägelse resurs är valfria i det här läget. Du kan ange när som helst i avsnittet **Hantera** i portalen.
 
     > [!NOTE]
     > Kulturen kan inte ändras när appen har skapats. 
 
-## <a name="import-an-app-from-file"></a>Importera en app från en fil
+    När appen har skapats visar LUIS-portalen listan över **avsikter** med den `None`s avsikt som redan har skapats. Nu har du en tom app. 
+    
+    > [!div class="mx-imgBorder"]
+    > listan med ![avsikter med ingen avsikt skapad utan exempel yttranden.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-1. På sidan **Mina appar** väljer du **Importera ny app**.
-1. I popup-dialogrutan väljer du en giltig app JSON-fil och väljer sedan **färdig**.
+## <a name="other-actions-available"></a>Andra åtgärder är tillgängliga
 
-### <a name="import-errors"></a>Import fel
+Verktygsfältet kontext innehåller andra åtgärder:
 
-Möjliga fel är: 
-
-* Det finns redan en app med det namnet. Du kan åtgärda detta genom att importera appen igen och ange det **valfria namnet** som ett nytt namn. 
-
-## <a name="export-app-for-backup"></a>Exportera app för säkerhets kopiering
-
-1. På sidan **Mina appar** väljer du **Exportera**.
-1. Välj **Exportera som JSON**. Din webbläsare laddar ned den aktiva versionen av appen.
-1. Lägg till den här filen i säkerhets kopierings systemet för att arkivera modellen.
-
-## <a name="export-app-for-containers"></a>Exportera app för behållare
-
-1. På sidan **Mina appar** väljer du **Exportera**.
-1. Välj **Exportera som behållare** och välj sedan vilken Publicerad plats (produktion eller fas) som du vill exportera.
-1. Använd den här filen med din [Luis-behållare](luis-container-howto.md). 
-
-    Om du är intresse rad av att exportera en utbildad men ännu inte publicerad modell som ska användas med LUIS-behållaren går du till sidan **versioner** och exporterar därifrån. 
-
-## <a name="delete-app"></a>Ta bort app
-
-1. På sidan **Mina appar** väljer du de tre punkterna (...) i slutet av raden app.
-1. Välj **ta bort** på menyn.
-1. Välj **OK** i bekräftelse fönstret.
+* Byt namn på App
+* Importera från en fil med hjälp av `.lu` eller `.json`
+* Exportera app som `.lu` (för [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json`eller `.zip` (för [Luis container](luis-container-howto.md))
+* Importera slut punkts loggar för behållare för att granska slut punkts yttranden
+* Exportera slut punkts loggar som `.csv`för offline-analys
+* Ta bort app
 
 ## <a name="next-steps"></a>Nästa steg
 
-Din första uppgift i appen är att [lägga till avsikter](luis-how-to-add-intents.md).
+Om din app-design innehåller identifiering av avsikter, [skapa nya avsikter](luis-how-to-add-intents.md)och Lägg till exempel yttranden. Om din app design bara är data extrahering, lägger du till exempel yttranden till none-avsikten och [skapar sedan entiteter](luis-how-to-add-example-utterances.md)och förser exempel yttranden med dessa entiteter. 

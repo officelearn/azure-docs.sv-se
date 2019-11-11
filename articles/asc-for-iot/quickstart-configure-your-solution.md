@@ -1,6 +1,6 @@
 ---
-title: Konfigurera din Azure Security Center för IoT-lösningen | Microsoft Docs
-description: Lär dig hur du konfigurerar din IoT-lösning från slut punkt till slut punkt med hjälp av Azure Security Center för IoT.
+title: 'Snabb start: Konfigurera din Azure Security Center för IoT-lösning'
+description: I den här snabb starten får du lära dig hur du konfigurerar din IoT-lösning från slut punkt till slut punkt med hjälp av Azure Security Center för IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: a546d153c6fe4f14ccc8c21308bd4a33385870c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e670df359cc33c9eaca089d0ed8f9614ef8c0468
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299694"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904139"
 ---
-# <a name="quickstart-configure-your-iot-solution"></a>Snabbstart: Konfigurera din IoT-lösning
+# <a name="quickstart-configure-your-iot-solution"></a>Snabb start: Konfigurera din IoT-lösning
 
 Den här artikeln innehåller en förklaring av hur du utför inledande konfiguration av din IoT-säkerhetslösning med Azure Security Center för IoT. 
 
@@ -49,7 +49,7 @@ Gör så här om du vill lägga till en ny resurs i IoT-lösningen:
 1. Välj **Redigera** och välj de resurs grupper som hör till din IoT-lösning.
 1. Klicka på **Lägg till**. 
 
-Grattis! Du har lagt till en ny resurs grupp i IoT-lösningen.
+Gratulerar! Du har lagt till en ny resurs grupp i IoT-lösningen.
 
 Azure Security Center för IoT övervakar nu att du nyligen har lagt till resurs grupper och viktiga säkerhets rekommendationer och aviseringar som en del av din IoT-lösning.
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12badd84bd929bdeb7b60ad6e99d6b3169e5022
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150457"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902908"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
 
@@ -88,7 +88,7 @@ Aktivera loggning när appen skapas genom att skapa en loggning för motringning
 - `tag` är en sträng som skickas till återanropet av biblioteket. Den är kopplad till logg posten och kan användas för att sortera loggnings meddelanden.
 - med `logLevel` kan du bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är: `Error`, `Warning`, `Info`och `Verbose`.
 - `message` är innehållet i logg posten.
-- `containsPII` anger om meddelanden som innehåller personliga data eller organisations data ska loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true`får den här metoden meddelandena två gånger: när den `containsPII`-parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii`-parametern inställd på `true` och meddelandet kan innehålla person uppgifter. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- `containsPII` anger om meddelanden som innehåller personliga data eller organisations data ska loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true`får den här metoden meddelandena två gånger: när den `containsPII`-parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii`-parametern inställd på `true` och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
 
 ```java
 private StringBuilder mLogs;
@@ -117,14 +117,15 @@ Så här inaktiverar du loggning av personliga data och organisations data:
 Logger.getInstance().setEnablePII(false);
 ```
 
-Som standard är loggning till logcat inaktive rad. För att aktivera: 
+Som standard är loggning till logcat inaktive rad. För att aktivera:
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## <a name="logging-in-msaljs"></a>Logga in MSAL. js
 
- Aktivera loggning i MSAL. js genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication`-instans. Detta loggnings objekt har följande egenskaper:
+ Aktivera loggning i MSAL. js (Java Script) genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication` instans. Detta loggnings objekt har följande egenskaper:
 
 - `localCallback`: en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Implementera localCallback-metoden beroende på hur du vill dirigera om loggarna.
 - `level` (valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error`, `Warning`, `Info`och `Verbose`. Standardvärdet är `Info`.
@@ -202,9 +203,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-identifiable-information-pii"></a>Personlig identifierbar information (PII)
+### <a name="personal-data"></a>Person uppgifter
 
-Som standard samlar MSAL inte in eller loggar all personligt identifierbar information. Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera personligt identifierbar information tar appen ansvar för säker hantering av mycket känsliga data och följande regler.
+Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled`, tar appen ansvar för säker hantering av mycket känsliga data och följande regler.
 
 Objective-C
 ```objc
@@ -238,7 +239,7 @@ Använd något av följande värden om du vill ange loggnings nivå när du logg
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
 | `MSALLogLevelWarning` | Varna |
 | `MSALLogLevelInfo` |  Biblioteks start punkter, med parametrar och olika nyckel rings åtgärder |
-|`MSALLogLevelVerbose`     |  API-spårning       |
+|`MSALLogLevelVerbose`     |  API-spårning |
 
 Exempel:
 
@@ -261,3 +262,51 @@ Exempel:
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 Att tillhandahålla korrelations-ID: n och tidsstämplar är användbara för att spåra problem. Information om tidsstämpel-och korrelations-ID finns i logg meddelandet. Den enda tillförlitliga platsen för att hämta dem är från MSAL loggnings meddelanden.
+
+## <a name="logging-in-msal-for-java"></a>Logga in MSAL för Java
+
+Med MSAL för Java (MSAL4J) kan du använda det loggnings bibliotek som du redan använder med din app, så länge det är kompatibelt med SLF4J. MSAL4j använder [fasad för enkel loggning för Java](http://www.slf4j.org/) (SLF4J) som en enkel fasad eller abstraktion för olika loggnings ramverk, till exempel [Java. util. logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [logback](http://logback.qos.ch/) och [log4j](https://logging.apache.org/log4j/2.x/). SLF4J gör det möjligt för slutanvändaren att ansluta till det önskade loggnings ramverket vid distributions tillfället.
+
+Om du till exempel vill använda logback som loggnings ramverk i ditt program lägger du till logback-beroendet till maven Pom-filen för ditt program:
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+Lägg sedan till konfigurations filen logback:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J binder automatiskt till logback vid distributions tillfället. MSAL-loggar skrivs till-konsolen.
+
+Instruktioner för hur du binder till andra loggnings ramverk finns i [hand boken för SLF4J](http://www.slf4j.org/manual.html).
+
+### <a name="personal-and-organization-information"></a>Personlig information och organisationsinformation
+
+Som standard samlar MSAL inte in eller loggar personliga eller organisatoriska data. I följande exempel är loggning av personliga eller organisatoriska data inaktiverat som standard:
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+Aktivera personlig och organisatorisk data loggning genom att ställa in `logPii()` på klient programs Builder. Om du aktiverar personlig eller organisatorisk data loggning måste din app ta ansvar för säker hantering av mycket känsliga data och som uppfyller alla myndighets krav.
+
+I följande exempel är loggning av personliga eller organisatoriska data aktiverade:
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

@@ -1,7 +1,7 @@
 ---
 title: Vad är formigenkänning?
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder formulär tolken för att tolka formulär-och tabell data.
+description: Med formulär tolken för Azure Cognitive Services kan du identifiera och extrahera nyckel/värde-par och tabell data från formulär dokument.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 86e0494ded84e9711b2283ae5fad77ff626cf792
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594538"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904489"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -58,10 +58,10 @@ Formulär tolken är tillgänglig i en för hands version med begränsad åtkoms
 **Steg 1:** Skapa en formulär igenkännings resurs i Azure Portal.
 
 **Steg 2:** Följ snabb starten för att använda REST API:
-* [Snabbstart: Träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning](quickstarts/curl-train-extract.md)
-* [Snabbstart: Träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python](quickstarts/python-train-extract.md)
-* [Snabbstart: Extrahera kvitto data med hjälp av sväng](quickstarts/curl-receipts.md)
-* [Snabbstart: Extrahera kvitto data med hjälp av python](quickstarts/python-receipts.md)
+* [Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning](quickstarts/curl-train-extract.md)
+* [Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python](quickstarts/python-train-extract.md)
+* [Snabb start: extrahera kvitto data med hjälp av sväng](quickstarts/curl-receipts.md)
+* [Snabb start: extrahera kvitto data med hjälp av python](quickstarts/python-receipts.md)
 
 Vi rekommenderar att du använder den kostnads fria tjänsten när du lär dig tekniken. Tänk på att antalet fria sidor är begränsat till 500 per månad.
 

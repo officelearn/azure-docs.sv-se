@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 11/07/2019
+ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337659"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903739"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter Notebook på din dator och Anslut till Apache Spark på HDInsight
 
@@ -28,11 +28,11 @@ Det finns fyra viktiga steg när du installerar Jupyter och ansluter till Apache
 
 Mer information om anpassade kärnor och Spark Magic tillgängligt för Jupyter Notebooks med HDInsight-kluster finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med Apache Spark Linux-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-De krav som anges här är inte för att installera Jupyter. Dessa är för att ansluta Jupyter Notebook till ett HDInsight-kluster när antecknings boken har installerats.
+* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Detta är en förutsättning för att ansluta Jupyter Notebook till ett HDInsight-kluster när antecknings boken har installerats.
 
-* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Kunskaper om Jupyter Notebooks med Spark på HDInsight.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Installera Jupyter Notebook på datorn
 
@@ -44,12 +44,12 @@ Ladda ned installations programmet för [Anaconda](https://www.anaconda.com/down
 
 1. Ange ett av kommandona nedan för att installera Spark Magic. Se även [sparkmagic-dokumentationen](https://github.com/jupyter-incubator/sparkmagic#installation).
 
-    |Klusterversion | Installations kommando |
+    |Kluster version | Installations kommando |
     |---|---|
-    |v 3.6 och v 3.5 |`pip install sparkmagic==0.12.7`|
+    |v 3.6 och v 3.5 |`pip install sparkmagic==0.13.1`|
     |v 3.4|`pip install sparkmagic==0.2.3`|
 
-1. Se `ipywidgets` till att det är korrekt installerat genom att köra följande kommando:
+1. Se till att `ipywidgets` är korrekt installerat genom att köra följande kommando:
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -67,14 +67,14 @@ Ladda ned installations programmet för [Anaconda](https://www.anaconda.com/down
 
 1. Från din nya arbets katalog anger du ett eller flera av kommandona nedan för att installera önskade kernel (er):
 
-    |Kernel | Kommando |
+    |Kernellägestid | Kommando |
     |---|---|
     |Spark|`jupyter-kernelspec install sparkmagic/kernels/sparkkernel`|
     |SparkR|`jupyter-kernelspec install sparkmagic/kernels/sparkrkernel`|
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. Valfritt. Ange kommandot nedan för att aktivera server tillägget:
+1. Valfri. Ange kommandot nedan för att aktivera server tillägget:
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
@@ -116,6 +116,10 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
       },
 
+      "custom_headers" : {
+        "X-Requested-By": "livy"
+      },
+
       "heartbeat_refresh_seconds": 5,
       "livy_server_heartbeat_timeout_seconds": 60,
       "heartbeat_retry_seconds": 1
@@ -128,13 +132,13 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
     |---|---|
     |ANVÄNDAR|Kluster inloggning, standard är `admin`.|
     |CLUSTERDNSNAME|Klusternamn|
-    |{BASE64ENCODEDPASSWORD}|Ett base64-kodat lösen ord för det faktiska lösen ordet.  Du kan generera ett base64-lösenord [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)på.|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Behåll om du `sparkmagic 0.12.7` använder (kluster v 3.5 och v 3.6).  Om du `sparkmagic 0.2.3` använder (kluster v 3.4) ersätter du med `"should_heartbeat": true`.|
+    |{BASE64ENCODEDPASSWORD}|Ett base64-kodat lösen ord för det faktiska lösen ordet.  Du kan generera ett base64-lösenord på [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/).|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Behåll om du använder `sparkmagic 0.12.7` (kluster v 3.5 och v 3.6).  Om du använder `sparkmagic 0.2.3` (kluster v 3.4) ersätter du med `"should_heartbeat": true`.|
 
     Du kan se en fullständig exempel fil vid [exempel config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
-   > Pulsslag skickas för att säkerställa att sessioner inte läcker. När en dator försätts i vilo läge eller stängs av skickas inte pulsslaget, vilket leder till att sessionen rensas. För kluster v 3.4, om du vill inaktivera det här beteendet, kan du ange livy-konfigurationen `livy.server.interactive.heartbeat.timeout` till `0` från Ambari-användargränssnittet. För kluster som är v 3.5, om du inte ställer in 3,5-konfigurationen ovan, tas sessionen inte bort.
+   > Pulsslag skickas för att säkerställa att sessioner inte läcker. När en dator försätts i vilo läge eller stängs av skickas inte pulsslaget, vilket leder till att sessionen rensas. För kluster v 3.4, om du vill inaktivera det här beteendet, kan du ange livy-konfigurations `livy.server.interactive.heartbeat.timeout` att `0` från användar gränssnittet för Ambari. För kluster som är v 3.5, om du inte ställer in 3,5-konfigurationen ovan, tas sessionen inte bort.
 
 5. Starta Jupyter. Använd följande kommando från kommando tolken.
 
@@ -146,10 +150,10 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
 
     a. Skapa en ny anteckningsbok. Välj **ny**i det högra hörnet. Du bör se standard kerneln **python 2** eller **python 3** och de kerneler som du har installerat. De faktiska värdena kan variera beroende på dina installations val.  Välj **PySpark**.
 
-    ![Tillgängliga kärnor i Jupyter Notebook]-(./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "kärnor i Jupyter Notebook")
+    ![Tillgängliga kärnor i Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kärnor i Jupyter Notebook")
 
     > [!IMPORTANT]  
-    > När du har valt **ny** granska ditt gränssnitt för fel.  Om du ser felet `TypeError: __init__() got an unexpected keyword argument 'io_loop'` kan du råka ut för ett känt problem med vissa versioner av storm.  Stoppa i så fall kerneln och nedgradera sedan Storm-installationen med följande kommando: `pip install tornado==4.5.3`.
+    > När du har valt **ny** granska ditt gränssnitt för fel.  Om du ser felet `TypeError: __init__() got an unexpected keyword argument 'io_loop'` kanske du råkat ut för ett känt problem med vissa versioner av storm.  Stoppa i så fall kerneln och nedgradera sedan Storm-installationen med följande kommando: `pip install tornado==4.5.3`.
 
     b. Kör följande kodfragment.
 
@@ -177,6 +181,6 @@ Det kan finnas flera orsaker till varför du kanske vill installera Jupyter på 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [: Apache Spark på Azure HDInsight](apache-spark-overview.md)
-* [Apache Spark med BI: Utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)

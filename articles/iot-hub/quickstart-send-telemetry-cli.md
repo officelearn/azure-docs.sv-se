@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: d926f1c286c4288784d429f13b22436d7c8ae7e5
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 8ebcc863c1812081e6198ff9c684934642e1dc41
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73849278"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904561"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och övervaka den med Azure CLI
 
@@ -22,7 +22,7 @@ ms.locfileid: "73849278"
 
 IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här snabb starten använder du Azure CLI för att skapa en IoT Hub och en simulerad enhet, skicka telemetri till hubben och skicka ett meddelande från moln till enhet. Du kan också använda Azure Portal för att visualisera enhets mått. Det här är ett grundläggande arbets flöde för utvecklare som använder CLI för att interagera med ett IoT Hub-program.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 - Om du inte har en Azure-prenumeration kan du [skapa en kostnads fri](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Azure CLI. Du kan köra alla kommandon i den här snabb starten med hjälp av Azure Cloud Shell, ett interaktivt CLI-gränssnitt som körs i din webbläsare. Om du använder Cloud Shell behöver du inte installera något. Om du föredrar att använda CLI lokalt kräver den här snabb starten Azure CLI version 2.0.76 eller senare. Kör az --version för att se versionen. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -74,7 +74,7 @@ I det här avsnittet använder du Azure CLI för att skapa en resurs grupp och e
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Kör kommandot [AZ IoT Hub Create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) för att skapa en IoT-hubb.
+1. Kör kommandot [AZ IoT Hub Create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) för att skapa en IoT-hubb. Det kan ta några minuter att skapa en IoT-hubb. 
 
     *YourIotHubName*. Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb. Ett IoT Hub-namn måste vara globalt unikt i Azure. Den här plats hållaren används i resten av den här snabb starten för att representera namnet på din IoT-hubb.
 
@@ -141,15 +141,15 @@ I det här avsnittet använder du den andra CLI-sessionen för att skicka ett me
 
     ![Cloud Shell meddelande från moln till enhet](media/quickstart-send-telemetry-cli/cloud-shell-receive-message.png)
 
-1. När du har granskat meddelandet stänger du båda CLI-sessionerna. 
+1. När du har granskat meddelandet stänger du den andra CLI-sessionen. Se till att den första CLI-sessionen är öppen. Du kan använda den för att rensa resurser i ett senare steg.
 
 ## <a name="view-messaging-metrics-in-the-portal"></a>Visa meddelande mått i portalen
 Med Azure Portal kan du hantera alla aspekter av dina IoT Hub och enheter. I ett typiskt IoT Hub-program som matar in telemetri från enheter kanske du vill övervaka enheter eller visa mått för telemetri för enheter. 
 
 För att visualisera meddelande mått i Azure Portal:
-1. Välj **alla resurser**på **Start** sidan i portalen. 
+1. Välj **alla resurser**i den vänstra navigerings menyn i portalen. Här visas alla resurser i din prenumeration, inklusive IoT-hubben som du skapade. 
 
-1. I listan över resurs grupper väljer du den IoT-hubb som du skapade. 
+1. Klicka på länken på den IoT-hubb som du skapade. Portalen visar navets översikts sida.
 
 1. Välj **mått** i den vänstra rutan i IoT Hub. 
 

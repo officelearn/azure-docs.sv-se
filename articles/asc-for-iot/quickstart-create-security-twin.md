@@ -1,6 +1,6 @@
 ---
-title: Skapa en säkerhetsmodul för Azure Security Center för IoT | Microsoft Docs
-description: Lär dig hur du skapar en Azure Security Center för IoT-modulen för användning med Azure Security Center för IoT.
+title: 'Snabb start: skapa en säkerhetsmodul med dubbla för Azure Security Center för IoT'
+description: I den här snabb starten får du lära dig hur du skapar en Azure Security Center för IoT-modul för användning med Azure Security Center för IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 92bf79aa5ae55bad16d68a26dc13d292285a4d46
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b362130c2b717f813a6332f81a3c8179bea4166a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597073"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904170"
 ---
-# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Snabbstart: Skapa en azureiotsecurity-modul med dubbla
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Snabb start: skapa en azureiotsecurity-modul med dubbla
 
 I den här snabb starten beskrivs hur du skapar en enskild _azureiotsecurity_ -modul för nya enheter, eller om du skapar en modul med flera enheter i en IoT Hub.  
 
@@ -58,7 +58,7 @@ Om du vill skapa en ny _azureiotsecurity_ -modul för en enhet manuellt använde
 1. Klicka på enheten och sedan på **Lägg till modulens identitet**.
 1. Ange **azureiotsecurity**i fältet **namn på modulens identitet** .
 
-1. Klicka på **Spara**. 
+1. Klicka på **Save** (Spara). 
 
 ## <a name="verify-creation-of-a-module-twin"></a>Verifiera att en modul har skapats
 
@@ -66,10 +66,10 @@ Så här kontrollerar du om det finns en säkerhetsmodul för en speciell enhet:
 
 1. I Azure IoT Hub väljer du **IoT-enheter** på menyn **Explorer** .    
 1. Ange enhets-ID eller Välj ett alternativ i **fältet fråga enhet** och klicka på **fråga enheter**. 
-    ![Fråga enheter](./media/quickstart/verify-security-module-twin.png)
+    ![fråga efter enheter](./media/quickstart/verify-security-module-twin.png)
 1. Välj enheten eller dubbelklicka på den för att öppna sidan med enhets information. 
 1. Välj menyn **modul identiteter** och bekräfta att **azureiotsecurity** -modulen finns i listan över modul identiteter som är associerade med enheten. 
-    ![Moduler som är kopplade till en enhet](./media/quickstart/verify-security-module-twin-3.png)
+    ![moduler som är kopplade till en enhet](./media/quickstart/verify-security-module-twin-3.png)
 
 
 Mer information om hur du anpassar egenskaper för Azure Security Center för IoT-moduler finns i [agent konfiguration](how-to-agent-configuration.md).

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.date: 06/04/2019
-ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/08/2019
+ms.openlocfilehash: c65a0464bbad6dbaca51dbc5bbc0d84adbd605d7
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680149"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904675"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Anropa eller utlös Logi Kap par genom att använda Azure Functions och Azure Service Bus
 
@@ -32,13 +32,13 @@ Du kan använda [Azure Functions](../azure-functions/functions-overview.md) för
 
 ## <a name="create-logic-app"></a>Skapa en logikapp
 
-I det här scenariot har du en funktion som kör varje Logic-app som du vill utlösa. Börja med att skapa en logisk app som börjar med en utlösare för HTTP-begäran. Funktionen anropar slut punkten när ett köat meddelande tas emot.  
+I det här scenariot har du en funktion som kör varje Logic-app som du vill utlösa. Börja med att skapa en logisk app som börjar med en utlösare för HTTP-begäran. Funktionen anropar slut punkten när ett köat meddelande tas emot.
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och skapa en tom Logic-app.
 
    Om du inte har använt Logic Apps igen går du igenom [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. I rutan Sök anger du "http-begäran". Välj den här utlösaren i listan utlösare: **när en HTTP-begäran tas emot**
+1. Skriv `http request` i sökrutan. I listan utlösare väljer du alternativet **när en HTTP-begäran tas emot** .
 
    ![Välj utlösare](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -104,7 +104,7 @@ Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 
 1. Under namnet på din funktion i appen expanderar du **Functions**. I fönstret **funktioner** väljer du **ny funktion**.
 
-   ![Expandera "Functions" och välj "ny funktion"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Expandera "Functions" och välj "ny funktion"](./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png)
 
 1. Välj den här mallen baserat på om du har skapat en ny function-app där du valde .NET som körnings stack, eller om du använder en befintlig Function-app.
 
@@ -118,7 +118,15 @@ Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 
 1. I fönstret **Azure Service Bus Queue trigger** anger du ett namn för utlösaren och konfigurerar **Service Bus anslutning** för kön, som använder Azure Service Bus SDK `OnMessageReceive()` lyssnare och väljer **skapa**.
 
-1. Skriv en grundläggande funktion för att anropa den tidigare skapade Logic app-slutpunkten genom att använda Queue meddelandet som en utlösare. I det här exemplet används `application/json` meddelandets innehålls typ, men du kan ändra den här typen efter behov. Återanvänd om möjligt instansen av HTTP-klienter. Mer information finns i [hantera anslutningar i Azure Functions](../azure-functions/manage-connections.md).
+1. Skriv en grundläggande funktion för att anropa den tidigare skapade Logic app-slutpunkten genom att använda Queue meddelandet som en utlösare. Innan du skriver din funktion bör du gå igenom följande överväganden:
+
+   * I det här exemplet används `application/json` meddelandets innehålls typ, men du kan ändra den här typen efter behov.
+   
+   * På grund av möjlig körning av funktioner, höga volymer eller tung belastning, Undvik att instansiera [klassen HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) med `using`-instruktionen och direkt skapa HTTPClient-instanser per begäran. Mer information finns i [använda HttpClientFactory för att implementera elastiska HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   
+   * Återanvänd om möjligt instansen av HTTP-klienter. Mer information finns i [hantera anslutningar i Azure Functions](../azure-functions/manage-connections.md).
+
+   I det här exemplet används [metoden`Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) i [asynkront](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) läge. Mer information finns i [asynkron programmering med async och await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
    ```CSharp
    using System;
@@ -126,17 +134,16 @@ Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
    using System.Net.Http;
    using System.Text;
 
-   // Callback URL for previously created Request trigger
+   // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible
+   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
-   public static void Run(string myQueueItem, ILogger log)
+   public static async Task Run(string myQueueItem, TraceWriter log) 
    {
-       log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+      log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+      var response = await httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")); 
    }
    ```
 
@@ -146,4 +153,4 @@ Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anropa, utlösa eller kapsla arbets flöden med hjälp av HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md)
+* [Anropa, utlösa eller kapsla arbets flöden med hjälp av HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md)

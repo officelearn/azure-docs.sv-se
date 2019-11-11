@@ -1,21 +1,21 @@
 ---
-title: Den här snabbstarten beskriver hur du registrerar X.509-enheter till Azure Device Provisioning Service med hjälp av C# | Microsoft Docs
+title: 'Snabb start: så här registrerar du X. 509-enheten i Azure Device Provisioning-tjänsten med hjälp avC#'
 description: Den här snabbstarten använder gruppregistreringar. I den här snabb starten registrerar du X. 509-enheter på Azure C#-IoT Hub Device Provisioning service med.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 15bce340b257b5c221192a6ace5c5f0eac30f85a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036016"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903427"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av C#
 
@@ -29,7 +29,7 @@ Den här snabb starten förväntar dig att du redan har skapat en IoT Hub-och De
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/).
 * Installera [.net Core SDK](https://www.microsoft.com/net/download/windows).
@@ -92,7 +92,7 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
 
    Det här steget hämtar, installerar och lägger till en referens till [klient-SDK NuGet-paketet för Azure IoT Provisioning-tjänsten](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) och dess beroenden.
 
-1. Lägg till följande `using` -satser efter de `using` andra-satserna överst `Program.cs`i:
+1. Lägg till följande `using`-uttryck efter de andra `using`-satserna överst i `Program.cs`:
 
    ```csharp
    using System.Security.Cryptography.X509Certificates;
@@ -100,7 +100,7 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Lägg till följande fält i `Program` -klassen och gör de listade ändringarna.  
+1. Lägg till följande fält i `Program`-klassen och gör de visade ändringarna.  
 
    ```csharp
    private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
@@ -108,11 +108,11 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * `ProvisioningConnectionString` Ersätt placeholder-värdet med anslutnings strängen för etablerings tjänsten som du vill skapa registreringen för.
+   * Ersätt `ProvisioningConnectionString` placeholder-värdet med anslutnings strängen för etablerings tjänsten som du vill skapa registreringen för.
 
-   * `X509RootCertPath` Ersätt placeholder-värdet med sökvägen till en. pem-eller. cer-fil. Den här filen representerar den offentliga delen av ett mellanliggande eller rot-CA X. 509-certifikat som tidigare har laddats upp och verifierats med din etablerings tjänst.
+   * Ersätt `X509RootCertPath` placeholder-värdet med sökvägen till en. pem-eller. cer-fil. Den här filen representerar den offentliga delen av ett mellanliggande eller rot-CA X. 509-certifikat som tidigare har laddats upp och verifierats med din etablerings tjänst.
 
-   * Alternativt kan du ändra `EnrollmentGroupId` värdet. Strängen får bara innehålla gemener och bindestreck.
+   * Alternativt kan du ändra `EnrollmentGroupId` svärdet. Strängen får bara innehålla gemener och bindestreck.
 
    > [!IMPORTANT]
    > I produktionskoden ska du vara medveten om följande säkerhetsöverväganden:
@@ -120,7 +120,7 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
    > * Hårdkodning av anslutningssträngen för etableringstjänstadministratören går emot bästa säkerhetsmetoder. Istället ska anslutningssträngen lagras på ett säkert sätt, som i en säker konfigurationsfil eller i registret.
    > * Glöm inte att överföra den offentliga delen av signeringscertifikatet. Ladda aldrig upp .pfx- (PKCS12) eller .pem-filer som innehåller privata nycklar till etableringstjänsten.
 
-1. Lägg till följande metod i `Program` -klassen. Den här koden skapar en registrerings grupp post och anropar `CreateOrUpdateEnrollmentGroupAsync` sedan metoden för `ProvisioningServiceClient` att lägga till registrerings gruppen till etablerings tjänsten.
+1. Lägg till följande metod i `Program`-klassen. Den här koden skapar en registrerings grupp post och anropar sedan metoden `CreateOrUpdateEnrollmentGroupAsync` på `ProvisioningServiceClient` för att lägga till registrerings gruppen till etablerings tjänsten.
 
    ```csharp
    public static async Task RunSample()
@@ -156,7 +156,7 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
    }
    ```
 
-1. Ersätt slutligen bröd texten i `Main` metoden med följande rader:
+1. Ersätt slutligen bröd texten i `Main`-metoden med följande rader:
 
    ```csharp
    RunSample().GetAwaiter().GetResult();

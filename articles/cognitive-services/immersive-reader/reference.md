@@ -1,7 +1,7 @@
 ---
 title: Avancerad läsare SDK-referens
 titleSuffix: Azure Cognitive Services
-description: Referens för SDK för avancerad läsare
+description: SDK för avancerad läsare är ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt webb program.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ed9bd6f5932fdcb2d9124a000115a6f68cf21613
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889315"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903113"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
 
 SDK för avancerad läsare är ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt webb program.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 SDK: n visar funktionerna:
 
@@ -84,7 +84,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Alternativ för att konfigurera vissa beteenden för funktionen renderButtons. Valfri. |
 
-## <a name="types"></a>Nodtyper
+## <a name="types"></a>Typer
 
 ### <a name="content"></a>Innehåll
 
@@ -168,7 +168,7 @@ Innehåller information om felet.
 
 #### <a name="error-codes"></a>Felkoder
 
-| Kod | Beskrivning |
+| Programmera | Beskrivning |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt, se `message` för mer information. |
 | Standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |

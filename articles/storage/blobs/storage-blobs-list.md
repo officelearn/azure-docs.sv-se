@@ -1,23 +1,25 @@
 ---
 title: Lista blobbar med .NET-Azure Storage
-description: Lär dig hur du listar blobbar i en behållare i ditt Azure Storage-konto med hjälp av .NET-klient biblioteket.
+description: Lär dig hur du listar blobbar i en behållare i ditt Azure Storage-konto med hjälp av .NET-klient biblioteket. Kod exempel visar hur du listar blobbar i en platt lista eller hur du listar blobbar hierarkiskt, som om de var ordnade i kataloger eller mappar.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bf9d2d59e993de3807a10a6c39f88b2063024bfc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599934"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902004"
 ---
 # <a name="list-blobs-with-net"></a>Lista blobbar med .NET
 
-När du listar blobbar från din kod kan du ange ett antal alternativ för att hantera hur resultat returneras från Azure Storage. Den här artikeln visar hur du listar blobbar med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).  
+När du listar blobbar från din kod kan du ange ett antal alternativ för att hantera hur resultat returneras från Azure Storage. Du kan ange antalet resultat som ska returneras i varje uppsättning resultat och sedan hämta de efterföljande uppsättningarna. Du kan ange ett prefix för att returnera blobbar vars namn börjar med den tecken eller strängen. Du kan också lista blobbar i en plan struktur eller hierarkiskt. En hierarkisk lista returnerar blobbar som om de var ordnade i mappar. 
+
+Den här artikeln visar hur du listar blobbar med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).  
 
 ## <a name="understand-blob-listing-options"></a>Förstå List alternativ för BLOB
 
@@ -53,7 +55,7 @@ Om du vill returnera BLOB-metadata med resultaten anger du värdet för **metada
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Platt lista jämfört med hierarkisk lista
 
-Blobbar i Azure Storage ordnas i ett plant paradigm i stället för ett hierarkiskt paradigm (som ett klassiskt fil system). Du kan dock organisera blobbar i *virtuella kataloger* för att efterlikna ett hierarkiskt paradigm. En virtuell katalog är en del av namnet på blobben som är avgränsat med avgränsnings tecken.
+Blobbar i Azure Storage ordnas i ett plant paradigm i stället för ett hierarkiskt paradigm (som ett klassiskt fil system). Du kan dock organisera blobbar i *virtuella kataloger* för att efterlikna en mappstruktur. En virtuell katalog utgör en del av namnet på blobben och anges med avgränsnings tecken.
 
 Använd ett avgränsnings tecken i BLOB-namnet för att organisera blobbar i virtuella kataloger. Standard avgränsnings tecken är ett snedstreck (/), men du kan ange valfritt tecken som avgränsare.
 

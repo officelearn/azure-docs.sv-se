@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6a17993d7bc4ff54b3d55fa5b5bb141463896e32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5824b835b3debb33386c0d1f86581c6bb91b14ae
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488699"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904202"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -74,7 +74,7 @@ I LUIS-portalen kan du märka text för den exakta entitet som du är intresse r
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Jag försökte importera en app-eller versions fil, men jag fick ett fel meddelande, vad hände? 
 
-Läs mer om [versions import fel](luis-how-to-manage-versions.md#import-errors) och [import fel för appar](luis-how-to-start-new-app.md#import-errors).
+Läs mer om [versions import fel](luis-how-to-manage-versions.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
@@ -113,7 +113,7 @@ Lösningarna omfattar:
 * Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
 * Du kan Grinda klient program begär Anden med en [princip för återförsök](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) som du implementerar själv när du får den här status koden. 
 
-### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Min slut punkts fråga returnerade oväntade resultat. Vad gör jag?
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Min slut punkts fråga returnerade oväntade resultat. Vad ska jag göra?
 
 Oväntade frågeresultat baseras på den publicerade modellens tillstånd. Om du vill korrigera modellen kan du behöva ändra modellen, träna och publicera igen. 
 
@@ -158,11 +158,11 @@ Se [skydda slut punkten](luis-concept-keys.md#securing-the-endpoint).
 ### <a name="what-is-the-maximum-number-of-intents-and-entities-that-a-luis-app-can-support"></a>Vilket är det maximala antalet syften och entiteter som en LUIS-app har stöd för?
 Se [gränser](luis-boundaries.md) -referensen.
 
-### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>Jag vill bygga en LUIS-app med fler än det maximala antalet syften. Vad gör jag?
+### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>Jag vill bygga en LUIS-app med fler än det maximala antalet syften. Vad ska jag göra?
 
 Se [metod tips för avsikter](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
 
-### <a name="i-want-to-build-an-app-in-luis-with-more-than-the-maximum-number-of-entities-what-should-i-do"></a>Jag vill bygga en app i LUIS med fler än det maximala antalet entiteter. Vad gör jag?
+### <a name="i-want-to-build-an-app-in-luis-with-more-than-the-maximum-number-of-entities-what-should-i-do"></a>Jag vill bygga en app i LUIS med fler än det maximala antalet entiteter. Vad ska jag göra?
 
 Se [metod tips för entiteter](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
 
@@ -264,7 +264,7 @@ Din redigerings-/start nyckel är endast tillåten 1000-slut punkts frågor per 
 
 ## <a name="bots"></a>Robotar
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-robot fungerar inte. Vad gör jag?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-robot fungerar inte. Vad gör jag nu?
 
 Det första problemet är att isolera om problemet är relaterat till LUIS eller sker utanför LUIS mellan. 
 

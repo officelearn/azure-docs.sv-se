@@ -1,22 +1,22 @@
 ---
-title: Interaktiv kartsökning med Azure Maps | Microsoft Docs
+title: 'Snabb start: interaktiv kart sökning med Azure Maps'
 description: Azure-snabbstart – Skapa en demonstration av en interaktiv kartsökning med Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554268"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903185"
 ---
-# <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Skapa en interaktiv sökkarta med hjälp av Azure Maps
+# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta genom att använda Azure Maps
 
 Den här artikeln visar funktionerna i Azure Maps för att skapa en karta som ger användarna en interaktiv sökupplevelse. Vi går igenom de grundläggande stegen:
 * Skapa ditt eget Azure Maps-konto.
@@ -26,11 +26,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-account-and-get-your-key"></a>Skapa ett konto och hämta din nyckel
 
-1. Välj **Skapa en resurs** i det övre vänstra hörnet av [Azure-portalen](https://portal.azure.com).
+1. Välj [Skapa en resurs](https://portal.azure.com) i det övre vänstra hörnet av **Azure-portalen**.
 2. Ange **Maps** i rutan **Sök på Marketplace**.
 3. Bland **resultaten** väljer du **Maps**. Välj knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Azure Maps-konto**:

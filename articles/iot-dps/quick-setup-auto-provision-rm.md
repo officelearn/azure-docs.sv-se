@@ -1,27 +1,27 @@
 ---
-title: Konfigurera enhetsetablering med en Azure Resource Manager-mall | Microsoft Docs
+title: 'Snabb start: Konfigurera enhets etablering med hjälp av en Azure Resource Manager mall'
 description: Azure-snabbstart – Konfigurera tjänsten Azure IoT Hub Device Provisioning-tjänsten med en mall
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/18/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126485"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903370"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Konfigurera tjänsten IoT Hub Device Provisioning med en Azure Resource Manager-mall
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Snabb start: Konfigurera IoT Hub Device Provisioning Service med en Azure Resource Manager-mall
 
 Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att programmässigt konfigurera de Azure-molnresurser som är nödvändiga för att etablera dina enheter. De här anvisningarna visar hur du skapar en IoT-hubb, en ny IoT Hub Device Provisioning-tjänst och hur du länkar de två tjänsterna till varandra med en Azure Resource Manager-mall. I den här snabbstarten används [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) för att utföra de nödvändiga programmässiga stegen för att skapa en resursgrupp och distribuera mallen, men du kan enkelt använda [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby eller andra programmeringsspråk för att utföra stegen och distribuera mallen. 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - För den här snabbstarten krävs att du kör Azure CLI lokalt. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +31,7 @@ Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-
 
 Logga in på ditt Azure-konto och välj din prenumeration.
 
-1. I kommandotolken kör du [inloggningskommandot][lnk-login-command]:
+1. I kommando tolken kör du [inloggnings kommandot][lnk-login-command]:
     
     ```azurecli
     az login
@@ -39,7 +39,7 @@ Logga in på ditt Azure-konto och välj din prenumeration.
 
     Följ instruktionerna för att autentisera med hjälp av koden och logga in på ditt Azure-konto via en webbläsare.
 
-2. Om du har flera Azure-prenumerationer får du åtkomst till alla Azure-konton som är associerade med dina autentiseringsuppgifter när du loggar in på Azure. Använd följande [-kommando för att lista Azure-konton][lnk-az-account-command] som du kan använda:
+2. Om du har flera Azure-prenumerationer får du åtkomst till alla Azure-konton som är associerade med dina autentiseringsuppgifter när du loggar in på Azure. Använd följande [kommando för att visa en lista över de Azure-konton][lnk-az-account-command] som du kan använda:
     
     ```azurecli
     az account list 
@@ -51,7 +51,7 @@ Logga in på ditt Azure-konto och välj din prenumeration.
     az account set --subscription {your subscription name or id}
     ```
 
-3. När du skapar Azure-molnresurser IoT-hubbar och etablerar tjänster skapar du dem i en resursgrupp. Använd en befintlig resursgrupp eller kör följande [kommando för att skapa en resursgrupp][lnk-az-resource-command]:
+3. När du skapar Azure-molnresurser IoT-hubbar och etablerar tjänster skapar du dem i en resursgrupp. Använd antingen en befintlig resurs grupp eller kör följande [kommando för att skapa en resurs grupp][lnk-az-resource-command]:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
@@ -321,7 +321,7 @@ Använd följande Azure CLI-kommandon för att distribuera dina mallar och verif
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du vill fortsätta med efterföljande snabbstarter eller självstudier låter du bli att rensa resurserna som du har skapat i den här snabbstarten. Om du planerar att fortsätta kan du använda Azure CLI för att [ta bort en enskild resurs][lnk-az-resource-command], som en IoT-hubb eller en etableringstjänst, eller för att ta bort en resursgrupp och alla dess resurser.
+De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du vill fortsätta med efterföljande snabbstarter eller självstudier låter du bli att rensa resurserna som du har skapat i den här snabbstarten. Om du inte planerar att fortsätta kan du använda Azure CLI för att [ta bort en enskild resurs][lnk-az-resource-command], till exempel en IoT-hubb eller en etablerings tjänst, eller för att ta bort en resurs grupp och alla dess resurser.
 
 Ta bort etableringstjänsten genom att köra följande kommando:
 

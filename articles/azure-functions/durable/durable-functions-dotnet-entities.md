@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614893"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904068"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide för utvecklare till varaktiga entiteter i .NET
 
@@ -117,7 +117,7 @@ Vi kan till exempel ändra entiteten Counter så att den startar en dirigering n
 
 ## <a name="accessing-entities-directly"></a>Åtkomst till entiteter direkt
 
-Klassbaserade entiteter kan nås direkt, med hjälp av explicita sträng namn för entiteten och dess åtgärder. Vi tillhandahåller några exempel nedan. en djupare förklaring av underliggande koncept (t. ex. signaler eller anrop) finns i diskussionen i [komma åt entiteter](durable-functions-entities.md#accessing-entities). 
+Klassbaserade entiteter kan nås direkt, med hjälp av explicita sträng namn för entiteten och dess åtgärder. Vi tillhandahåller några exempel nedan. en djupare förklaring av underliggande koncept (till exempel signaler eller anrop) finns i diskussionen i [Access-entiteter](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
 > Om möjligt rekommenderar vi [att du använder entiteter via gränssnitt](#accessing-entities-through-interfaces), eftersom det ger mer typ kontroll.
@@ -207,7 +207,7 @@ Förutom att tillhandahålla typ kontroll är gränssnitten användbara för en 
 
 ### <a name="example-client-signals-entity-through-interface"></a>Exempel: klient Signals-entitet via gränssnitt
 
-Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface`. Till exempel:
+Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface`. Exempel:
 
 ```csharp
 [FunctionName("DeleteCounter")]

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 14745f79955a98727d6f55da4189212f2f18d9c0
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601322"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904401"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsök vanliga problem i Azure Container Instances
 
@@ -22,7 +22,8 @@ Den här artikeln visar hur du felsöker vanliga problem med att hantera eller d
 
 Om du behöver ytterligare support, se tillgängliga **Hjälp + Support** alternativ i [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="naming-conventions"></a>Namngivningskonventioner
+## <a name="issues-during-container-group-deployment"></a>Problem under distribution av container grupp
+### <a name="naming-conventions"></a>Namngivningskonventioner
 
 När du definierar din behållar specifikation kräver vissa parametrar att namngivnings begränsningar uppkommer. Nedan visas en tabell med särskilda krav för egenskaper för behållar grupp. Mer information om namngivnings konventioner för Azure finns i [namngivnings konventioner][azure-name-restrictions] i Azure Architecture Center.
 
@@ -35,7 +36,7 @@ När du definierar din behållar specifikation kräver vissa parametrar att namn
 | Miljövariabel | 1–63 |Skiftlägesokänsligt |Alfanumeriskt och under streck (_) var som helst förutom det första eller sista tecknet |`<name>` |`MY_VARIABLE` |
 | Volym namn | 5-63 |Skiftlägesokänsligt |Små bokstäver och siffror, och bindestreck var som helst utom det första eller sista. Får inte innehålla två bindestreck i följd. |`<name>` |`batch-output-volume` |
 
-## <a name="os-version-of-image-not-supported"></a>OS-versionen av avbildningen stöds inte
+### <a name="os-version-of-image-not-supported"></a>OS-versionen av avbildningen stöds inte
 
 Om du anger en bild som Azure Container Instances inte stöder returneras ett `OsVersionNotSupported` fel. Felet liknar följande, där `{0}` är namnet på den avbildning som du försökte distribuera:
 
@@ -50,7 +51,7 @@ Om du anger en bild som Azure Container Instances inte stöder returneras ett `O
 
 Det här felet uppstår oftast när du distribuerar Windows-avbildningar som baseras på halvårs kanal version 1709 eller 1803, som inte stöds. Information om vilka Windows-avbildningar som stöds i Azure Container Instances finns i [vanliga frågor och svar](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
-## <a name="unable-to-pull-image"></a>Det gick inte att hämta bilden
+### <a name="unable-to-pull-image"></a>Det gick inte att hämta bilden
 
 Om Azure Container Instances inlednings vis inte kan hämta din avbildning försöker den igen under en viss tids period. Om avbildningens pull-åtgärd fortsätter att Miss lyckas kan ACI slutligen inte utföra distributionen, och du kan se ett `Failed to pull image` fel.
 
@@ -86,8 +87,21 @@ Om det inte går att hämta bilden visas händelser som följande i utmatningen 
   }
 ],
 ```
+### <a name="resource-not-available-error"></a>Resurs inte tillgängligt-fel
 
-## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Container avslutas kontinuerligt och startar om (ingen tids krävande process)
+På grund av varierande regionala resurs belastning i Azure kan du få följande fel vid försök att distribuera en behållar instans:
+
+`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
+
+Det här felet indikerar att på grund av en kraftig belastning i den region där du försöker distribuera, kan de resurser som anges för din behållare inte tilldelas vid denna tidpunkt. Använd en eller flera av följande åtgärder för att lösa problemet.
+
+* Kontrol lera att inställningarna för behållar distribution ligger inom de parametrar som definierats i [regionens tillgänglighet för Azure Container instances](container-instances-region-availability.md)
+* Ange lägre processor-och minnes inställningar för behållaren
+* Distribuera till en annan Azure-region
+* Distribuera vid ett senare tillfälle
+
+## <a name="issues-during-container-group-runtime"></a>Problem under container Group runtime
+### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Container avslutas kontinuerligt och startar om (ingen tids krävande process)
 
 Behållar grupper som standard till en [omstarts princip](container-instances-restart-policy.md) av **Always**, så behållare i behållar gruppen startar alltid om när de körts till slutförd. Du kan behöva ändra detta till **onFailure** eller **aldrig** om du tänker köra uppgiftsbaserade behållare. Om du anger **onFailure** och fortfarande ser kontinuerliga omstarter kan det bero på ett problem med att programmet eller skriptet körs i din behållare.
 
@@ -147,16 +161,17 @@ Container Instances-API och Azure Portal innehåller en `restartCount`-egenskap.
 > [!NOTE]
 > De flesta behållar avbildningar för Linux-distributioner anger ett gränssnitt, till exempel bash, som standard kommando. Eftersom ett gränssnitt på egen hand inte är en tids krävande tjänst, avslutar dessa behållare omedelbart och hamnar i en omstart-slinga när de kon figurer ATS med standard principen för att starta om **alltid** .
 
-## <a name="container-takes-a-long-time-to-start"></a>Det tar lång tid att starta behållaren
+### <a name="container-takes-a-long-time-to-start"></a>Det tar lång tid att starta behållaren
 
-De två primära faktorer som bidrar till behållar start tiden i Azure Container Instances är:
+De tre primära faktorer som bidrar till behållar start tiden i Azure Container Instances är:
 
 * [Bild storlek](#image-size)
 * [Bild plats](#image-location)
+* [Cachelagrade avbildningar](#cached-images)
 
 Windows-avbildningar har [ytterligare överväganden](#cached-images).
 
-### <a name="image-size"></a>Bild storlek
+#### <a name="image-size"></a>Bild storlek
 
 Om din behållare tar lång tid att starta, men kommer att lyckas, börjar du med att titta på storleken på behållar avbildningen. Eftersom Azure Container Instances hämtar behållar avbildningen på begäran är start tiden som visas direkt relaterad till dess storlek.
 
@@ -170,39 +185,26 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 Nyckeln för att hålla bild storlekarna liten säkerställer att den slutliga bilden inte innehåller något som inte krävs vid körning. Ett sätt att göra detta är med [flera stegs versioner][docker-multi-stage-builds]. Med hjälp av flera steg blir det enkelt att se till att den slutliga avbildningen bara innehåller de artefakter som du behöver för ditt program, och inte något annat extra innehåll som krävdes vid tidpunkten för bygget.
 
-### <a name="image-location"></a>Bild plats
+#### <a name="image-location"></a>Bild plats
 
 Ett annat sätt att minska effekten av image-hämtningen på din behållares start tid är att vara värd för behållar avbildningen i [Azure Container Registry](/azure/container-registry/) i samma region där du tänker distribuera behållar instanser. Detta förkortar nätverks Sök vägen som behållar avbildningen behöver för att kunna färdas, vilket avsevärt kortare nedladdnings tiden.
 
-### <a name="cached-images"></a>Cachelagrade avbildningar
+#### <a name="cached-images"></a>Cachelagrade avbildningar
 
 Azure Container Instances använder en mekanism för cachelagring som hjälper till att påskynda behållarens start tid för avbildningar som bygger på vanliga [Windows Base-avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive `nanoserver:1809`, `servercore:ltsc2019`och `servercore:1809`. Vanliga Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` cachelagras också. Om du vill ha en uppdaterad lista över cachelagrade avbildningar och taggar kan du använda API: n [lista med cachelagrade avbildningar][list-cached-images] .
 
 > [!NOTE]
 > Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är en för hands version.
 
-### <a name="windows-containers-slow-network-readiness"></a>Windows-behållare långsam nätverks beredskap
+#### <a name="windows-containers-slow-network-readiness"></a>Windows-behållare långsam nätverks beredskap
 
 Vid första skapandet kan Windows-behållare ha ingen inkommande eller utgående anslutning i upp till 30 sekunder (eller längre, i sällsynta fall). Om behållar programmet behöver en Internet anslutning lägger du till fördröjning och omprövnings logik så att du kan upprätta en Internet anslutning på 30 sekunder. Efter den första installationen bör behållar nätverket återupptas korrekt.
 
-## <a name="resource-not-available-error"></a>Resurs inte tillgängligt-fel
-
-På grund av varierande regionala resurs belastning i Azure kan du få följande fel vid försök att distribuera en behållar instans:
-
-`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
-
-Det här felet indikerar att på grund av en kraftig belastning i den region där du försöker distribuera, kan de resurser som anges för din behållare inte tilldelas vid denna tidpunkt. Använd en eller flera av följande åtgärder för att lösa problemet.
-
-* Kontrol lera att inställningarna för behållar distribution ligger inom de parametrar som definierats i [regionens tillgänglighet för Azure Container instances](container-instances-region-availability.md)
-* Ange lägre processor-och minnes inställningar för behållaren
-* Distribuera till en annan Azure-region
-* Distribuera vid ett senare tillfälle
-
-## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Det går inte att ansluta till en underliggande Docker-API eller köra privilegierade behållare
+### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Det går inte att ansluta till en underliggande Docker-API eller köra privilegierade behållare
 
 Azure Container Instances visar inte direkt åtkomst till den underliggande infrastrukturen som är värd för behållar grupper. Detta inkluderar åtkomst till Docker-API som körs på behållarens värd och kör privilegierade behållare. Om du behöver Docker-interaktion, kontrollerar du [dokumentationen om rest-referensen](https://aka.ms/aci/rest) för att se vad ACI-API: et stöder. Om något saknas kan du skicka en begäran i [ACI feedback-forumet](https://aka.ms/aci/feedback).
 
-## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Det går inte att komma åt behållar gruppens IP-adress på grund av felmatchade portar
+### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Det går inte att komma åt behållar gruppens IP-adress på grund av felmatchade portar
 
 Azure Container Instances har ännu inte stöd för port mappning som med vanlig Docker-konfiguration. Om du hittar en behållar grupps IP-adress är inte tillgänglig när du tror att den bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma portar som du exponerar i behållar gruppen med egenskapen `ports`.
 

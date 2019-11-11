@@ -6,19 +6,19 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cc9b11ba5fe0cd015d0879f28b9e85fb46b11955
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178573"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904453"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållar grupper i Azure Container Instances
 
-Resursen på den översta nivån i Azure Container Instances är behållar *gruppen*. I den här artikeln beskrivs vilka behållar grupper som är och vilka typer av scenarier de aktiverar.
+Resursen på den översta nivån i Azure Container Instances är *behållar gruppen*. I den här artikeln beskrivs vilka behållar grupper som är och vilka typer av scenarier de aktiverar.
 
 ## <a name="how-a-container-group-works"></a>Så här fungerar en behållar grupp
 
@@ -51,15 +51,17 @@ Om du vill bevara en behållar grupps konfiguration kan du exportera konfigurati
 
 Azure Container Instances allokerar resurser som processorer, minne och alternativt [GPU][gpus] (för hands version) till en behållar grupp genom att lägga till [resurs begär Anden][resource-requests] för instanserna i gruppen. Att ta processor resurser som exempel, om du skapar en behållar grupp med två instanser, varje begäran 1 processor, allokeras behållar gruppen 2 processorer.
 
-De maximala resurserna som är tillgängliga för en behållar grupp beror på den [Azure-region][region-availability] som används för distributionen.
+### <a name="resource-usage-by-instances"></a>Resursanvändning efter instanser
 
-### <a name="container-resource-requests-and-limits"></a>Begär Anden och begränsningar för container resurs
+Varje behållar instans tilldelas resurserna som anges i resurs förfrågan. Resurs användningen av en behållar instans i en grupp beror dock på hur du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen.
 
-* Som standard delar behållar instanser i en grupp de begärda resurserna för gruppen. I en grupp med två instanser varje begäran 1 processor har gruppen som helhet åtkomst till 2 processorer. Varje instans kan använda upp till 2 processorer och instanserna kan konkurrera om processor resurser medan de körs.
+* Om du inte anger en resurs gräns, är instansens maximala resursanvändning samma som resurs förfrågan.
 
-* Om du vill begränsa resursanvändningen med en instans i en grupp kan du ange en [resurs gräns][resource-limits] för instansen. I en grupp med två instanser som begär 1 processor kan en av dina behållare kräva att fler processorer körs än den andra.
+* Om du anger en resurs gräns för en instans kan du justera instansens resursanvändning för arbets belastningen, antingen minska eller öka användningen i förhållande till resurs förfrågan. Den maximala resurs gränsen du kan ange är det totala antalet resurser som allokeras till gruppen.
+    
+    I en grupp med till exempel två instanser som begär 1 processor kan en av dina behållare köra en arbets belastning som kräver fler processorer för att köras än den andra.
 
-  I det här scenariot kan du ange en resurs gräns på 0,5 CPU för en instans och en gräns på 2 processorer för den andra. Den här konfigurationen begränsar den första behållarens resursanvändning till 0,5 CPU, så att den andra behållaren kan använda upp till hela 2 CPU: n om den är tillgänglig.
+    I det här scenariot kan du ange en resurs gräns på 0,5 CPU för en instans och en gräns på 2 processorer för den andra. Den här konfigurationen begränsar den första behållarens resursanvändning till 0,5 CPU, så att den andra behållaren kan använda upp till hela 2 CPU: n om den är tillgänglig.
 
 Mer information finns i egenskapen [ResourceRequirements][resource-requirements] i behållar grupper REST API.
 

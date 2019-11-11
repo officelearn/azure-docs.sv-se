@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 7113914fe8681ca099fc0f3fc1e4a7d064c19480
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 22734d29973f0d7102307aa9038b6ebe7cc2521b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000255"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903317"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och Använd Azure IoT Hub SDK: er
 
@@ -164,7 +164,7 @@ Azure-etablering av enhets-och tjänst-SDK: er för python:
 
 Azure IoT SDK: er tillhandahåller också en uppsättning verktyg som hjälper dig att utveckla:
 * [iothub-diagnostik](https://github.com/Azure/iothub-diagnostics): ett kommando rads verktyg för flera plattformar för att diagnostisera problem som rör anslutning till IoT Hub.
-* [Device-Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): ett Windows Desktop-program för att ansluta till din IoT Hub.
+* [Azure-IoT-Explorer](https://github.com/Azure/azure-iot-explorer): ett plattforms oberoende Skriv bords program för att ansluta till din IoT Hub och lägga till/hantera/kommunicera med IoT-enheter.
 
 Relevanta dokument som rör utveckling med Azure IoT-SDK: er:
 * Lär dig mer om [hur du hanterar anslutningar och Reliable Messaging](iot-hub-reliability-features-in-sdks.md) med hjälp av IoT Hub SDK: er.

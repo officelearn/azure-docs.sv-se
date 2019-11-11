@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1ff70a8a794cbc4c201512a0cf578eb0a890a5e4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647105"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904420"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -99,8 +99,8 @@ Lär dig mer om den [senaste arkitekturen för Azure Machine Learning](concept-a
 Om du vill ha en översikt över tjänsten läser du [Vad är Azure Machine Learning?](overview-what-is-azure-ml.md).
 
 Skapa ditt första experiment med önskad metod:
-  + [Använd python-anteckningsböcker för att träna & distribuera ML-modeller](tutorial-1st-experiment-sdk-setup.md)
-  + [Använd R-markdown för att träna & distribuera ML-modeller]( tutorial-1st-r-experiment.md) 
-  + [Använd automatisk maskin inlärning för att träna & distribuera ML-modeller](ui-tutorial-automobile-price-train-score.md) 
-  + [Använd designerns dra & släpp-funktioner för att träna & distribuera](tutorial-first-experiment-automated-ml.md) 
-  + [Använda Machine Learning CLI för att träna och distribuera en modell](tutorial-train-deploy-model-cli.md)
+  + [Använda python-anteckningsböcker](tutorial-1st-experiment-sdk-setup.md)
+  + [Använd R-markdown]( tutorial-1st-r-experiment.md) 
+  + [Använda Automatisk maskin inlärning](ui-tutorial-automobile-price-train-score.md) 
+  + [Använd designerns dra & släpp funktioner](tutorial-first-experiment-automated-ml.md) 
+  + [Använd ML-tillägget till CLI](tutorial-train-deploy-model-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: Batch-test – LUIS
+title: Så här utför du en batch-test – LUIS
 titleSuffix: Azure Cognitive Services
 description: Använd Language Understanding (LUIS) batch test uppsättningar för att hitta yttranden med felaktiga intentor och entiteter.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467421"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904345"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Batch-testning med en uppsättning exempel yttranden
 

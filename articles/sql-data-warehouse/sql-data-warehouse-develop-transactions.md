@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692784"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903075"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Använda transaktioner i SQL Data Warehouse
 Tips för att implementera transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
@@ -78,7 +78,7 @@ Transaktions storleks gränsen tillämpas per transaktion eller åtgärd. Den an
 Information om hur du optimerar och minimerar mängden data som skrivs till loggen finns i artikeln [metod tips för transaktioner](sql-data-warehouse-develop-best-practices-transactions.md) .
 
 > [!WARNING]
-> Den maximala transaktions storleken kan bara uppnås för HASH-eller ROUND_ROBIN-distribuerade tabeller där data spridningen är jämnt. Om transaktionen skriver data i ett skevat sätt till distributionerna, kommer gränsen att nås före den maximala transaktions storleken.
+> Den maximala transaktions storleken kan bara uppnås för HASH-värden eller ROUND_ROBIN distribuerade tabeller där data spridningen är jämnt. Om transaktionen skriver data i ett skevat sätt till distributionerna, kommer gränsen att nås före den maximala transaktions storleken.
 > <!--REPLICATED_TABLE-->
 > 
 > 
@@ -87,7 +87,7 @@ Information om hur du optimerar och minimerar mängden data som skrivs till logg
 SQL Data Warehouse använder funktionen XACT_STATE () för att rapportera en misslyckad transaktion med värdet-2. Det här värdet innebär att transaktionen har misslyckats och bara har marker ATS för återställning.
 
 > [!NOTE]
-> Användningen av-2 av XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. `SELECT 1/0` skulle exempelvis orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. Men SQL Data Warehouse låter dig inte göra detta. Om ett fel uppstår i en SQL Data Warehouse transaktion, anges-2-tillstånd automatiskt och du kommer inte att kunna göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
+> Användningen av-2 i XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. `SELECT 1/0` skulle exempelvis orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. Men SQL Data Warehouse låter dig inte göra detta. Om ett fel uppstår i en SQL Data Warehouse transaktion, anges-2-tillstånd automatiskt och du kommer inte att kunna göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
 > 
 > 
 
@@ -133,7 +133,7 @@ Föregående kod ger följande fel meddelande:
 
 MSG 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: en transaktion i ett återställnings tillstånd återställs inte explicit före en DDL-, DML-eller SELECT-instruktion.
 
-Du får inte ut resultatet av ERROR_ * functions.
+Du får inte utdata från ERROR_ * functions.
 
 I SQL Data Warehouse måste koden ändras till något av följande:
 
@@ -151,8 +151,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
@@ -172,11 +172,11 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Det förväntade beteendet observeras nu. Felet i transaktionen hanteras och ERROR_ *-funktionerna ger värden som förväntat.
+Det förväntade beteendet observeras nu. Felet i transaktionen hanteras och ERROR_ *-funktioner ger värden som förväntat.
 
 Allt som har ändrats är att återställningen av transaktionen måste ske innan fel informationen i CATCH-blocket lästes.
 
-## <a name="error_line-function"></a>Funktionen Error_Line ()
+## <a name="error_line-function"></a>Error_Line ()-funktionen
 Det är också värt att notera att SQL Data Warehouse inte implementerar eller stöder funktionen ERROR_LINE (). Om du har det här i din kod måste du ta bort den för att vara kompatibel med SQL Data Warehouse. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](sql-data-warehouse-develop-label.md) .
 
 ## <a name="using-throw-and-raiserror"></a>Använda THROW och RAISERROR

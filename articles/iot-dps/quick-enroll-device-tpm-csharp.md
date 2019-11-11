@@ -1,23 +1,23 @@
 ---
-title: Registrera TPM-enhet på Azure Device Provisioning Service-tjänsten med C# | Microsoft Docs
+title: 'Snabb start: registrera TPM-enhet på Azure Device Provisioning-tjänsten med hjälp avC#'
 description: Azure snabb start – registrera TPM-enhet på Azure C# IoT Hub Device Provisioning service med hjälp av service SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/16/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: dcb9d2000ff9432f4360dab7f7df28b5b32482bf
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 70f9c9d2ec488854a1b386b872f10e4f54c45a1c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035770"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904741"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Snabb start: registrera TPM-enhet till C# IoT Hub Device Provisioning service med hjälp av service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
@@ -64,14 +64,14 @@ Det här avsnittet visar hur du skapar en .NET Core-webbapp som lägger till en 
 
    Det här steget hämtar, installerar och lägger till en referens till [klient-SDK NuGet-paketet för Azure IoT Provisioning-tjänsten](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) och dess beroenden.
 
-1. Lägg till följande `using` -satser efter de `using` andra-satserna överst `Program.cs`i:
+1. Lägg till följande `using`-uttryck efter de andra `using`-satserna överst i `Program.cs`:
   
    ```csharp
    using System.Threading.Tasks;
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Lägg till följande fält i `Program` -klassen och gör de listade ändringarna.
+1. Lägg till följande fält i `Program`-klassen och gör de visade ändringarna.
 
    ```csharp
    private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
@@ -88,13 +88,13 @@ Det här avsnittet visar hur du skapar en .NET Core-webbapp som lägger till en 
    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
    ```
 
-   * `ProvisioningConnectionString` Ersätt placeholder-värdet med anslutnings strängen för etablerings tjänsten som du vill skapa registreringen för.
+   * Ersätt `ProvisioningConnectionString` placeholder-värdet med anslutnings strängen för etablerings tjänsten som du vill skapa registreringen för.
 
    * Om du vill kan du ändra registrerings-ID:t, bekräftelsenyckeln, enhets-ID:t och etableringsstatusen.
 
-   * Om du använder den här snabb starten tillsammans med guiden [skapa och etablera en simulerad TPM- C# enhet med hjälp av](quick-create-simulated-device-tpm-csharp.md) snabb start för enhets-SDK för att etablera en simulerad enhet ersätter du bekräftelse nyckeln och registrerings-ID: t med de värden som du angav i Start. Du kan ersätta enhets-ID: t med det värde som föreslås i snabb starten, använda ditt eget värde eller använda standardvärdet i det här exemplet.
+   * Om du använder den här snabb starten tillsammans med guiden [skapa och etablera en simulerad TPM- C# enhet med hjälp av](quick-create-simulated-device-tpm-csharp.md) snabb start för enhets-SDK för att etablera en simulerad enhet ersätter du bekräftelse nyckeln och registrerings-ID: t med de värden som du angav i snabb starten. Du kan ersätta enhets-ID: t med det värde som föreslås i snabb starten, använda ditt eget värde eller använda standardvärdet i det här exemplet.
 
-1. Lägg till följande metod i `Program` -klassen.  Den här koden skapar en enskild registrerings post och anropar `CreateOrUpdateIndividualEnrollmentAsync` sedan metoden `ProvisioningServiceClient` på för att lägga till den enskilda registreringen till etablerings tjänsten.
+1. Lägg till följande metod i `Program`-klassen.  Den här koden skapar en enskild registrerings post och anropar sedan metoden `CreateOrUpdateIndividualEnrollmentAsync` på `ProvisioningServiceClient` för att lägga till den enskilda registreringen till etablerings tjänsten.
 
    ```csharp
    public static async Task RunSample()
@@ -129,7 +129,7 @@ Det här avsnittet visar hur du skapar en .NET Core-webbapp som lägger till en 
    }
    ```
 
-1. Ersätt slutligen bröd texten i `Main` metoden med följande rader:
+1. Ersätt slutligen bröd texten i `Main`-metoden med följande rader:
 
    ```csharp
    RunSample().GetAwaiter().GetResult();
@@ -159,7 +159,7 @@ Om du planerar att utforska C# tjänst exemplet ska du inte rensa resurserna som
 
 1. Stäng fönstret C# exempel på utdata på datorn.
 
-1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **enskilda registreringar** . Välj *registrerings-ID* för registrerings posten du skapade med den här snabb starten och välj **ta bort**.
+1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera**registreringar och välj sedan fliken **enskilda registreringar** . Välj *registrerings-ID* för registrerings posten du skapade med den här snabb starten och välj **ta bort**.
 
 1. Om du har följt stegen i [skapa och etablera en simulerad TPM-enhet C# med hjälp av enhets-SDK](quick-create-simulated-device-tpm-csharp.md) för att skapa en simulerad TPM-enhet gör du så här:
 

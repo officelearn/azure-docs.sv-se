@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300912"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904917"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Självstudie: Distribuera ett hanterings verktyg
 
@@ -56,15 +56,15 @@ Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len
     - Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de här anvisningarna för att distribuera till Azure:
         1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
         2. Öppna en text redigerare som anteckningar och klistra in länken där.
-        3. Höger efter <https://portal.azure.com/> och innan hashtagg (#) anger ett @-tecken följt av klient domän namnet. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        3. Direkt efter <https://portal.azure.com/> och innan hashtagg (#), anger du ett @-tecken följt av klient domän namnet. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
         5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
 
 ### <a name="guidance-for-template-parameters"></a>Vägledning för mallparametrar
 Så här anger du parametrar för att konfigurera verktyget:
 
-- Detta är URL: en för RD Broker: https: \//rdbroker. WVD. Microsoft. com/
-- Detta är resurs-URL: en: https: \//Mrs-Prod. amn. GBL/fru-RDInfra-Prod
+- Detta är URL: en för RD Broker: https:\//rdbroker.wvd.microsoft.com/
+- Detta är resurs-URL: en: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Använd dina AAD-autentiseringsuppgifter med MFA inaktiverat för att logga in på Azure. Se [vad du behöver för att köra Azure Resource Manager-mallen](#what-you-need-to-run-the-azure-resource-manager-template).
 - Använd ett unikt namn för programmet som ska registreras i Azure Active Directory för hanterings verktyget. till exempel Apr3UX.
 
@@ -103,9 +103,14 @@ Följ dessa instruktioner för att starta verktyget:
 1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
 3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
+4. När du väljer standard klient grupp visas en meny på höger sida av fönstret. På den här menyn söker du efter namnet på din klient grupp och väljer den.
 
 > [!NOTE]
 > Om du har en anpassad klient grupp anger du namnet manuellt i stället för att välja i list rutan.
+
+## <a name="report-issues"></a>Rapportera problem
+
+Om du stöter på problem med hanterings verktyget eller andra Windows-verktyg för virtuella skriv bord, följer du anvisningarna i [arm-mallar för Fjärrskrivbordstjänster](https://github.com/Azure/RDS-Templates/blob/master/README.md) för att rapportera dem på GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 

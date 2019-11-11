@@ -14,32 +14,68 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 89094dc959f3a258370afc3cfb720aa3b101d1b7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 04cd13efd198f0a4875c0ede525d10cf45220989
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036141"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901506"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Distribuera ett programcertifikat till ett Service Fabric-kluster
 
-Det här skriptexemplet skapar ett självsignerat certifikat i det angivna nyckelvalvet för Azure och installerar det på alla noder i Service Fabric-klustret. Certifikatet kan även laddas ned till en lokal mapp. Namnet på det nedladdade certifikatet är samma som namnet på certifikatet i nyckelvalvet. Anpassa parametrarna efter behov.
+Det här exempel skriptet visar hur du skapar ett certifikat i Key Vault och sedan distribuerar det till en av de skalnings uppsättningar för virtuella datorer som klustret körs på. I det här scenariot används inte Service Fabric direkt, utan är i stället beroende av Key Vault och på skalnings uppsättningar för virtuella datorer.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzAccount` för att skapa en anslutning med Azure. 
 
-## <a name="sample-script"></a>Exempelskript
+## <a name="create-a-certificate-in-key-vault"></a>Skapa ett certifikat i Key Vault
 
-[!code-powershell[main](../../../powershell_scripts/service-fabric/add-application-certificate/add-new-application-certificate.ps1 "Add an application certificate to a cluster")]
+```powershell
+$VaultName = ""
+$CertName = ""
+$SubjectName = "CN="
+
+$policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName Self -ValidityInMonths 12
+Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
+```
+
+## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Uppdatera profilen för skalnings uppsättningar för virtuell dator med certifikat
+
+```powershell
+$ResourceGroupName = ""
+$VMSSName = ""
+$CertStore = "My" # Update this with the store you want your certificate placed in, this is LocalMachine\My
+
+$CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl (Get-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName).SecretId -CertificateStore $CertStore
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMSSName
+
+# If this KeyVault is already known by the virtual machine scale set, for example if the cluster certificate is deployed from this keyvault, use
+$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConfig)
+
+# Otherwise use
+$VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
+```
+
+## <a name="update-the-virtual-machine-scale-set"></a>Uppdatera skalnings uppsättningen för den virtuella datorn
+```powershell
+Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMSS -VMScaleSetName $VMSSName
+```
+
+> Om du vill att certifikatet ska placeras på flera nodtyper i klustret, ska den andra och tredje delen av det här skriptet upprepas för varje nodtyp som ska ha certifikatet.
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon: Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | Lägg till ett nytt programcertifikat för den virtuella datorns skalningsuppsättning som ingår i klustret.  |
+| [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Skapar en InMemory-princip som representerar certifikatet |
+| [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Distribuerar principen till Key Vault |
+| [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Skapar en minnes intern konfiguration som representerar certifikatet i en virtuell dator |
+| [Get-AzVmss](/powershell/module/az.compute/Get-AzVmss) |  |
+| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Lägger till certifikatet i definitionen i minnet för den virtuella datorns skal uppsättning |
+| [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Distribuerar den nya definitionen av skalnings uppsättningen för den virtuella datorn |
 
 ## <a name="next-steps"></a>Nästa steg
 

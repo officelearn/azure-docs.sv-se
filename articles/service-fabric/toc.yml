@@ -876,6 +876,8 @@
       href: service-fabric-common-questions.md
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Skyddsräcken för Azure Resource Manager-distribution
+      href: service-fabric-azure-resource-manager-guardrails.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Priskalkylator

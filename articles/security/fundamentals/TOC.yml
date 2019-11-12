@@ -1,53 +1,18 @@
 - name: Dokumentation om grunderna
   href: index.yml
-- name: Arkitektur och design
-  href: overview.md
+- name: Översikt
   items:
+    - name: Introduktion till Azure-säkerhet
+      href: overview.md
     - name: Delat ansvar i molnet
       href: shared-responsibility.md
-    - name: Avancerad hotidentifiering
-      displayName: 'vulnerability, virus, IDs, incident'
-      href: threat-detection.md
-    - name: Loggning och granskning i Azure
-      displayName: incident
-      href: log-audit.md
-    - name: Azure-nätverkssäkerhet
-      displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
-      href: 'https://azure.microsoft.com/resources/azure-network-security/'
-    - name: Isolering i Azure-molnet
-      displayName: trust boundary
-      href: isolation-choices.md
-    - name: Skydda hybridnätverksarkitektur
-      displayName: trust boundary
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+- name: Skydda arbetsbelastningar i Azure
+  items:
     - name: Tekniska funktioner för säkerhet
       href: technical-capabilities.md
-  expanded: false
-- name: Datasäkerhet och kryptering
-  href: encryption-overview.md
-  items:
-    - name: Databassäkerhet
-      href: database-security-overview.md
-      items:
-        - name: Bästa praxis
-          href: database-best-practices.md
-        - name: Säkerhetskontrollista
-          href: database-security-checklist.md
-    - name: Diskkryptering
-      items:
-        - name: Bästa praxis
-          displayName: transit
-          href: data-encryption-best-practices.md
-        - name: Vilande datakryptering
-          href: encryption-atrest.md
-        - name: Azure Disk Encryption för virtuella datorer
-          displayName: virtual machines and virtual machine scale sets
-          href: azure-disk-encryption-vms-vmss.md
-    - name: Lagringssäkerhetsguide
-      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-    - name: Customer Lockbox
-      href: customer-lockbox-overview.md
-- name: Plattform och infrastruktur
+    - name: Inbyggda säkerhetskontroller
+      href: security-controls.md
+- name: Azure-plattform och -infrastruktur
   items:
     - name: Säkerhet för infrastruktur
       href: infrastructure.md
@@ -73,40 +38,64 @@
           href: infrastructure-integrity.md
         - name: Dataskydd
           href: protection-customer-data.md
-    - name: Microsoft-programvara mot skadlig kod
-      displayName: virus
-      href: antimalware.md
-    - name: IaaS-säkerhet
-      href: virtual-machines-overview.md
-      items:
-        - name: Metodtips – IaaS-arbetsbelastningar
-          displayName: patch
-          href: iaas.md
-        - name: Azure Marketplace-avbildningar
-          href: azure-marketplace-images.md
-    - name: Identitetshantering
+    - name: Isolering i Azure-molnet
+      href: isolation-choices.md
+- name: Identitetshantering
+  items:
+    - name: Säkerhetsöversikt
       href: identity-management-overview.md
-      items:
-        - name: Välj Azure AD-autentisering
-          displayName: 'identity, active directory, seamless sso'
-          href: choose-ad-authn.md
-        - name: Säkerhetskontrollista
-          displayName: 'identity, active directory, password'
-          href: steps-secure-identity.md
-        - name: Välja lösenordsfri
-          displayName: 'identity, active directory, passwordless'
-          href: ad-passwordless.md
-        - name: Bästa praxis
-          displayName: 'password, identity, active directory'
-          href: identity-management-best-practices.md
-    - name: Nätverkssäkerhet
-      displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
+    - name: Bästa praxis
+      href: identity-management-best-practices.md
+    - name: Säkerhetskontrollista
+      href: steps-secure-identity.md
+    - name: Välja lösenordsfri
+      href: ad-passwordless.md
+    - name: Välj Azure AD-autentisering
+      href: choose-ad-authn.md
+- name: Nätverkssäkerhet
+  items:
+    - name: Säkerhetsöversikt
       href: network-overview.md
+    - name: Bästa praxis
+      href: network-best-practices.md
+    - name: DDoS Protection
+      href: ddos-best-practices.md
+    - name: Skydda hybridnätverksarkitektur
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+- name: IaaS-säkerhet
+  items:
+    - name: Microsoft-programvara mot skadlig kod
+      href: antimalware.md
+    - name: Säkerhetsöversikt för virtuella datorer
+      href: virtual-machines-overview.md
+    - name: Metodtips – IaaS-arbetsbelastningar
+      href: iaas.md
+    - name: Azure Marketplace-avbildningar
+      href: azure-marketplace-images.md
+- name: 'Datasäkerhet, -kryptering och -lagring'
+  items:
+    - name: Datasäkerhet och kryptering
+      href: encryption-overview.md
+    - name: Diskkryptering
       items:
         - name: Bästa praxis
-          href: network-best-practices.md
-        - name: DDoS Protection
-          href: ddos-best-practices.md
+          href: data-encryption-best-practices.md
+        - name: Vilande datakryptering
+          href: encryption-atrest.md
+        - name: Azure Disk Encryption för virtuella datorer
+          href: azure-disk-encryption-vms-vmss.md
+    - name: Databassäkerhet
+      items:
+        - name: Översikt
+          href: database-security-overview.md
+        - name: Bästa praxis
+          href: database-best-practices.md
+        - name: Säkerhetskontrollista
+          href: database-security-checklist.md
+    - name: Lagringssäkerhetsguide
+      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+    - name: Customer Lockbox
+      href: customer-lockbox-overview.md
 - name: Program
   items:
     - name: PaaS
@@ -121,53 +110,32 @@
     - name: Azure Service Fabric-säkerhet
       href: service-fabric-best-practices.md
 - name: 'Övervakning, granskning och åtgärder'
-  href: management-monitoring-overview.md
   items:
-    - name: Granskning och loggning
-      items:
-        - name: Säkerhet för fjärrhantering
-          href: management.md
-        - name: Azure-loggintegrering
+    - name: Advanced Threat Protection
+      href: threat-detection.md
+    - name: Loggning och granskning i Azure
+      href: log-audit.md
+    - name: Säkerhetshantering och övervakning
+      href: management-monitoring-overview.md
     - name: Driftsäkerhet
-      href: operational-overview.md
       items:
+        - name: Översikt
+          href: operational-overview.md
         - name: Bästa praxis
           href: operational-best-practices.md
         - name: Säkerhetskontrollista
           href: operational-checklist.md
-- name: Styrning och efterlevnad
-  displayName: 'blueprint, privacy, certifications'
-  items:
-    - name: AU-SKYDDAD
-      displayName: 'blueprint, privacy, certifications'
-    - name: FedRAMP
-      displayName: 'blueprint, privacy, certifications'
-    - name: FFIEC
-      displayName: 'blueprint, privacy, certifications'
-    - name: HIPAA/HITRUST
-      displayName: 'blueprint, privacy, certifications'
-    - name: NIST SP 800-171
-      displayName: 'blueprint, privacy, certifications'
-    - name: PCI DSS
-      displayName: 'blueprint, privacy, certifications'
-    - name: UK NHS
-      displayName: 'blueprint, privacy, certifications'
-    - name: OFFICIELLT FÖR STORBRITANNIEN
-      displayName: 'blueprint, privacy, certifications'
-- name: Faktablad om säkerhet
-  href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
-- name: Säkerhetstjänster i Azure
-  href: services-technologies.md
-- name: Bästa praxis
-  href: best-practices-and-patterns.md
 - name: Resurser
   items:
-    - name: Inbyggda säkerhetskontroller
-      href: security-controls.md
+    - name: Säkerhetstjänster i Azure
+      href: services-technologies.md
+    - name: Faktablad om säkerhet
+      href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
+    - name: Bästa praxis
+      href: best-practices-and-patterns.md
     - name: Cybersäkerhetsrådgivning
       href: cyber-services.md
     - name: Logga ett supportärende för en säkerhetshändelse
       href: event-support-ticket.md
     - name: Penntestning
-      displayName: penetration
       href: pen-testing.md

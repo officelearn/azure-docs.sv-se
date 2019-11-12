@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: 'Azure SQL Database: Övervakning och justering'
+title: Övervakning och justering
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Azure SQL Database - övervakning och justering
+  title: Azure SQL Database – Övervakning och justering
   meta.description: Learn how to monitor and tune your Azure SQL database.
   services: sql-database
   ms.subservice: performance
@@ -24,34 +24,34 @@ sections:
         className: cardsM
         columns: 3
         items:
-          - title: Frågeinsikter för prestanda
+          - title: Information om frågeprestanda
             href: /azure/sql-database/sql-database-query-performance
-            html: <p>Enkelt övervaka Resursanvändning i Azure SQL database (enkel eller grupperade databas) med hjälp av inbyggda övervakningsfunktionerna i Azure-portalen.</p>
+            html: <p>Övervaka resursanvändning i Azure SQL-databasen (enkel databas eller pooldatabas) på ett enkelt sätt med hjälp av inbyggda övervakningsfunktioner i Azure-portalen.</p>
           - title: Azure SQL-analys
             href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json'
-            html: '<p>Azure SQL Analytics-övervakning kan du enkelt övervaka en stor flotta med databaser, elastiska pooler och instanser i en ruta.</p>'
+            html: '<p>Med Azure SQL-analysövervakning kan du enkelt övervaka ett större bestånd av databaser, elastiska pooler och instanser i en och samma fönsterruta.</p>'
           - title: Automatisk inställning
             href: /azure/sql-database/sql-database-automatic-tuning
-            html: '<p>Automatisk justering automatiskt rekommenderar och åtgärdar problem som frågan plan, och skapar och släpper index för att förbättra prestanda.</p>'
-          - title: Intelligent Performance Insight
+            html: '<p>Automatisk justering rekommenderar och åtgärdar automatiskt problem med frågeplaner, och skapar och tar bort index, för att förbättra prestanda.</p>'
+          - title: Intelligent prestandainformation
             href: /azure/sql-database/sql-database-intelligent-insights
-            html: <p>Inbyggd intelligens i Azure SQL Database identifierar störande händelser som orsakar prestandaproblem i dina databaser och ger rekommendationer om minskning när det är möjligt.</p>
+            html: <p>Inbyggd intelligens i Azure SQL Database identifierar störande händelser som orsakar dåliga prestanda i dina databaser och ger rekommendationer för riskreducering när det är möjligt.</p>
           - title: Prestandarekommendationer
             href: /azure/sql-database/sql-database-advisor
-            html: <p>Azure SQL Database innehåller rekommendationer som kan hjälpa dig att optimera din databas i Azure-portalen.</p>
+            html: <p>Azure SQL Database ger rekommendationer som kan hjälpa dig att optimera din databas i Azure-portalen.</p>
           - title: Mått och loggning
             href: /azure/sql-database/sql-database-metrics-diag-logging
-            html: '<p>Stream diagnostiktelemetri din databas till Azure SQL Analytics, Azure Event Hubs eller Azure Blob storage för anpassade integreringar.</p>'
+            html: '<p>Strömma din telemetri för databasdiagnostik till Azure SQL-analys, Azure Event Hubs eller Azure blobblagring för anpassade integreringar.</p>'
   - title: Fler resurser
     items:
       - type: paragraph
-        text: Läs mer om ytterligare funktioner som gör att du optimera prestandan för din databas.
+        text: Lär dig mer om ytterligare funktioner som kan hjälpa dig att optimera databasens prestanda.
       - type: list
         style: unordered
         items:
-          - html: Läs mer om <a href="sql-database-monitor-tune-overview.md">övervakning och justering</a> i Azure SQL Database.
-          - html: 'Lär dig hur <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">intelligent frågebearbetning</a> kan förbättra databasens prestanda.'
-          - html: 'Konfigurera och driva <a href="sql-database-operate-query-store.md">Query Store</a>, grundläggande SQL Server-teknik som hjälper dig att få information i realtid om frågeprestanda.'
-          - html: Lär dig hur du använder <a href="sql-database-operate-query-store.md">Dynamic Management Views</a> att analysera prestandan för din arbetsbelastning.
-          - html: Lär dig att övervaka databasaktiviteter med <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
-          - html: Lär dig hur du <a href="sql-database-performance-guidance.md">justera databasen manuellt</a>.
+          - html: Lär dig mer om <a href="sql-database-monitor-tune-overview.md">övervakning och justering</a> i Azure SQL Database.
+          - html: 'Lär dig hur <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">intelligent frågehantering</a> kan förbättra prestanda hos din databas.'
+          - html: 'Konfigurera och använd <a href="sql-database-operate-query-store.md">Query Store</a>, den grundläggande SQL Server-tekniken som gör att du kan få insikter om frågeprestanda i realtid.'
+          - html: Lär dig hur du använder <a href="sql-database-operate-query-store.md">Dynamic Management Views</a> för att analysera prestanda hos din arbetsbelastning.
+          - html: Lär dig hur du övervakar databasaktiviteter med <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
+          - html: Lär dig hur du <a href="sql-database-performance-guidance.md">finjusterar din databas manuellt</a>.

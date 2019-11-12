@@ -150,6 +150,8 @@
               href: check-cluster-health.md
         - name: Databas
           items:
+            - name: Uppföljningsdatabaser
+              href: follower.md
             - name: Hantera databasbehörigheter
               href: manage-database-permissions.md
             - name: Principer

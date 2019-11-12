@@ -138,6 +138,8 @@
           href: resource-group-create-multiple.md
         - name: Resurser på prenumerationsnivå
           href: deploy-to-subscription.md
+        - name: Nivåresurser för hanteringsgrupp
+          href: deploy-to-management-group.md
     - name: Distribuera mallar
       items:
         - name: Distribuera – portalen

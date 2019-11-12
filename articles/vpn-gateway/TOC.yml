@@ -134,18 +134,18 @@
               href: point-to-site-vpn-client-configuration-radius.md
             - name: Integrera P2S VPN RADIUS-autentisering med NPS-server
               href: vpn-gateway-radiuis-mfa-nsp.md
+        - name: Azure AD-autentisering
+          items:
+            - name: Konfigurera en klientorganisation
+              href: openvpn-azure-ad-tenant.md
+            - name: Konfigurera en VPN-klient
+              href: openvpn-azure-ad-client.md
         - name: OpenVPN
           items:
             - name: Konfigurera OpenVPN för punkt-till-plats-anslutningar
               href: vpn-gateway-howto-openvpn.md
             - name: Konfigurera OpenVPN-klienter
               href: vpn-gateway-howto-openvpn-clients.md
-            - name: Öppet VPN – Azure Active Directory-autentisering
-              items:
-                - name: Konfigurera en Azure AD-klientorganisation
-                  href: openvpn-azure-ad-tenant.md
-                - name: Konfigurera en VPN-klient – Azure AD
-                  href: openvpn-azure-ad-client.md
         - name: Övergång till ett offentligt CA-gatewaycertifikat för P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Konfigurera en VPN-enhetstunnel för AlwaysOn

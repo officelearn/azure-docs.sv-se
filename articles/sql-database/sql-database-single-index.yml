@@ -3,7 +3,7 @@ documentType: LandingData
 title: 'Azure SQL Database: Enskild databas'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Dokumentation om Azure SQL Database – enkel databas
+  title: Dokumentation – enkel databas
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   requires-business-manager-approval: false

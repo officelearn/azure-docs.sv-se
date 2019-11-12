@@ -16,7 +16,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: 'Azure Media Services Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Search, Cognitive Services (som API:et för ansiktsigenkänning, Microsoft Translator, API:et för visuellt innehåll och Custom Speech Service). Programmet gör det möjligt att extrahera insikter från dina videor med video- och ljudmodeller för Video Indexer.<br/>Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">jämförelsedokumentet</a>.'
+  description: 'Azure Media Services Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Cognitive Search, Cognitive Services (som API:et för ansiktsigenkänning, Microsoft Translator, API:et för visuellt innehåll och Custom Speech Service). Programmet gör det möjligt att extrahera insikter från dina videor med video- och ljudmodeller för Video Indexer.<br/>Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">jämförelsedokumentet</a>.'
 sections:
   - items:
       - type: list

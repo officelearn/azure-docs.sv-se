@@ -39,12 +39,15 @@
           href: get-started-get-model-rest-apis.md
 - name: Självstudier
   items:
+    - name: Bygg en app som kan delas upp
+      items:
+        - name: 1. Fastställ användaravsikter
+          href: tutorial-intents-only.md
+        - name: 2. Extrahera användardata
+          href: tutorial-machine-learned-entity.md
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
     - name: Bygg en app
       items:
-        - name: Fastställ användaravsikter
-          href: tutorial-intents-only.md
-        - name: Identifiera vanliga användardata med fördefinierade modeller
-          href: luis-tutorial-prebuilt-intents-entities.md
         - name: Extrahera sentiment från användaryttranden
           href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: Extrahera välutformade data med reguljära uttryck

@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa containeravbildningar i molnet – Azure Container Registry Tasks
+title: Självstudie – snabb behållar avbildning bygge-Azure Container Registry uppgifter
 description: I den här självstudien lär du dig att skapa en avbildning av en dockercontainer i Azure med Azure Container Registry Tasks (ACR Tasks) och sedan distribuera den till Azure Container Instances.
 services: container-registry
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0b62ef1fa05138b1d5c0a3aacb570f5d577176fe
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057501"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931403"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: Skapa och distribuera containeravbildningar i molnet med Azure Container Registry Tasks
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: bygga och distribuera behållar avbildningar i molnet med Azure Container Registry uppgifter
 
 **ACR Tasks** är en uppsättning funktioner i Azure Container Registry som ger effektiva avbildningar av dockercontainrar i Azure. I den här artikeln får du lära dig att använda funktionen *Quick Build* (Snabbskapa) i ACR Tasks.
 
@@ -37,7 +37,7 @@ I kommande självstudier får du lära dig att använda i ACR Tasks för automat
 
 Om du vill använda Azure CLI lokalt måste du ha Azure CLI-version **2.0.46** eller senare installerat och loggat in med AZ- [inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="github-account"></a>GitHub-konto
 
@@ -289,7 +289,7 @@ Server running at http://localhost:80
 
 När `Server running at http://localhost:80` visas navigerar du till containerns FQDN i webbläsaren för att se programmet som körs. FQDN bör ha visats i utdatan från kommandot `az container create` du körde i föregående avsnitt.
 
-![Skärmbild av ett exempelprogram som återges i en webbläsare][quick-build-02-browser]
+![Skärmbild av exempelprogram som visas i en webbläsare][quick-build-02-browser]
 
 Om du vill ta bort konsolen från containern trycker du på `Control+C`.
 

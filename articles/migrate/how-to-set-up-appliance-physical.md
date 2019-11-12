@@ -4,18 +4,21 @@ description: Beskriver hur du konfigurerar en installation för att utvärdera f
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: ddd659e8cbcb54a36868848d0c6327f294d531b1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512631"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907161"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
 
 I den här artikeln beskrivs hur du konfigurerar Azure Migrate-enheten om du utvärderar fysiska servrar med verktyget Azure Migrate: Server bedömning.
+
+> [!NOTE]
+> Om funktionerna nämns här som du ännu inte ser i Azure Migrate-portalen, låser du. De kommer att visas under nästa vecka eller så.
 
 Azure Migrate-installationen är en förenklad installation som används av Azure Migrate Server bedömning för att göra följande:
 

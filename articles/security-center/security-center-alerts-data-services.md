@@ -1,6 +1,6 @@
 ---
 title: Hot identifiering för data tjänster i Azure Security Center | Microsoft Docs
-description: I det här avsnittet presenteras Data Services-aviseringar som är tillgängliga i Azure Security Center.
+description: Den här artikeln visar de data Services-aviseringar som är tillgängliga i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,16 +10,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d23d9d2712923f37b3ab9da5ae5369342cd82f5d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621348"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906992"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Hot identifiering för data tjänster i Azure Security Center
 
- Azure Security Center analyserar loggarna för data lagrings tjänster och utlöser aviseringar när ett hot upptäcks för dina data resurser. I det här avsnittet visas en lista över de aviseringar som Security Center genererar för följande tjänster:
+ Azure Security Center analyserar loggarna för data lagrings tjänster och utlöser aviseringar när ett hot upptäcks för dina data resurser. Den här artikeln innehåller en lista över de aviseringar som Security Center genererar för följande tjänster:
 
 * [Azure SQL Database och Azure SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
@@ -53,7 +53,7 @@ Security Center analyserar diagnostiska loggar med Läs-, skriv-och borttagnings
 
 |Varning|Beskrivning|
 |---|---|
-|**Ovanlig plats åtkomst avvikelse**|Analys av exempel på nätverks trafik upptäckte avvikande RDP-kommunikation (utgående Remote Desktop Protocol) som härstammar från en resurs i distributionen. Den här aktiviteten betraktas som onormal för den här miljön. Det kan betyda att din resurs har komprometterats och att den nu används för att bryta Force-angrepp till en extern RDP-slutpunkt. Den här typen av aktivitet kan göra att din IP-adress flaggas som skadlig av externa entiteter.|
+|**Åtkomst från ovanlig plats**|Anger att åtkomst mönstret har ändrats till ett Azure Storage-konto. Någon har åtkomst till det här kontot från en IP-adress som ansågs okänd vid jämförelse med senaste aktivitet. Antingen har en angripare fått åtkomst till kontot eller så har en legitim användare anslutits från en ny eller ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|
 |**Åtkomst avvikelse för program**|Indikerar att ett ovanligt program har åtkomst till det här lagrings kontot. En möjlig orsak är att en angripare har åtkomst till ditt lagrings konto med hjälp av ett nytt program.|
 |**Avvikelse för anonym åtkomst**|Anger att åtkomst mönstret har ändrats till ett lagrings konto. Till exempel har kontot åtkomst till anonymt (utan autentisering), vilket är oväntat jämfört med det senaste åtkomst mönstret för det här kontot. En möjlig orsak är att en angripare har utnyttjat offentlig Läs behörighet för en behållare som innehåller Blob Storage.|
 |**Tor avvikelse**|Anger att det här kontot har öppnats från en IP-adress som kallas en aktiv stängningsmodul för Tor (en maskera proxy). Allvarlighets graden för den här aviseringen tar hänsyn till den autentiseringstyp som används (om det finns någon) och om detta är första fallet för sådan åtkomst. Potentiella orsaker kan vara en angripare som har åtkomst till ditt lagrings konto med hjälp av Tor eller en legitim användare som har åtkomst till ditt lagrings konto med hjälp av Tor.|

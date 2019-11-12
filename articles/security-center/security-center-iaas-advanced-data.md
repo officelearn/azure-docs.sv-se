@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571565"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907037"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines (för hands version)
 Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den här förhands gransknings funktionen innehåller funktioner för att identifiera och åtgärda potentiella databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på hot mot databasen. 
@@ -54,7 +54,7 @@ Aktivera avancerad data säkerhet för SQL-servrar på Virtual Machines på pren
     Avancerad data säkerhet för SQL-servrar kommer att aktive ras på alla SQL-servrar som är anslutna till den valda arbets ytan eller standard arbets ytan för den valda prenumerationen.
 
     >[!NOTE]
-    > Lösningen aktive ras efter den första omstarten av SQL Server. 
+    > Lösningen är helt aktiv efter den första omstarten av SQL Server. 
 
 Skapa en ny arbets yta genom att följa anvisningarna i [skapa en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -72,7 +72,7 @@ Du kan ange en lista över mottagare som ska få ett e-postmeddelande när Secur
 1. Klicka på **e-postmeddelanden**på menyn Inställningar. 
 1. I text rutan **e-postadress** anger du de e-postadresser som ska ta emot meddelandena. Du kan ange mer än en e-postadress genom att avgränsa e-postadresserna med kommatecken (,).  Till exempel admin1@mycompany.comadmin2@mycompany.comadmin3@mycompany.com
 
-      ![E-postinställningar](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![E-postinställningar](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. I inställningar för **e-postavisering** anger du följande alternativ:
   
@@ -88,29 +88,27 @@ Du kan ange en lista över mottagare som ska få ett e-postmeddelande när Secur
 
 Instrument panelen för sårbarhets bedömning ger en översikt över dina utvärderings resultat över alla dina databaser. Du kan visa distributionen av databaser enligt SQL Server version, tillsammans med en sammanfattning av misslyckade jämfört med att skicka databaser och en översikt över misslyckade kontroller efter risk distribution.
 
-Du kan visa dina resultat och rapporter för sårbarhets bedömning direkt från Log Analytics.
+Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
 
-1. Navigera till din Log Analytics arbets yta med avancerad data säkerhets lösning.
-1. Navigera till **lösningar** och välj lösningen **SQL sårbarhets bedömning** .
-1. I fönstret **Sammanfattning** klickar du på **Visa sammanfattning** och väljer din **SQL sårbarhet Assessment-rapport**.
+1. Från Security Centerens marginal List, under resurs säkerhets HYGIEN, väljer du **Data & lagring**.
 
-    ![SQL-utvärdering rapport](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+1. Välj **säkerhets risker för SQL-databaser i virtuella datorer som ska åtgärdas (för hands version)** . Mer information finns i [Security Center rekommendationer](security-center-recommendations.md). 
 
-    Rapportens instrument panel laddas. Se till att tidsfönstret är inställt på minst **7 dagar** sedan genomsökningar efter sårbarhets bedömning körs på dina databaser enligt ett fast schema på en gång per sju dagar.
+    [![* * säkerhets risker på dina SQL-databaser i virtuella datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
-    ![Ange de senaste 7 dagarna](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
+    Den detaljerade vyn för den här rekommendationen visas.
 
-1. Klicka på någon av instrument panels elementen för att öka detalj nivån. Till exempel:
+    [![detaljerad vy för * *-sårbarheter på dina SQL-databaser i virtuella datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-   1. Klicka på en sårbarhets kontroll i avsnittet **Översikt över misslyckade kontroller** om du vill visa en Log Analytics tabell med resultatet av den här kontrollen i alla databaser. De som har resultat visas först.
+1. För att öka detalj nivån för mer information:
 
-   1. Klicka sedan på genom att visa information om varje sårbarhet, inklusive sårbarhets beskrivning och effekt, status, associerad risk och faktiska resultat för den här databasen. Du kan också se den faktiska frågan som kördes för att utföra den här kontrollen och reparera information för att lösa problemet.
+    * En översikt över scannade resurser (databaser) och en lista över säkerhets kontroller som har testats får du genom att klicka på Server.
+    [![sårbarheter grupperade efter SQL Server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
-    ![Välj arbetsyta](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    * En översikt över sårbarheter grupperade efter en speciell SQL-databas får du genom att klicka på databasens intresse.
+    [![sårbarheter grupperade efter SQL Server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
-    ![Välj arbetsyta](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
-
-1. Du kan köra alla Log Analytics frågor om resultat data för sårbarhets bedömning för att segmentera och sortera data efter dina behov.
+    I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning**, hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avancerat skydd för SQL-servrar i Azure VM-aviseringar
 Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-servrar. Dessa händelser kan utlösa följande aviseringar:

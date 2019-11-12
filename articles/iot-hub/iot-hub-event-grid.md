@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748576"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906772"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
@@ -25,7 +25,7 @@ Azure IoT Hub integreras med Azure Event Grid så att du kan skicka händelse me
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Event Grid-integrering är tillgänglig för IoT-hubbar som finns i regionerna där Event Grid stöds. Alla enhets händelser utom Device telemetri-händelser är allmänt tillgängliga. Händelsen enhets telemetri är i offentlig för hands version och är tillgänglig i alla regioner utom USA, västra USA, västra Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Kina 21Vianet](/azure/china)och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). Den senaste listan över regioner finns i [en introduktion till Azure Event Grid](../event-grid/overview.md).
+Event Grid-integrering är tillgänglig för IoT-hubbar som finns i regionerna där Event Grid stöds. Den senaste listan över regioner finns i [en introduktion till Azure Event Grid](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Händelse typer
 

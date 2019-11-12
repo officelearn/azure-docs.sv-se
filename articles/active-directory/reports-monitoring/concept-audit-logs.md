@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a43c5849dcd037915a46de182064b3e630a663ec
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186284"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907182"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -31,7 +31,7 @@ Med Azure Active Directory (Azure AD)-rapporter kan du få den information du be
 Rapporterings arkitekturen består av följande komponenter:
 
 - **Aktivitet** 
-    - **Inloggningar** – inloggnings [rapporten](concept-sign-ins.md) innehåller information om användningen av hanterade program och användar inloggnings aktiviteter.
+    - **Inloggningar** – [inloggnings rapporten](concept-sign-ins.md) innehåller information om användningen av hanterade program och användar inloggnings aktiviteter.
     - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på gransknings loggar är ändringar som har gjorts i alla resurser i Azure AD, till exempel att lägga till eller ta bort användare, appar, grupper, roller och principer.
 - **Säkerhet** 
     - **Riskfyllda inloggningar** – en [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggnings försök som kan ha utförts av någon som inte är en legitim ägare till ett användar konto. 
@@ -42,7 +42,7 @@ Den här artikeln ger en översikt över gransknings rapporten.
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
 * Användare i rollerna **säkerhets administratör**, **säkerhets läsare**, **rapport läsare** eller **Global administratör**
-* Dessutom kan alla användare (icke-administratörer) se sina egna gransknings aktiviteter
+* Dessutom kan alla användare (icke-administratörer) se sina egna inloggnings aktiviteter
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
@@ -57,7 +57,7 @@ En granskningslogg har en standardlistvy som visar:
 - aktivitetens kategori och namn (*vad*) 
 - aktivitetens status (lyckades eller misslyckades)
 - målet
-- initieraren/aktören (som) för en aktivitet
+- Initieraren/aktören (som) för en aktivitet
 
 ![Granskningsloggar](./media/concept-audit-logs/listview.png "Granskningsloggar")
 
@@ -78,10 +78,10 @@ Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
 Du kan filtrera gransknings data i följande fält:
 
-- Tjänsten
-- Category
+- Tjänst
+- Kategori
 - Aktivitet
-- State
+- Status
 - Mål
 - Initierad av (aktör)
 - Datumintervall
@@ -96,7 +96,7 @@ Med **tjänst** filtret kan du välja från en listruta med följande tjänster:
 - SSO för program
 - Autentiseringsmetoder
 - B2C
-- Villkorad åtkomst
+- Villkorlig åtkomst
 - Kärnkatalog
 - Berättigandehantering
 - Identity Protection
@@ -111,9 +111,9 @@ Med filtret **kategori** kan du välja något av följande filter:
 - Alla
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- Authorization
-- Kontakta
+- Autentisering
+- Auktorisering
+- Kontakt
 - Enhet
 - DeviceConfiguration
 - DirectoryManagement
@@ -127,7 +127,7 @@ Med filtret **kategori** kan du välja något av följande filter:
 
 **Aktivitets** filtret baseras på resurs typs valet kategori och aktivitet som du gör. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
 
-Du kan hämta listan över alla gransknings aktiviteter med hjälp av Graph API:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Du kan hämta listan över alla gransknings aktiviteter med hjälp av Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 Med **status** filtret kan du filtrera baserat på status för en gransknings åtgärd. Statusen kan vara något av följande:
 
@@ -140,7 +140,7 @@ Med **mål** filtret kan du söka efter ett visst mål efter namn eller User Pri
 Med filtret **initierad av** kan du definiera en aktörs namn eller ett universellt huvud namn (UPN). Namnet och UPN är Skift läges känsliga.
 
 Med filtret för **datum intervall** kan du definiera en tidsram för de data som returneras.  
-Möjliga värden är:
+Möjliga värden:
 
 - 1 månad
 - 7 dagar

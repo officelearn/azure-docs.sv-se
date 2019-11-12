@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 10ff3cc940ac3d11154f1dec6c06ff3681328d38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890945"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906986"
 ---
 # <a name="deploy-farmbeats"></a>Distribuera FarmBeats
 
@@ -82,14 +82,13 @@ Du behöver följande behörigheter för att distribuera Azure-FarmBeats:
 Innan du påbörjar distributionen måste du se till att du har följande:
 
 - Kontroll konto
-- Azure Active Directory (app-registrering)
-- Azure-FarmBeats
+- Registrerings program för Azure Active Directory (AD)
 
 ## <a name="create-a-sentinel-account"></a>Skapa ett Sentinel-konto    
 
 Ett konto med Sentinel hjälper dig att ladda ned kontroll satellit bilder från sin officiella webbplats till din enhet. Följ de här stegen för att skapa ett kostnads fritt konto:
 
-1. Gå till https://scihub.copernicus.eu/dhus/#/self-registration. På sidan registrering anger du ett förnamn, efter namn, användar namn, lösen ord och e-postadress.
+Gå till https://scihub.copernicus.eu/dhus/#/self-registration. På sidan registrering anger du ett förnamn, efter namn, användar namn, lösen ord och e-postadress.
 En verifierings-e-postadress skickas till den registrerade e-postadressen för bekräftelse. Välj länken och bekräfta. Registrerings processen har slutförts.
 
 ## <a name="create-azure-ad-app-registration"></a>Skapa Azure AD-App-registrering
@@ -103,7 +102,7 @@ För autentisering och auktorisering på Azure-FarmBeats måste du ha en Azure A
 
 Om du redan har en prenumeration kan du flytta den direkt till nästa procedur.
 
-**Fall 2**: den här metoden är det bästa steget när du inte har tillräcklig behörighet för att skapa och konfigurera en Azure AD-App-registrering i din prenumeration. Be administratören att använda det [anpassade skriptet](https://aka.ms/FarmBeatsMarketplace), vilket hjälper IT-administratören att automatiskt generera och konfigurera Azure AD-appens registrering på Azure Portal. Som utdata för att köra det här anpassade skriptet med hjälp av PowerShell-miljön måste IT-administratören dela ett Azure Active Directory-klient-ID och lösen ords hemlighet med dig. Anteckna dessa värden.
+**Fall 2**: den här metoden är det bästa steget när du inte har tillräcklig behörighet för att skapa och konfigurera en Azure AD-App-registrering i din prenumeration. Be administratören att använda det [anpassade skriptet](https://aka.ms/FarmBeatsAADScript), vilket hjälper IT-administratören att automatiskt generera och konfigurera Azure AD-appens registrering på Azure Portal. Som utdata för att köra det här anpassade skriptet med hjälp av PowerShell-miljön måste IT-administratören dela ett Azure Active Directory-klient-ID och lösen ords hemlighet med dig. Anteckna dessa värden.
 
 Använd följande steg för att köra skriptet för Azure AD-program registrering:
 
@@ -132,7 +131,7 @@ Använd följande steg för att köra skriptet för Azure AD-program registrerin
 
 Som en del av installationen skapar du en indata. JSON-fil på följande sätt:
 
-    ```json
+    ```
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -150,24 +149,22 @@ Som en del av installationen skapar du en indata. JSON-fil på följande sätt:
 Den här filen är indatafilen till Azure Cloud Shell och parametrar vars värden används under installationen. Alla parametrar i JSON måste ersättas med lämpliga värden eller tas bort. om det tas bort uppmanas du att installera installations programmet
 
 
-> [!NOTE]
-> Den här filen indata-värden till Azure Cloud Shell.  För att spara tid uppmanas du inte att ange parametrar som du lägger till i den här filen under distributionen. Du uppmanas att ange missade parametrar.
-
 Granska parametrarna innan du förbereder filen.
 
 |Kommando | Beskrivning|
 |--- | ---|
 |sku  | Är ett alternativ för att ladda ned antingen eller båda komponenterna i Azure FarmBeats. Anger vilka komponenter som ska laddas ned. Om du bara vill installera data hubb använder du "onlydatabhub". Om du vill installera data hubb och Accelerator använder du "båda"|
-|SubscriptionId  | Anger prenumerationen för installation av FarmBeats|
-|"datahubResourceGroup"  | Resurs grupp namn för data Hubbs resurser|
-|"acceleratorWebsiteName"  |Unikt URL-prefix för att namnge din data hubb|
-|"acceleratorResourceGroup"  | Unikt URL-prefix som namnger Accelerator-webbplatsen.|
-|"datahubWebsiteName"  | UUnique URL-prefix som namn på data nav webbplatsen. |
-|''sentinelUsername'' | användar namn för att logga in på: https://scihub.copernicus.eu/dhus/#/self-registration.|
-|"notificationEmailAddress"  | E-postadress för att ta emot meddelanden för aviseringar som du konfigurerar i data hubben.|
-|"updateIfExists" "  |Valfritt Parameter som ska ingå i indatamängden. JSON endast om du vill uppgradera en befintlig FarmBeats-instans. För uppgradering, annan information t. ex. resurs grupp namn, platser osv. måste vara desamma.|
-|"aadAppClientId"  | [**Valfritt**] Parameter som ska ingå i indatamängden. JSON endast om Azure AD-appen redan finns.  |
-|"aadAppClientSecret"   | [**Valfritt**] Parameter som ska ingå i indatamängden. JSON endast om Azure AD-appen redan finns.|
+|subscriptionId | Anger prenumerationen för installation av FarmBeats|
+|datahubResourceGroup| Resurs grupp namn för data Hubbs resurser|
+|location |Plats där du vill skapa resurserna|
+|acceleratorWebsiteName |Unikt URL-prefix för att namnge din data hubb|
+|acceleratorResourceGroup  | Unikt URL-prefix som namnger Accelerator-webbplatsen.|
+|datahubWebsiteName  | UUnique URL-prefix som namn på data nav webbplatsen. |
+|sentinelUsername | användar namn för att logga in på: https://scihub.copernicus.eu/dhus/#/self-registration.|
+|notificationEmailAddress  | E-postadress för att ta emot meddelanden för aviseringar som du konfigurerar i data hubben.|
+|updateIfExists|Valfritt Parameter som ska ingå i indatamängden. JSON endast om du vill uppgradera en befintlig FarmBeats-instans. För uppgradering, annan information t. ex. resurs grupp namn, platser osv. måste vara desamma.|
+|aadAppClientId | [**Valfritt**] Parameter som ska ingå i indatamängden. JSON endast om Azure AD-appen redan finns.  |
+|aadAppClientSecret  | [**Valfritt**] Parameter som ska ingå i indatamängden. JSON endast om Azure AD-appen redan finns.|
 
 ## <a name="deploy-within-cloud-shell-browser-based-command-line"></a>Distribuera i Cloud Shell webbläsarbaserad kommando rad
 
@@ -193,17 +190,15 @@ Exempel på JSON-ineffekt:
     ```json
     {  
        "sku":"both", 
-       "subscriptionId": "da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
-       "datahubResourceGroup": "dummy-test-dh1", 
-       "datahubLocation": "westus2", 
-       "datahubWebsiteName": "dummy-test-dh1", 
-       "acceleratorResourceGroup": "dummy-test-acc1", 
-       "acceleratorLocation": "westus2", 
-       "acceleratorWebsiteName": "dummy-test-acc1", 
-       "sentinelUsername": "dummy-dev", 
-       "farmbeatsAppId": "c3cb3xxx-27xx-4xxb-8xx6-3xxx2xxdxxx5c", 
-       "notificationEmailAddress": "dummy@microsoft.com", 
-       "updateIfExists": true
+       "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
+       "datahubResourceGroup":"dummy-test-dh1", 
+       "location":"eastus2", 
+       "datahubWebsiteName":"dummy-test-dh1", 
+       "acceleratorResourceGroup":" dummy-test-acc1",   
+       "acceleratorWebsiteName":" dummy-test-acc1", 
+       "sentinelUsername":"dummy-dev", 
+       "notificationEmailAddress":" dummy@microsoft.com", 
+       "updateIfExists":true 
     }
     ```
 
@@ -213,10 +208,10 @@ Exempel på JSON-ineffekt:
     ![Taktslag i projekt grupp](./media/prepare-for-deployment/bash-2-1.png)
 
 4. Gå till din Hem Katalog i Cloud Shell. Som standard är det/Home/<username>
-5. Skriv eller klistra in följande två kommandon i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
+5. Skriv eller klistra in följande kommando i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
 
       ```azurepowershell-interactive
-      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
      ```
      Installations programmet hämtar automatiskt alla beroenden och skapar distributören. Du uppmanas att godkänna licens avtalet för slutanvändare (EULA) för Azure FarmBeats.
 
@@ -269,10 +264,10 @@ Följ resten av stegen:
     ![Taktslag i projekt grupp](./media/prepare-for-deployment/bash-2-1.png)
 
 4. Gå till din Hem Katalog i Cloud Shell. Som standard är det/Home/<username>
-5. Skriv eller klistra in följande två kommandon i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
+5. Skriv eller klistra in följande kommando i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
 Följ anvisningarna på skärmen.
@@ -314,11 +309,6 @@ När Accelerator-installationen är klar får du URL: en för att komma åt Farm
 
 1. Om du vill logga in från Accelerator kopierar du och klistrar in webb adressen i webbläsaren.
 2. Logga in med Azure Portal autentiseringsuppgifter.
-3. Kör ett valfritt Sanity-test.
-
-    - Kontrol lera om du kan logga in på Accelerator-portalen med hjälp av den Accelerator-länk som du fick som utdata till en lyckad distribution.
-    - Välj **skapa Server grupp**.
-    - Under ikonen "?" öppnar du FarmBeats-guiderna med knappen **Kom igång** .
 
 ## <a name="upgrade"></a>Uppgradera
 
@@ -335,7 +325,7 @@ Uppgraderings stegen liknar installationen vid första tiden. Följ de här steg
 6. Skriv eller klistra in följande två kommandon i Cloud Shell. Se till att ändra sökvägen till indata. JSON-filen och tryck på RETUR.
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 Följ anvisningarna på skärmen:
 

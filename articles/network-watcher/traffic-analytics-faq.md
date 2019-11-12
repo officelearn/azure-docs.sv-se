@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026593"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907097"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
@@ -41,16 +41,16 @@ Ditt konto måste uppfylla något av följande för att aktivera trafik analys:
 - Ditt konto måste ha någon av följande roller för rollbaserad åtkomst kontroll (RBAC) i prenumerations omfånget: ägare, deltagare, läsare eller nätverks deltagare.
 - Om ditt konto inte har tilldelats någon av de tidigare angivna rollerna, måste det tilldelas en anpassad roll som har tilldelats följande åtgärder på prenumerations nivå.
             
-    - Microsoft.Network/applicationGateways/read
+    - Microsoft. Network/applicationGateways/Read
     - Microsoft. Network/Connections/Read
-    - Microsoft.Network/loadBalancers/read 
-    - Microsoft.Network/localNetworkGateways/read 
-    - Microsoft.Network/networkInterfaces/read 
-    - Microsoft.Network/networkSecurityGroups/read 
-    - Microsoft.Network/publicIPAddresses/read
+    - Microsoft. Network/belastningsutjämnare/Read 
+    - Microsoft. Network/localNetworkGateways/Read 
+    - Microsoft. Network/networkInterfaces/Read 
+    - Microsoft. Network/networkSecurityGroups/Read 
+    - Microsoft. Network/publicIPAddresses/Read
     - Microsoft. Network/routeTables/Read
-    - Microsoft.Network/virtualNetworkGateways/read 
-    - Microsoft.Network/virtualNetworks/read
+    - Microsoft. Network/virtualNetworkGateways/Read 
+    - Microsoft. Network/virtualNetworks/Read
         
 Så här kontrollerar du roller som har tilldelats en användare för en prenumeration:
 
@@ -68,51 +68,55 @@ Om du inte ser några utdata kan du kontakta respektive prenumerations administr
 Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 - Centrala Kanada
 - Västra centrala USA
-- East US
+- Östra USA
 - USA, östra 2
-- Norra centrala USA
-- Södra centrala USA
+- USA, norra centrala
+- USA, södra centrala
 - Centrala USA
-- Västra USA
+- USA, västra
 - Västra USA 2
 - Frankrike, centrala
-- Västra Europa
-- Norra Europa
+- Europa, västra
+- Europa, norra
 - Södra Brasilien
 - Storbritannien, västra
 - Storbritannien, södra
 - Östra Australien
-- Sydöstra Australien 
-- Östasien
+- Australien, sydöstra 
+- Asien, östra
 - Sydostasien
 - Sydkorea, centrala
 - Indien, centrala
-- Södra Indien
+- Indien, södra
 - Östra Japan
 - Västra Japan
 - Virginia (USA-förvaltad region)
+- Kina, östra 2
 
 Arbets ytan Log Analytics måste finnas i följande regioner:
 - Centrala Kanada
 - Västra centrala USA
-- Västra USA
-- Västra USA 2
-- Södra centrala USA
-- Centrala USA
-- East US
+- Östra USA
 - USA, östra 2
+- USA, norra centrala
+- USA, södra centrala
+- Centrala USA
+- USA, västra
+- Västra USA 2
 - Frankrike, centrala
-- Västra Europa
-- Norra Europa
+- Europa, västra
+- Europa, norra
+- Storbritannien, västra
 - Storbritannien, södra
 - Östra Australien
-- Sydöstra Australien
-- Östasien
+- Australien, sydöstra
+- Asien, östra
 - Sydostasien 
 - Sydkorea, centrala
 - Indien, centrala
 - Östra Japan
 - Virginia (USA-förvaltad region)
+- Kina, östra 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan NSG: er jag aktivera flödes loggar i olika regioner än min arbets yta?
 
@@ -151,7 +155,7 @@ Microsoft. Insights-providern måste registreras för att flödes loggning ska f
 
 Det kan ta upp till 30 minuter innan instrument panelen visas första gången. Lösningen måste först samla in tillräckligt med data för att den ska kunna härleda meningsfulla insikter. Sedan skapas rapporter. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Vad händer om jag får det här meddelandet: "Det gick inte att hitta några data i den här arbets ytan för det valda tidsintervallet. Försök att ändra tidsintervall eller Välj en annan arbets yta. "?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Vad händer om jag får det här meddelandet: "vi kunde inte hitta några data i den här arbets ytan för det valda tidsintervallet. Försök att ändra tidsintervall eller Välj en annan arbets yta. "?
 
 Prova följande alternativ:
 - Ändra tidsintervallet i den övre stapeln.
@@ -160,7 +164,7 @@ Prova följande alternativ:
     
 Om problemen kvarstår kan du lösa problemet i [User Voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: "Analyserar dina NSG Flow-loggar för första gången. Den här processen kan ta 20-30 minuter att slutföra. Kom tillbaka efter en stund. 2) om steget ovan inte fungerar och din arbets yta är under den kostnads fria SKU: n kontrollerar du arbets ytans användning här för att validera kvoten. mer information finns i vanliga frågor och svar om ytterligare information. "
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: "analyserar dina NSG Flow-loggar för första gången. Den här processen kan ta 20-30 minuter att slutföra. Kom tillbaka efter en stund. 2) om steget ovan inte fungerar och din arbets yta är under den kostnads fria SKU: n kontrollerar du arbets ytans användning här för att validera kvoten. mer information finns i vanliga frågor och svar om ytterligare information. "
 
 Du kan se det här meddelandet på grund av följande:
 - Trafikanalys nyligen har Aktiver ATS och kanske ännu inte har samlat ihop tillräckligt med data för att kunna härleda meningsfulla insikter.
@@ -168,7 +172,7 @@ Du kan se det här meddelandet på grund av följande:
     
 Om problemen kvarstår kan du lösa problemet i [User Voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: "Det verkar som om vi har resursers data (topologi) och ingen flödes information. Klicka här för att visa information om resurser och Läs vanliga frågor och svar om du vill ha mer information.
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: "det verkar som vi har resurs data (topologi) och ingen information om flöden. Klicka här för att visa information om resurser och Läs vanliga frågor och svar om du vill ha mer information.
 
 Du ser resurs informationen på instrument panelen. Det finns dock ingen flödes relaterad statistik. Det kan finnas data som inte finns på grund av att det inte finns några kommunikations flöden mellan resurserna. Vänta i 60 minuter och kontrol lera statusen igen. Om problemet kvarstår och du är säker på att kommunikations flöden mellan resurser finns, kan du ta upp problem i [användar röst forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -244,7 +248,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Trafikanalys mäts. Mätningen baseras på bearbetning av flödes logg data från tjänsten och lagrar de resulterande, utökade loggarna på en Log Analytics-arbetsyta. 
 
-Till exempel, enligt [pris Planen](https://azure.microsoft.com/pricing/details/network-watcher/), som beaktar västra centrala USA-regionen, om flöde loggar data som lagras i ett lagrings konto som bearbetas av trafikanalys är 10 GB och förbättrad loggar som matas in i Log Analytics arbets ytan är 1 GB är tillämpliga kostnader följande: 10 x $2,3 + 1 x $2,76 = $25,76
+Till exempel, enligt [pris Planen](https://azure.microsoft.com/pricing/details/network-watcher/), som beaktar regionen västra centrala USA, om flöde loggar data som lagras i ett lagrings konto som bearbetas av trafikanalys är 10 GB och utökade loggar som matas in i Log Analytics arbets ytan är 1 GB, är tillämpliga kostnader: 10 x $2,3 + 1 x $2,76 = $25,76
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hur ofta Trafikanalys bearbetar data?
 
@@ -266,72 +270,72 @@ Trafikanalys har inte inbyggt stöd för aviseringar. Men eftersom Trafikanalys 
 
 Den geografiska kart sidan innehåller två huvud avsnitt:
     
-- **Banderoll**: Banderollen högst upp i Geo-kartan innehåller knappar för att välja filter för trafik distribution (till exempel distribution, trafik från länder/regioner och skadlig). När du väljer en knapp används respektive filter på kartan. Om du till exempel väljer knappen aktiv, visar kartan de aktiva data centren i distributionen.
-- **Karta**: Under banderollen visar kart avsnittet trafik distribution mellan Azure-datacenter och länder/regioner.
+- **Banderoll**: banderollen överst i Geo-kartan innehåller knappar för att välja filter för trafik distribution (till exempel distribution, trafik från länder/regioner och skadlig). När du väljer en knapp används respektive filter på kartan. Om du till exempel väljer knappen aktiv, visar kartan de aktiva data centren i distributionen.
+- **Karta**: under banderollen visar kart avsnittet trafik distribution mellan Azure-datacenter och länder/regioner.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
 - Som standard är valet på sidan geo Map för banderollen "Azure DCs"-filtret.
-- Om du vill flytta till ett annat filter använder du antingen `Tab` eller `Right arrow`-nyckeln. Om du vill flytta bakåt använder du antingen `Shift+Tab` eller `Left arrow`-nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
-- Tryck på `Enter` eller på `Down`-piltangenten för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder under kart avsnittet markerade.
+- Om du vill flytta till ett annat filter använder du antingen `Tab` eller `Right arrow`s nyckel. Om du vill flytta bakåt använder du antingen `Shift+Tab` eller `Left arrow`s nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck på `Enter` eller `Down` piltangenten om du vill använda det valda filtret. Baserat på filter val och distribution är en eller flera noder under kart avsnittet markerade.
 - Om du vill växla mellan banderoll och karta trycker du på `Ctrl+F6`.
         
 ### <a name="keyboard-navigation-on-the-map"></a>Tangent bords navigering på kartan
     
-- När du har valt ett filter på banderollen och tryckt på `Ctrl+F6` flyttas fokus till en av de markerade noderna (**Azure-datacenter** eller **land/region**) i vyn karta.
-- Om du vill flytta till andra markerade noder i kartan använder du antingen `Tab` eller nyckeln `Right arrow` för vidarebefordran. Använd `Shift+Tab` eller nyckeln `Left arrow` för omvänd rörelse.
-- Om du vill välja en markerad nod i kartan använder du nyckeln `Enter` eller `Down arrow`.
-- Vid val av sådana noder flyttas fokus till **rutan information-verktyget** för noden. Fokus flyttas som standard till knappen stängd i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder du `Right arrow` och `Left arrow` för att flytta framåt och bakåt. Tryck på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
-- När du trycker på `Tab` när fokus är i **rutan information-verktyget**, flyttas fokus till slut punkterna i samma kontinent som den valda noden. Använd `Right arrow`-och `Left arrow`-nycklar för att gå igenom dessa slut punkter.
-- Om du vill flytta till andra flödes slut punkter eller kontinent-kluster använder du `Tab` för vidarebefordrande rörelse och `Shift+Tab` för omvänd rörelse.
-- När fokus är på **kontinents kluster**använder du piltangenterna `Enter` eller `Down` för att markera slut punkterna i det kontinents klustret. Om du vill flytta genom slut punkter och knappen Stäng i informations rutan i det kontinent klustret använder du antingen nyckeln `Right arrow` eller `Left arrow` för framåt och bakåt. På alla slut punkter kan du använda `Shift+L` för att växla till anslutnings linjen från den valda noden till slut punkten. Du kan trycka på `Shift+L` igen för att gå vidare till den valda slut punkten.
+- När du har valt ett filter på banderollen och tryckt på `Ctrl+F6`flyttas fokus till en av de markerade noderna (**Azure-datacenter** eller **land/region**) i vyn karta.
+- Om du vill flytta till andra markerade noder i kartan använder du antingen `Tab` eller `Right arrow` nyckeln för vidarebefordran. Använd `Shift+Tab` eller `Left arrow`s nyckeln för omvänd förflyttning.
+- Om du vill välja en markerad nod i kartan använder du `Enter` eller `Down arrow` nyckel.
+- Vid val av sådana noder flyttas fokus till **rutan information-verktyget** för noden. Fokus flyttas som standard till knappen stängd i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare kan du använda `Right arrow` och `Left arrow` nycklar för att flytta framåt respektive bakåt. Om du trycker på `Enter` får du samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- När du trycker på `Tab` medan fokus är i **rutan information-verktyget**, flyttas fokus till slut punkterna i samma kontinent som den valda noden. Använd `Right arrow` och `Left arrow` nycklar för att gå igenom dessa slut punkter.
+- Om du vill flytta till andra flödes slut punkter eller kontinent-kluster använder du `Tab` för att vidarebefordra rörelse och `Shift+Tab` för bakåt.
+- När fokus är på **kontinents kluster**använder du `Enter` eller `Down` piltangenterna för att markera slut punkterna inuti det kontinent klustret. Om du vill flytta genom slut punkter och knappen Stäng i informations rutan i det kontinent klustret använder du antingen `Right arrow` eller `Left arrow` nyckel för framåt och bakåt. På alla slut punkter kan du använda `Shift+L` för att växla till anslutnings linjen från den valda noden till slut punkten. Du kan trycka på `Shift+L` igen för att gå till den valda slut punkten.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Tangent bords navigering i alla steg
     
-- `Esc` minimerar det utökade urvalet.
-- @No__t-0-nyckeln utför samma åtgärd som `Esc`. @No__t-0-nyckeln utför samma åtgärd som `Enter`.
+- `Esc` döljer det utökade urvalet.
+- `Up arrow` nyckel utför samma åtgärd som `Esc`. `Down arrow` nyckel utför samma åtgärd som `Enter`.
 - Använd `Shift+Plus` för att zooma in och `Shift+Minus` för att zooma ut.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Hur kan jag navigera med hjälp av tangent bordet i vyn för topologi för virtuella nätverk?
 
 Sidan topologi för virtuella nätverk innehåller två huvud delar:
     
-- **Banderoll**: Banderollen högst upp i topologin för virtuella nätverk innehåller knappar för att välja filter för trafik distribution (till exempel anslutna virtuella nätverk, frånkopplade virtuella nätverk och offentliga IP-adresser). När du väljer en knapp används respektive filter i topologin. Om du till exempel väljer knappen aktiv, visar topologin de aktiva virtuella nätverken i distributionen.
-- **Topologi**: Under banderollen visas i avsnittet topologi trafik distribution mellan virtuella nätverk.
+- **Banderoll**: banderollen längst upp i topologin för virtuella nätverk innehåller knappar för att välja filter för trafik distribution (till exempel anslutna virtuella nätverk, frånkopplade virtuella nätverk och offentliga IP-adresser). När du väljer en knapp används respektive filter i topologin. Om du till exempel väljer knappen aktiv, visar topologin de aktiva virtuella nätverken i distributionen.
+- **Topologi**: under banderollen visar avsnittet topologi trafik distribution mellan virtuella nätverk.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
 - Som standard är valet på sidan topologi för virtuella nätverk för banderollen "anslutet virtuella nätverk".
-- Om du vill flytta till ett annat filter använder du `Tab`-tangenten för att flytta framåt. Om du vill flytta bakåt använder du `Shift+Tab`-nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
-- Tryck på `Enter` om du vill använda det valda filtret. Baserat på filter val och distribution markeras en eller flera noder (virtuellt nätverk) under avsnittet topologi.
+- Om du vill flytta till ett annat filter använder du `Tab` nyckeln för att flytta framåt. Om du vill flytta bakåt använder du `Shift+Tab` nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck på `Enter` för att använda det valda filtret. Baserat på filter val och distribution markeras en eller flera noder (virtuellt nätverk) under avsnittet topologi.
 - Om du vill växla mellan banderollen och topologin trycker du på `Ctrl+F6`.
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Tangent bords navigering i topologin
     
-- När du har valt ett filter på banderollen och tryckt på `Ctrl+F6`, flyttas fokus till en av de markerade noderna (**VNet**) i vyn topologi.
-- Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow`-nyckeln för vidarebefordran. 
-- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare kan du använda knapparna `Right arrow` och `Left arrow` för att flytta framåt och bakåt. Tryck på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
-- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow`-nyckeln. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.
+- När du har valt ett filter på banderollen och tryckt på `Ctrl+F6`flyttas fokus till en av de markerade noderna (**VNet**) i vyn topologi.
+- Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för vidarebefordran. 
+- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare kan du använda `Right arrow` och `Left arrow` nycklar för att flytta framåt respektive bakåt. Om du trycker på `Enter` får du samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.
     
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Hur kan jag navigera med hjälp av tangent bordet i vyn under näts topologi?
 
 Sidan topologier för virtuella under nätverk innehåller två huvud avsnitt:
     
-- **Banderoll**: Banderollen högst upp i topologin för virtuella under nätverk innehåller knappar för att välja trafik distributions filter (till exempel aktiva, medel och gateway-undernät). När du väljer en knapp används respektive filter i topologin. Om du till exempel väljer knappen aktiv, markerar topologin det aktiva virtuella under nätverket i distributionen.
-- **Topologi**: Under banderollen visas i avsnittet topologi trafik distribution mellan virtuella under nätverk.
+- **Banderoll**: banderollen längst upp i topologin för virtuella under nätverk innehåller knappar för att välja trafik distributions filter (till exempel aktiva, medel och gateway-undernät). När du väljer en knapp används respektive filter i topologin. Om du till exempel väljer knappen aktiv, markerar topologin det aktiva virtuella under nätverket i distributionen.
+- **Topologi**: under banderollen visar avsnittet topologi trafik distribution mellan virtuella under nätverk.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
 - Som standard är valet på sidan topologier för virtuella under nätverk för banderollen "undernät"-filtret.
-- Om du vill flytta till ett annat filter använder du `Tab`-tangenten för att flytta framåt. Om du vill flytta bakåt använder du `Shift+Tab`-nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
-- Tryck på `Enter` om du vill använda det valda filtret. Baserat på filter val och distribution är en eller flera noder (undernät) i avsnittet topologi markerat.
+- Om du vill flytta till ett annat filter använder du `Tab` nyckeln för att flytta framåt. Om du vill flytta bakåt använder du `Shift+Tab` nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck på `Enter` för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder (undernät) i avsnittet topologi markerat.
 - Om du vill växla mellan banderollen och topologin trycker du på `Ctrl+F6`.
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Tangent bords navigering i topologin
     
-- När du har valt ett filter på banderollen och tryckt på `Ctrl+F6`, flyttas fokus till en av de markerade noderna (**undernät**) i vyn topologi.
-- Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow`-nyckeln för vidarebefordran. 
-- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder du `Right arrow` och `Left arrow` för att flytta framåt och bakåt. Tryck på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
-- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow`-nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
+- När du har valt ett filter på banderollen och tryckt på `Ctrl+F6`flyttas fokus till en av de markerade noderna (**undernät**) i vyn topologi.
+- Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för vidarebefordran. 
+- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare kan du använda `Right arrow` och `Left arrow` nycklar för att flytta framåt respektive bakåt. Om du trycker på `Enter` får du samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686550"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907150"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -65,24 +65,24 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 * Västra centrala USA
 * Östra USA
 * USA, östra 2
-* Norra centrala USA
-* Södra centrala USA
+* USA, norra centrala
+* USA, södra centrala
 * Centrala USA
-* Västra USA
+* USA, västra
 * Västra USA 2
 * Frankrike, centrala
-* Västra Europa
-* Norra Europa
+* Europa, västra
+* Europa, norra
 * Södra Brasilien
 * Storbritannien, västra
 * Storbritannien, södra
 * Östra Australien
-* Sydöstra Australien
-* Östasien
+* Australien, sydöstra
+* Asien, östra
 * Sydostasien
 * Sydkorea, centrala
 * Indien, centrala
-* Södra Indien
+* Indien, södra
 * Östra Japan 
 * Västra Japan
 * Virginia (USA-förvaltad region)
@@ -95,17 +95,21 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 * Västra centrala USA
 * Östra USA
 * USA, östra 2
-* Södra centrala USA
-* Västra USA
+* USA, norra centrala
+* USA, södra centrala
+* Centrala USA
+* USA, västra
 * Västra USA 2
 * Centrala USA
 * Frankrike, centrala
-* Norra Europa
-* Västra Europa
+* Europa, västra
+* Europa, norra
+* Södra Brasilien
+* Storbritannien, västra
 * Storbritannien, södra
 * Östra Australien
-* Sydöstra Australien
-* Östasien
+* Australien, sydöstra
+* Asien, östra
 * Sydostasien
 * Sydkorea, centrala
 * Indien, centrala
@@ -113,7 +117,7 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 * Virginia (USA-förvaltad region)
 * Kina, östra 2
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 ### <a name="user-access-requirements"></a>Krav för användar åtkomst
 

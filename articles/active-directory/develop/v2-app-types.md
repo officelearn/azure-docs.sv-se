@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 21f1da8738946078cb625c76e11ce1bfd62d97ac
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809266"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927163"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -76,7 +76,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns [i referens för åtkomsttoken och](access-tokens.md) [id_token-referens](id-tokens.md)
+Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns i referens för [åtkomsttoken](access-tokens.md) och [id_token referens](id-tokens.md)
 
 I Web Server-appar använder inloggnings flödet följande steg på hög nivå:
 
@@ -90,7 +90,7 @@ Förutom enkel inloggning kan en webbapp ha åtkomst till en annan webb tjänst,
 
 ## <a name="web-apis"></a>Webb-API:er
 
-Du kan använda Microsoft Identity Platform-slutpunkten för att skydda webb tjänster, till exempel appens RESTful-webb-API. I stället för ID-tokens och sessionscookies använder ett webb-API en OAuth 2,0-åtkomsttoken för att skydda dess data och för att autentisera inkommande begär Anden. Anroparen för ett webb-API lägger till en åtkomsttoken i Authorization-huvudet för en HTTP-begäran, så här:
+Du kan använda Microsoft Identity Platform-slutpunkten för att skydda webb tjänster, till exempel appens RESTful-webb-API. Webb-API: er kan implementeras på flera olika plattformar och på olika språk. De kan också implementeras med HTTP-utlösare i Azure Functions. I stället för ID-tokens och sessionscookies använder ett webb-API en OAuth 2,0-åtkomsttoken för att skydda dess data och för att autentisera inkommande begär Anden. Anroparen för ett webb-API lägger till en åtkomsttoken i Authorization-huvudet för en HTTP-begäran, så här:
 
 ```
 GET /api/items HTTP/1.1
@@ -100,7 +100,7 @@ Accept: application/json
 ...
 ```
 
-Webb-API: et använder åtkomsttoken för att verifiera API-anroparens identitet och för att extrahera information om anroparen från anspråk som kodas i åtkomsttoken. Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns [i referens för åtkomsttoken och](access-tokens.md) [id_token-referens](id-tokens.md)
+Webb-API: et använder åtkomsttoken för att verifiera API-anroparens identitet och för att extrahera information om anroparen från anspråk som kodas i åtkomsttoken. Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns i referens för [åtkomsttoken](access-tokens.md) och [id_token referens](id-tokens.md)
 
 Ett webb-API kan ge användare möjlighet att välja eller välja ut vissa funktioner eller data genom att exponera behörigheter, även kallade [omfång](v2-permissions-and-consent.md). För att en anropande app ska kunna erhålla behörighet till ett omfång måste användaren godkänna omfånget under ett flöde. Slut punkten för Microsoft Identity Platform ber användaren om behörighet och registrerar sedan behörigheter i alla åtkomsttoken som webb-API: et tar emot. Webb-API: et verifierar de åtkomsttoken den tar emot vid varje anrop och utför verifierings kontroller.
 

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485387"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929549"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data vetenskap med ett Linux-Data Science Virtual Machine i Azure
 
@@ -24,7 +24,7 @@ Data vetenskaps uppgifterna demonstreras i den här genom gången följa stegen 
 
 I den här genom gången analyserar vi [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) -datauppsättningen. Spambase är en uppsättning e-postmeddelanden som marker ATS som skräp post eller Ham (inte spam). Spambase innehåller också viss statistik om e-postmeddelandets innehåll. Vi pratar om statistiken senare i genom gången.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda en Linux-DSVM måste du ha följande krav:
 
@@ -58,8 +58,8 @@ Sammanfoga sedan de två filerna tillsammans:
 
 Data uppsättningen har flera typer av statistik för varje e-post:
 
-* Kolumner som **word\_freq\_* Word*** anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **word\_freq\_** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
-* Kolumner som **char\_freq\_* char*** anger procent andelen av alla tecken i e-postmeddelandet som är *char*.
+* Kolumner som **word\_freq\__Word_**  anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **word\_freq\_** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
+* Kolumner som **char\_freq\__char_**  anger procent andelen av alla tecken i e-postmeddelandet som är *char*.
 * **versal\_\_längd\_längst** är den längsta längden för en sekvens med versaler.
 * **genomsnittligt\_\_längd\_genomsnittet** är den genomsnittliga längden för alla sekvenser med versaler.
 * **\_för\_längd\_total** är total längden på alla sekvenser med versaler.

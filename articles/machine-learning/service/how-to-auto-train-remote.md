@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5104e6e037341c41a032f80287c6d56d17361d4c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497324"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932186"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserad maskin inlärning i molnet
 
@@ -103,7 +103,7 @@ y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
 
 ## <a name="create-run-configuration"></a>Skapa körnings konfiguration
 
-Om du vill göra beroenden tillgängliga för get_data. py-skriptet definierar du ett `RunConfiguration`-objekt med definierat `CondaDependencies`. Använd det här objektet för parametern `run_configuration` i `AutoMLConfig`.
+Om du vill göra beroenden tillgängliga för get_data. py-skript definierar du ett `RunConfiguration`-objekt med definierat `CondaDependencies`. Använd det här objektet för parametern `run_configuration` i `AutoMLConfig`.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -148,24 +148,6 @@ automl_config = AutoMLConfig(task='classification',
                              X = X,
                              y = y,
                              **automl_settings,
-                             )
-```
-
-### <a name="enable-model-explanations"></a>Aktivera modell förklaringar
-
-Ange den valfria `model_explainability` parametern i `AutoMLConfig`-konstruktorn. Dessutom måste ett verifierings dataframe-objekt skickas som en parameter `X_valid` för att använda funktionen modell förklaring.
-
-```python
-automl_config = AutoMLConfig(task='classification',
-                             debug_log='automl_errors.log',
-                             path=project_folder,
-                             compute_target=compute_target,
-                             run_configuration=run_config,
-                             X = X,
-                             y = y,
-                             **automl_settings,
-                             model_explainability=True,
-                             X_valid=X_test
                              )
 ```
 
@@ -237,59 +219,13 @@ remote_run.get_portal_url()
 
 Samma information finns på arbets ytan.  Mer information om de här resultaten finns i [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 
-### <a name="view-logs"></a>Visa loggar
-
-Hitta loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
-
-## <a name="explain"></a>Förklaring av bästa modell
-
-Genom att hämta modell förklarings data kan du se detaljerad information om modeller för att öka transparensen i vad som körs på Server delen. I det här exemplet kör du modell förklaringar enbart för den bästa anpassnings modellen. Om du kör för alla modeller i pipelinen leder det till betydande körnings tid. Information om modell förklaringar innehåller:
-
-* shap_values: förklarings informationen som genereras av Shap-lib.
-* expected_values: det förväntade värdet för modellen som används för en uppsättning X_train-data.
-* overall_summary: funktions värden på modell nivå som är sorterade i fallande ordning.
-* overall_imp: funktions namnen sorteras i samma ordning som i overall_summary.
-* per_class_summary: funktions värden för funktionen på klass nivå sorteras i fallande ordning. Endast tillgängligt för klassificerings ärendet.
-* per_class_imp: funktions namnen sorteras i samma ordning som i per_class_summary. Endast tillgängligt för klassificerings ärendet.
-
-Använd följande kod för att välja den bästa pipelinen från dina iterationer. Metoden `get_output` returnerar den bästa körningen och den monterade modellen för den senaste pass-anropet.
-
-```python
-best_run, fitted_model = remote_run.get_output()
-```
-
-Importera `retrieve_model_explanation`-funktionen och kör den bästa modellen.
-
-```python
-from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-    retrieve_model_explanation(best_run)
-```
-
-Skriv ut resultat för variabler för `best_run` förklaring som du vill visa.
-
-```python
-print(overall_summary)
-print(overall_imp)
-print(per_class_summary)
-print(per_class_imp)
-```
-
-Om du skriver ut sammanfattnings variabler för `best_run` förklaring resulterar det i följande utdata.
-
-![Modeller av förklarande modell konsol](./media/how-to-auto-train-remote/expl-print.png)
-
-Du kan också visualisera funktions prioritet genom gränssnittet i widgeten eller i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com). 
-
-![Användar gränssnitt för modell förklaring](./media/how-to-auto-train-remote/model-exp.png)
-
 ## <a name="example"></a>Exempel
 
-Antecknings boken [How-to-use-azureml/Automated-Machine-Learning/Remote-amlcompute/Auto-ml-Remote-amlcompute. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) visar begreppen i den här artikeln.
+Följande [bärbara dator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) visar begrepp i den här artikeln.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig [hur du konfigurerar inställningar för automatisk träning](how-to-configure-auto-train.md).
+* Lär dig [hur du konfigurerar inställningar för automatisk träning](how-to-configure-auto-train.md).
+* Se [instruktionen för att](how-to-machine-learning-interpretability-automl.md) aktivera modell tolknings funktioner i automatiserade ml experiment.

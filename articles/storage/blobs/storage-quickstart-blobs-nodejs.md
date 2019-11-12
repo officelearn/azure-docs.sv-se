@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 28a75158b161e680f857b986bcb754f1f99e8fab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 90ef1be4366205b1f655a0b93619a897d6d1f25d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825307"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929486"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för Java Script
 
@@ -33,7 +33,7 @@ Använd klient biblioteket för Azure Blob Storage-V12 för Java Script för att
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -118,7 +118,7 @@ Från projekt katalogen:
 
 När exempel programmet gör en begäran för att Azure Storage, måste det vara auktoriserat. Om du vill auktorisera en begäran lägger du till autentiseringsuppgifterna för ditt lagrings konto i programmet som en anslutnings sträng. Visa autentiseringsuppgifterna för lagringskontot genom att följa dessa steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.
 3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Här kan du visa åtkomstnycklarna för kontot och den fullständiga anslutningssträngen för varje nyckel.
 4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att välja **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
@@ -351,7 +351,7 @@ I den här snabb starten har du lärt dig att ladda upp, ladda ned och lista blo
 Om du vill se exempel appar för Blob Storage fortsätter du till:
 
 > [!div class="nextstepaction"]
-> [JavaScript-exempel för Azure Blob Storage SDK V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/azure-storage-blob/samples)
+> [JavaScript-exempel för Azure Blob Storage SDK V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 * Mer information finns i [Azure SDK för Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md).
 * För självstudier, exempel, snabb starter och annan dokumentation går du till [Azure SDK för JavaScript-dokumentation](/azure/javascript/).

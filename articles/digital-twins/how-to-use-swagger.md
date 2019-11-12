@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6a99693c3f88e94c093910da6ba4a305c26fe39d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958873"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931348"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Dokumentation om Azure Digitals Swagger-referens
 
@@ -42,7 +42,7 @@ Det automatiskt genererade Swagger-referensmaterial ger en snabb överblick öve
 
 En kortfattad sammanfattning beskriver API: et.
 
-[![Swagger överst](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
+[![Swagger översta](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 Objekt modeller för hanterings-API visas också.
 
@@ -95,14 +95,14 @@ I exemplen finns även felkoder som hjälper dig att felsöka eller förbättra 
 > [!NOTE]
 > * Användarens huvud namn som skapade Azure Digitals sammanflätade resurser har en roll tilldelning för utrymmes administratör och kommer att kunna skapa ytterligare roll tilldelningar för andra användare. Sådana användare och deras roller kan auktoriseras för att anropa API: erna.
 
-1. Följ stegen i [den här snabb](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) starten eller [Registrera din Azure Digital-app med Azure Active Directory äldre](./how-to-use-legacy-aad.md) för att skapa och konfigurera ett Azure AD-program. Du kan också återanvända en befintlig app-registrering.
+1. Följ stegen i [den här snabb](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) starten för att skapa och konfigurera ett Azure AD-program. Du kan också återanvända en befintlig app-registrering.
 
 1. Lägg till följande svars-URL i appens registrering:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | Ersätt med | Exempel |
+    | Namn  | Ersätt med | Exempel |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | URL: en för hanterings REST API-dokumentationen finns i portalen  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -112,11 +112,11 @@ När du har slutfört Azure Active Directory registreringen:
 
 1. Välj knappen **auktorisera** på din Swagger-sida.
 
-    [![Select knappen för Swagger-auktorisering](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![att välja knappen Swagger-auktorisera](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 1. Klistra in program-ID: t i fältet **client_id** .
 
-    [![Swagger client_id-fält](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
+    [![Swagger client_id fält](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
 1. Du omdirigeras sedan till följande lyckade spärred.
 

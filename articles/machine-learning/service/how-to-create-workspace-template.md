@@ -1,5 +1,5 @@
 ---
-title: Använd en Azure Resource Manager mall för att skapa en arbets yta
+title: Skapa en arbets yta med Azure Resource Manager mall
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder en Azure Resource Manager mall för att skapa en ny Azure Machine Learning arbets yta.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: f20c7955856e2e848d331d857d2564649c837bb0
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 8bcfb80d42e7cd1fad6ff4c04415bd8627a3293e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847461"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932146"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../../azure-resource-manager/resource-group-template-deploy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -217,7 +217,7 @@ Mer information om mallar finns i följande artiklar:
 
 Mer information finns i [distribuera resurser från en anpassad mall](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="use-azure-powershell"></a>Använd Azure PowerShell
+## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
 I det här exemplet förutsätter vi att du har sparat mallen till en fil med namnet `azuredeploy.json` i den aktuella katalogen:
 

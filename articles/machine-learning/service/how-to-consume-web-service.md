@@ -1,5 +1,5 @@
 ---
-title: Skapa en klient för att använda distribuerad webb tjänst
+title: Skapa klient för modell distribuerad som webb tjänst
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder en webb tjänst som genererades när en modell distribuerades med Azure Machine Learning modell. Webb tjänsten exponerar en REST API. Skapa klienter för detta API genom att använda valfritt programmeringsspråk.
 services: machine-learning
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387ba970aed68a5f4e682f932a362d3b04b35b8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 608f343166b528cacf3b1479d993466f6df7cb7e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671459"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932166"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

@@ -1,18 +1,18 @@
 ---
-title: Integrering av bilder-partner
+title: Bildpartnerintegration
 description: Beskriver bilder partner integration
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2b15cc56cb4f804fac0b047819ccf166950e1cf3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890976"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927784"
 ---
-# <a name="imagery-partner-integration"></a>Integrering av bilder-partner
+# <a name="imagery-partner-integration"></a>Bildpartnerintegration
 
 Den här artikeln beskriver hur du använder Azure FarmBeats Translator-komponenten för att skicka bilder-data till FarmBeats. Jordbruks bilder data kan vara från olika källor, inklusive Multispectral-kameror, satelliter och drönare. Bilder-partner kan integreras med FarmBeats för att förse kunder med anpassade, genererade kartor för sina grupper.
 
@@ -97,7 +97,7 @@ Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, b
 
 Nedanstående exempel förfrågan är att hämta listan över enheter:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -108,7 +108,7 @@ De flesta GET-, POST-och parkera-anrop kräver en text för JSON-begäran.
 Nedanstående exempel förfrågan är att skapa en enhet (detta har en indataport med en indataport med begär ande texten).
 
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -326,6 +326,7 @@ Följande är systemdefinierade värden:
   ]
 }
 ```
+
 Detta kommer att vara en eng ång slö period och omfånget för den nya scenetype är begränsat till den prenumeration där FarmBeats-projektet distribueras.
 
 Exempel: om du vill lägga till SceneSource: "SlantRange", lägger du till ID: t för/ExtendedType med nyckel: "SceneSource" indatakälla:

@@ -1,6 +1,6 @@
 ---
 title: Azure Container Registry Arkiv i Azure Portal
-description: Så här visar du Azure Container Registry-databaser i Azure Portal.
+description: Använd Azure Portal för att Visa Azure Container Registry-databaser, som är värd för Docker-behållar avbildningar och andra artefakter som stöds.
 services: container-registry
 author: cristy
 manager: gwallace
@@ -8,34 +8,34 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 22f84efee2b3996734e8e38c73d30ba891b745d9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 793d8e82ca78c6055a6e956d4f41b7991d5fd700
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310585"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931536"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visa behållare register Arkiv i Azure Portal
 
 Med Azure Container Registry kan du lagra Docker-behållar avbildningar i-databaser. Genom att lagra avbildningar i lagrings utrymmen kan du lagra grupper med bilder (eller versioner av avbildningar) i isolerade miljöer. Du kan ange dessa databaser när du push-överför avbildningar till registret och visa innehållet i Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **Behållar register**: Skapa ett behållar register i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Docker CLI**: Installera [Docker][docker-install] på den lokala datorn, som ger dig kommando rads gränssnittet Docker.
-* **Behållar avbildning**: Skicka en avbildning till behållar registret. Information om hur du push-överför och hämtar bilder finns i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md).
+* **Behållar register**: skapa ett behållar register i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Docker CLI**: installera [Docker][docker-install] på den lokala datorn, som ger dig kommando rads gränssnittet Docker.
+* **Behållar avbildning**: skicka en avbildning till behållar registret. Information om hur du push-överför och hämtar bilder finns i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md).
 
 ## <a name="view-repositories-in-azure-portal"></a>Visa databaser i Azure Portal
 
 Du kan se en lista över de databaser som är värdar för dina avbildningar, samt avbildnings taggarna i Azure Portal.
 
-Om du följde stegen i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md) (och sedan inte har tagit bort avbildningen) bör du ha en nginx-avbildning i ditt container Registry. Anvisningarna i artikeln anger att du taggar avbildningen med ett namn område, "Samples" i `/samples/nginx`. Som en uppdaterare var Docker [push][docker-push] -kommandot som anges i artikeln:
+Om du följde stegen i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md) (och sedan inte har tagit bort avbildningen) bör du ha en nginx-avbildning i ditt container Registry. Anvisningarna i artikeln anger att du taggar avbildningen med ett namn område, "Samples" i `/samples/nginx`. Som en uppdaterare var [Docker push][docker-push] -kommandot som anges i artikeln:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
- Eftersom Azure Container Registry stöder lagrings utrymmen för flera platser kan du omfattnings samlingar med avbildningar relaterade till en särskild app, eller en samling av appar, till olika utvecklings-eller drift team. Om du vill läsa mer om databaser i behållar register, se privata Docker-behållar [register i Azure](container-registry-intro.md).
+ Eftersom Azure Container Registry stöder lagrings utrymmen för flera platser kan du omfattnings samlingar med avbildningar relaterade till en särskild app, eller en samling av appar, till olika utvecklings-eller drift team. Om du vill läsa mer om databaser i behållar register, se [privata Docker-behållar register i Azure](container-registry-intro.md).
 
 Så här visar du en lagrings plats:
 

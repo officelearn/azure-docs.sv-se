@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9b873b5a68979b8225c44c32e0b9494408e35ac1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496360"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927187"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -129,7 +129,11 @@ Image Store Viewer är en funktion som erbjuds om du använder interna Avbildnin
 ![Service Fabric Explorer kluster mappning][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
-Service Fabric Explorer ger möjlighet att gränssnitt för [säkerhets kopiering och återställning](./service-fabric-reliable-services-backup-restore.md). Följande åtgärder är möjliga:
+Service Fabric Explorer ger möjlighet att gränssnitt för [säkerhets kopiering och återställning](./service-fabric-reliable-services-backup-restore.md). För att kunna se säkerhets kopierings-och återställnings funktioner i SFX måste du aktivera avancerat läge.
+
+![Aktivera avancerat läge][0]
+ 
+Följande åtgärder är möjliga:
 
 * Skapa, redigera och ta bort en säkerhets kopierings princip.
 * Aktivera och inaktivera säkerhets kopiering för ett program, en tjänst eller en partition.
@@ -151,3 +155,4 @@ Mer information om säkerhets kopierings-och återställnings tjänsten finns i 
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
 [sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

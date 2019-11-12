@@ -1,5 +1,5 @@
 ---
-title: Automatisera skapande och korrigering av behållar avbildningar med Azure Container Registry uppgifter (ACR-aktiviteter)
+title: Azure Container Registry uppgifter – översikt
 description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som tillhandahåller säker, automatiserad version av behållar avbildning, hantering och korrigeringar i molnet.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 45fdd68273ed2cd5cfccf37765935ce9f7bfdc13
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001400"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931480"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -27,7 +27,7 @@ Behållare tillhandahåller nya nivåer av virtualisering, isolera program-och u
 
 ACR-aktiviteter stöder flera scenarier för att bygga och underhålla behållar avbildningar och andra artefakter. Mer information finns i följande avsnitt i den här artikeln.
 
-* **[Snabb uppgift](#quick-task)** – bygga och skicka en enda behållar avbildning till ett behållar register på begäran, i Azure, utan att behöva en lokal Docker-motor installation. Tänk `docker build`, `docker push` i molnet.
+* **[Snabb uppgift](#quick-task)** – bygga och skicka en enda behållar avbildning till ett behållar register på begäran, i Azure, utan att behöva en lokal Docker-motor installation. Tänk `docker build``docker push` i molnet.
 * **Automatiskt utlöst uppgift** – aktivera en eller flera *utlösare* för att skapa en avbildning:
   * **[Utlös vid uppdatering av käll kod](#trigger-task-on-source-code-update)** 
   * **[Utlös vid uppdatering av bas avbildning](#automate-os-and-framework-patching)** 
@@ -44,7 +44,7 @@ Utvecklings cykeln för inre slingor, den iterativa processen med att skriva kod
 
 Innan du genomför din första kodrad kan ACR-aktiviteternas [snabb uppgift](container-registry-tutorial-quick-task.md) tillhandahålla en integrerad utvecklings upplevelse genom att avlasta dina behållar avbildningar till Azure. Med snabb uppgifter kan du verifiera dina automatiserade versions definitioner och fånga eventuella problem innan du genomför din kod.
 
-Med hjälp av det välkända `docker build`-formatet tar [AZ ACR build][az-acr-build] -kommandot i Azure CLI en [kontext](#context-locations) (uppsättningen filer som ska skapas), skickar ACR uppgifter och skickar som standard den inbyggda avbildningen till registret när den har slutförts.
+Med hjälp av det bekanta `docker build`-formatet tar [AZ ACR build][az-acr-build] -kommandot i Azure CLI en [kontext](#context-locations) (uppsättningen filer som ska skapas), skickar ACR uppgifter och skickar som standard den inbyggda avbildningen till registret när den har slutförts.
 
 En introduktion finns i snabb starten för att [skapa och köra en behållar avbildning](container-registry-quickstart-task-cli.md) i Azure Container Registry.  
 
@@ -129,9 +129,9 @@ I följande tabell visas några exempel på kontext platser som stöds för ACR-
 
 ## <a name="image-platforms"></a>Avbildnings plattformar
 
-Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange taggen `--platform` för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till exempel `--platform Linux/arm64/v8`):
+Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange `--platform`-taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till exempel `--platform Linux/arm64/v8`):
 
-| OS | Arkitektur|
+| Operativsystem | Arkitektur|
 | --- | ------- | 
 | Linux | amd64<br/>koppling<br/>arm64<br/>386 |
 | Windows | amd64 |

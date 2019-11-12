@@ -1,5 +1,5 @@
 ---
-title: Skydda er med hjälp av SSL
+title: Skydda webb tjänster med SSL
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du aktiverar HTTPS för att för säkra en webb tjänst som distribueras via Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1021ad1983f78252d924a5d3cb674419732d66e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489551"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932065"
 ---
 # <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Använd SSL för att skydda en genom Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +71,7 @@ När du begär ett certifikat måste du ange det fullständiga domän namnet fö
 
 ## <a id="enable"></a>Aktivera SSL och distribuera
 
-Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange *ssl_certificate* -parametern till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
+Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange parametern *ssl_certificate* till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
 
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Distribuera på AKS och Field-programmerbar grind mat ris (FPGA)
 
@@ -85,9 +85,9 @@ När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett
 
 Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett certifikat som du köper.
 
-  * När du använder ett certifikat från Microsoft måste du använda parametern *leaf_domain_label* . Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "unservice" ett domän namn med\<sex slumpmässiga tecken >.\<azureregion >. cloudapp. Azure. com ", där \<azureregion > är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
+  * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "unservice" ett domän namn med\<sex slumpmässiga tecken >.\<azureregion >. cloudapp. Azure. com ", där \<azureregion > är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
 
-    Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange *ssl_certificate* -parametern till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
+    Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange parametern *ssl_certificate* till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
 
     > [!IMPORTANT]
     > När du använder ett certifikat från Microsoft behöver du inte köpa ditt eget certifikat eller domän namn.
@@ -148,7 +148,7 @@ Sedan måste du uppdatera din DNS så att den pekar på.
 + **För AKS:**
 
   > [!WARNING]
-  > Om du har använt *leaf_domain_label* för att skapa tjänsten med hjälp av ett certifikat från Microsoft uppdaterar du inte DNS-värdet manuellt för klustret. Värdet ska anges automatiskt.
+  > Om du använde *leaf_domain_label* för att skapa tjänsten med hjälp av ett certifikat från Microsoft uppdaterar du inte DNS-värdet manuellt för klustret. Värdet ska anges automatiskt.
 
   Uppdatera DNS för den offentliga IP-adressen för AKS-klustret på fliken **konfiguration** under **Inställningar** i det vänstra fönstret. (Se följande bild.) Den offentliga IP-adressen är en resurs typ som skapas under resurs gruppen som innehåller AKS-agentens noder och andra nätverks resurser.
 

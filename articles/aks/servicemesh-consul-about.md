@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 7bf979e4f828b6971603d31ba5ba9e8bc791f799
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 7ffbd2386cd0e50cec8976e6bdd6c5778aa014d7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530698"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928434"
 ---
 # <a name="consul"></a>Konsulat
 
@@ -36,7 +36,7 @@ Följande arkitektur diagram visar hur de olika komponenterna i data planet och 
 
 ## <a name="selection-criteria"></a>Urvals villkor
 
-Det är viktigt att förstå och ta hänsyn till följande områden när du utvärderar Linkerd för dina arbets belastningar:
+Det är viktigt att förstå och ta hänsyn till följande områden när du bedömer konsulär för dina arbets belastningar:
 
 - [Konsulära principer](#consul-principles)
 - [Trådlösa](#capabilities)
@@ -54,7 +54,7 @@ Följande principer [vägleder][consul-principles] konsulärt projekt:
 - **Utöka och integrera** säker anslutning av arbets belastningar i infrastrukturen.
 
 
-### <a name="capabilities"></a>Kapacitet
+### <a name="capabilities"></a>Funktioner
 
 Konsulär tillhandahåller följande uppsättning funktioner:
 

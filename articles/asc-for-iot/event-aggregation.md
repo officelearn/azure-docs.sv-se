@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327305"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928962"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Azure Security Center för insamling av IoT-händelser
 
@@ -44,7 +44,7 @@ När agenten samlar in en identisk händelse till en som redan finns i minnet, �
 
 Händelser anses vara identiska endast när följande villkor uppfylls: 
 
-* ProcessCreate-händelser – när **kommando raden**, **körbara filer**, * * username och **UserID** är identiska
+* ProcessCreate-händelser – när **kommandorad**, **körbara filer**, **användar namn**och **UserID** är identiska
 * ConnectionCreate-händelser – när **kommando raden**, **userId**, **Direction**, **Local Address**, **Remote Address**, * * Protocol och **målport** är identiska
 * ProcessTerminate-händelser – när den **körbara filen** och **avslutnings statusen** är identiska
 
@@ -64,19 +64,19 @@ Varje sammanställd händelse representerar en 24-timmarsperiod med insamlade av
 ## <a name="event-aggregation-twin-configuration"></a>Dubbel konfiguration av händelse sammansättning
 Ändra konfigurationen av Azure Security Center för IoT Event-aggregering i [agent konfigurations objekt](how-to-agent-configuration.md) för modulens dubbla identitet för **azureiotsecurity** -modulen.
 
-| Konfigurationsnamn | Möjliga värden | Information | Kommentarer |
+| Konfigurations namn | Möjliga värden | Detaljer | Kommentarer |
 |:-----------|:---------------|:--------|:--------|
-| aggregationEnabledProcessCreate | boolean | Aktivera/inaktivera händelse agg regering för process-skapa händelser |
+| aggregationEnabledProcessCreate | boolesk | Aktivera/inaktivera händelse agg regering för process-skapa händelser |
 | aggregationIntervalProcessCreate | ISO8601 TimeSpan-sträng | Samlings intervall för process skapande av händelser |
-| aggregationEnabledConnectionCreate | boolean| Aktivera/inaktivera händelse agg regering för skapande av anslutnings händelser |
+| aggregationEnabledConnectionCreate | boolesk| Aktivera/inaktivera händelse agg regering för skapande av anslutnings händelser |
 | aggregationIntervalConnectionCreate | ISO8601 TimeSpan-sträng | Samlings intervall för skapande av anslutnings händelser |
-| aggregationEnabledProcessTerminate | boolean | Aktivera/inaktivera händelse agg regering för process-avsluta händelser | Endast Windows|
+| aggregationEnabledProcessTerminate | boolesk | Aktivera/inaktivera händelse agg regering för process-avsluta händelser | Endast Windows|
 | aggregationIntervalProcessTerminate | ISO8601 TimeSpan-sträng | Samlings intervall för process-avsluta händelser | Endast Windows|
 |
 
 ## <a name="default-configurations-settings"></a>Standardinställningar för konfigurering
 
-| Konfigurationsnamn | Standardvärden |
+| Konfigurations namn | Standardvärden |
 |:-----------|:---------------|
 | aggregationEnabledProcessCreate | true |
 | aggregationIntervalProcessCreate | PT1H|

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 391cddbbd1b69fb7cb5422adbaea2f3378e273bf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f03e32eb17c7c02d8969ea6f79663a5c99196d7b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580165"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931931"
 ---
 # <a name="long-audio-api-preview"></a>Långt ljud-API (för hands version)
 
@@ -25,6 +25,9 @@ Ytterligare fördelar med den långa ljud-API: et:
 
 * Syntetiskt tal som returneras av tjänsten använder neurala-röster, som säkerställer ljud uppspelning med hög åter givning.
 * Eftersom real tids svar inte stöds behöver du inte distribuera en röst slut punkt.
+
+> [!NOTE]
+> API för långa ljud stöder nu bara [anpassad neurala röst](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## <a name="workflow"></a>Arbetsflöde
 

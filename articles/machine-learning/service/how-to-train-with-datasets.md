@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: f95798241084efdb91993a5add52f84a8a6dc1ec
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d68a8d35d07da4c61abffad6658419ada62f2f39
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814806"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931006"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ I den här artikeln får du lära dig de två sätt som du kan använda för att
 
 Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning utbildnings produkter som [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) och [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att skapa och träna med data uppsättningar behöver du:
 

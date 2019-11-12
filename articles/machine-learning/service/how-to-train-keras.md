@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6a6af6d32e0664e66696523f53ac81cd921609e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a61b7e058e485121d87c5d3bb1050b4289e4ceed
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814877"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931071"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Träna och registrera en keras klassificerings modell med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Oavsett om du utvecklar en keras-modell från grunden eller om du har en befintl
 
 I den [konceptuella artikeln](concept-deep-learning-vs-machine-learning.md) finns information om skillnaderna mellan maskin inlärning och djup inlärning.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer:
 
@@ -189,6 +189,9 @@ När du har tränat DNN-modellen kan du registrera den på din arbets yta. Med m
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
 ```
+
+> [!TIP]
+> Den modell som du precis har registrerat har distribuerats exakt på samma sätt som andra registrerade modeller i Azure Machine Learning, oavsett vilken uppskattning som du använde för utbildning. Distributions anvisningar innehåller ett avsnitt om att registrera modeller, men du kan hoppa direkt till att [skapa ett beräknings mål](how-to-deploy-and-where.md#choose-a-compute-target) för distribution, eftersom du redan har en registrerad modell.
 
 Du kan också hämta en lokal kopia av modellen. Detta kan vara användbart för att göra ytterligare modell validerings arbete lokalt. I övnings skriptet `mnist-keras.py`bevarar ett TensorFlow-sparfunktionen modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia från data lagret.
 

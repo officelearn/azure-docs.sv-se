@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01ed7383515a725816679acb405b2ff3b1dc8e92
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 84c94675ac5c69055cd2811df206f81af55d3c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817239"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927195"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kod exempel för Microsoft Identity Platform (v 2.0-slut punkt)
 
@@ -86,7 +86,7 @@ I följande exempel visas ett program som har åtkomst till Microsoft Graph-API 
 
 | Klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Console | ![Den här bilden visar .NET Core-logotypen](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Konsolen | ![Den här bilden visar .NET Core-logotypen](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Webbapp | ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [Dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>Konsol löst program
@@ -106,11 +106,23 @@ Följande exempel visar hur du skyddar ett webb-API med slut punkten för Micros
 | ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core Web API (Service) för [dotNet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Webb-API (tjänst) för [MS-Identity-ASPNET-WebAPI-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
+## <a name="azure-functions-as-web-apis"></a>Azure Functions som webb-API: er
+
+Följande exempel visar hur du skyddar en Azure-funktion med HttpTrigger och exponerar ett webb-API med Microsoft Identity Platform-slutpunkten och hur du anropar ett underordnat API från webb-API: et.
+
+| Plattform | Exempel |
+| -------- | ------------------- |
+| ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core Web API (Service) Azure Function i [dotNet-Native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Den här bilden visar Node. js-logotypen](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Webb-API (Service) för [NodeJS och Passport – Azure-AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
+| ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png)</p>Python | Webb-API (Service) för [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
+| ![Den här bilden visar Node. js-logotypen](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Webb-API (Service) för [NodeJS och Passport-Azure-AD som använder på uppdrag av](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+
+
 ## <a name="other-microsoft-graph-samples"></a>Andra Microsoft Graph exempel
 
 Mer information om [exempel](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) och självstudier som demonstrerar olika användnings mönster för Microsoft Graph API, inklusive autentisering med Azure AD finns i [Microsoft Graph Community-exempel & självstudier](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Guide för Azure Active Directory (v 1.0)-utvecklare](v1-overview.md)
 - [Koncept och referens för Azure AD-Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)

@@ -1,5 +1,5 @@
 ---
-title: Azure Digitals dubbla funktioner klient biblioteks referens för användar definierade funktioner | Microsoft Docs
+title: Azure Digitals dubblare användardefinierade funktions referenser | Microsoft Docs
 description: Azure Digitals dubbla användares klient biblioteks referens för användar definierade funktioner.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: article
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36fb8a5588321426ccae7d6c6577fb4b48f3a4db
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: daab63067087267c12cef75178b5f974043e0fd9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948911"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931231"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Klient biblioteks referens för användardefinierade funktioner
 
@@ -30,9 +30,9 @@ Med en utrymmes identifierare hämtar den här funktionen utrymmet från grafen.
 
 **Typ**: global funktion
 
-| Parameter  | type                | Description  |
+| Parameter  | Typ                | Beskrivning  |
 | ---------- | ------------------- | ------------ |
-| *id*  | `guid` | Utrymmes identifierare |
+| *identitet*  | `guid` | Utrymmes identifierare |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒ `sensor`
 
@@ -40,9 +40,9 @@ Med den här funktionen hämtar sensor identifieraren från grafen.
 
 **Typ**: global funktion
 
-| Parameter  | type                | Description  |
+| Parameter  | Typ                | Beskrivning  |
 | ---------- | ------------------- | ------------ |
-| *id*  | `guid` | Sensor identifierare |
+| *identitet*  | `guid` | Sensor identifierare |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒ `device`
 
@@ -50,9 +50,9 @@ Med en enhets identifierare hämtar den här funktionen enheten från grafen.
 
 **Typ**: global funktion
 
-| Parameter  | type                | Description  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *id* | `guid` | Enhets identifierare |
+| *identitet* | `guid` | Enhets identifierare |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, datatyp) ⇒ `value`
 
@@ -60,7 +60,7 @@ Med den här funktionen hämtar sensor-ID och dess datatyp det aktuella värdet 
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | Sensor identifierare |
 | *dataType*  | `string` | Sensor data typ |
@@ -71,10 +71,10 @@ Med en utrymmes identifierare och värde namnet hämtar den här funktionen det 
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | Utrymmes identifierare |
-| *valueName* | `string` | Utrymmes egenskaps namn |
+| *Värdets namn* | `string` | Utrymmes egenskaps namn |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, datatyp) ⇒ `value[]`
 
@@ -82,7 +82,7 @@ Med den här funktionen hämtar sensor-ID och dess datatyp de historiska värden
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Sensor identifierare |
 | *dataType* | `string` | Sensor data typ |
@@ -93,18 +93,18 @@ Med en blank stegs identifierare och värde namnet hämtar den här funktionen d
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
-| *valueName* | `string` | Utrymmes egenskaps namn |
+| *Värdets namn* | `string` | Utrymmes egenskaps namn |
 
-### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
+### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces (spaceId) ⇒ `space[]`
 
 Med en utrymmes identifierare hämtar den här funktionen de underordnade utrymmena för det överordnade utrymmet.
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 
@@ -114,7 +114,7 @@ Med en utrymmes identifierare hämtar den här funktionen de underordnade sensor
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 
@@ -124,7 +124,7 @@ Med en utrymmes identifierare hämtar den här funktionen de underordnade enhete
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 
@@ -134,17 +134,17 @@ Med en enhets identifierare hämtar den här funktionen de underordnade sensorer
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Enhets identifierare |
 
-### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
+### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace (childSpaceId) ⇒ `space`
 
 Med en utrymmes identifierare hämtar den här funktionen sitt överordnade utrymme.
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | Utrymmes identifierare |
 
@@ -154,7 +154,7 @@ Med en sensor identifierare hämtar den här funktionen sitt överordnade utrymm
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Sensor identifierare |
 
@@ -164,7 +164,7 @@ Baserat på en enhets identifierare hämtar den här funktionen sitt överordnad
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Enhets identifierare |
 
@@ -174,7 +174,7 @@ Med en sensor identifierare hämtar den här funktionen sin överordnade enhet.
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Sensor identifierare |
 
@@ -184,7 +184,7 @@ Med en utrymmes identifierare hämtar den här funktionen egenskapen och dess v�
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 | *Namn* | `string` | Utrymmes egenskaps namn |
@@ -195,7 +195,7 @@ Med en sensor identifierare hämtar den här funktionen egenskapen och dess vär
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Sensor identifierare |
 | *Namn* | `string` | Namn på sensor egenskap |
@@ -206,7 +206,7 @@ Baserat på en enhets identifierare hämtar den här funktionen egenskapen och d
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Enhets identifierare |
 | *Namn* | `string` | Enhetens egenskaps namn |
@@ -217,11 +217,11 @@ Den här funktionen anger ett värde för objektet sensor med den aktuella data 
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Sensor identifierare |
 | *dataType*  | `string` | Sensor data typ |
-| *värde*  | `string` | Value |
+| *värde*  | `string` | Värde |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, datatyp, värde)
 
@@ -229,11 +229,11 @@ Den här funktionen anger ett värde för objektet Space med den aktuella data t
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 | *dataType* | `string` | Datatyp |
-| *värde* | `string` | Value |
+| *värde* | `string` | Värde |
 
 ### <a name="logmessage"></a>logg (meddelande)
 
@@ -241,7 +241,7 @@ Den här funktionen loggar följande meddelande i den användardefinierade funkt
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *meddelande* | `string` | Meddelande som ska loggas |
 
@@ -251,7 +251,7 @@ Den här funktionen skickar ett anpassat meddelande till skickas.
 
 **Typ**: global funktion
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *topologyObjectId*  | `guid` | Diagram objekt identifierare. Exempel är utrymme, sensor och enhets-ID.|
 | *topologyObjectType*  | `string` | Exempel är sensor och enhet.|
@@ -261,7 +261,7 @@ Den här funktionen skickar ett anpassat meddelande till skickas.
 
 De svars modeller som returneras från klient referensens hjälp metoder beskrivs nedan.
 
-### <a name="space"></a>Blanksteg
+### <a name="space"></a>Rymd
 
 ```JSON
 {
@@ -292,7 +292,7 @@ Den här funktionen returnerar de underordnade enheterna för det aktuella utrym
 
 Den här funktionen returnerar den utökade egenskapen och dess värde för det aktuella utrymmet.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *Namn* | `string` | Namn på utökad egenskap |
 
@@ -300,23 +300,23 @@ Den här funktionen returnerar den utökade egenskapen och dess värde för det 
 
 Den här funktionen returnerar värdet för det aktuella utrymmet.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | Namn på värdet |
+| *Värdets namn* | `string` | Namn på värdet |
 
 #### <a name="historyvaluename--value"></a>Historik (valueName) ⇒ `value[]`
 
 Den här funktionen returnerar de historiska värdena för det aktuella utrymmet.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | Namn på värdet |
+| *Värdets namn* | `string` | Namn på värdet |
 
 #### <a name="notifypayload"></a>Meddela (nytto Last)
 
 Den här funktionen skickar ett meddelande till den angivna nytto lasten.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *innehållet* | `string` | JSON-nyttolast som ska inkluderas i meddelandet |
 
@@ -352,7 +352,7 @@ Den här funktionen returnerar den aktuella enhetens underordnade sensorer.
 
 Den här funktionen returnerar den utökade egenskapen och dess värde för den aktuella enheten.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *Namn* | `string` | Namn på utökad egenskap |
 
@@ -360,11 +360,11 @@ Den här funktionen returnerar den utökade egenskapen och dess värde för den 
 
 Den här funktionen skickar ett meddelande till den angivna nytto lasten.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *innehållet* | `string` | JSON-nyttolast som ska inkluderas i meddelandet |
 
-### <a name="sensor"></a>Sensor
+### <a name="sensor"></a>Mäta
 
 ```JSON
 {
@@ -400,11 +400,11 @@ Den här funktionen returnerar den överordnade enheten för den aktuella sensor
 
 Den här funktionen returnerar den utökade egenskapen och dess värde för den aktuella sensorn.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *Namn* | `string` | Namn på utökad egenskap |
 
-#### <a name="value--value"></a>Värde () ⇒ `value`
+#### <a name="value--value"></a>Value () ⇒ `value`
 
 Den här funktionen returnerar värdet för den aktuella sensorn.
 
@@ -416,11 +416,11 @@ Den här funktionen returnerar de historiska värdena för den aktuella sensorn.
 
 Den här funktionen skickar ett meddelande till den angivna nytto lasten.
 
-| Parameter  | type                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *innehållet* | `string` | JSON-nyttolast som ska inkluderas i meddelandet |
 
-### <a name="value"></a>Value
+### <a name="value"></a>Värde
 
 ```JSON
 {

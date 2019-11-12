@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4f0c8078a502d0332b02d95c0c46d9dbcc53a884
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886867"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907135"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
@@ -36,7 +36,7 @@ I följande tabell visas de alternativ som du har för att lägga till certifika
 | Ladda upp ett privat certifikat | Om du redan har ett privat certifikat från en tredje part kan du ladda upp det. Se [krav för privata certifikat](#private-certificate-requirements). |
 | Ladda upp ett offentligt certifikat | Offentliga certifikat används inte för att skydda anpassade domäner, men du kan läsa in dem i koden om du behöver dem för att få åtkomst till fjär resurser. |
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att följa den här instruktions guiden:
 
@@ -68,6 +68,10 @@ Det kostnads fria App Service-hanterade certifikatet är en lösning för att sk
 - Har inte stöd för certifikat med jokertecken.
 - Stöder inte blott-domäner.
 - Kan inte exporteras.
+
+> [!NOTE]
+> Det kostnads fria certifikatet utfärdas av DigiCert. För vissa toppnivå domäner måste du uttryckligen tillåta DigiCert som en certifikat utfärdare genom att skapa en [CAA-domän post](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) med värdet: `0 issue digicert.com`.
+> 
 
 Så här skapar du ett kostnads fritt App Service-hanterat certifikat:
 
@@ -115,7 +119,7 @@ Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka p�
 | Inställning | Beskrivning |
 |-|-|
 | Namn | Ett eget namn på ditt App Service certifikat. |
-| Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under domänen `www`. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller domänen `www`. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com`).|
+| Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under domänen `www`. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller `www`-domänen. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com`).|
 | Prenumeration | Datacenter som är värd för webbappen. |
 | Resursgrupp | Den resurs grupp som innehåller certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
 | Certifikat-SKU | Bestämmer vilken typ av certifikat som ska skapas, om ett standard certifikat eller ett [jokertecken](https://wikipedia.org/wiki/Wildcard_certificate). |

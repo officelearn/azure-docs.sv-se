@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819090"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928571"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
@@ -130,8 +130,8 @@ Måtten skickas av olika moduler för telemetri:
 ## <a name="webhooks"></a>Webhooks
 Du kan [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md). Azure kommer att anropa en webb adress som du väljer när en avisering aktive ras.
 
-## <a name="see-also"></a>Se också
-* [Skript för att konfigurera Application Insights](powershell-script-create-resource.md)
+## <a name="see-also"></a>Se även
+* [Skript för att konfigurera Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Skapa Application Insights-och webb test resurser från mallar](powershell.md)
 * [Automatisera kopplings Microsoft Azure Diagnostics till Application Insights](powershell-azure-diagnostics.md)
 * [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md)

@@ -1,6 +1,6 @@
 ---
 title: Schemalägg Azure Container Registry uppgifter
-description: Ange timers för att köra en Azure Container Registry aktivitet enligt ett definierat schema.
+description: Lär dig hur du kör en Azure Container Registry aktivitet enligt ett definierat schema genom att ange en eller flera timer-utlösare
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509074"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931456"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Kör en ACR-uppgift enligt ett definierat schema
 
-Den här artikeln visar hur du kör en [ACR-aktivitet](container-registry-tasks-overview.md) enligt ett schema. Schemalägg en aktivitet genom att ställa in en eller flera *timer*-utlösare.
+Den här artikeln visar hur du kör en [ACR-aktivitet](container-registry-tasks-overview.md) enligt ett schema. Schemalägg en aktivitet genom att ställa in en eller flera *timer-utlösare*.
 
 Att schemalägga en aktivitet är användbart för scenarier som följande:
 
@@ -32,15 +32,15 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 * **Utlösare med cron-uttryck** – timer-utlösaren för en uppgift använder ett *cron-uttryck*. Uttrycket är en sträng med fem fält som anger minut, timme, dag, månad och veckodag för att utlösa uppgiften. Det finns stöd för frekvens upp till en gång per minut.
 
   Uttrycket `"0 12 * * Mon-Fri"` utlöser till exempel en aktivitet kl. 12.00 UTC på varje veckodag. Se [informationen](#cron-expressions) längre fram i den här artikeln.
-* **Flera timer** -utlösare – det går att lägga till flera timers till en aktivitet, så länge scheman skiljer sig åt.
+* **Flera timer-utlösare** – det går att lägga till flera timers till en aktivitet, så länge scheman skiljer sig åt.
     * Ange flera timer-utlösare när du skapar uppgiften eller Lägg till dem senare.
     * Du kan också namnge utlösare för enklare hantering, eller så kommer ACR-aktiviteter att tillhandahålla standard namn för utlösare.
     * Om timer-scheman överlappar i taget, utlöser ACR-aktiviteter aktiviteten vid den schemalagda tiden för varje timer.
-* **Andra aktivitets** utlösare – i en timer-utlöst uppgift kan du också aktivera utlösare baserat på [käll kods bekräftelse](container-registry-tutorial-build-task.md) eller [bas avbildnings uppdateringar](container-registry-tutorial-base-image-update.md). Precis som andra ACR-uppgifter kan du även aktivera en schemalagd aktivitet [manuellt][az-acr-task-run] .
+* **Andra aktivitets utlösare** – i en timer-utlöst uppgift kan du också aktivera utlösare baserat på [käll kods bekräftelse](container-registry-tutorial-build-task.md) eller [bas avbildnings uppdateringar](container-registry-tutorial-base-image-update.md). Precis som andra ACR-uppgifter kan du även aktivera en schemalagd aktivitet [manuellt][az-acr-task-run] .
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Skapa en uppgift med en timer-utlösare
 
-När du skapar en uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] kan du också lägga till en timer-utlösare. Lägg till `--schedule` parametern och skicka ett cron-uttryck för timern.
+När du skapar en uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] kan du också lägga till en timer-utlösare. Lägg till parametern `--schedule` och skicka ett cron-uttryck för timern.
 
 Som ett enkelt exempel utlöses följande kommando som kör `hello-world` avbildningen från Docker Hub varje dag kl. 21:00 UTC. Aktiviteten körs utan en käll kods kontext.
 
@@ -170,16 +170,16 @@ ACR-aktiviteter använder [NCronTab](https://github.com/atifaziz/NCrontab) -bibl
 Tids zonen som används med cron-uttrycken är Coordinated Universal Time (UTC). Timmar är i 24-timmarsformat.
 
 > [!NOTE]
-> ACR-aktiviteter har inte stöd `{second}` för `{year}` fältet eller i cron-uttryck. Om du kopierar ett cron-uttryck som används i ett annat system måste du ta bort dessa fält om de används.
+> ACR-aktiviteter har inte stöd för fältet `{second}` eller `{year}` i cron-uttryck. Om du kopierar ett cron-uttryck som används i ett annat system måste du ta bort dessa fält om de används.
 
 Varje fält kan ha en av följande typer av värden:
 
-|type  |Exempel  |Utlöses av  |
+|Typ  |Exempel  |Utlöses av  |
 |---------|---------|---------|
 |Ett speciellt värde |<nobr>`"5 * * * *"`</nobr>|varje timme efter 5 minuter efter timmen|
 |Alla värden (`*`)|<nobr>`"* 5 * * *"`</nobr>|varje minut i timmen som börjar 5:00 UTC (60 gånger per dag)|
 |Ett intervall (`-` operator)|<nobr>`"0 1-3 * * *"`</nobr>|3 gånger per dag, med 1:00, 2:00 och 3:00 UTC|
-|En uppsättning värden (`,` operator)|<nobr>`"20,30,40 * * * *"`</nobr>|3 gånger per timme, vid 20 minuter, 30 minuter och 40 minuter efter timmen|
+|En uppsättning värden (`,` operatör)|<nobr>`"20,30,40 * * * *"`</nobr>|3 gånger per timme, vid 20 minuter, 30 minuter och 40 minuter efter timmen|
 |Ett intervall värde (`/` operator)|<nobr>`"*/10 * * * *"`</nobr>|6 gånger per timme, vid 10 minuter, 20 minuter och så vidare, efter timmen
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]

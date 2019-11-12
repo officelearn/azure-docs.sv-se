@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c704e36f4353b34733ccc29b785c752b2a5c559
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a18949799b948b962a5b24ffdc7c735fc1380808
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822701"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931080"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Oavsett om du tränar en djup inlärnings PyTorch-modell från grunden eller om 
 
 Lär dig mer om [djup inlärning vs Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer:
 
@@ -174,6 +174,9 @@ När du har tränat modellen kan du registrera den på din arbets yta. Med model
 ```Python
 model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 ```
+
+> [!TIP]
+> Den modell som du precis har registrerat har distribuerats exakt på samma sätt som andra registrerade modeller i Azure Machine Learning, oavsett vilken uppskattning som du använde för utbildning. Distributions anvisningar innehåller ett avsnitt om att registrera modeller, men du kan hoppa direkt till att [skapa ett beräknings mål](how-to-deploy-and-where.md#choose-a-compute-target) för distribution, eftersom du redan har en registrerad modell.
 
 Du kan också hämta en lokal kopia av modellen med hjälp av objektet kör. I övnings skriptet `pytorch_train.py`behåller ett PyTorch spara-objekt modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia.
 

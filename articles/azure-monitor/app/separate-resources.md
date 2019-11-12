@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899915"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928309"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Åtskilj telemetri från utveckling, testning och produktion
 
@@ -27,7 +27,7 @@ När du konfigurerar Application Insights övervakning för din webbapp skapar d
 Du väljer vanligt vis att använda separata resurser eller en enda delad resurs i olika scenarier:
 
 * Olika, oberoende program – Använd en separat resurs-och iKey för varje app.
-* Flera komponenter eller roller för ett företags program – Använd en [enda delad resurs](../../azure-monitor/app/app-map.md) för alla komponent program. Telemetri kan filtreras eller segmenteras av egenskapen cloud_RoleName.
+* Flera komponenter eller roller för ett företags program – Använd en [enda delad resurs](../../azure-monitor/app/app-map.md) för alla komponent program. Telemetri kan filtreras eller segmenteras av cloud_RoleName-egenskapen.
 * Utveckling, testning och lansering – Använd en separat resurs-och iKey för versioner av systemet i "Stamp" eller produktions stadiet.
 * En | B-testning – Använd en enda resurs. Skapa en TelemetryInitializer för att lägga till en egenskap i Telemetrin som identifierar varianterna.
 
@@ -51,7 +51,7 @@ Ange nyckeln i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tj
 I det här exemplet placeras ikeys för de olika resurserna i olika versioner av webb konfigurations filen. Växling av webb konfigurations filen – som du kan göra som en del av versions skriptet – byter mål resurs.
 
 ### <a name="web-pages"></a>Webbsidor
-IKey används också i appens webb sidor, i det [skript som du fick från snabb starts bladet](../../azure-monitor/app/javascript.md). I stället för att koda det bokstavligen i skriptet kan du generera det från Server tillstånd. Till exempel i en ASP.NET-app:
+IKey används också i appens webb sidor, i [skriptet som du fick från snabb starts bladet](../../azure-monitor/app/javascript.md). I stället för att koda det bokstavligen i skriptet kan du generera det från Server tillstånd. Till exempel i en ASP.NET-app:
 
 *Java Script i kniv*
 
@@ -81,7 +81,7 @@ Lägg till en Application Insights-resurs i [Portal.Azure.com](https://portal.az
 
 Det tar några sekunder att skapa resursen. Du ser en avisering när den är färdig.
 
-(Du kan skriva ett [PowerShell-skript](../../azure-monitor/app/powershell-script-create-resource.md) för att skapa en resurs automatiskt.)
+(Du kan skriva ett [PowerShell-skript](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) för att skapa en resurs automatiskt.)
 
 ### <a name="getting-the-instrumentation-key"></a>Hämtar instrumentande nyckel
 Instrumentation-nyckeln identifierar den resurs som du har skapat. 
@@ -134,7 +134,7 @@ Det finns flera olika metoder för att ange program versions egenskapen.
     Om du vill tillåta att MSBuild genererar versions nummer ställer du in versionen som `1.0.*` i AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Spårning av versionen och utgåva
-Om du vill kunna spåra programversionen, se till att `buildinfo.config` genereras av Microsoft Build Engine-processen. I filen .csproj lägger du till:  
+Om du vill kunna spåra programversionen, se till att `buildinfo.config` genereras av Microsoft Build Engine-processen. I `.csproj`-filen lägger du till:  
 
 ```XML
 
@@ -145,7 +145,7 @@ Om du vill kunna spåra programversionen, se till att `buildinfo.config` generer
 
 När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](../../azure-monitor/app/diagnostic-search.md) eller när du [undersöker mätvärden](../../azure-monitor/app/metrics-explorer.md).
 
-Observera dock att build-versionsnumret endast genereras av Microsoft Build Engine, och inte av utvecklarversionen i Visual Studio.
+Observera dock att versions numret för versionen endast genereras av Microsoft build-motorn, inte av utvecklaren från Visual Studio.
 
 ### <a name="release-annotations"></a>Versionsanteckningar
 Om du använder Azure DevOps kan du [få en antecknings markör](../../azure-monitor/app/annotations.md) tillagd i dina diagram när du släpper en ny version. Följande bild visar hur markeringen visas.

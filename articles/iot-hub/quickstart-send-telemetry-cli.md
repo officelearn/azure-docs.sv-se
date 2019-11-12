@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 8ebcc863c1812081e6198ff9c684934642e1dc41
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904561"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931819"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och övervaka den med Azure CLI
 
@@ -47,7 +47,7 @@ Så här startar du Cloud Shell:
     ![Välj CLI-miljö](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>Förbereda två CLI-sessioner
-I det här avsnittet förbereder du två Azure CLI-sessioner. I Cloud Shell ska du köra de två sessionerna i separata flikar i webbläsaren. I en lokal CLI-klient kör du två separata CLI-instanser. Du använder den första sessionen som en simulerad enhet och den andra sessionen för att övervaka och skicka meddelanden. Om du vill köra ett kommando väljer du **Kopiera** för att kopiera ett kodblock i den här snabb starten, klistra in det i din Shell-session och kör det.
+I det här avsnittet förbereder du två Azure CLI-sessioner. Om du använder Cloud Shell kan du köra de två sessionerna i separata flikar i webbläsaren. Om du använder en lokal CLI-klient kan du köra två separata CLI-instanser. Du använder den första sessionen som en simulerad enhet och den andra sessionen för att övervaka och skicka meddelanden. Om du vill köra ett kommando väljer du **Kopiera** för att kopiera ett kodblock i den här snabb starten, klistra in det i din Shell-session och kör det.
 
 Azure CLI kräver att du är inloggad på ditt Azure-konto. All kommunikation mellan Azure CLI-sessionen och din IoT Hub autentiseras och krypteras. Därför behöver inte den här snabb starten ytterligare autentisering som du använder med en riktig enhet, till exempel en anslutnings sträng.
 
@@ -149,7 +149,7 @@ Med Azure Portal kan du hantera alla aspekter av dina IoT Hub och enheter. I ett
 För att visualisera meddelande mått i Azure Portal:
 1. Välj **alla resurser**i den vänstra navigerings menyn i portalen. Här visas alla resurser i din prenumeration, inklusive IoT-hubben som du skapade. 
 
-1. Klicka på länken på den IoT-hubb som du skapade. Portalen visar navets översikts sida.
+1. Välj länken på IoT-hubben som du skapade. Portalen visar navets översikts sida.
 
 1. Välj **mått** i den vänstra rutan i IoT Hub. 
 

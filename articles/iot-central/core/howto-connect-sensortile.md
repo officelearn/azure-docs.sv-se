@@ -1,5 +1,5 @@
 ---
-title: Anslut en SensorTile. Box-enhet till ditt Azure IoT Central-program | Microsoft Docs
+title: Anslut en SensorTile. Box-enhet till din Azure IoT Central-app | Microsoft Docs
 description: Som enhets utvecklare lär du dig att ansluta en SensorTile. Box-enhet till ditt Azure IoT Central-program.
 author: sarahhubbard
 ms.author: sahubbar
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 0969ee6dbc035ffa105dd54d34f3b4711d4915cf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e46d4f99075a0d3fa326c84e17792b8959e23517
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951216"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930220"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Anslut SensorTile. Box-enhet till ditt Azure IoT Central-program
 
@@ -91,9 +91,9 @@ Ett program som skapats från enhets mal len SensorTile. Box med följande egens
 | luftfuktighet       | %      | 30       | 90     | 1              |
 | styr           | C     | 0     | 40     | 1              |
 | tryck       | mbar    | 900     | 1100    | 2              |
-| magnetometerX  | mgauss | – 1000   | 1 000    | 0              |
-| magnetometerY  | mgauss | – 1000   | 1 000    | 0              |
-| magnetometerZ  | mgauss | – 1000   | 1 000    | 0              |
+| magnetometerX  | mgauss | – 1000   | 1000    | 0              |
+| magnetometerY  | mgauss | – 1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | – 1000   | 1000    | 0              |
 | accelerometerX | MB     | – 2000   | 2000    | 0              |
 | accelerometerY | MB     | – 2000   | 2000    | 0              |
 | accelerometerZ | MB     | – 2000   | 2000    | 0              |

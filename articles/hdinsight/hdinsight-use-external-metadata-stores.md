@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 18e03b6828922b3444d9461bef394b5c6682c238
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063295"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930331"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använd externa metadata butiker i Azure HDInsight
 
@@ -56,6 +56,18 @@ HDInsight har också stöd för anpassade metastores, vilket rekommenderas för 
 * Du kan skala upp metaarkiv efter behov.
 
 ![Användnings fall för HDInsight Hive-metadatalagret](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+
+### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Skapa och konfigurera Azure SQL Database för den anpassade metaarkiv
+
+Du måste skapa eller ha en befintlig Azure SQL Database innan du konfigurerar en anpassad Hive-metaarkiv för ett HDInsight-kluster.  Mer information finns i [snabb start: skapa en enskild databas i Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+
+För att se till att ditt HDInsight-kluster har åtkomst till den anslutna Azure SQL Database konfigurerar du Azure SQL Database brand Väggs regler för att tillåta Azure-tjänster och-resurser åtkomst till servern.
+
+Du kan aktivera det här alternativet i Azure Portal genom att klicka på **Ange server brand vägg**och klicka **på** under **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern** för Azure SQL Database servern eller databasen. Mer information finns i [skapa och hantera IP-brandväggens regler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+![knappen Ange server brand vägg](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+
+![Tillåt åtkomst till Azure-tjänster](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metaarkiv när klustret skapas
 

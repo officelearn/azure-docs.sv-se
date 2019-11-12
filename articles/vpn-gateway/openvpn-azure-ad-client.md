@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: alzam
-ms.openlocfilehash: da863144da5ec4361673c913392495d3d622f5a9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 714cabc204c9ec9a0c3bbc93be287957c91d1936
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837973"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932338"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering (för hands version)
 
@@ -24,7 +24,11 @@ Den här artikeln hjälper dig att konfigurera en VPN-klient för att ansluta ti
 
 ## <a name="profile"></a>Arbeta med klient profiler
 
-För att ansluta måste du [Ladda ned](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) Azure VPN-klienten och konfigurera en VPN-klient profil på varje dator som vill ansluta till det virtuella nätverket. Du kan skapa en klient profil på en dator, exportera den och sedan importera den till ytterligare datorer.
+För att ansluta måste du ladda ned Azure VPN-klienten (för hands version) och konfigurera en VPN-klient profil på varje dator som vill ansluta till det virtuella nätverket. Du kan skapa en klient profil på en dator, exportera den och sedan importera den till ytterligare datorer.
+
+### <a name="to-download-the-azure-vpn-client"></a>Ladda ned Azure VPN-klienten
+
+Använd den här [länken](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) för att ladda ned Azure VPN-klienten (för hands version).
 
 ### <a name="cert"></a>Så här skapar du en certifikatbaserad klient profil
 

@@ -1,5 +1,5 @@
 ---
-title: Ansluta en Windows IoT Core-enhet till ditt Azure IoT Central-program | Microsoft Docs
+title: Anslut Windows IoT Core till ditt Azure IoT Central-program | Microsoft Docs
 description: Som enhets utvecklare lär du dig att ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program.
 author: miriambrus
 ms.author: miriamb
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d880130e114b2bd3e4f978c2ae3fc7bacf0648c4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953907"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930211"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ansluta en Windows IoT Core-enhet till ditt Azure IoT Central-program
 
@@ -116,14 +116,14 @@ Numeriska inställningar
 
 | Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Grund |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Fläkt hastighet    | fanSpeed   | VARVTAL   | 0              | 0       | 1 000    | 0       |
+| Fläkt hastighet    | fanSpeed   | VARVTAL   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>Egenskaper
 
 | Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhets egenskap | Tärnings nummer   | dieNumber  | nummer    |
-| Text            | Plats     | location   | Gäller inte       |
+| Text            | Plats     | location   | Saknas       |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53fb4fa344839957a3f98275d174bbb787fa5e38
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2f605d5adda913fa465b43a85bd027458959c122
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881002"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928097"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -38,7 +38,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -190,7 +190,7 @@ Det här kommandot tar cirka 20 minuter att slutföra. Alternativet ”-verbose�
 
 ![etableringsstatus](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-När det är klart visas ”provisioningState”: ”Succeeded” (Lyckades), och du kan ansluta till den befintliga virtuella datorn och använda SSH för att säkerställa HSM-enhetens tillgänglighet.
+När det klart, vilket visas med ”provisioningState”: ”Succeeded” (Lyckades) kan du logga in på den befintliga virtuella datorn och använd SSH för att säkerställa tillgängligheten för HSM-enheten.
 
 ## <a name="verifying-the-deployment"></a>Kontrollera distributionen
 
@@ -217,7 +217,7 @@ SSH-verktyget används för att ansluta till den virtuella datorn. Kommandot lik
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Lösenordet är det som kommer från parameterfilen.
-När du är inloggad på den virtuella Linux-datorn kan du logga in på HSM med hjälp av den privata IP-adress \<som finns i portalen för hsm_vnic >.
+När du är inloggad på den virtuella Linux-datorn kan du logga in på HSM med hjälp av den privata IP-adress som finns i portalen för hsm_vnic för resurs \<prefix >.
 
 ```powershell
 
@@ -249,13 +249,9 @@ Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras t
 
 1. `hsm factoryReset -f`
 2. `sysconf config factoryReset -f -service all`
-3. `network interface delete -device eth0`
-4. `network interface delete -device eth1`
-5. `network interface delete -device eth2`
-6. `network interface delete -device eth3`
-7. `my file clear -f`
-8. `my public-key clear -f`
-9. `syslog rotate`
+3. `my file clear -f`
+4. `my public-key clear -f`
+5. `syslog rotate`
 
 
 > [!NOTE]

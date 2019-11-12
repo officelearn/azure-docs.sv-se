@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 486033ef4120d721458add7f23cdf9b78a44a388
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028960"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928358"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -23,7 +23,7 @@ Med [GitHub-åtgärder](https://github.com/features/actions) kan du definiera et
 
 I GitHub-åtgärder är ett [arbets flöde](https://help.github.com/articles/about-github-actions#workflow) en automatiserad process som du definierar i din GitHub-lagringsplats. Den här processen visar GitHub hur du skapar och distribuerar dina Functions-AppData på GitHub. 
 
-Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/`-sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet. 
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet. 
 
 För ett Azure Functions-arbetsflöde har filen tre delar: 
 
@@ -32,6 +32,9 @@ För ett Azure Functions-arbetsflöde har filen tre delar:
 | **Autentisering** | <ol><li>Definiera ett huvud namn för tjänsten.</li><li>Ladda ned publicerings profil.</li><li>Skapa en GitHub-hemlighet.</li></ol>|
 | **Konstruktion** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
 | **Distribuera** | <ol><li>Distribuera Function-appen.</li></ol>|
+
+> [!NOTE]
+> Du behöver inte skapa ett huvud namn för tjänsten om du bestämmer dig för att använda publicerings profilen för autentisering.
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
@@ -42,9 +45,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerations-ID, resurs grupp och funktionens program namn. Utdata är de autentiseringsuppgifter för roll tilldelning som ger åtkomst till din Function-app. Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
-
-> [!NOTE]
-> Du behöver inte skapa ett huvud namn för tjänsten om du bestämmer dig för att använda publicerings profilen för autentisering.
 
 > [!IMPORTANT]
 > Det är alltid en bra idé att bevilja minimal åtkomst. Detta är anledningen till att omfånget i föregående exempel är begränsat till den särskilda Function-appen och inte hela resurs gruppen.
@@ -59,11 +59,11 @@ Kopiera innehållet i filen.
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
-1. I [GitHub](https://github.com), bläddra i din lagrings plats, välj **Inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
+1. I [GitHub](https://github.com), bläddra i din lagrings plats, välj **inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
 
    ![Lägg till hemlighet](media/functions-how-to-github-actions/add-secret.png)
 
-1. Använd `AZURE_CREDENTIALS` för **namnet** och det kopierade kommandot utdata för **värde**, om du sedan väljer **Lägg till hemlighet**. Om du använder publicerings profil använder du `SCM_CREDENTIALS` som **värde**för **namn** och fil innehåll.
+1. Använd `AZURE_CREDENTIALS` för **namnet** och det kopierade kommandots utdata för **värde**, om du sedan väljer **Lägg till hemlighet**. Om du använder publicerings profil använder du `SCM_CREDENTIALS` för **namnet** och fil innehållet för **värdet**.
 
 GitHub kan nu autentisera till din Function-app i Azure.
 
@@ -198,7 +198,7 @@ I följande exempel visas den del av arbets flödet som bygger på-funktions pro
 
 ## <a name="deploy-the-function-app"></a>Distribuera funktionsappen
 
-Om du vill distribuera din kod till en Function-app måste du använda åtgärden `Azure/functions-action`. Den här åtgärden har två parametrar:
+Om du vill distribuera din kod till en Function-app måste du använda `Azure/functions-action` åtgärden. Den här åtgärden har två parametrar:
 
 |Parameter |Förklaring  |
 |---------|---------|

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 5ecfa1853479c1cdc705a1a465a1de6318917a72
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675147"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929003"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Köra Apache Spark jobb på AKS
 
@@ -92,7 +92,7 @@ Kör följande kommando för att skapa Spark-källkoden med stöd för Kubernete
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-Följande kommandon skapar Spark container-avbildningen och push-överför den till ett register för behållar avbildningar. Ersätt `registry.example.com` med namnet på ditt behållar register och `v1` med den tagg som du vill använda. Om du använder Docker-hubb är det här värdet register namnet. Om du använder Azure Container Registry (ACR) är det här värdet namnet på ACR-inloggnings servern.
+Följande kommandon skapar Spark container-avbildningen och push-överför den till ett register för behållar avbildningar. Ersätt `registry.example.com` med namnet på behållar registret och `v1` med den tagg som du vill använda. Om du använder Docker-hubb är det här värdet register namnet. Om du använder Azure Container Registry (ACR) är det här värdet namnet på ACR-inloggnings servern.
 
 ```bash
 REGISTRY_NAME=registry.example.com
@@ -126,7 +126,7 @@ Skapa ett nytt Scala-projekt från en mall.
 sbt new sbt/scala-seed.g8
 ```
 
-När du uppmanas anger du `SparkPi` som projekt namn.
+När du uppmanas till det anger du `SparkPi` som projekt namn.
 
 ```bash
 name [Scala Seed Project]: SparkPi
@@ -294,7 +294,7 @@ Pi is roughly 3.152155760778804
 
 I exemplet ovan överfördes Spark-jar-filen till Azure Storage. Ett annat alternativ är att paketera jar-filen i anpassade Docker-avbildningar.
 
-Det gör du genom att leta upp `dockerfile` för Spark-avbildningen som finns i `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`-katalogen. Lägg till am `ADD`-satsen för Spark-jobbet `jar` någonstans mellan `WORKDIR`-och `ENTRYPOINT`-deklarationer.
+Det gör du genom att leta upp `dockerfile` för Spark-avbildningen som finns i `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` Directory. Lägg till am `ADD`-instruktion för Spark-jobbet `jar` någonstans mellan `WORKDIR`-och `ENTRYPOINT`-deklarationer.
 
 Uppdatera jar-sökvägen till platsen för `SparkPi-assembly-0.1.0-SNAPSHOT.jar`-filen i utvecklings systemet. Du kan också använda en egen anpassad jar-fil.
 
@@ -322,6 +322,7 @@ När jobbet körs, i stället för att ange en jar-URL, kan `local://`-schemat a
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```

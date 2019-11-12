@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: efd294910531509d736dbda274406bd7c801c124
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889594"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931204"
 ---
 # <a name="references"></a>Referenser
 
@@ -36,7 +36,7 @@ Detta är en sammanfattning av alla objekt/resurser i FarmBeats data Hub:
 Anläggningen | Server gruppen motsvarar en fysisk placering av intresse i FarmBeats-systemet. Varje server grupp har ett Server grupps namn och ett unikt server grupps-ID.
 --- | ---|
 Enhet  | Enheten motsvarar en fysisk enhet som finns i Server gruppen. Varje enhet har ett unikt enhets-ID. Enheten tillhandahålls vanligt vis till en Server grupp med ett Server grupp-ID.
-deviceModel  | DeviceModel motsvarar meta-data för enheten, till exempel tillverkaren, typen av enhet, antingen gateway eller nod.
+DeviceModel  | DeviceModel motsvarar meta-data för enheten, till exempel tillverkaren, typen av enhet, antingen gateway eller nod.
 Mäta  | Sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
 SensorModel  | SensorModel motsvarar meta-data för sensorn, till exempel tillverkare, typ av sensor, antingen analogt eller digitalt, sensor mått som omgivnings temperatur, tryck osv.
 Telemetri  | Telemetri ger möjlighet att läsa telemetri meddelanden för ett visst sensor-och tidsintervall.
@@ -85,7 +85,7 @@ URL-adressen till API-tjänsten är din datahubbs-URL https://\<yourdatahub-Site
 
 Nedanstående exempel förfrågan är att hämta listan över enheter:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -93,7 +93,7 @@ De flesta GET-, POST-och parkera-anrop kräver en text för JSON-begäran.
 
 Nedanstående exempel förfrågan är att skapa en enhet (detta har en indataport med en indataport med begär ande texten).
 
-```json
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -120,25 +120,25 @@ Azure FarmBeats data Hub API returnerar HTTP-standardfel. De vanligaste fel kode
 
 Förutom vanliga HTTP-fel returnerar Azure FarmBeats data Hub-API: er även interna fel i formatet nedan:
 
-    ```
+```json
     {
       "message": "<More information on the error>",
       "status": "<error code>”,
       "code": "<InternalErrorCode>",
       "moreInfo": "<Details of the error>"
     }
-    ```
+```
 
 Exempel: när du skapar en Server grupp angavs inte det obligatoriska fältet "namn" i nytto lasten. Det resulterande fel meddelandet skulle vara:
 
-    ```json
+ ```json    
     {
       "message": "Model validation failed",
       "status": 400,
       "code": "ModelValidationFailed",
       "moreInfo": "[\"The Name field is required.\"]"
     }
-    ```
+  ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Lägga till användare eller program registreringar i Azure Active Directory
 

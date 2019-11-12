@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 0d478b56d7be4ae0c7f2403f9960e5eed59e2b4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4a0736267ca00b67f35abc7cf263e7cf19543d81
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888642"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932131"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Arbets flödet är ungefär oavsett [var du distribuerar](#target) din modell:
 
 Mer information om de begrepp som ingår i distributions arbets flödet finns i [Hantera, distribuera och övervaka modeller med Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -957,7 +957,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Till exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1061,6 +1061,78 @@ Om du vill stoppa behållaren använder du följande kommando från ett annat gr
 
 ```bash
 docker kill mycontainer
+```
+
+## <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
+
+Ingen kod modell distribution är för närvarande en för hands version och stöder följande ramverk för Machine Learning:
+
+### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel-format
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='flowers',                        # Name of the registered model in your workspace.
+                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
+                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
+                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
+                       description='Flowers model')
+
+service_name = 'tensorflow-flower-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="onnx-models"></a>ONNX-modeller
+
+ONNX-modell registrering och-distribution stöds för ett ONNX-diagram för härledning. Det finns för närvarande inte stöd för preprocess-och postprocess-stegen.
+
+Här är ett exempel på hur du registrerar och distribuerar en MNIST ONNX-modell:
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
+                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
+                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
+                       model_framework_version='1.3',              # Version of ONNX used to create the model.
+                       description='Onnx MNIST model')
+
+service_name = 'onnx-mnist-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="scikit-learn-models"></a>Scikit – lär dig modeller
+
+Ingen distribution av kod modeller stöds för alla inbyggda scikit – lär dig modell typer.
+
+Här är ett exempel på hur du registrerar och distribuerar en sklearn-modell utan extra kod:
+
+```python
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = Model.register(workspace=ws,
+                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
+                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
+                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
+                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
+                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
+                       description='Ridge regression model to predict diabetes progression.',
+                       tags={'area': 'diabetes', 'type': 'regression'})
+                       
+service_name = 'my-sklearn-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+Obs! de här beroendena ingår i den förskapade sklearn-härlednings containern:
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser

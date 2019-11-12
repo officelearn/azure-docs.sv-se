@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1d8649fc271801748723f484515f5fd2f708f95e
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 51e3bddef75bcf41b8c7a4d9693b622429130217
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881040"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930475"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudie: Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudie: Distribuera HSM: er till ett befintligt virtuellt nätverk med CLI
 
 Dedikerad HSM i Azure tillhandahåller en fysisk enhet enbart för kundanvändning, med fullständig administrativ kontroll och fullständigt hanteringsansvar. Användningen av fysiska enheter skapar ett behov av att Microsoft styr enhetsallokeringen för att säkerställa att kapacitet hanteras på ett effektivt sätt. I en Azure-prenumeration syns tjänsten Dedikerad HSM därför normalt inte för resursetablering. Azure-kunder som behöver åtkomst till tjänsten Dedikerad HSM måste först kontakta sin Microsoft-kontoansvarige och begära registrering för tjänsten Dedikerad HSM. Det är först när den här processen är klar som etablering blir möjlig. 
 
@@ -36,9 +36,9 @@ En typisk arkitektur med hög tillgänglighet för distribution i flera regioner
 
 Den här självstudien fokuserar på integreringen av ett par HSM:er och den nödvändiga ExpressRoute-gatewayen (se Undernät 1 ovan) i ett befintligt virtuellt nätverk (se VNET 1 ovan).  Alla andra resurser är Azure-standardresurser. Samma integreringsprocess kan användas för HSM:er i undernät 4 på VNET 3 ovan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Dedikerad HSM i Azure är för närvarande inte tillgängligt på Azure-portalen. All interaktion med tjänsten sker via kommandoraden eller PowerShell. Den här självstudien använder kommandoradsgränssnittet (CLI) i Azure Cloud Shell. Om Azure CLI är nytt för dig följer du instruktionerna för att komma igång här: [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+Dedikerad HSM i Azure är för närvarande inte tillgängligt på Azure-portalen. All interaktion med tjänsten sker via kommandoraden eller PowerShell. Den här självstudien använder kommandoradsgränssnittet (CLI) i Azure Cloud Shell. Om Azure CLI är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Antaganden:
 
@@ -236,13 +236,9 @@ Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras t
 
 1. `hsm factoryReset -f`
 2. `sysconf config factoryReset -f -service all`
-3. `network interface delete -device eth0`
-4. `network interface delete -device eth1`
-5. `network interface delete -device eth2`
-6. `network interface delete -device eth3`
-7. `my file clear -f`
-8. `my public-key clear -f`
-9. `syslog rotate`
+3. `my file clear -f`
+4. `my public-key clear -f`
+5. `syslog rotate`
 
 
 > [!NOTE]

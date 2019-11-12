@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: dcdc9c6a22f5d291b3773da02a79cc5ceebc3db1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 9ac22461e04b447fe34d5647eb5ec7847d25a09d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101463"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931276"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -28,7 +28,7 @@ Det data flöde som har allokerats på en Azure Cosmos-behållare är exklusivt 
 
 Att ställa in tillhandahållet data flöde på en behållare är det alternativ som används oftast. Du kan skala data flöde elastiskt för en behållare genom att tillhandahålla valfri mängd data flöde med hjälp av [enheter för programbegäran (ru: er)](request-units.md). 
 
-Om du antar en lämplig partitionsnyckel som distribuerar de logiska partitionerna jämnt mellan de fysiska partitionerna, distribueras även data flödet jämnt över alla logiska partitioner i behållaren. Du kan inte selektivt ange data flödet för logiska partitioner. Eftersom en eller flera logiska partitioner i en behållare finns i en fysisk partition, hör de fysiska partitionerna exklusivt till behållaren och har stöd för det data flöde som har allokerats på behållaren. 
+Det data flöde som har allokerats för en behållare distribueras jämnt mellan de fysiska partitionerna och en lämplig partitionsnyckel som distribuerar de logiska partitionerna jämnt mellan de fysiska partitionerna fördelas också med data flödet jämnt över hela behållarens logiska partitioner. Du kan inte selektivt ange data flödet för logiska partitioner. Eftersom en eller flera logiska partitioner i en behållare finns i en fysisk partition, hör de fysiska partitionerna exklusivt till behållaren och har stöd för det data flöde som har allokerats på behållaren. 
 
 Om arbets belastningen som körs på en logisk partition förbrukar mer än det data flöde som allokerats till den logiska partitionen får dina åtgärder begränsad hastighet. När Rate-Limiting inträffar kan du antingen öka det etablerade data flödet för hela behållaren eller utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
@@ -122,7 +122,7 @@ Du kan skala det etablerade data flödet för en behållare eller en databas nä
 |Ru: er tilldelad eller tillgänglig för en speciell behållare|Inga garantier. Ru: er som tilldelas en specifik behållare beror på egenskaperna. Egenskaper kan vara valet av partitionsnyckel för behållare som delar data flödet, distributionen av arbets belastningen och antalet behållare. |Alla ru: er som kon figurer ATS på behållaren är exklusivt reserverade för behållaren.|
 |Maximalt lagrings utrymme för en behållare|Många.|Många.|
 |Maximalt data flöde per logisk partition för en behållare|10 000 ru: er|10 000 ru: er|
-|Maximalt lagrings utrymme (data index) per logisk partition för en behållare|10 GB|10 GB|
+|Maximalt lagrings utrymme (data index) per logisk partition för en behållare|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Nästa steg
 

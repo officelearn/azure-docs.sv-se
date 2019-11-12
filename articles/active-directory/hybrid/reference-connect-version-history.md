@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847168"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927444"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: versions historik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -31,7 +31,7 @@ Den här artikeln är utformad för att hjälpa dig att hålla koll på de versi
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Avsnitt |  Information
+Avsnitt |  Detaljer
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
 Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
@@ -43,9 +43,18 @@ Hämta | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 Medan vi går igenom den här processen visas versions numret för versionen med ett "X" på den lägre versions nummer positionen, som i "1.3. X. 0" – Detta anger att viktig information i det här dokumentet är giltig för alla versioner som börjar med "1,3.". Så snart som vi har slutfört versions processen uppdateras versions numret till den senast utgivna versionen och versions statusen uppdateras till "lanseras för hämtning och automatisk uppgradering".
 Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>Versions status
+08/11/2019: har släppts för hämtning. Inte tillgängligt för automatisk uppgradering
+
+>[!IMPORTANT]
+>På grund av en intern schema ändring i den här versionen av Azure AD Connect, om du hanterar konfigurations inställningar för ADFS-förtroende med MSOnline PowerShell, måste du uppdatera MSOnline PowerShell-modulen till version 1.1.183.57 eller högre
+### <a name="fixed-issues"></a>Åtgärdade problem
+
+Den här versionen åtgärdar ett problem med befintliga hybrid Azure AD-anslutna enheter. Den här versionen innehåller en ny regel för synkronisering av enhet som åtgärdar problemet.
+Observera att den här regel ändringen kan orsaka borttagning av föråldrade enheter från Azure AD. Detta är inte en anledning till problem eftersom dessa enhets objekt inte används av Azure AD under auktoriseringen för villkorlig åtkomst. För vissa kunder kan antalet enheter som tas bort via den här regel ändringen överskrida tröskelvärdet för borttagning. Om du ser borttagningen av enhets objekt i Azure AD som överskrider tröskelvärdet för borttagning av export, rekommenderas det att tillåta borttagningarna att gå igenom. [Så här tillåter du att borttagningar flödar när de överstiger tröskelvärdet för borttagning](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>Versions status
 9/28/2019: lanseras för automatisk uppgradering för att välja klienter. Inte tillgänglig för hämtning.
@@ -465,7 +474,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Namn                          | Åtkomst               | Gäller för
+Typ     | Namn                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SÄKER                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företags administratörer             | Fullständig behörighet         | Det här objektet  |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817365"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928420"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
@@ -39,7 +39,7 @@ Aviseringar kan anges för [anpassade mått](../../azure-monitor/app/api-custom-
 
     telemetry.TrackMetric("Alarm", 10);
 
-eller
+Eller
 
     var measurements = new Dictionary<string,double>();
     measurements ["Alarm"] = 10;
@@ -72,7 +72,7 @@ Några saker att tänka på:
 [Använd PowerShell för att skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Använd PowerShell för att hantera Application Insights
-* [Skapa nya resurser](../../azure-monitor/app/powershell-script-create-resource.md)
+* [Skapa nya resurser](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Separera telemetri från olika versioner

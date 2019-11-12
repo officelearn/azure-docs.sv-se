@@ -1,5 +1,5 @@
 ---
-title: Diagnostisk loggning i Azure Cosmos DB
+title: Diagnostikloggning i Azure Cosmos DB
 description: Lär dig mer om olika sätt att logga och övervaka data som lagras i Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294039"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930537"
 ---
-# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostikloggning i Azure Cosmos DB 
 
 När du har startat en eller flera Azure Cosmos-databaser kanske du vill övervaka hur och när dina databaser används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du får lära dig hur du aktiverar diagnostikloggning för övervakning för att skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), hur du strömmar loggar till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och hur du exporterar loggar till [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/).
 
@@ -40,7 +40,7 @@ Aktivitets loggen registrerar åtgärderna på en prenumerations nivå för Azur
 
 I den här artikeln fokuserar vi på Azures aktivitets logg, Azure-diagnostikloggar och Azure-mått. Vad är skillnaden mellan dessa tre loggar? 
 
-### <a name="azure-activity-log"></a>Azure aktivitets logg
+### <a name="azure-activity-log"></a>Azure-aktivitetslogg
 
 Azure aktivitets loggen är en prenumerations logg som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Aktivitets loggen rapporterar kontroll Plans händelser för dina prenumerationer under kategorin administration. Du kan använda aktivitets loggen för att fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, skicka och ta bort) på resurserna i din prenumeration. Du kan också förstå status för åtgärden och andra relevanta egenskaper. 
 
@@ -118,7 +118,7 @@ Använd följande steg för att aktivera diagnostisk loggning i Azure Portal:
 
 3. Välj **Spara**.
 
-    Om du får ett fel meddelande om att det inte gick att uppdatera diagnostiken för \<workspace namn >. Prenumerationen \<subscription-ID > har inte registrerats för att använda Microsoft. Insights, "Följ [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) -instruktionerna för att registrera kontot och gör sedan om proceduren.
+    Om du får ett fel meddelande om att det inte gick att uppdatera diagnostiken för \<arbets ytans namn >. Prenumerations \<prenumerations-ID > har inte registrerats för att använda Microsoft. Insights, "Följ [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) -instruktionerna för att registrera kontot och gör sedan om proceduren.
 
     Om du vill ändra hur dina diagnostikloggar sparas när som helst i framtiden går du tillbaka till den här sidan för att ändra inställningarna för diagnostikloggar för ditt konto.
 
@@ -132,7 +132,7 @@ Använd följande kommandon om du vill aktivera mått och diagnostikloggning med
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   @No__t-0 är namnet på det Azure Cosmos DB kontot. Resursen har formatet "/Subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft. DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" `storage-account` är namnet på det lagrings konto som du vill skicka loggarna till. Du kan logga andra loggar genom att uppdatera kategori parameter värden till "MongoRequests" eller "DataPlaneRequests". 
+   `resource` är namnet på det Azure Cosmos DB kontot. Resursen har formatet "/Subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" `storage-account` är namnet på det lagrings konto som du vill skicka loggarna till. Du kan logga andra loggar genom att uppdatera kategori parameter värden till "MongoRequests" eller "DataPlaneRequests". 
 
 - Använd följande kommando för att aktivera strömning av diagnostikloggar till en Event Hub:
 
@@ -140,7 +140,7 @@ Använd följande kommandon om du vill aktivera mått och diagnostikloggning med
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   @No__t-0 är namnet på det Azure Cosmos DB kontot. @No__t-0 är regel-ID för Event Hub. 
+   `resource` är namnet på det Azure Cosmos DB kontot. `event-hub-rule` är regel-ID för Event Hub. 
 
 - Om du vill aktivera sändning av diagnostikloggar till en Log Analytics arbets yta använder du följande kommando:
 
@@ -313,7 +313,7 @@ $blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
-När du kör det här andra kommandot skapar **/-** avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Den här mappstrukturen används för att ladda ned och lagra Blobbarna som filer.
+När du kör det här andra kommandot skapar **/** avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Den här mappstrukturen används för att ladda ned och lagra Blobbarna som filer.
 
 Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
@@ -330,7 +330,7 @@ Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
     Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
-* Använd kommandot `-Blob '*/year=2017/m=07/*'` om du vill hämta alla loggar för den månad juli 2017:
+* Om du vill ladda ned alla loggar för den månad juli 2017 använder du kommandot `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
     Get-AzStorageBlob -Container $container `
@@ -339,7 +339,7 @@ Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
 Du kan också köra följande kommandon:
 
-* Använd kommandot `Get-AzDiagnosticSetting -ResourceId $account.ResourceId` om du vill fråga efter statusen för diagnostiska inställningar för databas resursen.
+* Använd kommandot `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`för att fråga om status för diagnostiska inställningar för databas resursen.
 * Om du vill inaktivera loggning av **DataPlaneRequests** -kategorin för databas konto resursen använder du kommandot `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
@@ -401,61 +401,105 @@ Nu när du har aktiverat data insamling kör du följande loggs öknings exempel
 ![Exempel på loggs ökning för de 10 senaste loggarna](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="queries"></a>Frågor
+### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>CosmosDB Log Analytics frågor i Azure Monitor
 
-Här följer några ytterligare frågor som du kan ange i rutan **loggs ökning** som hjälper dig att övervaka dina Azure Cosmos-behållare. Dessa frågor fungerar med det [nya språket](../log-analytics/log-analytics-log-search-upgrade.md). 
+Här följer några ytterligare frågor som du kan ange i rutan **loggs ökning** som hjälper dig att övervaka dina Azure Cosmos-behållare. Dessa frågor fungerar med det [nya språket](../log-analytics/log-analytics-log-search-upgrade.md).  
 
 Information om betydelsen av de data som returneras av varje loggs ökning finns i [tolka dina Azure Cosmos DB loggar](#interpret).
 
 * Fråga efter alla diagnostikloggar från Azure Cosmos DB under en angiven tids period:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
     ```
 
 * Fråga efter de 10 senast loggade händelserna:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | limit 10
     ```
 
 * För att fråga efter alla åtgärder, grupperat efter åtgärds typ:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName
     ```
 
 * För att fråga efter alla åtgärder, grupperat efter **resurs**:
 
     ```
-    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
 
 * För att fråga efter all användar aktivitet, grupperad efter resurs:
 
     ```
-    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
     > [!NOTE]
     > Det här kommandot gäller för en aktivitets logg, inte en diagnostisk logg.
 
+* Så här hämtar du alla frågor som är större än 100 ru: er kopplade till data från DataPlaneRequests och QueryRunTimeStatistics
+
+    ```
+    AzureDiagnostics
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+    | project activityId_g, requestCharge_s
+    | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+    ) on $left.activityId_g == $right.activityId_g
+    | order by requestCharge_s desc
+    | limit 100
+    ```
+    
+      
+
 * Fråga efter vilka åtgärder tar längre tid än 3 millisekunder:
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics 
+    | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Fråga efter vilken agent som kör åtgärderna:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName, userAgent_s
     ```
 
 * För att fråga efter när tids krävande åtgärder utfördes:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | project TimeGenerated , duration_s 
+    | render timechart
     ```
+    
+* Så här hämtar du nyckel statistik för att utvärdera snedheten för de tre översta partitionerna för databas konto:
+
+    ```
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+    
+   
+    ```
+    
 
 Mer information om hur du använder det nya logg Sök språket finns i [förstå loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-search-new.md). 
 
@@ -471,7 +515,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | **resourceId** | **Resurs** | Azure Cosmos DB konto för vilka loggar är aktiverade.|
 | **kategori** | **Kategori** | **DataPlaneRequests** är det enda tillgängliga värdet för Azure Cosmos DB loggar. |
 | **operationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara någon av följande åtgärder: skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra, SqlQuery, fråga, JSQuery, Head, HeadFeed eller upsert.   |
-| **egenskaperna** | Ej tillämpligt | Innehållet i det här fältet beskrivs i raderna som följer. |
+| **egenskaperna** | Saknas | Innehållet i det här fältet beskrivs i raderna som följer. |
 | **activityId** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **userAgent** | **userAgent_s** | En sträng som anger den klient användar agent som utför begäran. Formatet är {user agent Name}/{version}.|
 | **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara någon av följande resurs typer: databas, behållare, dokument, bilaga, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudande. |

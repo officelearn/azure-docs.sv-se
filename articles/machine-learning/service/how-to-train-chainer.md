@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: bfe44e552618dfbee13e8c85ef424f52d4b7ae5f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a7c19486fe6787c4548a77dcdd93a92a92c97d8c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814997"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931098"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Träna och registrera kedje modeller i skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Lär dig mer om [djup inlärning vs Machine Learning](concept-deep-learning-vs-m
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer:
 
@@ -193,7 +193,7 @@ model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/m
 ```
 
 > [!TIP]
-> Om du får ett fel meddelande om att modellen inte hittas, så ge den en minut och försök igen.  Ibland finns det en liten fördröjning mellan slutet av inlärnings körningen och tillgängligheten för modellen i katalogen utdata.
+> Den modell som du precis har registrerat har distribuerats exakt på samma sätt som andra registrerade modeller i Azure Machine Learning, oavsett vilken uppskattning som du använde för utbildning. Distributions anvisningar innehåller ett avsnitt om att registrera modeller, men du kan hoppa direkt till att [skapa ett beräknings mål](how-to-deploy-and-where.md#choose-a-compute-target) för distribution, eftersom du redan har en registrerad modell.
 
 Du kan också hämta en lokal kopia av modellen. Detta kan vara användbart för att göra ytterligare modell validerings arbete lokalt. I övnings skriptet `chainer_mnist.py`bevarar ett sparfunktionen-objekt modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia från data lagret.
 

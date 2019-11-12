@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: dc72bb43752323576bed6e7991f33c4096ccabd4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0dcabb0e5141a92394f2be38cbe7e71fa6e03d58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977292"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928542"
 ---
 # <a name="display-feature-information"></a>Visa funktionsinformation
 
-Spatialdata representeras ofta med punkter, linjer och polygoner. Informationen innehåller ofta information om metadata. En punkt kan till exempel representera platsen för en butik och metadata om att restaurangens namn, adress och typ av livsmedel fungerar. Du kan lägga till dessa metadata som egenskaper för dessa funktioner med `JsonObject`hjälp av en. Följande kod skapar en enkel punkt funktion med en `title` egenskap som har värdet "Hello World!"
+Spatialdata representeras ofta med punkter, linjer och polygoner. Informationen innehåller ofta information om metadata. En punkt kan till exempel representera platsen för en butik och metadata om att restaurangens namn, adress och typ av livsmedel fungerar. Du kan lägga till dessa metadata som egenskaper för dessa funktioner med hjälp av en `JsonObject`. Följande kod skapar en enkel punkt funktion med en `title`-egenskap som har värdet "Hello World!"
 
 ```java
 //Create a data source and add it to the map.
@@ -32,7 +32,7 @@ properties.addProperty("title", "Hello World!");
 dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64), properties));
 ```
 
-När en användare interagerar med en funktion på kartan kan händelser användas för att reagera på dessa åtgärder. Ett vanligt scenario är att visa ett meddelande om metadata-egenskaperna för en funktion som användaren interagerar med. `OnFeatureClick` Händelsen är den huvudsakliga händelsen som används för att identifiera när användaren tryckte på en funktion på kartan. Det finns också en `OnLongFeatureClick` händelse. När du lägger `OnFeatureClick` till händelsen i kartan kan den begränsas till ett enda lager genom att skicka i ID: t för ett lager för att begränsa det till. Om inget lager-ID skickas i, kan du trycka på en funktion på kartan, oavsett vilket lager det finns i, så att den här händelsen utlöses. Följande kod skapar ett symbol lager för att återge punkt data på kartan och lägger sedan till en `OnFeatureClick` händelse och begränsar den till det här symbol skiktet.
+När en användare interagerar med en funktion på kartan kan händelser användas för att reagera på dessa åtgärder. Ett vanligt scenario är att visa ett meddelande om metadata-egenskaperna för en funktion som användaren interagerar med. Händelsen `OnFeatureClick` är huvud händelsen som används för att identifiera när användaren tryckte på en funktion på kartan. Det finns också en `OnLongFeatureClick`-händelse. När du lägger till `OnFeatureClick`-händelsen till kartan kan den begränsas till ett enda lager genom att skicka in ett lagers ID för att begränsa det till. Om inget lager-ID skickas i, kan du trycka på en funktion på kartan, oavsett vilket lager det finns i, så att den här händelsen utlöses. Följande kod skapar ett symbol lager som återger punkt data på kartan och lägger sedan till en `OnFeatureClick`-händelse och begränsar den till det här symbol skiktet.
 
 ```java
 //Create a symbol and add it to the map.
@@ -50,7 +50,7 @@ map.events.add((OnFeatureClick) (features) -> {
 
 ## <a name="display-a-toast-message"></a>Visa ett popup-meddelande
 
-Ett popup-meddelande är ett av de enklaste sätten att visa information till användaren och är tillgänglig i alla versioner av Android. Den har inte stöd för någon typ av användarindata och visas bara under en kort tids period. Om du snabbt vill låta användaren veta vad de tryckte på, kan ett popup-meddelande vara ett bra alternativ. Följande kod visar hur ett popup-meddelande kan användas med `OnFeatureClick` händelsen.
+Ett popup-meddelande är ett av de enklaste sätten att visa information till användaren och är tillgänglig i alla versioner av Android. Den har inte stöd för någon typ av användarindata och visas bara under en kort tids period. Om du snabbt vill låta användaren veta vad de tryckte på, kan ett popup-meddelande vara ett bra alternativ. Följande kod visar hur ett popup-meddelande kan användas med händelsen `OnFeatureClick`.
 
 ```java
 //Add a feature click event to the map.
@@ -65,7 +65,7 @@ map.events.add((OnFeatureClick) (features) -> {
 
 <center>
 
-![Animering av en funktion som knackas och ett popup-meddelande visas](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
+![animering av en funktion som används och ett popup-meddelande visas](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
 
 Förutom popup-meddelanden finns det många andra sätt att presentera egenskaperna för metadata för en funktion, till exempel:
 

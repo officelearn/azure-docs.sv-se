@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fee5d20bd831b9278f041753a9d40820b3e295e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ee30e52561a5560e572e33fb3bc7d191559bf5d6
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902929"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927136"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -96,26 +96,26 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 4. Inuti **appen** > **src** > **main**öppnar du **AndroidManifest. XML**.
-> 5. I noden **manifest\application** ersätter du noden **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** med följande:  
+> 5. I noden **manifest\application** ersätter du noden **aktivitet Android: Name = "com. Microsoft. Identity. client. BrowserTabActivity"** med följande:    
 > ```xml
-> &lt;!--Intent filter to catch Microsoft's callback after Sign In--&gt;
-> &lt;activity android:name=&quot;com.microsoft.identity.client.BrowserTabActivity&quot;&gt;
->     &lt;intent-filter&gt;
->     &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
->     &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
->     &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
->         &lt;!--
+> <!--Intent filter to catch Microsoft's callback after Sign In-->
+> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+>     <intent-filter>
+>         <action android:name="android.intent.action.VIEW" />
+>         <category android:name="android.intent.category.DEFAULT" />
+>         <category android:name="android.intent.category.BROWSABLE" />
+>         <!--
 >             Add in your scheme/host from registered redirect URI 
->             note that the leading &quot;/&quot; is required for android:path
->         --&gt;
->         &lt;data android:scheme=&quot;msauth&quot;
->             android:host=&quot;Enter_the_Package_Name&quot;
->             android:path=&quot;Enter_the_Signature_Hash&quot;
->             android:scheme = &quot;msauth&quot; /&gt;
->     &lt;/intent-filter&gt;
-> &lt;/activity&gt;
+>             note that the leading "/" is required for android:path
+>         -->
+>         <data 
+>             android:host="Enter_the_Package_Name"
+>             android:path="/Enter_the_Signature_Hash"
+>             android:scheme= "msauth" />
+>     </intent-filter>
+> </activity>
 > ```
-> 6. Kör appen!
+> 6. Kör appen!   
 > Exempel appen startar på skärmen med ett **enda konto läge** . En standard omfattning, **User. Read**, tillhandahålls som standard, som används när du läser dina egna profil data under Microsoft Graph API-anropet. URL: en för API-anropet Microsoft Graph anges som standard. Du kan ändra båda dessa om du vill.
 >
 > ![MSAL exempel app som visar användning av enkel och flera konton](./media/quickstart-v2-android/quickstart-sample-app.png)

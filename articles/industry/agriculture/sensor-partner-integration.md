@@ -1,18 +1,18 @@
 ---
-title: Integrering av sensor partner
+title: Sensorpartnerintegration
 description: Beskriver integrering av sensor partner
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e90284ce2f8ea37eb9249822e38cef04e1356f59
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1e819c94732e1cbc2de39e6400f8305b7df5aca1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889586"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927659"
 ---
-# <a name="sensor-partner-integration"></a>Integrering av sensor partner
+# <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
 Den här artikeln innehåller information om Azure FarmBeats **Translator** -komponenten som möjliggör integrering av sensor partner.
 
@@ -79,7 +79,7 @@ FarmBeats-datahubben använder Bearer-autentisering, som behöver följande aute
 
 Med hjälp av ovanstående autentiseringsuppgifter kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i rubrik avsnittet enligt följande:
 
-```json
+```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
@@ -124,14 +124,14 @@ Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, b
 
 Nedanstående exempel förfrågan är att hämta listan över enheter:
 
-```azurepowershell-interactive
-curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
+```bash
+curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
 ```
 De flesta GET-, POST-och parkera-anrop kräver en text för JSON-begäran.
 
 Nedanstående exempel förfrågan är att skapa en enhet (det här exemplet har en indatakälla för indatamängden med begär ande texten).
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -243,27 +243,26 @@ Det kanoniska meddelande formatet är som följer:
 
 ```json
 {
-“deviceid”: “<id of the Device created>”,
- "timestamp": "<timestamp in ISO 8601 format>",
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
 "version" : "1",
 "sensors": [
     {
-      "id": "<id of the sensor created>”
+      "id": "<id of the sensor created>",
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
+ ]
 }
-
 ```
-
 Alla nyckel namn i JSON-modulen för telemetri bör vara gemener, t. ex. DeviceID, sensordata osv.
 
 Till exempel telemetri-meddelande:

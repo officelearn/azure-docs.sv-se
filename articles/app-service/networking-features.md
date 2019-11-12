@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470254"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928509"
 ---
 # <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
@@ -91,7 +91,7 @@ Du kan lära dig hur du anger en adress i din app med själv studie kursen om hu
 
 ### <a name="access-restrictions"></a>Åtkomst begränsningar 
 
-Med funktionen åtkomst begränsningar kan du filtrera **inkommande** begär Anden baserat på den ursprungliga IP-adressen. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets tagaren och där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över tillåtna och neka-adressblock som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE kan du begränsa åtkomsten från privata adress block.
+Med funktionen åtkomst begränsningar kan du filtrera **inkommande** begär Anden baserat på den ursprungliga IP-adressen. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets rollerna där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över tillåtna och neka-adressblock som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE kan du begränsa åtkomsten från privata adress block.
 
 ![Åtkomst begränsningar](media/networking-features/access-restrictions.png)
 
@@ -108,7 +108,7 @@ Om du vill låsa åtkomsten till din app så att den bara kan nås från resurse
 
 Med tjänst slut punkter kan du låsa **inkommande** åtkomst till din app så att käll adressen måste komma från en uppsättning undernät som du väljer. Den här funktionen fungerar tillsammans med begränsningar för IP-åtkomst. Tjänst slut punkter anges i samma användar upplevelse som begränsningarna för IP-åtkomst. Du kan bygga en lista över tillåtna/nekade åtkomst regler som innehåller offentliga adresser samt undernät i din virtuella nätverk. Den här funktionen stöder scenarier som:
 
-![Tjänst slut punkter](media/networking-features/service-endpoints.png)
+![tjänst slut punkter](media/networking-features/service-endpoints.png)
 
 * Konfigurera en Application Gateway med din app för att låsa inkommande trafik till din app
 * Begränsa åtkomsten till din app till resurser i ditt VNet. Detta kan vara virtuella datorer, ASE eller till och med andra appar som använder VNet-integrering 

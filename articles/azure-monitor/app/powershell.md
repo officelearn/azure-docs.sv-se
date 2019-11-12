@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 5ae043c356559b2e675f05af3eb7eb61973eb170
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 2f59b66bacbd0105e5a543b019a5c6646e010c48
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621938"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928522"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
 
@@ -595,7 +595,7 @@ Azure bör konfigurera resurserna i strikt ordning. För att se till att en inst
 ## <a name="next-steps"></a>Nästa steg
 Andra automatiserings artiklar:
 
-* [Skapa en Application Insights resurs](powershell-script-create-resource.md) – snabb metod utan att använda en mall.
+* [Skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) – snabb metod utan att använda en mall.
 * [Konfigurera aviseringar](powershell-alerts.md)
 * [Skapa webbtester](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Skicka Azure Diagnostics-data till Application Insights](powershell-azure-diagnostics.md)

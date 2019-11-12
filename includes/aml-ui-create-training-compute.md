@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ee90e0c99234497b072bbee0b92d76129baea48
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493579"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929660"
 ---
-En pipeline körs på ett beräknings mål som är en beräknings resurs som är kopplad till din arbets yta. När du har skapat ett beräknings mål kan du återanvända det för framtida körningar.
+En pipeline körs på ett beräknings mål, som är en beräknings resurs som är kopplad till din arbets yta. När du har skapat ett beräknings mål kan du återanvända det för framtida körningar.
 
 1. Välj **Kör** överst på arbets ytan för att köra pipelinen.
 
@@ -25,7 +25,7 @@ En pipeline körs på ett beräknings mål som är en beräknings resurs som är
     Om du redan har ett tillgängligt beräknings mål kan du välja att köra denna pipeline.
 
     > [!NOTE]
-    > Designern kan bara köra experiment på Machine Learning-beräkning mål. Andra beräknings mål visas inte.
+    > Designern kan bara köra experiment på Azure Machine Learning Compute-mål. Andra beräknings mål visas inte.
 
 1. Ange ett namn för beräknings resursen.
 
@@ -35,18 +35,18 @@ En pipeline körs på ett beräknings mål som är en beräknings resurs som är
 
 1. Välj **Kör**.
 
-1. I dialog rutan **Konfigurera pipeline-körning** väljer du **+ nytt experiment** för **experimentet**
+1. I dialog rutan **Konfigurera pipeline-körning** väljer du **+ nytt experiment** för **experimentet**.
 
     > [!NOTE]
     > Experiment grupp liknande pipeliner körs tillsammans. Om du kör en pipeline flera gånger kan du välja samma experiment för efterföljande körningar.
 
-    * Ange ett beskrivande **experiment namn**
+    1. Ange ett beskrivande namn för **experimentets namn**.
 
-    * Välj **Kör**
+    1. Välj **Kör**.
     
     Du kan visa körnings status och information överst till höger på arbets ytan.
 
     > [!NOTE]
-    > Det tar cirka 5 minuter att skapa en beräknings resurs. När resursen har skapats kan du återanvända den och hoppa över vänte tiden för framtida körningar.
+    > Det tar cirka fem minuter att skapa en beräknings resurs. När resursen har skapats kan du återanvända den och hoppa över vänte tiden för framtida körningar.
     >
-    > Beräknings resursen skalar automatiskt till 0 noder när den är inaktiv för att spara pengar.  När du använder den igen efter en fördröjning kan du återigen uppleva cirka 5 minuters vänte tid medan den skalas upp.
+    > Beräknings resursen skalar automatiskt till noll noder när den är inaktiv för att spara pengar. När du använder den igen efter en fördröjning kan du uppleva ungefär fem minuters vänte tid medan den skalas upp.

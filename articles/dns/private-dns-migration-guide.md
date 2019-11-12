@@ -7,25 +7,31 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 9f52a568d42fa23a40a396311955626a1fa0073b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960560"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931264"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrera äldre Azure DNS privata zoner till ny resurs modell
 
-Den nuvarande versionen av Azure DNS privata zoner innehåller nya funktioner och tar bort flera begränsningar och begränsningar för den första offentliga för hands versionen. Dessa förmåner är dock inte tillgängliga på de privata DNS-zoner som skapats med hjälp av för hands versionen av API. För att få fördelarna med den nya versionen måste du migrera dina äldre resurser för privata DNS-zoner till den nya resurs modellen. Migreringsprocessen är enkel och vi har angett ett PowerShell-skript för att automatisera processen. Den här guiden innehåller steg-för-steg-instruktioner om hur du migrerar Azure DNS privata zoner till den nya resurs modellen.
+Under den offentliga för hands versionen skapades privata DNS-zoner med "dnszones"-resurs med egenskapen "zoneType" inställd på "privat". Sådana zoner kommer inte att stödjas efter 31 december 2019 och måste migreras till GA-resurs modell som använder resurs typen "privateDnsZones" i stället för "dnszones". Migreringsprocessen är enkel och vi har angett ett PowerShell-skript för att automatisera processen. Den här guiden innehåller steg-för-steg-instruktioner om hur du migrerar Azure DNS privata zoner till den nya resurs modellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+Ta reda på vilka dnszones-resurser som kräver migrering. Kör kommandot nedan i Azure CLI.
+```azurecli
+az account set --subscription <SubscriptionId>
+az network dns zone list --query "[?zoneType=='Private']"
+```
+
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du har installerat den senaste versionen av Azure PowerShell. Mer information om Azure PowerShell (AZ) och hur du installerar det finns på https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
 Kontrol lera att du har AZ. PrivateDns-modulen för den Azure PowerShell installerad. Du installerar den här modulen genom att öppna ett upphöjd PowerShell-fönster (administrations läge) och ange följande kommando
 
 ```powershell
-Install-Module -Name Az.PrivateDns -AllowPrerelease
+Install-Module -Name Az.PrivateDns
 ```
 
 >[!IMPORTANT]
@@ -44,6 +50,9 @@ Ange "A" när du uppmanas att installera skriptet
 ![Installera skriptet](./media/private-dns-migration-guide/install-migration-script.png)
 
 Du kan också hämta den senaste versionen av PowerShell-skriptet manuellt på https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
+
+>[!IMPORTANT]
+>Migrations skriptet får inte köras i Azure Cloud Shell och måste köras på en virtuell dator eller lokal dator som är ansluten till Internet.
 
 ## <a name="running-the-script"></a>Köra skriptet
 

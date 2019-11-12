@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: ddf5b81f7269b02ebdc6777fd1bee126157141ff
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: df6c4afc0da50c5b4b32923f24370b9c959b1af7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893433"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929618"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Självstudie: skapa en regel och konfigurera meddelanden i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -27,13 +27,13 @@ Enheter använder telemetri för att skicka numeriska data från enheten. En reg
 
 I den här självstudien skapar du en regel för att skicka ett e-postmeddelande när temperaturen i en miljö sensor enhet överskrider 80&deg; F.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en regel
 > * Lägg till en e-poståtgärd
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du fylla i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägga till en simulerad enhet i IoT Central](./quick-create-pnp-device.md) snabb starter för att skapa **miljösensorns** enhets mall att fungera med.
 
@@ -113,7 +113,7 @@ Nu när du har lärt dig hur du skapar regler i ditt Azure IoT Central-program �
 
 ## <a name="next-steps"></a>Nästa steg
 
->>>>>>> fa07415cf19e8cdb02d570edb3785780bfa97a7c:articles/IoT-Central/Preview/självstudie-Create-telemetri-rules. MD i den här självstudien har du lärt dig att:
+I den här självstudiekursen lärde du dig att:
 
 * Skapa en telemetribaserad regel
 * Lägga till en åtgärd
@@ -121,5 +121,4 @@ Nu när du har lärt dig hur du skapar regler i ditt Azure IoT Central-program �
 Nu när du har definierat en tröskel-baserad regel är det föreslagna nästa steg att lära dig att:
 
 > [!div class="nextstepaction"]
-
 > [Konfigurera kontinuerlig data export](./howto-export-data.md).

@@ -1,18 +1,18 @@
 ---
 title: Tagg-och versions avbildningar i Azure Container Registry
-description: Metod tips för taggning och versioner av Docker-behållar avbildningar
+description: Metod tips för taggning och versioner av Docker-behållar avbildningar vid överföring av bilder till och från ett Azure Container Registry
 services: container-registry
 author: stevelasker
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: ea7c0831f4ecc345cbcd8a9b8eb6d6566e8c5023
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 41013fb5831d09d7a4334e94d2b8b39e0cafe4d2
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297768"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931568"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Rekommendationer för taggning och versions behållar avbildningar
 
@@ -31,10 +31,10 @@ När du distribuerar behållar avbildningar till ett behållar register och seda
 
 Ett Ramverks team levereras version 1,0. De vet att de kommer att leverera uppdateringar, inklusive mindre uppdateringar. För att stödja stabila taggar för en specifik och mindre version, har de två uppsättningar av stabila taggar.
 
-* `:1`– en stabil tagg för huvud versionen. `1`representerar den nyaste eller senaste 1. * versionen.
-* `:1.0`– en stabil tagg för version 1,0, så att en utvecklare kan binda till uppdateringar av 1,0 och inte skickas vidare till 1,1 när den släpps.
+* `:1` – en stabil tagg för huvud versionen. `1` representerar den nyaste eller senaste 1. * versionen.
+* `:1.0`– en stabil tagg för version 1,0, så att en utvecklare kan binda till uppdateringar av 1,0 och inte skickas vidare till 1,1 när de släpps.
 
-Teamet använder `:latest` också taggen, som pekar på den senaste stabila taggen, oavsett vad den aktuella huvud versionen är.
+Gruppen använder också taggen `:latest` som pekar på den senaste stabila taggen, oavsett vad den aktuella huvud versionen är.
 
 När bas avbildnings uppdateringar är tillgängliga, eller någon typ av service version av ramverket, uppdateras bilder med de stabila taggarna till den senaste Digest som representerar den senaste stabila versionen av den versionen.
 
@@ -55,7 +55,7 @@ Unik taggning innebär bara att varje bild som flyttas till ett register har en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En mer detaljerad beskrivning av begreppen i den här artikeln finns i blogg inlägget [Docker-taggning: Metod tips för taggning och versioner av Docker](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)-avbildningar.
+En mer detaljerad beskrivning av begreppen i den här artikeln finns i blogg inlägget [Docker-taggning: metod tips för taggning och versioner av Docker-avbildningar](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 
 Information om hur du maximerar prestanda och kostnads effektiv användning av Azure Container Registry finns i [metod tips för Azure Container Registry](container-registry-best-practices.md).
 

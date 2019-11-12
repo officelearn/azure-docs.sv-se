@@ -7,14 +7,14 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: fe733b686f2b56beee26a6c33c4d6264d621e627
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516349"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931310"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>Distribuera en betrodd säkerhets partner (förhands granskning)
+# <a name="deploy-a-trusted-security-partner-preview"></a>Distribuera en betrodd säkerhetspartner (förhandsversion)
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
@@ -24,7 +24,7 @@ Mer information om vilka scenarier som stöds och rikt linjer för bästa praxis
 
 De säkerhets partner som stöds är **ZScaler** och **iboss** för den här för hands versionen. Regioner som stöds är WestCentralUS, Usanorracentrala, väst, WestUS2 och öster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!IMPORTANT]
 > För hands versionen av Azure Firewall Manager måste aktive ras explicit med kommandot `Register-AzProviderFeature` PowerShell.
@@ -83,12 +83,11 @@ Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver t
 
    > [!NOTE]
    > Du kan begränsa åtkomsten till endast din resurs grupp för mer detaljerad kontroll.
-3. Följ anvisningarna i följande länk.
+3. Följ [ZScaler: Konfigurera en Microsoft Azure virtuella WAN-integrations](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) instruktioner till:
 
-   - Logga in på Partner portalen och Lägg till dina autentiseringsuppgifter för att ge den betrodda partnern åtkomst till den skyddade hubben.
-   - När dina autentiseringsuppgifter för Azure AD-autentisering har verifierats kan du använda följande instruktioner för att synkronisera de virtuella hubbarna i Partner portalen och konfigurera tunneln till den virtuella hubben.
-
-   [ZScaler: Konfigurera en Microsoft Azure virtuell WAN-integrering](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   - Logga in på Partner portalen och Lägg till dina autentiseringsuppgifter för att ge den betrodda partner åtkomst till den skyddade hubben.
+   - Synkronisera de virtuella hubbarna i Partner portalen och konfigurera tunneln till den virtuella hubben. Du kan göra det när dina autentiseringsuppgifter för Azure AD-autentisering har verifierats.
+   
 4. Du kan titta på statusen för att skapa tunnel på Azures virtuella WAN-portal i Azure. När tunnlarna visar **anslutna** i både Azure och partner portalen fortsätter du med nästa steg för att ställa in vägar för att välja vilka grenar och virtuella nätverk som ska skicka Internet trafik till partnern.
 
 ## <a name="configure-route-settings"></a>Konfigurera flödes inställningar

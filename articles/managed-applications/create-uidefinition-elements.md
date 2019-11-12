@@ -1,25 +1,21 @@
 ---
-title: Azure skapa UI-element för definition | Microsoft Docs
-description: Beskriver de element som ska användas när UI-definitioner för Azure-portalen.
-services: managed-applications
-documentationcenter: na
+title: Definitions element för Azure Create UI | Microsoft Docs
+description: Beskriver de element som ska användas när du konstruerar GRÄNSSNITTs definitioner för Azure Portal.
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/19/2018
+ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 41a583a77f85bb1524112fa20d9098e18bc4f431
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f952b8301f1d85d81fcc63e5d46dc57b1fb1106
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60587946"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932010"
 ---
-# <a name="createuidefinition-elements"></a>CreateUiDefinition element
-Den här artikeln beskriver schemat och egenskaperna för alla element i en CreateUiDefinition som stöds. 
+# <a name="createuidefinition-elements"></a>CreateUiDefinition-element
+
+I den här artikeln beskrivs schema och egenskaper för alla element som stöds i en CreateUiDefinition. 
 
 ## <a name="schema"></a>Schema
 
@@ -40,26 +36,27 @@ Schemat för de flesta element är följande:
 
 | Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
-| name | Ja | En intern identifierare för att referera till en specifik instans av ett element. Den vanligaste användningen av elementnamnet är i `outputs`, där utdata värdena för de angivna elementen mappas till parametrarna i mallen. Du kan också använda den för att binda värdet av ett element i den `defaultValue` av ett annat element. |
-| type | Ja | UI-kontroll att återge för elementet. En lista över typer som stöds finns i [element](#elements). |
-| label | Ja | Texten som visas för elementet. Vissa elementtyper av innehålla flera etiketter, så att värdet kan vara ett objekt som innehåller flera strängar. |
-| defaultValue | Nej | Standardvärdet för elementet. Vissa elementtyper stöder komplexa standardvärden, så att värdet kan vara ett objekt. |
-| toolTip | Nej | Texten som visas i beskrivningen av elementet. Liknar `label`, vissa element stöd för flera verktyget tips strängar. Infogade länkar kan vara inbäddad med Markdown-syntax.
-| constraints | Nej | En eller flera egenskaper som används för att anpassa valideringsbeteendet elementet. Egenskaperna som stöds för begränsningar varierar elementtyp. Vissa elementtyper gör inte stöd för anpassning av valideringsbeteendet och därför har ingen egenskap med begränsningar. |
-| options | Nej | Ytterligare egenskaper som anpassar elementet. Liknar `constraints`, egenskaper som stöds varierar beroende på typ prvku. |
-| visible | Nej | Anger om elementet ska visas. Om `true`, element och tillhörande underordnade element visas. Standardvärdet är `true`. Använd [logiska funktioner](create-uidefinition-functions.md#logical-functions) till dynamiskt Kontrollera värdet för den här egenskapen.
+| namn | Ja | En intern identifierare som refererar till en angiven instans av ett element. Den vanligaste användningen av element namnet är i `outputs`, där indatavärdena för de angivna elementen mappas till parametrarna i mallen. Du kan också använda den för att binda utmatning svärdet för ett element till `defaultValue` ett annat element. |
+| typ | Ja | GRÄNSSNITTs kontroll som ska renderas för elementet. En lista över typer som stöds finns i [element](#elements). |
+| etikett | Ja | Objektets visnings text. Vissa element typer innehåller flera etiketter, så värdet kan vara ett objekt som innehåller flera strängar. |
+| Standar | Nej | Standardvärdet för elementet. Vissa element typer stöder komplexa standardvärden, vilket innebär att värdet kan vara ett objekt. |
+| Angiven | Nej | Texten som ska visas i verktygs tipset för-elementet. På liknande sätt som `label`stöder vissa element flera verktygs tips strängar. Infogade länkar kan bäddas in med markdown-syntax.
+| begränsningar | Nej | En eller flera egenskaper som används för att anpassa elementets validerings beteende. De egenskaper som stöds för begränsningar varierar beroende på element typ. Vissa element typer stöder inte anpassning av verifierings beteendet och har därför ingen egenskap för begränsning. |
+| sätt | Nej | Ytterligare egenskaper som anpassar elementets beteende. På samma sätt som för `constraints`varierar de egenskaper som stöds efter element typ. |
+| Tydligt | Nej | Anger om elementet visas. Om `true`visas elementet och tillämpliga underordnade element. Standardvärdet är `true`. Använd [logiska funktioner](create-uidefinition-functions.md#logical-functions) för att dynamiskt styra egenskapens värde.
 
 ## <a name="elements"></a>Element
 
-I dokumentationen för varje element innehåller ett exempel på UI, schema, anmärkning på beteendet för elementet (vanligtvis om verifiering och stöds anpassning) och exempel på utdata.
+Dokumentationen för varje-element innehåller ett UI-exempel, schema, kommentarer om elementets beteende (vanligt vis vad gäller verifiering och anpassning som stöds) och exempel på utdata.
 
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
-- [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
+- [Microsoft. Common. info](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
-- [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
+- [Microsoft. Common. TagsByResource](microsoft-common-tagsbyresource.md)
+- [Microsoft. Common. TextBlock](microsoft-common-textblock.md)
 - [Microsoft.Common.TextBox](microsoft-common-textbox.md)
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
@@ -70,4 +67,5 @@ I dokumentationen för varje element innehåller ett exempel på UI, schema, anm
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Nästa steg
-En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+
+En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).

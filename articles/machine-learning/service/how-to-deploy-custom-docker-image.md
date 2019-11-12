@@ -1,5 +1,5 @@
 ---
-title: Distribuera modeller med en anpassad Docker-bas avbildning
+title: Distribuera modeller med anpassad Docker-avbildning
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar Azure Machine Learning-modeller. Medan Azure Machine Learning tillhandahåller en standard bas avbildning åt dig, kan du också använda en egen bas avbildning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 3f822e0089772f06245d80c1323cf1f5dfe10361
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b34ef305a6f1cf41c7b7bdcf415e1a91653ad878
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496929"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932107"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Det här dokumentet är uppdelat i två delar:
 * Skapa en anpassad bas avbildning: ger information till administratörer och DevOps för att skapa en anpassad avbildning och konfigurera autentisering till en Azure Container Registry med hjälp av Azure CLI och Machine Learning CLI.
 * Distribuera en modell med hjälp av en anpassad bas avbildning: ger information till data vetenskaps-och DevOps/ML-tekniker med anpassade avbildningar när du distribuerar en utbildad modell från python SDK eller ML CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 

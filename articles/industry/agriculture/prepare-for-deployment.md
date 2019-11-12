@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: acc64486ac8bd15a9abab1f2010ea56b752a1e86
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906986"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927675"
 ---
 # <a name="deploy-farmbeats"></a>Distribuera FarmBeats
 
@@ -60,8 +60,8 @@ Använd de här stegen för att skapa ett Azure FarmBeats-erbjudande på Marketp
 1. Logga in på Azure Portal och välj ditt konto i det övre högra hörnet och växla till den Azure AD-klient där du vill distribuera Microsoft Azure FarmBeats.
 2. Azure-FarmBeats finns på Azure Marketplace. På Marketplace-sidan väljer du på "Hämta nu".
 3. Välj Skapa och ange följande information:
-  - Prenumerations namn.
-  - ett befintligt resurs grupp namn (endast tom resurs grupp) eller skapa en ny resurs grupp för att distribuera Azure-FarmBeats. Anteckna den här resurs gruppen i efterföljande avsnitt.
+    - Prenumerations namn.
+    - ett befintligt resurs grupp namn (endast tom resurs grupp) eller skapa en ny resurs grupp för att distribuera Azure-FarmBeats. Anteckna den här resurs gruppen i efterföljande avsnitt.
 4. Den region där du vill installera Azure-FarmBeats. För närvarande FarmBeats följande regioner: centrala USA, Västeuropa, östra USA 2, norra Europa, västra USA, Sydostasien, östra USA, östra Australien, västra USA 2.
 5. Välj **OK**.
 Sidan Användningsvillkor visas. Granska standard villkoren för Marketplace eller Välj hyperlänken för att granska användnings villkoren.
@@ -131,7 +131,7 @@ Använd följande steg för att köra skriptet för Azure AD-program registrerin
 
 Som en del av installationen skapar du en indata. JSON-fil på följande sätt:
 
-    ```
+```json
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -144,7 +144,7 @@ Som en del av installationen skapar du en indata. JSON-fil på följande sätt:
        "notificationEmailAddress":"dummy@yourorg.com",
        "updateIfExists":true
     }
-    ```
+```
 
 Den här filen är indatafilen till Azure Cloud Shell och parametrar vars värden används under installationen. Alla parametrar i JSON måste ersättas med lämpliga värden eller tas bort. om det tas bort uppmanas du att installera installations programmet
 
@@ -210,9 +210,9 @@ Exempel på JSON-ineffekt:
 4. Gå till din Hem Katalog i Cloud Shell. Som standard är det/Home/<username>
 5. Skriv eller klistra in följande kommando i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
 
-      ```azurepowershell-interactive
+   ```bash
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
-     ```
+    ```
      Installations programmet hämtar automatiskt alla beroenden och skapar distributören. Du uppmanas att godkänna licens avtalet för slutanvändare (EULA) för Azure FarmBeats.
 
      - Ange "Y" om du godkänner och du fortsätter till nästa steg.
@@ -266,7 +266,7 @@ Följ resten av stegen:
 4. Gå till din Hem Katalog i Cloud Shell. Som standard är det/Home/<username>
 5. Skriv eller klistra in följande kommando i Cloud Shell. Se till att ändra sökvägen till indatamängden. JSON-fil och tryck på RETUR.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
@@ -324,7 +324,7 @@ Uppgraderings stegen liknar installationen vid första tiden. Följ de här steg
 5. Ladda upp indata. JSON-filen till Azure Cloud Shell.
 6. Skriv eller klistra in följande två kommandon i Cloud Shell. Se till att ändra sökvägen till indata. JSON-filen och tryck på RETUR.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 Följ anvisningarna på skärmen:

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662584"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928984"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -36,7 +36,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * AKS-klustret måste använda standard-SKU: n för att använda flera noder, och funktionen stöds inte med Basic SKU-belastningsutjämnare.
 * AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 * Du kan inte lägga till eller ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
-* Namnet på en Node-pool måste börja med en gemen bokstav och får bara innehålla alfanumeriska tecken. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
+* Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
 * AKS-klustret kan ha högst åtta noder i pooler.
 * AKS-klustret kan ha högst 400 noder i de åtta noderna i poolen.
 * Alla noder i pooler måste finnas i samma undernät.
@@ -46,7 +46,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 Kom igång genom att skapa ett AKS-kluster med en enda Node-pool. I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . A *--Kubernetes-versionen* av *1.13.10* används för att visa hur du uppdaterar en Node-pool i ett följande steg. Du kan ange en [Kubernetes-version som stöds][supported-versions].
 
 > [!NOTE]
-> *Basic* load balanacer SKU stöds inte när du använder flera noder i en pool. Som standard skapas AKS-kluster med SKU: n för *standard* belastnings utjämning från Azure CLI och Azure Portal.
+> SKU: n för *Basic* Load Balancer **stöds inte** när du använder flera noder i en pool. Som standard skapas AKS-kluster med SKU: n för *standard* belastnings utjämning från Azure CLI och Azure Portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -191,28 +191,34 @@ Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till sa
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Uppgradera ett kluster kontroll plan med flera noder i pooler
 
 > [!NOTE]
-> Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z*, där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6*1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet samt den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet, men följande begränsningar gäller:
-> 
-> * Node-versionen måste ha samma huvud version som kontroll planet.
-> * Node-versionen kan vara en lägre version som är mindre än kontroll Plans versionen.
-> * En version av Node-poolen kan vara en korrigerings version så länge de andra två begränsningarna följs.
+> Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z*, där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6*1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet och den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet.
 
-Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versioner. Det första är en kontroll Plans Kubernetes-version. Den andra är en agent-pool med en Kubernetes-version. Ett kontroll plan mappar till en eller flera Node-pooler. Beteendet för en uppgraderings åtgärd beror på vilket Azure CLI-kommando som används.
+Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versioner.
 
-* Att uppgradera kontroll planet kräver att du använder `az aks upgrade`
-   * Detta uppgraderar kontroll Plans versionen och alla noder i klustret
-   * Genom att bara skicka `az aks upgrade` med `--control-plane-only`-flaggan uppgraderas bara kluster kontroll planet och ingen av de associerade noderna ändras.
-* Du måste använda `az aks nodepool upgrade` för att uppgradera enskilda noder.
-   * Detta uppgraderar bara målnoden med den angivna Kubernetes-versionen
+1. En kluster kontroll plan Kubernetes-version.
+2. En Node-pool med en Kubernetes-version.
 
-Relationen mellan Kubernetes-versioner som innehas av Node-pooler måste också följa en uppsättning regler.
+Ett kontroll plan mappar till en eller flera Node-pooler. Beteendet för en uppgraderings åtgärd beror på vilket Azure CLI-kommando som används.
 
-* Du kan inte nedgradera kontroll planet eller en Kubernetes-version för Node-poolen.
-* Om en Kubernetes version av en nod inte anges, beror beteendet på vilken klient som används. För deklaration i Resource Manager-mall används den befintliga versionen som definierats för Node-poolen, om ingen är inställd, används kontroll Plans versionen.
-* Du kan antingen uppgradera eller skala ett kontroll plan eller en Node-pool vid en specifik tidpunkt, men du kan inte skicka båda åtgärderna samtidigt.
-* En Kubernetes version av Node-pool måste ha samma huvud version som kontroll planet.
-* En Kubernetes version av Node-pool kan vara högst två (2) mindre versioner som är mindre än kontroll planet, aldrig större.
-* En Node-pool kan vara vilken Kubernetes korrigerings version som helst som är mindre än eller lika med kontroll planet, aldrig större.
+Att uppgradera ett AKS kontroll plan kräver att du använder `az aks upgrade`. Detta uppgraderar kontroll Plans versionen och alla noder i klustret. 
+
+Om du utfärdar `az aks upgrade` kommandot med `--control-plane-only`-flaggan uppgraderas bara kluster kontroll planet. Ingen av de associerade noderna i klustret har ändrats.
+
+Du måste använda `az aks nodepool upgrade`för att uppgradera enskilda noder. Detta uppgraderar bara målnoden med den angivna Kubernetes-versionen
+
+### <a name="validation-rules-for-upgrades"></a>Verifierings regler för uppgraderingar
+
+De giltiga uppgraderingarna för Kubernetes-versioner som innehas av ett klusters kontroll plan eller nodkonfigurationer verifieras av följande regel uppsättningar.
+
+* Regler för giltiga versioner att uppgradera till:
+   * Node-versionen måste ha samma *huvud* version som kontroll planet.
+   * Node-programversionen kan vara två *mindre* versioner än kontroll Plans versionen.
+   * Node-versionen kan vara två *korrigerings* versioner som är lägre än kontroll Plans versionen.
+
+* Regler för att skicka en uppgraderings åtgärd:
+   * Du kan inte nedgradera kontroll planet eller en Kubernetes-version för Node-poolen.
+   * Om en Kubernetes version av en nod inte anges, beror beteendet på vilken klient som används. Deklaration i Resource Manager-mallar återgår till den befintliga version som definierats för Node-poolen om den används, om ingen är inställd på kontroll Plans versionen används för att gå vidare.
+   * Du kan antingen uppgradera eller skala ett kontroll plan eller en Node-pool vid en viss tidpunkt, du kan inte skicka flera åtgärder på ett enda kontroll plan eller en resurs för en resurspool samtidigt.
 
 ## <a name="scale-a-node-pool-manually"></a>Skala en adresspool manuellt
 
@@ -320,7 +326,7 @@ Det tar några minuter att ta bort noderna och Node-poolen.
 
 I föregående exempel för att skapa en Node-pool användes en standard storlek för virtuella datorer för de noder som skapades i klustret. Ett vanligt scenario är att du kan skapa nodkonfigurationer med olika storlekar och kapaciteter för virtuella datorer. Du kan till exempel skapa en noduppsättning som innehåller noder med stora mängder CPU eller minne, eller en Node-pool som tillhandahåller GPU-stöd. I nästa steg ska du [använda utsmaker och tolererar](#schedule-pods-using-taints-and-tolerations) för att meddela Kubernetes Scheduler hur du begränsar åtkomsten till poddar som kan köras på dessa noder.
 
-I följande exempel skapar du en GPU-baserad Node-pool som använder den virtuella dator storleken *Standard_NC6* . De här virtuella datorerna drivs av NVIDIA Tesla K80-kortet. Information om tillgängliga VM-storlekar finns i [storlekar för virtuella Linux-datorer i Azure][vm-sizes].
+I följande exempel skapar du en GPU-baserad Node-pool som använder *Standard_NC6* VM-storlek. De här virtuella datorerna drivs av NVIDIA Tesla K80-kortet. Information om tillgängliga VM-storlekar finns i [storlekar för virtuella Linux-datorer i Azure][vm-sizes].
 
 Skapa en Node-pool med kommandot [AZ AKS Node pool Add][az-aks-nodepool-add] . Den här gången anger du namnet *gpunodepool*och använder parametern `--node-vm-size` för att ange *Standard_NC6* storlek:
 
@@ -450,11 +456,11 @@ Endast poddar som har den här bismaken tillämpad kan schemaläggas på noder i
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Hantera Node-pooler med en Resource Manager-mall
 
-När du använder en Azure Resource Manager mall för att skapa och hanterade resurser, kan du vanligt vis uppdatera inställningarna i mallen och distribuera om för att uppdatera resursen. Med Node-pooler i AKS kan den ursprungliga nodens profil för poolen inte uppdateras när AKS-klustret har skapats. Det innebär att du inte kan uppdatera en befintlig Resource Manager-mall, göra en ändring i Node-poolerna och distribuera om. I stället måste du skapa en separat Resource Manager-mall som endast uppdaterar agent poolerna för ett befintligt AKS-kluster.
+När du använder en Azure Resource Manager mall för att skapa och hanterade resurser, kan du vanligt vis uppdatera inställningarna i mallen och distribuera om för att uppdatera resursen. Med Node-pooler i AKS kan den ursprungliga nodens profil för poolen inte uppdateras när AKS-klustret har skapats. Det innebär att du inte kan uppdatera en befintlig Resource Manager-mall, göra en ändring i Node-poolerna och distribuera om. I stället måste du skapa en separat Resource Manager-mall som endast uppdaterar Node-poolerna för ett befintligt AKS-kluster.
 
 Skapa en mall som `aks-agentpools.json` och klistra in följande exempel manifest. I den här exempel mal len konfigureras följande inställningar:
 
-* Uppdaterar *Linux* -agenttjänsten med namnet *myagentpool* för att köra tre noder.
+* Uppdaterar *Linux* Node-poolen med namnet *myagentpool* för att köra tre noder.
 * Ställer in noderna i Node-poolen att köra Kubernetes-version *1.13.10*.
 * Definierar nodens storlek som *Standard_DS2_v2*.
 

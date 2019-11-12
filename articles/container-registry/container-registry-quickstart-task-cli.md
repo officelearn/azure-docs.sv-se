@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa och köra en behållar avbildning i Azure Container Registry
+title: Snabb start – skapa & kör behållar avbildningen i Azure Container Registry
 description: Kör snabbt uppgifter med Azure Container Registry för att skapa och köra en behållar avbildning på begäran i molnet.
 services: container-registry
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e5e02d8194f9164a03bb27d932df45d91486c518
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b97249aa61916975fa641d4620179be33e1d5276
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310634"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931541"
 ---
-# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Snabbstart: Skapa och kör en behållar avbildning med Azure Container Registry uppgifter
+# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Snabb start: skapa och köra en behållar avbildning med Azure Container Registry uppgifter
 
 I den här snabb starten använder du Azure Container Registry uppgifter-kommandon för att snabbt skapa, skicka och köra en Docker-behållar avbildning internt i Azure, som visar hur du avlastar utvecklings cykeln "Inner-loop" till molnet. [ACR-aktiviteter][container-registry-tasks-overview] är en uppsättning funktioner i Azure Container Registry som hjälper dig att hantera och ändra behållar avbildningar över livs cykeln för behållare. 
 
@@ -56,7 +56,7 @@ Använd nu Azure Container Registry för att bygga en avbildning. Skapa först e
 echo FROM hello-world > Dockerfile
 ```
 
-Kör kommandot [AZ ACR build][az-acr-build] för att skapa avbildningen. När den har skapats skickas avbildningen till registret. I följande exempel `sample/hello-world:v1` skickas avbildningen. `.` I slutet av kommandot anges platsen för Dockerfile, i det här fallet den aktuella katalogen.
+Kör kommandot [AZ ACR build][az-acr-build] för att skapa avbildningen. När den har skapats skickas avbildningen till registret. I följande exempel skickas `sample/hello-world:v1`-avbildningen. `.` i slutet av kommandot anger platsen för Dockerfile, i det här fallet den aktuella katalogen.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 --registry myContainerRegistry008 --file Dockerfile . 
@@ -118,14 +118,14 @@ Run ID: ca8 was successful after 10s
 
 Kör nu snabbt avbildningen som du har skapat och push-överförts till registret. I arbets flödet för container utveckling kan detta vara ett verifierings steg innan du distribuerar avbildningen.
 
-Skapa en fil *quickrun. yaml* i en lokal arbets katalog med följande innehåll för ett enda steg. Ersätt inloggnings Server namnet för registret för  *\<acrLoginServer\>* . Inloggnings serverns namn har formatet  *\<register namn\>. azurecr.io* (alla gemener), till exempel *mycontainerregistry008.azurecr.io*. I det här exemplet förutsätts att du har `sample/hello-world:v1` skapat och pushat avbildningen i föregående avsnitt:
+Skapa en fil *quickrun. yaml* i en lokal arbets katalog med följande innehåll för ett enda steg. Ersätt inloggnings Server namnet för registret för *\<acrLoginServer\>* . Inloggnings serverns namn har formatet *\<register namn\>. azurecr.io* (alla gemener), till exempel *mycontainerregistry008.azurecr.io*. I det här exemplet förutsätts att du har skapat och pushat `sample/hello-world:v1` avbildningen i föregående avsnitt:
 
 ```yml
 steps:
   - cmd: <acrLoginServer>/sample/hello-world:v1
 ```
 
-I det här exemplet körs behållaren i standard konfigurationen, men `cmd` stöder ytterligare `docker run` parametrar eller till och med andra `docker` kommandon. `cmd`
+`cmd` steg i det här exemplet kör behållaren i dess standard konfiguration, men `cmd` stöder ytterligare `docker run` parametrar eller till och med andra `docker`-kommandon.
 
 Kör behållaren med följande kommando:
 

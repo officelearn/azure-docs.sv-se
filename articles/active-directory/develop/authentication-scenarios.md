@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718381"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927104"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -74,7 +74,7 @@ Det är upp till appen för vilken token har skapats, webbappen som signerade an
 
 Tokens är bara giltiga under en begränsad tid. Vanligt vis tillhandahåller STS ett par token: en åtkomsttoken för att få åtkomst till programmet eller den skyddade resursen, och en uppdateringstoken som används för att uppdatera åtkomsttoken när åtkomsttoken ligger nära förfallo datum. 
 
-Åtkomsttoken skickas till ett webb-API som Bearer-token i `Authenticate`s huvudet. En app kan tillhandahålla en uppdateringstoken till STS, och om användarens åtkomst till appen inte har återkallats kommer den att få tillbaka en ny åtkomsttoken och en ny uppdateringstoken. Detta är hur scenariot för någon som lämnar företaget hanteras. När STS tar emot uppdateringstoken, utfärdar den ingen annan giltig åtkomsttoken om användaren inte längre är auktoriserad.
+Åtkomsttoken skickas till ett webb-API som Bearer-token i `Authorization`s huvudet. En app kan tillhandahålla en uppdateringstoken till STS, och om användarens åtkomst till appen inte har återkallats kommer den att få tillbaka en ny åtkomsttoken och en ny uppdateringstoken. Detta är hur scenariot för någon som lämnar företaget hanteras. När STS tar emot uppdateringstoken, utfärdar den ingen annan giltig åtkomsttoken om användaren inte längre är auktoriserad.
 
 ## <a name="application-model"></a>Programmodell
 

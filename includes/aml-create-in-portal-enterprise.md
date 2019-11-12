@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/04/2019
-ms.openlocfilehash: c1f4b3d60c0b8af96d851ce54c2aac57c76335a7
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: b44d624db419919823ec85bcb599007fb75c92b9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73633758"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929629"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
 
@@ -32,15 +32,15 @@ ms.locfileid: "73633758"
 
    Fält|Beskrivning 
    ---|---
-   Namn på arbets yta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra.  
+   Namn på arbets yta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra. 
    Prenumeration |Ange den prenumeration som du vill använda.
    Resursgrupp | Använd en befintlig resurs grupp i din prenumeration eller ange ett namn för att skapa en ny resurs grupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. 
    Plats | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
-   Arbetsyte version | Välj **företag**.  Den här självstudien kräver att Enterprise Edition används.  Enterprise-utgåvan är i för hands version och lägger inte till några extra kostnader för närvarande.  
+   Arbetsyte version | Välj **företag**. Den här självstudien kräver att Enterprise Edition används. Enterprise-utgåvan är i för hands version och lägger inte till några extra kostnader. 
 
-1. När du är färdig med konfigurationen av arbets ytan väljer du **skapa**. 
+1. När du är klar med konfigurationen av arbets ytan väljer du **skapa**. 
 
-   > [!Warning] 
+   > [!WARNING] 
    > Det kan ta flera minuter att skapa din arbets yta i molnet.
 
    När processen är klar visas ett meddelande om lyckad distribution. 

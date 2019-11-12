@@ -6,27 +6,27 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 10/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5784fb4f4ab0f46d2db7e5e8cfe9deeafabb4e90
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1cdf029d296bd6ff11b6531cd47dc6a7fd3163c3
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066949"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930254"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# med MapReduce streaming på Apache Hadoop i HDInsight
 
 Lär dig hur du C# använder för att skapa en MapReduce-lösning i HDInsight.
 
 > [!IMPORTANT]
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versions hantering av HDInsight-komponenter](../hdinsight-component-versioning.md).
+> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [Apache Hadoop-komponenter i HDInsight](../hdinsight-component-versioning.md).
 
 Apache Hadoop strömning är ett verktyg som gör att du kan köra MapReduce-jobb med ett skript eller en körbar fil. I det här exemplet används .NET för att implementera mapper och minskaren för en ord räknings lösning.
 
 ## <a name="net-on-hdinsight"></a>.NET på HDInsight
 
-__Linux-baserade HDInsight-__ kluster använder [mono (https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6. Mer information om den version av mono som ingår i HDInsight finns i [versioner av HDInsight-komponenter](../hdinsight-component-versioning.md). 
+*Linux-baserade HDInsight-* kluster använder [mono (https://mono-project.com)](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6. Mer information om den version av mono som ingår i HDInsight finns i [Apache Hadoop-komponenter som är tillgängliga med olika HDInsight-versioner](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions). 
 
 Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -34,27 +34,29 @@ Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mon
 
 Den grundläggande processen som används för strömning i det här dokumentet är följande:
 
-1. Hadoop skickar data till Mapper (mapper. exe i det här exemplet) på STDIN.
+1. Hadoop skickar data till Mapper (*mapper. exe* i det här exemplet) på STDIN.
 2. Mapper bearbetar data och avgränsar TABB-avgränsade nyckel/värde-par till STDOUT.
-3. Utdata läses av Hadoop och skickas sedan till minsknings tjänsten (reducerar. exe i det här exemplet) på STDIN.
+3. Utdata läses av Hadoop och skickas sedan till minsknings tjänsten (*reducerar. exe* i det här exemplet) på STDIN.
 4. Minsknings tjänsten läser in TABB-avgränsade nyckel/värde-par, bearbetar data och genererar sedan resultatet som TABB-avgränsade nyckel/värde-par i STDOUT.
 5. Utdata läses av Hadoop och skrivs till utdata-katalogen.
 
 Mer information om strömning finns i [Hadoop-direktuppspelning](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En välbekanthet med att skriva C# och skapa kod som är riktad mot .NET Framework 4,5. Stegen i det här dokumentet använder Visual Studio 2017.
+* Visual Studio.
+
+* En välbekanthet med att skriva C# och skapa kod som är riktad mot .NET Framework 4,5.
 
 * Ett sätt att ladda upp exe-filer till klustret. Stegen i det här dokumentet använder Data Lake verktyg för Visual Studio för att överföra filerna till primär lagring för klustret.
 
-* Azure PowerShell eller en SSH-klient.
+* Azure PowerShell eller en SSH-klient (Secure Shell).
 
 * Ett Hadoop på HDInsight-kluster. Mer information om hur du skapar ett kluster finns i [skapa ett HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="create-the-mapper"></a>Skapa mapper
 
-Skapa ett nytt __konsol program__ med namnet __Mapper__i Visual Studio. Använd följande kod för programmet:
+Skapa ett nytt .NET Framework konsol program med namnet *Mapper*i Visual Studio. Använd följande kod för programmet:
 
 ```csharp
 using System;
@@ -87,11 +89,11 @@ namespace mapper
 }
 ```
 
-När du har skapat programmet skapar du det för att `/bin/Debug/mapper.exe` skapa filen i projekt katalogen.
+När du har skapat programmet skapar du det för att skapa */bin/debug/mapper.exe* -filen i projekt katalogen.
 
 ## <a name="create-the-reducer"></a>Skapa reduceraren
 
-Skapa ett nytt __konsol program__ med namnet __reduce__i Visual Studio. Använd följande kod för programmet:
+I Visual Studio skapar du ett nytt .NET Framework konsol program med namnet *reducere*. Använd följande kod för programmet:
 
 ```csharp
 using System;
@@ -140,106 +142,131 @@ namespace reducer
 }
 ```
 
-När du har skapat programmet skapar du det för att `/bin/Debug/reducer.exe` skapa filen i projekt katalogen.
+När du har skapat programmet skapar du det för att skapa */bin/debug/Reducer.exe* -filen i projekt katalogen.
 
 ## <a name="upload-to-storage"></a>Ladda upp till lagring
 
-1. Öppna **Server Explorer**i Visual Studio.
+Därefter måste du ladda upp *mapparna* och *minska* programmen till HDInsight-lagringen.
+
+1. I Visual Studio väljer du **visa** > **Server Explorer**.
 
 2. Expandera **Azure** och expandera därefter **HDInsight**.
 
-3. Om du uppmanas till det anger du dina autentiseringsuppgifter för Azure-prenumerationen och klickar sedan på **Logga**in.
+3. Om du uppmanas till det anger du dina autentiseringsuppgifter för Azure-prenumerationen och väljer sedan **Logga**in.
 
-4. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten __(standard lagrings kontot)__ visas.
+4. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten **(standard lagrings kontot)** visas.
 
-    ![Server Explorer som visar lagrings kontot för klustret](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
+   ![Lagrings konto, HDInsight-kluster, Server Explorer, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
-    * Om du kan expandera den här posten använder du ett __Azure Storage konto__ som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret expanderar du posten och dubbelklickar sedan på __(standard container)__ .
+   * Om posten **(standard lagrings konto)** kan expanderas använder du ett **Azure Storage konto** som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret, expanderar du posten och dubbelklickar sedan på **(standard behållare)** .
 
-    * Om den här posten inte kan utökas använder du __Azure Data Lake Storage__ som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret dubbelklickar du på posten __(standard lagrings konto)__ .
+   * Om posten **(standard lagrings konto)** inte kan utökas använder du **Azure Data Lake Storage** som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret dubbelklickar du på posten **(standard lagrings konto)** .
 
 5. Använd någon av följande metoder för att ladda upp exe-filerna:
 
-   * Om du använder ett __Azure Storage konto__klickar du på ikonen Ladda upp och bläddrar sedan till mappen **bin\debug** för **Mapper** -projektet. Välj slutligen filen **mapper. exe** och klicka på **OK**.
+    * Om du använder ett **Azure Storage konto**väljer du ikonen **Ladda upp BLOB** . 
 
-        ![HDInsight upload-ikon för mapper](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
-    
-   * Om du använder __Azure Data Lake Storage__högerklickar du på ett tomt utrymme i fil listan och väljer sedan __Ladda upp__. Välj slutligen filen **mapper. exe** och klicka på **Öppna**.
+        ![HDInsight upload-ikon för Mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-     När filen __mapper. exe__ har laddats upp upprepar du överförings processen för filen __Reducer. exe__ .
+        Välj **Bläddra**under **fil namn**i dialog rutan **Ladda upp ny fil** . I dialog rutan **Ladda upp BLOB** går du till mappen *bin\debug* för *Mapper* -projektet och väljer sedan filen *mapper. exe* . Klicka slutligen på **Öppna** och sedan på **OK** för att slutföra överföringen. 
 
-## <a name="run-a-job-using-an-ssh-session"></a>Kör ett jobb: Använda en SSH-session
+    * För **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen filen *mapper. exe* och välj sedan **Öppna**.
 
-1. Använd SSH för att ansluta till HDInsight-klustret. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+    När filen *mapper. exe* har laddats upp upprepar du överförings processen för filen *Reducer. exe* .
+
+## <a name="run-a-job-using-an-ssh-session"></a>Köra ett jobb: använda en SSH-session
+
+Följande procedur beskriver hur du kör ett MapReduce-jobb med en SSH-session:
+
+1. Använd SSH för att ansluta till HDInsight-klustret. (Du kan till exempel köra kommandot `ssh sshuser@<clustername>-ssh.azurehdinsight.net`.) Mer information finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Använd något av följande kommandon för att starta MapReduce-jobbet:
 
-   * Om du använder __data Lake Storage Gen2__ som standard lagring:
+   * Om standard lagringen är **Azure Storage**:
 
-       ```bash
-       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-       ```
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+            -files wasb:///mapper.exe,wasb:///reducer.exe \
+            -mapper mapper.exe \
+            -reducer reducer.exe \
+            -input /example/data/gutenberg/davinci.txt \
+            -output /example/wordcountout
+        ```
 
-   * Om du använder __data Lake Storage gen1__ som standard lagring:
+    * Om standard lagringen är **data Lake Storage gen1**:
 
-       ```bash
-       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-       ```
-    
-   * Om du använder __Azure Storage__ som standard lagring:
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+            -files adl:///mapper.exe,adl:///reducer.exe \
+            -mapper mapper.exe \
+            -reducer reducer.exe \
+            -input /example/data/gutenberg/davinci.txt \
+            -output /example/wordcountout
+        ```
 
-       ```bash
-       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-       ```
+   * Om standard lagringen är **data Lake Storage Gen2**:
 
-     I följande lista beskrivs vad varje parameter gör:
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+            -files abfs:///mapper.exe,abfs:///reducer.exe \
+            -mapper mapper.exe \
+            -reducer reducer.exe \
+            -input /example/data/gutenberg/davinci.txt \
+            -output /example/wordcountout
+        ```
 
-   * `hadoop-streaming.jar`: Jar-filen som innehåller de strömmande MapReduce-funktionerna.
-   * `-files`: Lägger till `reducer.exe` och-filer i det här jobbet. `mapper.exe` `abfs:///` Ellerförevarjefilärsökvägentillrotenförstandardlagrings`wasb:///` utrymmet för klustret.`adl:///`
-   * `-mapper`: Anger vilken fil som implementerar mapper.
-   * `-reducer`: Anger vilken fil som implementerar minskningen.
-   * `-input`: Indata.
-   * `-output`: Utdata-katalogen.
+   I följande lista beskrivs vad varje parameter och alternativ representerar:
 
-3. När MapReduce-jobbet har slutförts använder du följande för att visa resultaten:
+   * *Hadoop-streaming. jar*: anger den jar-fil som innehåller funktionen för strömning av MapReduce.
+   * `-files`: anger *mapparna mapper. exe* och *Reducer. exe* för det här jobbet. Den `wasb:///`, `adl:///`eller `abfs:///` protokoll deklarationen innan varje fil är sökvägen till roten för standard lagrings utrymmet för klustret.
+   * `-mapper`: anger den fil som implementerar mapper.
+   * `-reducer`: anger den fil som implementerar minskningen.
+   * `-input`: anger indata.
+   * `-output`: anger utdatakatalogen.
 
-    ```bash
-    hdfs dfs -text /example/wordcountout/part-00000
-    ```
+3. När MapReduce-jobbet har slutförts använder du följande kommando för att visa resultaten:
 
-    Följande text är ett exempel på de data som returneras av det här kommandot:
+   ```bash
+   hdfs dfs -text /example/wordcountout/part-00000
+   ```
 
-        you     1128
-        young   38
-        younger 1
-        youngest        1
-        your    338
-        yours   4
-        yourself        34
-        yourselves      3
-        youth   17
+   Följande text är ett exempel på de data som returneras av det här kommandot:
 
-## <a name="run-a-job-using-powershell"></a>Kör ett jobb: Använda PowerShell
+   ```output
+   you     1128
+   young   38
+   younger 1
+   youngest        1
+   your    338
+   yours   4
+   yourself        34
+   yourselves      3
+   youth   17
+   ```
+
+## <a name="run-a-job-using-powershell"></a>Köra ett jobb: använda PowerShell
 
 Använd följande PowerShell-skript för att köra ett MapReduce-jobb och hämta resultaten.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-I det här skriptet uppmanas du att ange konto namnet och lösen ordet för klustrets inloggning, tillsammans med HDInsight-klustrets namn. När jobbet har slutförts hämtas utdata till en fil med namnet `output.txt`. Följande text är ett exempel på data i `output.txt` filen:
+I det här skriptet uppmanas du att ange konto namnet och lösen ordet för klustrets inloggning, tillsammans med HDInsight-klustrets namn. När jobbet har slutförts hämtas utdata till en fil med namnet *output. txt*. Följande text är ett exempel på data i `output.txt`-filen:
 
-    you     1128
-    young   38
-    younger 1
-    youngest        1
-    your    338
-    yours   4
-    yourself        34
-    yourselves      3
-    youth   17
+```output
+you     1128
+young   38
+younger 1
+youngest        1
+your    338
+yours   4
+yourself        34
+yourselves      3
+youth   17
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder MapReduce med HDInsight finns i [använda MapReduce med HDInsight](hdinsight-use-mapreduce.md).
+Mer information om hur du använder MapReduce med HDInsight finns i [använda MapReduce i Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md).
 
 Information om hur du C# använder med Hive och gris finns i [använda C# en användardefinierad funktion med Apache Hive och Apache gris](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 

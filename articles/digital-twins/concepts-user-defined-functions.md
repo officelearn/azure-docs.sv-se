@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 0708b1dd2d272757949d014d768c1da649b50146
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 76ff8a63c2fbda3ddbaed794d24f7adb66a4dd95
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889684"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930365"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -97,7 +97,7 @@ Motsvarigheter definierar en uppsättning villkor som utvärderar vilka åtgärd
 
 En användardefinierad funktion är en anpassad funktion som körs i en isolerad Azure digital-miljö. Användardefinierade funktioner har åtkomst till meddelanden om RAW-telemetri när de tas emot. Användardefinierade funktioner har även åtkomst till spatial graf och dispatcher-tjänsten. När den användardefinierade funktionen har registrerats i ett diagram måste en matchandeare (detaljerad beskrivning [ovan](#matchers)) skapas för att ange när funktionen ska köras. Exempel: när Azure Digitals dubbla mottagare tar emot ny telemetri från en viss sensor, kan den matchade användardefinierade funktionen Beräkna ett glidande medelvärde för de senaste sensor avläsningarna.
 
-Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder interagerar med grafen i den användardefinierade körnings miljön. Utvecklare kan köra anpassade kod avsnitt mot meddelanden om sensor telemetri. Exempel:
+Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder interagerar med grafen i den användardefinierade körnings miljön. Utvecklare kan köra anpassade kod avsnitt mot meddelanden om sensor telemetri. Exempel på rekommendationer:
 
 - Ange sensorn som läser direkt till objektet sensor i grafen.
 - Utför en åtgärd baserat på olika sensor avläsningar inom ett utrymme i grafen.

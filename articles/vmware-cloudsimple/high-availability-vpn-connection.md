@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845336"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927292"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurera en anslutning med hög tillgänglighet från lokal plats till CloudSimple VPN-gateway
 
@@ -21,37 +21,14 @@ Nätverks administratörer kan konfigurera en IPsec-plats-till-plats-VPN-anslutn
 
 Den här guiden beskriver steg för att konfigurera en lokal brand vägg för en IPsec-anslutning med VPN för plats-till-plats-anslutning med hög tillgänglighet. De detaljerade stegen är särskilda för typen av lokal brand vägg. Som exempel visar den här guiden steg för två typer av brand väggar: Cisco ASA och Palo-nätverk.
 
-## <a name="default-configuration-for-cloudsimple-vpn-gateways"></a>Standard konfiguration för CloudSimple VPN-gatewayer
-
-Som standard konfigureras CloudSimple VPN-gatewayer i IKEv1-läge tillsammans med följande fas 1-och fas 2-attribut. Om du vill använda olika VPN-attribut eller använda IKEv2 i stället för IKEV1, <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">öppnar du en support förfrågan</a>.
-
-### <a name="phase-1"></a>Fas 1
-
-| Parameter | Value |
-|-----------|-------|
-| IKE-version | IKEv1 |
-| Kryptering | AES 256 |
-| Hash-algoritm| SHA 256 |
-| Diffie Hellman-grupp (DH-grupp) | 1 |
-| Livs längd | 86 400 sekunder |
-| Datastorlek | 4 GB |
-
-### <a name="phase-2"></a>Fas 2
-
-| Parameter | Value |
-|-----------|-------|
-| Kryptering | AES 256 |
-| Hash-algoritm| SHA 256 |
-| PFS-grupp (Perfect Forward Secrecy) | Inga |
-| Livs längd | 28 800 sekunder |
-| Datastorlek | 4 GB |
-
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Utför följande åtgärder innan du konfigurerar den lokala brand väggen.
 
 1. Kontrol lera att din organisation har [allokerat](create-nodes.md) de nödvändiga noderna och skapat minst ett CloudSimple privat moln.
 2. [Konfigurera en plats-till-plats-VPN-gateway](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) mellan ditt lokala nätverk och ditt CloudSimple privata moln.
+
+Se [Översikt över VPN-gatewayer](cloudsimple-vpn-gateways.md) för förslag på fas 1 och fas 2.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>Konfigurera lokal Cisco ASA-brandvägg
 
@@ -65,7 +42,7 @@ Om du vill aktivera fas 1 (IKEv1) i gränssnittet utanför kan du ange följande
 
 ```crypto ikev1 enable outside```
 
-### <a name="2-create-an-ikev1-policy"></a>2. Skapa en IKEv1-princip
+### <a name="2-create-an-ikev1-policy"></a>2. skapa en IKEv1-princip
 
 Skapa en IKEv1-princip som definierar algoritmer och metoder som ska användas för hashing, autentisering, Diffie-Hellman-grupp, livs längd och kryptering.
 
@@ -78,7 +55,7 @@ group 2
 lifetime 28800
 ```
 
-### <a name="3-create-a-tunnel-group"></a>3. Skapa en tunnel grupp
+### <a name="3-create-a-tunnel-group"></a>3. skapa en tunnel grupp
 
 Skapa en tunnel grupp under IPsec-attributen. Konfigurera peer-IP-adressen och den i förväg delade tunneln som du angav när du [konfigurerade VPN-gatewayen för plats-till-plats](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway).
 
@@ -120,13 +97,13 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### <a name="5-configure-the-transform-set"></a>5. Konfigurera Transformations uppsättningen
 
-Konfigurera transformerings uppsättningen (TS), som måste omfatta nyckelordet ```ikev1```. De krypterings-och hash-attribut som anges i TS måste matcha de parametrar som anges i [standard konfigurationen för CloudSimple VPN-gatewayer](#default-configuration-for-cloudsimple-vpn-gateways).
+Konfigurera transformerings uppsättningen (TS), som måste omfatta nyckelordet ```ikev1```. De krypterings-och hash-attribut som anges i TS måste matcha de parametrar som anges i [standard konfigurationen för CloudSimple VPN-gatewayer](cloudsimple-vpn-gateways.md).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
 ```
 
-### <a name="6-configure-the-crypto-map"></a>6. Konfigurera krypterings mappning
+### <a name="6-configure-the-crypto-map"></a>6. Konfigurera krypterings mappningen
 
 Konfigurera kryptografi kartan, som innehåller följande komponenter:
 
@@ -140,7 +117,7 @@ crypto map mymap 1 match address ipsec-acl
 crypto map mymap 1 set ikev1 transform-set devtest39
 ```
 
-### <a name="7-apply-the-crypto-map"></a>7. Tillämpa krypterings mappningen
+### <a name="7-apply-the-crypto-map"></a>7. Använd krypterings mappningen
 
 Tillämpa krypterings mappningen på gränssnittet utanför:
 
@@ -168,24 +145,24 @@ Anvisningarna i det här avsnittet gäller Palo-nätverk version 7,1 och senare.
 
 För att plats-till-plats-VPN ska fungera måste du tillåta UDP 500/4500 och ESP (IP-protokoll 50) från den primära och den sekundära offentliga IP-CloudSimple (peer-IP) i det externa gränssnittet för den lokala Palo-nätverks-gatewayen.
 
-### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. Skapa primära och sekundära tunnel gränssnitt
+### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. skapa primära och sekundära tunnel gränssnitt
 
-Logga in på Palo-brand väggen, Välj **nätverks** > **gränssnitt** > **tunnel** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Logga in på Palo-brand väggen, Välj **Network** > **Interfaces** > **tunnel** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Gränssnitts namn. Det första fältet fylls i automatiskt med nyckelordet tunnel. I det intilliggande fältet anger du ett värde mellan 1 och 9999. Det här gränssnittet används som ett primärt tunnel gränssnitt för plats-till-plats-trafik mellan det lokala data centret och det privata molnet.
 * Kommentar. Ange kommentarer för enkel identifiering av syftet med tunneln
 * Netflow-profil. Lämna standardvärdet.
-* Konfigurationsfil. Tilldela gränssnittet till: Virtuell router: Välj **standard**. 
+* Konfigurationsfil. Tilldela gränssnittet till: virtuell router: Välj **standard**. 
         Säkerhets zon: Välj zonen för betrodd LAN-trafik. I det här exemplet är namnet på zonen för LAN-trafik "förtroende".
 * IPv6. Klicka på **Lägg till** och Lägg till en icke-överlappande oanvänd/32-IP-adress i din miljö som ska tilldelas till det primära tunnel gränssnittet och som ska användas för att övervaka tunnlarna (förklaras senare).
 
-Eftersom den här konfigurationen gäller för VPN med hög tillgänglighet krävs två tunnel gränssnitt: En primär och en sekundär. Upprepa föregående steg för att skapa det sekundära tunnel gränssnittet. Välj ett annat tunnel-ID och en annan oanvänd/32-IP-adress.
+Eftersom den här konfigurationen gäller för VPN med hög tillgänglighet krävs två tunnel gränssnitt: en primär och en sekundär. Upprepa föregående steg för att skapa det sekundära tunnel gränssnittet. Välj ett annat tunnel-ID och en annan oanvänd/32-IP-adress.
 
 ### <a name="2-set-up-static-routes-for-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. Konfigurera statiska vägar för privata moln under nät som ska nås via plats-till-plats-VPN
 
 Vägar är nödvändiga för lokala undernät för att uppnå CloudSimple privata moln under nät.
 
-Välj > **virtuella nätverks routrar**standard statiska vägarLäggtill,konfigureraföljandefältochklickapåOK. >  >  > 
+Välj **nätverk** > **virtuella routrar** > *standard* > **statiska vägar** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett namn för att enkelt identifiera syftet med vägen.
 * Mål. Ange de CloudSimple-undernät för privata moln som ska nås via S2S tunnel Interfaces från lokala platser
@@ -199,11 +176,11 @@ Välj > **virtuella nätverks routrar**standard statiska vägarLäggtill,konfigu
 
 Upprepa föregående steg för att skapa en annan väg för privata moln under nät som ska användas som sekundär-/säkerhets kopierings väg via sekundärt tunnel gränssnitt. Den här gången väljer du ett annat tunnel-ID och ett högre mått än för den primära vägen.
 
-### <a name="3-define-the-cryptographic-profile"></a>3. Definiera kryptografi profilen
+### <a name="3-define-the-cryptographic-profile"></a>3. definiera den kryptografiska profilen
 
 Definiera en kryptografisk profil som anger protokoll och algoritmer för identifiering, autentisering och kryptering som ska användas för att konfigurera VPN-tunnlar i IKEv1 fas 1.
 
-Välj **nätverk** > **expandera nätverks profiler** > **IKE-krypto** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverks** > **expandera nätverks profiler** > **IKE-kryptering** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett valfritt namn på IKE-kryptografi profilen.
 * DH-grupp. Klicka på **Lägg till** och välj lämplig DH-grupp.
@@ -212,11 +189,11 @@ Välj **nätverk** > **expandera nätverks profiler** > **IKE-krypto** > **Lägg
 * Livstid för nyckel. Lämna standardvärdet.
 * IKEv2-autentisering flera. Lämna standardvärdet.
 
-### <a name="4-define-ike-gateways"></a>4. Definiera IKE-gatewayer
+### <a name="4-define-ike-gateways"></a>4. definiera IKE-gatewayer
 
 Definiera IKE-gatewayer för att upprätta kommunikation mellan peer-datorer i varje ände av VPN-tunneln.
 
-Välj **nätverk** >  > **expandera nätverks profiler** **IKE-gatewayer**Lägg till, konfigurera följande fält och klicka på OK. > 
+Välj **nätverks** > **expandera nätverks profiler** > **IKE-gatewayer** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 Fliken Allmänt:
 
@@ -245,9 +222,9 @@ Ikev1
 
 Upprepa föregående steg för att skapa den sekundära IKE-gatewayen.
 
-### <a name="5-define-ipsec-crypto-profiles"></a>5. Definiera IPSEC-kryptografi profiler
+### <a name="5-define-ipsec-crypto-profiles"></a>5. definiera IPSEC-kryptografi profiler
 
-Välj **nätverk** > **expandera nätverks profiler** > **IPSec-kryptografi** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverks** > **expandera nätverks profiler** > **IPSec-kryptering** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett namn för IPsec-kryptografi profilen.
 * IPsec-protokoll. Välj **ESP**.
@@ -259,9 +236,9 @@ Välj **nätverk** > **expandera nätverks profiler** > **IPSec-kryptografi** > 
 
 Upprepa föregående steg för att skapa en annan IPsec-kryptografi profil som ska användas som sekundär CloudSimple VPN-peer. Samma IPSEC-kryptografi profil kan också användas både för de primära och sekundära IPsec-tunnlarna (se följande procedur).
 
-### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. Definiera övervaknings profiler för tunnel övervakning
+### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. definiera övervaknings profiler för tunnel övervakning
 
-Välj **nätverk** > **expandera nätverks profiler** > **övervaka**Lägg till, konfigurera följande fält och klicka på OK. > 
+Välj **nätverks** > **expandera nätverks profiler** > **övervaka** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett namn på den övervaknings profil som ska användas för tunnel övervakning för proaktiv reaktion på problemet.
 * Tgärd. Välj **redundansväxla**.
@@ -270,13 +247,13 @@ Välj **nätverk** > **expandera nätverks profiler** > **övervaka**Lägg till,
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. Konfigurera primära och sekundära IPsec-tunnlar.
 
-Välj **nätverk** > **IPSec-tunnlar** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverks** > **IPSec-tunnlar** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 Fliken Allmänt:
 
 * Namn. Ange ett namn för den primära IPSEC-tunneln som ska peer-kopplas med primär CloudSimple VPN-peer.
 * Tunnel gränssnitt. Välj det primära tunnel gränssnittet.
-* Bastyp. Lämna standardvärdet.
+* bastyp. Lämna standardvärdet.
 * Adress typ. Välj **IPv4**.
 * IKE-Gateway. Välj den primära IKE-gatewayen.
 * IPsec-kryptografi profil. Välj den primära IPsec-profilen. Välj **Visa avancerade alternativ**.
@@ -311,7 +288,7 @@ Konfigurera IPsec plats-till-plats-VPN i Cisco ASA med version 8,4 och senare:
 
 Konfigurera Cisco adaptiv Security-installation (ASAv) på Azure:
 
-<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">ASAv (Cisco adaptiv Security Virtual installation) Snabbstartsguide</a>
+<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">Snabb starts guide för Cisco adaptiv Security (ASAv)</a>
 
 Konfigurera VPN för plats-till-plats med proxy-ID: n på Palo,
 

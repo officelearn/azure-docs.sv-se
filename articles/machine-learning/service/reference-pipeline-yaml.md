@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
-ms.date: 10/15/2019
-ms.openlocfilehash: a98a0e75c7a03baa663ccb4215e918a87bcc5df7
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.date: 11/11/2019
+ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821780"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929515"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiera pipeliner för Machine Learning i YAML
 
@@ -47,8 +47,6 @@ En pipeline-definition använder följande nycklar som motsvarar [pipelines](htt
 | `data_reference` | Definierar hur och var data ska göras tillgängliga i en körning. |
 | `default_compute` | Standard beräknings mål där alla steg i pipelinen körs. |
 | `steps` | Stegen som används i pipelinen. |
-
-Följande YAML är ett exempel på en pipeline-definition:
 
 ## <a name="parameters"></a>Parametrar
 
@@ -104,15 +102,15 @@ pipeline:
 
 ## <a name="steps"></a>Steg
 
-Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras i miljön. YAML-definitionen representerar följande steg:
+Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras i miljön. Använd `type` nyckel för att definiera typen av steg:
 
-| YAML-nyckel | Beskrivning |
+| Steg typ | Beskrivning |
 | ----- | ----- |
-| `adla_step` | Kör ett U-SQL-skript med Azure Data Lake Analytics. Motsvarar klassen [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) . |
-| `azurebatch_step` | Kör jobb med Azure Batch. Motsvarar klassen [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) . |
-| `databricks_step` | Lägger till en Databricks Notebook, Python-skript eller JAR. Motsvarar klassen [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) . |
-| `data_transfer_step` | Överför data mellan lagrings alternativ. Motsvarar klassen [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) . |
-| `python_script_step` | Kör ett Python-skript. Motsvarar klassen [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) . |
+| `AdlaStep` | Kör ett U-SQL-skript med Azure Data Lake Analytics. Motsvarar klassen [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) . |
+| `AzureBatchStep` | Kör jobb med Azure Batch. Motsvarar klassen [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) . |
+| `DatabricsStep` | Lägger till en Databricks Notebook, Python-skript eller JAR. Motsvarar klassen [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) . |
+| `DataTransferStep` | Överför data mellan lagrings alternativ. Motsvarar klassen [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) . |
+| `PythonScriptStep` | Kör ett Python-skript. Motsvarar klassen [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) . |
 
 ### <a name="adla-step"></a>ADLA-steg
 
@@ -146,15 +144,15 @@ pipeline:
     default_compute: adlacomp
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            adla_step:
-                name: "AdlaStep"
-                script_name: "sample_script.usql"
-                source_directory: "helloworld"
+            type: "AdlaStep"
+            name: "MyAdlaStep"
+            script_name: "sample_script.usql"
+            source_directory: "D:\\scripts\\Adla"
             inputs:
                 employee_data:
                     source: employee_data
@@ -198,18 +196,18 @@ pipeline:
     default_compute: testbatch
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            azurebatch_step:
-                name: "AzureBatchStep"
-                pool_id: "MyPoolName"
-                create_pool: true
-                executable: "azurebatch.cmd"
-                source_directory: "D:\\AzureMlCli\\cli_testing"
-                allow_reuse: false
+            type: "AzureBatchStep"
+            name: "MyAzureBatchStep"
+            pool_id: "MyPoolName"
+            create_pool: true
+            executable: "azurebatch.cmd"
+            source_directory: "D:\\scripts\\AureBatch"
+            allow_reuse: false
             inputs:
                 input:
                     source: input
@@ -251,18 +249,18 @@ pipeline:
     default_compute: mydatabricks
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            databricks_step:
-                name: "Databrickstep"
-                run_name: "DatabrickRun"
-                python_script_name: "train-db-local.py"
-                source_directory: "D:\\AzureMlCli\\cli_testing\\databricks_train"
-                num_workers: 1
-                allow_reuse: true
+            type: "DatabricksStep"
+            name: "MyDatabrickStep"
+            run_name: "DatabricksRun"
+            python_script_name: "train-db-local.py"
+            source_directory: "D:\\scripts\\Databricks"
+            num_workers: 1
+            allow_reuse: true
             inputs:
                 blob_test_data:
                     source: blob_test_data
@@ -301,14 +299,14 @@ pipeline:
     default_compute: adftest
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            data_transfer_step:
-                name: "DataTransferStep"
-                adla_compute_name: adftest
+            type: "DataTransferStep"
+            name: "MyDataTransferStep"
+            adla_compute_name: adftest
             source_data_reference:
                 adls_test_data:
                     source: adls_test_data
@@ -345,16 +343,16 @@ pipeline:
     default_compute: cpu-cluster
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            python_script_step:
-                name: "PythonScriptStep"
-                script_name: "train.py"
-                allow_reuse: True
-                source_directory: "helloworld"
+            type: "PythonScriptStep"
+            name: "MyPythonScriptStep"
+            script_name: "train.py"
+            allow_reuse: True
+            source_directory: "D:\\scripts\\PythonScript"
             inputs:
                 InputData:
                     source: DataReference1
@@ -408,7 +406,7 @@ När du definierar ett **återkommande schema**, använder du följande nycklar 
 | `time_zone` | Tids zonen för start tiden. Om ingen tidszon anges används UTC. |
 | `hours` | Om `frequency` är `"Day"` eller `"Week"`kan du ange ett eller flera heltal från 0 till 23, avgränsade med kommatecken, som de timmar på dagen då pipelinen ska köras. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
 | `minutes` | Om `frequency` är `"Day"` eller `"Week"`kan du ange ett eller flera heltal från 0 till 59, avgränsade med kommatecken, som minuter i timmen då pipelinen ska köras. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
-| `time_of_day` | Om `frequency` är `"Day"` eller `"Week"`kan du ange en tid på dagen då schemat ska köras. Sträng formatet för värdet är `hh:mm`. Endast `time_of_day` eller `hours` och `minutes` kan användas. |zzs
+| `time_of_day` | Om `frequency` är `"Day"` eller `"Week"`kan du ange en tid på dagen då schemat ska köras. Sträng formatet för värdet är `hh:mm`. Endast `time_of_day` eller `hours` och `minutes` kan användas. |
 | `week_days` | Om `frequency` är `"Week"`kan du ange en eller flera dagar, avgränsade med kommatecken, när schemat ska köras. Giltiga värden är `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"`, `"Friday"`, `"Saturday"`och `"Sunday"`. |
 
 Följande exempel innehåller definitionen för ett återkommande schema:

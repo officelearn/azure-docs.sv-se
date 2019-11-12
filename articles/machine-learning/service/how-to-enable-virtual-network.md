@@ -1,5 +1,5 @@
 ---
-title: Skydda experiment och härledning i ett virtuellt nätverk
+title: Säkra experiment och härledning i virtuellt nätverk
 titleSuffix: Azure Machine Learning
 description: Lär dig att säkra experimentering/utbildnings jobb och jobb för jobbering och jobb för jobb utveckling i Azure Machine Learning i en Azure-Virtual Network.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5ac741579562b41678c4aeb59bb5ebb425d8405c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796772"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932093"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Den här artikeln innehåller även detaljerad information om *avancerade säker
 > [!WARNING]
 > Microsoft stöder inte användning av Azure Machine Learning designer eller Automatisk maskin inlärning (från Studio) med resurser i ett virtuellt nätverk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -156,7 +156,7 @@ Om du inte vill använda de utgående standard reglerna och du vill begränsa de
 - Neka utgående Internet anslutning med NSG-reglerna.
 
 - Begränsa utgående trafik till följande:
-   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. Region_Name__ (till exempel Storage. öster)
+   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. Region_Name__ (till exempel lagring. öster)
    - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. Region_Name__ (till exempel AzureContainerRegistry. öster)
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
 

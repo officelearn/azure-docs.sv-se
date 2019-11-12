@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6d71ea59b7094134cc70b9eeea6da89feacb3a14
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814846"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931046"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Exempel skripten i den här artikeln används för att klassificera Iris blomma-
 
 Oavsett om du tränar en Machine Learning-scikit – lär dig modell från grunden eller om du använder en befintlig modell i molnet, kan du använda Azure Machine Learning för att skala ut utbildnings jobb med öppen källkod med elastiska moln beräknings resurser. Du kan bygga, distribuera, hantera och övervaka modeller av produktions klass med Azure Machine Learning.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer:
  - Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
@@ -177,20 +177,47 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registrera modellen på din arbets yta med följande kod.
+Registrera modellen på din arbets yta med följande kod. Genom att ange parametrarna `model_framework`, `model_framework_version`och `resource_configuration`blir modell distribution utan kod tillgängligt. På så sätt kan du distribuera din modell direkt som en webb tjänst från den registrerade modellen och `ResourceConfiguration`-objektet definierar beräknings resursen för webb tjänsten.
 
 ```Python
-model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = run.register_model(model_name='sklearn-iris', 
+                           model_path='model.joblib',
+                           model_framework=Model.Framework.SCIKITLEARN,
+                           model_framework_version='0.19.1',
+                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
+
+## <a name="deployment"></a>Distribution
+
+Den modell som du precis har registrerat kan distribueras exakt på samma sätt som andra registrerade modeller i Azure Machine Learning, oavsett vilken uppskattning som du använde för utbildning. Distributions anvisningar innehåller ett avsnitt om att registrera modeller, men du kan hoppa direkt till att [skapa ett beräknings mål](how-to-deploy-and-where.md#choose-a-compute-target) för distribution, eftersom du redan har en registrerad modell.
+
+### <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
+
+I stället för den traditionella distributions vägen kan du också använda funktionen utan kod distribution (för hands version) för scikit-information. Distribution med ingen kod modell stöds för alla inbyggda scikit – lär dig modell typer. Genom att registrera din modell som visas ovan med parametrarna `model_framework`, `model_framework_version`och `resource_configuration` kan du bara använda `deploy()` statiska funktionen för att distribuera modellen.
+
+```python
+web_service = Model.deploy(ws, "scikit-learn-service", [model])
+```
+
+Obs! de här beroendena ingår i den förskapade scikit för att få en behållare.
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
+Den fullständiga [instruktionen att](how-to-deploy-and-where.md) distribuera i Azure Machine Learning större djup.
+
 
 ## <a name="next-steps"></a>Nästa steg
 
+I den här artikeln har du tränat och registrerat en scikit-modell och lärt dig om distributions alternativ. Mer information om Azure Machine Learning finns i de här artiklarna.
 
-I den här artikeln har du tränat och registrerat en keras-modell på Azure Machine Learning. Om du vill lära dig hur du distribuerar en modell fortsätter du till vår modell distributions artikel.
-
-> [!div class="nextstepaction"]
-> [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)
 * [Spåra körnings mått under träning](how-to-track-experiments.md)
 * [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
-* [Distribuera en utbildad modell](how-to-deploy-and-where.md)
 * [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

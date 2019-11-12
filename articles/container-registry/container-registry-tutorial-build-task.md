@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Automatisera containeravbildningsversioner – Azure Container Registry-uppgifter
+title: Självstudie – Bygg avbildning om kod genomförande – Azure Container Registry uppgifter
 description: I självstudien får du lära dig att konfigurera en Azure Container Registry-uppgift till att utlösa containeravbildningsversioner i molnet automatiskt när du checkar in källkod på en Git-lagringsplats.
 services: container-registry
 author: dlepow
@@ -9,23 +9,23 @@ ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 25a0ef528d67deb5ea71720d2ff8e4d62b3b98a5
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d01863979f4cf74d544ef2b1ff121022abb8d4f6
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744572"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931434"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: Automatisera containeravbildningar i molnet när du checkar in källkod
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: automatisera behållar avbildningar skapas i molnet när du allokerar käll koden
 
 Förutom en [snabb uppgift](container-registry-tutorial-quick-task.md)har ACR-aktiviteter stöd för automatiserade Docker-behållar avbildningar som bygger i molnet när du allokerar käll koden till en git-lagringsplats.
 
-I den här självstudien skapar din ACR-uppgift och push-överför en enda behållar avbildning som anges i en Dockerfile när du allokerar käll koden till en git-lagrings platsen. Om du vill skapa en [multi-Step-aktivitet](container-registry-tasks-multi-step.md) som använder en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare [på kod commit, se Självstudier: Kör ett arbets flöde för flera steg i molnet när du genomför käll koden](container-registry-tutorial-multistep-task.md). En översikt över ACR-aktiviteter finns i [Automatisera OS-och Framework-korrigering med ACR-uppgifter](container-registry-tasks-overview.md)
+I den här självstudien skapar din ACR-uppgift och push-överför en enda behållar avbildning som anges i en Dockerfile när du allokerar käll koden till en git-lagrings platsen. Om du vill skapa en [multi-Step-aktivitet](container-registry-tasks-multi-step.md) som använder en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare på kod commit, se [Självstudier: köra ett arbets flöde för flera steg i molnet när du ska genomföra käll koden](container-registry-tutorial-multistep-task.md). En översikt över ACR-aktiviteter finns i [Automatisera OS-och Framework-korrigering med ACR-uppgifter](container-registry-tasks-overview.md)
 
 I den här självstudien:
 
 > [!div class="checklist"]
-> * Skapa en uppgift
+> * Skapa en aktivitet
 > * Testa uppgiften
 > * Visa status för aktivitet
 > * Utlösa uppgiften med en kodincheckning
@@ -63,7 +63,7 @@ az acr task create \
 ```
 
 > [!IMPORTANT]
-> Om du tidigare har skapat uppgifter i för hands versionen `az acr build-task` med kommandot måste du skapa dem på nytt med hjälp av kommandot [AZ ACR Task][az-acr-task] .
+> Om du tidigare har skapat uppgifter under förhands granskningen med kommandot `az acr build-task` måste dessa aktiviteter återskapas med hjälp av kommandot [AZ ACR Task][az-acr-task] .
 
 Uppgiften anger att varje gång en tidskod checkas in på *huvudförgreningen* i lagringsplatsen som anges av `--context` så skapar ACR Tasks containeravbildningen från koden i den förgreningen. Den Dockerfile som anges av `--file` från lagringsplatsroten används för att skapa avbildningen. Argumentet `--image` anger ett parametriserat värde på `{{.Run.ID}}` för versionsdelen av avbildningstaggen, vilket säkerställer att versionsavbildningen motsvarar en viss version och är unikt taggad.
 

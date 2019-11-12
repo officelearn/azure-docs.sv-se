@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa ett privat Docker-register i Azure – Azure CLI
+title: Snabb start – skapa register – Azure CLI – Azure Container Registry
 description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure CLI.
 services: container-registry
 author: dlepow
@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 562f8d41e1f91e408263809bdfc78905317912a1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68309521"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931605"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure CLI
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure CLI
 
-Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. Den här guiden beskriver hur du skapar en Azure Container Registry-instans med hjälp av Azure CLI. Använd därefter Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör avbildningen slutligen från registret.
+Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. Den här guiden beskriver hur du skapar en Azure Container Registry-instans med hjälp av Azure CLI. Använd sedan Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör slutligen avbildningen från registret.
 
 För den här snabbstarten krävs att du kör Azure CLI (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
@@ -91,7 +91,7 @@ I följande exempel visas lagringsplatserna i ditt register:
 az acr repository list --name <acrName> --output table
 ```
 
-Utdata:
+Resultat:
 
 ```
 Result
@@ -105,7 +105,7 @@ I följande exempel visas taggarna i databasen **Hello-World** .
 az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
-Utdata:
+Resultat:
 
 ```
 Result

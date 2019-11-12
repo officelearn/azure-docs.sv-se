@@ -14,12 +14,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: ae67ed5e6b23d9d2fae3f3d6e73597876bf7315c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f7e7804b2fc60976ef0ec9af9dcd22e2a2bd9db0
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592965"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929122"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster med Azure CLI
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-> [!Note]
+> [!NOTE]
 > Om du kör kommandona i den här snabb starten lokalt (i stället för Azure Cloud Shell), måste du kontrol lera att du kör kommandona som administratör.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -69,7 +69,8 @@ Följande exempelutdata visar den resursgrupp som skapats:
 
 Använd kommandot [AZ AKS Create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Azure Monitor för containrar aktiveras också med hjälp av parametern *--enable-addons monitoring*.  Det tar flera minuter att slutföra.
 
-> Lägg När du skapar ett AKS-kluster skapas en andra resurs grupp automatiskt för att lagra AKS-resurserna. Mer information finns i avsnittet [varför skapas två resurs grupper med AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> [!NOTE]
+> När du skapar ett AKS-kluster skapas en andra resurs grupp automatiskt för att lagra AKS-resurserna. Mer information finns i avsnittet [varför skapas två resurs grupper med AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -109,7 +110,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment] – en för Azures rösten python-program och en annan för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att få åtkomst till Azures röst program från Internet.
 
 > [!TIP]
-> I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
+> I den här snabbstarten skapar och distribuerar du manuellt programmanifest till AKS-kluster. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
 Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-definition. Om du använder Azure Cloud Shell, kan du skapa filen med `vi` eller `nano` som om du arbetar i ett virtuellt eller fysiskt system:
 

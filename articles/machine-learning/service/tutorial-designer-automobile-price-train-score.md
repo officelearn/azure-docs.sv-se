@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: förutsäga Automobile-priset med designern'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar, poängs ätter och distribuerar en maskin inlärnings modell med hjälp av ett dra och släpp-gränssnitt. Den här självstudien är en del av en serie i två delar om förutsägelse av bil priser med linjär regression.
+description: Lär dig hur du tränar, poängs ätter och distribuerar en maskin inlärnings modell med hjälp av ett dra-och-släpp-gränssnitt. Den här självstudien är en del av en serie i två delar om förutsägelse av bil priser med hjälp av linjär regression.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,35 +9,35 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3df1a0430983b52d8a791acabbd03efe19055697
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0ffe85b6e005d2dc8fe077a5a08d8b0f11c73589
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721770"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929685"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 I den här självstudien får du lära dig hur du använder Azure Machine Learning designer för att utveckla och distribuera en förutsägelse analys som förutsäger priset på en bil. 
 
-I del ett konfigurerar du din miljö, drar och släpper moduler till en interaktiv arbets yta och kopplar ihop dem för att skapa en Azure Machine Learning pipeline.
+I del ett konfigurerar du din miljö, drar moduler till en interaktiv arbets yta och kopplar ihop dem för att skapa en Azure Machine Learning pipeline.
 
 I del ett av självstudien får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en ny pipeline
-> * Importera data
-> * Förbereda data
-> * Träna en Machine Learning-modell
-> * Utvärdera en Machine Learning-modell
+> * Skapa en ny pipeline.
+> * Importera data.
+> * Förbered data.
+> * Träna en maskin inlärnings modell.
+> * Utvärdera en maskin inlärnings modell.
 
 I [del två](tutorial-designer-automobile-price-deploy.md) av självstudien får du lära dig hur du distribuerar din förutsägelse modell som en inferencing-slutpunkt i real tid för att förutsäga priset på en bil baserat på tekniska specifikationer som du skickar den. 
 
-> [!Note]
+> [!NOTE]
 >En slutförd version av den här självstudien är tillgänglig som en exempel pipeline.
 >
->Du hittar det genom att gå till **designern på arbets ytan**. I det **nya pipeline** -avsnittet väljer du **exempel 1-regression: Automobile pris förutsägelse (grundläggande)** .
+>Du hittar det genom att gå till designern på arbets ytan. I det **nya pipeline** -avsnittet väljer du **exempel 1-regression: Automobile pris förutsägelse (grundläggande)** .
 
 ## <a name="create-a-new-pipeline"></a>Skapa en ny pipeline
 
@@ -45,13 +45,13 @@ Azure Machine Learning pipelines ordnar flera, beroende maskin inlärning och da
 
 ### <a name="create-a-new-workspace"></a>Skapa en ny arbets yta
 
-Om du har en Azure Machine Learning-arbetsyta med en **Enterprise-utgåva**går du [vidare till nästa avsnitt](#create-the-pipeline).
+Om du har en Azure Machine Learning-arbetsyta med en Enterprise-utgåva går du [vidare till nästa avsnitt](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 
-1. Logga in på [ml.Azure.com](https://ml.azure.com) och välj den arbets yta som du vill arbeta med.
+1. Logga in på [ml.Azure.com](https://ml.azure.com)och välj den arbets yta som du vill arbeta med.
 
 1. Välj **Designer**.
 
@@ -59,15 +59,15 @@ Om du har en Azure Machine Learning-arbetsyta med en **Enterprise-utgåva**går 
 
 1. Välj **lättanvända inbyggda moduler**.
 
-1. Välj standard namnet för pipelinen, **"pipeline-skapad-on..."** överst på arbets ytan och Byt namn på den till något meningsfullt. Till exempel **"pris förutsägelse för bil"** . Namnet behöver inte vara unikt.
+1. Välj pipeline för standard pipelinen **– skapas – på** arbets ytans överkant. Byt namn på den till något meningsfullt. Ett exempel är *bil pris förutsägelser*. Namnet behöver inte vara unikt.
 
 ## <a name="import-data"></a>Importera data
 
 Det finns flera exempel data uppsättningar som ingår i designern som du kan experimentera med. I den här självstudien använder du **bil-pris data (RAW)** . 
 
-1. Till vänster om arbets ytan för pipelinen är en palett med data uppsättningar och moduler. Välj **data uppsättningar** och Visa sedan avsnittet **exempel** för att visa tillgängliga exempel data uppsättningar.
+1. Till vänster om arbets ytan för pipelinen är en palett med data uppsättningar och moduler. Välj **data uppsättningar**och Visa sedan avsnittet **exempel** för att visa tillgängliga exempel data uppsättningar.
 
-1. Välj data uppsättningen, **bil pris data (RAW)** och dra den till arbets ytan.
+1. Välj data uppsättningens **bil pris data (RAW)** och dra den till arbets ytan.
 
    ![Dra data till arbets yta](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
@@ -77,7 +77,7 @@ Du kan visualisera data för att förstå den data uppsättning som du kommer at
 
 1. Välj modulen **Automobile Price data (RAW)** .
 
-1. Välj **utdata**i fönstret **Egenskaper** till höger om arbets ytan.
+1. Välj **utdata**i fönstret Egenskaper till höger om arbets ytan.
 
 1. Välj diagram ikonen för att visualisera data.
 
@@ -89,17 +89,17 @@ Du kan visualisera data för att förstå den data uppsättning som du kommer at
 
 ## <a name="prepare-data"></a>Förbereda data
 
-Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du kanske har märkt vissa saknade värden när du inspekterar data uppsättningen. De värden som saknas måste rengöras så att modellen kan analysera data korrekt.
+Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du kanske har märkt vissa saknade värden när du kontrollerade data uppsättningen. De värden som saknas måste rengöras så att modellen kan analysera data korrekt.
 
 ### <a name="remove-a-column"></a>Ta bort en kolumn
 
-När du tränar en modell måste du göra något om de data som saknas. I den här data uppsättningen saknar kolumnen **normaliserade förluster** många värden, så du kan utesluta den kolumnen från modellen helt och hållet.
+När du tränar en modell måste du göra något om de data som saknas. I den här data uppsättningen saknar kolumnen **normaliserade förluster** många värden, så du utesluter den kolumnen från modellen helt och hållet.
 
 1. Ange **Välj** i rutan Sök högst upp på paletten för att hitta modulen **Välj kolumner i data uppsättning** .
 
-1. Klicka och dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
+1. Dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
 
-1. Anslut data uppsättningen för **Automobil pris data (RAW)** till **Välj kolumner i data uppsättning**. Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen**, som är den lilla cirkeln överst i modulen.
+1. Anslut data uppsättningen för **Automobil pris data (RAW)** till modulen **Välj kolumner i data uppsättning** . Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen**, som är den lilla cirkeln överst i modulen.
 
     > [!TIP]
     > Du skapar ett data flöde via din pipeline när du ansluter utdataporten för en modul till en annan indataport.
@@ -109,13 +109,13 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. Välj modulen **Välj kolumner i data uppsättning** .
 
-1. I fönstret **Egenskaper** till höger om arbets ytan väljer du **parametrar** > **Redigera kolumn**.
+1. I fönstret Egenskaper till höger om arbets ytan väljer du **parametrar** > **Redigera kolumn**.
 
 1. Välj **+** för att lägga till en ny regel.
 
 1. I den nedrullningsbara menyn väljer du **Uteslut** och **kolumn namn**.
     
-1. Ange **normaliserade förluster** i text rutan.
+1. Ange *normaliserade förluster* i text rutan.
 
 1. I det nedre högra hörnet väljer du **Spara** för att stänga kolumn väljaren.
 
@@ -125,22 +125,22 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. Välj modulen **Välj kolumner i data uppsättning** . 
 
-1. I fönstret **Egenskaper** väljer du **parametrar** > **kommentar** och anger "exkludera normaliserade förluster".
+1. I fönstret Egenskaper väljer du **parametrar** > **kommentar** och anger *exkludera normaliserade förluster*.
 
 ### <a name="clean-missing-data"></a>Rensa saknade data
 
-Din data uppsättning har fortfarande värden som saknas efter att kolumnen **normaliserade förluster** har tagits bort. Du kan ta bort återstående data som saknas med modulen **Rensa data som saknas** .
+Din data uppsättning har fortfarande värden som saknas efter att du tagit bort kolumnen **normaliserade förluster** . Du kan ta bort återstående data som saknas med hjälp av modulen **Rensa data som saknas** .
 
 > [!TIP]
 > Att rensa saknade värden från indata är ett krav för att använda de flesta moduler i designern.
 
 1. Skriv **Rensa** i sökrutan för att hitta modulen **Rensa data som saknas** .
 
-1. Dra modulen **Rensa data som saknas** till pipeline-arbetsytan och Anslut den till modulen **Välj kolumner i data uppsättning** . 
+1. Dra modulen **Rensa data som saknas** till pipeline-arbetsytan. Anslut den till modulen **Välj kolumner i data uppsättning** . 
 
 1. I fönstret Egenskaper väljer du **ta bort hela raden** under **rensnings läge**.
 
-1. I rutan Egenskaper **kommentar** anger du "ta bort saknade värde rader".  
+1. I rutan Egenskaper **kommentar** anger du *ta bort saknade värde rader*. 
 
     Din pipeline bör nu se ut ungefär så här:
     
@@ -152,23 +152,23 @@ Nu när data har bearbetats kan du träna en förutsägelse modell.
 
 ### <a name="select-an-algorithm"></a>Välja en algoritm
 
-**Klassificering** och **regression** är två typer av övervakade Machine Learning-algoritmer. **Klassificering** förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg (röd, blå eller grön). **Regression** används för att förutsäga ett tal.
+*Klassificering* och *regression* är två typer av övervakade maskininlärningsalgoritmer. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg som röd, blå eller grön. Regression används för att förutsäga ett tal.
 
-Eftersom du vill förutsäga pris, vilket är ett tal, kan du använda en Regressions algoritm. I det här exemplet ska du använda en linjär Regressions modell.
+Eftersom du vill förutsäga pris, vilket är ett tal, kan du använda en Regressions algoritm. I det här exemplet använder du en linjär Regressions modell.
 
 ### <a name="split-the-data"></a>Dela data
 
 Dela upp dina data i två separata data uppsättningar för att träna modellen och testa den.
 
-1. Ange **dela data** i sökrutan för att hitta modulen **dela data** och Anslut den till den vänstra porten i modulen **Rensa data som saknas** .
+1. Ange **dela data** i sökrutan för att hitta modulen **dela data** . Anslut den till den vänstra porten i modulen **Rensa data som saknas** .
 
 1. Välj modulen **dela data** .
 
 1. I fönstret Egenskaper ställer du in **bråk talet i den första data uppsättningen för utdata** till 0,7.
 
-    Detta delar upp 70 procent av data för att träna modellen och 30 procent för att testa den.
+    Det här alternativet delar upp 70 procent av data för att träna modellen och 30 procent för att testa den.
 
-1. I rutan Egenskaper **kommentar** anger du "dela upp data uppsättningen i Training set (0,7) och test uppsättning (0,3)."
+1. I rutan Egenskaper **kommentar** anger du *dela in data uppsättningen i Training set (0,7) och test uppsättning (0,3)* .
 
 ### <a name="train-the-model"></a>Träna modellen
 
@@ -178,9 +178,9 @@ Träna modellen genom att ge den en uppsättning data som inkluderar priset. Mod
 
 1. Expandera **Machine Learning algoritmer**.
     
-    Detta visar flera kategorier av moduler som du kan använda för att initiera Learning-algoritmer.
+    Med det här alternativet visas flera kategorier av moduler som du kan använda för att initiera Learning-algoritmer.
 
-1. Välj **regressions** > **linjär regression** och dra den till pipeline-arbetsytan.
+1. Välj **regressions** > **linjär regression**och dra den till pipeline-arbetsytan.
 
 1. Leta upp och dra modulen **träna modell** till pipeline-arbetsytan. 
 
@@ -196,7 +196,7 @@ Träna modellen genom att ge den en uppsättning data som inkluderar priset. Mod
 
 1. I dialog rutan **etikett kolumn** expanderar du den nedrullningsbara menyn och väljer **kolumn namn**. 
 
-1. Ange **pris**i text rutan. Pris är det värde som din modell ska förutsäga.
+1. Ange *pris*i text rutan. Pris är det värde som din modell ska förutsäga.
 
     Din pipeline bör se ut så här:
 
@@ -204,13 +204,13 @@ Träna modellen genom att ge den en uppsättning data som inkluderar priset. Mod
 
 ## <a name="evaluate-a-machine-learning-model"></a>Utvärdera en Machine Learning-modell
 
-När du har tränat din modell med 70 procent av data kan du använda den för att se hur väl modellen fungerar.
+När du har tränat din modell genom att använda 70 procent av data kan du använda den för att se hur väl modellen fungerar.
 
-1. Ange **Poäng modell** i sökrutan för att hitta modulen **Poäng modell** och dra modulen till pipeline-arbetsytan. 
+1. Ange *Poäng modell* i sökrutan för att hitta modulen **Poäng modell** . Dra modulen till pipeline-arbetsytan. 
 
 1. Anslut utdata från modulen **träna modell** till den vänstra Indataporten för **Poäng modell**. Anslut test data utmatningen (höger port) för modulen **dela data** till den högra Indataporten för **Poäng modellen**.
 
-1. Ange **utvärdera** i sökrutan för att hitta **utvärderings modellen** och dra modulen till pipeline-arbetsytan. 
+1. Välj *utvärdera* i sökrutan för att hitta modulen **utvärdera modell** . Dra modulen till pipeline-arbetsytan. 
 
 1. Anslut utdata från modulen **Poäng modell** till den vänstra inmatningen av **utvärdera modell**. 
 
@@ -228,23 +228,23 @@ När körningen är klar kan du visa resultatet av pipeline-körningen.
 
 1. Välj modulen **Poäng modell** för att visa dess utdata.
 
-1. I fönstret **Egenskaper** väljer du **utdata** > **visualisera**.
+1. I fönstret Egenskaper väljer du **utdata** > **visualisera**.
 
     Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
-    ![Skärm bild av utmatnings visualiseringen som har markerat kolumnen "score etikett"](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Skärm bild av utmatnings visualiseringen som markerar den markerade etikett kolumnen](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
 1. Välj modulen **utvärdera modell** för att visa dess utdata.
 
-1. I fönstret **Egenskaper** väljer du **utdata** > **visualisera**.
+1. I fönstret Egenskaper väljer du **utdata** > **visualisera**.
 
 Följande statistik visas för din modell:
 
-* **Medelvärde för absolut fel (Mae)** : medelvärdet av absoluta fel (ett fel är skillnaden mellan det förväntade värdet och det faktiska värdet).
+* **Medelvärde för absolut fel (Mae)** : medelvärdet av absoluta fel. Ett fel är skillnaden mellan det förväntade värdet och det faktiska värdet.
 * **Rot genomsnitts fel (rmse)** : kvadratroten ur genomsnittet av de förutsägelser som gjorts på test data uppsättningen.
 * **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 * **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-* **Friktionskoefficienten**: även kallat R-kvadratvärdet är detta ett statistiskt mått som anger hur väl en modell passar data.
+* **Friktionskoefficienten**: även känt som R-kvadratvärdet anger det här statistik måttet hur väl en modell passar data.
 
 För all felstatistik gäller att mindre är bättre. Ett mindre värde anger att förutsägelserna är närmare de faktiska värdena. För att fastställa koefficienten är det närmare värdet en (1,0), desto bättre förutsägelser.
 

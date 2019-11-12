@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 743007d3636516a39dd36caf3d44d3edb650c030
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684908"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929528"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Data referens för Azure Machine Learning-övervakning
 
@@ -37,7 +37,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | experimentName | Experimentets namn |
 | customerSubscriptionId | SubscriptionId där experiment och jobb skickas in |
 | workspaceName | Namnet på Machine Learning-arbetsytan |
-| clusterName | Namn på klustret |
+| ClusterName | Namn på klustret |
 | ProvisioningState | Tillstånd för jobb sändningen |
 | ResourceGroupName | Namnet på resurs gruppen |
 | JobName | Jobbets namn |
@@ -62,11 +62,11 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | OperationName | Namnet på åtgärden som är associerad med logg händelsen |
 | Kategori | Namnet på logg händelsen, AmlComputeClusterNodeEvent |
 | ProvisioningState | Etablerings status för klustret |
-| clusterName | Namn på klustret |
-| clusterType | Typ av kluster |
+| ClusterName | Namn på klustret |
+| ClusterType | Typ av kluster |
 | CreatedBy | Användare som skapade klustret |
 | CoreCount | Antal kärnor i klustret |
-| vmSize | Klustrets virtuella dator storlek |
+| VmSize | Klustrets virtuella dator storlek |
 | VmPriority | Prioritet för de noder som skapats i ett dedikerat kluster/LowPriority |
 | ScalingType | Typ av kluster skalning manuellt/automatiskt |
 | InitialNodeCount | Antal inledande noder i klustret |
@@ -104,9 +104,9 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | TimeGenerated | Tid när logg posten skapades |
 | OperationName | Namnet på åtgärden som är associerad med logg händelsen |
 | Kategori | Namnet på logg händelsen, AmlComputeClusterNodeEvent |
-| clusterName | Namn på klustret |
+| ClusterName | Namn på klustret |
 | NodeId | ID för klusternoden som skapades |
-| vmSize | Nodens VM-storlek |
+| VmSize | Nodens VM-storlek |
 | VmFamilyName | VM-serien som noden tillhör |
 | VmPriority | Prioritet för noden som skapade dedikerad/LowPriority |
 | Utgivare | Utgivare av VM-avbildningen, t. ex. Microsoft-dsvm |
@@ -128,7 +128,7 @@ I följande tabeller visas de plattforms mått som samlas in för Azure Machine 
 
 **Förlag**
 
-| Modell | Enhet | Beskrivning |
+| Mått | Enhet | Beskrivning |
 | ----- | ----- | ----- |
 | Modell distributionen misslyckades | Antal | Antalet modell distributioner som misslyckades. |
 | Modell distribution har startat | Antal | Antalet modell distributioner som har startats. |

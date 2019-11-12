@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – skapa ett privat Docker-register i Azure – PowerShell
-description: Lär dig snabbt att skapa ett privat Docker-containerregister i Azure med PowerShell.
+title: Snabb start – skapa register – PowerShell – Azure Container Registry
+description: Lär dig snabbt att skapa ett privat Docker-register i Azure Container Registry med PowerShell
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b337c28efc3db7d4bec4408b5da1f8a5e1d87094
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68309501"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931615"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure PowerShell
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure PowerShell
 
 Azure Container Registry är en hanterad Docker-behållarregistertjänst för att bygga, lagra och hantera Docker-behållaravbildningar. I denna snabbstart kommer du att lära dig hur du skapar ett Azure-containerregister med hjälp av PowerShell. Använd sedan Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör slutligen avbildningen från registret.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -66,7 +66,7 @@ Innan du skickar och hämtar containeravbildningar måste du logga in i ditt reg
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Kör sedan Docker- [inloggning][docker-login] för att logga in:
+Kör sedan [Docker-inloggning][docker-login] för att logga in:
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin

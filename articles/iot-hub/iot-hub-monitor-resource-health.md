@@ -1,53 +1,53 @@
 ---
-title: Övervaka hälsotillståndet för Azure IoT Hub | Microsoft Docs
-description: Använda Azure Monitor och Azure Resource Health för att övervaka din IoT Hub och diagnostisera problem snabbt
+title: Övervaka hälso tillståndet för Azure-IoT Hub | Microsoft Docs
+description: Använd Azure Monitor och Azure Resource Health för att övervaka dina IoT Hub och diagnostisera problem snabbt
 author: kgremban
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166195"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929695"
 ---
-# <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
+# <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälso tillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
-Företag som implementerar Azure IoT Hub förväntar sig pålitlig prestanda från sina resurser. För att hjälpa dig att upprätthålla en Stäng bevakning på din verksamhet, IoT Hub är helt integrerat med [Azure Monitor](../azure-monitor/index.yml) och [Azure Resource Health](../service-health/resource-health-overview.md). De här två tjänsterna fungerar så att du får de data du behöver för att hålla din IoT-lösningar som körs i ett felfritt tillstånd.
+Företag som implementerar Azure IoT Hub förväntar sig pålitliga prestanda från sina resurser. IoT Hub är helt integrerat med [Azure Monitor](../azure-monitor/index.yml) och [Azure Resource Health](../service-health/resource-health-overview.md)för att hjälpa dig att upprätthålla en nära Watch-åtgärd. De här två tjänsterna arbetar för att förse dig med de data du behöver för att hålla dina IoT-lösningar igång i felfritt tillstånd.
 
-Azure Monitor är en enda källa för övervakning och loggning för alla dina Azure-tjänster. Du kan skicka diagnostikloggar som Azure Monitor genererar Azure Monitor-loggar, Event Hubs eller Azure Storage för anpassad bearbetning. Azure Monitor-mått och diagnostik för inställningarna ger dig insyn i prestanda för dina resurser. Fortsätt att läsa den här artikeln om du vill lära dig hur du [Använd Azure Monitor](#use-azure-monitor) med IoT-hubben. 
+Azure Monitor är en enda källa för övervakning och loggning för alla dina Azure-tjänster. Du kan skicka diagnostikloggar som Azure Monitor genererar till Azure Monitor loggar, Event Hubs eller Azure Storage för anpassad bearbetning. Azure Monitorens mått och diagnostikinställningar ger dig insyn i prestandan för dina resurser. Fortsätt att läsa den här artikeln för att lära dig hur du [använder Azure Monitor](#use-azure-monitor) med IoT Hub. 
 
 > [!IMPORTANT]
-> De händelser som genereras av IoT Hub-tjänsten med hjälp av Azure Monitor-diagnostikloggar är inte garanterat tillförlitliga och ordnade. Vissa händelser kan tappas bort eller levereras i ordning. Diagnostikloggar också är inte avsedda att vara i realtid och det kan ta flera minuter innan händelser som loggas ditt val av mål.
+> De händelser som genereras av tjänsten IoT Hub som använder Azure Monitor diagnostikloggar är inte garanterat tillförlitliga eller beställda. Vissa händelser kan gå förlorade eller levereras i rätt ordning. Diagnostikloggar är inte avsedda att vara i real tid och det kan ta flera minuter innan händelserna loggas till ditt val av mål.
 
-Azure Resource Health hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina resurser. En instrumentpanel ger aktuella och tidigare hälsostatus för var och en av dina IoT-hubbar. Fortsätta till avsnittet längst ned i den här artikeln om du vill lära dig hur du [Använd Azure Resource Health](#use-azure-resource-health) med IoT-hubben. 
+Azure Resource Health hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina resurser. En instrument panel tillhandahåller aktuell och tidigare hälso status för varje IoT-hubb. Fortsätt till avsnittet längst ned i den här artikeln om du vill lära dig hur du [använder Azure Resource Health](#use-azure-resource-health) med din IoT Hub. 
 
-IoT Hub tillhandahåller även dess egna mått som du kan använda för att förstå tillståndet för dina IoT-resurser. Mer information finns i [förstå IoT Hub mått](iot-hub-metrics.md).
+IoT Hub tillhandahåller också egna mått som du kan använda för att förstå status för dina IoT-resurser. Mer information finns i [förstå IoT Hub mått](iot-hub-metrics.md).
 
 ## <a name="use-azure-monitor"></a>Använda Azure Monitor
 
-Azure Monitor innehåller diagnostikinformation för Azure-resurser, vilket innebär att du kan övervaka åtgärder som äger rum i din IoT-hubb.
+Azure Monitor innehåller diagnostikinformation för Azure-resurser, vilket innebär att du kan övervaka åtgärder som sker i din IoT-hubb.
 
-Azure Monitor diagnostik inställningar ersätter övervaka för IoT Hub-åtgärder. Om du använder åtgärdsövervakning, bör du migrera dina arbetsflöden. Mer information finns i [migrera från åtgärder som övervakar Diagnostics inställningar](iot-hub-migrate-to-diagnostics-settings.md).
+Azure Monitorens diagnostikinställningar ersätter IoT Hubs åtgärds övervakaren. Om du för närvarande använder åtgärds övervakning bör du migrera dina arbets flöden. Mer information finns i [Migrera från Operations Monitoring to Diagnostic Settings](iot-hub-migrate-to-diagnostics-settings.md).
 
-Mer information om specifika mått och händelser som Azure Monitor bevakar finns [stöds mått med Azure Monitor](../azure-monitor/platform/metrics-supported.md) och [tjänster, scheman och kategorier som stöds för diagnostikloggar för Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
+Om du vill veta mer om vilka mått och händelser som Azure Monitor bevaka, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md) och [tjänster som stöds, scheman och kategorier för Azure Diagnostic-loggar](../azure-monitor/platform/diagnostic-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
-### <a name="understand-the-logs"></a>Förstå loggar
+### <a name="understand-the-logs"></a>Förstå loggarna
 
-Azure Monitor övervakar olika åtgärder som inträffar i IoT Hub. Varje kategori har ett schema som definierar hur händelser i den kategorin rapporteras.
+Azure Monitor spårar olika åtgärder som inträffar i IoT Hub. Varje kategori har ett schema som definierar hur händelser i den kategorin rapporteras.
 
 #### <a name="connections"></a>Anslutningar
 
-Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från en IoT-hubb, samt fel. Den här kategorin är användbara för att identifiera obehöriga anslutningsförsök och eller aviseringar när du har förlorat anslutningen till enheter.
+Kategorin anslutningar spårar enhets anslutning och från kopplings händelser från en IoT-hubb och fel. Den här kategorin är användbar för att identifiera otillåtna anslutnings försök och aviseringar när du förlorar anslutningen till enheter.
 
 > [!NOTE]
-> Tillförlitlig anslutningsstatus för enheter Kontrollera [enheten pulsslag](iot-hub-devguide-identity-registry.md#device-heartbeat).
+> För tillförlitlig anslutnings status för enheter kontrol lera [enhetens pulsslag](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
 ```json
 {
@@ -66,15 +66,15 @@ Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från 
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>Kommandon för moln-till-enhet
+#### <a name="cloud-to-device-commands"></a>Kommandon från moln till enhet
 
-Moln till enhet kommandon kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till moln till enhet meddelandepipeline. Den här kategorin innehåller fel som uppstår från:
+Kommando kategorin för moln-till-enhet spårar fel som uppstår på IoT-hubben och är relaterade till pipeline för meddelande från moln till enhet. Den här kategorin innehåller fel som inträffar från:
 
-* Skicka meddelanden från moln till enhet (till exempel obehöriga sändaren),
-* Ta emot meddelanden från molnet till enheten (till exempel leverans för många fel), och
-* Mottagande moln till enhet-meddelande (förfallet fel som feedback).
+* Skicka meddelanden från moln till enhet (t. ex. otillåtna avsändar fel)
+* Ta emot meddelanden från moln till enhet (t. ex. antal leveranser som har överskridits) och
+* Får feedback från moln till enhet (t. ex. återkopplings fel).
 
-Den här kategorin fånga inte fel när moln-till-enhet-meddelande levereras men felaktigt hanteras av enheten.
+Den här kategorin fångar inte fel när meddelanden från molnet till enheten levereras korrekt, men hanteras sedan felaktigt av enheten.
 
 ```json
 {
@@ -95,9 +95,9 @@ Den här kategorin fånga inte fel när moln-till-enhet-meddelande levereras men
 }
 ```
 
-#### <a name="device-identity-operations"></a>Identitet åtgärder
+#### <a name="device-identity-operations"></a>Enhets identitets åtgärder
 
-Enhetskategorin identitet operations spårar fel som uppstår vid försök att skapa, uppdatera eller ta bort en post i din IoT-hubbens identitetsregister. Spårning av den här kategorin är användbart för att etablera scenarier.
+Kategorin enhets identitets åtgärder spårar fel som inträffar när du försöker skapa, uppdatera eller ta bort en post i din IoT Hubs identitets register. Att spåra den här kategorin är användbart för etablerings scenarier.
 
 ```json
 {
@@ -120,13 +120,13 @@ Enhetskategorin identitet operations spårar fel som uppstår vid försök att s
 
 #### <a name="routes"></a>Vägar
 
-Meddelandet routning kategorin spårar fel som inträffar när meddelandet vägen utvärdering och slutpunktshälsa anser vara av IoT Hub. Den här kategorin omfattar händelser som:
+Kategorin meddelande cirkulation spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin omfattar händelser som:
 
-* En regel som utvärderar till ”odefinierad”
-* IoT Hub markerar en slutpunkt som dött, eller
-* Eventuella fel togs emot från en slutpunkt. 
+* En regel utvärderas till "odefinierad",
+* IoT Hub markerar en slut punkt som död eller
+* Eventuella fel som tagits emot från en slut punkt. 
 
-Den här kategorin omfattar inte specifika fel om själva meddelandena (till exempel enhet begränsningsfel) som har rapporterats under kategorin ”enhetstelemetri”.
+Den här kategorin innehåller inte vissa fel meddelanden om själva meddelandena (t. ex. fel i enhets begränsning), som rapporteras i kategorin "enhets telemetri".
 
 ```json
 {
@@ -145,9 +145,9 @@ Den här kategorin omfattar inte specifika fel om själva meddelandena (till exe
 }
 ```
 
-#### <a name="device-telemetry"></a>Enhetstelemetri
+#### <a name="device-telemetry"></a>Telemetri för enhet
 
-Telemetri enhetskategorin spårar fel som inträffar på IoT-hubben och som är relaterade till pipelinen telemetri. Den här kategorin innehåller fel som uppstår när du skickar telemetrihändelser (t.ex begränsningar) och ta emot händelser (till exempel obehöriga läsare). Den här kategorin identifierar inte fel som orsakats av kod som körs på själva enheten.
+Kategorin hets telemetri spårar fel som inträffar på IoT-hubben och är relaterade till pipelinen för telemetri. Den här kategorin innehåller fel som uppstår när du skickar telemetri-händelser (till exempel begränsning) och tar emot telemetri-händelser (till exempel obehörig läsare). Den här kategorin kan inte fånga fel som orsakas av kod som körs på själva enheten.
 
 ```json
 {
@@ -170,15 +170,15 @@ Telemetri enhetskategorin spårar fel som inträffar på IoT-hubben och som är 
 
 #### <a name="file-upload-operations"></a>Filöverföringsåtgärder
 
-Filen uppladdning kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till filuppladdning. Den här kategorin omfattar:
+Kategorin fil uppladdning spårar fel som uppstår på IoT-hubben och är relaterade till fil uppladdnings funktionen. Den här kategorin omfattar:
 
-* Fel som inträffar med SAS-URI, t.ex när den upphör att gälla innan en enhet meddelar hubb för en överförda.
+* Fel som uppstår med SAS-URI: n, till exempel när den upphör att gälla innan en enhet meddelar navet om en slutförd uppladdning.
 
-* Det gick inte överföringar som rapporteras av enheten.
+* Misslyckade uppladdningar som rapporter ATS av enheten.
 
-* Fel som uppstår när en fil inte hittas i storage när IoT Hub-meddelande meddelande skapas.
+* Fel som inträffar när det inte går att hitta en fil i lagringen under IoT Hub meddelande om att meddelanden skapas.
 
-Den här kategorin identifierar inte fel som sker under tiden enheten laddar upp en fil till lagring.
+Den här kategorin kan inte fånga fel som sker direkt när enheten laddar upp en fil till lagringen.
 
 ```json
 {
@@ -200,9 +200,9 @@ Den här kategorin identifierar inte fel som sker under tiden enheten laddar upp
 }
 ```
 
-#### <a name="cloud-to-device-twin-operations"></a>Moln till enhet twin åtgärder
+#### <a name="cloud-to-device-twin-operations"></a>Dubbla åtgärder från moln till enhet
 
-Moln till enhet twin åtgärdskategori spårar tjänstinitierade händelser på enhetstvillingar. De här åtgärderna kan inkludera get twin, uppdatera eller ersätta taggar, och uppdatera eller ersätta önskade egenskaper.
+Den dubbla drift kategorin från moln till enhet spårar händelser som initierats av tjänsten på enheten. Dessa åtgärder kan omfatta etiketter för att hämta, uppdatera eller ersätta och uppdatera eller ersätta önskade egenskaper.
 
 ```json
 {
@@ -222,9 +222,9 @@ Moln till enhet twin åtgärdskategori spårar tjänstinitierade händelser på 
 }
 ```
 
-#### <a name="device-to-cloud-twin-operations"></a>Enhet-till-moln-twin-åtgärder
+#### <a name="device-to-cloud-twin-operations"></a>Dubbla åtgärder från enhet till moln
 
-Enhet-till-moln twin åtgärdskategori spårar enhet-initierad händelser på enhetstvillingar. De här åtgärderna kan inkludera get twin, uppdatera rapporterade egenskaper och prenumerera på önskade egenskaper.
+Kategorin enhets-till-moln-dubbla åtgärder spårar enheternas initierade händelser på enheten. De här åtgärderna kan vara att hämta rapporter med dubbla, uppdatera rapporterade egenskaper och prenumerera på önskade egenskaper.
 
 ```json
 {
@@ -244,9 +244,9 @@ Enhet-till-moln twin åtgärdskategori spårar enhet-initierad händelser på en
 }
 ```
 
-#### <a name="twin-queries"></a>Twin frågor
+#### <a name="twin-queries"></a>Dubbla frågor
 
-Kategorin twin frågor rapporterar om frågebegäranden efter enhetstvillingar som startas i molnet.
+Kategorin dubbla frågor rapporterar om förfrågningar om enhets grupper som initieras i molnet.
 
 ```json
 {
@@ -268,7 +268,7 @@ Kategorin twin frågor rapporterar om frågebegäranden efter enhetstvillingar s
 
 #### <a name="jobs-operations"></a>Jobbåtgärder
 
-Jobb åtgärdskategori rapporterar om jobbförfrågningar uppdatera enhetstvillingar eller anropa direktmetoder på flera enheter. Dessa begäranden initieras i molnet.
+Jobbets åtgärds kategori rapporterar om jobb begär Anden för att uppdatera enheten är dubbla eller anropar direkta metoder på flera enheter. Dessa förfrågningar initieras i molnet.
 
 ```json
 {
@@ -290,7 +290,7 @@ Jobb åtgärdskategori rapporterar om jobbförfrågningar uppdatera enhetstvilli
 
 #### <a name="direct-methods"></a>Direkta metoder
 
-Direkta metoder kategorin spårar begäranden och svar-interaktioner som skickas till enskilda enheter. Dessa begäranden initieras i molnet.
+Kategorin direkta metoder spårar interaktioner för begäran och svar som skickas till enskilda enheter. Dessa förfrågningar initieras i molnet.
 
 ```json
 {
@@ -310,15 +310,15 @@ Direkta metoder kategorin spårar begäranden och svar-interaktioner som skickas
 }
 ```
 
-#### <a name="distributed-tracing-preview"></a>Distribuerad spårning (förhandsversion)
+#### <a name="distributed-tracing-preview"></a>Distribuerad spårning (för hands version)
 
-Distribuerad spårning kategorin spårar Korrelations-ID: N för meddelanden som rubriken trace kontext. Innan du kan utnyttja de här loggarna, klientkod måste uppdateras genom att följa [analysera och diagnostisera IoT program slutpunkt till slutpunkt med IoT Hub distribuerad spårning (förhandsversion)](iot-hub-distributed-tracing.md).
+Den distribuerade spårnings kategorin spårar korrelations-ID: n för meddelanden som har spårnings kontext rubriken. Om du vill aktivera dessa loggar fullständigt måste kod på klient sidan uppdateras genom att följa [analys och diagnostisera IoT-program från slut punkt till slut punkt med IoT Hub Distributed tracing (för hands version)](iot-hub-distributed-tracing.md).
 
-Observera att `correlationId` överensstämmer med den [W3C Trace kontext](https://github.com/w3c/trace-context) förslag, om den innehåller en `trace-id` samt en `span-id`.
+Observera att `correlationId` överensstämmer med [spårnings kontext](https://github.com/w3c/trace-context) förslaget för W3C, där det innehåller en `trace-id` och en `span-id`.
 
-##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C (enhet-till-moln) loggar
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C-loggar (från enhet till moln)
 
-IoT Hub registrerar den här loggen när ett meddelande som innehåller egenskaper för giltiga spår anländer till IoT Hub.
+IoT Hub registrerar loggen när ett meddelande som innehåller giltiga spårnings egenskaper kommer till IoT Hub.
 
 ```json
 {
@@ -341,18 +341,18 @@ IoT Hub registrerar den här loggen när ett meddelande som innehåller egenskap
 }
 ```
 
-Här kan `durationMs` beräknas inte som IoT-hubbens klockan inte är synkroniserade med enhetens klocka och därför en beräkning för varaktighet kan vara vilseledande. Vi rekommenderar att skriva logik med tidsstämplar i den `properties` avsnitt för att avbilda toppar i svarstid för enhet-till-moln.
+Här beräknas `durationMs` inte eftersom IoT Hub klockan inte är synkroniserad med enhets klockan, och därför kan en varaktighets beräkning vara missvisande. Vi rekommenderar att du skriver logik med hjälp av tidsstämplar i avsnittet `properties` för att samla in toppar i svar från enhet till moln.
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Integer | Storlek för enhet-till-moln-meddelande i byte |
-| **deviceId** | Sträng med ASCII 7 bitar alfanumeriska tecken | Identiteten för enheten |
-| **callerLocalTimeUtc** | UTC-tidsstämpel | Skapandetid för meddelandet som rapporteras av den lokala klockan för enhet |
-| **calleeLocalTimeUtc** | UTC-tidsstämpel | Ankomsttiden meddelande till IoT-hubbens gateway som rapporterats av IoT Hub-tjänsten på klientsidan klockan |
+| **messageSize** | Integer | Storleken på meddelanden från enhet till moln i byte |
+| **deviceId** | Sträng med ASCII 7-bitars alfanumeriska tecken | Enhetens identitet |
+| **callerLocalTimeUtc** | UTC-tidsstämpel | Skapande tid för meddelandet som rapporteras av lokal enhets klocka |
+| **calleeLocalTimeUtc** | UTC-tidsstämpel | Tiden för meddelande ankomsten vid IoT Hubens gateway som rapporteras av IoT Hub klockan på tjänst Sidan |
 
 ##### <a name="iot-hub-ingress-logs"></a>IoT Hub ingress-loggar
 
-IoT Hub registrerar den här loggen när meddelandet som innehåller egenskaper för giltiga spår skriver till interna eller inbyggda Event Hub.
+IoT Hub registrerar loggen när ett meddelande som innehåller giltiga spårnings egenskaper skriver till intern eller inbyggd Händelsehubben.
 
 ```json
 {
@@ -375,16 +375,16 @@ IoT Hub registrerar den här loggen när meddelandet som innehåller egenskaper 
 }
 ```
 
-I den `properties` avsnittet, den här loggfilen innehåller mer information om inkommande meddelande.
+I avsnittet `properties` innehåller loggen ytterligare information om meddelande ingångar.
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | True eller false, anger huruvida meddelanderoutning är aktiverad i IoT Hub |
-| **parentSpanId** | String | Den [span-id](https://w3c.github.io/trace-context/#parent-id) meddelandets överordnade som i det här fallet är spårningen för D2C-meddelande |
+| **isRoutingEnabled** | Sträng | Antingen sant eller falskt anger om meddelanderoutning är aktiverat i IoT Hub |
+| **parentSpanId** | Sträng | Det överordnade meddelandets [span-ID](https://w3c.github.io/trace-context/#parent-id) , som skulle vara D2C meddelande spårning i det här fallet |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub utgående loggar
 
-IoT Hub poster detta logga när [routning](iot-hub-devguide-messages-d2c.md) är aktiverad och meddelandet skrivs till en [endpoint](iot-hub-devguide-endpoints.md). Om routning inte är aktiverat, registrera IoT Hub inte den här loggfilen.
+IoT Hub registrerar loggen när [routning](iot-hub-devguide-messages-d2c.md) är aktiverat och meddelandet skrivs till en [slut punkt](iot-hub-devguide-endpoints.md). Om routning inte är aktiverat registrerar IoT Hub inte den här loggen.
 
 ```json
 {
@@ -407,17 +407,65 @@ IoT Hub poster detta logga när [routning](iot-hub-devguide-messages-d2c.md) är
 }
 ```
 
-I den `properties` avsnittet, den här loggfilen innehåller mer information om inkommande meddelande.
+I avsnittet `properties` innehåller loggen ytterligare information om meddelande ingångar.
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | Namnet på slutpunkten som Routning |
-| **EndpointType** | String | Vilken typ av Routning slutpunkten |
-| **parentSpanId** | String | Den [span-id](https://w3c.github.io/trace-context/#parent-id) meddelandets överordnade som i det här fallet är IoT Hub inkommande meddelande spårningen |
+| **endpointName** | Sträng | Namnet på dirigerings slut punkten |
+| **endpointType** | Sträng | Typ av Dirigerings slut punkt |
+| **parentSpanId** | Sträng | [Intervall-ID: t](https://w3c.github.io/trace-context/#parent-id) för det överordnade meddelandet, som skulle vara IoT Hub ingresss meddelande spårning i det här fallet |
+
+#### <a name="configurations"></a>Konfigurationer
+
+IoT Hub konfigurations loggar spårar händelser och fel för funktionen automatisk enhets hantering.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-24T17:21:52Z",
+             "resourceId": "Resource Id",
+             "operationName": "ReadManyConfigurations",
+             "category": "Configurations",
+             "resultType": "",
+             "resultDescription": "",
+             "level": "Information",
+             "durationMs": "17",
+             "properties": "{\"configurationId\":\"\",\"sdkVersion\":\"2018-06-30\",\"messageSize\":\"0\",\"statusCode\":null}",
+             "location": "southcentralus"
+         }
+    ]
+}
+```
+
+### <a name="device-streams-preview"></a>Enhets strömmar (förhands granskning)
+
+Kategorin enhets strömmar spårar interaktioner för begär ande svar som skickas till enskilda enheter.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-19T11:12:04Z",
+             "resourceId": "Resource Id",
+             "operationName": "invoke",
+             "category": "DeviceStreams",
+             "resultType": "",
+             "resultDescription": "",    
+             "level": "Information",
+             "durationMs": "74",
+             "properties": "{\"deviceId\":\"myDevice\",\"moduleId\":\"myModule\",\"sdkVersion\":\"2019-05-01-preview\",\"requestSize\":\"3\",\"responseSize\":\"5\",\"statusCode\":null,\"requestName\":\"myRequest\",\"direction\":\"c2d\"}",
+             "location": "Central US"
+         }
+    ]
+}
+```
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Läs loggar från Azure Event Hubs
 
-Du kan skapa program som läser in loggarna så att du kan vidta åtgärder baserat på informationen i dem när du har konfigurerat händelseloggning via diagnostikinställningar. Den här exempelkoden hämtar loggar från en händelsehubb:
+När du har konfigurerat händelse loggning via diagnostikinställningar kan du skapa program som läser loggarna så att du kan vidta åtgärder baserat på informationen i dem. Den här exempel koden hämtar loggar från en Event Hub:
 
 ```csharp
 class Program
@@ -484,23 +532,23 @@ class Program
 }
 ```
 
-## <a name="use-azure-resource-health"></a>Använda Azure Resource Health
+## <a name="use-azure-resource-health"></a>Använd Azure Resource Health
 
-Använd Azure Resource Health för att övervaka om IoT-hubben är igång. Du kan också lära dig om ett regionalt strömavbrott påverkar hälsotillståndet för din IoT-hubb. För att förstå specifik information om hälsotillståndet för Azure IoT Hub, rekommenderar vi att du [Använd Azure Monitor](#use-azure-monitor).
+Använd Azure Resource Health för att övervaka om din IoT Hub är igång. Du kan också lära dig om ett regionalt avbrott påverkar hälsan för din IoT Hub. Om du vill veta mer om hälso tillståndet för Azure-IoT Hub rekommenderar vi att du [använder Azure Monitor](#use-azure-monitor).
 
-Azure IoT Hub anger hälsotillstånd på regional nivå. Om ett regionalt strömavbrott påverkar din IoT-hubb, hälsostatus visas som **okänd**. Mer information finns i [resurstyper och hälsokontroller i Azure resource health](../service-health/resource-health-checks-resource-types.md).
+Azure IoT Hub indikerar hälsa på regional nivå. Om ett regionalt avbrott påverkar din IoT Hub visas hälso statusen som **okänd**. Mer information finns i [resurs typer och hälso kontroller i Azure Resource Health](../service-health/resource-health-checks-resource-types.md).
 
-Följ dessa steg för att kontrollera hälsotillståndet för din IoT-hubbar:
+Följ dessa steg om du vill kontrol lera hälso tillståndet för dina IoT-hubbar:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Gå till **Tjänstehälsa** > **resurshälsa**.
+2. Navigera till **Service Health** > **resurs hälsa**.
 
-3. I listrutorna väljer du din prenumeration och välj sedan **IoT Hub** som resurstypen.
+3. Välj din prenumeration i list rutan och välj **IoT Hub** som resurs typ.
 
-Läs mer om hur du tolkar hälsodata i [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).
+Mer information om hur du tolkar hälso data finns i [Översikt över Azure Resource Health](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå IoT Hub-mått](iot-hub-metrics.md)
-* [IoT fjärrövervakning och aviseringar med Azure Logic Apps ansluter dina IoT-hubb och postlåda](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Förstå IoT Hub mått](iot-hub-metrics.md)
+* [Övervakning och aviseringar för IoT-fjärrhantering med Azure Logic Apps du ansluter din IoT Hub och post lådan](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

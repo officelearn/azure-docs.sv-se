@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa ett geo-replikerat Docker-register i Azure
+title: Självstudie – Skapa en geo-replikerad Azure Container Registry
 description: Skapa ett Azure-containerregister, konfigurera geo-replikering, förbereda en Docker-avbildning och distribuera den till registret. Del ett av en serie i tre delar.
 services: container-registry
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5a2aedfe93aa27f839c416c27ac028db1e650295
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309573"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931361"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudie: Förbereda ett georeplikerat Azure Container Registry
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudier: Förbereda ett geo-replikerat Azure Container Registry
 
 Ett Azure-containerregister är ett privat Docker-register som distribueras i Azure så att du kan lagra containerregistren nära distributionerna i nätverket. I den här serien med tre självstudieartiklar får du lära dig att använda geo-replikering för att distribuera ett ASP.NET Core-webbprogram som körs i en Linux-behållare eller två [Web Apps for Containers](../app-service/containers/index.yml)-instanser. Du ser hur Azure automatiskt distribuerar avbildningen till varje webbappinstans från den närmaste geo-replikerade lagringsplatsen.
 
@@ -42,7 +42,7 @@ Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slut
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 Välj **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
 
@@ -117,7 +117,7 @@ Om du inte har `git` installerat kan du [Hämta zip-arkivet][acr-helloworld-zip]
 
 Den Dockerfile som finns i exemplet visar hur containern är byggd. Den startar från en officiell [aspnetcore][dockerhub-aspnetcore]-avbildning, kopierar programfilerna till containern, installerar beroenden, kompilerar utdata med den officiella [aspnetcore-build][dockerhub-aspnetcore-build]-avbildningen och skapar slutligen en optimerad aspnetcore-avbildning.
 
-[][dockerfile] Dockerfile`./AcrHelloworld/Dockerfile` finns på den klonade källan.
+[Dockerfile][dockerfile] finns på `./AcrHelloworld/Dockerfile` i den klonade källan.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -153,7 +153,7 @@ Hämta först registrets inloggningsserver med kommandot `az acr show`. Ersätt 
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 AcrLoginServer

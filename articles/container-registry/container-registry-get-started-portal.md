@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Skapa ett privat Docker-register i Azure – Azure Portal
-description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure-portalen.
+title: Snabb start – skapa register i portalen – Azure Container Registry
+description: Lär dig snabbt att skapa ett privat Docker-register i Azure Container Registry med Azure Portal.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: bcf0874266aa83a4b4b932670557854c4688d400
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68309470"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931631"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure Portal
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure Portal
 
-Ett Azure-containerregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-containeravbildningar. I den här snabbstarten skapar du ett containerregister med Azure-portalen. Använd därefter Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör avbildningen slutligen från registret.
+Ett Azure-containerregister är ett privat Docker-register i Azure där du kan lagra och hantera dina privata Docker-containeravbildningar. I den här snabbstarten skapar du ett containerregister med Azure-portalen. Använd sedan Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör slutligen avbildningen från registret.
 
 För att logga in i registret för att arbeta med containeravbildningar kräver den här snabbstarten att du kör Azure CLI (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
@@ -62,7 +62,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 Om du vill visa en lista över avbildningarna i registret navigerar du till registret i portalen och väljer **Centrallager**. Välj sedan det lager du skapade med `docker push`.
 
-I det här exemplet väljer vi databasen **Hello-World** och vi kan se `v1`bilden med märkord under **taggar**.
+I det här exemplet väljer vi databasen **Hello-World** och vi kan se bilden med `v1`taggad bild under **taggar**.
 
 ![Visa lista över containeravbildningar i Azure-portalen][qs-portal-09]
 

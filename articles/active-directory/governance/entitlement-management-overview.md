@@ -16,16 +16,16 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1c054bf354b5cdc5e0803ba6849af19fab40f3c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174151"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927320"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
-Azure Active Directory (Azure AD) hantering av rättigheter är en funktion för [identitets styrning](identity-governance-overview.md) som gör det möjligt för organisationer att hantera identitets-och åtkomst livs cykeln i stor skala, genom att automatisera åtkomst till begär ande arbets flöden, åtkomst tilldelningar, granskningar och dag.
+Azure Active Directory (Azure AD) hantering av rättigheter är en funktion för [identitets styrning](identity-governance-overview.md) som gör det möjligt för organisationer att hantera identitets-och åtkomst livs cykeln i stor skala, genom att automatisera åtkomst till begär ande arbets flöden, åtkomst tilldelningar, recensioner och förfallo datum.
 
 Anställda i organisationer behöver åtkomst till olika grupper, program och webbplatser för att utföra sitt arbete. Att hantera den här åtkomsten är utmanande, som krav ändring – nya program läggs till eller användare behöver ytterligare åtkomst behörighet.  Det här scenariot blir mer komplicerat när du samarbetar med externa organisationer. du kanske inte vet vem i den andra organisationen som behöver åtkomst till organisationens resurser, och de vet inte vilka program, grupper eller webbplatser som organisationen använder.
 
@@ -123,7 +123,7 @@ För att bättre förstå hantering av rättigheter och dess dokumentation kan d
 | Katalog skapare | En samling användare som har behörighet att skapa nya kataloger.  När en icke-administratörs användare som har behörighet att bli en katalog skapare skapar en ny katalog blir de automatiskt ägare till den katalogen. |
 | ansluten organisation | En extern Azure AD-katalog eller domän som du har en relation med. Användare från en ansluten organisation kan anges i en princip som tillåts begära åtkomst. |
 | policy | En uppsättning regler som definierar åtkomst livs cykeln, till exempel hur användare får åtkomst, vem som kan godkänna och hur länge användare har åtkomst via en tilldelning. En princip är länkad till ett Access-paket. Ett åtkomst paket kan till exempel ha två principer – en för anställda att begära åtkomst och en sekund för externa användare för att begära åtkomst. |
-| Klusterresursen | En till gång, till exempel en Office-grupp, en säkerhets grupp, ett program eller en SharePoint Online-webbplats, med en roll som en användare kan beviljas behörighet till. |
+| klusterresursen | En till gång, till exempel en Office-grupp, en säkerhets grupp, ett program eller en SharePoint Online-webbplats, med en roll som en användare kan beviljas behörighet till. |
 | resurs katalog | En katalog som har en eller flera resurser som ska delas. |
 | resurs roll | En samling behörigheter som är kopplade till och som definieras av en resurs. En grupp har två roller – medlem och ägare. SharePoint-webbplatser har normalt tre roller, men kan ha ytterligare anpassade roller. Program kan ha anpassade roller. |
 

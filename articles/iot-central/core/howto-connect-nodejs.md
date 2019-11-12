@@ -1,5 +1,5 @@
 ---
-title: Anslut ett allmänt Node. js-klientprogram till Azure IoT Central | Microsoft Docs
+title: Anslut en generisk Node. js-klient till Azure IoT Central | Microsoft Docs
 description: Som enhets utvecklare, hur du ansluter en generisk Node. js-enhet till ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951372"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930244"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klient program till ditt Azure IoT Central-program (Node. js)
 
@@ -36,7 +36,7 @@ I ditt Azure IoT Central-program behöver du en enhets mall med följande mått,
 
 Lägg till följande telemetri på sidan **mått** :
 
-| Visningsnamn | Fältnamn  | Enheter | Min | Max. | Antal decimaler |
+| Visningsnamn | Fältnamn  | Enheter | Min | Max | Antal decimaler |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatur  | temperatur | F     | 60  | 110 | 0              |
 | Fuktighet     | luftfuktighet    | %     | 0   | 100 | 0              |
@@ -64,7 +64,7 @@ Ange fält namn exakt som de visas i tabellen i enhets mal len. Om fält namnen 
 
 Lägg till följande händelse på sidan **mått** :
 
-| Visningsnamn | Fältnamn  | Allvarsgrad |
+| Visningsnamn | Fältnamn  | Severity |
 | ------------ | ----------- | -------- |
 | Överhettning  | overheat    | Fel    |
 
@@ -98,7 +98,7 @@ Ange fält namnen exakt som de visas i tabellen i enhets mal len. Om fält namne
 
 Lägg till följande **nummer** inställningar på sidan **Inställningar** :
 
-| Visningsnamn    | Fältnamn     | Enheter | decimaler | Min | Max.  | Grund |
+| Visningsnamn    | Fältnamn     | Enheter | decimaler | Min | Max  | Grund |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fläkt hastighet       | fanSpeed       | varvtal   | 0        | 0   | 3000 | 0       |
 | Ange temperatur | angeTemperatur | F     | 0        | 20  | 200  | 80      |
@@ -111,7 +111,7 @@ Lägg till följande kommando på sidan **kommandon** :
 
 | Visningsnamn    | Fältnamn     | Standardvärde för tidsgräns | Datatyp |
 | --------------- | -------------- | --------------- | --------- |
-| Tids       | tids      | 30              | nummer    |
+| Tids       | Tids      | 30              | nummer    |
 
 Lägg till följande ingångs fält i nedräknings kommandot:
 

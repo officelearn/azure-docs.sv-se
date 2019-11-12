@@ -1,5 +1,5 @@
 ---
-title: Skapa och hantera regler för telemetri i ditt Azure IoT Central-program | Microsoft Docs
+title: Använda regler för telemetri i ditt Azure IoT Central-program | Microsoft Docs
 description: Med regler för Azure IoT Central telemetri kan du övervaka dina enheter i nära real tid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande, när regeln utlöses.
 author: ankitgupta
 ms.author: ankitgup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d586f899a46a1404af6e798eda4d783a5a7ead85
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953790"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930188"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera aviseringar i ditt Azure IoT Central-program
 
@@ -25,7 +25,7 @@ Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter
 
 Enheter kan använda telemetri mått för att skicka numeriska data från enheten. En regel för telemetri utlöses när den valda enhetens telemetri korsar ett angivet tröskelvärde.
 
-## <a name="create-a-telemetry-rule"></a>Skapa en telemetri-regel
+## <a name="create-a-telemetry-rule"></a>Skapa en regel för telemetri
 
 För att skapa en telemetri-regel måste enhets mal len ha minst en definierad telemetri mått. I det här exemplet används en kyld Vending-enhet som skickar telemetri för temperatur och fuktighet. Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när det hamnar ovanför 80 grader.
 

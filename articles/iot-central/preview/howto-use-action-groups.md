@@ -8,20 +8,20 @@ ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: b4dbf94d4b0063eadaa900a684a31e5288ff50f9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e51a2fc7e3af9a56b90a66935ef01ac907ebce3b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895623"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929902"
 ---
-# <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppera flera åtgärder för att köra från en eller flera regler
+# <a name="group-multiple-actions-to-run-from-one-or-more-rules-preview-features"></a>Gruppera flera åtgärder för att köra från en eller flera regler (för hands versions funktioner)
 
 *Den här artikeln gäller för byggare och administratörer.*
 
 I Azure IoT Central skapar du regler för att köra åtgärder när ett villkor uppfylls. Regler baseras på telemetri eller händelser på enheten. Du kan till exempel meddela en operatör när temperaturen på en enhet överskrider ett tröskelvärde. Den här artikeln beskriver hur du använder [Azure Monitor](../../azure-monitor/overview.md) *Åtgärds grupper* för att koppla flera åtgärder till en IoT Central-regel. Du kan koppla en åtgärds grupp till flera regler. En [Åtgärds grupp](../../azure-monitor/platform/action-groups.md) är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Ett program som du betalar per användning
 - Ett Azure-konto och-prenumeration för att skapa och hantera Azure Monitor åtgärds grupper

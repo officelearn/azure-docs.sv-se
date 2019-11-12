@@ -259,8 +259,6 @@
               href: howto-read-replicas-cli.md
     - name: Hyperskala (Citus)
       items:
-        - name: Skapa användare
-          href: howto-hyperscale-create-users.md
         - name: Skala
           href: howto-hyperscale-scaling.md
         - name: Hantera brandväggen

@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Distribuera en app från ett geo-replikerat Docker-register i Azure
+title: Självstudie – distribuera appar från geo-replikerad Azure Container Registry
 description: Distribuera en Linux-baserad webbapp till två olika Azure-regioner med hjälp av en containeravbildning från ett geo-replikerat Azure-containerregister. Del två av en serie i tre delar.
 services: container-registry
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0aebc31e1b8e6849d4cc0aeccc0e0a79edf0e65d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146906"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931420"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett georeplikerat Azure-containerregister
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett geo-replikerat Azure Container Registry
 
 Det här är del två i en serie självstudier i tre delar. I [del ett](container-registry-tutorial-prepare-registry.md) skapade vi ett privat geo-replikerat containerregister, och en containeravbildning skapades från källan och pushades till registret. I den här artikeln drar du nytta av den nätverksnära aspekten av det geo-replikerade registret genom att distribuera containern till två Web App-instanser i två olika Azure-regioner. Varje instans hämtar sedan containeravbildningen från det närmaste registret.
 
@@ -50,7 +50,7 @@ Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte h
 
 Ange följande värden för varje inställning under **Web App for Containers**, som visas när du har valt ”Distribuera till webbapp”:
 
-| Inställning | Value |
+| Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
@@ -61,7 +61,7 @@ Ange följande värden för varje inställning under **Web App for Containers**,
 > [!NOTE]
 > När du skapar en ny app service-plan för att distribuera din behållare, väljs automatiskt en standard plan som är värd för ditt program. Standard planen beror på inställningen för operativ systemet.
 
-Etablera webbappen i regionen *USA, västra* genom att välja **Skapa**.
+Etablera webbappen i regionen **USA, västra** genom att välja *Skapa*.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-02]
 
@@ -83,7 +83,7 @@ När Docker-avbildningen har distribuerats från din geo-replikerade container, 
 
 Distribuera en andra webbapp till regionen *USA, östra* med den procedur som beskrivs i föregående avsnitt. Ange följande värden under **Web App for Containers**:
 
-| Inställning | Value |
+| Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
@@ -91,7 +91,7 @@ Distribuera en andra webbapp till regionen *USA, östra* med den procedur som be
 | **Avbildning** | `acr-helloworld:v1` |
 | **Operativsystem** | Linux |
 
-Etablera webbappen i regionen *USA, östra* genom att välja **Skapa**.
+Etablera webbappen i regionen **USA, östra** genom att välja *Skapa*.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-06]
 

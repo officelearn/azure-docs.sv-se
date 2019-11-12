@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: a6d38a9196d640ebc823b4f25e089cc04193212b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f9e5b5a70f7398483d5359a0489d5a6e6b241c6d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845749"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928195"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – katastrof återställning för Hyper-V till Azure
 
@@ -44,14 +44,14 @@ Vad du behöver för Hyper-V-värdservern beror på distributionsscenariot. Du h
 * Om du replikerar till Azure stöder Site Recovery alla gäst operativ system som [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Kan jag skydda virtuella datorer när Hyper-V körs på ett klient operativ system?
-Nej, virtuella datorer måste finnas på en Hyper-V-värdserver som körs på en Windows-serverdator som stöds. Om du behöver skydda en klient dator kan du replikera den som en fysisk dator till [Azure](site-recovery-vmware-to-azure.md) eller ett sekundärt [Data Center](site-recovery-vmware-to-vmware.md).
+Nej, virtuella datorer måste finnas på en Hyper-V-värdserver som körs på en Windows-serverdator som stöds. Om du behöver skydda en klient dator kan du replikera den som en fysisk dator till [Azure](site-recovery-vmware-to-azure.md) eller ett [sekundärt Data Center](site-recovery-vmware-to-vmware.md).
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Behöver Hyper-V-värdar finnas i VMM-moln?
 Om du vill replikera till ett sekundärt Data Center måste virtuella Hyper-V-datorer finnas på Hyper-V-värdar som finns i ett VMM-moln. Om du vill replikera till Azure kan du replikera virtuella datorer med eller utan VMM-moln. [Läs mer](tutorial-hyper-v-to-azure.md) om Hyper-V-replikering till Azure.
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Kan jag replikera virtuella Hyper-V-datorer i generation 2 till Azure?
-Ja. Site Recovery konverterar från generation 2 till generation 1 under redundansväxlingen. Vid återställning efter fel, konverteras datorn tillbaka till generation 2. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Ja. Site Recovery konverterar från generation 2 till generation 1 under redundansväxlingen. Vid återställning efter fel, konverteras datorn tillbaka till generation 2. [Lär dig mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Kan jag distribuera Site Recovery med VMM om jag bara har en VMM-server?
@@ -83,11 +83,11 @@ Ja, både kryptering under överföring och [kryptering i Azure](https://docs.mi
 
 ### <a name="what-can-i-do-with-hyper-v-to-azure-replication"></a>Vad kan jag göra med Hyper-V till Azure-replikering?
 
-- **Haveri beredskap**: Du kan ställa in fullständig haveri beredskap. I det här scenariot replikerar du lokala virtuella Hyper-V-datorer till Azure Storage:
+- **Haveri beredskap**: du kan ställa in fullständig haveri beredskap. I det här scenariot replikerar du lokala virtuella Hyper-V-datorer till Azure Storage:
     - Du kan replikera virtuella datorer till Azure. Om din lokala infrastruktur inte är tillgänglig växlar du över till Azure.
     - När du växlar över skapas virtuella Azure-datorer med hjälp av replikerade data. Du kan komma åt appar och arbets belastningar på virtuella Azure-datorer.
     - När ditt lokala data Center är tillgängligt igen kan du växla tillbaka från Azure till din lokala plats.
-- **Migrering**: Du kan använda Site Recovery för att migrera lokala virtuella Hyper-V-datorer till Azure Storage. Sedan växlar du över från en lokal plats till Azure. Efter redundansväxlingen är dina appar och arbets belastningar tillgängliga och körs på virtuella Azure-datorer.
+- **Migrering**: du kan använda Site Recovery för att migrera lokala virtuella Hyper-V-datorer till Azure Storage. Sedan växlar du över från en lokal plats till Azure. Efter redundansväxlingen är dina appar och arbets belastningar tillgängliga och körs på virtuella Azure-datorer.
 
 
 ### <a name="what-do-i-need-on-premises"></a>Vad behöver jag lokalt?
@@ -147,16 +147,16 @@ Du kan replikera alla appar eller arbets belastningar som kör en virtuell Hyper
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>Kan jag replikera till Azure med en plats-till-plats-VPN?
 
-Site Recovery replikerar data från en lokal plats till Azure Storage via en offentlig slut punkt eller använder ExpressRoute offentlig peering. Replikering över ett VPN-nätverk för plats-till-plats stöds inte.
+Site Recovery replikerar data från en lokal plats till Azure Storage över en offentlig slut punkt eller använder ExpressRoute Microsoft-peering. Replikering över ett VPN-nätverk för plats-till-plats stöds inte.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan jag replikera till Azure med ExpressRoute?
 
-Ja, ExpressRoute kan användas för att replikera virtuella datorer till Azure. Site Recovery replikerar data till ett Azure Storage konto över en offentlig slut punkt och du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) för Site Recovery replikering. När de virtuella datorerna har redundansväxlats till ett virtuellt Azure-nätverk kan du komma åt dem via [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Ja, ExpressRoute kan användas för att replikera virtuella datorer till Azure. Site Recovery replikerar data till ett Azure Storage konto över en offentlig slut punkt och du måste konfigurera Microsoft- [peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) för Site Recovery replikering. När de virtuella datorerna har redundansväxlats till ett virtuellt Azure-nätverk kan du komma åt dem via [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan jag inte replikera via VPN?
 
-När du replikerar till Azure når replikeringstrafiken de offentliga slut punkterna för ett Azure Storage konto. Därför kan du bara replikera över det offentliga Internet med ExpressRoute (offentlig peering) och VPN fungerar inte. 
+När du replikerar till Azure når replikeringstrafiken de offentliga slut punkterna för ett Azure Storage konto. Därför kan du bara replikera över det offentliga Internet med ExpressRoute (Microsoft-peering), och VPN fungerar inte. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är de replikerade VM-kraven?
 
@@ -224,8 +224,8 @@ När din lokala infrastruktur är igång igen kan du växla tillbaka. Återstäl
 
 1. Du kan starta en planerad redundansväxling från Azure till den lokala platsen med ett par olika alternativ:
 
-    - Minimera nedtid: Om du använder det här alternativet Site Recovery synkroniserar data före redundansväxlingen. Den söker efter ändrade data block och laddar ned dem till den lokala platsen, medan den virtuella Azure-datorn fortsätter att köras, vilket minimerar stillestånds tiden. När du anger att redundansväxlingen ska slutföras manuellt stängs den virtuella Azure-datorn, eventuella ändringar i ändringarna kopieras och redundansväxlingen startar.
-    - Fullständig nedladdning: Med det här alternativet synkroniseras data under redundansväxlingen. Med det här alternativet hämtas hela disken. Det är snabbare eftersom inga kontroll summor beräknas, men det finns mer stillestånds tid. Använd det här alternativet om du har kört replikeringen av virtuella Azure-datorer under en tid, eller om den lokala virtuella datorn har tagits bort.
+    - Minimera nedtid: om du använder det här alternativet Site Recovery synkroniserar data före redundans. Den söker efter ändrade data block och laddar ned dem till den lokala platsen, medan den virtuella Azure-datorn fortsätter att köras, vilket minimerar stillestånds tiden. När du anger att redundansväxlingen ska slutföras manuellt stängs den virtuella Azure-datorn, eventuella ändringar i ändringarna kopieras och redundansväxlingen startar.
+    - Fullständig nedladdning: med dessa alternativ data synkroniseras under redundansväxlingen. Med det här alternativet hämtas hela disken. Det är snabbare eftersom inga kontroll summor beräknas, men det finns mer stillestånds tid. Använd det här alternativet om du har kört replikeringen av virtuella Azure-datorer under en tid, eller om den lokala virtuella datorn har tagits bort.
 
 2. Du kan välja att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
 3. När den första synkroniseringen är klar väljer du att slutföra redundansväxlingen. När den är klar kan du logga in på den lokala virtuella datorn för att kontrol lera att allt fungerar som förväntat. I Azure Portal kan du se att de virtuella Azure-datorerna har stoppats.

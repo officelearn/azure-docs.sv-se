@@ -1,7 +1,7 @@
 ---
-title: Machine Learning CLI-tillägg
+title: CLI-tillägg
 titleSuffix: Azure Machine Learning
-description: Lär dig mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett kommando rads verktyg för flera plattformar som gör att du kan arbeta med resurser i Azure-molnet. Med tillägget Machine Learning kan du arbeta med Azure Machine Learning.
+description: Lär dig mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett kommando rads verktyg för flera plattformar som gör att du kan arbeta med resurser i Azure-molnet. Med tillägget Machine Learning kan du arbeta med Azure Machine Learning. ML CLI skapar och hanterar resurser som din arbets yta, data lager, data uppsättningar, pipelines, modeller och distributioner.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e775689da93b5197d1c2f7d130466c2afc8391e4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619959"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932080"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Azure Machine Learning CLI är ett tillägg till [Azure CLI](https://docs.micros
 
 CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplett verktyg som är optimerat för att hantera mycket parameterstyrda uppgifter som passar bra för automatisering.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -104,7 +104,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    Det här kommandot skapar en `.azureml`-underkatalog som innehåller exempel på runconfig-och Conda-miljöfiler. Den innehåller också en `config.json`-fil som används för att kommunicera med din Azure Machine Learning-arbetsyta.
+    Det här kommandot skapar en `.azureml` under katalog som innehåller exempel på runconfig-och Conda-miljöfiler. Den innehåller också en `config.json`-fil som används för att kommunicera med din Azure Machine Learning-arbetsyta.
 
     Mer information finns i [AZ ml Folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 

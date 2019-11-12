@@ -1,5 +1,5 @@
 ---
-title: Begränsa åtkomsten till ett Azure Container Registry från ett virtuellt nätverk
+title: Begränsa åtkomsten till Azure Container Registry med ett virtuellt nätverk
 description: Tillåt endast åtkomst till ett Azure Container Registry från resurser i ett virtuellt Azure-nätverk eller från offentliga IP-adressintervall.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5ba5c180def9539c486fb8727a0a78b4f98fa185
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619880"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931324"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure Container Registry med hjälp av ett virtuellt Azure-nätverk eller brand Väggs regler
 
@@ -38,11 +38,11 @@ Om du i stället behöver konfigurera åtkomst regler för resurser för att nå
 
 * Varje register stöder högst 100 virtuella nätverks regler.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * För att kunna använda Azure CLI-stegen i den här artikeln krävs Azure CLI version 2.0.58 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-* Om du inte redan har ett behållar register måste du skapa ett (Premium-SKU krävs) och skicka en `hello-world` exempel avbildning, till exempel från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
+* Om du inte redan har ett behållar register, skapar du ett (Premium-SKU krävs) och push-överför en exempel avbildning som `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
 
 * Om du vill begränsa åtkomsten till registret med ett virtuellt nätverk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Exempel:
 
@@ -54,7 +54,7 @@ Om du i stället behöver konfigurera åtkomst regler för resurser för att nå
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Om nätverks regler för ett behållar register
 
-Ett Azure Container Registry som standard accepterar anslutningar via Internet från värdar i ett nätverk. Med ett virtuellt nätverk kan du bara tillåta Azure-resurser, till exempel ett AKS-kluster eller en virtuell Azure-dator för säker åtkomst till registret, utan att korsa en nätverks gräns. Du kan också konfigurera nätverks brand Väggs regler för att vitlista angivna offentliga IP-adressintervall. 
+Ett Azure Container Registry som standard accepterar anslutningar via Internet från värdar i ett nätverk. Med ett virtuellt nätverk kan du bara tillåta Azure-resurser, till exempel ett AKS-kluster eller en virtuell Azure-dator för säker åtkomst till registret, utan att korsa en nätverks gräns. Du kan också konfigurera regler för nätverks brand väggen så att de endast tillåter vissa offentliga IP-adressintervall för Internet. 
 
 Om du vill begränsa åtkomsten till ett register måste du först ändra standard åtgärden för registret så att det nekar alla nätverks anslutningar. Lägg sedan till nätverks åtkomst regler. Klienter som beviljats åtkomst via nätverks reglerna måste fortsätta att [autentisera till behållar registret](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) och ha behörighet att komma åt data.
 
@@ -62,7 +62,7 @@ Om du vill begränsa åtkomsten till ett register måste du först ändra standa
 
 Om du vill tillåta åtkomst från ett undernät i ett virtuellt nätverk måste du lägga till en [tjänst slut punkt](../virtual-network/virtual-network-service-endpoints-overview.md) för Azure Container Registry tjänsten. 
 
-Tjänster för flera innehavare, t. ex. Azure Container Registry, använder en enda uppsättning IP-adresser för alla kunder. En tjänst slut punkt tilldelar en slut punkt för att få åtkomst till ett register. Den här slut punkten ger trafiken en optimal väg till resursen över Azure stamnät nätverket. Identiteten för det virtuella nätverket och undernätet överförs även med varje begäran.
+Tjänster för flera innehavare, t. ex. Azure Container Registry, använder en enda uppsättning IP-adresser för alla kunder. En tjänst slut punkt tilldelar en slut punkt för att få åtkomst till ett register. Den här slut punkten ger trafiken en optimal väg till resursen över Azure stamnät nätverket. Identiteterna för det virtuella nätverket och under nätet skickas också med varje begäran.
 
 ### <a name="firewall-rules"></a>Brandväggsregler
 
@@ -89,7 +89,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa den virtuella datorn. När kommandot har slutförts noterar du det `publicIpAddress` som visas av Azure CLI. Använd den här adressen om du vill göra SSH-anslutningar till den virtuella datorn och eventuellt senare konfigurera brand Väggs regler.
+Det tar några minuter att skapa den virtuella datorn. När kommandot har slutförts noterar du `publicIpAddress` som visas av Azure CLI. Använd den här adressen om du vill göra SSH-anslutningar till den virtuella datorn och eventuellt senare konfigurera brand Väggs regler.
 
 ### <a name="install-docker-on-the-vm"></a>Installera Docker på den virtuella datorn
 
@@ -111,7 +111,7 @@ Efter installationen kör du följande kommando för att kontrol lera att Docker
 sudo docker run -it hello-world
 ```
 
-Utdata:
+Resultat:
 
 ```
 Hello from Docker!
@@ -139,7 +139,7 @@ När du skapar en virtuell dator skapar Azure som standard ett virtuellt nätver
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
 ```
 
-Utdata:
+Resultat:
 
 ```console
 [
@@ -171,7 +171,7 @@ az network vnet subnet show \
   --output tsv
 ``` 
 
-Utdata:
+Resultat:
 
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
@@ -218,7 +218,7 @@ Som standard tillåter ett Azure Container Registry anslutningar från värdar i
 
 1. I portalen navigerar du till behållar registret.
 1. Under **Inställningar**väljer du **brand vägg och virtuella nätverk**.
-1. Om du vill neka åtkomst som standard välja att tillåta åtkomst från **valda nätverk**. 
+1. Om du vill neka åtkomst som standard väljer du att tillåta åtkomst från **valda nätverk**. 
 1. Välj **Lägg till befintligt virtuellt nätverk**och välj det virtuella nätverk och undernät som du har konfigurerat med en tjänst slut punkt. Välj **Lägg till**.
 1. Välj **Spara**.
 
@@ -310,7 +310,7 @@ Efter några minuter efter att konfigurationen uppdaterats, verifiera att den vi
 az acr login --name mycontainerregistry
 ```
 
-Du kan utföra register åtgärder som att köra `docker pull` för att hämta en exempel avbildning från registret. Ersätt en bild och ett tagg värde som är lämpligt för ditt register, med prefixet för inloggnings Server namnet för registret (alla gemener):
+Du kan utföra register åtgärder som kör `docker pull` för att hämta en exempel avbildning från registret. Ersätt en bild och ett tagg värde som är lämpligt för ditt register, med prefixet för inloggnings Server namnet för registret (alla gemener):
 
 ```bash
 docker pull mycontainerregistry.azurecr.io/hello-world:v1
@@ -318,7 +318,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 Docker hämtar avbildningen till den virtuella datorn.
 
-Det här exemplet visar att du kan komma åt den privata behållar registret via nätverks åtkomst regeln. Registret kan dock inte nås från en annan inloggnings värd som inte har någon konfigurerad nätverks åtkomst regel. Om du försöker logga in från en annan värd med `az acr login` hjälp av `docker login` kommandot eller kommandot ser utdata ut ungefär så här:
+Det här exemplet visar att du kan komma åt den privata behållar registret via nätverks åtkomst regeln. Registret kan dock inte nås från en annan inloggnings värd som inte har någon konfigurerad nätverks åtkomst regel. Om du försöker logga in från en annan värd med kommandot `az acr login` eller `docker login`, ser utdata ut ungefär så här:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden

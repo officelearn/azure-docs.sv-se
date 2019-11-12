@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 7d8ed5ebde946134bc7e4779ec79c9ea853a6ef4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895194"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930137"
 ---
-# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program
+# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program (för hands versions funktioner)
 
 Den här artikeln visar hur du ansluter en DevKit-enhet (MXChip IoT DevKit) till ett Azure IoT Central-program. Enheten använder den certifierade IoT Plug and Play-modellen för DevKit-enheten för att konfigurera anslutningen till IoT Central.
 
@@ -25,7 +25,7 @@ I den här instruktions artikeln kan du:
 - Förbered enheten och Anslut den till ditt IoT Central-program.
 - Visa telemetri och egenskaper från enheten i IoT Central.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 

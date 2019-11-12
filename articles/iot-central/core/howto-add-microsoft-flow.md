@@ -1,5 +1,5 @@
 ---
-title: Bygg arbets flöden med Azure IoT Central Connector i Microsoft Flow | Microsoft Docs
+title: Använd Azure IoT Central-anslutningen i Microsoft Flow | Microsoft Docs
 description: Använd IoT Central-anslutningen i Microsoft Flow för att utlösa arbets flöden och skapa, Hämta, uppdatera, ta bort enheter och köra kommandon i arbets flöden.
 services: iot-central
 author: viv-liu
@@ -8,12 +8,12 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 258020c8ccd690c524460873387293e73fc89125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f1912b90df75f3d85f6ba5d730c723cf42803237
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951736"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930384"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Bygg arbets flöden med IoT Central Connector i Microsoft Flow
 
@@ -157,7 +157,7 @@ Här är ett exempel på ett arbets flöde som tar bort en enhet vid en knapp tr
 
    ![Flöde ta bort arbets flöde för enhet](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du har problem med att skapa en anslutning till Azure IoT Central-anslutningen finns här några tips som hjälper dig.
 

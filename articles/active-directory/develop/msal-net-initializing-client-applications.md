@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f15f6480c2dc77fb1f6e229b62a0114f0f6fb735
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a8cf7b7004097ef5a4d915d8fdff60cc9606c5be
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802831"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927083"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initiera klient program med MSAL.NET
 I den här artikeln beskrivs hur du initierar offentlig klient och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).  Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
@@ -101,7 +101,7 @@ I kodfragmenten med hjälp av program byggare kan ett antal `.With` metoder anv�
 
 De modifierare som du kan ställa in på en offentlig klient eller en konfidentiell klient Application Builder är:
 
-|Parameter | Beskrivning|
+|Modifieraren | Beskrivning|
 |--------- | --------- |
 |åsidosättningar för `.WithAuthority()` 7 | Ställer in program standard auktoritet till en Azure AD-auktoritet, med möjligheten att välja Azure-moln, mål grupp, klient organisation (klient-ID eller domän namn) eller tillhandahålla direkt auktoritets-URI: n.|
 |`.WithAdfsAuthority(string)` | Anger att program standard utfärdaren ska vara en ADFS-auktoritet.|
@@ -120,7 +120,7 @@ De modifierare som du kan ställa in på en offentlig klient eller en konfidenti
 
 De modifierare som du kan ställa in i en offentlig klient programs Builder på Xamarin. iOS är:
 
-|Parameter | Beskrivning|
+|Modifieraren | Beskrivning|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin. iOS**: anger säkerhets gruppen för iOS-nyckelpar (för cacheminnet).|
 
@@ -128,7 +128,7 @@ De modifierare som du kan ställa in i en offentlig klient programs Builder på 
 
 De modifierare som du kan ställa in i ett konfidentiellt klient program verktyg är:
 
-|Parameter | Beskrivning|
+|Modifieraren | Beskrivning|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Anger det certifikat som identifierar programmet med Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Anger klient hemligheten (app Password) som identifierar programmet med Azure AD.|

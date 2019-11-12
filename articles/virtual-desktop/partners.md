@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: helohr
-ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: dc93480807f34a79ee02f628f7b6f090c7efa428
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646869"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931708"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -59,7 +59,7 @@ ControlUp är en Windows-Provider för mervärdes tjänster för virtuella dator
 
 När det används med Windows Virtual Desktop tillhandahåller ControlUp ytterligare funktioner för att optimera Windows-miljöer för virtuella skriv bord och slutanvändaren. Från ControlUp-konsolen får du en miljö för slut användar miljö för att effektivt övervaka och felsöka prestanda problem. En intuitiv instrument panel ger insikter och analyser för distributioner av virtuella skriv bord, samt alternativ för automatiserad rapportering som berikas med community-benchmarks. ControlUp kan hantera flera data källor och-typer och organisera dem i data uppsättningar med hög prestanda som sammanställs i beräknings-, lagrings-och Windows-infrastruktur för virtuella datorer, vilket ger detaljerad insyn från en enda ruta i glaset.
 
-- [Se lösningen för att ansluta till kort](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Gå till partner webbplatsen](https://www.controlup.com/solutions/ms_wvd/).
 
 ## <a name="devicetrust"></a>deviceTRUST

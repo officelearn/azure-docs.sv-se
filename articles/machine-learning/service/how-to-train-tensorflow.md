@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3d5a61b93175559bce92a17e27602a4f79d88ad
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4a055e039e8d7629f3ff1c20c6ce9e4f1533b6b9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603965"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931033"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Bygg en TensorFlow djup inlärnings modell i skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Oavsett om du utvecklar en TensorFlow-modell från grunden eller om du använder
 
 Lär dig mer om [djup inlärning vs Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer:
 
@@ -183,10 +183,17 @@ När körningen körs går den igenom följande steg:
 
 ## <a name="register-or-download-a-model"></a>Registrera eller ladda ned en modell
 
-När du har tränat modellen kan du registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md).
+När du har tränat modellen kan du registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md). Genom att ange parametrarna `model_framework`, `model_framework_version`och `resource_configuration`blir modell distribution utan kod tillgängligt. På så sätt kan du distribuera din modell direkt som en webb tjänst från den registrerade modellen och `ResourceConfiguration`-objektet definierar beräknings resursen för webb tjänsten.
 
 ```Python
-model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = run.register_model(model_name='tf-dnn-mnist', 
+                           model_path='outputs/model',
+                           model_framework=Model.Framework.TENSORFLOW,
+                           model_framework_version='1.13.0',
+                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
 Du kan också hämta en lokal kopia av modellen med hjälp av objektet kör. I övnings skriptet `mnist-tf.py`behåller ett TensorFlow-sparfunktionen modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia.
@@ -259,7 +266,7 @@ estimator= TensorFlow(source_directory=project_folder,
 run = exp.submit(tf_est)
 ```
 
-#### <a name="define-cluster-specifications-in-tf_config"></a>Definiera kluster specifikationer i "TF_CONFIG"
+#### <a name="define-cluster-specifications-in-tf_config"></a>Definiera kluster specifikationer i TF_CONFIG
 
 Du behöver också nätverks adresser och portar i klustret för [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), så Azure Machine Learning anger miljövariabeln `TF_CONFIG`.
 
@@ -292,13 +299,24 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
+## <a name="deployment"></a>Distribution
+
+Den modell som du precis har registrerat kan distribueras exakt på samma sätt som andra registrerade modeller i Azure Machine Learning, oavsett vilken uppskattning som du använde för utbildning. Distributions anvisningar innehåller ett avsnitt om att registrera modeller, men du kan hoppa direkt till att [skapa ett beräknings mål](how-to-deploy-and-where.md#choose-a-compute-target) för distribution, eftersom du redan har en registrerad modell.
+
+### <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
+
+I stället för den traditionella distributions vägen kan du också använda funktionen utan kod distribution (för hands version) för Tensorflow. Genom att registrera din modell som visas ovan med parametrarna `model_framework`, `model_framework_version`och `resource_configuration` kan du bara använda `deploy()` statiska funktionen för att distribuera modellen.
+
+```python
+service = Model.deploy(ws, "tensorflow-web-service", [model])
+```
+
+Den fullständiga [instruktionen att](how-to-deploy-and-where.md) distribuera i Azure Machine Learning större djup.
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du tränat och registrerat en TensorFlow-modell. Om du vill lära dig hur du distribuerar en modell till ett GPU-aktiverat kluster kan du fortsätta till vår distributions artikel för GPU-modellen.
+I den här artikeln har du tränat och registrerat en TensorFlow-modell och lärt dig om distributions alternativen. Mer information om Azure Machine Learning finns i de här artiklarna.
 
-> [!div class="nextstepaction"]
-> [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)
 * [Spåra körnings mått under träning](how-to-track-experiments.md)
 * [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
-* [Distribuera en utbildad modell](how-to-deploy-and-where.md)
 * [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

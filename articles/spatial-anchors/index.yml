@@ -85,3 +85,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Beständig delning med Azure Cosmos DB.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-unity-hololens-app">Starta en ny Unity HoloLens-app.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">Starta en ny Android-app.</a>
+  - title: Viktig information
+    items:
+      - type: paragraph
+        text: '<a href="https://github.com/Azure/azure-spatial-anchors-samples/releases">Visa versionsinformation på GitHub.</a>'

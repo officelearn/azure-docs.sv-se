@@ -134,6 +134,8 @@
               href: azure-expressroute-connection.md
             - name: Konfigurera DNS-namnmatchning
               href: on-premises-dns-setup.md
+            - name: Konfigurera plats-till-plats-VPN-anslutningar med hög tillgänglighet
+              href: high-availability-vpn-connection.md
         - name: VMware-plattform
           items:
             - name: Lär dig behörighetsmodellen för privat moln

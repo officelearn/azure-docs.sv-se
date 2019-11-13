@@ -128,8 +128,6 @@
               href: virtual-nodes-cli.md
             - name: Använda Azure-portalen
               href: virtual-nodes-portal.md
-        - name: Använda Virtual Kubelet
-          href: virtual-kubelet.md
         - name: Använda klusterautoskalning
           href: cluster-autoscaler.md
         - name: Använda tillgänglighetszoner

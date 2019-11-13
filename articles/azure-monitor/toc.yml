@@ -1183,19 +1183,17 @@
               href: platform/autoscale-webhook-email.md
         - name: PowerShell
           items:
-            - name: Azure PowerShell-exempel
+            - name: Hantera med PowerShell
               href: platform/powershell-quickstart-samples.md
-            - name: PowerShell-cmdletar
+            - name: Skapa aviseringar
+              href: app/powershell-alerts.md
+            - name: Hantera Log Analytics
               href: platform/powershell-workspace-configuration.md
-            - name: Program
+            - name: Application Insights
               items:
-                - name: Skapa Application Insights-resurser
+                - name: Hantera Application Insights
                   href: app/powershell.md
-                - name: Skapa resurser
-                  href: app/powershell-script-create-resource.md
-                - name: Ange aviseringar
-                  href: app/powershell-alerts.md
-                - name: Hämta Azure Diagnostics
+                - name: Hantera Azure Cloud Services
                   href: app/powershell-azure-diagnostics.md
         - name: Azure CLI-exempel
           href: platform/cli-samples.md

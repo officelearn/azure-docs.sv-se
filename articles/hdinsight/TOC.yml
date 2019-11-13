@@ -35,6 +35,8 @@
       items:
         - name: Apache Hadoop-komponenter på HDInsight
           href: ./hdinsight-component-versioning.md
+        - name: Komponenter med hög tillgänglighet
+          href: ./hdinsight-high-availability-components.md
         - name: Maskininlärning i HDInsight
           href: ./hdinsight-machine-learning-overview.md
         - name: Direktuppspelning i skala i HDInsight

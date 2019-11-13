@@ -4,16 +4,16 @@ description: Så här uppgraderar du Snapshot Debugger till den senaste versione
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: MarioHewardt
-ms.author: marioh
+author: pharring
+ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: e2b21b7cbb6b04da0c93e73c0cacb8a05c338bde
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 51642dde3de16f2bed3ca247e573237effb30917
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899841"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935925"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Uppgradera Snapshot Debugger
 
@@ -21,35 +21,45 @@ För att tillhandahålla bästa möjliga säkerhet för dina data, flyttas Micro
 
 ## <a name="upgrading-the-site-extension"></a>Uppgradera webbplats tillägget
 
-Om du har aktiverat fel sökning av ögonblicks bilder med hjälp av webbplats tillägget kan du enkelt uppgradera med hjälp av följande procedur:
+> [!IMPORTANT]
+> Äldre versioner av Application Insights använt ett privat webbplats tillägg som kallas _Application Insights-tillägg för Azure App Service_. Den aktuella Application Insights upplevelsen aktive ras genom att ställa in appinställningar för att se till att ett förinstallerat plats tillägg visas.
+> För att undvika konflikter, vilket kan leda till att platsen slutar fungera, är det viktigt att du tar bort tillägget för den privata platsen först. Se steg 4 nedan.
+
+Om du har aktiverat fel sökning av ögonblicks bilder med hjälp av webbplats tillägget kan du uppgradera med hjälp av följande procedur:
 
 1. Logga in på Azure Portal.
 2. Navigera till din resurs som har Application Insights och ögonblicks bilds fel sökning aktive rad. För en webbapp går du till exempel till App Service resurs:
 
    ![Skärm bild av enskild App Service resurs med namnet DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
 
-3. När du har navigerat till din resurs klickar du på Application Insights på bladet översikt:
+3. När du har navigerat till din resurs klickar du på bladet tillägg och väntar på listan över tillägg som ska fyllas i:
+
+   ![Skärm bild av App Service tillägg som visar Application Insights-tillägget för Azure App Service installerade](./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png)
+
+4. Om någon version av _Application Insights-tillägget för Azure App Service_ är installerat väljer du den och klickar på ta bort. Bekräfta att **Ja** tar bort tillägget och vänta tills borttagningen har slutförts innan du fortsätter till nästa steg.
+
+   ![Skärm bild av App Service tillägg som visar Application Insights tillägg för Azure App Service med knappen Ta bort markerad](./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png)
+
+5. Gå till bladet översikt i resursen och klicka på Application Insights:
 
    ![Skärm bild av tre knappar. Knappen centrera med namnet Application Insights har valts](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-4. Ett nytt blad öppnas med de aktuella inställningarna. Om du inte vill ha möjlighet att ändra inställningarna kan du lämna dem som de är. Knappen **Använd** längst ned på bladet är inte aktive rad som standard och du måste växla en av inställningarna för att aktivera knappen. Du behöver inte ändra några faktiska inställningar, i stället för att ändra inställningen och sedan ändra tillbaka den direkt. Vi rekommenderar att du ställer in inställningen för profileraren och väljer **Använd**.
+6. Om det här är första gången du har sett Application Insights bladet för den här App Service, uppmanas du att aktivera Application Insights. Välj **aktivera Application Insights**.
+ 
+   ![Skärm bild av första gången du får Application Insights bladet med knappen Aktivera Application Insights markerat](./media/snapshot-debugger-upgrade/turn-on-application-insights.png)
+
+7. De aktuella Application Insights inställningarna visas. Om du inte vill ha möjlighet att ändra inställningarna kan du lämna dem som de är. Knappen **tillämpa** längst ned på bladet är inte aktive rad som standard och du måste växla en av inställningarna för att aktivera knappen. Du behöver inte ändra några faktiska inställningar, i stället för att ändra inställningen och sedan ändra tillbaka den direkt. Vi rekommenderar att du ställer in inställningen för profileraren och väljer **Använd**.
 
    ![Skärm bild av sidan Application Insights App Service konfiguration med knappen Använd markerad i rött](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-5. När du klickar på **Verkställ**uppmanas du att bekräfta ändringarna.
+8. När du klickar på **Verkställ**uppmanas du att bekräfta ändringarna.
 
     > [!NOTE]
     > Platsen kommer att startas om som en del av uppgraderings processen.
 
    ![Skärm bild av App Service Använd övervaknings fråga. Text ruta visar meddelande: "Vi kommer nu att tillämpa ändringar i dina appdata och installera våra verktyg för att länka din Application Insights-resurs till webbappen. Då startas webbplatsen om. Vill du fortsätta? "](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
-6. Klicka på **Ja** för att tillämpa ändringarna. Under processen visas ett meddelande som visar att ändringarna tillämpas:
-
-   ![Skärm bild av meddelandet tillämpa ändringar – uppdaterings tillägg som visas i det övre högra hörnet](./media/snapshot-debugger-upgrade/updating-extensions.png)
-
-När åtgärden har slutförts visas ett meddelande om att **ändringar har tillämpats** .
-
-   ![Skärm bild av meddelanden som talar om att ändringar används](./media/snapshot-debugger-upgrade/changes-are-applied.png)
+9. Klicka på **Ja** om du vill tillämpa ändringarna och vänta tills processen har slutförts.
 
 Platsen har nu uppgraderats och är redo att användas.
 

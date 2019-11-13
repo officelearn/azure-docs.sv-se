@@ -7,18 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: c30b918be5e4185d6fb4fdd2fcfc47f8dd4d25ef
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969173"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012146"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om säkerhets kopiering av filer och mappar
 
 Den här artikeln innehåller svar på vanliga frågor Abound säkerhets kopiering av filer och mappar med Microsoft Azure Recovery Services MARS-agenten i [Azure Backup](backup-overview.md) -tjänsten.
-
-## <a name="general"></a>Allmänt
 
 ## <a name="configure-backups"></a>Konfigurera säkerhets kopior
 
@@ -113,11 +111,11 @@ Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 
 1. Kör det här kommandot i en upphöjd kommando tolk för att stoppa säkerhets kopierings motorn:
 
-    ```PS C:\> Net stop obengine```
+    ```Net stop obengine```
 
 2. Om du har konfigurerat säkerhets kopiering av system tillstånd öppnar du disk hantering och avmonterar diskarna med namn i formatet `"CBSSBVol_<ID>"`.
 3. Flytta inte filerna. Kopiera i stället mappen cache Space till en annan enhet som har tillräckligt med utrymme.
-4. Uppdatera följande register poster med sökvägen till den nya cache-mappen.<br/>
+4. Uppdatera följande register poster med sökvägen till den nya cache-mappen.
 
     | Sökväg i registret | Registernyckel | Värde |
     | --- | --- | --- |
@@ -126,9 +124,11 @@ Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 
 5. Starta om säkerhets kopierings motorn i en upphöjd kommando tolk:
 
-    ```PS C:\> Net stop obengine```
+  ```command
+  Net stop obengine
 
-    ```PS C:\> Net start obengine```
+  Net start obengine
+  ```
 
 6. Kör en ad hoc-säkerhetskopiering. När säkerhets kopieringen har slutförts med den nya platsen kan du ta bort den ursprungliga cache-mappen.
 
@@ -143,7 +143,7 @@ Följande platser rekommenderas inte för cachelagringsmappen:
 
 Följande attribut eller deras kombinationer stöds inte för cachelagringsmappen:
 
-* Krypterad
+* Krypterade
 * Deduplicerade
 * Komprimerade
 * Utspridda

@@ -1,19 +1,18 @@
 ---
-title: Undanta diskar från replikering när du konfigurerar haveriberedskap med Azure Site Recovery-tjänsten | Microsoft Docs
-description: Beskriver hur du undantar VM-diskar från replikering under haveriberedskap till Azure.
+title: Exkludera diskar från replikering vid haveri beredskap med Azure Site Recovery
+description: Beskriver hur du undantar VM-diskar från replikering under haveri beredskap till Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 11/12/2019
 ms.author: mayg
-ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12304067e1a92559c2313fd7382f271249a8c784
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773953"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961445"
 ---
 # <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 Den här artikeln beskriver hur du undantar diskar från replikering. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan.
@@ -73,7 +72,7 @@ Diskarna på den virtuella källdatorn är följande:
 DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
 DB-Disk1| Disk1 | D:\ | SQL-systemdatabas och användardatabas1
 DB-Disk2 (disken har undantagits från skydd) | Disk2 | E:\ | Tillfälliga filer
-DB-Disk3 (disken har undantagits från skydd) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\) <br /> <br />Skriv ned mappsökvägen före redundansväxling.
+DB-Disk3 (disken har undantagits från skydd) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\) <br /> <br />Anteckna sökvägen till mappen före redundansväxlingen.
 DB-Disk4 | Disk4 |G:\ |Användardatabas2
 
 Eftersom dataomsättning på två diskar i den virtuella datorn är tillfällig ska du undanta Disk2 och Disk3 från replikering när du skyddar den virtuella SalesDB-datorn. Azure Site Recovery replikerar inte diskarna. Vid redundansväxlingen visas inte dessa diskar på den virtuella datorn som redundansväxlas på Azure.
@@ -83,7 +82,7 @@ Diskar på virtuella Azure-datorer efter redundansväxling är följande:
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhets beteckningen.
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
@@ -147,7 +146,7 @@ I föregående exempel är diskkonfigurationen av den virtuella Azure-datorn fö
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhets beteckningen.
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
@@ -197,7 +196,7 @@ Här följer inställningarna för växlingsfiler på den virtuella Azure-källd
 
 ![Inställningar för växlingsfiler på den virtuella Azure-datorn](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än d:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än D:)
 
 Här är diskkonfigurationen av den virtuella källdatorn:
 

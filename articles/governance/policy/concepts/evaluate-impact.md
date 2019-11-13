@@ -1,17 +1,14 @@
 ---
 title: Utvärdera effekten av en ny Azure-princip
 description: Förstå den process som ska följas när du introducerar en ny princip i Azure-miljön.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 2aee31d3e874f709d5ec30ed4ddc0ba0445d4130
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980751"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959832"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Utvärdera effekten av en ny Azure-princip
 

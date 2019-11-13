@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 611213f6cf0f51a8b6c6f7f89a795b2daa94a38a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693202"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953287"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Kör Distributionshanteraren för Azure Site Recovery för haveri beredskap i VMware till Azure
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Kör distributions planeraren för VMware haveri beredskap
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
 
 
@@ -74,7 +74,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfMinutesToProfile|Antal minuter som profileringen ska köras. Minimum är 30 minuter.|
 |-NoOfHoursToProfile|Antal timmar som profileringen ska köras.|
 | -NoOfDaysToProfile | Antal dagar som profileringen ska köras. Du bör köra profileringen i minst 7 dagar så att du fångar upp mönster för arbetsbelastningen i din miljö under den angivna perioden och kan generera en korrekt rekommendation. |
-|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC (Universal Naming Convention) eller lokal katalogsökväg för lagring av de profildata som genereras under profileringen. Om inget katalognamn anges används katalogen ”ProfiledData” under den aktuella sökvägen som standardkatalog. |
 | -Password | (Valfritt) Lösenord för att ansluta till vCenter-servern/vSphere ESXi-värden. Om du inte anger något värde nu uppmanas du att ange det när kommandot körs.|
 |-Port|(Valfritt) Portnummer för anslutning till vCenter/ESXi-värden. Standardporten är 443.|
@@ -119,7 +119,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exempel 3: Profilera virtuella datorer under 60 minuter för ett snabbtest av verktyget
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exempel 3: Profilera virtuella datorer i 60 minuter för ett snabbtest av verktyget
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
@@ -150,7 +150,7 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 | -Operation | GenerateReport |
 | -Server |  Fullständigt domännamn eller IP-adress för vCenter-/vSphere-servern (använd samma namn eller IP-adress som du använde vid profileringen) där de profilerade virtuella datorer som rapporten ska gälla finns. Tänk på att om du har använt en vCenter-server vid profileringen kan du inte använda en vSphere-server till rapportgenerering och tvärtom.|
 | -VMListFile | Den fil som innehåller listan över profilerade virtuella datorer som rapporten ska genereras för. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn eller en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara identiska med namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden, och vara desamma som vid profileringen.|
-|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om du inte anger något namn används katalogen ProfiledData. |
 | -GoalToCompleteIR | (Valfritt) Antalet timmar som den inledande replikeringen av de profilerade virtuella datorerna måste slutföras på. I den genererade rapporten anges det hur många virtuella datorer som den inledande replikeringen kan slutföras på inom den angivna tiden. Standardvärdet är 72 timmar. |
 | -User | (Valfritt) Användarnamn som ska användas för anslutning till vCenter-/vSphere-servern. Namnet används för att hämta den senaste konfigurationsinformationen för de virtuella datorerna, exempelvis antal diskar, antal kärnor och antal nätverkskort som ska användas i rapporten. Om du inte anger något namn används den konfigurationsinformation som samlades in i början av profileringen. |
@@ -260,7 +260,7 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 |Parameternamn | Beskrivning |
 |-|-|
 | -Operation | GetThroughput |
-|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om namnet på en katalog inte anges används katalogen ProfiledData. |
 | -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. Lagringskontot måste vara antingen av typen generell användning v1 (GPv1).|
 | -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > < *[lagringskontots namn]* > Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |

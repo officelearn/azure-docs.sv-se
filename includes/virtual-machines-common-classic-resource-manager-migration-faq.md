@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: c4f9334a91e99c92e74af060d84308a8aaccc6e7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c8629975d375dda32fdd9aee42b4ae09069a2049
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671263"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005413"
 ---
-# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Vanliga frågor och svar om migrering från klassiskt läge till Azure Resource Manager
-
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Påverkar den här migreringsplanen några befintliga tjänster eller program som körs på virtuella Azure-datorer? 
 
 Nej. De virtuella datorerna (klassiskt läge) är tjänster med fullständigt stöd och allmänt tillgängliga. Du kan fortsätta att använda de här resurserna för att utöka storleken på Microsoft Azure.
@@ -49,24 +47,24 @@ Nej. Vi har nyligen gjort det möjligt att [flytta ExpressRoute-kretsar från kl
 
 Under migreringen omformas resurserna från klassiskt läge till Resource Manager-läge. Vi rekommenderar att du planerar de RBAC-principuppdateringar som behövs efter migreringen.
 
-## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierat Mina klassiska virtuella datorer i ett valv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierat mina klassiska virtuella datorer i ett valv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
 
-<a name="vault">När</a> du flyttar en virtuell dator från klassisk till Resource Manager-läge, säkerhetskopieringar före migreringen kommer inte att migrera till ny migrerad Resource Manager-VM. Om du vill behålla dina säkerhetskopior av klassiska virtuella datorer följer du de här stegen före migreringen. 
+<a name="vault">När</a> du flyttar en virtuell dator från klassiskt läge till Resource Manager-läge migreras inte säkerhets kopior som togs innan migreringen till den nyligen migrerade Resource Manager-datorn. Men om du vill behålla dina säkerhets kopior av klassiska virtuella datorer följer du de här stegen innan du migrerar. 
 
-1. I Recovery Services-valv går du till den **skyddade objekt** fliken och markera den virtuella datorn. 
-2. Klicka på Avbryt skyddet. Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
+1. I Recovery Services-valvet går du till fliken **skyddade objekt** och väljer den virtuella datorn. 
+2. Klicka på stoppa skydd. Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
 
 > [!NOTE]
-> Du kommer att debiteras en kostnad för säkerhetskopiering instans tills du behålla data. Säkerhetskopior rensas Kvarhållningsintervall. Senaste säkerhetskopia sparas dock alltid tills du uttryckligen tar bort säkerhetskopierade data. Det är bäst att kontrollera din Kvarhållningsintervall på den virtuella datorn och utlösaren ”ta bort säkerhetskopieringsdata” för det skyddade objektet i valvet när kvarhållningsintervallet är över. 
+> Du debiteras reserv instans kostnaden för att spara data. Säkerhets kopior kommer att rensas enligt kvarhållningsintervall. Den senaste säkerhets kopian sparas dock alltid tills du uttryckligen tar bort säkerhetskopierade data. Vi rekommenderar att du kontrollerar kvarhållningsintervallet för den virtuella datorn och utlöser "ta bort säkerhets kopierings data" på det skyddade objektet i valvet när kvarhållningsintervallet är över. 
 >
 >
 
-Att migrera den virtuella datorn till Resource Manager-läge 
+För att migrera den virtuella datorn till Resource Manager-läge 
 
 1. Ta bort tillägget för säkerhetskopiering/ögonblicksbild från den virtuella datorn.
 2. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagrings- och nätverksinformationen för den virtuella datorn också migreras till Resource Manager-läge.
 
-Dessutom, om du vill säkerhetskopiera den migrerade virtuella datorn går du till bladet för hantering av virtuell dator till [Aktivera säkerhetskopiering](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Om du vill säkerhetskopiera den migrerade virtuella datorn går du vidare till bladet hantering av virtuell dator för att [Aktivera säkerhets kopiering](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Kan jag verifiera prenumeration eller resurser för att se om de kan migreras? 
 
@@ -88,6 +86,6 @@ Alla resursnamn som du uttryckligen angett i den klassiska distributionsmodellen
 
 ExpressRoute-kretsar som använder auktoriseringslänkar över flera prenumerationer migreras inte automatiskt utan driftavbrott. Det finns information om hur de kan migreras manuellt. Anvisningar och mer information finns i [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-migration-classic-resource-manager.md) (Migrera ExpressRoute-kretsar och tillhörande virtuella nätverk från klassisk till Resource Manager-distributionsmodell).
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Jag har fått meddelandet *”Virtuella datorn rapporterar övergripande agentstatus inte redo. Den virtuella datorn kan därför inte migreras. Se till att den Virtuella Datoragenten rapporterar övergripande agentstatus redo ”* eller *” den virtuella datorn innehåller tillägg vars Status inte har rapporteras från den virtuella datorn. Därför kan kan den här virtuella datorn inte migreras ”.*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Jag fick meddelandet *"den virtuella datorn rapporterar den övergripande agent statusen som inte klar. Den virtuella datorn kan därför inte migreras. Se till att den virtuella dator agenten rapporterar övergripande agent status som färdig "* eller *" VM innehåller tillägg vars status inte rapporteras från den virtuella datorn. Den här virtuella datorn kan därför inte migreras. "*
 
 Det här meddelandet visas när den virtuella datorn saknar utgående anslutning till Internet. Den virtuella datoragenten använder utgående anslutning till Azure Storage-konto för att uppdatera agentstatusen var femte minut.

@@ -1,5 +1,5 @@
 ---
-title: Exempel på Azure Service Fabric container Application-manifest | Microsoft Docs
+title: Exempel på manifest för Azure Service Fabric-program
 description: Lär dig hur du konfigurerar inställningar för program-och tjänst manifest för ett Service Fabric-program.
 services: service-fabric
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: dc3384821ddfba0a137a74297bc44903b6ed5d1d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 969f15ecb45164e3b3f26c22f756a022e55782ed
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650585"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013180"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Exempel på Service Fabric program-och tjänst manifest
 Det här avsnittet innehåller exempel på program-och tjänst manifest. De här exemplen är inte avsedda att Visa viktiga scenarier, men för att visa de olika inställningar som är tillgängliga och hur de används. 

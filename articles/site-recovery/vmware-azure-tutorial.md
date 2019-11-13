@@ -1,19 +1,19 @@
 ---
-title: Konfigurera katastrof återställning till Azure för lokala virtuella VMware-datorer med Azure Site Recovery
+title: Konfigurera haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery
 description: Lär dig att konfigurera haveriberedskap till Azure för lokala virtuella VMware-datorer med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e07b1d7e01d743bb46c8d5a21664bf68184c97dd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cfdb39fd3585eeeb2afb27749b42b0eaed1dfc33
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488454"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953629"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs hur du aktiverar replikering för lokala virtuella 
 Det här är den tredje självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala virtuella VMware-datorer. I den föregående själv studie kursen har vi för [berett den lokala VMware-miljön](vmware-azure-tutorial-prepare-on-premises.md) för haveri beredskap till Azure.
 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera inställningarna för replikeringskälla och en lokal Site Recovery konfigurations Server.
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Aktivera replikering för en virtuell VMware-dator.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 

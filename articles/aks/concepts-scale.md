@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 26cd2ffc12dfb93f07c2e1755a0dc41cc90da252
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472873"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961640"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalnings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -81,7 +81,7 @@ Om du snabbt vill skala ditt AKS-kluster kan du integrera med Azure Container In
 
 ![Kubernetes burst-skalning till ACI](media/concepts-scale/burst-scaling.png)
 
-Med ACI kan du snabbt distribuera behållar instanser utan ytterligare infrastruktur belastning. När du ansluter med AKS blir ACI ett säkert, logiskt tillägg för ditt AKS-kluster. Den virtuella Kubelet-komponenten installeras i ditt AKS-kluster som visar ACI som en virtuell Kubernetes-nod. Kubernetes kan sedan schemalägga poddar som körs som ACI-instanser via virtuella noder, inte som poddar på VM-noder direkt i ditt AKS-kluster. Virtuella noder är för närvarande för hands versioner i AKS.
+Med ACI kan du snabbt distribuera behållar instanser utan ytterligare infrastruktur belastning. När du ansluter med AKS blir ACI ett säkert, logiskt tillägg för ditt AKS-kluster. Komponenten [virtuella noder][virtual-nodes-cli] , som baseras på [Virtual Kubelet][virtual-kubelet], installeras i ditt AKS-kluster som presenterar ACI som en virtuell Kubernetes-nod. Kubernetes kan sedan schemalägga poddar som körs som ACI-instanser via virtuella noder, inte som poddar på VM-noder direkt i ditt AKS-kluster. Virtuella noder är för närvarande för hands versioner i AKS.
 
 Programmet kräver ingen ändring för att använda virtuella noder. Distributioner kan skalas över AKS och ACI och utan fördröjning som kluster autoskalning distribuerar nya noder i ditt AKS-kluster.
 
@@ -104,6 +104,7 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 - [Kubernetes/AKS-lagring][aks-concepts-storage]
 
 <!-- LINKS - external -->
+[virtual-kubelet]: https://virtual-kubelet.io/
 
 <!-- LINKS - internal -->
 [aks-quickstart]: kubernetes-walkthrough.md
@@ -117,3 +118,4 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-network]: concepts-network.md
+[virtual-nodes-cli]: virtual-nodes-cli.md

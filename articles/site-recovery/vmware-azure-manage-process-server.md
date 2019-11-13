@@ -1,18 +1,18 @@
 ---
-title: Hantera en processerver som används för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar en processerver som är konfigurerad för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
+title: Hantera en processerver för haveri beredskap för virtuella VMware-datorer/fysiska servrar i Azure Site Recovery
+description: I den här artikeln beskrivs hantera en processerver för haveri beredskap för virtuella VMware-datorer/fysiska servrar med hjälp av Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 509b9aed9f5daebb70a18336837da2152667a458
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242834"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954340"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 

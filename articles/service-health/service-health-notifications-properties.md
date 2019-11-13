@@ -1,80 +1,78 @@
 ---
-title: Vad är Azure service health meddelanden?
-description: Meddelanden om hälsostatus för tjänsten kan du visa service health meddelanden som publiceras av Microsoft Azure.
-author: dkamstra
+title: Vad är Azure Service Health-meddelanden?
+description: Aviseringar för tjänst hälsa gör att du kan visa meddelanden om tjänst hälsa som publicerats av Microsoft Azure.
+author: stephbaron
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.author: dukek
+ms.author: stbaron
 ms.subservice: logs
-ms.openlocfilehash: 87efa7442b0c67f2ee5f83b6b3e8ac8530ce5285
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079553"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007093"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
 
-Meddelanden om hälsostatus för tjänsten har publicerats av Azure och innehåller information om resurser i din prenumeration. Dessa aviseringar är en underklass till aktiviteten logghändelser och finns också i aktivitetsloggen. Meddelanden om hälsostatus för tjänsten kan vara information eller användbara, beroende på klassen.
+Meddelanden om tjänst hälsa publiceras av Azure och innehåller information om resurserna i din prenumeration. Dessa meddelanden är en underordnad klass med aktivitets logg händelser och finns också i aktivitets loggen. Meddelanden om tjänst hälsa kan vara informations-eller åtgärds bara, beroende på klassen.
 
-Det finns olika typer av meddelanden om hälsostatus för tjänsten:  
+Det finns olika klasser av service Health-meddelanden:  
 
-- **Åtgärd krävs:** Azure märker något annorlunda sker på ditt konto och arbeta med dig för att åtgärda detta. Azure skickar ett meddelande, antingen med information om de åtgärder som du behöver ta eller kontakta Azure-tekniker eller support.  
-- **Assisterad återställning:** En händelse har inträffat och tekniker har bekräftat att du fortfarande har påverkan. Azure engineering behöver arbeta med dig direkt för att återställa dina tjänster till full hälsa.  
-- **Incident:** En händelse som påverkar tjänsten för närvarande påverkar en eller flera resurser i din prenumeration.  
-- **Underhåll:** Aktiviteten planerat underhåll som kan påverka en eller flera av resurserna i din prenumeration.  
-- **Information:** Använd potentiella optimeringar som kan hjälpa dig att förbättra din resurs. 
+- **Åtgärd krävs:** Azure kan märka att något händer på ditt konto och arbeta med dig för att åtgärda detta. Azure skickar ett meddelande till dig, antingen information om de åtgärder som du behöver vidta eller hur du kontaktar Azure-teknik eller support.  
+- **Incident:** En händelse som påverkar tjänsten påverkar för närvarande en eller flera av resurserna i din prenumeration.  
+- **Underhåll:** En planerad underhålls aktivitet som kan påverka en eller flera av resurserna under din prenumeration.  
+- **Information:** Möjliga optimeringar som kan hjälpa till att förbättra resurs användningen. 
 - **Säkerhet:** Brådskande säkerhetsrelaterad information om dina lösningar som körs på Azure.
 
-Varje avisering om tjänstens hälsa innehåller information om omfattning och påverkan till dina resurser. Informationen innehåller:
+Varje tjänst hälso avisering innehåller information om omfattningen och konsekvenserna för dina resurser. Informationen omfattar:
 
 Egenskapsnamn | Beskrivning
 -------- | -----------
-kanaler | En av följande värden: **Administratören** eller **åtgärden**.
-correlationId | Vanligtvis ett GUID i formatet för strängen. Händelser som hör till samma åtgärd vanligtvis dela samma correlationId.
+kanal | Ett av följande värden: **admin** eller **åtgärd**.
+correlationId | Vanligt vis ett GUID i sträng formatet. Händelser som tillhör samma åtgärd delar vanligt vis samma correlationId.
 eventDataId | Den unika identifieraren för en händelse.
-EventName | Rubriken på en händelse.
-nivå | Nivån för en händelse
-resourceProviderName | Namnet på resursprovidern för resursen som påverkas.
-ResourceType| Typ av resurs för resursen som påverkas.
-subStatus | Vanligtvis HTTP-statuskod för motsvarande RESTEN anropa, men kan även innehålla andra strängar som beskriver en understatus. Exempel: OK (HTTP-statuskod: 200) skapade (HTTP-statuskod: 201), godkänt (HTTP-statuskod: 202), inget innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400) hittades inte (HTTP-statuskod: 404) konflikt (HTTP-statuskod: 409), interna serverfel (HTTP-statuskod: 500), tjänsten är inte tillgänglig (HTTP-statuskod: 503) och Gateway-Timeout (HTTP-statuskod: 504).
-eventTimestamp | Tidsstämpel när händelsen skapades av tjänsten Azure behandlingen av begäran som motsvarar händelsen.
-submissionTimestamp | Tidsstämpel när händelsen blev tillgängliga för frågor.
-subscriptionId | Azure-prenumerationen där den här händelsen loggades.
-status | Sträng som anger status för åtgärden. Vissa vanliga värden är: **Igång**, **pågår**, **lyckades**, **misslyckades**, **Active**, och **löst**.
-operationName | Namnet på åtgärden.
+eventName | Rubriken för en händelse.
+level | Händelse nivån
+resourceProviderName | Namnet på resurs leverantören för den påverkade resursen.
+resourceType| Resurs typen för den påverkade resursen.
+subStatus | Vanligt vis är HTTP-statuskoden för motsvarande REST-anrop, men kan även innehålla andra strängar som beskriver en under status. Exempel: OK (HTTP-status kod: 200), skapad (HTTP-status kod: 201), godkänd (HTTP-status kod: 202), inget innehåll (HTTP-status kod: 204), felaktig begäran (HTTP-status kod: 400), kan inte hittas (HTTP-status kod: 404), konflikt (HTTP-status kod: 409), intern server Fel (HTTP-status kod: 500), tjänsten är inte tillgänglig (HTTP-status kod: 503) och gateway-tidsgräns (HTTP-status kod: 504).
+eventTimestamp | Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen.
+submissionTimestamp | Tidsstämpel när händelsen blev tillgänglig för frågor.
+subscriptionId | Azure-prenumerationen som den här händelsen loggades i.
+status | Sträng som beskriver status för åtgärden. Några vanliga värden är: **startade**, **pågår**, **lyckades**, **misslyckades**, **aktiva**och **löst**.
+operationName | Åtgärdens namn.
 category | Den här egenskapen är alltid **ServiceHealth**.
-resourceId | Resurs-ID för resursen som påverkas.
-Properties.title | Lokaliserade rubriken för den här kommunikationen. Engelska är standard.
-Properties.communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
-Properties.incidentType | En av följande värden: **Åtgärd krävs**, **endast i informationssyfte**, **Incident**, **Underhåll**, eller **Security**.
-Properties.trackingId | Incidenten som den här händelsen är associerad. Används för att korrelera händelser relaterade till en incident.
-Properties.impactedServices | En kommenterad JSON-blob som beskriver de tjänster och regioner som påverkas av incidenten. Egenskapen innehåller en lista över tjänster, som har en **ServiceName**, och en lista över berörda regioner som har en **RegionName**.
-Properties.defaultLanguageTitle | Kommunikation på engelska.
-Properties.defaultLanguageContent | Kommunikation på engelska som oformaterad text eller HTML-kod.
-Properties.Stage | Möjliga värden för **Incident**, och **Security** är **aktiv,** **löst** eller **RCA**. För **åtgärd krävs** eller **information** är det enda värdet **Active.** För **Underhåll** de är: **Aktiva**, **planerat**, **InProgress**, **har avbrutits**, **schemaläggas**, **löst**, eller **fullständig**.
-Properties.communicationId | Kommunikation som är associerad till den här händelsen.
+resourceId | Resurs-ID för den påverkade resursen.
+egenskaper. title | Den lokaliserade rubriken för den här kommunikationen. Engelska är standard.
+Egenskaper. kommunikation | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
+Egenskaper. incidentType | Ett av följande värden: **åtgärd krävs**, **information**, **incident**, **Underhåll**eller **säkerhet**.
+Egenskaper. trackingId | Incidenten som den här händelsen är associerad med. Använd detta för att korrelera händelser som rör en incident.
+Properties.impactedServices | En Escaped JSON-blob som beskriver de tjänster och regioner som påverkas av incidenten. Egenskapen innehåller en lista över tjänster, som var och en har en **ServiceName**, och en lista över påverkade regioner, som var och en har en **RegionName**.
+Egenskaper. defaultLanguageTitle | Kommunikationen på engelska.
+Properties.defaultLanguageContent | Kommunikationen på engelska antingen som HTML-kod eller oformaterad text.
+Egenskaper. Stage | Möjliga värden för **incident**och **säkerhet** är **aktiva,** **löst** eller **RCA**. För **åtgärd krävs** eller **information** är det enda värdet **aktivt.** För **Underhåll** är de: aktiva, **planerade**, **inaktuella**, **avbrutna**, **omplanerade**, **stängda**eller **fullständiga**.
+Egenskaper. communicationId | Den kommunikation som den här händelsen är associerad med.
 
-### <a name="details-on-service-health-level-information"></a>Information om service health nivåinformation
+### <a name="details-on-service-health-level-information"></a>Information om information om tjänste hälso nivå
 
-**Åtgärd krävs** (properties.incidentType == åtgärd krävs)
-- Information - administratör åtgärd som krävs för att förhindra påverkan på befintliga tjänster
+**Åtgärd krävs** (Properties. incidentType = = åtgärd krävs)
+- Information – administratörs åtgärder krävs för att förhindra att befintliga tjänster påverkas.
     
-**Underhåll** (properties.incidentType == underhåll)
-- Varning - nödfall Underhåll
-- Information - standard planerat underhåll
+**Underhåll** (Properties. incidentType = = underhåll)
+- Varning-katastrof underhåll
+- Planerat underhåll av information – standard
 
-**Information** (properties.incidentType == Information)
-- Information - administratör kan krävas för att förhindra påverkan på befintliga tjänster
+**Information** (Properties. incidentType = = information)
+- Information-administratören kan krävas för att förhindra att befintliga tjänster påverkas.
 
-**Security** (properties.incidentType == säkerhet)
-- Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
-- Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
-- Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
+**Säkerhet** (egenskaper. incidentType = = säkerhet)
+- Varning – säkerhets rekommendation som påverkar befintliga tjänster och som kan kräva administratörs åtgärder.
+- Informations-och säkerhets rekommendation som påverkar befintliga tjänster.
 
-**Tjänsten problem** (properties.incidentType == Incident)
-- Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
-- Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
-- Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
+**Tjänst problem** (Properties. incidentType = = incident)
+- Fel som är omfattande vid åtkomst till flera tjänster i flera regioner påverkar en rad olika kunder.
+- Varning – problem med åtkomst till specifika tjänster och/eller specifika regioner påverkar en delmängd av kunderna.
+- Information-problem som påverkar hanterings åtgärder och/eller latens, påverkar inte tjänstens tillgänglighet.

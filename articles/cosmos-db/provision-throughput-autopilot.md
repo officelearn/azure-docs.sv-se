@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748382"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953127"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Skapa Azure Cosmos-behållare och databaser i autopilot-läge (för hands version)
 
@@ -24,7 +24,7 @@ Förutom manuell etablering av data flöde kan du nu konfigurera Azure Cosmos-be
 
 Du behöver inte längre hantera det etablerade data flödet eller referens begränsnings problemen manuellt. Azure Cosmos-behållare som kon figurer ATS i autopilot-läge kan skalas direkt som svar på arbets belastningen utan att det påverkar tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen globalt. Under hög användning kan Azure Cosmos-behållare som kon figurer ATS i autopilot-läge skalas upp eller ned utan att det påverkar pågående åtgärder.
 
-När du konfigurerar behållare och databaser i autopilot-läge måste du ange det maximala data flödet `Tmax` inte överskridas. Behållare kan sedan skalas direkt baserat på arbets belastnings behoven inom `0.1*Tmax < T < Tmax`s intervallet. Med andra ord skalar behållare och databaser direkt utifrån arbets belastnings behoven, från så lågt som 10% av det maximala data flödes värde som du har konfigurerat och upp till det konfigurerade maximala data flöde svärdet. Du kan ändra inställningen för maximal data flöde (Tmax) för autopilot-databasen eller containern vid en viss tidpunkt.
+När du konfigurerar behållare och databaser i autopilot-läge måste du ange det maximala data flödet `Tmax` inte överskridas. Behållare kan sedan skalas direkt baserat på arbets belastnings behoven inom `0.1*Tmax < T < Tmax`s intervallet. Med andra ord skalar behållare och databaser direkt utifrån arbets belastnings behoven, från så lågt som 10% av det maximala data flödes värde som du har konfigurerat och upp till det konfigurerade maximala data flöde svärdet. Du kan ändra inställningen för maximal data flöde (Tmax) för autopilot-databasen eller containern vid en viss tidpunkt. Med alternativet autopilot är 400 RU/s minsta data flöde per behållare eller databas inte längre tillämpligt.
 
 Under för hands versionen av autopilot, för det angivna maximala data flödet i behållaren eller databasen, tillåter systemet drift inom den beräknade lagrings gränsen. Om lagrings gränsen överskrids justeras det maximala data flödet automatiskt till ett högre värde. När du använder data flöde på databas nivå med autopilot-läge, beräknas antalet behållare som tillåts i en databas som: (0,001 * Max data flöde). Om du till exempel etablerar 20 000 autopiloten RU/s kan databasen ha 20 behållare.
 

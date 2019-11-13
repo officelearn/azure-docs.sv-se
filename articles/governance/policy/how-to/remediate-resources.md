@@ -1,17 +1,14 @@
 ---
 title: Åtgärda icke-kompatibla resurser
 description: Den här guiden vägleder dig genom reparationen av resurser som inte är kompatibla med principer i Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977980"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959507"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -25,7 +22,7 @@ Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste 
 ![Hanterad identitet - saknas roll](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Om en resurs som har ändrats av **deployIfNotExists** eller **ändrar** utanför omfånget för princip tilldelningen eller om mallen har åtkomst till egenskaper för resurser utanför omfånget för princip tilldelningen, måste tilldelningens hanterade identitet vara [ manuellt beviljad åtkomst](#manually-configure-the-managed-identity) eller reparations distributionen Miss kan.
+> Om en resurs som har ändrats av **deployIfNotExists** eller **ändra** ligger utanför omfånget för princip tilldelningen eller om mallen har åtkomst till egenskaper för resurser utanför omfånget för princip tilldelningen, måste tilldelningens hanterade identitet [manuellt beviljas åtkomst](#manually-configure-the-managed-identity) eller så Miss fungerar reparations distributionen.
 
 ## <a name="configure-policy-definition"></a>Konfigurera principdefinition
 
@@ -160,7 +157,7 @@ Resurser som distribueras via en **reparation uppgift** läggs till i **distribu
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Skapa en reparations uppgift via Azure CLI
 
-Om du vill skapa en **reparations uppgift** med Azure CLI använder du `az policy remediation`-kommandon. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
+Använd `az policy remediation`-kommandon för att skapa en **reparations uppgift** med Azure CLI. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -173,7 +170,7 @@ Andra reparations kommandon och exempel finns i kommandona för att [Reparera AZ
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Skapa en reparations uppgift via Azure PowerShell
 
-Om du vill skapa en **reparations aktivitet** med Azure PowerShell använder du `Start-AzPolicyRemediation`-kommandona. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
+Om du vill skapa en **reparations aktivitet** med Azure PowerShell använder du `Start-AzPolicyRemediation`-kommandon. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

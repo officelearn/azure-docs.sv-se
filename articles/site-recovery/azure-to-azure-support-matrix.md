@@ -1,20 +1,20 @@
 ---
-title: Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner med Azure Site Recovery | Microsoft Docs
-description: Sammanfattar krav och stöd för haveri beredskap för virtuella Azure-datorer från en region till en annan med Azure Site Recovery
+title: Support mat ris för haveri beredskap i Azure VM med Azure Site Recovery
+description: Sammanfattar stöd för haveri beredskap för virtuella Azure-datorer till en sekundär region med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/26/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 726b7ebd21dadf0e179f2752a9783d63492cb4c3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622461"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961513"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för replikering av virtuella Azure-datorer från en region till en annan
+# <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
 Den här artikeln sammanfattar support och krav för haveri beredskap för virtuella Azure-datorer från en Azure-region till en annan med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) .
 
@@ -25,7 +25,7 @@ Den här artikeln sammanfattar support och krav för haveri beredskap för virtu
 --- | ---
 **Azure Portal** | Stöds.
 **PowerShell** | Stöds. [Läs mer](azure-to-azure-powershell.md)
-**REST API** | Stöds.
+**REST-API** | Stöds.
 **CLI** | Stöds inte för närvarande
 
 
@@ -102,7 +102,7 @@ Windows 7 (x64) med SP1 och senare | Från version 9.30. x (förväntad version 
 
 **Operativsystem** | **Detaljer**
 --- | ---
-Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
 Ubuntu 14,04 LTS-Server | [Kernel-versioner som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och loggar in och Cloud-Init-paketet för att konfigurera virtuella datorer i molnet kan ha lösenordsbaserad inloggning inaktive rad vid redundansväxling (beroende på cloudinit-konfigurationen). Lösenordsbaserade inloggningar kan återaktiveras på den virtuella datorn genom att återställa lösen ordet från Support > fel sökning > Inställningar-menyn (av den misslyckade virtuella datorn i Azure Portal.
@@ -110,9 +110,9 @@ Ubuntu 18,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-v
 Debian 7 | [Kernel-versioner som stöds](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Kernel-versioner som stöds](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 11 | INSTALLERAS<br/><br/> Uppgradering av replikering av datorer från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
+SUSE Linux Enterprise Server 11 | SP3<br/><br/> Uppgradering av replikering av datorer från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7<br/><br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5) 
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ubuntu kernel-versioner som stöds för Azure Virtual Machines
@@ -124,14 +124,15 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 14,04 LTS | 9,26 | 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 14,04 LTS | 9,25 | 3.13.0 – 24-generisk till 3.13.0-169-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0 – 21-genered till 4.4.0-146--generisk,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1042 – Azure |
 |||
+16,04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-Generic to 4.4.0-166-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-66-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1061 – Azure|
 16,04 LTS | 9,28 | 4.4.0-21-genered to 4.4.0-159-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-58-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1055 – Azure|
 16,04 LTS | 9,27 | 4.4.0 – 21-genered to 4.4.0-154-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-generic<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-55-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1051 – Azure|
 16,04 LTS | 9,26 | 4.4.0-21-genered to 4.4.0-148-genered,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-generic<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-50-genered<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1045 – Azure|
 16,04 LTS | 9,25 | 4.4.0 – 21-genered till 4.4.0-146--generisk,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-48-genered<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1042 – Azure|
 16,04 LTS | 9,24 | 4.4.0 – 21-Generic to 4.4.0-143-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-46-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0 – 1040 – Azure|
 |||
-18,04 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-Generic to 4.15.0-64-genered </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-29-generic </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1020 – Azure
-
+18,04 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-Generic to 4.15.0-64-genered </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-29-generic </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1020 – Azure|
+18,04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-Generic to 4.15.0-66-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-Generic to 5.0.0-32-genered </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1023 – Azure
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Debian Kernel-versioner som stöds för Azure Virtual Machines
 
@@ -207,6 +208,7 @@ Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
 Kylning och frekvent lagring | Stöds inte | VM-diskar stöds inte på låg frekvent lagring
 Lagrings utrymmen | Stöds |
 Kryptering i rest (SSE) | Stöds | SSE är standardinställningen på lagrings konton.   
+Kryptering i vilo läge (CMK) | Stöds inte |   
 Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte |
 Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
 Frekvent tillägg | Stöds | Att aktivera replikering för en datadisk som du lägger till i en replikerad virtuell Azure-dator stöds för virtuella datorer som använder hanterade diskar.
@@ -220,7 +222,8 @@ RA-GRS | Stöds |
 ZRS | Stöds inte |
 Kylning och frekvent lagring | Stöds inte | Virtuella dator diskar stöds inte i låg frekvent lagring och snabb lagring
 Azure Storage brand väggar för virtuella nätverk  | Stöds | Aktivera [Tillåt betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)om du begränsar åtkomsten till virtuella nätverk till lagrings konton.
-Generell användning v2-lagrings konton (både frekvent och låg frekvent nivå) | Ja | Transaktions kostnader ökar avsevärt jämfört med generell användning v1-lagrings konton
+Generell användning v2-lagrings konton (både frekvent och låg frekvent nivå) | Stöds | Transaktions kostnader ökar avsevärt jämfört med generell användning v1-lagrings konton
+Generation 2 (UEFI-start) | Stöds
 
 >[!IMPORTANT]
 > Undvik prestanda problem genom att följa skalbarhet för virtuella dator diskar och prestanda mål för virtuella [Linux](../virtual-machines/linux/disk-scalability-targets.md) -eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) -datorer. Om du använder standardinställningarna skapar Site Recovery de nödvändiga diskarna och lagrings kontona baserat på käll konfigurationen. Om du anpassar och väljer dina egna inställningar följer du diskens skalbarhet och prestanda mål för dina virtuella käll datorer.
@@ -232,7 +235,6 @@ I följande tabell sammanfattas Site Recovery gränser.
 - Dessa gränser baseras på våra tester, men det är självklart inte alla möjliga kombinationer av program I/O.
 - De faktiska resultaten kan variera beroende på appens I/O-mix.
 - Det finns två gränser att överväga, data omsättning per disk och data omsättning per virtuell dator.
-- Om vi till exempel använder en Premium P20-disk som beskrivs i tabellen nedan kan Site Recovery hantera 5 MB omsättning per disk, med högst fem sådana diskar per virtuell dator, på grund av gränsen på 25 MB/s totala omsättning per virtuell dator.
 
 **Lagrings mål** | **Genomsnittligt käll disk-I/O** |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
 ---|---|---|---

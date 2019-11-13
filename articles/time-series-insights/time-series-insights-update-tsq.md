@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights förhandsgranska data frågor | Microsoft Docs
-description: Azure Time Series Insights förhandsgranska data frågor.
+title: Data frågor i för hands version – Azure Time Series Insights | Microsoft Docs
+description: Lär dig mer om att Azure Time Series Insights för hands versioner av data frågor.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e660db5db3d1afc14a3c895e6786d1b6a8b82c13
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832409"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006315"
 ---
-# <a name="data-querying"></a>Fråga data
+# <a name="data-querying-in-azure-time-series-insights-preview"></a>Data frågor i Azure Time Series Insights för hands version
 
 Azure Time Series Insights för hands version aktiverar data frågor om händelser och metadata som lagras i miljön via API: er på offentlig yta. Dessa API: er används också i [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 

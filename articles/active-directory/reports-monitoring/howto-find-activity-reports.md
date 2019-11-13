@@ -3,7 +3,7 @@ title: Hitta rapporter om användar aktiviteter i Azure Portal | Microsoft Docs
 description: Lär dig var Azure Active Directory användar aktivitets rapporter finns i Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fdf8c17c8dcbdc8203cb46342c8474b3d9832f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820923"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008219"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitets rapporter i Azure Portal
 
@@ -56,14 +56,14 @@ Kategorier inkluderar:
 - AdministrativeUnit
 - ApplicationManagement
 - Autentisering
-- Autentisering
+- Auktorisering
 - Kontakt
 - Enhet
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Övrigt
+- Annat
 - Princip
 - ResourceManagement
 - RoleManagement
@@ -155,7 +155,7 @@ Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte 
 
 När du hämtar aktivitets loggar i Azure Portal begränsar vi skalan till 250000 poster, sorterade efter senaste första. 
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) att hämta upp till en miljoner poster när som helst.
 
@@ -176,7 +176,7 @@ Jag utförde vissa åtgärder i Azure Portal och förväntade att se gransknings
 | Kataloggranskning | &nbsp; | 2 min | 5 min |
 | Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
 
@@ -197,7 +197,7 @@ Jag loggade nyligen in på Azure-portalen och förväntade mig att se inloggning
 | Kataloggranskning | &nbsp; | 2 min | 5 min |
 | Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
 
@@ -220,7 +220,7 @@ Beroende på din licens lagrar Azure Active Directory aktivitetsrapporter under 
 
 Mer information finns i [Kvarhållningsprinciper för rapporter i Azure Active Directory](reference-reports-data-retention.md).  
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Du har två alternativ för att behålla data längre än 30 dagar. Du kan använda [Azure AD Reporting-API:er](concept-reporting-api.md) för att hämta data programmatiskt och lagra dem i en databas. Du kan även integrera spårningsloggar i ett SIEM-system från tredje part, till exempel Splunk eller SumoLogic.
 

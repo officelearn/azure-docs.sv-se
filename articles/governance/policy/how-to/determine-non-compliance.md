@@ -1,17 +1,14 @@
 ---
 title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978100"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959615"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -84,7 +81,7 @@ Informationen förklarar varför en resurs för närvarande inte är kompatibel,
 
 Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](../concepts/definition-structure.md#conditions) i princip definitionen:
 
-|Reason | Tillstånd |
+|Orsak | Tillstånd |
 |-|-|
 |Det aktuella värdet måste innehålla målvärdet som en nyckel. |containsKey eller **inte** notContainsKey |
 |Det aktuella värdet måste innehålla målvärdet. |innehåller eller **inte** notContains |
@@ -124,7 +121,7 @@ I fönstret **Kompatibilitetsrapport** klickar du på länken **senaste utvärde
 
 På sidan **gäst tilldelning** visas all tillgänglig information om kompatibilitet. Varje rad i vyn representerar en utvärdering som utförts i datorn. I kolumnen **orsak** visas en fras som beskriver varför gäst tilldelningen inte är _kompatibel_ . Om du till exempel granskar lösen ords principer visar kolumnen **orsak** att texten innehåller det aktuella värdet för varje inställning.
 
-![Visa efterlevnadsinformation.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Visa information om efterlevnad](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +188,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Change historik (för hands version)
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>ändrings historik (förhands granskning)
 
 Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i ändrings historiken tillgängliga för alla Azure-resurser som stöder [borttagning av fullständigt läge](../../../azure-resource-manager/complete-mode-deletion.md). Ändrings historiken innehåller information om när en ändring upptäcktes och en _visuell skillnad_ för varje ändring. En ändrings identifiering utlöses när Resource Manager-egenskaperna läggs till, tas bort eller ändras.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471308"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961959"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -51,9 +51,9 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Installera Git](https://git-scm.com/).
 * [Installera .NET Core](https://www.microsoft.com/net/core/).
@@ -333,7 +333,7 @@ Logga in på `https://<front-end-app-name>.azurewebsites.net` igen. På sidan me
 
 Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, precis som innan. Den enda skillnaden är att båda apparna är nu skyddade med App Service-autentisering och -auktorisering, inklusive tjänst-till-tjänst-anrop.
 
-Grattis! Serverkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
+Gratulerar! Serverkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
 
 ## <a name="call-api-securely-from-browser-code"></a>Anropa API på ett säkert sätt från webbläsarkoden
 
@@ -401,7 +401,7 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-Den nya ändringen lägger till `revolve` mappningen som anropar`/.auth/me` och anger åtkomsttoken. Det innebär att du med säkerhet har åtkomsttoken innan kontrollanten `todoListCtrl` initieras. På så sätt omfattar alla API-anrop av kontrollanten token.
+Den nya ändringen lägger till `resolve` mappningen som anropar`/.auth/me` och anger åtkomsttoken. Det innebär att du med säkerhet har åtkomsttoken innan kontrollanten `todoListCtrl` initieras. På så sätt omfattar alla API-anrop av kontrollanten token.
 
 ### <a name="deploy-updates-and-test"></a>Distribuera uppdateringar och testa
 
@@ -415,7 +415,7 @@ git push frontend master
 
 Navigera till `https://<front-end-app-name>.azurewebsites.net` igen. Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, direkt i Angular.js-appen.
 
-Grattis! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
+Gratulerar! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
 
 ## <a name="when-access-tokens-expire"></a>När åtkomsttoken upphör att gälla
 

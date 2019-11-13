@@ -1,23 +1,23 @@
 ---
-title: Migrera lokala Windows Server 2008-servrar till Azure med Azure Site Recovery | Microsoft Docs
+title: Migrera Windows Server 2008-servrar till Azure med Azure Site Recovery
 description: Den här artikeln beskriver hur du migrerar lokala Windows Server 2008-datorer till Azure med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d0d5c482e2faf5e4a2c2918a64bd56e4aa814323
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814496"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936144"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
-Den här självstudiekursen visar hur du migrerar lokala servrar med Windows Server 2008 eller 2008 R2 till Azure med hjälp av Azure Site Recovery. I den här guiden får du lära dig att:
+Den här självstudiekursen visar hur du migrerar lokala servrar med Windows Server 2008 eller 2008 R2 till Azure med hjälp av Azure Site Recovery. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Förbereda din lokala miljö för migrering
@@ -46,7 +46,7 @@ Avsnittet med begränsningar och kända problem listar några begränsningar och
 > - Se till att du har senaste service pack och Windows-uppdateringar installerade innan du migrerar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar är det bra att granska Azure Site Recovery-arkitekturen för [migrering av VMware och fysisk server](vmware-azure-architecture.md) eller [migrering av virtuell Hyper-V-dator](hyper-v-azure-architecture.md) 
 
@@ -90,7 +90,7 @@ Utför följande uppgifter för att förbereda Azure-prenumerationen och den lok
 2. Förbereda [lokal VMware](vmware-azure-tutorial-prepare-on-premises.md)
 
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
 2. Klicka på **Skapa en resurs** > **Hanteringsverktyg** > **Backup och Site Recovery**.
@@ -147,7 +147,7 @@ Du kan utföra ett redundanstest för servrar som ska replikeras när den inleda
 
 Kör en [testredundansväxling](tutorial-dr-drill-azure.md) till Azure för att kontrollera att allt fungerar som förväntat.
 
-   ![Testa redundans](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Redundanstest](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ## <a name="migrate-to-azure"></a>Migrera till Azure
@@ -156,15 +156,15 @@ Kör en redundansväxling för de datorer som du vill migrera.
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på datorn > **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten.
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av servern innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av servern innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
 4. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 5. I **Replikerade objekt** högerklickar du på servern > **Slutför migrering**. Det här gör följande:
 
     - Avslutar migreringsprocessen, stoppar replikeringen för servern och stoppar Site Recovery-debitering för servern.
     - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
-   ![Slutför migrering](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Slutföra migrering](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Avbryt inte en redundansväxling som pågår**: Serverreplikeringen stoppas innan redundans startas. Om du avbryter en pågående redundans stoppas redundansen, men serverreplikeringen fortsätter inte att replikeras.
+> **Avbryt inte en pågående redundansväxling**: Server replikering stoppas innan redundansväxlingen startar. Om du avbryter en pågående redundans stoppas redundansen, men serverreplikeringen fortsätter inte att replikeras.

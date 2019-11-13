@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c118a74e273e153746240465692b1c712bd25f47
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499429"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953609"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Självstudie: extrahera fri Forms data med mönster. alla entiteter
 
@@ -82,7 +82,7 @@ Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten 
 
 1. Lägg till några exempel på yttranden:
 
-    |Exempel på yttrande|
+    |Exempeluttryck|
     |--|
     |Var finns formuläret **Vad gör du vid eldsvåda i laboratoriet** och vem behöver signera det när jag har läst det?|
     |Var finns **Begär flytt från medarbetare som är ny i företaget** på servern?|
@@ -138,7 +138,7 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 ## <a name="using-an-explicit-list"></a>Använda en explicit lista
 
-Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](luis-concept-patterns.md#explicit-lists).
+Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](reference-pattern-syntax.md#explicit-lists).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

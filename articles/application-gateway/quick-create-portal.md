@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 781203cec8d85abd74aa439b5595e8d00ed36745
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469697"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961691"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
 1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**. Fönstret **Nytt** visas.
 
@@ -65,7 +65,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 1. På fliken **klient** delar kontrollerar du att **IP-adress typen för klient delen** är **offentlig**. <br>Du kan konfigurera klient delens IP-adress så att den är offentlig eller privat per användnings fall. I det här exemplet väljer du en offentlig IP-adress för klient delen.
    > [!NOTE]
-   > För Application Gateway v2 SKU: n kan du bara välja **offentlig** IP-konfiguration för klient delen. Den privata klient delens IP-konfiguration är för närvarande inte aktive rad för denna v2-SKU
+   > För Application Gateway v2 SKU: n kan du bara välja **offentlig** IP-konfiguration för klient delen. Endast privat klient delens IP-konfiguration är för närvarande inte aktive rad för denna v2-SKU. Du kan ha både offentlig och privat IP-konfiguration för klient delen.
 
 2. Välj **Skapa ny** för den **offentliga IP-adressen** och ange *myAGPublicIPAddress* för den offentliga IP-adressen och välj sedan **OK**. 
 
@@ -196,7 +196,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 IIS krävs inte för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd IIS för att testa programgatewayen:
 
-1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** .![registrerar den offentliga IP-adressen för Application Gateway](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) eller så kan du välja **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och sedan välja den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
+1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** Registrera.![den offentliga IP-adressen](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) för Application Gateway eller Välj **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och välj sedan den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 3. Kontrol lera svaret. Ett giltigt svar verifierar att Application Gateway har skapats och kan ansluta till Server delen.![Testa programgatewayen](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 

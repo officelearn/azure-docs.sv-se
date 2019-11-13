@@ -3,7 +3,7 @@ title: Så här installerar och använder du Log Analytics-vyer | Microsoft Docs
 description: Lär dig hur du installerar och använder Log Analytics-vyer för Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00bca8bca19f9a71c4eeb639017845987682661f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820906"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014426"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installera och Använd Log Analytics-vyerna för Azure Active Directory
 
@@ -51,12 +51,12 @@ Om du vill använda Log Analytics-vyerna behöver du:
 
 2. När du är i arbets ytan väljer du **arbets ytans Sammanfattning**. Du bör se följande tre vyer:
 
-    * **Azure AD-konto etablerings händelser**: i den här vyn visas rapporter om etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare de har etablerats och motsvarande felen.    
+    * **Azure AD-kontots etablerings händelser**: i den här vyn visas rapporter om etablerings aktiviteter, till exempel antalet nya användare som har skapats och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare som har upprättat och motsvarande problem.    
     * **Inloggnings händelser**: i den här vyn visas de mest relevanta rapporterna om övervakning av inloggnings aktivitet, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
 
 3. Välj någon av dessa vyer för att hoppa till de enskilda rapporterna. Du kan också ställa in aviseringar på någon av rapport parametrarna. Vi kan till exempel ställa in en avisering för varje gång ett inloggnings fel uppstår. Om du vill göra detta väljer du först vyn **inloggnings händelser** , väljer **Logga in fel över tid** och väljer sedan **analys** för att öppna sidan information med den faktiska frågan bakom rapporten. 
 
-    ![Information](./media/howto-install-use-log-analytics-views/details.png)
+    ![Detaljer](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Välj **Ange avisering**och välj sedan **när den anpassade logg sökningen är &lt;logiskt odefinierade&gt;** under avsnittet **aviserings villkor** . Eftersom vi vill Avisera när det finns ett inloggnings fel anger du **tröskelvärdet** för standard varnings logiken till **1** och väljer sedan **klart**. 

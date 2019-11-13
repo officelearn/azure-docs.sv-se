@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302356"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012514"
 ---
-# <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Säkerhets kopiering och haveri beredskap för Azure IaaS-diskar
-
 Den här artikeln beskriver hur du planerar för säkerhets kopiering och haveri beredskap (DR) för virtuella IaaS-datorer (VM) och diskar i Azure. Det här dokumentet omfattar både hanterade och ohanterade diskar.
 
 Först beskriver vi de inbyggda fel tolerans funktionerna i Azure-plattformen som hjälper till att skydda mot lokala fel. Vi diskuterar sedan de katastrof scenarier som inte helt omfattas av de inbyggda funktionerna. Vi visar också flera exempel på arbets belastnings scenarier där olika säkerhets kopierings-och katastrof överväganden kan användas. Därefter granskar vi eventuella lösningar för DR IaaS-diskar.
@@ -112,7 +110,7 @@ För ohanterade diskar kan du använda den lokalt redundanta lagrings typen för
 | Scenario | Automatisk replikering | DR-lösning |
 | --- | --- | --- |
 | Premium SSD diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Managed Disks | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Hanterade diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Ohanterade lokalt redundanta lagrings diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Ohanterade geo-redundanta lagrings diskar | Mellan region ([Geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
 | Ohanterade geo-redundanta lagrings diskar med Läs behörighet | Mellan region ([Read-Access Geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
@@ -148,7 +146,7 @@ Använd följande steg för att aktivera säkerhets kopiering av virtuella dator
 
     b. På menyn **Recovery Services valv** klickar du på **Lägg till** och följer stegen för att skapa ett nytt valv i samma region som den virtuella datorn. Om din virtuella dator till exempel finns i regionen Västra USA väljer du västra USA för valvet.
 
-1.  Verifiera Storage-replikeringen för det nyligen skapade valvet. Kom åt valvet under **Recovery Services valv** och gå till **Egenskaper** > **säkerhets kopierings konfiguration** > -**uppdatering**. Se till att alternativet **Geo-redundant lagring** är markerat som standard. Det här alternativet säkerställer att valvet replikeras automatiskt till ett sekundärt Data Center. Ditt valv i västra USA replikeras till exempel automatiskt till USA, östra.
+1.  Verifiera Storage-replikeringen för det nyligen skapade valvet. Kom åt valvet under **Recovery Services valv** och gå till **Egenskaper** > **säkerhets kopierings konfiguration** > **uppdatering**. Se till att alternativet **Geo-redundant lagring** är markerat som standard. Det här alternativet säkerställer att valvet replikeras automatiskt till ett sekundärt Data Center. Ditt valv i västra USA replikeras till exempel automatiskt till USA, östra.
 
 1.  Konfigurera säkerhets kopierings principen och välj den virtuella datorn från samma användar gränssnitt.
 

@@ -7,29 +7,33 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/30/2019
+ms.date: 11/11/2019
 ms.custom: include file
-ms.openlocfilehash: 3ad4a3391a8d0174a0a031920f40a47464753767
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 414fa10774c755c7837d2e1a2fd87b412c7a05a8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903947"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014150"
 ---
 >[!NOTE]
->Det här avsnittet innehåller anvisningar för den [nya Azure AD-appens registrering](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Om du fortfarande har en äldre intern app-registrering kan du använda den så länge den stöds. Om den nya metoden för registrering av appar inte fungerar i konfigurationen kan du dessutom försöka skapa en äldre AAD-app. Läs [Registrera din Azure Digital-appen med Azure Active Directory äldre](../articles/digital-twins/how-to-use-legacy-aad.md) för mer information. 
+>Det här avsnittet innehåller anvisningar för [registrering av Azure AD-appar](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
-1. Öppna **Azure Active Directory** från den expanderade vänstra menyn i [Azure Portal](https://portal.azure.com)och öppna sedan fönstret **Appregistreringar** . Välj knappen **ny registrering** .
+1. Öppna **Azure Active Directory** från den expanderade vänstra menyn i [Azure Portal](https://portal.azure.com)och öppna sedan fönstret **Appregistreringar** . 
 
-    [![app registrerad](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
+    [![väljer Azure Active Directorys fönstret](./media/digital-twins-permissions/select-aad-pane.png)](./media/digital-twins-permissions/select-aad-pane.png#lightbox)
+
+1. Välj knappen **+ ny registrering** .
+
+    [![Välj knappen ny registrering](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
 
 1. Ge appregistreringen ett eget namn i rutan **Namn**. Under avsnittet **omdirigerings-URI (valfritt)** väljer du **offentlig klient/ursprunglig (mobil & Desktop)** i den nedrullningsbara menyn till vänster och anger `https://microsoft.com` i text rutan till höger. Välj **Registrera**.
 
     [![skapa fönster](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
-1. För att se till att [appen är registrerad som en *inbyggd app*](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)öppnar du fönstret **autentisering** för din app-registrering och bläddrar nedåt i fönstret. I avsnittet **standard klient typ** väljer du **Ja** för att **behandla program som en offentlig klient**och trycker på **Spara**.
+1. För att se till att [appen är registrerad som en **offentlig klient**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)öppnar du fönstret **autentisering** för din app-registrering och bläddrar nedåt i fönstret. I avsnittet **standard klient typ** väljer du **Ja** för att **behandla program som en offentlig klient**och trycker på **Spara**.
 
-    [![inbyggd standard](./media/digital-twins-permissions/aad-app-default-native.png)](./media/digital-twins-permissions/aad-app-default-native.png#lightbox)
+    [konfigurations inställning för ![offentlig klient](./media/digital-twins-permissions/aad-public-client.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1.  Öppna **översikts** fönstret för din registrerade app och Kopiera värdena för följande entiteter till en temporär fil. Du använder dessa värden för att konfigurera exempel programmet i följande avsnitt.
 
@@ -38,7 +42,7 @@ ms.locfileid: "73903947"
 
     [![Azure Active Directory program-ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)](./media/digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
 
-1. Öppna fönstret **API-behörigheter** för din app-registrering. Välj **Lägg till en behörighet** -knapp. I rutan **begär API-behörigheter** väljer du fliken **API: er min organisation använder** och söker sedan efter något av följande:
+1. Öppna fönstret **API-behörigheter** för din app-registrering. Välj **+ Lägg till en behörighet** -knapp. I rutan **begär API-behörigheter** väljer du fliken **API: er min organisation använder** och söker sedan efter något av följande:
     
     1. `Azure Digital Twins`. Välj **Azure Digitals dubbla** API: er.
 
@@ -57,7 +61,8 @@ ms.locfileid: "73903947"
 
     [![Lägga till API-behörigheter](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Beroende på organisationens inställningar kan du behöva vidta ytterligare åtgärder för att bevilja administratörs åtkomst till det här API: et. Kontakta administratören om du vill ha mer information. När administratörs åtkomsten har godkänts ser kolumnen **administrativt medgivande som krävs** i rutan **API-behörigheter** att se ut ungefär så här för dina API: er:
+1. Beroende på organisationens inställningar kan du behöva vidta ytterligare åtgärder för att bevilja administratörs åtkomst till det här API: et. Kontakta administratören om du vill ha mer information. När administratörs åtkomsten har godkänts visas din behörighet i kolumnen **Administratörs medgivande** i rutan **API-behörigheter** . 
 
-    [![Lägga till API-behörigheter](./media/digital-twins-permissions/aad-app-admin-consent.png)](./media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![godkännande av administratörs medgivande](./media/digital-twins-permissions/aad-app-admin-consent.png)](./media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
+    Kontrol lera att **Azure Digital-dubbla** visas.

@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 55abdab6a427547ee8bd498500deee94b8f67453
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684298"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954732"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Konfigurera IR med egen värd som proxy för Azure-SSIS IR i ADF
 Den här artikeln beskriver hur du kör SQL Server Integration Services-paket (SSIS) på Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) med egen värd-IR som kon figurer ATS som en proxy.  Med den här funktionen kan du komma åt data lokalt utan att behöva [ansluta till Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Detta är användbart när företags nätverket har en alltför komplex konfiguration/restriktiv princip som du kan använda för att mata in din Azure-SSIS IR.
@@ -87,10 +87,10 @@ De andra mellanlagrings aktiviteterna som körs på din Azure-SSIS IR debiteras 
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- Endast OLEDB/flata fil anslutnings hanterare och OLEDB/flata fil källor stöds för närvarande. 
+- För närvarande stöds endast data flödes aktiviteter med ODBC/OLEDB/Flated File Connection Manager och ODBC/OLEDB/flata fil källor. 
 - Endast Azure Blob Storage länkade tjänster som kon figurer ATS med **konto nyckeln**/**SAS-URI**/**tjänstens huvud namns** autentisering stöds för närvarande.
 - Det finns för närvarande stöd för att tillhandahålla IR-installation med egen värd under samma ADF där Azure-SSIS IR har tillhandahållits.
-- Det går inte att använda SSIS-parametrar/variabler i egenskaperna för OLEDB/flata fil källor och anslutnings hanterare.
+- Det finns för närvarande inte stöd för att använda SSIS-parametrar/variabler i egenskaperna för ODBC/OLEDB/flata fil källor och anslutnings hanterare.
 
 ## <a name="next-steps"></a>Nästa steg
 När du har konfigurerat din egen värd-IR som en proxy för din Azure-SSIS IR, kan du distribuera och köra dina paket för att komma åt data lokalt som kör SSIS-paket aktiviteter i ADF-pipeline, se [köra SSIS-paket som EXECUTE SSIS Package-aktiviteter i ADF-pipeline ](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

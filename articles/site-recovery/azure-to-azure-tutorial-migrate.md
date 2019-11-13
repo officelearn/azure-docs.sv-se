@@ -1,5 +1,5 @@
 ---
-title: Flytta virtuella Azure IaaS-datorer till en annan Azure-region med hjälp av tjänsten Azure Site Recovery | Microsoft Docs
+title: Flytta virtuella Azure-datorer till en annan region med Azure Site Recovery
 description: Använd Azure Site Recovery för att flytta virtuella IaaS-datorer i Azure från en Azure-region till en annan.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: df64575039e08292da5aed5b611ac54d625634a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933882"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954107"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -77,7 +77,7 @@ I den här kursen ska du:
 
 
 
-## <a name="prepare"></a>Förbered dig
+## <a name="prepare"></a>Förbereda
 Följande steg visar hur du förbereder den virtuella datorn för flytt med Azure Site Recovery som en lösning. 
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Skapa valvet i vilken region som helst, förutom käll regionen
@@ -99,7 +99,7 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
 
 1. I nästa steg väljer du den virtuella dator som du vill flytta och väljer sedan **OK**.
 1. I **Inställningar**väljer du **haveri beredskap**.
-1. I **Konfigurera haveri beredskap** > **mål region**väljer du den mål region som du vill replikera till.
+1. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion du ska replikera till.
 1. I den här självstudiekursen accepterar du de andra standardinställningarna.
 1. Välj **Aktivera replikering**. Det här steget startar ett jobb för att aktivera replikering för den virtuella datorn.
 
@@ -111,7 +111,7 @@ Följande steg visar hur du utför flytten till mål regionen.
 
 1. Gå till valvet. I **inställningar** > **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
 2. I **Redundans** väljer du **Senaste**.
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
 4. När jobbet är klart kontrollerar du att den virtuella datorn visas i Azure-regionen som förväntat.
 
 

@@ -1,6 +1,6 @@
 ---
-title: Planera skalan för din Azure Time Series Insightss miljö | Microsoft Docs
-description: I den här artikeln beskrivs hur du följer bästa praxis när du planerar en Azure Time Series Insightss miljö. Områden som omfattas omfattar lagrings kapacitet, data kvarhållning, ingångs kapacitet, övervakning och affärs kontinuitet och haveri beredskap (BCDR).
+title: Planera din GA-miljö – Azure Time Series Insights | Microsoft Docs
+description: Lär dig mer om metod tips som du kan följa när du planerar din GA-miljö.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 649ff31e40bf612f1b70f81e895920f7fc21f082
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991243"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006960"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planera din Azure Time Series Insights GA-miljö
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du planerar din Azure Time Series Insights gener
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 För att komma igång med Azure Time Series Insights är det bäst om du vet hur mycket data du förväntar dig att pusha per minut och hur länge du behöver lagra dina data.  
 

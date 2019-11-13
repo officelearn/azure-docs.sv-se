@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Övervaka ett utrymme med Azure Digital Twins | Microsoft Docs'
+title: 'Självstudie: övervaka ett Space – Digitals dubbla steg | Microsoft Docs'
 description: Lär dig mer om att etablera rumsliga resurser och övervaka arbetsvillkor med Azure Digital Twins med hjälp av stegen i den här självstudien.
 services: digital-twins
 ms.author: alinast
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.openlocfilehash: 74e3c46b2b1427c27923ed91846755797b8da690
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 4e7136c5689bf37e0ca1db33f4838373d59a0901
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949074"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013928"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudier: Etablera dina arbets förhållanden för bygge och övervakning med Azure Digitals för hands version
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudie: etablera dina arbets villkor för bygge och övervakning med Azure Digitals för hands version
 
 Den här självstudien visar hur du använder Azure Digital-förhands granskning för att övervaka dina utrymmen för önskade temperatur villkor och bekvämlighets nivåer. När du har [konfigurerat exempelbyggnaden](tutorial-facilities-setup.md) kan du etablera din byggnad och köra egna funktioner på dina sensordata med hjälp av stegen i den här självstudien.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Definiera villkor för övervakning.
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > * Simulera sensordata.
 > * Hämta resultat från en användardefinierad funktion.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien förutsätter att du har [slutfört Azure Digital Twins-konfigurationen](tutorial-facilities-setup.md). Innan du fortsätter bör du kontrollera att du har:
 
@@ -54,7 +54,7 @@ Lägg till följande matchare under de befintliga matcharna. Kontrollera att nyc
         dataTypeValue: Temperature
 ```
 
-Den här matcharen spårar den `SAMPLE_SENSOR_TEMPERATURE`-sensor som du lade till i [den första självstudien](tutorial-facilities-setup.md). 
+Den här matcharen spårar den `SAMPLE_SENSOR_TEMPERATURE` sensor som du lade till i [den första självstudien](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
 
@@ -185,7 +185,7 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
 
 1. Från utdata i kommandofönstret kopierar du värdet för `ConnectionString` under avsnittet `Devices` till Urklipp. Du behöver det här värdet för att simulera enhetsanslutning i nästa avsnitt.
 
-    [![Provision-exempel](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
+    [exempel på ![provision](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Om du får ett felmeddelande liknande ”I/O-åtgärden avbröts eftersom en tråd avslutades eller på grund av att ett program begärde det” under etableringen kan du försöka att köra kommandot igen. Detta kan inträffa om HTTP-klientens tidsgräns gått ut på grund av ett nätverksproblem.
@@ -204,9 +204,9 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
 
 1. Öppna filen [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) i redigeringsprogrammet och redigera följande värden:
 
-   a. **DeviceConnectionString**: Tilldela värdet för `ConnectionString` i utdatafönstret från föregående avsnitt. Kopiera strängen helt, inom citattecknen, så att simulatorn kan ansluta till IoT-hubben.
+   a. **DeviceConnectionString**: tilldela värdet för `ConnectionString` i utdatafönstret i föregående avsnitt. Kopiera strängen helt, inom citattecknen, så att simulatorn kan ansluta till IoT-hubben.
 
-   b. **HardwareId** i matrisen **Sensors** (Sensorer): Eftersom du simulerar händelser från sensorer som har allokerats till din Azure Digital-instansen, ska maskinvaru-ID: t och namnen på sensorer i den här filen matcha `sensors`-noden i filen *provisionSample. yaml* .
+   b. **HardwareId** inom **sensor** mat ris: eftersom du simulerar händelser från sensorer som har skapats till din Azure Digital-instansen, ska maskinvaru-ID: t och namnen på sensorer i den här filen matcha `sensors`-noden i filen *provisionSample. yaml* .
 
       Lägg till en ny post för temperatursensorn. Noden **sensorer** i *appSettings. JSON* bör se ut så här:
 
@@ -246,7 +246,7 @@ Den användardefinierade funktionen körs varje gång din instans tar emot data 
 
 Utdatafönstret visar hur den användardefinierade funktionen körs och fångar upp händelser från enhetssimuleringen. 
 
-   [![Output för UDF-filen](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![utdata för UDF-filen](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
 Om det övervakade villkoret uppfylls anger den användardefinierade funktionen värdet för utrymmet med relevant meddelande, som vi såg [tidigare](#create-a-user-defined-function). Funktionen `GetAvailableAndFreshSpaces` skriver ut meddelandet på konsolen.
 
@@ -266,7 +266,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 Nu när du har etablerat dina utrymmen och skapat ett ramverk för att utlösa anpassade meddelanden kan du gå till någon av följande självstudier:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
+> [Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)

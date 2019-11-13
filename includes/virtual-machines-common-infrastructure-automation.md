@@ -4,48 +4,47 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a18812c6447266d34f2c8aa1ccff8984f68570a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72171044"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008803"
 ---
-# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Använd infrastruktur automatiserings verktyg med virtuella datorer i Azure
-För att skapa och hantera virtuella datorer i Azure (VM) på ett konsekvent sätt i skala, är det vanligt att någon form av automatisering är det önskade. Det finns många verktyg och lösningar som gör att du kan automatisera hela livs cykeln för distribution och hantering av Azure-infrastrukturen. I den här artikeln beskrivs några av infrastruktur automatiserings verktygen som du kan använda i Azure. De här verktygen passar vanligt vis till någon av följande metoder:
+Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sätt i stor skala, önskas vanligtvis någon form av automatisering. Det finns många verktyg och lösningar som gör det möjligt att automatisera distributionen av hela Azure-infrastrukturen och livscykeln för hantering. Den här artikeln presenteras några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg anpassa ofta till någon av följande metoder:
 
 - Automatisera konfigurationen av virtuella datorer
-    - Verktygen är [Ansible](#ansible), [chef](#chef)och [Puppet](#puppet).
-    - Verktyg som är speciella för anpassning av virtuella datorer är [Cloud-Init](#cloud-init) för virtuella Linux-datorer, PowerShell-tjänsten för [önskad tillstånds konfiguration (DSC)](#powershell-dsc)och [tillägget för Azures anpassade skript](#azure-custom-script-extension) för alla virtuella Azure-datorer
+    - Verktygen innehåller [Ansible](#ansible), [Chef](#chef), och [Puppet](#puppet).
+    - Verktygen som är specifika för VM-anpassning innehåller [cloud-init](#cloud-init) för virtuella Linux-datorer [PowerShell Desired State Configuration (DSC)](#powershell-dsc), och [Azure-tillägget för anpassat skript](#azure-custom-script-extension) för alla Azure virtuella datorer.
  
-- Automatisera infrastruktur hantering
-    - Verktygen inkluderar [Packer](#packer) för att automatisera anpassade versioner av VM-avbildningar och [terraform](#terraform) för att automatisera skapande processen för infrastrukturen.
-    - [Azure Automation](#azure-automation) kan utföra åtgärder i din Azure och lokala infrastruktur.
+- Automatisera hantering av infrastruktur
+    - Verktygen innehåller [Packer](#packer) för att automatisera anpassad virtuell dator skapar avbildningen, och [Terraform](#terraform) för att automatisera infrastrukturen genereringsprocessen.
+    - [Azure Automation](#azure-automation) kan utföra åtgärder i hela Azure och den lokala infrastrukturen.
 
-- Automatisera program distribution och-leverans
-    - Exempel är [Azure DevOps Services](#azure-devops-services) och [Jenkins](#jenkins).
+- Automatisera distribution av program och leverans
+    - Exempel är [Azure DevOps-tjänsterna](#azure-devops-services) och [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) är en automatiserings motor för konfigurations hantering, skapande av virtuella datorer eller program distribution. Ansible använder en agent-mindre modell, vanligt vis med SSH-nycklar, för att autentisera och hantera mål datorer. Konfigurations uppgifter definieras i spel böcker med ett antal Ansible-moduler som är tillgängliga för att utföra vissa uppgifter. Mer information finns i [så här fungerar Ansible](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) är en automatiseringsmotor för konfigurationshantering, skapa en virtuell dator eller programdistribution. Ansible använder en modell utan agent, vanligtvis med SSH-nycklar för att autentisera och hantera måldatorer. Konfigurationsuppgifter definieras i strategiböcker med ett antal Ansible-moduler som är tillgängliga för att utföra specifika uppgifter. Mer information finns i [hur Ansible fungerar](https://www.ansible.com/how-ansible-works).
 
 Lär dig att:
 
-- [Installera och konfigurera Ansible i Linux för användning med Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Skapa en virtuell Linux-dator](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Hantera en virtuell Linux-dator](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
+- [Installera och konfigurera Ansible på Linux för användning med Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
+- [Skapa en Linux-dator](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Hantera en Linux-dator](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef
-[Chef](https://www.chef.io/) är en automatiserings plattform som hjälper dig att definiera hur din infrastruktur konfigureras, distribueras och hanteras. Ytterligare komponenter som ingår chefs livs miljöer för program livs cykel automatisering snarare än infrastrukturen och chefs INSPEC som hjälper till att automatisera efterlevnaden av säkerhets-och princip krav. Chefs klienterna installeras på mål datorerna med en eller flera centrala chefs servrar som lagrar och hanterar konfigurationerna. Mer information finns i [Översikt över chef](https://docs.chef.io/chef_overview.html).
+[Chef](https://www.chef.io/) är en plattform för automatisering som hjälper dig att definiera hur infrastrukturen konfigureras, distribueras och hanteras. Ytterligare komponenter med Chef, Habitat för application lifecycle automation i stället för infrastrukturen och Chef InSpec som hjälper dig att automatisera efterlevnad med säkerhet och kraven för lösenordsprincipen. Chef-klienter är installerade på måldatorer, med en eller flera centrala Chef servrar som kan lagra och hantera konfigurationerna. Mer information finns i [en översikt över Chef](https://docs.chef.io/chef_overview.html).
 
 Lär dig att:
 
-- [Distribuera chef automatiserat från Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Installera chef på Windows och skapa virtuella Azure-datorer](../articles/virtual-machines/windows/chef-automation.md).
+- [Distribuera Chef automatisera från Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
+- [Installera Chef på Windows och skapa virtuella Azure-datorer](../articles/virtual-machines/windows/chef-automation.md).
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com) är en företags färdig automatiserings plattform som hanterar programmets leverans-och distributions process. Agenter installeras på mål datorerna så att Puppet-hanteraren kan köra manifest som definierar önskad konfiguration av Azure-infrastrukturen och virtuella datorer. Puppet kan integreras med andra lösningar som Jenkins och GitHub för ett förbättrat DevOps-arbetsflöde. Mer information finns i [så här fungerar Puppet](https://puppet.com/products/how-puppet-works).
+[Puppet](https://www.puppet.com) är en klart för företag som hanterar programprocessen leverans och distribution. Agenter är installerade på måldatorerna så att Puppet originalet, så kör manifest som definierar den önskade konfigurationen för Azure-infrastrukturen och virtuella datorer. Puppet kan integrera med andra lösningar som Jenkins och GitHub för en förbättrad devops-arbetsflöde. Mer information finns i [hur Puppet fungerar](https://puppet.com/products/how-puppet-works).
 
 Lär dig att:
 
@@ -53,84 +52,84 @@ Lär dig att:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom Cloud-Init anropas under den första start processen finns det inga ytterligare steg eller nödvändiga agenter för att tillämpa konfigurationen.  Mer information om hur du formaterar dina `#cloud-config`-filer korrekt finns i [dokumentations webbplatsen för Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`-filer är textfiler kodade i base64.
+[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init anropas under den ursprungliga startprocessen, finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer, finns i den [cloud-init dokumentationswebbplats](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` är i base64-kodade textfiler.
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
-Vi arbetar aktivt med våra godkända Linux distribution-partner för att få moln-init-aktiverade avbildningar tillgängliga på Azure Marketplace. De här avbildningarna gör att dina Cloud-Init-distributioner och-konfigurationer fungerar sömlöst med virtuella datorer och skalnings uppsättningar för virtuella datorer. Läs mer om Cloud-Init på Azure:
+Vi arbetar aktivt med våra godkända Linux-distribution partner för att få cloud-init aktiverat-avbildningarna i Azure marketplace. Dessa avbildningar gör dina cloud-init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och VM-skalningsuppsättningar. Lär dig mer om cloud-init på Azure:
 
-- [Cloud-Init-stöd för virtuella Linux-datorer i Azure](../articles/virtual-machines/linux/using-cloud-init.md)
-- [Prova en själv studie kurs om automatiserad VM-konfiguration med Cloud-Init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Cloud-init-stöd för Linux-datorer i Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Prova en självstudie om automatisk konfiguration av virtuell dator med cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) är en hanterings plattform för att definiera konfigurationen för mål datorer. DSC kan också användas i Linux via [Open Management Infrastructure (OMI)-servern](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) är en hanteringsplattform för att definiera konfigurationen av måldatorer. DSC kan även användas på Linux via den [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
-DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. En lokal Configuration Manager-motor (LCM) körs på varje målnod som bearbetar begärda åtgärder baserat på push-konfigurationer. En pull-server är en webb tjänst som körs på en central värd för att lagra DSC-konfigurationer och associerade resurser. Pull-servern kommunicerar med LCM-motorn på varje målvärd för att tillhandahålla nödvändiga konfigurationer och rapportera om kompatibilitet.
+DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. En motor för lokala Configuration Manager (LCM) körs på varje målnoden som bearbetar begärda åtgärder baserat på pushade konfigurationer. En pull-server är en webbtjänst som körs på en central värd att lagra DSC-konfigurationer och associerade resurser. Pull-servern kommunicerar med LCM-motorn på varje målvärden för att tillhandahålla konfigurationerna som krävs och rapportera om efterlevnad.
 
 Lär dig att:
 
 - [Skapa en grundläggande DSC-konfiguration](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
-- [Konfigurera en DSC-pull-server](/powershell/scripting/dsc/pull-server/pullserver).
-- [Använd DSC för Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+- [Konfigurera en DSC-hämtningsserver](/powershell/scripting/dsc/pull-server/pullserver).
+- [Använda DSC för Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 
-## <a name="azure-custom-script-extension"></a>Anpassat skript tillägg för Azure
-Det anpassade skript tillägget i Azure för [Linux](../articles/virtual-machines/linux/extensions-customscript.md) eller [Windows](../articles/virtual-machines/windows/extensions-customscript.md) laddar ned och kör skript på virtuella Azure-datorer. Du kan använda tillägget när du skapar en virtuell dator eller när som helst efter att den virtuella datorn används. 
+## <a name="azure-custom-script-extension"></a>Azure anpassat skripttillägg
+Tillägget för anpassat skript Azure för [Linux](../articles/virtual-machines/linux/extensions-customscript.md) eller [Windows](../articles/virtual-machines/windows/extensions-customscript.md) hämtar och kör skript på virtuella Azure-datorer. Du kan använda tillägget när du skapar en virtuell dator eller som helst efter den virtuella datorn är i användning. 
 
-Skript kan laddas ned från Azure Storage eller någon offentlig plats, till exempel en GitHub-lagringsplats. Med tillägget för anpassat skript kan du skriva skript på alla språk som körs på den virtuella käll datorn. Dessa skript kan användas för att installera program eller konfigurera den virtuella datorn efter behov. För att skydda autentiseringsuppgifter kan känslig information, till exempel lösen ord, lagras i en skyddad konfiguration. Autentiseringsuppgifterna dekrypteras bara i den virtuella datorn.
+Skripten kan laddas ned från Azure storage eller valfri offentlig plats, till exempel en GitHub-lagringsplats. Du kan använda det anpassade Skripttillägget för att skriva skript på valfritt språk som körs på den Virtuella källdatorn. Skripten kan användas för att installera program eller konfigurera den virtuella datorn efter behov. Om du vill skydda autentiseringsuppgifter kan känslig information, till exempel lösenord lagras i en skyddad konfiguration. Autentiseringsuppgifterna dekrypteras bara på den virtuella datorn.
 
 Lär dig att:
 
-- [Skapa en virtuell Linux-dator med Azure CLI och Använd det anpassade skript tillägget](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Skapa en virtuell Windows-dator med Azure PowerShell och Använd det anpassade skript tillägget](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Skapa en Linux-VM med Azure CLI och använda tillägget för anpassat skript](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
+- [Skapa en virtuell Windows-dator med Azure PowerShell och använda tillägget för anpassat skript](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
 
 ## <a name="packer"></a>Packer
-[Packer](https://www.packer.io) automatiserar Bygg processen när du skapar en anpassad VM-avbildning i Azure. Du använder Packer för att definiera operativ systemet och köra skript för efter konfiguration som anpassar den virtuella datorn efter dina egna behov. När den har kon figurer ATS, fångas den virtuella datorn in som en hanterad disk avbildning. Packer automatiserar processen för att skapa den virtuella käll datorn, nätverks-och lagrings resurser, köra konfigurations skript och skapa sedan den virtuella dator avbildningen.
+[Packer](https://www.packer.io) automatiserar build-processen när du skapar en anpassad virtuell datoravbildning i Azure. Du kan använda Packer för att definiera Operativsystemet och kör efter konfigurationsskript för att anpassa den virtuella datorn efter dina specifika behov. När du konfigurerat avbildas den virtuella datorn sedan som en avbildning av en hanterad Disk. Packer automatiserar processen för att skapa källan VM, nätverk och lagringsresurser, kör konfigurationsskript och sedan skapa VM-avbildning.
 
 Lär dig att:
 
-- [Använd Packer för att skapa en virtuell Linux-avbildning i Azure](../articles/virtual-machines/linux/build-image-with-packer.md).
+- [Använd Packer för att skapa en Linux VM-avbildning i Azure](../articles/virtual-machines/linux/build-image-with-packer.md).
 - [Använd Packer för att skapa en Windows VM-avbildning i Azure](../articles/virtual-machines/windows/build-image-with-packer.md).
 
 
 ## <a name="terraform"></a>Terraform
-[Terraform](https://www.terraform.io) är ett automatiserings verktyg som gör att du kan definiera och skapa en hel Azure-infrastruktur med ett enda mall format språk – HashiCorp-konfigurations språket (HCL). Med terraform definierar du mallar som automatiserar processen för att skapa nätverks-, lagrings-och VM-resurser för en specifik program lösning. Du kan använda dina befintliga terraform-mallar för andra plattformar med Azure för att säkerställa konsekvens och förenkla infrastruktur distributionen utan att behöva konvertera till en Azure Resource Manager-mall.
+[Terraform](https://www.terraform.io) är ett automatiseringsverktyg som gör det möjligt att definiera och skapa en hel Azure-infrastruktur med en enda mallspråk - HashiCorp Configuration språk (HCL). Med Terraform definierar du mallar som automatiserar processen med att skapa nätverk, lagring och Virtuella resurser för en viss lösning. Du kan använda dina befintliga Terraform-mallar för andra plattformar med Azure för att säkerställa konsekvens och förenkla distribution av infrastruktur utan att behöva konvertera till en Azure Resource Manager-mall.
 
 Lär dig att:
 
-- [Installera och konfigurera terraform med Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Skapa en Azure-infrastruktur med terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Installera och konfigurera Terraform med Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
+- [Skapa en Azure-infrastruktur med Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
 
 
-## <a name="azure-automation"></a>Azure Automatisering
-[Azure Automation](https://azure.microsoft.com/services/automation/) använder Runbooks för att bearbeta en uppsättning aktiviteter på de virtuella datorer som du är mål för. Azure Automation används för att hantera befintliga virtuella datorer i stället för att skapa en infrastruktur. Azure Automation kan köras över både virtuella Linux-och Windows-datorer, samt lokala virtuella eller fysiska datorer med en hybrid Runbook Worker. Runbooks kan lagras i en lagrings plats för käll kontroll, till exempel GitHub. Dessa Runbooks kan sedan köras manuellt eller enligt ett definierat schema.
+## <a name="azure-automation"></a>Azure Automation
+[Azure Automation](https://azure.microsoft.com/services/automation/) använder runbooks för att bearbeta en uppsättning uppgifter på de virtuella datorerna som du riktar. Azure Automation används för att hantera befintliga virtuella datorer i stället för att skapa en infrastruktur. Azure Automation kan köras både Linux och Windows-datorer, samt lokala virtuella eller fysiska datorer med en hybrid runbook worker. Runbooks kan lagras i ett källkontrollscentrallager som GitHub. Dessa runbooks kan sedan köra manuellt eller enligt ett definierat schema.
 
-Azure Automation tillhandahåller också en tjänst för önskad tillstånds konfiguration (DSC) som gör att du kan skapa definitioner för hur en given uppsättning virtuella datorer ska konfigureras. DSC säkerställer sedan att konfigurationen som krävs används och att den virtuella datorn förblir konsekvent. Azure Automation DSC körs på både Windows-och Linux-datorer.
+Azure Automation tillhandahåller också en Desired State Configuration (DSC)-tjänst som låter dig skapa definitioner för hur en viss uppsättning virtuella datorer ska konfigureras. DSC ser till att den obligatoriska konfigurationen tillämpas och den virtuella datorn förblir konsekventa. Azure Automation DSC körs på både Windows och Linux-datorer.
 
 Lär dig att:
 
-- [Skapa en PowerShell-Runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Använd hybrid Runbook Worker för att hantera lokala resurser](../articles/automation/automation-hybrid-runbook-worker.md).
+- [Skapa en PowerShell-runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
+- [Använda Hybrid Runbook Worker för att hantera lokala resurser](../articles/automation/automation-hybrid-runbook-worker.md).
 - [Använd Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
 ## <a name="azure-devops-services"></a>Azure DevOps Services
-[Azure DevOps Services](https://www.visualstudio.com/team-services/) är en uppsättning verktyg som hjälper dig att dela och spåra kod, använda automatiserade versioner och skapa en komplett pipeline för kontinuerlig integrering och utveckling (CI/CD). Azure DevOps Services integreras med Visual Studio och andra redigerare för att förenkla användningen. Azure DevOps Services kan också skapa och konfigurera virtuella Azure-datorer och sedan distribuera kod till dem.
+[Azure DevOps-tjänster](https://www.visualstudio.com/team-services/) är en uppsättning med verktyg som hjälper dig att dela och spåra code, Använd automatiserade versioner och skapa en fullständig kontinuerlig integrering och utveckling (CI/CD) pipeline. Azure DevOps-tjänster som integreras med Visual Studio och andra redigerare för att förenkla användningen. Azure DevOps-tjänster kan också skapa och konfigurera virtuella Azure-datorer och distribuera kod till dem.
 
 Läs mer om:
 
-- [Azure DevOps-tjänster](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps-tjänsterna](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io) är en kontinuerlig integrations server som hjälper till att distribuera och testa program och skapa automatiserade pipeliner för kod leverans. Det finns hundratals plugin-program för att utöka kärnan Jenkins-plattformen och du kan också integrera med många andra produkter och lösningar via Webhooks. Du kan installera Jenkins manuellt på en virtuell Azure-dator, köra Jenkins inifrån en Docker-behållare eller använda en fördefinierad Azure Marketplace-avbildning.
+[Jenkins](https://www.jenkins.io) är en kontinuerlig integrering-server som hjälper dig att distribuera och testa program och skapa automatiska pipelines för leverans av kod. Det finns hundratals plugin-program som utökar Jenkins-kärnplattformen och du kan också integreras med många andra produkter och lösningar via webhooks. Du kan manuellt installera Jenkins på en Azure VM, Jenkins från att köras under en Docker-behållare eller använda en färdig Azure Marketplace-avbildning.
 
 Lär dig att:
 
-- [Skapa en utvecklings infrastruktur på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Skapa en infrastruktur för utveckling på en Linux-VM i Azure med Jenkins, GitHub och Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Det finns många olika alternativ för att använda automatiserings verktyg för infrastruktur i Azure. Du har frihet att använda den lösning som bäst passar dina behov och din miljö. Om du vill komma igång och testa några av de verktyg som är inbyggda i Azure läser du så här automatiserar du anpassningen av en [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) -eller [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) -VM.
+Det finns många olika alternativ för att använda verktyg för automatisering av infrastruktur i Azure. Har du friheten att använda den lösning som bäst passar dina behov och miljö. Om du vill komma igång och prova några av verktyg som är inbyggda i Azure, se hur du automatiserar anpassning av en [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) eller [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.

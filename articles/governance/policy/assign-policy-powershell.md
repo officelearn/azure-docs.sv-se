@@ -1,17 +1,14 @@
 ---
 title: Skapa en princip för granskning av resurser med PowerShell
 description: Använda Azure PowerShell för att skapa en Azure Policy-tilldelning som identifierar icke-kompatibla resurser.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.service: azure-policy
-ms.openlocfilehash: 55b7d8509fcf681438b377aa43f5f8aa9bac158d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255909"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960116"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av Azure PowerShell
 
@@ -54,7 +51,7 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 Föregående kommandon använder följande information:
 
 - **Namn** - det faktiska namnet på tilldelningen. I det här exemplet användes *audit-vm-manageddisks*.
-- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan Managed Disks*.
+- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan hanterade diskar*.
 - **Definition** – Principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionens ID *Granska virtuella datorer som inte använder hanterade diskar*.
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper. Kom ihåg att ersätta &lt;omfång&gt; med namnet på din resursgrupp.
 
@@ -106,7 +103,7 @@ Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<
 
 I den här snabbstarten har du tilldelat en principdefinition för att identifiera icke-kompatibla resurser i Azure-miljön.
 
-Om du vill ha mer information om tilldelning av principer för att validera att de nya resurserna är kompatibla fortsätter du till självstudien för att:
+Om du vill ha mer information om tilldelning av principer för att kontrollera att de nya resurserna är kompatibla fortsätter du till självstudiekursen för att:
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./tutorials/create-and-manage.md)

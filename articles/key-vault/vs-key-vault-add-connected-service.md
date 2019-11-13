@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cbc4044b5d1270cecd1a271d2a1db02801650dd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815101"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012773"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
 
@@ -22,9 +22,9 @@ I den här självstudien får du lära dig hur du enkelt kan lägga till allt du
 
 Mer information om de ändringar som anslutna tjänster gör i projektet för att aktivera Key Vault finns i [Key Vault Connected service – vad hände med mitt ASP.NET 4.7.1-projekt](#how-your-aspnet-framework-project-is-modified) eller [Key Vault Connected service – vad hände med mitt ASP.net Core-projekt](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-- **en Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
+- **En Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 version 16,3 Preview 1** eller senare, eller **Visual Studio 2017 version 15,7** med arbets belastningen **webb utveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - För ASP.NET (inte kärnan) med Visual Studio 2017 behöver du .NET Framework 4.7.1 eller senare utvecklingsverktyg, som inte installeras som standard. Installera dem genom att starta Visual Studio Installer, välja **ändra**och sedan välja **enskilda komponenter**, sedan expandera **ASP.net och webb utveckling**på den högra sidan och välja **.NET Framework 4.7.1 utvecklingsverktyg** .
 - En ASP.NET 4.7.1 eller senare, eller ASP.NET Core 2,0-webbprojektet öppnas.
@@ -135,6 +135,21 @@ När den inte längre behövs tar du bort resursgruppen. Detta tar bort Key Vaul
 2. Välj **Ta bort resursgrupp**.
 3. I rutan **Skriv resurs gruppens namn:** anger du namnet på resurs gruppen och väljer **ta bort**.
 
+## <a name="troubleshooting"></a>Felsökning
+
+Om nyckel valvet körs på en annan Microsoft-konto än den som du är inloggad i Visual Studio (till exempel att nyckel valvet körs på ditt arbets konto, men att Visual Studio använder ditt privata konto) får du ett fel i din Program.cs-fil , det går inte att få åtkomst till nyckel valvet i Visual Studio. Så här åtgärdar du problemet:
+
+1. Gå till [Azure Portal](https://portal.azure.com) och öppna din Key Vault.
+
+1. Välj **åtkomst principer**, **Lägg till åtkomst princip**och välj det konto som du är inloggad på som huvud konto.
+
+1. I Visual Studio väljer du **fil** > **konto inställningar**.
+Välj **Lägg till ett konto** från avsnittet **alla konton** . Logga in med det konto som du har valt som huvud konto för din åtkomst princip.
+
+1. Välj **verktyg** > **alternativ**och leta efter **Azure-tjänsteautentisering**. Välj sedan det konto som du precis har lagt till i Visual Studio.
+
+När du nu felsöker ditt program ansluter Visual Studio till det konto som nyckel valvet finns på.
+
 ## <a name="how-your-aspnet-core-project-is-modified"></a>Så här ändras ditt ASP.NET Core-projekt
 
 Det här avsnittet identifierar de exakta ändringar som gjorts i ett ASP.NET-projekt när du lägger till den Key Vault anslutna tjänsten med Visual Studio.
@@ -145,7 +160,7 @@ Påverkar projekt filens .NET-referenser och NuGet-paket referenser.
 
 | Typ | Referens |
 | --- | --- |
-| NuGet | Microsoft. AspNetCore. AzureKeyVault. HostingStartup |
+| NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
 ### <a name="added-files-for-aspnet-core"></a>Filer har lagts till för ASP.NET Core
 
@@ -181,8 +196,8 @@ Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser
 
 | Typ | Referens |
 | --- | --- |
-| Nettotid NuGet | Microsoft. Azure. nyckel valv |
-| Nettotid NuGet | Microsoft. Azure. WebKey |
+| Nettotid NuGet | Microsoft.Azure.KeyVault |
+| Nettotid NuGet | Microsoft.Azure.KeyVault.WebKey |
 | Nettotid NuGet | Microsoft.Rest.ClientRuntime |
 | Nettotid NuGet | Microsoft.Rest.ClientRuntime.Azure |
 

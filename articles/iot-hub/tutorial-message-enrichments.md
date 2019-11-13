@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8b74621f2c5a9c91ece58c8118cd2bc952c3a464
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0dd6c410040eea9eb4039ab5da183cc0b6799493
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809691"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005796"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Självstudie: använda Azure IoT Hub meddelande anrikninger (för hands version)
+# <a name="tutorial-using-azure-iot-hub-message-enrichments"></a>Självstudie: använda Azure IoT Hub meddelande anrikning
 
 *Meddelande anrikning* är möjligheten för IoT Hub att *stämpla* meddelanden med ytterligare information innan meddelandena skickas till den angivna slut punkten. En anledning till att använda meddelande berikare är att inkludera data som kan användas för att förenkla bearbetningen i den underordnade bearbetningen. För att till exempel kunna identifiera enhets telemetri med en enhets rik tagg kan kunderna minska belastningen på kunder för att göra enhetens dubbla API-anrop för den här informationen. Mer information finns i [Översikt över meddelande anrikninger](iot-hub-message-enrichments-overview.md).
 
@@ -34,7 +34,7 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 
 * Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Installera [Visual Studio](https://www.visualstudio.com/).
+* [Installera Visual Studio](https://www.visualstudio.com/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 
 Ladda ned [IoT Device-simulering](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) och packa upp den. Den här lagrings platsen innehåller flera program, inklusive den som du kommer att använda för att skicka meddelanden till IoT Hub.
 
-Den här hämtningen innehåller även skriptet för att skapa de resurser som används för att testa meddelandets berikare. Skriptet är i/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. Nu kan du titta på skriptet och använda det. Du kan också kopiera skriptet direkt från artikeln.
+Den här hämtningen innehåller även skriptet för att skapa de resurser som används för att testa meddelandets berikare. Skriptet finns i/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli. Nu kan du titta på skriptet och använda det. Du kan också kopiera skriptet direkt från artikeln.
 
 När du är redo att börja testa ska du använda programmet för enhets simulering från den här nedladdningen för att skicka meddelandet till din IoT-hubb.
 
@@ -72,9 +72,9 @@ Här följer resurserna som skapats av skriptet. En **omfattande** metod är att
 | Namn | Värde |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
-| Container namn | originalspråket  |
-| Container namn | avancerad och  |
-| IoT-enhetens namn | Contoso-test – enhet |
+| container namn | originalspråket  |
+| container namn | avancerad och  |
+| IoT-enhetens namn | Contoso-Test-Device |
 | IoT Hub namn | ContosoTestHubMsgEn |
 | Lagrings konto namn | contosostorage |
 | slut punkts namn 1 | ContosoStorageEndpointOriginal |
@@ -251,11 +251,11 @@ I det här läget är resurserna alla konfigurerade och routningen har kon figur
 
 2. Lägg till de här värdena i listan för ContosoStorageEndpointEnriched-slutpunkten.
 
-   | Namn | Värde | Slut punkt (nedrullningsbar lista) |
+   | Nyckel | Värde | Slut punkt (nedrullningsbar lista) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | deviceLocation | $twin. taggar. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |Kund | 6ce345b8-1e4a-411E-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | deviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   |Kund | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
    > Om enheten inte har ett värde med dubbla stämplas det värde som du lägger till i rutan som en sträng för värdet i meddelandets anrikning. Om du vill se enhetens dubbla information går du till din hubb i portalen, väljer **IoT-enheter**, väljer din enhet och väljer sedan **enhets** topp överst på sidan.

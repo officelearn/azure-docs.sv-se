@@ -1,17 +1,14 @@
 ---
 title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
-ms.service: azure-policy
-ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e6b74eb2ffe15256523e46f0c246ba9f4d399c4d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498279"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959328"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Översikt över Azure Policy tjänsten
 
@@ -46,7 +43,7 @@ Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [a
 
 Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en definierad effekt som träder ikraft om villkoren är uppfyllda.
 
-Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Till exempel:
+Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
 
 - **Tillåtna lagrings konto SKU: er**: avgör om ett lagrings konto som distribueras är inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
 - **Tillåten resurs typ**: definierar de resurs typer som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.

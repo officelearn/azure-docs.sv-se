@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679592"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953955"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -26,17 +26,14 @@ Azure erbjuder ett antal [GPU-optimerade storlekar på virtuella datorer](/azure
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Skapa en värdbaserad pool, etablera den virtuella datorn och konfigurera en app-grupp
 
-Skapa en ny adresspool med en virtuell dator med den storlek som du har valt. Instruktioner finns i [Tutorial: Skapa en värdbaserad pool med Azure Marketplace @ no__t-0.
+Skapa en ny adresspool med en virtuell dator med den storlek som du har valt. Mer information finns i [Självstudier: skapa en värdbaserad pool med Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 Windows Virtual Desktop stöder GPU-accelererad åter givning och kodning i följande operativ system:
 
 * Windows 10 version 1511 eller senare
 * Windows Server 2016 eller senare
 
-Du måste också konfigurera en app-grupp eller använda standard gruppen för Skriv bords appar (med namnet "Skriv bords grupp") som skapas automatiskt när du skapar en ny adresspool. Instruktioner finns i [Tutorial: Hantera app-grupper för Windows Virtual Desktop @ no__t-0.
-
->[!NOTE]
->Det virtuella Windows-skrivbordet stöder endast program grupps typen "Desktop" för de GPU-aktiverade värd-pooler. App-grupper av typen "RemoteApp" stöds inte för GPU-aktiverade värdbaserade pooler.
+Du måste också konfigurera en app-grupp eller använda standard gruppen för Skriv bords appar (med namnet "Skriv bords grupp") som skapas automatiskt när du skapar en ny adresspool. Mer information finns i [Självstudier: hantera program grupper för Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installera grafik driv rutiner som stöds på den virtuella datorn
 
@@ -52,7 +49,7 @@ Som standard återges appar och skriv bord som körs i konfigurationer med flera
 
 1. Anslut till Skriv bordet för den virtuella datorn med ett konto med lokal administratörs behörighet.
 2. Öppna Start-menyn och skriv "gpedit. msc" för att öppna grupprincip redigeraren.
-3. Navigera i trädet till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **fjärr skrivbords värd**för fjärrskrivbordssession  > -**fjärran sluten Session-miljö**.
+3. Navigera i trädet till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **Border vara värd** för fjärrskrivbordssession > **fjärrsessions miljö**.
 4. Välj princip **Använd maskin varans standard grafik kort för alla Fjärrskrivbordstjänster sessioner** och ange att den här principen **är aktive rad** för att aktivera GPU-rendering i fjärrsessionen.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurera GPU-accelererad ram kodning
@@ -77,7 +74,7 @@ Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett
 
 Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova något av följande:
 
-* Använd `nvidia-smi`-verktyget enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera GPU-belastningen när dina appar körs.
+* Använd `nvidia-smi` verktyget enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera om GPU-belastningen körs när dina appar körs.
 * I operativ system versioner som stöds kan du använda aktivitets hanteraren för att kontrol lera GPU-användningen. Välj GPU på fliken "prestanda" för att se om appar använder GPU: n.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Kontrol lera att GPU-accelererad ram kodning
@@ -85,9 +82,9 @@ Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova n
 Verifiera att fjärr skrivbord använder GPU-accelererad kodning:
 
 1. Anslut till den virtuella datorns Station ära dator med hjälp av Windows Virtual Desktop-klienten.
-2. Starta Loggboken och navigera till följande nod: **Program-och tjänst loggar** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **drift**
-3. Ta reda på om GPU-accelererad kodning används genom att leta efter händelse-ID 170. Om du ser "AVC Hardware Encoder Enabled: 1 "används GPU-kodning.
-4. Du kan kontrol lera om AVC 444-läge används genom att leta efter händelse-ID 162. Om du ser "AVC tillgängligt: 1 initial profil: 2048 "sedan används AVC 444.
+2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **Operational**
+3. Ta reda på om GPU-accelererad kodning används genom att leta efter händelse-ID 170. Om du ser "AVC Hardware Encoder Enabled: 1" används GPU-kodning.
+4. Du kan kontrol lera om AVC 444-läge används genom att leta efter händelse-ID 162. Om du ser "AVC tillgängligt: 1 initial profil: 2048" används AVC 444.
 
 ## <a name="next-steps"></a>Nästa steg
 

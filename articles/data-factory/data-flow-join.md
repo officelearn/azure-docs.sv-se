@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675913"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961844"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
@@ -36,7 +36,7 @@ Höger yttre koppling returnerar alla rader från den högra strömmen och match
 
 ### <a name="full-outer"></a>Fullständig yttre
 
-Fullständig yttre koppling visar alla kolumner och rader från båda sidor med NULL-värden för kolumner som inte matchar.
+Fullständig yttre koppling matar ut alla kolumner och rader från båda sidor med NULL-värden för kolumner som inte matchar.
 
 ### <a name="cross-join"></a>Kors koppling
 

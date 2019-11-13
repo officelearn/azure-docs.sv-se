@@ -1,23 +1,22 @@
 ---
-title: Arkitektur för haveri beredskap för VMware/fysisk server till en sekundär plats med Azure Site Recovery | Microsoft Docs
+title: Arkitektur – VMware/fysisk haveri beredskap till en sekundär plats med Azure Site Recovery
 description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används vid haveri beredskap för lokala virtuella VMware-datorer eller fysiska Windows/Linux-servrar till en sekundär VMware-plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 0c00e26e6c12835db96c192400c3fe8652534dd4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b0a46dcf8fe298494a53713f122b1bda8ce07e5e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972114"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954579"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arkitektur för replikering av VMware/fysisk server till en sekundär lokal plats
 
-Den här artikeln beskriver arkitekturen och processerna som används när du konfigurerar replikering av haveri beredskap, redundans och återställning av lokala virtuella VMware-datorer (VM) eller fysiska Windows/Linux-servrar till en sekundär VMware-plats med hjälp av [Azure Site Recovery ](site-recovery-overview.md).
+Den här artikeln beskriver arkitekturen och processerna som används när du konfigurerar replikering av haveri beredskap, redundans och återställning av lokala virtuella VMware-datorer (VM) eller fysiska Windows/Linux-servrar till en sekundär VMware-plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
@@ -27,7 +26,7 @@ Den här artikeln beskriver arkitekturen och processerna som används när du ko
 **Azure** | Du kan distribuera det här scenariot med InMage Scout. | För att hämta InMage Scout behöver du en Azure-prenumeration.<br/><br/> När du har skapat ett Recovery Services-valv laddar du ned InMage Scout och installerar de senaste uppdateringarna för att konfigurera distributionen.
 **Processervern** | Finns på primär plats | Du distribuerar processervern för att hantera cachelagring, komprimering och dataoptimering.<br/><br/> Den hanterar också push-installationen av Unified Agent till de datorer som du vill skydda.
 **Konfigurationsserver** | Finns på sekundär plats | Konfigurationsservern hanterar, konfigurerar och övervakar distributionen, antingen med hjälp av hanteringswebbplatsen eller vContinuum-konsolen.
-**vContinuum-server** | Valfritt. Installeras på samma plats som konfigurationsservern. | Den innehåller en konsol för att hantera och övervaka din skyddade miljö.
+**vContinuum-server** | Valfri. Installeras på samma plats som konfigurationsservern. | Den innehåller en konsol för att hantera och övervaka din skyddade miljö.
 **Huvudmålservern** | Finns på den sekundära platsen | Huvudmålservern innehåller replikerade data. Den tar emot data från processervern, skapar en replikdator på den sekundära platsen och innehåller datakvarhållningspunkterna.<br/><br/> Hur många huvudmålservrar du behöver beror på hur många datorer du skyddar.<br/><br/> Om du vill växla tillbaka till den primära platsen behöver du en huvudmålserver även där. Unified-agenten är installerad på den här servern.
 **VMware ESX/ESXi och vCenter-server** |  Virtuella datorer finns på ESX-/ESXi-värdar. Värdar hanteras med en vCenter-server | Du behöver en VMware-infrastruktur för att replikera virtuella VMware-datorer.
 **Virtuella datorer/fysiska servrar** |  Unified Agent installeras på virtuella VMware-datorer eller fysiska servrar som du vill replikera. | Agenten fungerar som en kommunikationsprovider mellan alla komponenter.

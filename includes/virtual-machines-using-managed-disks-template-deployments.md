@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 59c888b1f18b1c9f700e1b79c4786a466f2c55fb
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ba49fc72fe07378d702b8c12fcdf77d5cebee9bb
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822039"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013091"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Använda Managed Disks i Azure Resource Manager mallar
-
 Det här dokumentet vägleder dig genom skillnaderna mellan hanterade och ohanterade diskar när du använder Azure Resource Manager mallar för att etablera virtuella datorer. I exemplen kan du uppdatera befintliga mallar som använder ohanterade diskar till hanterade diskar. För referens använder vi mallen [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) som en guide. Du kan se mallen med hjälp av både [hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) och en tidigare version med [ohanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) om du vill jämföra dem direkt.
 
 ## <a name="unmanaged-disks-template-formatting"></a>Mall-formatering för ohanterade diskar
@@ -96,7 +94,7 @@ Med Azure Managed Disks blir disken en resurs på den översta nivån och kräve
 
 ### <a name="default-managed-disk-settings"></a>Standardinställning för hanterade diskar
 
-Om du vill skapa en virtuell dator med hanterade diskar behöver du inte längre skapa lagrings konto resursen och kan uppdatera den virtuella dator resursen på följande sätt. Observera särskilt att `apiVersion` visar `2017-03-30` och `osDisk` och `dataDisks` inte längre refererar till en specifik URI för den virtuella hård disken. När du distribuerar utan att ange ytterligare egenskaper kommer disken att använda en lagrings typ baserat på den virtuella datorns storlek. Om du till exempel använder en Premium-kompatibel VM-storlek (storlekar med "s" i namnet, till exempel Standard_D2s_v3), kommer systemet att använda Premium_LRS-lagring. Använd disk enhets inställningen för disken för att ange en lagrings typ. Om inget namn anges används formatet `<VMName>_OsDisk_1_<randomstring>` för operativ system disken och `<VMName>_disk<#>_<randomstring>` för varje datadisk. Som standard är Azure Disk Encryption inaktive rad. cachelagring är Läs/skrivbar för OS-disken och ingen för data diskar. Du kanske märker att det fortfarande finns ett lagrings konto beroende i exemplet nedan, även om det bara är för lagring av diagnostik och inte behövs för disk lagring.
+Om du vill skapa en virtuell dator med hanterade diskar behöver du inte längre skapa lagrings konto resursen och kan uppdatera den virtuella dator resursen på följande sätt. Observera särskilt att `apiVersion` visar `2017-03-30` och `osDisk` och `dataDisks` inte längre refererar till en specifik URI för den virtuella hård disken. När du distribuerar utan att ange ytterligare egenskaper kommer disken att använda en lagrings typ baserat på den virtuella datorns storlek. Om du till exempel använder en Premium-kompatibel VM-storlek (storlekar med "s" i namnet, till exempel Standard_D2s_v3), kommer systemet att använda Premium_LRS lagring. Använd disk enhets inställningen för disken för att ange en lagrings typ. Om inget namn anges används formatet `<VMName>_OsDisk_1_<randomstring>` för operativ system disken och `<VMName>_disk<#>_<randomstring>` för varje datadisk. Som standard är Azure Disk Encryption inaktive rad. cachelagring är Läs/skrivbar för OS-disken och ingen för data diskar. Du kanske märker att det fortfarande finns ett lagrings konto beroende i exemplet nedan, även om det bara är för lagring av diagnostik och inte behövs för disk lagring.
 
 ```json
 {

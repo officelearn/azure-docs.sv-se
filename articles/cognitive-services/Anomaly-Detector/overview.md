@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 3bd60ff1e732940bbb13c2e224084cf7e331266b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934866"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012061"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 
@@ -52,8 +52,8 @@ Utför följande steg för att köra antecknings boken:
 1. Avmarkera alternativet "offentlig" i dialog rutan innan du slutför klonings åtgärden, annars är din bärbara dator, inklusive eventuella prenumerations nycklar, offentlig.
 1. Klicka på **Kör vid kostnads fri beräkning**
 1. Välj en av antecknings böckerna.
-1. Lägg till din giltiga API-prenumerations nyckel för avvikelse `subscription_key` detektor i variabeln. 
-1. `endpoint` Ändra variabeln till din slut punkt. Exempel: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
+1. Lägg till din giltiga avvikelse-API-prenumerations nyckel i `subscription_key`-variabeln. 
+1. Ändra `endpoint`-variabeln till din slut punkt. Exempel: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Klicka på **cell**och **Kör alla**på den översta meny raden.
 
 ## <a name="workflow"></a>Arbetsflöde
@@ -72,18 +72,18 @@ Efter registreringen:
 
 ## <a name="algorithms"></a>Algoritmer
 
-* I den här tekniska bloggen [presenterar vi Azures API för avvikelse detektor](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) om algoritmerna under huven.
+* Se tekniska Bloggar som [presenterar API: t för API för avvikelse](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) igenkänning i Azure och en översikt över [SR-CNN-algoritmen i Azures avvikelse detektor](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) om algoritmerna under huven.
 * Se den här pappers [seriens avvikelse identifierings tjänst på Microsoft](https://arxiv.org/abs/1906.03821) (godkänd av KDD 2019) för de CNN-algoritmer som utvecklats av Microsoft.
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
-## <a name="join-the-anomaly-detector-community"></a>Delta i communityn för avvikelse identifiering
+## <a name="join-the-anomaly-detector-community"></a>Delta i communityn för avvikelseidentifiering
 
 * Gå med i [gruppen avvikelser detektorer i Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
 * Se valt [innehåll som skapats av användare](user-generated-content.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API](quickstarts/detect-data-anomalies-csharp.md)
+* [Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API](quickstarts/detect-data-anomalies-csharp.md)
 * API: t online- [demon](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) för avvikelse detektor
 * Avvikelse detektor [REST API referens](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

@@ -1,18 +1,18 @@
 ---
-title: Övervaka Azure Site Recovery med Azure Monitor loggar (Log Analytics) | Microsoft Docs
+title: Övervaka Azure Site Recovery med Azure Monitor loggar
 description: Lär dig hur du övervakar Azure Site Recovery med Azure Monitors loggar (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331926"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936080"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 

@@ -3,7 +3,7 @@ title: Kom igång med Azure AD repor ting API | Microsoft Docs
 description: 'Komma igång med API: et för Azure Active Directory rapportering'
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28c64653ee0f9135e6da4c3768b89f9a0b25b2ef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c841195cacd8c8d7698f69435572587bf04c3d67
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127365"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008362"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Kom igång med API: et för Azure Active Directory rapportering
 
@@ -34,7 +34,7 @@ Den här artikeln ger en översikt över rapporterings-API: t, inklusive sätt a
 
 Om du stöter på problem, se [hur du får support för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill få åtkomst till rapporterings-API: et, med eller utan åtgärder från användaren, måste du:
 
@@ -47,12 +47,12 @@ Detaljerade anvisningar finns i [krav för att komma åt Azure Active Directory 
 
 ## <a name="api-endpoints"></a>API-slutpunkter 
 
-Microsoft Graph API-slutpunkten för gransknings loggar är `https://graph.microsoft.com/beta/auditLogs/directoryAudits` och Microsoft Graph-API-slutpunkten för inloggningar är. `https://graph.microsoft.com/beta/auditLogs/signIns` Mer information finns i API- [referens för granskning](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) och [INLOGGNINGs-API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
+Microsoft Graph API-slutpunkten för gransknings loggar är `https://graph.microsoft.com/beta/auditLogs/directoryAudits` och Microsoft Graph API-slutpunkten för inloggningar är `https://graph.microsoft.com/beta/auditLogs/signIns`. Mer information finns i API- [referens för granskning](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) och [INLOGGNINGs-API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
 Dessutom kan du använda [identitets skyddets identifierings-API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för att få program mässig åtkomst till säkerhets identifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
 
 > [!NOTE]
->  Slut **punkten för\/https\/:\/Graph.Windows.net\>-klientens\/namnrapporter\/ är inaktuell.\<** Använd de nya API-slutpunkter som beskrivs ovan för att program mässigt komma åt aktivitets-och säkerhets rapporter.
+>  **Https:\/\/graph.windows.net\/\<klient organisations namn\>\/rapporter\/** slut punkten är föråldrad. Använd de nya API-slutpunkter som beskrivs ovan för att program mässigt komma åt aktivitets-och säkerhets rapporter.
   
 ## <a name="apis-with-graph-explorer"></a>API: er med Graph Explorer
 

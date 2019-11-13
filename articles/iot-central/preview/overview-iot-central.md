@@ -3,44 +3,43 @@ title: Beskrivning av Azure IoT Central | Microsoft Docs
 description: Azure IoT Central är en SaaS lösning från slut punkt till slut punkt som du kan använda för att bygga och hantera din anpassade IoT-lösning. Den här artikeln innehåller en översikt över funktionerna i Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/06/2019
+ms.date: 11/12/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 1269743d6c8354054a17b94d3470800a94180090
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 597f9a80cad435bb24b38852065124ad292cd51b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893867"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005872"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Vad är Azure IoT Central (för hands versions funktioner)?
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) -funktionerna i Azure IoT Central finns för närvarande i en offentlig för hands version. Använd inte ett IoT-Plug and Play aktiverat IoT Central program för produktions arbets belastningar. För produktions miljöer används ett IoT Central-program som skapats från en aktuell, allmänt tillgänglig program mal len.
+> [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) -funktionerna i Azure IoT Central finns för närvarande i en offentlig för hands version. Använd inte en IoT-Plug and Play som är aktive rad IoT Central [program mal len](../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) för produktions arbets belastningar. För produktions miljöer används ett IoT Central-program som skapats från en aktuell, allmänt tillgänglig [program mal len](../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
 
-Azure IoT Central är en IoT-programplattform som minskar belastningen och kostnaderna för att utveckla, hantera och underhålla IoT-lösningar i företags klass. Genom att välja att skapa med Azure IoT Central får du möjlighet att fokusera tid, pengar och energi på att omvandla din verksamhet med IoT-data, i stället för att bara underhålla och uppdatera en komplex och ständigt växande IoT-infrastruktur.
+IoT Central är en IoT-programplattform som minskar belastningen och kostnaderna för att utveckla, hantera och underhålla IoT-lösningar i företags klass. Genom att välja att skapa med IoT Central får du möjlighet att fokusera tid, pengar och energi på att omvandla din verksamhet med IoT-data, i stället för att bara underhålla och uppdatera en komplex och ständigt växande IoT-infrastruktur.
 
 Med webb gränssnittet kan du övervaka enhets villkor, skapa regler och hantera miljon tals enheter och deras data under deras livs cykel. Dessutom kan du agera på enhets insikter genom att utöka IoT Intelligence till branschspecifika program.
 
-Den här artikeln beskriver för Azure IoT Central:
+Den här artikeln beskriver IoT Central:
 
 - de vanligaste profilerna som är associerade med ett projekt
 - hur du skapar ditt program
 - hur du ansluter dina enheter till ditt program
 - hur du hanterar ditt program.
-- Översikt över IoT Edge funktioner i IoT Central
+- Azure IoT Edge funktioner i IoT Central.
 - Så här ansluter du dina Azure IoT Edge runtime-baserade enheter till ditt program.
-
 
 ## <a name="known-issues"></a>Kända problem
 
 > [!Note]
-> Dessa kända problem gäller endast för IoT Central för hands versions programmet.
+> Dessa kända problem gäller endast för IoT Central för hands versions program.
 
 - Regler har inte stöd för alla åtgärder (endast e-post).
 - För komplexa typer – regler, analyser och enhets grupper stöds inte.
@@ -57,22 +56,21 @@ Den här artikeln beskriver för Azure IoT Central:
 
 ## <a name="personas"></a>Profiler
 
-Azure IoT Central-dokumentationen avser fyra personer som interagerar med ett Azure IoT Central-program:
+IoT Central-dokumentationen avser fyra personer som interagerar med ett IoT Central-program:
 
 - En _Solution Builder_ ansvarar för att definiera de typer av enheter som ansluter till programmet och anpassar programmet för-operatorn.
 - en _operatör_ hanterar de enheter som är anslutna till programmet
 - En _administratör_ ansvarar för administrativa uppgifter, till exempel hantering av [användar roller och behörigheter](howto-administer.md) i programmet.
-- en _enhetsutvecklare_ skapar den kod som körs på en enhet som är ansluten till ditt program.
-- En _enhet/modul-utvecklare_ skapar koden/modulen som körs på en enhet som är ansluten till ditt program.
+- En _enhets utvecklare_ skapar den kod som körs på en enhet eller IoT Edge modul som är ansluten till ditt program.
 
-## <a name="create-your-azure-iot-central-application"></a>Skapa ditt Azure IoT Central-program
+## <a name="create-your-iot-central-application"></a>Skapa ditt IoT Central program
 
-Som byggare använder du Azure IoT Central till att skapa en anpassad, molnbaserad IoT-lösning för din organisation. En anpassad IoT-lösning består vanligtvis av:
+Som Solution Builder använder du IoT Central för att skapa en anpassad IoT-lösning för molnet som är värd för din organisation. En anpassad IoT-lösning består vanligtvis av:
 
 - ett molnbaserat program som tar emot telemetri från dina enheter och låter dig hantera dessa enheter.
 - flera enheter som kör anpassad kod är anslutna till ditt molnbaserade program.
 
-Du kan snabbt distribuera ett nytt Azure IoT Central-program och sedan anpassa det efter dina specifika krav i webbläsaren. Som ett verktyg använder du webbaserade verktyg för att skapa en _enhets mall_ för de enheter som ansluter till ditt program. En enhets mall är den skiss som definierar egenskaperna och beteendet för en typ av enhet, till exempel:
+Du kan snabbt distribuera ett nytt IoT Central-program och sedan anpassa det efter dina specifika krav i webbläsaren. Som Solution Builder använder du webbaserade verktyg för att skapa en _enhets mall_ för de enheter som ansluter till ditt program. En enhets mall är den skiss som definierar egenskaperna och beteendet för en typ av enhet, till exempel:
 
 - Telemetri som skickas.
 - företagsegenskaper som en operatör kan ändra
@@ -89,18 +87,18 @@ Den här enhets mal len innehåller:
 
 [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) gör det möjligt för IoT Central att integrera enheter utan att du behöver skriva någon inbäddad enhets kod. I IoT-Plug and Play är det ett modell schema för enhets kapacitet som beskriver enhets funktioner. I ett IoT Central för hands versions program använder enhets mallarna de här IoT-Plug and Play enhets kapacitets modeller.
 
-Som ett verktyg har du flera alternativ för att skapa enhets mallar:
+Som Solution Builder har du flera alternativ för att skapa enhets mallar:
 
 - Utforma enhets mal len i IoT Central och implementera sedan dess enhets kapacitets modell i enhets koden.
 - Importera en enhets kapacitets modell från [Azure-certifierad för IoT-katalogen](https://aka.ms/iotdevcat) och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
 - Skapa en enhets kapacitets modell med Visual Studio Code. Implementera din enhets kod från modellen och Anslut enheten till IoT Central-programmet. IoT Central hittar enhetens kapacitets modell från en lagrings plats och skapar en enkel enhets mall åt dig.
 - Skapa en enhets kapacitets modell med Visual Studio Code. Implementera din enhets kod från modellen. Importera enhetens kapacitets modell manuellt till ditt IoT Central program och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
 
-Som ett verktyg kan du använda IoT Central för att generera kod för test enheter för att validera dina enhets mallar.
+Som Solution Builder kan du använda IoT Central för att generera kod för test enheter för att validera dina enhets mallar.
 
 ### <a name="customize-the-ui"></a>Anpassa användargränssnittet
 
-Som byggare kan du också anpassa Azure IoT Central-användargränssnittet för de operatörer som ansvarar för den dagliga användningen av programmet. En byggare kan bl.a. göra följande anpassningar:
+Som Solution Builder kan du också anpassa IoT Central programmets användar gränssnitt för de operatörer som ansvarar för den dagliga användningen av programmet. Anpassningar som en Solution Builder kan göra är:
 
 - definiera layouten för egenskaper och inställningar i en enhetsmall
 - konfigurera anpassade instrumentpaneler som hjälper operatörerna att få insikter och lösa problem snabbare
@@ -108,7 +106,7 @@ Som byggare kan du också anpassa Azure IoT Central-användargränssnittet för 
 
 ## <a name="connect-your-devices"></a>Anslut dina enheter
 
-När byggaren har definierat vilka typer av enheter som kan ansluta till programmet, skapar en enhetsutvecklare koden som ska köras på enheterna. Som enhetsutvecklare kan du använda den öppna källkoden [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) från Microsoft när du skapar din enhetskod. Dessa SDK:er har brett språk-, plattforms- och protokollstöd som hjälper dig att ansluta enheter till ditt Azure IoT Central-program. Med SDK: er kan du implementera följande enhets funktioner:
+När byggaren har definierat vilka typer av enheter som kan ansluta till programmet, skapar en enhetsutvecklare koden som ska köras på enheterna. Som enhetsutvecklare kan du använda den öppna källkoden [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) från Microsoft när du skapar din enhetskod. Dessa SDK: er har brett stöd för språk, plattform och protokoll för att möta dina behov för att ansluta dina enheter till ditt IoT Central-program. Med SDK: er kan du implementera följande enhets funktioner:
 
 - skapa en säker anslutning
 - skicka telemetri
@@ -117,34 +115,9 @@ När byggaren har definierat vilka typer av enheter som kan ansluta till program
 
 Mer information finns i bloggposten om [fördelar med att använda Azure IoT-SDK:er och fallgropar att undvika om du inte gör det](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
 
-## <a name="manage-your-application"></a>Hantera ditt program
+### <a name="azure-iot-edge-devices"></a>Azure IoT Edge-enheter
 
-Azure IoT Central-program är helt värdbaserade hos Microsoft, vilket minskar administrationsomkostnaderna när du hanterar dina program.
-
-Som operatör kan du använda Azure IoT Central-programmet till att hantera enheter i din Azure IoT Central-lösning. Operatörer utför uppgifter som:
-
-- övervaka enheter som är anslutna till programmet
-- felsöka och åtgärda problem med enheter
-- etablera nya enheter.
-
-Som ett verktyg kan du definiera anpassade regler och åtgärder som körs via data strömning från anslutna enheter. En operatör kan aktivera eller inaktivera dessa regler på enhetsnivå för att kunna styra och automatisera uppgifter i programmet.
-
-Administratörer hanterar åtkomst till ditt program med [användar roller och behörigheter](howto-administer.md).
-
-
-## <a name="what-is-azure-iot-central-with-azure-iot-edge-preview-features"></a>Vad är Azure IoT Central med Azure IoT Edge (förhands gransknings funktioner)
-
-IoT Central utökar sin portfölj genom att stödja Azure IoT Edge enheter. 
-
-Nu kan företag köra Cloud Intelligence direkt på IoT-enheter som hanteras av Azure IoT Central. Den här nya funktionen hjälper företag att ansluta och hantera Azure IoT Edge enheter som kör Azure IoT Edge runtime, distribuera programmoduler, publicera insikter och vidta åtgärder i skala – allt från IoT Central. 
-
-[Översikt över Azure IoT Edge](../../iot-edge/about-iot-edge.md)
-
-### <a name="overview-of-iot-edge-capabilities-in-iot-central"></a>Översikt över IoT Edge funktioner i IoT Central
-
-Azure IoT Edge-körning möjliggör anpassad och molnbaserad logik på IoT Edge-enheter. IoT Edge enheten drivs av körningen och utför hanterings-och kommunikations åtgärder. 
-
-Azure IoT Edge runtime utför följande funktioner:
+Enheter som har skapats med [Azure IoT-SDK](https://github.com/Azure/azure-iot-sdks): er kan också ansluta [Azure IoT Edge enheter](../../iot-edge/about-iot-edge.md) till ett IoT Central-program. Med Azure IoT Edge kan du köra Cloud Intelligence och anpassad logik direkt på IoT-enheter som hanteras av IoT Central. Med IoT Edge runtime kan du:
 
 - Installerar och uppdaterar arbetsbelastningar på enheten.
 - Upprätthåller Azure IoT Edge-säkerhetsstandarder på enheten.
@@ -152,49 +125,27 @@ Azure IoT Edge runtime utför följande funktioner:
 - Rapporterar modulens hälsa till molnet för fjärrövervakning.
 - Hanterar kommunikationen mellan nedströms lövenheter och en IoT Edge-enhet, mellan modulerna på en IoT Edge-enhet, och mellan en IoT Edge-enhet och molnet.
 
-![IoT Central med Azure IoT Edge översikt](./media/overview-iot-central/iotedge.png)
+Mer information finns i [Azure IoT Edge enheter och IoT Central](./concepts-architecture.md#azure-iot-edge-devices).
 
-Azure IoT Central utför följande funktioner: 
+## <a name="manage-your-application"></a>Hantera ditt program
 
-- Stöd för Azure IoT Edge enhets mal len som beskriver de funktioner som en Azure IoT Edge enhet bör implementera som 
-  1. överförings funktion för distributions manifest, som hjälper dig att hantera ett manifest för en flotta av enheter
-  2. moduler som ska köras på den Azure IoT Edge enheten
-  3. telemetri varje modul skickar
-  4. egenskaper för varje modul-rapport och 
-  5. kommandot svarar på varje modul
-  6. Upprätta relationer mellan Azure IoT Edge Gateway enhets kapacitets modell och kapacitets modell för underordnad enhet
-  7. Moln egenskaper som inte lagras på den Azure IoT Edge enheten
-  8. Anpassningar, instrument paneler och formulär som ingår i ditt IoT Central program
+IoT Central program är helt värdar för Microsoft, vilket minskar administrations kostnaderna för att hantera dina program.
 
-  [Skapa Azure IoT Edge enhets mall](./tutorial-define-edge-device-type.md)
-   
-- Etablering Azure IoT Edge enheter i stor skala med Azure IoT Device Provisioning-tjänsten
-- Utlös regler och vidta åtgärder på Azure IoT Edge enheter
-- Bygg instrument paneler och analys 
-- Kontinuerlig data export av telemetri som flödar från Azure IoT Edge enheter
+Som operatör använder du IoT Central-programmet för att hantera enheterna i din IoT Central-lösning. Operatörer utför uppgifter som:
 
-### <a name="azure-iot-edge-device-types-in-iot-central"></a>Azure IoT Edge enhets typer i IoT Central
+- övervaka enheter som är anslutna till programmet
+- felsöka och åtgärda problem med enheter
+- etablera nya enheter.
 
-Azure IoT Central klassificerar Azure IoT Edge enhets typer på följande sätt:
+Som Solution Builder kan du definiera anpassade regler och åtgärder som körs via data strömning från anslutna enheter. En operatör kan aktivera eller inaktivera dessa regler på enhetsnivå för att kunna styra och automatisera uppgifter i programmet.
 
-- Azure IoT Edge enhet som en löv enhet. Azure IoT Edge enheten kan ha underordnade enheter, men underordnade enheter är inte etablerade i IoT Central
-- Azure IoT Edge enhet som en gateway-enhet med underordnade enheter. Både gateway-enheter och underordnade enheter tillhandahålls i IoT Central
-
-![IoT Central med Azure IoT Edge översikt](./media/overview-iot-central/gatewayedge.png)
-
-### <a name="azure-iot-edge-patterns-supported-in-iot-central"></a>Azure IoT Edge mönster som stöds i IoT Central
-
-- Azure IoT Edge som löv enhets ![Azure IoT Edge som löv enhet](./media/overview-iot-central/edgeasleafdevice.png) Azure IoT Edge enheten kommer att tillhandahållas i IoT Central och eventuella efterföljande enheter och dess telemetri kommer att visas som kommer från Azure IoT Edge enhet. Underordnade enheter om någon som är ansluten till Azure IoT Edge-enheten inte är etablerad i IoT Central. 
-
-- Azure IoT Edge gateway-enhet som är ansluten till underordnade enheter med identitets ![Azure IoT Edge med underordnad enhets identitet](./media/overview-iot-central/edgewithdownstreamdeviceidentity.png) Azure IoT Edge enheten kommer att tillhandahållas i IoT Central tillsammans med de efterföljande enheterna som är anslutna till Azure IoT Edge-enheten. Körnings stöd för etablering av underordnade enheter via gateway planeras i framtiden. IoT Central kommer att kontrol säga upp molnets första etablering av de underordnade enheterna och autentiseringsuppgifterna hanteras manuellt på den underordnade enheten. Enhets första etablering av underordnade enheter planerade för framtida terminer. 
-
-- Azure IoT Edge gateway-enhet som är ansluten till underordnade enheter med identiteten som tillhandahålls av Edge Gateway-![Azure IoT Edge med underordnad enhet utan identitet](./media/overview-iot-central/edgewithoutdownstreamdeviceidentity.png) Azure IoT Edge-enheten kommer att tillhandahållas i IoT Central tillsammans med de efterföljande enheterna som är anslutna till Azure IoT Edge-enheten. Stöd för körning av gateway som ger identitet till underordnade enheter och etablering av underordnade enheter planeras i framtiden. Du kan ta med din egen identitet för identitets översättning och IoT Central kommer att stödja det här mönstret. 
+Administratörer hanterar åtkomst till ditt program med [användar roller och behörigheter](howto-administer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en översikt över Azure IoT Central föreslår vi nästa steg:
+Nu när du har en översikt över IoT Central, föreslås följande steg:
 
-- Förstå skillnaderna mellan [Azure IoT Central och Azure IoT-lösningsacceleratorer](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Förstå skillnaderna mellan [IoT Central och Azure IoT Solution-acceleratorer](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
 - bekanta dig med [Azure IoT Central-användargränssnittet](overview-iot-central-tour.md)
 - kom igång genom att [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
 - Lär dig mer om [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)

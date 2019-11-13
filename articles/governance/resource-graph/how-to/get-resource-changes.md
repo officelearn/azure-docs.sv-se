@@ -1,18 +1,14 @@
 ---
 title: Hämta resursändringar
 description: Förstå hur du hittar när en resurs har ändrats och hämtar en lista över de egenskaper som har ändrats.
-services: resource-graph
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 25d900276518e51e80021d1fdb1ac80945eb2d5c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622567"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958767"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -48,7 +44,7 @@ Det första steget i att se vad som har ändrats på en resurs är att hitta än
 - **intervall** \[krävs\]: en egenskap med _Start_ - _och slutdatum för_ när du ska söka efter en ändrings händelse med **Zulu Time Zone (Z)** .
 - **fetchPropertyChanges** (valfritt): en boolesk egenskap som anger om Response-objektet innehåller egenskaps ändringar.
 
-Exempel på begär ande text:
+Exempel-begärandetexten:
 
 ```json
 {
@@ -167,7 +163,7 @@ Med **changeId** från **resourceChanges** -slutpunkten används **resourceChang
 - **resourceId**: Azure-resursen för att jämföra ändringar på.
 - **changeId**: den unika ändrings händelsen för **resourceId** som samlats in från **resourceChanges**.
 
-Exempel på begär ande text:
+Exempel-begärandetexten:
 
 ```json
 {

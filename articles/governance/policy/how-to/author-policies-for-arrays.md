@@ -1,17 +1,14 @@
 ---
 title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att skapa mat ris parametrar, skapa regler för matrisens språk uttryck, utvärdera [*]-aliaset och lägga till element i en befintlig matris med Azure Policy definitions regler.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 33607d790f564075623d6f61d1b7b8b70a119f98
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255804"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959719"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -19,7 +16,7 @@ Azure Resource Manager egenskaper definieras vanligt vis som strängar och boole
 
 - Typ av [definitions parameter](../concepts/definition-structure.md#parameters)för att tillhandahålla flera alternativ
 - En del av en [princip regel](../concepts/definition-structure.md#policy-rule) med hjälp av villkoren **i** eller **notIn**
-- En del av en princip regel som utvärderar [\[ @ no__t-2 @ no__t-3-alias](../concepts/definition-structure.md#understanding-the--alias) för att utvärdera vissa scenarier som **none**, **any**eller **all**
+- En del av en princip regel som utvärderar [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) för att utvärdera vissa scenarier som **ingen**, **alla**eller **alla**
 - I Lägg till- [effekter](../concepts/effects.md#append) för att ersätta eller lägga till i en befintlig matris
 
 Den här artikeln beskriver varje användning av Azure Policy och innehåller flera exempel definitioner.
@@ -105,7 +102,7 @@ Använd följande kommandon om du vill använda den här strängen med varje SDK
 ### <a name="array-conditions"></a>Mat ris villkor
 
 Princip regel [villkoren](../concepts/definition-structure.md#conditions) som en _matris_
- parameter**typ** kan användas med är begränsat till `in` och `notIn`. Vidta följande princip definition med villkor `equals` som exempel:
+**typ** av parameter kan användas med är begränsad till `in` och `notIn`. Vidta följande princip definition med villkor `equals` som exempel:
 
 ```json
 {
@@ -137,11 +134,11 @@ Försöket att skapa princip definitionen via Azure Portal leder till ett fel me
 
 - "Det gick inte att parameterstyrda principen {GUID} på grund av verifierings fel. Kontrol lera att princip parametrarna är korrekt definierade. Det inre undantaget för utvärderings resultatet av språk uttrycket [parameters (' allowedLocations ')] är type ' matris ', förväntad typ är sträng '. "
 
-Den förväntade **typen** av villkor `equals` är en _sträng_. Eftersom **allowedLocations** har definierats som **typ** _mat ris_, utvärderar principmodulen språk uttryck och genererar felet. Med villkoret `in` och `notIn` förväntar sig princip motorn **typ** _mat ris_ i språk uttrycket. Lös det här fel meddelandet genom att ändra `equals` till antingen `in` eller `notIn`.
+Förväntad **typ** av villkor `equals` är _sträng_. Eftersom **allowedLocations** har definierats som **typ** _mat ris_, utvärderar principmodulen språk uttryck och genererar felet. Med villkoret `in` och `notIn` förväntar sig princip motorn **typ** _mat ris_ i språk uttrycket. Lös det här fel meddelandet genom att ändra `equals` till antingen `in` eller `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Utvärdera [*]-aliaset
 
-Alias som har **[\*]** som är kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen gör **[\*]** det möjligt att utvärdera varje element i matrisen. Det finns tre scenarier denna utvärdering av objekt är användbar i: ingen, alla och alla.
+Alias som har **[\*]** kopplat till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen gör **[\*]** det möjligt att utvärdera varje element i matrisen. Det finns tre scenarier denna utvärdering av objekt är användbar i: ingen, alla och alla.
 
 Princip motorn utlöser **effekterna** i **sedan** bara när **IF** -regeln utvärderas som sant.
 Detta faktum är viktigt att förstå i kontexten för hur **[\*]** utvärderar varje enskilt element i matrisen.
@@ -180,7 +177,7 @@ Exempel princip regeln för scenario tabellen nedan:
 ]
 ```
 
-Ersätt `<field>` med `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"` för varje villkors exempel nedan.
+Ersätt `<field>` med `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`för varje villkors exempel nedan.
 
 Följande resultat är resultatet av kombinationen av villkoret och exempel princip regeln och matrisen med befintliga värden ovan:
 

@@ -8,18 +8,16 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f9b9773e595d1ff00d92bd757c4b85eb6c219b26
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a7e9e36f75d0b0638fadbf92e713a924e816807d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897564"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012375"
 ---
-# <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>Skapa en stegvis ögonblicks bild (för hands version) för hanterade diskar
-
 Stegvisa ögonblicks bilder (för hands version) är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt göra att de är mer kostnads effektiva eftersom du inte längre behöver lagra hela disken med varje enskild ögonblicks bild, såvida du inte väljer att. Precis som vanliga ögonblicks bilder kan du använda stegvisa ögonblicks bilder för att skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.
 
-Det finns några skillnader mellan en stegvis ögonblicks bild och en vanlig ögonblicks bild. Stegvisa ögonblicks bilder använder alltid standard lagring av hård diskar, oavsett diskens lagrings typ, medan vanliga ögonblicks bilder kan använda Premium-SSD. Om du använder vanliga ögonblicks bilder på Premium Storage för att skala upp VM-distributioner, rekommenderar vi att du använder anpassade avbildningar på standard lagring i det [delade avbildnings galleriet](../articles/virtual-machines/linux/shared-image-galleries.md). Det hjälper dig att få en mer enorm skala med lägre kostnad. Dessutom kan stegvisa ögonblicks bilder erbjuda bättre tillförlitlighet med [zon redundant lagring](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). Om ZRS är tillgängligt i den valda regionen kommer en stegvis ögonblicks bild att använda ZRS automatiskt. Om ZRS inte är tillgängligt i regionen kommer ögonblicks bilden att vara [Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md) (LRS) som standard. Du kan åsidosätta det här beteendet och välja ett manuellt, men vi rekommenderar inte detta.
+Det finns några skillnader mellan en stegvis ögonblicks bild och en vanlig ögonblicks bild. Stegvisa ögonblicks bilder använder alltid standard lagring av hård diskar, oavsett diskens lagrings typ, medan vanliga ögonblicks bilder kan använda Premium-SSD. Om du använder vanliga ögonblicks bilder på Premium Storage för att skala upp VM-distributioner rekommenderar vi att du använder anpassade avbildningar på standard lagring i det [delade avbildnings galleriet](../articles/virtual-machines/linux/shared-image-galleries.md). Det hjälper dig att få en mer enorm skala med lägre kostnad. Dessutom kan stegvisa ögonblicks bilder erbjuda bättre tillförlitlighet med [zon redundant lagring](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). Om ZRS är tillgängligt i den valda regionen kommer en stegvis ögonblicks bild att använda ZRS automatiskt. Om ZRS inte är tillgängligt i regionen kommer ögonblicks bilden att vara [Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md) (LRS) som standard. Du kan åsidosätta det här beteendet och välja ett manuellt, men vi rekommenderar inte detta.
 
 Stegvisa ögonblicks bilder erbjuder också en differentiell funktion som är unikt tillgänglig för hanterade diskar. De gör att du kan hämta ändringarna mellan två stegvisa ögonblicks bilder av samma hanterade diskar, ned till block nivån. Du kan använda den här funktionen för att minska dina data när du kopierar ögonblicks bilder över flera regioner.
 

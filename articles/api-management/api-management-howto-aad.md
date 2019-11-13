@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1def431bd24019c5f7d15cf7ac0e7550b85d17c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176720"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012950"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklares konton genom att använda Azure Active Directory i Azure API Management
 
@@ -100,11 +100,11 @@ Användare från den konfigurerade Azure AD-instansen kan nu logga in på Develo
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Developer-portalen – Lägg till Azure AD-konto-autentisering
 
-Om du vill aktivera inloggning med AAD i Developer-portalen måste du lägga till widgeten **OAuth-knappar** i inloggnings formuläret.
+I Developer-portalen är det möjligt att logga in med AAD med widgeten **OAuth-knappar** . Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
 
 ![Widgeten AAD-knappar](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD, kan du överväga att lägga till samma widget i registrerings formuläret.
+Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD, kan du överväga att lägga till samma widget på registrerings sidan.
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Äldre utvecklares Portal – så här loggar du in med Azure AD
 

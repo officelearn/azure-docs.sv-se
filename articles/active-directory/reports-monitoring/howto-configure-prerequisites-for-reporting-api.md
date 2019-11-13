@@ -3,7 +3,7 @@ title: Krav för Azure Active Directory rapporterings-API | Microsoft Docs
 description: Läs om förutsättningarna för att få åtkomst till Azure AD repor ting API
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5e198a900241bc7bb0b6aff9a57eed59d1cd86
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895235"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014443"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Krav för att få åtkomst till API: et för Azure Active Directory rapportering
 
@@ -43,7 +43,7 @@ Du måste ha någon av följande roller tilldelade för att få åtkomst till ra
 
 - Säkerhets läsare
 
-- Säkerhets administratör
+- Säkerhetsadministratör
 
 - Global administratör
 

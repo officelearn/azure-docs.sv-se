@@ -1,5 +1,5 @@
 ---
-title: Konfigurera och hantera replikeringsprinciper för VMware haveri beredskap till Azure med Azure Site Recovery | Microsoft Docs
+title: Konfigurera replikeringsprinciper för katastrof återställning i VMware med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du konfigurerar replikeringsinställningar för haveri beredskap i VMware till Azure med Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,14 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231439"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954327"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Konfigurera och hantera replikeringsprinciper för VMware haveri beredskap till Azure
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Konfigurera och hantera replikeringsprinciper för katastrof återställning i VMware
+
 Den här artikeln beskriver hur du konfigurerar en replikeringsprincip när du replikerar virtuella VMware-datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="create-a-policy"></a>Skapa en princip
@@ -24,7 +25,7 @@ Den här artikeln beskriver hur du konfigurerar en replikeringsprincip när du r
 3. Klicka på **+ replikeringsprincip**och ange namnet på principen.
 4. I **tröskelvärdet för RPO** anger du RPO (mål för återställningspunkt)-gränsen. Aviseringar genereras när kontinuerlig replikering överskrider den här gränsen.
 5. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Skyddade datorer kan återställas till valfri punkt inom en kvarhållningsperiod. Upp till 24 timmars kvarhållning stöds för datorer som har replikerats till Premium Storage. Upp till 72 timmar stöds för standard lagring.
-6. I frekvensen för programkonsekventa **ögonblicks bilder**väljer du i list rutan hur ofta (i timmar) återställnings punkter som innehåller programkonsekventa ögonblicks bilder ska skapas. Om du vill inaktivera generering av program konsekvens punkter väljer du "off"-värdet i list rutan.
+6. I **frekvensen för programkonsekventa ögonblicks bilder**väljer du i list rutan hur ofta (i timmar) återställnings punkter som innehåller programkonsekventa ögonblicks bilder ska skapas. Om du vill inaktivera generering av program konsekvens punkter väljer du "off"-värdet i list rutan.
 7. Klicka på **OK**. Principen bör skapas inom 30 till 60 sekunder.
 
 När du skapar en replikeringsprincip skapas en matchande princip för återställning efter fel automatiskt med suffixet "failback". När du har skapat principen kan du redigera den genom att välja den > **Redigera inställningar**.
@@ -48,17 +49,17 @@ Du kan ändra en replikeringsprincip när du har skapat den.
 - Om du vill associera replikerade datorer med en annan replikeringsprincip måste du inaktivera och återaktivera skyddet för de aktuella datorerna.
 
 Redigera en princip på följande sätt:
-1. Välj **Hantera** > **principer för replikering**av**Site Recovery infrastruktur** > .
+1. Välj **hantera** > **Site Recovery infrastruktur** > **replikeringsprinciper**.
 2. Välj den replikeringsprincip som du vill ändra.
 3. Klicka på **Redigera inställningar**och uppdatera tröskelvärdena för återställnings punktens tröskel/återställnings punkts antal timmar/för programkonsekventa ögonblicks bilder vid behov.
 4. Om du vill inaktivera genereringen av program konsekvens punkter väljer du "off" i list rutan för fältet **app-konsekvent ögonblicks bild frekvens**.
-5. Klicka på **Spara**. Principen bör uppdateras om 30 till 60 sekunder.
+5. Klicka på **Save** (Spara). Principen bör uppdateras om 30 till 60 sekunder.
 
 
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Ta bort kopplingen eller ta bort en replikeringsprincip
 
 1. Välj replikeringsprincip.
-    a. Om du vill koppla bort principen från konfigurations servern kontrollerar du att inga replikerade datorer använder principen. Klicka sedan påkoppla bort.
+    a. Om du vill koppla bort principen från konfigurations servern kontrollerar du att inga replikerade datorer använder principen. Klicka **sedan på koppla**bort.
     b. Om du vill ta bort principen kontrollerar du att den inte är associerad med en konfigurations Server. Klicka sedan på **ta bort**. Det bör ta 30-60 sekunder att ta bort.
 2. Klicka på **OK**.

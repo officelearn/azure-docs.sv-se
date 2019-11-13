@@ -1,5 +1,5 @@
 ---
-title: Distribution av Azure Service Fabric-program | Microsoft Docs
+title: Azure Service Fabric-distribution med PowerShell
 description: Distribuera och ta bort program i Service Fabric med PowerShell.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3cfebadf6dadeb81b1b57e671b19594b75645e31
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0080ba0807a4cb31fedeb132932e2e08137dd40b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599605"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013274"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuera och ta bort program med PowerShell
 
@@ -45,9 +45,9 @@ När det distribuerade programmet inte längre behövs kan du ta bort program in
 
 Om du använder Visual Studio för att distribuera och felsöka program i ditt lokala utvecklings kluster hanteras alla föregående steg automatiskt via ett PowerShell-skript.  Det här skriptet finns i mappen *scripts* i programprojektet. Den här artikeln innehåller en bakgrund för vad skriptet gör så att du kan utföra samma åtgärder utanför Visual Studio. 
 
-Ett annat sätt att distribuera ett program är att använda extern etablering. Programpaketet kan [paketeras som `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) och överföras till en extern lagrings plats. I det här fallet behövs inte överföring till avbildnings arkivet. Distributionen behöver följande steg:
+Ett annat sätt att distribuera ett program är att använda extern etablering. Programpaketet kan [paketeras som `sfpkg`](service-fabric-package-apps.md#create-an-sfpkg) och överföras till en extern lagrings plats. I det här fallet behövs inte överföring till avbildnings arkivet. Distributionen behöver följande steg:
 
-1. `sfpkg` Överför till en extern lagrings plats. Den externa lagrings platsen kan vara vilken butik som helst som exponerar en REST-http-eller HTTPS-slutpunkt.
+1. Överför `sfpkg` till en extern lagrings plats. Den externa lagrings platsen kan vara vilken butik som helst som exponerar en REST-http-eller HTTPS-slutpunkt.
 2. Registrera program typen med hjälp av den externa nedladdnings-URI: n och information om program typen.
 2. Skapa program instansen.
 
@@ -75,7 +75,7 @@ Använd cmdleten [test-ServiceFabricApplicationPackage](/powershell/module/servi
 
 Kommandot [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) överför programpaketet till klustrets avbildnings arkiv.
 
-Anta att du skapar och paketerar ett program med namnet mina *program* i Visual Studio 2015. Som standard är program typs namnet som anges i ApplicationManifest. xml "MyApplicationType".  Programpaketet som innehåller det nödvändiga applikations manifestet, tjänst manifest och kod/config/data paket finns i *C:\Users\<username\>\Documents\Visual Studio 2015 \ Projects\MyApplication\ MyApplication\pkg\Debug*. 
+Anta att du skapar och paketerar ett program med namnet mina *program* i Visual Studio 2015. Som standard är program typs namnet som anges i ApplicationManifest. xml "MyApplicationType".  Programpaketet, som innehåller det nödvändiga applikations manifestet, tjänst manifesten och kod/config/data paket, finns i *C:\Users\<användar namn\>\Documents\Visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 Följande kommando visar innehållet i programpaketet:
 
@@ -113,10 +113,10 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 Om applikations paketet är stort och/eller har många filer kan du [Komprimera det](service-fabric-package-apps.md#compress-a-package). Komprimeringen minskar storleken och antalet filer.
 Sido effekt är att det går snabbare att registrera och avregistrera program typen. Uppladdnings tiden kan vara långsammare, särskilt om du tar med tiden att komprimera paketet. 
 
-Om du vill komprimera ett paket använder du samma [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) -kommando. Komprimering kan göras separat från överföring, med hjälp `SkipCopy` av flaggan eller tillsammans med uppladdnings åtgärden. Det går inte att använda komprimering på komprimerade paket.
-Om du vill expandera ett komprimerat paket använder du samma [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) - `UncompressPackage` kommando med växeln.
+Om du vill komprimera ett paket använder du samma [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) -kommando. Komprimering kan göras separat från överföring, med hjälp av `SkipCopy` flagga eller tillsammans med uppladdnings åtgärden. Det går inte att använda komprimering på komprimerade paket.
+Om du vill expandera ett komprimerat paket använder du samma [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) -kommando med växeln `UncompressPackage`.
 
-Följande cmdlet komprimerar paketet utan att kopiera det till avbildnings arkivet. Paketet innehåller nu zippade filer för `Code` -och `Config` -paketen. Programmet och tjänst manifesten är inte zippade eftersom de behövs för många interna åtgärder (t. ex. paket delning, namn på program typ och versions extrahering för vissa valideringar). Genom att zippa upp manifesten skulle dessa åtgärder bli ineffektiva.
+Följande cmdlet komprimerar paketet utan att kopiera det till avbildnings arkivet. Paketet innehåller nu zippade filer för `Code` och `Config` paket. Programmet och tjänst manifesten är inte zippade eftersom de behövs för många interna åtgärder (t. ex. paket delning, namn på program typ och versions extrahering för vissa valideringar). Genom att zippa upp manifesten skulle dessa åtgärder bli ineffektiva.
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
@@ -202,7 +202,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>Registrera programpaketet som kopierats till en extern lagrings plats
 
-Från och med Service Fabric version 6,1, etablera stöd för att ladda ned paketet från en extern lagrings plats. Nedladdnings-URI: n representerar sökvägen [ `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) till programpaketet där programpaketet kan hämtas med hjälp av http-eller HTTPS-protokoll. Paketet måste ha överförts tidigare till den här externa platsen. URI: n måste tillåta Läs åtkomst så Service Fabric kan ladda ned filen. `sfpkg` Filen måste ha fil namns tillägget. sfpkg. Etablerings åtgärden ska innehålla information om program typ, som finns i applikations manifestet.
+Från och med Service Fabric version 6,1, etablera stöd för att ladda ned paketet från en extern lagrings plats. Nedladdnings-URI: n representerar sökvägen till [`sfpkg` programpaketet](service-fabric-package-apps.md#create-an-sfpkg) där programpaketet kan hämtas med http-eller HTTPS-protokoll. Paketet måste ha överförts tidigare till den här externa platsen. URI: n måste tillåta Läs åtkomst så Service Fabric kan ladda ned filen. `sfpkg`-filen måste ha fil namns tillägget. sfpkg. Etablerings åtgärden ska innehålla information om program typ, som finns i applikations manifestet.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
@@ -302,7 +302,7 @@ Get-ServiceFabricApplication
 
 ## <a name="unregister-an-application-type"></a>Avregistrera en program typ
 
-När en viss version av en program typ inte längre behövs bör du avregistrera program typen med hjälp av unregister [-ServiceFabricApplicationType-](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdleten. Genom att avregistrera oanvända program typer frigörs lagrings utrymme som används av avbildnings arkivet genom att filerna för program typen tas bort. När du avregistrerar en program typ tas inte det programpaket som kopierats till avbildnings arkivets tillfälliga plats bort, om kopieringen till avbildnings lagrings platsen användes. En program typ kan avregistreras så länge inga program instansieras mot den och inga väntande program uppgraderingar refererar till den.
+När en viss version av en program typ inte längre behövs bör du avregistrera program typen med hjälp av [unregister-ServiceFabricApplicationType-](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdleten. Genom att avregistrera oanvända program typer frigörs lagrings utrymme som används av avbildnings arkivet genom att filerna för program typen tas bort. När du avregistrerar en program typ tas inte det programpaket som kopierats till avbildnings arkivets tillfälliga plats bort, om kopieringen till avbildnings lagrings platsen användes. En program typ kan avregistreras så länge inga program instansieras mot den och inga väntande program uppgraderingar refererar till den.
 
 Kör [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) för att se de program typer som för närvarande är registrerade i klustret:
 
@@ -357,17 +357,17 @@ Se [förstå anslutnings strängen för avbildnings arkivet](service-fabric-imag
 
 ### <a name="deploy-large-application-package"></a>Distribuera stort programpaket
 
-Ärende: [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) nådde tids gränsen för ett stort programpaket (GB GB).
+Problem: [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) nådde tids gränsen för ett stort programpaket (GB GB).
 Prova:
 - Ange en större tids gräns för kommandot [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) med `TimeoutSec` parameter. Som standard är tids gränsen 30 minuter.
 - Kontrol lera nätverks anslutningen mellan käll datorn och klustret. Om anslutningen är långsam bör du överväga att använda en dator med en bättre nätverks anslutning.
 Om klient datorn finns i en annan region än klustret, bör du överväga att använda en klient dator i en närmare eller samma region som klustret.
 - Kontrol lera om du träffar extern begränsning. Om till exempel bild arkivet har kon figurer ATS för att använda Azure Storage kan uppladdning vara begränsad.
 
-Ärende: Paketet har laddats upp, men timeout för [register ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) . Prova:
+Problem: uppladdnings paketet har slutförts, men timeout för [register ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) . Pröva
 - [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar det till avbildnings arkivet.
 Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mängden trafik och arbete som Service Fabric måste utföra. Uppladdnings åtgärden kan vara långsammare (särskilt om du tar med komprimerings tiden), men registrera och avregistrera program typen är snabbare.
-- Ange en större tids gräns för [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) med `TimeoutSec` parametern.
+- Ange en större tids gräns för [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) med `TimeoutSec` parameter.
 - Ange `Async` växel för [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Kommandot returnerar när klustret accepterar kommandot och registreringen av program typen fortsätter asynkront. Därför behöver du inte ange en högre tids gräns i det här fallet. Kommandot [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) visar en lista över alla program typ versioner som har registrerats och deras registrerings status. Du kan använda det här kommandot för att avgöra när registreringen är färdig.
 
 ```powershell
@@ -383,10 +383,10 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuera programpaket med många filer
 
-Ärende: [Registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) tids gränsen för ett programpaket med många filer (ordning på tusental).
+Problem: [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) tids gräns för ett programpaket med många filer (ordning på tusental).
 Prova:
 - [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar det till avbildnings arkivet. Komprimeringen minskar antalet filer.
-- Ange en större tids gräns för [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) med `TimeoutSec` parametern.
+- Ange en större tids gräns för [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) med `TimeoutSec` parameter.
 - Ange `Async` växel för [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Kommandot returnerar när klustret accepterar kommandot och registreringen av program typen fortsätter asynkront.
 Därför behöver du inte ange en högre tids gräns i det här fallet. Kommandot [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) visar en lista över alla program typ versioner som har registrerats och deras registrerings status. Du kan använda det här kommandot för att avgöra när registreringen är färdig.
 

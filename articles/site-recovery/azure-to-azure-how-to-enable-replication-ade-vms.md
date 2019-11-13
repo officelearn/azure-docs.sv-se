@@ -1,5 +1,5 @@
 ---
-title: Konfigurera replikering för Azure Disk Encryption-aktiverade virtuella datorer i Azure Site Recovery
+title: Aktivera replikering för krypterade virtuella Azure-datorer i Azure Site Recovery
 description: Den här artikeln beskriver hur du konfigurerar replikering för Azure Disk Encryption-aktiverade virtuella datorer från en Azure-region till en annan med hjälp av Site Recovery.
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861329"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954685"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
 
@@ -31,18 +31,18 @@ Om du vill aktivera replikering av disk kryptering – aktiverade virtuella dato
     - Lista, skapa och hämta
     
 - Hemliga behörigheter för Key Vault
-    - Hemlighetshanteringsåtgärder
+    - Hemliga hanterings åtgärder
         - Hämta, lista och ange
     
 - Nyckel valv nyckel behörigheter (krävs endast om de virtuella datorerna använder nyckel krypterings nyckel för att kryptera disk krypterings nycklar)
-    - Nyckelhanteringsåtgärder
+    - Nyckel hanterings åtgärder
         - Hämta, lista och skapa
-    - Kryptografiåtgärder
+    - Kryptografiska åtgärder
         - Dekryptera och kryptera
 
 Om du vill hantera behörigheter går du till Key Vault-resursen i portalen. Lägg till de behörigheter som krävs för användaren. I följande exempel visas hur du aktiverar behörigheter till Key Vault- *ContosoWeb2Keyvault*, som finns i käll regionen.
 
-1. Gåtill **Start** > - > **ContosoWeb2KeyVault > åtkomst principer**.
+1. Gå till **start** > - **valv** > **ContosoWeb2KeyVault > åtkomst principer**.
 
    ![Fönstret behörigheter för nyckel valv](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
@@ -80,27 +80,27 @@ I det här exemplet är den primära Azure-regionen Asien, östra och den sekund
 
 1. I valvet väljer du **+ Replikera**.
 2. Observera följande fält.
-    - **Källa**: Ursprungs platsen för de virtuella datorerna, som i det här fallet är **Azure**.
-    - **Käll plats**: Den Azure-region där du vill skydda dina virtuella datorer. I det här exemplet är käll platsen "Asien, östra".
-    - **Distributions modell**: Käll datorernas distributions modell för Azure.
-    - **Käll prenumeration**: Den prenumeration som dina virtuella käll datorer tillhör. Det kan vara vilken prenumeration som helst i samma Azure Active Directory klient organisation som Recovery Services-valvet.
-    - **Resursgrupp**: Resurs gruppen som de virtuella käll datorerna tillhör. Alla virtuella datorer i den valda resurs gruppen visas som skydd i nästa steg.
+    - **Källa**: den virtuella datorns start punkt, som i det här fallet är **Azure**.
+    - **Käll plats**: den Azure-region där du vill skydda dina virtuella datorer. I det här exemplet är käll platsen "Asien, östra".
+    - **Distributions modell**: Azures distributions modell för käll datorerna.
+    - **Käll prenumeration**: den prenumeration som dina virtuella käll datorer tillhör. Det kan vara vilken prenumeration som helst i samma Azure Active Directory klient organisation som Recovery Services-valvet.
+    - **Resurs grupp**: resurs gruppen som de virtuella käll datorerna tillhör. Alla virtuella datorer i den valda resurs gruppen visas som skydd i nästa steg.
 
 3. I **Virtual Machines** > **Välj virtuella datorer**väljer du varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj **OK**.
 
 4. I **Inställningar**kan du konfigurera följande inställningar för mål platsen.
 
-    - **Målplats**: Den plats där data för den virtuella käll datorn kommer att replikeras. Site Recovery innehåller en lista över lämpliga mål regioner baserade på den valda datorns plats. Vi rekommenderar att du använder samma plats som Recovery Services valvets plats.
-    - **Målprenumeration**: Mål prenumerationen som används för haveri beredskap. Som standard är mål prenumerationen densamma som käll prenumerationen.
-    - **Målresursgrupp**: Resurs gruppen som alla dina replikerade virtuella datorer tillhör. Som standard skapar Site Recovery en ny resurs grupp i mål regionen. Namnet får suffixet "ASR". Om det redan finns en resurs grupp som har skapats av Azure Site Recovery används den igen. Du kan också välja att anpassa den, som du ser i följande avsnitt. Platsen för mål resurs gruppen kan vara valfri Azure-region förutom den region där de virtuella käll datorerna finns.
-    - **Virtuellt målnätverk**: Som standard skapar Site Recovery ett nytt virtuellt nätverk i mål regionen. Namnet får suffixet "ASR". Den är mappad till ditt käll nätverk och används för framtida skydd. [Läs mer](site-recovery-network-mapping-azure-to-azure.md) om nätverks mappning.
-    - **Mål lagrings konton (om den virtuella käll datorn inte använder hanterade diskar)** : Som standard skapar Site Recovery ett nytt mål lagrings konto genom att mimicking för din käll-VM-lagring. Om det redan finns ett lagrings konto används det igen.
+    - **Målplats**: den plats där dina virtuella käll dator data kommer att replikeras. Site Recovery innehåller en lista över lämpliga mål regioner baserade på den valda datorns plats. Vi rekommenderar att du använder samma plats som Recovery Services valvets plats.
+    - **Mål prenumeration**: den mål prenumeration som används för haveri beredskap. Som standard är mål prenumerationen densamma som käll prenumerationen.
+    - **Mål resurs grupp**: resurs gruppen som alla dina replikerade virtuella datorer tillhör. Som standard skapar Site Recovery en ny resurs grupp i mål regionen. Namnet får suffixet "ASR". Om det redan finns en resurs grupp som har skapats av Azure Site Recovery används den igen. Du kan också välja att anpassa den, som du ser i följande avsnitt. Platsen för mål resurs gruppen kan vara valfri Azure-region förutom den region där de virtuella käll datorerna finns.
+    - **Virtuellt mål nätverk**: Site Recovery skapar ett nytt virtuellt nätverk i mål regionen som standard. Namnet får suffixet "ASR". Den är mappad till ditt käll nätverk och används för framtida skydd. [Läs mer](site-recovery-network-mapping-azure-to-azure.md) om nätverks mappning.
+    - **Mål lagrings konton (om den virtuella käll datorn inte använder hanterade diskar)** : som standard skapar Site Recovery ett nytt mål lagrings konto genom att mimicking lagrings konfigurationen för din käll dator. Om det redan finns ett lagrings konto används det igen.
     - **Hanterade replik diskar (om den virtuella käll datorn använder hanterade diskar)** : Site Recovery skapar nya replik hanterade diskar i mål regionen för att spegla den virtuella käll datorns hanterade diskar av samma lagrings typ (standard eller Premium) som den virtuella käll datorns hanterade diskar.
-    - **Cachelagringskonton**: Site Recovery behöver ett extra lagrings konto som heter *cache Storage* i käll regionen. Alla ändringar på de virtuella käll datorerna spåras och skickas till cache Storage-kontot. De replikeras sedan till mål platsen.
-    - **Tillgänglighetsuppsättning**: Som standard skapar Site Recovery en ny tillgänglighets uppsättning i mål regionen. Namnet har suffixet "ASR". Om en tillgänglighets uppsättning som skapats av Site Recovery redan finns återanvänds den.
-    - **Nyckelvalv för diskkryptering**: Som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Den har ett "ASR"-suffix som baseras på den virtuella käll diskens disk krypterings nycklar. Om det redan finns ett nyckel valv som skapats av Azure Site Recovery, används det igen.
-    - **Nyckelvalv för nyckelkryptering**: Som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Namnet har ett "ASR"-suffix som baseras på de virtuella käll dator nyckel krypterings nycklarna. Om ett nyckel valv som skapats av Azure Site Recovery redan finns återanvänds det.
-    - **Replikeringsprincip**: Definierar inställningarna för kvarhållning av återställnings punkts historik och frekvens för programkonsekventa ögonblicks bilder. Som standard skapar Site Recovery en ny replikeringsprincip med standardinställningar *24 timmar* för kvarhållning av återställnings punkter och *60 minuter* för programkonsekventa ögonblicks bild frekvens.
+    - **Cache-lagrings konton**: Site Recovery behöver ett extra lagrings konto som heter *cache Storage* i käll regionen. Alla ändringar på de virtuella käll datorerna spåras och skickas till cache Storage-kontot. De replikeras sedan till mål platsen.
+    - **Tillgänglighets uppsättning**: Site Recovery skapar en ny tillgänglighets uppsättning i mål regionen som standard. Namnet har suffixet "ASR". Om en tillgänglighets uppsättning som skapats av Site Recovery redan finns återanvänds den.
+    - **Nyckel valv för disk kryptering**: som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Den har ett "ASR"-suffix som baseras på den virtuella käll diskens disk krypterings nycklar. Om det redan finns ett nyckel valv som skapats av Azure Site Recovery, används det igen.
+    - **Nyckel valv för nyckel kryptering**: som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Namnet har ett "ASR"-suffix som baseras på de virtuella käll dator nyckel krypterings nycklarna. Om ett nyckel valv som skapats av Azure Site Recovery redan finns återanvänds det.
+    - **Replikeringsprincip**: definierar inställningarna för kvarhållning av återställnings punkter och frekvens för programkonsekventa ögonblicks bilder. Som standard skapar Site Recovery en ny replikeringsprincip med standardinställningar *24 timmar* för kvarhållning av återställnings punkter och *60 minuter* för programkonsekventa ögonblicks bild frekvens.
 
 ## <a name="customize-target-resources"></a>Anpassa mål resurser
 
@@ -129,7 +129,7 @@ I följande fall måste du uppdatera den virtuella mål datorns krypterings inst
   - Du har aktiverat Site Recovery replikering på den virtuella datorn. Senare har du aktiverat disk kryptering på den virtuella käll datorn.
   - Du har aktiverat Site Recovery replikering på den virtuella datorn. Senare ändrades disk krypterings nyckeln eller nyckel krypterings nyckeln på den virtuella käll datorn.
 
-Du kan använda [ett skript](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) för att kopiera krypterings nycklarna till mål regionen och sedan uppdatera inställningarna för mål kryptering i **Recovery Services-valv** > *replikerade objekt* > **Egenskaper**  >  **Beräkning och nätverk**.
+Du kan använda [ett skript](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) för att kopiera krypterings nycklarna till mål regionen och sedan uppdatera inställningarna för mål kryptering i **Recovery Services-valvet** > *replikerat objekt* > **Egenskaper** > **beräkning och nätverk**.
 
 ![Dialog rutan Uppdatera inställningar för ADE-fönstret](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -141,19 +141,19 @@ Azure Site Recovery kräver minst Läs behörighet för käll områdets nyckel v
 **Så här åtgärdar du:** Oavsett om du är prenumerations administratör eller inte, är det viktigt att du har behörighet för nyckel valvet.
 
 1. Gå till nyckel valvet för käll regionen som i det här exemplet är "ContososourceKeyvault" > **åtkomst principer** 
-2. Under **Välj huvud** namn lägger du till ditt användar namn tilldradmin@contoso.comexempel: ""
+2. Under **Välj huvud** namn lägger du till ditt användar namn till exempel: "dradmin@contoso.com"
 3. Under **nyckel behörigheter** väljer du hämta 
 4. Under **hemlig behörighet** väljer du hämta 
 5. Spara åtkomst principen
 
 **Orsak 2:** Du har inte den behörighet som krävs för **mål region nyckel valvet** för att skriva nycklarna. </br>
 
-*Till exempel*: Du försöker replikera en virtuell dator som har Key Vault- *ContososourceKeyvault* i en käll region.
+*Exempel*: du försöker replikera en virtuell dator som har Key Vault- *ContososourceKeyvault* i en käll region.
 Du har alla behörigheter för käll region nyckel valvet. Men under skyddet väljer du det redan skapade Key Vault-ContosotargetKeyvault, som inte har behörighet. Ett fel uppstår.
 
 Behörighet krävs för [mål nyckel valvet](#required-user-permissions)
 
-**Så här åtgärdar du:** Gå till **Start** > -ContosotargetKeyvault > **åtkomst principer** och Lägg till lämpliga behörigheter. > 
+**Så här åtgärdar du:** Gå till **start** > nyckel **valv** > **ContosotargetKeyvault** > **åtkomst principer** och Lägg till lämpliga behörigheter.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,20 +1,19 @@
 ---
-title: Köra ett programåterställningstest för lokala datorer till Azure med Azure Site Recovery | Microsoft Docs
-description: Lär dig mer om hur du kör ett programåterställningstest från lokala datorer till Azure med Azure Site Recovery
+title: Kör en haveri beredskaps granskning till Azure med Azure Site Recovery
+description: Lär dig hur du kör en haveri beredskap från en lokal plats till Azure, med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 14ef3bf8420acf03f5c8329c6c78834dbc16ae40
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814276"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954421"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
@@ -31,7 +30,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Kör ett redundanstest för en enskild dator.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Läs [igenom den här artikeln](site-recovery-test-failover-to-azure.md)om du vill veta mer om haveri beredskap för haveri beredskap i detalj.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Läs [igenom den här artikeln](site-recovery-test-failover-to-azure.md)om du vill veta mer om haveri beredskap för haveri beredskap i detalj.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -88,6 +87,6 @@ I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 m
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Köra en redundansväxling och återställning efter fel för virtuella VMware](vmware-azure-tutorial-failover-failback.md)
-> [-datorer kör redundans och återställning efter fel för virtuella Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md)
-> [Kör redundans och återställning efter fel för fysiska datorer](physical-to-azure-failover-failback.md)
+> [Köra en redundansväxling och återställning efter fel för virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md)
+> [köra redundans och återställning efter fel för virtuella Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md)
+> [köra redundans och återställning efter fel för fysiska datorer](physical-to-azure-failover-failback.md)

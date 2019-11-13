@@ -1,6 +1,6 @@
 ---
-title: Funktioner för begäran om kund data i Azure Time Series Insights | Microsoft Docs
-description: Översikt över Azure Time Series Insights funktioner för kund data förfrågningar.
+title: Funktioner för begäran om kund data – Azure Time Series Insights | Microsoft Docs
+description: Lär dig mer om kund data förfrågnings funktioner i Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: ba883ec3ce8f8ca4491b8576e6633ba2837bb5b2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d134c7cbe220e6aa6b1471b50aa23e17d09734d5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990096"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007032"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Översikt över funktioner för begäran om kund information
+# <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
 
 Azure Time Series Insights är en hanterad moln tjänst med komponenter för lagring, analys och visualisering som gör det enkelt att mata in, lagra, utforska och analysera miljarder händelser samtidigt.
 
@@ -28,7 +28,7 @@ Om du vill visa, exportera och ta bort personliga data som kan vara föremål f�
 
 Azure Time Series Insights anser att person uppgifter är data kopplade till administratörer och användare av Time Series Insights. Time Series Insights lagrar Azure Active Directory objekt-ID för användare med åtkomst till miljön. Azure Portal visar användarens e-postadresser, men de här e-postadresserna lagras inte i Time Series Insights, de söks dynamiskt med Azure Active Directory objekt-ID i Azure Active Directory.
 
-## <a name="deleting-customer-data"></a>Tar bort kund information
+## <a name="deleting-customer-data"></a>Tar bort kunddata
 
 En klient organisations administratör kan ta bort kund information med hjälp av Azure Portal.
 
@@ -40,7 +40,7 @@ Du kan också utföra borttagnings åtgärder på åtkomst principer med hjälp 
 
 Time Series Insights är integrerat med princip bladet i Azure Portal. Både Time Series Insights och princip bladet gör att du kan visa, exportera och ta bort användar data som lagras i tjänsten. Eventuella borttagnings åtgärder som vidtas på bladet princip i Azure Portal resulterar i att användar data tas bort i Time Series Insights. Om en användare till exempel har sparat en personlig fråga, tas frågan bort permanent från Time Series Insights Explorer. Om användaren har en sparad delad fråga kvarstår frågan, men användar informationen tas bort permanent. Följande kommentar innehåller instruktioner om hur du utför dessa uppgifter.
 
-## <a name="exporting-customer-data"></a>Exportera kund information
+## <a name="exporting-customer-data"></a>Exportera kunddata
 
 På samma sätt som för att ta bort data kan en innehavaradministratör Visa och exportera data som lagras i Time Series Insights från bladet princip i Azure Portal.
 

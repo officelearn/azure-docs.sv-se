@@ -1,6 +1,6 @@
 ---
 title: Skapa och hantera roll tilldelningar – Azure Digitals flätar | Microsoft Docs
-description: Lär dig mer om att skapa och hantera roll tilldelningar i Azure Digitals flätas.
+description: Lär dig mer om att skapa och hantera roll tilldelningar i Azure Digitals.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949828"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013955"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera roll tilldelningar i Azure Digitals flätas
 
@@ -36,13 +36,13 @@ Varje roll tilldelning överensstämmer med följande definition:
 
 I tabellen nedan beskrivs varje attribut:
 
-| Attribut | Name | Obligatorisk | Typ | Beskrivning |
+| Attribut | Namn | Krävs | Typ | Beskrivning |
 | --- | --- | --- | --- | --- |
 | roleId | Identifierare för roll definition | Ja | Sträng | Unikt ID för den önskade roll tilldelningen. Hitta roll definitioner och deras identifierare genom att fråga system-API: et eller granska tabellen nedan. |
 | objekt-ID | Objekt identifierare | Ja | Sträng | Ett Azure Active Directory-ID, tjänstens huvud objekt-ID eller domän namn. Vad eller vem roll tilldelningen är tilldelad till. Roll tilldelningen måste vara formaterad enligt dess associerade typ. För `DomainName` objectIdType måste objectId börja med `“@”`-symbolen. |
 | objectIdType | Typ av objekt identifierare | Ja | Sträng | Typ av objekt identifierare som används. Se **ObjectIdTypes som stöds** nedan. |
-| path | Sökväg till Space | Ja | Sträng | Fullständig åtkomst Sök väg till objektet `Space`. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare behöver roll tilldelningen för hela grafen anger du `"/"`. Det här alternativet anger roten, men användningen rekommenderas inte. Följ alltid principen om minsta behörighet. |
-| tenantId | Klient-ID | Varierar | Sträng | I de flesta fall är ett Azure Active Directory klient-ID. Tillåts inte för `DeviceId` och `TenantId`-ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId`-ObjectIdTypes. Valfritt för domän namn ObjectIdType. |
+| path | Sökväg till Space | Ja | Sträng | Fullständig åtkomst Sök väg till `Space`-objektet. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare behöver roll tilldelningen för hela grafen anger du `"/"`. Det här alternativet anger roten, men användningen rekommenderas inte. Följ alltid principen om minsta behörighet. |
+| tenantId | Klient-ID | Varierar | Sträng | I de flesta fall är ett Azure Active Directory klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för domän namn ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identifierare för roll definition som stöds
 
@@ -60,7 +60,7 @@ Tidigare introducerades attributet **objectIdType** .
 
 Azure Digitals dubbla har stöd för fullständiga åtgärder för att *skapa*, *läsa*och *ta bort* roll tilldelningar. *Uppdaterings* åtgärder hanteras genom att lägga till roll tilldelningar, ta bort roll tilldelningar eller ändra de [diagram över spatial information](./concepts-objectmodel-spatialgraph.md) som roll tilldelningarna ger åtkomst till.
 
-[@no__t tilldelnings slut punkter för 1Role](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
+[![roll tilldelnings slut punkter](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 Den tillhandahållna Swagger Reference-dokumentationen innehåller ytterligare information om alla tillgängliga API-slutpunkter, begär ande åtgärder och definitioner.
 
@@ -112,7 +112,7 @@ Med följande JSON-brödtext:
 
 ### <a name="retrieve-all-roles"></a>Hämta alla roller
 
-[![System roller](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
+[![system roller](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 Om du vill visa en lista över alla tillgängliga roller (roll definitioner) gör du en autentiserad HTTP GET-begäran till:
 
@@ -163,10 +163,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Parameter värde** | **Kunna** |  **Typ** |  **Beskrivning** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  Sant | Sträng |   ObjectId för UserId-objectIdType. |
-| YOUR_PATH | Sant | Sträng |   Den valda sökvägen för att kontrol lera åtkomsten för. |
-| YOUR_ACCESS_TYPE |  Sant | Sträng |   *Läsa*, *skapa*, *Uppdatera*eller *ta bort* |
-| YOUR_RESOURCE_TYPE | Sant | Sträng |  *Enhet*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *slut punkt*, nyckel *lager*, *matchnings*enhet, *Ontology*, *rapport*,  *Roll definitions*, *sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *system* , *UerDefinedFunction*, *användare*, *UserBlobMetadata*eller *UserExtendedProperty* |
+| YOUR_USER_ID |  True | Sträng |   ObjectId för UserId-objectIdType. |
+| YOUR_PATH | True | Sträng |   Den valda sökvägen för att kontrol lera åtkomsten för. |
+| YOUR_ACCESS_TYPE |  True | Sträng |   *Läsa*, *skapa*, *Uppdatera*eller *ta bort* |
+| YOUR_RESOURCE_TYPE | True | Sträng |  *Enhet*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *slut punkt*, nyckel *lagring*, *matchning*, *Ontology*, *rapport*, *roll definitions*, *sensor*, *SensorExtendedProperty*, *utrymme*, *SpaceBlobMetadata*, *SpaceExtendedProperty, SpaceResource* *, SpaceRoleAssignment*, *system*,  *UerDefinedFunction*, *användare*, *UserBlobMetadata*eller *UserExtendedProperty* |
 
 En lyckad begäran kommer att returnera ett booleskt `true` eller `false` för att indikera om åtkomst typen har tilldelats användaren för den angivna sökvägen och resursen.
 
@@ -178,7 +178,7 @@ Om du vill hämta alla roll tilldelningar för en sökväg gör du en autentiser
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Value | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_PATH | Den fullständiga sökvägen till utrymmet |
 
@@ -240,7 +240,7 @@ En lyckad begäran returnerar en 201 svars status tillsammans med **ID: t** för
 
 Följande exempel visar hur du konfigurerar din JSON-brödtext i flera vanliga scenarier för roll tilldelning.
 
-* **Exempel**: En användare behöver administrativ åtkomst till en våning i ett klient utrymme.
+* **Exempel**: en användare behöver administrativ åtkomst till en våning i ett klient utrymme.
 
    ```JSON
    {
@@ -252,7 +252,7 @@ Följande exempel visar hur du konfigurerar din JSON-brödtext i flera vanliga s
    }
    ```
 
-* **Exempel**: Ett program kör test scenarier som modellerar enheter och sensorer.
+* **Exempel**: ett program kör test scenarier som modellerar enheter och sensorer.
 
    ```JSON
    {
@@ -264,7 +264,7 @@ Följande exempel visar hur du konfigurerar din JSON-brödtext i flera vanliga s
    }
     ```
 
-* **Exempel**: Alla användare som ingår i en domän får Läs behörighet för utrymmen, sensorer och användare. Den här åtkomsten innehåller motsvarande relaterade objekt.
+* **Exempel**: alla användare som ingår i en domän får Läs behörighet för utrymmen, sensorer och användare. Den här åtkomsten innehåller motsvarande relaterade objekt.
 
    ```JSON
    {

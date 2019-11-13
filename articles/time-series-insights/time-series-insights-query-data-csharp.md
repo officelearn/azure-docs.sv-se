@@ -1,6 +1,6 @@
 ---
-title: Fråga efter data från en Azure Time Series Insights GA- C# miljö med hjälp av kod | Microsoft Docs
-description: Den här artikeln beskriver hur du frågar data från en Azure Time Series Insights C# -miljö genom att koda en anpassad app som skrivits i (C-Sharp) .net-språket.
+title: Fråga efter data från en GA- C# miljö med hjälp av kod-Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du frågar efter data från en Azure Time Series Insights miljö med hjälp av en C#anpassad app som skrivits i.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23e4ad5667019b5bc38f9ba11d14632d4d55d5b7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5946a1484a62b041772f388b0629d131afe37b92
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989968"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012551"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Fråga efter data från Azure Time Series Insights GA-miljön med hjälp avC#
 
@@ -24,7 +24,7 @@ Det C# här exemplet visar hur du frågar efter data från Azure Time Series Ins
 
 Exemplet visar flera grundläggande exempel på användning av fråge-API:
 
-1. Som förberedelse steg hämtar du åtkomsttoken via Azure Active Directory-API: et. Skicka denna token i `Authorization`-huvudet för varje fråge-API-begäran. Information om hur du konfigurerar icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Se också till att alla konstanter som definieras i början av exemplet är korrekt inställda.
+1. Som förberedelse steg hämtar du åtkomsttoken via Azure Active Directory-API: et. Skicka denna token i `Authorization`-rubriken för varje fråge-API-begäran. Information om hur du konfigurerar icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Se också till att alla konstanter som definieras i början av exemplet är korrekt inställda.
 1. Listan över miljöer som användaren har åtkomst till hämtas. En av miljöerna hämtas som en miljö av intresse och ytterligare data efter frågas i den här miljön.
 1. Som ett exempel på en HTTPS-begäran begärs tillgänglighetsdata för den intressanta miljön.
 1. Som ett exempel på en webbsocket-begäran begärs händelsens aggregerade data för den intressanta miljön. Data krävs för hela tillgänglighetstidsintervallet.

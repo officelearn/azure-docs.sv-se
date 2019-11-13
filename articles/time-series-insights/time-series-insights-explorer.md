@@ -1,6 +1,6 @@
 ---
-title: Utforska data med hjälp av Azure Time Series Insights Explorer | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Time Series Insights Explorer i webbläsaren för att snabbt se en global vy över dina Big data och verifiera din IoT-miljö.
+title: Utforska data med hjälp av Utforskaren-Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du använder Azure Time Series Insights Explorer för att visa dina IoT-data.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25f2c07678217b69699b881d53ee9d5f92f84be1
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df895f99b64d30506bc9457fb5bdc54a2182b5fe
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990111"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012637"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
@@ -41,7 +41,7 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 
 Innan du kan använda Time Series Insights Explorer måste du:
 
-- Skapa en Time Series Insightss miljö. Mer information finns i [så här kommer du igång med Time Series Insights](./time-series-insights-get-started.md).
+- Skapa en Time Series Insights-miljö. Mer information finns i [så här kommer du igång med Time Series Insights](./time-series-insights-get-started.md).
 - [Ge åtkomst](time-series-insights-data-access.md) till ditt konto i-miljön.
 - Lägg till en händelse källa för [IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md) eller [Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) .
 
@@ -69,18 +69,18 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
         [![term redigerings panel](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
 
-      - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operands typer som stöds är:
+      - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operandtyperna som stöds är:
 
          |Åtgärd  |Typer som stöds  |Anteckningar  |
          |---------|---------|---------|
          |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
-         |`=`, `!=`, `<>`     | Sträng, bool, Double, DateTime, TimeSpan, NULL        |         |
-         |IN     | Sträng, bool, Double, DateTime, TimeSpan, NULL        |  Alla operander ska vara av samma typ eller vara NULL-konstant.        |
+         |`=`, `!=`, `<>`     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |         |
+         |IN     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |  Alla operander bör vara av samma typ eller vara konstanten NULL.        |
          |HADE     | Sträng        |  Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och NULL är inte tillåtet.       |
 
       - **Exempel på frågor**
 
-         [Exempel frågor för![](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
+         [Exempel frågor för ![](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
 
 1. Du kan använda Slider-verktyget för **intervall storlek** för att zooma in och ut ur intervall under samma TimeSpan. Skjutreglaget ger en mer exakt kontroll av förflyttningen mellan stora sektorer, som visar jämna trender nedåt till sektorer som är små som i millisekunder, vilket gör att du kan se detaljerade, högupplösta klipp av dina data. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val för att balansera upplösning, frågans hastighet och granularitet.
 
@@ -119,7 +119,7 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
     - **Mönster**: den här funktionen utvärderar de mest statistiskt signifikanta mönstren i ett valt data område. Du behöver inte titta på tusentals händelser för att förstå vilka mönster som kräver mest tid och energi. Med Time Series Insights kan du gå direkt till dessa statistiskt betydande mönster för att fortsätta utföra en analys. Den här funktionen är också användbar för obduktions undersökningar i historiska data.
     - **Kolumn statistik**: kolumn statistik innehåller diagram och tabeller som avbryter data från varje kolumn i den valda data serien under det valda tidsintervallet.
 
-      [![statistik](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
+      [![STATS](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
 
 Nu har du sett de olika funktioner och alternativ som är tillgängliga i Time Series Insights Explorer-webbappen.
 

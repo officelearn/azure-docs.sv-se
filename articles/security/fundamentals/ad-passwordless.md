@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 0fbd8404e326ecc6fabef8c89991009809b1448b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820518"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007282"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>En värld utan lösen ord med Azure Active Directory
 
@@ -24,7 +24,7 @@ Tre typer av attacker som ofta används för att kompromettera användar konton 
 
 Den här artikeln är början av resan för att hjälpa dig att förstå och implementera Microsofts lösningar för lösen ords lösa och hjälpa dig att välja mellan ett eller flera av följande alternativ:
 
-* **Windows Hello för företag**. I Windows 10 ersätter Windows Hello för företag lösen ord med stark tvåfaktorautentisering på datorer och mobila enheter. Den här autentiseringen består av en ny typ av användar referenser som är knutna till en enhet och använder bio metrisk eller PIN-kod.
+* **Windows Hello för företag**. I Windows 10 ersätter Windows Hello för företag lösen ord med stark tvåfaktorautentisering på datorer och mobila enheter. Den här autentiseringen består av en ny typ av användar referenser som är knutna till en enhet och använder en bio metrisk igenkänning eller PIN-kod.
 
 * **Inloggning med lösen ord med Microsoft Authenticator**. Microsoft Authenticator-appen kan användas för att logga in på ett Azure AD-konto utan att använda ett lösen ord. På samma sätt som med Windows Hello för företag, använder Microsoft Authenticator nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en enhet och använder bio metrisk eller PIN-kod.
 
@@ -334,7 +334,7 @@ För att uppnå dessa mål rekommenderar vi följande:
 > [!NOTE]
 > På [sidan Azure Active Directory licensiering](https://azure.microsoft.com/pricing/details/active-directory/) finns mer information om licensierings kraven för lösen ords lös metoder.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Under de senaste åren har Microsoft fortsatt engagemang för att aktivera en värld utan lösen ord. Med Windows 10 lanserade Microsoft Windows Hello för företag, en stark, maskin vara som skyddas av två faktorer som möjliggör enkel inloggning till Azure Active Directory och Active Directory. På samma sätt som med Windows Hello för företag, använder Microsoft Authenticator-appen nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en mobil enhet och använder bio metrisk eller PIN-kod. Med FIDO2 säkerhets nycklar kan du överföra dina autentiseringsuppgifter med dig och logga in på Azure AD genom att välja säkerhets nyckeln som Credential-Provider på Lås skärmen för Windows 10. Alla tre av dessa lösningar för lösen ords lösa minskar risken för nätfiske, lösen ords sprutning och repetitions attacker och ger användare ett mycket säkert och bekvämt sätt att logga in och komma åt data från var som helst.
 

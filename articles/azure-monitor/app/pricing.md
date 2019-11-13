@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 10/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: eedb9d811e35d606f4d3e1df55d9303d68678b3c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478741"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007737"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -32,7 +32,7 @@ Prissättningen för [Azure Application insikter][start] är en modell där **du
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Beräkna kostnaderna för att hantera ditt program 
 
-Om du inte använder Application Insights än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Application Insights. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Bläddra nedåt på sidan för att Azure Monitor och välj Application Insights i list rutan typ.  Här kan du ange det antal GB data som du förväntar dig att samla in per månad, så att de är så fråga om hur mycket data som Application Insights Samla in övervakningen av ditt program. 
+Om du inte använder Application Insights än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Application Insights. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Bläddra nedåt på sidan för att Azure Monitor och välj Application Insights i list rutan typ.  Här kan du ange det antal GB data som du förväntar dig att samla in per månad, så att frågan är hur mycket data som Application Insights Samla in övervakningen av ditt program. 
 
 Det finns två sätt att hantera detta: användning av standard övervakning och anpassningsbar sampling, som är tillgängligt i ASP.NET SDK, eller för att beräkna din sannolika data inmatning baserat på vad andra liknande kunder har sett.
 
@@ -157,9 +157,9 @@ Du kan använda den dagliga volym begränsningen för att begränsa de data som 
 
 I stället för att använda den dagliga volym gränsen använder du [sampling](../../azure-monitor/app/sampling.md) för att justera data volymen till önskad nivå. Använd sedan den dagliga begränsningen endast som "sista utväg" om ditt program inte börjar att skicka mycket större telemetri.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga data gränser som ska definieras
+### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
 
-Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör övervägas varsamt eftersom du inte kan övervaka dina resurser när gränsen har uppnåtts. 
+Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
 
 ### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
@@ -195,7 +195,7 @@ Använd en [analys fråga](analytics.md)för att identifiera den faktiska sampli
 
 I varje kvarhållen post anger `itemCount` antalet ursprungliga poster som den representerar. Det är lika med 1 + antalet tidigare borttagna poster. 
 
-## <a name="change-the-data-retention-period"></a>Ändra data lagrings perioden
+## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
 Standard kvarhållning av Application Insights resurser är 90 dagar. Du kan välja olika kvarhållningsperioder för varje Application Insights-resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 
@@ -259,7 +259,7 @@ Eftersom den här nivån bara gäller för kunder med en Operations Management S
 |:---------------------------------------|:----------------:|
 | 1 program med 3 Azure App Service instanser och 1 virtuell server | 4 |
 | 3 program som körs på två virtuella datorer; Application Insights resurser för dessa program finns i samma prenumeration och i per nod-nivå | 2 | 
-| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13,33 | 
+| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13.33 | 
 | Moln tjänster med 1-arbets roll och 1 webbroll, varje som kör 2 instanser | 4 | 
 | Ett Azure Service Fabric-kluster med 5 noder som kör 50 mikrotjänster; varje mikrotjänst som kör 3 instanser | 5|
 

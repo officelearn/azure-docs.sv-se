@@ -1,71 +1,72 @@
 ---
-title: Hantera nätverksgränssnitt i Azure Site Recovery för lokal haveriberedskap till Azure | Microsoft Docs
-description: Beskriver hur du hanterar nätverksgränssnitt för lokal haveriberedskap till Azure med Azure Site Recovery
+title: Hantera nätverkskort för lokal haveri beredskap med Azure Site Recovery
+description: Beskriver hur du hanterar nätverks gränssnitt för lokal haveri beredskap till Azure med Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 5d5dd7bc3f6b60c2f9d7c2179f2bd356ca101dc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471782"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954588"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Hantera virtuella datorers nätverksgränssnitt för lokal haveriberedskap till Azure
-En virtuell dator (VM) i Azure måste ha minst ett nätverksgränssnitt som är kopplat till den. Det kan ha många nätverksgränssnitt kopplade till den som stöd för VM-storlek.
+# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Hantera virtuella dator nätverks gränssnitt för lokal haveri beredskap till Azure
 
-Som standard definieras det första nätverksgränssnittet som är kopplade till en Azure virtuell dator som det primära nätverksgränssnittet. Alla andra nätverksgränssnitt på den virtuella datorn är sekundära nätverksgränssnitt. Som standard skickas all utgående trafik från den virtuella datorn också ut IP-adressen som tilldelas till den primära IP-adresskonfigurationen för det primära nätverksgränssnittet.
+En virtuell dator (VM) i Azure måste ha minst ett nätverks gränssnitt kopplat till sig. Det kan finnas flera nätverks gränssnitt som är kopplade till det eftersom VM-storleken stöder.
 
-I en lokal miljö, kan virtuella datorer eller servrar innehålla flera nätverksgränssnitt för olika nätverk i miljön. Olika nätverk används vanligtvis för att utföra specifika åtgärder, till exempel uppgraderingar, underhåll och åtkomst till internet. När du migrerar eller redundansväxla till Azure från en lokal miljö, Kom ihåg att nätverksgränssnitt i samma virtuella dator måste alla vara ansluten till samma virtuella nätverk.
+Som standard definieras det första nätverks gränssnittet som är kopplat till en virtuell Azure-dator som det primära nätverks gränssnittet. Alla andra nätverks gränssnitt på den virtuella datorn är sekundära nätverks gränssnitt. Som standard skickas all utgående trafik från den virtuella datorn ut från IP-adressen som har tilldelats den primära IP-konfigurationen för det primära nätverks gränssnittet.
 
-Som standard skapar Azure Site Recovery som många nätverksgränssnitt på en Azure-dator som är anslutna till den lokala servern. Du slipper skapa redundanta nätverksgränssnitt under migrering eller redundans genom att redigera gränssnitt för nätverksinställningar under inställningar för den replikerade virtuella datorn.
+I en lokal miljö kan virtuella datorer eller servrar ha flera nätverks gränssnitt för olika nätverk i miljön. Olika nätverk används vanligt vis för att utföra vissa åtgärder, till exempel uppgraderingar, underhåll och Internet-åtkomst. När du migrerar eller växlar över till Azure från en lokal miljö bör du tänka på att nätverks gränssnitt på samma virtuella dator måste vara anslutna till samma virtuella nätverk.
 
-## <a name="select-the-target-network"></a>Välj målnätverket
+Som standard skapar Azure Site Recovery så många nätverks gränssnitt på en virtuell Azure-dator som är anslutna till den lokala servern. Du kan undvika att skapa redundanta nätverks gränssnitt under migreringen eller redundansväxlingen genom att redigera inställningarna för nätverks gränssnittet under inställningarna för den replikerade virtuella datorn.
 
-Du kan ange det virtuella målnätverket för enskilda virtuella datorer för VMware och fysiska datorer och för Hyper-V (utan System Center Virtual Machine Manager) virtuella datorer. Hyper-V virtuella datorer som hanteras med Virtual Machine Manager, använda [nätverksmappning](site-recovery-network-mapping.md) att mappa Virtuella datornätverk på en källserver för Virtual Machine Manager och Azure-målnätverken.
+## <a name="select-the-target-network"></a>Välj mål nätverket
 
-1. Under **replikerade objekt** i ett Recovery Services-valv väljer du alla replikerade objekt som ska komma åt inställningarna för det replikerade objektet.
+För VMware och fysiska datorer, och för Hyper-V (utan System Center Virtual Machine Manager) virtuella datorer, kan du ange det virtuella mål nätverket för enskilda virtuella datorer. För virtuella Hyper-V-datorer som hanteras med Virtual Machine Manager använder du [nätverks mappning](site-recovery-network-mapping.md) för att mappa virtuella dator nätverk på en käll Virtual Machine Manager Server och riktar in dig på Azure-nätverk.
 
-2. Välj den **beräkning och nätverk** flik för att komma åt nätverksinställningarna som det replikerade objektet.
+1. Under **replikerade objekt** i ett Recovery Services valv väljer du ett replikerat objekt för att komma åt inställningarna för det replikerade objektet.
 
-3. Under **Nätverksegenskaper**, Välj ett virtuellt nätverk i listan över tillgängliga nätverksgränssnitt.
+2. Välj fliken **beräkning och nätverk** för att få åtkomst till nätverks inställningarna för det replikerade objektet.
 
-    ![Nätverksinställningar](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
+3. Under **nätverks egenskaper**väljer du ett virtuellt nätverk i listan över tillgängliga nätverks gränssnitt.
 
-Ändra målnätverket påverkar alla nätverksgränssnitt för den specifika virtuella datorn.
+    ![Nätverks inställningar](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
 
-För Virtual Machine Manager-moln påverkar ändra nätverksmappningen alla virtuella datorer och deras nätverksgränssnitt.
+Att ändra mål nätverket påverkar alla nätverks gränssnitt för den specifika virtuella datorn.
 
-## <a name="select-the-target-interface-type"></a>Välj måltyp för gränssnittet
+För Virtual Machine Manager moln påverkar ändring av nätverks mappning alla virtuella datorer och deras nätverks gränssnitt.
 
-Under den **nätverksgränssnitt** delen av den **beräkning och nätverk** fönstret kan du visa och redigera inställningar för nätverksgränssnittet. Du kan också ange typ av målnätverkskort.
+## <a name="select-the-target-interface-type"></a>Välj mål gränssnitts typ
 
-- En **primära** nätverksgränssnitt måste anges för redundans.
-- Alla andra valda nätverksgränssnitt, om sådant finns, är **sekundära** nätverksgränssnitt.
-- Välj **inte använder** att utesluta ett nätverksgränssnitt från skapandet vid en redundansväxling.
+Under avsnittet **nätverks gränssnitt** i fönstret **beräkning och nätverk** kan du Visa och redigera inställningar för nätverks gränssnitt. Du kan också ange mål nätverkets gränssnitts typ.
 
-Som standard när du aktiverar replikering, väljer Site Recovery alla identifierade nätverksgränssnitt på den lokala servern. En som markeras **primära** och alla andra som **sekundära**. Alla efterföljande gränssnitt som har lagts till på den lokala servern markeras **inte använder** som standard. När du lägger till fler nätverksgränssnitt måste du kontrollera att Målstorlek rätt Azure-dator har valts för alla nödvändiga nätverksgränssnitt.
+- Det krävs ett **primärt** nätverks gränssnitt för redundans.
+- Alla andra valda nätverks gränssnitt, om sådana finns, **sekundära** nätverks gränssnitt.
+- Välj **Använd inte** för att undanta ett nätverks gränssnitt från att skapas vid redundans.
 
-## <a name="modify-network-interface-settings"></a>Ändra inställningar för nätverksgränssnittet
+Som standard när du aktiverar replikering, Site Recovery väljer alla identifierade nätverks gränssnitt på den lokala servern. Den markerar en som **primär** och alla andra som **sekundär**. Alla efterföljande gränssnitt som läggs till på den lokala servern markeras **inte** som standard. När du lägger till fler nätverks gränssnitt bör du kontrol lera att rätt storlek för virtuella Azure-datorer har valts för att hantera alla nätverks gränssnitt som krävs.
 
-Du kan ändra undernätet och IP-adress för en replikerade objektet nätverksgränssnitt. Om en IP-adress har angetts, tilldelar Site Recovery nästa tillgängliga IP-adress från undernätet till nätverksgränssnittet vid en redundansväxling.
+## <a name="modify-network-interface-settings"></a>Ändra inställningar för nätverks gränssnittet
 
-1. Välj ett nätverksgränssnitt som är tillgängliga att öppna inställningarna för gränssnittet.
+Du kan ändra under nätet och IP-adressen för ett replikerat objekts nätverks gränssnitt. Om ingen IP-adress har angetts tilldelar Site Recovery nästa tillgängliga IP-adress från under nätet till nätverks gränssnittet vid redundans.
 
-2. Välj önskad undernätet i listan över tillgängliga undernät.
+1. Välj ett tillgängligt nätverks gränssnitt för att öppna inställningarna för nätverks gränssnittet.
 
-3. Ange önskad IP-adress (vid behov).
+2. Välj önskat undernät i listan över tillgängliga undernät.
 
-    ![Inställningar för nätverksgränssnittet](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
+3. Ange önskad IP-adress (om det behövs).
 
-4. Välj **OK** är färdig med redigeringarna och gå tillbaka till den **beräkning och nätverk** fönstret.
+    ![Inställningar för nätverks gränssnitt](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
 
-5. Upprepa steg 1 – 4 för andra nätverksgränssnitt.
+4. Klicka på **OK** för att slutföra redigeringen och gå tillbaka till fönstret **beräkning och nätverk** .
 
-6. Välj **spara** att spara alla ändringar.
+5. Upprepa steg 1-4 för andra nätverks gränssnitt.
+
+6. Välj **Spara** för att spara alla ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
-  [Läs mer](../virtual-network/virtual-network-network-interface-vm.md) om nätverksgränssnitt för virtuella Azure-datorer.
+  [Lär dig mer](../virtual-network/virtual-network-network-interface-vm.md) om nätverks gränssnitt för Azure Virtual Machines.

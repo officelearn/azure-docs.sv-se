@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager mallar för att skapa och konfigurer
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/08/2019
 ms.author: thvankra
-ms.openlocfilehash: 7c508d736c7c04cc6df2b42e0a90a2906052adbc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7b08ca98f25b079d831033b9393effd4ee4b65e3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835525"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961862"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Resource Manager mallar för Azure Cosmos DB
 
@@ -29,8 +29,6 @@ Följande tabeller innehåller länkar till Azure Resource Manager mallar för A
 |**Mall**|**Beskrivning**|
 |---| ---|
 |[Skapa ett Azure Cosmos-konto, databas, samling](manage-mongodb-with-resource-manager.md#create-resource) | Den här mallen skapar ett konto med hjälp av Azure Cosmos DB API för MongoDB i två regioner med stöd för flera huvud servrar. Azure Cosmos-kontot kommer att ha två behållare som delar data flöde på databas nivå. |
-|[Uppdatera data flöde (RU/s) för en databas](manage-mongodb-with-resource-manager.md#database-ru-update) | Den här mallen uppdaterar data flödet för en databas i ett MongoDB API-konto. |
-|[Uppdatera data flöde (RU/s) för en samling](manage-mongodb-with-resource-manager.md#collection-ru-update) | Den här mallen uppdaterar data flödet för en behållare i ett MongoDB API-konto. |
 
 ## <a name="cassandra-api"></a>Cassandra-API
 
@@ -43,17 +41,14 @@ Följande tabeller innehåller länkar till Azure Resource Manager mallar för A
 |**Mall**|**Beskrivning**|
 |---| ---|
 |[Skapa ett Azure Cosmos-konto, en databas, ett diagram](manage-gremlin-with-resource-manager.md#create-resource) | Den här mallen skapar ett Gremlin API-konto i två regioner med aktiverat multi-master. Azure Cosmos-kontot kommer att ha två grafer som delar data flöde på databas nivå. |
-|[Uppdatera data flöde (RU/s) för en databas](manage-gremlin-with-resource-manager.md#database-ru-update) | Den här mallen uppdaterar data flödet för en databas i ett Gremlin API-konto. |
-|[Uppdatera data flöde (RU/s) för en graf](manage-gremlin-with-resource-manager.md#graph-ru-update) | Den här mallen uppdaterar data flödet för en graf i ett Gremlin API-konto. |
 
 ## <a name="table-api"></a>Tabell-API
 
 |**Mall**|**Beskrivning**|
 |---| ---|
 |[Skapa ett Azure Cosmos-konto, en tabell](manage-table-with-resource-manager.md#create-resource) | Den här mallen skapar ett Tabell-API-konto i två regioner med stöd för flera huvud servrar. Azure Cosmos-kontot har en enda tabell. |
-|[Uppdatering av data flöde (RU/s) för en tabell](manage-table-with-resource-manager.md#table-ru-update) | Den här mallen uppdaterar data flödet för en tabell i ett Tabell-API-konto. |
 
 > [!TIP]
 > Aktivera delat data flöde när du använder Tabell-API genom att aktivera data flöde på konto nivå på Azure-portalen.
 
-Se [arm-referens för Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) sida för referens dokumentationen.
+Se [Azure Resource Manager referens för Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) sidan för referens dokumentationen.

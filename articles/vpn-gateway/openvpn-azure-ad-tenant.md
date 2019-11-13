@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: alzam
-ms.openlocfilehash: 6730cad4f65648516769476740813c2e3384fe6a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bd8a9413efc4f2130bd71f15f0da2a605b8c03e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837912"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960685"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient för P2S OpenVPN-protokoll anslutningar
 
@@ -100,7 +100,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 9. Skapa och ladda ned profilen genom att köra följande kommandon. Ändra värdena-ResourcGroupName och-Name så att de matchar dina egna.
 
     ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
+    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
     $PROFILE.VpnProfileSASUrl
     ```
 

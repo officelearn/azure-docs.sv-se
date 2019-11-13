@@ -1,17 +1,14 @@
 ---
 title: Använda parametrar för att skapa dynamiska modeller
 description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa dynamiska modeller.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da0670bdc880c47c3b715dc8344896a6c695924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981059"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960515"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 
@@ -61,7 +58,7 @@ Ett parameter värde som definieras i definitionen av en skiss kallas en **stati
 
 1. Klicka på en befintlig skiss och klicka sedan på **Redigera skiss** eller klicka på **+ skapa skiss** och fyll i informationen på fliken **grundläggande** .
 
-1. Klicka på **Nästa: Artefakter** eller klicka på fliken **artefakter.**
+1. Klicka på **Nästa: artefakter** eller klicka på fliken **artefakter** .
 
 1. Artefakter som läggs till i skissen med parameter alternativ visar **X av Y-parametrar** som är ifyllda i kolumnen **parametrar** . Klicka på artefakt raden för att redigera artefakt parametrarna.
 
@@ -134,7 +131,7 @@ Följande REST API exempel skapar en roll tilldelnings artefakt på skissen och 
   }
   ```
 
-I det här exemplet använder **principalIds** -egenskapen parametern **Owners** skiss nivå med värdet `[parameters('owners')]`. Att ange en parameter i en artefakt med en skiss nivå parameter är fortfarande ett exempel på en **statisk parameter**. Det går inte att ange parametern skiss nivå under skiss tilldelningen och får samma värde för varje tilldelning.
+I det här exemplet använder **principalIds** -egenskapen parametern **Owners** skiss nivå genom att använda värdet `[parameters('owners')]`. Att ange en parameter i en artefakt med en skiss nivå parameter är fortfarande ett exempel på en **statisk parameter**. Det går inte att ange parametern skiss nivå under skiss tilldelningen och får samma värde för varje tilldelning.
 
 ##### <a name="artifact-level-parameter"></a>Parameter för artefakt nivå
 
@@ -184,7 +181,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ange dynamiska parametrar från REST API
 
-Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värdet direkt. I stället för att använda en funktion, t. ex. [parametrar ()](../reference/blueprint-functions.md#parameters), är det angivna värdet en lämplig sträng. Artefakter för en resurs grupp definieras med egenskaperna "Mallnamn", **namn**och **plats** . Alla andra parametrar för den inkluderade artefakten definieras under **parametrar** med ett **\<name @ no__t-3-** och **värde** nyckel par. Om skissen har kon figurer ATS för en dynamisk parameter som inte anges under tilldelningen kommer tilldelningen att Miss förväntas.
+Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värdet direkt. I stället för att använda en funktion, t. ex. [parametrar ()](../reference/blueprint-functions.md#parameters), är det angivna värdet en lämplig sträng. Artefakter för en resurs grupp definieras med egenskaperna "Mallnamn", **namn**och **plats** . Alla andra parametrar för den inkluderade artefakten definieras under **parametrar** med ett **\<namn\>** och **värde** nyckel par. Om skissen har kon figurer ATS för en dynamisk parameter som inte anges under tilldelningen kommer tilldelningen att Miss förväntas.
 
 - REST API-URI
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169602"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961540"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsöka & begränsningar i Azure Cloud Shell
 
@@ -36,7 +36,7 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Inaktivera Cloud Shell i en låst nätverks miljö
 
-- **Information**: administratörer kan vilja inaktivera åtkomst till Cloud Shell för sina användare. Cloud Shell använder åtkomst till `ux.console.azure.com`-domänen, som kan nekas, vilket hindrar all åtkomst till Cloud Shell entrypoints, inklusive portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension och docs.microsoft.com.
+- **Information**: administratörer kan vilja inaktivera åtkomst till Cloud Shell för sina användare. Cloud Shell använder åtkomst till `ux.console.azure.com`s domän, som kan nekas, vilket hindrar all åtkomst till Cloud Shell entrypoints, inklusive portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension och docs.microsoft.com.
 - **Lösning**: begränsa åtkomsten till `ux.console.azure.com` via nätverks inställningar till din miljö. Cloud Shells ikonen finns fortfarande i portal.azure.com, men kommer inte att kunna ansluta till tjänsten.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Dialog rutan lagring – fel: 403 RequestDisallowedByPolicy
@@ -87,13 +87,19 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 
 Azure Cloud Shell har följande kända begränsningar:
 
+### <a name="quota-limitations"></a>Kvot begränsningar
+
+Azure Cloud Shell har en gräns på 20 samtidiga användare per klient organisation per region. Om du försöker öppna fler samtidiga sessioner än gränsen visas fel meddelandet "klient användare över kvot". Om du har ett legitimt behov av att fler sessioner ska vara öppna än detta (till exempel för utbildning) kan du kontakta supporten i förväg för att begära en kvot ökning.
+
+Cloud Shell tillhandahålls som en kostnads fri tjänst och är avsedd att användas för att konfigurera din Azure-miljö, inte som en allmän plattform för data bearbetning. Onödig automatiserad användning kan anses vara i strid med Azures användar villkor och kan leda till att Cloud Shell åtkomst blockeras.
+
 ### <a name="system-state-and-persistence"></a>System tillstånd och persistence
 
 Datorn som tillhandahåller Cloud Shell-sessionen är temporär och återvinns när sessionen är inaktiv i 20 minuter. Cloud Shell kräver att en Azure-filresurs monteras. Därför måste prenumerationen kunna konfigurera lagrings resurser för att få åtkomst till Cloud Shell. Andra överväganden är:
 
-- Med monterad lagring sparas endast ändringar i katalogen `clouddrive`. I bash sparas `$HOME`-katalogen också.
+- Med monterad lagring behålls bara ändringar i `clouddrive` katalogen. I bash sparas även din `$HOME`s katalog.
 - Azure-filresurser kan bara monteras inifrån din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
-  - I bash kör du `env` för att hitta region uppsättningen som `ACC_LOCATION`.
+  - Kör `env` i bash för att hitta din regions uppsättning som `ACC_LOCATION`.
 - Azure Files stöder endast lokalt redundant lagring och geo-redundanta lagrings konton.
 
 ### <a name="browser-support"></a>Webb läsar stöd
@@ -117,7 +123,7 @@ Cloud Shell är avsedd för interaktiva användnings fall. Det innebär att alla
 
 ### <a name="user-permissions"></a>Användarbehörigheter
 
-Behörigheter anges som vanliga användare utan sudo-åtkomst. Installationen utanför din `$Home`-katalog är inte beständig.
+Behörigheter anges som vanliga användare utan sudo-åtkomst. Alla installationer utanför din `$Home`s katalog sparas inte.
 
 ## <a name="bash-limitations"></a>Bash-begränsningar
 
@@ -129,15 +135,15 @@ Var försiktig när du redigerar. bashrc. Detta kan orsaka oväntade fel i Cloud
 
 ### <a name="preview-version-of-azuread-module"></a>För hands version av AzureAD-modul
 
-För närvarande är `AzureAD.Standard.Preview`, en för hands version av .NET standard-baserad, modul tillgänglig. Den här modulen ger samma funktioner som `AzureAD`.
+För närvarande är en för hands version av .NET standard-baserad, `AzureAD.Standard.Preview`. Den här modulen ger samma funktioner som `AzureAD`.
 
-### <a name="sqlserver-module-functionality"></a>modul funktioner i `SqlServer`
+### <a name="sqlserver-module-functionality"></a>funktioner i `SqlServer` modul
 
-Modulen `SqlServer` som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet `Invoke-SqlCmd` ännu inte tillgängligt.
+Den `SqlServer`-modul som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet är `Invoke-SqlCmd` inte tillgängligt ännu.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standard fil plats när du skapar från Azure Drive
 
-Med hjälp av PowerShell-cmdlets kan användarna inte skapa filer under Azure-enheten. När användare skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna i `$HOME` som standard.
+Med hjälp av PowerShell-cmdlets kan användarna inte skapa filer under Azure-enheten. När användare skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna som standard i `$HOME`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Ifyllning av flikar kan utlösa PSReadline-undantag
 
@@ -145,7 +151,7 @@ Om användarens PSReadline-EditMode är inställt på emacs, försöker använda
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Stort mellanrum när förlopps indikatorn visas
 
-Om ett kommando eller en användar åtgärd visar en förlopps indikator, en flik som slutförs i `Azure:`-enheten, är det möjligt att markören inte är korrekt inställd och att en lucka visas där förlopps indikatorn användes tidigare.
+Om ett kommando eller en användar åtgärd visar en förlopps indikator, en flik som slutförs när du befinner dig i `Azure:`-enheten, är det möjligt att markören inte är korrekt inställd och att ett mellanrum visas där förlopps indikatorn tidigare användes.
 
 ### <a name="random-characters-appear-inline"></a>Slumpmässiga tecken visas infogade
 
@@ -160,7 +166,7 @@ Azure Cloud Shell tar dina personliga data på allvar, används de data som saml
 ### <a name="export"></a>Exportera
 För att kunna **Exportera** användar inställningarna Cloud Shell sparar till dig, till exempel prioriterat gränssnitt, tecken storlek och teckensnitts typ, kör följande kommandon.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Kör följande kommandon i bash eller PowerShell:
 
 Bash
@@ -183,7 +189,7 @@ För att **ta bort** dina användar inställningar Cloud Shell sparar för dig s
 >[!Note]
 > Om du tar bort användar inställningarna tas inte den faktiska Azure Filess resursen bort. Gå till Azure Files för att slutföra åtgärden.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Kör följande kommandon i bash eller PowerShell:
 
 Bash

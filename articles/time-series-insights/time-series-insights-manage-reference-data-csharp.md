@@ -1,6 +1,6 @@
 ---
-title: Hantera referens data i Azure Time Series Insights miljö med C# | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar referens data för en Azure Time Series Insightss miljö genom att skapa ett anpassat program C# som skrivits på (c-sharp) .net-språket.
+title: Hantera referens data i din GA-miljö C# med-Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du hanterar referens data för din GA-miljö genom att skapa ett anpassat C#program som skrivits i.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4eb8a22ee56203fe84df6ee1cff779e3f3bdf491
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a32bf00d21311a1a8041a901f70b9b400a49ab76
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990049"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012573"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö med hjälp avC#
 

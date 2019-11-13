@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi till Cloud (Node. js) – Anslut Raspberry Pi till Azure IoT Hub | Microsoft Docs
+title: Ansluta Raspberry Pi till Azure IoT Hub i molnet (Node. js)
 description: Lär dig hur du konfigurerar och ansluter Raspberry Pi till Azure IoT Hub för Raspberry Pi för att skicka data till Azure Cloud Platform i den här självstudien.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266159"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954545"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ansluta Raspberry Pi till Azure IoT Hub (Node. js)
 
@@ -94,7 +94,7 @@ Förbered microSD-kortet för installation av Raspbian-avbildningen.
 
 1. Ladda ned Raspbian.
 
-   a. [Raspbian Buster med skriv bord](https://www.raspberrypi.org/downloads/raspbian/) (zip-filen).
+   a. [Raspbian Buster med Desktop](https://www.raspberrypi.org/downloads/raspbian/) (zip-filen).
 
    b. Extrahera Raspbian-avbildningen till en mapp på datorn.
 
@@ -116,9 +116,9 @@ Förbered microSD-kortet för installation av Raspbian-avbildningen.
 
 1. Anslut Pi till skärmen, tangent bordet och musen.
 
-2. Starta Pi och logga sedan in på Raspbian genom `pi` att använda som användar namn `raspberry` och lösen ord.
+2. Starta Pi och logga sedan in på Raspbian med `pi` som användar namn och `raspberry` som lösen ord.
 
-3. Klicka på ikonen Raspberry > **Inställningar** > **Raspberry Pi-konfiguration**.
+3. Klicka på ikonen Raspberry > **inställningar** > **PI-konfiguration**.
 
    ![Menyn Raspbian-inställningar](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -225,11 +225,11 @@ Aktivera PI med mikrousb-kabeln och strömförsörjningen. Använd Ethernet-kabe
 
    ![Konfigurations fil](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
-   Det finns två objekt i den här filen som du kan konfigurera. Det första är `interval`, som definierar tidsintervall (i millisekunder) mellan meddelanden som skickas till molnet. Den andra är `simulatedData`, vilket är ett booleskt värde för om du vill använda simulerade sensor data eller inte.
+   Det finns två objekt i den här filen som du kan konfigurera. Den första är `interval`, som definierar tidsintervallet (i millisekunder) mellan meddelanden som skickas till molnet. Den andra är `simulatedData`, vilket är ett booleskt värde för om du vill använda simulerade sensor data eller inte.
 
-   Om du **inte har sensorn**ställer du in `simulatedData` värdet på `true` för att göra exempel programmet att skapa och använda simulerade sensor data.
+   Om du **inte har sensorn**anger du `simulatedData` värde till `true` för att göra exempel programmet att skapa och använda simulerade sensor data.
 
-   *Obs! I2C-adressen som används i den här självstudien är 0x77 som standard. Beroende på din konfiguration kan det också vara 0x76: om du stöter på ett I2C-fel kan du försöka ändra värdet till 118 och se om det fungerar bättre. Om du vill se vilken adress som används av sensorn kör `sudo i2cdetect -y 1` du i ett gränssnitt på Raspberry Pi*
+   *Obs: I2C-adressen som används i den här självstudien är 0x77 som standard. Beroende på din konfiguration kan det också vara 0x76: om du stöter på ett I2C-fel kan du försöka ändra värdet till 118 och se om det fungerar bättre. Om du vill se vilken adress som används av sensorn kör `sudo i2cdetect -y 1` i ett gränssnitt på Raspberry Pi*
 
 2. Spara och avsluta genom att skriva Control-O > anger > Control-X.
 

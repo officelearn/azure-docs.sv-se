@@ -1,5 +1,5 @@
 ---
-title: Distribution av Azure Service Fabric-program | Microsoft Docs
+title: Azure Service Fabric-distribution med FabricClient
 description: 'Använd FabricClient-API: er för att distribuera och ta bort program i Service Fabric.'
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: c04306b417c8e68f2e93c0e5e064f5873b00ddd5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599622"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013300"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuera och ta bort program med FabricClient
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Ladda upp programpaketet
-Anta att du skapar och paketerar ett program med namnet mina *program* i Visual Studio. Som standard är program typs namnet som anges i ApplicationManifest. xml "MyApplicationType".  Programpaketet som innehåller det nödvändiga applikations manifestet, tjänst manifest och kod/config/data paket finns i *\&C:\Users lt; username&gt;\Documents\Visual Studio 2019 \ Projects\MyApplication\ MyApplication\pkg\Debug*.
+Anta att du skapar och paketerar ett program med namnet mina *program* i Visual Studio. Som standard är program typs namnet som anges i ApplicationManifest. xml "MyApplicationType".  Programpaketet som innehåller det nödvändiga applikations manifestet, tjänst manifesten och kod/config/data paket finns i *C:\Users\&lt; username&gt;\Documents\Visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
 
 När du överför programpaketet placeras det på en plats som är tillgänglig för de interna Service Fabric-komponenterna. Service Fabric verifierar programpaketet under registreringen av programpaketet. Men om du vill verifiera programpaketet lokalt (dvs innan du laddar upp) använder du cmdleten [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
 
@@ -132,23 +132,23 @@ ImageStoreConnectionString finns i kluster manifestet:
 Se [förstå anslutnings strängen för avbildnings arkivet](service-fabric-image-store-connection-string.md) för kompletterande information om avbildnings lagret och anslutnings strängen för avbildnings arkivet.
 
 ### <a name="deploy-large-application-package"></a>Distribuera stort programpaket
-Ärende: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API-timeout för ett stort programpaket (GB GB).
+Problem: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API nådde tids gränsen för ett stort programpaket (GB GB).
 Prova:
-- Ange en större tids gräns för metoden [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) med `timeout` parameter. Som standard är tids gränsen 30 minuter.
+- Ange en större tids gräns för metoden [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) , med `timeout` parameter. Som standard är tids gränsen 30 minuter.
 - Kontrol lera nätverks anslutningen mellan käll datorn och klustret. Om anslutningen är långsam bör du överväga att använda en dator med en bättre nätverks anslutning.
 Om klient datorn finns i en annan region än klustret, bör du överväga att använda en klient dator i en närmare eller samma region som klustret.
 - Kontrol lera om du träffar extern begränsning. Om till exempel bild arkivet har kon figurer ATS för att använda Azure Storage kan uppladdning vara begränsad.
 
-Ärende: Paketet har laddats upp, men [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API-timeout. Prova:
+Problem: uppladdnings paketet har slutförts, men [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API-timeout. Pröva
 - [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar det till avbildnings arkivet.
 Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mängden trafik och arbete som Service Fabric måste utföra. Uppladdnings åtgärden kan vara långsammare (särskilt om du tar med komprimerings tiden), men registrerar och avregistrerar program typen går snabbare.
-- Ange en större tids gräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) - `timeout` API med parameter.
+- Ange en större tids gräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) -API med `timeout` parameter.
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuera programpaket med många filer
-Ärende: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) nådde tids gränsen för ett programpaket med många filer (ordning på tusental).
+Problem: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) nådde tids gränsen för ett programpaket med många filer (ordning på tusental).
 Prova:
 - [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar det till avbildnings arkivet. Komprimeringen minskar antalet filer.
-- Ange en större tids gräns [](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) för ProvisionApplicationAsync `timeout` med parameter.
+- Ange en större tids gräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) med `timeout` parameter.
 
 ## <a name="code-example"></a>Kodexempel
 I följande exempel kopieras ett programpaket till avbildnings arkivet och program typen etableras. Sedan skapar exemplet en program instans och skapar en tjänst instans. Slutligen tar exemplet bort program instansen, avetablerar program typen och tar bort programpaketet från avbildnings arkivet.

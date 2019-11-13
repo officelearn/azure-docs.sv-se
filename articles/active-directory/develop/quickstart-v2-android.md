@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee30e52561a5560e572e33fb3bc7d191559bf5d6
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0c9a194dcd2ccb353f11aa939200213f0db1c2ea
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927136"
+ms.locfileid: "73942945"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -214,9 +214,9 @@ PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
             @Override
             public void onCreated(ISingleAccountPublicClientApplication application) {
                 /**
-                    * This test app assumes that the app is only going to support one account.
-                    * This requires "account_mode" : "SINGLE" in the config json file.
-                    **/
+                 * This test app assumes that the app is only going to support one account.
+                 * This requires "account_mode" : "SINGLE" in the config json file.
+                 **/
                 mSingleAccountApp = application;
                 loadAccount();
             }
@@ -283,7 +283,7 @@ Koden för att hämta en token interaktivt, det vill säga användar gränssnitt
  *  - password change
  *  - the resource you're acquiring a token for has a stricter set of requirement than your Single Sign-On refresh token.
  *  - you're introducing a new scope which the user has never consented for.
- */
+ **/
 mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
@@ -291,9 +291,9 @@ Om användaren redan har loggat in tillåter `acquireTokenSilentAsync()` att app
 
 ```java
 /**
-  * Once you've signed the user in,
-  * you can perform acquireTokenSilent to obtain resources without interrupting the user.
-  */
+ * Once you've signed the user in,
+ * you can perform acquireTokenSilent to obtain resources without interrupting the user.
+ **/
   mSingleAccountApp.acquireTokenSilentAsync(getScopes(), AUTHORITY, getAuthSilentCallback());
 ```
 
@@ -394,7 +394,7 @@ Ett exempel på en app med flera konton är en e-postapp som gör att du kan arb
 I `MultipleAccountModeFragment.java`-filen i `onCreateView()`skapas ett program objekt för flera konton (`IMultipleAccountPublicClientApplication`) med hjälp av konfigurations informationen som lagras i `auth_config_multiple_account.json file`:
 
 ```java
-// Creates a PublicClientApplication object with res/raw/auth_config_single_account.json
+// Creates a PublicClientApplication object with res/raw/auth_config_multiple_account.json
 PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(),
         R.raw.auth_config_multiple_account,
         new IPublicClientApplication.IMultipleAccountApplicationCreatedListener() {
@@ -419,8 +419,8 @@ Flera konto appar anropar vanligt vis `getAccounts()` för att välja det konto 
 
 ```java
 /**
-     * Load currently signed-in accounts, if there's any.
-    */
+ * Load currently signed-in accounts, if there's any.
+ **/
 private void loadAccounts() {
     if (mMultipleAccountApp == null) {
         return;
@@ -466,7 +466,7 @@ Flera konton bör vanligt vis hämta token interaktivt, vilket är med ett anvä
  *  - password change
  *  - the resource you're acquiring a token for has a stricter set of requirement than your SSO refresh token.
  *  - you're introducing a new scope which the user has never consented for.
- */
+ **/
 mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
@@ -487,12 +487,12 @@ mMultipleAccountApp.acquireTokenSilentAsync(getScopes(),
 
 #### <a name="remove-an-account"></a>Ta bort ett konto
 
-Koden för att ta bort ett konto och alla cachelagrade tokens för kontot finns i `MultipleAccountModeFragment.java`-filen i `initializeUI()` i Hanteraren för knappen Ta bort konto. Innan du kan ta bort ett konto behöver du ett konto objekt, som du får från MSAL-funktioner som `getAccounts()` och `acquireToken()`. Eftersom borttagning av ett konto är en asynkron åtgärd anges `onRemoved` motringning för att uppdatera användar gränssnittet.
+Koden för att ta bort ett konto och alla cachelagrade tokens för kontot finns i `MultipleAccountModeFragment.java`-filen i `initializeUI()` i Hanteraren för knappen Ta bort konto. Innan du kan ta bort ett konto måste du ha ett konto objekt, som du får från MSAL-metoder som `getAccounts()` och `acquireToken()`. Eftersom borttagning av ett konto är en asynkron åtgärd anges `onRemoved` motringning för att uppdatera användar gränssnittet.
 
 ```java
 /**
-  * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
-  */
+ * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
+ **/
 mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelectedItemPosition()),
         new IMultipleAccountPublicClientApplication.RemoveAccountCallback() {
             @Override

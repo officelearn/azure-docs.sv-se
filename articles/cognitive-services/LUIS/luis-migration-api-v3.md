@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 7c2866441c7439008fad27ced9b9b1dddea848ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492835"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961941"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
@@ -73,7 +73,7 @@ Fortsätt att använda v2 API förutsägelse-slutpunkten tills V 4.7 i bot Frame
 
 ## <a name="v2-api-deprecation"></a>V2 API-utfasning 
 
-API: et förutsägelser är inte längre i minst 9 månader efter för hands versionen av v3, juni 8rd 2020. 
+API: et förutsägelser är inte längre i minst 9 månader efter för hands versionen av v3, den 8 juni 2020. 
 
 ## <a name="endpoint-url-changes"></a>Slut punkts-URL-ändringar 
 
@@ -86,9 +86,9 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 |FÖRUTSÄGELSE-API-VERSION|METODSIGNATUR|URL|
 |--|--|--|
 |V3|HÄMTA|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/slots/<b>{slot-Name}</b>/predict? fråga =<b>{query}</b>|
-|V3|EFTER|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/slots/<b>{slot-Name}</b>/predict|
+|V3|POST|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/slots/<b>{slot-Name}</b>/predict|
 |V2|HÄMTA|https://<b>{region}</b>. api.cognitive.microsoft.com/luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict? fråga =<b>{query}</b>|
-|V2|EFTER|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>förutsägelse</b><b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict|
+|V2|POST|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>förutsägelse</b><b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict|
 
 |Giltiga värden för `SLOT-NAME`|
 |--|
@@ -103,10 +103,10 @@ V3-API: et har olika parametrar för frågesträng.
 
 |PARAM-namn|Typ|Version|Standard|Syfte|
 |--|--|--|--|--|
-|`log`|boolesk|V2 & v3|false|Lagra fråga i logg filen. Standardvärdet är false.| 
+|`log`|boolesk|V2 & V3|false|Lagra fråga i logg filen. Standardvärdet är false.| 
 |`query`|sträng|Endast v3|Ingen standard – det krävs i GET-begäran|**I v2**är uttryck som ska förutsägas i `q`-parametern. <br><br>**I v3**skickas funktionerna i `query`-parametern.|
 |`show-all-intents`|boolesk|Endast v3|false|Returnera alla avsikter med motsvarande Poäng i objektet **förutsägelse. avsikter** . Avsikter returneras som objekt i ett överordnat `intents`-objekt. Detta ger program mässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I v2 returnerades dessa i en matris. |
-|`verbose`|boolesk|V2 & v3|false|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-param för `show-all-intents`.<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
+|`verbose`|boolesk|V2 & V3|false|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-param för `show-all-intents`.<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
 |`timezoneOffset`|sträng|V2|-|Tids zonen som används för datetimeV2-entiteter.|
 |`datetimeReference`|sträng|V3|-|[Tids zonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) som används för datetimeV2-entiteter. Ersätter `timezoneOffset` från v2.|
 
@@ -408,7 +408,7 @@ Om `preferExternalEntities` är inställt på `true`, returnerar LUIS ett svar, 
 
 
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Den _valfria_ `resolution`-egenskapen returneras i förutsägelse svaret, så att du kan skicka de metadata som är associerade med den externa entiteten och sedan ta emot den igen i svaret. 
 
@@ -416,7 +416,7 @@ Det primära syftet är att utöka fördefinierade entiteter, men den är inte b
 
 Egenskapen `resolution` kan vara ett tal, en sträng, ett objekt eller en matris:
 
-* Kontoret
+* "Dallas"
 * {"text": "värde"}
 * 12345 
 * ["a", "b", "c"]

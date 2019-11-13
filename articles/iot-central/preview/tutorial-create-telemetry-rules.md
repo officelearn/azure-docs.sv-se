@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: df6c4afc0da50c5b4b32923f24370b9c959b1af7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6327ee8a1b0d52c933844670d9b8098c2c3c4f09
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929618"
+ms.locfileid: "73958147"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Självstudie: skapa en regel och konfigurera meddelanden i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -106,10 +106,6 @@ Välj den regel som du vill aktivera eller inaktivera. Aktivera eller inaktivera
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>Aktivera eller inaktivera en regel för en enhet
 
 Välj den regel som du vill aktivera eller inaktivera. Lägg till ett filter i avsnittet **scope** för att ta med eller undanta en viss enhet i enhets mal len.
-
-## <a name="next-steps"></a>Nästa steg
-
-Nu när du har lärt dig hur du skapar regler i ditt Azure IoT Central-program är det föreslagna nästa steg att lära dig [hur du hanterar dina enheter](howto-manage-devices.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

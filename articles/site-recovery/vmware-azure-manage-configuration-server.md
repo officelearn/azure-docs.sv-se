@@ -1,20 +1,19 @@
 ---
-title: Hantera konfigurations servern för VMware och haveri beredskap för fysiska servrar med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar en befintlig konfigurations Server för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery.
+title: Hantera konfigurations servern för haveri beredskap med Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791827"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954364"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer/fysiska servrar
 
 Du konfigurerar en lokal konfigurations server när du använder [Azure Site Recovery](site-recovery-overview.md) för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure. Konfigurations servern samordnar kommunikationen mellan lokala VMware och Azure och hanterar datareplikering. I den här artikeln sammanfattas vanliga aktiviteter för att hantera konfigurations servern när den har distribuerats.
 
@@ -72,7 +71,7 @@ Om du missade att lägga till autentiseringsuppgifter under OVF-distributionen a
 
 1. När du har [loggat in](#access-configuration-server)väljer du **Hantera autentiseringsuppgifter för virtuella datorer**.
 2. Klicka på **Lägg till autentiseringsuppgifter för virtuell dator**.
-    ![Add-Mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Ange de nya autentiseringsuppgifterna och klicka på **Lägg till**.
 
 Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool. exe.
@@ -155,16 +154,16 @@ Uppgradera servern på följande sätt:
 
 1. I valvet går du till **hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
 2. Om det finns en uppdatering visas en länk i kolumnen **agent Version** >.
-    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Hämta uppdaterings installations filen till konfigurations servern.
 
-    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Dubbelklicka för att köra installations programmet.
 5. Installations programmet identifierar den aktuella versionen som körs på datorn. Klicka på **Ja** för att starta uppgraderingen.
 6. När uppgraderingen slutförs verifierar du Server konfigurationen.
 
-    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Stäng installations programmet genom att klicka på **Slutför** .
 8. För att uppgradera resten av Site Recovery-komponenterna, se vår [uppgraderings vägledning](https://aka.ms/asr_vmware_upgrades).
@@ -197,12 +196,12 @@ Kör installations filen på följande sätt:
 |/PSIP|Krävs|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
 |/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
 |/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
-|/BypassProxy|Valfritt|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
-|/ProxySettingsFilePath|Valfritt|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
-|DataTransferSecurePort|Valfritt|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
-|/SkipSpaceCheck|Valfritt|Hoppa över utrymmeskontroll för cachedisk| |
+|/BypassProxy|Valfri|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
+|/ProxySettingsFilePath|Valfri|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
+|DataTransferSecurePort|Valfri|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
+|/SkipSpaceCheck|Valfri|Hoppa över utrymmeskontroll för cachedisk| |
 |/AcceptThirdpartyEULA|Krävs|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
-|/ShowThirdpartyEULA|Valfritt|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
+|/ShowThirdpartyEULA|Valfri|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 
 
 

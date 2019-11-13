@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start C# : SDK-fråga förutsägelse slut punkt – Luis'
 titleSuffix: Azure Cognitive Services
-description: Använd C# SDK till att skicka talindata för användaren till LUIS och ta emot en förutsägelse.
+description: Den här artikeln visar hur du använder C# SDK för att skicka en användare uttryck till Azure Cognitive Services Luis-programmet och ta emot en förutsägelse.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: bd1fefa828aca71e3faa27f75a8c67a2f1539d52
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f4612f7b3f76cbbfc0deac98668770f92ff054bc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837079"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953416"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Snabb start: fråga v2 förutsägelse slut C# punkt med .NET SDK
 
@@ -23,7 +23,7 @@ Använd .NET SDK, som finns i [NuGet](https://www.nuget.org/packages/Microsoft.A
 
 Den här snabbstarten skickar talindata för användaren, som t.ex. `turn on the bedroom light`, till ett offentligt Language Understanding-program. Därefter tas förutsägelsen emot och visar den främsta avsikten `HomeAutomation.TurnOn` och entiteten `HomeAutomation.Room` i talindatan. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/)
 * Programmeringsspråket C# (ingår i VS Community 2017)

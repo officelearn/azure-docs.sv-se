@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights för hands versions användning | Microsoft Docs
-description: Förstå Azure Time Series Insights förhands gransknings fall.
+title: Förhandsgranska användnings fall – Azure Time Series Insights | Microsoft Docs
+description: Läs mer om Azure Time Series Insights för hands versioner av användnings fall.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 175fbf598ae2224d1e1ee0e9c9a3f9ba446965c3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492070"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014678"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights för hands versions användning
 
@@ -66,7 +66,7 @@ Det finns tre huvudsakliga sätt att interagera med data som lagras i Time Serie
 
 Använd Time Series Insights för att övervaka hälsa, användning och prestanda för utrustning i stor skala. Time Series Insights är ett enkelt sätt att mäta drifts effektiviteten. Time Series Insights hjälper till att hantera mångskiftande och oberäkneliga IoT-arbetsbelastningar utan att offra datainmatnings- eller frågeprestanda.
 
-[Översikt över ![](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![Översikt över](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 Strömning och kontinuerlig bearbetning av data som kommer från operativa processer kan omvandlas till alla företag om den kombineras med rätt teknik eller lösning. Dessa lösningar är ofta en kombination av flera system. De möjliggör utforskning och analys av data som ändras konstant, särskilt i IoT-sfären, och som delar ett gemensamt mönster.
 

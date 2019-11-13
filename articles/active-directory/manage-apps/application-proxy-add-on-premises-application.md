@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72678a67b1bc9845eae2bca658f35a05c9bcf659
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f0399f084e663ab891d59384af263a7faac2f42e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883979"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73943814"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -47,7 +47,7 @@ Om du vill använda programproxy behöver du en Windows-server som kör Windows 
 Vi rekommenderar att du har mer än en Windows-server för att säkra hög tillgänglighet i produktionsmiljön. I den här självstudien räcker det med en Windows-server.
 
 > [!IMPORTANT]
-> Om du installerar anslutningen på Windows Server 2019 finns det en HTTP2 begränsning. För att kunna använda anslutningen för den här versionen lägger du till följande register nyckel och startar om servern:
+> Om du installerar anslutningen på Windows Server 2019 finns det en HTTP2 begränsning. En lösning för att använda anslutningen i den här versionen är att lägga till följande register nyckel och starta om servern. Obs! det här är en nyckel för dator register bred. 
     ```
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```

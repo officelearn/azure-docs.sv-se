@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852044"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942172"
 ---
 # <a name="supported-account-types"></a>Kontotyper som stöds
 
@@ -41,7 +41,7 @@ I det Microsoft Azure offentliga molnet kan de flesta typer av appar logga in an
   - Med deras arbets-eller skol jobb eller personliga Microsoft-konto.
   - Endast med personliga Microsoft-konto.
     > [!NOTE]
-    > För närvarande stöder Microsoft Identity Platform bara personliga Microsoft-konton genom att registrera en app för **arbets-eller skol-eller Microsoft personliga konton**, och sedan begränsa inloggningen i koden för programmet genom att ange en Azure AD-utfärdare. När du skapar programmet, till exempel `https://login.onmicrosoftonline.com/consumers`.
+    > För närvarande stöder Microsoft Identity Platform bara personliga Microsoft-konton genom att registrera en app för **arbets-eller skol-eller Microsoft personliga konton**, och sedan begränsa inloggningen i koden för programmet genom att ange en Azure AD-auktoritet när du skapar programmet, till exempel `https://login.microsoftonline.com/consumers`.
 
 - Om du skriver ett företag till ett konsument program kan du även logga in användare med sina sociala identiteter med hjälp av Azure AD B2C.
 
@@ -51,7 +51,7 @@ Vissa konto typer kan inte användas med vissa autentiseringsscheman. Till exemp
 
 - Daemon-program kan bara användas med Azure Active Directory organisationer. Det är inte klokt att försöka använda daemon-program för att manipulera Microsoft-personliga konton (administratörs medgivande beviljas aldrig).  
 - Du kan bara använda det integrerade Windows-autentiseringsschemat med arbets-eller skol konton (i din organisation eller i en organisation). Den integrerade Windows-autentiseringen fungerar med domän konton och kräver att datorerna är domänanslutna eller Azure AD-ansluten. Det här flödet passar inte för personliga Microsoft-konton.
-- Tilldelningen av [lösen ord för resurs ägare](./v2-oauth-ropc.md) (username/Password) kan inte användas med personliga Microsoft-konton. Personliga Microsoft-konton kräver faktiskt att användaren godkänner åtkomst till personliga resurser vid varje inloggnings-session. Därför är det här beteendet inte kompatibelt med icke-interaktiva flöden.
+- [Tilldelningen av lösen ord för resurs ägare](./v2-oauth-ropc.md) (username/Password) kan inte användas med personliga Microsoft-konton. Personliga Microsoft-konton kräver faktiskt att användaren godkänner åtkomst till personliga resurser vid varje inloggnings-session. Därför är det här beteendet inte kompatibelt med icke-interaktiva flöden.
 - Enhets kod flödet fungerar ännu inte med personliga Microsoft-konton.
 
 ## <a name="supported-account-types-in-national-clouds"></a>Konto typer som stöds i nationella moln

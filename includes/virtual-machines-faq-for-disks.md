@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612190"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008580"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
-
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
 ## <a name="managed-disks"></a>Managed Disks
@@ -151,7 +149,7 @@ GPT-partitionering kan bara användas på data diskar, inte på OS-diskar. OS-di
 Disk reservation är möjligheten att köpa ett års disk lagring i förväg, vilket minskar den totala kostnaden.
 
 **Vilka alternativ erbjuder Azure disk reservation?**
-Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna SKU: erna från P30 (1 TiB) upp till P80 (32 TiB) under ett år. Det finns ingen begränsning för den minsta mängd diskar som krävs för att köpa en disk reservation. Dessutom kan du välja att betala med en enda, förskotts betalning eller månads betalningar. Ingen ytterligare transaktionell kostnad tillämpas för Premium SSD Managed Disks.
+Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna SKU: erna från P30 (1 TiB) upp till P80 (32 TiB) under ett år. Det finns ingen begränsning för den minsta mängd diskar som krävs för att köpa en disk reservation. Dessutom kan du betala med en enskild förskottsbetalning eller månatligen. Ingen ytterligare transaktionell kostnad tillämpas för Premium SSD Managed Disks.
 
 Reservationer görs i form av diskar, inte kapacitet. Med andra ord får du en enda P80-disk när du reserverar en P80-disk (32 TiB), du kan inte Divvy den för att reservera upp till två mindre P70-diskar (16 TiB). Du kan naturligtvis reservera så många eller så få diskar som du vill, inklusive två separata P70-diskar (16 TiB).
 
@@ -254,7 +252,7 @@ Ett komplett mall exempel på hur du skapar en Standard SSD disk med en mall fin
 
 **Kan jag konvertera mina befintliga diskar till Standard SSD?**
 Ja, det kan du. Se [konvertera Azure Managed disks Storage från standard till Premium och vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) för de allmänna rikt linjerna för att konvertera Managed disks. Och Använd följande värde för att uppdatera disk typen till Standard SSD.
--StandardSSD_LRS
+-Den StandardSSD_LRS
 
 **Vad är fördelen med att använda Standard SSD diskar i stället för hård diskar?**
 Standard SSD diskar ger bättre svars tid, konsekvens, tillgänglighet och tillförlitlighet jämfört med hård diskar. Program arbets belastningar kör mycket mer smidigt på Standard SSD på grund av det. Obs! Premium SSD diskar är den rekommenderade lösningen för de flesta i/o-intensiva produktions arbets belastningar.
@@ -350,18 +348,6 @@ Nej. Men om du exporterar en virtuell hård disk till ett krypterat lagrings kon
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskar: hanterade och ohanterade
 
-**Vilka regioner stöder burst-kapacitet för tillämplig Premium SSD-disk storlek?**
-
-Burst-funktionen stöds för närvarande i Azure västra centrala USA.
-
-**Vilka regioner är 4/8/16 GiB-hanterade disk storlekar (P1/P2/P3, E1/E2/E3) som stöds i?**
-
-Dessa nya disk storlekar stöds för närvarande i Azure västra centrala USA.
-
-**Stöds disk storlekarna P1/P2/P3 för ohanterade diskar eller sid-blobar?**
-
-Nej, det stöds bara på Premium SSD Managed Disks. 
-
 **Om en virtuell dator använder en storleks serie som stöder Premium SSD diskar, t. ex. en DSv2, kan jag koppla både Premium-och standard data diskar?** 
 
 Ja.
@@ -391,6 +377,22 @@ Den lokala SSD-enheten är tillfällig lagring som ingår i en Managed Disks VM.
 Det finns ingen nack delar med att trimma på Azure-diskar på antingen Premium-eller standard diskar.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya disk storlekar: hanterade och ohanterade
+
+**Vilka regioner stöder burst-kapacitet för tillämplig Premium SSD-disk storlek?**
+
+Burst-funktionen stöds för närvarande i Azure västra centrala USA.
+
+**Vilka regioner är 4/8/16 GiB-hanterade disk storlekar (P1/P2/P3, E1/E2/E3) som stöds i?**
+
+Dessa nya disk storlekar stöds för närvarande i Azure västra centrala USA.
+
+**Stöds disk storlekarna P1/P2/P3 för ohanterade diskar eller sid-blobar?**
+
+Nej, det stöds bara på Premium SSD-hanterade diskar. 
+
+**Stöds E1/E2/E3 disk storlekar för ohanterade diskar eller sid-blobar?**
+
+Nej, standard SSD-hanterade diskar i valfri storlek kan inte användas med ohanterade diskar eller sid-blobar.
 
 **Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar?**
 

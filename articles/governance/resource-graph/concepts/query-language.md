@@ -1,17 +1,14 @@
 ---
 title: Förstå frågespråket
 description: Beskriver resurs diagram tabeller och tillgängliga Kusto data typer, operatorer och funktioner som kan användas med Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622642"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959057"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -78,10 +75,10 @@ Här är listan över KQL tabell operatörer som stöds av resurs diagram med vi
 |[MV-expandera](/azure/kusto/query/mvexpandoperator) |[Lista Cosmos DB med vissa Skriv platser](../samples/advanced.md#mvexpand-cosmosdb) |_ROWLIMIT_ max 400 |
 |[för](/azure/kusto/query/orderoperator) |[Lista över resurser sorterade efter namn](../samples/starter.md#list-resources) |Synonymer för `sort` |
 |[projektfilerna](/azure/kusto/query/projectoperator) |[Lista över resurser sorterade efter namn](../samples/starter.md#list-resources) | |
-|[projekt bort](/azure/kusto/query/projectawayoperator) |[Ta bort kolumner från resultat](../samples/advanced.md#remove-column) | |
+|[project-away](/azure/kusto/query/projectawayoperator) |[Ta bort kolumner från resultat](../samples/advanced.md#remove-column) | |
 |[ordning](/azure/kusto/query/sortoperator) |[Lista över resurser sorterade efter namn](../samples/starter.md#list-resources) |Synonymer för `order` |
 |[sammanfatta](/azure/kusto/query/summarizeoperator) |[Antal Azure-resurser](../samples/starter.md#count-resources) |Endast förenklad första sidan |
-|[gå](/azure/kusto/query/takeoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonymer för `limit` |
+|[take](/azure/kusto/query/takeoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonymer för `limit` |
 |[översta](/azure/kusto/query/topoperator) |[Visning av de första fem virtuella datorerna efter namn och OS-typ](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Kombinera resultat från två frågor till ett enda resultat](../samples/advanced.md#unionresults) |Enskild tabell tillåts: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_columnName_\] _Table_. Gräns på 3 `union` ben i en enda fråga. Fuzzy-upplösning för `union`s ben tabeller är inte tillåtet. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
 |[vilken](/azure/kusto/query/whereoperator) |[Visning av resurser med lagring](../samples/starter.md#show-storage) | |
@@ -110,7 +107,7 @@ Vissa egenskaps namn, till exempel sådana som innehåller en `.` eller `$`, må
 
   - **cmd** – escape inte `$` tecken.
 
-  - **PowerShell** - - ``` ` ```
+  - **PowerShell** - ``` ` ```
 
     Exempel fråga som utrymningr egenskapen _\$typ_ i PowerShell:
 

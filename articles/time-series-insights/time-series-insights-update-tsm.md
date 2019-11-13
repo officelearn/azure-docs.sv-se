@@ -1,6 +1,6 @@
 ---
-title: Tids serie modell i Azure Time Series Insights för hands version | Microsoft Docs
-description: Förstå Azure Time Series Insights tids serie modell.
+title: Tids serie modell – Azure Time Series Insights | Microsoft Docs
+description: Lär dig mer om tids serie modellen i Azure Time Series Insights för hands versionen.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c9bface359df020cea0bfff8f82e25e25efbc47
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a550643640afeefeb4cf79e35265f13557b6ffb0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585238"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014696"
 ---
-# <a name="time-series-model"></a>Time Series-modell
+# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
 
 I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börjar skapa och uppdatera dina egna modeller i Azure Time Series Insights Preview-miljön.
 
@@ -241,7 +241,7 @@ Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **var
 | id | UUID för typen. |
 | namn | En sträng som används för att ange ett namn för typen. |
 | description | En sträng beskrivning för typen. |
-| Användarvariabler | Ange variabler som är associerade med typen. |
+| användarvariabler | Ange variabler som är associerade med typen. |
 
 Typerna följer följande JSON-exempel:
 

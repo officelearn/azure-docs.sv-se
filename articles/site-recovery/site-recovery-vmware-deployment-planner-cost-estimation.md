@@ -1,20 +1,20 @@
 ---
-title: Granska rapporten kostnads uppskattning i Distributionshanteraren för Azure Site Recovery | Microsoft Docs
-description: I den här artikeln beskrivs hur du granskar kostnads uppskattnings rapporten i Distributionshanteraren för Azure Site Recovery för haveri beredskap för VMware till Azure.
+title: Granska kostnads uppskattningar i Distributionshanteraren för Azure Site Recovery
+description: I den här artikeln beskrivs hur du granskar kostnads uppskattningar i Distributionshanteraren för Azure Site Recovery för katastrof återställning i VMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620069"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953330"
 ---
-# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Granska rapporten kostnads uppskattning i Site Recovery distributions planerare för VMware haveri beredskap till Azure
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Granska kostnads uppskattningar i distributions planeraren för VMware 
 
 Rapporten i distributionshanteraren ger en översikt över kostnadsuppskattningen på bladet [Rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) och en detaljerad kostnadsanalys på bladet Kostnadsuppskattning. Där ges en detaljerad kostnadsanalys per virtuell dator. 
 
@@ -22,7 +22,7 @@ Rapporten i distributionshanteraren ger en översikt över kostnadsuppskattninge
 >Den aktuella versionen av Deployment Planner Tool v 2.5 tillhandahåller kostnads uppskattning för virtuella datorer som replikeras till Managed Disks.
 
 ### <a name="cost-estimation-summary"></a>Sammanfattning av kostnadsuppskattning 
-I diagrammet visas en sammanfattning av den uppskattade totala kostnaden för haveriberedskap (DR) till Azure i din valda målregion och i den valuta du har angett för rapporten.
+Grafen visar sammanfattningsvyn av den uppskattade kostnaden haveriberedskapen (DR) för Azure för din valda målregion och valutan som du har angett för rapportgenerering.
 Sammanfattning av kostnadsuppskattning
 
 ![Sammanfattning av kostnadsuppskattning](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
@@ -31,13 +31,13 @@ Sammanfattningen hjälper dig att förstå den kostnad som du behöver betala f�
  
 Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) och [valutor som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Kostnad per komponenter** Den totala DR-kostnaden är uppdelad i fyra komponenter: Kostnader för beräkning, lagring, nätverk och Azure Site Recovery licens. Kostnaden beräknas baserat på förbrukningen som tillkommer under replikering och DR-testtiden för beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan den lokala platsen och Azure och Azure Site Recovery-licens.
+**Cost by components** (Kostnad per komponenter) Den totala DR-kostnaden delas upp i fyra komponenter: beräkning, lagring, nätverk och Azure Site Recovery-licenskostnad. Kostnaden beräknas baserat på förbrukningen som tillkommer under replikering och DR-testtiden för beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan den lokala platsen och Azure och Azure Site Recovery-licens.
 
 **Cost by states** (Kostnad per tillstånd) Den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och DR-test. 
 
-**Kostnad för replikering**:  Kostnaden som uppstår under replikeringen. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
+**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
 
-**Dr-Cost-kostnad**: Kostnaden som uppstår under redundanstest. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
 
 **Azure storage cost per Month/Year**: (Azure Storage-kostnad per månad/år) det här visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och redundanstest.
 
@@ -52,19 +52,19 @@ De grå cellerna i hela rapporten är skrivskyddade. Celler i vitt kan ändras e
 ### <a name="overall-dr-cost-by-components"></a>Övergripande kostnad för haveriberedskap per komponent
 I det första avsnittet visas den sammanlagda kostnaden för haveriberedskap per komponent och kostnaden för haveriberedskap per tillstånd. 
 
-**Compute**: Kostnaden för virtuella IaaS-datorer som körs på Azure för DR-behov. Här ingår de virtuella datorer som skapas av Azure Site Recovery under DR-tester (redundanstester) och de virtuella datorer som körs på Azure som SQL Server med AlwaysOn-tillgänglighetsgrupper och domänkontrollanter/DNS-servrar.
+**Databearbetning**: kostnaden för virtuella IaaS-datorer som körs på Azure för haveriberedskap. Här ingår de virtuella datorer som skapas av Azure Site Recovery under DR-tester (redundanstester) och de virtuella datorer som körs på Azure som SQL Server med AlwaysOn-tillgänglighetsgrupper och domänkontrollanter/DNS-servrar.
 
-**Lagring**: Kostnad för Azure Storage-förbrukning för DR-behov. Här ingår användningen av lagringsutrymme för replikering under DR-tester.
-Nätverks ExpressRoute-och plats-till-plats-VPN-kostnad för DR-behov. 
+**Lagring**: kostnaden för Azure-lagring i samband med haveriberedskap. Här ingår användningen av lagringsutrymme för replikering under DR-tester.
+Nätverk: kostnaden för ExpressRoute och VPN plats-till-plats i samband med haveriberedskap. 
 
-**ASR-licens**: Azure Site Recovery licens kostnad för alla kompatibla virtuella datorer. Om du har angett en virtuell dator manuellt i tabellen med den detaljerade kostnadsanalysen ingår även licenskostnaden för Azure Site Recovery för den virtuella datorn.
+**ASR-licens**: licenskostnaden för Azure Site Recovery för samtliga kompatibla virtuella datorer. Om du har angett en virtuell dator manuellt i tabellen med den detaljerade kostnadsanalysen ingår även licenskostnaden för Azure Site Recovery för den virtuella datorn.
 
 ### <a name="overall-dr-cost-by-states"></a>Övergripande kostnad för haveriberedskap per tillstånd
 Den totala kostnaden för haveriberedskap kategoriseras utifrån två olika tillstånd – replikering och DR-test.
 
-**Kostnad för replikering**: Kostnaden debiteras vid tidpunkten för replikeringen. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
+**Replikering**: kostnader som uppstår under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
 
-**Dr-Cost-kostnad**: Kostnaden uppstår vid tidpunkten för DR-övningar. Azure Site Recovery startar virtuella datorer under DR-test. Kostnaden för DR-test täcker databearbetning och lagring för de virtuella datorer som körs.
+**DR-test**: kostnader som uppstår under DR-test. Azure Site Recovery startar virtuella datorer under DR-test. Kostnaden för DR-test täcker databearbetning och lagring för de virtuella datorer som körs.
 Total varaktighet för DR-test under ett år = antalet DR-test x varaktigheten för respektive DR-test (dagar) Genomsnittlig kostnad för DR-test (per månad) = total kostnad för DR-test / 12
 
 ### <a name="storage-cost-table"></a>Tabellen Lagringskostnad:
@@ -73,11 +73,11 @@ I den här tabellen visas kostnaderna för premium- och standardlagring för rep
 ### <a name="site-to-azure-network"></a>Lokalt till Azure-nätverket
 Välj lämplig inställning efter behov. 
 
-**ExpressRoute**: Som standard väljer verktyget närmaste ExpressRoute-plan som matchar den nödvändiga nätverks bandbredden för delta-replikering. Du kan ändra planen efter behov.
+**ExpressRoute**: som standard väljer verktyget den närmaste ExpressRoute-plan som matchar nätverksbandbredden som krävs för deltareplikering. Du kan ändra planen efter behov.
 
-**VPN gateway**: Välj VPN Gateway om du har någon i din miljö. Som standard är värdet Saknas.
+**VPN Gateway**: välj VPN Gateway om du har en sådan i din miljö. Som standard är värdet Saknas.
 
-**Mål region**: Angiven Azure-region för DR. Priset som används i rapporten för bearbetning, lagring, nätverk och licenser baseras på Azure-priserna i den angivna regionen. 
+**Målregion**: angiven Azure-region för haveriberedskap. Priset som används i rapporten för bearbetning, lagring, nätverk och licenser baseras på Azure-priserna i den angivna regionen. 
 
 ### <a name="vm-running-on-azure"></a>Virtuella datorer som körs i Azure
 Om du har en domänkontrollant eller virtuell DNS- eller SQL Server-dator med AlwaysOn-tillgänglighetsgrupper som körs i Azure för haveriberedskap kan du ange antalet virtuella datorer och deras storlek om du vill ta med kostnaden för dem i den totala kostnaden för din haveriberedskap. 
@@ -90,7 +90,7 @@ I den här tabellen visas antalet virtuella Windows-datorer och andra datorer sa
 
 ### <a name="settings"></a>Inställningar 
 
-**Valuta**: Valutan som rapporten skapas i. Kostnads varaktighet:  Du kan visa alla kostnader antingen för månaden eller för hela året. 
+**Valuta**: valutan som rapporten ska genereras i. Kostnadsperiod: du kan visa alla kostnader antingen för månaden eller för hela året. 
 
 ## <a name="detailed-cost-analysis-table"></a>Tabell med detaljerad kostnadsanalys
 ![Detaljerad kostnadsanalys](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png) Den här tabellen innehåller kostnadsdata för varje kompatibel virtuell dator. Du kan också använda den här tabellen till att hämta uppskattad Azure-kostnad för haveriberedskap för icke-profilerade virtuella datorer genom att lägga till virtuella datorer manuellt. Det här är användbart om du behöver uppskatta Azure-kostnader för en ny DR-distribution utan att någon detaljerad profilering har gjorts.
@@ -112,35 +112,35 @@ Så här lägger du till virtuella datorer manuellt:
 
 1. Klicka på alternativet för att beräkna kostnaden på nytt om du vill uppdatera kostnaden.
 
-**Namn på virtuell dator**: Namnet på den virtuella datorn.
+**Namn på virtuell dator**: namnet på den virtuella datorn.
 
-**Antal virtuella datorer**: Antalet virtuella datorer som matchar konfigurationen. Du kan uppdatera antalet befintliga virtuella datorer om virtuella datorer med liknande konfiguration inte står med i listan men kommer att skyddas.
+**Antal virtuella datorer**: antalet virtuella datorer som matchar konfigurationen. Du kan uppdatera antalet befintliga virtuella datorer om virtuella datorer med liknande konfiguration inte står med i listan men kommer att skyddas.
 
-**IaaS-storlek (rekommendation)** : Det är storleken på den virtuella dator rollen för den kompatibla virtuella datorn som verktyget rekommenderar. 
+**IaaS-storlek (rekommendation)** : det är storleken på de kompatibla virtuella datorer som verktyget rekommenderar för rollen. 
 
-**IaaS-storlek (ditt val)** : Som standard är det samma som den rekommenderade storleken för virtuella dator roller. Du kan ändra rollen efter behov. Den beräknade kostnaden baseras på vald storlek för rollen.
+**IaaS-storlek (ditt val)** : som standard är det här samma som den rekommenderade storleken. Du kan ändra rollen efter behov. Den beräknade kostnaden baseras på vald storlek för rollen.
 
-**Lagrings typ**: Den typ av lagring som används av den virtuella datorn. Det här är antingen Standard eller Premium.
+**Lagringstyp**: typen av lagring som används för den virtuella datorn. Det här är antingen Standard eller Premium.
 
-**Total lagrings storlek för virtuell dator (GB)** : Det totala lagrings utrymmet för den virtuella käll datorn.
+**Total lagrings storlek för virtuell dator (GB)** : den totala lagrings platsen för den virtuella käll datorn.
 
-**Antal Dr-övningar under ett år**: Antalet gånger som du utför DR-Test under ett år. Standardvärdet är 4 gånger per år. Du kan ändra perioden för specifika virtuella datorer eller använda det nya värdet för alla virtuella datorer genom att ange det nya värdet på den översta raden och klicka på knappen Använd för alla. Den totala kostnaden för DR-tester är baserad på antalet DR-tester under ett år och varaktigheten för varje DR-test.  
+**Antal DR-tester under ett år**: antalet gånger som du utför DR-tester under ett år. Standardvärdet är 4 gånger per år. Du kan ändra perioden för specifika virtuella datorer eller använda det nya värdet för alla virtuella datorer genom att ange det nya värdet på den översta raden och klicka på knappen Använd för alla. Den totala kostnaden för DR-tester är baserad på antalet DR-tester under ett år och varaktigheten för varje DR-test.  
 
-**Varaktighet för varje Dr-test (dagar)** : Varaktigheten för varje DR-Test. Standardvärdet är 7 dagar varje 90 dagar enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Du kan ändra perioden för specifika virtuella datorer eller använda ett nytt värde för alla virtuella datorer genom att ange ett nytt värde på den översta raden och klicka på Använd för alla. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
+**Varaktighet för varje DR-test (dagar)** : varaktigheten för varje DR-test. Standardvärdet är 7 dagar varje 90 dagar enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Du kan ändra perioden för specifika virtuella datorer eller använda ett nytt värde för alla virtuella datorer genom att ange ett nytt värde på den översta raden och klicka på Använd för alla. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
   
-**OS-typ**: OS-typen för den virtuella datorn. Det här är antingen Windows eller Linux. Om OS-typen är Windows kan du använda Azure Hybrid-förmånen för den virtuella datorn. 
+**OS-typ**: den virtuella datorns operativsystem. Det här är antingen Windows eller Linux. Om OS-typen är Windows kan du använda Azure Hybrid-förmånen för den virtuella datorn. 
 
-**Dataredundans**: Det kan vara något av följande: lokalt redundant lagring (LRS), Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS). Standardvärdet är LRS. Du kan ändra typen baserat på lagringskontot för de olika virtuella datorerna, eller så kan du använda en ny typ för alla virtuella datorer genom att ändra typen på den översta raden och klicka på Använd för alla.  Lagringskostnaden för replikering beräknas baserat på priset för den dataredundans du har valt. 
+**Dataredundans**: det här kan vara något av följande – lokalt redundant lagring (LRS), geo-redundant lagring (GRS) eller geo-redundant lagring med läsbehörighet (RA-GRS). Standardvärdet är LRS. Du kan ändra typen baserat på lagringskontot för de olika virtuella datorerna, eller så kan du använda en ny typ för alla virtuella datorer genom att ändra typen på den översta raden och klicka på Använd för alla.  Lagringskostnaden för replikering beräknas baserat på priset för den dataredundans du har valt. 
 
-**Azure Hybrid Benefit**: Du kan använda Azure Hybrid-förmån för virtuella Windows-datorer om det är tillämpligt.  Standardvärdet är Ja. Du kan ändra inställningen för specifika virtuella datorer eller uppdatera alla virtuella datorer genom att klicka på knappen Använd för alla.
+**Azure Hybrid-förmån**: du kan använda Azure Hybrid-förmånen för virtuella Windows-datorer i förekommande fall.  Standardvärdet är Ja. Du kan ändra inställningen för specifika virtuella datorer eller uppdatera alla virtuella datorer genom att klicka på knappen Använd för alla.
 
-**Total Azure-förbrukning**: Den innehåller beräknings-, lagrings-och Azure Site Recovery licens kostnader för din DR. Baserat på ditt val visas kostnaden antingen per månad eller år.
+**Total Azure-förbrukning**: det här omfattar bearbetning, lagring och kostnaden för Azure Site Recovery-licenser för din haveriberedskap. Baserat på ditt val visas kostnaden antingen per månad eller år.
 
-**Kostnad för stabilt läge för replikering**: Den innehåller lagrings kostnader för replikering.
+**Replikeringskostnad för stabilt tillstånd**: det här omfattar lagringskostnaden för replikering.
 
-**Total kostnad för Dr-test (genomsnitt)** : Den innehåller kostnader för beräkning och lagring för DR-Test.
+**Totalkostnad för DR-test (genomsnittlig)** : det här omfattar kostnaden för beräkning och lagring för DR-tester.
 
-**Kostnad för ASR-licens**: Azure Site Recovery licens kostnad.
+**Kostnad för ASR-licens**: kostnad för Azure Site Recovery-licensen.
 
 ## <a name="supported-target-regions"></a>Målregioner som stöds
 Distributionshanteraren för Azure Site Recovery kan ge kostnadsuppskattningar för följande Azure-regioner. Om inte din region visas nedan kan du använda någon av följande regioner vars priser ligger närmast din region.
@@ -150,13 +150,13 @@ usaöstra, usaöstra2, usavästra, usacentrala, usanorracentrala, usasödracentr
 ## <a name="supported-currencies"></a>Valutor som stöds
 Distributionshanteraren för Azure Site Recovery kan generera kostnadsrapporten i någon av följande valutor.
 
-|Currency|Namn||Currency|Namn||Currency|Namn|
+|Valuta|Namn||Valuta|Namn||Valuta|Namn|
 |---|---|---|---|---|---|---|---|
 |ARS|Argentinska pesos ($)||AUD|Australiensiska dollar ($)||BRL|Brasilianska Real (R$)|
 |CAD|Kanadensiska dollar ($)||CHF|Schweiziska franc (chf)||DKK|Danska kronor (kr)|
 |EUR|Euro (€)||GBP|Brittiska pund (£)||HKD|Hongkong Dollar (HK$)|
-|IDR|Indonesiska rupier (Rp)||INR|Indiska rupee (₹)||JPY|Japanska yen (¥)|
-|KRW|Koreanska won (₩)||MXN|Mexikanska Peso (MX$)||MYR|Malaysiska Ringgit (RM$)|
+|IDR|Indonesiska rupier (Rp)||INR|Indiska rupier (₹)||JPY|Japanska yen (¥)|
+|KRW|Sydkoreanska won (₩)||MXN|Mexikanska Peso (MX$)||MYR|Malaysiska Ringgit (RM$)|
 |NOK|Norska kronor (kr)||NZD|Nya zeeländska dollar ($)||RUB|Ryska rubel (руб)|
 |SAR|Saudiarabiska riyal (R)||SEK|Svenska kronor (kr)||TWD|Taiwanesiska dollar (NT$)|
 |TRY|Turkiska lira (TL)||USD| Amerikanska dollar ($)||ZAR|Sydafrikanska rand (R)|

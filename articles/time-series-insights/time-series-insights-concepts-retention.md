@@ -1,5 +1,5 @@
 ---
-title: Förstå datakvarhållning i Azure Time Series Insightss miljön | Microsoft Docs
+title: Förstå data kvarhållning i din miljö – Azure Time Series Insight | Microsoft Docs
 description: I den här artikeln beskrivs två inställningar som styr datakvarhållning i Azure Time Series Insightss miljön.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9dd771d44452ddc36913caf04f3c3a2d15ff1f08
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8200c2511d4f85705ff56df43f128034d29b0604
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990132"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012706"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå data kvarhållning i Azure Time Series Insights
 
@@ -90,7 +90,7 @@ I den påverkade Event Hubs bör du överväga att justera egenskapen för **kva
 
 [![kvarhållning av Event Hub-meddelande.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Om inga egenskaper har kon figurer ATS på händelse källan (`timeStampPropertyName`) Time Series Insights standardvärdet för att ange tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat, söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelser parsas.
+Om inga egenskaper har kon figurer ATS på händelse källan (`timeStampPropertyName`) Time Series Insights standardvärdet för att ange tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelser parsas.
 
 Läs [hur du skalar din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md) för att skala din miljö för att hantera ytterligare kapacitet eller öka längden på kvarhållning.
 

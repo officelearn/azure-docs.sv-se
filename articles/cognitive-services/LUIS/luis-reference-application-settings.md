@@ -1,7 +1,7 @@
 ---
 title: Program inställningar – LUIS
 titleSuffix: Azure Cognitive Services
-description: Förstå program inställningar för språk förståelse för appar.
+description: Program inställningar för Azure Cognitive Services Language förståelseing-appar lagras i appen och portalen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6d516590b90efd937789fa0847b707d2521f6459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932582"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961780"
 ---
 # <a name="application-settings"></a>Programinställningar
 
@@ -24,12 +24,12 @@ Dessa program inställningar lagras i den [exporterade](https://westus.dev.cogni
 
 |Inställning|Standardvärde|Anteckningar|
 |--|--|--|
-|NormalizePunctuation|Sant|Tar bort interpunktion.|
-|NormalizeDiacritics|Sant|Tar bort dia kritiska tecken.|
+|NormalizePunctuation|True|Tar bort interpunktion.|
+|NormalizeDiacritics|True|Tar bort dia kritiska tecken.|
 
 ## <a name="diacritics-normalization"></a>Normalisering av dia kritiska tecken 
 
-Aktivera uttryck-normalisering för dia kritiska tecken till din Luis JSON-app-fil `settings` i parametern.
+Aktivera uttryck-normalisering för dia kritiska tecken till din LUIS JSON-app-fil i `settings`-parametern.
 
 ```JSON
 "settings": [
@@ -46,7 +46,7 @@ Följande yttranden visar hur dia kritiska normalisering påverkar yttranden:
 
 ### <a name="language-support-for-diacritics"></a>Språk stöd för dia kritiska tecken
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugisiska `pt-br` (Brasilien) dia kritiska tecken
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugisiska (Brasilien) `pt-br` dia kritiska tecken
 
 |Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |-|-|
@@ -142,7 +142,7 @@ Detta inkluderar både spanska och kanadensiska mexikanska.
 
 ## <a name="punctuation-normalization"></a>Normalisering av interpunktion
 
-Aktivera uttryck normalisering för interpunktion till din Luis JSON-app-fil i `settings` -parametern.
+Aktivera uttryck-normalisering för interpunktion till din LUIS JSON-app-fil i `settings`-parametern.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ Aktivera uttryck normalisering för interpunktion till din Luis JSON-app-fil i `
 ] 
 ```
 
-Följande yttranden visar hur dia kritiska tecken påverkar yttranden:
+Följande yttranden visar hur interpunktion påverkar yttranden:
 
-|Med dia kritiska tecken inställt på falskt|Med dia kritiska tecken inställt på Sant|
+|Med skiljetecken inställt på falskt|Med skiljetecken inställt på Sant|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
 ### <a name="punctuation-removed"></a>Interpunktion borttagen
 
-Följande skiljetecken tas bort med `NormalizePunctuation` är inställt på sant.
+Följande skiljetecken tas bort med `NormalizePunctuation` har värdet true.
 
 |Skiljetecken|
 |--|

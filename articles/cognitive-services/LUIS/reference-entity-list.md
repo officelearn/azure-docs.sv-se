@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1757faf8ab2be0b62956b6939ee068929f9275a4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695243"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011992"
 ---
 # <a name="list-entity"></a>Lista entitet 
 
@@ -28,11 +28,36 @@ En lista entitet har inte registrerats på datorn. Det är en exakt denna matchn
 * Är en känd uppsättning.
 * Ändras inte ofta. Om du behöver ändra listan ofta eller vill att listan ska expanderas själv, är en enkel entitet som ökar med en fras lista ett bättre alternativ. 
 * Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
-* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. LUIS använder inte listan för något mer än exakta textmatchningar. Fuzzy Matching, SKIFT läges okänslighet, igenkänning, plural och andra variationer löses inte med en List-entitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
+* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. LUIS använder inte listan för något mer än exakta textmatchningar. Fuzzy Matching, SKIFT läges okänslighet, igenkänning, plural och andra variationer löses inte med en List-entitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
 
 ![lista entitet](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json"></a>Exempel på JSON
+## <a name="example-json-to-import-into-list-entity"></a>Exempel. JSON att importera till List-entitet
+
+  Du kan importera värden till en befintlig List-entitet med hjälp av följande. JSON-format:
+
+  ```JSON
+  [
+      {
+          "canonicalForm": "Blue",
+          "list": [
+              "navy",
+              "royal",
+              "baby"
+          ]
+      },
+      {
+          "canonicalForm": "Green",
+          "list": [
+              "kelly",
+              "forest",
+              "avacado"
+          ]
+      }
+  ]  
+  ```
+
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Anta att appen har en lista som heter `Cities`, så att variationer av stadsnamn inklusive stad flygplats (Sea tac), flygplatsen (SEA), postnummer (98101), och phone riktnummer (206).
 
@@ -107,7 +132,7 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 
 * * * 
 
-|Dataobjekt|Entitetsnamn|Value|
+|Dataobjekt|Entitetsnamn|Värde|
 |--|--|--|
 |Lista entitet|`Cities`|`paris`|
 

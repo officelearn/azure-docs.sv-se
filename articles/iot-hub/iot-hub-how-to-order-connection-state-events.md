@@ -1,5 +1,5 @@
 ---
-title: Beställ enhets anslutnings händelser från Azure IoT Hub med Azure Cosmos DB | Microsoft Docs
+title: Beställ anslutnings händelser för enheter fr Azure IoT Hub med Azure Cosmos DB
 description: Den här artikeln beskriver hur du beställer och registrerar enhets anslutnings händelser från Azure IoT Hub att använda Azure Cosmos DB för att underhålla det senaste anslutnings läget
 services: iot-hub
 ms.service: iot-hub
@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67988289"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954258"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Beställ enhets anslutnings händelser från Azure IoT Hub med Azure Cosmos DB
 
@@ -20,13 +20,13 @@ Azure Event Grid hjälper dig att bygga händelsebaserade program och enkelt int
 
 Sekvensnumret är en sträng representation av ett hexadecimalt tal. Du kan använda sträng jämförelse för att identifiera det större talet. Om du konverterar strängen till hex blir talet ett 256-bitars tal. Sekvensnumret är helt ökande och den senaste händelsen har en högre siffra än andra händelser. Detta är användbart om du ofta har en enhet som är ansluten och frånkopplad och vill se till att endast den senaste händelsen används för att utlösa en underordnad åtgärd, eftersom Azure Event Grid inte stöder sortering av händelser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 * Ett aktivt Azure Cosmos DB SQL API-konto. Om du inte har skapat en ännu, se [skapa ett databas konto](../cosmos-db/create-sql-api-java.md#create-a-database-account) för en genom gång.
 
-* En samling i databasen. Se [lägga till en samling](../cosmos-db/create-sql-api-java.md#add-a-container) för en genom gång. När du skapar samlingen använder `/id` du för partitionsnyckel.
+* En samling i databasen. Se [lägga till en samling](../cosmos-db/create-sql-api-java.md#add-a-container) för en genom gång. När du skapar samlingen använder du `/id` för partitionsnyckel.
 
 * En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](iot-hub-csharp-csharp-getstarted.md).
 
@@ -34,7 +34,7 @@ Sekvensnumret är en sträng representation av ett hexadecimalt tal. Du kan anv�
 
 Börja med att skapa en lagrad procedur och konfigurera den så att den kör en logik som jämför antalet inkommande händelser och registrerar den senaste händelsen per enhet i databasen.
 
-1. I Cosmos DB SQL API väljer du **datautforskaren** > **objekt** > **ny lagrad procedur**.
+1. I Cosmos DB SQL API väljer du **Datautforskaren** > **objekt** > **ny lagrad procedur**.
 
    ![Skapa lagrad procedur](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -220,7 +220,7 @@ I ditt Logic app-arbetsflöde kan villkor hjälpa dig att köra vissa åtgärder
 
    **Databas-ID**: ToDoList
 
-   **Samlings-ID**: Objekt
+   **Samlings-ID**: objekt
 
    **Sproc-ID**: LatestDeviceConnectionState
 
@@ -232,7 +232,7 @@ I ditt Logic app-arbetsflöde kan villkor hjälpa dig att köra vissa åtgärder
 
    ![Fyll i Logic app-åtgärd](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Överst i fönstret där **det står,** under **Välj utdata från föregående steg**, kontrollerar du att **den är markerad** .
+7. Överst i fönstret där **det står,** under **Välj utdata från föregående steg**, kontrollerar **du att den är markerad** .
 
    ![Fyll i Logic app för – varje](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
@@ -290,7 +290,7 @@ Nu när din händelse prenumeration har kon figurer ATS kan vi testa genom att a
 
 2. Välj **+ Lägg till** överst i fönstret.
 
-3. Ange `Demo-Device-1` för **Enhets-ID**.
+3. Ange **för**Enhets-ID`Demo-Device-1`.
 
 4. Välj **Spara**.
 
@@ -322,7 +322,7 @@ Du ser något som liknar följande utdata som visar sensor data och meddelanden 
 
    ![Köra programmet](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-   Klicka på **stoppa** för att stoppa simulatorn och utlösa en **enhet** som är frånkopplad.
+   Klicka på **stoppa** för att stoppa simulatorn och utlösa en enhet som är **frånkopplad** .
 
 Du har nu kört ett exempel program för att samla in sensor data och skicka det till din IoT-hubb.
 

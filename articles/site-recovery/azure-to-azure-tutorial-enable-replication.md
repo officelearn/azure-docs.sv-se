@@ -1,26 +1,25 @@
 ---
-title: Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery
+title: Konfigurera haveri beredskap för Azure VM med Azure Site Recovery
 description: Lär dig konfigurera programåterställning för virtuella Azure-datorer till annan Azure-region med Azure Site Recovery-tjänsten.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e46bc9e4fbb2b573338b8be43c38e658ebde05a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 502f71365d78bd8fd949d17fe8907817394586b2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468026"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961505"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här guiden får du lära dig att:
+Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Recovery Services-valv
@@ -31,9 +30,9 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella
 > [!NOTE]
 > Den här artikeln innehåller instruktioner för distribution av haveriberedskap med de enklaste inställningarna. Om du vill veta mer om anpassade inställningar läser du artiklarna i [avsnittet med anvisningar](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 - Granska [arkitekturen och komponenterna för scenariot](concepts-azure-to-azure-architecture.md).
 - Granska [support kraven](site-recovery-support-matrix-azure-to-azure.md) innan du börjar.
@@ -69,7 +68,7 @@ Site Recovery kräver att vissa ändringar görs i utgående nätverksanslutning
 
 Om du använder en webbadressbaserad brandväggsproxy för att styra utgående nätverksanslutningar ger du tillgång till dessa URL:er.
 
-| **URL** | **Information** |
+| **URL** | **Detaljer** |
 | ------- | ----------- |
 | *.blob.core.windows.net | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
 | login.microsoftonline.com | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
@@ -138,7 +137,7 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 3. Anpassa mål inställningarna som sammanfattas i tabellen.
 
-    **Inställning** | **Information**
+    **Inställning** | **Detaljer**
     --- | ---
     **Mål prenumeration** | Som standard är mål prenumerationen densamma som käll prenumerationen. Klicka på Anpassa om du vill välja en annan målprenumeration inom samma Azure Active Directory-klientorganisation.
     **Målplats** | Den målregion som används för haveriberedskap.<br/><br/> Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats.
@@ -152,14 +151,14 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 4. Om du vill anpassa inställningarna för replikeringsprincipen klickar du på **Anpassa** bredvid **replikeringsprincip**och ändrar inställningarna efter behov.
 
-    **Inställning** | **Information**
+    **Inställning** | **Detaljer**
     --- | ---
     **Namn på replikeringsprincip** | Principnamn.
     **Kvarhållning av återställnings punkt** | Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar.
     **Frekvens för programkonsekventa ögonblicks bilder** | Som standard tar Site Recovery en appkompatibel ögonblicksbild var 4:e timme. Du kan ställa in ett värde mellan 1 och 12 timmar.<br/><br/> En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av program data i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att programmen i den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas.
     **Replikeringsgrupp** | Om programmet kräver konsekvens för flera virtuella datorer mellan virtuella datorer kan du skapa en replikeringsgrupp för dessa virtuella datorer. Som standard är valda virtuella datorer inte en del av någon replikeringsgrupp.
 
-5. I **Anpassa** väljer du **Ja** för konsekvens för flera virtuella datorer om du vill lägga till virtuella datorer i en ny eller en befintlig replikeringsgrupp. Klicka sedan på **OK**. 
+5. I **Anpassa** väljer du **Ja** för konsekvens för flera virtuella datorer om du vill lägga till virtuella datorer i en ny eller en befintlig replikeringsgrupp. Klicka på **OK**. 
 
     >[!NOTE]
     >- Alla datorer i en replikeringsgrupp har delade krascher konsekventa och programkonsekventa återställnings punkter vid växling vid fel.

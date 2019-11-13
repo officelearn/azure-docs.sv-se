@@ -1,7 +1,7 @@
 ---
 title: Använd metoden för offline-utvärdering – personanpassa
 titleSuffix: Azure Cognitive Services
-description: Skapa feedback-slinga i C# den här snabb starten med tjänsten personanpassa.
+description: Den här artikeln förklarar hur du använder offline-utvärdering för att mäta appens effektivitet och analysera din inlärnings slinga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515581"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953080"
 ---
 # <a name="offline-evaluation"></a>Offlineutvärdering
 
@@ -98,5 +98,5 @@ Vi rekommenderar att du tittar på funktions utvärderingar och ber:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera personanpassa](how-to-settings.md) 
+[Konfigurera personanpassa](how-to-settings.md)
 [körning av offline-utvärdering](how-to-offline-evaluation.md) förstå [hur personanpassa fungerar](how-personalizer-works.md)

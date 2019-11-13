@@ -3,7 +3,7 @@ title: Azure Active Directory aktivitets loggar i Azure Monitor | Microsoft Docs
 description: Introduktion till Azure Active Directory aktivitets loggar i Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/22/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62ad020d2ec3b5ab712f50dca2dddd3b981f098
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656472"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014505"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD-aktivitets loggar i Azure Monitor
 
@@ -41,14 +41,14 @@ Du kan dirigera Azure Active Directory (Azure AD)-aktivitets loggar till flera s
 
 Du kan skicka Azure AD audit-loggar och inloggnings loggar till ditt Azure Storage-konto, händelsehubben, Azure Monitor loggar eller anpassad lösning med hjälp av den här funktionen. 
 
-* **Gransknings loggar**: [Aktivitets rapporten gransknings loggar](concept-audit-logs.md) ger dig till gång till historiken för alla uppgifter som utförs i din klient organisation.
-* **Inloggnings loggar**: Med [rapporten inloggnings aktivitet](concept-sign-ins.md)kan du bestämma vem som utförde de uppgifter som rapporteras i gransknings loggarna.
+* **Spårningsloggar**: [Rapporten om spårningsloggaktivitet](concept-audit-logs.md) ger dig åtkomst till historiken för varje uppgift som utförs i din klientorganisation.
+* **Inloggningsloggar**: Med [rapporten om inloggningsaktivitet](concept-sign-ins.md) kan du se vem som har utfört de uppgifter som rapporteras i spårningsloggarna.
 
 > [!NOTE]
 > B2C-relaterade spårnings- och inloggningsaktivitetsloggar stöds inte just nu.
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här funktionen behöver du:
 
@@ -78,10 +78,10 @@ Följande tabell innehåller en uppskattning av kostnaden, beroende på klientor
 
 | Loggkategori | Antal användare | Händelser per dag | Datavolym per månad (uppskattad) | Kostnad per månad (uppskattad) | Kostnad per år (uppskattad) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Granska | 100,000 | 1,5&nbsp;miljoner | 90 GB | 1,93 USD | 23,12 USD |
-| Granska | 1,000 | 15,000 | 900 MB | 0,02 USD | 0,24 USD |
+| Granska | 100 000 | 1,5&nbsp;miljoner | 90 GB | 1,93 USD | 23,12 USD |
+| Granska | 1,000 | 15 000 | 900 MB | 0,02 USD | 0,24 USD |
 | Inloggningar | 1,000 | 34 800 | 4 GB | 0,13 USD | 1,56 USD |
-| Inloggningar | 100,000 | 15&nbsp;miljoner | 1,7 TB | 35,41 USD | 424,92 USD |
+| Inloggningar | 100 000 | 15&nbsp;miljoner | 1,7 TB | 35,41 USD | 424,92 USD |
  
 
 
@@ -102,7 +102,7 @@ Följande tabell innehåller uppskattad kostnad per månad för en grundläggand
 
 | Loggkategori | Antal användare | Händelser per sekund | Händelser per femminutsintervall | Volym per intervall | Meddelanden per intervall | Meddelanden per månad | Kostnad per månad (uppskattad) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Granska | 100,000 | 18 | 5 400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
+| Granska | 100 000 | 18 | 5 400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
 | Granska | 1,000 | 0,1 | 52 | 104 KB | 1 | 8 640 | 10,80 USD |
 | Inloggningar | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
@@ -112,9 +112,9 @@ Följande tabell innehåller uppskattad kostnad per månad för en grundläggand
 
 | Loggkategori       | Antal användare | Händelser per dag | Händelser per månad (30 dagar) | Kostnad per månad i USD (EST.) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Gransknings-och inloggnings program | 100,000         | 16 500 000     | 495 000 000                |  $1093,00                       |
-| Granska              | 100,000         | 1 500 000      | 45,000,000                 |  $246,66                     |
-| Inloggningar           | 100,000         | 15,000,000     | 450 000 000                |  $847,28                     |
+| Gransknings-och inloggnings program | 100 000         | 16 500 000     | 495 000 000                |  $1093,00                       |
+| Granska              | 100 000         | 1 500 000      | 45,000,000                 |  $246,66                     |
+| Inloggningar           | 100 000         | 15,000,000     | 450 000 000                |  $847,28                     |
 
 
 
@@ -133,41 +133,41 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 **F: Vilka loggar ingår?**
 
-**S**: Inloggnings aktivitets loggarna och gransknings loggarna är båda tillgängliga för routning genom den här funktionen, även om B2C gransknings händelser för närvarande inte ingår. Om du vill ta reda på vilka typer av loggar och vilka funktionsbaserade loggar som stöds för närvarande kan du läsa [schemat för spårningslogg](reference-azure-monitor-audit-log-schema.md) och [schemat för inloggningslogg](reference-azure-monitor-sign-ins-log-schema.md). 
+**S:** Både inloggningsaktivitetsloggarna och spårningsloggarna kan dirigeras via den här funktionen, men B2C-relaterade spårningsloggar ingår inte för närvarande. Om du vill ta reda på vilka typer av loggar och vilka funktionsbaserade loggar som stöds för närvarande kan du läsa [schemat för spårningslogg](reference-azure-monitor-audit-log-schema.md) och [schemat för inloggningslogg](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
-**F: Hur snart efter en åtgärd visas motsvarande loggar i min Event Hub?**
+**F: hur snart efter en åtgärd visas motsvarande loggar i min Event Hub?**
 
-**S**: Loggarna bör visas i händelsehubben inom två till fem minuter efter att åtgärden har utförts. Mer information om Event Hubs finns i [Vad är Azure Event Hubs?](../../event-hubs/event-hubs-about.md).
+**S**: Loggarna bör visas i din händelsehubb inom två till fem minuter efter att åtgärden har utförts. Mer information om Event Hubs finns i [Vad är Azure Event Hubs?](../../event-hubs/event-hubs-about.md).
 
 ---
 
-**F: Hur snart efter en åtgärd visas motsvarande loggar i mitt lagrings konto?**
+**F: hur snart efter en åtgärd visas motsvarande loggar i mitt lagrings konto?**
 
-**S**: För Azure Storage-konton är svars tiden var som helst mellan 5 och 15 minuter efter att åtgärden har utförts.
+**S:** För Azure-lagringskonton är svarstiden mellan 5 och 15 minuter efter att en åtgärd har genomförts.
 
 ---
 
 **F: Vad händer om en administratör ändrar Retentions perioden för en diagnostisk inställning?**
 
-**S**: Den nya bevarande principen används för loggar som samlats in efter ändringen. Loggar som samlas in innan princip ändringen påverkas.
+**A**: den nya bevarande principen tillämpas på loggar som samlats in efter ändringen. Loggar som samlas in innan princip ändringen påverkas.
 
 ---
 
 **F: Hur mycket kostar det att lagra mina data?**
 
-**S**: Lagrings kostnaderna beror både på storleken på dina loggar och den kvarhållningsperiod du väljer. En lista över de uppskattade kostnaderna för klientorganisationer, vilket beror på mängden loggar som genereras, finns i avsnittet [Lagringsstorlek för aktivitetsloggar](#storage-size-for-activity-logs).
+**S:** Lagringskostnaden beror både på storleken på dina loggar och den kvarhållningsperiod som du väljer. En lista över de uppskattade kostnaderna för klientorganisationer, vilket beror på mängden loggar som genereras, finns i avsnittet [Lagringsstorlek för aktivitetsloggar](#storage-size-for-activity-logs).
 
 ---
 
-**F: Hur mycket kostar det att strömma mina data till en Event Hub?**
+**F: Hur mycket kostar det att strömma mina data till en händelsehubb?**
 
-**S**: De strömmande kostnaderna beror på antalet meddelanden som du får per minut. Den här artikeln beskriver hur kostnaderna beräknas och visar kostnadsberäkningar som baseras på antalet meddelanden. 
+**S:** Kostnaden för strömning beror på hur många meddelanden du får per minut. Den här artikeln beskriver hur kostnaderna beräknas och visar kostnadsberäkningar som baseras på antalet meddelanden. 
 
 ---
 
-**F: Hur gör jag för att integrera Azure AD-aktivitets loggar med mitt SIEM-system?**
+**F: Kan jag integrera Azure AD-aktivitetsloggar med mitt SIEM-system?**
 
 **S**: Du kan göra detta på två sätt:
 
@@ -179,25 +179,25 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 **F: Vilka SIEM-verktyg stöds för närvarande?** 
 
-**S**: För närvarande stöds Azure Monitor av [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar och [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**S:** Azure Monitor stöds för närvarande av [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar och [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
-**F: Hur gör jag för att integrera Azure AD-aktivitets loggar med min Splunk-instans?**
+**F: Hur integrerar jag Azure AD-aktivitetsloggar med min Splunk-instans?**
 
-**S**: Dirigera först [Azure AD-aktivitets loggarna till en händelsehubben](quickstart-azure-monitor-stream-logs-to-event-hub.md)och följ sedan stegen för att [integrera aktivitets loggar med Splunk](tutorial-integrate-activity-logs-with-splunk.md).
-
----
-
-**F: Hur gör jag för att integrera Azure AD-aktivitets loggar med Sumo Logic?** 
-
-**S**: Dirigera först [Azure AD-aktivitets loggarna till en Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)och följ sedan stegen för att [Installera Azure AD-programmet och Visa instrument panelerna i SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
+**S**: [Dirigera Azure AD-aktivitetsloggarna till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md) och följ sedan stegen för att [integrera aktivitetsloggar med Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
 ---
 
-**F: Kan jag komma åt data från en Event Hub utan att använda ett externt SIEM-verktyg?** 
+**F: Hur integrerar jag Azure AD-aktivitetsloggar med Sumo Logic?** 
 
-**S**: Ja. Om du vill komma åt loggarna från ditt anpassade program kan du använda [Event Hub API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+**S**: [Dirigera Azure AD-aktivitetsloggarna till en händelsehubb](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory) och följ sedan stegen för att [installera Azure AD-programmet och visa instrumentpaneler i SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
+
+---
+
+**F: Kan jag komma åt data från en händelsehubb utan att använda ett externt SIEM-verktyg?** 
+
+**S:** Ja. Om du vill komma åt loggarna från ditt anpassade program kan du använda [Event Hub API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
 
 ---
 

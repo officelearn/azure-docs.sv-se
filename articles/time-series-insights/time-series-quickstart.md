@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Azure Time Series Insights Explorer | Microsoft Docs'
-description: Den här snabb starten visar hur du kommer igång med Azure Time Series Insights Explorer i webbläsaren för att visualisera stora mängder IoT-data. Titta på huvudfunktionerna i en demomiljö.
+title: 'Snabb start: Azure Time Series Insights Explorer-Azure Time Series Insights | Microsoft Docs'
+description: Lär dig hur du kommer igång med Azure Time Series Insights Explorer. Visualisera stora volymer med IoT-data och guidade funktioner i din miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: 156e95c88bc3c66890ba9c8baf9b281330b60186
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0253a46cd73679c7c2f50a1e37d26d67578e342e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990912"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006424"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
 
@@ -44,7 +44,7 @@ Den här snabb starten i Time Series Insights Explorer innehåller en guidad gen
 
 1. **Panelen för val av tid** visas. Använd den här panelen för att välja en tidsram som ska visualiseras.
 
-   [panel för![val av tid](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [panel för ![val av tid](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
 1. Välj en tidsram och dra den i regionen. Välj sedan **Sök**.
 

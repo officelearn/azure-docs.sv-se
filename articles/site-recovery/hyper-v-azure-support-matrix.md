@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 594534f64c984f4afb986d3366f388e412bde27c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620837"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961457"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -83,7 +83,7 @@ ELB | Ja | Ja
 Azure Traffic Manager | Ja | Ja
 Multi-NIC | Ja | Ja
 Reserverad IP | Ja | Ja
-IPv6 | Ja | Ja
+IPv4 | Ja | Ja
 Behåll Källans IP-adress | Ja | Ja
 Azure Virtual Network-tjänstens slut punkter<br/> (utan Azure Storage brand väggar) | Ja | Ja
 Accelererat nätverk | Nej | Nej
@@ -91,21 +91,21 @@ Accelererat nätverk | Nej | Nej
 
 ## <a name="hyper-v-host-storage"></a>Lagring av Hyper-V-värd
 
-**Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
+**Lagring** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | --- 
 NFS | Ej tillämpligt | Ej tillämpligt
 SMB 3.0 | Ja | Ja
 SAN (ISCSI) | Ja | Ja
-Multipath (MPIO). Testat med:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4<br/><br/> EMC PowerPath DSM för CLARiiON | Ja | Ja
+Multipath (MPIO). Testat med:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM för CLARiiON | Ja | Ja
 
 ## <a name="hyper-v-vm-guest-storage"></a>Gäst lagring för Hyper-V-VM
 
-**Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
+**Lagring** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | ---
 VMDK | Ej tillämpligt | Ej tillämpligt
 VHD/VHDX | Ja | Ja
 Generation 2 VM | Ja | Ja
-EFI/UEFI| Ja | Ja
+EFI/UEFI<br></br>Den migrerade virtuella datorn i Azure kommer automatiskt att konverteras till en virtuell dator med BIOS-start. Den virtuella datorn ska endast köra Windows Server 2012 och senare. OS-disken bör ha upp till fem partitioner eller färre och storleken på OS-disken måste vara mindre än 300 GB.| Ja | Ja
 Delad kluster disk | Nej | Nej
 Krypterad disk | Nej | Nej
 NFS | Ej tillämpligt | Ej tillämpligt
@@ -132,6 +132,7 @@ Cool Storage | Nej | Nej
 Frekvent lagring| Nej | Nej
 Blockblobar | Nej | Nej
 Kryptering i rest (SSE)| Ja | Ja
+Kryptering i vilo läge (CMK)| Nej | Nej
 Premium Storage | Ja | Ja
 Import/export-tjänst | Nej | Nej
 Azure Storage-konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
@@ -161,7 +162,7 @@ VHD-storlek för datadisk | Upp till 4 095 GB | Krav kontrollen Miss lyckas om d
 Nätverkskort | Flera nätverkskort stöds |
 Delad virtuell hård disk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
 FC-disk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
-Hård disk format | DISKEN <br/><br/> VHDX | Site Recovery konverterar automatiskt VHDX till VHD när du växlar över till Azure. När du växlar tillbaka till den lokala datorn fortsätter de virtuella datorerna att använda VHDX-formatet.
+Hård disk format | VHD <br/><br/> VHDX | Site Recovery konverterar automatiskt VHDX till VHD när du växlar över till Azure. När du växlar tillbaka till den lokala datorn fortsätter de virtuella datorerna att använda VHDX-formatet.
 BitLocker | Stöds inte | BitLocker måste inaktive ras innan du aktiverar replikering för en virtuell dator.
 VM-namn | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra. | Uppdatera värdet i VM-egenskaperna i Site Recovery.
 Typ av virtuell dator | Generation 1<br/><br/> Generation 2--Windows | Generation 2 virtuella datorer med en OS-disktyp (som innehåller en eller två data volymer formaterade som VHDX) och mindre än 300 GB disk utrymme stöds.<br></br>Virtuella Linux generation 2-datorer stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|

@@ -1,6 +1,6 @@
 ---
-title: Etablera och hantera för hands versionen av Azure Time Series | Microsoft Docs
-description: Förstå hur du etablerar och hanterar Azure Time Series Insights för hands version.
+title: Etablera och hantera en för hands versions miljö – Azure Time Series | Microsoft Docs
+description: Lär dig hur du etablerar och hanterar en Azure Time Series Insights för hands versions miljö.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47c96cb14f2e466d02d57f73fb2e66bc1f44a311
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f66925c20f6767286eb98a7f5fab180845da4c33
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989910"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014786"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Etablera och hantera Azure Time Series Insights för hands version
 

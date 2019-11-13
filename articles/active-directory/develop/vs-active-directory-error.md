@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera fel med den Azure Active Directory anslutna tjänsten
+title: Diagnostisera fel med Azure Active Directory anslutna tjänsten
 description: Den Active Directory-anslutna tjänsten upptäckte en inkompatibel autentiseringstyp
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e544942029532fdbe998c36917e688d70ce4ed5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851984"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73941388"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostisera fel med den Azure Active Directory anslutna tjänsten
 
@@ -27,7 +27,7 @@ Om du vill identifiera tidigare autentiserings kod i ett projekt korrekt måste 
 
 ## <a name="project-types"></a>Projekt typer
 
-Den anslutna tjänsten kontrollerar vilken typ av projekt du utvecklar så att den kan mata in rätt autentiserings logik i projektet. Om det finns en kontrollant som är härledd `ApiController` från i projektet anses projektet vara ett WebAPI-projekt. Om det bara finns kontrollanter som härleds `MVC.Controller` från i projektet, betraktas projektet som ett MVC-projekt. Den anslutna tjänsten har inte stöd för andra projekt typer.
+Den anslutna tjänsten kontrollerar vilken typ av projekt du utvecklar så att den kan mata in rätt autentiserings logik i projektet. Om det finns en kontrollant som är härledd från `ApiController` i projektet, betraktas projektet som ett WebAPI-projekt. Om det bara finns kontrollanter som är härledda från `MVC.Controller` i projektet, betraktas projektet som ett MVC-projekt. Den anslutna tjänsten har inte stöd för andra projekt typer.
 
 ## <a name="compatible-authentication-code"></a>Kompatibel autentiseringsnyckel
 
@@ -54,7 +54,7 @@ Slutligen försöker den anslutna tjänsten identifiera versioner av autentiseri
 * Enskilda användar konton
 * Organisations konton
 
-För att identifiera Windows-autentisering i ett MVC-projekt söker den anslutna `authentication` `web.config` filen efter elementet i filen.
+För att identifiera Windows-autentisering i ett MVC-projekt söker den anslutna efter `authentication`-elementet i `web.config`-filen.
 
 ```xml
 <configuration>
@@ -64,7 +64,7 @@ För att identifiera Windows-autentisering i ett MVC-projekt söker den anslutna
 </configuration>
 ```
 
-För att identifiera Windows-autentisering i ett Web API-projekt söker den anslutna tjänsten `IISExpressWindowsAuthentication` efter elementet i `.csproj` projekt filen:
+För att identifiera Windows-autentisering i ett Web API-projekt söker den anslutna tjänsten efter `IISExpressWindowsAuthentication`-elementet i projektets `.csproj`-fil:
 
 ```xml
 <Project>
@@ -74,7 +74,7 @@ För att identifiera Windows-autentisering i ett Web API-projekt söker den ansl
 </Project>
 ```
 
-Om du vill identifiera autentisering av enskilda användar konton letar den anslutna tjänsten efter paket elementet i `packages.config` filen.
+Den anslutna tjänsten söker efter paket elementet i `packages.config`-filen för att identifiera autentisering av enskilda användar konton.
 
 ```xml
 <packages>

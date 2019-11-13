@@ -1,5 +1,5 @@
 ---
-title: Distribuera en befintlig körbar fil till Azure Service Fabric | Microsoft Docs
+title: Paketera en befintlig körbar fil till Azure Service Fabric | Microsoft Docs
 description: Lär dig mer om att paketera ett befintligt program som en körbar gäst fil, så att det kan distribueras till ett Service Fabric kluster.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: bd6984db67a8a7b9c38988558ada51e12d337f52
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599450"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013263"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuera en befintlig körbar fil till Service Fabric
 Du kan köra vilken typ av kod som helst, till exempel Node. js, Java C++ eller i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program.
@@ -33,7 +33,7 @@ Det finns flera fördelar med att köra en körbar gäst fil i ett Service Fabri
 * Hälso övervakning. Service Fabric hälso övervakning identifierar om ett program körs och innehåller diagnostikinformation om det uppstår ett fel.   
 * Hantering av program livs cykel. Förutom att tillhandahålla uppgraderingar utan avbrott ger Service Fabric automatisk återställning till den tidigare versionen om det finns en skadad hälso händelse som rapporteras under en uppgradering.    
 * Innebär. Du kan köra flera program i ett kluster, vilket eliminerar behovet av att varje program ska köras på sin egen maskin vara.
-* Identifierings möjligheten Med REST kan du anropa Service Fabric Naming Service för att hitta andra tjänster i klustret. 
+* Identifierings möjlighet: med hjälp av REST kan du anropa Service Fabric Naming Service för att hitta andra tjänster i klustret. 
 
 ## <a name="samples"></a>Exempel
 * [Exempel på paketering och distribution av en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -69,7 +69,7 @@ ApplicationPackageRoot innehåller den ApplicationManifest. XML-fil som definier
 * *Data*. Detta är ytterligare en katalog där du kan lagra ytterligare lokala data som tjänsten kan behöva. Data ska endast användas för att lagra tillfälliga data. Service Fabric kopierar eller replikerar inte ändringar i data katalogen om tjänsten måste flyttas (till exempel under redundans).
 
 > [!NOTE]
-> Du behöver inte skapa `config` och `data` -katalogerna om du inte behöver dem.
+> Du behöver inte skapa `config` och `data` kataloger om du inte behöver dem.
 >
 >
 

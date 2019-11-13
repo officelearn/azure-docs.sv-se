@@ -1,19 +1,16 @@
 ---
 title: Skapa en anpassad principdefinition
 description: Skapa en anpassad principdefinition för Azure Policy för att tillämpa anpassade affärsregler.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/23/2019
 ms.topic: tutorial
-ms.service: azure-policy
-ms.openlocfilehash: 240d0fa388fbdfdd3d29d735aed708a096440740
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1a5be5a3e81dec6f4369e6b01dcda3d5de5f6dac
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980357"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959274"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Självstudier: Skapa en anpassad principdefinition
+# <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
 Med en anpassad principdefinition kan kunderna definiera egna regler för att använda Azure. De här reglerna framtvingar ofta:
 
@@ -376,7 +373,7 @@ Skapandet av [principregeln](../concepts/definition-structure.md#policy-rule) ä
 - Lagringskontots **typ** är **Microsoft.Storage/storageAccounts**
 - Att lagringskontot **supportsHttpsTrafficOnly** inte är **sant**
 
-Eftersom vi behöver att båda dessa instruktionerna är sanna använder vi den [logiska operatorn](../concepts/definition-structure.md#logical-operators) **allOf**. Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
+Eftersom vi behöver att båda dessa instruktionerna är sanna använder vi den **logiska operatorn** [allOf](../concepts/definition-structure.md#logical-operators). Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
 
 ```json
 "if": {

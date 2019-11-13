@@ -1,17 +1,14 @@
 ---
 title: Utforska dina Azure-resurser
 description: Lär dig att använda det aktuella resurs diagrammets frågespråk för att utforska dina resurser och identifiera hur de är anslutna.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: 58eb5abc9a8857b81ada65c96eb7deaaa5cc5aeb
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e489a4eafdbbd838c4850d67fcd8ec40f76f290c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622672"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959242"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 
@@ -168,7 +165,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuella datorer som är anslutna till Premium-hanterade diskar
 
-Om vi ville hämta information om Premium-hanterade diskar som är kopplade till dessa virtuella **Standard_B2s** -datorer kan vi utöka frågan så att den ger oss resurs-ID för de hanterade diskarna.
+Om vi ville hämta information om Premium-hanterade diskar som är kopplade till dessa **Standard_B2s** virtuella datorer kan vi utöka frågan så att den ger oss resurs-ID för de hanterade diskarna.
 
 ```kusto
 Resources

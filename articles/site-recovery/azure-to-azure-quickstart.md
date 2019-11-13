@@ -1,19 +1,19 @@
 ---
-title: Konfigurera haveriberedskap för en virtuell Azure-dator till en sekundär Azure-region
-description: Den här snabbstarten beskriver de steg som krävs för haveriberedskap för en virtuell Azure IaaS-dator mellan Azure-regioner, med hjälp av Azure Site Recovery-tjänsten.
+title: Konfigurera haveri beredskap för virtuella Azure-datorer till en sekundär region med Azure Site Recovery
+description: Konfigurera snabbt haveri beredskap till en annan Azure-region för en virtuell Azure-dator med hjälp av tjänsten Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b06cae5bcb07831ba79b805802a7851c2b6ad2b3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91674d6335ae95993bcdd59250658d562302b1dc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467998"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954135"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Konfigurera haveriberedskap för en sekundär Azure-region för en virtuell Azure-dator        
 

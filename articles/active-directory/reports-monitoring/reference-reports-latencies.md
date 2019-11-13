@@ -3,7 +3,7 @@ title: Azure Active Directory rapporterings fördröjning | Microsoft Docs
 description: Lär dig mer om hur lång tid det tar för rapport händelser att visas i din Azure Portal
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127039"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007711"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory rapporterings fördröjning
 
@@ -59,23 +59,23 @@ Det finns två typer av säkerhetsrapporter:
 
 I följande tabell visas svars tids informationen för säkerhets rapporter.
 
-| Rapport | Minimum | Average | Maximal |
+| Rapport | Minimum | Medel | Maximal |
 | :-- | --- | --- | --- |
-| Användare i farozonen          | 5 minuter   | 15 minuter  | 2 timmar  |
-| Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
+| Användare i riskzonen          | 5 minuter   | 15 minuter  | 2 timmar  |
+| Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
 
-## <a name="risk-detections"></a>Risk identifieringar
+## <a name="risk-detections"></a>Riskidentifieringar
 
 Azure AD använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas för **identifiering av risker**.
 
 I följande tabell visas svars informationen för risk identifieringar.
 
-| Rapport | Minimum | Average | Maximal |
+| Rapport | Minimum | Medel | Maximal |
 | :-- | --- | --- | --- |
-| Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
-| Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
-| Används med läckta autentiseringsuppgifter |2 timmar |4 timmar |8 timmar |
-| Omöjligt att resa till ovanliga platser |5 minuter |1 timme |8 timmar  |
+| Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
+| Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
+| Användare med läckta autentiseringsuppgifter |2 timmar |4 timmar |8 timmar |
+| Omöjliga resor till ovanliga platser |5 minuter |1 timme |8 timmar  |
 | Inloggningar från angripna enheter |2 timmar |4 timmar |8 timmar  |
 | Inloggningar från IP-adresser med misstänkt aktivitet |2 timmar |4 timmar |8 timmar  |
 

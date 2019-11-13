@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure IoT Hub-modulidentitet och -modultvilling (portal och .NET) | Microsoft Docs
+title: Azure IoT Hub module identitet & modul, dubbla (portal och .NET)
 description: Lär dig att skapa modulidentitet och uppdatera modultvillingar med portalen och .NET.
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 395b1fd3301925db0607f775c6b7367979ba367b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147424"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954607"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 
@@ -34,7 +34,7 @@ I den här kursen lär du dig:
 > Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Visual Studio.
 
@@ -56,7 +56,7 @@ Inom en enhetsidentitet kan du skapa upp till 20 modulidentiteter. Följ dessa s
 
 1. Ange namnet *myFirstModule*. Spara din modul identitet.
 
-    ![Lägg till modulidentitet](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+    ![Lägg till modulens identitet](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
     Din nya modul-ID visas längst ned på skärmen. Välj den för att se information om modulens identitet.
 
@@ -94,7 +94,7 @@ Modulens identitet och modul är i offentlig för hands version. Den är endast 
 
 Du behöver modulens anslutnings sträng för konsol programmet. Följ de här stegen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Navigera till din IoT-hubb och välj **IoT-enheter**. Öppna **t myfirstdevice** så ser du att **myFirstModule** har skapats.
 

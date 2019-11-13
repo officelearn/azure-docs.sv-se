@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sngun
-ms.openlocfilehash: 80a0a3440a7fb5d056d1d76fb9d82931721b6e16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514217"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007336"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Anslut privat till ett Azure Cosmos-konto med hjälp av Azure Private Link
 
@@ -40,7 +40,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
     | Plats | Välj **WestCentralUS**.|
-    | Undernät – Namn | Ange *undernät*. |
+    | Undernät – namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
 
@@ -99,9 +99,9 @@ Skapa ett [Azure Cosmos SQL API-konto](../cosmos-db/create-cosmosdb-resources-po
 
 ## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Skapa en privat slut punkt för ditt Azure Cosmos-konto
 
-Skapa en privat länk för ditt Azure Cosmos-konto enligt beskrivningen i avsnittet [skapa en privat länk med hjälp av Azure Portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) avsnittet i den länkade artikeln.
+Skapa en privat länk för ditt Azure Cosmos-konto enligt beskrivningen i avsnittet [skapa en privat länk med hjälp av Azure Portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) avsnittet i den länkade artikeln.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 

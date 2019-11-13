@@ -1,5 +1,5 @@
 ---
-title: Uppgradera ett Azure Service Fabric-kluster | Microsoft Docs
+title: Uppgradera ett Azure Service Fabric-kluster
 description: Lär dig mer om att uppgradera versionen eller konfigurationen av ett Azure Service Fabric-kluster.  I den här artikeln beskrivs inställning av kluster uppdaterings läge, uppgradering av certifikat, tillägg av program portar, operativ Systems uppdateringar och vad du kan förvänta när uppgraderingen utförs
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: atsenthi
-ms.openlocfilehash: 2c8465a3aba4a21efaa20a118807d739dd501b09
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 161c720fbcc9370aaf273b241e88a7184f47371b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599780"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013310"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Uppgradera och uppdatera ett Azure Service Fabric-kluster
 
@@ -36,7 +36,7 @@ Du kan ange att klustret ska ta emot automatiska Fabric-uppgraderingar när de s
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Beteende vid uppgradering av infrastruktur under automatiska uppgraderingar
 Microsoft underhåller infrastruktur koden och konfigurationen som körs i ett Azure-kluster. Vi utför automatiskt övervakade uppgraderingar till program varan vid behov. Dessa uppgraderingar kan vara kod, konfiguration eller både och. För att se till att ditt program påverkar ingen påverkan eller minimal påverkan på grund av dessa uppgraderingar, utför vi uppgraderingar i följande faser:
 
-### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fas 1: En uppgradering utförs med alla kluster hälso principer
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fas 1: en uppgradering utförs med alla kluster hälso principer
 Under den här fasen fortsätter uppgraderingen en uppgraderings domän i taget och de program som kördes i klustret fortsätter att köras utan avbrott. Kluster hälso principerna (en kombination av nods hälsa och hälso tillståndet alla program som körs i klustret) följer under uppgraderingen.
 
 Om klustrets hälso principer inte uppfylls, återställs uppgraderingen. Sedan skickas ett e-postmeddelande till Prenumerationens ägare. E-postmeddelandet innehåller följande information:
@@ -49,7 +49,7 @@ Vi försöker utföra samma uppgradering några gånger om eventuella uppgraderi
 
 Om klustrets hälso principer är uppfyllda betraktas uppgraderingen som lyckad och har marker ATS som slutförd. Detta kan inträffa under den inledande uppgraderingen eller någon av uppgraderings omgången i den här fasen. Det finns ingen e-postbekräftelse för lyckad körning. Det här är för att undvika att skicka för många e-postmeddelanden – att ta emot ett e-postmeddelande bör visas som ett undantag till normal. Vi förväntar oss att de flesta av kluster uppgraderingarna lyckas utan att påverka din program tillgänglighet.
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fas 2: En uppgradering utförs endast med standard hälso principer
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fas 2: en uppgradering utförs endast med standard hälso principer
 Hälso principerna i den här fasen anges på ett sådant sätt att antalet program som är felfria i början av uppgraderingen förblir samma under uppgraderings processens varaktighet. Som i fas 1 fortsätter fas 2-uppgraderingar en uppgraderings domän i taget och de program som kördes i klustret fortsätter att köras utan avbrott. Kluster hälso principerna (en kombination av nods hälsa och hälso tillståndet alla program som körs i klustret) följer under uppgraderingen.
 
 Om klustrets hälso principer i själva verket inte uppfylls, återställs uppgraderingen. Sedan skickas ett e-postmeddelande till Prenumerationens ägare. E-postmeddelandet innehåller följande information:
@@ -62,7 +62,7 @@ Vi försöker utföra samma uppgradering några gånger om eventuella uppgraderi
 
 Om klustrets hälso principer är uppfyllda betraktas uppgraderingen som lyckad och har marker ATS som slutförd. Detta kan inträffa under den inledande uppgraderingen eller någon av uppgraderings omgången i den här fasen. Det finns ingen e-postbekräftelse för lyckad körning.
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fas 3: En uppgradering utförs med hjälp av aggressiva hälso principer
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fas 3: en uppgradering utförs med hjälp av aggressiva hälso principer
 De här hälso principerna i den här fasen är inriktad på att uppgraderingen slutförs i stället för programmens hälsa. Några kluster uppgraderingar slutförs i den här fasen. Om klustret kommer till den här fasen, är det en chans att programmet blir ohälsosamt och/eller förlorar tillgänglighet.
 
 På samma sätt som i de andra två faserna uppgraderar fas 3 en uppgraderings domän i taget.

@@ -1,6 +1,7 @@
 ---
-title: Program registrering Portal app Registration Guide-Microsoft Identity Platform | Azure
-description: Appregistreringar i Azure Portal för användare som är bekanta med program registrerings portalen
+title: Över gång från program registrerings portalen till den nya Appregistreringar upplevelsen i Azure Portal
+titleSuffix: Microsoft identity platform
+description: En introduktion till den nya appens registrerings upplevelse i Azure Portal
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -17,14 +18,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1974616c0331203a803e4f13a19297940fb5d42e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905477"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013029"
 ---
-# <a name="training-guide-using-app-registrations-in-the-azure-portal-instead-of-application-registration-portal"></a>Tränings guide: använda Appregistreringar i Azure Portal i stället för program registrerings portalen
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Över gång från program registrerings portalen till den nya Appregistreringar upplevelsen i Azure Portal
 
 Det finns många förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön i Azure Portal. Om du är mer bekant med program registrerings portalen (apps.dev.microsoft.com) för att registrera eller hantera konvergerade program, som kallas tidigare erfarenhet, kommer den här utbildnings guiden att hjälpa dig att komma igång med den nya upplevelsen.
 
@@ -83,7 +84,7 @@ Den nya upplevelsen i Azure Portal representerar dessa funktioner i separata sid
 
 I den nya upplevelsen har **program hemligheter** bytt namn till **certifikat & hemligheter**. Dessutom kallas **offentliga nycklar** för **certifikat** och **lösen ord** som **klient hemligheter**. Vi valde att inte ta med den här funktionen i den nya upplevelsen av säkerhets skäl, så du kan därför inte längre generera ett nytt nyckel par.
 
-## <a name="platformsauthentication---reply-urlsredirect-uris"></a>Plattformar/autentisering – svars-URL: er/omdirigerings-URI
+## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plattformar/autentisering: svars webb adresser/omdirigerings-URI: er
 I den tidigare versionen har en app haft plattformar för webb-, intern-och webb-API för att konfigurera omdirigerings-URL: er, utloggnings-URL och implicit flöde.
 
 I den nya upplevelsen hittar du svars-URL: er i avsnittet om app\'s-autentisering. Dessutom kallas de omdirigerings-URI: er och formatet för omdirigering av URI: er har ändrats. De måste vara kopplade till en app-typ (webb eller offentlig klient-mobil och stationär dator). [Läs mer](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)

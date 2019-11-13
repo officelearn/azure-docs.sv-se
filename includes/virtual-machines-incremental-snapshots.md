@@ -8,110 +8,109 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187327"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014535"
 ---
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Säkerhetskopiera Azure ohanterade Virtuella datordiskar med inkrementella ögonblicksbilder
 ## <a name="overview"></a>Översikt
-Azure Storage tillhandahåller möjligheten att ta ögonblicksbilder av blobar. Ögonblicksbilder avbilda blob-tillstånd vid den tidpunkten i tid. I den här artikeln beskriver vi ett scenario där du kan underhålla säkerhetskopior av virtuella diskar med hjälp av ögonblicksbilder. Du kan använda den här metoden när du väljer att inte använda Azure Backup och Recovery-tjänsten och vill skapa en anpassad strategi för säkerhetskopiering för virtuella datordiskar.
+Azure Storage ger möjlighet att ta ögonblicks bilder av blobbar. Ögonblicks bilder fångar BLOB-statusen vid den tidpunkten. I den här artikeln beskriver vi ett scenario där du kan underhålla säkerhets kopior av virtuella dator diskar med hjälp av ögonblicks bilder. Du kan använda den här metoden när du väljer att inte använda Azure Backup-och återställnings tjänst och vill skapa en anpassad säkerhets kopierings strategi för dina virtuella dator diskar.
 
-Azure-datordiskar lagras som sidblobar i Azure Storage. Eftersom vi beskriver en strategi för säkerhetskopiering för virtuella diskar i den här artikeln, som vi refererar till ögonblicksbilder i kontexten för sidblobar. Läs mer om ögonblicksbilder [skapa en ögonblicksbild av en Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+Diskar för virtuella Azure-datorer lagras som Page blobbar i Azure Storage. Eftersom vi beskriver en säkerhets kopierings strategi för virtuella dator diskar i den här artikeln, refererar vi till ögonblicks bilder i kontexten för sid-blobar. Mer information om ögonblicks bilder finns i [skapa en ögonblicks bild av en BLOB](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-## <a name="what-is-a-snapshot"></a>Vad är en ögonblicksbild?
-En blob-ögonblicksbild är en skrivskyddad version av en blob som hämtas vid en tidpunkt i tid. När en ögonblicksbild har skapats, kan det läsas, kopieras, eller ta bort, men inte har ändrats. Ögonblicksbilder är ett sätt att säkerhetskopiera en blob som det visas vid en tidpunkt. Fram REST version 2015-04-05, var du tvungen att kunna kopiera fullständiga ögonblicksbilder. Med REST-version 2015-07-08 och senare, du kan också kopiera inkrementella ögonblicksbilder.
+## <a name="what-is-a-snapshot"></a>Vad är en ögonblicks bild?
+En BLOB-ögonblicksbild är en skrivskyddad version av en blob som samlas in vid en viss tidpunkt. När en ögonblicks bild har skapats kan den läsas, kopieras eller tas bort, men inte ändras. Ögonblicks bilder är ett sätt att säkerhetskopiera en BLOB när den visas vid ett tillfälle. Till REST version 2015-04-05 hade du möjlighet att kopiera fullständiga ögonblicks bilder. Med resten version 2015-07-08 och senare kan du även kopiera stegvisa ögonblicks bilder.
 
-## <a name="full-snapshot-copy"></a>Fullständig ögonblicksbild kopia
-Ögonblicksbilder kan kopieras till ett annat lagringskonto som en blob till behåller säkerhetskopior av grundläggande blob. Du kan också kopiera en ögonblicksbild över dess grundläggande blob som liknar återställa blob till en tidigare version. När en ögonblicksbild kopieras från ett lagringskonto till ett annat, upptar samma adressutrymme som bassida-blob. Därför kopierar hela ögonblicksbilder från ett lagringskonto till ett annat långsamt och förbrukar mycket utrymme krävs på mål-lagringskontot.
+## <a name="full-snapshot-copy"></a>Fullständig ögonblicks bilds kopia
+Ögonblicks bilder kan kopieras till ett annat lagrings konto som en BLOB för att bevara säkerhets kopior av bas-bloben. Du kan också kopiera en ögonblicks bild över dess bas-BLOB, som att återställa blobben till en tidigare version. När en ögonblicks bild kopieras från ett lagrings konto till ett annat upptar det samma utrymme som bas sidans blob. Därför går det långsamt att kopiera hela ögonblicks bilder från ett lagrings konto till ett annat och förbrukar mycket utrymme på mål lagrings kontot.
 
 > [!NOTE]
-> Om du kopierar den grundläggande blobben till en annan plats, kopieras inte ögonblicksbilder för bloben tillsammans med den. Om du skriva över en grundläggande blob med en kopia ögonblicksbilder som är associerade med den grundläggande blobben påverkas inte och förblir intakta under grundläggande blobnamnet.
+> Om du kopierar bas-bloben till ett annat mål kopieras inte ögonblicks bilderna av bloben tillsammans med den. På samma sätt påverkas inte ögonblicks bilder som är associerade med bas-bloben om du skriver över en bas-BLOB med en kopia och den förblir intakt under bas-BLOB-namnet.
 > 
 > 
 
-### <a name="back-up-disks-using-snapshots"></a>Säkerhetskopiera diskar med hjälp av ögonblicksbilder
-Som en strategi för säkerhetskopiering för virtuella datordiskar, kan du ta regelbundna ögonblicksbilder av disk- eller blob och kopiera dem till en annan storage-konto med hjälp av verktygen som [kopiering av Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) åtgärden eller [AzCopy](../articles/storage/common/storage-use-azcopy.md). Du kan kopiera en ögonblicksbild till en mål-sidblob med ett annat namn. Den resulterande sidan målblobben är en skrivbar sidblob och inte en ögonblicksbild. Senare i den här artikeln beskriver vi steg för att göra säkerhetskopior av virtuella diskar med hjälp av ögonblicksbilder.
+### <a name="back-up-disks-using-snapshots"></a>Säkerhetskopiera diskar med ögonblicks bilder
+Som en säkerhets kopierings strategi för dina virtuella dator diskar kan du ta regelbundna ögonblicks bilder av disken eller sid-bloben och kopiera dem till ett annat lagrings konto med hjälp av verktyg som [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) -åtgärd eller [AzCopy](../articles/storage/common/storage-use-azcopy.md). Du kan kopiera en ögonblicks bild till en mål sid-BLOB med ett annat namn. Den resulterande destinations sidans BLOB är en skrivbar sid-blob och inte en ögonblicks bild. Senare i den här artikeln beskriver vi steg för att göra säkerhets kopior av virtuella dator diskar med hjälp av ögonblicks bilder.
 
-### <a name="restore-disks-using-snapshots"></a>Återställ diskar med hjälp av ögonblicksbilder
-När det är dags att återställa disken till en stabil version som hämtades tidigare i en av ögonblicksbilderna av säkerhetskopior kan du kopiera en ögonblicksbild över bassida-blob. När ögonblicksbilden befordras till bassidan blob snapshot finns kvar, men dess källa skrivs över med en kopia som kan både läsas och skrivas. Senare i den här artikeln beskriver vi steg för att återställa en tidigare version av disken från dess ögonblicksbild.
+### <a name="restore-disks-using-snapshots"></a>Återställa diskar med ögonblicks bilder
+När det är dags att återställa disken till en stabil version som tidigare har registrerats i en ögonblicks bild av säkerhets kopian, kan du kopiera en ögonblicks bild över bas sidans blob. När ögonblicks bilden har uppgraderats till bas sidans BLOB, är ögonblicks bilden kvar, men källan skrivs över med en kopia som kan både läsas och skrivas. Senare i den här artikeln beskriver vi steg för att återställa en tidigare version av disken från dess ögonblicks bild.
 
-### <a name="implementing-full-snapshot-copy"></a>Implementera kopia för fullständig ögonblicksbild
-Du kan implementera en fullständig ögonblicksbild kopia genom att göra följande
+### <a name="implementing-full-snapshot-copy"></a>Implementera fullständig ögonblicks bilds kopia
+Du kan implementera en fullständig ögonblicks bilds kopia genom att göra följande:
 
-* Först ta en ögonblicksbild av en grundläggande blob med hjälp av den [ta ögonblicksbild av Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) igen.
-* Kopiera sedan ögonblicksbilden till en mål-lagringskontot med [kopiering av Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
-* Upprepa processen för att underhålla säkerhetskopior av din grundläggande blob.
+* Börja med att ta en ögonblicks bild av bas-bloben med hjälp av [ögonblicks bilds-BLOB](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) .
+* Kopiera sedan ögonblicks bilden till ett mål lagrings konto med hjälp av [copy BLOB](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
+* Upprepa den här processen om du vill behålla säkerhets kopior av din bas-blob.
 
-## <a name="incremental-snapshot-copy"></a>Kopiering av inkrementell ögonblicksbild
-Den nya funktionen i den [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API gör det mycket lättare för säkerhetskopiering av ögonblicksbilder av din sidblobar eller diskar. API: et returnerar en lista över ändringar mellan grundläggande blob och ögonblicksbilder, vilket minskar mängden lagringsutrymme som används för säkerhetskopiering kontot. API: et stöder sidblobar på Premium-lagring, samt standardlagring. Med detta API kan skapa du snabbare och effektivare lösningar för säkerhetskopiering för virtuella Azure-datorer. Detta API är tillgängliga med REST-version 2015-07-08 och högre.
+## <a name="incremental-snapshot-copy"></a>Stegvis ögonblicks bilds kopia
+Den nya funktionen i [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) -API: et är ett mycket bättre sätt att säkerhetskopiera ögonblicks bilderna av dina sid blobbar eller diskar. API: et returnerar listan över ändringar mellan bas-bloben och ögonblicks bilderna, vilket minskar mängden lagrings utrymme som används på säkerhets kopierings kontot. API: et stöder sid-blobar på Premium Storage och standard lagring. Med det här API: et kan du bygga snabbare och mer effektiva säkerhets kopierings lösningar för virtuella Azure-datorer. Detta API är tillgängligt med REST-versionen 2015-07-08 och högre.
 
-Inkrementell kopiering av ögonblicksbild kan du kopiera från ett lagringskonto till ett annat skillnaden mellan
+Med en stegvis ögonblicks bilds kopia kan du kopiera från ett lagrings konto till ett annat skillnaden mellan,
 
-* Grundläggande blob- och dess ögonblicksbild eller
-* Alla två grundläggande blob-ögonblicksbilder
+* Bas-blob och dess ögonblicks bild eller
+* Två ögonblicks bilder av bas-bloben
 
-Om följande villkor är uppfyllda
+Under förutsättning att följande villkor är uppfyllda,
 
-* Blobben har skapats på Jan-1-2016 eller senare.
-* Blobben som inte skrivas över med [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) eller [kopiering av Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) mellan två ögonblicksbilder.
+* Blobben skapades på Jan-1-2016 eller senare.
+* Blobben skrevs inte över med [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) eller [Kopiera blobben](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) mellan två ögonblicks bilder.
 
-**Obs!** Den här funktionen är tillgänglig för Premium och Standard Azure-Sidblobar.
+**Obs!** den här funktionen är tillgänglig för Azure Page-blobar med Premium och standard.
 
-När du har en anpassad strategi för säkerhetskopiering med ögonblicksbilder, kopierar ögonblicksbilder från ett lagringskonto till ett annat kan vara långsam och konsumerar mycket lagringsutrymme. Du kan skriva skillnaden mellan på varandra följande ögonblicksbilder av en säkerhetskopiering sidblob istället för att kopiera hela ögonblicksbilden till ett konto för lagring av säkerhetskopior. På så sätt kan betydligt tiden för att kopiera och utrymme för lagring av säkerhetskopior.
+När du har en anpassad säkerhets kopierings strategi med hjälp av ögonblicks bilder kan det vara långsamt att kopiera ögonblicks bilderna från ett lagrings konto till ett annat, och det kan förbruka mycket lagrings utrymme. I stället för att kopiera hela ögonblicks bilden till ett lagrings konto för säkerhets kopiering kan du skriva skillnaden mellan flera ögonblicks bilder till en säkerhets kopierings sidans blob. På så sätt minskar tiden för kopiering och utrymmet för lagring av säkerhets kopior avsevärt.
 
-### <a name="implementing-incremental-snapshot-copy"></a>Implementera inkrementell ögonblicksbild kopia
-Du kan implementera inkrementell ögonblicksbild kopiera genom att göra följande
+### <a name="implementing-incremental-snapshot-copy"></a>Implementera stegvis ögonblicks bilds kopia
+Du kan implementera en stegvis ögonblicks bilds kopia genom att göra följande.
 
-* Ta en ögonblicksbild av grundläggande bloben med [ta ögonblicksbild av Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Kopiera ögonblicksbilden till målkontot för lagring av säkerhetskopior i samma eller alla andra Azure-region med [kopiering av Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Det här är den säkerhetskopierade sidblob. Ta en ögonblicksbild av säkerhetskopiering sidans blob och lagra den i backup-kontot.
-* Ta en annan ögonblicksbild av den grundläggande blob med ta ögonblicksbild av Blob.
-* Hämta skillnaden mellan de första och andra ögonblicksbilderna av grundläggande bloben med [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Använd den nya parametern **prevsnapshot**, för att ange den ögonblicksbild som du vill hämta skillnaden jämfört med DateTime-värdet. Om den här parametern finns innehåller REST-svaret endast de sidor som har ändrats mellan mål ögonblicksbild och tidigare ögonblicksbild, inklusive Rensa sidor.
-* Använd [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) att tillämpa ändringarna på säkerhetskopiering sidans blob.
-* Slutligen kan ta en ögonblicksbild av säkerhetskopiering sidans blob och lagra den på lagringskontot för säkerhetskopiering.
+* Ta en ögonblicks bild av bas-bloben med hjälp av [Snapshot-BLOB](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
+* Kopiera ögonblicks bilden till mål lagrings kontot för säkerhets kopian i samma eller någon annan Azure-region som använder [copy BLOB](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Detta är BLOB för säkerhets kopierings sidan. Ta en ögonblicks bild av bloben för säkerhets kopierings sidan och lagra den i säkerhets kopierings kontot.
+* Ta en ögonblicks bild av bas-bloben med hjälp av Snapshot-blob.
+* Hämta skillnaden mellan den första och andra ögonblicks bilden av bas-bloben med hjälp av [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Använd den nya parametern **prevsnapshot Frågeparametern**för att ange datetime-värdet för den ögonblicks bild som du vill ha differensen med. När den här parametern finns innehåller REST-svaret bara de sidor som ändrades mellan mål ögonblicks bilden och föregående ögonblicks bild, inklusive rensa sidor.
+* Använd [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) för att tillämpa dessa ändringar på sidan med säkerhets kopierings sidans blob.
+* Ta slutligen en ögonblicks bild av bloben för säkerhets kopierings sidan och lagra den på lagrings kontot för säkerhets kopian.
 
-I nästa avsnitt beskriver vi i detalj hur du kan underhålla säkerhetskopior av diskar med hjälp av inkrementell kopiering av ögonblicksbild
+I nästa avsnitt beskriver vi i detalj hur du kan underhålla säkerhets kopior av diskar med hjälp av en stegvis ögonblicks bilds kopia
 
 ## <a name="scenario"></a>Scenario
-I det här avsnittet beskriver vi ett scenario med en anpassad strategi för säkerhetskopiering för virtuella diskar med hjälp av ögonblicksbilder.
+I det här avsnittet beskriver vi ett scenario som omfattar en anpassad säkerhets kopierings strategi för virtuella dator diskar med hjälp av ögonblicks bilder.
 
-Beakta en Azure virtuell dator för DS-serien med ett premium storage P30-disk som är ansluten. P30-disk kallas *mypremiumdisk* lagras i ett premiumlagringskonto som kallas *mypremiumaccount*. Ett standardlagringskonto kallas *mybackupstdaccount* används för att lagra säkerhetskopian av *mypremiumdisk*. Vi vill hålla en ögonblicksbild av *mypremiumdisk* var 12: e timme.
+Överväg en virtuell Azure-dator med en virtuell dator med Premium Storage P30-disk. P30-disken som heter *mypremiumdisk* lagras i ett Premium Storage-konto som kallas *mypremiumaccount*. Ett standard lagrings konto med namnet *mybackupstdaccount* används för att lagra säkerhets kopian av *mypremiumdisk*. Vi vill behålla en ögonblicks bild av *mypremiumdisk* var 12: e timme.
 
-Läs om hur du skapar ett lagringskonto i [skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+Information om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-Läs om hur du säkerhetskopierar virtuella Azure-datorer, [planera Virtuella Azure-säkerhetskopieringar](../articles/backup/backup-azure-vms-introduction.md).
+Information om hur du säkerhetskopierar virtuella Azure-datorer finns i [Planera säkerhets kopiering av virtuella Azure](../articles/backup/backup-azure-vms-introduction.md)-datorer.
 
-## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Steg för att underhålla säkerhetskopior för en disk med inkrementella ögonblicksbilder
-Följande steg beskriver hur du ta ögonblicksbilder av *mypremiumdisk* och underhålla säkerhetskopior på *mybackupstdaccount*. Säkerhetskopieringen är en standard sidblob kallas *mybackupstdpageblob*. Säkerhetskopiering av sidans blob alltid visar samma tillstånd som den senaste ögonblicksbilden av *mypremiumdisk*.
+## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Steg för att upprätthålla säkerhets kopieringar av en disk med hjälp av stegvisa ögonblicks bilder
+Följande steg beskriver hur du tar ögonblicks bilder av *mypremiumdisk* och upprätthåller säkerhets kopiorna i *mybackupstdaccount*. Säkerhets kopian är en standard sid-blob som kallas *mybackupstdpageblob*. Säkerhets kopierings sidans BLOB visar alltid samma tillstånd som den sista ögonblicks bilden av *mypremiumdisk*.
 
-1. Skapa backup sidblob för din premium-lagringsdisk genom att ta en ögonblicksbild av *mypremiumdisk* kallas *mypremiumdisk_ss1*.
-2. Kopiera den här ögonblicksbilden till mybackupstdaccount som en sidblobb kallas *mybackupstdpageblob*.
-3. Ta en ögonblicksbild av *mybackupstdpageblob* kallas *mybackupstdpageblob_ss1*med hjälp av [ta ögonblicksbild av Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) och lagra den i *mybackupstdaccount*.
-4. Skapa en annan ögonblicksbild av under säkerhetskopieringen, *mypremiumdisk*, exempelvis *mypremiumdisk_ss2*, och lagra den i *mypremiumaccount*.
-5. Få stegvisa ändringar mellan de två ögonblicksbilderna *mypremiumdisk_ss2* och *mypremiumdisk_ss1*med hjälp av [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) på *mypremiumdisk_ ss2* med den **prevsnapshot** parameteruppsättning tidsstämpeln för *mypremiumdisk_ss1*. Skriva dessa stegvisa ändringar till den säkerhetskopierade sidblob *mybackupstdpageblob* i *mybackupstdaccount*. Om det finns borttagna intervall i stegvisa ändringar, måste de tas bort från säkerhetskopiering sidans blob. Använd [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) att skriva inkrementella ändringar till säkerhetskopiering sidans blob.
-6. Ta en ögonblicksbild av säkerhetskopiering sidblob *mybackupstdpageblob*, kallas *mybackupstdpageblob_ss2*. Ta bort den tidigare ögonblicksbilden *mypremiumdisk_ss1* från premium storage-konto.
-7. Upprepa steg 4 – 6 varje säkerhetskopieringsintervallet. På så sätt kan du behålla säkerhetskopior av *mypremiumdisk* i ett standardlagringskonto.
+1. Skapa säkerhets kopierings sidans BLOB för Premium Storage-disken genom att ta en ögonblicks bild av *mypremiumdisk* som kallas *mypremiumdisk_ss1*.
+2. Kopiera den här ögonblicks bilden till mybackupstdaccount som en sid-BLOB med namnet *mybackupstdpageblob*.
+3. Ta en ögonblicks bild av *mybackupstdpageblob* med namnet *mybackupstdpageblob_ss1*, med hjälp av [ögonblicks bilds-BLOB](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) och lagra den i *mybackupstdaccount*
+4. Under säkerhets kopierings fönstret skapar du en annan ögonblicks bild av *mypremiumdisk*, säger *mypremiumdisk_ss2*och lagrar den i *mypremiumaccount*.
+5. Hämta de stegvisa ändringarna mellan de två ögonblicks bilderna, *mypremiumdisk_ss2* och *Mypremiumdisk_ss1*, [med GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) på *mypremiumdisk_ss2* med **prevsnapshot frågeparametern** -parametern inställd på tidsstämpeln för *mypremiumdisk_ss1*. Skriv dessa stegvisa ändringar på säkerhets kopierings sidans BLOB- *mybackupstdpageblob* i *mybackupstdaccount*. Om det finns borttagna intervall i de stegvisa ändringarna måste de tas bort från bloben för säkerhets kopierings sidan. Använd [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) för att skriva stegvisa ändringar av BLOB för säkerhets kopierings sidan.
+6. Ta en ögonblicks bild av *mybackupstdpageblob*för säkerhets kopierings sidan, som kallas *mybackupstdpageblob_ss2*. Ta bort föregående ögonblicks bild *mypremiumdisk_ss1* från Premium Storage-kontot.
+7. Upprepa steg 4-6 alla säkerhets kopierings fönster. På så sätt kan du behålla säkerhets kopior av *mypremiumdisk* på ett standard lagrings konto.
 
-![Säkerhetskopiera diskar med inkrementella ögonblicksbilder](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
+![Säkerhetskopiera disk med stegvisa ögonblicks bilder](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
 
-## <a name="steps-to-restore-a-disk-from-snapshots"></a>Steg för att återställa en disk från ögonblicksbilder
-Följande steg beskriver hur du återställer premiumdisk *mypremiumdisk* till en tidigare ögonblicksbild från backup storage-kontot *mybackupstdaccount*.
+## <a name="steps-to-restore-a-disk-from-snapshots"></a>Steg för att återställa en disk från ögonblicks bilder
+Följande steg beskriver hur du återställer Premium-disken, *mypremiumdisk* till en tidigare ögonblicks bild från lagrings kontot för säkerhets kopiering *mybackupstdaccount*.
 
-1. Identifiera den punkt som du vill återställa disken till premium. Anta att den ögonblicksbild *mybackupstdpageblob_ss2*, som lagras i lagringskontot för säkerhetskopiering *mybackupstdaccount*.
-2. Flytta upp ögonblicksbilden i mybackupstdaccount, *mybackupstdpageblob_ss2* som ny säkerhetskopiering bassida blob *mybackupstdpageblobrestored*.
-3. Ta en ögonblicksbild av den här återställda säkerhetskopiering sidblob, kallas *mybackupstdpageblobrestored_ss1*.
-4. Kopiera den återställda sidblob *mybackupstdpageblobrestored* från *mybackupstdaccount* till *mypremiumaccount* som den nya premium-disken  *mypremiumdiskrestored*.
-5. Ta en ögonblicksbild av *mypremiumdiskrestored*, kallas *mypremiumdiskrestored_ss1* för att göra framtida inkrementella säkerhetskopieringar.
-6. Peka DS-serien virtuella datorn på den återställda disken *mypremiumdiskrestored* och koppla från gammalt *mypremiumdisk* från den virtuella datorn.
-7. Starta processen för säkerhetskopiering som beskrivs i föregående avsnitt för den återställda disken *mypremiumdiskrestored*med hjälp av den *mybackupstdpageblobrestored* som säkerhetskopiering sidblobb.
+1. Identifiera den tidpunkt som du vill återställa Premium-disken till. Anta att det är en ögonblicks bild *mybackupstdpageblob_ss2*, som lagras i *mybackupstdaccount*för säkerhets kopierings lagrings kontot.
+2. I mybackupstdaccount höjer du ögonblicks bilden *mybackupstdpageblob_ss2* som den nya säkerhets kopierings bas sidan BLOB- *mybackupstdpageblobrestored*.
+3. Ta en ögonblicks bild av denna återställda BLOB för säkerhets kopierings sidan, som kallas *mybackupstdpageblobrestored_ss1*.
+4. Kopiera den återställda Page BLOB- *mybackupstdpageblobrestored* från *mybackupstdaccount* till *mypremiumaccount* som den nya Premium-disken *mypremiumdiskrestored*.
+5. Ta en ögonblicks bild av *mypremiumdiskrestored*, som kallas *mypremiumdiskrestored_ss1* för att göra framtida stegvisa säkerhets kopieringar.
+6. Peka VM-seriens virtuella dator till den återställda disken *mypremiumdiskrestored* och koppla bort den gamla *mypremiumdisk* från den virtuella datorn.
+7. Påbörja säkerhets kopierings processen som beskrivs i föregående avsnitt för den återställda disken *mypremiumdiskrestored*, med hjälp av *mybackupstdpageblobrestored* som säkerhets kopierings sidans blob.
 
-![Återställ disken från ögonblicksbilder](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
+![Återställa disk från ögonblicks bilder](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Använd följande länkar om du vill veta mer om att skapa ögonblicksbilder av en blob och planera din infrastruktur för säkerhetskopiering av virtuell dator.
+Använd följande länkar om du vill veta mer om att skapa ögonblicks bilder av en blob och planera infrastrukturen för säkerhets kopiering av virtuella datorer.
 
-* [Skapa en ögonblicksbild av en Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [Planera din infrastruktur för säkerhetskopiering av virtuell dator](../articles/backup/backup-azure-vms-introduction.md)
+* [Skapa en ögonblicks bild av en BLOB](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+* [Planera infrastrukturen för säkerhets kopiering av virtuella datorer](../articles/backup/backup-azure-vms-introduction.md)
 

@@ -1,17 +1,14 @@
 ---
 title: Exempel på avancerade frågor
 description: Använd Azure Resource Graph för att köra vissa avancerade frågor, inklusive skalnings uppsättning för virtuella datorer, som visar alla Taggar som används och matchar virtuella datorer med reguljära uttryck.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 6310e13508c1c789c410f1954a2ac0dbf480a2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e09db4630fd1ef8acc06538c7599feddbe991900
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622509"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958712"
 ---
 # <a name="advanced-resource-graph-queries"></a>Avancerade frågor för Resource Graph
 
@@ -62,7 +59,7 @@ az graph query -q "Resources | distinct type, apiVersion | where isnotnull(apiVe
 Search-AzGraph -Query "Resources | distinct type, apiVersion | where isnotnull(apiVersion) | order by type asc"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -94,7 +91,7 @@ az graph query -q "Resources | where type=~ 'microsoft.compute/virtualmachinesca
 Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -125,7 +122,7 @@ az graph query -q "Resources | summarize resourceCount=count() by subscriptionId
 Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscriptionId | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId| project-away subscriptionId, subscriptionId1"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -155,7 +152,7 @@ az graph query -q "Resources | project tags | summarize buildschema(tags)"
 Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -198,7 +195,7 @@ az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines'
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -232,7 +229,7 @@ az graph query -q "Resources | where type =~ 'microsoft.documentdb/databaseaccou
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databaseaccounts' | project id, name, writeLocations = (properties.writeLocations) | mv-expand writeLocations | project id, name, writeLocation = tostring(writeLocations.locationName) | where writeLocation in ('East US', 'West US') | summarize by id, name"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -264,7 +261,7 @@ az graph query -q "Resources | join (ResourceContainers | where type=='microsoft
 Search-AzGraph -Query "Resources | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId | where type == 'microsoft.keyvault/vaults' | project type, name, SubName| limit 1"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -300,7 +297,7 @@ az graph query -q "Resources | where type =~ 'microsoft.sql/servers/databases' |
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/databases' | project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId)) | join kind=leftouter ( Resources | where type =~ 'microsoft.sql/servers/elasticpools' | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state) on elasticPoolId | project-away elasticPoolId1"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -349,7 +346,7 @@ az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines'
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mvexpand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mvexpand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -385,7 +382,7 @@ az graph query -q "Resources | where type =~ 'microsoft.storage/storageaccounts'
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccounts' | join kind=inner ( ResourceContainers | where type =~ 'microsoft.resources/subscriptions/resourcegroups' | where tags['key1'] == 'value1' | project subscriptionId, resourceGroup) on subscriptionId, resourceGroup | project-away subscriptionId1, resourceGroup1"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 
@@ -415,7 +412,7 @@ az graph query -q "ResourceContainers | where type=='microsoft.resources/subscri
 Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/subscriptions/resourcegroups' | project name, type  | limit 5 | union  (Resources | project name, type | limit 5)"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 ![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
 

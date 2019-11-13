@@ -1,21 +1,18 @@
 ---
 title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464047"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959892"
 ---
-# <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
+# <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 
-Varje princip definition i Azure Policy har en enda påverkan. Den här inställningen avgör vad som händer när princip regeln utvärderas för matchning. Effekterna fungerar annorlunda om de är för en ny resurs, en uppdaterad resurs eller en befintlig resurs.
+Varje princip i Azure Policy har en enda effekt. Denna påverkan anger vad som händer när principregeln utvärderas så att de matchar. Effekterna beter sig annorlunda om de är för en ny resurs, en uppdaterad resurs eller en befintlig resurs.
 
 Dessa effekter stöds för närvarande i en princip definition:
 
@@ -29,42 +26,42 @@ Dessa effekter stöds för närvarande i en princip definition:
 - [EnforceRegoPolicy](#enforceregopolicy) (för hands version)
 - [Gör](#modify)
 
-## <a name="order-of-evaluation"></a>Utvärderings ordning
+## <a name="order-of-evaluation"></a>Ordningen för utvärdering
 
 Begär Anden om att skapa eller uppdatera en resurs via Azure Resource Manager utvärderas av Azure Policy först. Azure Policy skapar en lista med alla tilldelningar som gäller för resursen och utvärderar sedan resursen mot varje definition. Azure Policy bearbetar flera av effekterna innan du skickar begäran till rätt resurs leverantör. Detta förhindrar onödig bearbetning av en resurs leverantör när en resurs inte uppfyller de design kontroller som Azure Policy.
 
-- **Inaktiverat** kontrol leras först för att avgöra om princip regeln ska utvärderas.
+- **Inaktiverad** kontrolleras först för att fastställa om principregeln bör utvärderas.
 - **Lägg till** och **ändra** utvärderas sedan. Eftersom antingen kan ändra begäran kan en ändring som gjorts förhindra att en granskning eller nekas från att utlösas.
-- **Deny** utvärderas sedan. Genom att utvärdera neka före granskning, förhindras dubbel loggning av en oönskad resurs.
-- **Granskningen** utvärderas sedan innan begäran skickas till resurs leverantören.
+- **Neka** utvärderas sedan. Neka innan granskningen, dubbla loggning för en oönskad resurs förhindras genom att utvärdera.
+- **Granska** utvärderas sedan innan begäran kommer att Resursprovidern.
 
-När resurs leverantören returnerar en lyckad kod, utvärderas **AuditIfNotExists** och **DeployIfNotExists** för att avgöra om det krävs ytterligare loggning eller åtgärd av efterlevnad.
+När Resursprovidern returnerar en framgångskod **AuditIfNotExists** och **DeployIfNotExists** utvärdera för att fastställa om ytterligare kompatibilitet loggning eller åtgärd krävs.
 
 Det finns för närvarande ingen utvärderings ordning för **EnforceOPAConstraint** -eller **EnforceRegoPolicy** -effekterna.
 
 ## <a name="disabled"></a>Disabled
 
-Den här inställningen är användbar för att testa situationer eller när princip definitionen har parameterstyrda påverkan. Den här flexibiliteten gör det möjligt att inaktivera en enskild tilldelning i stället för att inaktivera alla tilldelningar för principen.
+Detta är användbart för att testa situationer eller för när principdefinitionen har parameteriserat effekten. Den här flexibiliteten gör det möjligt att inaktivera en enskild tilldelning i stället för att inaktivera alla tilldelningar för den principen.
 
 Ett alternativ till den inaktiverade inställningen är **enforcementMode** som anges för princip tilldelningen.
 När **enforcementMode** är _inaktive rad_utvärderas resurserna fortfarande. Loggning, till exempel aktivitets loggar och princip påverkan inträffar inte. Mer information finns i [princip tilldelning – tvingande läge](./assignment-structure.md#enforcement-mode).
 
 ## <a name="append"></a>Lägg till
 
-Lägg till används för att lägga till ytterligare fält till den begärda resursen under skapandet eller uppdateringen. Ett vanligt exempel är att ange tillåtna IP-adresser för en lagrings resurs.
+Lägg till används för att lägga till fler fält till den begärda resursen under generering och uppdatering. Ett vanligt exempel är att ange tillåtna IP-adresser för en lagrings resurs.
 
 > [!IMPORTANT]
 > Append är avsett för användning med egenskaper som inte är taggar. När Lägg till kan lägga till taggar till en resurs under en Create-eller Update-begäran, rekommenderar vi att du använder taggen [ändra](#modify) i stället.
 
-### <a name="append-evaluation"></a>Lägg till utvärdering
+### <a name="append-evaluation"></a>Lägga till utvärderingen
 
-Lägg till utvärderas innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Lägg till fält till resursen **när villkors** villkoret för princip regeln är uppfyllt. Om Lägg till-resultatet skulle åsidosätta ett värde i den ursprungliga begäran med ett annat värde, fungerar det som en nekande-inverkan och avvisar begäran. Om du vill lägga till ett nytt värde i en befintlig matris använder du **[\*]** -versionen av aliaset.
+Lägg till utvärderar innan begäran bearbetas av en Resursprovider under skapandet eller uppdatering av en resurs. Lägg till lägger till fält i resursen när den **om** villkoret för principregeln är uppfyllt. Om Lägg till effekten skulle åsidosätter ett värde i den ursprungliga begäran med ett annat värde kan sedan den fungerar som en nekandeeffekt och avvisar begäran. Om du vill lägga till ett nytt värde i en befintlig matris använder du **[\*]** -versionen av aliaset.
 
-När en princip definition med hjälp av Lägg till-effekter körs som en del av en utvärderings cykel, gör den inte några ändringar i resurser som redan finns. I stället markeras alla resurser som uppfyller **IF** -villkoret som icke-kompatibel.
+När en principdefinition med effekten append körs som en del av en utvärderingscykel, göra den inte ändringar i resurser som redan finns. Istället markeras alla resurser som uppfyller den **om** villkoret som icke-kompatibel.
 
 ### <a name="append-properties"></a>Lägg till egenskaper
 
-En Lägg till-funktion har endast en **informations** mat ris, vilket krävs. Som **information** är en matris kan den ta antingen ett enda **fält/värde-** par eller multipler. Se [definitions strukturen](definition-structure.md#fields) för listan över godkända fält.
+Lägg till påverkar endast har en **information** matris som krävs. Som **information** är en matris, det kan ta antingen ett enskilt **fält/värde** par eller kopior. Referera till [definitionsstruktur](definition-structure.md#fields) för listan över godkända fält.
 
 ### <a name="append-examples"></a>Lägg till exempel
 
@@ -109,14 +106,14 @@ Exempel 2: ett **fält/värde** -par med ett **[\*]** - [alias](definition-struc
 
 Ändra utvärderar innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Ändra taggar för tillägg eller uppdateringar på en resurs när **villkors** villkoret för princip regeln är uppfyllt.
 
-När en princip definition med hjälp av ändra-effekter körs som en del av en utvärderings cykel, gör den inte några ändringar i resurser som redan finns. I stället markeras alla resurser som uppfyller **IF** -villkoret som icke-kompatibel.
+När en princip definition med hjälp av ändra-effekter körs som en del av en utvärderings cykel, gör den inte några ändringar i resurser som redan finns. Istället markeras alla resurser som uppfyller den **om** villkoret som icke-kompatibel.
 
 ### <a name="modify-properties"></a>Ändra egenskaper
 
 Egenskapen **information** för funktionen ändra har alla under egenskaper som definierar de behörigheter som krävs för reparation och de **åtgärder** som används för att lägga till, uppdatera eller ta bort taggattribut.
 
 - **roleDefinitionIds** [krävs]
-  - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomst kontroll roll-ID som är tillgängligt för prenumerationen. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
+  - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
   - Den roll som definieras måste innehålla alla åtgärder som beviljas rollen [deltagare](../../../role-based-access-control/built-in-roles.md#contributor) .
 - **åtgärder** [krävs]
   - En matris med alla märknings åtgärder som ska utföras för matchande resurser.
@@ -215,21 +212,21 @@ Exempel 2: ta bort taggen `env` och Lägg till `environment`-taggen eller ersät
 
 ## <a name="deny"></a>Neka
 
-Neka används för att förhindra en resurs förfrågan som inte matchar definierade standarder via en princip definition och som Miss lyckas med begäran.
+Neka används för att förhindra att en resursbegäran som matchar inte definierad standarder genom en principdefinition och misslyckas begäran.
 
 ### <a name="deny-evaluation"></a>Neka utvärdering
 
-När du skapar eller uppdaterar en matchad resurs förhindrar neka-begäran innan den skickas till resurs leverantören. Begäran returneras som en `403 (Forbidden)`. I portalen kan den förbjudna visas som status för den distribution som förhindrades av princip tilldelningen.
+När skapar eller uppdaterar en matchande resurs neka förhindrar att begäran innan den skickas till Resursprovidern. Begäran returneras som en `403 (Forbidden)`. I portalen kan förbjudet visas som en status för distributionen förhindrades av principtilldelningen.
 
-Vid utvärdering av befintliga resurser markeras resurser som matchar en definition för neka-principer som icke-kompatibla.
+Under utvärdering av befintliga resurser markeras resurser som matchar en neka-principdefinition som icke-kompatibla.
 
-### <a name="deny-properties"></a>Egenskaper för neka
+### <a name="deny-properties"></a>Neka egenskaper
 
-Neka-funktionen har inga ytterligare egenskaper att använda i **then** -villkoret för princip definitionen.
+Nekandeeffekt har inte några ytterligare egenskaper för användning i den **sedan** villkor för principdefinitionen.
 
 ### <a name="deny-example"></a>Neka exempel
 
-Exempel: använda neka-effekter.
+Exempel: Med nekandeeffekt.
 
 ```json
 "then": {
@@ -239,19 +236,19 @@ Exempel: använda neka-effekter.
 
 ## <a name="audit"></a>Granska
 
-Granskning används för att skapa en varnings händelse i aktivitets loggen när en icke-kompatibel resurs utvärderas, men begäran stoppas inte.
+Granska används för att skapa en varning-händelse i aktivitetsloggen vid utvärdering av en icke-kompatibel resurs, men slutar inte den begäran.
 
-### <a name="audit-evaluation"></a>Gransknings utvärdering
+### <a name="audit-evaluation"></a>Granska utvärdering
 
-Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. Azure Policy skickar sedan resursen till resurs leverantören. Granskningen fungerar likadant för en resurs förfrågan och en utvärderings cykel. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action`-åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
+Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. Azure Policy skickar sedan resursen till resurs leverantören. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action`-åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
 
-### <a name="audit-properties"></a>Gransknings egenskaper
+### <a name="audit-properties"></a>Egenskaper för granskning
 
-Gransknings effekterna har inte några ytterligare egenskaper **som kan användas i villkors** definitionen.
+Granska effekten har inte några ytterligare egenskaper för användning i den **sedan** villkor för principdefinitionen.
 
-### <a name="audit-example"></a>Gransknings exempel
+### <a name="audit-example"></a>Granska exempel
 
-Exempel: använda gransknings funktionen.
+Exempel: Med effekten granskning.
 
 ```json
 "then": {
@@ -261,43 +258,43 @@ Exempel: använda gransknings funktionen.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists möjliggör granskning av resurser som matchar **IF** -villkoret, men som inte har de komponenter som anges i **informationen** om **then** -villkoret.
+AuditIfNotExists aktiverar granskning på resurser som matchar den **om** villkor, men har inte de komponenter som anges i den **information** av den **sedan** villkor.
 
-### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists-utvärdering
+### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists utvärdering
 
-AuditIfNotExists körs efter att en resurs leverantör har hanterat en begäran om att skapa eller uppdatera resurs och returnerat en status kod som lyckats. Granskningen sker om det inte finns några relaterade resurser eller om resurserna som definieras av **ExistenceCondition** inte utvärderas till true. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action`-åtgärd i aktivitets loggen på samma sätt som gransknings resultatet. När den utlöses är den resurs som uppfyllde **IF** -villkoret den resurs som har marker ATS som icke-kompatibel.
+AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action`-åtgärd i aktivitets loggen på samma sätt som gransknings resultatet. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
 
-### <a name="auditifnotexists-properties"></a>Egenskaper för AuditIfNotExists
+### <a name="auditifnotexists-properties"></a>AuditIfNotExists egenskaper
 
-Egenskapen **information** för AuditIfNotExists-effekterna har alla under egenskaper som definierar de relaterade resurserna som ska matchas.
+Den **information** egenskapen om AuditIfNotExists effekterna har alla subegenskaper som definierar de relaterade resurserna så att de matchar.
 
-- **Typ** [obligatoriskt]
-  - Anger vilken typ av relaterad resurs som ska matchas.
+- **Typ** [krävs]
+  - Anger typ av relaterade resurs så att de matchar.
   - Om **information. Type** är en resurs typ under **IF** -villkor-resursen, frågar principen efter resurser av den här **typen** inom omfånget för den utvärderade resursen. I annat fall är princip frågorna inom samma resurs grupp som den utvärderade resursen.
-- **Namn** (valfritt)
-  - Anger det exakta namnet på resursen som ska matchas och gör att principen hämtar en specifik resurs i stället för alla resurser av den angivna typen.
+- **Namn på** (valfritt)
+  - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
   - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`. En [gransknings](#audit) funktion bör dock beaktas i stället.
 - **ResourceGroupName** (valfritt)
-  - Tillåter matchning av den relaterade resursen att komma från en annan resurs grupp.
-  - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .
-  - Standard är resurs gruppen **om** villkors resursen.
+  - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
+  - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
+  - Standardvärdet är den **om** villkoret resursens resursgrupp.
 - **ExistenceScope** (valfritt)
-  - Tillåtna värden är _prenumerations_ -och _ResourceGroup_.
-  - Anger omfånget för var den relaterade resursen ska hämtas för matchning från.
-  - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .
-  - För _ResourceGroup_begränsas till resurs gruppen **om** villkors resursen eller resurs gruppen som anges i **ResourceGroupName**.
-  - För _prenumerationen_frågar hela prenumerationen för den relaterade resursen.
+  - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
+  - Anger vilket scope för vart du ska hämta relaterade resursen som ska matcha från.
+  - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
+  - För _ResourceGroup_, vilket begränsar till den **om** resursgrupp för villkoret resursen eller resursgruppen som anges i **ResourceGroupName**.
+  - För _prenumeration_, frågar hela prenumerationen för den tillhörande resursen.
   - Standardvärdet är _ResourceGroup_.
 - **ExistenceCondition** (valfritt)
-  - Om inget annat anges uppfyller en relaterad resurs av **typen** effekterna och utlöser inte granskningen.
-  - Använder samma språk som princip regeln för **IF** -villkoret, men utvärderas mot varje relaterad resurs individuellt.
-  - Om en matchande relaterad resurs utvärderas som sant är resultatet uppfyllt och utlöser inte granskningen.
-  - Kan använda [Field ()] för att kontrol lera likvärdighet med värden i **IF** -villkoret.
-  - Kan till exempel användas för att kontrol lera att den överordnade resursen (i **IF** -villkoret) finns på samma resurs plats som den matchande relaterade resursen.
+  - Om inte anges relaterade resurs av **typ** uppfyller effekten och utlöses inte granskningen.
+  - Använder samma språk som principregeln för den **om** villkoret, men ska utvärderas mot alla relaterade resurser individuellt.
+  - Om alla matchande relaterade resurser utvärderas till SANT, effekten har uppfyllts och utlöses inte granskningen.
+  - Kan använda [field()] för att kontrollera överensstämmelse med värden i den **om** villkor.
+  - Exempelvis kan användas för att kontrollera att den överordnade resursen (i den **om** villkor) är i samma resursplats som den matchande relaterad resursen.
 
-### <a name="auditifnotexists-example"></a>AuditIfNotExists-exempel
+### <a name="auditifnotexists-example"></a>AuditIfNotExists exempel
 
-Exempel: utvärderar Virtual Machines för att avgöra om tillägget för program mot skadlig kod finns, granskas när de saknas.
+Exempel: Utvärderar virtuella datorer för att avgöra om tillägg för program mot skadlig kod finns, så granskar om det saknas.
 
 ```json
 {
@@ -334,54 +331,54 @@ På samma sätt som med AuditIfNotExists kör en DeployIfNotExists princip defin
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists-utvärdering
 
-DeployIfNotExists körs efter att en resurs leverantör har hanterat en begäran om att skapa eller uppdatera resurs och returnerat en status kod som lyckats. En mall distribution sker om det inte finns några relaterade resurser eller om resurserna som definieras av **ExistenceCondition** inte utvärderas till true.
+DeployIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. En för malldistributionen ska ske om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT.
 
-Under en utvärderings cykel markeras princip definitioner med en DeployIfNotExists-påverkan som matchar resurserna som icke-kompatibel, men ingen åtgärd utförs på den resursen.
+Under en utvärderingscykel principdefinitioner med effekten DeployIfNotExists som matchar resurser markeras som icke-kompatibel, men ingen åtgärd utförs på den här resursen.
 
-### <a name="deployifnotexists-properties"></a>Egenskaper för DeployIfNotExists
+### <a name="deployifnotexists-properties"></a>DeployIfNotExists-egenskaper
 
 Egenskapen **information** för DeployIfNotExists-effekterna har alla under egenskaper som definierar de relaterade resurserna som ska matchas och mallen som ska köras.
 
-- **Typ** [obligatoriskt]
-  - Anger vilken typ av relaterad resurs som ska matchas.
-  - Startar genom att försöka hämta en resurs under villkors resursen **IF** , och sedan frågar i samma resurs grupp som villkors resursen **om** .
-- **Namn** (valfritt)
-  - Anger det exakta namnet på resursen som ska matchas och gör att principen hämtar en specifik resurs i stället för alla resurser av den angivna typen.
+- **Typ** [krävs]
+  - Anger typ av relaterade resurs så att de matchar.
+  - Startar genom att hämta en resurs under den **om** villkor resurs och frågor inom samma resursgrupp som den **om** villkoret resurs.
+- **Namn på** (valfritt)
+  - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
   - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`.
 - **ResourceGroupName** (valfritt)
-  - Tillåter matchning av den relaterade resursen att komma från en annan resurs grupp.
-  - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .
-  - Standard är resurs gruppen **om** villkors resursen.
-  - Om en mall distribution körs, distribueras den i resurs gruppen för det här värdet.
+  - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
+  - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
+  - Standardvärdet är den **om** villkoret resursens resursgrupp.
+  - Om en malldistributionen körs har den distribuerats i resursgruppen för det här värdet.
 - **ExistenceScope** (valfritt)
-  - Tillåtna värden är _prenumerations_ -och _ResourceGroup_.
-  - Anger omfånget för var den relaterade resursen ska hämtas för matchning från.
-  - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .
-  - För _ResourceGroup_begränsas till resurs gruppen **om** villkors resursen eller resurs gruppen som anges i **ResourceGroupName**.
-  - För _prenumerationen_frågar hela prenumerationen för den relaterade resursen.
+  - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
+  - Anger vilket scope för vart du ska hämta relaterade resursen som ska matcha från.
+  - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
+  - För _ResourceGroup_, vilket begränsar till den **om** resursgrupp för villkoret resursen eller resursgruppen som anges i **ResourceGroupName**.
+  - För _prenumeration_, frågar hela prenumerationen för den tillhörande resursen.
   - Standardvärdet är _ResourceGroup_.
 - **ExistenceCondition** (valfritt)
-  - Om inget annat anges uppfyller en relaterad resurs av **typen** effekterna och utlöser inte distributionen.
-  - Använder samma språk som princip regeln för **IF** -villkoret, men utvärderas mot varje relaterad resurs individuellt.
-  - Om en matchande relaterad resurs utvärderas som sant är resultatet uppfyllt och utlöser inte distributionen.
-  - Kan använda [Field ()] för att kontrol lera likvärdighet med värden i **IF** -villkoret.
-  - Kan till exempel användas för att kontrol lera att den överordnade resursen (i **IF** -villkoret) finns på samma resurs plats som den matchande relaterade resursen.
+  - Om inte anges relaterade resurs av **typ** uppfyller effekten och utlöses inte distributionen.
+  - Använder samma språk som principregeln för den **om** villkoret, men ska utvärderas mot alla relaterade resurser individuellt.
+  - Om alla matchande relaterade resurser utvärderas till SANT, effekten har uppfyllts och utlöses inte distributionen.
+  - Kan använda [field()] för att kontrollera överensstämmelse med värden i den **om** villkor.
+  - Exempelvis kan användas för att kontrollera att den överordnade resursen (i den **om** villkor) är i samma resursplats som den matchande relaterad resursen.
 - **roleDefinitionIds** [krävs]
-  - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomst kontroll roll-ID som är tillgängligt för prenumerationen. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
+  - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (valfritt)
-  - Tillåtna värden är _prenumerations_ -och _ResourceGroup_.
+  - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
   - Anger vilken typ av distribution som ska utlösas. _Prenumerationen_ anger en [distribution på prenumerations nivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resurs grupp.
   - En _plats_ egenskap måste anges i _distributionen_ när du använder distributioner på prenumerations nivå.
   - Standardvärdet är _ResourceGroup_.
 - **Distribution** [krävs]
-  - Den här egenskapen ska innehålla den fullständiga mal Lav distributionen som den skulle skickas till `Microsoft.Resources/deployments` skicka API. Mer information finns i [distributioner REST API](/rest/api/resources/deployments).
+  - Den här egenskapen ska inkludera fullständig malldistributionen som den skulle skickas till den `Microsoft.Resources/deployments` PLACERA API. Mer information finns i den [distributioner REST API](/rest/api/resources/deployments).
 
   > [!NOTE]
-  > Alla funktioner i **distributions** egenskapen utvärderas som komponenter i mallen, inte principen. Undantaget är **parameter** egenskapen som skickar värden från principen till mallen. **Värdet** i det här avsnittet under ett Mallnamn används för att utföra det här värdet genom att skicka (se _fullDbName_ i DeployIfNotExists-exemplet).
+  > Alla funktioner i den **distribution** egenskapen utvärderas som komponenter i mallen, inte på principen. Undantaget är den **parametrar** egenskap som skickar värden från principen för mallen. Den **värdet** i det här avsnittet under en mall för parameternamnet för att utföra det här värdet Skicka (se _fullDbName_ i DeployIfNotExists exempel).
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists-exempel
 
-Exempel: utvärderar SQL Server databaser för att avgöra om transparentDataEncryption har Aktiver ATS. Annars körs en distribution som ska aktive ras.
+Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEncryption är aktiverad. Annars körs en distribution som ska aktive ras.
 
 ```json
 "if": {
@@ -540,34 +537,34 @@ Exempel: Gatekeeper v2-åtkomstkontroll för att endast tillåta de angivna beh�
 }
 ```
 
-## <a name="layering-policies"></a>Skikt principer
+## <a name="layering-policies"></a>Skikta principer
 
-En resurs kan påverkas av flera tilldelningar. Tilldelningarna kan finnas i samma omfång eller i olika omfång. Vart och ett av dessa tilldelningar är också troligt att en annan inverkan har definierats. Villkoret och påverkan för varje princip utvärderas oberoende av varandra. Till exempel:
+En resurs kan påverkas av flera tilldelningar. Dessa tilldelningar kan vara i samma definitionsområde eller i olika omfång. Var och en av de här tilldelningarna troligtvis även har en annan effekt som definierats. Villkor och effekt för varje princip utvärderas oberoende av varandra. Exempel:
 
-- Princip 1
-  - Begränsar resursens plats till "väst"
-  - Tilldelad till prenumeration A
-  - Neka inverkan
-- Princip 2
-  - Begränsar resursens plats till "öster"
-  - Tilldelad till resurs grupp B i prenumeration A
-  - Gransknings funktion
+- Principen 1
+  - Begränsar resursplats till 'westus'
+  - Tilldelas prenumeration A
+  - Neka effekt
+- Princip för 2
+  - Begränsar resursplats till ”eastus”
+  - Tilldelad till resursgruppen B i prenumeration A
+  - Spårningsseffekt
   
-Den här installationen skulle resultera i följande resultat:
+Den här konfigurationen skulle resultera i följande resultat:
 
-- Alla resurser som redan finns i resurs grupp B i "öst" är kompatibla med princip 2 och icke-kompatibel till princip 1
-- Alla resurser som redan finns i resurs grupp B som inte är östasiatiska är inte kompatibla med princip 2 och icke-kompatibla till princip 1 om inte i "väst"
-- Alla nya resurser i prenumerationen som inte finns i "väst" nekas av princip 1
-- Alla nya resurser i prenumeration A och resurs grupp B i "väst" skapas och är inkompatibla för princip 2
+- Resurser redan i resursgruppen B i ”eastus” är kompatibla med principen 2 och icke-kompatibla principen 1
+- Alla resurser redan i resursgruppen B inte i ”eastus” är icke-kompatibla principen 2 och icke-kompatibla principen 1 om den inte i ”westus”
+- Någon ny resurs i prenumeration A inte är i ”westus' nekas av principen 1
+- Någon ny resurs i prenumeration A och B-resursgrupp i 'westus' har skapats och icke-kompatibla på princip 2
 
-Om både princip 1 och princip 2 hade påverkan från neka ändras situationen till:
+Om både 1 och 2 i hade kraft av neka, situationen ändras till:
 
-- Alla resurser som redan finns i resurs gruppen B som inte är östasiatiska är inte kompatibla med princip 2
-- En resurs som redan finns i resurs grupp B som inte är "väst" är inte kompatibel med princip 1
-- Alla nya resurser i prenumerationen som inte finns i "väst" nekas av princip 1
-- Alla nya resurser i resurs grupp B för prenumeration A nekas
+- Alla resurser redan i resursgruppen B inte i ”eastus” är icke-kompatibla principen 2
+- Alla resurser redan i resursgruppen B inte i ”westus” är icke-kompatibla principen 1
+- Någon ny resurs i prenumeration A inte är i ”westus' nekas av principen 1
+- Alla nya resurser i resursgruppen B i prenumerationen som en nekad
 
-Varje tilldelning utvärderas individuellt. Det finns därför ingen möjlighet för en resurs att gå igenom ett mellanrum från olikheter i omfattningen. Netto resultatet av lager principer eller princip överlappningar anses vara **ackumulerad mest restriktiv**. Exempel: om både princip 1 och 2 hade en neka-påverkan blockeras en resurs av de överlappande och motstridiga principerna. Om du fortfarande behöver resursen som ska skapas i mål omfånget granskar du undantagen för varje tilldelning för att kontrol lera att rätt principer påverkar rätt omfång.
+Varje tilldelning utvärderas individuellt. Därför det är inte en möjlighet för en resurs för försening via ett uppehåll av skillnader i omfånget. Resultatet av lagren principer eller princip överlappning anses vara **kumulativa mest restriktiva**. Till exempel om båda princip 1 och 2 hade en nekandeeffekt, blockeras en resurs av överlappande och motstridiga principer. Om du fortfarande behöver resursen ska påverkar skapas i målområdet, granska undantag vid varje uppgift att verifiera rätt principer rätt scope.
 
 ## <a name="next-steps"></a>Nästa steg
 

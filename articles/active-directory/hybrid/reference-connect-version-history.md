@@ -2,26 +2,22 @@
 title: 'Azure AD Connect: versions historik | Microsoft Docs'
 description: Den här artikeln innehåller en lista över alla versioner av Azure AD Connect och Azure AD Sync
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927444"
+ms.locfileid: "73944215"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: versions historik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -35,24 +31,23 @@ Avsnitt |  Detaljer
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
 Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
-
-Hämta | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Ladda ned| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Att släppa en ny version av Azure AD Connect är en process som kräver flera kvalitets kontroll steg för att säkerställa drift funktionen i tjänsten och medan vi går igenom den här processen kommer versions numret för en ny version och versions statusen att uppdateras för att återspegla det senaste läget.
 Medan vi går igenom den här processen visas versions numret för versionen med ett "X" på den lägre versions nummer positionen, som i "1.3. X. 0" – Detta anger att viktig information i det här dokumentet är giltig för alla versioner som börjar med "1,3.". Så snart som vi har slutfört versions processen uppdateras versions numret till den senast utgivna versionen och versions statusen uppdateras till "lanseras för hämtning och automatisk uppgradering".
-Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](how-to-connect-install-automatic-upgrade.md)
 
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>Versions status
-08/11/2019: har släppts för hämtning. Inte tillgängligt för automatisk uppgradering
+11/08/2019: har släppts för hämtning. Inte tillgängligt för automatisk uppgradering
 
 >[!IMPORTANT]
 >På grund av en intern schema ändring i den här versionen av Azure AD Connect, om du hanterar konfigurations inställningar för ADFS-förtroende med MSOnline PowerShell, måste du uppdatera MSOnline PowerShell-modulen till version 1.1.183.57 eller högre
 ### <a name="fixed-issues"></a>Åtgärdade problem
 
 Den här versionen åtgärdar ett problem med befintliga hybrid Azure AD-anslutna enheter. Den här versionen innehåller en ny regel för synkronisering av enhet som åtgärdar problemet.
-Observera att den här regel ändringen kan orsaka borttagning av föråldrade enheter från Azure AD. Detta är inte en anledning till problem eftersom dessa enhets objekt inte används av Azure AD under auktoriseringen för villkorlig åtkomst. För vissa kunder kan antalet enheter som tas bort via den här regel ändringen överskrida tröskelvärdet för borttagning. Om du ser borttagningen av enhets objekt i Azure AD som överskrider tröskelvärdet för borttagning av export, rekommenderas det att tillåta borttagningarna att gå igenom. [Så här tillåter du att borttagningar flödar när de överstiger tröskelvärdet för borttagning](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+Observera att den här regel ändringen kan orsaka borttagning av föråldrade enheter från Azure AD. Detta är inte en anledning till problem eftersom dessa enhets objekt inte används av Azure AD under auktoriseringen för villkorlig åtkomst. För vissa kunder kan antalet enheter som tas bort via den här regel ändringen överskrida tröskelvärdet för borttagning. Om du ser borttagningen av enhets objekt i Azure AD som överskrider tröskelvärdet för borttagning av export, rekommenderas det att tillåta borttagningarna att gå igenom. [Så här tillåter du att borttagningar flödar när de överstiger tröskelvärdet för borttagning](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## <a name="14250"></a>1.4.25.0
 
@@ -129,7 +124,7 @@ Under vissa omständigheter återaktiverade inte servrar som har uppgraderats au
 
 ### <a name="fixed-issues"></a>Åtgärdade problem 
 
-- En höjning av privilegier som finns i Microsoft Azure Active Directory Connect build-1.3.20.0 har åtgärd ATS.  Detta säkerhets problem, under vissa omständigheter, kan göra det möjligt för en angripare att köra två PowerShell-cmdletar i kontexten för ett privilegierat konto och utföra privilegierade åtgärder.  Den här säkerhets uppdateringen löser problemet genom att inaktivera dessa cmdletar. Mer information finns i [säkerhets uppdatering](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
+- En höjning av privilegier som finns i Microsoft Azure Active Directory Connect build-1.3.20.0 har åtgärd ATS.  Detta säkerhets problem, under vissa omständigheter, kan göra det möjligt för en angripare att köra två PowerShell-cmdletar i kontexten för ett privilegierat konto och utföra privilegierade åtgärder.  Den här säkerhets uppdateringen löser problemet genom att inaktivera dessa cmdletar. Mer information finns i [säkerhets uppdatering](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -398,9 +393,9 @@ Status: släpps för utvalda kunder
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Åtgärdade problem
-* Åtgärda tids periods fönstret för bakgrunds aktiviteter för partitions filtrerings sidan när du växlar till nästa sida.
+* Åtgärda tidsinställning fönstret på bakgrundsaktiviteter för Partitionsfiltrering sidan när du växlar till nästa sida.
 
-* En bugg har åtgärd ATS som orsakade åtkomst fel under den anpassade ConfigDB-åtgärden.
+* Ett fel som orsakade åtkomstfel när den anpassade åtgärden ConfigDB har åtgärdats.
 
 * En bugg har åtgärd ATS för att återställa från SQL-anslutningstimeout.
 
@@ -420,7 +415,7 @@ Status: släpps för utvalda kunder
 * programtelemetri – administratören kan ändra den här data klassen på/av
 
 * Azure AD Health data – administratören måste gå till hälso portalen för att kontrol lera sina hälso inställningar.
-   När tjänst principen har ändrats, kommer agenterna att läsa och tillämpa den.
+   När tjänsten principen har ändrats, läser agenterna och använda den.
 
 * Tillagda konfigurations åtgärder för enhets skrivning och en förlopps indikator för sid initiering
 
@@ -439,13 +434,13 @@ Status: släpps för utvalda kunder
 
 * Ett nytt verktyg har lagts till för att Felsöka synkroniseringsproblem för ett bestämt objekt. Den är tillgänglig under alternativet "Felsök objekt synkronisering" i Azure AD Connects guide fel sökning av ytterligare uppgift. För närvarande söker verktyget efter följande:
 
-  * UserPrincipalName matchnings fel mellan synkroniserat användar objekt och användar kontot i Azure AD-klienten.
-  * Om objektet filtreras från synkroniseringen på grund av domän filtrering
-  * Om objektet filtreras från synkroniseringen på grund av organisations enhetens (OU)-filtrering
+  * UserPrincipalName matchningsfel mellan synkroniserade användarobjektet och användarkontot i Azure AD-klient.
+  * Om objektet är filtrerad från synkronisering på grund av filtrering av domän
+  * Om objektet är filtrerad från synkronisering på grund av organisationsenhet (OU) filtrering
 
 * Ett nytt verktyg har lagts till för att synkronisera den aktuella lösen ords-hashen som lagras i den lokala Active Directory för ett särskilt användar konto.
 
-Verktyget kräver ingen lösen ords ändring. Alternativet är tillgängligt under "Felsöka lösen ords-hash-synkronisering" i Azure AD Connects guide fel sökning av ytterligare uppgift.
+Verktyget kräver inte en lösenordsändring. Alternativet är tillgängligt under "Felsöka lösen ords-hash-synkronisering" i Azure AD Connects guide fel sökning av ytterligare uppgift.
 
 
 
@@ -476,7 +471,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 
 Typ     | Namn                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
-Tillåt    | SÄKER                        | Fullständig behörighet         | Det här objektet  |
+Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företags administratörer             | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Domän administratörer                 | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Administratörer                | Fullständig behörighet         | Det här objektet  |
@@ -1052,7 +1047,7 @@ Lanserad: november 2016
 * Ett problem har åtgärd ATS där Join-regler inte utvärderas på nytt när ett objekt i kopplings utrymmet samtidigt blir utanför räckvidden för en kopplings regel och blir inom räckvidden för en annan. Detta kan inträffa om du har två eller fler kopplings regler vars kopplings villkor är ömsesidigt uteslutande.
 * Ett problem har åtgärd ATS där regler för inkommande synkronisering (från Azure AD), som inte innehåller kopplings regler, inte bearbetas om de har lägre prioritets värden än de som innehåller kopplings regler.
 
-**Bättre**
+**Förbättringar:**
 
 * Stöd har lagts till för att installera Azure AD Connect på Windows Server 2016 standard eller högre.
 * Stöd har lagts till för att använda SQL Server 2016 som fjärrdatabas för Azure AD Connect.
@@ -1071,7 +1066,7 @@ Lanserad: augusti 2016
 * Guiden för Azure AD Connect visar inte konfigurationen av den faktiska lösen ords synkroniseringen och tillbakaskrivning av lösen ord när servern är i mellanlagrings läge. De visas alltid som inaktiverade.
 * Konfigurations ändringar av Lösenordssynkronisering och tillbakaskrivning av lösen ord sparas inte av Azure AD Connect guiden när servern är i mellanlagrings läge.
 
-**Bättre**
+**Förbättringar:**
 
 * Uppdaterade cmdleten Start-ADSyncSyncCycle för att ange om det går att starta en ny Sync-cykel eller inte.
 * Cmdlet: en stop-ADSyncSyncCycle har lagts till för att avsluta synkroniseringen och åtgärden, som pågår för närvarande.
@@ -1186,7 +1181,7 @@ Lanserad: november 2015
 
 **Nytt scenario som stöds:**
 
-* Har stöd för flera lokala Exchange-organisationer. Mer information finns i [hybrid distributioner med flera Active Directory-skogar](https://technet.microsoft.com/library/jj873754.aspx).
+* Har stöd för flera lokala Exchange-organisationer. Mer information finns i [hybrid distributioner med flera Active Directory-skogar](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Korrigerade problem:**
 
@@ -1279,7 +1274,7 @@ Lanserad: april 2015
 ## <a name="104850222"></a>1.0.485.0222
 Lanserad: februari 2015
 
-**Bättre**
+**Förbättringar:**
 
 * Bättre import prestanda.
 

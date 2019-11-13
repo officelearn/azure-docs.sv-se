@@ -1,17 +1,14 @@
 ---
 title: Skydda nya resurser med skiss lås
 description: I den här självstudien får du lära dig att använda alternativen för resurs lås i Azure-ritningar som skrivskyddade och ta inte bort för att skydda nyligen distribuerade resurser.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
-ms.service: blueprints
-ms.openlocfilehash: 2f66677df7cd1c6fbde9c0467b4d7f2094509ee8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e2adbb1e47222055753d4b3690646daa83b32bf1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297009"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960259"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudie: skydda nya resurser med resurs lås för Azure-ritningar
 
@@ -157,7 +154,7 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
      |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
      |Resurs grupp för RGtoLock|Resursgrupp|Namn|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
-     |Resurs grupp för RGtoLock|Resursgrupp|Plats|USA, västra 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
+     |Resurs grupp för RGtoLock|Resursgrupp|Plats|Västra USA 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
      |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|SKU för lagring. Standardvärdet är _Standard_LRS_.|
 
 1. När du har angett alla parametrar väljer du **tilldela** längst ned på sidan.
@@ -190,7 +187,7 @@ Tilldelningen skapar resurs gruppen _TestingBPLocks_ och det lagrings konto som 
 
 1. Välj neka tilldelning och välj sedan sidan **nekade behörigheter** till vänster.
 
-   Neka-tilldelningen förhindrar alla åtgärder med **\*-och-** **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att utesluta **\*/läsning** via **NotActions**.
+   Neka-tilldelningen förhindrar alla åtgärder med **\*** -och **Åtgärds** konfigurationen, men den tillåter Läs åtkomst genom att utesluta **\*/Read** via **NotActions**.
 
 1. I Azure Portal dynamiska länkar väljer du **TestingBPLocks-Access Control (IAM)** . Välj sedan sidan **Översikt** till vänster och sedan knappen **ta bort resurs grupp** . Ange namnet **TestingBPLocks** för att bekräfta borttagningen och välj sedan **ta bort** längst ned i fönstret.
 

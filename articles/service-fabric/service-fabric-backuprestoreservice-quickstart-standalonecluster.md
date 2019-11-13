@@ -1,5 +1,5 @@
 ---
-title: Regelbunden säkerhets kopiering och återställning i Azure Service Fabric | Microsoft Docs
+title: Regelbunden säkerhets kopiering/återställning i fristående Azure-Service Fabric
 description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att aktivera regelbunden data säkerhets kopiering av program data.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: b949a0edff7ed6341d10518bc1c38afe2f7efad0
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 559f6cce7044d57c0a17fc3fe17f1c61f710913a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929185"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013333"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhets kopiering och återställning i Azure Service Fabric
 > [!div class="op_single_selector"]

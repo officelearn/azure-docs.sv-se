@@ -1,6 +1,6 @@
 ---
 title: Enhets anslutning och telemetri ingångar – Azure Digitals dubblare | Microsoft Docs
-description: Översikt över hur du förflyttar en enhet med Azure Digitals
+description: Lär dig hur du ansluter och utsätter en enhet i Azure Digitals dubbla.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 4e7a179980abb164754941f345d2ee9ae7f5c9de
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 529baf6a3eedf1d7490e8138642e90928a209876
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930392"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010132"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
@@ -69,7 +69,7 @@ Du kan anpassa enhetens meddelande format och nytto Last så att den passar din 
 
 | Egenskapsnamn | Värde | Krävs | Beskrivning |
 |---|---|---|---|
-| **DigitalTwins – telemetri** | 1.0 | Ja | Ett konstant värde som identifierar ett meddelande i systemet. |
+| **DigitalTwins-Telemetry** | 1.0 | Ja | Ett konstant värde som identifierar ett meddelande i systemet. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar **meddelandet**. Värdet måste matcha ett objekts **HardwareId** -egenskap för att systemet ska kunna bearbeta det. Till exempel `00FF0643BE88-CO2`. |
 | **CreationTimeUtc** | `string` | Nej | En [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) -formaterad datum sträng som identifierar nytto lastens samplings tid. Till exempel `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | Nej | Ett UUID som används för att spåra händelser i systemet. Till exempel `cec16751-ab27-405d-8fe6-c68e1412ce1f`.

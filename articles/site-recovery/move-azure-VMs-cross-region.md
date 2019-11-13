@@ -1,5 +1,5 @@
 ---
-title: Flytta virtuella Azure IaaS-datorer till en annan Azure-region med hjälp av tjänsten Azure Site Recovery | Microsoft Docs
+title: Flytta virtuella Azure-datorer till en annan region med Azure Site Recovery
 description: Använd Azure Site Recovery för att flytta virtuella IaaS-datorer i Azure från en Azure-region till en annan.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: ec78e4c260c2ca5e0469f9373f60d8bca29ada7f
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e0d55b3661e7dbff1519691bd396a30b8c527010
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375723"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936056"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -32,7 +32,7 @@ Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service)
 > [!IMPORTANT]
 > Den här artikeln beskriver hur du flyttar virtuella Azure-datorer från en region till *en annan.* Om målet är att förbättra tillgängligheten för din infrastruktur genom att flytta virtuella datorer till tillgänglighets zoner kan du läsa mer i [flytta virtuella Azure-datorer till Tillgänglighetszoner](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Kontrol lera att du har virtuella Azure-datorer i Azure-regionen som du vill flytta *från*.
 - Kontrol lera att ditt val av [käll region – kombination av mål region stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)och välj sedan noga mål regionen.
@@ -46,7 +46,7 @@ Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service)
 
   - Du måste också ha behörighet för att hantera Site Recovery åtgärder. Rollen Site Recovery Contributor har alla behörigheter som krävs för att hantera Site Recovery åtgärder i ett Azure Recovery Services-valv.
 
-## <a name="prepare-the-source-vms"></a>Förbereda virtuella källdatorer
+## <a name="prepare-the-source-vms"></a>Förbereda källregionens virtuella datorer
 
 1. Kontrol lera att de virtuella Azure-datorerna som du planerar att flytta har de senaste rot certifikaten. Om de inte gör det kan du inte aktivera data kopiering till mål regionen på grund av säkerhets begränsningar.
 
@@ -80,11 +80,11 @@ I följande steg används Azure Site Recovery för att kopiera data till mål re
 ### <a name="create-the-vault-in-any-region-except-the-source"></a>Skapa valvet i valfri region förutom källan
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
-2. Välj **skapa ett resurs** > **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
+2. Välj **skapa en resurs** > **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
 3. I **namn**anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
 4. Skapa en resursgrupp med namnet **ContosoRG**.
 5. Ange en Azure-region. Information om hur du kontrollerar regioner som stöds finns [Azure Site Recovery pris information](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. För Recovery Services valv väljer du **Översikt** > **ConsotoVMVault** >  **+ Replikera**.
+6. För Recovery Services valv väljer du **översikt** > **ConsotoVMVault** >  **+ Replikera**.
 7. För **källa**väljer du **Azure**.
 8. För **käll plats**väljer du den Azure-region där de virtuella datorerna körs för närvarande.
 9. Välj Azure Resource Manager distributions modell. Välj sedan **käll prenumerationen** och **käll resurs gruppen**.
@@ -96,7 +96,7 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
 
 1. Välj den virtuella dator som du vill flytta och välj sedan **OK**.
 2. För **Inställningar**väljer du **haveri beredskap**.
-3. För konfigurera**mål region**för **haveri beredskap** > väljer du den mål region som du replikerar till.
+3. För **Konfigurera haveri beredskap** > **mål region**väljer du den mål region som du replikerar till.
 4. Välj att använda standard mål resurserna eller de som du skapade i förväg.
 5. Välj **Aktivera replikering** för att starta jobbet.
 
@@ -107,33 +107,33 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
 ## <a name="test-the-configuration"></a>Testa konfigurationen
 
 
-1. Gå till valvet. I **Inställningar** > **replikerade objekt**väljer du den virtuella dator som du vill flytta till mål regionen. Välj sedan **testa redundans**.
+1. Gå till valvet. I **inställningar** > **replikerade objekt**väljer du den virtuella dator som du vill flytta till mål regionen. Välj sedan **testa redundans**.
 2. I **testa redundans**väljer du en återställnings punkt som ska användas för redundansväxlingen:
 
    - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Ingen tid för bearbetning av data, så det här alternativet ger ett litet återställnings tids mål (RTO).
-   - **Senaste appkonsekventa**: Växlar över alla virtuella datorer till den senaste programkonsekventa återställnings punkten. Tidsstämpeln visas.
-   - **Anpassat**: Välj en annan återställningspunkt.
+   - **Senaste program – konsekvent**: växlar över alla virtuella datorer till den senaste programkonsekventa återställnings punkten. Tidsstämpeln visas.
+   - **Anpassad**: Välj en annan återställningspunkt.
 
-3. Välj det virtuella Azure-målnätverk dit du vill flytta de virtuella Azure-datorerna för att testa konfigurationen.
+3. Välj målets virtuella Azure-nätverk, dit du vill flytta de virtuella Azure-datorerna för att testa konfigurationen.
 
    > [!IMPORTANT]
    > Vi rekommenderar att du använder ett separat Azure VM-nätverk för redundanstest, inte i produktions nätverket i mål regionen.
 
-4. Börja testa flyttningen genom att välja **OK**. Om du vill spåra förloppet väljer du den virtuella datorn för att öppna dess **Egenskaper.** Eller Välj jobbet **testa redundans** i valvet. Välj sedan **Inställningar** > **jobb** > **Site Recovery jobb**.
+4. Börja testa flyttningen genom att välja **OK**. Om du vill spåra förloppet väljer du den virtuella datorn för att öppna dess **Egenskaper.** Eller Välj jobbet **testa redundans** i valvet. Välj sedan **inställningar** > **jobb** > **Site Recovery jobb**.
 5. När redundansen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn körs med rätt storlek och ansluten till lämpligt nätverk.
 6. Om du vill ta bort den virtuella datorn som du skapade för testning väljer du **rensning** av redundanstest på det replikerade objektet. Anteckna **och**spara eventuella observationer som rör testet.
 
 ## <a name="perform-the-move-and-confirm"></a>Utföra flytt och bekräfta
 
-1. Gå till valvet i **Inställningar** > **replikerade objekt**, Välj den virtuella datorn och välj sedan **redundans**.
+1. Gå till valvet i **inställningar** > **replikerade objekt**, Välj den virtuella datorn och välj sedan **redundans**.
 1. Välj **senaste**för **redundans**. 
-2. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella käll datorn innan redundansväxlingen utlöses. Men redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+2. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella käll datorn innan redundansväxlingen utlöses. Men redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
 3. När jobbet är klart kontrollerar du att den virtuella datorn visas i Azure-regionen som förväntat.
 4. I **replikerade objekt**högerklickar du på den virtuella datorn och väljer **genomför**. Detta avslutar flyttningen. Vänta tills commit-jobbet har slutförts.
 
 ## <a name="discard-the-resources-from-the-source-region"></a>Ta bort resurserna från käll regionen
 
-- Gå till den virtuella datorn och välj **inaktivera replikering**. Detta stoppar processen med att kopiera data för den virtuella datorn.
+- Gå till den virtuella datorn och välj **inaktivera replikering**. Detta stoppar processen att kopiera data för den virtuella datorn.
 
   > [!IMPORTANT]
   > Slutför det här steget för att undvika att debiteras för Site Recovery replikering efter flytten.

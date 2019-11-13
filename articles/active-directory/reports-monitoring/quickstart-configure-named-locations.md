@@ -3,7 +3,7 @@ title: Konfigurera namngivna platser i Azure Active Directory | Microsoft Docs
 description: Lär dig att konfigurera namngivna platser.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1513dba19221e64d40551ffb13a5e9f33fd9858f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: df45ab0a7b1729ae6c1602c9769cd5b6da26f6ac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127244"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014345"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Snabbstart: Konfigurera namngivna platser i Azure Active Directory
 
@@ -31,7 +31,7 @@ Du kan använda namngivna platser för att sätta etiketter på betrodda IP-adre
 
 I den här snabbstarten får du lära dig att konfigurera namngivna platser i din miljö.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -41,7 +41,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 ## <a name="configure-named-locations"></a>Konfigurera namngivna platser
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj **Azure Active Directory**i den vänstra rutan och välj sedan **villkorlig åtkomst** i avsnittet **säkerhet** .
 
@@ -61,7 +61,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i:
+Mer information finns här:
 
 - [Villkorlig åtkomst för Azure AD](../active-directory-conditional-access-azure-portal.md).
 - [Plats villkor i villkorlig åtkomst för Azure AD](../conditional-access/location-condition.md)

@@ -1,17 +1,14 @@
 ---
 title: Skapa principer programmässigt
 description: Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer för Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 047e9cab8d7776fc3b5353aebc571e28ad780ae8
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977959"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959423"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -19,11 +16,11 @@ Den här artikeln beskriver hur du programmässigt kan skapa och hantera princip
 
 Information om efterlevnad finns i [komma kompatibilitetsdata](getting-compliance-data.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
-1. Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-begäranden till Azure Resource Manager-baserade API:er.
+1. Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-förfrågningar till Azure Resource Manager-baserade API:er.
 
 1. Uppdatera Azure PowerShell-modulen till den senaste versionen. Detaljerad information finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -90,7 +87,7 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
 
    Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
 
-   **Omfattnings** parametern på `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt. Ersätt `{rName}`, `{rgName}`, `{subId}` och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen.
+   **Omfattnings** parametern på `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt. Ersätt `{rName}`, `{rgName}`, `{subId}`och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen.
    `{rType}` ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
    - Resurs-`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -219,7 +216,7 @@ Följ anvisningarna nedan om du vill skapa en principdefinition:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Parametern **--scope** på `az policy assignment create` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg. Mönster för **--omfattning** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, `{subId}` och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen. `{rType}` ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
+   Parametern **--scope** på `az policy assignment create` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg. Mönster för **--omfattning** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, `{subId}`och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen. `{rType}` ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
    - Resurs-`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resursgrupp – `/subscriptions/{subID}/resourceGroups/{rgName}`

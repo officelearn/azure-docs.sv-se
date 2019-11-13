@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747420"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012918"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -95,7 +95,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="downloading-the-software-package"></a>Laddar ned programpaketet
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Om du redan har ett Recovery Services-valv öppet går du vidare till steg 3. Om du inte har ett Recovery Services-valv öppet, men är i Azure Portal klickar du på **Bläddra**i huvud menyn.
 
    * I listan över resurser skriver du **Recovery Services**.
@@ -185,14 +185,14 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     Använd följande värden för SSRS-konfiguration:
     * Tjänst konto: Använd det inbyggda kontot ska vara nätverks tjänst
-    * Webb tjänstens URL: virtuell katalog ska vara ReportServer_<SQLInstanceName>
-    * Databas: DatabaseName ska vara ReportServer $<SQLInstanceName>
-    * Webb portalens URL: ' virtuell katalog ' ska vara Reports_<SQLInstanceName>
+    * Webb tjänstens URL: virtuell katalog ska vara ReportServer_\<SQLInstanceName >
+    * Databas: DatabaseName ska vara ReportServer $\<SQLInstanceName >
+    * Webb portalens URL: ' virtuell katalog ' ska vara Reports_\<SQLInstanceName >
 
     [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
 
     > [!NOTE]
-    > Licensiering för SQL Server som används som databas för MABS styrs av [Microsoft Online Services-villkoren](https://www.microsoft.com/en-us/licensing/product-licensing/products) (ost). Enligt OST kan SQL Server paketerad med MABS endast användas som databas för MABS.
+    > Licensiering för SQL Server som används som databas för MABS styrs av [Microsoft Online Services-villkoren](https://www.microsoft.com/licensing/product-licensing/products) (ost). Enligt OST kan SQL Server paketerad med MABS endast användas som databas för MABS.
 
 4. Ange en plats för installationen av Microsoft Azure Backup Server-filerna och klicka på **Nästa**.
 
@@ -290,10 +290,10 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Gett |Gett |Gett |Gett |
+| Ansluten |Aktiv |Gett |Gett |Gett |Gett |
 | Ansluten |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Gett |Gett |
+| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Gett |Gett |
 | Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
@@ -336,7 +336,7 @@ Använd följande steg för att uppgradera MABS:
    >
    > Avsluta inte medan SQL-instansen håller på att uppgraderas, avinstallerar SQL repor ting-instansen och ett försök att uppgradera MABS kommer därför att Miss lyckas.
 
-   Viktiga saker att tänka på:
+
 
    > [!IMPORTANT]
    >

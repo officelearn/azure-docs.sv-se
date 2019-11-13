@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e68ce5a198165c4187cbad9e86ce61f67694a82d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472840"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961592"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
 
@@ -64,11 +64,11 @@ AKS bygger på ett antal Azure-infrastruktur resurser, inklusive skalnings upps�
 För att aktivera den här arkitekturen omfattar varje AKS-distribution två resurs grupper:
 
 1. Du skapar den första resurs gruppen. Den här gruppen innehåller endast Kubernetes-Tjänsteresursen. AKS Resource Provider skapar automatiskt den andra resurs gruppen under distributionen. Ett exempel på den andra resurs gruppen är *MC_myResourceGroup_myAKSCluster_eastus*. Information om hur du anger namnet på den här andra resurs gruppen finns i nästa avsnitt.
-1. Den andra resurs gruppen, som kallas *resurs gruppen för noden*, innehåller alla infrastruktur resurser som är associerade med klustret. Dessa resurser omfattar Kubernetes-nodens virtuella datorer, virtuella nätverk och lagring. Som standard har noden resurs grupp ett namn som *MC_myResourceGroup_myAKSCluster_eastus*. AKS tar automatiskt bort nodens resurs när klustret tas bort, så den bör endast användas för resurser som delar klustrets livs cykel.
+1. Den andra resurs gruppen, som kallas *resurs gruppen för noden*, innehåller alla infrastruktur resurser som är associerade med klustret. Dessa resurser omfattar Kubernetes-nodens virtuella datorer, virtuella nätverk och lagring. Som standard har resurs gruppen ett namn som *MC_myResourceGroup_myAKSCluster_eastus*. AKS tar automatiskt bort nodens resurs när klustret tas bort, så den bör endast användas för resurser som delar klustrets livs cykel.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Kan jag ange mitt eget namn för AKS-nodens resurs grupp?
 
-Ja. Som standard namnger AKS resurs gruppen *MC_resourcegroupname_clustername_location*, men du kan också ange ett eget namn.
+Ja. Som standard namnger AKS resurs *MC_resourcegroupname_clustername_location*gruppen för noden, men du kan också ange ett eget namn.
 
 Om du vill ange ett eget namn på en resurs grupp installerar du [AKS-Preview][aks-preview-cli] Azure CLI-tillägget version *0.3.2* eller senare. När du skapar ett AKS-kluster med hjälp av kommandot [AZ AKS Create][az-aks-create] använder du parametern *--Node-Resource-Group* och anger ett namn för resurs gruppen. Om du [använder en Azure Resource Manager-mall][aks-rm-template] för att distribuera ett AKS-kluster kan du definiera resurs gruppens namn genom att använda egenskapen *nodeResourceGroup* .
 
@@ -126,10 +126,10 @@ I AKS kan du ange `maxPods` värde när du skapar klustret med hjälp av Azure C
 
 | Nätverk | Minimum | Maximal |
 | -- | :--: | :--: |
-| Azure-CNI | 30 | 250 |
+| Azure CNI | 30 | 250 |
 | Kubernetes | 30 | 110 |
 
-Eftersom AKS är en hanterad tjänst distribuerar vi och hanterar tillägg och poddar som en del av klustret. Tidigare kunde användare definiera ett `maxPods` värde som är lägre än värdet som de hanterade poddar krävde för att köra (till exempel 30). AKS beräknar nu det minsta antalet poddar med hjälp av följande formel: ((maxPods eller (maxPods * vm_count)) > hanterat tillägg poddar minimum.
+Eftersom AKS är en hanterad tjänst distribuerar vi och hanterar tillägg och poddar som en del av klustret. Tidigare kunde användare definiera ett `maxPods` värde som är lägre än värdet som de hanterade poddar krävde för att köra (till exempel 30). AKS beräknar nu det minsta antalet poddar med hjälp av den här formeln: ((maxPods eller (maxPods * vm_count)) > hanterat tillägg poddar minimum.
 
 Användare kan inte åsidosätta den minsta `maxPods` verifieringen.
 
@@ -194,7 +194,6 @@ Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte.
 [aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
-[virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md

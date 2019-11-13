@@ -8,94 +8,92 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 7b9b30f1598f7e50d25b15aaf2fda896ee9e5012
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e0bb50e14467d2950d97da660fc8e6fa176b99
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248853"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008898"
 ---
-# <a name="enable-write-accelerator"></a>Aktiverar du Write Accelerator
+Skrivningsaccelerator är en disk kapacitet för Virtual Machines-serien (VM) på Premium Storage med Azure Managed Disks exklusivt. Som namn tillstånd är syftet med funktionen att förbättra I/O-svars tiden för skrivningar mot Azure Premium Storage. Skrivningsaccelerator passar utmärkt var logg fils uppdateringar krävs för att vara kvar på disk i ett mycket bra sätt för moderna databaser.
 
-Skriva Accelerator är en disk-funktion för M-serien virtuella datorer (VM på Premium Storage med Azure Managed Disks) exklusivt. Som namnet tillstånd, är syftet med funktionen för att förbättra i/o-svarstiden för skrivningar Azure Premium Storage. Skriva Accelerator är idealiska där log filuppdateringar krävs för att spara till disk på ett mycket effektivt sätt för moderna databaser.
+Skrivningsaccelerator är allmänt tillgängligt för virtuella datorer i M-serien i det offentliga molnet.
 
-Skriva Accelerator är allmänt tillgängliga för virtuella datorer i M-serien i det offentliga molnet.
+## <a name="planning-for-using-write-accelerator"></a>Planera för att använda Skrivningsaccelerator
 
-## <a name="planning-for-using-write-accelerator"></a>Planering för att använda Write Accelerator
+Skrivningsaccelerator ska användas för volymer som innehåller transaktions loggen eller för att göra om loggar för ett DBMS. Vi rekommenderar inte att du använder Skrivningsaccelerator för data volymer i ett DBMS eftersom funktionen har optimerats för användning mot logg diskar.
 
-Skriva Accelerator bör användas för de volymer som innehåller transaktionsloggen eller göra om loggarna för ett DBMS. Du bör inte använda Write Accelerator för datavolymer av en DBMS som funktionen har optimerats för att användas mot loggdiskar.
-
-Skriva Accelerator fungerar bara tillsammans med [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/).
+Skrivningsaccelerator fungerar bara tillsammans med [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/).
 
 > [!IMPORTANT]
-> Aktivera Write Accelerator för operativsystemdisken för den virtuella datorn startas om den virtuella datorn.
+> Om du aktiverar Skrivningsaccelerator för operativ system disken för den virtuella datorn startas den virtuella datorn om.
 >
-> Så här aktiverar du Write Accelerator till en befintlig Azure-disk som inte är en del av en volym kompilering från flera diskar med Windows disk eller volym chefer, Windows med lagringsutrymmen, Windows Scale-out filserver (SOFS), Linux LVM eller MDADM arbetsbelastningen åtkomst till Azure-disken måste stängas av. Databasprogram med hjälp av Azure-disken måste stängas av.
+> Om du vill aktivera Skrivningsaccelerator till en befintlig Azure-disk som inte ingår i en volym version av flera diskar med Windows disk-eller volym hanterare, Windows lagrings utrymmen, Windows-skalbar fil server (SOFS), Linux LVM eller MDADM, arbets belastningen som använder Azure-disken måste stängas av. Databas program som använder Azure-disken måste stängas av.
 >
-> Om du vill aktivera eller inaktivera Write Accelerator för en befintlig volym som har skapats från flera Azure Premium Storage-diskar och stripe-volymer med hjälp av Windows-disk eller volym chefer lagringsutrymmen för Windows, Windows skalbar filserver (SOFS), Linux LVM eller MDADM, alla diskar som att skapa volymen måste aktiveras eller inaktiveras för Write Accelerator i separata steg. **Innan du aktiverar eller inaktiverar Write Accelerator i en sådan konfiguration, stänga av den virtuella Azure-datorn**.
+> Om du vill aktivera eller inaktivera Skrivningsaccelerator för en befintlig volym som är utbyggd från flera Azure Premium Storage-diskar och stripas med hjälp av Windows disk-eller volym hanterare, Windows lagrings utrymmen, Windows-SOFS (Scale-Out File Server), Linux LVM eller MDADM, alla diskar som skapar volymen måste vara aktiverade eller inaktiverade för Skrivningsaccelerator i separata steg. **Innan du aktiverar eller inaktiverar Skrivningsaccelerator i en sådan konfiguration stänger du den virtuella Azure-datorn**.
 
-Aktivera Write Accelerator för OS-diskar får inte vara nödvändiga för SAP-relaterade VM-konfigurationer.
+Det bör inte vara nödvändigt att aktivera Skrivningsaccelerator för OS-diskar för SAP-relaterade VM-konfigurationer.
 
-### <a name="restrictions-when-using-write-accelerator"></a>Begränsningar när du använder Write Accelerator
+### <a name="restrictions-when-using-write-accelerator"></a>Begränsningar när du använder Skrivningsaccelerator
 
-Dessa begränsningar gäller när du använder Write Accelerator för en Azure-disk/VHD:
+När du använder Skrivningsaccelerator för en Azure-disk/VHD gäller följande begränsningar:
 
-- Cachelagring för Premium disk måste anges till ”ingen” eller ”skrivskyddad”. Alla andra lägen för cachelagring stöds inte.
-- Ögonblicksbilder stöds inte för närvarande för Write Accelerator-aktiverade diskar. Under säkerhetskopieringen är inkluderas tjänsten Azure Backup Write Accelerator-aktiverade diskar som är anslutna till den virtuella datorn.
-- Endast mindre i/o-storlekar (< = 512 KiB) tar snabbare sökvägen. I arbetsbelastningen situationer där data får bulk lästs in, eller om transaktionen log buffertar av olika DBMS är ifyllt i större utsträckning innan komma beständiga lagringen, risken är att i/o som skrivs till disk inte tar snabbare sökvägen.
+- Tjänsten för Premium-disk-cachelagring måste vara inställd på none eller Read Only. Alla andra lägen för cachelagring stöds inte.
+- Ögonblicks bilder stöds för närvarande inte för Skrivningsaccelerator-aktiverade diskar. Under säkerhets kopieringen utesluter Azure Backup tjänsten automatiskt Skrivningsaccelerator-aktiverade diskar som är anslutna till den virtuella datorn.
+- Endast mindre I/O-storlekar (< = 512 KiB) tar den accelererade sökvägen. I arbets belastnings situationer där data hämtas Mass inläsning eller där transaktions logg buffertarna för olika DBMS är fyllda till en större grad innan de sparas i lagringen, är sannolikheten att i/O-skrivning till disk inte tar den accelererade sökvägen.
 
-Det finns gränser för Azure Premium Storage virtuella hårddiskar per virtuell dator som stöds av Write Accelerator. De aktuella gränserna är:
+Det finns gränser för Azure Premium Storage virtuella hård diskar per virtuell dator som kan användas av Skrivningsaccelerator. De aktuella gränserna är:
 
-| SKU FÖR VIRTUELL DATOR | Antalet diskar som Write Accelerator | Write Accelerator Disk IOPS per virtuell dator |
+| VM-SKU | Antal Skrivningsaccelerator diskar | Skrivningsaccelerator disk-IOPS per virtuell dator |
 | --- | --- | --- |
 | M208ms_v2, M208s_v2| 8 | 10000 |
-| M128ms 128s | 16 | 20000 |
+| M128ms, 128s | 16 | 20000 |
 | M64ms, M64ls, M64s | 8 | 10000 |
 | M32ms, M32ls, M32ts, M32s | 4 | 5000 |
-| M16ms M16s | 2 | 2500 |
-| M8ms M8s | 1 | 1250 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
-IOPS-gränserna är per virtuell dator och *inte* per disk. Alla diskar för Write Accelerator delar samma IOPS-gränsen per virtuell dator.
+IOPS-gränserna är per virtuell dator och *inte* per disk. Alla Skrivningsaccelerator diskar delar samma IOPS-gräns per virtuell dator.
 
-## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Aktivera Write Accelerator på en specifik disk
+## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Aktivera Skrivningsaccelerator på en speciell disk
 
-Följande avsnitt beskriver hur Write Accelerator kan aktiveras i Azure Premium Storage virtuella hårddiskar.
+I följande avsnitt beskrivs hur Skrivningsaccelerator kan aktive ras på Azure Premium Storage-VHD: er.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-Följande krav gäller för användningen av Write Accelerator vid denna tidpunkt:
+Följande krav gäller för användning av Skrivningsaccelerator vid den här tidpunkten:
 
-- De diskar som du vill använda Azure Write Accelerator mot måste vara [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/) på Premium Storage.
+- De diskar som du vill använda Azure-Skrivningsaccelerator mot måste vara [Azure-hanterade diskar](https://azure.microsoft.com/services/managed-disks/) på Premium Storage.
 - Du måste använda en virtuell dator i M-serien
 
-## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Aktivera Azure Write Accelerator med Azure PowerShell
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Aktivera Azure Skrivningsaccelerator med Azure PowerShell
 
-Azure Power Shell-modul från version 5.5.0 innefattar ändringar i de relevanta cmdletar för att aktivera eller inaktivera Write Accelerator för specifika Azure Premium Storage-diskar.
-För att aktivera eller distribuera diskar som stöds av Write Accelerator, har följande Power Shell-kommandon ändrats och utökas för att acceptera en parameter för Write Accelerator.
+Azure Power Shell-modulen från version 5.5.0 inkluderar ändringarna i relevanta cmdletar för att aktivera eller inaktivera Skrivningsaccelerator för vissa Azure Premium Storage-diskar.
+Följande Power Shell-kommandon har ändrats och utökas för att acceptera en parameter för Skrivningsaccelerator för att aktivera eller distribuera diskar som stöds av Skrivningsaccelerator.
 
-En ny switchparameter **- WriteAccelerator** har lagts till i följande cmdletar:
+En ny växel parameter, **-WriteAccelerator** har lagts till i följande cmdletar:
 
 - [Set-AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
 - [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
 - [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
 - [Add-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
-Ger inte parametern anger egenskapen till false och distribuerar diskar som har inte stöd av Write Accelerator.
+Om du inte anger egenskapen till false och distribuerar diskar som inte har stöd för Skrivningsaccelerator.
 
-En ny switchparameter **OsDiskWriteAccelerator -** har lagts till i följande cmdletar:
+En ny växel parameter, **-OsDiskWriteAccelerator** , har lagts till i följande cmdlets:
 
 - [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
-Inte att ange parametern anger egenskapen till false som standard returnerar diskar som inte utnyttjar Write Accelerator.
+Om du inte anger parametern anger egenskapen till false som standard, vilket returnerar diskar som inte utnyttjar Skrivningsaccelerator.
 
-En ny valfritt booleskt (icke-nullbar) parameter, **OsDiskWriteAccelerator -** har lagts till i följande cmdletar:
+En ny valfri boolesk parameter (icke-nullbar), **-OsDiskWriteAccelerator** har lagts till i följande cmdlets:
 
 - [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
 - [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
-Ange $true eller $false att styra stöd för Azure Write Accelerator med diskar.
+Ange antingen $true eller $false för att kontrol lera stöd för Azure-Skrivningsaccelerator med diskarna.
 
-Exempel på kommandon kan se ut:
+Exempel på kommandon kan se ut så här:
 
 ```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
@@ -107,13 +105,13 @@ New-AzVmssConfig | Set-AzVmssStorageProfile -OsDiskWriteAccelerator | Add-AzVmss
 Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 ```
 
-Två huvudscenarier kan skriptas som visas i följande avsnitt.
+Två huvud scenarier kan följas av skript som de visas i följande avsnitt.
 
-### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Att lägga till en ny disk som stöds av Write Accelerator med hjälp av PowerShell
+### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Lägga till en ny disk som stöds av Skrivningsaccelerator med PowerShell
 
-Du kan använda det här skriptet för att lägga till en ny disk till den virtuella datorn. Disken som skapats med det här skriptet använder Write Accelerator.
+Du kan använda det här skriptet för att lägga till en ny disk till den virtuella datorn. Disken som skapas med det här skriptet använder Skrivningsaccelerator.
 
-Ersätt `myVM`, `myWAVMs`, `log001`, storleken på disken och LunID på disken med värden som är lämpliga för din specifika distribution.
+Ersätt `myVM`, `myWAVMs`, `log001`, storleken på disken och LunID på disken med värden som är lämpliga för din speciella distribution.
 
 ```powershell
 # Specify your VM Name
@@ -134,9 +132,9 @@ Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadisk
 Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
-### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Att aktivera Write Accelerator på en befintlig Azure-disk med hjälp av PowerShell
+### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Aktivera Skrivningsaccelerator på en befintlig Azure-disk med PowerShell
 
-Du kan använda det här skriptet för att aktivera Write Accelerator på en befintlig disk. Ersätt `myVM`, `myWAVMs`, och `test-log001` med värden som är lämpliga för din specifika distribution. Skriptet lägger till Write Accelerator till en befintlig disk där värdet för **$newstatus** är inställd på '$true'. Med hjälp av värdet '$false' inaktiverar Write Accelerator på en angiven disk.
+Du kan använda det här skriptet för att aktivera Skrivningsaccelerator på en befintlig disk. Ersätt `myVM`, `myWAVMs`och `test-log001` med lämpliga värden för din egen distribution. Skriptet lägger till Skrivningsaccelerator till en befintlig disk där värdet för **$newstatus** är inställt på "$true". Om du använder värdet $false inaktive ras Skrivningsaccelerator på en specifik disk.
 
 ```powershell
 #Specify your VM Name
@@ -156,45 +154,45 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 > [!Note]
-> Kör skriptet ovan ska koppla från disken som angetts, aktivera Write Accelerator mot disken och sedan koppla disken igen
+> Att köra skriptet ovan kopplar bort den angivna disken, aktiverar Skrivningsaccelerator mot disken och ansluter sedan disken igen
 
-## <a name="enabling-write-accelerator-using-the-azure-portal"></a>Aktivera Write Accelerator med Azure portal
+## <a name="enabling-write-accelerator-using-the-azure-portal"></a>Aktivera Skrivningsaccelerator med hjälp av Azure Portal
 
-Du kan aktivera Write Accelerator via portalen där du anger din diskcachelagringstypen inställningar:
+Du kan aktivera Skrivningsaccelerator via portalen där du anger inställningarna för diskcachelagring:
 
-![Write Accelerator på Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+![Skrivningsaccelerator på Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Aktivera Write Accelerator med Azure CLI
+## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Aktivera Skrivningsaccelerator med hjälp av Azure CLI
 
-Du kan använda den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) så här aktiverar du Write Accelerator.
+Du kan använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att aktivera Skrivningsaccelerator.
 
-Om du vill aktivera Write Accelerator på en befintlig disk, Använd [az vm update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), du kan använda följande exempel om du ersätter den diskName och VMName ResourceGroup med dina egna värden: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+Om du vill aktivera Skrivningsaccelerator på en befintlig disk använder du [AZ VM Update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update). du kan använda följande exempel om du ersätter DiskName, VMName och ResourceGroup med dina egna värden: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-Att ansluta en disk med Write Accelerator aktiverat Använd [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), du kan använda följande exempel om du ersätta dem med dina egna värden: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+Om du vill ansluta en disk med Skrivningsaccelerator aktiverat Använd [AZ VM disk Attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach)kan du använda följande exempel om du ersätter dina egna värden: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-Om du vill inaktivera Write Accelerator använda [az vm update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), ange egenskaperna till false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+Om du vill inaktivera Skrivningsaccelerator använder du [AZ VM Update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update)och anger egenskaperna till falskt: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
-## <a name="enabling-write-accelerator-using-rest-apis"></a>Aktivera Write Accelerator med hjälp av Rest API: er
+## <a name="enabling-write-accelerator-using-rest-apis"></a>Aktivera Skrivningsaccelerator med hjälp av REST API: er
 
-Du måste installera Azure armclient om du vill distribuera via Azure Rest-API.
+Om du vill distribuera via Azure REST API måste du installera Azure-armclient.
 
 ### <a name="install-armclient"></a>Installera armclient
 
-Du måste installera den via Chocolatey för att köra armclient. Du kan installera det via cmd.exe eller powershell. Använd utökade rättigheter för dessa kommandon (”Kör som administratör”).
+Om du vill köra armclient måste du installera den genom choklad. Du kan installera det via CMD. exe eller PowerShell. Använd utökade rättigheter för dessa kommandon ("kör som administratör").
 
-Med hjälp av cmd.exe, kör du följande kommando: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+Använd cmd. exe och kör följande kommando: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
-Med Power Shell, kör du följande kommando: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+Kör följande kommando i Power Shell: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-Nu kan du installera armclient med hjälp av följande kommando i cmd.exe eller PowerShell `choco install armclient`
+Nu kan du installera armclient genom att använda följande kommando i antingen cmd. exe eller PowerShell `choco install armclient`
 
-### <a name="getting-your-current-vm-configuration"></a>Hämta din nuvarande konfiguration av virtuell dator
+### <a name="getting-your-current-vm-configuration"></a>Hämta din aktuella VM-konfiguration
 
-Om du vill ändra attribut för diskkonfigurationen måste du först hämta den aktuella konfigurationen i en JSON-fil. Du kan hämta den aktuella konfigurationen genom att köra följande kommando: `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
+Om du vill ändra disk konfigurationens attribut måste du först hämta den aktuella konfigurationen i en JSON-fil. Du kan hämta den aktuella konfigurationen genom att köra följande kommando: `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 
-Ersätt villkoren i <> <>med dina data, inklusive filnamnet JSON-filen ska ha.
+Ersätt villkoren i < < > > med dina data, inklusive fil namnet som JSON-filen ska ha.
 
-Utdata bör se ut som:
+Utdata kan se ut så här:
 
 ```JSON
 {
@@ -276,7 +274,7 @@ Utdata bör se ut som:
 
 ```
 
-Därefter uppdaterar JSON-filen och för att aktivera Write Accelerator på disken som kallas ”log1”. Detta kan åstadkommas genom att lägga till det här attributet i JSON-filen efter cache-post på disken.
+Uppdatera sedan JSON-filen och aktivera Skrivningsaccelerator på disken med namnet "log1". Detta kan åstadkommas genom att lägga till det här attributet i JSON-filen efter cache-posten på disken.
 
 ```JSON
         {
@@ -293,9 +291,9 @@ Därefter uppdaterar JSON-filen och för att aktivera Write Accelerator på disk
         }
 ```
 
-Sedan uppdatera den befintliga distributionen med det här kommandot: `armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
+Uppdatera sedan den befintliga distributionen med det här kommandot: `armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
 
-Utdata bör se ut som i exemplet nedan. Du kan se att Write Accelerator-aktiverade för en disk.
+Utdata bör se ut som den som visas nedan. Du kan se att Skrivningsaccelerator aktive rad för en disk.
 
 ```JSON
 {
@@ -377,4 +375,4 @@ Utdata bör se ut som i exemplet nedan. Du kan se att Write Accelerator-aktivera
   "name": "mylittlesapVM"
 ```
 
-När du har gjort den här ändringen, ska enheten stödjas av Write Accelerator.
+När du har gjort den här ändringen bör enheten stödjas av Skrivningsaccelerator.

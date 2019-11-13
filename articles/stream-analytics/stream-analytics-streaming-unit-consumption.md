@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988237"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961280"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera strömnings enheter
 
@@ -62,10 +62,10 @@ Observera att ett jobb med komplex fråge logik kan ha hög SU%-användning äve
 
 SU%-användning kan plötsligt släppas till 0 under en kort period innan de återgår till förväntade nivåer. Detta inträffar på grund av tillfälliga fel eller systeminitierade uppgraderingar. Att öka antalet strömnings enheter för ett jobb kanske inte minskar SU-användningen om frågan inte är [helt parallell](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Tillstånds känslig fråge logik i temporala element
-En av de unika funktionerna för Azure Stream Analytics jobb är att utföra tillstånds känslig bearbetning, till exempel fönster mängd, temporala kopplingar och temporala analys funktioner. Var och en av dessa operatörer behåller statusinformation. Maximal fönster storlek för de här fråge elementen är sju dagar. 
+## <a name="stateful-query-logicin-temporal-elements"></a>Tillståndskänsliga frågans logik i temporala element
+En av den unika funktionen för Azure Stream Analytics-jobb är att utföra tillståndskänsliga bearbetning, till exempel fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner. Var och en av dessa operatörer behåller statusinformation. Maximal fönster storlek för de här fråge elementen är sju dagar. 
 
-Det temporala fönstrets koncept visas i flera Stream Analytics frågedata:
+Begreppet temporalt fönster visas i flera element i Stream Analytics-fråga:
 1. Fönster mängd: Gruppera efter av rullande, hoppande och glidande fönster
 
 2. Temporala kopplingar: delta med funktionen DATEDIFF
@@ -99,7 +99,7 @@ När frågan är utpartitionerad sprids den ut över flera noder. Det innebär a
 Partitioner som rör händelsehubben bör partitioneras med tangentkombinationen för att undvika att ett minsknings steg behövs. Mer information finns i [Event Hubs översikt](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## <a name="temporal-joins"></a>Temporala kopplingar
-Förbrukad mängd minne (tillstånds storlek) för en temporal koppling är proportionell till antalet händelser i det temporala wiggle rummet i kopplingen, vilket är händelsens ingångs hastighet multiplicerat med storleken på wiggle-rummet. Med andra ord är det minne som används av sammanfogningar proportionellt till avslags tidsintervallet multiplicerat med genomsnittlig händelse frekvens.
+Förbrukad mängd minne (tillstånds storlek) för en temporal koppling är proportionell till antalet händelser i det temporala wiggle rummet, vilket är händelsens ingångs frekvens multiplicerat med storleken på wiggle rums utrymme. Med andra ord är det minne som används av sammanfogningar proportionellt till avslags tidsintervallet multiplicerat med genomsnittlig händelse frekvens.
 
 Antalet omatchade händelser i kopplingen påverkar minnes användningen för frågan. Följande fråga söker efter reklamannonser som genererar klick:
 
@@ -139,7 +139,7 @@ Normalt räcker ett jobb som kon figurer ATS med en enhet för strömning för e
 
 För ett jobb med 6 enheter för strömning kan du behöva 4 eller 8 partitioner från Händelsehubben. Undvik dock för många onödiga partitioner eftersom det orsakar orimlig resursanvändning. Till exempel en Event Hub med 16 partitioner eller större i ett Stream Analytics jobb som har 1 strömnings enhet. 
 
-## <a name="reference-data"></a>Referens data 
+## <a name="reference-data"></a>Referensdata 
 Referens data i ASA läses in i minnet för snabb sökning. Med den aktuella implementeringen behåller varje kopplings åtgärd med referens data en kopia av referens data i minnet, även om du ansluter till samma referens data flera gånger. För frågor med **partition by**har varje partition en kopia av referens data, så partitionerna är helt frikopplade. Med multiplikator effekterna kan minnes användningen snabbt bli mycket hög om du ansluter till referens data flera gånger med flera partitioner.  
 
 ### <a name="use-of-udf-functions"></a>Användning av UDF-funktioner

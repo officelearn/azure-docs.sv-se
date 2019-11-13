@@ -1,17 +1,14 @@
 ---
 title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
-ms.service: blueprints
-ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b6f1d6c40f7268e90f09457e680a3ef33996c341
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978232"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960293"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
@@ -33,7 +30,7 @@ Det är vanligt att felet orsakas av en artefakt och inte skissen som helhet. Om
 
 ## <a name="general-errors"></a>Allmänna fel
 
-### <a name="policy-violation"></a>Situationen Princip överträdelse
+### <a name="policy-violation"></a>Scenario: princip överträdelse
 
 #### <a name="issue"></a>Problem
 
@@ -50,7 +47,7 @@ En princip kan vara i konflikt med distributionen av ett antal orsaker:
 
 Ändra skissen så att den inte hamnar i konflikt med principerna i fel informationen. Om den här ändringen inte är möjlig, är ett alternativt alternativ att omfånget för princip tilldelningen har ändrats, så att skissen inte längre strider mot principen.
 
-### <a name="escape-function-parameter"></a>Situationen Skiss parametern är en funktion
+### <a name="escape-function-parameter"></a>Scenario: skiss parametern är en funktion
 
 #### <a name="issue"></a>Problem
 
@@ -58,11 +55,11 @@ Skiss parametrar som är funktioner bearbetas innan de skickas till artefakter.
 
 #### <a name="cause"></a>Orsak
 
-Att skicka en skiss parameter som använder en funktion, till exempel `[resourceGroup().tags.myTag]`, till en artefakt resulterar i att det behandlade resultatet av funktionen som anges i artefakten i stället för den dynamiska funktionen.
+Att skicka en skiss parameter som använder en funktion, till exempel `[resourceGroup().tags.myTag]`, till en artefakt resulterar i att det behandlade resultatet av den funktion som anges i artefakten i stället för den dynamiska funktionen.
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill skicka en funktion genom att använda som parameter, escapea hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/template-expressions.md).
+Om du vill skicka en funktion via som en parameter, Escape hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/template-expressions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

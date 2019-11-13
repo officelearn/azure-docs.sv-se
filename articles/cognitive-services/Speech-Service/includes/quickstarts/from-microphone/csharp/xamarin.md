@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 1f98e4ac6bdc0a9b7a5982b58677732ede1911f7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503607"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960817"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -53,7 +53,7 @@ Det vanliga projektet HelloWorld innehåller plattforms oberoende implementering
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
-#### <a name="androidtabandroid"></a>[Android](#tab/android)
+#### <a name="androidtabx-android"></a>[Android](#tab/x-android)
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Lägg till exempel kod för `helloworld.Android`-projektet
 
 Lägg nu till C# den kod som definierar den Android-specifika delen av programmet.

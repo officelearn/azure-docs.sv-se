@@ -3,17 +3,17 @@ title: Arkitektur koncept i Azure IoT Central | Microsoft Docs
 description: Den här artikeln beskriver viktiga begrepp som rör arkitekturen i Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/15/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cb2ca8fe227abd107daa60a0f7d31ba5dc4e7c1b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 66792d9d0a8b1cd72ef8f22481016a35f37a1597
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895337"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013836"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central Architecture (för hands versions funktioner)
 
@@ -33,6 +33,68 @@ Enheter utbyter data med ditt Azure IoT Central-program. En enhet kan:
 I Azure IoT Central anges de data som en enhet kan utbyta med ditt program i en enhets mall. Mer information om enhetsspecifika finns i hantering av [metadata](#metadata-management).
 
 Mer information om hur enheter ansluter till ditt Azure IoT Central-program finns i [enhets anslutning](overview-iot-central-get-connected.md).
+
+## <a name="azure-iot-edge-devices"></a>Azure IoT Edge-enheter
+
+Enheter som har skapats med [Azure IoT-SDK](https://github.com/Azure/azure-iot-sdks): er kan också ansluta [Azure IoT Edge enheter](../../iot-edge/about-iot-edge.md) till ett IoT Central-program. Med IoT Edge kan du köra Cloud Intelligence och anpassad logik direkt på IoT-enheter som hanteras av IoT Central. Med IoT Edge runtime kan du:
+
+- Installerar och uppdaterar arbetsbelastningar på enheten.
+- Behåll IoT Edge säkerhets standarder på enheten.
+- Säkerställer att IoT Edge-moduler alltid körs.
+- Rapporterar modulens hälsa till molnet för fjärrövervakning.
+- Hanterar kommunikationen mellan nedströms lövenheter och en IoT Edge-enhet, mellan modulerna på en IoT Edge-enhet, och mellan en IoT Edge-enhet och molnet.
+
+![Azure IoT Central med Azure IoT Edge](./media/concepts-architecture/iotedge.png)
+
+IoT Central aktiverar följande funktioner för IoT Edge enheter:
+
+- Enhets mallar för att beskriva funktionerna i en IoT Edge-enhet, till exempel:
+  - Distributions Manifestets överförings funktion, som hjälper dig att hantera ett manifest för en flotta av enheter.
+  - Moduler som körs på den IoT Edge enheten.
+  - Telemetri varje modul skickar.
+  - Egenskaperna varje modul rapporterar.
+  - De kommandon som varje modul svarar på.
+  - Relationerna mellan en IoT Edge Gateway enhets kapacitets modell och kapacitets modell för underordnad enhet.
+  - Moln egenskaper som inte lagras på den IoT Edge enheten.
+  - Anpassningar, instrument paneler och formulär som är en del av ditt IoT Central-program.
+
+  Mer information finns i själv studie kursen [skapa en IoT Edge enhets mal len](./tutorial-define-edge-device-type.md) .
+
+- Möjlighet att etablera IoT Edge enheter i skala med Azure IoT Device Provisioning-tjänsten
+- Regler och åtgärder.
+- Anpassade instrument paneler och analyser.
+- Kontinuerlig data export av telemetri från IoT Edge enheter.
+
+### <a name="iot-edge-device-types"></a>IoT Edge enhets typer
+
+IoT Central klassificerar IoT Edge enhets typer på följande sätt:
+
+- Löv enheter. En IoT Edge enhet kan ha underordnade löv enheter, men enheterna är inte etablerade i IoT Central.
+- Gateway-enheter med underordnade enheter. Både gateway-enheter och underordnade enheter tillhandahålls i IoT Central
+
+![IoT Central med IoT Edge översikt](./media/concepts-architecture/gatewayedge.png)
+
+### <a name="iot-edge-patterns"></a>IoT Edge mönster
+
+IoT Central stöder följande IoT Edge enhets mönster:
+
+#### <a name="iot-edge-as-leaf-device"></a>IoT Edge som löv enhet
+
+![IoT Edge som löv enhet](./media/concepts-architecture/edgeasleafdevice.png)
+
+IoT Edges enheten tillhandahålls i IoT Central och eventuella efterföljande enheter och deras telemetri visas som kommer från den IoT Edge enheten. Underordnade enheter som är anslutna till IoT Edge enheten är inte etablerade i IoT Central.
+
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>IoT Edge gateway-enhet ansluten till underordnade enheter med identitet
+
+![IoT Edge med underordnad enhets identitet](./media/concepts-architecture/edgewithdownstreamdeviceidentity.png)
+
+IoT Edges enheten har etablerats i IoT Central och underordnade enheter som är anslutna till IoT Edge enheten. Körnings stöd för etablering av underordnade enheter via gatewayen stöds inte för närvarande.
+
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge gateway-enhet ansluten till underordnade enheter med identiteten som tillhandahålls av IoT Edge Gateway
+
+![IoT Edge med underordnad enhet utan identitet](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
+
+IoT Edges enheten har etablerats i IoT Central och underordnade enheter som är anslutna till IoT Edge enheten. Stöd för körning av gateway som ger identitet till underordnade enheter och etablering av underordnade enheter stöds inte för närvarande. Om du använder en egen modul för identitets översättning kan IoT Central stödja det här mönstret.
 
 ## <a name="cloud-gateway"></a>Cloud Gateway
 

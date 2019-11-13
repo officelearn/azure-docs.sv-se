@@ -1,6 +1,6 @@
 ---
-title: Utgående och slut punkter i Azure Digitals flätar | Microsoft Docs
-description: Rikt linjer för hur du skapar slut punkter med Azure Digitals dubbla.
+title: Utgående och slut punkter – Azure Digitals flätar | Microsoft Docs
+description: Lär dig hur du skapar och utgångna händelse slut punkter i Azure Digitals dubbla.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822259"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010058"
 ---
-# <a name="egress-and-endpoints"></a>Utgående och slut punkter
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Utgående och slut punkter i digitala Azure-dubbla
 
 Azure Digitals dubbla *slut punkter* representerar ett meddelande eller händelse koordinator i en användares Azure-prenumeration. Händelser och meddelanden kan skickas till Azure Event Hubs, Azure Event Grid och Azure Service Bus ämnen.
 
@@ -50,9 +50,9 @@ Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbe
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
 | id | sträng | Unikt ID för händelsen. |
-| motiv | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
 | data | objekt | Händelse data som är speciella för resurs leverantören. |
-| Typ | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
 | eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
 | metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |

@@ -1,19 +1,19 @@
 ---
-title: Skapa en virtuell WAN-hubb i Azure för virtuella WAN-nätverk till styrning till NVA | Microsoft Docs
+title: 'Virtuellt WAN: Skapa virtuell hubb väg tabell till NVA: Azure PowerShell'
 description: Väg tabell för virtuell WAN-hubb som styr trafik till en virtuell nätverks installation.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 18af56f6924484c6267871cf3fed34f80a8f12a4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744703"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014996"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Skapa en väg tabell för virtuell hubb för att styra trafik till en virtuell nätverks installation
 
@@ -81,7 +81,7 @@ Se till att du installerar den senaste versionen av PowerShell-cmdletarna för R
    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
-## <a name="connections"></a>3. Skapa anslutningar
+## <a name="connections"></a>3. skapa anslutningar
 
 Skapa virtuella hubbar för virtuella nätverk från det indirekta eker VNet och DMZ VNet till den virtuella hubben.
 
@@ -95,7 +95,7 @@ Skapa virtuella hubbar för virtuella nätverk från det indirekta eker VNet och
   New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
-## <a name="route"></a>4. Skapa en virtuell hubb
+## <a name="route"></a>4. skapa en virtuell Hubbs väg
 
 I den här artikeln är de indirekta, VNet-adress utrymmena för virtuella 10.0.2.0/24 och 10.0.3.0/24, och DMZ NVA nätverks gränssnittets privata IP-adress är 10.0.4.5.
 
@@ -103,7 +103,7 @@ I den här artikeln är de indirekta, VNet-adress utrymmena för virtuella 10.0.
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
-## <a name="applyroute"></a>5. Skapa en väg tabell för virtuell hubb
+## <a name="applyroute"></a>5. skapa en väg tabell för virtuell hubb
 
 Skapa en väg tabell för virtuell hubb och tillämpa sedan den skapade vägen till den.
  
@@ -111,7 +111,7 @@ Skapa en väg tabell för virtuell hubb och tillämpa sedan den skapade vägen t
 $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
-## <a name="commit"></a>6. Genomför ändringarna
+## <a name="commit"></a>6. genomför ändringarna
 
 Genomför ändringarna i den virtuella hubben.
 

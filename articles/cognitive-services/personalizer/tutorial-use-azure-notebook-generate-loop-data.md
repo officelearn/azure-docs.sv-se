@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Azure Notebook – Personanpassare'
 titleSuffix: Azure Cognitive Services
-description: Den här självstudien simulerar en _SYSTEM i en Azure-anteckningsbok, som föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användar data uppsättning. Information om kaffeet är också tillgänglig och lagrad i en kaffe data uppsättning.
+description: Den här självstudien simulerar en studie slinga _system i en Azure-anteckningsbok, som föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användar data uppsättning. Information om kaffeet är också tillgänglig och lagrad i en kaffe data uppsättning.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 669ebbf595629e8093c51d76b0816edeb5f80f93
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467246"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007605"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
 
@@ -29,7 +29,7 @@ Antecknings boken väljer en slumpmässig användare, tid på dag och typ av vä
 
 |Kunder – kontext funktioner|Tider på dagen|Typer av väder|
 |--|--|--|
-|Anna<br>Bob<br>Cathy<br>Dave|Morgon<br>Totalt<br>Kvällen|Solig<br>RAINY<br>Tallar| 
+|Alice<br>Bob<br>Cathy<br>Dave|Morgon<br>Totalt<br>Kvällen|Solig<br>RAINY<br>Tallar| 
 
 För att hjälpa personanpassa att lära sig, med tiden, det korrekta kaffe valet för varje person, känner _systemet_ också till information om kaffeet.
 
@@ -65,7 +65,7 @@ Systemet tar emot rankningen av kaffe valen och jämför sedan förutsägelsen m
 > Detta är en simulering så att algoritmen för belöningen är enkel. I ett verkligt scenario bör algoritmen använda affärs logik, möjligt vis med vikt för olika aspekter av kundens upplevelse, för att fastställa belönings poängen. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Azure Notebook](https://notebooks.azure.com/) -konto. 
 * En [Azures personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). 
@@ -589,7 +589,7 @@ För att hitta en bättre inlärnings policy, baserat på dina data till ranknin
 1. Ange nödvändiga data för utvärderings namn och datum intervall för upprepnings utvärderingen. Datum intervallet får bara innehålla de dagar som du fokuserar på för utvärderingen. 
     Om du ![i Azure Portal öppnar du sidan utvärdering av personanpassa resurs. Välj Skapa utvärdering. Ange utvärderings namnet och datum intervallet.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    Syftet med att köra denna offline-utvärdering är att avgöra om det finns en bättre inlärnings princip för de funktioner och åtgärder som används i den här slingan. Se till att **optimerings principen** är aktive rad för att hitta den bättre inlärnings principen.
+    Syftet med att köra denna offline-utvärdering är att avgöra om det finns en bättre inlärnings princip för de funktioner och åtgärder som används i den här slingan. Se till att **optimerings identifiering** är aktiverat för att hitta den bättre inlärnings principen.
 
 1. Välj **OK** för att påbörja utvärderingen. 
 1. Sidan **utvärderings** version listar den nya utvärderingen och dess aktuella status. Den här utvärderingen kan ta lite tid beroende på hur mycket data du har. Du kan komma tillbaka till den här sidan efter några minuter för att se resultatet. 

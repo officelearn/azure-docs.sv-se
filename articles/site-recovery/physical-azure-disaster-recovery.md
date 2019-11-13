@@ -1,25 +1,24 @@
 ---
-title: Konfigurera katastrof återställning till Azure för fysiska lokala servrar med Azure Site Recovery
+title: Konfigurera katastrof återställning av fysiska lokala servrar med Azure Site Recovery
 description: Lär dig hur du konfigurerar haveri beredskap till Azure för lokala Windows-och Linux-servrar med tjänsten Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 55b375c1e98518a6c3bc2926030cfe072963216c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814550"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936172"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrof återställning till Azure för lokala fysiska servrar
 
-[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och Azure virtuella datorer.
 
-Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I den här guiden får du lära dig att:
+Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera Azure och lokala krav
@@ -28,9 +27,9 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fy
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en server
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 - Se till att du förstår [arkitekturen och komponenterna](physical-azure-architecture.md) i det här scenariot.
 - Granska [kraven för stöd](vmware-physical-secondary-support-matrix.md) för alla komponenter.
@@ -85,8 +84,8 @@ Konfigurera ett [Azure Storage-konto](../storage/common/storage-quickstart-creat
 Mobilitets tjänsten måste installeras på varje server som du vill replikera. Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för servern. Om du vill installera automatiskt måste du förbereda ett konto som Site Recovery ska använda för att få åtkomst till servern.
 
 - Du kan använda en domän eller ett lokalt konto
-- För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn. Det gör du genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**i registret under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**med värdet 1.
-- Om du vill lägga till register posten för att inaktivera inställningen från en CLI, skriver du:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn. Det gör du genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**i registret under **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**med värdet 1.
+- Om du vill lägga till register posten för att inaktivera inställningen från en CLI skriver du: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - För Linux bör kontot vara rot på käll-Linux-servern.
 
 
@@ -106,7 +105,7 @@ Välj vad du vill replikera och replikera den till.
 
 Konfigurera konfigurations servern, registrera den i valvet och identifiera virtuella datorer.
 
-1. Klicka på **Site Recovery** > **Förbered infrastruktur** > **källa**.
+1. Klicka på **Site Recovery** > **förbereda infrastruktur** > **källa**.
 2. Om du inte har en konfigurations Server klickar du på **+ konfigurations Server**.
 3. I **Lägg till Server**kontrollerar du att **konfigurations servern** visas i **Server typ**.
 4. Hämta installations filen Site Recovery Unified setup.
@@ -137,7 +136,7 @@ Kör enhetlig installation som lokal administratör för att installera konfigur
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-När registreringen är klar visas konfigurations servern på sidan **Inställningar** > **servrar** i valvet.
+När registreringen är klar visas konfigurations servern på sidan **inställningar** > **servrar** i valvet.
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
@@ -173,18 +172,18 @@ Aktivera replikering för varje server.
 1. Klicka på **Replikera program** > **Källa**.
 2. I **Källa** väljer du konfigurationsservern.
 3. I **typ av dator**väljer du **fysiska datorer**.
-4. Välj processervern (konfigurations servern). Klicka sedan på **OK**.
+4. Välj processervern (konfigurations servern). Klicka på **OK**.
 5. I **mål**väljer du den prenumeration och resurs grupp där du vill skapa virtuella Azure-datorer efter redundansväxlingen. Välj den distributions modell som du vill använda i Azure (klassisk eller resurs hantering).
 6. Välj Azure-lagringskonto som du vill använda när du replikerar data. 
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
 8. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. 
 9. I **fysiska datorer**och klicka på **+ fysisk dator**. Ange namn och IP-adress. Välj operativ system för den dator som du vill replikera. Det tar några minuter för servrarna att identifieras och visas. 
-10. I **Egenskaper** > **Konfigurera egenskaper**väljer du det konto som ska användas av processervern för att automatiskt installera mobilitets tjänsten på datorn.
+10. I **egenskaper** > **Konfigurera egenskaper**väljer du det konto som ska användas av processervern för att automatiskt installera mobilitets tjänsten på datorn.
 11. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** kontrollerar du att rätt replikeringsprincip har valts. 
 12. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 
-Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste upptäckta tiden för dem i **konfigurations servrarna** > **senaste kontakt på**. Om du vill lägga till datorer utan att vänta på en schemalagd identifierings tid markerar du konfigurations servern (Klicka inte på den) och klickar på **Uppdatera**.
+Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste upptäckta tiden för dem i **konfigurations servrar** > **senaste kontakten på**. Om du vill lägga till datorer utan att vänta på en schemalagd identifierings tid markerar du konfigurations servern (Klicka inte på den) och klickar på **Uppdatera**.
 
 ## <a name="next-steps"></a>Nästa steg
 

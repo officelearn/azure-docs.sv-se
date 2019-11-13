@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Lägga till gästanvändare i Azure-portalen – Azure Active Directory'
+title: 'Snabb start: Lägg till gäst användare i Azure Portal-Azure Active Directory'
 description: Använd den här snabbstarten för att lära dig hur Azure AD-administratörer kan lägga till B2B-gästanvändare i Azure-portalen och gå igenom arbetsflödet för B2B-inbjudan.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91ec337a3237e1bde54b42463d97a803f113c7c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 064af4f54f3d3069c7e04a66cc7248dbfaa7ba0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813142"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008557"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Snabbstart: Lägga till gästanvändare till din katalog i Azure-portalen
 
@@ -27,9 +27,9 @@ I den här snabbstarten får du lägga till en ny gästanvändare i Azure AD, sk
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att kunna slutföra scenariot i den här självstudien behöver du:
+För att slutföra scenariot i den här självstudien behöver du:
 
  - En roll som gör att du kan skapa användare i din klientkatalog, som rollen Global administratör eller någon av de begränsade katalogadministratörsrollerna.
  - Ett giltigt e-postkonto som du kan lägga till i din klientkatalog och som du kan använda för att ta emot e-postmeddelandet med testinbjudan.
@@ -40,15 +40,19 @@ För att kunna slutföra scenariot i den här självstudien behöver du:
 2. Välj **Azure Active Directory** i den vänstra rutan.
 3.  Under **Hantera** väljer du **Användare**.
 
-    ![Skärmbild som visar var du väljer alternativet användare](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Skärm bild som visar var du väljer alternativet användare](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Välj **Ny gästanvändare**.
 
-    ![Skärmbild som visar var du väljer alternativet för användare av nya gäst](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Skärm bild som visar var du väljer alternativet ny gäst användare](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5.  Under **Användarnamn** anger du den externa användarens e-postadress. Under **Inkludera ett personligt meddelande med inbjudan** skriver du ett välkomstmeddelande. 
+5. På sidan **ny användare** väljer du **Bjud in användare** och lägger sedan till gäst användarens information. 
 
-    ![Skärmbild som visar var du anger gäst inbjudan användarmeddelande](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+   - **Namn.** Det första och sista namnet på gäst användaren.
+   - **E-postadress (krävs)** . E-postadressen till gäst användaren.
+   - **Personligt meddelande (valfritt)** Ta med ett personligt välkomst meddelande till gäst användaren.
+   - **Grupper**: du kan lägga till gäst användaren i en eller flera befintliga grupper, eller så kan du göra det senare.
+   - **Katalog roll**: om du kräver administratörs behörighet för Azure AD för användaren kan du lägga till dem i en Azure AD-roll. 
 
 6. Välj **Bjud in** för att skicka inbjudan till gästanvändaren automatiskt. Ett meddelande visas längst upp till höger med meddelandet **Användaren har bjudits in**. 
 7.  När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
@@ -60,7 +64,7 @@ Lägg till Salesforce-appen till din testklient och tilldela testgästanvändare
 3.  Välj **Nytt program**.
 4. Under **Lägg till från galleriet** söker du efter **Salesforce** och väljer sedan det.
 
-    ![Skärmbild som visar guiden Lägg till från galleriet sökrutan](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Skärm bild som visar kryss rutan Lägg till från galleriet](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Välj **Lägg till**.
 6. Under **Hantera** väljer du **Enkel inloggning** och under **Läge för enkel inloggning** väljer du **Lösenordsbaserad inloggning** och klickar på  **Spara**.
 7. Under **Hantera** väljer du **Användare och grupper** > **Lägg till användare** > **Användare och grupper**.
@@ -72,11 +76,11 @@ Logga nu in som gästanvändaren för att visa inbjudan.
 1.  Logga in på testgästanvändarens e-postkonto.
 2.  Du hittar e-postmeddelandet ”Du har fått en inbjudan” i inkorgen.
 
-    ![Skärmbild som visar e-postinbjudan B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Skärm bild som visar e-postinbjudan om B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  I e-postmeddelandets brödtext väljer du **Komma igång**. Sidan **Granska behörigheter** öppnas i webbläsaren. 
 
-    ![Skärmbild som visar sidan Granska behörigheter](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Skärm bild som visar sidan gransknings behörigheter](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Välj **Acceptera**. Åtkomstpanelen öppnas och här visas de program som gästanvändaren kan komma åt.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Lägga till korrelations-ID: n i IoT-meddelanden med distribuerad spårning'
+title: 'Lägg till korrelations-ID: n i IoT-meddelanden med distribuerad spårning (för)'
 description: Lär dig hur du använder funktionen för distribuerad spårning för att spåra IoT-meddelanden i de Azure-tjänster som används av din lösning.
 author: jlian
 manager: briz
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: a6e7d2dc9b6274c07fda011bff8ec9dc59f74f95
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889446"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953156"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -30,7 +30,7 @@ Genom att aktivera distribuerad spårning för IoT Hub kan du:
 
 I den här artikeln använder du [Azure IoT-enhetens SDK för C](iot-hub-device-sdk-c-intro.md) med distribuerad spårning. Stöd för distribuerad spårning pågår fortfarande för de andra SDK: erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - För hands versionen av Distributed tracing stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 
@@ -160,7 +160,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Kör appen. Enheten skickar telemetri som stöder distribuerad spårning.
+1. Kör programmet. Enheten skickar telemetri som stöder distribuerad spårning.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
@@ -197,7 +197,7 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 1. Välj en **samplings frekvens** mellan 0% och 100%.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 1. Vänta några sekunder och klicka på **Uppdatera**, sedan visas en ikon för synkronisering med en bock om enheten har godkänts av enheten.
 
@@ -265,9 +265,9 @@ Exempel på loggar som visas i Log Analytics:
 
 | TimeGenerated | OperationName | Kategori | Nivå | CorrelationId | . Durationms | Egenskaper |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633 Z | DiagnosticIoTHubD2C | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId": "AZ3166", "messageSize": "96", "callerLocalTimeUtc": "2018-02-22T03:27:28.633 Z", "calleeLocalTimeUtc": "2018-02-22T03:27:28.687 Z"} |
-| 2018-02-22T03:28:38.633 Z | DiagnosticIoTHubIngress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled": "false", "parentSpanId": "0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633 Z | DiagnosticIoTHubEgress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType": "EventHub", "endpointName": "myEventHub", "parentSpanId": "0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled": "false", "parentSpanId": "0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType": "EventHub", "endpointName": "myEventHub", "parentSpanId": "0144d2590aacd909"} |
 
 Information om de olika typerna av loggar finns i [Azure IoT Hub diagnostikloggar](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 

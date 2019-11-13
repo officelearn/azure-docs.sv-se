@@ -1,6 +1,6 @@
 ---
-title: Så här övervakar och minskar du begränsningen i Azure Time Series Insights | Microsoft Docs
-description: Den här artikeln beskriver hur du övervakar, diagnostiserar och minimerar prestanda problem som orsakar latens och begränsning i Azure Time Series Insights.
+title: Så här övervakar och minskar du begränsnings Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du övervakar, diagnostiserar och minimerar prestanda problem som orsakar latens och begränsning i Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4e82cdf43f568b6415cb7cb00ce0244654559b7d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990138"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012644"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights
 
@@ -63,8 +63,8 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som or
    |**Ingress mottagna meddelanden**   | Antal meddelanden som lästs från alla händelse källor för Event Hubs eller IoT Hub.        |
    |**Inkommande lagrade byte**     | Total storlek på händelser som lagras och är tillgängliga för fråga. Storleken beräknas bara för egenskap svärdet.        |
    |**Ingress lagrade händelser**     |   Antal utplattade händelser som lagras och är tillgängliga för fråga.      |
-   |**Mottagnings tid för mottagna meddelanden, fördröjning**    |  Skillnaden i sekunder mellan den tid som meddelandet står i kö i händelse källan och den tid det bearbetas i ingress.      |
-   |Antal ingångar **mottagna meddelanden, fördröjning**    |  Skillnaden mellan sekvensnumret för det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för det meddelande som bearbetas i ingress.      |
+   |**Ingångs tid för mottagna meddelanden, fördröjning**    |  Skillnaden i sekunder mellan den tid som meddelandet står i kö i händelse källan och den tid det bearbetas i ingress.      |
+   |Antal ingångar för **mottagna meddelanden, fördröjning**    |  Skillnaden mellan sekvensnumret för det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för det meddelande som bearbetas i ingress.      |
 
    Välj **Done** (Klar).
 
@@ -74,7 +74,7 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som or
 
 ## <a name="throttling-and-ingress-management"></a>Hantering av begränsning och drifts hantering
 
-* Om du är begränsad kommer du att se ett värde för *fördröjningen för ingångs meddelanden*, informerar dig om hur många sekunder som ligger bakom din Time Series Insights-miljö från den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden av appx. 30-60 sekunder).  
+* Om du är begränsad kommer du att se ett värde för *fördröjningen inaktive rad meddelande tid*, informerar dig om hur många sekunder som ligger bakom din Time Series Insights-miljö från den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
 
   Ingångs *antalet mottagna meddelande antals fördröjning* bör också ha ett värde, så att du kan bestämma hur många meddelanden som ligger bakom dig.  Det enklaste sättet att komma igång är att öka din miljös kapacitet till en storlek som gör det möjligt för dig att undvika skillnaden.  
 

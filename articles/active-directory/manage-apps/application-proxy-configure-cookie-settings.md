@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5f1b41e345caafdc465872c948be76c31d55e8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7287e32fbeff751bddf91bed32afeeae84f9378c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928861"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014521"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-inställningar för åtkomst till lokala program i Azure Active Directory
 
@@ -34,9 +34,9 @@ Azure Active Directory (Azure AD) har åtkomst och sessionscookies för att komm
 | Använd beständig cookie | **Nej** | **Ja** tillåter att programproxyn anger att åtkomst-cookies inte upphör att gälla när webbläsaren stängs. Persistence varar tills åtkomsttoken upphör att gälla, eller tills användaren manuellt tar bort de permanenta cookies. | Använd **Nej** på grund av säkerhets risken som är kopplad till användarens autentiserade.<br></br><br></br>Vi rekommenderar att du bara använder **Ja** för äldre program som inte kan dela cookies mellan processer. Det är bättre att uppdatera ditt program för att hantera delning av cookies mellan processer i stället för att använda beständiga cookies. Du kan till exempel behöva beständiga cookies för att tillåta att en användare öppnar Office-dokument i Utforskarvyn från en SharePoint-webbplats. Utan permanenta cookies kan den här åtgärden Miss Miss kan uppstå om åtkomst-cookies inte delas mellan webbläsaren, Explorer-processen och Office-processen. |
 
 ## <a name="samesite-cookies"></a>SameSite cookies
-Från och med version [Chrome 80](https://support.google.com/chrome/a/answer/7679408?hl=en) och slutligen i webbläsare som använder [krom](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html), kommer cookies som inte anger attributet [SameSite](https://web.dev/samesite-cookies-explained) att behandlas som om de var inställda på **SameSite = lax**. Attributet SameSite deklarerar hur cookies ska begränsas till en kontext på samma plats. När värdet är inställt på lax, skickas cookien endast till begäran om samma plats eller navigering på den översta nivån. Programproxyn kräver dock att dessa cookies bevaras i den tredje partens sammanhang för att användarna ska vara korrekt inloggade under sessionen. På grund av detta gör vi uppdateringar till programproxyns åtkomst och sessionscookies för att undvika negativ påverkan på den här ändringen. Uppdateringarna omfattar:
+Från och med version Chrome 80 och slutligen i webbläsare som använder krom, kommer cookies som inte anger attributet [SameSite](https://web.dev/samesite-cookies-explained) att behandlas som om de var inställda på **SameSite = lax**. Attributet SameSite deklarerar hur cookies ska begränsas till en kontext på samma plats. När värdet är inställt på lax, skickas cookien endast till begäran om samma plats eller navigering på den översta nivån. Programproxyn kräver dock att dessa cookies bevaras i den tredje partens sammanhang för att användarna ska vara korrekt inloggade under sessionen. På grund av detta gör vi uppdateringar till programproxyns åtkomst och sessionscookies för att undvika negativ påverkan på den här ändringen. Uppdateringarna omfattar:
 
-* **SameSite** -attributet anges till **ingen**– detta gör att programproxy-åtkomst och sessioner cookies kan skickas korrekt i den tredje partens kontext.
+* Anger attributet **SameSite** till **none**. Detta gör att programproxy-åtkomst och sessioner av cookies kan skickas korrekt i den tredje partens sammanhang.
 * Ställer in inställningen **Använd säker cookie** så att den använder **Ja** som standard. Chrome kräver också att cookies anger den säkra flaggan eller avvisas. Den här ändringen gäller för alla befintliga program som publicerats via programproxy. Observera att Access-cookies för programproxy alltid har angetts till säker och endast skickas via HTTPS. Den här ändringen gäller endast för sessionscookies.
 
 De här ändringarna i Application Proxy-cookies kommer att distribueras under de kommande två veckorna innan versions datumet för Chrome 80.
@@ -53,7 +53,7 @@ Ange cookie-inställningar med hjälp av Azure Portal:
 3. Välj det program som du vill aktivera en cookie-inställning för.
 4. Klicka på **Application Proxy**.
 5. Under **ytterligare inställningar**ställer du in cookie-inställningen på **Ja** eller **Nej**.
-6. Klicka på **Spara** för att tillämpa ändringarna. 
+6. Klicka på **spara** att tillämpa ändringarna. 
 
 ## <a name="view-current-cookie-settings---powershell"></a>Visa aktuella cookie-inställningar – PowerShell
 

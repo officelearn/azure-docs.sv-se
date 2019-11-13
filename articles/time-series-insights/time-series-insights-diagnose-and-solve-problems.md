@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera, Felsök och lös problem i Azure Time Series Insights | Microsoft Docs
-description: Den här artikeln beskriver hur du diagnostiserar, felsöker och löser vanliga problem som kan uppstå i din Azure Time Series Insightss miljö.
+title: Diagnostisera, Felsök och lös problem – Azure Time Series Insights | Microsoft Docs
+description: Den här artikeln beskriver hur du diagnostiserar, felsöker och löser vanliga problem i din Azure Time Series Insightss miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c9dcdf43e819e20126f948fa08f4f8f476036ac
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991259"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007052"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insightss miljö
 
@@ -34,7 +34,7 @@ Inga data i [Azure Time Series Insights Explorer](https://insights.timeseries.az
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak till: händelse källans data är inte i JSON-format
 
-Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-former som stöds](./how-to-shape-query-json.md).
+Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse käll nyckeln saknar en nödvändig behörighet
 
@@ -44,7 +44,7 @@ Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-
 
 * För en Event Hub i Azure Event Hubs måste du ange den nyckel som har **avlyssnings** behörigheter. Någon av metoderna för att **läsa** eller **Hantera** fungerar eftersom båda har **avlyssnings** behörighet.
 
-   [lyssnande behörigheter för![Event Hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [lyssnande behörigheter för ![Event Hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Orsak C: den angivna konsument gruppen är inte exklusiv för Time Series Insights
 

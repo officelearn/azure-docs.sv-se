@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747289"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012942"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -124,7 +124,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ## <a name="download-azure-backup-server-installer"></a>Hämta Azure Backup Server installations program
 
-Det finns två sätt att ladda ned installations programmet för Azure Backup Server. Du kan hämta installations programmet för Azure Backup Server från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55269). Du kan också hämta Azure Backup Server Installer när du konfigurerar ett Recovery Services-valv. Följande steg beskriver hur du hämtar installations programmet från Azure Portal när du konfigurerar ett Recovery Services-valv.
+Det finns två sätt att ladda ned installations programmet för Azure Backup Server. Du kan hämta installations programmet för Azure Backup Server från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55269). Du kan också hämta Azure Backup Server Installer när du konfigurerar ett Recovery Services-valv. Följande steg beskriver hur du hämtar installations programmet från Azure Portal när du konfigurerar ett Recovery Services-valv.
 
 1. [Logga in på din Azure-prenumeration i Azure Portal](https://portal.azure.com/)från din Azure Stack virtuella dator.
 2. Välj **alla tjänster**i den vänstra menyn.
@@ -332,10 +332,10 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Gett |Gett |Gett |Gett |
+| Ansluten |Aktiv |Gett |Gett |Gett |Gett |
 | Ansluten |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Gett |Gett |
+| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Gett |Gett |
 | Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 

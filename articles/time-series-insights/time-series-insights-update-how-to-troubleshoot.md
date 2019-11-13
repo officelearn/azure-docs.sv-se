@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera och Felsök Azure Time Series Insights för hands version | Microsoft Docs
-description: Förstå hur du diagnostiserar och felsöker med Azure Time Series Insights för hands version.
+title: Diagnostisera och Felsök en för hands versions miljö – Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du diagnostiserar och felsöker en Azure Time Series Insights Preview-miljö.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b65edbd808abd6ff660ef00a8a680b4d3f0846c
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989891"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014782"
 ---
-# <a name="diagnose-and-troubleshoot"></a>Diagnostisera och felsöka
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostisera och Felsök en för hands versions miljö
 
 I den här artikeln sammanfattas flera vanliga problem som kan uppstå när du arbetar med din Azure Time Series Insights för hands versions miljö. Artikeln beskriver också möjliga orsaker och lösningar för varje problem.
 
@@ -39,7 +39,7 @@ Det finns flera vanliga orsaker till varför du kanske inte ser dina data i [Azu
 
 - Händelsens källdata är inte i JSON-format.
 
-    Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-former som stöds](./how-to-shape-query-json.md).
+    Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
 
 - Din händelse käll nyckel saknar en nödvändig behörighet.
 
@@ -74,10 +74,10 @@ Du kan skicka data utan tids serie-ID.
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problem: min händelse källas egenskaps namn för tidsstämpel fungerar inte
 
-Kontrol lera att namnet och värdet följer följande regler:
+Se till att namnet och värdet överensstämmer med följande regler:
 
 * Egenskaps namnet för tidsstämpeln är Skift läges känsligt.
-* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har formatet `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Ett exempel på en sådan sträng är `“2008-04-12T12:53Z”`.
+* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har formatet `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Ett exempel på sådana en sträng är `“2008-04-12T12:53Z”`.
 
 Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Preview Explorer. I Time Series Insights Preview Explorer använder du diagrammet för att välja en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj alternativet för att **utforska händelser** . Den första kolumn rubriken är namnet på Tidsstämpelns egenskap. Den bör ha `($ts)` bredvid ordet `Timestamp`i stället för:
 

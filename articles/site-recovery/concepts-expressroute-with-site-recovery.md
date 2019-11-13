@@ -1,5 +1,5 @@
 ---
-title: Om att använda Azure-ExpressRoute med Azure Site Recovery för haveri beredskap och migrering | Microsoft Docs
+title: Om att använda ExpressRoute med Azure Site Recovery
 description: Beskriver hur du använder Azure-ExpressRoute med Azure Site Recovery tjänsten för haveri beredskap och migrering.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 97aea824fac60f8bed71971a416f12e8df0e5e64
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333056"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954077"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure-ExpressRoute med Azure Site Recovery
 
@@ -23,7 +23,7 @@ I den här artikeln beskrivs hur du kan använda Azure-ExpressRoute med Azure Si
 
 ## <a name="expressroute-circuits"></a>ExpressRoute-kretsar
 
-En ExpressRoute-krets representerar en logisk anslutning mellan din lokala infrastruktur och Microsofts moln tjänster via en anslutnings leverantör. Du kan beställa flera ExpressRoute-kretsar. Varje krets kan finnas i samma eller olika regioner och kan anslutas till dina lokaler via olika anslutnings leverantörer. Lär dig mer om ExpressRoute-kretsar [här](../expressroute/expressroute-circuit-peerings.md).
+En ExpressRoute-krets representerar en logisk anslutning mellan din lokala infrastruktur och Microsofts molntjänster via en anslutningsleverantör. Du kan beställa flera ExpressRoute-kretsar. Varje krets kan finnas i samma eller olika regioner och kan vara ansluten till ditt lokala nätverk via olika anslutningsleverantörer. Lär dig mer om ExpressRoute-kretsar [här](../expressroute/expressroute-circuit-peerings.md).
 
 En ExpressRoute-krets har flera kopplade routningsdomäner. Lär dig mer om och jämför ExpressRoute-routningsdomäner [här](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
@@ -46,7 +46,7 @@ Detta säkerställer att endast replikeringstrafik flödar genom ExpressRoute me
 
 När virtuella datorer eller servrar växlar över till ett virtuellt Azure-nätverk kan du komma åt dem via [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
-Det kombinerade scenariot representeras i följande diagram: ![On-premises-to-Azure med ExpressRoute @ no__t-1
+Det kombinerade scenariot visas i följande diagram: ![lokalt till Azure med ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Azure till Azure-replikering med ExpressRoute
 

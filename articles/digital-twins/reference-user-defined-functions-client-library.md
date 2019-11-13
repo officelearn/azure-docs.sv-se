@@ -1,5 +1,5 @@
 ---
-title: Azure Digitals dubblare användardefinierade funktions referenser | Microsoft Docs
+title: Klient biblioteks referens för användardefinierade funktioner – Azure Digitals, dubblare | Microsoft Docs
 description: Azure Digitals dubbla användares klient biblioteks referens för användar definierade funktioner.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: article
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: daab63067087267c12cef75178b5f974043e0fd9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0bbf247adbeab89cf8b16ed089eb13e53cf501f5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931231"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009223"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Klient biblioteks referens för användardefinierade funktioner
 
@@ -32,7 +32,7 @@ Med en utrymmes identifierare hämtar den här funktionen utrymmet från grafen.
 
 | Parameter  | Typ                | Beskrivning  |
 | ---------- | ------------------- | ------------ |
-| *identitet*  | `guid` | Utrymmes identifierare |
+| *id*  | `guid` | Utrymmes identifierare |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒ `sensor`
 
@@ -42,7 +42,7 @@ Med den här funktionen hämtar sensor identifieraren från grafen.
 
 | Parameter  | Typ                | Beskrivning  |
 | ---------- | ------------------- | ------------ |
-| *identitet*  | `guid` | Sensor identifierare |
+| *id*  | `guid` | Sensor identifierare |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒ `device`
 
@@ -52,7 +52,7 @@ Med en enhets identifierare hämtar den här funktionen enheten från grafen.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *identitet* | `guid` | Enhets identifierare |
+| *id* | `guid` | Enhets identifierare |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, datatyp) ⇒ `value`
 
@@ -74,7 +74,7 @@ Med en utrymmes identifierare och värde namnet hämtar den här funktionen det 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | Utrymmes identifierare |
-| *Värdets namn* | `string` | Utrymmes egenskaps namn |
+| *valueName* | `string` | Utrymmes egenskaps namn |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, datatyp) ⇒ `value[]`
 
@@ -96,9 +96,9 @@ Med en blank stegs identifierare och värde namnet hämtar den här funktionen d
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
-| *Värdets namn* | `string` | Utrymmes egenskaps namn |
+| *valueName* | `string` | Utrymmes egenskaps namn |
 
-### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces (spaceId) ⇒ `space[]`
+### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
 Med en utrymmes identifierare hämtar den här funktionen de underordnade utrymmena för det överordnade utrymmet.
 
@@ -138,7 +138,7 @@ Med en enhets identifierare hämtar den här funktionen de underordnade sensorer
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Enhets identifierare |
 
-### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace (childSpaceId) ⇒ `space`
+### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
 Med en utrymmes identifierare hämtar den här funktionen sitt överordnade utrymme.
 
@@ -302,7 +302,7 @@ Den här funktionen returnerar värdet för det aktuella utrymmet.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *Värdets namn* | `string` | Namn på värdet |
+| *valueName* | `string` | Namn på värdet |
 
 #### <a name="historyvaluename--value"></a>Historik (valueName) ⇒ `value[]`
 
@@ -310,7 +310,7 @@ Den här funktionen returnerar de historiska värdena för det aktuella utrymmet
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *Värdets namn* | `string` | Namn på värdet |
+| *valueName* | `string` | Namn på värdet |
 
 #### <a name="notifypayload"></a>Meddela (nytto Last)
 

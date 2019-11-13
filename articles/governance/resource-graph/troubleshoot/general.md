@@ -1,17 +1,14 @@
 ---
 title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med frågor till Azure-resurser med Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: troubleshooting
-ms.service: resource-graph
-ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e8f42650265b1ca400731365203408eeb22a4e4c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389693"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958525"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Felsöka fel med Azure Resource Graph
 
@@ -33,7 +30,7 @@ Kunder med till gång till fler än 1000 prenumerationer, inklusive prenumeratio
 
 Azure CLI och PowerShell vidarebefordrar bara de första 1000 prenumerationerna till Azure Resource Graph. REST API för Azure Resource Graph accepterar maximalt antal prenumerationer som frågan kan utföras på.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Batch-begäranden för frågan med en delmängd av prenumerationerna kvar under prenumerations gränsen på 1000. Lösningen använder **prenumerations** parametern i PowerShell.
 
@@ -68,9 +65,9 @@ Kunder som frågar Azure Resource Graph REST API får ett _500_ -svar (internt S
 
 #### <a name="cause"></a>Orsak
 
-Azures resurs diagram REST API bara stöd för en `Content-Type` av **Application/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
+Azures resurs diagram REST API bara stöd för en `Content-Type` av **programmet/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Kontrol lera att verktyget eller agenten som du använder för att fråga Azure Resource Graph har REST API huvud `Content-Type` konfigurerat för **Application/JSON**.
 
@@ -84,7 +81,7 @@ Kunder som uttryckligen skickar en lista över prenumerationer med en Azure-resu
 
 Om kunden inte har Läs behörighet till alla angivna prenumerationer, nekas begäran på grund av brist på rätt behörighet.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Inkludera minst en prenumeration i prenumerations listan som kunden som kör frågan har minst Läs behörighet till. Mer information finns i [behörigheter i Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 

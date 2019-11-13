@@ -4,15 +4,15 @@ description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som regi
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4b2ce1253fd4421b36105fdbae68c6e89173a3c6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ee8f0f88f1e60c6e8b5da34a165757694f52dcbb
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615465"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005396"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
@@ -81,10 +81,10 @@ Slutligen lägger du till en eller flera **Authorization** -poster i planen. Auk
 
 För varje **auktorisering**måste du ange följande. Du kan sedan välja **ny auktorisering** så många gånger som behövs för att lägga till fler användare och roll definitioner.
 
-  - **Azure AD-objekt-ID**: Azure AD-identifieraren för en användare, användar grupp eller ett program som kommer att beviljas vissa behörigheter (som beskrivs av roll definitionen) till dina kunders resurser.
-  - **Visnings namn för Azure AD-objekt**: ett eget namn som hjälper kunden att förstå syftet med den här auktoriseringen. Kunden ser det här namnet när resurser delegeras.
-  - **Roll definition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Beskrivningar av dessa roller finns [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) och [roll stöd för Azure-delegerad resurs hantering](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
-  - **Tilldelnings bara roller**: detta krävs endast om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen. I så fall måste du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), vilket krävs för att [distribuera principer som kan åtgärdas](deploy-policy-remediation.md). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. Om du inte väljer en eller flera roller här skickas inte certifieringen. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
+- **Azure AD-objekt-ID**: Azure AD-identifieraren för en användare, användar grupp eller ett program som kommer att beviljas vissa behörigheter (som beskrivs av roll definitionen) till dina kunders resurser.
+- **Visnings namn för Azure AD-objekt**: ett eget namn som hjälper kunden att förstå syftet med den här auktoriseringen. Kunden ser det här namnet när resurser delegeras.
+- **Roll definition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Beskrivningar av dessa roller finns [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) och [roll stöd för Azure-delegerad resurs hantering](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
+- **Tilldelnings bara roller**: detta krävs endast om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen. I så fall måste du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), vilket krävs för att [distribuera principer som kan åtgärdas](deploy-policy-remediation.md). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. Om du inte väljer en eller flera roller här skickas inte certifieringen. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
 
 > [!TIP]
 > I de flesta fall vill du tilldela behörigheter till en användar grupp eller ett tjänst huvud namn i Azure AD, i stället för till en serie med enskilda användar konton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera om planen när dina åtkomst krav ändras. Ytterligare rekommendationer finns i [klienter, roller och användare i Azure Lighthouse-scenarier](../concepts/tenants-users-roles.md).
@@ -143,62 +143,15 @@ När du har slutfört alla avsnitt är nästa steg att publicera erbjudandet på
 
 ## <a name="the-customer-onboarding-process"></a>Kundens onboarding-process
 
-När en kund lägger till erbjudandet kommer de att kunna [delegera en eller flera specifika prenumerationer eller resurs grupper](view-manage-service-providers.md#delegate-resources) som sedan kommer att registreras för Azure-delegerad resurs hantering. Om en kund har accepterat ett erbjudande men ännu inte har delegerat några resurser visas en anteckning längst upp i avsnittet **leverantörs erbjudanden** på sidan [**tjänst leverantörer**](view-manage-service-providers.md) i Azure Portal. Om en användare i kundens klient organisation inte kan utföra den här delegeringen beror det förmodligen på att de inte har ägar rollen för prenumerationen. Om du vill hitta användare som kan delegera prenumerationen kan användaren välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+När en kund lägger till ditt erbjudande kan de [delegera en eller flera specifika prenumerationer eller resurs grupper](view-manage-service-providers.md#delegate-resources)som sedan kommer att registreras för Azure-delegerad resurs hantering. Om en kund har accepterat ett erbjudande men ännu inte har delegerat några resurser visas en anteckning längst upp i avsnittet **leverantörs erbjudanden** på sidan [**tjänst leverantörer**](view-manage-service-providers.md) i Azure Portal.
 
-Innan en prenumeration (eller resurs grupper inom en prenumeration) kan registreras måste prenumerationen vara auktoriserad för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören. En användare i kundens klient organisation med rollen deltagare eller ägare kan göra detta genom att följa stegen som beskrivs i [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md).
+> [!IMPORTANT]
+> Delegeringen måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har registrerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
-Kunden kan sedan bekräfta att prenumerationen är redo för onboarding på något av följande sätt.
+När kunden delegerar en prenumeration (eller en eller flera resurs grupper inom en prenumeration) registreras **Microsoft. ManagedServices** Resource Provider för den prenumerationen och användare i din klient organisation kan komma åt de delegerade resurserna enligt auktoriseringarna i ditt erbjudande.
 
-### <a name="azure-portal"></a>Azure Portal
-
-1. I Azure Portal väljer du prenumerationen.
-1. Välj **Resursprovidrar**.
-1. Bekräfta att **Microsoft. ManagedServices** visas som **registrerade**.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-Detta bör returnera resultat som liknar följande:
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-Detta bör returnera resultat som liknar följande:
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> För närvarande kan inte prenumerationer (eller resurs grupper inom en prenumeration) delegeras om prenumerationen använder Azure Databricks. Om en prenumeration (eller resurs grupper i en prenumeration) redan har delegerats är det för närvarande inte möjligt att skapa Databricks-arbetsytor i den prenumerationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

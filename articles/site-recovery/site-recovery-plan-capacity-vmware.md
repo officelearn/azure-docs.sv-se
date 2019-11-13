@@ -1,5 +1,5 @@
 ---
-title: Planera kapacitet och skalning för VMware haveri beredskap till Azure med hjälp av Azure Site Recovery | Microsoft Docs
+title: Planera kapacitet för VMware haveri beredskap med Azure Site Recovery
 description: Den här artikeln hjälper dig att planera kapacitet och skalning när du konfigurerar haveri beredskap för virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 author: nsoneji
 manager: garavd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747900"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961360"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware haveri beredskap till Azure
 
@@ -24,9 +24,9 @@ Om du vill veta mer om Azure Site Recovery infrastruktur krav kan du samla in in
 
 Site Recovery Deployment Planner innehåller en rapport med fullständig information om kompatibla och inkompatibla virtuella datorer, diskar per virtuell dator och data omsättning per disk. Verktyget sammanfattar också kraven på nätverks bandbredd för att uppfylla mål återställnings miljön och den Azure-infrastruktur som krävs för lyckad replikering och redundanstest.
 
-## <a name="capacity-considerations"></a>Kapacitets överväganden
+## <a name="capacity-considerations"></a>Överväganden för kapacitet
 
-Komponent | Information
+Komponent | Detaljer
 --- | ---
 **Replikering** | **Högsta dagliga ändrings frekvens**: en skyddad dator kan bara använda en processerver. En enda processerver kan hantera en daglig ändrings hastighet på upp till 2 TB. 2 TB är alltså den maximala dagliga data ändrings hastigheten som stöds för en skyddad dator.<br /><br /> **Maximalt data flöde**: en replikerad dator kan tillhöra ett lagrings konto i Azure. Ett standard Azure Storage konto kan hantera högst 20 000 förfrågningar per sekund. Vi rekommenderar att du begränsar antalet in-/utdata-åtgärder per sekund (IOPS) över en käll dator till 20 000. Om du till exempel har en käll dator som har fem diskar och varje disk genererar 120 IOPS (8 K i storlek) på käll datorn, är käll datorn i Azure per disk IOPS-gräns på 500. (Antalet lagrings konton som krävs motsvarar den totala käll datorns IOPS dividerat med 20 000.)
 **Konfigurationsserver** | Konfigurations servern måste kunna hantera den dagliga ändrings takten för alla arbets belastningar som körs på skyddade datorer. Konfigurations datorn måste ha tillräcklig bandbredd för att kontinuerligt replikera data till Azure Storage.<br /><br /> Ett bra tips är att placera konfigurations servern på samma nätverks-och LAN-segment som de datorer som du vill skydda. Du kan placera konfigurations servern i ett annat nätverk, men datorer som du vill skydda bör ha nivå 3-nätverks synlighet.<br /><br /> Storleks rekommendationer för konfigurations servern sammanfattas i tabellen i följande avsnitt.
@@ -79,8 +79,8 @@ När du använder [Site Recovery distributions planeraren](site-recovery-deploym
 
 * **Begränsa bandbredd**: VMware-trafik som replikeras till Azure går genom en speciell processerver. Du kan begränsa bandbredden på de datorer som kör som process servrar.
 * **Påverka bandbredd**: du kan påverka bandbredden som används för replikering med hjälp av ett par register nycklar:
-  * Registervärdet **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Replication\UploadThreadsPerVM** anger antalet trådar som används för data överföring (inledande eller delta-replikering) på en disk. Ett högre värde ökar nätverks bandbredden som används för replikering.
-  * Registervärdet **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Replication\DownloadThreadsPerVM** anger antalet trådar som används för data överföring under återställning efter fel.
+  * Registervärdet **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication\UploadThreadsPerVM** anger antalet trådar som används för data överföring (inledande eller delta-replikering) på en disk. Ett högre värde ökar nätverks bandbredden som används för replikering.
+  * Registervärdet **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication\DownloadThreadsPerVM** anger antalet trådar som används för data överföring under återställning efter fel.
 
 ### <a name="throttle-bandwidth"></a>Begränsa bandbredden
 
@@ -102,7 +102,7 @@ Du kan också ange begränsningar med hjälp av cmdleten [Set-OBMachineSetting](
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>Ändra nätverks bandbredden för en virtuell dator
 
-1. I VM-registret går du till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Replication**.
+1. I registret för den virtuella datorn går du till **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication**.
    * Ändra värdet för **UploadThreadsPerVM**för att ändra bandbredds trafik på en replikerande disk. Skapa nyckeln om den inte finns.
    * Ändra värdet för **DownloadThreadsPerVM**för att ändra bandbredden för återställning av återställnings trafik från Azure.
 2. Standardvärdet för varje nyckel är **4**. I ett ”överetablerat” nätverk bör du ändra registernycklarnas standardvärden. Det maximala värdet som du kan använda är **32**. Övervaka trafiken för att optimera värdet.

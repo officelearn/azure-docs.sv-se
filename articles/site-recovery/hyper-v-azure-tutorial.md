@@ -1,19 +1,19 @@
 ---
-title: Konfigurera haveri beredskap för lokala virtuella Hyper-V-datorer (utan VMM) till Azure med Site Recovery | Microsoft Docs
+title: Konfigurera haveri beredskap för Hyper-V med hjälp av Azure Site Recovery
 description: Lär dig hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer (utan VMM) till Azure med hjälp av Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 446c870ba60d7931fafb9f9b1c7e8fc017f60e4d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2270cd8ace347992f6a5a1166986b878404fc7fe
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933870"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954037"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "72933870"
 
 Detta är den tredje självstudien i en serie. Det visar hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure. I den här självstudien används virtuella Hyper-V-datorer som inte hanteras av Microsoft System Center Virtual Machine Manager (VMM).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Väljer replikeringskälla och mål.
@@ -43,7 +43,7 @@ Detta är den tredje självstudien i en serie. Det förutsätter att du redan ha
 1. [Förbereda Azure](tutorial-prepare-azure.md)
 2. [Förbereda lokala Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
 
-## <a name="select-a-replication-goal"></a>Väljer ett replikeringsmål
+## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
 
 1. I Azure Portal går du till **Recovery Services valv** och väljer valvet. Vi för beredde valvet **ContosoVMVault** i föregående självstudie.
 2. I **komma igång**väljer du **Site Recovery**och väljer sedan **Förbered infrastruktur**.
@@ -123,7 +123,7 @@ Välj och verifiera mål resurser:
 
 Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-## <a name="set-up-a-replication-policy"></a>Konfigurera en replikeringsprincip
+## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
 1. Välj **Förbered infrastruktur** > **replikeringsinställningar** >  **+ skapa och koppla**.
 2. I **Princip för att skapa och koppla** anger du ett principnamn. Vi använder **ContosoReplicationPolicy**.

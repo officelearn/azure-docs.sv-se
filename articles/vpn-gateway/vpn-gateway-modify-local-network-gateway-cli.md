@@ -1,6 +1,6 @@
 ---
-title: Ändra IP-adressprefixet som lokala gateway- och VPN Gateway-IP-adress | Azure | CLI | Microsoft Docs
-description: Den här artikeln beskriver hur du ändrar IP-adressprefixen för din lokala nätverksgateway med hjälp av Azure CLI.
+title: 'VPN Gateway: ändra gatewayens IP-adress inställningar: Azure CLI'
+description: Den här artikeln vägleder dig genom att ändra IP-adressprefix för din lokala nätverksgateway med hjälp av Azure CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: 20e8269f0ee7463dcff9a5f66e46ebd81cb3df84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26462f73680d35371c6a03c3224742626e8f2090
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60652878"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014966"
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Ändra gateway-inställningar för lokalt nätverk med hjälp av Azure CLI
+# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Ändra inställningar för lokal nätverksgateway med hjälp av Azure CLI
 
-Ibland ändra inställningarna för din lokala gateway-adressprefixet eller gatewayens IP-adress. Den här artikeln visar hur du ändrar inställningar för din lokala nätverksgateway. Du kan också ändra dessa inställningar med hjälp av en annan metod genom att välja ett annat alternativ i listan nedan:
+Ibland är inställningarna för det lokala Nätverksgatewayen eller IP-adressen ändring i Gateway. Den här artikeln visar hur du ändrar inställningarna för din lokala nätverksgateway. Du kan också ändra dessa inställningar med en annan metod genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -35,7 +35,7 @@ Ibland ändra inställningarna för din lokala gateway-adressprefixet eller gate
 
 ## <a name="before"></a>Innan du börjar
 
-Installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Installera den senaste versionen av CLI-kommandona (2,0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -43,11 +43,11 @@ Installera den senaste versionen av CLI-kommandona (2.0 eller senare). Informati
 
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-## <a name="gwip"></a>Ändra gatewayens IP-adress
+## <a name="gwip"></a>Ändra IP-adressen för gatewayen
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan kontrollera din gateway-anslutning. Se [verifiera en gatewayanslutning](vpn-gateway-verify-connection-resource-manager.md).
+Du kan verifiera din gateway-anslutning. Se [Verifiera en gateway-anslutning](vpn-gateway-verify-connection-resource-manager.md).
 

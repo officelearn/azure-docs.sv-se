@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure IoT Hub-modulidentitet och -modultvilling (.NET) | Microsoft Docs
+title: Kom igång med Azure IoT Hub module Identity & modul, dubbla (.NET)
 description: Lär dig att skapa modulidentitet och uppdatera modultvillingar med IoT SDK:er för .NET.
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: abf8b18d13e2990f053dd4273645dd7b9a324c77
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147750"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73947668"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Kom igång med IoT Hub modulens identitet och modul, dubbla (.NET)
 
@@ -31,7 +31,7 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 > [!NOTE]
 > Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Visual Studio.
 
@@ -53,11 +53,11 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
 I det här avsnittet skapar du en .NET-konsolapp på din simulerade enhet som uppdaterar modultvillingens rapporterade egenskaper.
 
-Innan du börjar ska du hämta anslutnings strängen för din modul. Logga in på [Azure Portal](https://portal.azure.com/). Navigera till din hubb och välj **IoT-enheter**. Hitta **t myfirstdevice**. Välj **t myfirstdevice** för att öppna den och välj sedan **myFirstModule** för att öppna den. I **modulens identitets information**kopierar du **anslutnings strängen (primär nyckel)** vid behov i följande procedur.
+Innan du börjar ska du hämta anslutnings strängen för din modul. Logga in på [Azure-portalen](https://portal.azure.com/). Navigera till din hubb och välj **IoT-enheter**. Hitta **t myfirstdevice**. Välj **t myfirstdevice** för att öppna den och välj sedan **myFirstModule** för att öppna den. I **modulens identitets information**kopierar du **anslutnings strängen (primär nyckel)** vid behov i följande procedur.
 
    ![Information om Azure-portalmodulen](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. I Visual Studio lägger du till ett nytt projekt i lösningen genom att välja **Arkiv** > **nytt** > **projekt**. I skapa ett nytt projekt väljer du **konsol program (.NET Framework)** och väljer **Nästa**.
+1. I Visual Studio lägger du till ett nytt projekt i lösningen genom att välja **arkiv** > **nytt** > **projekt**. I skapa ett nytt projekt väljer du **konsol program (.NET Framework)** och väljer **Nästa**.
 
 1. Ge projektet namnet *UpdateModuleTwinReportedProperties*. För **lösning**väljer **du Lägg till i lösning**. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare.
 
@@ -151,7 +151,7 @@ Innan du börjar ska du hämta anslutnings strängen för din modul. Logga in p�
 
     Det är kodexemplet visar hur du hämtar modultvillingen och uppdaterar rapporterade egenskaper med AMQP-protokollet. I offentlig förhandsversion stöder vi endast AMQP för modultvillingåtgärder.
 
-1. Alternativt kan du lägga till dessa instruktioner i **huvud** metoden för att skicka en händelse till IoT Hub från modulen. Placera raderna under `try catch` blocket.
+1. Alternativt kan du lägga till dessa instruktioner i **huvud** metoden för att skicka en händelse till IoT Hub från modulen. Placera dessa rader under `try catch` blocket.
 
     ```csharp
     Byte[] bytes = new Byte[2];
@@ -162,7 +162,7 @@ Innan du börjar ska du hämta anslutnings strängen för din modul. Logga in p�
     Console.WriteLine("Event sent to IoT Hub.");
     ```
 
-## <a name="run-the-apps"></a>Köra apparna
+## <a name="run-the-apps"></a>Kör apparna
 
 Nu kan du köra apparna.
 

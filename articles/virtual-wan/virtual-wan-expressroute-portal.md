@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Virtual WAN för att skapa ExpressRoute-anslutningar till Azure och lokala miljöer | Microsoft Docs
+title: 'Azure Virtual WAN: skapa ExpressRoute-anslutningar'
 description: I den här självstudien lär du dig att använda Azure Virtual WAN för att skapa ExpressRoute-anslutningar till Azure och lokala miljöer.
 services: virtual-wan
 author: cherylmc
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 8ad86280eab3041667bf9d1713ae2b4bc82a4c9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a394f93c5cc606c26ffa1cc64bf1d61617b05b8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491470"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014928"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN
 
 Den här självstudien visar hur du använder Virtual WAN för att ansluta till dina resurser i Azure över en ExpressRoute-krets. Mer information om virtuella WAN-och virtuella WAN-resurser finns i [Översikt över virtuella WAN-nätverk](virtual-wan-about.md).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt WAN

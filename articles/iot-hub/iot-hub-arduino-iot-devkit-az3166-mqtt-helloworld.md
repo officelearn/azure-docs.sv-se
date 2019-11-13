@@ -1,5 +1,5 @@
 ---
-title: Skicka meddelanden till en MQTT-server med hjälp av klient biblioteket för Azure MQTT | Microsoft Docs
+title: Skicka meddelanden till en MQTT-server med hjälp av klient biblioteket för Azure MQTT
 description: Lär dig hur du använder klient biblioteket för MQTT för att skicka meddelanden till en MQTT-Broker. Lär dig också hur du konfigurerar din mXChip IoT-DevKit som en MQTT-klient.
 author: liydu
 manager: jeffya
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 4de8b0910a2be48cc626775c5c9bc873c6e780dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 14feb02fbac800cd37da882a1872beb8269d9938
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889552"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954243"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-Server
 
@@ -71,7 +71,7 @@ I VS Code följer du stegen nedan för att öppna och konfigurera den seriella �
 
 I den seriella övervakaren visas alla meddelanden som skickas av exempel ritningen. Skissen ansluter DevKit till Wi-Fi. När Wi-Fi-anslutningen har slutförts skickar skissen ett meddelande till MQTT-koordinatorn. Efter det skickar exemplet upprepade gånger två "iot.eclipse.org"-meddelanden med QoS 0 och QoS 1.
 
-![serie utdata](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![serial-output](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9cc7fc1ba8c7f55700505ea8fca0dea4f836e333
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9628e34b752abc8d77225a612f9f6daaf02fcbf7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243288"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010936"
 ---
 # <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Dirigera elektriska bilar med Azure Notebooks (python)
 
@@ -41,13 +41,13 @@ För att slutföra den här självstudien måste du först skapa ett Azure Maps 
 
 Om du vill skapa en Azure Maps konto prenumeration på pris nivån S1 följer du anvisningarna i [Hantera ditt Azure Maps-konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-Om du vill hämta den primära prenumerations nyckeln för ditt konto följer du anvisningarna i [Sök punkter i närheten med hjälp av Azure Maps](./tutorial-search-location.md#getkey) .
+Följ instruktionerna i [skapa ett konto och hämta din nyckel](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key)för att hämta den primära prenumerations nyckeln för ditt konto.
 
 ## <a name="create-an-azure-notebook"></a>Skapa en Azure-anteckningsbok
 
 Om du vill följa med i den här självstudien måste du skapa ett Azure Notebook-projekt och hämta och köra Jupyter Notebook-filen. Anteckningsbok-filen innehåller python-kod som implementerar scenariot i den här självstudien. Gör så här för att skapa ett Azure Notebook-projekt och ladda upp anteckningsbok-dokumentet för Jupyter:
 
-1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
+1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. Välj **Mina projekt**högst upp på den offentliga profil sidan.
 
     ![Knappen mina projekt](./media/tutorial-ev-routing/myproject.png)
@@ -76,12 +76,12 @@ För att hjälpa dig att bättre förstå de funktioner som implementeras i Note
 
   ![Knappen Kör](./media/tutorial-ev-routing/run.png)
 
-## <a name="install-project-level-packages"></a>Installera paket för projekt nivå
+## <a name="install-project-level-packages"></a>Installera på paket i projektet
 
 Om du vill köra koden i antecknings boken installerar du paket på projekt nivå genom att göra följande:
 
 1. Hämta filen [*Requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
-1. På instrument panelen för projektet väljer du **projekt inställningar**. 
+1. På instrumentpanelen för projektet väljer **Projektinställningar**. 
 1. I fönstret **projekt inställningar** väljer du fliken **miljö** och väljer sedan **Lägg till**.
 1. Under **miljö konfigurations steg**gör du följande:   
     a. I den första List rutan väljer du **krav. txt**.  
@@ -281,7 +281,7 @@ display(Image(poiRangeMap))
 
 När du har bestämt alla potentiella avgifts stationer inom det nåbara intervallet vill du veta vilken av dem som kan nås inom en kort tid. 
 
-Följande skript anropar Azure Maps [mat ris routnings-API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview), som returnerar för den angivna fordons platsen res tiden och avståndet till varje laddnings Station. Skriptet i nästa cell tolkar svaret för att hitta den närmast tillgängliga avgifts stationen med avseende på tid.
+Följande skript anropar Azure Maps [mat ris routnings-API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix), som returnerar för den angivna fordons platsen res tiden och avståndet till varje laddnings Station. Skriptet i nästa cell tolkar svaret för att hitta den närmast tillgängliga avgifts stationen med avseende på tid.
 
 Kör skriptet i följande cell för att hitta den närmaste tillgängliga avgifts stationen som kan nås i minst tids period:
 
@@ -395,7 +395,7 @@ Om du vill utforska de Azure Maps-API: er som används i den här självstudien,
 * [Publicera sökning i geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [Data uppladdning](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [Rendera-Hämta kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Publicera väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Publicera väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Hämta väg riktningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/#reference).

@@ -1,18 +1,18 @@
 ---
-title: Skapa en Programgateway med HTTP till HTTPS-omdirigering i Azure Portal
+title: Omdirigering av HTTP till HTTPS i portalen – Azure Application Gateway
 description: Lär dig hur du skapar en Programgateway med omdirigerade trafik från HTTP till HTTPS med Azure-portalen.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101477"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012867"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering i Azure Portal
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Den här självstudien kräver Azure PowerShell-Modulversion 1.0.0 eller senare för att skapa ett certifikat och installera IIS. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). För att köra kommandona i den här självstudien, behöver du också köra `Login-AzAccount` att skapa en anslutning till Azure.
+I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare för att skapa ett certifikat och installera IIS. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). För att köra kommandona i den här självstudien, behöver du också köra `Login-AzAccount` att skapa en anslutning till Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
@@ -172,7 +172,7 @@ Slutligen måste du uppgradera skalningsuppsättning med de här ändringarna.
 1. Välj den **myvmss** skalningsuppsättning.
 2. Under **inställningar**väljer **instanser**.
 3. Välj båda instanserna och välj sedan **uppgradera**.
-4. Bekräfta genom att välja **Ja**.
+4. Välj **Ja** för att bekräfta.
 5. När du är klar går du tillbaka till den **myAppGateway** och välj **serverdelspooler**. Du bör nu se att den **appGatewayBackendPool** har två mål och **myAppGatewaymyvmss** har noll mål.
 6. Välj **myAppGatewaymyvmss**, och välj sedan **ta bort**.
 7. Välj **OK** att bekräfta.
@@ -206,7 +206,7 @@ När du har ändrat instanser med IIS, måste du uppgradera skalningsuppsättnin
 1. Välj den **myvmss** skalningsuppsättning.
 2. Under **inställningar**väljer **instanser**.
 3. Välj båda instanserna och välj sedan **uppgradera**.
-4. Bekräfta genom att välja **Ja**.
+4. Välj **Ja** för att bekräfta.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 

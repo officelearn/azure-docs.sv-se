@@ -1,5 +1,5 @@
 ---
-title: Integrera Azure-ExpressRoute med haveri beredskap för virtuella Azure-datorer med hjälp av tjänsten Azure Site Recovery | Microsoft Docs
+title: Integrera haveri beredskap för Azure ExpressRoute Azure VM med Azure Site Recovery
 description: Beskriver hur du konfigurerar haveri beredskap för virtuella Azure-datorer med Azure Site Recovery och Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722109"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954086"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera Azure-ExpressRoute med haveri beredskap för virtuella Azure-datorer
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera ExpressRoute med haveri beredskap för virtuella Azure-datorer
 
 
 Den här artikeln beskriver hur du integrerar Azure-ExpressRoute med [Azure Site Recovery](site-recovery-overview.md)när du konfigurerar haveri beredskap för virtuella Azure-datorer till en sekundär Azure-region.
@@ -28,8 +28,8 @@ Site Recovery möjliggör haveri beredskap för virtuella Azure-datorer genom at
 
 Med ExpressRoute kan du utöka lokala nätverk till Microsoft Azure molnet över en privat anslutning, vilket fören klar av en anslutnings leverantör. Om du har konfigurerat ExpressRoute integreras det med Site Recovery enligt följande:
 
-- **Vid replikering mellan Azure-regioner**: Replikeringstrafik för haveri beredskap för virtuella Azure-datorer finns bara i Azure och ExpressRoute behövs inte eller används för replikering. Men om du ansluter från en lokal plats till de virtuella Azure-datorerna på den primära Azure-platsen, finns det ett antal problem som du bör känna till när du konfigurerar haveri beredskap för de virtuella Azure-datorerna.
-- **Redundans mellan Azure-regioner**: När avbrott uppstår växlar du över virtuella Azure-datorer från den primära till den sekundära Azure-regionen. Efter växling till en sekundär region finns det ett antal steg att vidta för att få åtkomst till de virtuella Azure-datorerna i den sekundära regionen med ExpressRoute.
+- **Vid replikering mellan Azure-regioner**är replikeringstrafik för haveri beredskap i Azure VM bara inom Azure och ExpressRoute behövs inte eller används för replikering. Men om du ansluter från en lokal plats till de virtuella Azure-datorerna på den primära Azure-platsen, finns det ett antal problem som du bör känna till när du konfigurerar haveri beredskap för de virtuella Azure-datorerna.
+- **Redundans mellan Azure-regioner**: när avbrott uppstår växlar du över virtuella Azure-datorer från den primära till den sekundära Azure-regionen. Efter växling till en sekundär region finns det ett antal steg att vidta för att få åtkomst till de virtuella Azure-datorerna i den sekundära regionen med ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -87,10 +87,10 @@ Företags distributioner har vanligt vis arbets belastningar som delas över fle
 
 - **Region**. Appar distribueras i Azure Asien, östra-regionen.
 - **Eker-virtuella nätverk**. Appar distribueras i två eker-virtuella nätverk:
-    - **Käll vNet1**: 10.1.0.0/24.
-    - **Käll vNet2**: 10.2.0.0/24.
+    - **Källa vNet1**: 10.1.0.0/24.
+    - **Källa vNet2**: 10.2.0.0/24.
     - Varje eker-virtuellt nätverk är anslutet till **hubb-vNet**.
-- **Hubb-vNet**. Det finns ett nav för vNet- **källport**för hubb: 10.10.10.0/24.
+- **Hubb-vNet**. Det finns ett nav vNet- **källport VNet**: 10.10.10.0/24.
   - Detta nav-vNet fungerar som gatekeeper.
   - All kommunikation mellan undernät går genom den här hubben.
     - **Hubbens vNet-undernät**. Hubbens vNet har två undernät:
@@ -106,10 +106,10 @@ Företags distributioner har vanligt vis arbets belastningar som delas över fle
 
 **Riktning** | **Inställning** | **Låst**
 --- | --- | ---
-Spoke till hub | Tillåt virtuell nätverks adress | Aktiverad
-Spoke till hub | Tillåt vidarebefordrad trafik | Aktiverad
-Spoke till hub | Tillåt gatewayöverföring | Inaktiverad
-Spoke till hub | Använd ta bort gatewayer | Aktiverad
+Spoke till hub | Tillåt virtuell nätverks adress | Enabled
+Spoke till hub | Tillåt vidarebefordrad trafik | Enabled
+Spoke till hub | Tillåt Gateway-överföring | Disabled
+Spoke till hub | Använd ta bort gatewayer | Enabled
 
  ![Konfiguration av eker-peering](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,10 +117,10 @@ Spoke till hub | Använd ta bort gatewayer | Aktiverad
 
 **Riktning** | **Inställning** | **Låst**
 --- | --- | ---
-Hub till spoke | Tillåt virtuell nätverks adress | Aktiverad
-Hub till spoke | Tillåt vidarebefordrad trafik | Aktiverad
-Hub till spoke | Tillåt gatewayöverföring | Aktiverad
-Hub till spoke | Använd ta bort gatewayer | Inaktiverad
+Hub till spoke | Tillåt virtuell nätverks adress | Enabled
+Hub till spoke | Tillåt vidarebefordrad trafik | Enabled
+Hub till spoke | Tillåt Gateway-överföring | Enabled
+Hub till spoke | Använd ta bort gatewayer | Disabled
 
  ![Hubb till eker-peering-konfiguration](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
@@ -191,7 +191,7 @@ I vårt exempel använder vi följande topologi:
 För att automatisera återställning i det här exemplet behöver du göra följande:
 
 1. Följ stegen för att konfigurera replikering.
-2. [Redundansväxla de virtuella Azure](azure-to-azure-tutorial-failover-failback.md)-datorerna med dessa ytterligare steg under eller efter redundansväxlingen.
+2. [Redundansväxla de virtuella Azure-datorerna](azure-to-azure-tutorial-failover-failback.md)med dessa ytterligare steg under eller efter redundansväxlingen.
 
     a. Skapa Azure ExpressRoute-gatewayen i mål regionen Hub VNet. Detta måste du ansluta Hub-vNet till ExpressRoute-kretsen.
 
@@ -205,7 +205,7 @@ För att automatisera återställning i det här exemplet behöver du göra föl
     - UDR bör ändras i enlighet med olika mål-IP-adresser.
 
 
-Ovanstående steg kan följas av skript som en del av en återställnings [plan](site-recovery-create-recovery-plans.md). Beroende på kraven för program anslutningen och återställnings tiden kan ovanstående steg också slutföras innan du startar redundansväxlingen.
+Ovanstående steg kan följas av skript som en del av en [återställnings plan](site-recovery-create-recovery-plans.md). Beroende på kraven för program anslutningen och återställnings tiden kan ovanstående steg också slutföras innan du startar redundansväxlingen.
 
 #### <a name="after-recovery"></a>Efter återställning
 
@@ -217,4 +217,4 @@ När du har återställt de virtuella datorerna och slutfört anslutningen är �
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du använder återställnings [planer](site-recovery-create-recovery-plans.md) för att automatisera redundanstestning av appar.
+Läs mer om hur du använder [återställnings planer](site-recovery-create-recovery-plans.md) för att automatisera redundanstestning av appar.

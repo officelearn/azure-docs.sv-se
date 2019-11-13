@@ -1,17 +1,14 @@
 ---
 title: Lär dig Azure Policy för Azure Kubernetes service
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster i Azure Kubernetes-tjänsten.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480896"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959802"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Förstå Azure Policy för Azure Kubernetes-tjänsten
 
@@ -34,7 +31,7 @@ Utför följande åtgärder för att aktivera och använda Azure Policy för AKS
 
 Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. container service** Resource Provider och **Microsoft. PolicyInsights** Resource Provider och sedan godkännas till delta i förhands granskningen. Om du vill delta i förhands granskningen följer du de här stegen i antingen Azure Portal eller med Azure CLI:
 
-- Azure-portalen:
+- Azure Portal:
 
   1. Registrera resurs leverantörerna **Microsoft. container service** och **Microsoft. PolicyInsights** . Anvisningar finns i [resurs leverantörer och typer](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
@@ -92,7 +89,7 @@ _Azure policy-tillägget_ för Kubernetes ansluter tjänsten Azure policy till G
 
 ### <a name="installing-the-add-on"></a>Installerar tillägget
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 Innan du installerar tillägget i ditt AKS-kluster måste du installera för hands versions tillägget. Det här steget görs med Azure CLI:
 

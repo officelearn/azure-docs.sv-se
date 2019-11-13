@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure IoT Hub-meddelandets anrikning
-description: Översikt över meddelande anrikninger för Azure IoT Hub-meddelanden
+description: I den här artikeln visas meddelande anrikninger som ger IoT Hub möjlighet att stämpla meddelanden med ytterligare information innan meddelandena skickas till den angivna slut punkten.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177999"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005832"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Meddelande anrikning för IoT Hub-meddelanden från enhet till moln (för hands version)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelande anrikning för IoT Hub från enhet till molnet
 
 *Meddelande anrikning* är möjligheten för IoT Hub att *stämpla* meddelanden med ytterligare information innan meddelandena skickas till den angivna slut punkten. En anledning till att använda meddelande berikare är att inkludera data som kan användas för att förenkla bearbetningen i den underordnade bearbetningen. För att till exempel kunna identifiera enhets telemetri med en enhets rik tagg kan kunderna minska belastningen på kunder för att göra enhetens dubbla API-anrop för den här informationen.
 
@@ -78,13 +78,9 @@ Information om hur du provar meddelande förvarningar finns i [själv studie kur
 
 * Meddelande anrikninger gäller inte för digitala dubbla ändrings händelser (en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Meddelande anrikninger är tillgängliga utan extra kostnad. För närvarande debiteras du när du skickar ett meddelande till en IoT Hub. Du debiteras bara en gång för det meddelandet, även om meddelandet går till flera slut punkter.
-
-## <a name="availability"></a>Tillgänglighet
-
-Den här funktionen är tillgänglig i för hands version och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure Kina 21Vianet](/azure/china)och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Nästa steg
 

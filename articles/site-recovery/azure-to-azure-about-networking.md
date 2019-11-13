@@ -1,5 +1,5 @@
 ---
-title: Om nätverk i Azure till Azure haveri beredskap med Azure Site Recovery | Microsoft Docs
+title: Om nätverk i haveri beredskap för Azure VM med Azure Site Recovery
 description: Innehåller en översikt över nätverk för replikering av virtuella Azure-datorer med hjälp av Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5c2cd96ccfa3a26a9009188ad424eefaaeb7ce48
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906837"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954197"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
 
 
@@ -46,7 +46,7 @@ Normalt skyddas nätverk med brand väggar och nätverks säkerhets grupper (NSG
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar kan du tillåta följande Site Recovery webb adresser:
 
 
-**URL** | **Information**  
+**URL** | **Detaljer**  
 --- | ---
 *.blob.core.windows.net | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du tillåta åtkomst till de angivna URL: erna för lagrings konton (t. ex.: cache1.blob.core.windows.net och cache2.blob.core.windows.net) i stället för *. blob.core.windows.net
 login.microsoftonline.com | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er.
@@ -60,8 +60,8 @@ Om du använder en IP-baserad brand Väggs-proxy eller NSG-regler för att kontr
 - Alla IP-adressintervall som motsvarar lagrings kontona i käll regionen
     - Skapa en NSG-regel för [lagrings tjänst](../virtual-network/security-overview.md#service-tags) som är baserad på käll regionen.
     - Tillåt dessa adresser så att data kan skrivas till cache-lagrings kontot från den virtuella datorn.
-- Skapa Azure Active Directory en NSG-baserad [(AAD) service tag](../virtual-network/security-overview.md#service-tags) -regel för att tillåta åtkomst till alla IP-adresser som motsvarar AAD
-    - Om nya adresser läggs till i Azure Active Directory (AAD) i framtiden måste du skapa nya NSG-regler.
+- Skapa en [Azure Active Directory (AAD) tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för att tillåta åtkomst till alla IP-adresser för AAD
+    - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
 - Site Recovery tjänst slut punktens IP-adresser – tillgängligt i en [XML-fil](https://aka.ms/site-recovery-public-ips) och är beroende av mål platsen. 
 - Vi rekommenderar att du skapar de nödvändiga NSG-reglerna på en test-NSG och kontrollerar att det inte finns några problem innan du skapar reglerna på en produktions NSG.
 
@@ -70,25 +70,25 @@ Site Recovery IP-adressintervall är följande:
 
    **Mål** | **Site Recovery IP** |  **Site Recovery övervakning av IP**
    --- | --- | ---
-   Asien, östra | 52.175.17.132 | 13.94.47.61
+   Östasien | 52.175.17.132 | 13.94.47.61
    Sydostasien | 52.187.58.193 | 13.76.179.223
    Indien, centrala | 52.172.187.37 | 104.211.98.185
-   Indien, södra | 52.172.46.220 | 104.211.224.190
-   USA, norra centrala | 23.96.195.247 | 168.62.249.226
-   Europa, norra | 40.69.212.238 | 52.169.18.8
-   Europa, västra | 52.166.13.64 | 40.68.93.145
+   Södra Indien | 52.172.46.220 | 104.211.224.190
+   Norra centrala USA | 23.96.195.247 | 168.62.249.226
+   Norra Europa | 40.69.212.238 | 52.169.18.8
+   Västra Europa | 52.166.13.64 | 40.68.93.145
    Östra USA | 13.82.88.226 | 104.45.147.24
-   USA, västra | 40.83.179.48 | 104.40.26.199
-   USA, södra centrala | 13.84.148.14 | 104.210.146.250
+   Västra USA | 40.83.179.48 | 104.40.26.199
+   Södra centrala USA | 13.84.148.14 | 104.210.146.250
    Centrala USA | 40.69.144.231 | 52.165.34.144
    USA, östra 2 | 52.184.158.163 | 40.79.44.59
    Östra Japan | 52.185.150.140 | 138.91.1.105
    Västra Japan | 52.175.146.69 | 138.91.17.38
    Södra Brasilien | 191.234.185.172 | 23.97.97.36
    Östra Australien | 104.210.113.114 | 191.239.64.144
-   Australien, sydöstra | 13.70.159.158 | 191.239.160.45
+   Sydöstra Australien | 13.70.159.158 | 191.239.160.45
    Centrala Kanada | 52.228.36.192 | 40.85.226.62
-   Kanada, östra | 52.229.125.98 | 40.86.225.142
+   Östra Kanada | 52.229.125.98 | 40.86.225.142
    Västra centrala USA | 52.161.20.168 | 13.78.149.209
    Västra USA 2 | 52.183.45.166 | 13.66.228.204
    Storbritannien, västra | 51.141.3.203 | 51.141.14.113

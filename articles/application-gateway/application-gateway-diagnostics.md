@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718724"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958267"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
@@ -33,7 +33,7 @@ Application Gateway ger möjlighet att övervaka hälsan för enskilda medlemmar
 Backend-hälsorapporten visar utdata från den Application Gateway hälso avsökningen till backend-instanserna. När avsökningen lyckas och Server delen kan ta emot trafik, betraktas den som felfri. Annars betraktas den som ohälsosam.
 
 > [!IMPORTANT]
-> Om det finns en nätverks säkerhets grupp (NSG) i ett Application Gateway undernät öppnar du Port intervall 65503-65534 i Application Gateway-undernätet för inkommande trafik. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer externa entiteter, inklusive kunder av dessa gateways, inte att kunna initiera några ändringar på dessa slut punkter.
+> Om det finns en nätverks säkerhets grupp (NSG) i ett Application Gateway undernät öppnar du Port intervall 65503-65534 för v1-SKU: er och 65200-65535 för v2 SKU: er i Application Gateway-undernätet för inkommande trafik. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer externa entiteter, inklusive kunder av dessa gateways, inte att kunna initiera några ändringar på dessa slut punkter.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visa Server dels hälsa via portalen
@@ -172,7 +172,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |sentBytes| Storlek på paket som skickas, i byte.|
 |timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
 |sslEnabled| Huruvida kommunikationen med backend-pooler använder SSL. Giltiga värden är på och av.|
-|värd| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
+|host| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
 |originalHost| Det värdnamn som begäran togs emot av Application Gateway från klienten.|
 ```json
 {
@@ -220,7 +220,7 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |serverRouted| Backend-servern som Application Gateway dirigerar begäran till.|
 |serverStatus| HTTP-statuskod för backend-servern.|
 |serverResponseLatency| Svars tid för svaret från backend-servern.|
-|värd| Adress som anges i värd rubriken för begäran.|
+|host| Adress som anges i värd rubriken för begäran.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -261,9 +261,9 @@ Prestanda loggen skapas endast om du har aktiverat den på varje Application Gat
 |healthyHostCount     | Antal felfria värdar i backend-poolen.        |
 |unHealthyHostCount     | Antalet värdar som inte är felfria i backend-poolen.        |
 |requestCount     | Antal begär Anden som hanteras.        |
-|Svars tid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
+|svars tid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
 |failedRequestCount| Antal misslyckade förfrågningar.|
-|Dataflöde| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
+|throughput| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
 
 ```json
 {
@@ -304,12 +304,12 @@ Brand Väggs loggen skapas endast om du har aktiverat den för varje Application
 |meddelande     | Användarvänligt meddelande för händelsen som utlöses. Mer information finns i avsnittet information.        |
 |åtgärd     |  Åtgärd som vidtas på begäran. Tillgängliga värden är blockerade och tillåtna.      |
 |plats     | Platsen som loggen skapades för. För närvarande visas bara globala grupper eftersom reglerna är globala.|
-|Information     | Information om händelsen som utlöses.        |
+|details     | Information om händelsen som utlöses.        |
 |information. Message     | Beskrivning av regeln.        |
-|information. data     | Vissa data som finns i en begäran som matchade regeln.         |
+|details.data     | Vissa data som finns i en begäran som matchade regeln.         |
 |information. fil     | Konfigurations fil som innehåller regeln.        |
 |information. rad     | Rad nummer i konfigurations filen som utlöste händelsen.       |
-|Värdnamn   | Värdnamn eller IP-adress för Application Gateway.    |
+|värdnamn   | Värdnamn eller IP-adress för Application Gateway.    |
 |transactionId  | Unikt ID för en specifik transaktion som hjälper till att gruppera flera regel överträdelser som inträffade inom samma begäran.   |
 
 ```json

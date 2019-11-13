@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub utveckla för begränsade enheter med IoT Hub C SDK | Microsoft Docs
+title: Azure IoT Hub utveckla för begränsade enheter med IoT Hub C SDK
 description: 'Guide för utvecklare – vägledning om hur du utvecklar med Azure IoT SDK: er för begränsade enheter.'
 author: robinsh
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880971"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954701"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Utveckla för begränsade enheter med hjälp av Azure IoT C SDK
 
@@ -27,13 +27,13 @@ C SDK är tillgängligt i Package form från apt-get, NuGet och MBED. Om du vill
 
 Bygg C SDK för begränsade enheter.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Följ den här [installations guiden för C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) för att förbereda utvecklings miljön för att bygga C SDK. Innan du kommer till steget för att skapa med cmake kan du anropa cmake-flaggor för att ta bort oanvända funktioner.
 
 ### <a name="remove-additional-protocol-libraries"></a>Ta bort ytterligare protokoll bibliotek
 
-C SDK har stöd för fem protokoll idag: MQTT, MQTT över WebSocket, AMQPs, AMQP via WebSocket och HTTPS. De flesta scenarier kräver ett till två protokoll som körs på en klient, och därför kan du ta bort protokoll biblioteket som du inte använder från SDK: n. Mer information om hur du väljer lämpligt kommunikations protokoll för ditt scenario finns i [Välj ett IoT Hub kommunikations protokoll](iot-hub-devguide-protocols.md). Till exempel är MQTT ett Lightweight-protokoll som ofta passar bättre för begränsade enheter.
+C SDK har stöd för fem protokoll idag: MQTT, MQTT över WebSocket, AMQPs, AMQP över WebSocket och HTTPS. De flesta scenarier kräver ett till två protokoll som körs på en klient, och därför kan du ta bort protokoll biblioteket som du inte använder från SDK: n. Mer information om hur du väljer lämpligt kommunikations protokoll för ditt scenario finns i [Välj ett IoT Hub kommunikations protokoll](iot-hub-devguide-protocols.md). Till exempel är MQTT ett Lightweight-protokoll som ofta passar bättre för begränsade enheter.
 
 Du kan ta bort AMQP-och HTTP-biblioteken med följande cmake-kommando:
 

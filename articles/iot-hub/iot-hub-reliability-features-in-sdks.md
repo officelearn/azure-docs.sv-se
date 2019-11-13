@@ -1,5 +1,5 @@
 ---
-title: 'Hantera anslutningar och Reliable Messaging med hjälp av Azure IoT Hub enhets-SDK: er'
+title: 'Hantera IoT Hub anslutning & Reliable Messaging med enhets-SDK: er'
 description: 'Lär dig hur du kan förbättra din enhets anslutning och dina meddelanden när du använder Azure IoT Hub-enhetens SDK: er'
 services: iot-hub
 author: robinsh
@@ -7,12 +7,12 @@ ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: b5fe47bf066568960f9819a780a1281bedd1902b
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8774129b3a1d3c9a1095e7a7c478dd94086b5867
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999997"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954502"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Hantera anslutningar och Reliable Messaging med hjälp av Azure IoT Hub enhets-SDK: er
 
@@ -34,7 +34,7 @@ Implementerings informationen kan variera beroende på språk. Mer information f
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (Tillförlitligheten har ännu inte införts)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (pålitlighet ännu inte implementerat)
 
 ## <a name="designing-for-resiliency"></a>Designa för elasticitet
 
@@ -77,20 +77,20 @@ Följande steg beskriver processen för att försöka igen när anslutnings fel 
 
 SDK: er tillhandahåller tre principer för återförsök:
 
-* **Exponentiell säkerhets kopiering med Darr**: Den här standard principen för återförsök tenderar att vara aggressiv vid starten och sakta ned över tid tills den når en maximal fördröjning. Designen baseras på vägledning om [återförsök från Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
+* **Exponentiell säkerhets kopiering med Darr**: den här standard principen för återförsök tenderar att vara aggressiv vid starten och sakta ned över tid tills den når en maximal fördröjning. Designen baseras på vägledning om [återförsök från Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
 
-* **Anpassat återförsök**: För vissa SDK-språk kan du skapa en anpassad princip för återförsök som passar bäst för ditt scenario och sedan mata in den i RetryPolicy. Det anpassade återförsöket är inte tillgängligt på C SDK.
+* **Anpassat återförsök**: för vissa SDK-språk kan du utforma en anpassad princip för återförsök som passar bäst för ditt scenario och sedan mata in det i RetryPolicy. Det anpassade återförsöket är inte tillgängligt på C SDK.
 
-* **Inga återförsök**: Du kan ställa in principen för återförsök till "ingen återförsök", vilket inaktiverar logiken för omförsök. SDK försöker ansluta en gång och skicka ett meddelande en gång, förutsatt att anslutningen upprättas. Den här principen används vanligt vis i scenarier med bandbredd eller kostnads problem. Om du väljer det här alternativet går det inte att återställa meddelanden som inte kan skickas.
+* **Inget återförsök**: du kan ställa in principen för återförsök till "ingen återförsök", vilket inaktiverar logiken för omförsök. SDK försöker ansluta en gång och skicka ett meddelande en gång, förutsatt att anslutningen upprättas. Den här principen används vanligt vis i scenarier med bandbredd eller kostnads problem. Om du väljer det här alternativet går det inte att återställa meddelanden som inte kan skickas.
 
 ### <a name="retry-policy-apis"></a>Kör om princip-API: er
 
    | SDK | SetRetryPolicy-metod | Princip implementeringar | Implementeringsanvisningar |
    |-----|----------------------|--|--|
    |  C/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Standard**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Anpassad:** Använd tillgängliga [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Inga återförsök:** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/iOS-implementering](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
-   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Standard**: [ExponentialBackoffWithJitter-klass](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Anpassad:** implementera [RetryPolicy-gränssnitt](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Inga återförsök:** [Noretry-klass](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java-implementering](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
-   | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **Standard**: [ExponentialBackoff-klass](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Anpassad:** implementera [IRetryPolicy-gränssnitt](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Inga återförsök:** [Noretry-klass](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C#serverimplementeringar](https://github.com/Azure/azure-iot-sdk-csharp) | |
-   | Nod| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Standard**: [ExponentialBackoffWithJitter-klass](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Anpassad:** implementera [RetryPolicy-gränssnitt](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Inga återförsök:** [Noretry-klass](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Node-implementering](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
+   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Standard**: [ExponentialBackoffWithJitter-klass](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Anpassad:** implementera [RetryPolicy-gränssnitt](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Inga återförsök:** [noretry-klass](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java-implementering](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
+   | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **Standard**: [ExponentialBackoff-klass](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Anpassad:** implementera [IRetryPolicy-gränssnitt](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Inga återförsök:** [noretry-klass](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C#serverimplementeringar](https://github.com/Azure/azure-iot-sdk-csharp) | |
+   | Node| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Standard**: [ExponentialBackoffWithJitter-klass](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Anpassad:** implementera [RetryPolicy-gränssnitt](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Inga återförsök:** [noretry-klass](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Node-implementering](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
    | Python| Kommer snart | Kommer snart | Kommer snart
 
 Följande kod exempel illustrerar det här flödet:
@@ -115,7 +115,7 @@ Om tjänsten svarar med ett begränsnings fel är återförsöks principen annor
      TimeSpan.FromSeconds(60), TimeSpan.FromSeconds(5)); SetRetryPolicy(retryPolicy);
    ```
 
-Mekanismen för omförsök stoppas efter `DefaultOperationTimeoutInMilliseconds`, som för närvarande är inställd på 4 minuter.
+Mekanismen för omförsök stoppas efter `DefaultOperationTimeoutInMilliseconds`, som för närvarande är 4 minuter.
 
 #### <a name="other-languages-implementation-guidance"></a>Vägledning om implementering av andra språk
 

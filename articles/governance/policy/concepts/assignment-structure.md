@@ -1,17 +1,14 @@
 ---
 title: Information om princip tilldelnings strukturen
 description: Beskriver den princip tilldelnings definition som används av Azure Policy för att relatera princip definitioner och parametrar till resurser för utvärdering.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255891"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960040"
 ---
 # <a name="azure-policy-assignment-structure"></a>Tilldelningsstruktur i Azure Policy
 
@@ -19,8 +16,8 @@ Princip tilldelningar används av Azure Policy för att definiera vilka resurser
 
 Du använder JSON för att skapa en princip tilldelning. Princip tilldelningen innehåller element för:
 
-- visnings namn
-- beskrivning
+- Visningsnamn
+- description
 - metadata
 - tvingande läge
 - princip definition
@@ -52,7 +49,7 @@ Följande JSON visar till exempel en princip tilldelning i _DoNotEnforce_ -läge
 
 Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md).
 
-## <a name="display-name-and-description"></a>Visnings namn och beskrivning
+## <a name="display-name-and-description"></a>Namn och beskrivning
 
 Du kan använda **DisplayName** och **Description** för att identifiera princip tilldelningen och tillhandahålla kontext för dess användning med en speciell uppsättning resurser. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
 
@@ -90,7 +87,7 @@ Den här designen gör det möjligt att återanvända en princip eller initiativ
 }
 ```
 
-I det här exemplet är parametrarna som tidigare definierats i princip definitionen `prefix` och `suffix`. Den här princip tilldelningen anger `prefix` till **Avda** och `suffix` till **-LC**. Samma princip definition kan återanvändas med en annan uppsättning parametrar för en annan avdelning, vilket minskar dupliceringen och komplexiteten i princip definitioner samtidigt som den ger flexibilitet.
+I det här exemplet är de parametrar som tidigare definierats i princip definitionen `prefix` och `suffix`. Den här princip tilldelningen anger `prefix` till **Avda** och `suffix` till **-LC**. Samma princip definition kan återanvändas med en annan uppsättning parametrar för en annan avdelning, vilket minskar dupliceringen och komplexiteten i princip definitioner samtidigt som den ger flexibilitet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Exempel på Azure Service Fabric container Application-manifest | Microsoft Docs
+title: Exempel på Azure Service Fabric container Application-manifest
 description: Lär dig hur du konfigurerar inställningar för program-och tjänst manifest för ett Service Fabric program med flera behållare.
 services: service-fabric
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: ece0b763a2dbe501b0f46d026c59e1294a448c59
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d79f7dbf492b9473bcff147891df308674a8cf0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650609"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013250"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exempel på program med flera behållare och tjänstmanifest
 Följande är exempel på program-och tjänst manifest för ett Service Fabric program med flera behållare. Syftet med dessa exempel är att visa vilka inställningar som är tillgängliga och hur de används. Dessa program-och tjänst manifest baseras på [Windows Server 2016-exempel](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifest för behållare.
@@ -28,7 +28,7 @@ Följande funktioner visas:
 
 |Manifest|Funktioner|
 |---|---|
-|[Programmanifest](#application-manifest)| [Åsidosätt miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [konfigurera mappning av behållarens port-till-värd](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [Konfigurera autentisering av container register](service-fabric-get-started-containers.md#configure-container-repository-authentication), [resurs styrning](service-fabric-resource-governance.md), [Ange isolerings läge](service-fabric-get-started-containers.md#configure-isolation-mode), [Ange OS-programspecifika behållare bilder](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[Programmanifest](#application-manifest)| [Åsidosätt miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [konfigurera mappning av behållarens port-till-värd](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [Konfigurera autentisering av container register](service-fabric-get-started-containers.md#configure-container-repository-authentication), [resurs styrning](service-fabric-resource-governance.md), [Ange isolerings läge](service-fabric-get-started-containers.md#configure-isolation-mode), [Ange OS-specifika behållar avbildningar](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService-tjänst manifest](#frontendservice-service-manifest)| [Ange miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [Konfigurera en slut punkt](service-fabric-get-started-containers.md#configure-communication), skicka kommandon till behållaren, [Importera ett certifikat till en behållare](service-fabric-securing-containers.md)| 
 |[BackEndService-tjänst manifest](#backendservice-service-manifest)|[Ange miljövariabler](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [Konfigurera en slut punkt](service-fabric-get-started-containers.md#configure-communication), [Konfigurera volym driv rutin](service-fabric-containers-volume-logging-drivers.md)| 
 
@@ -319,7 +319,7 @@ Miljö variabel. Mer information finns i [EnvironmentVariable-element](service-f
 ### <a name="certificateref-element"></a>CertificateRef-element
 Anger information om ett X509-certifikat som ska exponeras för behållar miljön. Certifikatet måste vara installerat i LocalMachine-arkivet för alla klusternoder.
 När programmet startar läser körnings programmet certifikatet och genererar en PFX-fil och ett lösen ord (i Windows) eller en PEM-fil (på Linux).
-PFX-filen och-lösen ordet är tillgängliga i behållaren med hjälp av Certificates_ServicePackageName_CodePackageName_CertName_PFX-och Certificates_ServicePackageName_CodePackageName_CertName_Password-miljövariablerna. PEM-filen är tillgänglig i behållaren med hjälp av variablerna Certificates_ServicePackageName_CodePackageName_CertName_PEM och Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey-miljövariabeln. Mer information finns i [CertificateRef-element](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+PFX-filen och lösen ordet är tillgängliga i behållaren med hjälp av variablerna Certificates_ServicePackageName_CodePackageName_CertName_PFX och Certificates_ServicePackageName_CodePackageName_CertName_Password miljövariabler. PEM-filen är tillgänglig i behållaren med hjälp av variablerna Certificates_ServicePackageName_CodePackageName_CertName_PEM och Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey-miljövariabeln. Mer information finns i [CertificateRef-element](service-fabric-service-model-schema-elements.md#CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="defaultservices-element"></a>DefaultServices-element
 Deklarerar tjänst instanser som skapas automatiskt när ett program instansieras mot den här program typen. Mer information finns i [DefaultServices-element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
@@ -366,7 +366,7 @@ Deklarerar en mapp som heter med namnattributet, som innehåller en Settings. XM
 Deklarerar en mapp som heter med namnattributet, som innehåller statiska datafiler. Service Fabric kommer att återvinna alla EXEs och DLLHOSTs som anges i värd-och support paketen när något av de data paket som anges i tjänst manifestet uppgraderas. Mer information finns i [DataPackage-element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
 
 ### <a name="resources-element"></a>Resurs element
-Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
+Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [Resources](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
 ### <a name="endpoints-element"></a>Slut punkts element
 Definierar slut punkter för tjänsten. Mer information finns i avsnittet [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
@@ -410,7 +410,7 @@ Miljö variabel. Mer information finns i [EnvironmentVariable-element](service-f
 Deklarerar en mapp som heter med namnattributet, som innehåller en Settings. XML-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="resources-element"></a>Resurs element
-Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
+Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [Resources](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
 ### <a name="endpoints-element"></a>Slut punkts element
 Definierar slut punkter för tjänsten. Mer information finns i avsnittet [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)

@@ -18,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803339"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013066"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Gör så här: Konfigurera ett programs utgivares domän (för hands version)
+# <a name="how-to-configure-an-applications-publisher-domain"></a>Gör så här: Konfigurera ett programs utgivares domän
 
 Ett programs utgivares domän visas för användare i [appens godkännande fråga](application-consent-experience.md) för att meddela användarna om var informationen skickas. Program med flera klienter som registreras efter den 21 maj 2019 och som inte har någon utgivar domän som inte är **verifierad**. Program med flera klienter är program som stöder konton utanför en enda organisations katalog. till exempel stöd för alla Azure AD-konton eller stöd för alla Azure AD-konton och personliga Microsoft-konton.
 
@@ -39,8 +39,8 @@ I följande tabell sammanfattas standard beteendet för utgivar domänens värde
 
 | Domäner som verifieras av klienter | Standardvärdet för Publisher-domän |
 |-------------------------|----------------------------|
-| Ha | Ha |
-| *. onmicrosoft.com | *. onmicrosoft.com |
+| ha | ha |
+| *.onmicrosoft.com | *.onmicrosoft.com |
 | -*. onmicrosoft.com<br/>– domain1.com<br/>-domain2.com (primär) | domain2.com |
 
 Om ett program från en annan klient organisation inte är inställt, eller om det är inställt på en domän som slutar på. onmicrosoft.com, visas appens medgivande- **fråga i stället** för utgivarens domän.

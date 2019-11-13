@@ -1,17 +1,14 @@
 ---
 title: Skapa och hantera principer för att använda kompatibilitet
 description: Använd Azure Policy för att genomdriva standarder, efterleva krav på regelefterlevnad och granskning, kontrollera kostnader, behålla en konsekvent säkerhet och prestanda och tillämpa företagsomfattande principer.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
-ms.service: azure-policy
-ms.openlocfilehash: d01a28e1b4cbd9b2dacef8059d46ea72e789094d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490466"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959535"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudie: skapa och hantera principer för att genomdriva efterlevnad
 
@@ -425,7 +422,7 @@ I det här exemplet utförde Trent Baker, en av Contosos seniora virtualiserings
 
 1. Bläddra igenom alla principtilldelningar och öppna tilldelningen *Kräv SQL Server version 12.0*.
 
-1. Ange **undantag** genom att välja ellipsen och välja den resurs grupp som ska undantas, *SQLServers_Excluded* i det här exemplet.
+1. Ange **undantag** genom att välja ellipsen och välja den resurs grupp som ska undantas *SQLServers_Excluded* i det här exemplet.
 
    ![Lägg till en undantagen resurs grupp i princip tilldelningen](../media/create-and-manage/request-exclusion.png)
 

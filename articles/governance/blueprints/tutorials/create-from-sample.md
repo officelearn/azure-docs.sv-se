@@ -1,19 +1,16 @@
 ---
 title: Skapa en miljö från ett skiss exempel
 description: Använd ett skiss exempel för att skapa en skiss definition som konfigurerar två resurs grupper och konfigurerar en roll tilldelning för var och en.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
-ms.service: blueprints
-ms.openlocfilehash: f3250052a7e26b5d8ef7cb1d411f9d9252089875
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980728"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960274"
 ---
-# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudier: Skapa en miljö från ett skiss exempel
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudie: skapa en miljö från ett skiss exempel
 
 Exempel ritningar innehåller exempel på vad du kan göra med Azure-ritningar. Var och en är ett exempel med ett specifikt syfte eller syfte, men skapar inte en fullständig miljö själva. Var och en är avsedd som en start plats för att utforska användningen av Azure-ritningar med olika kombinationer av artefakter, konstruktioner och parametrar som ingår.
 
@@ -26,7 +23,7 @@ I följande självstudie används **resurs grupper med RBAC** -videoexempel för
 > - Granska distribuerade resurser för tilldelningen
 > - Ta bort tilldelningen för att ta bort låsen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -45,7 +42,7 @@ Börja med att implementera skiss exemplet. När du importerar skapas en ny skis
    - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet. I den här självstudien använder vi namnet _två-RGS-with-Role-tilldelningar_.
    - **Definitions plats**: Använd ellipsen och välj hanterings gruppen eller prenumerationen för att spara din kopia av exemplet till.
 
-1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Det här exemplet definierar två resurs grupper med visnings namn för _ProdRG_ och _PreProdRG_. Det slutliga namnet och platsen för varje resurs grupp anges under skiss tilldelningen. Resurs gruppen _ProdRG_ tilldelas rollen _deltagare_ och _PreProdRG_ resurs gruppen tilldelas rollen _ägare_ och _läsare_ . Rollerna som tilldelas i definitionen är statiska, men användaren, appen eller gruppen som tilldelas rollen anges under skiss tilldelningen.
 
@@ -81,10 +78,10 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundinställningar
+   - Grundläggande inställningar
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
-     - **Tilldelnings namn**: Namnet fylls i automatiskt för dig baserat på namnet på skiss definitionen.
+     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skiss definitionen.
      - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../active-directory/managed-identities-azure-resources/overview.md).
        I den här självstudien väljer du _USA, östra 2_.
      - **Ritnings definitions version**: Välj den **publicerade** versionen _1,0_ av din kopia av exempel ritnings definitionen.
@@ -97,17 +94,17 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
      Lämna alternativet standard _tilldelat system_ . Mer information finns i [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-   - Artefaktparametrar
+   - Artefakt parametrar
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}` väljer du ditt Azure-användarkonto.
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}`väljer du ditt Azure-användarkonto.
 
-     |Namn på artefakt|Artefakttyp|Parameternamn|Value|Beskrivning|
+     |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |Resurs grupp för ProdRG|Resource group|Name|ProductionRG|Definierar namnet på den första resurs gruppen.|
-     |Resurs grupp för ProdRG|Resource group|Location|Västra USA 2|Anger platsen för den första resurs gruppen.|
+     |Resurs grupp för ProdRG|Resursgrupp|Namn|ProductionRG|Definierar namnet på den första resurs gruppen.|
+     |Resurs grupp för ProdRG|Resursgrupp|Plats|Västra USA 2|Anger platsen för den första resurs gruppen.|
      |Deltagare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _deltagar_ roll tilldelningen i den första resurs gruppen.|
-     |Resurs grupp för PreProdRG|Resource group|Name|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
-     |Resurs grupp för PreProdRG|Resource group|Location|Västra USA|Anger platsen för den andra resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Namn|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Plats|Västra USA|Anger platsen för den andra resurs gruppen.|
      |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _ägar_ roll tilldelningen i den andra resurs gruppen.|
      |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska ge roll tilldelningen _läsare_ i den andra resurs gruppen.|
 
@@ -147,7 +144,7 @@ Skiss tilldelningen skapar och spårar de artefakter som definieras i skiss defi
 
 1. Välj neka tilldelning och välj sedan sidan **nekade behörigheter** till vänster.
 
-   Neka-tilldelningen förhindrar alla åtgärder med **\*-och-** **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att utesluta **\*/läsning** via **NotActions**.
+   Neka-tilldelningen förhindrar alla åtgärder med **\*** -och **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att utesluta **\*/Read** via **NotActions**.
 
 1. Från Azure Portal dynamiska länkar väljer du **PreProductionRG-Access Control (IAM)** . Välj sedan sidan **Översikt** till vänster och sedan knappen **ta bort resurs grupp** . Ange namnet _PreProductionRG_ för att bekräfta borttagningen och välj **ta bort** längst ned i fönstret.
 

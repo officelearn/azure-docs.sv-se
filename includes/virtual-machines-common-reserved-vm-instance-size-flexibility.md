@@ -4,16 +4,14 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: a98a941477fc83a104b55ed91f457c5a48f90d59
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 9a7de2b41c8016bdb7849cdef428d6f54a8ccf64
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029872"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005460"
 ---
-# <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Storleks flexibilitet för virtuella datorer med reserverade VM-instanser
-
-Med en reserverad virtuell dator instans som är optimerad för flexibilitet i instans storleken kan den reservation du köper tillämpa på storlekarna för virtuella datorer (VM) i samma instans storlek flexibilitet grupp. Om du till exempel köper en reservation för en VM-storlek som anges i DSv2-serien, t. ex. Standard_DS5_v2, kan reservations rabatten gälla för de andra fyra storlekarna som anges i samma instans storlek flexibilitet grupp:
+Med en reserverad virtuell dator instans som är optimerad för flexibilitet i instans storleken kan den reservation du köper tillämpa på storlekarna för virtuella datorer (VM) i samma instans storlek flexibilitet grupp. Om du till exempel köper en reservation för en VM-storlek som anges i DSv2-serien, som Standard_DS5_v2, kan reservations rabatten gälla för de andra fyra storlekarna som anges i samma instans storleks flexibilitet grupp:
 
 - Standard_DS1_v2
 - Standard_DS2_v2
@@ -28,11 +26,11 @@ I flexibilitets gruppen för instans storlek gäller antalet virtuella datorer s
 
 I följande exempel används storlekarna och förhållandena i DSv2-seriens tabell.
 
-Du köper en reserverad VM-instans med storleken Standard_DS4_v2 där kvoten eller den relativa storleken jämfört med de andra storlekarna i serien är 8.
+Du köper en reserverad VM-instans med storleken Standard_DS4_v2 där förhållandet eller det relativa värdet jämfört med de andra storlekarna i serien är 8.
 
-- Scenario 1: Kör åtta virtuella datorer med Standard_DS1_v2 storlek med förhållandet 1. Reservations rabatten gäller för alla åtta av de virtuella datorerna.
-- Scenario 2: Kör två Standard_DS2_v2 storleks datorer med förhållandet 2 var. Kör även en virtuell dator med Standard_DS3_v2 storlek med förhållandet 4. Det totala utrymmet är 2 + 2 + 4 = 8. Reservations rabatten gäller för alla tre virtuella datorer.
-- Scenario 3: Kör en Standard_DS5_v2 med förhållandet 16. Reservations rabatten gäller för hälften av den virtuella datorns beräknings kostnad.
+- Scenario 1: kör åtta Standard_DS1_v2 storlekar av virtuella datorer med förhållandet 1. Reservations rabatten gäller för alla åtta av de virtuella datorerna.
+- Scenario 2: kör två Standard_DS2_v2 stora virtuella datorer med förhållandet 2 var. Kör också en virtuell dator med Standard_DS3_v2 storlek med förhållandet 4. Det totala utrymmet är 2 + 2 + 4 = 8. Reservations rabatten gäller för alla tre virtuella datorer.
+- Scenario 3: kör ett Standard_DS5_v2 med förhållandet 16. Reservations rabatten gäller för hälften av den virtuella datorns beräknings kostnad.
 
 I följande avsnitt visas vilka storlekar som finns i samma storleks serie grupp när du köper en reserverad VM-instans som är optimerad för storleks flexibilitet i en instans.
 

@@ -1,31 +1,28 @@
 ---
-title: Skapa en Programgateway med URL-sökvägsbaserad routning regler – Azure CLI | Microsoft Docs
-description: Lär dig mer om att skapa URL-baserad routningsregler för en application gateway och den virtuella datorn skalningsuppsättning med Azure CLI.
+title: URL-sökväg baserade routningsregler med CLI-Azure Application Gateway
+description: Lär dig hur du skapar URL Path-baserade routningsregler för en Programgateway och en skalnings uppsättning för virtuella datorer med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7198e68530a51e6c2002b3beb08f14615a5c70fb
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135677"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012327"
 ---
-# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Skapa en Programgateway med URL-sökvägsbaserad routning regler med hjälp av Azure CLI
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Skapa en Application Gateway med URL Path-baserade routningsregler med hjälp av Azure CLI
 
-Du kan använda Azure CLI till att konfigurera [webbadressbaserade routningsregler](application-gateway-url-route-overview.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med hjälp av en [virtual machine scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Du kan sedan skapa routningsregler som gör att Internet-trafik anländer till rätt servrar i poolerna.
+Du kan använda Azure CLI till att konfigurera [webbadressbaserade routningsregler](application-gateway-url-route-overview.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här självstudien skapar du Server dels pooler med en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Du skapar sedan routningsregler som kontrollerar att webb trafiken kommer till rätt servrar i poolerna.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en Programgateway med URL-karta
+> * Skapa en Application Gateway med URL-mappning
 > * Skapa VM-skalningsuppsättningar med serverdelspoolerna
 
 ![URL-routningsexempel](./media/application-gateway-create-url-route-cli/scenario.png)
@@ -99,7 +96,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Lägga till serverdelspooler och portar för bilder och video
 
-Du kan lägga till serverdelspooler med namnet *imagesBackendPool* och *videoBackendPool* till din application gateway med hjälp av [az network application-gateway adresspool skapa](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create). Du lägger till klientdelsporten för poolerna med [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create). 
+Du kan lägga till backend-pooler med namnet *imagesBackendPool* och *videoBackendPool* till din Application Gateway genom att använda [AZ Network Application-Gateway Address-pool Create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create). Du lägger till klientdelsporten för poolerna med [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -157,7 +154,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>Lägga till routningsregeln
 
-Routningsregeln associerar adressmappningarna med den lyssnare du skapade. Du kan lägga till regeln med namnet *2* med [az network application-gateway rule skapa](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Routningsregeln associerar adressmappningarna med den lyssnare du skapade. Du kan lägga till regeln med namnet *regel 2* med [AZ Network Application-Gateway Rule Create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -220,7 +217,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. T.ex, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, eller `http://40.121.222.19:8080/video/test.htm`.
+Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Som, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`eller `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -232,11 +229,11 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Ändra Webbadressen till `http://<ip-address>:8080/video/test.html` i slutet av den grundläggande Webbadressen och du bör se ut ungefär som i följande exempel:
+Ändra URL: en till `http://<ip-address>:8080/video/test.html` till slutet av bas-URL: en så bör du se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Ändra Webbadressen till `http://<ip-address>:8080/video/test.html` och du bör se ut ungefär som i följande exempel.
+Ändra URL: en till `http://<ip-address>:8080/video/test.html` så ser du något som liknar följande exempel.
 
 ![Testa videoadressen i programgatewayen](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
@@ -246,7 +243,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en Programgateway med URL-karta
+> * Skapa en Application Gateway med URL-mappning
 > * Skapa VM-skalningsuppsättningar med serverdelspoolerna
 
-Om du vill veta mer om application gateway och deras associerade resurser kan du fortsätta i instruktionsartiklarna.
+Om du vill veta mer om programgatewayer och deras associerade resurser kan du fortsätta till instruktions artiklarna.

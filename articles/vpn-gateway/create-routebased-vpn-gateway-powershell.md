@@ -1,24 +1,24 @@
 ---
-title: 'Skapa en ruttbaserad Azure VPN-gateway: PowerShell | Microsoft Docs'
-description: Skapa snabbt en ruttbaserad VPN-Gateway med hjälp av PowerShell
+title: 'Skapa en Route-baserad Azure VPN-Gateway: PowerShell | Microsoft Docs'
+description: Skapa snabbt en Route-baserad VPN Gateway med PowerShell
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3ad391aae72bec392ae75b333fc3bfc1ff3f95f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a1c34ea25c8ef4bdc3e75e18d6f4a603efc67d5
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727324"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953839"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Skapa en ruttbaserad VPN-gateway med hjälp av PowerShell
+# <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Skapa en Route-baserad VPN-gateway med PowerShell
 
-Den här artikeln hjälper dig att snabbt skapa en ruttbaserad Azure VPN gateway med hjälp av PowerShell. En VPN-gateway för att skapa en VPN-anslutning till ditt lokala nätverk. Du kan också använda en VPN-gateway för att ansluta virtuella nätverk.
+Den här artikeln hjälper dig att snabbt skapa en Route-baserad Azure VPN-gateway med PowerShell. En VPN-gateway används när du skapar en VPN-anslutning till ditt lokala nätverk. Du kan också använda en VPN-gateway för att ansluta virtuella nätverk.
 
-Stegen i den här artikeln skapar ett virtuellt nätverk, ett undernät, ett gateway-undernät och en routningsbaserad VPN-gateway (virtuella nätverksgateway). Du kan sedan skapa anslutningar när skapa gatewayen är klar. Dessa steg kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Stegen i den här artikeln skapar ett VNet, ett undernät, ett Gateway-undernät och en Route-baserad VPN-gateway (virtuell nätverksgateway). När gatewayen har skapats kan du skapa anslutningar. De här stegen kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,7 @@ New-AzResourceGroup -Name TestRG1 -Location EastUS
 
 ## <a name="vnet"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med hjälp av [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet **VNet1** i den **EastUS** plats:
+Skapa ett virtuellt nätverk med hjälp av [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet **VNet1** på platsen för **öster** :
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzVirtualNetwork `
@@ -44,7 +44,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.1.0.0/16
 ```
 
-Skapa ett undernät konfiguration med hjälp av den [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet.
+Skapa en under näts konfiguration med cmdleten [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) .
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -53,44 +53,44 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Anger undernätskonfiguration för virtuellt nätverk med hjälp av den [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet.
+Ange under näts konfigurationen för det virtuella nätverket med cmdleten [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) .
 
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="gwsubnet"></a>Lägg till ett gateway-undernät
+## <a name="gwsubnet"></a>Lägg till ett Gateway-undernät
 
-Gateway-undernätet innehåller reserverade IP-adresser som gatewaytjänsterna för virtuella nätverk använder. Använd följande exempel för att lägga till ett gateway-undernät:
+Gateway-undernätet innehåller de reserverade IP-adresser som används av tjänsten för virtuell nätverksgateway. Använd följande exempel för att lägga till ett Gateway-undernät:
 
-Ange en variabel för ditt virtuella nätverk.
+Ange en variabel för ditt VNet.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
 ```
 
-Skapa gateway-undernätet med den [Lägg till AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-azVirtualNetworkSubnetConfig) cmdlet.
+Skapa Gateway-undernätet med cmdleten [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-azVirtualNetworkSubnetConfig) .
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
 ```
 
-Anger undernätskonfiguration för virtuellt nätverk med hjälp av den [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet.
+Ange under näts konfigurationen för det virtuella nätverket med cmdleten [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) .
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzVirtualNetwork
+$vnet | Set-AzVirtualNetwork
 ```
 
 ## <a name="PublicIP"></a>Begär en offentlig IP-adress
 
-En VPN-gateway måste ha en dynamiskt tilldelad offentlig IP-adress. När du skapar en anslutning till en VPN-gateway, är detta den IP-adressen som du anger. Använd följande exempel för att begära en offentlig IP-adress:
+En VPN-gateway måste ha en dynamiskt tilldelad offentlig IP-adress. När du skapar en anslutning till en VPN-gateway är detta den IP-adress som du anger. Använd följande exempel för att begära en offentlig IP-adress:
 
 ```azurepowershell-interactive
 $gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>Skapa gateway-IP-adresskonfiguration
+## <a name="GatewayIPConfig"></a>Skapa gatewayens IP-adresskonfiguration
 
 Gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas. Använd följande exempel för att skapa din gateway-konfiguration:
 
@@ -99,9 +99,9 @@ $vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
-## <a name="CreateGateway"></a>Skapa VPN-gateway
+## <a name="CreateGateway"></a>Skapa VPN-gatewayen
 
-Det kan ta minst 45 minuter att skapa en VPN-gateway. När gatewayen har slutförts kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat virtuellt nätverk. Eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats. Skapa en VPN-gateway med cmdleten [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
+Det kan ta minst 45 minuter att skapa en VPN-gateway. När gatewayen har slutförts kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat VNet. Eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats. Skapa en VPN-gateway med cmdleten [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
@@ -109,15 +109,15 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-## <a name="viewgw"></a>Visa VPN-gateway
+## <a name="viewgw"></a>Visa VPN-gatewayen
 
-Du kan visa VPN-gateway med den [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) cmdlet.
+Du kan visa VPN-gatewayen med hjälp av cmdleten [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) .
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGateway -Name Vnet1GW -ResourceGroup TestRG1
 ```
 
-Utdata ser ut ungefär som det här exemplet:
+Resultatet ser ut ungefär som i det här exemplet:
 
 ```
 Name                   : VNet1GW
@@ -164,13 +164,13 @@ BgpSettings            : {
 
 ## <a name="viewgwpip"></a>Visa den offentliga IP-adressen
 
-Du kan visa den offentliga IP-adressen för din VPN-gateway den [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress) cmdlet.
+Om du vill visa den offentliga IP-adressen för din VPN-Gateway använder du cmdleten [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress) .
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
-I exempel-svaret är värdet IpAddress offentliga IP-adress.
+I exempel svaret är IpAddress-värdet den offentliga IP-adressen.
 
 ```
 Name                     : VNet1GWIP
@@ -209,9 +209,9 @@ Remove-AzResourceGroup -Name TestRG1
 
 ## <a name="next-steps"></a>Nästa steg
 
-När gatewayen har skapats, kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat virtuellt nätverk. Eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats.
+När gatewayen har skapats kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat VNet. Eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats.
 
 > [!div class="nextstepaction"]
 > [Skapa en plats-till-plats-anslutning](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
 > [Skapa en punkt-till-plats-anslutning](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
-> [Skapa en anslutning till ett annat virtuellt nätverk](vpn-gateway-vnet-vnet-rm-ps.md)
+> [Skapa en anslutning till ett annat VNet](vpn-gateway-vnet-vnet-rm-ps.md)

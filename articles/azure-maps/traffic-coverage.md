@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722642"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958005"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
 
-Azure Maps ger omfattande trafik information i form av trafikflöde och **incidenter**. Dessa data kan visualiseras på kartor eller användas för att generera smartare vägar som faktorr i verkliga kör förhållanden.
+Azure Maps ger omfattande trafik information i form av **trafikflöde** och **incidenter**. Dessa data kan visualiseras på kartor eller användas för att generera smartare vägar som faktorr i verkliga kör förhållanden.
 
-Maps har dock inte samma nivå av information och exakthet för alla regioner. Följande tabell innehåller information om vilken typ av trafik information som du kan begära från varje region: 
+Maps har dock inte samma nivå av information och noggrannhet för alla länder eller regioner. Följande tabell innehåller information om vilken typ av trafik information som du kan begära från varje land eller region: 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
@@ -30,7 +30,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 |Kanada     |✓         |✓         |
 |Chile     |✓         |✓         |
 |Colombia      |✓         |✓         |
-|Mexico     |✓         |✓         |
+|Mexiko     |✓         |✓         |
 |Peru       |✓         |✓         | 
 |USA     |✓         |✓        |
 |+Puerto Rico     |✓         |✓         |
@@ -51,7 +51,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 |Nya Zeeland     |✓         |✓         |
 |Filippinerna  |✓         |✓         |
 |Singapore     |✓         |✓         |
-|Taiwan (Taiwan)     |✓         |✓        |
+|Taiwan     |✓         |✓        |
 |Thailand     |✓         |✓        |
 |Vietnam   |✓         |✓         |
 
@@ -62,7 +62,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Österrike     |✓         |✓         |
-|Republiken Vitryssland    |✓         |✓         |
+|Vitryssland    |✓         |✓         |
 |Belgien     |✓         |✓         |
 |Bosnien och Hercegovina    |✓         |✓         |
 |Bulgarien     |✓         |✓         |
@@ -80,7 +80,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 |Island     |✓         |✓         |
 |Irland     |✓         |✓         |
 |Italien     |✓         |✓        |
-|Kazakstan    |✓         |✓        |
+|Kazakhstan    |✓         |✓        |
 |Lettland     |✓         |✓         |
 |Lesotho     |✓         |✓         |
 |Liechtenstein      |✓         |✓         |
@@ -107,7 +107,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 |Schweiz     |✓         |✓        |
 |Turkiet     |✓         |✓         |
 |Ukraina     |✓         |✓         |
-|Storbritannien och Nordirland     |✓         |✓         |
+|Storbritannien     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
 |\+ Isle of man     |✓         |✓         |
@@ -123,7 +123,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 |Israel     |✓         |✓         |
 |Kenya     |✓         |✓         |
 |Kuwait     |✓         |✓         |
-|Marokko     |✓         |✓         |
+|Marocko     |✓         |✓         |
 |Moçambique  |✓         |✓         |
 |Nigeria   |✓        |✓        |
 |Oman     |✓         |✓         |

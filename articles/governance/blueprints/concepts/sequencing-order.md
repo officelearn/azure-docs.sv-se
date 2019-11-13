@@ -1,17 +1,14 @@
 ---
 title: Förstå ordningen för distributions ordningen
 description: Lär dig mer om livs cykeln som en skiss definition går igenom och information om varje steg.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: bda7a6caea931a993a6ddd6731688792bf0b3948
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 87eff48f977f0308fea563090a44ff0b301909a9
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981020"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960436"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå distributions ordningen i Azure-ritningar
 
@@ -140,7 +137,7 @@ Mallen för prenumerations nivåns artefakt beroende på resurs gruppen **vänta
 
 Under skapandet används en Top ologiska sortering för att skapa ett beroende diagram över ritningens artefakter. Kontrollen säkerställer att varje nivå av beroendet mellan resurs grupper och artefakter stöds.
 
-Om ett artefakt beroende deklareras som inte ändrar standard ordningen görs ingen ändring. Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen skulle `dependsOn` inte ha ändrat standard ordningen för ordningsföljd och inga ändringar skulle göras.
+Om ett artefakt beroende deklareras som inte ändrar standard ordningen görs ingen ändring. Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen har `dependsOn` inte ändrat standard ordningen för ordningsföljd och inga ändringar skulle göras.
 
 ## <a name="next-steps"></a>Nästa steg
 

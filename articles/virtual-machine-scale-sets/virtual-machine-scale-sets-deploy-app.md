@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 996006c60e754437f8f863c7e7a72c929ed77f2c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 0dc1c52e65090acd5f63d1b23d8da6f37e3cf567
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166215"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960733"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program på virtuella datorers skalnings uppsättningar
 
@@ -37,7 +37,7 @@ För att minska konfigurations hanteringen och tiden för att etablera en virtue
 
 
 ## <a name="already-provisioned"></a>Installera en app med tillägget för anpassat skript
-Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Mer information om hur du skapar och använder en anpassad VM-avbildning med en skalnings uppsättning finns i följande Självstudier:
+Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Mer information om hur du installerar en app med ett anpassat skript tillägg finns i följande Självstudier:
 
 - [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
@@ -45,7 +45,7 @@ Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-da
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installera en app på en virtuell Windows-dator med PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) är en hanterings plattform för att definiera konfigurationen för mål datorer. DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. En lokal Configuration Manager-motor (LCM) körs på varje målnod som bearbetar begärda åtgärder baserat på push-konfigurationer.
+[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) är en hanteringsplattform för att definiera konfigurationen av måldatorer. DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. En motor för lokala Configuration Manager (LCM) körs på varje målnoden som bearbetar begärda åtgärder baserat på pushade konfigurationer.
 
 Med PowerShell DSC-tillägget kan du anpassa VM-instanser i en skalnings uppsättning med PowerShell. Följande exempel:
 

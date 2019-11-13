@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2e91a888d0dc98a4f94b956e15336d75291f733e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795922"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957971"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Använda certifikat med LetsEncrypt.org i Application Gateway för AKS-kluster
 
@@ -130,8 +130,12 @@ Följ stegen nedan om du vill installera [cert Manager](https://docs.cert-manage
     Efter några sekunder kan du komma åt `guestbook` tjänsten via Application Gateway HTTPS-URL: en med hjälp av den automatiskt utfärdade **mellanlagrings** `Lets Encrypt` certifikatet.
     Webbläsaren kan varna dig om en ogiltig certifikat utfärdare. Det tillfälliga certifikatet utfärdas av `CN=Fake LE Intermediate X1`. Detta är en indikation på att systemet fungerade som förväntat och att du är redo för ditt produktions certifikat.
 
-4. Produktions certifikat när ditt mellanliggande certifikat har kon figurer ATS kan du växla till en produktions server för produktion på företaget:
+4. Produktions certifikat
+
+    När ditt mellanlagrings certifikat har kon figurer ATS kan du växla till en produktions server för produktion på företaget:
     1. Ersätt mellanlagrings anteckningen på din ingångs resurs med: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
     1. Ta bort den befintliga mellanlagrings `ClusterIssuer` som du skapade i föregående steg och skapa en ny genom att ersätta den ursprungliga servern från ClusterIssuer-YAML ovan med `https://acme-v02.api.letsencrypt.org/directory`
 
-5. Certifikatets upphör ande och förnyelse innan det `Lets Encrypt` certifikatet upphör att gälla uppdaterar `cert-manager` automatiskt certifikatet i Kubernetes Secret Store. Vid det här tillfället kommer Application Gateway ingångs kontroll enhet att tillämpa den uppdaterade hemlighet som refereras i de ingående resurserna som används för att konfigurera Application Gateway.
+5. Certifikatets giltighets tid och förnyelse
+
+    Innan det `Lets Encrypt` certifikatet upphör att gälla uppdaterar `cert-manager` automatiskt certifikatet i Kubernetes Secret Store. Vid det här tillfället kommer Application Gateway ingångs kontroll enhet att tillämpa den uppdaterade hemlighet som refereras i de ingående resurserna som används för att konfigurera Application Gateway.

@@ -12,16 +12,16 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f4e8750497fc1ae9875caeb60de65b5f6cd808
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e993ad17a07ff741ff33073304ed774dcf30203d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896026"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961642"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till program som inte är gallerier
 
-När du [lägger till en Galleri-app](add-gallery-app.md) eller en [icke-Galleri-](add-non-gallery-app.md) WEBBAPP till dina Azure AD Enterprise-program, är ett av de alternativ för enkel inloggning som är tillgängligt för dig [SAML-baserad enkel inloggning](what-is-single-sign-on.md#saml-sso). Välj SAML när det är möjligt för program som autentiseras med ett av SAML-protokollen. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggnings informationen till programmet via ett anslutnings protokoll. Du kan mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. I den här artikeln beskrivs hur du konfigurerar SAML-baserad enkel inloggning för en app som inte är en Galleri. 
+När du [lägger till en Galleri-app](add-gallery-app.md) eller en [icke-Galleri-](add-non-gallery-app.md) WEBBAPP till dina Azure AD Enterprise-program, är ett av de alternativ för enkel inloggning som är tillgängligt för dig [SAML-baserad enkel inloggning](what-is-single-sign-on.md#saml-sso). Välj SAML när det är möjligt för program som autentiseras med ett av SAML-protokollen. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Du kan mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. I den här artikeln beskrivs hur du konfigurerar SAML-baserad enkel inloggning för en app som inte är en Galleri. 
 
 > [!NOTE]
 > Lägger du till en Galleri app? Hitta steg-för-steg-instruktioner i [listan med självstudier för SaaS-appar](../saas-apps/tutorial-list.md)
@@ -55,8 +55,8 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
     | **Identifierare (enhets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. *Du kan hitta det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
     | **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
     | **Inloggnings-URL** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. Om det är tomt utför Azure AD IdP inloggning när en användare startar programmet från Office 365, Azure AD-åtkomst panelen eller URL: en för Azure AD SSO.|
-    | **Relä status** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
-    | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
+    | **Relä status** | Valfri | Valfri | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
+    | **Utloggnings-URL** | Valfri | Valfri | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
 
 Mer information finns i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
 

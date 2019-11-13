@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 229d960f7851b5fab8504b6c2a109bece6c7b31f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969097"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012825"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
@@ -24,6 +24,7 @@ Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhet
 I den här självstudien beskrivs hur du:
 
 > [!div class="checklist"]
+>
 > * Konfigurera PowerShell och registrera Azure Recovery Services-providern.
 > * Skapa ett Recovery Services-valv.
 > * Konfigurera säkerhets kopiering för SQL DB i en virtuell Azure-dator.
@@ -87,7 +88,7 @@ Konfigurera PowerShell på följande sätt:
 
 9. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Följ dessa steg om du vill skapa ett Recovery Services-valv.
 
@@ -270,8 +271,8 @@ När avsikten med autoskydd har angetts sker förfrågan om att hämta nyligen t
 
 Azure Backup kan återställa SQL Server databaser som körs på virtuella Azure-datorer på följande sätt:
 
-1. Återställ till ett visst datum eller en angiven tidpunkt (till den andra) med hjälp av säkerhets kopior av transaktions loggen. Azure Backup identifierar automatiskt rätt fullständig differentiell säkerhets kopiering och kedja av logg säkerhets kopior som krävs för att återställa baserat på den valda tiden.
-2. Återställ en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
+* Återställ till ett visst datum eller en angiven tidpunkt (till den andra) med hjälp av säkerhets kopior av transaktions loggen. Azure Backup identifierar automatiskt rätt fullständig differentiell säkerhets kopiering och kedja av logg säkerhets kopior som krävs för att återställa baserat på den valda tiden.
+* Återställ en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
 Kontrol lera de krav som anges [här](restore-sql-database-azure-vm.md#prerequisites) innan du återställer SQL-databaser.
 
@@ -335,9 +336,9 @@ Ovanstående utdata innebär att användaren kan återställa till valfri tidpun
 
 I händelse av SQL DB-återställning stöds följande återställnings scenarier.
 
-1. Åsidosätta den säkerhetskopierade SQL-databasen med data från en annan återställnings punkt – OriginalWorkloadRestore
-2. Återställa SQL DB som en ny databas i samma SQL-instans – AlternateWorkloadRestore
-3. Återställa SQL DB som en ny databas i en annan SQL-instans i en annan virtuell SQL-AlternateWorkloadRestore
+* Åsidosätta den säkerhetskopierade SQL-databasen med data från en annan återställnings punkt – OriginalWorkloadRestore
+* Återställa SQL DB som en ny databas i samma SQL-instans – AlternateWorkloadRestore
+* Återställa SQL DB som en ny databas i en annan SQL-instans i en annan virtuell SQL-AlternateWorkloadRestore
 
 När du har hämtat relevant återställnings punkt (distinkt eller logg tidpunkt) använder du [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) cmdlet: en för att hämta återställnings konfigurations objekt enligt önskad återställnings plan.
 
@@ -560,12 +561,12 @@ För SQL Always on-tillgänglighetsgrupper, se till att [registrera alla noder](
 
 Anta till exempel att en SQL AG har två noder: SQL-Server-0 och SQL-Server-1 och 1 SQL AG DB. När båda dessa noder är registrerade, om användaren [visar en lista över de objekt](#fetching-sql-dbs)som kan skyddas, visas följande komponenter
 
-1. En SQL AG-objekts skydds bara objekt typ som SQLAvailabilityGroup
-2. En SQL AG DB-skyddad objekt typ som SQLDatabase
-3. SQL-Server-0-skydds bara objekt typ som SQLInstance
-4. SQL-Server-1-skydds bara objekt typ som SQLInstance
-5. Alla standard-SQL-databaser (Master, Model, msdb) under SQL-Server-0-skydds bara objekt typ som SQLDatabase
-6. Alla standard-SQL-databaser (Master, Model, msdb) under SQL-Server-1-skydds bara objekt typ som SQLDatabase
+* En SQL AG-objekts skydds bara objekt typ som SQLAvailabilityGroup
+* En SQL AG DB-skyddad objekt typ som SQLDatabase
+* SQL-Server-0-skydds bara objekt typ som SQLInstance
+* SQL-Server-1-skydds bara objekt typ som SQLInstance
+* Alla standard-SQL-databaser (Master, Model, msdb) under SQL-Server-0-skydds bara objekt typ som SQLDatabase
+* Alla standard-SQL-databaser (Master, Model, msdb) under SQL-Server-1-skydds bara objekt typ som SQLDatabase
 
 SQL-Server-0, SQL-Server-1 visas också som "AzureVMAppContainer" när [säkerhets kopierings behållarna visas](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Distribuera Azure Digital Twins | Microsoft Docs'
+title: 'Självstudie: Distribuera ett spatial diagram – Azure Digitals flätar | Microsoft Docs'
 description: Lär dig hur du distribuerar din instans av Azure Digital Twins och konfigurerar rumsliga resurser med hjälp av den här självstudien.
 services: digital-twins
 ms.author: alinast
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/17/2019
-ms.openlocfilehash: 54afe8ea67996562c88a2ade2ec16c4eaa89cdee
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 481e38df0855eddd7e050afad0fd0220b3c66690
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949741"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014072"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudier: Distribuera Azure Digitals förhands granskning och konfigurera ett spatial diagram
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digitals förhands granskning och konfigurera ett spatial diagram
 
 Du kan använda Azure Digital-förhands gransknings tjänsten för att samla ihop människor, platser och enheter i ett sammanhängande avstånds system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
 
@@ -36,7 +36,7 @@ I seriens första kurs lär du dig följande:
 
 I de här kurserna används och ändras samma exempel som i [snabbstarten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md), för en mer detaljerad och djupgående täckning av de här begreppen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har ett Azure-konto skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -99,7 +99,7 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
 
 1. I Visual Studio Code öppnar du filen [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) i projektet **occupancy-quickstart**. Uppdatera följande värden:
    * **ClientId**: Ange program-ID:t för din Azure AD-appregistrering. Du antecknade ID:t i avsnittet där du [anger appbehörigheter](#grant-permissions-to-your-app).
-   * **Klientorganisation**: Ange katalog-ID för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#grant-permissions-to-your-app).
+   * **Klientorganisation**: Ange katalog-ID:t för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#grant-permissions-to-your-app).
    * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy-digital-twins). Ersätt **swagger/** med **api/v1.0/** .
 
 1. Se en lista över Digital Twins-funktioner som du kan utforska med hjälp av exemplet. Kör följande kommando:
@@ -132,7 +132,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Den här funktionen använder [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) i samma mapp. Öppna den här filen och notera hierarkin för en kontorsbyggnad: *Plats*, *Våning*, *Område* och *Rum*. Vilken som helst av dessa fysiska utrymmen kan innehålla *devices* (enheter) och *sensors* (sensorer). Varje post har en fördefinierad `type`&mdash;, till exempel Floor (Våning), Room (Rum).
+Den här funktionen använder [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) i samma mapp. Öppna den här filen och notera hierarkin för en kontorsbyggnad: *Venue* (Plats), *Floor* (Våning), *Area* (Område) och *Rooms* (Rum). Vilken som helst av dessa fysiska utrymmen kan innehålla *devices* (enheter) och *sensors* (sensorer). Varje post har en fördefinierad `type`&mdash;, till exempel Floor (Våning), Room (Rum).
 
 I **yaml**-exempelfilen visas en rumslig graf som använder `Default` Digital Twins-objektmodellen. Den här modellen innehåller allmänna namn för de flesta typer. Allmänna namn är tillräckliga för en byggnad. Exempel är Temperature (Temperatur) för SensorDataType (Sensordatatyp) och Map (Karta) för SpaceBlobType (Utrymmesblobtyp). Ett exempel på utrymmestypen är Room (Rum) med undertyperna FocusRoom (Fokusrum), ConferenceRoom (Konferensrum) och så vidare. 
 
@@ -144,13 +144,13 @@ Mer information om rumsliga grafer och objektmodellerna finns i [Förstå Digita
 
 Filen **provisionSample.yaml** innehåller följande noder:
 
-- **resurser**: Noden `resources` skapar en Azure IoT Hub-resurs för att kommunicera med enheterna i din konfiguration. En IoT-hugg på rotnoden i grafen kan kommunicera med alla enheterna och sensorerna i din graf.  
+- **resources** (resurser): Noden `resources` skapar en Azure IoT Hub-resurs för att kommunicera med enheterna i din konfiguration. En IoT-hugg på rotnoden i grafen kan kommunicera med alla enheterna och sensorerna i din graf.  
 
-- **utrymmen**: I Digital Twins-objektmodellen representerar `spaces` de fysiska platserna. Varje utrymme har en `Type`&mdash;, till exempel Region, Venue (Plats) eller en Customer (Kund)&mdash;och ett eget `Name`. Utrymmen kan tillhöra andra utrymmen som skapar en hierarkisk struktur. Filen provisionSample.yaml har en rumslig graf av en föreställd byggnad. Observera den logiska kapslingen av utrymmen av typen `Floor` i `Venue`, `Area` på en våning och `Room`-noderna i ett område. 
+- **spaces** (utrymmen): I Digital Twins-objektmodellen representerar `spaces` de fysiska platserna. Varje utrymme har en `Type`&mdash;, till exempel Region, Venue (Plats) eller en Customer (Kund)&mdash;och ett eget `Name`. Utrymmen kan tillhöra andra utrymmen som skapar en hierarkisk struktur. Filen provisionSample.yaml har en rumslig graf av en föreställd byggnad. Observera den logiska kapslingen av utrymmen av typen `Floor` i `Venue`, `Area` på en våning och `Room`-noderna i ett område. 
 
-- **enheter**: Utrymmen kan innehålla `devices`, som är fysiska eller virtuella enheter som hanterar ett antal sensorer. Till exempel kan en enhet vara en användares telefon, en Raspberry Pi-sensor eller en gateway. I den föreställda byggnaden i exemplet kan du observera hur rummet med namnet **Focus Room** innehåller en **Raspberry Pi 3 A1**-enhet. Varje enhetsnod identifieras med ett unikt `hardwareId`, som är hårdkodat i exemplet. Om du vill konfigurera det här exemplet för faktisk produktion ersätter du dessa med värden från konfigurationen.  
+- **devices** (enheter): Utrymmen kan innehålla `devices`, som är fysiska eller virtuella enheter som hanterar ett antal sensorer. Till exempel kan en enhet vara en användares telefon, en Raspberry Pi-sensor eller en gateway. I den föreställda byggnaden i exemplet kan du observera hur rummet med namnet **Focus Room** innehåller en **Raspberry Pi 3 A1**-enhet. Varje enhetsnod identifieras med ett unikt `hardwareId`, som är hårdkodat i exemplet. Om du vill konfigurera det här exemplet för faktisk produktion ersätter du dessa med värden från konfigurationen.  
 
-- **sensorer**: En enhet kan innehålla flera `sensors`. De kan identifiera och registrera fysiska förändringar som temperatur, rörelse och batterinivå. Varje sensornod har unikt identifierats av ett `hardwareId`, hårdkodat här. För en faktisk app ersätter du dessa med hjälp av de unika identifierarna för sensorerna i konfigurationen. Filen provisionSample.yaml har två sensorer för att registrera *Motion* (Rörelse) och *CarbonDioxide* (Koldioxid). Lägg till en annan sensor för att registrera *Temperature* (Temperatur) genom att lägga till följande rader, nedanför raderna för CarbonDioxide-sensorn (Koldioxidsensorn). Observera att dessa tillhandahålls i provisionSample.yaml som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
+- **sensors** (sensorer): en enhet kan innehålla flera `sensors`. De kan identifiera och registrera fysiska förändringar som temperatur, rörelse och batterinivå. Varje sensornod har unikt identifierats av ett `hardwareId`, hårdkodat här. För en faktisk app ersätter du dessa med hjälp av de unika identifierarna för sensorerna i konfigurationen. Filen provisionSample.yaml har två sensorer för att registrera *Motion* (Rörelse) och *CarbonDioxide* (Koldioxid). Lägg till en annan sensor för att registrera *Temperature* (Temperatur) genom att lägga till följande rader, nedanför raderna för CarbonDioxide-sensorn (Koldioxidsensorn). Observera att dessa tillhandahålls i provisionSample.yaml som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
 
     ```yaml
             - dataType: Temperature

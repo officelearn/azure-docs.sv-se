@@ -1,25 +1,25 @@
 ---
-title: 'Självstudie: Skapa en zonredundant programgateway för automatisk skalning med en reserverad IP-adress – Azure PowerShell'
+title: 'Självstudie: förbättra webb program åtkomst – Azure Application Gateway'
 description: I den här självstudien får du lära dig hur du skapar en zonredundant programgateway för automatisk skalning med en reserverad IP-adress med hjälp av Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 2/14/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947152"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011368"
 ---
-# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Självstudie: Skapa en application gateway som förbättrar åtkomsten till webbprogrammet
+# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Självstudie: skapa en Programgateway som förbättrar åtkomsten till webb program
 
 Om du är IT-administratör som arbetar med att förbättra webbappmåtkomst kan du kan optimera din programgateway om du vill skala baserat på kundernas efterfrågan och sträcka dig över flera tillgänglighetszoner. Den här självstudien hjälper dig att konfigurera Azure Application Gateway-funktioner som gör det: automatisk skalning, zonredundans och reserverade virtuella IP-adresser (statisk IP-adress). Du använder Azure PowerShell-cmdletar och Azure Resource Manager-distributionsmodellen för att lösa problemet.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
@@ -32,11 +32,11 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
+Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-modul version 1.0.0 eller senare installerad. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -180,7 +180,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Använd Get-AzPublicIPAddress för att hämta den offentliga IP-adressen för application gateway. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
+Använd Get-AzPublicIPAddress för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
 
 `Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 

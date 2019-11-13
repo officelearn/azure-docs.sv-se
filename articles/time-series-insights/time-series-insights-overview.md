@@ -1,5 +1,5 @@
 ---
-title: 'Översikt: Vad är Azure Time Series Insights? | Microsoft Docs'
+title: 'Översikt: Vad är Azure Time Series Insights? -Azure Time Series Insights | Microsoft Docs'
 description: Introduktion till Azure Time Series Insights, en ny tjänst för analys av tidsseriedata och IoT-lösningar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15674d995036d11e1b4ec0ceda5aa4bbf4952906
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: aa15e9c50cb5cd694a7a6adad352459536292b85
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990029"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012577"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
@@ -65,7 +65,7 @@ Azure Time Series Insights fångar in och lagrar varje ny händelse som en rad, 
 
    Time Series Insights visar REST-API: er som du kan använda för att bygga program som använder Time Series-data.
 
-## <a name="capabilities"></a>Kapacitet
+## <a name="capabilities"></a>Funktioner
 
 - **Kom igång snabbt**: Azure Time Series Insights kräver inte förberedelse av första data, så att du snabbt kan ansluta till miljon tals händelser i din IoT Hub eller Event Hub. När du har anslutit kan du visualisera och interagera med sensor data för att snabbt verifiera dina IoT-lösningar. Du kan interagera med dina data utan att skriva kod, och du behöver inte lära dig något nytt språk. Time Series Insights innehåller en detaljerad, fri text yta för avancerade användare och peka och klicka på utforskning.
 
@@ -75,7 +75,7 @@ Azure Time Series Insights fångar in och lagrar varje ny händelse som en rad, 
 
 - **Skalbarhet**: Time Series Insights är utformat för att fungera med IoT-skalning. Det kan mata in mellan 1 och 100 miljoner händelser per dag, med ett standardomfång för kvarhållning på 31 dagar. Du kan visualisera och analysera real tids data strömmar i nära real tid, tillsammans med historiska data.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Följ dessa steg för att komma igång.
 
@@ -84,11 +84,11 @@ Följ dessa steg för att komma igång.
 1. Överför referens data. Detta är inte en extra tjänst.
 1. Visa data på några minuter med Time Series Insights-utforskaren.
 
-## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
+## <a name="time-series-insights-explorer"></a>Time Series Insights-utforskaren
 
 Det här diagrammet visar ett exempel på Time Series Insights-data som visas i Time Series Insights Explorer.
 
-![Time Series Insights Explorer](media/time-series-insights-explorer/explorer4.png)
+![Time Series Insights-utforskaren](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

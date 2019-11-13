@@ -1,5 +1,5 @@
 ---
-title: Skydda virtuella datorer från Azure till en lokal plats under haveri beredskap för virtuella VMware-datorer och fysiska servrar | Microsoft Docs
+title: Skydda virtuella VMware-datorer/fysiska servrar till en lokal plats med Azure Site Recovery
 description: Efter redundansväxlingen till Azure under haveri beredskap för virtuella VMware-datorer och fysiska servrar, lär du dig hur du växlar tillbaka från Azure till den lokala platsen.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791804"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961351"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Återaktivera skydd och återställning av datorer till en lokal plats efter redundansväxling till Azure
 

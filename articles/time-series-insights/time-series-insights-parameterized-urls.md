@@ -1,6 +1,6 @@
 ---
-title: Dela anpassade Azure Time Series Insights-vyer med parametriserade URL:er | Microsoft Docs
-description: Den här artikeln beskriver hur du utvecklar parametriserade URL:er i Azure Time Series Insights så att du enkelt kan dela en anpassad vy.
+title: 'Dela anpassade vyer med parametriserade URL: er – Azure Time Series Insights | Microsoft Docs'
+description: 'Lär dig att utveckla parametriserade URL: er i Azure Time Series Insights så att du enkelt kan dela anpassade vyer.'
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991117"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006378"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -63,13 +63,13 @@ Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer
 * `604800000` (senaste 7 dagarna)
 * `2592000000` (senaste 30 timmarna)
 
-### <a name="optional-parameters"></a>Extraparametrar
+### <a name="optional-parameters"></a>Valfria parametrar
 
 Parametern `timeSeriesDefinitions=<collection of term objects>` anger villkoren i en Time Series Insights vy:
 
 | Parameter | URL-objekt | Beskrivning |
 | --- | --- | --- |
-| **Namn** | `\<string>` | Namnet på *villkoret*. |
+| **name** | `\<string>` | Namnet på *villkoret*. |
 | **splitBy** | `\<string>` | Kolumnnamnet att *dela med*. |
 | **measureName** | `\<string>` | Kolumnnamnet för *mått*. |
 | **predikatet** | `\<string>` | *Where*-sats för filtrering på serversidan. |
@@ -113,7 +113,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 URL: en ovan beskriver och bygger vyn Time Series Insights Explorer:
 
-[Villkor för![Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[Villkor för ![Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 Fullständig vy (inklusive diagrammet):
 

@@ -1,23 +1,18 @@
 ---
-title: Skapa en Application Gateway med omdirigering av extern trafik – Azure CLI | Microsoft Docs
+title: Omdirigering av extern trafik med CLI-Azure Application Gateway
 description: Lär dig hur du skapar en Programgateway som dirigerar om intern webb trafik till rätt pool med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e1fb25a9d5bfe6538d081169d163d7b280733cc1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382010"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011599"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med extern omdirigering med hjälp av Azure CLI
 
@@ -93,7 +88,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ### <a name="add-the-redirection-configuration"></a>Lägg till omdirigerings konfigurationen
 
-Lägg till den omdirigerings konfiguration som skickar trafik *från\.www-Consoto.org* till lyssnaren *för\.www-contoso.com* till programgatewayen med hjälp av [AZ Network Application-Gateway Redirect-config Create ](/cli/azure/network/application-gateway/redirect-config).
+Lägg till den omdirigerings konfiguration som skickar trafik från *www\.Consoto.org* till lyssnaren för *www\.contoso.com* till programgatewayen med [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

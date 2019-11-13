@@ -1,5 +1,5 @@
 ---
-title: Hantering av Azure IoT-enheter med Cloud Explorer för Visual Studio | Microsoft Docs
+title: Azure IoT enhets hantering med Visual Studio Cloud Explorer
 description: Använd Cloud Explorer för IoT Hub enhets hantering i Azure för Azure enhets hantering, med de direkta metoderna och de dubbla alternativen för önskade egenskaper för hantering.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: e05ba421a4535e6e424e65a1f2271d19f9d9abf4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048680"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953182"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Använd Cloud Explorer för Visual Studio för Azure IoT Hub enhets hantering
 
@@ -22,7 +22,7 @@ ms.locfileid: "70048680"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Hanterings alternativ          | Uppgift                    |
+| Hanterings alternativ          | Aktivitet                    |
 |----------------------------|--------------------------------|
 | Direkta metoder             | Se till att en enhet fungerar som att starta eller stoppa sändning av meddelanden eller starta om enheten.                                        |
 | Läs enhetens dubbla           | Hämta rapporterat tillstånd för en enhet. Enheten rapporterar till exempel LAMPAn att blinka nu.                                    |
@@ -59,7 +59,7 @@ Cloud Explorer-komponenten från Visual Studio Installer för Visual Studio 2017
 
 ## <a name="sign-in-to-access-your-hub"></a>Logga in för att komma åt hubben
 
-1. I Visual Studio väljer du **Visa** > **Cloud Explorer** för att öppna Cloud Explorer.
+1. I Visual Studio väljer du **visa** > **Cloud Explorer** för att öppna Cloud Explorer.
 
 1. Välj ikonen för konto hantering för att visa dina prenumerationer.
 
@@ -69,7 +69,7 @@ Cloud Explorer-komponenten från Visual Studio Installer för Visual Studio 2017
 
 1. Välj de Azure-prenumerationer som du vill använda och välj **Använd**.
 
-1. Expandera din prenumeration och expandera **IoT**-hubbar.  Under varje hubb kan du se dina enheter för den hubben. Högerklicka på en enhet för att få åtkomst till hanterings alternativen.
+1. Expandera din prenumeration och expandera **IoT-hubbar**.  Under varje hubb kan du se dina enheter för den hubben. Högerklicka på en enhet för att få åtkomst till hanterings alternativen.
 
     ![Hanterings alternativ](media/iot-hub-device-management-visual-studio/management-options-vs2019.png)
 

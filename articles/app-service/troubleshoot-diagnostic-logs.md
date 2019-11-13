@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470105"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958025"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -26,7 +26,7 @@ Azure har inbyggd diagnostik som hjälper till med fel sökning av en [App Servi
 I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure CLI för att arbeta med diagnostikloggar. Information om hur du arbetar med diagnostiska loggar med Visual Studio finns i [Felsöka Azure i Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> Förutom loggnings anvisningarna i den här artikeln finns det en ny integrerad loggnings funktion med Azure-övervakning. Du hittar den här funktionen på [sidan loggar och diagnostikinställningar (för hands version)](https://aka.ms/appsvcblog-azmon). 
+> Förutom loggnings anvisningarna i den här artikeln finns det en ny integrerad loggnings funktion med Azure-övervakning. Du hittar mer information om den här funktionen i avsnittet [skicka loggar till Azure Monitor (för hands version)](#send-logs-to-azure-monitor-preview) . 
 >
 >
 
@@ -112,9 +112,9 @@ Båda typerna av loggar lagras i App Service fil system. Upp till 50 fel (filer/
 
 ## <a name="add-log-messages-in-code"></a>Lägg till logg meddelanden i kod
 
-I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Till exempel:
+I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Exempel:
 
-- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Till exempel:
+- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Exempel:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -142,12 +142,12 @@ Om du vill strömma loggar Live i [Cloud Shell](../cloud-shell/overview.md)anvä
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Till exempel:
+Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Till exempel:
+Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -178,7 +178,28 @@ För Windows-appar innehåller ZIP-filen innehållet i *D:\Home\LogFiles* -katal
 | **Webb server loggar** | */LogFiles/http/RawLogs/* | Innehåller textfiler som formaterats med [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Den här informationen kan läsas med en text redigerare eller ett verktyg som [log parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service stöder inte fälten `s-computername`, `s-ip`eller `cs-version`. |
 | **Distributions loggar** | */LogFiles/git/* och */Deployments/* | Innehåller loggar som genereras av interna distributions processer samt loggar för git-distributioner. |
 
+## <a name="send-logs-to-azure-monitor-preview"></a>Skicka loggar till Azure Monitor (förhands granskning)
+
+Med den nya [Azure Monitor-integreringen](https://aka.ms/appsvcblog-azmon)kan du [skapa diagnostikinställningar (för hands version)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) för att skicka loggar till lagrings konton, Event Hubs och Log Analytics. 
+
+> [!div class="mx-imgBorder"]
+> ![diagnostikinställningar (förhands granskning)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+
+### <a name="supported-log-types"></a>Logg typer som stöds
+
+I följande tabell visas de logg typer och beskrivningar som stöds: 
+
+| Loggtyp | Windows-support | Linux-support | Beskrivning |
+|-|-|-|
+| AppServiceConsoleLogs | TBA | Ja | Standardutdata och standard fel |
+| AppServiceHTTPLogs | Ja | Ja | Webb server loggar |
+| AppServiceEnvironmentPlatformLogs | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
+| AppServiceAuditLogs | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
+| AppServiceFileAuditLogs | TBA | TBA | Fil ändringar via FTP och kudu |
+| AppServiceAppLogs | TBA | Java SE & Tomcat | Program loggar |
+
 ## <a name="nextsteps"></a>Nästa steg
+* [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Övervaka Azure App Service](web-sites-monitor.md)
 * [Felsöka Azure App Service i Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analysera app-loggar i HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

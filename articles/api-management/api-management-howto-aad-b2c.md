@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176845"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011674"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med hjälp av Azure Active Directory B2C i Azure API Management
 
@@ -77,7 +77,7 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
     
 12. Ange domän namnet för den Azure Active Directory B2C klienten i **inloggnings klienten**.
 
-13. I fältet **auktoritet** kan du kontrol lera Azure AD B2C inloggnings-URL: en som ska användas. Ställ in värdet på **< your_b2c_tenant_name >. b2clogin. com**.
+13. I fältet **auktoritet** kan du kontrol lera Azure AD B2C inloggnings-URL: en som ska användas. Ange värdet **< your_b2c_tenant_name >. b2clogin. com**.
 
 14. Ange **registrerings principen** och **inloggnings principen** från B2C-klient principer. Alternativt kan du även ange **profil för profil redigering** och princip för **lösen ords återställning**.
 
@@ -87,11 +87,11 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Utvecklings Portal – Lägg till Azure AD B2C konto-autentisering
 
-Om du vill aktivera inloggning med AAD B2C i Developer-portalen måste du lägga till widgeten **OAuth-knappar** i inloggnings formuläret.
+I Developer-portalen är det möjligt att logga in med AAD B2C med widgeten **OAuth-knappar** . Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
 
 ![Widgeten AAD-knappar](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD B2C, kan du överväga att lägga till samma widget i registrerings formuläret.
+Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD B2C, kan du överväga att lägga till samma widget på registrerings sidan.
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Äldre utvecklares Portal – så här registrerar du dig med Azure AD B2C
 
@@ -110,7 +110,7 @@ Om du vill aktivera inloggning med AAD B2C i Developer-portalen måste du lägga
    > [!NOTE]
    > Om Azure Active Directory B2C är det enda alternativet som är aktiverat på fliken **identiteter** i utgivar portalen, omdirigeras du till registrerings principen direkt.
 
-   ![Utvecklarportal][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   ![utvecklarportalen][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
    När registreringen är slutförd omdirigeras du tillbaka till Developer-portalen. Du är nu inloggad på Developer-portalen för din API Management tjänst instans.
 

@@ -1,6 +1,6 @@
 ---
-title: Data modellering i Azure Time Series Insights för hands version | Microsoft Docs
-description: Förstå data modellering i Azure Time Series Insights för hands version.
+title: Data modellering i miljöer med förhands granskning – Azure Time Series Insights | Microsoft Docs
+description: Lär dig mer om data modellering i Azure Time Series Insights för hands version.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c2c2af78f5f066e1b27e14fa774df04d7c5868
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063991"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006463"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Data modellering i Azure Time Series Insights för hands version
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du arbetar med tids serie modellen i Azure Time 
 
 Läs [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md)om du vill veta mer om hur du använder uppdateringen.
 
-## <a name="types"></a>Nodtyper
+## <a name="types"></a>Typer
 
 ### <a name="create-a-single-type"></a>Skapa en enskild typ
 
@@ -76,7 +76,7 @@ Läs [Azure Time Series Insights Preview Explorer](./time-series-insights-update
 
 1. Ange information om hierarkin och välj **skapa**.
 
-    [![hieararchy information och knappen "skapa"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [![information om hierarkin och knappen "skapa"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Mass uppladdning av en eller flera hierarkier
 

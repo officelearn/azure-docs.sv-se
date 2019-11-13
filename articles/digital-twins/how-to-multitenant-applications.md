@@ -1,5 +1,5 @@
 ---
-title: Aktivera program med flera innehavare med Azure Digitals-dubbla | Microsoft Docs
+title: Aktivera program med flera innehavare – Azure Digitals flätar | Microsoft Docs
 description: Så här konfigurerar du Azure Active Directory program för flera innehavare för Azures digitala dubbla.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958794"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005922"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Aktivera program med flera klient organisationer med digitala Azure-dubbla
 
@@ -63,7 +63,7 @@ För att lösa det tidigare problem scenariot krävs följande åtgärder för a
   1. Sök efter **Microsoft. IoTSpaces**.
   1. Välj **Registrera**.
 
-     [![Azure Active Directory-resurs leverantörer](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
+     [![Azure Active Directory resurs leverantörer](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>Nästa steg
 

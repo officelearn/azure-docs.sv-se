@@ -2,7 +2,7 @@
 title: Azure Monitor arbets böcker för rapporter | Microsoft Docs
 description: Lär dig hur du använder Azure Monitor-arbetsböcker för Azure Active Directory rapporter.
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200129"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014368"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
 
@@ -107,7 +107,7 @@ Du kan filtrera varje trend enligt följande kategorier:
 
 - Tidsintervall
 
-- Appar
+- Program
 
 - Användare
 
@@ -141,7 +141,7 @@ Du kan filtrera varje trend enligt följande kategorier:
 
 - Tidsintervall
 
-- Appar
+- Program
 
 - Användare
 
@@ -165,7 +165,7 @@ I den här arbets boken visas trender för inaktiverade inloggningar. Du kan fil
 
 - Tidsintervall
 
-- Appar
+- Program
 
 - Användare
 
@@ -231,14 +231,14 @@ Den här arbets boken visar följande inaktiverade inloggnings trender:
 
 - Kräv sekretess policy
 
-- Övrigt
+- Annat
 
 
 Du kan filtrera varje trend enligt följande kategorier:
 
 - Tidsintervall
 
-- Appar
+- Program
 
 - Användare
 
@@ -278,7 +278,7 @@ Du kan filtrera varje trend enligt följande kategorier:
 
 - Tidsintervall
 
-- Appar
+- Program
 
 - Användare
 

@@ -1,19 +1,16 @@
 ---
 title: Skapa en skiss med REST-API
 description: Använd Azure Blueprints för att skapa, definiera och distribuera artefakter med hjälp av REST API.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: quickstart
-ms.service: blueprints
-ms.openlocfilehash: 16540441aa8bc5d115606e1c5b3bdc2302ae2c20
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 9b711a6359ed9ecb45f25c460ece095af46ad8c3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978501"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960416"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabbstart: Definiera och tilldela en Azure-skiss med REST API
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 
 När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 

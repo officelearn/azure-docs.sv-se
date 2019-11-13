@@ -1,21 +1,21 @@
 ---
 title: Skapa och hantera Azure Cosmos DB med Azure Resource Manager-mallar
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB för SQL-API (Core)
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 5babcadee02da0ba3e112f75e8b4d1aed5f3339f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/12/2019
+ms.author: thvankra
+ms.openlocfilehash: 0cb6e80bafca3bb0bfc339552facae5bd16aced4
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721083"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960539"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB SQL (Core) API-resurser med Azure Resource Manager-mallar
 
-Den här artikeln beskriver hur du utför olika åtgärder för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och behållare med hjälp av Azure Resource Manager mallar. Den här artikeln innehåller exempel på endast SQL API-konton, för att hitta exempel på andra typer av API-typer finns i: använda Resource Manager-mallar med Azure Cosmos DB s API för [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [tabell](manage-table-with-resource-manager.md) artiklar.
+Den här artikeln beskriver hur du utför olika åtgärder för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och behållare med hjälp av Azure Resource Manager mallar. Den här artikeln innehåller exempel på endast SQL API-konton, för att hitta exempel på andra typer av API-typer finns i: använda Azure Resource Manager mallar med Azure Cosmos DB s API för [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [tabell](manage-table-with-resource-manager.md) artiklar.
 
 hur du skapar och hanterar Cosmos DB konton, databaser och behållare för MongoDB, Gremlin, Cassandra och Tabell-API.
 
@@ -26,7 +26,7 @@ Skapa Azure Cosmos DB-resurser med en Azure Resource Manager-mall. Den här mall
 > [!NOTE]
 >
 > - Du kan inte lägga till eller ta bort platser samtidigt i ett Azure Cosmos-konto och ändra andra egenskaper. Dessa måste göras som separata åtgärder.
-> - Konto namn måste innehålla gemener och < 44 tecken.
+> - Konto namn måste bestå av gemener och 44 eller färre tecken.
 > - Om du vill uppdatera RU/s skickar du om mallen med uppdaterade egenskaper för data flödes värden.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
@@ -36,7 +36,7 @@ Skapa Azure Cosmos DB-resurser med en Azure Resource Manager-mall. Den här mall
 
 ### <a name="deploy-via-powershell"></a>Distribuera via PowerShell
 
-Om du vill distribuera Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Om du vill distribuera Azure Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **försök** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurepowershell-interactive
 
@@ -74,7 +74,7 @@ Om du väljer att använda en lokalt installerad version av PowerShell i ställe
 
 ### <a name="deploy-via-azure-cli"></a>Distribuera via Azure CLI
 
-Om du vill distribuera Resource Manager-mallen med Azure CLI väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Om du vill distribuera Azure Resource Manager-mallen med hjälp av Azure CLI väljer du **testa den** för att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -115,7 +115,7 @@ Skapa en Azure Cosmos DB-behållare med en lagrad procedur, utlösare och använ
 
 ### <a name="deploy-stored-procedure-template-via-powershell"></a>Distribuera lagrad procedur-mall via PowerShell
 
-Om du vill distribuera Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Om du vill distribuera Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **försök** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurepowershell-interactive
 
@@ -145,7 +145,7 @@ Om du väljer att använda en lokalt installerad version av PowerShell i ställe
 
 ### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Distribuera lagrad procedur mal len via Azure CLI
 
-Om du vill distribuera Resource Manager-mallen med Azure CLI väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
+Om du vill distribuera Azure Resource Manager-mallen med hjälp av Azure CLI väljer du **testa den** för att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName

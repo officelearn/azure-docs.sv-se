@@ -1,5 +1,5 @@
 ---
-title: Skapa en .NET-app för Service Fabric i Azure | Microsoft Docs
+title: Skapa snabbt en .NET-app på Service Fabric i Azure
 description: I den här snabbstarten skapar du ett .NET-program för Azure med Service Fabric-exempelprogrammet (tillförlitliga tjänster).
 services: service-fabric
 documentationcenter: .net
@@ -15,14 +15,14 @@ ms.workload: azure-vs
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 02c77d1a34a4dec8732b5fa2edb4d7a55e079c28
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: dfc8890d58763bd193f6a0b4137fc972d26beb9f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225200"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013219"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera ett .NET-program för tillförlitliga tjänster till Service Fabric
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en .NET-app (tillförlitliga tjänster) till Service Fabric
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
@@ -39,7 +39,7 @@ Med det här programmet får du lära dig att:
 * Skala ut programmet över flera noder
 * Utföra en löpande programuppgradering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 

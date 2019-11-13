@@ -1,17 +1,14 @@
 ---
 title: Skapa och dela en fråga i Azure Portal
 description: I den här självstudien lär du dig att skapa en resurs diagram fråga och dela den med andra i Azure Portal.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/23/2019
 ms.topic: tutorial
-ms.service: resource-graph
-ms.openlocfilehash: e49cff5a9b9b2c8841b6cc685d4778688c214d26
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622486"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958562"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Självstudie: skapa och dela en Azure Resource Graph-fråga i Azure Portal
 
@@ -27,7 +24,7 @@ I den här självstudien utför du följande aktiviteter:
 > - Identifiera delade frågor
 > - Ta bort en delad fråga
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 

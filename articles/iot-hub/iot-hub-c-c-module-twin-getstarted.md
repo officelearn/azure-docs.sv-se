@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure IoT Hub module identitet och modul, dubbla (C) | Microsoft Docs
+title: Kom igång med Azure IoT Hub module Identity & modul, dubbla (C)
 description: 'Lär dig att skapa modul identitet och uppdatera modul dubbla med IoT SDK: er för C.'
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 9bc64a2eefbd268c5d7eae9b32a992ed29151f61
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e33a7a1360a837df08725b2e592973b465dff38c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813837"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954228"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Kom igång med IoT Hub modulens identitet och modul (C)
 
@@ -31,7 +31,7 @@ I slutet av den här självstudien har du två C-appar:
 > [!NOTE]
 > Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och din lösnings Server del finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
@@ -177,7 +177,7 @@ int main(void)
 }
 ```
 
-Den här appen skapar en enhets identitet med ID **t myfirstdevice** och en modul identitet med ID **MyFirstModule** under enhet **t myfirstdevice**. (Om modul-ID:t redan finns i identitetsregistret, hämtar koden bara den befintliga modulinformationen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade modulappen för att ansluta till din IoT Hub.
+Den här appen skapar en enhets identitet med ID **t myfirstdevice** och en modul identitet med ID **MyFirstModule** under enhet **t myfirstdevice**. (Om detta modul-ID redan finns i identitets registret hämtar koden bara den befintliga informationen om modulen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade modulappen för att ansluta till din IoT Hub.
 
 > [!NOTE]
 > IoT Hub-identitetsregistret lagrar enhets- och modulidentiteter endast för att skydda åtkomsten till IoT Hub. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [IoT Hub Developer Guide](iot-hub-devguide-identity-registry.md).
@@ -190,7 +190,7 @@ I det här avsnittet skapar du en C-app på din simulerade enhet som uppdaterar 
 
     ![Information om Azure-portalmodulen](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
-2. **Skapa UpdateModuleTwinReportedProperties-app** Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+2. **Skapa UpdateModuleTwinReportedProperties-app** Lägg till följande `using`-instruktioner överst i **program.cs** -filen:
 
     ```C
     #include <stdio.h>

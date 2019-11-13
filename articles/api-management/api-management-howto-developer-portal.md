@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1eef7b6505c4800acbe8aa69cf6f17eecc503aed
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796011"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011485"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterad
 
 > [!WARNING]
 > Den nya Developer-portalen är för närvarande distribuerad till API Management tjänster.
-> Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen kommer att slutföras den 11 november 2019.
+> Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen förväntas slutföras senast den 22 november 2019.
 >
 > [Lär dig hur du migrerar från för hands versionen till den allmänt tillgängliga versionen](#preview-to-ga) av Developer-portalen.
 
@@ -115,9 +115,9 @@ Nej.
 
 Nej.
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>Jag får ett CORS-fel när jag använder den interaktiva konsolen. Vad gör jag?
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>Jag får ett CORS-fel när jag använder den interaktiva konsolen. Vad ska jag göra?
 
-Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) på dina API: er. Du kan ange alla parametrar manuellt eller använda jokertecken `*` värden. Till exempel:
+Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) på dina API: er. Du kan ange alla parametrar manuellt eller använda jokertecken `*` värden. Exempel:
 
 ```XML
 <cors>

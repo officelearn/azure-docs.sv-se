@@ -10,12 +10,12 @@ author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/07/2019
-ms.openlocfilehash: 976c849f9cb48e1c197f70d10e911216a6a7425c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 744ac9f8526b7d65709d3627a5f90b31d234b2cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822838"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009085"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Machine Learning och AI med ONNX i SQL Database Edge Preview
 
@@ -27,25 +27,20 @@ För att kunna härleda maskin inlärnings modeller i Azure SQL Database Edge m�
 
 ## <a name="get-onnx-models"></a>Hämta ONNX-modeller
 
-Du kan hämta en modell i ONNX-format på flera sätt:
+Så här hämtar du en modell i ONNX-formatet:
 
-- [ONNX-modell Zoo](https://github.com/onnx/models): innehåller många förtränade ONNX-modeller för olika typer av uppgifter som kan hämtas och är redo att användas.
+- **Bygg tjänster för modeller**: tjänster, till exempel [funktionen för automatisk Machine Learning i Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) och [Azure Custom vision service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) stöd för att exportera den tränade modellen i ONNX-format.
 
-- [Intern export från ml utbildnings ramverk](https://onnx.ai/supported-tools): flera utbildnings ramverk har stöd för interna export funktioner till ONNX, vilket gör att du kan spara din utbildade modell till en specifik version av ONNX-formatet, inklusive [PyTorch](https://pytorch.org/docs/stable/onnx.html), kedjor och Caffe2. Dessutom tillhandahåller modell byggnads tjänster, till exempel [funktionen automatiserad Machine Learning i Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) och [Azure Custom vision service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ONNX export.
+- [**Konvertera och/eller exportera befintliga modeller**](https://github.com/onnx/tutorials#converting-to-onnx-format): flera utbildnings ramverk (t. ex. [PyTorch](https://pytorch.org/docs/stable/onnx.html), kedjer och Caffe2) har stöd för interna export funktioner till ONNX, vilket gör att du kan spara den tränade modellen till en specifik version av ONNX-formatet. För ramverk som inte stöder intern export finns det fristående ONNX-omvandlare som gör det möjligt att konvertera modeller som har tränats från olika ramverk för maskin inlärning till ONNX-formatet.
 
-- [Konvertera befintliga modeller](https://github.com/onnx/tutorials#converting-to-onnx-format): för ramverk som inte stöder intern export finns det fristående paket för konvertering av modeller till ONNX-format. Exempel och självstudier finns i [konvertera till ONNX-format](https://github.com/onnx/tutorials#converting-to-onnx-format). 
-
-### <a name="supported-frameworks"></a>Ramverk som stöds
-
-Med ONNX-konverterare kan du konvertera modeller som har tränats från olika ramverk för maskin inlärning till ONNX-formatet. Populära konverterare är: 
-
-* [PyTorch](http://pytorch.org/docs/master/onnx.html)
-* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
-* [Keras](https://github.com/onnx/keras-onnx)
-* [Scikit-learn](https://github.com/onnx/sklearn-onnx)
-* [CoreML](https://github.com/onnx/onnxmltools)
-
-En fullständig lista över ramverk som stöds finns i [konvertera till ONNX-format](https://github.com/onnx/tutorials#converting-to-onnx-format).
+     **Ramverk som stöds**
+   * [PyTorch](http://pytorch.org/docs/master/onnx.html)
+   * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+   * [Keras](https://github.com/onnx/keras-onnx)
+   * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+   * [CoreML](https://github.com/onnx/onnxmltools)
+    
+    En fullständig lista över ramverk som stöds och exempel finns i [konvertera till ONNX-format](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## <a name="limitations"></a>Begränsningar
 

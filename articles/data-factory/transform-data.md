@@ -11,15 +11,16 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 97077b9f72de8792e6aba1d72ff34b9185b2d998
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b91d22454d6023094f269b184c845047092b4fb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683804"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954277"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
+> * [Mappa data flöde](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
@@ -34,7 +35,7 @@ ms.locfileid: "73683804"
 > * [Anpassad .NET-](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver datatransformerings aktiviteter i Azure Data Factory som du kan använda för att omvandla och bearbeta dina rå data till förutsägelser och insikter. En omvandlings aktivitet körs i en dator miljö, till exempel Azure HDInsight-kluster eller en Azure Batch. Den innehåller länkar till artiklar med detaljerad information om varje omvandlings aktivitet.
+Den här artikeln beskriver datatransformerings aktiviteter i Azure Data Factory som du kan använda för att omvandla och bearbeta dina rå data till förutsägelser och insikter i stor skala. En omvandlings aktivitet körs i en dator miljö som Azure Databricks eller Azure HDInsight. Den innehåller länkar till artiklar med detaljerad information om varje omvandlings aktivitet.
 
 Data Factory stöder följande data omvandlings aktiviteter som kan läggas till i [pipelines](concepts-pipelines-activities.md) som är individuellt eller länkade till en annan aktivitet.
 
@@ -49,6 +50,8 @@ Mappning av data flöden är visuellt utformad med data transformationer i Azure
 Med datatransformering data flöden i Azure Data Factory kan du göra kod fria data förberedelser i moln skala upprepade gånger. Datatransformering data flöden integreras med [Power Query online](https://docs.microsoft.com/power-query/) och gör Power Query M-funktioner tillgängliga för data datatransformering i moln skala via Spark-körning. Mer information finns i [datatransformering data flöden](wrangling-data-flow-overview.md).
 
 ## <a name="external-transformations"></a>Externa omvandlingar
+
+Alternativt kan du manuellt koda omvandlingar och hantera den externa beräknings miljön.
 
 ### <a name="hdinsight-hive-activity"></a>HDInsight Hive-aktivitet
 HDInsight Hive-aktiviteten i en Data Factory pipelinen kör Hive-frågor på ditt eget eller Windows/Linux-baserade HDInsight-kluster på begäran. Se [Hive-aktivitets](transform-data-using-hadoop-hive.md) artikeln för information om den här aktiviteten. 

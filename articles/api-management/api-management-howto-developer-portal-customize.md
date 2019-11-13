@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620424"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012912"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
 Developer Portal är en automatiskt genererad, helt anpassningsbar webbplats med dokumentationen för dina API: er. Det är där API-konsumenter kan identifiera dina API: er, lära sig hur de används och begära åtkomst.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Öppna den hanterade versionen av Developer-portalen
@@ -38,9 +38,9 @@ Du hittar mer information om Developer-portalen i [Översikt över Azure API Man
 
 > [!WARNING]
 > Developer-portalen är för närvarande distribuerad till API Management tjänster.
-> Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen kommer att slutföras den 11 november 2019. 
+> Om din tjänst har skapats nyligen eller är en tjänst för utvecklare, bör du redan ha den senaste versionen. Annars kan det uppstå problem (till exempel med publicerings funktionen). Funktions distributionen förväntas slutföras senast den 22 november 2019. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md)

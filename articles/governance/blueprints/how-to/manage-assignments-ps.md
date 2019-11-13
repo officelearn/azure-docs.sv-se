@@ -1,17 +1,14 @@
 ---
 title: Hantera tilldelningar med PowerShell
 description: Lär dig hur du hanterar skiss tilldelningar med den officiella Azure-ritningen PowerShell-modul, AZ. skiss.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/30/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: ef9674165533ef3e4887bba68507344406ca128c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 98c2173568f65d029b00ca6c8b25d2195094a5e3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755932"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961609"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Hantera tilldelningar med PowerShell
 
@@ -171,7 +168,7 @@ Om skiss tilldelningen inte finns ännu kan du skapa den med cmdleten `New-AzBlu
 
 ### <a name="example-1-provide-parameters"></a>Exempel 1: Ange parametrar
 
-I följande exempel skapas en ny tilldelning av version 1,1 av skiss definitionen My-skiss som hämtats med `Get-AzBlueprint`, anger den hanterade identitets-och tilldelnings objekt platsen till "westus2", låser resurserna med _AllResourcesReadOnly_, och anger hash-tabeller för både **parameter** -och **ResourceGroupParameter** för en speciell prenumeration som visas som `{subId}`:
+I följande exempel skapas en ny tilldelning av version 1,1 för skiss definitionen My-skiss som hämtats med `Get-AzBlueprint`, anger den hanterade identitets-och tilldelnings objekt platsen till "westus2", låser resurserna med _AllResourcesReadOnly_och anger hash-tabeller för både **parameter** -och **ResourceGroupParameter** för en speciell prenumeration som representeras som `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

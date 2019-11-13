@@ -1,20 +1,20 @@
 ---
-title: Felsök problem med push-installation av mobilitets tjänsten när du aktiverar replikering för haveri beredskap | Microsoft Docs
-description: Felsök installations fel för mobilitets tjänster när du aktiverar replikering för haveri beredskap
+title: Felsöka mobilitets tjänsten push-installation med Azure Site Recovery f
+description: Felsök installations fel för mobilitets tjänster när du aktiverar replikering för haveri beredskap med Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 09/11/2019
-ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3646499ad2104566cb82f3f26c6b55d05f84dc7d
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910646"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953777"
 ---
-# <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka problem med push-installation av mobilitets tjänster
+# <a name="troubleshoot-mobility-service-push-installation"></a>Felsöka mobilitets tjänstens push-installation 
 
 Installation av mobilitets tjänsten är ett huvud steg under aktivera replikering. Framgången av det här steget är beroende av att de uppfyller kraven och fungerar med konfigurationer som stöds. De vanligaste felen som du möter under installationen av mobilitets tjänsten beror på följande:
 
@@ -38,7 +38,7 @@ När du aktiverar replikering försöker Azure Site Recovery push-installera mob
 * Azure Site Recovery kräver ett **rot** konto eller ett användar konto med **administratörs behörighet** för att utföra push-installation. Annars kommer push-installationen att blockeras på käll datorn.
   * För Windows (**fel 95107**) kontrollerar du om användar kontot har administrativ åtkomst, antingen lokal eller domän, på käll datorn.
   * Om du inte använder ett domän konto måste du inaktivera åtkomst kontroll för fjärran vändare på den lokala datorn.
-    * Om du vill inaktivera åtkomst kontroll för fjärranslutna användare, under register nyckeln HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, lägger du till ett nytt DWORD: LocalAccountTokenFilterPolicy. Ange värdet till 1. Kör följande kommando från kommando tolken för att köra det här steget:
+    * Om du vill inaktivera åtkomst kontroll för fjärranslutna användare, under HKEY_LOCAL_MACHINE register nyckel för \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, lägger du till en ny DWORD: LocalAccountTokenFilterPolicy. Ange värdet till 1. Kör följande kommando från kommando tolken för att köra det här steget:
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
   * För Linux (**fel 95108**) måste du välja rot kontot för lyckad installation av mobilitets agenten. Dessutom bör SFTP-tjänster köras. Aktivera SFTP-undersystem och lösenordsautentisering i sshd_config-filen:
@@ -80,7 +80,7 @@ Så ändra de angivna autentiseringsuppgifterna genom att följa anvisningarna [
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Inloggnings servrarna är inte tillgängliga på käll datorn (ErrorID: 95521)
 
-Felet uppstår när inloggnings servrarna inte är tillgängliga på käll datorn. Om inloggnings servrarna inte är tillgängliga leder det till att det inte går att logga in, och därför kan mobilitets agenten inte installeras. För lyckad inloggning kontrollerar du att inloggnings servrar är tillgängliga på käll datorn och startar inloggnings tjänsten. Detaljerade anvisningar finns i KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) ERR-meddelande: Det finns för närvarande inga tillgängliga inloggnings servrar.
+Felet uppstår när inloggnings servrarna inte är tillgängliga på käll datorn. Om inloggnings servrarna inte är tillgängliga leder det till att det inte går att logga in, och därför kan mobilitets agenten inte installeras. För lyckad inloggning kontrollerar du att inloggnings servrar är tillgängliga på käll datorn och startar inloggnings tjänsten. Detaljerade anvisningar finns i KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) ERR-meddelande: det finns för närvarande inga tillgängliga inloggnings servrar.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Inloggnings tjänsten körs inte på käll datorn (ErrorID: 95522)
 
@@ -121,7 +121,7 @@ För **windows 2008 R2 och tidigare versioner**
   * Hitta regel fil och skrivar delning (NB-session-in) och fil-och skrivar delning (SMB-in). För varje regel högerklickar du på regeln och klickar sedan på **Aktivera regel**.
 * Om du vill aktivera fildelning med grupprincip
   * Gå till Start, skriv GPMC. msc och Sök.
-  * Öppna följande mappar i navigerings fönstret: Princip för lokal dator, användar konfiguration, Administrativa mallar, Windows-komponenter och nätverks delning.
+  * Öppna följande mappar i navigerings fönstret: princip för lokal dator, användar konfiguration, Administrativa mallar, Windows-komponenter och nätverks delning.
   * I informations fönstret dubbelklickar **du på förhindra användare från att dela filer i profilen**. Om du vill inaktivera inställningen för grupprincip och aktivera användarens möjlighet att dela filer klickar du på inaktive rad. Spara ändringarna genom att klicka på OK. Mer information finns i [Aktivera eller inaktivera fildelning med Grupprincip](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
 För **senare versioner**följer du anvisningarna i [Installera mobilitets tjänsten för haveri beredskap för virtuella VMware-datorer och fysiska servrar](vmware-azure-install-mobility-service.md) för att aktivera fil-och skrivar delning.
@@ -134,7 +134,7 @@ När fil-och skrivar tjänster är markerat aktiverar du WMI-tjänsten för priv
 * Klicka på Ändra inställningar och klicka sedan på fliken undantag.
 * I fönstret undantag markerar du kryss rutan för Windows Management Instrumentation (WMI) om du vill aktivera WMI-trafik genom brand väggen. 
 
-Du kan också aktivera WMI-trafik genom brand väggen i kommando tolken. Använd följande kommando`netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
+Du kan också aktivera WMI-trafik genom brand väggen i kommando tolken. Använd följande kommando `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
 Andra artiklar om WMI-felsökning finns i följande artiklar.
 
 * [Grundläggande WMI-testning](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
@@ -171,7 +171,7 @@ Konfigurationsfilerna för GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "
 
 
 - Följande rad är från GRUB-filen **/Boot/grub2/grub.cfg**. <br>
-  *Linux/Boot/vmlinuz-3.12.49-11-default **root =/dev/sda2** $ {extra_cmdline} **Resume =/dev/sda1** Started = tyst tyst showopts*
+  *Linux/Boot/vmlinuz-3.12.49-11-default **root =/dev/sda2** $ {extra_cmdline} **Resume =/dev/sda1** Starter = tyst tyst showopts*
 
 
 - Följande rad är GRUB-fil **/boot/grub/menu.lst**
@@ -183,7 +183,7 @@ Om du observerar den feta strängen ovan, har GRUB de faktiska enhets namnen fö
 Enhets namnen bör ersättas med motsvarande UUID.<br>
 
 
-1. Hitta enhetens UUID genom att köra kommandot "blkid \<Device name >". Exempel:<br>
+1. Hitta enhetens UUID genom att köra kommandot "blkid \<enhets namn >". Exempel:<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -195,7 +195,7 @@ Enhets namnen bör ersättas med motsvarande UUID.<br>
    *kernel/Boot/vmlinuz-3.0.101-63-default **root = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **Resume = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** Starter = tyst crashkernel = 256M-: 128M showopts VGA = 0x314*
 3. Starta om skyddet igen
 
-## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Installationen av mobilitets tjänsten slutfördes med en varning för omstart (ErrorID: 95265 & 95266)
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Installations mobilitets tjänsten har slutförts med varning för omstart (ErrorID: 95265 & 95266)
 
 Site Recovery mobilitets tjänsten har många komponenter, en av dessa kallas filter driv rutin. Filter driv rutin läses bara in i system minnet i taget vid system omstarten. Det innebär att filter driv rutins korrigeringarna endast kan realiseras när en ny filter driv rutin läses in. Detta kan bara inträffa vid omstarten av systemet.
 
@@ -268,7 +268,7 @@ Använd följande procedur för att ta reda på orsaken till felet.
 
     Avregistrerar det befintliga programmet...  Skapa ett katalog objekt hämta program samlingen 
 
-    FELS
+    Fels
 
     - Felkod:-2147164145 [0x8004E00F]
     - Slutkod: 802
@@ -279,7 +279,7 @@ Kontakta [Microsoft Windows Platform-teamet](https://aka.ms/Windows_Support) fö
 
 När DCOM-problemet är löst måste du installera om Azure Site Recovery VSS-providern manuellt med följande kommando:
  
-**C:\Program Files (x86) \Microsoft Azure Site Recovery\agent. > "C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+**C:\Program Files (x86) \Microsoft Azure Site Recovery\agent. > "C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install. cmd**
   
 Om program konsekvens inte är kritiskt för katastrof återställnings kraven kan du kringgå installationen av VSS-providern. 
 
@@ -293,7 +293,7 @@ För att kringgå Azure Site Recovery installation av VSS-providern och installe
    1. Öppna installations katalogen för Azure Site Recovery Mobility Service på:
    
       C:\Program Files (x86) \Microsoft Azure Site Recovery\agent.
-   2. Ändra Azure Site Recovery VSS-providerns installations skript **nMageVSSProvider_Install** och **InMageVSSProvider_Uninstall. cmd** så att de alltid lyckas genom att lägga till följande rader:
+   2. Ändra installations skripten Azure Site Recovery VSS-Provider **nMageVSSProvider_Install** och **InMageVSSProvider_Uninstall. cmd** så att de alltid lyckas genom att lägga till följande rader:
     
       ```     
       rem @echo off
@@ -305,7 +305,7 @@ För att kringgå Azure Site Recovery installation av VSS-providern och installe
 4. När installationen har slutförts och fortsätter till nästa steg, **Konfigurera**, ta bort de rader som du har lagt till.
 5. Om du vill installera VSS-providern öppnar du en kommando tolk som administratör och kör följande kommando:
    
-    **C:\Program Files (x86) \Microsoft Azure Site Recovery\agent. > .\InMageVSSProvider_Install.cmd**
+    **C:\Program Files (x86) \Microsoft Azure Site Recovery\agent. >. \ InMageVSSProvider_Install. cmd**
 
 9. Kontrol lera att VSS-providern för automatisk återställning är installerad som en tjänst i Windows-tjänster och öppna Component service MMC för att kontrol lera att VSS-providern för ASR visas.
 10. Om installationen av VSS-providern fortsätter att fungera arbetar du med CX för att lösa behörighets felen i CAPI2.
@@ -316,7 +316,7 @@ Det här problemet medför att installationen av Azure Site Recovery mobilitets 
  
 ### <a name="to-identify-the-issue"></a>Identifiera problemet
 
-I den logg som finns på konfigurations servern\<vid C:\ProgramData\ASRSetupLogs\UploadedLogs datum/tid > UA_InstallLogFile. log, kommer du att hitta följande undantag:
+I den logg som finns på konfigurations servern på C:\ProgramData\ASRSetupLogs\UploadedLogs\<datum-tid > UA_InstallLogFile. log, kommer du att hitta följande undantag:
 
 COM+ kunde inte kommunicera med Microsoft koordinator för distribuerad transaktion (undantag från HRESULT: 0x8004E00F)
 
@@ -332,7 +332,7 @@ Om installationen av mobilitets agenten Miss lyckas granskar du loggarna under C
 Så här löser du problemet:
   
 1. Öppna registret med en registereditor som regedit. msc.
-2. Öppna HKEY_LOCAL_MACHINE\SYSTEM-noden.
+2. Öppna noden HKEY_LOCAL_MACHINE \SYSTEM.
 3. Leta upp kontroll uppsättningarna i SYSTEM-noden.
 4. Öppna varje kontroll uppsättning och kontrol lera att följande Windows-drivrutiner finns:
 

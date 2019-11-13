@@ -1,100 +1,99 @@
 ---
-title: Flytta virtuella Azure IaaS-datorer till en annan Azure-region med hjälp av Azure Site Recovery-tjänsten | Microsoft Docs
+title: Flytta Azure MS till en annan region med Azure Site Recovery
 description: Använd Azure Site Recovery för att flytta virtuella IaaS-datorer i Azure från en Azure-region till en annan.
-services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3a3db66b4833a8ba21dc9d3c1938f645919221c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791564"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954174"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
-Azure växer tillsammans med kunden grundläggande och lägger till stöd för nya regioner för att hålla jämna steg med ökande behov. Nya funktioner läggs till varje månad för tjänster. Du kanske vill flytta dina virtuella datorer (VM) till en annan region eller i Tillgänglighetszoner att öka tillgängligheten.
+Azure växer tillsammans med kund basen och lägger till stöd för nya regioner för att hålla jämna steg med ökande krav. Nya funktioner läggs också till månatlig över tjänster. Du kanske vill flytta dina virtuella datorer (VM) till en annan region eller till Tillgänglighetszoner för att öka tillgängligheten.
 
-Den här självstudien beskrivs olika scenarier där du vill flytta dina virtuella datorer. Det beskriver också hur du konfigurerar arkitekturen i målregionen att uppnå högre tillgänglighet. 
+I den här självstudien beskrivs olika scenarier där du vill flytta dina virtuella datorer. Det beskriver också hur du konfigurerar arkitekturen i mål regionen för att uppnå högre tillgänglighet. 
 
-I de här självstudierna lär du dig att:
+I den här självstudien lär du dig att:
 
 > [!div class="checklist"]
 > 
-> * Anledningar till att flytta virtuella datorer
-> * Vanliga arkitekturer
-> * Flytta virtuella datorer som är till en målregion
+> * Skäl att flytta virtuella datorer
+> * Typiska arkitekturer
+> * Flytta virtuella datorer som är till en mål region
 > * Flytta virtuella datorer för att öka tillgängligheten
 
-## <a name="reasons-to-move-azure-vms"></a>Anledningar till att flytta virtuella datorer i Azure
+## <a name="reasons-to-move-azure-vms"></a>Skäl att flytta virtuella Azure-datorer
 
-Du kan också flytta virtuella datorer av följande skäl:
+Du kan flytta virtuella datorer av följande anledningar:
 
-- Du har distribuerats redan i en region och en ny regionsstöd har lagts till som ligger närmast användarna av programmet eller tjänsten. I det här scenariot skulle du vill flytta dina virtuella datorer som är att den nya regionen som minskar svarstiderna. Använd samma metod om du vill att konsolidera prenumerationer eller om det finns regler för styrning eller organisation som kräver att du kan flytta.
-- Den virtuella datorn distribuerades som en enda instans virtuell dator eller som en del av en tillgänglighetsuppsättning. Om du vill öka tillgängligheten serviceavtal kan du flytta dina virtuella datorer i en Tillgänglighetszon.
+- Du har redan distribuerat i en region och ett nytt regions stöd har lagts till som är närmare slutanvändaren för ditt program eller din tjänst. I det här scenariot skulle du vilja flytta dina virtuella datorer till den nya regionen för att minska svars tiden. Använd samma metod om du vill konsolidera prenumerationer eller om det finns styrnings-eller organisations regler som kräver att du flyttar.
+- Den virtuella datorn distribuerades som en virtuell dator med enkel instans eller som en del av en tillgänglighets uppsättning. Om du vill öka tillgänglighets service avtal kan du flytta dina virtuella datorer till en tillgänglighets zon.
 
-## <a name="steps-to-move-azure-vms"></a>Steg för att flytta virtuella datorer i Azure
+## <a name="steps-to-move-azure-vms"></a>Steg för att flytta virtuella Azure-datorer
 
 De här stegen ingår i att flytta virtuella datorer:
 
-1. Kontrollera krav är uppfyllda.
-2. Förbereda virtuella datorer.
-3. Förbered målregionen.
-4. Kopiera data till målregionen. Använd Azure Site Recovery-replikeringsteknik för att kopiera data från den Virtuella källdatorn till målregionen.
-5. Testa konfigurationen. När replikeringen är klar kan du testa konfigurationen genom att utföra ett redundanstest till ett nätverk för icke-produktion.
-6. Utföra förflyttningen.
-7. Ta bort resurser i källregionen.
+1. Kontrollera förutsättningarna.
+2. Förbered de virtuella käll datorerna.
+3. Förbered mål regionen.
+4. Kopiera data till mål regionen. Använd Azure Site Recovery-teknik för replikering för att kopiera data från den virtuella käll datorn till mål regionen.
+5. Testa konfigurationen. När replikeringen är klar testar du konfigurationen genom att utföra en redundanstest till ett nätverk som inte är i produktion.
+6. Genomför flyttningen.
+7. Ta bort resurserna i käll regionen.
 
 > [!NOTE]
 > Information om de här stegen finns i följande avsnitt.
 > [!IMPORTANT]
-> För närvarande kan Azure Site Recovery stöder flytta virtuella datorer från en region till en annan men har stöd inte för att flytta inom en region.
+> För närvarande har Azure Site Recovery stöd för att flytta virtuella datorer från en region till en annan men det går inte att flytta i en region.
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Vanliga arkitekturer för distributioner med flera nivåer
 
-Det här avsnittet beskrivs de vanligaste distribution arkitekturerna för en flernivåapp i Azure. I exemplet är ett program med tre nivåer med en offentlig IP-adress. Var och en av nivåerna (webb, program och -databas) har två datorer, och de är anslutna via en Azure belastningsutjämnare till andra nivåer. Databasnivån har SQL Server Always On-replikering mellan de virtuella datorerna för hög tillgänglighet.
+I det här avsnittet beskrivs de vanligaste distributions arkitekturerna för ett program i flera nivåer i Azure. Exemplet är ett program med tre nivåer med en offentlig IP-adress. Varje nivå (webb, program och databas) har två virtuella datorer, och de är anslutna till de andra nivåerna av en Azure Load Balancer. Databas nivån har SQL Server Always on replikering mellan de virtuella datorerna för hög tillgänglighet.
 
-* **Enskild instans virtuella datorer som distribueras över olika nivåer**: Varje virtuell dator i en nivå är konfigurerad som en enda instans virtuell dator och är ansluten med belastningsutjämnare i de andra nivåerna. Den här konfigurationen är enkel att använda.
+* **Virtuella datorer med en enda instans som distribueras över olika nivåer**: varje virtuell dator i en nivå konfigureras som en virtuell dator med en instans och är ansluten av belastningsutjämnare till de andra nivåerna. Den här konfigurationen är den enklaste att anta.
 
-     ![Distribution av virtuella datorer med en instans på nivåerna](media/move-vm-overview/regular-deployment.png)
+     ![VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/regular-deployment.png)
 
-* **Virtuella datorer i varje nivå som distribuerats i tillgänglighetsuppsättningar**: Varje virtuell dator i en nivå är konfigurerad i en tillgänglighetsuppsättning. [Tillgänglighetsuppsättningarna](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ser till att de virtuella datorer du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. Detta säkerställer att om en maskin- eller programvarufel i Azure, endast en delmängd av dina virtuella datorer som påverkas och din lösning fortfarande är tillgänglig och fungerar.
+* **Virtuella datorer i varje nivå som distribueras över tillgänglighets uppsättningar**: varje virtuell dator i en nivå konfigureras i en tillgänglighets uppsättning. [Tillgänglighetsuppsättningarna](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ser till att de virtuella datorer du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. Detta säkerställer att om ett maskinvaru-eller program varu haveri i Azure inträffar påverkas endast en del av de virtuella datorerna och den övergripande lösningen förblir tillgänglig och fungerar.
 
-     ![Distribution av virtuella datorer i tillgänglighetsuppsättningar](media/move-vm-overview/avset.png)
+     ![VM-distribution över tillgänglighets uppsättningar](media/move-vm-overview/avset.png)
 
-* **Virtuella datorer i varje nivå som distribueras över Tillgänglighetszoner**: Varje virtuell dator i en nivå är konfigurerad i [Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
+* **Virtuella datorer på varje nivå som distribueras mellan Tillgänglighetszoner**: varje virtuell dator i en nivå konfigureras i [Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
 
-     ![Tillgänglighetszon distribution](media/move-vm-overview/zone.png)
+     ![Distribution av tillgänglighets zon](media/move-vm-overview/zone.png)
 
 ## <a name="move-vms-as-is-to-a-target-region"></a>Flytta virtuella datorer i befintligt skick till en målregion
 
-Utifrån den [arkitekturer](#typical-architectures-for-a-multi-tier-deployment) här tidigare nämnts är hur distributioner ser ut när du har utfört flytten skick till målregion.
+Baserat på de [arkitekturer](#typical-architectures-for-a-multi-tier-deployment) som nämnts tidigare, är det här hur distributionerna kommer att se ut när du har utfört flytta som är till mål regionen.
 
-* **Enskild instans virtuella datorer som distribueras över olika nivåer**
+* **Virtuella datorer med enkel instans distribuerade över olika nivåer**
 
-     ![Distribution av virtuella datorer med en instans på nivåerna](media/move-vm-overview/single-zone.png)
+     ![VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/single-zone.png)
 
-* **Virtuella datorer i varje nivå som distribuerats i tillgänglighetsuppsättningar**
+* **Virtuella datorer i varje nivå som distribueras över tillgänglighets uppsättningar**
 
-     ![Mellan region tillgänglighetsuppsättningar](media/move-vm-overview/crossregionaset.png)
+     ![Tillgänglighets uppsättningar för flera regioner](media/move-vm-overview/crossregionaset.png)
 
-* **Virtuella datorer i varje nivå som distribueras över Tillgänglighetszoner**
+* **Virtuella datorer på varje nivå som distribueras i Tillgänglighetszoner**
 
-     ![Distribution av virtuella datorer mellan Tillgänglighetszoner](media/move-vm-overview/azonecross.png)
+     ![Distribution av virtuella datorer i Tillgänglighetszoner](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Flytta virtuella datorer för att öka tillgängligheten
 
-* **Enskild instans virtuella datorer som distribueras över olika nivåer**
+* **Virtuella datorer med enkel instans distribuerade över olika nivåer**
 
-     ![Distribution av virtuella datorer med en instans på nivåerna](media/move-vm-overview/single-zone.png)
+     ![VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/single-zone.png)
 
-* **Virtuella datorer i varje nivå som distribuerats i tillgänglighetsuppsättningar**: Du kan konfigurera dina virtuella datorer i en tillgänglighetsuppsättning i separata Tillgänglighetszoner när du aktiverar replikering för den virtuella datorn med hjälp av Azure Site Recovery. SERVICEAVTALET för tillgänglighet är 99,9% när du har slutfört åtgärden för att flytta.
+* **Virtuella datorer på varje nivå som distribueras över tillgänglighets uppsättningar**: du kan konfigurera dina virtuella datorer i en tillgänglighets uppsättning i separata Tillgänglighetszoner när du aktiverar replikering för den virtuella datorn med hjälp av Azure Site Recovery. Service avtalet för tillgänglighet är 99,9% när du har slutfört flytt åtgärden.
 
-     ![Distribution av virtuella datorer i tillgänglighetsuppsättningar och Tillgänglighetszoner](media/move-vm-overview/aset-azone.png)
+     ![VM-distribution över tillgänglighets uppsättningar och Tillgänglighetszoner](media/move-vm-overview/aset-azone.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

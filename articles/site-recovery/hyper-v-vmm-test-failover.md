@@ -1,5 +1,5 @@
 ---
-title: Kör en haveri beredskaps granskning av virtuella Hyper-V-datorer till en sekundär plats med Azure Site Recovery | Microsoft Docs
+title: Kör en NHyper-V haveri beredskap-granskning till en sekundär plats med Azure Site Recovery
 description: Lär dig hur du kör en DR-granskning för virtuella Hyper-V-datorer i VMM-moln till ett sekundärt lokalt Data Center med hjälp av Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: ef8504f3f79d23fa0d59493c06cfbe133e1c4113
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933463"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961403"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Köra en DR-granskning för virtuella Hyper-V-datorer till en sekundär plats
 
@@ -53,7 +53,7 @@ När du kör ett redundanstest uppmanas du att välja nätverks inställningar f
 | **Använd befintlig** | Den virtuella test datorn skapas på den värd där den virtuella replik datorn finns. Den har inte lagts till i molnet.<br/><br/>Skapa ett virtuellt dator nätverk som är isolerat från produktions nätverket.<br/><br/>Om du använder ett VLAN-baserat nätverk rekommenderar vi att du skapar ett separat logiskt nätverk (som inte används i produktion) i VMM för detta ändamål. Det här logiska nätverket används för att skapa virtuella dator nätverk för redundanstest.<br/><br/>Det logiska nätverket måste vara kopplat till minst ett av nätverkskorten för alla Hyper-V-servrar som är värdar för virtuella datorer.<br/><br/>För logiska VLAN-nätverk ska de nätverks platser som du lägger till i det logiska nätverket isoleras.<br/><br/>Om du använder ett logiskt nätverk för Windows-nätverksvirtualisering skapas automatiskt isolerade virtuella dator nätverk i Azure Site Recovery. | |
 | **Skapa ett nätverk** | Ett tillfälligt test nätverk skapas automatiskt baserat på den inställning som du anger i det **logiska nätverket** och dess relaterade nätverks platser.<br/><br/> Redundansväxling kontrollerar att virtuella datorer har skapats.<br/><br/> Du bör använda det här alternativet om en återställnings plan använder mer än ett virtuellt dator nätverk.<br/><br/> Om du använder Windows-nätverk för nätverksvirtualisering kan det här alternativet automatiskt skapa virtuella dator nätverk med samma inställningar (undernät och IP-adresspooler) i nätverket på den virtuella replik datorn. Dessa virtuella dator nätverk rensas automatiskt när redundanstestning är klar.<br/><br/> Den virtuella test datorn skapas på den värd där den virtuella replik datorn finns. Den har inte lagts till i molnet.|
 
-### <a name="best-practices"></a>Bästa metoder
+### <a name="best-practices"></a>Bästa praxis
 
 - Om du testar ett produktions nätverk orsakar det avbrott i produktions arbets belastningar. Be användarna att inte använda relaterade appar när en haveri beredskap-granskning pågår.
 

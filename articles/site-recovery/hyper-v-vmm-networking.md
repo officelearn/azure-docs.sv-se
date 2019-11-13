@@ -1,18 +1,18 @@
 ---
-title: Konfigurera IP-adressering för att ansluta till en sekundär lokal plats efter redundansväxlingen med Azure Site Recovery
+title: Konfigurera IP-adresser efter redundansväxling till en sekundär plats med Azure Site Recovery
 description: Beskriver hur du konfigurerar IP-adresser för att ansluta till virtuella datorer på en sekundär lokal plats efter haveri beredskap och redundans med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: f158c6b71bb53d6b683577401e625e24808eb7eb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813682"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961427"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurera IP-adressering för att ansluta till en sekundär lokal plats efter redundans
 
@@ -22,8 +22,8 @@ När du har växlat över virtuella Hyper-V-datorer i System Center Virtual Mach
 
 Efter redundansväxlingen finns det ett par olika sätt att hantera IP-adresser för virtuella replik datorer: 
 
-- **Behåll samma IP-adress efter redundans**: I det här scenariot har den replikerade virtuella datorn samma IP-adress som den primära virtuella datorn. Detta fören klar nätverksrelaterade problem efter redundansväxlingen, men kräver en del infrastruktur arbete.
-- **Använd en annan IP-adress efter redundans**: I det här scenariot hämtar den virtuella datorn en ny IP-adress efter redundansväxlingen. 
+- **Behåll samma IP-adress efter redundansväxlingen**: i det här scenariot har den REPLIKERADE virtuella datorn samma IP-adress som den primära virtuella datorn. Detta fören klar nätverksrelaterade problem efter redundansväxlingen, men kräver en del infrastruktur arbete.
+- **Använd en annan IP-adress efter redundans**: i det här scenariot hämtar den virtuella datorn en ny IP-adress efter redundansväxlingen. 
  
 
 ## <a name="retain-the-ip-address"></a>Behåll IP-adressen

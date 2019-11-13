@@ -3,7 +3,7 @@ title: Felsöka saknade data i aktivitets loggarna | Microsoft Docs
 description: Ger en lösning till saknade data i Azure Active Directory-aktivitetsloggar.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aeac1180292ea5200e9eabc30ee01db05b67e75
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820865"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014278"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Felsökning: Saknade data i Azure Active Directory-aktivitetsloggar 
 
@@ -43,7 +43,7 @@ Jag utförde vissa åtgärder i Azure Portal och förväntade att se gransknings
 | Kataloggranskning | &nbsp; | 2 min | 5 min |
 | Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
 
@@ -64,7 +64,7 @@ Jag loggade nyligen in på Azure-portalen och förväntade mig att se inloggning
 | Kataloggranskning | &nbsp; | 2 min | 5 min |
 | Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
 
@@ -87,7 +87,7 @@ Beroende på din licens lagrar Azure Active Directory aktivitetsrapporter under 
 
 Mer information finns i [Kvarhållningsprinciper för rapporter i Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Du har två alternativ för att behålla data längre än 30 dagar. Du kan använda [Azure AD Reporting-API:er](concept-reporting-api.md) för att hämta data programmatiskt och lagra dem i en databas. Du kan även integrera spårningsloggar i ett SIEM-system från tredje part, till exempel Splunk eller SumoLogic.
 

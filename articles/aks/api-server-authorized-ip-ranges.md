@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: aa0cf1ef3f758d7aba4639d779bde90249d039cb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6fc1af356d035c4db73f761ce679f7ad16126d4f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815675"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013002"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Säker åtkomst till API-servern med behöriga IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -21,7 +21,7 @@ I Kubernetes tar API-servern emot begär Anden för att utföra åtgärder i klu
 Den här artikeln visar hur du använder tillåtna IP-adressintervall för API-Server för att begränsa vilka IP-adresser och CIDR-områden som kan komma åt kontroll planet.
 
 > [!IMPORTANT]
-> I nya kluster stöds endast tillåtna IP-adressintervall för API-server på SKU: n för *standard* -SKU: n. Befintliga kluster med den *grundläggande* SKU-belastningsutjämnaren och den API-server som auktoriserats har kon figurer ATS för att fortsätta fungera som det är. De befintliga clusers kan också uppgraderas och de kommer att fortsätta att fungera.
+> I nya kluster stöds endast tillåtna IP-adressintervall för API-server på SKU: n för *standard* -SKU: n. Befintliga kluster med den *grundläggande* SKU-belastningsutjämnaren och den API-server som auktoriserats har kon figurer ATS för att fortsätta fungera som det är. De befintliga klustren kan också uppgraderas och de kommer att fortsätta att fungera.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -65,7 +65,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Ange utgående IP-adresser för belastningsutjämnaren för standard-SKU
 
-När du skapar ett AKS-kluster och anger utgående IP-adresser eller prefix för klustret, tillåts även dessa adresser eller prefix. Till exempel:
+När du skapar ett AKS-kluster och anger utgående IP-adresser eller prefix för klustret, tillåts även dessa adresser eller prefix. Exempel:
 
 ```azurecli-interactive
 az aks create \
@@ -117,7 +117,7 @@ Du kan också använda *0.0.0.0/32* när du anger parametern *--API-Server-Allow
 
 ## <a name="disable-authorized-ip-ranges"></a>Inaktivera auktoriserade IP-intervall
 
-Om du vill inaktivera auktoriserade IP-intervall använder du [AZ AKS Update][az-aks-update] och anger ett tomt intervall för att inaktivera API-serverns auktoriserade IP-intervall. Till exempel:
+Om du vill inaktivera auktoriserade IP-intervall använder du [AZ AKS Update][az-aks-update] och anger ett tomt intervall för att inaktivera API-serverns auktoriserade IP-intervall. Exempel:
 
 ```azurecli-interactive
 az aks update \

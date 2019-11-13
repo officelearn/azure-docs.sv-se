@@ -1,6 +1,6 @@
 ---
-title: Data i realtid visualisering av sensordata från Azure IoT hub i en webbapp | Microsoft Docs
-description: Använd ett webbprogram för att visualisera temperatur- och data som samlas in från en sensor och skickas till din Iot-hubb.
+title: Data visualisering i real tid av dina IoT Hub-data i en webbapp
+description: Använd ett webb program för att visualisera temperatur-och fuktighets data som samlas in från en sensor och skickas till din IoT-hubb.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,116 +8,116 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 22b15a95e529d4f09560e9b7e59d9f78f70651bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475998"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954655"
 ---
-# <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera sensordata i realtid från Azure IoT hub i ett webbprogram
+# <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
 
-![Slutpunkt till slutpunkt-diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
+![Diagram från slut punkt till slut punkt](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-I den här självstudien får lära du att visualisera sensordata i realtid som din IoT-hubb tar emot med en node.js-webbapp som körs på den lokala datorn. När du kör webbappen lokalt, kan du också följa stegen för att vara värd för webbappen i Azure App Service. Om du vill försöka att visualisera data i IoT-hubben med hjälp av Power BI, se [Använd Power BI för att visualisera sensordata i realtid från Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+I den här självstudien får du lära dig att visualisera real tids sensor data som IoT-hubben tar emot med en Node. js-webbapp som körs på den lokala datorn. När du har kört webbappen lokalt kan du också följa stegen för att vara värd för webbappen i Azure App Service. Om du vill försöka visualisera data i IoT-hubben med hjälp av Power BI kan du läsa mer i [använda Power BI för att visualisera sensor data i real tid från Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## <a name="what-you-do"></a>Vad du gör
 
-* Lägga till en konsumentgrupp i din IoT-hubb som webbprogrammet ska använda för att läsa sensordata
-* Ladda ned koden för webbappen från GitHub
-* Granska koden för webbappen
-* Konfigurera miljövariabler för att lagra IoT-hubben artefakter som krävs av din webbapp
-* Kör webbappen på utvecklingsdatorn
-* Öppna en webbsida om du vill se temperatur och fuktighet realtidsdata från IoT hub
-* (Valfritt) Använd Azure CLI för att vara värd för din webbapp i Azure App Service
+* Lägg till en konsument grupp i IoT-hubben som webb programmet ska använda för att läsa sensor data
+* Ladda ned webb program koden från GitHub
+* Granska koden för webb program
+* Konfigurera miljövariabler för att lagra de IoT Hub artefakter som krävs av din webbapp
+* Kör webb programmet på utvecklings datorn
+* Öppna en webb sida om du vill se temperatur-och fuktighets data i real tid från din IoT Hub
+* Valfritt Använd Azure CLI för att vara värd för din webbapp i Azure App Service
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* Slutför den [Raspberry Pi onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md) självstudien eller någon av enheten självstudiekurser; exempelvis [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Dessa omfattar följande krav:
+* Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
 
   * En aktiv Azure-prenumeration
-  * En Iot-hubb i din prenumeration
-  * Ett klientprogram som skickar meddelanden till din Iot-hubb
+  * En IoT-hubb under din prenumeration
+  * Ett klient program som skickar meddelanden till din IoT-hubb
 
-* [Hämta Git](https://www.git-scm.com/downloads)
+* [Hämta git](https://www.git-scm.com/downloads)
 
-* I den här artikeln förutsätter vi en Windows-utvecklingsdator; Du kan dock enkelt utföra dessa steg på ett Linux-system i ditt önskade gränssnitt.
+* I den här artikeln förutsätter vi en Windows-utvecklings dator. Du kan dock enkelt utföra dessa steg på ett Linux-system i önskat gränssnitt.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägg till en konsumentgrupp till din IoT hub
+## <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägga till en konsument grupp i IoT Hub
 
-[Konsumentgrupper](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) ger oberoende vyer i händelseströmmen som gör att appar och Azure-tjänster oberoende använda data från samma Event Hub-slutpunkt. I det här avsnittet ska du lägga till en konsumentgrupp din IoT-hubb inbyggd slutpunkt som webbappen använder för att läsa data från.
+[Konsument grupper](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) tillhandahåller oberoende vyer i händelse strömmen som gör det möjligt för appar och Azure-tjänster att oberoende använda data från samma Event Hub-slutpunkt. I det här avsnittet lägger du till en konsument grupp i IoT Hub: s inbyggda slut punkt som webbappen kommer att använda för att läsa data från.
 
-Kör följande kommando för att lägga till en konsumentgrupp i den inbyggda slutpunkten för din IoT-hubb:
+Kör följande kommando för att lägga till en konsument grupp till den inbyggda slut punkten för din IoT Hub:
 
 ```azurecli-interactive
 az iot hub consumer-group create --hub-name YourIoTHubName --name YourConsumerGroupName
 ```
 
-Obs ned det namn som du väljer du behöver det senare i den här självstudien.
+Anteckna det namn du väljer, du behöver det senare i den här självstudien.
 
-## <a name="get-a-service-connection-string-for-your-iot-hub"></a>Hämta en tjänstanslutningssträngen för din IoT-hubb
+## <a name="get-a-service-connection-string-for-your-iot-hub"></a>Hämta en anslutnings sträng för din IoT-hubb
 
-IoT-hubbar skapas med flera standard-åtkomstprinciper. En sådan princip är den **service** policy, som ger tillräcklig behörighet för en tjänst för att läsa och skriva den IoT hub-slutpunkter. Kör följande kommando för att få en anslutningssträng för IoT-hubben som följer principen service:
+IoT Hub skapas med flera standard åtkomst principer. En sådan princip är **tjänst** principen som ger tillräckliga behörigheter för att en tjänst ska kunna läsa och skriva IoT Hub-slutpunkter. Kör följande kommando för att få en anslutnings sträng för din IoT-hubb som följer tjänst principen:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIotHub --policy-name service
 ```
 
-Anslutningssträngen ska se ut ungefär så här:
+Anslutnings strängen bör se ut ungefär så här:
 
 ```javascript
 "HostName={YourIotHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"
 ```
 
-Anteckna tjänstanslutningssträngen, du behöver det senare i den här självstudien.
+Anteckna tjänst anslutnings strängen, du behöver den senare i den här självstudien.
 
-## <a name="download-the-web-app-from-github"></a>Ladda ned webbappen från GitHub
+## <a name="download-the-web-app-from-github"></a>Ladda ned webb programmet från GitHub
 
-Öppna ett kommandofönster och ange följande kommandon för att ladda ned exemplet från GitHub och ändra till katalogen exemplet:
+Öppna ett kommando fönster och ange följande kommandon för att ladda ned exemplet från GitHub och ändra till exempel katalogen:
 
 ```cmd
 git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
 cd web-apps-node-iot-hub-data-visualization
 ```
 
-## <a name="examine-the-web-app-code"></a>Granska koden för webbappen
+## <a name="examine-the-web-app-code"></a>Granska koden för webb program
 
-Öppna appen i din favoritredigerare från katalogen web-apps-node-iot-hub-data-visualization. Nedan visas filstruktur som visas i VS Code:
+Från katalogen Web-Apps-Node-IoT-Hub-data-visualisering öppnar du webbappen i din favorit redigerare. Följande visar fil strukturen som visas i VS Code:
 
-![Filstruktur för Web app](./media/iot-hub-live-data-visualization-in-web-apps/web-app-files.png)
+![Webb program fil struktur](./media/iot-hub-live-data-visualization-in-web-apps/web-app-files.png)
 
-Ta en stund att granska följande filer:
+Ta en stund att undersöka följande filer:
 
-* **Server.js** är ett tjänstsidan-skript som initierar web socket och adapterklass Event Hub. Det ger en motringning till Event Hub-adapterklass som klassen används för att sända inkommande meddelanden till webb-socket.
+* **Server. js** är ett skript på service sidan som initierar-klassen för webbsocket och Event Hub. Det ger en motringning till den omslutnings klass för Händelsehubben som klassen använder för att skicka inkommande meddelanden till webbsocketen.
 
-* **Händelse-hub-reader.js** är ett skript för tjänsten på klientsidan som ansluter till IoT-hubbens inbyggda slutpunkten med hjälp av den angivna anslutning sträng- och konsumentprogram gruppen. Den extraherar DeviceId och EnqueuedTimeUtc från metadata på inkommande meddelanden och vidarebefordrar meddelandet med motringningsmetoden som registrerats av server.js.
+* **Event-Hub-Reader. js** är ett skript på Server sidan som ansluter till IoT Hub: s inbyggda slut punkt med den angivna anslutnings strängen och konsument gruppen. Den extraherar DeviceId och EnqueuedTimeUtc från metadata för inkommande meddelanden och vidarebefordrar sedan meddelandet med hjälp av callback-metoden som registrerats av Server. js.
 
-* **Diagram-enhet-data.js** är ett skript för klientsidan som lyssnar på web-socket håller reda på varje DeviceId och lagrar de senaste 50 punkterna för inkommande data för varje enhet. Valda enhetsdata Binder sedan till diagramobjektet.
+* **Chart-Device-data. js** är ett skript på klient sidan som lyssnar på webbsocketen, håller koll på varje DeviceID och lagrar de senaste 50 punkterna för inkommande data för varje enhet. Den binder sedan de valda enhets data till diagramobjektet.
 
-* **Index.HTML** hanterar UI-layouten för sidan, refererar till de nödvändiga skript för klientsidan logik.
+* **Index. html** hanterar UI-layouten för webb sidan och refererar till de skript som krävs för klient sidans logik.
 
-## <a name="configure-environment-variables-for-the-web-app"></a>Konfigurera miljövariabler för webbappen
+## <a name="configure-environment-variables-for-the-web-app"></a>Konfigurera miljövariabler för webbapp
 
-För att läsa data från IoT hub behöver webbappen anslutningssträngen för din IoT-hubb och namnet på konsumentgrupp som ska läsas. De här strängarna hämtar från process-miljön i följande rader i server.js:
+För att läsa data från din IoT-hubb behöver webbappen din IoT Hub-anslutningssträng och namnet på den konsument grupp som den bör läsa igenom. De får de här strängarna från process miljön på följande rader i Server. js:
 
 ```javascript
 const iotHubConnectionString = process.env.IotHubConnectionString;
 const eventHubConsumerGroup = process.env.EventHubConsumerGroup;
 ```
 
-Ange miljövariabler i kommandofönstret med följande kommandon. Ersätt platshållarvärdena med tjänstanslutningssträngen för din IoT-hubb och namnet på konsumentgrupp som du skapade tidigare. Inte citera strängarna.
+Ange miljövariabler i kommando fönstret med följande kommandon. Ersätt plats hållarnas värden med tjänst anslutnings strängen för din IoT-hubb och namnet på den konsument grupp som du skapade tidigare. Citera inte strängarna.
 
 ```cmd
 set IotHubConnectionString=YourIoTHubConnectionString
@@ -126,91 +126,91 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 ## <a name="run-the-web-app"></a>Kör webbappen
 
-1. Se till att din enhet körs och skickar data.
+1. Kontrol lera att enheten kör och skickar data.
 
-2. Kör följande rader för att ladda ned och installera refererade paket och starta webbplatsen i kommandofönstret:
+2. I kommando fönstret kör du följande rader för att ladda ned och installera refererade paket och starta webbplatsen:
 
    ```cmd
    npm install
    npm start
    ```
 
-3. Du bör se utdata i konsolen som anger att webbappen har lyckats ansluta till din IoT-hubb och lyssnar på port 3000:
+3. Du bör se utdata i-konsolen som visar att webbappen har lyckats ansluta till din IoT-hubb och lyssnar på port 3000:
 
-   ![Webbapp som är igång på konsolen](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png)
+   ![Webbappen har startats i-konsolen](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png)
 
-## <a name="open-a-web-page-to-see-data-from-your-iot-hub"></a>Öppna en webbsida för att se data från IoT hub
+## <a name="open-a-web-page-to-see-data-from-your-iot-hub"></a>Öppna en webb sida om du vill visa data från din IoT Hub
 
-Öppna en webbläsare till `http://localhost:3000`.
+Öppna en webbläsare för att `http://localhost:3000`.
 
-I den **väljer du en enhet** väljer du enheten för att se en rityta som körs på de senaste 50 temperatur och fuktighet datapunkter som skickas av enheten till IoT hub.
+I listan **Välj en enhet** väljer du din enhet för att se en arbets kurva om de senaste 50 temperatur-och fuktighets-data punkterna som skickas av enheten till din IoT-hubb.
 
-![Web app-sidan som visar i realtid temperatur och fuktighet](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
+![Webb program sida med real tids temperatur och fuktighet](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
 
-Du bör också se utdata i konsolen som visar meddelandena som din webbapp är aktivt till webbläsarklienten:  
+Du bör också se utdata i-konsolen som visar de meddelanden som din webbapp skickar till webb läsar klienten:  
 
-![Web app broadcast utdata på konsolen](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-broadcast.png)
+![Utdata från webbappens sändning i-konsolen](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-broadcast.png)
 
-## <a name="host-the-web-app-in-app-service"></a>Var värd för webbapp i App Service
+## <a name="host-the-web-app-in-app-service"></a>Vara värd för webbappen i App Service
 
-Den [Web Apps-funktionen i Azure App Service](https://docs.microsoft.com/azure/app-service/overview) tillhandahåller en plattform som en tjänst (PAAS) som värd för webbprogram. Webbprogram i Azure App Service kan dra nytta av kraftfulla Azure-funktioner som ytterligare säkerhet, belastningsutjämning, och skalbarhet som samt Azure och partnern DevOps-lösningar som kontinuerlig distribution, pakethantering, och så vidare. Azure App Service stöder webbprogram som har utvecklats i många populära språk och distribueras på Windows eller Linux-infrastruktur.
+[Web Apps funktionen i Azure App Service](https://docs.microsoft.com/azure/app-service/overview) tillhandahåller en PaaS (Platform as a Service) för att vara värd för webb program. Webb program som finns i Azure App Service kan dra nytta av kraftfulla Azure-funktioner som ytterligare säkerhet, belastnings utjämning och skalbarhet samt Azure-och partner DevOps-lösningar som kontinuerlig distribution, paket hantering och så vidare. Azure App Service stöder webb program som utvecklats på många populära språk och distribueras i Windows-eller Linux-infrastruktur.
 
-I det här avsnittet ska du etablera en webbapp i App Service och distribuera din kod till den med hjälp av Azure CLI-kommandon. Du hittar information om de kommandon som används i den [az webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest) dokumentation. Innan du startar, kontrollera att du har slutfört stegen för att [lägga till en resursgrupp i din IoT-hubb](#add-a-consumer-group-to-your-iot-hub), [hämta en tjänstanslutningssträngen för din IoT-hubb](#get-a-service-connection-string-for-your-iot-hub), och [ladda ned webbappen från GitHub](#download-the-web-app-from-github).
+I det här avsnittet etablerar du en webbapp i App Service och distribuerar din kod till den med hjälp av Azure CLI-kommandon. Du hittar information om de kommandon som används i [AZ webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest) -dokumentationen. Innan du börjar ska du kontrol lera att du har slutfört stegen för att [lägga till en resurs grupp i IoT-hubben](#add-a-consumer-group-to-your-iot-hub), [Hämta en tjänst anslutnings sträng för IoT Hub](#get-a-service-connection-string-for-your-iot-hub)och [Hämta webbappen från GitHub](#download-the-web-app-from-github).
 
-1. En [App Service-plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) definierar en uppsättning beräkningsresurser för en app som finns i App Service ska köras. I den här självstudien använder vi utvecklare/kostnadsfria nivån som värd för webbappen. Med den kostnadsfria nivån web Apps som körs på delade Windows-resurser med andra App Service-appar, inklusive appar från andra kunder. Azure även erbjudanden som App Service-planer att distribuera web apps på Linux beräkningsresurser. Du kan hoppa över det här steget om du redan har en App Service-plan som du vill använda.
+1. En [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) definierar en uppsättning beräknings resurser för en app som är värd för App Service som ska köras. I den här självstudien använder vi den utvecklings-/kostnads fria nivån som värd för webbappen. Med den kostnads fria nivån körs din webbapp på delade Windows-resurser med andra App Service appar, inklusive appar från andra kunder. Azure erbjuder också App Service planer för att distribuera webbappar på Linux Compute-resurser. Du kan hoppa över det här steget om du redan har ett App Service plan som du vill använda.
 
-   Kör följande kommando för att skapa en App Service-plan med hjälp av den kostnadsfria nivån av Windows. Använd samma resursgrupp som din IoT hub finns i. Service-planens namn kan innehålla övre och gemena bokstäver, siffror och bindestreck.
+   Om du vill skapa en App Service plan med den kostnads fria nivån av Windows kör du följande kommando. Använd samma resurs grupp som din IoT Hub. Namnet på din tjänst plan får innehålla versaler, gemener, siffror och bindestreck.
 
    ```azurecli-interactive
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Nu etablera en webbapp i App Service-planen. Den `--deployment-local-git` parametern kan koden för webbappen överförs till och distribueras från en Git-lagringsplats på din lokala dator. Webbappens namn måste vara globalt unikt och får innehålla övre och gemena bokstäver, siffror och bindestreck.
+2. Etablera nu en webbapp i App Service plan. Parametern `--deployment-local-git` gör att webbappens kod kan laddas upp och distribueras från en git-lagringsplats på den lokala datorn. Ditt webb program namn måste vara globalt unikt och får innehålla versaler, gemener, siffror och bindestreck.
 
    ```azurecli-interactive
    az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
    ```
 
-3. Lägg nu till programinställningar för de miljövariabler som som anger anslutningssträngen för IoT hub och konsumentgrupp för Event hub. Individuella inställningar är blankstegsavgränsad i den `-settings` parametern. Använd tjänstanslutningssträngen för din IoT-hubb och konsumentgrupp som du skapade tidigare i den här självstudien. Inte citera värdena.
+3. Lägg nu till program inställningar för de miljövariabler som anger IoT Hub-anslutningssträngen och konsument gruppen för Event Hub. Enskilda inställningar är avgränsade med utrymme i `-settings` parameter. Använd tjänst anslutnings strängen för din IoT-hubb och den konsument grupp som du skapade tidigare i den här självstudien. Citera inte värdena.
 
    ```azurecli-interactive
    az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
    ```
 
-4. Aktivera Web Sockets-protokollet för webbappen och ange webbappen att ta emot HTTPS-begäranden endast (HTTP-begäranden ska omdirigeras till HTTPS).
+4. Aktivera webb-socket-protokollet för webbappen och ange att webbappen endast ska ta emot HTTPS-förfrågningar (HTTP-begäranden omdirigeras till HTTPS).
 
    ```azurecli-interactive
    az webapp config set -n <your web app name> -g <your resource group name> --web-sockets-enabled true
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. För att distribuera koden till App Service, ska du använda din [användarnivå distributionsbehörigheterna](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). Dina autentiseringsuppgifter för distribution på användarnivå skiljer sig från dina Azure-autentiseringsuppgifter och används för lokal Git och FTP-distributioner till en webbapp. När är de giltig för alla dina App Service-appar i alla prenumerationer i ditt Azure-konto. Om du tidigare har autentiseringsuppgifter för distribution på användarnivå, kan du använda dem.
+5. Om du vill distribuera koden till App Service använder du autentiseringsuppgifterna för [distribution på användar nivå](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). Autentiseringsuppgifterna för distribution av användar nivå skiljer sig från dina Azure-autentiseringsuppgifter och används för lokala git-och FTP-distributioner till en webbapp. När de har angetts är de giltiga för alla dina App Service-appar i alla prenumerationer i ditt Azure-konto. Om du tidigare har angett autentiseringsuppgifter för distribution på användar nivå kan du använda dem.
 
-   Om du inte tidigare har autentiseringsuppgifter för distribution på användarnivå eller om du inte kommer ihåg ditt lösenord, kör du följande kommando. Ditt användarnamn i distributionen måste vara unikt i Azure och det får inte innehålla den ' @' symbolen för lokal Git push-meddelanden. När du uppmanas ange och bekräfta det nya lösenordet. Lösenordet måste vara minst åtta tecken långt, med två av följande tre element: bokstäver, siffror och symboler.
+   Om du inte tidigare har angett autentiseringsuppgifter för distribution på användar nivå eller om du inte kan komma ihåg ditt lösen ord kör du följande kommando. Ditt distributions användar namn måste vara unikt i Azure och det får inte innehålla symbolen @ för lokal git-push. När du uppmanas att ange och bekräfta ditt nya lösen ord. Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>
    ```
 
-6. Hämta Git-URL: en du använder för att skicka koden upp till App Service.
+6. Hämta git-URL: en som ska användas för att skicka koden till App Service.
 
    ```azurecli-interactive
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Lägg till en fjärransluten i din klon som refererar till Git-lagringsplats för webbappen i App Service. För \<URL för Git-klonen\>, använda URL: en som returneras i föregående steg. Kör följande kommando i kommandofönstret.
+7. Lägg till en fjärran sluten till din klon som hänvisar till git-lagringsplatsen för webbappen i App Service. För \<git-klon-URL\>använder du URL: en som returnerades i föregående steg. Kör följande kommando i kommando fönstret.
 
    ```cmd
    git remote add webapp <Git clone URL>
    ```
 
-8. För att distribuera koden till App Service, anger du följande kommando i kommandofönstret. Om du tillfrågas om autentiseringsuppgifter, anger du autentiseringsuppgifterna för användarnivå distribution som du skapade i steg 5. Kontrollera att du har överfört till huvudgrenen för App Service-fjärranslutna.
+8. Om du vill distribuera koden till App Service anger du följande kommando i kommando fönstret. Om du uppmanas att ange autentiseringsuppgifter anger du de autentiseringsuppgifter för distribution på användar nivå som du skapade i steg 5. Se till att du push-överför till huvud grenen för App Service fjärran sluten.
 
     ```cmd
     git push webapp master:master
     ```
 
-9. Förloppet för distributionen uppdateras i kommandofönstret. En lyckad distribution avslutas med rader som liknar följande utdata:
+9. Distributions förloppet uppdateras i kommando fönstret. En lyckad distribution avslutas med rader som liknar följande utdata:
 
     ```cmd
     remote:
@@ -221,44 +221,44 @@ I det här avsnittet ska du etablera en webbapp i App Service och distribuera di
     6b132dd..7cbc994  master -> master
     ```
 
-10. Kör följande kommando för att fråga efter tillståndet för webbappen och se till att den körs:
+10. Kör följande kommando för att fråga om status för din webbapp och kontrol lera att den körs:
 
     ```azurecli-interactive
     az webapp show -n <your web app name> -g <your resource group name> --query state
     ```
 
-11. Gå till `https://<your web app name>.azurewebsites.net` i en webbläsare. En webbsida som liknar den du såg när du körde webbappen lokalt visar. Förutsatt att enheten kör och skickar data, bör du se en pågående rityta av de 50 senaste temperatur och fuktighet avläsningar som skickats av enheten.
+11. Gå till `https://<your web app name>.azurewebsites.net` i en webbläsare. En webb sida som liknar den som du såg när du körde webb programmet visas lokalt. Om du antar att enheten kör och skickar data bör du se en körnings kurva om de 50 senaste temperatur-och fuktighets avläsningarna som skickas av enheten.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du stöter på problem med det här exemplet kan du testa stegen i följande avsnitt. Om du fortfarande har problem kan du skicka oss feedback längst ned i det här avsnittet.
+Om du kommer över eventuella problem med det här exemplet kan du prova stegen i följande avsnitt. Om du fortfarande har problem kan du skicka feedback till oss längst ned i det här avsnittet.
 
-### <a name="client-issues"></a>Klientproblem
+### <a name="client-issues"></a>Klient problem
 
-* Om en enhet inte visas i listan, eller inget diagram ritas, kontrollera att enheten koden körs på din enhet.
+* Om en enhet inte visas i listan, eller om inget diagram ritas, kontrollerar du att enhets koden körs på enheten.
 
-* I webbläsaren, öppna utvecklarverktyg (i många webbläsare på F12 nyckel öppnas det), och hitta konsolen. Leta efter eventuella varningar och fel som är tryckt.
+* I webbläsaren öppnar du utvecklarverktyg (i många webbläsare F12-nyckeln öppnar den) och letar upp konsolen. Sök efter eventuella varningar eller fel som har skrivits ut där.
 
-* Du kan felsöka klientskript i /js/chat-device-data.js.
+* Du kan felsöka skript på klient sidan i/JS/Chat-Device-data.js.
 
 ### <a name="local-website-issues"></a>Problem med lokal webbplats
 
-* Titta på resultatet i fönstret där du startade nod för konsolens utdata.
+* Titta på utdata i fönstret där du startade noden för konsol utdata.
 
-* Felsök serverkoden, särskilt server.js och /scripts/event-hub-reader.js.
+* Felsök Server koden, särskilt Server. js och/scripts/Event-Hub-Reader.js.
 
-### <a name="azure-app-service-issues"></a>Azure App Service-problem
+### <a name="azure-app-service-issues"></a>Azure App Service problem
 
-* Gå till din webbapp i Azure-portalen. Under **övervakning** i den vänstra rutan väljer **Apptjänst loggar**. Aktivera **Programinloggning (filsystem)** , ange **nivå** till fel och sedan väljer **spara**. Öppna sedan **loggström** (under **övervakning**).
+* I Azure Portal går du till din webbapp. Under **övervakning** i den vänstra rutan väljer du **App Service loggar**. Aktivera **program loggning (fil system)** till på, ange **nivå** till fel och välj sedan **Spara**. Öppna sedan **logg strömmen** (under **övervakning**).
 
-* Från din webbapp i Azure-portalen under **utvecklingsverktyg** Välj **konsolen** och validera node- och npm-versioner med `node -v` och `npm -v`.
+* Från din webbapp i Azure Portal under **utvecklingsverktyg** väljer du **konsol** och validera Node-och npm-versioner med `node -v` och `npm -v`.
 
-* Om du ser ett fel om inte att hitta ett paket kan har du kört stegen i fel ordning. När platsen har distribuerats (med `git push`) app service körs `npm install`, som körs baserat på den aktuella versionen av noden som den har konfigurerats. Om som ändras i konfigurationen senare, måste du göra en meningslöst ändring i koden och skicka igen.
+* Om du ser ett fel om att det inte går att hitta ett paket kan du köra stegen i rätt ordning. När platsen distribueras (med `git push`) körs App Service `npm install`, som körs baserat på den aktuella versionen av noden som den har konfigurerat. Om den ändras i konfigurationen senare, måste du göra en meningslös ändring av koden och skicka igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har använt din webbapp för att visualisera sensordata i realtid från IoT hub.
+Du har använt din webbapp för att visualisera sensor data i real tid från IoT Hub.
 
-Ett annat sätt att visualisera data från Azure IoT Hub finns [Använd Power BI för att visualisera sensordata i realtid från IoT hub](iot-hub-live-data-visualization-in-power-bi.md).
+Ett annat sätt att visualisera data från Azure IoT Hub finns i [använda Power BI för att visualisera sensor data i real tid från IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: 985823e5aa806244596277c982cc129554d890f2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44ce62f957dbdd71a41962ae7257cbc6e048e03c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489055"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953315"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Virtuella WAN-partner och platser för virtuella hubbar
 
@@ -40,7 +40,7 @@ Vissa anslutnings partner kan utöka automatiseringen så att du kan ta med att 
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Följande partner är planerad i vår översikt för en nära framtid: Arista, F5-nätverk, Velocloud.
+Följande partner är planerad i vår översikt för en nära framtid: Arista, Aruba HPE, Cisco Systems, F5-nätverk, öppna system och VMWare Velocloud.
 
 ## <a name="locations"></a>Platser
 

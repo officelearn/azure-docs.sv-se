@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71279895"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "74003921"
 ---
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Skapa en Azure Database for PostgreSQL-storskalig (citus)
 
 Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
 2. Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
-3. För distributions alternativet klickar du på knappen **skapa** under **citus) Server grupp – för hands version.**
+3. För distributions alternativet klickar du på knappen **skapa** under **Server grupp för citus-Server.**
 4. Fyll i formuläret om den nya servern och uppge följande information:
    - Resurs grupp: Klicka på länken **Skapa ny** under text rutan för det här fältet. Ange ett namn, till exempel **myresourcegroup**.
    - Server grupp namn: Ange ett unikt namn för den nya server gruppen som också ska användas för en server under domän.
@@ -38,12 +38,12 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
    > Det Server administratörs lösen ord som du anger här krävs för att logga in på servern och databaserna. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
 
 5. Klicka på **Konfigurera Server grupp**. Lämna inställningarna i avsnittet oförändrade och klicka på **Spara**.
-6. Klicka på **Nästa: Nätverks >** längst ned på skärmen.
+6. Klicka på **Nästa: nätverks >** längst ned på skärmen.
 
 7. På fliken **nätverk** klickar du på alternativ knappen **offentlig slut punkt** .
-   ![Offentlig slut punkt vald](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
+   ![offentlig slut punkt har valts](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
 8. Klicka på länken **+ Lägg till aktuell klient-IP-adress**.
-   ![Klientens IP-adress har lagts till](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
+   ![lade till klient-IP-](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
    > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
@@ -63,7 +63,7 @@ När du skapar din Azure Database for PostgreSQL-server skapas en standard datab
    host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
    ```
 
-   Kopiera strängen. Du måste ersätta "{ditt\_lösen ord}" med det administrativa lösen ord som du valde tidigare. Systemet lagrar inte lösen ordet i klartext och kan därför inte Visa det åt dig i anslutnings strängen.
+   Kopiera strängen. Du måste ersätta "{Your\_Password}" med det administrativa lösen ord som du valde tidigare. Systemet lagrar inte lösen ordet i klartext och kan därför inte Visa det åt dig i anslutnings strängen.
 
 2. Öppna ett terminalfönster på den lokala datorn.
 

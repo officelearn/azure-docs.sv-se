@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 54f3d76704a1f9bf7fec2f3c6c68c88fffd993b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932273"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936210"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -131,7 +131,7 @@ Följ dessa steg:
 
 6. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
    Välj att använda en befintlig mall eller fyll i fälten som krävs av din ITSM-produkt.
-7. Klicka på **OK**
+7. Klicka på **OK**.
 
 När du skapar/redigerar en regel för Azure-avisering använder du en åtgärds grupp som har en ITSM-åtgärd. När aviseringen utlöses skapas/uppdateras arbets objekt i ITSM-verktyget.
 
@@ -173,18 +173,18 @@ Följande information visar exempel på data som samlas in av ITSMC:
 > Beroende på typen av arbets objekt som importer ATS till Log Analytics, innehåller **ServiceDesk_CL** följande fält:
 
 **Arbets objekt:** **incidenter**  
-ServiceDeskWorkItemType_s = "incident"
+ServiceDeskWorkItemType_s="Incident"
 
 **Fält**
 
 - ServiceDeskConnectionName
 - Service Desk-ID
 - Status
-- Nödfall
+- Angelägenhetsgrad
 - Påverkan
 - Prioritet
 - Eskalering
-- Skapad av
+- Skapat av
 - Löst av
 - Stängd av
 - Källa
@@ -193,20 +193,20 @@ ServiceDeskWorkItemType_s = "incident"
 - Rubrik
 - Beskrivning
 - Skapad datum
-- Stängnings datum
-- Löst datum
+- Stängningsdatum
+- Lösningsdatum
 - Datum för senaste ändring
 - Dator
 
 
 **Arbets objekt:** **ändrings begär Anden**
 
-ServiceDeskWorkItemType_s = "ändringsbegäran"
+ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Fält**
 - ServiceDeskConnectionName
 - Service Desk-ID
-- Skapad av
+- Skapat av
 - Stängd av
 - Källa
 - Tilldelad till
@@ -216,13 +216,13 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Status
 - Eskalering
 - Konflikt status
-- Nödfall
+- Angelägenhetsgrad
 - Prioritet
 - Risk
 - Påverkan
 - Tilldelad till
 - Skapad datum
-- Stängnings datum
+- Stängningsdatum
 - Datum för senaste ändring
 - Begärt datum
 - Planerat start datum
@@ -238,7 +238,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 |:--- |:--- |
 | ServiceDeskId_s| Tal |
 | IncidentState_s | Status |
-| Urgency_s |Nödfall |
+| Urgency_s |Angelägenhetsgrad |
 | Impact_s |Påverkan|
 | Priority_s | Prioritet |
 | CreatedBy_s | Öppnad av |
@@ -250,7 +250,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
 | CreatedDate_t|  Inleddes |
-| ClosedDate_t| kopplade|
+| ClosedDate_t| Stängd|
 | ResolvedDate_t|Göras|
 | Dator  | Konfigurations objekt |
 
@@ -266,7 +266,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | Type_s|  Typ |
 | Category_s|  Kategori |
 | CRState_s|  Status|
-| Urgency_s|  Nödfall |
+| Urgency_s|  Angelägenhetsgrad |
 | Priority_s| Prioritet|
 | Risk_s| Risk|
 | Impact_s| Påverkan|
@@ -291,7 +291,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 2. Om data från ServiceNow inte kommer att synkroniseras till Log Analytics, se till att ServiceNow-instansen inte är i vilo läge. ServiceNow dev-instanser går ibland till ström spar läge när de är inaktiva under en längre tid. Annars kan du rapportera problemet.
 3. Om Log Analytics-aviseringar om brand, men arbets objekt inte skapas i ITSM-produkten eller om konfigurations objekt inte skapas/länkas till arbets objekt eller för någon annan allmän information, tittar du på följande platser:
    -  ITSMC: lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen** med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
-   - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*`ServiceDeskLog_CL`*`.
+   - Sidan **loggs ökning** : Visa fel/relaterad information direkt med frågan `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution
 1.  Om det uppstår problem med distributionen av webbappar kontrollerar du att du har tillräcklig behörighet i prenumerationen som nämns skapa/distribuera resurser.

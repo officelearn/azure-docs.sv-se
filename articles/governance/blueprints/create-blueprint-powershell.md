@@ -1,19 +1,16 @@
 ---
 title: Skapa en skiss med PowerShell
 description: Använd Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av PowerShell.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: quickstart
-ms.service: blueprints
-ms.openlocfilehash: 6a1ef5aece030ac359e9c5811c815bec5ed57d27
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4cc181a7e0b07448d6dd538cfb1621d1efa43a80
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978518"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960432"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Snabbstart: Definiera och tilldela en Azure Blueprint med PowerShell
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Snabb start: definiera och tilldela en Azure Blueprint med PowerShell
 
 När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
@@ -27,7 +24,7 @@ När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveck
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om den inte redan är installerad följer du anvisningarna i [Lägg till modulen AZ. skiss](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) för att installera och validera modulen **AZ. skiss** från PowerShell-galleriet.
 
@@ -314,9 +311,9 @@ Värdet för `{BlueprintVersion}` är en sträng med bokstäver, siffror och bin
 
 ## <a name="assign-a-blueprint"></a>Tilldela en skiss
 
-När en skiss har publicerats med PowerShell kan den tilldelas en prenumeration. Tilldela skissen som du skapade till någon av prenumerationerna i din hierarki med hanteringsgrupper. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen. **Skiss** parametern anger den skiss som ska tilldelas. Om du vill ange parametrar för namn, plats, identitet, lås och skiss använder du de matchande PowerShell-parametrarna i `New-AzBlueprintAssignment`-cmdleten eller anger dem i **AssignmentFile** -PARAMETERNs JSON-fil.
+När en skiss har publicerats med PowerShell kan den tilldelas en prenumeration. Tilldela skissen som du skapade till någon av prenumerationerna i din hierarki med hanteringsgrupper. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen. **Skiss** parametern anger den skiss som ska tilldelas. Om du vill ange parametrar för namn, plats, identitet, lås och skiss använder du de matchande PowerShell-parametrarna i `New-AzBlueprintAssignment`-cmdleten eller ger dem i JSON-filen för **AssignmentFile** -parametern.
 
-1. Kör skissdistributionen genom att tilldela den till en prenumeration. Eftersom **deltagar** -och **ägar** parametrarna kräver en matris med objectIds av de huvud konton som ska beviljas roll tilldelningen använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) för att samla in objectIds för användning i **AssignmentFile** för dina egna användare, grupper eller tjänstens huvud namn.
+1. Kör skissdistributionen genom att tilldela den till en prenumeration. Eftersom **deltagar** -och **ägar** parametrarna kräver en matris med objectIds av de säkerhetsobjekt som ska tilldelas roll tilldelningen använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) för att samla in objectIds för användning i **AssignmentFile** för dina egna användare, grupper eller tjänstens huvud namn.
 
    - JSON-fil – blueprintAssignment. JSON
 
@@ -371,7 +368,7 @@ När en skiss har publicerats med PowerShell kan den tilldelas en prenumeration.
    - Användartilldelad hanterad identitet
 
      En skisstilldelning kan även använda en [användartilldelad hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md).
-     I det här fallet ändras **identitets** delen av JSON-tilldelnings filen enligt följande. Ersätt `{tenantId}`, `{subscriptionId}`, `{yourRG}` och `{userIdentity}` med ditt tenantId, subscriptionId, resurs gruppens namn och namnet på din användarspecifika hanterade identitet.
+     I det här fallet ändras **identitets** delen av JSON-tilldelnings filen enligt följande. Ersätt `{tenantId}`, `{subscriptionId}`, `{yourRG}`och `{userIdentity}` med ditt tenantId, subscriptionId, resurs gruppens namn och namnet på din användarspecifika hanterade identitet.
 
      ```json
      "identity": {
@@ -390,7 +387,7 @@ När en skiss har publicerats med PowerShell kan den tilldelas en prenumeration.
 
 ## <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 
-Du kan ta bort en skiss från en prenumeration. Borttagningen görs ofta när artefaktresurserna inte längre behövs. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Om du vill ta bort en skiss tilldelning använder du cmdleten `Remove-AzBlueprintAssignment`:
+Du kan ta bort en skiss från en prenumeration. Borttagningen görs ofta när artefaktresurserna inte längre behövs. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Om du vill ta bort en skiss tilldelning använder du `Remove-AzBlueprintAssignment`-cmdlet:
 
 assignMyBlueprint
 

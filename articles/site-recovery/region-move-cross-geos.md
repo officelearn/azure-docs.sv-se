@@ -1,19 +1,18 @@
 ---
-title: Flytta virtuella Azure IaaS-datorer mellan Azure Government och offentliga regioner med Azure Site Recovery-tjänsten | Microsoft Docs
-description: Använd Azure Site Recovery för att flytta virtuella Azure IaaS-datorer mellan Azure Government & offentliga regioner.
-services: site-recovery
+title: Flytta virtuella Azure-datorer mellan myndigheter och offentliga regioner med Azure Site Recovery
+description: Använd Azure Site Recovery för att flytta virtuella Azure-datorer mellan Azure myndigheter och offentliga regioner.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376130"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961417"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Flytta virtuella Azure-datorer mellan Azure Government och offentliga regioner 
 
@@ -21,7 +20,7 @@ Du kanske vill flytta dina virtuella IaaS-datorer mellan Azure Government och of
 
 Utöver att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera flytt av virtuella Azure-datorer till en sekundär region.       
 
-Den här självstudien visar hur du flyttar virtuella Azure-datorer mellan Azure Government och offentliga regioner med Azure Site Recovery. Samma kan utökas för att flytta virtuella datorer mellan region par som inte är inom samma geografiska kluster. I den här guiden får du lära dig att:
+Den här självstudien visar hur du flyttar virtuella Azure-datorer mellan Azure Government och offentliga regioner med Azure Site Recovery. Samma kan utökas för att flytta virtuella datorer mellan region par som inte är inom samma geografiska kluster. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Kontrollera förutsättningar
@@ -72,15 +71,15 @@ Konfigurera ett [Azure Storage-konto](../storage/common/storage-quickstart-creat
 - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
 
 
-## <a name="prepare-the-source-vms"></a>Förbereda virtuella källdatorer
+## <a name="prepare-the-source-vms"></a>Förbereda källregionens virtuella datorer
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Förbereda ett konto för installation av mobilitetstjänsten
 
 Mobilitets tjänsten måste installeras på varje server som du vill replikera. Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för servern. Om du vill installera automatiskt måste du förbereda ett konto som Site Recovery ska använda för att få åtkomst till servern.
 
 - Du kan använda en domän eller ett lokalt konto
-- För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn. Det gör du genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**i registret under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**med värdet 1.
-- Om du vill lägga till register posten för att inaktivera inställningen från en CLI, skriver du:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn. Det gör du genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**i registret under **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**med värdet 1.
+- Om du vill lägga till register posten för att inaktivera inställningen från en CLI skriver du: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - För Linux bör kontot vara rot på käll-Linux-servern.
 
 
@@ -115,15 +114,15 @@ I stegen nedan får du hjälp att kopiera data till målregionen med hjälp av A
 3. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har fler än en prenumeration väljer du den rätta.
 4. Skapa en resursgrupp med namnet **ContosoRG**.
 5. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. I Recovery Services valv klickar du på **Översikt** > **ConsotoVMVault** >  **+ Replikera**
-7. Välj **till Azure** > **inte virtualiserad/övrigt**.
+6. I Recovery Services valv klickar du på **översikt** > **ConsotoVMVault** >  **+ Replikera**
+7. Välj **Till Azure** > **Inte virtualiserad/övrigt**.
 
 ### <a name="set-up-the-configuration-server-to-discover-vms"></a>Konfigurera konfigurations servern för att identifiera virtuella datorer.
 
 
 Konfigurera konfigurations servern, registrera den i valvet och identifiera virtuella datorer.
 
-1. Klicka på **Site Recovery** > **Förbered infrastruktur** > **källa**.
+1. Klicka på **Site Recovery** > **förbereda infrastruktur** > **källa**.
 2. Om du inte har en konfigurations Server klickar du på **+ konfigurations Server**.
 3. I **Lägg till Server**kontrollerar du att **konfigurations servern** visas i **Server typ**.
 4. Hämta installations filen Site Recovery Unified setup.
@@ -154,7 +153,7 @@ Kör enhetlig installation som lokal administratör för att installera konfigur
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-När registreringen är klar visas konfigurations servern på sidan **Inställningar** > **servrar** i valvet.
+När registreringen är klar visas konfigurations servern på sidan **inställningar** > **servrar** i valvet.
 
 ### <a name="configure-target-settings-for-replication"></a>Konfigurera mål inställningar för replikering
 
@@ -188,7 +187,7 @@ Principen associeras automatiskt med konfigurationsservern. Som standard skapas 
 1. Klicka på **Replikera program** > **Källa**.
 2. I **Källa** väljer du konfigurationsservern.
 3. I **typ av dator**väljer du **fysiska datorer**.
-4. Välj processervern (konfigurations servern). Klicka sedan på **OK**.
+4. Välj processervern (konfigurations servern). Klicka på **OK**.
 5. I **mål**väljer du den prenumeration och resurs grupp där du vill skapa virtuella Azure-datorer efter redundansväxlingen. Välj den distributions modell som du vill använda i Azure (klassisk eller resurs hantering).
 6. Välj Azure-lagringskonto som du vill använda när du replikerar data. 
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
@@ -198,12 +197,12 @@ Principen associeras automatiskt med konfigurationsservern. Som standard skapas 
    > [!WARNING]
    > Du måste ange IP-adressen för den virtuella Azure-dator som du vill flytta
 
-10. I **Egenskaper** > **Konfigurera egenskaper**väljer du det konto som ska användas av processervern för att automatiskt installera mobilitets tjänsten på datorn.
+10. I **egenskaper** > **Konfigurera egenskaper**väljer du det konto som ska användas av processervern för att automatiskt installera mobilitets tjänsten på datorn.
 11. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** kontrollerar du att rätt replikeringsprincip har valts. 
 12. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 
-Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste upptäckta tiden för dem i **konfigurations servrarna** > **senaste kontakt på**. Om du vill lägga till datorer utan att vänta på en schemalagd identifierings tid markerar du konfigurations servern (Klicka inte på den) och klickar på **Uppdatera**.
+Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste upptäckta tiden för dem i **konfigurations servrar** > **senaste kontakten på**. Om du vill lägga till datorer utan att vänta på en schemalagd identifierings tid markerar du konfigurations servern (Klicka inte på den) och klickar på **Uppdatera**.
 
 ## <a name="test-the-configuration"></a>Testa konfigurationen
 
@@ -213,9 +212,9 @@ Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste
 
    - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstid (RTO)
    - **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste appkonsekventa återställningspunkten. Tidsstämpeln visas.
-   - **Anpassat**: Välj en annan återställningspunkt.
+   - **Anpassad**: Välj en annan återställningspunkt.
 
-3. Välj det virtuella Azure-målnätverk dit du vill flytta de virtuella Azure-datorerna för att testa konfigurationen. 
+3. Välj målets virtuella Azure-nätverk, dit du vill flytta de virtuella Azure-datorerna för att testa konfigurationen. 
 
    > [!IMPORTANT]
    > Vi rekommenderar att du använder ett separat Azure VM-nätverk för redundanstest och inte det produktions nätverk som du vill flytta dina virtuella datorer till till och med när du aktiverade replikeringen.
@@ -228,7 +227,7 @@ Om du vill övervaka servrar som du lägger till kan du kontrol lera den senaste
 
 1. Gå till valvet. I **Inställningar** > **Replikerade objekt** klickar du på den virtuella datorn och sedan på **Redundans**.
 2. I **Redundans** väljer du **Senaste**. 
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**. 
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**. 
 4. När jobbet har slutförts kan du kontrollera att den virtuella datorn visas i Azure-målregionen som förväntat.
 5. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Genomför**. Detta avslutar flytten till målregionen. Vänta tills incheckningsjobbet har slutförts.
 

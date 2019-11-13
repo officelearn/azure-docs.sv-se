@@ -1,7 +1,7 @@
 ---
 title: Så här gör du en offline-utvärdering – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du analyserar din inlärnings slinga med en offline-utvärdering
+description: Den här artikeln visar hur du använder offline-utvärdering för att mäta appens effektivitet och analysera din inlärnings slinga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2aec0db2d1f9865188f2749a0eeb765a14d04ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490708"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953008"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysera din inlärnings slinga med en offline-utvärdering
 
@@ -26,7 +26,7 @@ Med offline-utvärdering kan du mäta hur effektiv Personanpassare jämförs med
 Läs om [offline-utvärderingar](concepts-offline-evaluation.md) för mer information.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En konfigurerad personanpassa slinga
 * Den personliga slingan måste ha en representativ mängd data – som en ungefärligt rekommenderar vi minst 50 000 händelser i sina loggar för meningsfulla utvärderings resultat. Om du vill kan du också ha tidigare exporterade _Learning-principfiler_ som du kan jämföra och testa i samma utvärdering.

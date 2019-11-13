@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891710"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013149"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -101,28 +101,6 @@ Kör det här kommandot för att ange en startlayout för Windows 10-datorer.
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
-```
-
-### <a name="configure-session-timeout-policies"></a>Konfigurera tids gräns principer för sessioner
-
-Fjärråtkomstprinciper kan aktive ras på grupprincip nivå eftersom alla virtuella datorer i en modempool ingår i samma säkerhets grupp.
-
-Så här konfigurerar du fjärråtkomstprinciper:
-
-1. Gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd för värd** för fjärrskrivbordssession > **tids gränser**för fjärrskrivbordssession.
-2. I panelen till höger väljer du den **angivna tids gränsen för aktiva men inaktiva principer för Fjärrskrivbordstjänster sessioner** .
-3. När det modala fönstret visas ändrar du princip alternativet från **inte konfigurerad** till **aktive rad** för att aktivera principen.
-4. I den nedrullningsbara menyn under alternativet princip anger du hur lång tid som ska vara **3 timmar**.
-
-Du kan också konfigurera fjärråtkomstprinciper manuellt genom att köra följande kommandon:
-
-```batch
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>Konfigurera omdirigering av tidszon

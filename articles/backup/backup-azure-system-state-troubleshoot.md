@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: eb8bf1891f5ce96507c20e196d20ae499f30fe34
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747300"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012118"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
 
@@ -45,7 +45,7 @@ Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsö
 - Återställning till annan maskinvara genom återställning av systemtillståndet rekommenderas inte av Microsoft
 - Säkerhets kopiering av system tillstånd stöder för närvarande lokala Windows-servrar, men den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
-## <a name="pre-requisite"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Innan vi felsöker säkerhets kopiering av system tillstånd med Azure Backup utför du nedanstående krav kontroll.  
 
@@ -87,7 +87,7 @@ Följ stegen nedan om du vill installera Windows Server Backup med hjälp av Ser
 5. På fliken **bekräftelse** klickar du på **Installera** för att starta installations processen.
 6. På fliken **resultat** visas Windows Server Backup funktionen har installerats på Windows-servern.
 
-    ![medför](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Resultatet](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Behörighet för system volym information
 

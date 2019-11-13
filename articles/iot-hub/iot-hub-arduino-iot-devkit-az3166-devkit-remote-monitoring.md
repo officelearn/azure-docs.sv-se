@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit to Cloud – Connect IoT MXChip DevKit till Azure IoT Hub | Microsoft Docs
+title: Anslut MXChip IoT DevKit till Azure IoT Hub Remote Monitoring
 description: I den här självstudien får du lära dig hur du skickar status för sensorer på IoT DevKit-AZ3166 till Azure IoT Remote Monitoring Solution Accelerator.
 author: liydu
 manager: jeffya
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 24e31bfa916df969368dce736cf841ed4fdfe2c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9eab035d494892671a2451866311ca06599ec030
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484053"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953727"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT Remote Monitor Solution Accelerator
 
@@ -54,7 +54,7 @@ En aktiv Azure-prenumeration. Om du inte har någon kan du registrera dig via n�
 
    ![Instrumentpanel](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
-   ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   ![Konsolen](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. Klicka på **Lägg till en enhet**.
 

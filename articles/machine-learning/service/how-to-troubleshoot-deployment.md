@@ -11,44 +11,54 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489361"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961668"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
 Lär dig att undvika eller lösa vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
-När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter. Distributions uppgifterna är:
+När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter. Distribution aktiviteter är:
 
-1. Registrera modellen i arbets ytans modell register.
+1. Registrera modellen i arbetsytan modellen registret.
 
-2. Bygg en Docker-avbildning, inklusive:
+2. Skapa en Docker-avbildning, inklusive:
     1. Ladda ned den registrerade modellen från registret. 
-    2. Skapa en Dockerfile med en python-miljö baserat på de beroenden som du anger i miljöns yaml-fil.
-    3. Lägg till dina modellvariabler och det bedömnings skript som du anger i Dockerfile.
-    4. Bygg en ny Docker-avbildning med hjälp av Dockerfile.
-    5. Registrera Docker-avbildningen med Azure Container Registry som är kopplad till arbets ytan.
+    2. Skapa en docker-fil med en Python-miljö baserat på de beroenden som du anger i miljön yaml-fil.
+    3. Lägg till modellfiler och bedömningsskriptet som du anger i dockerfile.
+    4. Skapa en ny Docker-avbildning med hjälp av dockerfile.
+    5. Registrera Docker-avbildningen med Azure Container Registry som är associerade med arbetsytan.
 
     > [!IMPORTANT]
     > Beroende på din kod sker avbildnings skapandet automatiskt utan dina indata.
 
-3. Distribuera Docker-avbildningen till Azure Container instance-tjänsten (ACI) eller till Azure Kubernetes service (AKS).
+3. Distribuera Docker-avbildningen till Azure Container Instance (ACI)-tjänsten eller till Azure Kubernetes Service (AKS).
 
 4. Starta en ny behållare (eller behållare) i ACI eller AKS. 
 
-Läs mer om den här processen i Introduktion till [modellhantering](concept-model-management-and-deployment.md) .
+Mer information om den här processen i den [modellhantering](concept-model-management-and-deployment.md) introduktion.
+
+## <a name="prerequisites"></a>Krav
+
+* En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* För att felsöka lokalt måste du ha en fungerande Docker-installation på det lokala systemet.
+
+    Verifiera din Docker-installation genom att använda kommandot `docker run hello-world` från en terminal eller kommando tolk. Information om hur du installerar Docker eller felsöker Docker-fel finns i [Docker-dokumentationen](https://docs.docker.com/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du stöter på ett problem är det första du ska göra är att dela upp distributions aktiviteten (tidigare beskriven) i enskilda steg för att isolera problemet.
+Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet.
 
-Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) eller [WebService. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
+Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) eller [webservice. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
 
-1. Registrera modellen. Här är exempel kod:
+1. Registrera modellen. Här är exempelkod:
 
     ```python
     # register a model out of a run record
@@ -58,7 +68,7 @@ Att dela upp distributionen i aktiviteter är användbart om du använder API f�
     model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
     ```
 
-2. Bygg avbildningen. Här är exempel kod:
+2. Skapa avbildningen. Här är exempelkod:
 
     ```python
     # configure the image
@@ -73,7 +83,7 @@ Att dela upp distributionen i aktiviteter är användbart om du använder API f�
     image.wait_for_creation(show_output=True)
     ```
 
-3. Distribuera avbildningen som tjänst. Här är exempel kod:
+3. Distribuera avbildningen som tjänst. Här är exempelkod:
 
     ```python
     # configure an ACI-based deployment
@@ -86,11 +96,11 @@ Att dela upp distributionen i aktiviteter är användbart om du använder API f�
     aci_service.wait_for_deployment(show_output=True)    
     ```
 
-När du har delat upp distributions processen i enskilda uppgifter kan vi titta på några av de vanligaste felen.
+När du har uppdelade distributionsprocessen i enskilda aktiviteter kan vi titta på några av de vanligaste felen.
 
-## <a name="image-building-fails"></a>Bild skapande Miss lyckas
+## <a name="image-building-fails"></a>Bild som att skapa misslyckas
 
-Om Docker-avbildningen inte kan skapas, Miss lyckas anropet [image. wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) eller [service. wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) med fel meddelanden som kan ge en del LED trådar. Du kan också få mer information om felen från avbildnings versions loggen. Nedan visas en exempel kod som visar hur du identifierar avbildningens versions logg-URI.
+Om Docker-avbildningen inte kan skapas går det inte att anropa [avbildningen. wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) eller [service. wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) med fel meddelanden som kan ge en del LED trådar. Du kan också hitta mer information om felen från image build-loggen. Nedan är exempelkod som visar hur du identifierar build log-uri för avbildning.
 
 ```python
 # if you already have the image object handy
@@ -104,7 +114,7 @@ for name, img in ws.images.items():
     print(img.name, img.version, img.image_build_log_uri)
 ```
 
-Avbildnings loggens URI är en SAS-URL som pekar på en loggfil som lagras i Azure Blob Storage. Du behöver bara kopiera och klistra in URI: n i ett webbläsarfönster och du kan ladda ned och Visa logg filen.
+Logg-uri för avbildning är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggfilen.
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault åtkomst princip och Azure Resource Manager mallar
 
@@ -155,9 +165,6 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
 ## <a name="debug-locally"></a>Felsök lokalt
 
 Om du får problem med att distribuera en modell till ACI eller AKS kan du prova att distribuera den som en lokal. Med hjälp av en lokal är det enklare att felsöka problem. Docker-avbildningen som innehåller modellen laddas ned och startas i det lokala systemet.
-
-> [!IMPORTANT]
-> Lokala distributioner kräver en fungerande Docker-installation på det lokala systemet. Docker måste köras innan du distribuerar en lokal. Information om hur du installerar och använder Docker finns [https://www.docker.com/](https://www.docker.com/).
 
 > [!WARNING]
 > Lokala distributioner stöds inte i produktions scenarier.
@@ -227,7 +234,7 @@ Om du vill ta bort tjänsten använder du [Delete ()](https://docs.microsoft.com
 
 ### <a id="dockerlog"></a>Granska Docker-loggen
 
-Du kan skriva ut detaljerade logg meddelanden för Docker-motorn från serviceobjektet. Du kan visa loggen för ACI, AKS och lokala distributioner. Följande exempel visar hur du skriver ut loggarna.
+Du kan skriva ut detaljerad Docker-motorn loggmeddelanden från objektet. Du kan visa loggen för ACI, AKS och lokala distributioner. Följande exempel visar hur du skriver ut loggarna.
 
 ```python
 # if you already have the service object handy
@@ -237,15 +244,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-## <a name="service-launch-fails"></a>Det går inte att starta tjänsten
+## <a name="service-launch-fails"></a>Starta tjänsten misslyckas
 
-När avbildningen har skapats försöker systemet starta en behållare med hjälp av distributions konfigurationen. Som en del av processen för container start anropas funktionen `init()` i ditt bedömnings skript av systemet. Om det finns undantag som inte har fångats i `init()`-funktionen kan du se **CrashLoopBackOff** -fel i fel meddelandet.
+När avbildningen har skapats försöker systemet starta en behållare med hjälp av distributions konfigurationen. Som en del i processen för att starta upp behållaren, den `init()` funktionen i din bedömningsskriptet anropas av systemet. Om det finns undantag utan felhantering i den `init()` fungerar, visas **CrashLoopBackOff** fel i felmeddelandet.
 
 Använd informationen i avsnittet [Granska Docker-loggen](#dockerlog) för att kontrol lera loggarna.
 
-## <a name="function-fails-get_model_path"></a>Funktionen misslyckades: get_model_path ()
+## <a name="function-fails-get_model_path"></a>Funktionen misslyckas: get_model_path()
 
-I `init()`-funktionen i bedömnings skriptet, anropas ofta funktionen [Model. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hitta en modell fil eller en mapp med modell filer i behållaren. Om modell filen eller mappen inte kan hittas Miss lyckas funktionen. Det enklaste sättet att felsöka det här felet är att köra följande python-kod i container Shell:
+I funktionen `init()` anropas ofta funktionen [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hitta en modell fil eller en mapp med modell filer i behållaren. Om modell filen eller mappen inte kan hittas Miss lyckas funktionen. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
 
 ```python
 from azureml.core.model import Model
@@ -254,13 +261,13 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Det här exemplet skriver ut den lokala sökvägen (i förhållande till `/var/azureml-app`) i behållaren där bedömnings skriptet förväntar sig att hitta modell filen eller mappen. Sedan kan du kontrol lera om filen eller mappen verkligen är den förväntas vara.
+Det här exemplet skriver ut den lokala sökvägen (i förhållande till `/var/azureml-app`) i behållaren där bedömnings skriptet förväntar sig att hitta modell filen eller mappen. Därefter kan du kontrollera om filen eller mappen är verkligen där det förväntas vara.
 
 Om du ställer in loggnings nivån på fel sökning kan det leda till att ytterligare information loggas, vilket kan vara användbart vid identifiering av felet.
 
-## <a name="function-fails-runinput_data"></a>Funktionen misslyckades: kör (input_data)
+## <a name="function-fails-runinput_data"></a>Funktionen misslyckas: run(input_data)
 
-Om tjänsten har distribuerats, men den kraschar när du skickar data till poäng slut punkten, kan du lägga till fel meddelande instruktion i din `run(input_data)`-funktion så att den returnerar ett detaljerat fel meddelande i stället. Till exempel:
+Om tjänsten har distribuerats, men den kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` så att den returnerar detaljerat felmeddelande i stället. Exempel:
 
 ```python
 def run(input_data):
@@ -275,7 +282,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Obs!** fel meddelanden som returneras från `run(input_data)`-anropet ska endast göras för fel söknings ändamål. Av säkerhets skäl bör du inte returnera fel meddelanden på det här sättet i en produktions miljö.
+**Obs**: returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Av säkerhets skäl bör du inte returnera fel meddelanden på det här sättet i en produktions miljö.
 
 ## <a name="http-status-code-503"></a>HTTP-statuskod 503
 
@@ -325,8 +332,8 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
 
 > [!IMPORTANT]
 > Den här fel söknings metoden fungerar inte när du använder `Model.deploy()` och `LocalWebservice.deploy_configuration` för att distribuera en modell lokalt. I stället måste du skapa en avbildning med hjälp av klassen [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) . 
->
-> Lokala distributioner kräver en fungerande Docker-installation på det lokala systemet. Docker måste köras innan du distribuerar en lokal. Information om hur du installerar och använder Docker finns [https://www.docker.com/](https://www.docker.com/).
+
+Lokala distributioner kräver en fungerande Docker-installation på det lokala systemet. Mer information om hur du använder Docker finns i [Docker-dokumentationen](https://docs.docker.com/).
 
 ### <a name="configure-development-environment"></a>Konfigurera utvecklingsmiljön
 
@@ -531,5 +538,5 @@ docker stop debug
 
 Lär dig mer om distribution:
 
-* [Distribuera och var](how-to-deploy-and-where.md)
-* [Självstudie: träna & distribuera modeller](tutorial-train-models-with-aml.md)
+* [Hur du distribuerar och var](how-to-deploy-and-where.md)
+* [Självstudie: Skapa och distribuera modeller](tutorial-train-models-with-aml.md)

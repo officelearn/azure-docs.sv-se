@@ -1,5 +1,5 @@
 ---
-title: Om Distributionshanteraren för Azure Site Recovery för haveri beredskap för virtuella Hyper-V-datorer till Azure | Microsoft Docs
+title: Distributions planeraren för haveri beredskap för Hyper-V med Azure Site Recovery
 description: Lär dig mer om den Distributionshanteraren för Azure Site Recovery Hyper-V haveri beredskap till Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618833"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954020"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Om Distributionshanteraren för Azure Site Recovery för haveri beredskap för Hyper-V till Azure
 
@@ -77,14 +77,14 @@ Version som stöds | vCenter 6,7, 6,5, 6,0 eller 5,5| Windows Server 2016, Windo
 Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
 Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
 
-\* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
+\* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden Get Throughput gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, utför profilering och generera rapporten. Det finns också ett fjärde alternativ som endast beräknar dataflödet. I följande tabell visas kraven för den server där de olika faserna ska köras:
 
 | Serverkrav | Beskrivning |
 |---|---|
-|Hämta listan med virtuella datorer, utför profilering och mäta dataflödet |<ul><li>Operativ system: Microsoft Windows Server 2016 eller Microsoft Windows Server 2012 R2 </li><li>Dator konfiguration: 8 virtuella processorer, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsatt 1 000 virtuella datorer med ett medeltal av de tre diskar vardera, profilerade under 30 dagar)</li><li>Den virtuella dator som du kör Distributionshanteraren för Azure Site Recovery från måste läggas till i listan TrustedHosts på alla Hyper-V-servrar.</li><li>Alla Hyper-V-servrar som ska profileras måste läggas till i listan TrustedHosts för den klient-VM från vilken verktyget körs. [Läs mer om att lägga till servrar i listan TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Verktyget måste köras med administratörsbehörighet från PowerShell eller i kommandotolken på klienten.</ul></ul>|
+|Hämta listan med virtuella datorer, utför profilering och mäta dataflödet |<ul><li>Operativsystem: Microsoft Windows Server 2016 eller Microsoft Windows Server 2012 R2 </li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsatt 1 000 virtuella datorer med ett medeltal av de tre diskar vardera, profilerade under 30 dagar)</li><li>Den virtuella dator som du kör Distributionshanteraren för Azure Site Recovery från måste läggas till i listan TrustedHosts på alla Hyper-V-servrar.</li><li>Alla Hyper-V-servrar som ska profileras måste läggas till i listan TrustedHosts för den klient-VM från vilken verktyget körs. [Läs mer om att lägga till servrar i listan TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Verktyget måste köras med administratörsbehörighet från PowerShell eller i kommandotolken på klienten.</ul></ul>|
 | Rapportgenerering | En Windows-dator eller Windows Server med Microsoft Excel 2013 eller senare |
 | Användarbehörigheter | Administratörskonto för åtkomst till Hyper-V kluster/Hyper-V-värd under åtgärden att hämta listan med virtuella datorer samt profilering.<br>Alla värdar som ska profileras måste ha ett domänadministratörskonto med samma autentiseringsuppgifter, som användarnamn och lösenord
  |
@@ -110,14 +110,14 @@ Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, 
 Verktyget är paketerat i en komprimerad mapp. Samma verktyg har stöd för båda haveriberedskapsscenarierna VMware till Azure och Hyper-V till Azure. Du kan använda det här verktyget för scenariot Hyper-V-till sekundär plats också, men då måste du ignorera rekommendationen om Azure-infrastruktur i rapporten.
 
 1.  Kopiera den komprimerade mappen till den Windows Server du vill köra verktyget från. Du kan köra verktyget på en Windows Server 2012 R2 eller Windows Server 2016. Servern måste ha nätverksåtkomst för anslutning till Hyper-V-klustret eller Hyper-V-värden som innehåller de virtuella datorer som ska profileras. Vi rekommenderar att du använder samma maskinvarukonfiguration för den virtuella dator där verktyget ska köras som den Hyper-V-server du vill skydda. En sådan konfiguration garanterar att det uppnådda dataflödet som verktyget rapporterar matchar det faktiska dataflöde som Azure Site Recovery kan uppnå under replikeringen. Dataflödesberäkningen är beroende av den tillgängliga nätverksbandbredden och maskinvarukonfigurationen (processor, lagringsutrymme och så vidare) på servern. Dataflödet beräknas från servern där verktyget körs till Azure. Om servern har en annan maskinvarukonfiguration än Hyper-V-servern kommer verktyget att rapportera ett felaktigt dataflöde.
-Den rekommenderade konfigurationen av den virtuella datorn: 8 virtuella processorer, 16 GB RAM, 300 GB HDD.
+Den rekommenderade konfigurationen för de virtuella datorerna: 8 virtuella processorer, 16 GB RAM, 300 GB hårddisk.
 
 1.  Extrahera .zip-filen.
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
-Exempel: Kopiera .zip-filen till enhet E:\ och packa upp den. E:\ASR Deployment Planner_v 2.3. zip
+Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR distributions Planner_v2.3. zip
 
-E:\ASR Deployment Planner_v 2.3 \ ASRDeploymentPlanner. exe
+E:\ASR distributions Planner_v2.3 \ ASRDeploymentPlanner. exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 

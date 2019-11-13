@@ -3,7 +3,7 @@ title: Referens för granskningsaktiviteter i Azure Active Directory (Azure AD) 
 description: Få en översikt över vilka granskningsaktiviteter som kan loggas in dina granskningsloggar i Azure Active Directory (AD Azure).
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306015"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007755"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -57,7 +57,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Åtkomstgranskningar|Publicera till Azure AD-åtkomstgranskningar|
 |Åtkomstgranskningar|Ta bort granskare från åtkomstgranskning|
 |Åtkomstgranskningar|Begär granskningsstopp|
-|Åtkomstgranskningar|Begära tillämpa granskningsresultat|
+|Åtkomstgranskningar|Begär tillämpning av granskningsresultat|
 |Åtkomstgranskningar|Granska medlemskap i Rbac-roller|
 |Åtkomstgranskningar|Granska apptilldelning|
 |Åtkomstgranskningar|Granska gruppmedlemskap|
@@ -70,7 +70,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Åtkomstgranskningar|Uppdatera upprepnings varaktighet för åtkomst granskning i dagar|
 |Åtkomstgranskningar|Uppdatera inställning för upprepnings slut typ för åtkomst granskning|
 |Åtkomstgranskningar|Uppdatera inställningen för upprepnings typ för åtkomst granskning|
-|Åtkomstgranskningar|Uppdatera inställningarna för åtkomstgranskningpåminnelse|
+|Åtkomstgranskningar|Uppdatera inställningar för påminnelse om åtkomstgranskning|
 |Åtkomstgranskningar|Uppdatera program|
 |Åtkomstgranskningar|Uppdatera godkännande av begäran|
 |Åtkomstgranskningar|Användaren är inaktive rad|
@@ -91,7 +91,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 |Granskningskategori|Aktivitet|
 |---|---|
-|Programhantering|Lägg till program|
+|Programhantering|Lägga till ett program|
 |Programhantering|Lägg till ägare till program|
 |Programhantering|Lägg till ägare till tjänstens huvudnamn|
 |Programhantering|Lägg till princip till tjänstens huvudnamn|
@@ -103,9 +103,9 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Ta bort OAuth2PermissionGrant|
 |Kataloghantering|Ta bort approlltilldelning från tjänstens huvudnamn|
 |Kataloghantering|Ta bort ägare från program|
-|Resource|Ta bort ägare från tjänstens huvudnamn|
-|Resource|Ta bort princip från tjänstens huvudnamn|
-|Resource|Ta bort tjänstens huvudnamn|
+|Resurs|Ta bort ägare från tjänstens huvudnamn|
+|Resurs|Ta bort princip från tjänstens huvudnamn|
+|Resurs|Ta bort tjänstens huvudnamn|
 
 
 ## <a name="automated-password-rollover"></a>Automatiserad lösenordsförnyelse
@@ -121,7 +121,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |---|---|
 |Programhantering|Återställ program|
 |Programhantering|Återkalla medgivande|
-|Programhantering|Uppdatera programmet|
+|Programhantering|Uppdatera program|
 |Programhantering|Uppdatera externa hemligheter|
 |Programhantering|Uppdatera tjänstens huvudnamn|
 |Programhantering|Utfärda ett åtkomsttoken till programmet|
@@ -135,119 +135,119 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Programhantering|AdminPolicyDatas-SetResources|
 |Programhantering|AdminUserJourneys-GetResources|
 |Programhantering|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|Skapa IdentityProvider|
-|Authentication|Skapa V1-program|
-|Authentication|Skapa V2-program|
-|Authentication|Skapa en anpassad domän i klienten|
-|Authorization|Skapa ny AdminUserJourney|
-|Authorization|Skapa json för lokaliserad resurs|
-|Authorization|Skapa ny anpassad IDP|
-|Authorization|Skapa ny IDP|
-|Authorization|Skapa eller uppdatera en B2C-katalogresurs|
-|Authorization|Skapa princip|
-|Authorization|Skapa trustFramework-princip|
-|Authorization|Skapa trustFramework-princip med konfigurerbart prefix|
-|Authorization|Skapa användarattribut|
-|Authorization|CreateTrustFrameworkPolicy|
-|Authorization|Skapar eller uppdaterar en ny AdminUserJourney|
-|Authorization|Ta bort IDP|
-|Authorization|Ta bort IdentityProvider|
-|Authorization|Ta bort V1-program|
-|Authorization|Ta bort V2-program|
-|Authorization|Ta bort behörighetsbeviljande för V2-program|
-|Authorization|Ta bort en B2C-katalogresurs|
-|Authorization|Ta bort en CPIM-nyckelcontainer|
-|Authorization|Ta bort trustFramework-princip|
-|Authorization|Ta bort användarattribut|
-|Authorization|Aktivera B2C-funktion|
-|Authorization|Hämta B2C-katalogresurser i en prenumeration|
-|Authorization|Hämta anpassad IDP|
-|Authorization|Hämta IDP|
-|Authorization|Hämta V1- och V2-program|
-|Authorization|Hämta V1-program|
-|Authorization|Hämta V1-program|
-|Authorization|Hämta V2-program|
-|Authorization|Hämta V2-program|
-|Authorization|Hämta en B2C Directory-resurs|
-|Authorization|Skapa en lista över anpassade domäner i klienten|
-|Authorization|Hämta en användarresa|
-|Authorization|Hämta tillåtna programanspråk för användarresa|
-|Authorization|Hämta tillåtna självkontrollerade anspråk för användarresa|
-|Authorization|Hämta tillåtna självkontrollerade anspråk för princip|
-|Authorization|Hämta tillgänglig lista över utdataanspråk|
-|Authorization|Hämta innehållsdefinitioner för användarresa|
-|Authorization|Hämta idp:er för ett specifikt administratörsflöde|
-|Authorization|Hämta nyckelcontainer för metadata för aktiv nyckel i JWK|
-|Authorization|Hämta lista över alla administratörsflöden|
-|Authorization|Hämta lista över taggar för alla administratörsflöden för alla användare|
-|Authorization|Hämta lista över klienter för en användare|
-|Authorization|Hämta självkontrollerade anspråk för lokala konton|
-|Authorization|Hämta json för lokaliserad resurs|
-|Authorization|Hämta åtgärder för resursprovidern Microsoft.AzureActiveDirectory|
-|Authorization|Hämta principer|
-|Authorization|Hämta princip|
-|Authorization|Hämta resursegenskaper för en klient|
-|Authorization|Hämta IDP-lista som stöds|
-|Authorization|Hämta IDP-lista som stöds för användarresa|
-|Authorization|Hämta klientinfo|
-|Authorization|Hämta klienttillåtna funktioner|
-|Authorization|Hämta klientdefinierad anpassad IDP-lista|
-|Authorization|Hämta klientdefinierad IDP-lista|
-|Authorization|Hämta klientdefinierad lokal IDP-lista|
-|Authorization|Hämta klientinformation för en användare för att skapa en resurs|
-|Authorization|Hämta klientlista|
-|Authorization|Hämta tenantDomains|
-|Authorization|Hämta standardkultur som stöds för CPIM|
-|Authorization|Hämta information om ett administratörsflöde|
-|Authorization|Hämta listan över UserJourneys för den här klienten|
-|Authorization|Hämta uppsättningen med tillgängliga kulturer som stöds för CPIM|
-|Authorization|Hämta trustFramework-princip|
-|Authorization|Hämta trustFramework-princip som xml|
-|Authorization|Hämta användarattribut|
-|Authorization|Hämta användarattribut|
-|Authorization|Hämta lista för användarresa|
-|Authorization|GetIEFPolicies|
-|Authorization|GetIdentityProviders|
-|Authorization|GetTrustFrameworkPolicy|
-|Authorization|Hämtar en CPIM-nyckelcontainer i jwk-format|
-|Authorization|Hämtar lista över nyckelcontainrar i klienten|
-|Authorization|Hämtar typ av klient|
-|Authorization|MigrateTenantMetadata|
-|Authorization|Korrigera IdentityProvider|
-|Authorization|PutTrustFrameworkPolicy|
-|Authorization|PutTrustFrameworkpolicy|
-|Authorization|Ta bort en användarresa|
-|Authorization|Återställa en säkerhetskopia av CPIM-nyckelcontainer|
-|Authorization|Hämta beviljanden av V2-programbehörighet|
-|Authorization|Hämta tjänstens huvudnamn för V2-program i aktuell klient|
-|Authorization|Uppdatera anpassad IDP|
-|Authorization|Uppdatera IDP|
-|Authorization|Uppdatera den lokala IdP:n|
-|Authorization|Uppdatera V1-program|
-|Authorization|Uppdatera V2-program|
-|Authorization|Uppdatera behörighetsbeviljande för V2-program|
-|Authorization|Uppdatera principen|
-|Authorization|Uppdatera användarattribut|
-|Authorization|Ladda upp en CPIM-krypterad nyckel|
-|Authorization|Användarauktorisering: API har inaktiverats för klient featureset|
-|Authorization|Användarauktorisering: Användare beviljad åtkomst som "klient organisation admin|
-|Authorization|Användarauktorisering: Användaren beviljades åtkomst rättigheter för autentiserade användare|
-|Authorization|Kontrollera om B2C-funktionen är aktiverad|
-|Authorization|Verifiera om funktionen är aktive rad|
-|Authorization|Skapa program|
-|Authorization|Ta bort program|
-|Authorization|Länka programkontroll|
-|Authorization|Publicera till Azure AD-åtkomstgranskningar|
-|Authorization|Ta bort länk till programkontroll|
-|Authorization|Uppdatera program|
-|Authorization|Inaktivera enkel inloggning för skrivbord|
-|Authorization|Inaktivera skrivbords-Sso för en specifik domän|
-|Authorization|Inaktivera programproxy|
-|Authorization|Inaktivera direktautentisering|
-|Authorization|Aktivera enkel inloggning för skrivbord|
+|Autentisering|AdminUserJourneys-SetResources|
+|Autentisering|Skapa IdentityProvider|
+|Autentisering|Skapa V1-program|
+|Autentisering|Skapa V2-program|
+|Autentisering|Skapa en anpassad domän i klienten|
+|Auktorisering|Skapa ny AdminUserJourney|
+|Auktorisering|Skapa json för lokaliserad resurs|
+|Auktorisering|Skapa ny anpassad IDP|
+|Auktorisering|Skapa ny IDP|
+|Auktorisering|Skapa eller uppdatera en B2C-katalogresurs|
+|Auktorisering|Skapa princip|
+|Auktorisering|Skapa trustFramework-princip|
+|Auktorisering|Skapa trustFramework-princip med konfigurerbart prefix|
+|Auktorisering|Skapa användarattribut|
+|Auktorisering|CreateTrustFrameworkPolicy|
+|Auktorisering|Skapar eller uppdaterar en ny AdminUserJourney|
+|Auktorisering|Ta bort IDP|
+|Auktorisering|Ta bort IdentityProvider|
+|Auktorisering|Ta bort V1-program|
+|Auktorisering|Ta bort V2-program|
+|Auktorisering|Ta bort behörighetsbeviljande för V2-program|
+|Auktorisering|Ta bort en B2C-katalogresurs|
+|Auktorisering|Ta bort en CPIM-nyckelcontainer|
+|Auktorisering|Ta bort trustFramework-princip|
+|Auktorisering|Ta bort användarattribut|
+|Auktorisering|Aktivera B2C-funktion|
+|Auktorisering|Hämta B2C-katalogresurser i en prenumeration|
+|Auktorisering|Hämta anpassad IDP|
+|Auktorisering|Hämta IDP|
+|Auktorisering|Hämta V1- och V2-program|
+|Auktorisering|Hämta V1-program|
+|Auktorisering|Hämta V1-program|
+|Auktorisering|Hämta V2-program|
+|Auktorisering|Hämta V2-program|
+|Auktorisering|Hämta en B2C Directory-resurs|
+|Auktorisering|Skapa en lista över anpassade domäner i klienten|
+|Auktorisering|Hämta en användarresa|
+|Auktorisering|Hämta tillåtna programanspråk för användarresa|
+|Auktorisering|Hämta tillåtna självkontrollerade anspråk för användarresa|
+|Auktorisering|Hämta tillåtna självkontrollerade anspråk för princip|
+|Auktorisering|Hämta tillgänglig lista över utdataanspråk|
+|Auktorisering|Hämta innehållsdefinitioner för användarresa|
+|Auktorisering|Hämta idp:er för ett specifikt administratörsflöde|
+|Auktorisering|Hämta nyckelcontainer för metadata för aktiv nyckel i JWK|
+|Auktorisering|Hämta lista över alla administratörsflöden|
+|Auktorisering|Hämta lista över taggar för alla administratörsflöden för alla användare|
+|Auktorisering|Hämta lista över klienter för en användare|
+|Auktorisering|Hämta lokala kontos självkontrollerade anspråk|
+|Auktorisering|Hämta json för lokaliserad resurs|
+|Auktorisering|Hämta åtgärder för resursprovidern Microsoft.AzureActiveDirectory|
+|Auktorisering|Hämta principer|
+|Auktorisering|Hämta princip|
+|Auktorisering|Hämta resursegenskaper för en klient|
+|Auktorisering|Hämta IDP-lista som stöds|
+|Auktorisering|Hämta IDP-lista som stöds för användarresa|
+|Auktorisering|Hämta klientinfo|
+|Auktorisering|Hämta klienttillåtna funktioner|
+|Auktorisering|Hämta klientdefinierad anpassad IDP-lista|
+|Auktorisering|Hämta klientdefinierad IDP-lista|
+|Auktorisering|Hämta klientdefinierad lokal IDP-lista|
+|Auktorisering|Hämta klientinformation för en användare för att skapa en resurs|
+|Auktorisering|Hämta klientlista|
+|Auktorisering|Hämta tenantDomains|
+|Auktorisering|Hämta standardkultur som stöds för CPIM|
+|Auktorisering|Hämta information om ett administratörsflöde|
+|Auktorisering|Hämta listan över UserJourneys för den här klienten|
+|Auktorisering|Hämta uppsättningen med tillgängliga kulturer som stöds för CPIM|
+|Auktorisering|Hämta trustFramework-princip|
+|Auktorisering|Hämta trustFramework-princip som xml|
+|Auktorisering|Hämta användarattribut|
+|Auktorisering|Hämta användarattribut|
+|Auktorisering|Hämta lista för användarresa|
+|Auktorisering|GetIEFPolicies|
+|Auktorisering|GetIdentityProviders|
+|Auktorisering|GetTrustFrameworkPolicy|
+|Auktorisering|Hämtar en CPIM-nyckelcontainer i jwk-format|
+|Auktorisering|Hämtar lista över nyckelcontainrar i klienten|
+|Auktorisering|Hämtar typ av klient|
+|Auktorisering|MigrateTenantMetadata|
+|Auktorisering|Korrigera IdentityProvider|
+|Auktorisering|PutTrustFrameworkPolicy|
+|Auktorisering|PutTrustFrameworkpolicy|
+|Auktorisering|Ta bort en användarresa|
+|Auktorisering|Återställa en säkerhetskopia av CPIM-nyckelcontainer|
+|Auktorisering|Hämta beviljanden av V2-programbehörighet|
+|Auktorisering|Hämta tjänstens huvudnamn för V2-program i aktuell klient|
+|Auktorisering|Uppdatera anpassad IDP|
+|Auktorisering|Uppdatera IDP|
+|Auktorisering|Uppdatera den lokala IdP:n|
+|Auktorisering|Uppdatera V1-program|
+|Auktorisering|Uppdatera V2-program|
+|Auktorisering|Uppdatera behörighetsbeviljande för V2-program|
+|Auktorisering|Uppdatera princip|
+|Auktorisering|Uppdatera användarattribut|
+|Auktorisering|Ladda upp en CPIM-krypterad nyckel|
+|Auktorisering|Användarautentisering: API är inaktiverat för klient-featureset|
+|Auktorisering|Användarautentisering: Användaren beviljas åtkomst som ”innehavaradministratör”|
+|Auktorisering|Användarautentisering: Användare beviljas behörighet för åtkomst som ”behöriga användare”|
+|Auktorisering|Kontrollera om B2C-funktionen är aktiverad|
+|Auktorisering|Verifiera om funktionen är aktive rad|
+|Auktorisering|Skapa program|
+|Auktorisering|Ta bort program|
+|Auktorisering|Länka programkontroll|
+|Auktorisering|Publicera till Azure AD-åtkomstgranskningar|
+|Auktorisering|Ta bort länk till programkontroll|
+|Auktorisering|Uppdatera program|
+|Auktorisering|Inaktivera enkel inloggning för skrivbord|
+|Auktorisering|Inaktivera skrivbords-Sso för en specifik domän|
+|Auktorisering|Inaktivera programproxy|
+|Auktorisering|Inaktivera direktautentisering|
+|Auktorisering|Aktivera enkel inloggning för skrivbord|
 |Kataloghantering|Aktivera skrivbords-Sso för en specifik domän|
-|Kataloghantering|Aktivera programproxy|
+|Kataloghantering|Aktivera Application Proxy|
 |Kataloghantering|Aktivera direktautentisering|
 |Kataloghantering|Skapa en anpassad domän i klienten|
 |Kataloghantering|Aktivera B2C-funktion|
@@ -269,79 +269,79 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Nyckel|Katalog borttagen|
 |Annat|Katalog borttagen permanent|
 |Annat|Katalog schemalagd för borttagning|
-|Resource|Flytta upp företag till partner|
-|Resource|Rensa egenskaper för Rights Management|
-|Resource|Ta bort partner från företag|
-|Resource|Ta bort overifierad domän|
-|Resource|Ta bort verifierad domän|
-|Resource|Ange företagsinformation|
-|Resource|Ange Dirsync-funktion|
-|Resource|Ange flaggan Dirsyncenabled|
-|Resource|Ange partnerskap|
-|Resource|Ange tröskelvärde för oavsiktlig borttagning|
-|Resource|Ange företagstillåten dataplats|
-|Resource|Ange företagsfunktionen Multinationell som aktiverad|
-|Resource|Ange katalogfunktion för klientorganisation|
-|Resource|Ange domänautentisering|
-|Resource|Ange federationsinställningar för domän|
-|Resource|Ange lösenordsprincip|
-|Resource|Ange egenskaper för Rights Management|
-|Resource|Uppdatera företag|
-|Resource|Uppdatera företagsinställningar|
-|Resource|Uppdatera domän|
-|Resource|Verifiera domän|
-|Resource|Verifiera e-postverifierad domän|
-|Resource|Registrera|
-|Resource|Uppdatera aviseringsinställningar|
-|Resource|Uppdatera inställningar för sammandrag av veckan|
-|Resource|Inaktivera lösenordstillbakaskrivning för katalog|
-|Resource|Aktivera lösenordstillbakaskrivning för katalog|
-|Resource|Lägg till approlltilldelning till grupp|
-|Resource|Lägg till grupp|
-|Resource|Lägg till en medlem i gruppen|
-|Resource|Lägg till ägare till grupp|
-|Resource|Skapa gruppinställningar|
-|Resource|Ta bort grupp|
-|Resource|Ta bort gruppinställningar|
-|Resource|Slutför tillämpning av gruppbaserad licens för användare|
-|Resource|Ta bort grupp permanent|
-|Resource|Ta bort approlltilldelning från grupp|
-|Resource|Ta bort medlemmen från gruppen|
-|Resource|Ta bort ägare från grupp|
-|Resource|Återställ grupp|
-|Resource|Ange grupplicens|
-|Resource|Ange grupp som ska hanteras av användare|
-|Resource|Börja tillämpa gruppbaserad licens för användare|
-|Resource|Utlös omberäkning för grupplicens|
-|Resource|Uppdatera grupp|
-|Resource|Uppdatera gruppinställningar|
-|Resource|Lägg till medlem|
-|Resource|Skapa grupp|
-|Resource|ta bort grupp|
-|Resource|Ta bort medlem|
-|Resource|Uppdatera grupp|
-|Resource|Godkänn en väntande begäran om att gå med i en grupp|
-|Resource|Avbryt en väntande begäran om att gå med i en grupp|
-|Resource|Skapa princip för livscykelhantering|
-|Resource|Ta bort en väntande begäran om att gå med i en grupp|
-|Resource|Avvisa en väntande begäran om att gå med i en grupp|
-|Resource|Förnya grupp|
-|Resource|Begäran om att gå med i en grupp|
-|Resource|Ange dynamiska gruppegenskaper|
-|Resource|Uppdatera princip för livscykelhantering|
-|Resource|Lägga till en nyckel som baseras på en ASCII-hemlighet till en CPIM-nyckelcontainer|
-|Resource|Lägg till en nyckel till en CPIM-nyckelcontainer|
-|Resource|Ta bort en CPIM-nyckelcontainer|
-|Resource|Ta bort nyckelcontainer|
-|Resource|Hämta nyckelcontainer för metadata för aktiv nyckel i JWK|
-|Resource|Hämta metadata för nyckelcontainer|
-|Resource|Hämtar en CPIM-nyckelcontainer i jwk-format|
-|Resource|Hämtar lista över nyckelcontainrar i klienten|
-|Resource|Återställa en säkerhetskopia av CPIM-nyckelcontainer|
-|Resource|Spara nyckelcontainer|
-|Resource|Ladda upp en CPIM-krypterad nyckel|
-|Resource|Utfärda en auktoriseringskod till programmet|
-|Resource|Utfärda ett id_token för programmet|
+|Resurs|Flytta upp företag till partner|
+|Resurs|Rensa egenskaper för Rights Management|
+|Resurs|Ta bort partner från företag|
+|Resurs|Ta bort overifierad domän|
+|Resurs|Ta bort verifierad domän|
+|Resurs|Ange företagsinformation|
+|Resurs|Ange Dirsync-funktion|
+|Resurs|Ange flaggan Dirsyncenabled|
+|Resurs|Ange partnerskap|
+|Resurs|Ange tröskelvärde för oavsiktlig borttagning|
+|Resurs|Ange företagstillåten dataplats|
+|Resurs|Ange företagsfunktionen Multinationell som aktiverad|
+|Resurs|Ange katalogfunktion för klientorganisation|
+|Resurs|Ange domänautentisering|
+|Resurs|Ange federationsinställningar för domän|
+|Resurs|Ange lösenordsprincip|
+|Resurs|Ange egenskaper för Rights Management|
+|Resurs|Uppdatera företag|
+|Resurs|Uppdatera företagsinställningar|
+|Resurs|Uppdatera domän|
+|Resurs|Verifiera domän|
+|Resurs|Verifiera e-postverifierad domän|
+|Resurs|Publicering|
+|Resurs|Uppdatera aviseringsinställningar|
+|Resurs|Uppdatera inställningar för sammandrag av veckan|
+|Resurs|Inaktivera lösenordstillbakaskrivning för katalog|
+|Resurs|Aktivera lösenordstillbakaskrivning för katalog|
+|Resurs|Lägg till approlltilldelning till grupp|
+|Resurs|Lägg till grupp|
+|Resurs|Lägg till medlem i grupp|
+|Resurs|Lägg till ägare till grupp|
+|Resurs|Skapa gruppinställningar|
+|Resurs|Ta bort grupp|
+|Resurs|Ta bort gruppinställningar|
+|Resurs|Slutför tillämpning av gruppbaserad licens för användare|
+|Resurs|Ta bort grupp permanent|
+|Resurs|Ta bort approlltilldelning från grupp|
+|Resurs|Ta bort medlem från grupp|
+|Resurs|Ta bort ägare från grupp|
+|Resurs|Återställ grupp|
+|Resurs|Ange grupplicens|
+|Resurs|Ange grupp som ska hanteras av användare|
+|Resurs|Börja tillämpa gruppbaserad licens för användare|
+|Resurs|Utlös omberäkning för grupplicens|
+|Resurs|Uppdatera grupp|
+|Resurs|Uppdatera gruppinställningar|
+|Resurs|Lägg till medlem|
+|Resurs|Skapa grupp|
+|Resurs|Ta bort grupp|
+|Resurs|Ta bort medlem|
+|Resurs|Uppdatera grupp|
+|Resurs|Godkänn en väntande begäran om att gå med i en grupp|
+|Resurs|Avbryt en väntande begäran om att gå med i en grupp|
+|Resurs|Skapa princip för livscykelhantering|
+|Resurs|Ta bort en väntande begäran om att gå med i en grupp|
+|Resurs|Avvisa en väntande begäran om att gå med i en grupp|
+|Resurs|Förnya grupp|
+|Resurs|Begäran om att gå med i en grupp|
+|Resurs|Ange dynamiska gruppegenskaper|
+|Resurs|Uppdatera princip för livscykelhantering|
+|Resurs|Lägga till en nyckel som baseras på en ASCII-hemlighet till en CPIM-nyckelcontainer|
+|Resurs|Lägg till en nyckel till en CPIM-nyckelcontainer|
+|Resurs|Ta bort en CPIM-nyckelcontainer|
+|Resurs|Ta bort nyckelcontainer|
+|Resurs|Hämta nyckelcontainer för metadata för aktiv nyckel i JWK|
+|Resurs|Hämta metadata för nyckelcontainer|
+|Resurs|Hämtar en CPIM-nyckelcontainer i jwk-format|
+|Resurs|Hämtar lista över nyckelcontainrar i klienten|
+|Resurs|Återställa en säkerhetskopia av CPIM-nyckelcontainer|
+|Resurs|Spara nyckelcontainer|
+|Resurs|Ladda upp en CPIM-krypterad nyckel|
+|Resurs|Utfärda en auktoriseringskod till programmet|
+|Resurs|Utfärda ett id_token för programmet|
 
 
 ## <a name="core-directory"></a>Grundläggande katalog
@@ -359,7 +359,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Programhantering|Lägg till princip|
 |Programhantering|Ta bort princip|
 |Programhantering|Ta bort autentiseringsuppgifter för princip|
-|Programhantering|Uppdatera principen|
+|Programhantering|Uppdatera princip|
 |Programhantering|Ställ in MFA-registreingsprincip|
 |Programhantering|Ange princip för inloggningsrisk|
 |Programhantering|Ange princip för användarrisk|
@@ -417,7 +417,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Grupphantering|Grupp hämtnings grupper – startat|
 |Grupphantering|Grupp hämtnings grupper – klart|
 |Grupphantering|Hämta lista över klienter för en användare|
-|Grupphantering|Hämta självkontrollerade anspråk för lokala konton|
+|Grupphantering|Hämta lokala kontos självkontrollerade anspråk|
 |Grupphantering|Hämta json för lokaliserad resurs|
 |Grupphantering|Hämta åtgärder för resursprovidern Microsoft.AzureActiveDirectory|
 |Grupphantering|Hämta principer|
@@ -440,18 +440,18 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Principhantering|GetIEFPolicies|
 |Principhantering|GetIdentityProviders|
 |Principhantering|GetTrustFrameworkPolicy|
-|Resource|MigrateTenantMetadata|
-|Resource|Flytta resurser|
-|Resource|Korrigera IdentityProvider|
-|Resource|PutTrustFrameworkPolicy|
-|Resource|PutTrustFrameworkpolicy|
-|Resource|Ta bort en användarresa|
-|Resource|Uppdatera anpassad IDP|
-|Resource|Uppdatera IDP|
-|Resource|Uppdatera den lokala IdP:n|
-|Resource|Uppdatera en B2C-katalogresurs|
-|Resource|Uppdatera principen|
-|Resource|Uppdatera prenumerationsstatus|
+|Resurs|MigrateTenantMetadata|
+|Resurs|Flytta resurser|
+|Resurs|Korrigera IdentityProvider|
+|Resurs|PutTrustFrameworkPolicy|
+|Resurs|PutTrustFrameworkpolicy|
+|Resurs|Ta bort en användarresa|
+|Resurs|Uppdatera anpassad IDP|
+|Resurs|Uppdatera IDP|
+|Resurs|Uppdatera den lokala IdP:n|
+|Resurs|Uppdatera en B2C-katalogresurs|
+|Resurs|Uppdatera princip|
+|Resurs|Uppdatera prenumerationsstatus|
 |Rollhantering|Uppdatera användarattribut|
 |Rollhantering|Verifiera flytta resurser|
 |Rollhantering|Lägg till enhet|
@@ -473,7 +473,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användarhantering|Lägg till rolltilldelning till rolldefinition|
 |Användarhantering|Lägg till roll från mall|
 |Användarhantering|Lägg till begränsad medlem till roll|
-|Användarhantering|Har lagts till|
+|Användarhantering|Tillagt|
 |Användarhantering|Tilldela|
 |Användarhantering|Mass skapande av användare – startat|
 |Användarhantering|Mass skapande av användare – klart|
@@ -488,7 +488,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användarhantering|Ta bort registrerad ägare från enhet|
 |Användarhantering|Ta bort registrerade användare från enhet|
 |Användarhantering|Ta bort behörig medlem från roll|
-|Användarhantering|Ta bort medlemmen från rollen|
+|Användarhantering|Ta bort medlem från roll|
 |Användarhantering|Ta bort rolltilldelning från rolldefinition|
 |Användarhantering|Ta bort begränsad medlem från roll|
 |Användarhantering|Uppdatera enhet|
@@ -508,7 +508,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Borttaget|
 |Kataloghantering|Ändringar av rollinställningar|
 |Annat|ScanAlertsNow|
-|Annat|Registrering|
+|Annat|Registrera|
 |Annat|Ta bort behörighet|
 |Annat|UpdateAlertSettings|
 |Annat|UpdateCurrentState|
@@ -526,7 +526,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Annat|Skapa godkännande av begäran|
 |Annat|Ta bort åtkomstgranskning|
 |Användarhantering|Ta bort granskare från åtkomstgranskning|
-|Användarhantering|Begära tillämpa granskningsresultat|
+|Användarhantering|Begär tillämpning av granskningsresultat|
 |Användarhantering|Begär granskningsstopp|
 |Användarhantering|Granska apptilldelning|
 |Användarhantering|Granska gruppmedlemskap|
@@ -556,7 +556,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |PIM|ActivationAborted|
 |PIM|ActivationDenied|
 |PIM|ActivationRequested|
-|PIM|Har lagts till|
+|PIM|Tillagt|
 |PIM|AddedOutsidePIM|
 |PIM|Tilldela|
 |PIM|DismissAlert|
@@ -567,7 +567,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |PIM|Begär granskningsstopp|
 |PIM|Ändringar av rollinställningar|
 |PIM|ScanAlertsNow|
-|PIM|Registrering|
+|PIM|Registrera|
 |PIM|Ta bort|
 |PIM|Ta bort behörighet|
 |PIM|UpdateAlertSettings|

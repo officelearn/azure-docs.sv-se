@@ -1,17 +1,14 @@
 ---
 title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen för att skydda resurser när du tilldelar en skiss.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 754b9d7f73c6111abf7505e222a1ca5a8712ae45
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981051"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960469"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -22,12 +19,12 @@ Att skapa konsekventa miljöer i skala är bara riktigt värdefullt om det finns
 Låsnings läget gäller för skiss tilldelningen och har tre alternativ: **Lås inte**, **skrivskyddad**eller **Ta inte bort**. Lås läget konfigureras under en artefakt distribution under en skiss tilldelning. Du kan ställa in ett annat lås läge genom att uppdatera skiss tilldelningen.
 Lås lägen kan dock inte ändras utanför ritningar.
 
-Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstånd: **Inte låst**, **skrivskyddad**, **kan inte redigera/ta bort**eller **kan inte ta bort**. Varje artefakt typ kan vara i **låst** läge. Följande tabell kan användas för att fastställa en resurs status:
+Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstånd: **inte låst**, **skrivskyddad**, **kan inte redigera/ta bort**eller **kan inte tas bort**. Varje artefakt typ kan vara i **låst** läge. Följande tabell kan användas för att fastställa en resurs status:
 
-|Läge|Artefakt resurs typ|State|Beskrivning|
+|Läge|Artefakt resurs typ|Status|Beskrivning|
 |-|-|-|-|
 |Lås inte|*|Inte låst|Resurser skyddas inte av ritningar. Det här läget används också för resurser som läggs till i en **skrivskyddad** eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
-|Skrivskyddad|Resource group|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
+|Skrivskyddad|Resursgrupp|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
 |Skrivskyddad|Icke-resurs grupp|Skrivskyddad|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
 |Ta inte bort|*|Kan inte ta bort|Resurserna kan ändras, men de kan inte tas bort. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
 
@@ -56,8 +53,8 @@ När tilldelningen tas bort tas låsen som skapats av ritningar bort. Resursen �
 
 |Läge |Behörigheter. åtgärder |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Skrivskyddad |**\*** |**\*/läsning** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
-|Ta inte bort |**\*/ta bort** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Skrivskyddad |**\*** |**\*/Read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Ta inte bort |**\*/Delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager cachelagrar roll tilldelnings information i upp till 30 minuter. Till följd av detta kan neka-tilldelningar neka åtgärder på skiss resurser inte omedelbart tillämpas fullständigt. Under den här tids perioden kan det vara möjligt att ta bort en resurs som är avsedd att skyddas av skiss lås.

@@ -1,19 +1,19 @@
 ---
-title: Förbereda lokala VMware-servrar på haveriberedskap av virtuella VMware-datorer till Azure | Microsoft Docs
+title: Förbered för katastrof återställning av VMware VM med Azure Site Recovery
 description: Lär dig att förbereda lokala VMware-servrar på haveriberedskap till Azure med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0f62ee1a79126f456b993c7caf2de3741637f710
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147809"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953750"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 > * Förbered för att ansluta till virtuella Azure-datorer efter redundansväxling.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -68,8 +68,8 @@ Förbered kontot enligt följande:
 
 Förbereda en domän eller ett lokalt konto med behörighet för att installera på den virtuella datorn.
 
-- **Virtuella Windows-datorer**: Om du vill installera på virtuella Windows-datorer och du inte använder ett domänkonto så inaktiverar du kontroll av åtkomst för fjärranvändare på den lokala datorn. Du gör det genom att gå till registret > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** och lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet 1.
-- **Virtuella Linux-datorer**: Om du ska installera på virtuella Linux-datorer förbereder du ett rotkonto på Linux-källservern.
+- **Virtuella Windows-datorer**: Om du vill installera på virtuella Windows-datorer och inte använder ett domänkonto, inaktiverar du åtkomstkontroll för fjärranvändare på den lokala datorn. Du gör det genom att gå till registret > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** och lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet 1.
+- **Virtuella Linux-datorer**: För att installera på virtuella Linux-datorer, förbereder du ett rotkonto på Linux-källservern.
 
 
 ## <a name="check-vmware-requirements"></a>Kontrollera VMware-kraven
@@ -117,4 +117,4 @@ Om du planerar att växla tillbaka till din lokala plats finns det ett antal [kr
 Konfigurera katastrof återställning. Om du replikerar flera virtuella datorer bör du planera kapaciteten.
 > [!div class="nextstepaction"]
 > [Konfigurera katastrof återställning till Azure för virtuella VMware-datorer](vmware-azure-tutorial.md)
-> [utför kapacitets planering](site-recovery-deployment-planner.md).
+> [utföra kapacitets planering](site-recovery-deployment-planner.md).

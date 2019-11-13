@@ -3,7 +3,7 @@ title: Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen | M
 description: Introduktion till rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/28/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553d882600203d0fa01cd876562d9ced7985d7a8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043822"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014492"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -138,13 +138,13 @@ Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till
 - **Mobile Apps-och skriv bords klienter** Filtret visar alla inloggnings försök som inte använder webb läsar flöden. Till exempel mobila appar från vilken plattform som helst med protokoll eller från Skriv bords klient program som Office på Windows eller MacOS.
   
 - **Andra klienter**
-    - **SKRIVNING**  
+    - **IMAP**  
         En äldre e-postklient som använder IMAP för att hämta e-post.
     - **MAPI**  
         Office 2013, där ADAL är aktiverat och använder MAPI.
     - **Gamla Office-klienter**  
         Office 2013 i standard konfigurationen där ADAL inte är aktiverat och använder MAPI, eller Office 2016 där ADAL har inaktiverats.
-    - **POPUP**  
+    - **POP**  
         En äldre e-postklient som använder POP3 för att hämta e-post.
     - **SMTP**  
         En äldre e-postklient som använder SMTP för att skicka e-post.
@@ -153,7 +153,7 @@ Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till
 
 Klicka på **hämtnings** alternativet för att skapa en CSV-eller JSON-fil med de senaste 250 000 posterna. Börja med [att hämta inloggnings data](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure Portal.  
 
-![Ladda ned](./media/concept-sign-ins/71.png "Ladda ned")
+![Ladda ner](./media/concept-sign-ins/71.png "Ladda ned")
 
 > [!IMPORTANT]
 > Antalet poster som du kan hämta begränsas av [Azure Active Directory bevarande principer för rapporter](reference-reports-data-retention.md).  
@@ -193,7 +193,7 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Client
 - Plats
 - IP-adress
-- Datum
+- Date
 - MFA krävs
 - Inloggningsstatus
 

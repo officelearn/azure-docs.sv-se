@@ -1,147 +1,142 @@
-- name: Referens för Azure Machine Learning-designermodul
+- name: Designeralgoritmer och -moduler
   href: module-reference.md
-- name: Dokumentation om Azure Machine Learning
-  href: ../index.yml
-- name: Modulkategorier
-  expanded: true
+- name: Indata och utdata
   items:
-    - name: Indata och utdata
+    - name: Importera data
+      href: import-data.md
+    - name: Ange data manuellt
+      href: enter-data-manually.md
+    - name: Exportera data
+      href: export-data.md
+- name: Dataomvandling
+  items:
+    - name: Lägga till kolumner
+      href: add-columns.md
+    - name: Lägga till rader
+      href: add-rows.md
+    - name: Använda SQL-transformering
+      href: apply-sql-transformation.md
+    - name: Konvertera till CSV
+      href: convert-to-csv.md
+    - name: Konvertera till datamängd
+      href: convert-to-dataset.md
+    - name: Rensa data som saknas
+      href: clean-missing-data.md
+    - name: Redigera metadata
+      href: edit-metadata.md
+    - name: Koppla data
+      href: join-data.md
+    - name: Normalisera Data
+      href: normalize-data.md
+    - name: Ta bort dubblettrader
+      href: remove-duplicate-rows.md
+    - name: Välja kolumntranformering
+      href: select-columns-transform.md
+    - name: Välja kolumner i datauppsättning
+      href: select-columns-in-dataset.md
+- name: Samling
+  items:
+    - name: Korsvalidera modell
+      href: cross-validate-model.md
+    - name: Partitionera och prova
+      href: partition-and-sample.md
+    - name: SMOTE
+      href: smote.md
+    - name: Dela data
+      href: split-data.md
+- name: Funktionsexempel
+  items:
+    - name: Filterbaserat funktionsval
+      href: filter-based-feature-selection.md
+    - name: Permutationfunktionsprioritet
+      href: permutation-feature-importance.md
+- name: Python och R
+  items:
+    - name: Skapa Python-modell
+      href: create-python-model.md
+    - name: Köra Python-skript
+      href: execute-python-script.md
+    - name: Köra R-skript
+      href: execute-r-script.md
+- name: Textanalys
+  items:
+    - name: Extrahera N-Gram-funktioner från text
+      href: extract-n-gram-features-from-text.md
+    - name: Funktions-hash
+      href: feature-hashing.md
+    - name: Förbearbeta text
+      href: preprocess-text.md
+- name: Maskininlärningsalgoritmer
+  items:
+    - name: Klassificering
       items:
-        - name: Importera data
-          href: import-data.md
-        - name: Ange data manuellt
-          href: enter-data-manually.md
-        - name: Exportera data
-          href: export-data.md
-    - name: Dataomvandling
+        - name: Beslutsskog med två klasser
+          href: multiclass-decision-forest.md
+        - name: Förbättrat beslutsträd med flera klasser
+          href: multiclass-boosted-decision-tree.md
+        - name: Logistic Regression med flera klasser
+          href: multiclass-logistic-regression.md
+        - name: Neural Network med flera klasser
+          href: multiclass-neural-network.md
+        - name: En-mot- alla-multiklass
+          href: one-vs-all-multiclass.md
+        - name: Logistic Regression med två klasser
+          href: two-class-logistic-regression.md
+        - name: Genomsnittsperceptron med två klasser
+          href: two-class-averaged-perceptron.md
+        - name: Tvåklassigt förbättrat beslutsträd
+          href: two-class-boosted-decision-tree.md
+        - name: Beslutsskog med två klasser
+          href: two-class-decision-forest.md
+        - name: Neural Network med två klasser
+          href: two-class-neural-network.md
+        - name: Tvåklassig dator för vektorstöd
+          href: two-class-support-vector-machine.md
+    - name: Klustring
       items:
-        - name: Lägga till kolumner
-          href: add-columns.md
-        - name: Lägga till rader
-          href: add-rows.md
-        - name: Använda SQL-transformering
-          href: apply-sql-transformation.md
-        - name: Konvertera till CSV
-          href: convert-to-csv.md
-        - name: Konvertera till datamängd
-          href: convert-to-dataset.md
-        - name: Rensa data som saknas
-          href: clean-missing-data.md
-        - name: Redigera metadata
-          href: edit-metadata.md
-        - name: Koppla data
-          href: join-data.md
-        - name: Normalisera Data
-          href: normalize-data.md
-        - name: Ta bort dubblettrader
-          href: remove-duplicate-rows.md
-        - name: Välja kolumntranformering
-          href: select-columns-transform.md
-        - name: Välja kolumner i datauppsättning
-          href: select-columns-in-dataset.md
-    - name: Samling
+        - name: K-means-klustring
+          href: k-means-clustering.md
+    - name: Regression
       items:
-        - name: Korsvalidera modell
-          href: cross-validate-model.md
-        - name: Partitionera och prova
-          href: partition-and-sample.md
-        - name: SMOTE
-          href: smote.md
-        - name: Dela data
-          href: split-data.md
-    - name: Funktionsexempel
+        - name: Förbättrad regression för beslutsträd
+          href: boosted-decision-tree-regression.md
+        - name: Regression för beslutsskog
+          href: decision-forest-regression.md
+        - name: Linjär regression
+          href: linear-regression.md
+        - name: Regression för Neural Network
+          href: neural-network-regression.md
+    - name: Rekommenderare
       items:
-        - name: Filterbaserat funktionsval
-          href: filter-based-feature-selection.md
-        - name: Permutationfunktionsprioritet
-          href: permutation-feature-importance.md
-    - name: Python och R
-      items:
-        - name: Skapa Python-modell
-          href: create-python-model.md
-        - name: Köra Python-skript
-          href: execute-python-script.md
-        - name: Köra R-skript
-          href: execute-r-script.md
-    - name: Textanalys
-      items:
-        - name: Extrahera N-Gram-funktioner från text
-          href: extract-n-gram-features-from-text.md
-        - name: Funktions-hash
-          href: feature-hashing.md
-        - name: Förbearbeta text
-          href: preprocess-text.md
-    - name: Maskininlärningsalgoritmer
-      items:
-        - name: Klassificering
-          items:
-            - name: Beslutsskog med två klasser
-              href: multiclass-decision-forest.md
-            - name: Förbättrat beslutsträd med flera klasser
-              href: multiclass-boosted-decision-tree.md
-            - name: Logistic Regression med flera klasser
-              href: multiclass-logistic-regression.md
-            - name: Neural Network med flera klasser
-              href: multiclass-neural-network.md
-            - name: En-mot- alla-multiklass
-              href: one-vs-all-multiclass.md
-            - name: Logistic Regression med två klasser
-              href: two-class-logistic-regression.md
-            - name: Genomsnittsperceptron med två klasser
-              href: two-class-averaged-perceptron.md
-            - name: Tvåklassigt förbättrat beslutsträd
-              href: two-class-boosted-decision-tree.md
-            - name: Beslutsskog med två klasser
-              href: two-class-decision-forest.md
-            - name: Neural Network med två klasser
-              href: two-class-neural-network.md
-            - name: Tvåklassig dator för vektorstöd
-              href: two-class-support-vector-machine.md
-        - name: Klustring
-          items:
-            - name: K-means-klustring
-              href: k-means-clustering.md
-        - name: Regression
-          items:
-            - name: Förbättrad regression för beslutsträd
-              href: boosted-decision-tree-regression.md
-            - name: Regression för beslutsskog
-              href: decision-forest-regression.md
-            - name: Linjär regression
-              href: linear-regression.md
-            - name: Regression för Neural Network
-              href: neural-network-regression.md
-        - name: Rekommenderare
-          items:
-            - name: Träna SVD-rekommenderare
-              href: train-svd-recommender.md
+        - name: Träna SVD-rekommenderare
+          href: train-svd-recommender.md
+- name: Träningsmodell
+  items:
     - name: Träningsmodell
-      items:
-        - name: Träningsmodell
-          href: train-model.md
-        - name: Träna klustringsmodellen
-          href: train-clustering-model.md
-        - name: Finjustera hyperparametrar för modell
-          href: tune-model-hyperparameters.md
+      href: train-model.md
+    - name: Träna klustringsmodellen
+      href: train-clustering-model.md
+    - name: Finjustera hyperparametrar för modell
+      href: tune-model-hyperparameters.md
+- name: Utvärdera modell
+  items:
     - name: Utvärdera modell
-      items:
-        - name: Utvärdera modell
-          href: evaluate-model.md
-        - name: Utvärdera rekommenderare
-          href: evaluate-recommender.md
+      href: evaluate-model.md
+    - name: Utvärdera rekommenderare
+      href: evaluate-recommender.md
+- name: Poängmodell
+  items:
+    - name: Använda transformering
+      href: apply-transformation.md
+    - name: Tilldela data till kluster
+      href: assign-data-to-clusters.md
     - name: Poängmodell
-      items:
-        - name: Använda transformering
-          href: apply-transformation.md
-        - name: Tilldela data till kluster
-          href: assign-data-to-clusters.md
-        - name: Poängmodell
-          href: score-model.md
-        - name: Poäng för SVD-rekommenderare
-          href: score-svd-recommender.md
-    - name: Statistiska funktioner
-      items:
-        - name: Använda matematisk åtgärd
-          href: apply-math-operation.md
-        - name: Sammanfatta data
-          href: summarize-data.md
+      href: score-model.md
+    - name: Poäng för SVD-rekommenderare
+      href: score-svd-recommender.md
+- name: Statistiska funktioner
+  items:
+    - name: Använda matematisk åtgärd
+      href: apply-math-operation.md
+    - name: Sammanfatta data
+      href: summarize-data.md

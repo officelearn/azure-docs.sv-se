@@ -548,16 +548,12 @@
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
     - name: Machine Learning
-      tocHref: /azure/machine-learning/
+      tocHref: /azure/machine-learning
       topicHref: /azure/machine-learning/
       items:
-        - name: Tjänst
-          tocHref: /azure/machine-learning/service
-          topicHref: /azure/machine-learning/service/
-          items:
-            - name: Algoritm- och modulreferens
-              tocHref: /azure/machine-learning/algorithm-module-reference
-              topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
+        - name: Algoritm- och modulreferens
+          tocHref: /azure/machine-learning/algorithm-module-reference
+          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
         - name: Studio (klassisk)
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/

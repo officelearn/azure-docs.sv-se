@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: a59ac45d157f8674374c894a280e51392038524b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747410"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012842"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -47,7 +47,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 | ---     | ---    |
 | **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvets autentiseringsuppgifter kan vara skadade eller kan ha upphört att gälla. (Till exempel kan de ha hämtats mer än 48 timmar före registrerings tiden.)| Hämta nya autentiseringsuppgifter från Recovery Services Vault på Azure Portal. (Se steg 6 i avsnittet [Ladda ned mars-agenten](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) .) Utför sedan dessa steg efter behov: <ul><li> Om du redan har installerat och registrerat MARS öppnar du MMC-konsolen för Microsoft Azure Backup Agent och väljer sedan **Registrera Server** i **Åtgärds** fönstret för att slutföra registreringen med de nya autentiseringsuppgifterna. <br/> <li> Om den nya installationen Miss lyckas kan du försöka med att installera om med de nya autentiseringsuppgifterna.</ul> **Obs!** om filer med flera valv har hämtats är det bara den senaste filen som är giltig för de kommande 48 timmarna. Vi rekommenderar att du hämtar en ny fil med autentiseringsuppgifter för valvet.
 | **Proxyservern eller brand väggen blockerar registreringen** <br/>eller <br/>**Ingen Internet anslutning** <br/><br/> Om din dator eller proxyserver har begränsad Internet anslutning och du inte ser till att du har åtkomst till de nödvändiga URL: erna, Miss söker registreringen.| Gör så här:<br/> <ul><li> Arbeta med IT-teamet för att säkerställa att systemet är ansluten till Internet.<li> Om du inte har en proxyserver, se till att alternativet proxy inte är markerat när du registrerar agenten. [Kontrol lera proxyinställningarna](#verifying-proxy-settings-for-windows).<li> Om du har en brand vägg/proxyserver arbetar du med nätverks teamet för att se till att dessa URL: er och IP-adresser har åtkomst:<br/> <br> **Er**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Försök att registrera igen när du har slutfört föregående fel söknings steg.
-| **Antivirus programmet blockerar registreringen** | Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar: <br/><ul> <li> CBengine. exe <li> CSC. exe<li> Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
+| **Antivirus programmet blockerar registreringen** | Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar: <br/><ul> <li> CBengine. exe <li> CSC.exe<li> Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Ytterligare rekommendationer
 
@@ -119,11 +119,13 @@ Om schemalagda säkerhets kopieringar inte aktive ras automatiskt, men manuella 
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Om körnings principen för PowerShell för `LocalMachine` har angetts till begränsad, kan PowerShell-cmdleten som utlöser säkerhets kopierings åtgärden Miss förväntas. Kör dessa kommandon i förhöjd läge för att kontrol lera och ställa in körnings principen på antingen `Unrestricted` eller `RemoteSigned`:
+- Om körnings principen för PowerShell för `LocalMachine` har angetts till `restricted`, kan PowerShell-cmdleten som utlöser säkerhets kopierings åtgärden Miss förväntas. Kör dessa kommandon i förhöjd läge för att kontrol lera och ställa in körnings principen på antingen `Unrestricted` eller `RemoteSigned`:
 
-  `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
+ ```PowerShell
+ Get-ExecutionPolicy -List
 
-  `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+Set-ExecutionPolicy Unrestricted
+```
 
 - Se till att det inte finns några saknade eller skadade MSOnlineBackup-filer för PowerShell-modulen. Gör så här om det finns saknade eller skadade filer:
 
@@ -165,9 +167,9 @@ Om återställningen fortfarande Miss lyckas startar du om servern eller kliente
 
 ## <a name="troubleshoot-cache-problems"></a>Felsöka cache-problem
 
-Säkerhets kopierings åtgärden kan Miss lyckas om cache-mappen (även kallat Scratch Folder) är felaktigt konfigurerad, saknas för hands krav eller har begränsad åtkomst.
+Säkerhets kopierings åtgärden kan Miss lyckas om cache-mappen (även kallat Scratch Folder) är felaktigt konfigurerad, saknas nödvändiga komponenter eller har begränsad åtkomst.
 
-### <a name="pre-requisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 För att MARS agent-åtgärder ska lyckas måste cache-mappen uppfylla nedanstående krav:
 
@@ -193,7 +195,7 @@ Om du har installerat antivirus program på servern lägger du till nödvändiga
 - Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
 - Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin
 - CBengine. exe
-- CSC. exe
+- CSC.exe
 
 ## <a name="common-issues"></a>Vanliga problem
 
@@ -215,13 +217,13 @@ Microsoft Azure Recovery Services-agenten kunde inte komma åt den tillfälliga 
 
 Felmeddelande | Rekommenderad åtgärd |
 -- | --
-Det gick inte att säkerhetskopiera eftersom det inte finns tillräckligt med lagrings utrymme i volymen där mappen Scratch finns | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/>- [Se till att mars-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifiera och lösa lagrings problem som påverkar säkerhets kopieringens arbets yta](#pre-requisites)
+Det gick inte att säkerhetskopiera eftersom det inte finns tillräckligt med lagrings utrymme i volymen där mappen Scratch finns | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/>- [Se till att mars-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifiera och lösa lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Felmeddelande | Rekommenderad åtgärd |
 -- | --
-Det går inte att hitta ändringar i en fil. Detta kan bero på olika orsaker. Försök att utföra åtgärden igen. | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/> - [Se till att mars-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifiera och lösa lagrings problem som påverkar säkerhets kopieringens arbets yta](#pre-requisites)
+Det går inte att hitta ändringar i en fil. Detta kan bero på olika orsaker. Försök att utföra åtgärden igen. | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/> - [Se till att mars-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifiera och lösa lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 
 ## <a name="next-steps"></a>Nästa steg
 

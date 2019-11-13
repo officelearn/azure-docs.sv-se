@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: ba10a6105972eddc8474841b234d2eeddc994f5d
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 9f3f98863f9a7cd0e6328ddc75b1154ee933fe0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948925"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009242"
 ---
-# <a name="security-best-practices"></a>Metodtips för säkerhet
+# <a name="azure-digital-twins-security-best-practices"></a>Azure Digitals dubblare säkerhets metod tips
 
 Azure Digitals dubbla säkerhet ger exakt åtkomst till specifika resurser och åtgärder i IoT-diagrammet. Det gör det genom detaljerad roll-och behörighets hantering som kallas [rollbaserad åtkomst kontroll](./security-role-based-access-control.md).
 

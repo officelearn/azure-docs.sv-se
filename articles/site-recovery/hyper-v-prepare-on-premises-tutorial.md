@@ -1,18 +1,18 @@
 ---
-title: Förbereda lokala Hyper-V-servrar för haveri beredskap för virtuella Hyper-V-datorer till Azure
-description: Lär dig hur du förbereder lokala virtuella Hyper-V-datorer för haveri beredskap till Azure med tjänsten Azure Site Recovery.
+title: Förbered för haveri beredskap för virtuella Hyper-V-datorer till Azure med Azure Site Recovery
+description: Lär dig hur du förbereder lokala virtuella Hyper-V-datorer för haveri beredskap till Azure med Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813723"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953995"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar för haveri beredskap till Azure
 
@@ -21,7 +21,7 @@ I den här artikeln beskrivs hur du förbereder en lokal Hyper-V-infrastruktur n
 
 Det här är den andra självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala virtuella Hyper-V-datorer. I den första självstudien [ställer vi in de Azure-komponenter](tutorial-prepare-azure.md) som krävs för haveri beredskap för Hyper-V.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Granska Hyper-V-krav och VMM-krav om dina Hyper-V-värdar hanteras av System Center VMM.
@@ -30,7 +30,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Förbered virtuella datorer så att du kan komma åt dem efter en redundansväxling till Azure.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 

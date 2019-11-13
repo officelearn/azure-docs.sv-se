@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 6e42911d05f387ea47b56b913e9a1868100c1b3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821365"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009103"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Justera prestanda för manuell prestanda i Azure SQL Database
 
@@ -253,7 +253,7 @@ Om du använder en skalbar arkitektur i Azure SQL Database, är det en bra idé 
 
 För program som har åtkomst till data med hjälp av hög volym, frekventa, ad hoc-frågor, ägnas en stor mängd svars tid på nätverkskommunikation mellan program nivån och Azure SQL Database nivån. Även om både programmet och Azure SQL Database finns i samma data Center, kan nätverks fördröjningen mellan två förstoras av ett stort antal data åtkomst åtgärder. Överväg att använda alternativet för att antingen gruppera ad hoc-frågorna eller kompilera dem som lagrade procedurer för att minska antalet nätverks fördröjningar för data åtkomst åtgärder. Om du batcherar ad hoc-frågorna kan du skicka flera frågor som en stor batch i en enda resa till Azure SQL Database. Om du kompilerar ad hoc-frågor i en lagrad procedur kan du få samma resultat som om du grupperar dem. Med hjälp av en lagrad procedur får du också fördelarna med att öka risken för att cachelagra fråge planerna i Azure SQL Database så att du kan använda den lagrade proceduren igen.
 
-Vissa program är av Skriv intensiva. Ibland kan du minska den totala IO-belastningen på en databas genom att fundera över hur du skriver tillsammans. Detta är ofta lika enkelt som att använda explicita transaktioner i stället för transaktioner som ska genomföras automatiskt i lagrade procedurer och ad hoc-batchar. En utvärdering av olika tekniker som du kan använda finns i [batching-tekniker för SQL Database program i Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experimentera med din egen arbets belastning för att hitta rätt modell för batchbearbetning. Se till att förstå att en modell kan ha något annorlunda konsekvens garantier för transaktioner. Att hitta rätt arbets belastning som minimerar resursanvändningen kräver att du hittar rätt kombination av konsekvens-och prestanda kompromisser.
+Vissa program är av Skriv intensiva. Ibland kan du minska den totala IO-belastningen på en databas genom att fundera över hur du skriver tillsammans. Detta är ofta lika enkelt som att använda explicita transaktioner i stället för transaktioner som ska genomföras automatiskt i lagrade procedurer och ad hoc-batchar. En utvärdering av olika tekniker som du kan använda finns i [batching-tekniker för SQL Database program i Azure](sql-database-use-batching-to-improve-performance.md). Experimentera med din egen arbets belastning för att hitta rätt modell för batchbearbetning. Se till att förstå att en modell kan ha något annorlunda konsekvens garantier för transaktioner. Att hitta rätt arbets belastning som minimerar resursanvändningen kräver att du hittar rätt kombination av konsekvens-och prestanda kompromisser.
 
 ### <a name="application-tier-caching"></a>Cachelagring på program nivå
 

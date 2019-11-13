@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439347"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961824"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Ta bort en katalog i Azure Active Directory
 
@@ -97,7 +97,7 @@ Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagnin
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Jag har en utvärderings prenumeration som blockerar borttagningen
 
-Det finns [självbetjänings registrerings produkter](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Office 365, som också skapar en gäst användare för autentisering i Azure AD-katalogen . Dessa självbetjänings produkter blockerar katalog borttagningar tills de tas bort helt från katalogen, för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
+Det finns [självbetjänings registrerings produkter](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Office 365, som också skapar en gäst användare för autentisering i Azure AD-katalogen. Dessa självbetjänings produkter blockerar katalog borttagningar tills de tas bort helt från katalogen, för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
 
 Det finns två typer av självbetjänings registrerings produkter i hur de tilldelas: 
 
@@ -108,24 +108,24 @@ När du påbörjar borttagningen av en självbetjänings registrerings produkt r
 
 Mer information om för närvarande tillgängliga registrerings produkter och tjänster för självbetjäning finns i [tillgängliga självbetjänings program](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Information om vad som ska förväntas när en prenumeration på en utvärderings version av Office 365 går ut (inte inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Office 365-datakvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Office 365 för företag-prenumeration slutar?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Information om vad som ska förväntas när en prenumeration på en utvärderings version av Office 365 går ut (inte inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Office 365-datakvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Office 365 för företag-prenumeration slutar?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Produkt tillstånd | Data | Åtkomst till data
 ------------- | ---- | --------------
 Aktiv (30 dagar för utvärderings version) | Data tillgängliga för alla | Användare har normal åtkomst till självbetjänings registrering, filer eller appar<br>Administratörer har normal åtkomst till Microsoft 365 administrations Center och-resurser
-Borttaget | Data har tagits bort | Användare kan inte komma åt självbetjänings registrering, filer eller appar<br>Administratörer kan komma åt Microsoft 365 administrations Center för att köpa och hantera andra prenumerationer
+Borttagen | Data har tagits bort | Användare kan inte komma åt självbetjänings registrering, filer eller appar<br>Administratörer kan komma åt Microsoft 365 administrations Center för att köpa och hantera andra prenumerationer
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Hur kan jag ta bort en självbetjänings registrerings produkt i Azure Portal?
 
 Du kan publicera en självbetjänings registrerings produkt som Microsoft Power BI eller Azure Rights Management Services i ett **borttagnings** tillstånd som genast tas bort i Azure AD-portalen.
 
-1. Logga in på [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with ett konto som är en global administratör i organisationen. Om du försöker ta bort katalogen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är en global administratör i organisationen. Om du försöker ta bort katalogen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com.
 
-2. Välj **licenser**och välj sedan **självbetjänings registrerings produkter**. Du kan se alla självbetjänings registrerings produkter separat från de platsbaserade prenumerationerna. Välj den produkt som du vill ta bort permanent. Här är ett exempel i Microsoft Power BI:
+2. Välj **licenser**och välj sedan **självbetjänings registrerings produkter**. Du kan se alla självbetjänings registrerings produkter separat från de platsbaserade prenumerationerna. Välj den produkt som du vill ta bort permanent. Här är ett exempel i Microsoft Power BI:
 
     ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/licenses-page.png)
 
-3. Välj **ta bort** to ta bort produkten och godkänn villkoren som data tas bort omedelbart och oåterkalleligt. Den här borttagnings åtgärden tar bort alla användare och tar bort organisations åtkomst till produkten. Klicka på Ja om du vill fortsätta med borttagningen.  
+3. Välj **ta bort** för att ta bort produkten och godkänn villkoren som data tas bort omedelbart och oåterkalleligt. Den här borttagnings åtgärden tar bort alla användare och tar bort organisations åtkomst till produkten. Klicka på Ja om du vill fortsätta med borttagningen.  
 
     ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/delete-product.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Hantera din Azure Time Series Insights-miljö med Azure Resource Manager-mallar | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar din Azure Time Series Insights-miljö program mässigt med hjälp av Azure Resource Manager.
+title: Hantera din miljö med Azure Resource Manager mallar – Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du hanterar Azure Time Series Insights miljön program mässigt med hjälp av Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7a88dafb9662e404cedf10334b22af149a3cd16
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: acafb9aab756507bb073b3e883ee190c72b4f9f8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991222"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006775"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
 
@@ -174,7 +174,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Skapa distributionen
 
-    * Skapa den nya distributionen genom att köra cmdleten `New-AzResourceGroupDeployment` och ange nödvändiga parametrar när du uppmanas att göra det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/deployment-modes.md).
+    * Skapa den nya distributionen genom att köra cmdleten `New-AzResourceGroupDeployment` och ange nödvändiga parametrar när du uppmanas till det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/deployment-modes.md).
 
     * Följande kommando efterfrågar de fem obligatoriska parametrarna i PowerShell-fönstret:
 

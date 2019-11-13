@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 838037804baad9105b4636934de957c2e5f3e810
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3525edb2a73811254b2a4dce70ce3edb58988492
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612180"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012440"
 ---
-# <a name="using-azure-ultra-disks"></a>Använda Azure Ultra disks
-
 Azure Ultra disks erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer (VM). Det nya erbjudandet ger överst i linje prestanda på samma tillgänglighets nivå som våra befintliga diskar. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina virtuella datorer. Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar.
 
 ## <a name="ga-scope-and-limitations"></a>Allmän omfattning och begränsningar

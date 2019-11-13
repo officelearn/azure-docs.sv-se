@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Windows Java-appar – Azure App Service | Microsoft Docs
 description: Lär dig hur du konfigurerar Java-appar så att de körs på standard instanser av Windows i Azure App Service.
-keywords: Azure App Service, Web App, Windows, oss, Java
+keywords: azure app service, web app, windows, oss, java
 services: app-service
 author: jasonfreeberg
 manager: jeconnock
@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ad9ee8a21390126f20da4037a438a2655b8b5d47
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471087"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012261"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows java-app för Azure App Service
 
@@ -40,10 +40,6 @@ Distribuera inte din. War med FTP. FTP-verktyget är utformat för att ladda upp
 ## <a name="logging-and-debugging-apps"></a>Logga och Felsök appar
 
 Prestanda rapporter, trafik visualiseringar och hälso checkups är tillgängliga för varje app via Azure Portal. Mer information finns i [Översikt över Azure App Service-diagnostik](overview-diagnostics.md).
-
-### <a name="ssh-console-access"></a>Åtkomst till SSH-konsol
-
-[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
 
@@ -220,9 +216,9 @@ Dessa anvisningar gäller för alla databas anslutningar. Du måste fylla i plat
 
 | Databas   | Klass namn för driv rutin                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Ladda ned](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Ladda ner](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Hämta](https://dev.mysql.com/downloads/connector/j/) (Välj plattform oberoende) |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Ladda ned](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Ladda ner](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 Om du vill konfigurera Tomcat för att använda Java Database Connectivity (JDBC) eller Java persistence API (JPA) måste du först anpassa `CATALINA_OPTS`-miljövariabeln som läses in av Tomcat vid start. Ange dessa värden via en app-inställning i [maven-plugin-programmet för App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -322,7 +318,7 @@ Utvecklare kan ladda ned Production Edition of Azul Zulu Enterprise JDK för lok
 
 Produkt support för det [Azure-Azul Zulu-JDK som stöds](https://www.azul.com/downloads/azure-only/zulu/) är tillgängligt via Microsoft när du utvecklar för azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal för Azure.
 
-### <a name="runtime-support"></a>Stöd för körning
+### <a name="runtime-support"></a>Runtime-stöd
 
 Utvecklare kan [öppna ett problem](/azure/azure-supportability/how-to-create-azure-support-request) med Azul Zulu-JDKs via Azure-support om de har ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal.
 

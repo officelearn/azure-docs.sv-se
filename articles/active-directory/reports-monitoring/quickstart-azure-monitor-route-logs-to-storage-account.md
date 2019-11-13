@@ -3,7 +3,7 @@ title: Självstudie – arkivera katalog loggar till ett lagrings konto | Micros
 description: Lär dig hur du konfigurerar Azure-diagnostik att skicka Azure Active Directory loggar till ett lagrings konto
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce2c032eaa5ec77544477ff75e22492d70a650e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895089"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007849"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Självstudie: arkivera Azure AD-loggar till ett Azure Storage-konto
 

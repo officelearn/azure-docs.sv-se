@@ -3,7 +3,7 @@ title: Självstudie för AD repor ting API med certifikat | Microsoft Docs
 description: I den här självstudien beskrivs hur du använder Azure AD repor ting-API med autentiseringsuppgifter för certifikat för att hämta data från kataloger utan åtgärder från användaren.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe5f2a6d1957a544c63cb8a7c223ba9734786f8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895133"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014270"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudie: Hämta data med hjälp av Azure Active Directory rapporterings-API med certifikat
 
@@ -87,15 +87,15 @@ I den här självstudien får du lära dig hur du använder ett test certifikat 
   
 7. Nu kan du hämta en åtkomsttoken för MS Graph API att använda det här certifikatet. Använd cmdleten **Get-MSCloudIdMSGraphAccessTokenFromCert** från MSCloudIdUtils PowerShell-modulen för att skicka in program-ID och det tumavtryck som du fick från föregående steg. 
 
-   ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Använd åtkomsttoken i PowerShell-skriptet för att fråga Graph API. Använd cmdleten **Invoke-MSCloudIdMSGraphQuery** från MSCloudIDUtils för att räkna upp inloggningar och directoryAudits-slutpunkten. Denna cmdlet hanterar flera växlade resultat och skickar dessa resultat till PowerShell-pipeline.
 
 9. Fråga directoryAudits-slutpunkten för att hämta gransknings loggarna. 
-   ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Fråga inloggningar-slutpunkten för att hämta inloggnings loggarna.
-    ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. Du kan nu välja att exportera dessa data till en CSV-fil och spara dem i ett SIEM-system. Du kan också ta med skriptet i en schemalagd aktivitet för att regelbundet hämta Azure AD-data från din klientorganisation utan att behöva lagra programnycklar i källkoden. 
 

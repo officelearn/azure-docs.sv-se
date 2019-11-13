@@ -1,19 +1,16 @@
 ---
 title: Skapa en skiss i portalen
 description: Använd Azure-ritningar för att skapa, definiera och distribuera artefakter via Azure Portal.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.service: blueprints
-ms.openlocfilehash: f4dc13717b65a53b90a68ac48a2281687c157edf
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1c2d619a0383cc9542bc6dc3a5f5822f0477237c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978564"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960463"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabbstart: Definiera och tilldela en skiss i portalen
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabb start: definiera och tilldela en skiss i portalen
 
 När du lär dig hur du skapar och tilldelar ritningar kan du definiera vanliga mönster för att utveckla återanvändbara och snabbt distributions bara konfigurationer baserat på Azure Resource Manager mallar, principer, säkerhet och mycket annat. I den här självstudien får du lära dig att använda Azure-ritningar för att utföra några av de vanligaste uppgifterna för att skapa, publicera och tilldela en skiss i din organisation. Följande uppgifter är:
 
@@ -43,7 +40,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 1. I rutan **definitions plats** väljer du ellipsen till höger, väljer [hanterings gruppen](../management-groups/overview.md) eller prenumerationen där du vill spara skissen och väljer **Välj**.
 
-1. Kontrol lera att informationen är korrekt. Fälten **skiss namn** och **definitions plats** kan inte ändras senare. Välj sedan **Next: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
+1. Kontrol lera att informationen är korrekt. Fälten **skiss namn** och **definitions plats** kan inte ändras senare. Välj sedan **Nästa: artefakter** längst ned på sidan eller på fliken **artefakter** högst upp på sidan.
 
 1. Lägg till en roll tilldelning på prenumerations nivån:
 
@@ -167,9 +164,9 @@ I [skapa en skiss](#create-a-blueprint)angav du inte någon beskrivning eller l�
 
 1. I listan över skisser högerklickar du på den som du skapade tidigare och väljer **Redigera skiss**.
 
-1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den. I det här fallet kan du skriva något som liknar följande: **Den här skissen anger tag-princip och roll tilldelning för prenumerationen, skapar en ResourceGroup och distribuerar en resurs mal len och roll tilldelningen till den ResourceGroup.**
+1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den. I det här fallet anger du något som: **den här skissen anger tag-princip och roll tilldelning för prenumerationen, skapar en ResourceGroup och distribuerar en resurs mal len och roll tilldelningen till den ResourceGroup.**
 
-1. Välj **Nästa: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
+1. Välj **Nästa: artefakter** längst ned på sidan eller på fliken **artefakter** högst upp på sidan.
 
 1. Lägg till en roll tilldelning under resurs gruppen:
 
@@ -246,7 +243,7 @@ När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skiss
 
 1. Under **hanterad identitet**lämnar du standardvärdet **system Assigned**.
 
-1. Rolltilldelningen på prenumerationsnivå **[Användargrupp eller programnamn]: Deltagare**, sök efter och välj en användare, en app eller en grupp.
+1. För prenumerationsnivåns rolltilldelning **[Användargrupp eller programnamn]: Deltagare**, så sök efter och välj en användare, en app eller grupp.
 
 1. För princip tilldelningen på prenumerations nivå anger du **taggnamnet** till **CostCenter** och **ContosoIT**.
 
@@ -256,7 +253,7 @@ När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skiss
    > För varje artefakt som du lagt till under resurs gruppen under skiss definitionen, dras den artefakten till att överensstämma med den resurs grupp eller det objekt som du ska distribuera den med.
    > Artefakter som antingen inte tar parametrar eller som inte har några parametrar som ska definieras vid tilldelningen visas bara för sammanhangsbaserad information.
 
-1. På Azure Resource Manager mall **StorageAccount**väljer du **Standard_GRS** för parametern **storageAccountType** .
+1. På Azure Resource Manager mal len **StorageAccount**väljer du **Standard_GRS** för parametern **storageAccountType** .
 
 1. Läs rutan information längst ned på sidan och välj sedan **tilldela**.
 

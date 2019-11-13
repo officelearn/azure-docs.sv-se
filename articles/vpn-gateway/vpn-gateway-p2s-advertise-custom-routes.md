@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 38250d1cd9853013ba9721ece0201a8df6dd1b4a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 6678efd04125e6ae0e0b66e8bcc011c0f319c0fb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336297"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954282"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Annonsera anpassade vägar för P2S VPN-klienter
 
@@ -22,7 +22,7 @@ Du kanske vill annonsera anpassade vägar till alla VPN-klienter från punkt til
 
 ## <a name="to-advertise-custom-routes"></a>Annonsera anpassade vägar
 
-Om du vill annonsera anpassade vägar använder `Set-AzVirtualNetworkGateway cmdlet`du. I följande exempel visas hur du annonserar IP-adressen för [contoso Storage Account-tabeller](https://contoso.table.core.windows.net).
+Använd `Set-AzVirtualNetworkGateway cmdlet`för att annonsera anpassade vägar. I följande exempel visas hur du annonserar IP-adressen för [contoso Storage Account-tabeller](https://contoso.table.core.windows.net).
 
 1. Pinga *contoso.Table.Core.Windows.net* och anteckna IP-adressen. Exempel:
 
@@ -51,7 +51,14 @@ Använd följande exempel för att visa anpassade vägar:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
+## <a name="to-delete-custom-routes"></a>Ta bort anpassade vägar
 
+Använd följande exempel för att ta bort anpassade vägar:
+
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
+  ```
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om P2S-routning finns i [om punkt-till-plats-routning](vpn-gateway-about-point-to-site-routing.md).

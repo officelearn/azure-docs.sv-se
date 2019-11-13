@@ -1,6 +1,6 @@
 ---
-title: 'Så här felsöker du UDF: er i Azure Digitals flätas | Microsoft Docs'
-description: 'Rikt linjer för hur du felsöker UDF: er i Azure Digitals dubbla.'
+title: 'Felsöka UDF: er-Azure Digital-dubbla Microsoft Docs'
+description: Lär dig mer om rekommenderade metoder för att felsöka användardefinierade funktioner i Azure Digitals dubbla.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949890"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005942"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digitals dubbla
 
@@ -43,7 +43,7 @@ När du har konfigurerat kan du välja alla logg kategorier, mått och använda 
 
 Om du vill spåra sensor telemetri kontrollerar du att diagnostikinställningar har Aktiver ATS för din Azure Digital-instansen. Kontrol lera sedan att alla önskade logg kategorier är markerade. Till sist bekräftar du att önskade loggar skickas till Azure Monitor loggar.
 
-Om du vill matcha ett sensor telemetri till respektive loggar kan du ange ett korrelations-ID för de händelse data som skickas. Det gör du genom att ange egenskapen `x-ms-client-request-id` till ett GUID.
+Om du vill matcha ett sensor telemetri till respektive loggar kan du ange ett korrelations-ID för de händelse data som skickas. Det gör du genom att ställa in egenskapen `x-ms-client-request-id` till ett GUID.
 
 När du har skickat telemetri öppnar du Azure Monitor Log Analytics för att fråga efter loggar med hjälp av ange korrelations-ID:
 
@@ -185,7 +185,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification));
 ```
 
-Det enklaste sättet att inte köra det här problemet är att använda metoden `Notify` på objektet metadata.
+Det enklaste sättet att inte köra i det här problemet är att använda metoden `Notify` i objektet metadata.
 
 Exempel:
 

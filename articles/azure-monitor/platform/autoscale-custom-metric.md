@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f83c68dd2f2ddbb73974a2ea4e91e746308945c6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60334374"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958113"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Kom igång med automatisk skalning efter anpassade mått i Azure
 Den här artikeln beskriver hur du skalar din resurs med ett anpassat mått i Azure Portal.
@@ -25,23 +25,23 @@ Den här artikeln förutsätter att du har en webbapp med konfigurerat Applicati
 
 - Öppna [Azure Portal][2]
 - Klicka på Azure Monitor ikonen i det vänstra navigerings fönstret.
-  ![Starta Azure Monitor][3]
-- Klicka på Inställningar för automatisk skalning för att visa alla resurser som den automatiska skalningen gäller för, tillsammans med dess aktuella status ![för automatisk skalning identifiera automatisk skalning i Azure Monitor][4]
+  ![starta Azure Monitor][3]
+- Klicka på Inställningar för automatisk skalning om du vill visa alla resurser som den automatiska skalningen gäller för, tillsammans med dess aktuella status för automatisk skalning ![identifiera automatisk skalning i Azure Monitor][4]
 - Öppna bladet autoskalning i Azure Monitor och välj en resurs som du vill skala
-  > Anteckning: Stegen nedan använder en app service-plan som är associerad med en webbapp som har konfigurerat App Insights.
+  > Obs! stegen nedan använder en app service-plan som är associerad med en webbapp som har konfigurerat App Insights.
 - Observera att det aktuella instans antalet är 1 på bladet skalnings inställning för resursen. Klicka på Aktivera autoskalning.
-  ![Skalnings inställning för ny webbapp][5]
+  ![skalnings inställning för ny webbapp][5]
 - Ange ett namn för skalnings inställningen och klicka på Lägg till en regel. Observera de skalnings regel alternativ som öppnas som ett kontext fönster på den högra sidan. Som standard anger den alternativet att skala antalet instanser med 1 om resursens procent andel överskrider 70%. Ändra mått källan överst till "Application Insights", Välj resursen App Insights i list rutan resurs och välj sedan det anpassade mått som du vill skala.
-  ![Skala efter anpassat mått][6]
+  ![skala efter anpassad mått][6]
 - Precis som i steget ovan lägger du till en skalnings regel som skalar i och minskar skalnings antalet med 1 om det anpassade måttet är under ett tröskelvärde.
-  ![Skala baserat på CPU][7]
+  ![skala baserat på CPU][7]
 - Ange instans gränserna. Om du till exempel vill skala mellan 2-5 instanser beroende på anpassade mått, ställer du in ' minimum ' på ' 2 ', ' max ' till ' 5 ' och ' default ' till ' 2 '
-  > Anteckning: Om det uppstår ett problem med att läsa resurs måtten och den aktuella kapaciteten är lägre än standard kapaciteten, och för att säkerställa resursens tillgänglighet, kommer autoskalning att skalas ut till standardvärdet. Om den aktuella kapaciteten redan är högre än standard kapaciteten kommer autoskalning inte att skalas i.
+  > OBS! om det uppstår problem med att läsa resurs måtten och den aktuella kapaciteten är lägre än standard kapaciteten, så att den automatiska skalningen kan skalas upp till standardvärdet för att säkerställa resursens tillgänglighet. Om den aktuella kapaciteten redan är högre än standard kapaciteten kommer autoskalning inte att skalas i.
 - Klicka på Spara
 
 Grattis! Du har nu skapat skalnings inställningen för att automatiskt skala din webbapp baserat på ett anpassat mått.
 
-> Anteckning: Samma steg gäller för att komma igång med en VMSS-eller moln tjänst roll.
+> Obs: samma steg gäller för att komma igång med en VMSS-eller moln tjänst roll.
 
 <!--Reference-->
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net

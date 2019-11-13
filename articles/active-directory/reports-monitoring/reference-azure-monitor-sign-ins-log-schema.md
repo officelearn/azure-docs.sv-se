@@ -3,7 +3,7 @@ title: Inloggnings logg schema i Azure Monitor | Microsoft Docs
 description: Beskriv Azure AD-inloggningens logg schema för användning i Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4259a23778db175de2a0331e692e878df39d0a07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895010"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014317"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Tolka schemat för inloggnings loggar för Azure AD i Azure Monitor
 
@@ -148,19 +148,19 @@ I den här artikeln beskrivs inloggnings logg schema för Azure Active Directory
 | Tid | Datumet och tiden, i UTC. |
 | ResourceId | Värdet är omappat och du kan bortse från det här fältet.  |
 | OperationName | För inloggningar är det här värdet alltid *inloggnings aktivitet*. |
-| operationVersion | Den REST API version som begärs av klienten. |
+| OperationVersion | Den REST API version som begärs av klienten. |
 | Kategori | För inloggningar är det här värdet alltid *inloggnings*värde. | 
 | TenantId | Klient-GUID som är associerat med loggarna. |
-| resultType | Resultatet av inloggnings åtgärden kan lyckas *eller Miss* *lyckas* . | 
-| resultSignature | Innehåller eventuell felkod för inloggnings åtgärden. |
-| resultDescription | Innehåller fel beskrivningen för inloggnings åtgärden. |
+| ResultType | Resultatet av inloggnings åtgärden kan lyckas *eller Miss* *lyckas* . | 
+| ResultSignature | Innehåller eventuell felkod för inloggnings åtgärden. |
+| ResultDescription | Innehåller fel beskrivningen för inloggnings åtgärden. |
 | riskDetail | riskDetail | Tillhandahåller orsaken bakom ett särskilt tillstånd för en riskfylld användare, inloggning eller risk identifiering. Möjliga värden är: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. Värdet `none` innebär att ingen åtgärd har utförts för användaren eller inloggning hittills. <br>**Obs:** Information om den här egenskapen kräver en Azure AD Premium P2-licens. Andra licenser returnerar värdet `hidden`. |
 | riskEventTypes | riskEventTypes | Typer av risk identifiering som är associerade med inloggningen. Möjliga värden är: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic`och `unknownFutureValue`. |
 | riskLevelAggregated | riskLevel | Aggregerad risk nivå. Möjliga värden är: `none`, `low`, `medium`, `high`, `hidden`och `unknownFutureValue`. Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
 | riskLevelDuringSignIn | riskLevel | Risk nivå under inloggningen. Möjliga värden är: `none`, `low`, `medium`, `high`, `hidden`och `unknownFutureValue`. Värdet `hidden` innebär att användaren eller inloggningen inte har Aktiver ATS för Azure AD Identity Protection. **Obs:** Information om den här egenskapen är endast tillgänglig för Azure AD Premium P2-kunder. Alla andra kunder kommer att returneras `hidden`. |
 | riskState | riskState | Rapporterar status för riskfylld användare, inloggning eller risk identifiering. Möjliga värden är: `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
 | . Durationms |  Värdet är omappat och du kan bortse från det här fältet. |
-| callerIpAddress | IP-adressen för klienten som gjorde begäran. | 
+| CallerIpAddress | IP-adressen för klienten som gjorde begäran. | 
 | CorrelationId | Det valfria GUID som skickas av klienten. Det här värdet kan hjälpa till att korrelera åtgärder på klient sidan med åtgärder på Server sidan, och det är användbart när du spårar loggar som omfattar tjänster. |
 | Identitet | Identiteten från den token som angavs när du gjorde begäran. Det kan vara ett användar konto, ett system konto eller ett huvud namn för tjänsten. |
 | Nivå | Tillhandahåller meddelande typen. För granskning är det alltid *information*. |

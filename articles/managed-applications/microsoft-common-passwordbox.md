@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4a8b760d113e29efb0efacbd41dcaa7432ecdcfd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 083b0be20d4e9ad7769a9c673139a361fb7b70d4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332808"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009178"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. password
 En kontroll som kan användas för att ange och bekräfta ett lösen ord.
 
 ## <a name="ui-sample"></a>UI-exempel
-![Microsoft. Common. password](./media/managed-application-elements/microsoft.common.passwordbox.png)
+![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -38,8 +38,8 @@ En kontroll som kan användas för att ange och bekräfta ett lösen ord.
   "toolTip": "",
   "constraints": {
     "required": true,
-    "regex": "",
-    "validationMessage": ""
+    "regex": "^[a-zA-Z0-9]{8,}$",
+    "validationMessage": "Password must be at least 8 characters long, contain only numbers and letters"
   },
   "options": {
     "hideConfirmation": false
@@ -50,8 +50,8 @@ En kontroll som kan användas för att ange och bekräfta ett lösen ord.
 
 ## <a name="remarks"></a>Kommentarer
 - Det här elementet har inte stöd för egenskapen `defaultValue`.
-- Information om implementering av `constraints` finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
-- Om `options.hideConfirmation` har angetts till **True**är den andra text rutan för att bekräfta användarens lösen ord dold. Standardvärdet är **false**.
+- Implementerings information om `constraints`finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
+- Om `options.hideConfirmation` är inställt på **Sant**, döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **FALSKT**.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json

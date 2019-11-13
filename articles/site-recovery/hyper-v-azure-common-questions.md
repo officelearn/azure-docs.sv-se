@@ -1,19 +1,18 @@
 ---
-title: Vanliga frågor – återställning av Hyper-V till Azure med Azure Site Recovery | Microsoft Docs
+title: Vanliga frågor om haveri beredskap för Hyper-V med Azure Site Recovery
 description: I den här artikeln sammanfattas vanliga frågor om hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure med hjälp av Azure Site Recovery-platsen.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: f9e5b5a70f7398483d5359a0489d5a6e6b241c6d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8f3a04c70b88987fc91dbed3c186d04826b75726
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928195"
+ms.locfileid: "73954050"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – katastrof återställning för Hyper-V till Azure
 
@@ -51,7 +50,7 @@ Om du vill replikera till ett sekundärt Data Center måste virtuella Hyper-V-da
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Kan jag replikera virtuella Hyper-V-datorer i generation 2 till Azure?
-Ja. Site Recovery konverterar från generation 2 till generation 1 under redundansväxlingen. Vid återställning efter fel, konverteras datorn tillbaka till generation 2. [Lär dig mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Ja. Site Recovery konverterar från generation 2 till generation 1 under redundansväxlingen. Vid återställning efter fel, konverteras datorn tillbaka till generation 2. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Kan jag distribuera Site Recovery med VMM om jag bara har en VMM-server?

@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure IoT Hub module identitet och modul, dubbla (python) | Microsoft Docs
+title: Azure IoT Hub-modulens identitet och modul, dubbla (python)
 description: 'Lär dig att skapa modul identitet och uppdatera modul dubbla med IoT SDK: er för python.'
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: d9aeb5130f565c5fc24e2d0ced9c7ce16d2927ef
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e18d448d9aee0137f1167d23a2bbf53486d0c764
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001152"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953852"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Kom igång med IoT Hub-modulens identitet och modul, dubbla (python)
 
@@ -31,7 +31,7 @@ I slutet av den här självstudien har du två python-appar:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -85,7 +85,7 @@ except KeyboardInterrupt:
     print("IoTHubRegistryManager sample stopped")
 ```
 
-Den här appen skapar en enhets identitet med ID **t myfirstdevice** och en modul identitet med ID **MyFirstModule** under enhet **t myfirstdevice**. (Om modul-ID:t redan finns i identitetsregistret, hämtar koden bara den befintliga modulinformationen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade modulappen för att ansluta till din IoT Hub.
+Den här appen skapar en enhets identitet med ID **t myfirstdevice** och en modul identitet med ID **MyFirstModule** under enhet **t myfirstdevice**. (Om detta modul-ID redan finns i identitets registret hämtar koden bara den befintliga informationen om modulen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade modulappen för att ansluta till din IoT Hub.
 
 > [!NOTE]
 > IoT Hub-identitetsregistret lagrar enhets- och modulidentiteter endast för att skydda åtkomsten till IoT Hub. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [IoT Hub Developer Guide](iot-hub-devguide-identity-registry.md).

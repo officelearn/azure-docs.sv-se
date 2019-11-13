@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747382"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961589"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -186,6 +186,7 @@ I följande tabell visas kompatibiliteten mellan server-och dator operativ syste
 
 |Server-OS | Kompatibelt klient operativ system  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
@@ -242,7 +243,7 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
 
 - Om återställnings servern är en virtuell Linux-dator
   - Ändra inställningen från i filen/etc/iSCSI/iscsid.conf
-    - Node. ansluts [0]. Time-to-noop_out_timeout = 5 till Node. ansluts [0]. Time. noop_out_timeout = 30
+    - Node. ansluts [0]. tidsintervallet. noop_out_timeout = 5 till Node. ansluten [0]. tidsintervallet. noop_out_timeout = 30
 - När du har utfört följande kör du skriptet igen. Med de här ändringarna är det mycket troligt att fil återställningen lyckas.
 - Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. Det tar lång tid att använda stora diskar. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du hämtar ett skript från portalen/PowerShell/CLI, väntar på 20-30 minuter (en heuristisk) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
 - Efter fil återställning kontrollerar du att du går tillbaka till portalen och klickar på "demontera diskar" för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.

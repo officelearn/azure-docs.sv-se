@@ -1,17 +1,14 @@
 ---
 title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
-ms.service: blueprints
-ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 3005bf171c5297048978d090d0f253a8690242cd
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981717"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960327"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Översikt över tjänsten Azure-ritningar
 
@@ -51,9 +48,9 @@ En princip kan ingå som en av flera _artefakter_ i en definition av skisser. Me
 
 En skiss består av _artefakter_. Skisser stöder för närvarande följande resurser som artefakter:
 
-|Resource  | Hierarkialternativ| Beskrivning  |
+|Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
-|Resursgrupper | Subscription | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
+|Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
 |Azure Resource Manager-mall | Prenumeration, resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
 |Principtilldelning | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom omfånget för skissdefinitionens plats. Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen. |
 |Rolltilldelning | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
@@ -123,12 +120,12 @@ Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad rol
 
 Följande begränsningar finns för vissa fält:
 
-|Object|Fält|Tillåtna tecken|Max. Längd|
+|Objekt|Fält|Tillåtna tecken|Max. Längd|
 |-|-|-|-|
-|Skiss|Name|bokstäver, siffror, bindestreck och punkter|48|
+|Skiss|Namn|bokstäver, siffror, bindestreck och punkter|48|
 |Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|
-|Skisstilldelning|Name|bokstäver, siffror, bindestreck och punkter|90|
-|Skiss artefakt|Name|bokstäver, siffror, bindestreck och punkter|48|
+|Skisstilldelning|Namn|bokstäver, siffror, bindestreck och punkter|90|
+|Skiss artefakt|Namn|bokstäver, siffror, bindestreck och punkter|48|
 
 ## <a name="video-overview"></a>Videoöversikt
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2d0a05c763b21b0cf22a724f9a5faa9d70b5b557
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579686"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010648"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -63,7 +63,7 @@ Den gamla data uppsättningen och den nya data uppsättningen måste kombineras 
 
 **A**: distributioner kommer inte att uppdateras automatiskt.
 
-Om du har anpassat och distribuerat en modell med baseline V 1.0, kommer distributionen att förbli oförändrad. Kunder kan inaktivera den distribuerade modellen och sedan anpassa den igen med hjälp av den nya versionen av bas linjen och omdistribuera.
+Om du har anpassat och distribuerat en modell med baseline V 1.0, kommer distributionen att förbli oförändrad. Kunder kan inaktivera den distribuerade modellen, omanpassa med den nya versionen av bas linjen och distribuera om.
 
 **F: Vad händer om jag behöver högre samtidighet för min distribuerade modell än vad som erbjuds i portalen?**
 
@@ -71,26 +71,31 @@ Om du har anpassat och distribuerat en modell med baseline V 1.0, kommer distrib
 
 Kontakta [tal support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) om du behöver en högre skala.
 
-För att öka samtidigheten för en anpassad modell behöver vi följande information:
+För att öka samtidigheten för en ***anpassad modell***behöver vi följande information:
 
-- Den region där modellen distribueras.
-- Slut punkts-ID för den distribuerade modellen.
+- Den region där modellen distribueras,
+- slut punkts-ID för den distribuerade modellen:
+  - Till [Custom Speech Portal](https://aka.ms/customspeech),
+  - Logga in (om det behövs),
+  - Välj ditt projekt och din distribution,
+  - Välj slut punkten du behöver samtidighets ökningen för,
+  - Kopiera `Endpoint ID`.
 
-För att öka samtidigheten för en bas modell behöver vi följande information:
+För att öka samtidigheten för en ***bas modell***behöver vi följande information:
 
 - Regionen för din tjänst,
 
 och antingen
 
-- en åtkomsttoken för dig subrscription (se [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token))
+- en åtkomsttoken för din prenumeration (se [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token))
 
 eller
 
 - Resurs-ID för din prenumeration:
-  - Gå till https://portal.azure.com,
+  - Gå till [Azure Portal](https://portal.azure.com),
   - Välj `Cognitive Services` i sökrutan
   - från de visade tjänsterna väljer du den tal tjänst som du vill att samtidigheten ska höjas för.
-  - Visa egenskaperna för den här tjänsten,
+  - Visa `Properties` för den här tjänsten,
   - Kopiera hela `Resource ID`.
 
 **F: kan jag hämta min modell och köra den lokalt?**
@@ -107,7 +112,7 @@ S **: REST API**begränsar begär anden till 25 per 5 sekunder. Information finn
 
 **F: hur jag debiteras för ljud med dubbla kanaler?**
 
-**A**: om du skickar varje kanal separat (varje kanal i en egen fil) debiteras du per varaktighet för varje fil. Om du skickar en enskild fil med varje kanal som är multiplexad tillsammans debiteras du för den enskilda filens varaktighet.
+**A**: om du skickar varje kanal separat (varje kanal i en egen fil) debiteras du per fil varaktighet. Om du skickar en enskild fil med varje kanal som är multiplexad tillsammans debiteras du för den enskilda filens varaktighet.
 
 > [!IMPORTANT]
 > Om du har ytterligare sekretess problem som hindrar dig från att använda tjänsten för anpassad röst kontaktar du en av support kanalerna.
@@ -184,11 +189,11 @@ S **: samla**in data som är så nära program scenariot och användnings fallet
  
 **F: vilka tal upplevelser förbättras av klient organisations modellen?**
 
-**A:** När klient organisations modellen är aktive rad, skapas och publiceras, används den för att förbättra igenkänningen för alla företags program som skapats med Speech service. Det kan också skicka en användare AAD-token som anger medlemskap i företaget. 
- 
+**A:** När klient organisations modellen är aktive rad, skapad och publicerad, används den för att förbättra igenkänningen för alla företags program som skapats med hjälp av tal tjänsten. Det innebär också att en användare AAD-token skickas som anger medlemskap i företaget.
+
 De tal upplevelser som är inbyggda i Office 365, t. ex. Diktering och PowerPoint-textning, ändras inte när du skapar en klient modell för dina tal tjänst program.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsökning](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md) (Felsökning)
 * [Viktig information](releasenotes.md)

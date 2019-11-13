@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Time Series Insights-miljö | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Portal för att skapa en ny Time Series Insights-miljö.
+title: Skapa en miljö – Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du använder Azure Portal för att skapa en ny Time Series Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1b51931385eb7e2e0bf2a1baf5cc4c3379eab2df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: fc3f21c95ad6f4bb033336018dddb9e966e9cc9a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991234"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006904"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 
@@ -69,6 +69,6 @@ Följ de här stegen för att skapa en miljö:
 
 * [Lägg till händelse källan för Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) i Azure Time Series Insightss miljön.
 
-* [Skicka händelser](time-series-insights-send-events.md) till händelse källan.
+* [Skicka händelser](time-series-insights-send-events.md) till händelsekällan.
 
 * Visa din miljö i [Time Series Insights Explorer](https://insights.timeseries.azure.com).

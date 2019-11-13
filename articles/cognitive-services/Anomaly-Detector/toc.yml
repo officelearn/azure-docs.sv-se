@@ -62,6 +62,18 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
         - name: Node.js
           href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
+    - name: Tekniska bloggar
+      items:
+        - name: Introduktion till API för Azure-avvikelseidentifiering
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
+        - name: Översikt över SR-CNN-algoritm
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'
+    - name: Demo
+      items:
+        - name: Interaktiv demo
+          href: 'https://aka.ms/adDemo'
+        - name: På Jupyter Notebook
+          href: 'https://aka.ms/adNotebook'
     - name: Papper på SR-CNN i KDD 2019
       href: 'https://arxiv.org/abs/1906.03821'
 - name: Resurser

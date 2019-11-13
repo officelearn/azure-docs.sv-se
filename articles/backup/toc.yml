@@ -20,6 +20,8 @@
   items:
     - name: Säkerhetskopiera virtuella Azure-datorer enligt skala
       href: tutorial-backup-vm-at-scale.md
+    - name: Säkerhetskopiera virtuella Azure-datorer med PowerShell
+      href: tutorial-backup-azure-vm.md
     - name: Återställa en disk
       href: tutorial-restore-disk.md
     - name: Återställa enskilda filer

@@ -3,7 +3,7 @@ title: Dokumentation om förhandsversionen av Azure Digital Twins
 summary: Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens. Gå igenom snabbstarten och självstudierna för att övervaka en tänkt smart byggnad, lär dig mer djupgående begrepp och skapa en nästa generations IoT-lösning som bygger på din fysiska miljö.
 metadata:
   title: Dokumentation om förhandsversionen av Azure Digital Twins – självstudier, API-referens | Microsoft Docs
-  description: Använd Azure Digital Twins för att skapa smarta rumsliga lösningar.
+  description: Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens.
   services: digital-twins
   ms.service: digital-twins
   ms.subservice: digital-twins
@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 09/03/2019
-  ms.openlocfilehash: b5a449d09b1068dbf874828b9e65b1ac318b58fd
-  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.openlocfilehash: 3d55dcfc4b57d0179ca6e02bae50bf3d37dc70f3
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71219727"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74009304"
 landingContent:
 - title: Om Azure Digital Twins
   linkLists:

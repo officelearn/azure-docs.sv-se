@@ -392,9 +392,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Tillämpningskonfiguration
           items:
-            - name: Utbildningsguide för Azure-portalappsregistreringar (föråldrad)
+            - name: Övergå från Appregistreringar (föråldrad) till den nya Appregistreringar-miljön i Azure Portal
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: Utbildningsguide för appregistreringsportalen
+            - name: Övergå från programregistreringsportalen till den nya Appregistreringar-miljön i Azure Portal
               href: app-registration-portal-training-guide.md
             - name: Konvertera en app för en enda klient till en app för flera klienter
               href: howto-convert-app-to-be-multi-tenant.md

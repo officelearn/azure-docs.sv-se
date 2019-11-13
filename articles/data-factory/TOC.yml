@@ -165,8 +165,8 @@
               href: concepts-data-flow-monitoring.md
             - name: Dataflödesprestanda
               href: concepts-data-flow-performance.md
-            - name: Flytta noder
-              href: concepts-data-flow-move-nodes.md
+            - name: Hantera diagram
+              href: concepts-data-flow-manage-graph.md
             - name: Uttrycksverktyget
               href: concepts-data-flow-expression-builder.md
             - name: Uttrycksspråk
@@ -616,6 +616,8 @@
           href: connector-troubleshoot-guide.md
         - name: Felsöka Azure-SSIS IR-hantering
           href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Felsöka lokalt installerad IR
+          href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Körning av felsökningspaket i Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
         - name: Felsöka dataflöden
@@ -646,6 +648,8 @@
           href: scenario-ssis-migration-ssisdb-mi.md
 - name: Referens
   items:
+    - name: Dataflödesskript
+      href: data-flow-script.md
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell

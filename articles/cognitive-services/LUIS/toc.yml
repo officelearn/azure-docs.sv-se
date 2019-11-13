@@ -166,9 +166,7 @@
       items:
         - name: Lägga till avsikt
           href: luis-how-to-add-intents.md
-        - name: Lägga till entitet i yttrande
-          href: luis-how-to-add-example-utterances.md
-        - name: Lägga till entitet utan yttrande
+        - name: Lägga till en enhet för att extrahera data
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: Använd fördefinierade modeller
@@ -306,6 +304,8 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Anpassad entitetsreferens
       items:
+        - name: Maskininlärd enhet
+          href: reference-entity-machine-learned-entity.md
         - name: Sammansatt entitet
           href: reference-entity-composite.md
         - name: Lista entitet
@@ -316,6 +316,8 @@
           href: reference-entity-regular-expression.md
         - name: Enkel entitet
           href: reference-entity-simple.md
+    - name: Mönstersyntax
+      href: reference-pattern-syntax.md
     - name: Sentiment
       href: luis-reference-prebuilt-sentiment.md
     - name: Utvecklarresurser

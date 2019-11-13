@@ -154,6 +154,8 @@
         - name: Distribuera – REST API
           displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: Konsekvensdistribution
+          href: template-deploy-what-if.md
         - name: Omdistribuera vid fel
           displayName: rollback
           href: rollback-on-error.md

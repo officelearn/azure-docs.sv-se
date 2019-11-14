@@ -1,5 +1,5 @@
 ---
-title: Migrera virtuella datorer till Resource Manager med hjälp av Azure CLI | Microsoft Docs
+title: Migrera virtuella datorer till Resource Manager med Azure CLI
 description: Den här artikeln går igenom den plattforms oberoende migreringen av resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 7af101b036e8e40a14ad5d9931cc897cb1758ea0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 69107052d84f28dfd08f59dec40ea66eca79ecaa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082771"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035782"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 De här stegen visar hur du använder kommando rads kommandon i Azure (CLI) för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell. Artikeln kräver den [klassiska Azure CLI](../../cli-install-nodejs.md). Eftersom Azure CLI bara är tillämpligt för Azure Resource Manager-resurser kan det inte användas för migreringen.
@@ -34,7 +34,7 @@ Här är ett flödes schema för att identifiera i vilken ordning stegen måste 
 
 ![Skärmbild som visar migreringsstegen](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>Steg 1: Förbereda för migrering
+## <a name="step-1-prepare-for-migration"></a>Steg 1: Förbered för migrering
 Här följer några tips som vi rekommenderar när du utvärderar migrering av IaaS-resurser från klassisk till Resource Manager:
 
 * Läs igenom [listan med konfigurationer eller funktioner som inte stöds](../windows/migration-classic-resource-manager-overview.md). Om du har virtuella datorer som använder konfigurationer eller funktioner som inte stöds, rekommenderar vi att du väntar på att stöd för funktionen/konfigurationen ska tillkännages. Du kan också ta bort funktionen eller flytta bort från den konfigurationen för att aktivera migrering om den passar dina behov.
@@ -61,7 +61,7 @@ Välj Azure-prenumerationen med hjälp av följande kommando.
 > [!NOTE]
 > Registreringen är en gång, men det måste göras en gång innan du försöker migrera. Utan att registrera dig visas följande fel meddelande 
 > 
-> *BadRequest Prenumerationen har inte registrerats för migrering.* 
+> *BadRequest: prenumerationen har inte registrerats för migrering.* 
 > 
 > 
 
@@ -73,12 +73,12 @@ Vänta fem minuter tills registreringen är klar. Du kan kontrol lera statusen f
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Växla nu CLI till `asm` läget.
+Växla nu CLI till `asm` läge.
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Steg 3: Kontrol lera att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller VNET
-För det här steget måste du växla till `arm` läge. Gör detta med följande kommando.
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Steg 3: kontrol lera att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller VNET
+I det här steget måste du växla till `arm` läge. Gör detta med följande kommando.
 
 ```
 azure config mode arm
@@ -90,12 +90,12 @@ Du kan använda följande CLI-kommando för att kontrol lera det aktuella antale
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-När du är klar med att verifiera det här steget kan du växla tillbaka `asm` till läget.
+När du är klar med att verifiera det här steget kan du växla tillbaka till `asm` läge.
 
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Steg 4: Alternativ 1 – migrera virtuella datorer i en moln tjänst
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Steg 4: alternativ 1 – migrera virtuella datorer i en moln tjänst
 Hämta listan över moln tjänster med hjälp av följande kommando och välj sedan den moln tjänst som du vill migrera. Observera att om de virtuella datorerna i moln tjänsten finns i ett virtuellt nätverk eller om de har webb-och arbets roller, får du ett fel meddelande.
 
     azure service list
@@ -120,7 +120,7 @@ Använd följande kommando om du vill migrera till ett befintligt virtuellt nät
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-När förberedelse åtgärden har slutförts kan du titta igenom utförliga utdata för att hämta migreringen för de virtuella datorerna och se till att de är i `Prepared` rätt tillstånd.
+När förberedelse åtgärden har slutförts kan du titta igenom utförliga utdata för att hämta migreringen för de virtuella datorerna och se till att de är i `Prepared`s tillstånd.
 
     azure vm show <vmName> -vv
 
@@ -134,7 +134,7 @@ Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräf
 
 
 
-## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Steg 4: Alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Steg 4: alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
 Välj det virtuella nätverk som du vill migrera. Observera att om det virtuella nätverket innehåller webb-eller arbets roller eller virtuella datorer med konfigurationer som inte stöds, får du ett verifierings fel meddelande.
 
 Hämta alla virtuella nätverk i prenumerationen med hjälp av följande kommando.

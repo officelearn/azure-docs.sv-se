@@ -1,5 +1,5 @@
 ---
-title: 'Azure Premium Storage: design för prestanda på virtuella Windows-datorer | Microsoft Docs'
+title: 'Azure Premium Storage: design för prestanda på virtuella Windows-datorer '
 description: Skapa program med höga prestanda med Azure Premium Storage. Premium Storage erbjuder disk support med hög prestanda och låg latens för I/O-intensiva arbets belastningar som körs på Azure Virtual Machines.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8314c3147321e7daa0e71be33c57405139294c1d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 56836b81ad63c3a2170606dc64988aab8dc7f47f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005585"
+ms.locfileid: "74035288"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]

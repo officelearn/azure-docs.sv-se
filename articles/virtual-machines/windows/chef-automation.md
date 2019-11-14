@@ -1,5 +1,5 @@
 ---
-title: Distribution av virtuella Azure-datorer med chef | Microsoft Docs
+title: Distribution av virtuella Azure-datorer med chef
 description: Lär dig hur du använder chef för automatisk distribution och konfiguration av virtuella datorer på Microsoft Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58642cdbf164523390d5e4925290b43f6c05549b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080104"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039551"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisera distribution av virtuella Azure-datorer med Chef
 
@@ -36,7 +36,7 @@ Följande diagram illustrerar chefs arkitekturen på hög nivå.
 
 ![][2]
 
-Chef har tre huvudsakliga arkitektur komponenter: Chefs Server, chefs klient (nod) och chefs arbets Station.
+Chef har tre huvudsakliga arkitektur komponenter: chefs Server, chefs klient (nod) och chefs arbets Station.
 
 Chefs servern är hanterings platsen och det finns två alternativ för chefs servern: en värdbaserad lösning eller en lokal lösning.
 
@@ -97,9 +97,9 @@ När din organisation har skapats laddar du ned start paketet.
 > Om du får ett varnings meddelande om att dina nycklar kommer att återställas, är det dags att fortsätta eftersom vi inte har en befintlig infrastruktur som har kon figurer ATS ännu.
 >
 
-Den här zip-filen för start paket innehåller organisationens konfigurationsfiler och användar nyckeln `.chef` i katalogen.
+Den här zip-filen för start paket innehåller din organisations konfigurationsfiler och användar nyckel i `.chef`-katalogen.
 
-`organization-validator.pem` Måste laddas ned separat, eftersom det är en privat nyckel och privata nycklar ska inte lagras på chefs servern. Från [chef hantera](https://manage.chef.io/), går du till avsnittet Administration och väljer "Återställ validerings nyckel", som innehåller en fil som du kan hämta separat. Spara filen till c:\chef.
+`organization-validator.pem` måste laddas ned separat, eftersom det är en privat nyckel och privata nycklar ska inte lagras på chefs servern. Från [chef hantera](https://manage.chef.io/), går du till avsnittet Administration och väljer "Återställ validerings nyckel", som innehåller en fil som du kan hämta separat. Spara filen till c:\chef.
 
 ### <a name="configuring-your-chef-workstation"></a>Konfigurera din chefs arbets Station
 
@@ -107,7 +107,7 @@ Extrahera innehållet i chef-starter. zip till c:\chef.
 
 Kopiera alla filer under chef-starter\chef-repo\.chef till din c:\chef-katalog.
 
-`organization-validator.pem` Kopiera filen till c:\chef, om den sparas i c:\Downloads
+Kopiera `organization-validator.pem`-filen till c:\chef, om den sparas i c:\Downloads
 
 Din katalog bör nu se ut ungefär som i följande exempel.
 
@@ -149,7 +149,7 @@ Lägg till följande information i din kniv. RB:
 
 validation_client_name "myorg-validator"
 
-validation_key "#{current_dir}/myorg.pem"
+validation_key "# {current_dir}/myorg.pem"
 
 knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
@@ -193,9 +193,9 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 Sedan [laddar du ned och installerar](https://downloads.chef.io/chef-workstation/) chef Workstation.
 Installera chefs arbets station som standard plats. Den här installationen kan ta några minuter.
 
-På Skriv bordet ser du en "FV PowerShell", som är en miljö som har lästs in med verktyget som du behöver för att interagera med chefs produkterna. Med den tillfälliga PowerShell: en blir nya Ad hoc-kommandon `chef-run` tillgängliga, t. ex `chef`. och traditionella kock CLI-kommandon, till exempel. Se den installerade versionen av chef-arbetsstationen och chefs verktygen med `chef -v`. Du kan också kontrol lera din arbets Stations version genom att välja "om chef Workstation" från appen chef Workstation.
+På Skriv bordet ser du en "FV PowerShell", som är en miljö som har lästs in med verktyget som du behöver för att interagera med chefs produkterna. Med den tillfälliga PowerShell: en blir nya Ad hoc-kommandon tillgängliga, till exempel `chef-run` och traditionella chef CLI-kommandon, till exempel `chef`. Se den installerade versionen av chef-arbetsstationen och chefs verktygen med `chef -v`. Du kan också kontrol lera din arbets Stations version genom att välja "om chef Workstation" från appen chef Workstation.
 
-`chef --version`ska returnera något som:
+`chef --version` ska returnera något som:
 
 ```
 Chef Workstation: 0.4.2
@@ -277,7 +277,7 @@ Kör följande kommando för att generera mallen:
 
     chef generate template webserver Default.htm
 
-Navigera till `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` filen. Redigera filen genom att lägga till en enkel "Hello World"-HTML-kod och spara sedan filen.
+Navigera till `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb`-filen. Redigera filen genom att lägga till en enkel "Hello World"-HTML-kod och spara sedan filen.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Ladda upp Cookbook till chefs servern
 I det här steget ska du göra en kopia av den Cookbook som du har skapat på den lokala datorn och ladda upp den till den server som är värd för chef. När den har laddats upp visas Cookbook under fliken **princip** .
@@ -309,7 +309,7 @@ Ett exempel på kommandot visas härnäst.
     -r "recipe[webserver]"
 
 
-Exemplet ovan skapar en virtuell Standard_DS2_v2-dator med Windows Server 2016 installerat i regionen USA, västra. Ersätt dina specifika variabler och kör dem.
+Exemplet ovan skapar en Standard_DS2_v2 virtuell dator med Windows Server 2016 installerat i regionen USA, västra. Ersätt dina specifika variabler och kör dem.
 
 > [!NOTE]
 > På kommando raden automatiserar jag också mina nätverks filter regler för slut punkter med hjälp av parametern – TCP-endpoints. Jag har öppnat portarna 80 och 3389 för att ge åtkomst till webb sidan och RDP-sessionen.

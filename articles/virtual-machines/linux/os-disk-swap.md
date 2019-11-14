@@ -1,5 +1,5 @@
 ---
-title: Växla OS-disk för en virtuell Azure-dator med CLI | Microsoft Docs
+title: Byt OS-disk för en virtuell Azure-dator med CLI
 description: Ändra den operativ system disk som används av en virtuell Azure-dator med hjälp av CLI.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b5f8a47b2b9c3692698b2ec6a7e5bc470b86a18
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfbe47fb68ffe7cee1ee2f9f7b94b418d8da2a1d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091678"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035335"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Ändra den OS-disk som används av en virtuell Azure-dator med hjälp av CLI
 
@@ -52,7 +52,7 @@ az vm stop \
 ```
 
 
-Använd [AZ VM Update](/cli/azure/vm#az-vm-update) med det fullständiga resurs-ID: t för den nya `--osdisk` disken för parametern 
+Använd [AZ VM Update](/cli/azure/vm#az-vm-update) med det fullständiga resurs-ID: t för den nya disken för parametern `--osdisk` 
 
 ```azurecli-interactive 
 az vm update \

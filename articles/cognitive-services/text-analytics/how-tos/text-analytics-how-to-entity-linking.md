@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: b139f473bb20dbecde75c3b08dd92371849f096e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835672"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031434"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -33,7 +33,7 @@ Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i tex
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Namngiven enhets igenkänning v3 offentlig för hands version
 
-[Nästa version av namngiven enhets igenkänning](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) är nu tillgänglig för offentlig för hands version. Den ger uppdateringar för både entitets-och enhets identifiering. 
+[Nästa version av namngiven enhets igenkänning]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) är nu tillgänglig för offentlig för hands version. Den ger uppdateringar för både entitets-och enhets identifiering. 
 
 :::row:::
     :::column span="":::
@@ -103,8 +103,8 @@ Länkning av entitet
 |:-----------   |:------------- |:---------|
 | Person        | Ej tillämpligt\*         | "Jeff", "Bill Gates"     |
 | Plats      | Ej tillämpligt\*         | ”Redmond, Washington”, ”Paris”  |
-| Organisation  | Ej tillämpligt\*         | ”Microsoft”   |
-| Kvantitet      | Tal        | ”6”, ”sex”     |
+| Organisation  | Ej tillämpligt\*         | "Microsoft"   |
+| Kvantitet      | Tal        | "6", "six"     |
 | Kvantitet      | Procent    | ”50 %”, ”femtio procent”|
 | Kvantitet      | Ordningstal       | ”2:a”, ”andra”     |
 | Kvantitet      | Ålder           | "90 dag gammal", "30 år gammal"    |

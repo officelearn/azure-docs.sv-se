@@ -1,5 +1,5 @@
 ---
-title: SQL Server tillgänglighets grupper – Azure Virtual Machines – översikt | Microsoft Docs
+title: Översikt över tillgänglighets grupper
 description: Den här artikeln beskriver SQL Server tillgänglighets grupper på virtuella Azure-datorer.
 services: virtual-machines
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: d89e25b6a39649bb8421fd32b8842c3c76807268
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102154"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037487"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer #
+# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server tillgänglighets grupper på Azure Virtual Machines
 
 I den här artikeln beskrivs SQL Server tillgänglighets grupper på Azure Virtual Machines. 
 

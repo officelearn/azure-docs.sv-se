@@ -1,5 +1,5 @@
 ---
-title: Skapa en app för övervakning av vatten kvalitet med Azure IoT Central
+title: Skapa en app för övervakning av vatten kvalitet i Azure IoT Central
 description: Lär dig hur du skapar ett program för övervakning av vatten kvalitet med hjälp av Azure IoT Central programmallar.
 author: miriambrus
 ms.author: miriamb
@@ -8,261 +8,250 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 51c84410de39516312d2058eeda575023dbe32ab
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bfa5234d17db32c459b5ff1d0252a65a5ba99a72
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890772"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039520"
 ---
-# <a name="tutorial-create-a-water-quality-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i IoT Central
+# <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i Azure IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-I den här självstudien får du hjälp med att skapa ett program för övervakning av Azure-IoT Central vatten kvalitet från program mal len övervakning av IoT Central vatten kvalitet 
+Den här självstudien vägleder dig genom skapandet av ett program för övervakning av vatten kvalitet i Azure IoT Central. Du skapar programmet från program mal len för övervakning av Azure IoT Central **vatten kvalitet** .
 
-I den här självstudien får du lära dig att: 
+I de här självstudierna får du lära dig att:
 
 > [!div class="checklist"]
-> * Använd mallen för övervakning av Azure IoT Central **vatten kvalitet** för att skapa ett program för övervakning av vatten kvalitet
-> * Utforska och anpassa instrument panelen för operatör 
-> * Utforska enhets mal len för övervakning av vatten kvalitet
-> * Utforska simulerade enheter
-> * Utforska och konfigurera regler
-> * Konfigurera jobb
-> * Anpassa din program anpassning med adresser
+> * Använd mallen för **övervakning av vatten kvalitet** för att skapa ett program för övervakning av vatten kvalitet.
+> * Utforska och anpassa en instrument panel för operatör.
+> * Utforska en enhets mall för övervakning av vatten kvalitet.
+> * Utforska simulerade enheter.
+> * Utforska och konfigurera regler.
+> * Konfigurera jobb.
+> * Anpassa program anpassning med hjälp av vita etiketter.
 
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Vi rekommenderar att du har en Azure-prenumeration för att slutföra den här kursen. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
-För att slutföra den här självstudien behöver du:
--  En Azure-prenumeration rekommenderas. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
+## <a name="create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Skapa ett program för övervakning av vatten kvalitet i Azure IoT Central
 
+I det här avsnittet använder du mallen för övervakning av Azure IoT Central **vatten kvalitet** för att skapa ett program för övervakning av vatten kvalitet.
 
-## <a name="create-water-quality-monitoring-app-in-iot-central"></a>Skapa appen för övervakning av vatten kvalitet i IoT Central
+1. Gå till [Start sidan för Azure-IoT Central](https://aka.ms/iotcentral).
 
-I det här avsnittet ska du använda mallen för övervakning av Azure IoT Central **vatten kvalitet** för att skapa ett program för övervakning av vatten kvalitet i IoT Central.
+    Om du har en Azure-prenumeration loggar du in med de autentiseringsuppgifter som du använder för att komma åt den. Annars loggar du in med en Microsoft-konto:
 
+    ![Logga in på ditt organisations konto](./media/tutorial-waterqualitymonitoring/sign-in.png)
 
-Skapa ett nytt program för övervakning av Azure IoT Central vatten kvalitet:  
+1. Välj **bygge** i fönstret längst till vänster i Azure IoT Central och välj fliken **myndigheter** . I fönstret myndigheter visas flera myndighets programmallar.
 
-1. Gå till webbplatsen för [Azure IoT Central start sida](https://aka.ms/iotcentral) .
+    ![Myndighets program mallar](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
 
-      Om du har en Azure-prenumeration loggar du in med de autentiseringsuppgifter som du använder för att komma åt den, annars loggar du in med en Microsoft-konto:
+1. Välj program mal len **övervakning av vatten kvalitet** . Den här program mal len innehåller en enhets mall för vatten kvalitet, simulerade enheter, en instrument panel för operatör och förkonfigurerade övervaknings regler.
 
-    ![Ange ditt organisationskonto](./media/tutorial-waterqualitymonitoring/sign-in.png)
+1. Välj **skapa app**. Fönstret **ny program** öppnas och visar följande element:
 
-2. Klicka på **build (Bygg** in) i den vänstra rutan och välj fliken **myndigheter** . Sidan myndigheter visar flera myndighets programmallar.
+    * **Program namn**: som standard är program namnet övervakning av **vatten kvalitet** följt av en unik ID-sträng som Azure IoT Central genererar. Om du vill kan du ange ett visnings namn eller ändra program namnet senare.
+    * **URL**: du kan ange valfri URL som du vill ha eller ändra URL-värdet senare.
+    * Om du har en Azure-prenumeration anger du värden för **katalog**, **Azure-prenumeration**och **region**. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på sju dagar** och slutföra den nödvändiga kontakt informationen.
 
-    ![Bygg app-mallar för myndigheter](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
+    Mer information om kataloger och prenumerationer finns i snabb start för att [skapa ett program](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) .
 
+1. Välj knappen **skapa** längst ned till vänster på sidan.
 
-1. Välj program mal len **övervakning av vatten kvalitet** . Den här mallen innehåller exempel på enhets mal len för vatten kvalitet, simulerad enhet, operatörs instrument panel och förkonfigurerade övervaknings regler.    
+    ![Sidan Azure IoT Central New-Application](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
 
-2. Klicka på **skapa app**, så öppnas formuläret för att skapa **nya program** med följande fält:
-    * **Program namn**. Som standard använder programmet *övervakning av vatten kvalitet* följt av en unik ID-sträng som IoT Central genererar. Du kan också välja ett eget program namn. Du kan senare ändra program namnet.
-    * **URL** – du kan också välja att ange önskad URL. Du kan ändra URL: en senare. 
-    * Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
+Nu har du skapat ett program för övervakning av vatten kvalitet med hjälp av mallen för övervakning av Azure IoT Central **vatten kvalitet** .
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
+Det nya programmet levereras med följande förkonfigurerade komponenter:
 
-5. Klicka på knappen **skapa** längst ned på sidan. 
-
-    ![Sidan Skapa program i Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
-
-
-6. Nu har du skapat en app för övervakning av vatten kvalitet med hjälp av mallen för övervakning av Azure IoT Central **vatten kvalitet**. 
-
-Det nyligen skapade programmet levereras med förkonfigurerade:
-* Exempel instrument panels instrument paneler
-* Exempel på fördefinierad enhets kvalitet för övervakning av vatten kvalitet
+* Instrument panel för operatör
+* Enhets mallar för övervakning av vatten kvalitet
 * Simulerade enheter för övervakning av vatten kvalitet
-* Förkonfigurerade regler och jobb
-* Exempel anpassning med vita etiketter 
+* Regler och jobb
+* Anpassning som använder vita etiketter
 
-Det är ditt program och du kan ändra det när som helst. Nu ska vi utforska programmet och göra några anpassningar.  
+Du kan när som helst ändra ditt program.
 
+Utforska sedan programmet och gör några anpassningar.
 
-## <a name="explore-and-customize-operator-dashboard"></a>Utforska och anpassa instrument panelen för operatör 
-När du har skapat det program som du har skapat på **instrument panelen för bred vatten kvalitet övervakning**.
+## <a name="explore-and-customize-the-operator-dashboard"></a>Utforska och anpassa instrument panelen för operatören
 
+När du har skapat programmet öppnas fönstret **bred vatten kvalitet** för hela världen.
 
-   ![Instrument panel för övervakning av vatten kvalitet](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard1.png)
+   ![Instrument panelen för övervakning av vatten kvalitet](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard1.png)
 
-Som ett verktyg kan du skapa och anpassa vyer på instrument panelen för operatörer. Vi går igenom instrument panelen innan du försöker anpassa. 
+Som ett verktyg kan du skapa och anpassa vyer på instrument panelen för användning av operatörer. Men innan du försöker anpassa bör du först utforska instrument panelen.
 
-Alla data som visas i instrument panelen baseras på simulerade enhets data som kommer att utforskas i nästa avsnitt. 
+Alla data som visas i instrument panelen baseras på simulerade enhets data, som beskrivs i nästa avsnitt.
 
-Instrument panelen består av olika typer av paneler:
+Instrument panelen innehåller följande typer av paneler:
 
-* **Bild panel för Wide World vatten verktyg**: den första panelen på instrument panelen är en bild panel med ett fiktivt vatten verktyg "Wide World vatten". Du kan anpassa panelen och placera en egen avbildning eller ta bort den. 
+* **Bild panel för Wide World vatten verktyg**: den första panelen i det övre vänstra hörnet på instrument panelen är en bild som visar det fiktiva verktyget Wide World. Du kan anpassa panelen för att använda en egen bild eller så kan du ta bort panelen.
 
-* **KPI-panelen i genomsnitts pH**: du kan se att det finns KPI-paneler överst som **genomsnitts pH under de senaste 30 minuterna**. Du kan anpassa KPI-paneler och ange en annan typ och ett tidsintervall.
+* **KPI-paneler i genomsnitts pH**: KPI-paneler som **genomsnitts pH under de senaste 30 minuterna** visas överst i instrument panelens fönster. Du kan anpassa KPI-paneler och ange var och en till en annan typ och ett tidsintervall.
 
-*  **Områdes karta för vatten övervakning**: IoT Central använder Azure Maps, som du kan ange direkt i ditt program och Visa enhets platsen. Du kan också mappa plats information till din enhet från programmet och kan använda Azure Maps för att visa den på en karta. Försök att hovra över kartan och prova kontrollerna över kartan. 
+* **Områdes karta för vatten övervakning**: Azure IoT Central använder Azure Maps, som du direkt kan ange i programmet för att visa enhetens plats. Du kan också mappa plats information från ditt program till din enhet och sedan använda Azure Maps för att visa information om en karta. Hovra över kartan och prova kontrollerna.
 
-* **Diagram över Genomsnittligt termisk karta**: du kan välja olika visualiserings diagram för att visa information om enheternas telemetri på det sätt som passar bäst för ditt program. Termisk karta 
+* **Termiskt diagram för tillägg för pH-distribution**: du kan välja olika visualiserings diagram för att Visa telemetri på det sätt som passar bäst för ditt program.
 
-* **Linje diagram över kritiska kvalitets indikatorer**: du kan visualisera en eller flera enhets telemetrivärden ritade som ett linje diagram över ett önskat tidsintervall.  
+* **Linje diagram över kritiska kvalitets indikatorer**: du kan visualisera enhetens telemetri ritas som ett linje diagram under ett tidsintervall.  
 
-* **Diagram över koncentration av kemiska agenter**: du kan visualisera en eller flera telemetridata i ett stapeldiagram som i exemplet. 
+* **Diagram över koncentration av kemiska agenter**: du kan visualisera telemetri för enheter i ett stapeldiagram.
 
-* **Åtgärds knapp**: instrument panelen innehåller ett exempel på en åtgärds panel som en operatör kan initiera direkt från instrument panelen för övervakning, t. ex. att initiera en åtgärd för att återställa enhets egenskaper. 
+* **Åtgärds knapp**: instrument panelen innehåller en panel för åtgärder som en operatör kan initiera direkt från instrument panelen för övervakning. Att återställa en enhets egenskaper är ett exempel på sådana åtgärder.
 
-* **List paneler för egenskaper**: instrument panelen har flera egenskaps paneler som visar tröskel information, information om enhets hälsa och underhålls information. 
+* Panel för **egenskaps listor**: instrument panelen har flera egenskaps paneler som representerar tröskel information, enhetens hälso information och underhålls information.
 
+### <a name="customize-the-dashboard"></a>Anpassa instrument panelen
 
-### <a name="customize-dashboard"></a>Anpassa instrument panelen 
+Som ett verktyg kan du anpassa vyer på instrument panelen för användning av operatörer.
 
-Som ett verktyg kan du anpassa vyer på instrument panelen för operatörer. 
-1. Klicka på **Redigera** för att anpassa **instrument panelen för bred vatten kvalitet övervakning**. Du kan anpassa instrument panelen genom att klicka på **Redigera** -menyn. När instrument panelen är i **redigerings** läge kan du lägga till nya paneler, eller så kan du konfigurera
+1. Välj **Redigera** för att anpassa den **breda instrument panels fönstret för vatten kvalitet** . Du kan anpassa instrument panelen genom att välja kommandon på **Redigera** -menyn. När instrument panelen är i redigerings läge kan du lägga till nya paneler, eller så kan du konfigurera de befintliga filerna.
 
-    ![Redigera instrument panel](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
+    ![Redigera din instrument panel](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
 
-2. Klicka på **+ ny** för att skapa en ny instrument panel och konfigurera från början. Du kan ha flera instrument paneler och du kan navigera mellan dina instrument paneler på instrument panelens meny.
+1. Välj **+ nytt** för att skapa en ny instrument panel som du kan konfigurera. Du kan ha flera instrument paneler och kan navigera bland dem från instrument panels menyn.
 
-## <a name="explore-water-quality-monitor-device-template"></a>Utforska enhets mal len för övervakning av vatten kvalitet
-En enhets mall i Azure IoT Central definierar funktionen hos en enhet, som kan vara telemetri, egenskaper och kommandon. Som ett verktyg kan du definiera enhetsspecifika i IoT Central som representerar kapaciteten hos de enheter som ska anslutas. I IoT Central kan du också skapa simulerade enheter för att testa enhetens mall och program. 
- 
+## <a name="explore-a-water-quality-monitoring-device-template"></a>Utforska en enhets mall för övervakning av vatten kvalitet
 
-Programmet för **övervakning av vatten kvalitet** som du har skapat från program mal len levereras med en enhets mall för övervakning av vatten kvalitet.
+En enhets mall i Azure IoT Central definierar funktionerna för en enhet. Tillgängliga funktioner är telemetri, egenskaper och kommandon. Som ett verktyg kan du definiera enhetsspecifika i Azure IoT Central som representerar funktionerna i de anslutna enheterna. Du kan också skapa simulerade enheter för att testa din enhets mall och program.
+
+Programmet för övervakning av vatten kvalitet som du har skapat kommer att ha en enhets mall för övervakning av vatten kvalitet.
 
 Så här visar du enhets mal len:
 
-1.  Klicka på **mallar för enheter** i det vänstra navigerings fönstret i programmet i IoT Central. 
-2. I listan mallar för enheter visas **vatten kvalitet**. Öppna genom att klicka på namnet.
+1. Välj **enhetsspecifika** i fönstret längst till vänster i ditt program i Azure IoT Central.
+1. Välj **övervakaren för vatten kvalitet**i listan med enhetsspecifika enheter. Enhets mal len öppnas.
 
-    ![Enhets mall](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
+    ![Enhets mal len](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
 
-### <a name="customizing-the-device-template"></a>Anpassa enhets mal len
+### <a name="customize-the-device-template"></a>Anpassa enhets mal len
 
-Försök att anpassa följande:
-1. Navigera för att **Anpassa** från menyn på enhets mal len
-2. Hitta typen av telemetri för `Temperature`
-3. Uppdatera **visnings namnet** för `Temperature` till `Reported temperature`
-4. Uppdatera mått enhet eller ange *minsta värde* och *Max värde*
-5. **Spara** ändringar 
+Öva på att anpassa följande inställningar för enhets mal len:
 
-#### <a name="add-a-cloud-property"></a>Lägg till en moln egenskap 
-1. Gå till **moln egenskap** från enhetens mall-menyn
-2. Lägg till en ny moln egenskap genom att klicka på **+ Lägg till moln egenskap**. I IoT Central kan du lägga till en egenskap som är relevant för enheten men som inte förväntas skickas av en enhet. Som exempel kan en moln egenskap vara en aviserings tröskel som är speciell för installations områden, till gångs information eller underhålls information osv. 
-3. **Spara** ändringar 
- 
-### <a name="views"></a>Vyer 
-Enhets mal len för övervakning av vatten kvalitet levereras med fördefinierade vyer. Utforska vyerna så kan du göra uppdateringar. Vyerna definierar hur operatörer ser enhets data, men som även anger moln egenskaper. 
+1. Från menyn enhets mall väljer du **Anpassa**.
+1. Gå till typen av typ **av telemetri.**
+1. Ändra värdet för **visnings namn** till **rapporterad temperatur**.
+1. Ändra mått enheten eller ange **minsta värde** och **högsta värde**.
+1. Välj **Spara**.
+
+#### <a name="add-a-cloud-property"></a>Lägg till en moln egenskap
+
+1. Från menyn enhets mall väljer du **moln egenskap**.
+1. Om du vill lägga till en ny moln egenskap väljer du **+ Lägg till moln egenskap**. I Azure IoT Central kan du lägga till en egenskap som är relevant för en enhet men som inte förväntas skickas av enheten. Ett exempel på en sådan egenskap är ett tröskelvärde för aviseringar som är speciellt för installations-, till gångs information eller underhålls information.
+1. Välj **Spara**.
+
+### <a name="explore-views"></a>Utforska vyer
+
+Enhets mal len för övervakning av vatten kvalitet levereras med fördefinierade vyer. Vyerna definierar hur operatörer ser enhets data och anger moln egenskaper. Utforska vyer och praxis att göra ändringar.
 
   ![Vyer för enhets mal len](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate-views.png)
 
-### <a name="publish"></a>Publicera 
+### <a name="publish-the-device-template"></a>Publicera enhets mal len
 
-Om du har gjort några ändringar måste du **publicera** enhets mal len. 
+Om du gör några ändringar ska du se till att välja **publicera** för att publicera enhets mal len.
 
+### <a name="create-a-new-device-template"></a>Skapa en ny enhetsmall
 
-### <a name="create-a-new-device-template"></a>Skapa en ny enhetsmall 
-1. Välj **+ nytt** för att skapa en ny enhets mall och följ proceduren för att skapa. 
-2. Skapa en anpassad enhets mall från början eller Välj en enhets mall från Azures enhets katalog. 
-
+1. Välj **+ nytt** för att skapa en ny enhets mall och följ proceduren för att skapa.
+1. Skapa en anpassad enhets mall eller Välj en enhets mall från katalogen Azure IoT-enheter.
 
 ## <a name="explore-simulated-devices"></a>Utforska simulerade enheter
 
-Programmet för **övervakning av vatten kvalitet** som du har skapat från program mal len har två simulerade enheter som är kopplade till enhets mal len för enhets övervakaren för vatten kvalitet. 
+Programmet för övervakning av vatten kvalitet som du skapade från program mal len har två simulerade enheter. Dessa enheter mappas till enhets mal len för kontroll av vatten kvalitet.
 
-### <a name="to-view-the-devices"></a>Så här visar du enheterna:
-1. Navigera till **enheten** från IoT Central vänstra navigerings fönstret. 
+### <a name="view-the-devices"></a>Visa enheterna
+
+1. Välj **enheter** i fönstret längst till vänster i ditt program.
 
    ![Enheter](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
 
+1. Välj en simulerad enhet.
 
-2. Markera och klicka på en simulerad enhet 
+    ![Välj enhet 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
 
-    ![Enhet 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
-
-3. På fliken **moln egenskaper** försöker du uppdatera `Acidity (pH) Threshold` värde från `8` till `9`. 
-4. Utforska fliken **enhets egenskaper** och fliken **enhets instrument panel** . 
+1. På fliken **moln egenskaper** ändrar du **tröskelvärdet för surhets grad (pH)** från **8** till **9**.
+1. Utforska fliken **enhets egenskaper** och fliken **enhets instrument panel** .
 
 > [!NOTE]
-> Observera att alla flikar har kon figurer ATS från **Device Template-vyerna**.
-
+> Alla flikar har kon figurer ATS från **vyer för enhets mal len**.
 
 ### <a name="add-new-devices"></a>Lägg till nya enheter
-Du kan lägga till nya enheter genom att klicka på **+ ny** på fliken **enheter** . 
 
+På fliken **enheter** väljer du **+ ny** för att lägga till en ny enhet.
 
 ## <a name="explore-and-configure-rules"></a>Utforska och konfigurera regler
 
-I Azure IoT Central kan du skapa regler för automatisk övervakning på enhetens telemetri och utlösa en åtgärd när ett eller flera villkor uppfylls. Åtgärderna kan omfatta att skicka e-postmeddelanden eller utlösa en Microsoft Flow åtgärd eller en webhook-åtgärd för att skicka data till andra tjänster.
+I Azure IoT Central kan du skapa regler som automatiskt övervakar telemetri från enheten. Dessa regler utlöser en åtgärd när något av deras villkor är uppfyllt. En möjlig åtgärd är att skicka e-postaviseringar. Andra möjligheter är en Microsoft Flow åtgärd eller en webhook-åtgärd för att skicka data till andra tjänster.
 
-Det program för **övervakning av vatten kvalitet** som du har skapat mallen har två förkonfigurerade regler.
+Programmet för övervakning av vatten kvalitet som du skapade har två förkonfigurerade regler.
 
-### <a name="to-view-rules"></a>Så här visar du regler:
-1. Navigera till **regler** från IoT Central vänstra navigerings fönstret. 
+### <a name="view-rules"></a>Visa regler
+
+1. Välj **regler** i fönstret längst till vänster i ditt program.
 
    ![Regler](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-rules.png)
 
+1. Välj **hög pH-avisering**, som är en av de förkonfigurerade reglerna i programmet.
 
-2. Välj och klicka på **hög pH-avisering** , vilket är en av de förkonfigurerade reglerna i programmet. 
+   ![Varnings regeln för hög pH](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
 
-     ![Hög pH-avisering](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
+   **Varnings regeln för hög pH** har kon figurer ATS för att kontrol lera villkoret för syrahalt (pH) är större än 8.
 
-    `High pH alert`s regeln har kon figurer ATS för att kontrol lera mot villkors `Acidity (pH) is greater than 8`.
+Lägg sedan till en e-poståtgärd i regeln:
 
-Nu ska vi skapa en e-poståtgärd.
+1. Välj **+ e-post**.
+1. I rutan **visnings namn** anger du **hög pH-avisering**.
+1. I rutan **till** anger du den e-postadress som är kopplad till ditt Azure IoT Central-konto.
+1. Du kan också ange en anteckning som ska inkluderas i e-postmeddelandets text.
+1. Välj **klar** för att slutföra åtgärden.
+1. Välj **Spara** för att spara och aktivera den nya regeln.
 
-Så här lägger du till en åtgärd i regeln:
-
-1. Välj **+ e-post**. 
-2.  Ange *hög pH-avisering* som det egna **visnings namnet** för åtgärden.
-3. Ange den e-postadress som är kopplad till ditt IoT Central konto i **till**. 
-4. Du kan också ange en anteckning som ska inkluderas i e-postmeddelandets text.
-5. Välj **klar** för att slutföra åtgärden.
-6. Välj **Spara** för att spara och aktivera den nya regeln. 
-
-Inom några minuter bör du få ett e-postmeddelande när det konfigurerade **villkoret** är uppfyllt.
+Inom några minuter bör du få ett e-postmeddelande när det konfigurerade villkoret är uppfyllt.
 
 > [!NOTE]
-> Programmet kommer att skicka ett e-postmeddelande varje gången ett villkor är uppfyllt. **Inaktivera** regeln om du vill sluta ta emot e-post från den automatiserade regeln. 
+> Programmet skickar ett e-postmeddelande varje gången ett villkor är uppfyllt. Välj **inaktivera** för en regel för att sluta ta emot automatiserad e-post från regeln.
   
-Så här skapar du en ny regel: 
-1. Välj **+ nytt** i **reglerna** i det vänstra navigerings fönstret.
+Om du vill skapa en ny regel väljer du **regler** i fönstret längst till vänster i programmet och väljer sedan **+ ny**.
 
 ## <a name="configure-jobs"></a>Konfigurera jobb
 
-I IoT Central kan du använda jobb för att utlösa enhets-eller moln egenskaper uppdateringar på flera enheter. Förutom egenskaper kan du också använda jobb för att utlösa enhets kommandon på flera enheter. IoT Central automatiserar arbets flödet åt dig. 
+Med Azure IoT Central-jobb kan du utlösa uppdateringar till enhets-eller moln egenskaper på flera enheter. Du kan också använda jobb för att utlösa enhets kommandon på flera enheter. Azure IoT Central automatiserar arbets flödet åt dig.
 
-1. Gå till **jobb** från det vänstra navigerings fönstret. 
-2. Klicka på **+ ny** och konfigurera ett eller flera jobb. 
+1. Välj **jobb** i fönstret längst till vänster i ditt program.
+1. Välj **+ ny** och konfigurera ett eller flera jobb.
 
+## <a name="customize-your-application"></a>Anpassa ditt program
 
-## <a name="customize-your-application"></a>Anpassa ditt program 
 Som verktyg kan du ändra flera inställningar för att anpassa användar upplevelsen i ditt program.
 
-1. Välj **Administration > anpassa ditt program**.
-2. Använd knappen **ändra** för att välja en bild att ladda upp som **program logo typ**.
-3.  Använd knappen **ändra** för att välja en **ikon för en webb läsar ikon** som visas på flikar i webbläsaren.
-4. Du kan också ersätta standard **webbläsarens färger** genom att lägga till HTML-hexadecimala färg koder.
-5. Ändra även **temat** genom att klicka på **inställningarna** i huvud rubriken.
+1. Välj **Administration** > **Anpassa ditt program**.
+1. Under **program logo typ**väljer du **ändra** för att välja den bild som ska laddas upp som logo typ.
+1. Under **webb läsar ikon**väljer du **ändra** för att välja den bild som visas på flikar i webbläsaren.
+1. Under **webb läsar färger**kan du ersätta standardvärdena med HTML-hexadecimala färg koder.
+1. Välj **Inställningar** om du vill ändra värdet för **tema**.
 
-   ![Azure IoT Central anpassa ditt program](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
+   ![Anpassa ditt program](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
 
-### <a name="to-update-the-application-image"></a>Så här uppdaterar du program avbildningen:
+### <a name="update-the-application-image"></a>Uppdatera program avbildningen
 
-6.  Välj **Administration > program inställningar**.
+1. Välj **Administration** > **program inställningar**.
 
-7. Använd knappen **Välj bild** för att välja en bild som ska laddas upp som program avbildning. 
+1. Använd knappen **Välj bild** för att välja en bild som ska laddas upp som program avbildning.
 
-
-  
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet tar du bort programmet med följande steg:
+Om du inte kommer att fortsätta att använda programmet tar du bort programmet med följande steg:
 
-1. Öppna fliken Administration i det vänstra fönstret i ditt IoT Central-program.
-2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan.
+1. Öppna fliken **Administration** i fönstret längst till vänster i ditt program.
+1. Välj **program inställningar** och klicka på knappen **ta bort** .
 
-    ![Ta bort program](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)        
-
-
+    ![Ta bort ditt program](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [begrepp för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md)
+* Lär dig mer om [begrepp för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md).

@@ -1,5 +1,5 @@
 ---
-title: Aktivera transparent datakryptering för Stretch Database-Azure | Microsoft Docs
+title: Aktivera transparent datakryptering för Stretch Database
 description: Aktivera transparent datakryptering (TDE) för SQL Server Stretch Database på Azure
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -13,12 +13,13 @@ author: blazem-msft
 ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
-ms.openlocfilehash: 61f556476958484b78b9c3dff2583eb6db043637
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "66003045"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034002"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Aktivera transparent datakryptering (TDE) för Stretch Database på Azure
 > [!div class="op_single_selector"]
@@ -36,7 +37,7 @@ Gör så här om du vill aktivera TDE för en Azure-databas som lagrar data som 
 
 1. Öppna databasen i [Azure Portal](https://portal.azure.com)
 2. Klicka på knappen **Inställningar** i bladet databas
-3. Välj alternativet **transparent data kryptering**![][1]
+3. Välj alternativet för **transparent data kryptering** ![][1]
 4. Välj inställningen **på** och välj sedan **Spara**
    ![][2]
 

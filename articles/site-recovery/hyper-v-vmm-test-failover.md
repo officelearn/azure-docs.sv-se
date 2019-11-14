@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961403"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039738"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Köra en DR-granskning för virtuella Hyper-V-datorer till en sekundär plats
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du gör en katastrof återställning (DR) för v
 Du kan köra ett redundanstest för att verifiera din strategi för replikering och utföra en katastrof granskning utan data förlust eller avbrott. En redundanstest har ingen påverkan på den pågående replikeringen eller i produktions miljön. 
 
 > [!WARNING]
-> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](scvmm-site-recovery-deprecation.md) informationen innan du fortsätter.
+> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](site-to-site-deprecation.md) informationen innan du fortsätter.
 
 
 ## <a name="how-do-test-failovers-work"></a>Hur fungerar redundanstest?

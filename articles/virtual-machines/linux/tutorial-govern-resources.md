@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Hantera virtuella Azure-datorer med Azure CLI | Microsoft Docs
+title: Självstudie – styr Azure Virtual Machines med Azure CLI
 description: I den här självstudien lär du dig hur du använder Azure CLI för att hantera virtuella Azure-datorer med hjälp av RBAC, principer, lås och taggar
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 5fa14ef30d45a9a28cc690761ec33b5bfaaac6a7
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676507"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034531"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Självstudier: Lär dig hur du hanterar virtuella Linux-datorer med Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Självstudie: Lär dig hur du hanterar virtuella Linux-datorer med Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -64,7 +64,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Om du får ett fel meddelande om att **huvud kontot \<guid > inte finns i katalogen**, sprids inte den nya gruppen till hela Azure Active Directory. Prova att köra kommandot igen.
+Om du får ett fel meddelande om att **huvud kontots \<-guid > inte finns i katalogen**, sprids inte den nya gruppen till hela Azure Active Directory. Prova att köra kommandot igen.
 
 Normalt upprepar du processen för *Nätverksdeltagare* och *Lagringskontodeltagare* för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 

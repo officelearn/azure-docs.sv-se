@@ -1,5 +1,5 @@
 ---
-title: CLI-exempel – Virtuella datorer med lastbalanserare i flera tillgänglighetszoner – Azure | Microsoft Docs
+title: Belastningsutjämna virtuella datorer över tillgänglighets zoner – Azure CLI – Azure Load Balancer
 description: Det här CLI-skriptexemplet visar hur du belastningsutjämnar trafik till virtuella datorer i flera tillgänglighetszoner
 services: load-balancer
 documentationcenter: load-balancer
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: fdfd1de3d20a275dbc19ed414a22ebe2a6864eeb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 92f03981a573a9688115d9505266e94b7cab0e78
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273715"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048891"
 ---
-# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exempel för Azure CLI-skript: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
+# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exempel på Azure CLI-skript: Virtuella datorer med belastningsutjämnare i flera tillgänglighetszoner
 
 Det här Azure CLI-skriptexemplet skapar allt som behövs för att köra flera virtuella Ubuntu-datorer, konfigurerade med hög tillgänglighet och belastningsutjämning. När du har kört skriptet har du tre virtuella datorer i alla tillgänglighetszoner inom ett område som kan nås via en Azure Standard Load Balancer. 
 

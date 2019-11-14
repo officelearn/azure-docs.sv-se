@@ -1,5 +1,5 @@
 ---
-title: Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av SQL Server IaaS agent-tillägg | Microsoft Docs
+title: Automatisera hanterings uppgifter med IaaS agent-tillägg
 description: Den här artikeln beskriver hur du hanterar SQL Server IaaS agent Extension, som automatiserar vissa SQL Server administrations uppgifter. Detta inkluderar automatisk säkerhets kopiering, automatisk uppdatering och Azure Key Vault integrering.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3240bb689447c16de8c62e9e8118b0b0df2b1ea3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259431"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034201"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 > [!div class="op_single_selector"]
@@ -49,7 +50,7 @@ När SQL Server IaaS agent-tillägget är installerat och körs, blir administra
 * På den SQL Server panelen i den virtuella datorn i Azure Portal och via Azure PowerShell för SQL Server avbildningar på Azure Marketplace.
 * Genom Azure PowerShell för manuella installationer av tillägget. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Här följer kraven för att använda SQL Server IaaS agent Extension på den virtuella datorn:
 
 **Operativsystem**:

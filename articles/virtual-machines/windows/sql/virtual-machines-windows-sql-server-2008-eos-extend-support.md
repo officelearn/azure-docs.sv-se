@@ -1,6 +1,6 @@
 ---
-title: Utöka stödet för SQL Server 2008 och SQL Server 2008 R2 med Azure
-description: Lär dig hur du utökar stödet för SQL Server 2008 och SQL Server 2008 R2 genom att migrera din SQL Server instans till Azure eller köpa utökad support för att hålla instanserna lokalt.
+title: Utöka stödet för SQL Server 2008 & 2008 R2
+description: Utöka stödet för SQL Server 2008 och SQL Server 2008 R2 genom att migrera din SQL Server instans till Azure eller köpa utökad support för att hålla instanserna lokalt.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 93e0032cd283eda034519ca29a0e1cf501b5cde6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d1b3961b61d45718e726b31ec406445b202a0adf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100457"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034179"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Utöka stödet för SQL Server 2008 och SQL Server 2008 R2 med Azure
 
@@ -28,7 +29,7 @@ Till skillnad från en hanterad instans kräver migreringen till en virtuell Azu
 
 Resten av den här artikeln innehåller information om hur du migrerar SQL Server-instansen till en virtuell Azure-dator.
 
-## <a name="provisioning"></a>Etableras
+## <a name="provisioning"></a>Etablering
 
 Du betalar per användning **SQL Server 2008 R2 på Windows Server 2008 R2** -avbildningen som är tillgänglig på Azure Marketplace.
 
@@ -37,9 +38,9 @@ Kunder som är på SQL Server 2008 måste antingen själv installera eller uppgr
 Avbildningar som distribueras via Azure Marketplace levereras med SQL IaaS-tillägget förinstallerat. SQL IaaS-tillägget är ett krav för flexibel licensiering och automatiserad uppdatering. Kunder som distribuerar självinstallerade virtuella datorer måste installera SQL IaaS-tillägget manuellt. SQL IaaS-tillägget stöds inte på Windows Server 2008.
 
 > [!NOTE]
-> Även om SQL Server **skapa** och **Hantera** blad kommer att fungera med SQL Server 2008 R2-avbildningen i Azure Portal, _stöds inte_följande funktioner: Automatisk säkerhets kopiering, Azure Key Vault integrering, R-tjänster och lagrings konfiguration.
+> Även om SQL Server **skapa** och **Hantera** blad fungerar med SQL Server 2008 R2-avbildningen i Azure Portal, _stöds inte_följande funktioner: automatisk säkerhets kopiering, Azure Key Vault integrering, R-tjänster och lagrings konfiguration.
 
-## <a name="licensing"></a>Licenser
+## <a name="licensing"></a>Licensiering
 SQL Server 2008 R2-distributioner enligt principen betala per användning kan konverteras till [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Om du vill konvertera en Software Assurance-baserad licens för att betala per användning bör kunderna registreras med [resurs leverantören](virtual-machines-windows-sql-register-with-resource-provider.md)för SQL-VM. Efter registreringen blir SQL-licensservern utbytbar mellan Azure Hybrid-förmån och betala per användning.
@@ -63,9 +64,9 @@ SQL Server kräver programkonsekventa Azure Site Recovery ögonblicks bilder fö
 
 Katastrof återställnings lösningar för EOS SQL Server på en virtuell Azure-dator är följande:
 
-- **SQL Server säkerhets kopior**: Använd Azure Backup för att skydda din EOS SQL Server mot utpressnings tro, oavsiktlig borttagning och skada. Lösningen är för närvarande en för hands version för EOS SQL Server och stöder SQL Server 2008 och 2008 R2 som körs på Windows 2008 R2 SP1. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
-- **Logg överföring**: Du kan skapa en logg överförings replik i en annan zon eller Azure-region med kontinuerliga återställningar för att minska RTO. Du måste konfigurera logg överföring manuellt.
-- **Azure Site Recovery**: Du kan replikera den virtuella datorn mellan zoner och regioner genom Azure Site Recovery replikering. SQL Server kräver programkonsekventa ögonblicks bilder för att garantera återställning i händelse av en katastrof. Azure Site Recovery erbjuder en lägsta återställnings period på 1 timme och en 2-timmars återställnings tid (plus SQL Server återställnings tid) RTO för EOS SQL Server haveri beredskap.
+- **SQL Server säkerhets kopieringar**: Använd Azure Backup för att skydda din EOS SQL Server mot utpressnings tro, oavsiktlig borttagning och skada. Lösningen är för närvarande en för hands version för EOS SQL Server och stöder SQL Server 2008 och 2008 R2 som körs på Windows 2008 R2 SP1. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
+- **Logg överföring**: du kan skapa en logg överförings replik i en annan zon eller Azure-region med kontinuerliga återställningar för att minska RTO. Du måste konfigurera logg överföring manuellt.
+- **Azure Site Recovery**: du kan REPLIKERA den virtuella datorn mellan zoner och regioner via Azure Site Recovery replikering. SQL Server kräver programkonsekventa ögonblicks bilder för att garantera återställning i händelse av en katastrof. Azure Site Recovery erbjuder en lägsta återställnings period på 1 timme och en 2-timmars återställnings tid (plus SQL Server återställnings tid) RTO för EOS SQL Server haveri beredskap.
 
 ## <a name="security-patching"></a>Säkerhets korrigering
 Utökade säkerhets uppdateringar för SQL Server virtuella datorer levereras via Microsoft Update kanaler när SQL Server VM har registrerats med [resurs leverantören](virtual-machines-windows-sql-register-with-resource-provider.md)för SQL-VM. Korrigeringsfiler kan hämtas manuellt eller automatiskt.

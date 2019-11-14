@@ -1,5 +1,5 @@
 ---
-title: Storlekar för virtuella Azure Linux-datorer – allmänt syfte | Microsoft Docs
+title: Storlekar för virtuella Azure Linux-datorer – generell användning
 description: Visar en lista över de olika generella syftes storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 6049103b2ce5b87033509193fe3a000ffa65511c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1f04ef5018a8069e5d8430037d986a31f29b5be7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719164"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034920"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Generella storlekar för virtuella datorer
 

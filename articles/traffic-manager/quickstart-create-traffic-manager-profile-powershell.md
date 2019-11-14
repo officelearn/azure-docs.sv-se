@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – skapa en Traffic Manager-profil för hög tillgänglighet för program med hjälp av Azure PowerShell
-description: Den här snabbstartsartikeln beskriver hur du skapar en Traffic Manager-profil för att skapa ett program med hög tillgänglighet.
+title: 'Snabb start: skapa en profil för hög tillgänglighet för program – Azure PowerShell – Azure Traffic Manager'
+description: Den här snabb starten beskriver hur du skapar en Traffic Manager-profil för att skapa ett webb program med hög tillgänglighet.
 services: traffic-manager
 author: asudbring
 mnager: twooley
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2019
 ms.author: allensu
-ms.openlocfilehash: ce05d594555095c061e43df2464b906138811448
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b1a0040c3cf6d517b19445be689dcc786334325
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051111"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038855"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Snabbstart: Skapa en Traffic Manager-profil för en högtillgänglig webbprogram med Azure PowerShell
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Snabb start: skapa en Traffic Manager-profil för ett webb program med hög tillgänglighet med hjälp av Azure PowerShell
 
 I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger hög tillgänglighet för din webbapp.
 
-I den här snabbstarten skapar du två instanser av ett webbprogram. Var och en av dem körs i olika Azure-regioner. Du skapar Traffic Manager-profil baserat på [slutpunktsprioritet](traffic-manager-routing-methods.md#priority). Profilen dirigerar användartrafik till den primära plats som kör webbappen. Traffic Manager övervakar kontinuerligt webbappen. Om den primära platsen inte är tillgänglig ger den automatisk redundans till säkerhetskopieringsplatsen.
+I den här snabb starten skapar du två instanser av ett webb program. Var och en av dem körs i olika Azure-regioner. Du skapar Traffic Manager-profil baserat på [slutpunktsprioritet](traffic-manager-routing-methods.md#priority). Profilen dirigerar användartrafik till den primära plats som kör webbappen. Traffic Manager övervakar kontinuerligt webbappen. Om den primära platsen inte är tillgänglig ger den automatisk redundans till säkerhetskopieringsplatsen.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
@@ -32,7 +32,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln version 5.4.1 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Skapa en resurs med [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
+Skapa en resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name MyResourceGroup -Location $Location1
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
-Skapa en Traffic Manager-profil med [New AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) som dirigerar trafik för användare baserat på slutpunktsprioritet.
+Skapa en Traffic Manager profil med [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) som dirigerar användar trafik baserat på slut punkts prioritet.
 
 ```azurepowershell-interactive
 
@@ -65,12 +65,12 @@ New-AzTrafficManagerProfile `
 -MonitorPort 80
 ```
 
-## <a name="create-web-apps"></a>Skapa Webbappar
+## <a name="create-web-apps"></a>Skapa Web Apps
 
-För den här snabbstarten behöver du två instanser av ett webbprogram som distribueras i två olika Azure-regioner (*västra USA* och *USA, östra*). Var och en av dessa kommer att fungera som primär- och redundansslutpunkter för Traffic Manager.
+I den här snabb starten behöver du två instanser av ett webb program som distribueras i två olika Azure-regioner (*västra USA* och *östra USA*). Var och en av dessa kommer att fungera som primär- och redundansslutpunkter för Traffic Manager.
 
-### <a name="create-web-app-service-plans"></a>Skapa Web App Service-planer
-Skapa Web App service-planer med [New AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) för två instanser av den webbapp som du ska distribuera i två olika Azure-regioner.
+### <a name="create-web-app-service-plans"></a>Skapa webb App Services planer
+Skapa webb program tjänst planer med [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) för de två instanser av webb programmet som du ska distribuera i två olika Azure-regioner.
 
 ```azurepowershell-interactive
 
@@ -85,8 +85,8 @@ New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName MyResourceGroup -
 New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
 
 ```
-### <a name="create-a-web-app-in-the-app-service-plan"></a>Skapa en Webbapp i App Service-Plan
-Skapa två instanser i webbprogram som använder [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) i App Service-planer i den *västra USA* och *USA, östra* Azure-regioner.
+### <a name="create-a-web-app-in-the-app-service-plan"></a>Skapa en webbapp i App Service planen
+Skapa två instanser av webb programmet med [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) i App Service planer i regionerna *västra USA* och *östra USA* Azure.
 
 ```azurepowershell-interactive
 $App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
@@ -95,9 +95,9 @@ $App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
-Lägg till två Web Apps som Traffic Manager-slutpunkter med hjälp av [New AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) till Traffic Manager profilen på följande sätt:
-- Lägg till Webbappen finns i den *västra USA* Azure-region som den primära slutpunkten att dirigera all användartrafik. 
-- Lägg till Webbappen finns i den *USA, östra* Azure-region som slutpunkt för redundans. När den primära slutpunkten inte är tillgänglig dirigeras trafiken automatiskt till redundansslutpunkten.
+Lägg till de två Web Apps som Traffic Manager slut punkter med [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) till Traffic Manager-profilen enligt följande:
+- Lägg till webbappen som finns i regionen *USA, västra* Azure som den primära slut punkten för att dirigera all användar trafik. 
+- Lägg till webbappen som finns i Azure-regionen *USA, östra* som redundansväxlingen. När den primära slutpunkten inte är tillgänglig dirigeras trafiken automatiskt till redundansslutpunkten.
 
 ```azurepowershell-interactive
 New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
@@ -121,21 +121,21 @@ I det här avsnittet kontrollerar domännamnet för Traffic Manager-profilen. Du
 
 ### <a name="determine-the-dns-name"></a>Bestämma DNS-namnet
 
-Bestämma DNS-namnet på Traffic Manager-profil med [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile).
+Bestäm DNS-namnet för Traffic Manager profilen med [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile).
 
 ```azurepowershell-interactive
 Get-AzTrafficManagerProfile -Name $mytrafficmanagerprofile `
 -ResourceGroupName MyResourceGroup
 ```
 
-Kopiera den **RelativeDnsName** värde. DNS-namnet för din Traffic Manager-profil är *http://<* relativednsname *>. trafficmanager.net*. 
+Kopiera värdet **RelativeDnsName** . DNS-namnet på din Traffic Manager-profil är *http://<* relativednsname *>. trafficmanager. net*. 
 
 ### <a name="view-traffic-manager-in-action"></a>Se hur Traffic Manager fungerar i praktiken
-1. I en webbläsare, anger du DNS-namnet på din Traffic Manager-profil (*http://<* relativednsname *>. trafficmanager.net*) att visa standardwebbplatsen för din Webbapp.
+1. I en webbläsare anger du DNS-namnet för din Traffic Manager profil (*http://<* relativednsname *>. trafficmanager. net*) för att Visa webbappens standard webbplats.
 
     > [!NOTE]
     > I det här snabbstartsscenariot dirigeras alla begäranden till den primära slutpunkten. Den är inställd på **Prioritet 1**.
-2. Om du vill visa Traffic Manager-redundans i praktiken, inaktivera din primär plats med hjälp av [inaktivera AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint).
+2. Om du vill visa Traffic Manager redundans i praktiken inaktiverar du den primära platsen med [disable-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint).
 
    ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
@@ -144,12 +144,12 @@ Kopiera den **RelativeDnsName** värde. DNS-namnet för din Traffic Manager-prof
     -ResourceGroupName MyResourceGroup `
     -Force
    ```
-3. Kopiera DNS-namnet på din Traffic Manager-profil (*http://<* relativednsname *>. trafficmanager.net*) att visa webbplatsen i en ny web-webbläsarsession.
+3. Kopiera DNS-namnet för din Traffic Manager profil (*http://<* relativednsname *>. trafficmanager. net*) om du vill visa webbplatsen i en ny webbläsarsession.
 4. Kontrollera att webbappen fortfarande är tillgänglig.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar bort resursgrupper, webbprogram och alla relaterade resurser med hjälp av [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+När du är klar tar du bort resurs grupperna, webb programmen och alla relaterade resurser med hjälp av [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
@@ -157,7 +157,7 @@ Remove-AzResourceGroup -Name MyResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en Traffic Manager-profil som ger hög tillgänglighet för ditt webbprogram. Om du vill veta mer om att dirigera trafik kan du gå vidare till Traffic Manager-självstudierna.
+I den här snabb starten skapade du en Traffic Manager profil som ger hög tillgänglighet för ditt webb program. Om du vill veta mer om att dirigera trafik kan du gå vidare till Traffic Manager-självstudierna.
 
 > [!div class="nextstepaction"]
 > [Självstudier för Traffic Manager](tutorial-traffic-manager-improve-website-response.md)

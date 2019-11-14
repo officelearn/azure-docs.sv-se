@@ -1,6 +1,6 @@
 ---
-title: Flytta en virtuell Linux-dator i Azure | Microsoft Docs
-description: Flytta en Linux-VM till en annan Azure-prenumeration eller resurs i Resource Manager-distributionsmodellen.
+title: Flytta en virtuell Linux-dator i Azure
+description: Flytta en virtuell Linux-dator till en annan Azure-prenumeration eller resurs grupp i distributions modellen för Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,41 +15,41 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c22fe8beea894bccb311a63a1be70c972188e59
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 8fc04b4689ea8707ac2c605e3e4242a117773151
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667292"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035634"
 ---
-# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Flytta en Linux-VM till en annan prenumeration eller resursgrupp grupp
-Den här artikeln vägleder dig genom hur du flyttar en Linux-dator (VM) mellan resursgrupper eller prenumerationer. Flytta en virtuell dator mellan prenumerationer kan vara praktiskt om du har skapat en virtuell dator i en personlig prenumeration och nu vill flytta det till ditt företags prenumeration.
+# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Flytta en virtuell Linux-dator till en annan prenumeration eller resurs grupp
+Den här artikeln vägleder dig genom hur du flyttar en virtuell Linux-dator (VM) mellan resurs grupper eller prenumerationer. Det kan vara praktiskt att flytta en virtuell dator mellan prenumerationer om du har skapat en virtuell dator i en personlig prenumeration och nu vill flytta den till företagets prenumeration.
 
 > [!IMPORTANT]
->Du kan inte flytta Azure Managed Disks just nu. 
+>Det går inte att flytta Azure-Managed Disks just nu. 
 >
->Ny resurs-ID: N skapas som en del av migreringen. När den virtuella datorn har flyttats, kommer du behöva uppdatera dina verktyg och skript för att använda nya resurs-ID. 
+>Nya resurs-ID: n skapas som en del av flytten. När den virtuella datorn har flyttats måste du uppdatera dina verktyg och skript för att använda de nya resurs-ID: na. 
 > 
 > 
 
-## <a name="use-the-azure-cli-to-move-a-vm"></a>Använda Azure CLI för att flytta en virtuell dator
+## <a name="use-the-azure-cli-to-move-a-vm"></a>Använd Azure CLI för att flytta en virtuell dator
 
 
-Innan du kan flytta den virtuella datorn med hjälp av Azure CLI, måste du kontrollera att käll- och målprenumerationer finns inom samma klientorganisation. Kontrollera att båda prenumerationerna har samma klient-ID genom att använda [az konto show](/cli/azure/account).
+Innan du kan flytta den virtuella datorn med hjälp av Azure CLI måste du kontrol lera att käll-och mål prenumerationerna finns inom samma klient organisation. Om du vill kontrol lera att båda prenumerationerna har samma klient-ID använder du [AZ konto show](/cli/azure/account).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
 az account show --subscription myDestinationSubscription --query tenantId
 ```
-Om klient-ID: N för käll- och målprenumerationer inte är samma, måste du kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) flytta resurserna till en ny klient.
+Om klient-ID: na för käll-och mål prenumerationerna inte är desamma måste du kontakta [supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) för att flytta resurserna till en ny klient.
 
-Om du vill flytta en virtuell dator, måste du flytta den virtuella datorn och alla dess resurser. Använd den [az resurslistan](/cli/azure/resource) kommando för att lista alla resurser i en resursgrupp och deras ID: N. Det hjälper dig att skicka vidare kommandots utdata till en fil så att du kan kopiera och klistra in ID: N i senare kommandon.
+För att kunna flytta en virtuell dator måste du flytta den virtuella datorn och alla dess stöd resurser. Använd kommandot [AZ Resource List](/cli/azure/resource) för att visa en lista över alla resurser i en resurs grupp och deras ID. Den hjälper till att skicka kommandots utdata till en fil så att du kan kopiera och klistra in ID: n i senare kommandon.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Om du vill flytta en virtuell dator och dess resurser till en annan resursgrupp, använda [az resursflytt](/cli/azure/resource). I följande exempel visas hur du flyttar en virtuell dator och de vanligaste resurser som krävs. Använd den **-ID: n** parametern och pass i en kommaavgränsad lista (utan blanksteg) med ID: N för resurserna att flytta.
+Om du vill flytta en virtuell dator och dess resurser till en annan resurs grupp använder du [AZ resurs flytt](/cli/azure/resource). I följande exempel visas hur du flyttar en virtuell dator och de vanligaste resurserna som krävs. Använd parametern **-ID** : t och skicka en kommaavgränsad lista (utan blank steg) med ID: n för de resurser som ska flyttas.
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
@@ -65,12 +65,12 @@ az resource move \
     --destination-group "myDestinationResourceGroup"
 ```
 
-Om du vill flytta den virtuella datorn och dess resurser till en annan prenumeration, lägger du till den **--mål-subscriptionId** parametern för att ange målprenumerationen.
+Om du vill flytta den virtuella datorn och dess resurser till en annan prenumeration lägger du till parametern **--destination-subscriptionId** för att ange mål prenumerationen.
 
-När du uppmanas att bekräfta att du vill flytta de angivna resurserna genom att ange **Y** att bekräfta.
+När du uppmanas att bekräfta att du vill flytta de angivna resurserna anger du **Y** för att bekräfta.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan flytta många olika typer av resurser mellan resursgrupper och prenumerationer. Mer information finns i [flytta resurser till en ny resursgrupp eller prenumeration](../../resource-group-move-resources.md).    
+Du kan flytta många olika typer av resurser mellan resurs grupper och prenumerationer. Mer information finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../../resource-group-move-resources.md).    
 

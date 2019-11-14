@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926657"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029991"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
 
@@ -34,7 +34,14 @@ Kopierar käll data till en målplats. De vägvisningar som stöds är:
 
 Mer information finns i exemplen.
 
-## <a name="advanced"></a>Advanced
+## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
+
+- [Kom igång med AzCopy](storage-use-azcopy-v10.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
+
+## <a name="advanced"></a>Avancerat
 
 AzCopy identifierar automatiskt filernas innehålls typ vid överföring från den lokala disken, baserat på fil namns tillägget eller innehållet (om inget tillägg har angetts).
 
@@ -140,25 +147,25 @@ Kopiera alla BLOB-behållare, kataloger och blobbar från lagrings kontot till e
 
 Kopiera ett enskilt objekt till Blob Storage från Amazon Web Services (AWS) S3 med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
   
-- AzCopy CP "https://s3.amazonaws.com/ [Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
+- AzCopy CP "https://s3.amazonaws.com/[Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
 
 Kopiera en hel katalog till Blob Storage från AWS S3 med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3.amazonaws.com/ [Bucket]/[mapp]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True
+- AzCopy CP "https://s3.amazonaws.com/[Bucket]/[mapp]" "https://[destaccount]. blob. Core. Windows. net/[container]/[sökväg/till/katalog]? [SAS] "--recursive = True
 
 Se https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html för bättre förståelse av [Folder]-plats hållaren.
 
 Kopiera alla buckets till Blob Storage från Amazon Web Services (AWS) med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
+- AzCopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
 Kopiera alla buckets till Blob Storage från ett Amazon Web Services (AWS)-region med hjälp av en åtkomst nyckel och en SAS-token. Ställ först in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3- [region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
+- AzCopy CP "https://s3-[region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
 Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i Bucket-namnet. Precis som i föregående exempel behöver du en åtkomst nyckel och en SAS-token. Se till att ställa in miljövariabeln AWS_ACCESS_KEY_ID och AWS_SECRET_ACCESS_KEY för AWS S3-källa.
 
-- AzCopy CP "https://s3.amazonaws.com/ [Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
+- AzCopy CP "https://s3.amazonaws.com/[Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursive = True
 
 ## <a name="options"></a>Alternativ
 
@@ -234,6 +241,6 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--Skriv** sträng format för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [AzCopy](storage-ref-azcopy.md)

@@ -1,10 +1,9 @@
 ---
-title: Hantera kostnader effektivt för SQL Server på virtuella Azure-datorer | Microsoft Docs
+title: Pris vägledning & hanterings kostnader
 description: Innehåller metod tips för att välja rätt SQL Server prissättnings modell för virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028621"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038864"
 ---
-# <a name="pricing-guidance-for-sql-server-azure-vms"></a>Pris vägledning för SQL Server virtuella Azure-datorer
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Pris vägledning för Azure SQL Server virtuella datorer
 
 Den här artikeln innehåller pris vägledning för [SQL Server virtuella datorer](virtual-machines-windows-sql-server-iaas-overview.md) i Azure. Det finns flera alternativ som påverkar kostnaden och det är viktigt att välja rätt bild som balanserar kostnader med affärs krav.
 
@@ -58,7 +58,7 @@ Om du har en icke-lättviktig produktions arbets belastning använder du någon 
 |-----|-----|
 | Webb | Små webbplatser |
 | Standard | Små till medel stora arbets belastningar |
-| Företag | Stora eller verksamhets kritiska arbets belastningar|
+| Enterprise | Stora eller verksamhets kritiska arbets belastningar|
 
 Du har två alternativ att betala för SQL Server-licensiering för dessa versioner: *betala per användning* eller *ta med din egen licens (BYOL)* .
 

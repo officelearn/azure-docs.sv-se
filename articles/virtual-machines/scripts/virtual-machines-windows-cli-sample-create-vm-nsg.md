@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa två virtuella datorer med en intern och extern NSG | Microsoft Docs
+title: Skript exempel för Azure CLI – skapa två virtuella datorer med en intern och extern NSG
 description: Skriptexempel för Azure CLI – Skapa två virtuella datorer med en intern och extern NSG
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: cc2b7182b0e9191b830ffc32bcc479cc06c1718a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: eb851b672a3cc9748d1aa5fbe27e4a7fac9d020e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708243"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039924"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>Säkra nätverkstrafik mellan virtuella datorer
 
@@ -53,7 +53,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och undernät. |
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet) | Skapar ett undernät. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Uppdaterar en NSG-regel. I det här exemplet uppdateras klientdelsregeln för att släppa igenom trafik från serverdelens undernät. |
+| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Uppdaterar en NSG-regel. I det här exemplet uppdateras backend-regeln för att släppa igenom trafik från frontend-undernätet. |
 | [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Returnerar information om en regel för nätverkssäkerhetsgrupp. I det här exemplet lagras regelnamnet i en variabel för användning senare i skriptet. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 

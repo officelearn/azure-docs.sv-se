@@ -1,5 +1,5 @@
 ---
-title: Exempelskript för Azure CLI – Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer | Microsoft Docs
+title: Skript exempel för Azure CLI – distribuera LAMP-stacken i en belastningsutjämnad skalnings uppsättning för virtuella datorer
 description: Använd ett tillägg för anpassat skript för att distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.custom: mvc
 ms.date: 04/05/2017
-ms.openlocfilehash: ffbece620ae038307d30ae3b330854280f09bd28
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 00aa744f09b7bcbbbc258b92a8fd5ab750e447c7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963245"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039103"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer
 

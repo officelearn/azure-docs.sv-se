@@ -1,5 +1,5 @@
 ---
-title: Distribuera en virtuell dator C# med hjälp av och en Resource Manager-mall | Microsoft Docs
+title: Distribuera en virtuell dator C# med hjälp av en Resource Manager-mall
 description: Lär dig hur du använder C# och en Resource Manager-mall för att distribuera en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 65ce7711786e15a5455d91ce829a3bc0bdf4317d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c88b060104a4c17e3edad2e23cfb23a54661b969
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103233"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033804"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en virtuell Azure-dator C# med hjälp av och en Resource Manager-mall
 
@@ -35,7 +35,7 @@ I det här steget ser du till att Visual Studio är installerat och du skapar et
 
 1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
 2. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-3. I **mallar** >  *, Välj* **konsol program (.NET Framework)** , ange myDotnetProject som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.**C#**
+3. I **mallar** > **visualisering C#** väljer du **konsol program (.NET Framework)** , anger *myDotnetProject* som namn på projektet, väljer projektets plats och klickar sedan på **OK**.
 
 ## <a name="install-the-packages"></a>Installera paketen
 
@@ -201,7 +201,7 @@ Innan du kan distribuera en mall ser du till att du har åtkomst till ett [Activ
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;&gt;** Ersätt  **&lt;prenumerations-&gt; ID** med prenumerations-ID, program-ID med Active Directory-program-ID, **&lt;autentisering-nyckel med&gt;** program nyckeln och  **&lt;&gt; klient-ID** med klient-ID: t.
+    Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID: **t,&lt;program-id&gt;** med Active Directory-program-ID, **&lt;autentisering-nyckel&gt;** med program nyckeln och **&lt;klient-ID&gt;med klient-ID: t** .
 
 3. Spara filen azureauth. Properties.
 4. Ange en miljö variabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till den auktoriserade filen som du har skapat, till exempel kan du använda följande PowerShell-kommando:
@@ -252,7 +252,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Mallen och parametrarna distribueras från ett lagrings konto i Azure. I det här steget skapar du kontot och laddar upp filerna. 
 

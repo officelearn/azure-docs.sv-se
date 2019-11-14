@@ -1,5 +1,5 @@
 ---
-title: Installation av GPU-drivrutin för Azure N-serien för Linux | Microsoft Docs
+title: Konfiguration av GPU-drivrutin för Azure N-serien för Linux
 description: Konfigurera NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Linux i Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035017"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035630"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
@@ -98,7 +98,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS eller Red Hat Enterprise Linux
 
-1. Uppdatera kärnan (rekommenderas). Om du väljer att inte uppdatera kärnan kontrollerar du att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
+1. Uppdatera kärnan (rekommenderas). Om du väljer att inte uppdatera kerneln kontrollerar du att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
 
    ```
    sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -240,7 +240,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS eller Red Hat Enterprise Linux 
 
-1. Uppdatera kernel-och DKMS (rekommenderas). Om du väljer att inte uppdatera kärnan kontrollerar du att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
+1. Uppdatera kernel-och DKMS (rekommenderas). Om du väljer att inte uppdatera kerneln kontrollerar du att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
  
    ```bash  
    sudo yum update
@@ -321,7 +321,7 @@ Om driv rutinen är installerad visas utdata som liknar följande. Observera att
  
 
 ### <a name="x11-server"></a>Begäran om x11-Server
-Om du behöver en begäran om x11-Server för fjärr anslutningar till en NV-eller NVv2-VM rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom den tillåter grafikens maskin varu acceleration. BusID för den M60-enheten måste läggas till manuellt i begäran om x11-konfigurations filen (vanligt vis `etc/X11/xorg.conf`). Lägg till ett `"Device"`-avsnitt som liknar följande:
+Om du behöver en begäran om x11-Server för fjärr anslutningar till en NV-eller NVv2-VM rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom den tillåter grafikens maskin varu acceleration. BusID för den M60-enheten måste läggas till manuellt i begäran om x11-konfigurations filen (vanligt vis `etc/X11/xorg.conf`). Lägg till en `"Device"`-sektion som liknar följande:
  
 ```
 Section "Device"
@@ -333,7 +333,7 @@ Section "Device"
 EndSection
 ```
  
-Uppdatera dessutom `"Screen"`-avsnittet för att använda den här enheten.
+Uppdatera dessutom `"Screen"` avsnittet för att använda den här enheten.
  
 Du kan hitta decimal BusID genom att köra
 
@@ -361,7 +361,7 @@ Skapa sedan en post för ditt uppdaterings skript i `/etc/rc.d/rc3.d` så att sk
 
 ## <a name="troubleshooting"></a>Felsökning
 
-* Du kan ställa in persistence-läge med `nvidia-smi` så att kommandots utdata går snabbare när du behöver fråga kort. Kör `nvidia-smi -pm 1` om du vill ställa in persistence-läge. Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
+* Du kan ställa in persistence-läge med `nvidia-smi` så att kommandots utdata går snabbare när du behöver fråga kort. Kör `nvidia-smi -pm 1`för att ställa in persistence-läge. Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
 * Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och hittar RDMA-connectivcity fungerar inte längre, [installerar du om RDMA-drivrutinerna](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) för att reistablish anslutningen. 
 
 ## <a name="next-steps"></a>Nästa steg

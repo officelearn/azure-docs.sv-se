@@ -1,31 +1,31 @@
 ---
-title: Lägg till enskilda licensierade användare till gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
+title: Lägg till användare med direkt licenser till grupp licensiering – Azure AD | Microsoft Docs
 description: Så här migrerar du från enskilda användar licenser till gruppbaserad licensiering med Azure Active Directory
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/26/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6c06d81f2f3f6cee781889d05ae08a1fd125df52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034752"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025685"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Så här migrerar du användare med enskilda licenser till grupper för licensiering
 
-Du kan ha befintliga licenser distribuerade till användare i organisationerna via "direkt tilldelning"; Det innebär att du kan använda PowerShell-skript eller andra verktyg för att tilldela enskilda användar licenser. Innan du börjar använda gruppbaserad licensiering för att hantera licenser i din organisation kan du använda den här migrations planen för att på ett smidigt sätt ersätta befintliga lösningar med gruppbaserad licensiering.
+Du kan ha befintliga licenser distribuerade till användare i organisationerna via direkt tilldelning. Det innebär att du kan använda PowerShell-skript eller andra verktyg för att tilldela enskilda användar licenser. Innan du börjar använda gruppbaserad licensiering för att hantera licenser i din organisation kan du använda den här migrations planen för att på ett smidigt sätt ersätta befintliga lösningar med gruppbaserad licensiering.
 
 Det viktigaste att tänka på är att du bör undvika en situation där migreringen till gruppbaserad licensiering leder till att användarna tillfälligt förlorar sina tilldelade licenser. Alla processer som kan leda till borttagning av licenser bör undvikas för att ta bort risken för att användare förlorar åtkomst till tjänster och deras data.
 

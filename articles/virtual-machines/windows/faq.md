@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om virtuella Windows-datorer i Azure | Microsoft Docs
+title: Vanliga frågor och svar om virtuella Windows-datorer i Azure
 description: Innehåller svar på några vanliga frågor om virtuella Windows-datorer som skapats med Resource Manager-modellen.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 95b7644ab8e0254a53eb4a0872a5af98a0894aec
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0ebf4049827a4abd9cfcb2eda354d0c796cbdbdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839228"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039178"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor om Virtuella Windows-datorer
 Den här artikeln behandlar några vanliga frågor om virtuella Windows-datorer som skapats i Azure med hjälp av distributions modellen Resource Manager. Linux-versionen av det här avsnittet finns i [vanliga frågor och svar om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -116,7 +116,7 @@ Följande lösen ord är inte tillåtna:
     <tr>
         <td>abc@123</td>
         <td>iloveyou!</td>
-        <td>P @ $ $w 0rd</td>
+        <td>P@$$w0rd</td>
         <td>P@ssw0rd</td>
         <td>P@ssword123</td>
     </tr>

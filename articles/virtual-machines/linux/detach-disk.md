@@ -1,5 +1,5 @@
 ---
-title: Koppla från en datadisk från en virtuell Linux-dator – Azure | Microsoft Docs
+title: Koppla från en datadisk från en virtuell Linux-dator – Azure
 description: Lär dig hur du kopplar från en datadisk från en virtuell dator i Azure med hjälp av Azure CLI eller Azure Portal.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e026617db4da58c12a454000f6d97f8b6843e95d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695865"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036375"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Så här kopplar du från en datadisk från en virtuell Linux-dator
 
@@ -82,7 +82,7 @@ I det här exemplet måste följande rad tas bort från */etc/fstab* -filen:
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
-Används `umount` för att demontera disken. I följande exempel demonteras */dev/sdc1* -partitionen från */datadrive* -monterings punkten:
+Använd `umount` för att demontera disken. I följande exempel demonteras */dev/sdc1* -partitionen från */datadrive* -monterings punkten:
 
 ```bash
 sudo umount /dev/sdc1 /datadrive
@@ -109,7 +109,7 @@ Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtu
 2. Välj den virtuella dator som innehåller den datadisk som du vill koppla från och klicka på **stoppa** för att frigöra den virtuella datorn.
 3. I fönstret virtuell dator väljer du **diskar**.
 4. Överst i fönstret **diskar** väljer du **Redigera**.
-5. I rutan **diskar** längst till höger på den datadisk som du vill koppla från, klickar du på ![knappen Koppla bort bild](./media/detach-disk/detach.png) från.
+5. I rutan **diskar** längst till höger på den datadisk som du vill koppla från, klickar du på knappen ![koppla bort knapp bild](./media/detach-disk/detach.png) koppla från.
 5. När disken har tagits bort klickar du på Spara längst upp i fönstret.
 6. I fönstret virtuell dator klickar du på **Översikt** och sedan på **Start** -knappen längst upp i fönstret för att starta om den virtuella datorn.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera väg filter för Microsoft-peering – ExpressRoute: Azure CLI | Microsoft Docs'
+title: 'ExpressRoute: väg filter-Microsoft-peering: Azure CLI'
 description: Den här artikeln beskriver hur du konfigurerar routningsfilter för Microsoft-Peering med hjälp av Azure CLI
 services: expressroute
 author: anzaman
@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: f60bf8de33cd9552bf7c903f4c8921d50e911643
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123339"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033418"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurera väg filter för Microsoft-peering: Azure CLI
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurera routningsfilter för Microsoft-peering: Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
@@ -90,32 +90,32 @@ Välj den prenumeration som du vill skapa en ExpressRoute-krets.
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Steg 1: Hämta en lista över prefix och värden för BGP-community
+## <a name="prefixes"></a>Steg 1: Hämta en lista över prefix och BGP community-värden
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Hämta en lista över BGP community-värden
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. Hämta en lista över värden för BGP-communityn
 
 Använd följande cmdlet för att hämta listan över BGP community-värden som är associerade med tjänster som är tillgängliga via Microsoft-peering och listan med prefix som är associerade med dem:
 
 ```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Skapa en lista över de värden som du vill använda
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. gör en lista över de värden som du vill använda
 
 Se en lista över BGP community-värden som du vill använda i flödesfiltret.
 
-## <a name="filter"></a>Steg 2: Skapa ett flödes filter och en filter regel
+## <a name="filter"></a>Steg 2: Skapa ett flödesfilter och en regel för filter
 
 Ett flödesfilter kan ha endast en regel och regeln måste vara av typen 'Tillåt'. Den här regeln kan ha en lista över BGP community-värden som är associerade med den.
 
-### <a name="1-create-a-route-filter"></a>1. Skapa ett flödesfilter
+### <a name="1-create-a-route-filter"></a>1. skapa ett flödes filter
 
-Skapa först flödesfiltret. Kommandot `az network route-filter create` skapar bara en Route filter-resurs. När du skapar resursen kan du sedan skapa en regel och koppla den till objektet route-filter. Kör följande kommando för att skapa en resurs för route-filter:
+Skapa först flödesfiltret. Kommandot `az network route-filter create` skapar bara en väg filter resurs. När du skapar resursen kan du sedan skapa en regel och koppla den till objektet route-filter. Kör följande kommando för att skapa en resurs för route-filter:
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
-### <a name="2-create-a-filter-rule"></a>2. Skapa en regel för filter
+### <a name="2-create-a-filter-rule"></a>2. skapa en filter regel
 
 Kör följande kommando för att skapa en ny regel:
  
@@ -123,7 +123,7 @@ Kör följande kommando för att skapa en ny regel:
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Steg 3: Koppla väg filtret till en ExpressRoute-krets
+## <a name="attach"></a>Steg 3: Koppla flödesfiltret till en ExpressRoute-krets
 
 Kör följande kommando för att koppla flödesfiltret till ExpressRoute-krets:
 

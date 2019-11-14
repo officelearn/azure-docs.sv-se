@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en Traffic Manager profil för hög tillgänglighet för program med hjälp av Azure CLI
+title: 'Snabb start: skapa en profil för HA med program – Azure CLI – Azure Traffic Manager'
 description: Den här snabb starten beskriver hur du skapar en Traffic Manager-profil för att skapa ett webb program med hög tillgänglighet.
 services: traffic-manager
 author: asudbring
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: allensu
-ms.openlocfilehash: dc7e555eb95cf88ecf57a6df4999672bb721b8cf
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 8b8880e10f9b920a2ec077d4cc4c2239e6ea7438
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620592"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034206"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Snabbstart: Skapa en Traffic Manager-profil för ett webb program med hög tillgänglighet med hjälp av Azure CLI
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Snabb start: skapa en Traffic Manager profil för ett webb program med hög tillgänglighet med hjälp av Azure CLI
 
 I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger hög tillgänglighet för din webbapp.
 
@@ -89,9 +89,9 @@ az appservice plan create \
 
 ```
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Skapa en webbapp i App Service-planen
-Skapa två instanser webb programmet med [AZ webapp skapa](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i App Service-planer *i Azure-* regionerna USA, *östra* och Västeuropa.
+Skapa två instanser webb programmet med [AZ webapp skapa](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i App Service-planer i Azure-regionerna *USA, östra* *och Västeuropa.*
 
-I följande exempel ersätter du **< app1name_eastus >** och **< app2name_westeurope >** med ett unikt namn på appen och ersätter **< appspname_eastus >** och **< appspname_westeurope >** med det namn som användes för att skapa App Service planer i föregående avsnitt.
+I följande exempel ersätter du **< app1name_eastus >** och **< app2name_westeurope >** med ett unikt namn på appen och ersätter **< appspname_eastus** > och < **appspname_westeurope > med** det namn som användes för att skapa app Services planer i föregående avsnitt.
 
 ```azurecli-interactive
 
@@ -115,7 +115,7 @@ Lägg till de två Web Apps som Traffic Manager slut punkter med [AZ Network Tra
 
 När den primära slutpunkten inte är tillgänglig dirigeras trafiken automatiskt till redundansslutpunkten.
 
-I följande exempel ersätter du **< app1name_eastus >** och **< app2name_westeurope >** med de app-namn som skapats för varje region i föregående avsnitt, ersätter **< appspname_eastus >** och **< appspname_ westeurope >** med namnet som används för att skapa app Services planer i föregående avsnitt och ersätt **< profile_name >** med det profil namn som användes i föregående avsnitt. 
+I följande exempel ersätter du **< app1name_eastus >** och **< app2name_westeurope** > med de app-namn som skapats för varje region i föregående avsnitt, ersätter **< appspname_eastus** **> och < appspname_westeurope > med** det namn som användes för att skapa App Services planer i föregående avsnitt och ersätter **<** profile_name > med det profil namn som användes i föregående avsnitt. 
 
 **Östra USA-slutpunkt**
 
@@ -170,7 +170,7 @@ az network traffic-manager endpoint create \
 
 I det här avsnittet kontrollerar domännamnet för Traffic Manager-profilen. Du kan även konfigurera den primära slutpunkten till att inte vara tillgänglig. Slutligen ser du att webbappen fortfarande är tillgänglig. Det beror på att Traffic Manager skickar trafiken till redundansslutpunkten.
 
-I följande exempel ersätter du **< app1name_eastus >** och **< app2name_westeurope >** med de app-namn som skapats för varje region i föregående avsnitt, ersätter **< appspname_eastus >** och **< appspname_ westeurope >** med namnet som används för att skapa app Services planer i föregående avsnitt och ersätt **< profile_name >** med det profil namn som användes i föregående avsnitt.
+I följande exempel ersätter du **< app1name_eastus >** och **< app2name_westeurope** > med de app-namn som skapats för varje region i föregående avsnitt, ersätter **< appspname_eastus** **> och < appspname_westeurope > med** det namn som användes för att skapa App Services planer i föregående avsnitt och ersätter **<** profile_name > med det profil namn som användes i föregående avsnitt.
 
 ### <a name="determine-the-dns-name"></a>Bestämma DNS-namnet
 

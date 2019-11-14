@@ -1,5 +1,5 @@
 ---
-title: Ladda upp eller kopiera en anpassad virtuell Linux-dator med Azure CLI | Microsoft Docs
+title: Ladda upp eller kopiera en anpassad virtuell Linux-dator med Azure CLI
 description: Ladda upp eller kopiera en anpassad virtuell dator med hjälp av distributions modellen för Resource Manager och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6cc01266bb6e7f122868257e8a5b9e88e78dddea
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 95486208f52b2faa2fbb3db5bf1ef968c330dab6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553501"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034293"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
 
@@ -31,7 +31,7 @@ Den här artikeln visar hur du laddar upp en anpassad virtuell hård disk (VHD) 
 Skapa flera virtuella datorer från din anpassade disk genom att först skapa en avbildning från din virtuella dator eller VHD. Mer information finns i [skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI](tutorial-custom-images.md).
 
 Det finns två alternativ för att skapa en anpassad disk:
-* Överför en virtuell hårddisk
+* Ladda upp en virtuell hårddisk
 * Kopiera en befintlig virtuell Azure-dator
 
 
@@ -51,7 +51,7 @@ För att utföra följande steg behöver du:
 
 - Kontrol lera att du har den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index#az-login).
 
-I följande exempel ersätter du parameter namn med egna värden, till exempel `myResourceGroup`, `mystorageaccount` och `mydisks`.
+I följande exempel ersätter du parameter namn med egna värden, till exempel `myResourceGroup`, `mystorageaccount`och `mydisks`.
 
 <a id="prepimage"> </a>
 

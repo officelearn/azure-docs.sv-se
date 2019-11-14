@@ -1,17 +1,14 @@
 ---
 title: Kanadas federala PBMM skiss exempel – kontroll mappning
 description: Kontroll av kart provet i Kanadas federala PBMM-exempel. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: e74d3328e1ed41a7184569d30cc46ae7cd29a5ba
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0be73497de36ac3c11637b80a492ab0a8558206d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163508"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039696"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Kontroll av kart provet i Kanadas federala PBMM-utkast
 
@@ -93,7 +90,7 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
-- Fjärrfelsökning bör inaktive ras för webb program
+- Fjärrfelsökning bör stängas av för webbprogram
 
 ## <a name="au-3-2-content-of-audit-records"></a>AU-3 (2) innehåll i gransknings poster
 
@@ -101,9 +98,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
 
@@ -120,9 +117,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 
 ## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
 
@@ -130,9 +127,9 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
@@ -244,9 +241,9 @@ Den här skissen hjälper dig att skydda konfidentiell och integritet på överf
 - API-appen bör bara vara tillgänglig via HTTPS
 - Granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera krav för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Funktionsapp bör endast vara tillgängligt via HTTPS
+- Funktionen App bör enbart vara åtkomliga via HTTPS
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade
-- Webb program bör endast vara tillgängliga via HTTPS
+- Webbprogram bör enbart vara åtkomliga via HTTPS
 - Säker överföring till lagrings konton ska vara aktiverat
 
 ## <a name="sc-28-1-protection-of-information-at-rest"></a>SC-28 (1) skydd av information i vila
@@ -294,9 +291,9 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
@@ -314,9 +311,9 @@ Du har granskat kontroll mappningen av det federala PBMM skiss-exemplet. Gå sed
 
 > [!div class="nextstepaction"]
 > [Kanadas federala PBMM skiss – översikt](./control-mapping.md)
-> [Canada Federal PBMM-skiss – distribuera steg](./deploy.md)
+> [Canada Federal PBMM skiss – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

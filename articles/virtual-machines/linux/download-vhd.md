@@ -1,5 +1,5 @@
 ---
-title: Ladda ned en Linux-VHD från Azure | Microsoft Docs
+title: Ladda ned en Linux-VHD från Azure
 description: Ladda ned en Linux-VHD med Azure CLI och Azure Portal.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: ed79df03a42c1558b975cd1c21c79716d50d4616
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 257f3f723fc8a971b8253699f4beb002cf46ce52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083492"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036290"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Ladda ned en Linux-VHD från Azure
 
@@ -56,7 +56,7 @@ Slutför följande steg för att använda den virtuella hård disken som en avbi
 
 Slutför följande steg för att använda den virtuella hård disken som en disk för en ny instans av en befintlig virtuell dator eller data disk:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com/).
+1.  Logga in på [Azure-portalen](https://portal.azure.com/).
 2.  På den vänstra menyn väljer du **Virtual Machines**.
 3.  Välj den virtuella datorn i listan.
 4.  På sidan för den virtuella datorn väljer du **stoppa**.
@@ -71,13 +71,13 @@ Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad 
 2.  Välj operativ system disk för den virtuella datorn och välj sedan **disk export**.
 3.  Välj **skapa URL**.
 
-    ![Skapa webbadress](./media/download-vhd/export-generate.png)
+    ![Generera URL](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>Hämta VHD
 
 1.  Under den URL som genererades väljer du **Hämta VHD-filen**.
 **
-    ![Hämta VHD](./media/download-vhd/export-download.png)
+    ![Ladda ned VHD-](./media/download-vhd/export-download.png)
 
 2.  Du kan behöva välja **Spara** i webbläsaren för att starta nedladdningen. Standard namnet för VHD-filen är *ABCD*.
 

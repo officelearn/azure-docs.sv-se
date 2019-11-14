@@ -1,5 +1,5 @@
 ---
-title: Översikt över dedikerade Azure-värdar för virtuella datorer | Microsoft Docs
+title: Översikt över Azures dedikerade värdar för virtuella datorer
 description: Lär dig mer om hur Azure-dedikerade värdar kan användas för att distribuera virtuella datorer.
 services: virtual-machines-windows
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 011bfeb337f3c04b2d9041abedac50affe1f86b0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cfcc8aeb3d1cc1f199b19abc16cc54db416a307e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977250"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033386"
 ---
-# <a name="preview-azure-dedicated-hosts"></a>Förhandsversion: Dedikerade Azure-värdar
+# <a name="preview-azure-dedicated-hosts"></a>För hands version: Azure-dedikerade värdar
 
 Den dedikerade Azure-värden är en tjänst som tillhandahåller fysiska servrar som kan vara värd för en eller flera virtuella datorer som är dedikerade till en Azure-prenumeration. Dedikerade värdar är samma fysiska servrar som används i våra data Center, som tillhandahålls som en resurs. Du kan etablera dedikerade värdar inom en region, tillgänglighets zon och fel domän. Sedan kan du placera virtuella datorer direkt i dina etablerade värdar, i vilken konfiguration som passar bäst för dina behov.
 

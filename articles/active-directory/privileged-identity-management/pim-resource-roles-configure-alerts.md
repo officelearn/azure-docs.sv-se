@@ -4,23 +4,23 @@ description: Lär dig hur du konfigurerar säkerhets aviseringar för Azure Reso
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f191eac841bd9f79844a09cd25725de7ea8b154
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895777"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023073"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Konfigurera säkerhets aviseringar för Azures resurs roller i Privileged Identity Management
 
@@ -36,13 +36,13 @@ Välj en avisering om du vill visa en rapport som visar de användare eller roll
 
 ## <a name="alerts"></a>Aviseringar
 
-| Avisering | Allvarsgrad | Utlösare | Rekommendation |
+| Varning | Severity | Utlösare | Rekommendation |
 | --- | --- | --- | --- |
-| **För många ägare har tilldelats till en resurs** |Medium |För många användare har ägar rollen. |Granska användarna i listan och tilldela om några till mindre privilegierade roller. |
-| **För många permanenta ägare har tilldelats till en resurs** |Medium |För många användare tilldelas permanent till en roll. |Granska användarna i listan och tilldela om några för att kräva aktivering för roll användning. |
-| **En duplicerad roll har skapats** |Medium |Flera roller har samma villkor. |Använd endast en av dessa roller. |
+| **För många ägare har tilldelats till en resurs** |Medel |För många användare har ägar rollen. |Granska användarna i listan och tilldela om några till mindre privilegierade roller. |
+| **För många permanenta ägare har tilldelats till en resurs** |Medel |För många användare tilldelas permanent till en roll. |Granska användarna i listan och tilldela om några för att kräva aktivering för roll användning. |
+| **En duplicerad roll har skapats** |Medel |Flera roller har samma villkor. |Använd endast en av dessa roller. |
 
-### <a name="severity"></a>Allvarsgrad
+### <a name="severity"></a>Severity
 
 - **Hög**: kräver omedelbar åtgärd på grund av en princip överträdelse. 
 - **Medels Tor**: kräver ingen omedelbar åtgärd, men signalerar en eventuell princip överträdelse.

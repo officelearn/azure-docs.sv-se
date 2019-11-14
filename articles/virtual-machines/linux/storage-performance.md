@@ -1,5 +1,5 @@
 ---
-title: Optimera prestanda för virtuella datorer i Azure Lsv2-serien – lagring | Microsoft Docs
+title: Optimera prestanda för virtuella datorer i Azure Lsv2-serien – lagring
 description: Lär dig hur du optimerar prestanda för din lösning på virtuella datorer i Lsv2-serien.
 services: virtual-machines-linux
 author: laurenhughes
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: ea64a4274eda947aebf0f693657c17a120bec560
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d99f63ae084b4f1dae3c0125420eaecf5655e2d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081786"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034761"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimera prestanda för virtuella datorer i Lsv2-serien
 
@@ -37,7 +37,7 @@ Virtuella datorer i Lsv2-serien använder AMD-EYPC™ Server processorer baserat
 
 ## <a name="tips-to-maximize-performance"></a>Tips för att maximera prestanda
 
-* Observera att accelererat nätverk är inaktiverat som standard om du överför en anpassad Linux-gäst för din arbets belastning. Om du vill aktivera accelererat nätverk aktiverar du det när du skapar den virtuella datorn för bästa prestanda.
+* Observera att accelererat nätverk är **inaktiverat** som standard om du överför en anpassad Linux-gäst för din arbets belastning. Om du vill aktivera accelererat nätverk aktiverar du det när du skapar den virtuella datorn för bästa prestanda.
 
 * Maskin varan som ger de virtuella datorerna i Lsv2-serien använder NVMe-enheter med åtta I/O-ködjup (QP) s. Varje NVMe-enhet I/O-kö är faktiskt ett par: en sändnings kö och en slut för ande kö. NVMe-drivrutinen har kon figurer ATS för att optimera användningen av dessa åtta I/O-frågor per sekund genom att distribuera i/O i ett schema med resursallokering (Round Robin). För att få högsta prestanda kan du köra åtta jobb per enhet för att matcha.
 
@@ -45,7 +45,7 @@ Virtuella datorer i Lsv2-serien använder AMD-EYPC™ Server processorer baserat
 
 * Lsv2-användare bör inte förlita sig på enhetens NUMA-information (all 0) som rapporteras från den virtuella datorn för data enheter för att bestämma NUMA-tillhörighet för sina appar. Det rekommenderade sättet för bättre prestanda är att sprida arbets belastningar mellan CPU: er om det är möjligt.
 
-* Det maximala ködjup som stöds per I/O-ködjup för Lsv2 VM NVMe-enhet är 1024 (vs. Amazon i3 KÖDJUP 32-gräns). Lsv2-användare bör begränsa sina (syntetiska) arbets belastningar till ködjup 1024 eller lägre för att undvika att utlösa kön med fullständiga villkor, vilket kan minska prestandan.
+* Det maximala ködjup som stöds per I/O-ködjup för Lsv2 VM NVMe-enhet är 1024 (vs. Amazon i3 KÖDJUP 32 Limit). Lsv2-användare bör begränsa sina (syntetiska) arbets belastningar till ködjup 1024 eller lägre för att undvika att utlösa kön med fullständiga villkor, vilket kan minska prestandan.
 
 ## <a name="utilizing-local-nvme-storage"></a>Använd lokal NVMe-lagring
 
@@ -96,17 +96,17 @@ Mer information om alternativ för att säkerhetskopiera data i lokal lagring fi
 * **Behöver jag göra några ändringar i rq_affinity för prestanda?**  
    Inställningen rq_affinity är en mindre justering när du använder absoluta maximala in-/utdata-åtgärder per sekund (IOPS). När allt annat fungerar bra kan du försöka ange rq_affinity till 0 för att se om det är en skillnad.
 
-* **Måste jag ändra blk_mq-inställningarna?**  
-   RHEL/CentOS 7. x använder automatiskt BLK-MQ för NVMe-enheter. Inga konfigurations ändringar eller inställningar krävs. Inställningen scsi_mod. use _blk_mq är endast för SCSI och användes under Lsv2-förhands granskningen eftersom NVMe-enheterna är synliga i de virtuella gäst datorerna som SCSI-enheter. För närvarande visas NVMe-enheterna som NVMe-enheter, så inställningen för SCSI-BLK är irrelevant.
+* **Måste jag ändra blk_mq inställningarna?**  
+   RHEL/CentOS 7. x använder automatiskt BLK-MQ för NVMe-enheter. Inga konfigurations ändringar eller inställningar krävs. Inställningen scsi_mod. use_blk_mq är endast för SCSI och användes vid för hands versionen av Lsv2 eftersom NVMe-enheterna är synliga i de virtuella gäst datorerna som SCSI-enheter. För närvarande visas NVMe-enheterna som NVMe-enheter, så inställningen för SCSI-BLK är irrelevant.
 
 * **Måste jag ändra "FIO"?**  
-   För att få högsta IOPS med ett prestanda Mät verktyg som "FIO" i L64v2 och L80v2 VM-storlekar, anger du "rq_affinity" till 0 på varje NVMe-enhet.  Den här kommando raden ställer till exempel in "rq_affinity" på noll för alla 10 NVMe-enheter i en L80v2-VM:
+   Om du vill få högsta IOPS med ett prestanda Mät verktyg som "FIO" i L64v2 och L80v2 VM-storlekar, anger du "rq_affinity" till 0 på varje NVMe-enhet.  Den här kommando raden kommer till exempel att ange "rq_affinity" till noll för alla 10 NVMe-enheter i en virtuell L80v2-dator:
 
    ```console
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   Observera också att bästa prestanda erhålls när I/O görs direkt till var och en av RAW NVMe-enheter utan partitionering, inga fil system, ingen RAID 0-konfiguration osv. Innan du startar en testsession ska du se till att konfigurationen är i ett känt tillstånd för att `blkdiscard` rensa och rensa genom att köra på varje NVMe-enhet.
+   Observera också att bästa prestanda erhålls när I/O görs direkt till var och en av RAW NVMe-enheter utan partitionering, inga fil system, ingen RAID 0-konfiguration osv. Innan du startar en testsession ska du kontrol lera att konfigurationen är i ett känt tillstånd för att rensa och rensa genom att köra `blkdiscard` på var och en av NVMe-enheterna.
    
 ## <a name="next-steps"></a>Nästa steg
 

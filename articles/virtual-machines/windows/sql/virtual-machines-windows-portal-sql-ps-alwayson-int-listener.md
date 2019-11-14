@@ -1,5 +1,5 @@
 ---
-title: Konfigurera lyssnare för Always on-tillgänglighetsgrupper – Microsoft Azure | Microsoft Docs
+title: Konfigurera tillgänglighets grupps lyssnare & Load Balancer (PowerShell)
 description: Konfigurera tillgänglighets grupps lyssnare i Azure Resource Manager modellen med hjälp av en intern belastningsutjämnare med en eller flera IP-adresser.
 services: virtual-machines
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 7d6427e88960ec3ff550affb1624dd82e561a6bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 83910c2209b5d3d3d67578ae41afb902bc885171
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102179"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037458"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always on tillgänglighets grupps lyssnare – Resource Manager
 Det här avsnittet visar hur du:
@@ -61,24 +62,24 @@ Om du begränsar åtkomsten med en Azure-nätverks säkerhets grupp kontrollerar
 
 Den aktuella [Microsoft-mallen](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) för en tillgänglighets grupp använder en grundläggande belastningsutjämnare med grundläggande IP-adresser.
 
-I exemplen i den här artikeln anges en standard belastningsutjämnare. I exemplen innehåller `-sku Standard`skriptet.
+I exemplen i den här artikeln anges en standard belastningsutjämnare. I exemplen innehåller skriptet `-sku Standard`.
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Om du vill skapa en grundläggande belastningsutjämnare tar du `-sku Standard` bort den från raden som skapar belastningsutjämnaren. Exempel:
+Om du vill skapa en grundläggande belastningsutjämnare tar du bort `-sku Standard` från raden som skapar belastningsutjämnaren. Exempel:
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Exempel skript: Skapa en intern belastningsutjämnare med PowerShell
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Exempel skript: skapa en intern belastningsutjämnare med PowerShell
 
 > [!NOTE]
 > Om du har skapat din tillgänglighets grupp med [Microsoft-mallen](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)har den interna belastningsutjämnaren redan skapats.
 
-Följande PowerShell-skript skapar en intern belastningsutjämnare, konfigurerar belastnings Utjämnings reglerna och anger en IP-adress för belastningsutjämnaren. Öppna Windows PowerShell ISE och klistra in skriptet i skript fönstret för att köra skriptet. Används `Connect-AzAccount` för att logga in på PowerShell. Om du har flera Azure-prenumerationer `Select-AzSubscription` använder du för att ställa in prenumerationen. 
+Följande PowerShell-skript skapar en intern belastningsutjämnare, konfigurerar belastnings Utjämnings reglerna och anger en IP-adress för belastningsutjämnaren. Öppna Windows PowerShell ISE och klistra in skriptet i skript fönstret för att köra skriptet. Använd `Connect-AzAccount` för att logga in på PowerShell. Om du har flera Azure-prenumerationer använder du `Select-AzSubscription` för att ställa in prenumerationen. 
 
 ```powershell
 # Connect-AzAccount
@@ -128,7 +129,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Exempel skript: Lägga till en IP-adress till en befintlig belastningsutjämnare med PowerShell
+## <a name="Add-IP"></a>Exempel skript: Lägg till en IP-adress till en befintlig belastningsutjämnare med PowerShell
 Om du vill använda fler än en tillgänglighets grupp lägger du till ytterligare en IP-adress i belastningsutjämnaren. Varje IP-adress kräver en egen belastnings Utjämnings regel, avsöknings port och klient port.
 
 Klient dels porten är den port som program använder för att ansluta till SQL Server-instansen. IP-adresser för olika tillgänglighets grupper kan använda samma klient dels port.
@@ -188,7 +189,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Starta SQL Server Management Studio och Anslut till den primära repliken.
 
-1. Navigera till tillgänglighets grupps lyssnare för tillgänglighets**grupper** | med **hög tillgänglighet** | för AlwaysOn. 
+1. Gå till | **tillgänglighets grupper** för **AlwaysOn-hög tillgänglighet** | **tillgänglighets grupps lyssnare**. 
 
 1. Du bör nu se det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel. Högerklicka på namnet på lyssnaren och klicka på **Egenskaper**.
 

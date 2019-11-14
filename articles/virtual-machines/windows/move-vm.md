@@ -1,6 +1,6 @@
 ---
-title: Flytta en Windows VM-resurs i Azure | Microsoft Docs
-description: Flytta en virtuell Windows-dator till en annan Azure-prenumeration eller resurs i Resource Manager-distributionsmodellen.
+title: Flytta en virtuell Windows-resurs i Azure
+description: Flytta en virtuell Windows-dator till en annan Azure-prenumeration eller resurs grupp i distributions modellen för Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,39 +13,39 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6b189c4bfcc61084ed197649d376cae8fdf2eb56
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 9264e36922cb88c541ba9fb2fe54a9606f371b72
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723086"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033179"
 ---
-# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Flytta en virtuell Windows-dator till en annan Azure-prenumeration eller resursgrupp grupp
-Den här artikeln vägleder dig genom hur du flyttar en Windows virtuell dator (VM) mellan resursgrupper eller prenumerationer. Flytta mellan prenumerationer kan vara användbart om du skapade en virtuell dator i en personlig prenumeration och nu vill flytta det till ditt företags prenumeration och fortsätt ditt arbete. Du behöver inte starta den virtuella datorn för att flytta den och det bör fortsätta att köras under förflyttningen.
+# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Flytta en virtuell Windows-dator till en annan Azure-prenumeration eller resurs grupp
+Den här artikeln vägleder dig igenom hur du flyttar en virtuell Windows-dator (VM) mellan resurs grupper eller prenumerationer. Det kan vara praktiskt att flytta mellan prenumerationer om du ursprungligen skapade en virtuell dator i en personlig prenumeration och nu vill flytta den till företagets prenumeration för att fortsätta med ditt arbete. Du behöver inte starta den virtuella datorn för att kunna flytta den och den bör fortsätta att köras under flytten.
 
 > [!IMPORTANT]
->Ny resurs-ID: N skapas som en del av migreringen. När den virtuella datorn har flyttats, kommer du behöva uppdatera dina verktyg och skript för att använda nya resurs-ID. 
+>Nya resurs-ID: n skapas som en del av flytten. När den virtuella datorn har flyttats måste du uppdatera dina verktyg och skript för att använda de nya resurs-ID: na. 
 > 
 > 
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
-## <a name="use-powershell-to-move-a-vm"></a>Använd Powershell för att flytta en virtuell dator
+## <a name="use-powershell-to-move-a-vm"></a>Använd PowerShell för att flytta en virtuell dator
 
-Om du vill flytta en virtuell dator till en annan resursgrupp måste du se till att du också flytta alla beroende resurser. Hämta en lista med resurs-ID för var och en av de här resurserna med den [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet.
+Om du vill flytta en virtuell dator till en annan resurs grupp måste du se till att du också flyttar alla beroende resurser. Om du vill hämta en lista med resurs-ID för var och en av dessa resurser använder du cmdleten [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) .
 
 ```azurepowershell-interactive
  Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-list -wrap -Property ResourceId 
 ```
 
-Du kan använda utdata från föregående kommando som en kommaavgränsad lista med resurs-ID: N till [flytta AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) att flytta varje resurs till målet. 
+Du kan använda utdata från föregående kommando som en kommaavgränsad lista med resurs-ID: n till [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) för att flytta varje resurs till målet. 
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
     
-För att flytta resurser till en annan prenumeration, innehåller den **- DestinationSubscriptionId** parametern. 
+Om du vill flytta resurserna till en annan prenumeration inkluderar du parametern **-DestinationSubscriptionId** . 
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
@@ -54,8 +54,8 @@ Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
 ```
 
 
-När du uppmanas att bekräfta att du vill flytta de angivna resurserna genom att ange **Y** att bekräfta.
+När du uppmanas att bekräfta att du vill flytta de angivna resurserna anger du **Y** för att bekräfta.
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan flytta många olika typer av resurser mellan resursgrupper och prenumerationer. Mer information finns i [flytta resurser till en ny resursgrupp eller prenumeration](../../resource-group-move-resources.md).    
+Du kan flytta många olika typer av resurser mellan resurs grupper och prenumerationer. Mer information finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../../resource-group-move-resources.md).    
 

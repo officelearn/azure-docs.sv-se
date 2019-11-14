@@ -1,5 +1,5 @@
 ---
-title: Etablerings guide för Windows SQL Server virtuella datorer i Azure Portal | Microsoft Docs
+title: Etablera en virtuell dator med Azure Portal
 description: I den här instruktions guiden beskrivs dina alternativ för att skapa virtuella Windows SQL Server 2017-datorer i Azure Portal.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 68fda45038da48660da0c29787b3a86e00d9b129
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828763"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033590"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell Windows SQL Server-dator i Azure Portal
 
@@ -38,7 +39,7 @@ När du skapar en SQL Server virtuell dator kan du välja en av flera förkonfig
 
 1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information**. 
-1. Skriv `2017` i rutan SQL Server avbildnings sökning på panelen **SQL Virtual Machines** och välj sedan **Free SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016 @ no__t-0 från List rutan. 
+1. Skriv `2017` i rutan Sök i SQL Server avbildningen på panelen **SQL Virtual Machines** och välj sedan **kostnads fri SQL Server licens: SQL Server 2017 Developer på Windows Server 2016** i list rutan. 
 
 
    ![Välj avbildning av virtuell SQL-dator](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -55,7 +56,7 @@ När du skapar en SQL Server virtuell dator kan du välja en av flera förkonfig
 1. Välj **Skapa**.
 
 
-## <a name="1-configure-basic-settings"></a>1. Konfigurera grundläggande inställningar
+## <a name="1-configure-basic-settings"></a>1. konfigurera grundläggande inställningar
 
 
 Ange följande information på fliken **grundläggande** :
@@ -63,7 +64,7 @@ Ange följande information på fliken **grundläggande** :
 * Under **projekt information**kontrollerar du att rätt prenumeration har valts. 
 *  I avsnittet **resurs grupp** väljer du antingen en befintlig resurs grupp i listan eller så skapar du en ny resurs grupp genom att välja **Skapa ny** . En resursgrupp är en samling relaterade resurser i Azure (virtuella datorer, lagringskonton, virtuella nätverk osv.). 
 
-    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Prenumeration](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
   > En ny resursgrupp är praktiskt om du bara testar eller lär dig om SQL Server-distributioner i Azure. När du är klar med testet tar du bort resursgruppen. När du gör det tas den virtuella datorn och alla resurser som associeras med resursgruppen bort automatiskt. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
@@ -73,10 +74,10 @@ Ange följande information på fliken **grundläggande** :
     1. Ange ett unikt **namn för den virtuella datorn**.  
     1. Välj en plats för din **region**. 
     1. I den här hand boken lämnar du **tillgänglighets alternativ** inställda på _ingen infrastrukturs-redundans krävs_. Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../windows/availability.md). 
-    1. I listan **avbildning** väljer _du gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server_2016.  
+    1. I listan **avbildning** väljer du _gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016_.  
     1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md).
 
-    ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+    ![Instans information](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > Den uppskattade månadskostnaden som visas på sidan **Välj en storlek** omfattar inte SQL Server-licenskostnaden. Den här uppskattningen är endast kostnaden för den virtuella datorn. För Express-och Developer-utgåvorna av SQL Server är denna uppskattning den totala beräknade kostnaden. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. Se även [pris vägledningen för SQL Server virtuella Azure-datorer](virtual-machines-windows-sql-server-pricing-guidance.md) och [storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -122,7 +123,7 @@ Konfigurera nätverks alternativen på fliken **nätverk** .
 Konfigurera övervakning och automatisk avstängning på fliken **övervakning** . 
 
 * Azure aktiverar **startdiagnostik** som standard med samma lagrings konto som har angetts för den virtuella datorn. Du kan ändra dessa inställningar här, samt aktivera diagnostik för **operativ systemets gäst**. 
-* Du kan även aktivera systemtilldelad **hanterad identitet** och automatisk **avstängning** på den här fliken. 
+* Du kan även aktivera **systemtilldelad hanterad identitet** och automatisk **avstängning** på den här fliken. 
 
 ![Hanterings inställningar för virtuella SQL-datorer](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
@@ -142,7 +143,7 @@ Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **S
 | [R Services (avancerad analys)](#r-services-advanced-analytics) |
 
 
-### <a name="connectivity"></a>Anslutningar
+### <a name="connectivity"></a>Anslutning
 
 Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här genom gången väljer du **offentlig (Internet)** för att tillåta att anslutningar SQL Server från datorer eller tjänster på Internet. När det här alternativet är markerat konfigurerar Azure automatiskt brand väggen och nätverks säkerhets gruppen för att tillåta trafik på den valda porten.
 
@@ -162,7 +163,7 @@ I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiv
 
 
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Om du behöver SQL Server autentisering klickar du på **Aktivera** under **SQL-autentisering** på fliken **SQL Server inställningar** .
 
@@ -189,11 +190,11 @@ Följande tabell innehåller de parametrar som krävs för att konfigurera Azure
 | **Key Vault-URL** |Platsen för nyckelvalvet. |https:\//contosokeyvault.vault.azure.net/ |
 | **Huvudnamn** |Azure Active Directory-tjänstens huvudnamn. Det här namnet kallas också för klient-ID:t. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Huvudhemlighet** |Azure Active Directory-tjänstens huvudhemlighet. Den här hemligheten kallas även för klienthemligheten. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Namn på autentiseringsuppgifter** |**Namn på autentiseringsuppgift**: AKV-integreringen skapar en autentiseringsuppgift i SQL Server, vilket gör det möjligt för den virtuella datorn att ha åtkomst till nyckel valvet. Välj ett namn för autentiseringsuppgifterna. |mycred1 |
+| **Namn på autentiseringsuppgifter** |**Namn på autentiseringsuppgifter**: AKV-integreringen skapar autentiseringsuppgifter på SQL-servern som gör att den virtuella datorn kan komma åt nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |mycred1 |
 
 Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="storage-configuration"></a>Lagringskonfiguration
+### <a name="storage-configuration"></a>Storage-konfiguration
 
 På fliken **SQL Server inställningar** under **lagrings konfiguration**väljer du **ändra konfiguration** för att öppna sidan prestanda optimerad lagrings konfiguration och anger lagrings kraven.
 
@@ -246,7 +247,7 @@ Mer information finns i [Automatisk säkerhetskopiering av SQL Server i Azure Vi
 Du kan välja att aktivera [SQL Server R Services (avancerad analys)](/sql/advanced-analytics/r/sql-server-r-services/). Med det här alternativet kan du använda avancerad analys med SQL Server 2017. Välj **Aktivera** i fönstret **SQL Server inställningar** .
 
 
-## <a name="4-review--create"></a>4. Granska + skapa
+## <a name="4-review--create"></a>4. granska + skapa
 
 På fliken **Granska + skapa** granskar du sammanfattningen och väljer **skapa** för att skapa SQL Server, resurs grupp och resurser som angetts för den här virtuella datorn.
 

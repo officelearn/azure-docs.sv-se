@@ -1,5 +1,5 @@
 ---
-title: Hitta och ta bort frånkopplade Azure-nätverkskort | Microsoft Docs
+title: Hitta och ta bort frånkopplade Azure-nätverkskort
 description: Hitta och ta bort Azure-nätverkskort som inte är anslutna till virtuella datorer med Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 1665b5fa8d2bfd63982bcffd1d5251214ff3586b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3d7a0e3405dd87d17c9d7aac2e989ab82531d9b0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083314"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036134"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Hitta och ta bort anslutna nätverkskort för virtuella Azure-datorer
 När du tar bort en virtuell dator i Azure tas nätverkskorten (nätverkskorten) inte bort som standard. Om du skapar och tar bort flera virtuella datorer fortsätter de oanvända nätverkskorten att använda de interna IP-adresslån. När du skapar andra nätverkskort för virtuella datorer kan de inte erhålla ett IP-lån i under nätets adress utrymme. Den här artikeln visar hur du hittar och tar bort ej anslutna nätverkskort.

@@ -1,18 +1,14 @@
 ---
 title: CAF migration landnings zon skiss exempel – distribuera steg
 description: Distribuera steg för CAF migration landnings zon skiss exemplet inklusive information om skiss artefakt parameter.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
-ms.service: blueprints
-ms.custom: fasttrack-new
-ms.openlocfilehash: 4693959a2b4f0638caea57fb97796faf62aba9a0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 67dabde6afe2dbc17a5ca2bd32534108b8008a8a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163561"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038444"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Distribuera den Microsoft Cloud implementerings ramverket för Azure Migrates exempel på skiss zon skiss
 
@@ -120,7 +116,7 @@ Nu när du har granskat stegen för att distribuera CAF migrera landnings zon sk
 > [!div class="nextstepaction"]
 > [CAF migration landnings zon skiss – översikt](./index.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

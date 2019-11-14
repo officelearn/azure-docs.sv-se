@@ -1,5 +1,5 @@
 ---
-title: Skapa en lyssnare för en SQL Server tillgänglighets grupp på virtuella Azure-datorer | Microsoft Docs
+title: Konfigurera tillgänglighets grupps lyssnare & belastningsutjämnare (Azure Portal)
 description: Stegvisa instruktioner för att skapa en lyssnare för en Always on-tillgänglighets grupp för SQL Server på virtuella Azure-datorer
 services: virtual-machines
 documentationcenter: na
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: c9c8379787619608421256120139f07c8dbd8d14
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102245"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039654"
 ---
-# <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för tillgänglighets gruppen Always on i Azure
+# <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Konfigurera en belastningsutjämnare för en tillgänglighets grupp på Azure SQL Server virtuella datorer
 Den här artikeln beskriver hur du skapar en belastningsutjämnare för en SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer som körs med Azure Resource Manager. En tillgänglighets grupp kräver en belastningsutjämnare när SQL Server instanserna finns på virtuella Azure-datorer. Belastningsutjämnaren lagrar IP-adressen för tillgänglighets gruppens lyssnare. Om en tillgänglighets grupp sträcker sig över flera regioner behöver varje region en belastningsutjämnare.
 
 För att slutföra den här uppgiften måste du ha en SQL Server tillgänglighets grupp distribuerad på virtuella Azure-datorer som kör med Resource Manager. Både SQL Server virtuella datorer måste tillhöra samma tillgänglighets uppsättning. Du kan använda [Microsoft-mallen](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) för att automatiskt skapa tillgänglighets gruppen i Resource Manager. Den här mallen skapar automatiskt en intern belastningsutjämnare åt dig. 
@@ -49,7 +50,7 @@ I den här delen av uppgiften gör du följande:
 > 
 > 
 
-### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Steg 1: Skapa belastningsutjämnaren och konfigurera IP-adressen
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Steg 1: skapa belastningsutjämnaren och konfigurera IP-adressen
 Skapa först belastningsutjämnaren. 
 
 1. Öppna den resurs grupp som innehåller de SQL Server virtuella datorerna i Azure Portal. 
@@ -62,17 +63,17 @@ Skapa först belastningsutjämnaren.
 
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställning | Value |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
-   | **Typ** |**Internt**: De flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: Tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
+   | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
    | **Virtuellt nätverk** |Välj det virtuella nätverk som SQL Servers instanserna finns i. |
    | **Undernät** |Välj det undernät som de SQL Server instanserna finns i. |
    | **Tilldelning av IP-adress** |**Oföränderlig** |
-   | **Privat IP-adress** |Ange en tillgänglig IP-adress från under nätet. Använd den här IP-adressen när du skapar en lyssnare i klustret. I ett PowerShell-skript längre fram i den här artikeln använder du `$ILBIP` den här adressen för variabeln. |
+   | **Privat IP-adress** |Ange en tillgänglig IP-adress från under nätet. Använd den här IP-adressen när du skapar en lyssnare i klustret. I ett PowerShell-skript senare i den här artikeln använder du den här adressen för variabeln `$ILBIP`. |
    | **Prenumeration** |Om du har flera prenumerationer kan det här fältet visas. Välj den prenumeration som du vill koppla till den här resursen. Det är normalt samma prenumeration som alla resurser för tillgänglighets gruppen. |
    | **Resursgrupp** |Välj den resurs grupp som SQL Server instanserna finns i. |
-   | **Location** |Välj den Azure-plats som SQL Server instanserna finns i. |
+   | **Plats** |Välj den Azure-plats som SQL Server instanserna finns i. |
 
 6. Klicka på **Skapa**. 
 
@@ -99,16 +100,16 @@ Azure anropar *backend-adresspoolen*för backend-adresspoolen. I det här fallet
 
 Azure uppdaterar inställningarna för backend-adresspoolen. Nu har din tillgänglighets uppsättning en pool med två SQL Server instanser.
 
-### <a name="step-3-create-a-probe"></a>Steg 3: Skapa en avsökning
+### <a name="step-3-create-a-probe"></a>Steg 3: skapa en avsökning
 Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser som för närvarande äger tillgänglighets gruppens lyssnare. Azure avsöker tjänsten baserat på IP-adressen på en port som du anger när du skapar avsökningen.
 
-1. Klicka på **hälso**avsökningar på bladet **Inställningar** för belastnings utjämning. 
+1. Klicka på **hälso avsökningar**på bladet **Inställningar** för belastnings utjämning. 
 
-2. På bladet **hälso** avsökningar klickar du på **Lägg till**.
+2. På bladet **hälso avsökningar** klickar du på **Lägg till**.
 
 3. Konfigurera avsökningen på bladet **Lägg till sökning** . Använd följande värden för att konfigurera avsökningen:
 
-   | Inställning | Value |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
    | **Protokoll** |**TCP** |
@@ -134,12 +135,12 @@ Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar 
 
 3. Konfigurera belastnings Utjämnings regeln på bladet **Lägg till belastnings Utjämnings regler** . Använd följande inställningar: 
 
-   | Inställning | Value |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar belastnings Utjämnings reglerna. Till exempel **SQLAlwaysOnEndPointListener**. |
    | **Protokoll** |**TCP** |
    | **Port** |*1433* |
-   | **Backend-port** |*1433*. Värdet ignoreras eftersom den här regeln använder **flytande IP (direkt Server retur)** . |
+   | **Backend-port** |*1433*. det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt Server retur)** . |
    | **Provtagning** |Använd namnet på avsökningen som du skapade för den här belastningsutjämnaren. |
    | **Beständig session** |**Alternativet** |
    | **Tids gräns för inaktivitet (minuter)** |*4* |
@@ -166,7 +167,7 @@ Nästa steg är att konfigurera lyssnaren på klustret och ta med lyssnaren onli
 
 2. Ta med lyssnaren online.
 
-### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Steg 5: Skapa tillgänglighets gruppens lyssnare i redundansklustret
+### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Steg 5: skapa tillgänglighets gruppens lyssnare i redundansklustret
 I det här steget skapar du tillgänglighets gruppens lyssnare manuellt i Klusterhanteraren för växling vid fel och SQL Server Management Studio.
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
@@ -177,7 +178,7 @@ Om kluster resurserna och beroendena är korrekt konfigurerade bör du kunna vis
 
 1. Starta SQL Server Management Studio och Anslut sedan till den primära repliken.
 
-2. Gå till tillgänglighets**grupps lyssnare**för tillgänglighets**grupper** > med **hög tillgänglighet** > för AlwaysOn.  
+2. Gå till > **tillgänglighets grupper** för **AlwaysOn-hög tillgänglighet** > **tillgänglighets grupps lyssnare**.  
     Du bör nu se det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel. 
 
 3. Högerklicka på namnet på lyssnaren och klicka sedan på **Egenskaper**.
@@ -220,7 +221,7 @@ Om du vill lägga till en IP-adress till en belastningsutjämnare med Azure Port
 
 7. Lägg till en hälso avsökning med hjälp av följande inställningar:
 
-   |Inställning |Value
+   |Inställning |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar avsökningen.
    |**Protokoll** |TCP
@@ -234,7 +235,7 @@ Om du vill lägga till en IP-adress till en belastningsutjämnare med Azure Port
 
 10. Konfigurera den nya belastnings Utjämnings regeln med följande inställningar:
 
-    |Inställning |Value
+    |Inställning |Värde
     |:-----|:----
     |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln. 
     |**IP-adress för klient del** |Välj den IP-adress som du skapade. 
@@ -243,9 +244,9 @@ Om du vill lägga till en IP-adress till en belastningsutjämnare med Azure Port
     |**Backend-port** |Använd samma värde som **port**.
     |**Backend-pool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
     |**Hälso avsökning** |Välj den avsökning som du har skapat.
-    |**Beständig session** |Inga
+    |**Beständig session** |Ingen
     |**Tids gräns för inaktivitet (minuter)** |Standard (4)
-    |**Flytande IP (direkt Server retur)** | Aktiverad
+    |**Flytande IP (direkt Server retur)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Konfigurera tillgänglighets gruppen så att den använder den nya IP-adressen
 
@@ -283,18 +284,18 @@ Om en tillgänglighets grupp deltar i en distribuerad tillgänglighets grupp beh
 
 1. Skapa belastnings Utjämnings regeln med följande inställningar:
 
-   |Inställning |Value
+   |Inställning |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln för den distribuerade tillgänglighets gruppen. 
    |**IP-adress för klient del** |Använd samma IP-adress för klient delen som tillgänglighets gruppen.
    |**Protokoll** |TCP
-   |**Port** |5022 – porten för [slut punkten](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)för den distribuerade tillgänglighets gruppen.</br> Kan vara vilken tillgänglig port som helst.  
+   |**Port** |5022 – porten för [slut punkten för den distribuerade tillgänglighets gruppen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Kan vara vilken tillgänglig port som helst.  
    |**Backend-port** | 5022 – Använd samma värde som **port**.
    |**Backend-pool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
    |**Hälso avsökning** |Välj den avsökning som du har skapat.
-   |**Beständig session** |Inga
+   |**Beständig session** |Ingen
    |**Tids gräns för inaktivitet (minuter)** |Standard (4)
-   |**Flytande IP (direkt Server retur)** | Aktiverad
+   |**Flytande IP (direkt Server retur)** | Enabled
 
 Upprepa de här stegen för belastningsutjämnaren för de andra tillgänglighets grupper som deltar i de distribuerade tillgänglighets grupperna.
 

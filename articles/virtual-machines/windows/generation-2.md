@@ -1,5 +1,5 @@
 ---
-title: Azure-stöd för virtuella datorer i generation 2 | Microsoft Docs
+title: Azure-stöd för virtuella datorer i generation 2
 description: Översikt över Azure-stöd för virtuella datorer i generation 2
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f17ec7179413bebb8260089abc46856412b78ab5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891488"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038658"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -53,7 +53,7 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure. Azure erbj
 
 Virtuella datorer i generation 2 stöder följande Marketplace-avbildningar:
 
-* Windows Server 2019 Data Center
+* Windows Server 2019 Datacenter
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
@@ -69,11 +69,11 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Generation 2-funktion                | Lokal Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Säker start                         | :heavy_check_mark:  | röntgen   |
-| Avskärmad virtuell dator                         | :heavy_check_mark:  | röntgen   |
-| vTPM                                | :heavy_check_mark:  | röntgen   |
-| Virtualiseringsbaserad säkerhet (VBS) | :heavy_check_mark:  | röntgen   |
-| VHDX-format                         | :heavy_check_mark:  | röntgen   |
+| Säker start                         | :heavy_check_mark:  | :x:   |
+| Avskärmad virtuell dator                         | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | :x:   |
+| Virtualiseringsbaserad säkerhet (VBS) | :heavy_check_mark:  | :x:   |
+| VHDX-format                         | :heavy_check_mark:  | :x:   |
 
 ## <a name="features-and-capabilities"></a>Funktioner och funktioner
 
@@ -89,13 +89,13 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Funktion | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
-| OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
+| OS-disk > 2 TB                    | :x:                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |
 | Stöd för skalnings uppsättning för virtuell dator | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | röntgen                |
+| Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | Säkerhets kopiering/återställning                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galleri för delad avbildning              | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Disk Encryption             | :heavy_check_mark: | röntgen                |
+| Azure Disk Encryption             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Skapar en virtuell dator i generation 2
 

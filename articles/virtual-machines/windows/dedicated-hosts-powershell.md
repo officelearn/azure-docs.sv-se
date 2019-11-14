@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure-dedikerade värdar med hjälp av Azure PowerShell | Microsoft Docs
+title: Distribuera Azure-dedikerade värdar med hjälp av Azure PowerShell
 description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell.
 services: virtual-machines-windows
 author: cynthn
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 1dcea4f56d778b0e6320634286a25d478c78a5bc
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261697"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033355"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Förhandsversion: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>För hands version: distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell
 
 Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
-Kontrol lera att du har installerat Azure PowerShell version 2.4.2 eller senare och att du är inloggad på ett Azure-konto `Connect-AzAccount`i med. Om du vill installera version 2.4.2 öppnar du en PowerShell-prompt och skriver:
+Kontrol lera att du har installerat Azure PowerShell version 2.4.2 eller senare och att du är inloggad på ett Azure-konto i med `Connect-AzAccount`. Om du vill installera version 2.4.2 öppnar du en PowerShell-prompt och skriver:
 
 ```powershell
 Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
@@ -115,7 +115,7 @@ New-AzVM `
 
 ## <a name="check-the-status-of-the-host"></a>Kontrol lera status för värden
 
-Du kan kontrol lera värd hälso status och hur många virtuella datorer du kan distribuera till värden med [GetAzHost](/powershell/module/az.compute/get-azhost) med `-InstanceView` parametern.
+Du kan kontrol lera värdets hälso status och hur många virtuella datorer du kan distribuera till värden med hjälp av [GetAzHost](/powershell/module/az.compute/get-azhost) med parametern `-InstanceView`.
 
 ```
 Get-AzHost `

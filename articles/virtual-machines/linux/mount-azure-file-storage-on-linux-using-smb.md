@@ -1,5 +1,5 @@
 ---
-title: Montera Azure File Storage på virtuella Linux-datorer med SMB | Microsoft Docs
+title: Montera Azure File Storage på virtuella Linux-datorer med SMB
 description: Montera Azure File Storage på virtuella Linux-datorer med SMB med Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0918cfda81be93982c1ca6eccce0c116ac65ca28
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828400"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035662"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File Storage på virtuella Linux-datorer med SMB
 
@@ -39,9 +39,9 @@ Skapa en resurs grupp med namnet *myResourceGroup* på platsen *USA, östra* .
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT @ no__t-1random number >* och namnet på lagrings kontot placeras i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, med `$RANDOM` lägger till ett tal i slutet för att göra det unikt.
+Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT\<slump tals >* och namnet på lagrings kontot anges i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, med `$RANDOM` lägger till ett nummer i slutet för att göra det unikt.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -99,7 +99,7 @@ Montera Azure-filresursen i den lokala katalogen.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Kommandot ovan använder [monterings](https://linux.die.net/man/8/mount) kommandot för att montera Azure-filresursen och alternativ som är speciella för [CIFS](https://linux.die.net/man/8/mount.cifs). Mer specifikt file_mode-och dir_mode-alternativen ställer in filer och kataloger för att ge behörighet `0777`. Behörigheten `0777` ger Läs-, skriv-och körnings behörighet till alla användare. Du kan ändra dessa behörigheter genom att ersätta värdena med andra [chmod-behörigheter](https://en.wikipedia.org/wiki/Chmod). Du kan också använda andra [CIFS](https://linux.die.net/man/8/mount.cifs) -alternativ som GID eller UID. 
+Kommandot ovan använder [monterings](https://linux.die.net/man/8/mount) kommandot för att montera Azure-filresursen och alternativ som är speciella för [CIFS](https://linux.die.net/man/8/mount.cifs). Mer specifikt, alternativen file_mode och dir_mode anger filer och kataloger för att ge behörighet `0777`. `0777` behörighet ger Läs-, skriv-och körnings behörighet för alla användare. Du kan ändra dessa behörigheter genom att ersätta värdena med andra [chmod-behörigheter](https://en.wikipedia.org/wiki/Chmod). Du kan också använda andra [CIFS](https://linux.die.net/man/8/mount.cifs) -alternativ som GID eller UID. 
 
 
 ## <a name="persist-the-mount"></a>Behåll monteringen

@@ -1,17 +1,14 @@
 ---
 title: IRS 1075 skiss exempel – kontroll mappning
 description: Kontroll mappning för IRS 1075-skiss exemplet. Varje kontroll mappas till en eller flera Azure-principer som underlättar utvärderingen.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/07/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: faaa16cb69ec7aaeb88696b3094b426b208a9939
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b56e1a2c8a71e3bb7927dc487e0c2f1e7709d413
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161389"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032215"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Kontroll mappning för IRS 1075-skiss exemplet
 
@@ -84,7 +81,7 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
-- Fjärrfelsökning bör inaktive ras för webb program
+- Fjärrfelsökning bör stängas av för webbprogram
 
 ## <a name="9313-au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>9.3.1.3 AU-3 (2) innehåll i gransknings poster | Centraliserad hantering av innehåll för planerad gransknings post
 
@@ -92,11 +89,11 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 
 ## <a name="9335-au-5-response-to-audit-processing-failures"></a>9.3.3.5 AU-5 svar på gransknings bearbetnings problem
 
@@ -113,11 +110,11 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 
 ## <a name="93311-au-12-audit-generation"></a>9.3.3.11 AU-12 audit generation
 
@@ -125,11 +122,11 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
@@ -250,10 +247,10 @@ Den här skissen hjälper dig att skydda konfidentiell och integritet på överf
 - API-appen bör bara vara tillgänglig via HTTPS
 - Granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera krav för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Funktionsapp bör endast vara tillgängligt via HTTPS
+- Funktionen App bör enbart vara åtkomliga via HTTPS
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade
 - Säker överföring till lagrings konton ska vara aktiverat
-- Webb program bör endast vara tillgängliga via HTTPS
+- Webbprogram bör enbart vara åtkomliga via HTTPS
 
 ## <a name="93166-sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>9.3.16.6 SC-28 (1) skydd av information i vila | Kryptografiskt skydd
 
@@ -300,11 +297,11 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
+- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
@@ -329,7 +326,7 @@ Nu när du har granskat kontroll mappningen av IRS 1075-skissen kan du gå till 
 > [!div class="nextstepaction"]
 > [IRS 1075-skiss – översikt](./index.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

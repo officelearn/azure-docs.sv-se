@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887274"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023747"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Skapa en diagnostisk inställning för att samla in plattforms loggar och mått i Azure
 [Plattforms loggar](resource-logs-overview.md) i Azure ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att samla in plattforms loggar till olika mål.
@@ -42,7 +42,8 @@ Plattforms loggar kan skickas till målen i följande tabell. Konfigurationen f�
 | [Azure Storage-konto](resource-logs-collect-storage.md) | Arkivering av loggar till ett Azure Storage-konto är användbart för granskning, statisk analys eller säkerhets kopiering. |
 
 
-
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2-konton stöds för närvarande inte som mål för diagnostikinställningar trots att de kan visas som ett giltigt alternativ i Azure Portal.
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Skapa diagnostikinställningar i Azure Portal
 Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure Monitor-menyn eller från menyn för resursen.
@@ -55,13 +56,13 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
 
     ![Diagnostikinställningar](media/diagnostic-settings/menu-resource.png)
 
-2. Om det inte finns några inställningar på den resurs du har valt uppmanas du att skapa en inställning. Klicka på **Slå på diagnostik**.
+2. Om inga inställningar finns på resursen har du valt, uppmanas du för att skapa en inställning. Klicka på **Slå på diagnostik**.
 
-   ![Lägg till diagnostisk inställning-inga befintliga inställningar](media/diagnostic-settings/add-setting.png)
+   ![Lägg till diagnostikinställning - inga befintliga inställningar](media/diagnostic-settings/add-setting.png)
 
    Om det finns befintliga inställningar på resursen visas en lista över inställningar som redan har kon figurer ATS. Klicka antingen på **Lägg till diagnostisk inställning** för att lägga till en ny inställning eller **Redigera inställning** för att redigera en befintlig. Varje inställning får inte ha fler än en av varje mål typ.
 
-   ![Lägg till diagnostisk inställning – befintliga inställningar](media/diagnostic-settings/edit-setting.png)
+   ![Lägg till diagnostikinställning - befintliga inställningar](media/diagnostic-settings/edit-setting.png)
 
 3. Ange ett namn för inställningen om det inte redan har en.
 4. Markera kryss rutan för varje mål för att skicka loggarna. Klicka på **Konfigurera** för att ange inställningarna enligt beskrivningen i följande tabell.
@@ -72,9 +73,9 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
     | Lagringskonto | Namn på lagrings konto. |
     | Namnområde för händelsehubb | Namn området där Event Hub skapas (om det här är din första gången strömnings loggar) eller strömmas till (om det redan finns resurser som är strömmande till den här namn rymden).
     | Namn på händelsehubb | Du kan också ange ett namn på händelsehubben för att skicka alla data i inställningen. Om du inte anger ett namn skapas en Event Hub för varje logg kategori. Om du skickar flera kategorier kanske du vill ange ett namn för att begränsa antalet Event Hub som skapats. Mer information finns i [Azure Event Hubs kvoter och begränsningar](../../event-hubs/event-hubs-quotas.md) . |
-    | Princip namn för Event Hub | Definierar de behörigheter som den strömmande mekanismen har. |
+    | Principnamn för Event hub | Definierar de behörigheter som den strömmande mekanismen har. |
 
-    ![Lägg till diagnostisk inställning – befintliga inställningar](media/diagnostic-settings/setting-details.png)
+    ![Lägg till diagnostikinställning - befintliga inställningar](media/diagnostic-settings/setting-details.png)
 
 5. Markera kryss rutan för var och en av de data kategorier som ska skickas till de angivna målen. Om du har valt alternativet att **arkivera till ett lagrings konto**måste du också ange [kvarhållningsperioden](resource-logs-collect-storage.md#data-retention).
 
@@ -85,7 +86,7 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
 >
 > *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 
-4. Klicka på **Spara**.
+4. Klicka på **Save** (Spara).
 
 Efter en liten stund visas den nya inställningen i listan med inställningar för den här resursen och loggarna strömmas till de angivna målen när nya händelse data genereras. Observera att det kan finnas upp till femton minuter mellan när en händelse genereras och när den [visas i en Log Analytics-arbetsyta](data-ingestion-time.md).
 

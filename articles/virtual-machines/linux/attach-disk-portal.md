@@ -1,5 +1,5 @@
 ---
-title: Koppla en datadisk till en virtuell Linux-dator | Microsoft Docs
+title: Koppla en datadisk till en virtuell Linux-dator
 description: Använd portalen för att koppla en ny eller befintlig datadisk till en virtuell Linux-dator.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f63648f63d6154b89f641cdc4d2657e0396a8c66
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036364"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037052"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använd portalen för att koppla en datadisk till en virtuell Linux-dator 
 Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Linux-dator via Azure Portal. Du kan också [ansluta en datadisk till en virtuell Windows-dator i Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -33,7 +33,7 @@ Innan du kopplar diskar till din virtuella dator kan du läsa följande tips:
 
 
 ## <a name="find-the-virtual-machine"></a>Hitta den virtuella datorn
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **Virtual Machines**på den vänstra menyn.
 3. Välj den virtuella datorn i listan.
 4. På sidan virtuella datorer i **Essentials**klickar du på **diskar**.
@@ -79,7 +79,7 @@ För att partitionera, formatera och montera den nya disken så att din virtuell
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-När du är ansluten till den virtuella datorn är du redo att ansluta en disk. Börja med att hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används dmesg för att filtrera på *SCSI-* diskar:
+När du är ansluten till den virtuella datorn är du redo att ansluta en disk. Börja med att leta upp disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används dmesg för att filtrera på *SCSI-* diskar:
 
 ```bash
 dmesg | grep SCSI
@@ -103,13 +103,13 @@ Om du använder en befintlig disk som innehåller data kan du gå vidare till mo
 > [!NOTE]
 > Vi rekommenderar att du använder de senaste versionerna av fdisk eller delar av som är tillgängliga för din distribution.
 
-Partitionera disken med `fdisk`. Om disk storleken är 2 tebibyte (TIB) eller större måste du använda GPT-partitionering, som du kan använda `parted` för att utföra GPT-partitionering. Om disk storleken är under 2TiB kan du använda antingen MBR-eller GPT-partitionering. Gör den till en primär disk på partition 1 och godkänn de andra standardvärdena. I följande exempel startar `fdisk` processen på */dev/SDC*:
+Partitionera disken med `fdisk`. Om disk storleken är 2 tebibyte (TiB) eller större måste du använda GPT-partitionering, men du kan använda `parted` för att utföra GPT-partitionering. Om disk storleken är under 2TiB kan du använda antingen MBR-eller GPT-partitionering. Gör den till en primär disk på partition 1 och godkänn de andra standardvärdena. I följande exempel startar processen `fdisk` på */dev/SDC*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-`n` Använd kommandot för att lägga till en ny partition. I det här exemplet väljer `p` vi också för en primär partition och accepterar resten av standardvärdena. Utdata ser ut ungefär som i följande exempel:
+Använd `n`-kommandot för att lägga till en ny partition. I det här exemplet väljer vi också `p` för en primär partition och accepterar resten av standardvärdena. Utdata ser ut ungefär som i följande exempel:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -131,7 +131,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Skriv ut partitionstabellen genom att skriva `p` och sedan använda `w` för att skriva tabellen till disk och avsluta. Utdata bör se ut ungefär som i följande exempel:
+Skriv ut partitionstabellen genom att skriva `p` och Använd `w` för att skriva tabellen till disk och avsluta. Utdata bör se ut ungefär som i följande exempel:
 
 ```bash
 Command (m for help): p
@@ -153,7 +153,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Skriv nu ett fil system till partitionen med `mkfs` kommandot. Ange fil Systems typ och enhets namn. I följande exempel skapas ett *ext4* -filsystem på den */dev/sdc1* -partition som skapades i föregående steg:
+Skriv nu ett fil system till partitionen med kommandot `mkfs`. Ange fil Systems typ och enhets namn. I följande exempel skapas ett *ext4* -filsystem på den */dev/sdc1* -partition som skapades i föregående steg:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -184,7 +184,7 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 ### <a name="mount-the-disk"></a>Montera disken
-Skapa en katalog för att montera fil systemet med `mkdir`hjälp av. I följande exempel skapas en katalog på */datadrive*:
+Skapa en katalog för att montera fil systemet med `mkdir`. I följande exempel skapas en katalog på */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
@@ -196,7 +196,7 @@ Använd `mount` för att montera fil systemet. I följande exempel monteras */de
 sudo mount /dev/sdc1 /datadrive
 ```
 
-För att säkerställa att enheten monteras om automatiskt efter en omstart måste den läggas till i */etc/fstab* -filen. Det rekommenderas också starkt att UUID (Universal Unique IDentifier) används i */etc/fstab* för att referera till enheten i stället för bara enhets namnet (t. ex. */dev/sdc1*). Om operativ systemet upptäcker ett diskfel under starten undviker du att den felaktiga disken monteras på en specifik plats med hjälp av UUID: n. Återstående data diskar tilldelas sedan samma enhets-ID. Använd `blkid` verktyget för att hitta UUID för den nya enheten:
+För att säkerställa att enheten monteras om automatiskt efter en omstart måste den läggas till i */etc/fstab* -filen. Det rekommenderas också starkt att UUID (Universal Unique IDentifier) används i */etc/fstab* för att referera till enheten i stället för bara enhets namnet (t. ex. */dev/sdc1*). Om operativ systemet upptäcker ett diskfel under starten undviker du att den felaktiga disken monteras på en specifik plats med hjälp av UUID: n. Återstående data diskar tilldelas sedan samma enhets-ID. Använd `blkid`-verktyget för att hitta UUID för den nya enheten:
 
 ```bash
 sudo -i blkid
@@ -235,12 +235,12 @@ Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oan
 
 Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
 
-* Använd alternativet Mount i/etc/fstab, till exempel: `discard`
+* Använd `discard` monterings alternativ i */etc/fstab*, till exempel:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* I vissa fall `discard` kan alternativet ha prestanda konsekvenser. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
+* I vissa fall kan `discard` alternativet ha prestanda konsekvenser. Du kan också köra kommandot `fstrim` manuellt från kommando raden eller lägga till det i din CRONTAB för att köra regelbundet:
   
     **Ubuntu**
   

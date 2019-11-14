@@ -1,6 +1,6 @@
 ---
-title: Använda Docker Compose på en Linux-dator i Azure | Microsoft Docs
-description: Hur du installerar och använder Docker och Compose på Linux-datorer med Azure CLI
+title: Använd Docker Compose på en virtuell Linux-dator i Azure
+description: Installera och använda Docker och skapa virtuella Linux-datorer med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 29b9b2b7868a39b8e14a559b27f60f9e46bad565
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 4f2f12e0124743ad31e083cf4ece83bcb608bce0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667996"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036275"
 ---
-# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och Compose för att definiera och köra program med flera behållare i Azure
-Med [Compose](https://github.com/docker/compose), du använda en exempeltextfil för att definiera ett program som består av flera Docker-behållare. Sedan sätta upp ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. Exempelvis kan visar den här artikeln hur du snabbt konfigurera en WordPress-blogg med en serverdel MariaDB SQL-databas på en Ubuntu-VM. Du kan också använda Skriv för att ställa in mer komplexa program.
+# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och skapa för att definiera och köra ett program med flera behållare i Azure
+Med [Skriv](https://github.com/docker/compose), använder du en enkel textfil för att definiera ett program som består av flera Docker-behållare. Sedan kan du sätta upp ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. I den här artikeln visas till exempel hur du snabbt konfigurerar en WordPress-blogg med en backend-MariaDB SQL-databas på en Ubuntu VM. Du kan också använda komponera för att ställa in mer komplexa program.
 
-Den här artikeln senast har testats på 2/14/2019 med hjälp av den [Azure Cloud Shell](https://shell.azure.com/bash) och [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.58.
+Den här artikeln testades senast 2/14/2019 med hjälp av [Azure Cloud Shell](https://shell.azure.com/bash) och [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) -versionen 2.0.58.
 
 ## <a name="create-docker-host-with-azure-cli"></a>Skapa Docker-värd med Azure CLI
-Installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index).
+Installera den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
-Skapa först en resursgrupp för din Docker-miljö med [az gruppen skapa](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa först en resurs grupp för Docker-miljön med [AZ Group Create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive
 az group create --name myDockerGroup --location eastus
 ```
 
-Skapa en fil med namnet *cloud-init.txt* och klistra in följande konfiguration. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. 
+Skapa en fil med namnet *init. txt* och klistra in följande konfiguration. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. 
 
 ```yaml
 #include https://get.docker.com
 ```
 
-Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. I följande exempel skapas en virtuell dator med namnet *myDockerVM* och öppnas port 80 för webbtrafik.
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. I följande exempel skapas en virtuell dator med namnet *myDockerVM* och öppnar port 80 för webb trafik.
 
 ```azurecli-interactive
 az vm create \
@@ -57,11 +57,11 @@ az vm open-port --port 80 \
     --name myDockerVM
 ```
 
-Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. 
+Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. 
 
                  
 
-## <a name="install-compose"></a>Installera Compose
+## <a name="install-compose"></a>Installera Skriv
 
 
 SSH till din nya Docker-värd VM. Ange din egen IP-adress.
@@ -70,23 +70,23 @@ SSH till din nya Docker-värd VM. Ange din egen IP-adress.
 ssh azureuser@10.10.111.11
 ```
 
-Installera Compose på den virtuella datorn.
+Installera skapa på den virtuella datorn.
 
 ```bash
 sudo apt install docker-compose
 ```
 
 
-## <a name="create-a-docker-composeyml-configuration-file"></a>Skapa en docker-compose.yml-konfigurationsfil
-Skapa en `docker-compose.yml` konfigurationsfilen för att definiera Docker-behållare för att köra på den virtuella datorn. Filen anger avbildningen som ska köras på varje behållare, behövs miljövariabler och beroenden, portar och länkarna mellan behållare. Mer information om yml file-syntax finns [Compose filreferens](https://docs.docker.com/compose/compose-file/).
+## <a name="create-a-docker-composeyml-configuration-file"></a>Skapa en konfigurations fil för filen Docker. yml
+Skapa en `docker-compose.yml` konfigurations fil för att definiera Docker-behållare som ska köras på den virtuella datorn. Filen anger den avbildning som ska köras på varje behållare, nödvändiga miljövariabler och beroenden, portar och länkarna mellan behållare. Mer information om YML finns i referens för [Skriv fil](https://docs.docker.com/compose/compose-file/).
 
-Skapa en *docker-compose.yml* fil. Använd valfri textredigerare för att lägga till vissa data i filen. I följande exempel skapas filen med en uppmaning för `sensible-editor` att välja en redigerare som du vill använda.
+Skapa en *filen Docker. yml* -fil. Använd text redigeraren för att lägga till data i filen. I följande exempel skapas filen med en prompt för `sensible-editor` för att välja en redigerare som du vill använda.
 
 ```bash
 sensible-editor docker-compose.yml
 ```
 
-Klistra in i följande exempel i Docker Compose-fil. Den här konfigurationen använder avbildningar från den [DockerHub registret](https://registry.hub.docker.com/_/wordpress/) att installera WordPress (öppen källkod blogga och innehåll hanteringssystemet) och en länkad serverdel MariaDB SQL-databas. Ange ett eget *MYSQL_ROOT_PASSWORD*.
+Klistra in följande exempel i din Docker-filfil. Den här konfigurationen använder avbildningar från [DockerHub-registret](https://registry.hub.docker.com/_/wordpress/) för att installera WordPress (blogg-och innehålls hanterings system med öppen källkod) och en länkad server dels MariaDB SQL-databas. Ange din egen *MYSQL_ROOT_PASSWORD*.
 
 ```yml
 wordpress:
@@ -102,14 +102,14 @@ db:
     MYSQL_ROOT_PASSWORD: <your password>
 ```
 
-## <a name="start-the-containers-with-compose"></a>Starta behållarna med Compose
-I samma katalog som din *docker-compose.yml* fil, kör du följande kommando (beroende på din miljö kan du behöva köra `docker-compose` med `sudo`):
+## <a name="start-the-containers-with-compose"></a>Starta behållarna med Skriv
+I samma katalog som din *filen Docker. yml* -fil kör du följande kommando (beroende på din miljö kan du behöva köra `docker-compose` med `sudo`):
 
 ```bash
 sudo docker-compose up -d
 ```
 
-Det här kommandot startar Docker-behållare som angetts i *docker-compose.yml*. Det tar en minut eller två för det här steget att slutföra. Du ser utdata som liknar följande:
+Det här kommandot startar Docker-behållare som anges i *filen Docker. yml*. Det tar en minut eller två innan det här steget har slutförts. Du ser utdata som liknar följande:
 
 ```
 Creating wordpress_db_1...
@@ -118,7 +118,7 @@ Creating wordpress_wordpress_1...
 ```
 
 
-Så här kontrollerar du att behållarna som är igång `sudo docker-compose ps`. Du bör se något som liknar:
+Om du vill kontrol lera att behållarna är upp skriver du `sudo docker-compose ps`. Du bör se något som liknar:
 
 ```
         Name                       Command               State         Ports
@@ -127,12 +127,12 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-Du kan nu ansluta till WordPress direkt på den virtuella datorn på port 80. Öppna en webbläsare och ange IP-adressnamn för den virtuella datorn. Du bör nu se WordPress startskärmen, där du kan slutföra installationen och kom igång med programmet.
+Nu kan du ansluta till WordPress direkt på den virtuella datorn på port 80. Öppna en webbläsare och ange IP-adress namnet för den virtuella datorn. Du bör nu se den WordPress start skärmen där du kan slutföra installationen och komma igång med programmet.
 
-![Startskärmen för WordPress](./media/docker-compose-quickstart/wordpressstart.png)
+![WordPress-Start skärm](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Kolla in den [Compose Kommandoradsreferens](https://docs.docker.com/compose/reference/) och [användarhandboken](https://docs.docker.com/compose/) fler exempel på att skapa och distribuera appar för flera behållare.
-* Använda en Azure Resource Manager-mall, antingen din egen eller en som tillförts från den [community](https://azure.microsoft.com/documentation/templates/), för att distribuera en virtuell Azure-dator med Docker och ett program som konfigurerats med Compose. Till exempel den [distribuera en WordPress-blogg med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) mallen använder Docker och Compose för att snabbt distribuera WordPress med MySQL-serverdel på en Ubuntu-VM.
-* Försök integrera Docker Compose med ett Docker Swarm-kluster. Se [med hjälp av Compose med Swarm](https://docs.docker.com/compose/swarm/) för scenarier.
+* Kolla in [kommando rads referens](https://docs.docker.com/compose/reference/) och [användar guide](https://docs.docker.com/compose/) för att se fler exempel på hur du skapar och distribuerar appar för flera behållare.
+* Använd en Azure Resource Manager mall, antingen din egen eller en som har bidragit från [communityn](https://azure.microsoft.com/documentation/templates/), för att distribuera en virtuell Azure-dator med Docker och ett program som har kon figurer ATS med Skriv. Till exempel kan [distribuera en WordPress-blogg med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) -mallen använda Docker och skapa för att snabbt distribuera WordPress med en MySQL-Server del på en virtuell Ubuntu-dator.
+* Prova att integrera Docker tillsammans med ett Docker Swarm-kluster. Se [använda komponera med Swarm](https://docs.docker.com/compose/swarm/) för scenarier.
 

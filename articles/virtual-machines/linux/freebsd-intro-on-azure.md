@@ -1,5 +1,5 @@
 ---
-title: Introduktion till FreeBSD i Azure | Microsoft Docs
+title: Introduktion till FreeBSD på Azure
 description: Lär dig mer om att använda virtuella FreeBSD-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: c1ac7a0310eda032b45fb57cea95ba38b753ef1d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: d243806d619aa6d7328220eae53804d734737489
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695338"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036110"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Den här artikeln innehåller en översikt över att köra en virtuell FreeBSD-dator i Azure.
@@ -59,7 +59,7 @@ sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-Under installationen uppmanas du `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Om du svarar `y` och anger `/etc/rc.conf` som `a path to an rc file to update` kan du möta problemet `ERROR: [Errno 13] Permission denied`. För att lösa det här problemet bör du ge den aktuella användaren behörigheten skriva till den aktuella användaren, `etc/rc.conf`.
+Under installationen uppmanas du `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Om du svarar `y` och anger `/etc/rc.conf` som `a path to an rc file to update`kan du möta problemet `ERROR: [Errno 13] Permission denied`. För att lösa det här problemet bör du ge den aktuella användaren behörigheten skriva till den aktuella användaren mot filen `etc/rc.conf`.
 
 Nu kan du logga in på Azure och skapa din virtuella FreeBSD-dator. Nedan visas ett exempel på hur du skapar en virtuell FreeBSD 11,0-dator. Du kan också lägga till parametern `--public-ip-address-dns-name` med ett globalt unikt DNS-namn för en nyligen skapad offentlig IP-adress. 
 
@@ -89,7 +89,7 @@ Följande virtuella dator tillägg stöds i FreeBSD.
 * Skapa en ny sudo-användare med det angivna lösen ordet.
 * Ange den offentliga värd nyckeln med den angivna nyckeln.
 * Återställ den offentliga värd nyckeln som tillhandahölls under etablering av virtuell dator om värd nyckeln inte har angetts.
-* Öppna SSH-porten (22) och Återställ sshd_config om reset_ssh har angetts till true.
+* Öppna SSH-porten (22) och Återställ sshd_config om reset_ssh har värdet sant.
 * Ta bort den befintliga användaren.
 * Kontrol lera diskar.
 * Reparera en disk som lagts till.

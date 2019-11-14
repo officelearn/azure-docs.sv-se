@@ -1,18 +1,14 @@
 ---
 title: PCI-DSS v 3.2.1 skiss exempel – kontroll mappning
 description: Kontroll mappning av betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel till Azure Policy och RBAC.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: c1e04cb2bfd5ae532b556ed53d585aae90c312e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163058"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037271"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Kontroll mappning för PCI-DSS v 3.2.1-skiss exemplet
 
@@ -34,8 +30,8 @@ Den här skissen hjälper dig att hantera och styra nätverk genom att tilldela 
 
 Den här skissen hjälper dig att genomdriva principen med hjälp av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och gransknings användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen transparent data kryptering på SQL-databaser. granska saknad kryptering på lagrings konton och variabler för Automation-konto. Det finns också principer för att hantera oskyddade anslutningar till lagrings konton, Function-appar, WebApp, API Apps och Redis Cache och granska okrypterade Service Fabric-kommunikation.
 
-- Funktionsapp bör endast vara tillgängligt via HTTPS
-- Webb program bör endast vara tillgängliga via HTTPS
+- Funktionen App bör enbart vara åtkomliga via HTTPS
+- Webbprogram bör enbart vara åtkomliga via HTTPS
 - API-appen bör bara vara tillgänglig via HTTPS
 - transparent datakryptering på SQL-databaser ska aktive ras
 - Disk kryptering bör tillämpas på virtuella datorer
@@ -67,7 +63,7 @@ Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundan
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3,2, 7.2.1, 8.3.1. a och 8.3.1. b hantering av privilegierade behörigheter
 
-Den här skissen hjälper dig att begränsa och kontrol lera privilegierade behörigheter genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med behörigheterna ägare, skriv och/eller Läs behörighet och anställda konton med ägare och/eller Skriv behörigheter som inte har Multi-Factor Authentication har Aktiver ATS. Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar. Genom att använda Azure Active Directory-autentisering fören klar hantering av behörigheter och centraliserar identitets hanteringen för databas användare och andra Microsoft  
+Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med behörigheterna ägare, skriv och/eller Läs och anställda konton med ägar-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat. Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar. Genom att använda Azure Active Directory-autentisering fören klar hantering av behörigheter och centraliserar identitets hanteringen för databas användare och andra Microsoft  
 Terminal.
  
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
@@ -134,7 +130,7 @@ Nu när du har granskat kontroll mappningen av PCI-DSS v 3.2.1-skissen kan du g�
 > [PCI-DSS v 3.2.1 skiss – översikt](./index.md)
 > [PCI-DSS v 3.2.1 skiss – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

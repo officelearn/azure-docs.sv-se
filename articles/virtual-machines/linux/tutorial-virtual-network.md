@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer | Microsoft Docs
+title: Självstudie – Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer
 description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,27 +15,27 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b2255e75843f4ddadd44e7780054de4fc45e6449
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d6624b9d5d77a8552584049463b63738bbf17627
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300723"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034355"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer med Azure CLI
 
-Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här guiden får du lära dig att:
+Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och ett undernät
 > * Skapa en offentlig IP-adress
 > * Skapa en virtuell dator för klientdelen
-> * Skydda nätverkstrafik
+> * Skydda nätverkstrafiken
 > * Skapa en virtuell dator för serverdelen
 
 I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="vm-networking-overview"></a>Nätverksöversikt för VM
 
@@ -146,7 +146,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-## <a name="secure-network-traffic"></a>Skydda nätverkstrafik
+## <a name="secure-network-traffic"></a>Skydda nätverkstrafiken
 
 En nätverkssäkerhetsgrupp (NSG) innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk (VNet). NSG:er kan vara associerade med undernät eller separata nätverksgränssnitt. När en NSG är associerad med ett nätverksgränssnitt, tillämpar den bara den associerade virtuella datorn. När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. 
 
@@ -298,7 +298,7 @@ I den här självstudien har du skapat och skyddat Azure-nätverk som är relate
 > * Skapa ett virtuellt nätverk och ett undernät
 > * Skapa en offentlig IP-adress
 > * Skapa en virtuell dator för klientdelen
-> * Skydda nätverkstrafik
+> * Skydda nätverkstrafiken
 > * Skapa en virtuell dator för serverdelen
 
 Gå vidare till nästa självstudie för att lära dig att skydda data på virtuella datorer med Azures säkerhetskopiering. 

@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en virtuell Windows Server 2016-dator med DSC | Microsoft Docs
+title: Skriptexempel för Azure CLI – Skapa en virtuell Windows Server 2016-dator med DSC
 description: Skriptexempel för Azure CLI – Skapa en virtuell Windows Server 2016-dator med DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: a17bb1fc4f2d297742620dc39756d2f89ec8df1e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 60f4447015e43d02048afd19504be0e758a56e86
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708284"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040064"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>Skapa en virtuell dator med IIS med hjälp av DSC
 

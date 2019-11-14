@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – installera Ansible på Linux-datorer i Azure | Microsoft Docs
-description: I den här snabbstarten lär du dig hur du installerar och konfigurerar Ansible för att hantera Azure-resurser på Ubuntu och CentOS SLES
+title: Snabb start – installera Ansible på virtuella Linux-datorer i Azure
+description: I den här snabb starten lär du dig att installera och konfigurera Ansible för hantering av Azure-resurser på Ubuntu, CentOS och SLES
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.service: ansible
@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d3302d999dd70a83be18ce610b9c3d44992c865c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a1ea5814ffd201456a2751b37b77f3062cac789a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671844"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037076"
 ---
-# <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Snabbstart: Installera Ansible på Linux-datorer i Azure
+# <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Snabb start: installera Ansible på virtuella Linux-datorer i Azure
 
-Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du konfigurerar Ansible för några av de vanligaste Linux-distributioner. Om du vill installera Ansible för andra distributioner, justerar du installerade paket för din specifika plattform. 
+Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du konfigurerar Ansible för några av de vanligaste Linux-distributioner. Om du vill installera Ansible på andra distributioner justerar du de installerade paketen för din plattform. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -35,11 +35,11 @@ Logga in på Linux-datorn och välj någon av följande distributioner för att 
 
 ### <a name="centos-74"></a>CentOS 7.4
 
-I det här avsnittet konfigurerar du CentOS om du vill använda Ansible.
+I det här avsnittet konfigurerar du CentOS till att använda Ansible.
 
 1. Öppna ett terminalfönster.
 
-1. Ange följande kommando för att installera de nödvändiga paketen för Azure Python SDK-moduler:
+1. Ange följande kommando för att installera de nödvändiga paketen för Azure python SDK-modulerna:
 
     ```bash
     sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel epel-release
@@ -52,15 +52,15 @@ I det här avsnittet konfigurerar du CentOS om du vill använda Ansible.
     sudo pip install ansible[azure]
     ```
 
-1. [Skapa autentiseringsuppgifter för Azure](#create-azure-credentials).
+1. [Skapa Azure-autentiseringsuppgifterna](#create-azure-credentials).
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
-I det här avsnittet konfigurerar du Ubuntu om du vill använda Ansible.
+I det här avsnittet konfigurerar du Ubuntu till att använda Ansible.
 
 1. Öppna ett terminalfönster.
 
-1. Ange följande kommando för att installera de nödvändiga paketen för Azure Python SDK-moduler:
+1. Ange följande kommando för att installera de nödvändiga paketen för Azure python SDK-modulerna:
 
     ```bash
     sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
@@ -72,15 +72,15 @@ I det här avsnittet konfigurerar du Ubuntu om du vill använda Ansible.
     sudo pip install ansible[azure]
     ```
 
-1. [Skapa autentiseringsuppgifter för Azure](#create-azure-credentials).
+1. [Skapa Azure-autentiseringsuppgifterna](#create-azure-credentials).
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 
-I det här avsnittet konfigurerar du SLES om du vill använda Ansible.
+I det här avsnittet konfigurerar du SLES till att använda Ansible.
 
 1. Öppna ett terminalfönster.
 
-1. Ange följande kommando för att installera de nödvändiga paketen för Azure Python SDK-moduler:
+1. Ange följande kommando för att installera de nödvändiga paketen för Azure python SDK-modulerna:
 
     ```bash
     sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
@@ -93,42 +93,42 @@ I det här avsnittet konfigurerar du SLES om du vill använda Ansible.
     sudo pip install ansible[azure]
     ```
 
-1. Ange följande kommando för att ta bort motstridiga kryptografipaketet för Python:
+1. Ange följande kommando för att ta bort motstridiga python-kryptografi paket:
 
     ```bash
     sudo pip uninstall -y cryptography
     ```
 
-1. [Skapa autentiseringsuppgifter för Azure](#create-azure-credentials).
+1. [Skapa Azure-autentiseringsuppgifterna](#create-azure-credentials).
 
 ## <a name="create-azure-credentials"></a>Skapa Azure-autentiseringsuppgifter
 
-Om du vill konfigurera Ansible-autentiseringsuppgifter, behöver du följande information:
+Om du vill konfigurera Ansible-autentiseringsuppgifterna behöver du följande information:
 
 * Ditt Azure-prenumerations-ID 
-* Tjänstens huvudnamn värden
+* Tjänstens huvud värden
 
-Om du använder Ansible Tower eller Jenkins deklarera service principal värdena som miljövariabler.
+Om du använder Ansible Tower eller Jenkins deklarerar du tjänstens huvud värden som miljövariabler.
 
-Konfigurera Ansible-autentiseringsuppgifter med någon av följande metoder:
+Konfigurera Ansible-autentiseringsuppgifterna med någon av följande metoder:
 
 - [Skapa en fil för Ansible-autentiseringsuppgifter](#file-credentials)
 - [Använda Ansible-miljövariabler](#env-credentials)
 
 ### <a name="span-idfile-credentials-create-ansible-credentials-file"></a><span id="file-credentials"/> Skapa en fil för Ansible-autentiseringsuppgifter
 
-I det här avsnittet skapar du en fil med lokala autentiseringsuppgifter för att tillhandahålla autentiseringsuppgifter till Ansible. 
+I det här avsnittet skapar du en lokal inloggnings fil för att ange autentiseringsuppgifter för Ansible. 
 
-Mer information om hur du definierar Ansible autentiseringsuppgifter finns i [att tillhandahålla autentiseringsuppgifter till Azure-moduler](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
+Mer information om hur du definierar Ansible-autentiseringsuppgifter finns i [ange autentiseringsuppgifter för Azure-moduler](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
 
-1. Skapa en fil med namnet för en utvecklingsmiljö `credentials` på den virtuella värddatorn:
+1. För en utvecklings miljö skapar du en fil med namnet `credentials` på den virtuella värd datorn:
 
     ```bash
     mkdir ~/.azure
     vi ~/.azure/credentials
     ```
 
-1. Infoga följande rader i filen. Ersätt platshållarna med värdena tjänstens huvudnamn.
+1. Infoga följande rader i filen. Ersätt plats hållarna med tjänstens huvud värden.
 
     ```bash
     [default]
@@ -142,11 +142,11 @@ Mer information om hur du definierar Ansible autentiseringsuppgifter finns i [at
 
 ### <a name="span-idenv-credentialsuse-ansible-environment-variables"></a><span id="env-credentials"/>Använda Ansible-miljövariabler
 
-I det här avsnittet ska exportera du service principal värdena för att konfigurera Ansible-autentiseringsuppgifter.
+I det här avsnittet exporterar du tjänstens huvud namn för att konfigurera dina Ansible-autentiseringsuppgifter.
 
 1. Öppna ett terminalfönster.
 
-1. Exportera service principal värdena:
+1. Exportera tjänstens huvud namns värden:
 
     ```bash
     export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
@@ -157,11 +157,11 @@ I det här avsnittet ska exportera du service principal värdena för att konfig
 
 ## <a name="verify-the-configuration"></a>Kontrollera konfigurationen
 
-Om du vill verifiera lyckad konfiguration du Använd Ansible för att skapa en Azure-resursgrupp.
+Verifiera konfigurationen genom att använda Ansible för att skapa en Azure-resurs grupp.
 
 [!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-snippet-create-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Snabbstart: Konfigurera en Linux-dator i Azure med Ansible](./ansible-create-vm.md)
+> [Snabb start: Konfigurera en virtuell Linux-dator i Azure med Ansible](./ansible-create-vm.md)

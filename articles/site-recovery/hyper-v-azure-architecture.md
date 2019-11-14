@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 20f325ff64581396f5f7ab2ce05a2479cdb45118
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1ce21ea6042bbe1191edede13f80455c8e669f3b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933544"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030202"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Katastrof återställnings arkitektur för Hyper-V till Azure
 
@@ -38,9 +38,6 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 
 ![Arkitektur](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
-
-> [!WARNING]
-> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](scvmm-site-recovery-deprecation.md) informationen innan du fortsätter.
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Arkitektur komponenter – Hyper-V med VMM
 

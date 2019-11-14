@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0772446b0259b12d3f76b2020eeed4c9c2de1119
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882222"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038096"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -25,6 +25,13 @@ Det allmänna formatet för kommandon är: `azcopy [command] [arguments] --[flag
 
 Information om hur du rapporterar problem eller Lär dig mer om verktyget finns i [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy).
 
+## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
+
+- [Kom igång med AzCopy](storage-use-azcopy-v10.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
+
 ## <a name="options"></a>Alternativ
 
 **--Cap-Mbit/s UInt32**   CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.
@@ -33,7 +40,7 @@ Information om hur du rapporterar problem eller Lär dig mer om verktyget finns 
       
 **--typ av utdata**  Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 - [AzCopy bänk](storage-ref-azcopy-bench.md)

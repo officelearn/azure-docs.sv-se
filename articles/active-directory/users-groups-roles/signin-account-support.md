@@ -1,39 +1,39 @@
 ---
-title: Hur vet jag om en Azure AD-inloggningssida accepterar Microsoft-konton | Microsoft Docs
-description: Hur anvisningarna på skärmen meddelanden visar användarnamn lookup under inloggning
+title: Godkänner inloggnings sidan för Azure AD Microsoft-konton | Microsoft Docs
+description: Hur meddelanden på skärmen visar användar namns sökning under inloggning
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 221ab7c50a84650f1b2adf3fdb2b284365795f42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468217"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024291"
 ---
-# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Inloggningsalternativ för Microsoft-konton i Azure Active Directory
+# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Inloggnings alternativ för Microsoft-konton i Azure Active Directory
 
-Microsoft 365 på inloggningssidan för Azure Active Directory (Azure AD) stöder arbets- eller skolkonton och Microsoft-konton, men beroende på användarens situation kan det vara en eller den andra eller båda. Till exempel stöder inloggningssidan för Azure AD:
+Microsoft 365 inloggnings sidan för Azure Active Directory (Azure AD) stöder arbets-eller skol konton och Microsoft-konton, men beroende på användarens situation kan det vara en eller båda. Inloggnings sidan för Azure AD stöder till exempel följande:
 
-* Appar som har stöd för inloggningar från båda typerna av konto
+* Appar som accepterar inloggningar från båda typerna av konto
 * Organisationer som accepterar gäster
 
-## <a name="identification"></a>Identifiering
-Berätta om din organisation använder på inloggningssidan stöder Microsoft-konton genom att titta på tipstexten i fältet för användarnamn. Om tipstexten texten ”e-post, telefon eller Skype” stöder Microsoft-konton på inloggningssidan.
+## <a name="identification"></a>Fastställa
+Du kan se om inloggnings sidan som din organisation använder stöder Microsoft-konton genom att titta på tips texten i fältet användar namn. Om tips texten heter "e-post, telefon eller Skype", stöder inloggnings sidan Microsoft-konton.
 
-![Skillnaden mellan inloggningssidorna för konto](./media/signin-account-support/ui-prompt.png)
+![Skillnad mellan konto inloggnings sidor](./media/signin-account-support/ui-prompt.png)
 
-[Ytterligare inloggningsalternativ fungerar endast för personliga Microsoft-konton](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) men kan inte användas för att logga in till arbetsplats eller skola resurser för kontot.
+[Ytterligare inloggnings alternativ fungerar bara för personliga Microsoft-konton](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) , men kan inte användas för att logga in på arbets-eller skol konto resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa din inloggning profilering](../fundamentals/add-custom-domain.md)
+[Anpassa din inloggnings anpassning](../fundamentals/add-custom-domain.md)

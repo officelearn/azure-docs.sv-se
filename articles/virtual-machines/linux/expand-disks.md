@@ -1,5 +1,5 @@
 ---
-title: Expandera virtuella hård diskar på en virtuell Linux-dator i Azure | Microsoft Docs
+title: Expandera virtuella hård diskar på en virtuell Linux-dator i Azure
 description: Lär dig hur du expanderar virtuella hård diskar på en virtuell Linux-dator med Azure CLI
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 19e1a5f1534d09246ca85029f45ee918ec57e51f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3bd85048cf12760d5918544ed6aac803e9fe120a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828417"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036195"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandera virtuella hård diskar på en virtuell Linux-dator med Azure CLI
 
@@ -35,7 +35,7 @@ I följande exempel ersätter du parameter namn, till exempel *myResourceGroup* 
     ```
 
     > [!NOTE]
-    > Den virtuella datorn måste frigöras för att expandera den virtuella hård disken. Om du stoppar den virtuella datorn med `az vm stop` frigörs inte beräknings resurserna. Om du vill frigöra beräknings resurser använder du `az vm deallocate`.
+    > Den virtuella datorn måste frigöras för att expandera den virtuella hård disken. Att stoppa den virtuella datorn med `az vm stop` frigör inte beräknings resurserna. Om du vill frigöra beräknings resurser använder du `az vm deallocate`.
 
 1. Visa en lista med hanterade diskar i en resurs grupp med [AZ disk List](/cli/azure/disk#az-disk-list). I följande exempel visas en lista med hanterade diskar i resurs gruppen med namnet *myResourceGroup*:
 
@@ -82,13 +82,13 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     sudo umount /dev/sdc1
     ```
 
-    b. Använd `parted` om du vill visa disk information och ändra storlek på partitionen:
+    b. Använd `parted` för att Visa disk information och ändra storlek på partitionen:
 
     ```bash
     sudo parted /dev/sdc
     ```
 
-    Visa information om den befintliga partitionen med `print`. Utdata liknar följande exempel som visar den underliggande disken är 215 GB:
+    Visa information om den befintliga partitionen layout med `print`. Utdata liknar följande exempel som visar den underliggande disken är 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -113,7 +113,7 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     End?  [107GB]? 215GB
     ```
 
-    d. Ange `quit` om du vill avsluta.
+    d. Ange `quit`för att avsluta.
 
 1. Kontrol lera att partitionen har ändrat storlek genom att verifiera konsekvensen för partitionen med `e2fsck`:
 
@@ -133,7 +133,7 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Använd `df -h` om du vill kontrol lera att data disken har ändrats. Följande exempel på utdata visar att data enheten */dev/sdc1* är 200 GB:
+1. Använd `df -h`för att kontrol lera att data disken har ändrats. Följande exempel på utdata visar att data enheten */dev/sdc1* är 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

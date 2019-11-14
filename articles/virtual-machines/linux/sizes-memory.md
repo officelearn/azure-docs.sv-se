@@ -1,5 +1,5 @@
 ---
-title: Linux Azure VM-storlekar – minne | Microsoft Docs
+title: VIRTUELLA Linux Azure-storlekar – minne
 description: Visar en lista över de olika minnesoptimerade storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: e2cc3427d85983618df94f02d92cdcf44bd3a75a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9ad5eabb85b01a48e32cc49784a9597866415253
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719114"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034871"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Minnesoptimerade storlekar för virtuella datorer
 

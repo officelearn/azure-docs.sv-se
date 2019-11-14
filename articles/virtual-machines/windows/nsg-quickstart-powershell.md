@@ -1,5 +1,5 @@
 ---
-title: Öppna portar till en virtuell dator med Azure PowerShell | Microsoft Docs
+title: Öppna portar till en virtuell dator med hjälp av Azure PowerShell
 description: Lär dig hur du öppnar en port/skapar en slut punkt för din virtuella Windows-dator med hjälp av distributions läget i Azure Resource Manager och Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cd5aab6934e2f9692411e09046722cd59ad5e6a8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3577c97b55baebe08ca4020b0c570160d551dfd3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089111"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033082"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Så här öppnar du portar och slut punkter till en virtuell dator i Azure med hjälp av PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]

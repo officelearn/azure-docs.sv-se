@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa en Traffic Manager-profil för hög tillgänglighet för program med hjälp av Azure-portalen
+title: 'Snabb start: skapa en profil för HA med program – Azure Portal – Azure Traffic Manager'
 description: I den här snabbstartsartikeln beskrivs hur du skapar en Traffic Manager-profil för att bygga en webbapp med hög tillgänglighet.
 services: traffic-manager
 author: asudbring
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224676"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032702"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabbstart: Skapa en Traffic Manager profil med hjälp av Azure Portal
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabb start: skapa en Traffic Manager profil med hjälp av Azure Portal
 
 I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger hög tillgänglighet för din webbapp.
 
@@ -31,7 +31,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten behöver du två instanser av en webbapp som distribuerats i två olika Azure-regioner (*USA, östra* och *Europa, västra*). Var och en av dessa kommer att fungera som primär- och redundansslutpunkter för Traffic Manager.
 
@@ -39,22 +39,22 @@ För den här snabbstarten behöver du två instanser av en webbapp som distribu
 
 1. I **skapa en webbapp**skriver eller väljer du följande värden på fliken **grundläggande** :
 
-   - **Prenumeration** > **Resursgrupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
-   -  > **Namn på**instans information: Skriv *myWebAppEastUS*.
+   - **Prenumerations** > **resurs grupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
+   - **Instans information** > **namn**: Skriv *myWebAppEastUS*.
    - **Instans information** > **publicera**: Välj **kod**.
-   -  > **Körnings stack**för instans information: Välj **ASP.net v 4.7**
+   - **Instans information** > **körnings stack**: Välj **ASP.net v 4.7**
    - **Instans information** > **operativ system**: Välj **Windows**.
-   - **Instans informations** > **region**:  Välj **USA, östra**.
-   - **App Service planera** > **Windows-plan (USA, östra)** : Välj **Skapa ny** och skriv sedan **myAppServicePlanEastUS**
-   - **App Service planera** > **SKU och storlek**: Välj **standard S1**.
+   - **Instans information** > **region**: Välj **USA, östra**.
+   - **App Service plan** > **Windows plan (USA, östra)** : Välj **Skapa ny** och skriv sedan **myAppServicePlanEastUS**
+   - **App Service Plan** > **SKU och storlek**: Välj **standard S1**.
    
-3. Välj fliken **övervakning** eller Välj **Nästa: övervakning**.  Under **övervakning**, ange **Application Insights** > **Aktivera Application Insights** till **Nej**.
+3. Välj fliken **övervakning** eller Välj **Nästa: övervakning**.  Under **övervakning**anger **Application Insights** > **Aktivera Application Insights** till **Nej**.
 
 4. Välj **Granska och skapa**
 
 5. Granska inställningarna och klicka sedan på **skapa**.  När webbappen har distribuerats skapar den en standardwebbplats.
 
-6. Följ stegen för att skapa en andra webbapp med namnet *myWebAppWestEurope*, med **resurs grupp** namnet *MyResourceGroupTM2*, en **region** i *Västeuropa*, ett **App Service plan** namn för  **myAppServicePlanWestEurope**och alla andra inställningar är samma som för *myWebAppEastUS*.
+6. Följ stegen för att skapa en andra webbapp med namnet *myWebAppWestEurope*, med **resurs grupp** namnet *MyResourceGroupTM2*, en **region** i *Västeuropa*, ett **App Service plan** namn för **myAppServicePlanWestEurope**och alla andra inställningar på samma sätt som *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 

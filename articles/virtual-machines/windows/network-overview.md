@@ -1,5 +1,5 @@
 ---
-title: Virtuella nätverk och virtuella Windows-datorer i Azure | Microsoft Docs
+title: Virtuella nätverk och virtuella Windows-datorer i Azure
 description: Läs om nätverk i relation till grunderna för att skapa virtuella Windows-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 60ae9796a5e9ac8a15296b5d11099e4a5fe39e6a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 105a91d8bfddeae3ed12c4ebb5b761d5989b91a2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033095"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Virtuella nätverk och virtuella datorer i Azure 
 

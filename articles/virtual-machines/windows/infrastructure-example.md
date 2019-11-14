@@ -1,5 +1,5 @@
 ---
-title: Exempel genom gång av Azure-infrastruktur | Microsoft Docs
+title: Exempel genom gång av Azure-infrastruktur
 description: Lär dig mer om rikt linjerna för nyckel design och implementering för att distribuera en exempel infrastruktur i Azure.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4191015ee4dc7eb753c70f23be242f2ca88dcc3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079393"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038569"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exempel genom gång av Azure-infrastruktur för virtuella Windows-datorer
 Den här artikeln vägleder dig genom att skapa en exempel program infrastruktur. Vi beskriver hur du utformar en infrastruktur för en enkel onlinebutik som sammanfattar alla rikt linjer och beslut kring namngivnings konventioner, tillgänglighets uppsättningar, virtuella nätverk och belastningsutjämnare och distribuerar sedan dina virtuella datorer (VM).
@@ -78,7 +78,7 @@ De skapade ett virtuellt nätverk med endast ett moln med följande inställning
   * Namn: FrontEnd
   * Adress utrymme: 10.0.1.0/24
 * Andra undernät:
-  * Namn: BackEnd
+  * Namn: Server del
   * Adress utrymme: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar

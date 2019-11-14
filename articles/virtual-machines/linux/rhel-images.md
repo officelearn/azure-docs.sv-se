@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux avbildningar i Azure | Microsoft Docs
+title: Red Hat Enterprise Linux avbildningar i Azure
 description: Lär dig mer om Red Hat Enterprise Linux avbildningar i Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: eaabe9da20c22dd3e4d924887adcbc7081857e91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764308"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035120"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux avbildningar i Azure
 I den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux-avbildningar (RHEL) på Azure Marketplace tillsammans med principer kring namngivning och kvarhållning.
@@ -42,7 +42,7 @@ az vm image list --publisher RedHat --all
 ## <a name="naming-convention"></a>Namngivnings konvention
 VM-avbildningar i Azure ordnas efter utgivare, erbjudande, SKU och version. Kombinationen av utgivare: erbjudande: SKU: version är avbildningens URN och identifierar den avbildning som ska användas.
 
-Till exempel `RedHat:RHEL:7-RAW:7.6.2018103108` hänvisar till en RHEL 7,6-partitionerad avbildning som skapats den 31 oktober 2018.
+`RedHat:RHEL:7-RAW:7.6.2018103108` till exempel refererar till en RHEL 7,6-partition med RAW-partitioner byggd den 31 oktober 2018.
 
 Ett exempel på hur du skapar en virtuell RHEL 7,6-dator visas nedan.
 ```azurecli-interactive
@@ -52,7 +52,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:7.6
 ### <a name="the-latest-moniker"></a>"Senaste" moniker
 Azure REST API tillåter användningen av moniker "senaste" för version i stället för den aktuella versionen. Med "senaste" etablerar du den senaste tillgängliga avbildningen för den aktuella utgivaren, erbjudandet och SKU: n.
 
-Till exempel `RedHat:RHEL:7-RAW:latest` syftar den senaste RHEL 7-seriens RAW-partitionerad avbildning tillgänglig.
+`RedHat:RHEL:7-RAW:latest` till exempel refererar till den senaste RHEL 7 Family RAW-partitionerad avbildning tillgänglig.
 
 ```azurecli-interactive
 az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:latest --no-wait
@@ -64,7 +64,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Nuvarande namngivnings konvention
 Alla aktuella publicerade RHEL-avbildningar använder modellen "betala per användning" och är anslutna till [Red Hat Update Infrastructure (RHUI) i Azure](https://aka.ms/rhui-update). En ny namngivnings konvention har antagits för avbildningar av RHEL 7-familjen där disk partitionerings schema (RAW, LVM) anges i SKU i stället för-versionen. RHEL-avbildnings versionen innehåller antingen 7-RAW eller 7-LVM. RHEL 6-familjens namn har inte ändrats för tillfället.
 
-Det finns två typer av RHEL 7 avbildnings-SKU: er i denna namngivnings konvention: SKU: er som visar den lägre versionen och SKU: er som inte är det. Om du vill använda en 7-RAW-eller 7-LVM-SKU kan du ange den lägre version av RHEL som du vill distribuera i versionen. Om du väljer den senaste versionen kommer du att tillhandahålla den senaste del versionen av RHEL.
+Det finns två typer av RHEL 7 avbildnings-SKU: er i denna namngivnings konvention: SKU: er som listar den lägre versionen och SKU: er som inte är det. Om du vill använda en 7-RAW-eller 7-LVM-SKU kan du ange den lägre version av RHEL som du vill distribuera i versionen. Om du väljer den senaste versionen kommer du att tillhandahålla den senaste del versionen av RHEL.
 
 >[!NOTE]
 > I RHEL för SAP-uppsättningar är RHEL-versionen fast. Därför innehåller deras namngivnings konvention en viss version i SKU: n.
@@ -88,7 +88,7 @@ Du kan till exempel se följande 2 RHEL 7,4-avbildningar som är tillgängliga:
 RedHat:RHEL:7-RAW:7.4.2018010506
 RedHat:RHEL:7.4:7.4.2019041718
 ```
-I det här fallet `RedHat:RHEL:7.4:7.4.2019041718` kommer som standard att kopplas till EUs-databaser `RedHat:RHEL:7-RAW:7.4.2018010506` och bifogas till icke-EUs-databaser som standard.
+I det här fallet kommer `RedHat:RHEL:7.4:7.4.2019041718` att kopplas till EUS-databaser som standard och `RedHat:RHEL:7-RAW:7.4.2018010506` kopplas till icke-EUS-databaser som standard.
 
 ### <a name="for-customers-that-dont-want-to-use-eus-images"></a>För kunder som inte vill använda EUS-avbildningar:
 Om du inte vill använda en avbildning som är ansluten till EUS som standard distribuerar du med en avbildning som inte innehåller ett lägre versions nummer i SKU: n.
@@ -106,13 +106,13 @@ Lägre version |Exempel på EUS-avbildning              |Status för EUS        
 RHEL 7,4      |RedHat:RHEL:7.4:7.4.2019041718 | Avbildningar som publicerats april 2019 och senare blir EUS som standard|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Avbildningar som publicerats 2019 och senare blir EUS som standard |
 RHEL 7,6      |RedHat:RHEL:7.6:7.6.2019052206 | Publicerade avbildningar maj 2019 och senare blir EUS som standard  |
-RHEL 8,0      |Gäller inte                            | Ingen EUS är tillgänglig från Red Hat                               |
+RHEL 8,0      |Saknas                            | Ingen EUS är tillgänglig från Red Hat                               |
 
 
 ## <a name="list-of-rhel-images-available"></a>Lista över tillgängliga RHEL-avbildningar
 Följande erbjudanden är SKU: er som är tillgängliga för allmänt bruk:
 
-Erbjudande| SKU | Partitionering | Etableras | Anteckningar
+Erbjudande| SKU | Partitionering | Etablering | Anteckningar
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Linux-agent | RHEL 7. x-serien med bilder. <br> Är inte kopplat till EUS-databaser som standard.
 |             | 7-LVM    | LVM    | Linux-agent | RHEL 7. x-serien med bilder. <br> Är inte kopplat till EUS-databaser som standard.

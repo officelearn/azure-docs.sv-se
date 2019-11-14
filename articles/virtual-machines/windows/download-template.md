@@ -1,5 +1,5 @@
 ---
-title: Ladda ned mallen för en virtuell Azure-dator | Microsoft Docs
+title: Ladda ned mallen för en virtuell Azure-dator
 description: Ladda ned templatefor en virtuell dator för att hjälpa till med automatisering av distributioner i distributions modellen för Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 39abe054869bf68a254b9305a680ecc892359300
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c73026515f0d7fde4e2f82838696700b1bb17c77
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898876"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033548"
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
 När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas en Resource Manager-mall automatiskt åt dig. Du kan använda den här mallen för att snabbt duplicera en distribution. Mallen innehåller information om alla resurser i en resurs grupp. För en virtuell dator innebär detta att mallen innehåller allt som skapas i stöd för den virtuella datorn i resurs gruppen, inklusive nätverks resurserna.
@@ -32,8 +32,8 @@ När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell
 5. Välj **Ladda ned** på menyn längst upp och spara. zip-filen på den lokala datorn.
 6. Öppna. zip-filen och extrahera filerna till en mapp. Zip-filen innehåller:
    
-   * Parameters. JSON
-   * Template. JSON
+   * parameters.json
+   * template.json
 
 Filen Template. JSON är mallen.
 

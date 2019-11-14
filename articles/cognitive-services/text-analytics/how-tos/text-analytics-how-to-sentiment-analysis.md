@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: a930a22472dd4329c555539704747af9a2359c33
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837152"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031462"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: identifiera sentiment med Textanalys
 
@@ -28,7 +28,7 @@ För närvarande stöder Attitydanalys API: t engelska, tyska, spanska och frans
 > [!TIP]
 > Azure API för textanalys tillhandahåller också en Linux-baserad Docker-behållar avbildning för sentiment-analys, så att du kan [Installera och köra textanalys-behållaren](text-analytics-how-to-install-containers.md) nära dina data.
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 
 Textanalys använder en klassificering i maskininlärningsalgoritmen för att generera ett attitydpoäng mellan 0 och 1. Resultat nära 1 visar positiv attityd medan resultat nära 0 indikerar negativ attityd. Modellen har förtränats med en omfattande textmassa med attitydassociationer. För närvarande går det inte att tillhandahålla dina egna tränings data. Modellen använder en kombination av metoder under text analys. Tekniker omfattar text bearbetning, del av tal analys, ord placering och Word-associationer. Läs mer om algoritmen [Introduktion till textanalys](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
@@ -36,7 +36,7 @@ Attitydanalys utförs i hela dokumentet, till skillnad från åsiktsextrahering 
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Attitydanalys v3 offentlig för hands version
 
-[Nästa version av Attitydanalys](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.
+[Nästa version av Attitydanalys](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.
 
 > [!NOTE]
 > * Formatet för förfrågnings formatet för Attitydanalys v3 och [data begränsningarna](../overview.md#data-limits) är desamma som i den tidigare versionen.
@@ -171,7 +171,7 @@ Du kan hitta ett exempel C# program som anropar den här versionen av Attitydana
 
 ## <a name="preparation"></a>Förberedelse
 
-Sentiment-analys ger bättre resultat när du ger den mindre text segment att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata på ett lämpligt sätt.
+Sentiment-analys ger bättre resultat när du ger den mindre text segment att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
 
 Du måste ha JSON-dokument i det här formatet: ID, text och språk.
 
@@ -276,7 +276,7 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för sentiment-an
 + POST-begäran är till en `/sentiment` slut punkt genom att använda en anpassad [åtkomst nyckel och en slut punkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för din prenumeration.
 + Svars utdata som består av en sentiment Poäng för varje dokument-ID kan strömmas till alla appar som accepterar JSON. Exempel på appar är Excel och Power BI, så att du kan namnge några.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)</br>
  [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)

@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera väg filter för Microsoft-peering: Azure-ExpressRoute – Portal | Microsoft Docs'
+title: 'ExpressRoute: väg filter-Microsoft-peering: Azure Portal'
 description: Den här artikeln beskriver hur du konfigurerar routningsfilter för Microsoft-peering med hjälp av Azure portal.
 services: expressroute
 author: ganesr
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0b8e06ad5688374e5ab4aaa72d8485e6da797afe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122943"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037444"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera väg filter för Microsoft-peering: Azure Portal
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera routningsfilter för Microsoft-peering: Azure-portalen
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -71,21 +71,21 @@ Innan du börjar konfigurationen måste du kontrollera att du uppfyller följand
  - Du måste ha en aktiv Microsoft-peering. Följ anvisningarna i [skapa och ändra peering-konfigurationen](expressroute-howto-routing-portal-resource-manager.md)
 
 
-## <a name="prefixes"></a>Steg 1: Hämta en lista över prefix och värden för BGP-community
+## <a name="prefixes"></a>Steg 1: Hämta en lista över prefix och BGP community-värden
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Hämta en lista över BGP community-värden
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. Hämta en lista över värden för BGP-communityn
 
 BGP community-värden som är associerade med tjänster som är tillgängliga via Microsoft-peering är tillgänglig i den [ExpressRoute-routningskrav](expressroute-routing.md) sidan.
 
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Skapa en lista över de värden som du vill använda
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. gör en lista över de värden som du vill använda
 
 Skapa en lista över [värden för BGP-grupper](expressroute-routing.md#bgp) som du vill använda i flödes filtret. 
 
-## <a name="filter"></a>Steg 2: Skapa ett flödes filter och en filter regel
+## <a name="filter"></a>Steg 2: Skapa ett flödesfilter och en regel för filter
 
 Ett flödesfilter kan ha endast en regel och regeln måste vara av typen 'Tillåt'. Den här regeln kan ha en lista över BGP community-värden som är associerade med den.
 
-### <a name="1-create-a-route-filter"></a>1. Skapa ett flödesfilter
+### <a name="1-create-a-route-filter"></a>1. skapa ett flödes filter
 Du kan skapa ett flödesfilter genom att välja alternativet för att skapa en ny resurs. Klicka på **skapa en resurs** > **nätverk** > **RouteFilter**, enligt följande bild:
 
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
@@ -94,7 +94,7 @@ Flödesfiltret måste du placera i en resursgrupp.
 
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
-### <a name="2-create-a-filter-rule"></a>2. Skapa en regel för filter
+### <a name="2-create-a-filter-rule"></a>2. skapa en filter regel
 
 Du kan lägga till och uppdatera regler genom att välja fliken hantera regel för route-filter.
 
@@ -106,7 +106,7 @@ Du kan välja de tjänster som du vill ansluta till från List rutan och spara r
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Steg 3: Koppla väg filtret till en ExpressRoute-krets
+## <a name="attach"></a>Steg 3: Koppla flödesfiltret till en ExpressRoute-krets
 
 Du kan koppla flödes filtret till en krets genom att välja knappen Lägg till krets och välja ExpressRoute-kretsen i list rutan.
 

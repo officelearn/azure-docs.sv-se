@@ -1,5 +1,5 @@
 ---
-title: Ändra tillgänglighets uppsättning för virtuella datorer | Microsoft Docs
+title: Ändra tillgänglighets uppsättning för virtuella datorer
 description: Lär dig hur du ändrar tillgänglighets uppsättningen för dina virtuella datorer med hjälp av Azure PowerShell och distributions modellen för Resource Manager.
 keywords: ''
 services: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 5390643723f2907301554e69a1142cef181deb13
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7d03d684edfded1450043b943fc188c7aa07dc16
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749609"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039573"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighets uppsättning för en virtuell Windows-dator
 Följande steg beskriver hur du ändrar tillgänglighets uppsättningen för en virtuell dator med hjälp av Azure PowerShell. En virtuell dator kan bara läggas till i en tillgänglighets uppsättning när den skapas. Om du vill ändra tillgänglighets uppsättningen måste du ta bort och sedan återskapa den virtuella datorn. 

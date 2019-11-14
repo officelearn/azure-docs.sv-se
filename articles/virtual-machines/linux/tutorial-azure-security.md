@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Använda Azure Security Center för virtuella Linux-datorer i Azure | Microsoft Docs
+title: Självstudie – använda Azure Security Center för virtuella Linux-datorer i Azure
 description: I den här självstudiekursen lär du dig mer om funktionerna i Azure Security Center, som hjälper dig att skydda dina virtuella Linux-datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0ac5c95fa51ca5032f5d3e057af2064f872ea15c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081702"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034612"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 

@@ -1,5 +1,5 @@
 ---
-title: Vägledning för att minimera spekulativ körning i Azure | Microsoft Docs
+title: Vägledning för att minimera spekulativ körning i Azure
 description: Vägledning för att åtgärda problem med säkerhets luckor i spekulativ körnings sida i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 08bc23a28ef2ce67766e180a67c93b872f89d525
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: c5ac8298ba6be79740d9eb70d8274c0c844311be
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73935883"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035696"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Vägledning för att åtgärda problem med säkerhets luckor i spekulativ körnings sida i Azure
 

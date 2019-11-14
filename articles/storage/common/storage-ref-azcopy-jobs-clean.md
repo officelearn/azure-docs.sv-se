@@ -8,20 +8,27 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 31529155ee44b2bcfad90e8634053403dfe8fc8c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 7ae14c3606dfe6bffa8481682843f3f2e85c2131
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518517"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033726"
 ---
-# <a name="azcopy-jobs-clean"></a>rensning av AzCopy-jobb
+# <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
 Ta bort alla logg-och plan-filer för alla jobb
 
 ```
 azcopy jobs clean [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
+
+- [Kom igång med AzCopy](storage-use-azcopy-v10.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exempel
 
@@ -41,6 +48,6 @@ azcopy jobs clean [flags]
 
 **--Skriv** sträng format för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [AzCopy-jobb](storage-ref-azcopy-jobs.md)

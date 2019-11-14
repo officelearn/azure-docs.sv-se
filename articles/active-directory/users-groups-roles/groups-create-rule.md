@@ -1,25 +1,25 @@
 ---
-title: Skapa en dynamisk grupp och kontrol lera status-Azure Active Directory | Microsoft Docs
+title: Skapa en dynamisk grupp och kontrol lera status – Azure AD | Microsoft Docs
 description: Så här skapar du en regel för grupp medlemskap i Azure Portal kontrollerar du status.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343acce228c38e38152fc2ea9d8fe0a59d8254d4
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193942"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027245"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrol lera status
 
@@ -35,7 +35,7 @@ Här följer några exempel på avancerade regler eller syntax som vi rekommende
 - Regel med fler än fem uttryck
 - Regeln för direkt rapporter
 - Ställer in [operator prioritet](groups-dynamic-membership.md#operator-precedence)
-- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
@@ -76,17 +76,17 @@ Du kan se status för medlemskaps bearbetning och senaste uppdaterade datum på 
 
 Följande status meddelanden kan visas för status för **medlemskaps bearbetning** :
 
-- **Utvärdera**:  Grupp ändringen har mottagits och uppdateringarna utvärderas.
-- **Bearbetar**: Uppdateringar bearbetas.
-- **Uppdateringen är klar**: Bearbetningen har slutförts och alla tillämpliga uppdateringar har gjorts.
-- **Bearbetnings fel**:  Det gick inte att slutföra bearbetningen på grund av ett fel när medlemskaps regeln utvärderades.
-- **Uppdateringen**har pausats: Uppdateringar av dynamiska medlemskaps regler har pausats av administratören. MembershipRuleProcessingState är inställd på pausad.
+- **Utvärdering**: grupp ändringen har mottagits och uppdateringarna utvärderas.
+- **Bearbetar**: uppdateringar bearbetas.
+- **Uppdateringen är klar**: bearbetningen har slutförts och alla tillämpliga uppdateringar har gjorts.
+- **Bearbetnings fel**: bearbetningen kunde inte slutföras på grund av ett fel när medlemskaps regeln utvärderades.
+- **Uppdateringen har pausats**: uppdateringar av dynamiska medlemskaps regler har pausats av administratören. MembershipRuleProcessingState är inställd på pausad.
 
-Följande status meddelanden kan visas för medlemskapets **senast uppdaterade** status:
+Följande status meddelanden kan visas för **medlemskapets senast uppdaterade** status:
 
-- &lt;**Datum och tid**&gt;: Den senaste gången som medlemskapet uppdaterades.
-- **Pågår**: Uppdateringar pågår just nu.
-- **Okänd**: Det går inte att hämta den senaste uppdaterings tiden. Gruppen kan vara ny.
+- &lt;**datum och tid**&gt;: när medlemskapet senast uppdaterades.
+- **Pågår**: uppdateringar pågår just nu.
+- **Okänd**: det går inte att hämta den senaste uppdaterings tiden. Gruppen kan vara ny.
 
 Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en avisering överst på **sidan Översikt** för gruppen. Om inga väntande dynamiska medlemskaps uppdateringar kan bearbetas för alla grupper i klient organisationen för mer än 24 timmar, visas en avisering överst i **alla grupper**.
 
@@ -94,7 +94,7 @@ Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en a
 
 De här artiklarna innehåller ytterligare information om grupper i Azure Active Directory.
 
-- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

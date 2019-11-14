@@ -1,5 +1,5 @@
 ---
-title: Skapa delade avbildnings gallerier med Azure CLI | Microsoft Docs
+title: Skapa delade avbildnings gallerier med Azure CLI
 description: I den här artikeln får du lära dig hur du använder Azure CLI för att skapa en delad avbildning av en virtuell dator i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: ea884b80698fb257106ef68d293f350b2f55dc06
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de1afa2367afcb78e8ca68e518acc93e33f61c43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103559"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034964"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Skapa ett galleri för delad avbildning med Azure CLI
 
@@ -33,7 +33,7 @@ Galleriet är en resurs på den översta nivån som ger fullständig rollbaserad
 
 Funktionen för delad bild galleri har flera resurs typer. Vi kommer att använda eller skapa dessa i den här artikeln:
 
-| Resource | Beskrivning|
+| Resurs | Beskrivning|
 |----------|------------|
 | **Hanterad avbildning** | Detta är en grundläggande bild som kan användas separat eller användas för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från generaliserade virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
@@ -56,7 +56,7 @@ az vm create\
    --generate-ssh-keys
 ```
 
-Du kan också använda en speciell version med hjälp av avbildningens versions- `--image` ID för parametern. Om du till exempel vill använda bild versionen *1.0.0* typ `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`:.
+Du kan också använda en speciell version med hjälp av avbildningens versions-ID för parametern `--image`. Om du till exempel vill använda bild versionen *1.0.0* skriver du: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 

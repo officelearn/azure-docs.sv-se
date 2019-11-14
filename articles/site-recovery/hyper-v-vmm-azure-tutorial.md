@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953971"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039694"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurera katastrof återställning av lokala virtuella Hyper-V-datorer i VMM-moln till Azure
 
@@ -32,8 +32,6 @@ I den här självstudiekursen får du lära du dig att:
 > [!NOTE]
 > Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artiklarna i avsnittet om **att gå till guider** i [Site Recovery-dokumentationen](https://docs.microsoft.com/azure/site-recovery).
 
-> [!WARNING]
-> Stöd för haveri beredskap för virtuella Hyper-V-datorer med System Center VMM är inaktuellt i en snar framtid. Vi rekommenderar att du läser [utfasnings](scvmm-site-recovery-deprecation.md) informationen innan du fortsätter.
 
 
 ## <a name="before-you-begin"></a>Innan du börjar

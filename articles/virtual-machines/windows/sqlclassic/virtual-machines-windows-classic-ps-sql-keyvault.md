@@ -1,5 +1,5 @@
 ---
-title: Integrera Key Vault med SQL Server på virtuella Windows-datorer i Azure (klassisk) | Microsoft Docs
+title: Integrera Key Vault med en klassisk Azure-SQL Server VM
 description: Lär dig hur du automatiserar konfigurationen av SQL Server kryptering för användning med Azure Key Vault. I det här avsnittet beskrivs hur du använder Azure Key Vault-integrering med SQL Server virtuella datorer som skapas i den klassiska distributions modellen.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 96d2dc567a4ccc96d33c2ccac233268a5b9148e4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: ddf23126154f5bc62c49f62ac4adf517d6987091
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100344"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033463"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurera Azure Key Vault-integrering för SQL Server på Azure-Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
@@ -33,7 +34,7 @@ ms.locfileid: "70100344"
 Det finns flera SQL Server krypterings funktioner, till exempel [transparent data kryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (Column Level Encryption)](https://msdn.microsoft.com/library/ms173744.aspx)och [kryptering av säkerhets kopior](https://msdn.microsoft.com/library/dn449489.aspx). Dessa krypterings former kräver att du hanterar och lagrar de kryptografiska nycklar som du använder för kryptering. Tjänsten Azure Key Vault (AKV) är utformad för att förbättra säkerheten och hanteringen av dessa nycklar på en säker plats med hög tillgänglighet. Med [SQL Server-anslutning](https://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server använda nycklarna från Azure Key Vault.
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Om du kör SQL Server med lokala datorer finns det [steg du kan följa för att få åtkomst till Azure Key Vault från din lokala SQL Server dator](https://msdn.microsoft.com/library/dn198405.aspx). Men för SQL Server i virtuella Azure-datorer kan du spara tid genom att använda funktionen för *Azure Key Vault-integrering* . Med några Azure PowerShell-cmdletar för att aktivera den här funktionen, kan du automatisera konfigurationen som krävs för en virtuell SQL-dator för att få åtkomst till ditt nyckel valv.
 
@@ -55,9 +56,9 @@ I följande tabell visas de parametrar som krävs för att köra PowerShell-skri
 | **$akvURL** |**Nyckel valvets URL** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Tjänstens huvud namn** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Hemlighet för tjänstens huvud namn** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
-| **$credName** |**Namn på autentiseringsuppgift**: AKV-integreringen skapar en autentiseringsuppgift i SQL Server, vilket gör det möjligt för den virtuella datorn att ha åtkomst till nyckel valvet. Välj ett namn för autentiseringsuppgifterna. |"mycred1" |
-| **$vmName** |**Namn på virtuell dator**: Namnet på en tidigare skapad virtuell SQL-dator. |"myvmname" |
-| **$serviceName** |**Tjänst namn**: Namnet på moln tjänsten som är associerat med den virtuella SQL-datorn. |"mycloudservicename" |
+| **$credName** |**Namn på autentiseringsuppgifter**: AKV-integreringen skapar autentiseringsuppgifter på SQL-servern som gör att den virtuella datorn kan komma åt nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |"mycred1" |
+| **$vmName** |**Namn på virtuell dator**: namnet på en tidigare skapad virtuell SQL-dator. |"myvmname" |
+| **$serviceName** |**Tjänst namn**: namnet på moln tjänsten som är associerat med den virtuella SQL-datorn. |"mycloudservicename" |
 
 ### <a name="enable-akv-integration-with-powershell"></a>Aktivera AKV-integrering med PowerShell
 Cmdlet **: en New-AzureVMSqlServerKeyVaultCredentialConfig** skapar ett konfigurations objekt för funktionen Azure Key Vault-integrering. **Set-AzureVMSqlServerExtension** konfigurerar den här integreringen med parametern **KeyVaultCredentialSettings** . Följande steg visar hur du använder dessa kommandon.

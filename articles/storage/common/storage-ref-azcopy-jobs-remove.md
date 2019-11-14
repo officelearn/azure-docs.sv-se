@@ -8,14 +8,14 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 82c399580322334e67c0c9c2b88d1edf6f175e0c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ba403c8d823b7ead0414521ebd51dc6f6601ccd8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518296"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034163"
 ---
-# <a name="azcopy-jobs-remove"></a>ta bort AzCopy-jobb
+# <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
 Ta bort alla filer som är associerade med angivet jobb-ID.
 
@@ -25,6 +25,13 @@ Ta bort alla filer som är associerade med angivet jobb-ID.
 ```
 azcopy jobs remove [jobID] [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
+
+- [Kom igång med AzCopy](storage-use-azcopy-v10.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exempel
 
@@ -42,6 +49,6 @@ azcopy jobs remove [jobID] [flags]
 
 **--Skriv** sträng format för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [AzCopy-jobb](storage-ref-azcopy-jobs.md)

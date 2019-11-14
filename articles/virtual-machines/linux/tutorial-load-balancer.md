@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Belastningsutjämna virtuella Linux-datorer i Azure | Microsoft Docs
+title: Självstudie – belastningsutjämna virtuella Linux-datorer i Azure
 description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa en lastbalanserare för ett säkert program med hög tillgänglighet på tre virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5bfe25499bc2c4e7dc4c07d9811fa0227d347d7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: daad74ae5f046edb1b4bf6eef547c963e52593f5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300831"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034440"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Självstudie: lastbalansera virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI
 
@@ -38,7 +38,7 @@ Med belastningsutjämning får du högre tillgänglighet genom att inkommande be
 
 I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Översikt över Azure Load Balancer
 En Azure-lastbalanserare är en Layer-4-lastbalanserare (TCP, UDP) som ger hög tillgänglighet genom att distribuera inkommande trafik till felfria virtuella datorer. Lastbalanseraren har en hälsoavsökningsfunktion som övervakar en given port på varje virtuell dator och ser till att trafik endast distribueras till virtuella datorer som fungerar.
@@ -243,7 +243,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Parametern `--no-wait` väntar inte på att alla uppgifter slutförs. Det kan ta några minuter innan du kan öppna appen. Lastbalanserarens hälsoavsökning känner automatiskt av när appen körs på varje virtuell dator. När appen körs börjar lastbalanserarens regel att distribuera trafiken.
+Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. Parametern `--no-wait` väntar inte på att alla uppgifter slutförs. Det kan ta några minuter innan du kan öppna programmet. Lastbalanserarens hälsoavsökning känner automatiskt av när appen körs på varje virtuell dator. När appen körs börjar lastbalanserarens regel att distribuera trafiken.
 
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren

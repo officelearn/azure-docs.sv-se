@@ -1,6 +1,6 @@
 ---
-title: 'Konfigurera ExpressRoute-och plats-till-plats-VPN-anslutningar – kan användas: PowerShell: Azure | Microsoft Docs'
-description: Konfigurera ExpressRoute och en VPN-anslutning för plats-till-plats som kan användas för Resource Manager-modellen med hjälp av PowerShell.
+title: 'Konfigurera ExpressRoute och S2S VPN samtidiga anslutningar: Azure PowerShell'
+description: Konfigurera ExpressRoute och en plats-till-plats-VPN-anslutning som kan samexistera för Resource Manager-modellen med hjälp av PowerShell.
 services: expressroute
 author: charwen
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8a89c5121d5010245ce16cade921bb96346fcbf5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e25d6ff0bf0c27926040fcfe190724a666713a05
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748314"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031752"
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurera ExpressRoute-och plats-till-plats-sambefintliga anslutningar med hjälp av PowerShell
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurera ExpressRoute och plats-till-plats-anslutningar för samexistens mellan med hjälp av PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell – Klassisk](expressroute-howto-coexist-classic.md)
@@ -29,7 +29,7 @@ Att konfigurera VPN för plats till plats och samexisterande ExpressRoute-anslut
 * Du kan konfigurera en VPN för plats till plats som en säker redundanssökväg för ExpressRoute. 
 * Du kan också använda VPN för plats till plats för att ansluta till platser som inte är anslutna via ExpressRoute. 
 
-Stegen för att konfigurera båda scenarierna beskrivs i den här artikeln. Den här artikeln gäller distributionsmodellen i Resource Manager, och PowerShell används. Du kan också konfigurera dessa scenarier med hjälp av Azure Portal, men dokumentationen är inte tillgänglig ännu. Du kan konfigurera antingen gatewayen först. Normalt uppstår ingen stillestånds tid när du lägger till en ny gateway eller gateway-anslutning.
+Stegen för att konfigurera båda scenarierna beskrivs i den här artikeln. Den här artikeln gäller distributionsmodellen i Resource Manager, och PowerShell används. Du kan också konfigurera dessa scenarier med hjälp av Azure-portalen, även om dokumentation inte är tillgänglig ännu. Du kan konfigurera antingen gateway först. Normalt tillkommer utan avbrott när du lägger till en ny gateway eller gateway-anslutning.
 
 >[!NOTE]
 >Om du vill skapa en VPN-anslutning för plats till plats över en ExpressRoute-krets kan du läsa [den här artikeln](site-to-site-vpn-over-microsoft-peering.md).
@@ -243,7 +243,7 @@ De cmdletar som du använder för den här konfigurationen kan se annorlunda ut 
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Så här lägger du till punkt-till-plats-konfiguration till VPN-gateway
 
-Du kan följa stegen nedan för att lägga till punkt-till-plats-konfiguration till din VPN-gateway i en samexistens-installation. Om du vill ladda upp VPN-rotcertifikatet måste du antingen installera PowerShell lokalt på datorn eller använda Azure Portal.
+Du kan följa stegen nedan för att lägga till punkt-till-plats-konfiguration för VPN-gateway i en samexistens-installationen. Om du vill ladda upp VPN-rotcertifikatet måste du antingen installera PowerShell lokalt på datorn eller använda Azure Portal.
 
 1. Lägga till VPN-klientadresspoolen.
 

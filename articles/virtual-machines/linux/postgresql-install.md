@@ -1,5 +1,5 @@
 ---
-title: Konfigurera PostgreSQL på en virtuell Linux-dator | Microsoft Docs
+title: Konfigurera PostgreSQL på en virtuell Linux-dator
 description: Lär dig hur du installerar och konfigurerar PostgreSQL på en virtuell Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 7fc8cb7c07dd27cd42dc4c6a7e0a576f0efe04e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091725"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035272"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad databas med öppen källkod som liknar Oracle och DB2. Den innehåller företags klara funktioner som full syra efterlevnad, tillförlitlig transaktions bearbetning och samtidighet med flera versioner. Det stöder också standarder som ANSI SQL och SQL/with (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Den är mycket utöknings bar med stöd för över 12 procedur språk, GIN-och register index, spatiala data stöd och flera NoSQL-liknande funktioner för JSON-eller nyckel värdebaserade program.
@@ -91,7 +91,7 @@ Anslut till den virtuella Linux-dator som du skapade via SparaTillFil. Om det h�
    > Av säkerhets skäl använder PostgreSQL en icke-rot användare för att initiera, starta eller stänga av databasen.
    > 
    > 
-4. Redigera *bash_profile* -filen genom att ange följande kommandon. Dessa rader kommer att läggas till i slutet av *bash_profile* -filen:
+4. Redigera *bash_profile* -filen genom att ange följande kommandon. Dessa rader kommer att läggas till i slutet av *bash_profiles* filen:
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999

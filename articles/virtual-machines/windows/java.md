@@ -1,5 +1,5 @@
 ---
-title: Skapa och hantera en virtuell Azure-dator med Java | Microsoft Docs
+title: Skapa och hantera en virtuell Azure-dator med Java
 description: Använd Java och Azure Resource Manager för att distribuera en virtuell dator och alla dess stöd resurser.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fa6c5115663d770f561764356129448af878668b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103027"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039727"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
@@ -51,7 +51,7 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
-1. Under mappen öppnar du &lt;&gt; filen och lägger till build-konfigurationen till projektet för att möjliggöra skapandet av ditt program: `pom.xml` `testAzureApp`
+1. Öppna `pom.xml`-filen under `testAzureApp`-mappen och Lägg till build-konfigurationen för att &lt;projekt&gt; för att möjliggöra skapandet av ditt program:
 
     ```xml
     <build>
@@ -120,7 +120,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
 
 ### <a name="create-the-authorization-file"></a>Skapa verifierings filen
 
-1. Skapa en fil med `azureauth.properties` namnet och Lägg till följande egenskaper:
+1. Skapa en fil med namnet `azureauth.properties` och Lägg till dessa egenskaper till den:
 
     ```
     subscription=<subscription-id>
@@ -133,14 +133,14 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;&gt;** Ersätt  **&lt;prenumerations-&gt; ID** med prenumerations-ID, program-ID med Active Directory-program-ID, **&lt;autentisering-nyckel med&gt;** program nyckeln och  **&lt;&gt; klient-ID** med klient-ID: t.
+    Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID: **t,&lt;program-id&gt;** med Active Directory-program-ID, **&lt;autentisering-nyckel&gt;** med program nyckeln och **&lt;klient-ID&gt;med klient-ID: t** .
 
 2. Spara filen.
 3. Ange en miljö variabel med namnet AZURE_AUTH_LOCATION i ditt gränssnitt med den fullständiga sökvägen till autentiserings filen.
 
 ### <a name="create-the-management-client"></a>Skapa hanterings klienten
 
-1. Öppna filen under `src\main\java\com\fabrikam` och kontrol lera att paket utdraget är överst: `App.java`
+1. Öppna `App.java`-filen under `src\main\java\com\fabrikam` och se till att paket utdraget är högst upp:
 
     ```java
     package com.fabrikam.testAzureApp;

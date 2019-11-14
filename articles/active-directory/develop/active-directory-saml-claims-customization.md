@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4307c9036db45145a7c0e95cb5e55a667c6851eb
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1490a25e69ff22fde1f5c870868f20ea6f9a1cf7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893397"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046976"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -31,7 +31,7 @@ Idag har Azure Active Directory (Azure AD) stöd för enkel inloggning (SSO) med
 
 Ett *anspråk* är information som en identitets leverantör anger för en användare inom den token som de utfärdar för den användaren. I [SAML-token](https://en.wikipedia.org/wiki/SAML_2.0)finns dessa data vanligt vis i instruktionen SAML Attribute. Användarens unika ID visas vanligt vis i SAML-ämnet även kallat namn identifierare.
 
-Som standard utfärdar Azure AD en SAML-token till ditt program som innehåller ett `NameIdentifier`-anspråk med ett värde för användarens användar namn (kallas även User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
+Som standard utfärdar Azure AD en SAML-token till ditt program som innehåller ett `NameIdentifier`-anspråk med ett värde för användarens användar namn (även kallat User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
 
 Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till programmet öppnar du programmet i Azure Portal. Öppna sedan avsnittet **användarattribut &-anspråk** .
 
@@ -39,7 +39,7 @@ Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till prog
 
 Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 
-* Programmet kräver att `NameIdentifier` eller NameID-anspråk är något annat än användar namnet (eller User Principal Name) som lagras i Azure AD.
+* Programmet kräver att `NameIdentifier`-eller NameID-anspråk är något annat än användar namnet (eller User Principal Name) som lagras i Azure AD.
 * Programmet har skrivits för att kräva en annan uppsättning av anspråk-URI: er eller anspråks värden.
 
 ## <a name="editing-nameid"></a>Redigera nameID
@@ -63,21 +63,22 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 |---------------|-------------|
 | **Standard** | Standardvärdet för käll formatet används i Azure AD. |
 | **Bestående** | Azure AD kommer att använda beständigt som NameID-format. |
-| **EmailAddress** | Azure AD kommer att använda EmailAddress som NameID-format. |
+| **E-postadress** | Azure AD kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerad** | Azure AD kommer att använda ospecificerat som NameID-format. |
+| **Kvalificerat namn för Windows-domän** | Azure AD kommer att använda WindowsDomainQualifiedName som NameID-format. |
 
 En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och kan inte konfigureras på Azures sida. Mer information om attributet NameIDPolicy finns i [SAML-protokoll för enkel inloggning](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Attribut
 
-Välj önskad källa för `NameIdentifier`-eller NameID-anspråk. Du kan välja bland följande alternativ.
+Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan välja bland följande alternativ.
 
 | Namn | Beskrivning |
 |------|-------------|
 | E-post | Användarens e-postadress |
 | userprincipalName | Användarens huvud namn (UPN) |
 | onpremisessamaccount | SAM-kontonamn som har synkroniserats från den lokala Azure AD |
-| objectID | objectID för användaren i Azure AD |
+| objectID | ObjectID för användaren i Azure AD |
 | employeeid | Användarens medarbetar-ID |
 | Katalogtillägg | Katalog tillägg som har [synkroniserats från lokala Active Directory med Azure AD Connect synkronisering](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Attribut för tillägg 1-15 | Attribut för lokala tillägg som används för att utöka Azure AD-schemat |
@@ -138,11 +139,11 @@ Du kan använda följande funktioner för att transformera anspråk.
 | **Contains ()** | Matar ut ett attribut eller en konstant om indata matchar det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens e-postadress om den innehåller domänen "@contoso.com", annars vill du spara User Principal Name. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)* : User. email<br/>*Värde*: "@contoso.com"<br/>Parameter 2 (utdata): User. email<br/>Parameter 3 (utdata om det inte finns någon matchning): User. UserPrincipalName |
 | **EndWith()** | Matar ut ett attribut eller en konstant om indata slutar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens medarbetar-ID om anställnings-ID: t slutar med "000", annars vill du spara ett attribut för tillägg. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)* : User. Anställningsnr<br/>*Värde*: "000"<br/>Parameter 2 (utdata): User. Anställningsnr<br/>Parameter 3 (utdata om det inte finns någon matchning): User. extensionAttribute1 |
 | **StartWith()** | Matar ut ett attribut eller en konstant om indatan börjar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens anställnings-ID om landet/regionen börjar med "US", annars vill du spara ett attribut för tillägg. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)* : användare. land<br/>*Värde*: "US"<br/>Parameter 2 (utdata): User. Anställningsnr<br/>Parameter 3 (utdata om det inte finns någon matchning): User. extensionAttribute1 |
-| **Extrahera ()-efter matchning** | Returnerar del strängen när den matchar det angivna värdet.<br/>Om exempelvis indatans värde är "Finance_BSimon" är det matchande värdet "Finance_", och anspråkets utdata är "BSimon". |
-| **Extrahera ()-före matchning** | Returnerar del strängen tills den matchar det angivna värdet.<br/>Om exempelvis indatans värde är "BSimon_US" är det matchande värdet "_US", och anspråkets utdata är "BSimon". |
+| **Extrahera ()-efter matchning** | Returnerar del strängen när den matchar det angivna värdet.<br/>Om exempelvis värdet för indata är "Finance_BSimon" är det matchande värdet "Finance_", och anspråkets utdata är "BSimon". |
+| **Extrahera ()-före matchning** | Returnerar del strängen tills den matchar det angivna värdet.<br/>Om exempelvis värdet för indata är "BSimon_US" är det matchande värdet "_US", och anspråkets utdata är "BSimon". |
 | **Extrahera () – mellan matchning** | Returnerar del strängen tills den matchar det angivna värdet.<br/>Exempel: om indatans värde är "Finance_BSimon_US" är det första matchande värdet "Finance_", det andra matchning svärdet är "_US", och anspråkets utdata är "BSimon". |
-| **ExtractAlpha ()-prefix** | Returnerar den alfabetiska delen av strängen.<br/>Om exempelvis värdet för invärdet är "BSimon_123" returnerar det "BSimon". |
-| **ExtractAlpha ()-suffix** | Returnerar den alfabetiska delen för suffixet i strängen.<br/>Om värdet till exempel är "123_Simon" returneras "Simon". |
+| **ExtractAlpha ()-prefix** | Returnerar den alfabetiska delen av strängen.<br/>Om värdet till exempel är "BSimon_123" returnerar det "BSimon". |
+| **ExtractAlpha() - Suffix** | Returnerar den alfabetiska delen för suffixet i strängen.<br/>Om värdet till exempel är "123_Simon" returnerar det "Simon". |
 | **ExtractNumeric ()-prefix** | Returnerar prefixets numeriska del av strängen.<br/>Om värdet till exempel är "123_BSimon" returneras "123". |
 | **ExtractNumeric ()-suffix** | Returnerar suffixets numeriska del av strängen.<br/>Om värdet till exempel är "BSimon_123" returneras "123". |
 | **IfEmpty()** | Matar ut ett attribut eller en konstant om indata är null eller tomt.<br/>Om du till exempel vill mata ut ett attribut som lagras i en extensionattribute om medarbetar-ID: t för en specifik användare är tomt. Det gör du genom att konfigurera följande värden:<br/>Parameter 1 (indata): User. Anställningsnr<br/>Parameter 2 (utdata): User. extensionAttribute1<br/>Parameter 3 (utdata om det inte finns någon matchning): User. Anställningsnr |

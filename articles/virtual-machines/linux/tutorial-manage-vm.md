@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Skapa och hantera virtuella Linux-datorer med Azure CLI | Microsoft Docs
+title: Självstudie – Skapa och hantera virtuella Linux-datorer med Azure CLI
 description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa och hantera virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11c12058229a2eadfdc3834d311c085c2365b17d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b7660d2bcb6f2bb8b738ed92401937c0b988fef2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300790"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034423"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -30,12 +30,12 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 > * Skapa och ansluta till en virtuell dator
 > * Välja och använda VM-avbildningar
 > * Visa och använda specifika VM-storlekar
-> * Ändra storlek på en VM
+> * Ändra storlek på en virtuell dator
 > * Visa och förstå tillstånd för virtuella datorer
 
 I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
@@ -47,7 +47,7 @@ En Azure-resursgrupp är en logisk container där Azure-resurser distribueras oc
 az group create --name myResourceGroupVM --location eastus
 ```
 
-Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i hela den här självstudien.
+Resursgruppen som anges när du skapar eller ändrar en VM visas i hela den här självstudien.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
@@ -79,7 +79,7 @@ Det kan ta några minuter att skapa den virtuella datorn. När den virtuella dat
 }
 ```
 
-## <a name="connect-to-vm"></a>Ansluta till virtuell dator
+## <a name="connect-to-vm"></a>Ansluta till VM
 
 Du kan nu ansluta till den virtuella datorn via SSH i Azure Cloud Shell eller från den lokala datorn. Byt ut IP-adressen i exemplet mot den `publicIpAddress` du skrev upp i föregående steg.
 
@@ -159,7 +159,7 @@ I följande tabell kategoriseras storlekarna i användningsfall.
 | [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
 | [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
-| [Lagringsoptimerad](sizes-storage.md)      | Lsv2, LS              | Högt diskdataflöde och I/O. Perfekt för stordata, SQL och NoSQL-databaser.                                                         |
+| [Lagringsoptimerad](sizes-storage.md)      | Lsv2, Ls              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
 | [Höga prestanda](sizes-hpc.md) | H        | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). |
 
@@ -208,7 +208,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-### <a name="resize-a-vm"></a>Ändra storlek på en VM
+### <a name="resize-a-vm"></a>Ändra storlek på en virtuell dator
 
 När en virtuell dator har distribuerats kan storleken ändras för att öka eller minska resurstilldelningen. Kommandot [az vm show](/cli/azure/vm) visar den virtuella datorns aktuella storlek:
 
@@ -221,7 +221,7 @@ Kontrollera om önskad storlek är tillgänglig i det aktuella Azure-klustret in
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändras medan den är igång, men den startas om under åtgärden. Använd kommandot [az vm resize]( /cli/azure/vm) för att ändra storleken.
+Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändras från att vara igång, men den startas om under åtgärden. Använd kommandot [az vm resize]( /cli/azure/vm) för att ändra storleken.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -245,7 +245,7 @@ När storleksändringen utförts kan den virtuella datorn startas.
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-## <a name="vm-power-states"></a>Energinivåer för VM
+## <a name="vm-power-states"></a>Energisparlägen för VM
 
 En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet motsvarar aktuellt tillstånd för den virtuella datorn i hypervisor-programmet. 
 
@@ -258,7 +258,7 @@ En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet
 | Stoppas | Anger att den virtuella datorn stoppas. | 
 | Stoppad | Anger att den virtuella datorn har stoppats. Virtuella datorer i ett stoppat tillstånd kan fortfarande medföra debitering.  |
 | Frigör | Anger att den virtuella datorn frigörs. |
-| Frigjord | Anger att den virtuella datorn är frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanet. Virtuella datorer med tillståndet Frigjord medför inte några debiteringar. |
+| Frigjord | Anger att den virtuella datorn är frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanet. Virtuella datorer med tillståndet Frigjord medför inte några beräkningsavgifter. |
 | - | Anger att energinivån för den virtuella datorn är okänd. |
 
 ### <a name="find-the-power-state"></a>Hitta energinivån
@@ -320,7 +320,7 @@ I den här självstudien har du lärt dig om grundläggande VM-skapande och hant
 > * Skapa och ansluta till en virtuell dator
 > * Välja och använda VM-avbildningar
 > * Visa och använda specifika VM-storlekar
-> * Ändra storlek på en VM
+> * Ändra storlek på en virtuell dator
 > * Visa och förstå tillstånd för virtuella datorer
 
 Gå vidare till nästa självstudie om du vill lära dig mer om diskar i virtuella dator.  

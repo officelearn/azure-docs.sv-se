@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: ecec237eab42cf434ab8627ebdf9b1e34f3ab3f1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838136"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039133"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Säkra anrop till anpassade API: er från Azure Logic Apps
 
@@ -202,14 +202,14 @@ Det här avsnittet har redan kon figurer ATS för föregående mall, men om du r
 
 | Egenskap | Krävs | Beskrivning | 
 | -------- | -------- | ----------- | 
-| innehav | Ja | GUID för Azure AD-klienten | 
-| filmen | Ja | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
+| tenant | Ja | GUID för Azure AD-klienten | 
+| audience | Ja | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
 | clientId | Ja | GUID för klienten som begär åtkomst, vilket är klient-ID: t från program identiteten för din Logic app | 
 | hemlighet | Ja | Nyckeln eller lösen ordet från program identiteten för klienten som begär åtkomsttoken | 
 | typ | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth`. | 
 |||| 
 
-Till exempel:
+Exempel:
 
 ``` json
 {
@@ -251,12 +251,12 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 } 
 ```
 
-| Egenskap | Krävs | Beskrivning | 
-| -------- | -------- | ----------- | 
-| typ | Ja | Autentiseringstypen. För SSL-klientcertifikat måste värdet vara `ClientCertificate`. | 
-| lösenord | Ja | Lösen ordet för att komma åt klient certifikatet (PFX-filen) | 
-| - | Ja | Det Base64-kodade innehållet i klient certifikatet (PFX-filen) | 
-|||| 
+| Egenskap | Krävs | Beskrivning |
+| -------- | -------- | ----------- |
+| `type` | Ja | Autentiseringstypen. För SSL-klientcertifikat måste värdet vara `ClientCertificate`. |
+| `password` | Nej | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
+| `pfx` | Ja | Det Base64-kodade innehållet i klient certifikatet (PFX-filen) |
+||||
 
 <a name="basic"></a>
 

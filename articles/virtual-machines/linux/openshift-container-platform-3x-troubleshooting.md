@@ -1,5 +1,5 @@
 ---
-title: Felsöka distribution av OpenShift container Platform 3,11 i Azure | Microsoft Docs
+title: Felsök distribution av OpenShift container Platform 3,11 i Azure
 description: Felsök distribution av OpenShift container Platform 3,11 i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4301d81a4d14c36c34d29a54bc146bc8985dfc00
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392766"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035494"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Felsök distribution av OpenShift container Platform 3,11 i Azure
 
@@ -41,9 +41,9 @@ SSH till Ansible Spelbok-värden. För OKD-mallen (version 3,9 och tidigare) anv
 
 ## <a name="log-files"></a>Loggfiler
 
-Loggfilerna (STDERR och STDOUT) för värd förberedelse skripten finns i `/var/lib/waagent/custom-script/download/0` på alla värdar. Om ett fel uppstod under förberedelsen av värden kan du se dessa loggfiler för att fastställa felet.
+Loggfilerna (STDERR och STDOUT) för värd förberedelse skripten finns på `/var/lib/waagent/custom-script/download/0` på alla värdar. Om ett fel uppstod under förberedelsen av värden kan du se dessa loggfiler för att fastställa felet.
 
-Om förberedelse skripten har körts måste loggfilerna i katalogen `/var/lib/waagent/custom-script/download/1` i Ansible Spelbok-värden undersökas. Om felet uppstod under den faktiska installationen av OpenShift visar STDOUT-filen felet. Använd den här informationen för att kontakta supporten för ytterligare hjälp.
+Om förberedelse skripten har körts måste loggfilerna i `/var/lib/waagent/custom-script/download/1`-katalogen för Ansible Spelbok-värden undersökas. Om felet uppstod under den faktiska installationen av OpenShift visar STDOUT-filen felet. Använd den här informationen för att kontakta supporten för ytterligare hjälp.
 
 Exempel på utdata
 
@@ -96,7 +96,7 @@ Du ser ett fel om att behörigheten nekades för SSH. SSH till Ansible Spelbok-v
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Nyckel valv hemligheten med privat nyckel skapades inte korrekt
 
-Den privata nyckeln kopieras till Ansible Spelbok-värden – ~/.ssh/id_rsa. Bekräfta att filen är korrekt. Testa genom att öppna en SSH-session till en av klusternoderna från Ansible Spelbok-värden.
+Den privata nyckeln kopieras till Ansible Spelbok Host-~/.ssh/id_rsa. Bekräfta att filen är korrekt. Testa genom att öppna en SSH-session till en av klusternoderna från Ansible Spelbok-värden.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Autentiseringsuppgifterna för tjänstens huvud namn angavs felaktigt
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 För vissa fel kan du också använda följande kommandon för att få mer information:
 
-1. systemctl status \<service >
+1. systemctl-status \<tjänst >
 2. journalctl-XE

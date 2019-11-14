@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure-dedikerade värdar med hjälp av Azure Portal | Microsoft Docs
+title: Distribuera Azure-dedikerade värdar med hjälp av Azure Portal
 description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure Portal.
 services: virtual-machines-linux
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 03d8b5353a2dc9840c8231978243e7f94a5bff56
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 296c43c7c1345c67cc5b83749272e56c122ee535
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700397"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036430"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Förhandsversion: Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>För hands version: distribuera virtuella datorer till dedikerade värdar med portalen
 
 Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
@@ -37,9 +37,9 @@ Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](
 
     ![Administratörskonto](./media/quick-create-portal/administrator-account.png)
 
-1. Under **ingående port regler** > **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer **SSH (22)** i list rutan. 
+1. Under **regler för inkommande port** > **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer **SSH (22)** i list rutan. 
 1. Längst upp på sidan väljer du fliken **Avancerat** och i avsnittet **värd** väljer du *myHostGroup* för **värd grupp** *och värd* **.** 
-    ![Välj värd grupp och värd](./media/dedicated-hosts-portal/advanced.png)
+    ![välja värd grupp och värd](./media/dedicated-hosts-portal/advanced.png)
 1. Låt de återstående standardinställningarna vara och välj sedan knappen **Granska + skapa** längst ned på sidan.
 1. När du ser meddelandet att valideringen har slutförts väljer du **skapa**.
 

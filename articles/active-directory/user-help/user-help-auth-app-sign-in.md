@@ -1,5 +1,5 @@
 ---
-title: Logga in på dina konton med Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+title: Logga in med Microsoft Authenticator app – Azure AD
 description: Använd Microsoft Authenticator-appen för att logga in på ditt arbets-eller skol konto eller ditt personliga Microsoft-konto och andra konton än Microsoft, antingen med hjälp av tvåstegsverifiering eller telefonin loggning.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af3549984bd29a6e896e498bf4a2e6c67d7e0e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4cf9b92793d6c769751590dd0a375cbc8894759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616016"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028970"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med Microsoft Authenticator-appen
 
@@ -32,7 +32,7 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
   >[!Important]
   >Den här telefonens inloggnings metod fungerar bara med ditt arbets-eller skol konto och personliga Microsoft-konton. Dina konton som inte kommer från Microsoft kräver att du använder den vanliga verifierings processen med två faktorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda Microsoft Authenticator-appen måste du:
 
@@ -52,7 +52,7 @@ Telefonin loggning är bara tillgängligt på iOS-och Android-enheter som kör A
 
 - Öppna appen Microsoft Authenticator, gå till ditt arbets-eller skol konto och aktivera telefonin loggning:
 
-    - **Om ikonen visas som visar ![att du har](media/user-help-auth-app-sign-in/icon.png)konfigurerat den här ikonen.** Om den här ikonen visas bredvid ditt arbets-eller skol konto namn, innebär det att du redan har konfigurerat telefonin loggning för kontot. Du kan bli ombedd att lägga till push-meddelanden för ditt konto, så att du kan få meddelanden om autentiseringsbegäranden utanför appen.
+    - **Om du ser ikonen ![ikonen som visar att du har konfigurerat](media/user-help-auth-app-sign-in/icon.png).** Om den här ikonen visas bredvid ditt arbets-eller skol konto namn, innebär det att du redan har konfigurerat telefonin loggning för kontot. Du kan bli ombedd att lägga till push-meddelanden för ditt konto, så att du kan få meddelanden om autentiseringsbegäranden utanför appen.
 
     - **Om du har använt appen för tvåstegsverifiering.** Om du redan har använt appen och tvåstegsverifiering kan du välja den nedrullningsbara pilen bredvid konto namnet och sedan välja **Aktivera telefonin loggning**.
 
@@ -85,7 +85,7 @@ Du kan aktivera telefonin loggning för din personliga Microsoft-konto, till exe
 
 - Öppna appen Microsoft Authenticator, gå till din personliga Microsoft-konto och aktivera telefonin loggning:
 
-    - **Om ikonen visas som visar ![att du har](media/user-help-auth-app-sign-in/icon.png)konfigurerat den här ikonen.** Om den här ikonen visas bredvid ditt konto namn innebär det att du redan har konfigurerat telefonin loggning för kontot. Du kan bli ombedd att lägga till push-meddelanden för ditt konto, så att du kan få meddelanden om autentiseringsbegäranden utanför appen.
+    - **Om du ser ikonen ![ikonen som visar att du har konfigurerat](media/user-help-auth-app-sign-in/icon.png).** Om den här ikonen visas bredvid ditt konto namn innebär det att du redan har konfigurerat telefonin loggning för kontot. Du kan bli ombedd att lägga till push-meddelanden för ditt konto, så att du kan få meddelanden om autentiseringsbegäranden utanför appen.
 
     - **Om du har använt appen för tvåstegsverifiering.** Om du redan har använt appen och tvåstegsverifiering kan du välja den nedrullningsbara pilen bredvid konto namnet och sedan välja **Aktivera telefonin loggning**.
 
@@ -101,7 +101,7 @@ Du kan aktivera telefonin loggning för din personliga Microsoft-konto, till exe
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Logga in med tvåstegsverifiering för ditt konto
 
-Med den vanliga autentiseringsmetoden med två faktorer måste du ange ditt användar namn och lösen ord i enheten som du loggar in på och sedan välja om Microsoft Authenticator appen ska skicka ett meddelande eller om du vill kopiera den associerade verifieringen kod från skärmen **konton** i Microsoft Authenticator-appen. Du aktiverar tvåstegsverifiering för ditt konto som en del av processen för att lägga till kontot i Microsoft Authenticator-appen.
+Med den vanliga autentiseringsmetoden med två faktorer måste du ange ditt användar namn och lösen ord i enheten som du loggar in på och sedan välja om Microsoft Authenticator appen ska skicka ett meddelande eller om du vill kopiera den tillhör ande verifierings koden från skärmen **konton** i Microsoft Authenticators appen. Du aktiverar tvåstegsverifiering för ditt konto som en del av processen för att lägga till kontot i Microsoft Authenticator-appen.
 
 >[!Note]
 >Om du inte ser ditt arbets-eller skol konto eller ditt personliga konto på skärmen **konton** i Microsoft Authenticator-appen, innebär det att du inte har lagt till kontot i Microsoft Authenticator-appen. Information om hur du lägger till ditt konto finns i [Lägg till ditt arbets-eller skol konto](user-help-auth-app-add-work-school-account.md) eller [Lägg till dina personliga konton](user-help-auth-app-add-personal-ms-account.md).

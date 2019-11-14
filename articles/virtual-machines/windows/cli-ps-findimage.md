@@ -1,5 +1,5 @@
 ---
-title: Välj virtuella Windows-avbildningar i Azure | Microsoft Docs
+title: Välj virtuella Windows-avbildningar i Azure
 description: Använd Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för VM-avbildningar på Marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749581"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039540"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell
 
@@ -37,18 +37,18 @@ I den här tabellen visas en delmängd av tillgängliga SKU: er för de angivna 
 
 | Utgivare | Erbjudande | Sku |
 |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2019 – Data Center |
-| MicrosoftWindowsServer |WindowsServer |2019-Data Center-kärna |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
 | MicrosoftWindowsServer |WindowsServer |2019-Data Center-med-containers |
-| MicrosoftWindowsServer |WindowsServer |2016 – Data Center |
-| MicrosoftWindowsServer |WindowsServer |2016-Data Center-Server Core |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |2016-Data Center-med-containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
-| MicrosoftSQLServer |SQL2019 – WS2016 |Enterprise |
-| MicrosoftRServer |RServer – WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
+| MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>Navigera bland avbildningarna
 

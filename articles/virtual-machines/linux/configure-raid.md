@@ -1,5 +1,5 @@
 ---
-title: Konfigurera programvaru-RAID på en virtuell dator som kör Linux | Microsoft Docs
+title: Konfigurera programvaru-RAID på en virtuell dator som kör Linux
 description: Lär dig hur du använder mdadm för att konfigurera RAID i Linux i Azure.
 services: virtual-machines-linux
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: d0658af090d9a3f39bee69f5103a78a329fe189c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083792"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036668"
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
 Det är ett vanligt scenario att använda programvaru-RAID på virtuella Linux-datorer i Azure för att presentera flera anslutna data diskar som en enda RAID-enhet. Detta kan användas för att förbättra prestanda och möjliggöra bättre data flöde jämfört med att bara använda en enda disk.
@@ -48,7 +48,7 @@ Minst två tomma data diskar krävs för att konfigurera en RAID-enhet.  Den fr�
 ## <a name="create-the-disk-partitions"></a>Skapa diskpartitioner
 I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya diskpartitionen kommer att kallas/dev/sdc1.
 
-1. Börja `fdisk` skapa partitioner
+1. Starta `fdisk` för att börja skapa partitioner
 
     ```bash
     sudo fdisk /dev/sdc
@@ -82,7 +82,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
     Partition number (1-4): 1
     ```
 
-1. Välj Start punkten för den nya partitionen eller tryck `<enter>` på för att acceptera standardvärdet för att placera partitionen i början av det lediga utrymmet på enheten:
+1. Välj Start punkten för den nya partitionen eller tryck på `<enter>` för att acceptera standardvärdet för att placera partitionen i början av det lediga utrymmet på enheten:
 
     ```bash   
     First cylinder (1-1305, default 1):
@@ -112,7 +112,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
     ```
 
 ## <a name="create-the-raid-array"></a>Skapa RAID-matrisen
-1. I följande exempel blir "rand" (RAID-nivå 0) tre partitioner på tre separata data diskar (sdc1, sdd1, sde1).  När du har kört det här kommandot skapas en ny RAID-enhet med namnet **/dev/md127** . Observera också att om dessa data diskar tidigare var en del av en annan felaktig RAID-matris kan det vara nödvändigt `--force` att lägga till `mdadm` parametern i kommandot:
+1. I följande exempel blir "rand" (RAID-nivå 0) tre partitioner på tre separata data diskar (sdc1, sdd1, sde1).  När du har kört det här kommandot skapas en ny RAID-enhet med namnet **/dev/md127** . Observera också att om dessa data diskar tidigare var en del av en annan felaktig RAID-matris kan det vara nödvändigt att lägga till parametern `--force` till kommandot `mdadm`:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -154,7 +154,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
     ```bash
     sudo mkdir /data
     ```
-1. När du redigerar/etc/fstab bör **UUID: n** användas för att referera till fil systemet i stället för enhetens namn.  `blkid` Använd verktyget för att fastställa UUID för det nya fil systemet:
+1. När du redigerar/etc/fstab bör **UUID: n** användas för att referera till fil systemet i stället för enhetens namn.  Använd `blkid`-verktyget för att fastställa UUID för det nya fil systemet:
 
     ```bash   
     sudo /sbin/blkid
@@ -184,7 +184,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
 
     Om det här kommandot resulterar i ett fel meddelande, kontrollerar du syntaxen i/etc/fstab-filen.
    
-    Kör `mount` sedan kommandot för att se till att fil systemet är monterat:
+    Kör sedan kommandot `mount` för att se till att fil systemet är monterat:
 
     ```bash   
     mount
@@ -196,7 +196,7 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
    
     **fstab-konfiguration**
    
-    Många distributioner omfattar antingen `nobootwait` parametrarna eller `nofail` som kan läggas till i/etc/fstab-filen. Dessa parametrar tillåter fel vid montering av ett visst fil system och gör att Linux-systemet kan fortsätta att starta även om det inte går att montera RAID-filsystemet på rätt sätt. Mer information om dessa parametrar finns i distributionens dokumentation.
+    Många distributioner omfattar antingen `nobootwait`-eller `nofail` monterings parametrar som kan läggas till i/etc/fstab-filen. Dessa parametrar tillåter fel vid montering av ett visst fil system och gör att Linux-systemet kan fortsätta att starta även om det inte går att montera RAID-filsystemet på rätt sätt. Mer information om dessa parametrar finns i distributionens dokumentation.
    
     Exempel (Ubuntu):
 
@@ -206,26 +206,26 @@ I det här exemplet skapar vi en partition med en enda disk på/dev/SDC. Den nya
 
     **Start parametrar för Linux**
    
-    Förutom parametrarna ovan kan kernel-parametern "`bootdegraded=true`" tillåta att systemet startar även om RAID uppfattas som skadat eller försämrat, till exempel om en data enhet oavsiktligt tas bort från den virtuella datorn. Som standard kan detta även resultera i ett icke-startbart system.
+    Förutom ovanstående parametrar kan kernel-parametern "`bootdegraded=true`" tillåta systemet att starta även om RAID uppfattas som skadat eller försämrat, till exempel om en data enhet oavsiktligt tas bort från den virtuella datorn. Som standard kan detta även resultera i ett icke-startbart system.
    
-    Se din distributions dokumentation om hur du redigerar kernel-parametrar på rätt sätt. I många distributioner (CentOS, Oracle Linux, SLES 11) kan dessa parametrar till exempel läggas till manuellt i filen "`/boot/grub/menu.lst`".  På Ubuntu kan du `GRUB_CMDLINE_LINUX_DEFAULT` lägga till den här parametern i variabeln på "/etc/default/grub".
+    Se din distributions dokumentation om hur du redigerar kernel-parametrar på rätt sätt. I många distributioner (CentOS, Oracle Linux, SLES 11) kan dessa parametrar till exempel läggas till manuellt i "`/boot/grub/menu.lst`"-filen.  På Ubuntu kan du lägga till den här parametern i variabeln `GRUB_CMDLINE_LINUX_DEFAULT` på "/etc/default/grub".
 
 
 ## <a name="trimunmap-support"></a>Stöd för trimning/MAPPNING
 Vissa Linux-Kernels stöder TRIMNINGs-/MAPPNINGs åtgärder för att ta bort oanvända block på disken. Dessa åtgärder är främst användbara i standard lagring för att informera Azure om att borttagna sidor inte längre är giltiga och kan tas bort. Om du tar bort sidor kan du spara pengar om du skapar stora filer och sedan tar bort dem.
 
 > [!NOTE]
-> RAID kan inte utfärda ignorera-kommandon om segment storleken för matrisen har angetts till mindre än standard (512 kB). Detta beror på att mappnings precisionen på värden också är 512 kB. Om du har ändrat matrisens segment storlek via mdadm `--chunk=` -parametern, kan trimnings-eller mappnings begär Anden ignoreras av kerneln.
+> RAID kan inte utfärda ignorera-kommandon om segment storleken för matrisen har angetts till mindre än standard (512 kB). Detta beror på att mappnings precisionen på värden också är 512 kB. Om du har ändrat matrisens segment storlek via mdadm `--chunk=` parameter, kan TRIMNINGs-eller mappnings begär Anden ignoreras av kerneln.
 
 Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. Som vanligt kan du kontakta din distribution för den rekommenderade metoden:
 
-- Använd monterings alternativet i `/etc/fstab`, till exempel: `discard`
+- Använd `discard` monterings alternativ i `/etc/fstab`, till exempel:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- I vissa fall `discard` kan alternativet påverka prestandan. Du kan också köra `fstrim` kommandot manuellt från kommando raden eller lägga till det i crontab för att köra regelbundet:
+- I vissa fall kan `discard` alternativet ha prestanda konsekvenser. Du kan också köra kommandot `fstrim` manuellt från kommando raden eller lägga till det i din CRONTAB för att köra regelbundet:
 
     **Ubuntu**
 

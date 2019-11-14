@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0fa4dbc336067ee3e3b2baa49ec872f65a3154b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d3fe578444b99cc7f8c762ae9e96766ca10aa305
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933519"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039674"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du konfigurerar haveriberedskap till en sekundär pl
 > * Aktivera replikering för en virtuell dator
 
 > [!WARNING]
-> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](scvmm-site-recovery-deprecation.md) informationen innan du fortsätter.
+> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](site-to-site-deprecation.md) informationen innan du fortsätter.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -41,7 +41,7 @@ För att slutföra den här kursen gör du följande:
 - Kontrollera att de virtuella datorer som du vill replikera uppfyller [stöd för replikerad dator](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Förbereda VMM-servrar för nätverksmappning.
 
-### <a name="prepare-for-network-mapping"></a>Förbered för nätverksmappning
+### <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
 
 [Nätverksmappning](hyper-v-vmm-network-mapping.md) mappar mellan lokala VMM-VM-nätverk i käll- och målmoln. Mappning utför följande:
 
@@ -58,7 +58,7 @@ Förbereda VMM:er på följande sätt:
 2. Ansluta virtuella datorer på Hyper-V-källvärdar till VM-källnätverket. 
 
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -98,7 +98,7 @@ Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och r
 5. När installationen är klar klickar du på **Registrera** för att registrera servern i valvet.
 
     ![Installationsplats](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
-6. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på **Next**.
+6. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på **Nästa**.
 7. I **proxyanslutning** anger du hur den provider som körs på VMM-servern ska ansluta till Azure.
    - Du kan ange att providern ska ansluta direkt till Internet eller via en proxy. Ange proxyinställningar efter behov.
    - Om du använder en proxy skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Du kan ändra inställningarna för RunAs-kontot i VMM-konsolen > **Inställningar** > **Säkerhet** > **Kör-som-konton**.
@@ -118,10 +118,10 @@ Välj VMM-målservern och molnet:
 1. Klicka på **Förbered infrastruktur** > **Mål** och välj VMM-målservern.
 2. VMM-moln som är synkroniserade med Site Recovery visas. Välj målmolnet.
 
-   ![Målinrikta](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Mål](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
-## <a name="set-up-a-replication-policy"></a>Konfigurera en replikeringsprincip
+## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
 Innan du börjar bör du se till att alla värdar som använder principen har samma operativsystem. Om värdarna kör olika versioner av Windows Server behöver du flera replikeringsprinciper.
 

@@ -1,18 +1,14 @@
 ---
 title: CAF Foundation skiss-exempel – distribuera steg
 description: Distribuera steg i CAF Foundation skiss-exemplet.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
-ms.service: blueprints
-ms.custom: fasttrack-new
-ms.openlocfilehash: a7daf460e65c294b464f9a5deb5d9676b762c5f7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ad5d7ce2fb895032f9ae5d19ee6d2978830ccc89
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163581"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038484"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Distribuera skiss exemplet Microsoft Cloud adoption Framework för Azure Foundation
 
@@ -109,8 +105,8 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Tillåtna SKU:er för lagringskonto|Principtilldelning|Policy_Allowed-StorageAccount-SKU: er|SKU som används i konton för diagnostisk logg lagring|
 |Tillåtna SKU: er för virtuella datorer|Principtilldelning|Policy_Allowed-VM-SKU: er|Tillåtna SKU: er för virtuella datorer|
 |Lägg till CostCenter-TAGGEN i resurs grupper|Principtilldelning|Policy_CostCenter_Tag|Lägg till CostCenter-TAGGEN och dess värde från resurs gruppen|
-|Resurs typer som du inte vill tillåta i din miljö|Principtilldelning|Princip _Allowed – resurs typer|Vilka Azure-resurser du vill tillåta i din miljö|
-|Distribuera Key Vault|Resource Manager-mall|KV – Access policy|**Låst** – Azure AD Group eller User <Object ID> för att bevilja behörighet till i Key Vault|
+|Resurs typer som du inte vill tillåta i din miljö|Principtilldelning|Princip _Allowed-resurs-typer|Vilka Azure-resurser du vill tillåta i din miljö|
+|Distribuera Key Vault|Resource Manager-mall|KV – Access policy|**Låst** – Azure AD-grupp eller användar <Object ID> att bevilja behörighet till i Key Vault|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_DataRetention|**Låst** – antal dagar som data kommer att behållas i Log Analytics|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_Location|**Låst** – region som används vid etablering av arbets ytan|
 
@@ -121,7 +117,7 @@ Nu när du har granskat stegen för att distribuera CAF Foundation skiss-exemple
 > [!div class="nextstepaction"]
 > [CAF Foundation-skiss – översikt](./index.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

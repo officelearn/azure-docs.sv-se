@@ -1,5 +1,5 @@
 ---
-title: PowerShell-exempel – Belastningsutjämning av flera webbplatser med Azure PowerShell | Microsoft Docs
+title: Belastningsutjämna flera webbplatser – Azure PowerShell – Azure Load Balancer
 description: Det här exemplet på Azure PowerShell-skript visar hur du belastningsutjämnar flera webbplatser på samma virtuella dator
 services: load-balancer
 documentationcenter: load-balancer
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 098d300efc0b151d07b087959750a209c392872f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 82bd8a82418bad44786f009c75d742fcc0fc66e7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273617"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048894"
 ---
-# <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Azure PowerShell-skriptexempel: Belastningsutjämning för flera webbplatser
+# <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Azure PowerShell-skriptexempel: Belastningsutjämning av flera webbplatser
 
 Det här exemplet på Azure PowerShell-skript skapar ett virtuellt nätverk med två virtuella datorer som är medlemmar i en tillgänglighetsuppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
 

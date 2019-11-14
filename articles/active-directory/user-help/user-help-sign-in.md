@@ -1,6 +1,6 @@
 ---
-title: Logga in med tvåstegsverifiering eller säkerhets information – Azure Active Directory | Microsoft Docs
-description: Lär dig hur du loggar in med de olika identitets verifierings metoderna i säkerhets information.
+title: Logga in med din identitets autentiseringsinformation – Azure AD
+description: Läs om hur du loggar in med de olika identitets verifierings metoderna i säkerhets information.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382293"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028515"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Logga in med tvåstegsverifiering eller säkerhets information
 
@@ -76,7 +76,7 @@ När du har konfigurerat tvåstegsverifiering eller säkerhets information kan d
 
 Om du av någon anledning inte kan använda din primära inloggnings metod kan du använda en annan tidigare konfigurerad verifieringsmetod.
 
-1. Logga in på ditt konto på vanligt sätt och välj sedan länken **Logga in på ett annat sätt** **på sidan med** tvåstegsverifiering.
+1. Logga in på ditt konto på vanligt sätt och välj sedan länken **Logga in på ett annat sätt** **på sidan med tvåstegsverifiering.**
 
     ![Ändra verifierings metod för inloggning](media/security-info/two-factor-auth-signin-another-way.png)
 
@@ -91,7 +91,7 @@ Om du av någon anledning inte kan använda din primära inloggnings metod kan d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om säkerhets information i översikts artikeln om [säkerhets information (för hands version)](user-help-security-info-overview.md) .
+- Lär dig mer om säkerhets information i [översikts artikeln om säkerhets information (för hands version)](user-help-security-info-overview.md) .
 
 - Läs mer om tvåstegsverifiering i artikeln [Översikt över](user-help-two-step-verification-overview.md) tvåstegsverifiering.
 

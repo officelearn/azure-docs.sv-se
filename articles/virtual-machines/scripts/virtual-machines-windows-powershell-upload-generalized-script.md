@@ -1,5 +1,5 @@
 ---
-title: Överför en generaliserad virtuell hårddisk till Azure PowerShell-skriptexemplet| Microsoft Docs
+title: Ladda upp en generaliserad virtuell hård disk till Azure PowerShell skript exempel
 description: PowerShell-exempelskript ska överföra en generaliserad virtuell Hårddisk till Azure och skapa en ny virtuell dator med hjälp av resource manager-distributionsmodellen och hanterade diskar.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd1be056576275194a013671cf0aae1f7855df69
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f2c739d90917bd00bbde5d680a20a18271a581cc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749699"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038888"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exempelskript för att överföra en virtuell hårddisk till Azure och skapa en ny virtuell dator
 

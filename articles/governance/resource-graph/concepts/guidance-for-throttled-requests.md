@@ -3,12 +3,12 @@ title: Vägledning för begränsade begäranden
 description: Lär dig att skapa bättre frågor för att undvika att förfrågningar till Azure Resource Graph begränsas.
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 46af11bfea47e37b97fa9492f71be8b5fe1817e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959208"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038331"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -215,11 +215,11 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
   När du använder antingen Azure CLI eller Azure PowerShell, fylls frågor till Azure Resource Graph automatiskt i för att hämta högst 5000 poster. Frågeresultaten returnerar en kombinerad lista med poster från alla sid brytnings anrop. I det här fallet, beroende på antalet poster i frågeresultatet, kan en enskild sid brytnings fråga förbruka mer än en fråga-kvot. I exemplet nedan kan till exempel en enskild körning av frågan använda upp till fem frågesträng:
 
   ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>Är du fortfarande begränsad?

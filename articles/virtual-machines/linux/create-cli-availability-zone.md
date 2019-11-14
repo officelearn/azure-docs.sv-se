@@ -1,5 +1,5 @@
 ---
-title: Skapa en virtuell Linux-dator med Azure CLI | Microsoft Docs
+title: Skapa en virtuell Linux-dator med Azure CLI
 description: Skapa en virtuell Linux-dator i en tillgänglighets zon med Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: e732693a63b3c866dc767e98bbe298474286f178
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1cb8222b5e7bf2efee36673f9b80738500345754
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173884"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036565"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Skapa en virtuell Linux-dator i en tillgänglighets zon med Azure CLI
 
@@ -75,13 +75,13 @@ Resurs gruppen anges när du skapar eller ändrar en virtuell dator, som du kan 
 
 Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
-När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I det här exemplet skapas en virtuell dator med namnet *myVM* som kör Ubuntu Server. Den virtuella datorn skapas i tillgänglighets zon *1*. Som standard skapas den virtuella datorn i *Standard_DS1_v2* -storlek.
+När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I det här exemplet skapas en virtuell dator med namnet *myVM* som kör Ubuntu Server. Den virtuella datorn skapas i tillgänglighets zon *1*. Som standard skapas den virtuella datorn i *Standard_DS1_v2* storlek.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-Det kan ta några minuter att skapa den virtuella datorn. När den virtuella datorn skapats visar Azure CLI information om den virtuella datorn. Anteckna `zones` värdet, vilket anger den tillgänglighets zon som den virtuella datorn körs i. 
+Det kan ta några minuter att skapa den virtuella datorn. När den virtuella datorn skapats visar Azure CLI information om den virtuella datorn. Anteckna `zones` värde, vilket anger den tillgänglighets zon där den virtuella datorn körs. 
 
 ```azurecli 
 {

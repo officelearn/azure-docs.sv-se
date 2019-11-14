@@ -1,5 +1,5 @@
 ---
-title: Distribuera OKD i Azure | Microsoft Docs
+title: Distribuera OKD i Azure
 description: Distribuera OKD i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: 66d17fb2a96bbb5b1dcb51151242f014b4116b86
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 6ecae09b0efbc0e35e591b31dbb54fb49ce101b3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390533"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035411"
 ---
 # <a name="deploy-okd-in-azure"></a>Distribuera OKD i Azure
 
@@ -40,7 +40,7 @@ Några vanliga anpassnings alternativ är, men är inte begränsade till:
 
 [OKD-mallen](https://github.com/Microsoft/openshift-origin) har flera grenar som är tillgängliga för olika versioner av OKD.  Utifrån dina behov kan du distribuera direkt från lagrings platsen eller så kan du använda lagrings platsen och göra anpassade ändringar innan du distribuerar.
 
-Använd värdet `appId` från tjänstens huvud namn som du skapade tidigare för parametern `aadClientId`.
+Använd `appId`-värdet från tjänstens huvud namn som du skapade tidigare för parametern `aadClientId`.
 
 Följande är ett exempel på en parameter fil med namnet azuredeploy. Parameters. JSON med alla nödvändiga indata.
 
@@ -143,7 +143,7 @@ Distributionen tar minst 30 minuter att slutföra, baserat på det totala antale
 }
 ```
 
-Om du inte vill koppla upp kommando raden som väntar på att distributionen ska slutföras, lägger du till `--no-wait` som ett av alternativen för grupp distributionen. Utdata från distributionen kan hämtas från Azure Portal i avsnittet distribution för resurs gruppen.
+Om du inte vill koppla upp kommando raden som väntar på att distributionen ska slutföras lägger du till `--no-wait` som ett alternativ för grupp distributionen. Utdata från distributionen kan hämtas från Azure Portal i avsnittet distribution för resurs gruppen.
 
 ## <a name="connect-to-the-okd-cluster"></a>Ansluta till OKD-klustret
 

@@ -1,5 +1,5 @@
 ---
-title: Installera MongoDB på en virtuell Windows-dator i Azure | Microsoft Docs
+title: Installera MongoDB på en virtuell Windows-dator i Azure
 description: Lär dig hur du installerar MongoDB på en virtuell Azure-dator som kör Windows Server 2012 R2 som skapats med Resource Manager-distributions modellen.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cf1e6ba574fdafd8150212688475450e4cc2379
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 37c1b58d364e7eadb33803ce7eac1f2b956ec1b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103123"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038552"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installera och konfigurera MongoDB på en virtuell Windows-dator i Azure
 [MongoDB](https://www.mongodb.org) är en populär NoSQL-databas med öppen källkod och hög prestanda. Den här artikeln vägleder dig genom installationen och konfigurationen av MongoDB på en virtuell Windows Server 2016-dator (VM) i Azure. Du kan också [Installera MongoDB på en virtuell Linux-dator i Azure](../linux/install-mongodb.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du installerar och konfigurerar MongoDB måste du skapa en virtuell dator och helst lägga till en datadisk till den. Se följande artiklar för att skapa en virtuell dator och lägga till en data disk:
 
 * Skapa en virtuell Windows Server-dator med hjälp [av Azure Portal](quick-create-portal.md) eller [Azure PowerShell](quick-create-powershell.md).
@@ -42,7 +42,7 @@ Om du vill börja installera och konfigurera MongoDB [loggar du in på den virtu
    
    * Välj **verktygs** ikonen i det övre högra hörnet.
    * I **Internet alternativ**väljer du fliken **säkerhet** och väljer sedan ikonen **Betrodda platser** .
-   * Klicka på knappen **platser** . Lägg *till\*https://. MongoDB.com* i listan över betrodda platser och stäng sedan dialog rutan.
+   * Klicka på knappen **platser** . Lägg till *https://\*. MongoDB.com* i listan över betrodda platser och stäng sedan dialog rutan.
      
      ![Konfigurera säkerhets inställningar för Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Bläddra till sidan [MongoDB-downloads](https://www.mongodb.com/downloads) (https://www.mongodb.com/downloads).
@@ -56,22 +56,22 @@ Om du vill börja installera och konfigurera MongoDB [loggar du in på den virtu
 8. På den sista skärmen klickar du på **Installera**.
 
 ## <a name="configure-the-vm-and-mongodb"></a>Konfigurera VM och MongoDB
-1. Path-variablerna uppdateras inte av installations programmet för MongoDB. Utan MongoDB `bin` -platsen i din PATH-variabel måste du ange den fullständiga sökvägen varje gången du använder en MongoDB körbar fil. Så här lägger du till platsen i din PATH-variabel:
+1. Path-variablerna uppdateras inte av installations programmet för MongoDB. Utan MongoDB-`bin` plats i din PATH-variabel måste du ange den fullständiga sökvägen varje gången du använder en MongoDB-körbar fil. Så här lägger du till platsen i din PATH-variabel:
    
    * Högerklicka på **Start** -menyn och välj **system**.
-   * Klicka på **Avancerade systeminställningar**och klicka sedanpå miljövariabler.
+   * Klicka på **Avancerade systeminställningar**och klicka sedan på **miljövariabler**.
    * Under **Systemvariabler**väljer du **sökväg**och klickar sedan på **Redigera**.
      
      ![Konfigurera PATH-variabler](./media/install-mongodb/configure-path-variables.png)
      
-     Lägg till sökvägen till MongoDB `bin` -mappen. MongoDB installeras vanligt vis i *C:\Program Files\MongoDB*. Verifiera installations Sök vägen på den virtuella datorn. I följande exempel läggs standard installations platsen för MongoDB till `PATH` i variabeln:
+     Lägg till sökvägen till mappen MongoDB `bin`. MongoDB installeras vanligt vis i *C:\Program Files\MongoDB*. Verifiera installations Sök vägen på den virtuella datorn. I följande exempel läggs standard platsen för MongoDB till i `PATH`-variabeln:
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
      
      > [!NOTE]
-     > Se till att lägga till det inledande semikolonet (`;`) för att indikera att du lägger till en plats `PATH` i variabeln.
+     > Se till att lägga till det inledande semikolonet (`;`) för att indikera att du lägger till en plats i `PATH` variabeln.
 
 2. Skapa MongoDB-data och logg kataloger på din datadisk. Från **Start** -menyn väljer du **kommando tolken**. I följande exempel skapas katalogerna på enhet F:
    
@@ -85,7 +85,7 @@ Om du vill börja installera och konfigurera MongoDB [loggar du in på den virtu
     mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
     ```
    
-    Det kan ta flera minuter för MongoDB att allokera Journal-filerna och börja lyssna efter anslutningar. Alla logg meddelanden dirigeras till *F:\MongoLogs\mongolog.log* -filen när `mongod.exe` servern startar och allokerar Journal-filer.
+    Det kan ta flera minuter för MongoDB att allokera Journal-filerna och börja lyssna efter anslutningar. Alla logg meddelanden dirigeras till *F:\MongoLogs\mongolog.log* -filen när `mongod.exe` Server startar och allokerar Journal-filer.
    
    > [!NOTE]
    > Kommando tolken är fokuserad på den här uppgiften medan MongoDB-instansen körs. Lämna kommando tolks fönstret öppet om du vill fortsätta att köra MongoDB. Du kan också installera MongoDB as service enligt beskrivningen i nästa steg.
@@ -98,9 +98,9 @@ Om du vill börja installera och konfigurera MongoDB [loggar du in på den virtu
    
     Föregående kommando skapar en tjänst med namnet MongoDB, med en beskrivning av "Mongo DB". Följande parametrar anges också:
    
-   * `--dbpath` Alternativet anger platsen för data katalogen.
-   * `--logpath` Alternativet måste användas för att ange en loggfil, eftersom den aktiva tjänsten inte har något kommando fönster för att visa utdata.
-   * `--logappend` Alternativet anger att en omstart av tjänsten leder till att utdata läggs till i den befintliga logg filen.
+   * Alternativet `--dbpath` anger platsen för data katalogen.
+   * Alternativet `--logpath` måste användas för att ange en loggfil, eftersom den aktiva tjänsten inte har något kommando fönster för att visa utdata.
+   * Alternativet `--logappend` anger att en omstart av tjänsten leder till att utdata läggs till i den befintliga logg filen.
    
    Starta MongoDB-tjänsten genom att köra följande kommando:
    
@@ -117,7 +117,7 @@ När MongoDB körs som en enskild instans eller installeras som en tjänst kan d
 mongo  
 ```
 
-Du kan lista databaserna med `db` kommandot. Infoga data på följande sätt:
+Du kan lista databaserna med kommandot `db`. Infoga data på följande sätt:
 
 ```
 db.foo.insert( { a : 1 } )
@@ -135,7 +135,7 @@ Utdata ser ut ungefär så här:
 { "_id" : "ObjectId("57f6a86cee873a6232d74842"), "a" : 1 }
 ```
 
-`mongo` Avsluta konsolen på följande sätt:
+Avsluta `mongo`-konsolen på följande sätt:
 
 ```
 exit
@@ -158,7 +158,7 @@ Du kan också skapa regeln med hjälp av grafiskt hanterings verktyg för **Wind
 Om det behövs kan du skapa en regel för nätverks säkerhets gruppen för att tillåta åtkomst till MongoDB från utanför det befintliga Azure Virtual Network-undernätet. Du kan skapa regler för nätverks säkerhets grupper med hjälp av [Azure Portal](nsg-quickstart-portal.md) eller [Azure PowerShell](nsg-quickstart-powershell.md). Som med regler för Windows-brandväggen tillåter du TCP-port 27017 till det virtuella nätverks gränssnittet för den virtuella MongoDB-datorn.
 
 > [!NOTE]
-> TCP-port 27017 är den standard port som används av MongoDB. Du kan ändra den här porten med hjälp `--port` av parametern när `mongod.exe` du startar manuellt eller från en tjänst. Om du ändrar porten måste du uppdatera Windows-brandväggen och reglerna för nätverks säkerhets grupper i föregående steg.
+> TCP-port 27017 är den standard port som används av MongoDB. Du kan ändra den här porten med hjälp av parametern `--port` när du startar `mongod.exe` manuellt eller från en tjänst. Om du ändrar porten måste du uppdatera Windows-brandväggen och reglerna för nätverks säkerhets grupper i föregående steg.
 
 
 ## <a name="next-steps"></a>Nästa steg

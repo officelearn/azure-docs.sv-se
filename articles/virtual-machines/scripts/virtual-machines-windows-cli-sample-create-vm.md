@@ -1,5 +1,5 @@
 ---
-title: Exempelskript för Azure CLI – Skapa en virtuell Windows Server-dator | Microsoft Docs
+title: Exempelskript för Azure CLI – Skapa en virtuell Windows Server-dator
 description: Exempelskript för Azure CLI – Skapa en virtuell Windows Server-dator
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 14675497bf0e042cfdf6a6548181e3a6adfd278a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3c0710f75df4cdd1cdf015c0acc374a3d06652b7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708197"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039880"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell dator med Azure CLI
 

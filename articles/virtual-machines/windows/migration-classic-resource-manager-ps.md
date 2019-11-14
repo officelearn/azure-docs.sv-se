@@ -1,5 +1,5 @@
 ---
-title: Migrera till Resource Manager med PowerShell | Microsoft Docs
+title: Migrera till Resource Manager med PowerShell
 description: Den här artikeln beskriver migrering av IaaS-resurser som stöds av plattformar, till exempel virtuella datorer (VM), virtuella nätverk (virtuella nätverk) och lagrings konton från klassisk till Azure Resource Manager (ARM) med hjälp av Azure PowerShell kommandon
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 99650b090a84fd417fca5bbeb1ce3f58d32729bb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749338"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033215"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med Azure PowerShell
 De här stegen visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell.

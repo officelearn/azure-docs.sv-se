@@ -1,5 +1,5 @@
 ---
-title: Linux-distributioner som har godkänts på Azure | Microsoft Docs
+title: Linux-distributioner som är godkända på Azure
 description: Lär dig mer om Linux på Azure-godkända distributioner, inklusive rikt linjer för Ubuntu, CentOS, Oracle och SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: szark
-ms.openlocfilehash: c9537ec39e58d5703ed3bc1774520a12b25147b0
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 66717222b505b7dd91f7f270cab27ec4ca97038e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615585"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036219"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 Partner tillhandahåller linux-avbildningar på Azure Marketplace. Vi arbetar med olika Linux-communities för att lägga till ännu fler varianter i den godkända distributions listan. Under tiden kan du för distributioner som inte är tillgängliga från Marketplace alltid ta med din egen Linux genom att följa rikt linjerna i [skapa och ladda upp en virtuell hård disk som innehåller Linux-operativsystemet](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -35,9 +35,9 @@ Azure Linux-agenten är redan förinstallerad på Azure Marketplace-avbildningar
 | Distribution | Version | Drivrutiner | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3 +, 7.0 +, 8.0 + |CentOS 6,3: [Lis-hämtning](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: i kernel |Paket: i [lagrings platsen](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0 + |I kernel |Källkod: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
+| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |I kernel |Källkod: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9 +, 8.2 +, 9, 10 |I kernel |Paket: i lagrings platsen under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Oracle Linux |6.4 +, 7.0 + |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Oracle Linux |6.4+, 7.0+ |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6,7 +, 7.1 +, 8.0 + |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES för SAP<br>11 SP4<br>12 SP1 +<br>15|I kernel |Paket:<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen<br>för 12 som ingår i modulen "offentligt moln" under "python-Azure-agent"<br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE skottår 42.2 + |I kernel |Paket: i [molnet: tools](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen under "python-Azure-agent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -73,7 +73,7 @@ Från webbplatsen Core:
 
 *Core är utformat för säkerhet, konsekvens och pålitlighet. I stället för att installera paket via yum eller apt använder kärnan Linux-behållare för att hantera dina tjänster på en högre nivå av abstraktion. En enskild tjänst kod och alla beroenden paketeras i en behållare som kan köras på en eller flera kärnor datorer.*
 
-### <a name="credativ"></a>Credativ
+### <a name="credativ"></a>credativ
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 Credativ är ett oberoende konsult-och tjänste företag som specialiserar sig på utveckling och implementering av yrkes lösningar med hjälp av kostnads fri program vara. Som ledande specialister med öppen källkod har credativ internationell igenkänning med många IT-avdelningar som använder sin support. Tillsammans med Microsoft förbereder credativ för närvarande motsvarande Debian-avbildningar för Debian 8 (Jessie) och Debian innan 7 (Wheezy). Båda bilderna är särskilt utformade för att köras på Azure och kan enkelt hanteras via plattformen. Credativ kommer också att ha stöd för långsiktigt underhåll och uppdatering av Debian-avbildningarna för Azure via Support Center för öppen källkod.

@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure CLI – Snabbskapa en virtuell Windows Server 2016-dator | Microsoft Docs
+title: Skriptexempel för Azure CLI – Snabbskapa en virtuell Windows Server 2016-dator snabbt
 description: Skriptexempel för Azure CLI – Snabbskapa en virtuell Windows Server 2016-dator snabbt
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 565c660473d819a046ce54c6bb3dfa05c90ee5df
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a7be615584c4994619683a3670898d4c47c91d25
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173816"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039893"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Snabbskapa en virtuell dator med Azure CLI
 

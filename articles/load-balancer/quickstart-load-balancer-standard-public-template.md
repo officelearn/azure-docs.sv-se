@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en standard Load Balancer-Azure Resource Manager mall'
-titlesuffix: Azure Load Balancer
+title: 'Snabb start: skapa en standard Load Balancer – Azure-mall'
+titleSuffix: Azure Load Balancer
 description: Den här snabb starten visar hur du skapar en standard belastnings utjämning med hjälp av Azure Resource Manager-mallen.
 services: load-balancer
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ab55583d72297f2a1c72bac21e4414919f31b91b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 884ba1106e7b68fefaf91ee4e25cacd05bf96fc0
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161406"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048754"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Snabbstart: Skapa en standard Load Balancer för att belastningsutjämna virtuella datorer med Azure Resource Manager mall
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Snabb start: skapa en standard belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure Resource Manager mall
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. I den här snabb starten lär du dig hur du distribuerar en Azure Resource Manager-mall som skapar en standard belastningsutjämnare för att belastningsutjämna virtuella datorer. Att använda Resource Manager-mallen tar färre steg jämfört med andra distributions metoder.
 
@@ -47,7 +47,7 @@ Flera Azure-resurser har definierats i mallen:
 - **Microsoft. Compute/virutalMachines** (3 av dem)
 - **Microsoft. Network/publicIPAddresses** (3 av dem): för var och en av de tre virtuella datorerna.
 - **Microsoft. Network/networkInterfaces** (3 av dem)
-- **Microsoft. Compute/virtualMachine/tillägg** (3 av dem): används för att konfigurera IIS och webb sidor
+- **Microsoft. Compute/virtualMachine/Extensions** (3 av dem): används för att konfigurera IIS och webb sidor
 
 Du hittar fler mallar som är relaterade till Azure Load Balancer i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -88,7 +88,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **resurs grupper** i det vänstra fönstret.
 

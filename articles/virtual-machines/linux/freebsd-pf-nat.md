@@ -1,5 +1,5 @@
 ---
-title: Använd FreeBSD paket filter för att skapa en brand vägg i Azure | Microsoft Docs
+title: Använd FreeBSD paket filter för att skapa en brand vägg i Azure
 description: Lär dig hur du distribuerar en NAT-brandvägg med FreeBSD-PF i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8f06762fd84767ac4c6dfce67d547a1f311afcba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5daceeb2c8f2497288c7891dbe3fb3e0771b2ed5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083246"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036104"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Så här använder du FreeBSD Packet filter för att skapa en säker brand vägg i Azure
 Den här artikeln beskriver hur du distribuerar en NAT-brandvägg med hjälp av FreeBSD-filter genom Azure Resource Manager mall för vanliga webb server scenarier.
@@ -34,13 +34,13 @@ Azure Resource Manager-mallen konfigurerar en virtuell FreeBSD-dator som utför 
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Distribuera via Azure CLI
-Du behöver det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index). Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas ett resurs grupps `myResourceGroup` namn på platsen.`West US`
+Du behöver det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index). Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas ett resurs grupp namn `myResourceGroup` på `West US` plats.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Distribuera sedan mallen [PF-FreeBSD-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) med [AZ Group Deployment Create](/cli/azure/group/deployment). Hämta [azuredeploy. Parameters. JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under samma sökväg och definiera dina egna resurs värden, till exempel `adminPassword` `networkPrefix`, och `domainNamePrefix`. 
+Distribuera sedan mallen [PF-FreeBSD-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) med [AZ Group Deployment Create](/cli/azure/group/deployment). Hämta [azuredeploy. Parameters. JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under samma sökväg och definiera dina egna resurs värden, till exempel `adminPassword`, `networkPrefix`och `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -48,7 +48,7 @@ az group deployment create --resource-group myResourceGroup --name myDeploymentN
     --parameters '@azuredeploy.parameters.json' --verbose
 ```
 
-Efter cirka fem minuter kommer du att få information om `"provisioningState": "Succeeded"`. Sedan kan du använda SSH till den virtuella datorns virtuella dator (NAT) eller åtkomst nginx webb server i en webbläsare med hjälp av den offentliga IP-adressen eller FQDN för den virtuella datorns VM (NAT). I följande exempel visas FQDN och offentlig IP-adress som har tilldelats till den virtuella datorns VM ( `myResourceGroup` NAT) i resurs gruppen. 
+Efter cirka fem minuter får du information om `"provisioningState": "Succeeded"`. Sedan kan du använda SSH till den virtuella datorns virtuella dator (NAT) eller åtkomst nginx webb server i en webbläsare med hjälp av den offentliga IP-adressen eller FQDN för den virtuella datorns VM (NAT). I följande exempel visas FQDN och offentlig IP-adress som tilldelats till den virtuella datorns VM (NAT) i `myResourceGroup` resurs gruppen. 
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup

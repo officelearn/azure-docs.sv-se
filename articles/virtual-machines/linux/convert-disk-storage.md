@@ -1,5 +1,5 @@
 ---
-title: Konvertera Azure Managed disks Storage från standard till Premium eller Premium till standard | Microsoft Docs
+title: Konvertera Azure Managed disks Storage från standard till Premium eller Premium till standard
 description: Så här konverterar du Azure Managed disks Storage från standard till Premium eller Premium till standard med hjälp av Azure CLI.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 59293ac300b6774b55d3909773b110f14bb43119
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abd3c7112a70850d137f77d28e83c60916a96ea3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696100"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036626"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Konvertera Azure Managed disks Storage från standard till Premium eller Premium till standard
 
@@ -131,9 +131,9 @@ az vm start --ids $vmId
 
 Följ de här stegen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj den virtuella datorn i listan över **virtuella datorer**.
-3. Om den virtuella datorn inte är stoppad väljer du **stanna** överst i översikts fönstret för den virtuella datorn och väntar på att den virtuella datorn ska stoppas.
+3. Om den virtuella datorn inte är stoppad väljer du **stanna** överst i **översikts** fönstret för den virtuella datorn och väntar på att den virtuella datorn ska stoppas.
 4. I fönstret för den virtuella datorn väljer du **diskar** på menyn.
 5. Välj den disk som du vill konvertera.
 6. Välj **konfiguration** på menyn.

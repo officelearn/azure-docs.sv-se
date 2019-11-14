@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell-skriptexempel – Kopiera (flytta) hanterade diskar till samma eller en annan prenumeration | Microsoft Docs
+title: Azure PowerShell-skriptexempel – Kopiera (flytta) hanterade diskar till samma eller en annan prenumeration
 description: Azure PowerShell-skriptexempel – Kopiera (flytta) hanterade diskar till samma eller en annan prenumeration
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: babf7bf9de46e1657f94d19fe13bb0e328831ce0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: bb473a2f543c1621b99904b5a58dc7fc6625f6fc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748880"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021467"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Kopiera hanterade diskar i samma prenumeration eller i en annan prenumeration med PowerShell
 
@@ -41,7 +41,7 @@ Det här skriptet använder följande kommandon för att skapa en ny hanterad di
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Skapar diskkonfigurationen som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade disken och platsen som är samma som platsen för den överordnade disken.  |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Skapar den diskkonfiguration som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade disken och platsen som är samma som platsen för den överordnade disken.  |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Skapar en disk med diskkonfiguration, disknamn och resursgruppens namn som parametrar. |
 
 ## <a name="next-steps"></a>Nästa steg

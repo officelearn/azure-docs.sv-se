@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231012"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037881"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -26,8 +26,8 @@ Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azur
 
 - En kamera som används för att avbilda direktsänd händelse.<br/>För installations tips kan du läsa mer i installations [programmet för enkel och bärbar händelse]( https://link.medium.com/KNTtiN6IeT).
 
-    Om du inte har åtkomst till en kamera kan du använda verktyg som t. ex. [Wirecast](https://www.telestream.net/wirecast/overview.htm) för multistream för att generera en live-feed från en videofil.
-- En direkt video kodare som konverterar signaler från en kamera (eller en annan enhet, till exempel en bärbar dator) till en bidrags matning som skickas till Media Services. Bidrags flödet kan innehålla signaler som rör annonsering, till exempel SCTE-35-markörer.<br/>En lista över rekommenderade kodare för direkt uppspelning finns i [direkt uppspelnings kodare](recommended-on-premises-live-encoders.md). Ta också en titt på den här bloggen: [Produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
+    Om du inte har åtkomst till en kamera kan du använda verktyg som t. ex. [Wirecast för multistream](https://www.telestream.net/wirecast/overview.htm) för att generera en live-feed från en videofil.
+- En direkt video kodare som konverterar signaler från en kamera (eller en annan enhet, till exempel en bärbar dator) till en bidrags matning som skickas till Media Services. Bidrags flödet kan innehålla signaler som rör annonsering, till exempel SCTE-35-markörer.<br/>En lista över rekommenderade kodare för direkt uppspelning finns i [direkt uppspelnings kodare](recommended-on-premises-live-encoders.md). Ta också en titt på den här bloggen: [produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
 - Komponenter i Media Services som gör att du kan mata in, förhandsgranska, paketera, registrera, kryptera och skicka Live-evenemanget till dina kunder eller till ett CDN för ytterligare distribution.
 
 Den här artikeln ger en översikt och vägledning för Live streaming med Media Services och länkar till andra relevanta artiklar.
@@ -41,7 +41,7 @@ Med Media Services kan du dra nytta av [dynamisk paketering](dynamic-packaging-o
 
 ## <a name="dynamic-encryption"></a>Dynamisk kryptering
 
-Med dynamisk kryptering kan du dynamiskt kryptera din direktsända eller på begäran-innehåll med AES-128 eller någon av de tre huvud Digital Rights Managements systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. Mer information finns i [dynamisk kryptering](content-protection-overview.md).
+Med dynamisk kryptering kan du dynamiskt kryptera din direktsända eller på begäran-innehåll med AES-128 eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. Mer information finns i [dynamisk kryptering](content-protection-overview.md).
 
 ## <a name="dynamic-manifest"></a>Dynamiskt manifest
 
@@ -55,13 +55,20 @@ Dynamisk filtrering används för att styra antalet spår, format, bit hastighet
 
 ![direkt](./media/live-streaming/pass-through.svg)
 
-När du använder direkt sändnings **evenemang**förlitar du dig på din lokala Live-kodare för att generera en video ström med flera bit hastigheter och skicka den som bidrags flödet till Live-händelsen (med hjälp av RTMP eller fragmenterad MP4-inmatnings protokoll). Live-händelsen bevarar sedan genom inkommande video strömmar till den dynamiska Paketeraren (slut punkt för direkt uppspelning) utan ytterligare kodning. En sådan direkt sändnings händelse är optimerad för långvariga Live-händelser eller linjär direkt uppspelning med 24x365. 
+När du använder direkt **sändnings evenemang**förlitar du dig på din lokala Live-kodare för att generera en video ström med flera bit hastigheter och skicka den som bidrags flödet till Live-händelsen (med hjälp av RTMP eller fragmenterad MP4-inmatnings protokoll). Live-händelsen bevarar sedan genom inkommande video strömmar till den dynamiska Paketeraren (slut punkt för direkt uppspelning) utan ytterligare kodning. En sådan direkt sändnings händelse är optimerad för långvariga Live-händelser eller linjär direkt uppspelning med 24x365. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![livekodning](./media/live-streaming/live-encoding.svg)
 
-När du använder Cloud encoding med Media Services kan du konfigurera den lokala Live-kodaren för att skicka en video med en bit hastighet som bidrags flödet (upp till 32Mbps agg regering) till Live-händelsen (med hjälp av RTMP eller fragmenterad MP4-inmatnings protokoll). Direkt sändningen kodar den inkommande enkla bit hastigheten till [video strömmar med flera bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) hastigheter i varierande lösningar för att förbättra leveransen och gör den tillgänglig för leverans till uppspelning av enheter via bransch standard protokoll som MPEG-streck, Apple HTTP Live Streaming (HLS) och Microsoft Smooth Streaming. 
+När du använder Cloud encoding med Media Services kan du konfigurera den lokala Live-kodaren för att skicka en video med en bit hastighet som bidrags flödet (upp till 32Mbps agg regering) till Live-händelsen (med hjälp av RTMP eller fragmenterad MP4-inmatnings protokoll). Direkt sändningen kodar den inkommande enkla bit hastigheten till [video strömmar med flera bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) hastigheter i varierande lösningar för att förbättra leveransen och gör den tillgänglig för leverans till uppspelning av enheter via bransch standard protokoll som MPEG-streck, Apple http Live Streaming (HLS) och Microsoft Smooth Streaming. 
+
+### <a name="live-transcription"></a>Direkt avskrift
+
+Direkt avskrift är en funktion som du kan använda med Live-händelser som antingen är direkt eller direktsänd kodning. Mer information finns i [direkt avskriftering](live-transcription.md). När den här funktionen är aktive rad använder tjänsten funktionen [tal-till-text](../../cognitive-services/speech-service/speech-to-text.md) i Cognitive Services för att skriva över talade ord i inkommande ljud till text. Den här texten görs sedan tillgänglig för leverans tillsammans med video och ljud i MPEG-streck och HLS-protokoll.
+
+> [!NOTE]
+> För närvarande är direkt avskrift tillgänglig som en förhands gransknings funktion i USA, västra 2.
 
 ## <a name="live-streaming-workflow"></a>Live streaming-arbetsflöde
 
@@ -86,7 +93,7 @@ För att förstå Live streaming-arbetsflödet i Media Services v3 måste du fö
 7. Skapa en **strömmande lokaliserare** med de [inbyggda typer av strömmande principer](streaming-policy-concept.md).
 
     Om du vill publicera Live-utdata måste du skapa en strömmande lokaliserare för den associerade till gången. 
-8. Visa en lista över Sök vägarna för den strömmande lokaliseraren för att få tillbaka de webb adresser som ska användas (dessa är deterministiska).
+8. Visa en lista över Sök vägarna för den **strömmande lokaliseraren** för att få tillbaka de webb adresser som ska användas (dessa är deterministiska).
 9. Hämta värd namnet för den **strömmande slut punkten** (ursprung) som du vill strömma från.
 10. Kombinera URL: en från steg 8 med värd namnet i steg 9 för att få den fullständiga URL: en.
 11. Om du inte vill att din **Live-händelse** ska visas måste du stoppa strömningen och ta bort den **strömmande lokaliseraren**.
@@ -99,7 +106,7 @@ För att förstå Live streaming-arbetsflödet i Media Services v3 måste du fö
 Till gången som Live-utdata arkiveras till blir automatiskt en till gång på begäran när Live-utdata tas bort. Du måste ta bort alla Live-utdata innan en Live-händelse kan stoppas. Du kan använda en valfri flagga [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) för att automatiskt ta bort Live-utdata vid stopp. 
 
 > [!TIP]
-> I självstudien om [direkt uppspelning](stream-live-tutorial-with-api.md), artikeln undersöker den kod som implementerar stegen som beskrivs ovan.
+> I [självstudien om direkt uppspelning](stream-live-tutorial-with-api.md), artikeln undersöker den kod som implementerar stegen som beskrivs ovan.
 
 ## <a name="other-important-articles"></a>Andra viktiga artiklar
 

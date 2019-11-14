@@ -1,5 +1,5 @@
 ---
-title: Skapa en SQL Server virtuell dator i Azure PowerShell (klassisk) | Microsoft Docs
+title: Skapa en klassisk SQL Server VM (PowerShell)
 description: Innehåller steg och PowerShell-skript för att skapa en virtuell Azure-dator med SQL Server Galleri avbildningar för virtuella datorer. I det här avsnittet används det klassiska distributions läget.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,25 +14,26 @@ ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a4c7c29736cdd80ef7ebe413a377aba630d61858
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8757b634b76867a2d5ccce3dcfdc9d66ef25c25e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101876"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032740"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Etablera en SQL Server virtuell dator med Azure PowerShell (klassisk)
 
 Den här artikeln innehåller anvisningar för hur du skapar en SQL Server virtuell dator i Azure med hjälp av PowerShell-cmdlets.
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Information om Resource Manager-versionen av det här avsnittet finns i [etablera en SQL Server virtuell dator med hjälp av Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).
 
 ### <a name="install-and-configure-powershell"></a>Installera och konfigurera PowerShell:
 1. Om du inte har något Azure-konto besöker du sidan för [kostnadsfria utvärderingsversioner av Azure](https://azure.microsoft.com/pricing/free-trial/).
-2. [Hämta och installera de senaste Azure PowerShell](/powershell/azure/overview)-kommandona.
+2. [Hämta och installera de senaste Azure PowerShell-kommandona](/powershell/azure/overview).
 3. Starta Windows PowerShell och Anslut den till din Azure-prenumeration med kommandot **Add-AzureAccount** .
 
    ```powershell
@@ -77,7 +78,7 @@ Din SQL Server virtuella dator kommer att finnas i en moln tjänst som finns i e
    ```
 
    > [!NOTE]
-   > Om du behöver ett nytt lagrings konto måste du först skapa ett lagrings konto med en versal med kommandot New-AzureStorageAccount som i följande exempel:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Om du behöver ett nytt lagrings konto måste du först skapa ett lagrings konto med en versal med kommandot New-AzureStorageAccount som i följande exempel: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Tilldela mål lagrings kontots namn till **$staccount**. Använd sedan **set-AzureSubscription** för att ange prenumerationen och det aktuella lagrings kontot.
 

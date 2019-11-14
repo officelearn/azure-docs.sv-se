@@ -1,5 +1,5 @@
 ---
-title: Azure Hybrid-förmån för Windows Server | Microsoft Docs
+title: Azure Hybrid-förmånen för Windows Server
 description: Lär dig hur du maximerar dina Windows Software Assurance-förmåner för att ta med lokala licenser till Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 1c16ebe1f0b07e5ee5ef73dc3dd4781161f934b6
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 40697925d399962399da499e0469198a0e997f66
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749380"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038633"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går igenom stegen för att distribuera nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server-licensiering och kostnads besparingar finns på [sidan för Azure Hybrid-förmån för Windows Server-licensiering](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -49,7 +49,7 @@ Det finns några sätt att använda virtuella Windows-datorer med Azure Hybrid-f
 ## <a name="create-a-vm-with-azure-hybrid-benefit-for-windows-server"></a>Skapa en virtuell dator med Azure Hybrid-förmån för Windows Server
 Alla Windows Server OS-baserade avbildningar stöds för Azure Hybrid-förmån för Windows Server. Du kan använda Azure Platform support-avbildningar eller ladda upp dina egna anpassade Windows Server-avbildningar. 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Om du vill skapa en virtuell dator med Azure Hybrid-förmån för Windows Server kan du använda växla under avsnittet "Spara pengar".
 
 ### <a name="powershell"></a>PowerShell
@@ -90,7 +90,7 @@ Om du har en befintlig virtuell dator som du vill konvertera för att kunna anv�
 > Att ändra licens typen på den virtuella datorn gör inte att systemet startas om eller orsakar en tjänst interuption.  Det är helt enkelt en uppdatering av en metadata-flagga.
 > 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Från bladet för virtuell Portal-dator kan du uppdatera den virtuella datorn så att den använder Azure Hybrid-förmån genom att välja alternativet "konfiguration" och växla mellan alternativet "Azure Hybrid Benefit"
 
 ### <a name="powershell"></a>PowerShell
@@ -120,7 +120,7 @@ Från bladet för virtuell Portal-dator kan du uppdatera den virtuella datorn s�
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Så här verifierar du att din virtuella dator utnyttjar licens förmånen
 När du har distribuerat den virtuella datorn via PowerShell, Resource Manager-mall eller Portal kan du kontrol lera inställningen i följande metoder.
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Från bladet virtuell Portal-dator kan du Visa växlings fönstret för Azure Hybrid-förmån för Windows Server genom att välja fliken konfiguration.
 
 ### <a name="powershell"></a>PowerShell
@@ -155,7 +155,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Visa en lista med alla virtuella datorer med Azure Hybrid-förmån för Windows Server i en prenumeration
 Om du vill se och räkna alla virtuella datorer som har distribuerats med Azure Hybrid-förmån för Windows Server kan du köra följande kommando från din prenumeration:
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 På resurs bladet för den virtuella datorn eller den virtuella datorns skalnings uppsättningar kan du Visa en lista över alla VM: er och licensierings typ genom att konfigurera tabell kolumnen så att den inkluderar "Azure Hybrid-förmån". VM-inställningen kan antingen vara i läget "aktive rad", "ej aktive rad" eller "stöds inte".
 
 ### <a name="powershell"></a>PowerShell

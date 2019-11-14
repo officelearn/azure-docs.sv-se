@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell-skriptexempel – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration | Microsoft Docs
+title: Azure PowerShell-skriptexempel – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration
 description: Azure PowerShell-skriptexempel – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: 57162ec41cd1de639890cac7b7d217ed538a59ce
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13add6614af8d3ad76e820228b748c0084a29876
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749835"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039804"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiera en ögonblicksbild av en hanterad disk i sammaprenumeration eller en annan prenumeration med PowerShell
 
 Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 
-1. Migrera en ögonblicks bild i Premium Storage (Premium_LRS) till standard lagrings utrymme (Standard_LRS eller Standard_ZRS) för att minska kostnaderna.
-1. Migrera en ögonblicks bild från lokalt redundant lagring (Premium_LRS, Standard_LRS) till zon redundant lagring (Standard_ZRS) för att dra nytta av högre tillförlitlighet för ZRS-lagring.
+1. Migrera en ögonblicks bild i Premium Storage (Premium_LRS) till standard lagring (Standard_LRS eller Standard_ZRS) för att minska kostnaderna.
+1. Migrera en ögonblicks bild från lokalt redundant lagring (Premium_LRS Standard_LRS) till zonens redundanta lagring (Standard_ZRS) för att dra nytta av ZRS-lagringens högre tillförlitlighet.
 1. Flytta en ögonblicks bild till en annan prenumeration i samma region för längre kvarhållning.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]

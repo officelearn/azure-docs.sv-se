@@ -1,5 +1,5 @@
 ---
-title: VIRTUELLA Azure Linux-storlekar – accelererad beräkning | Microsoft Docs
+title: VIRTUELLA Azure Linux-storlekar – accelererad beräkning
 description: Visar en lista över de olika GPU-optimerade storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: ed8af91701a5ed77636bb86e8798981f37546f23
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 983e85dc0ebefb27804c0f3a794360def6050ba9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034912"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerade storlekar på virtuella datorer
 
@@ -37,7 +37,7 @@ Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens inst
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* Du bör inte installera X-Server eller andra system som `Nouveau` använder driv rutinen på virtuella Ubuntu NC-datorer. Innan du installerar NVIDIA GPU-drivrutiner måste du inaktivera `Nouveau` driv rutinen.  
+* Du bör inte installera X-Server eller andra system som använder `Nouveau` driv rutinen på Ubuntu NC-VM: ar. Innan du installerar NVIDIA GPU-drivrutiner måste du inaktivera `Nouveau` driv rutinen.  
 
 ## <a name="other-sizes"></a>Andra storlekar
 - [Generellt syfte](sizes-general.md)

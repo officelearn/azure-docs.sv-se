@@ -1,5 +1,5 @@
 ---
-title: Skapa ett fullständigt domän namn för en virtuell Linux-dator i Azure Portal | Microsoft Docs
+title: Skapa ett fullständigt domän namn för en virtuell Linux-dator i Azure Portal
 description: Lär dig hur du skapar ett fullständigt kvalificerat domän namn eller fullständigt domän namn för en Resource Manager-baserad virtuell dator i Azure Portal.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7309f4be43c6b653f261e5de5fbe3e638e83294
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3d30f5a60bf19e9185d992b973414f58942f9954
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082444"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035302"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Skapa ett fullständigt kvalificerat domän namn i Azure Portal för en virtuell Linux-dator
 
@@ -31,7 +31,7 @@ Den här artikeln förutsätter att du redan har skapat en virtuell dator. Om de
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Du kan nu fjärrans luta till den virtuella datorn med hjälp av det här DNS `ssh azureuser@mydns.westus.cloudapp.azure.com`-namnet, till exempel med.
+Du kan nu fjärrans luta till den virtuella datorn med hjälp av det här DNS-namnet, till exempel med `ssh azureuser@mydns.westus.cloudapp.azure.com`.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när den virtuella datorn har en offentlig IP-adress och ett DNS-namn kan du distribuera vanliga program ramverk eller tjänster, till exempel nginx, MongoDB, Docker osv.

@@ -1,5 +1,5 @@
 ---
-title: Optimera din virtuella Linux-dator i Azure | Microsoft Docs
+title: Optimera din virtuella Linux-dator på Azure
 description: Lär dig några optimerings tips för att se till att du har konfigurerat din virtuella Linux-dator för optimala prestanda på Azure
 keywords: virtuell Linux-dator, virtuell dator Linux, virtuell dator i Ubuntu
 services: virtual-machines-linux
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eb5ef067d4c9be4debd1bdc98ac4eb57a89d1100
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ea0d284b8220e4f8bc7bc1b91684654b32da7065
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091687"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035380"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Det här avsnittet förutsätter att du redan har en fungerande Azure-prenumeration ([kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerad en virtuell dator till din Azure-prenumeration. Kontrol lera att du har det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat i din Azure-prenumeration med [AZ-inloggning](/cli/azure/reference-index) innan du [skapar en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-disk
@@ -35,11 +35,11 @@ När du har skapat en virtuell Linux-dator i Azure har den två diskar kopplade 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Lägga till diskar för storleks-och prestanda mål
 Baserat på storleken på den virtuella datorn kan du ansluta upp till 16 ytterligare diskar på en A-serien, 32 diskar på en D-serie och 64-diskar på en dator i G-serien – varje upp till 1 TB i storlek. Du lägger till extra diskar efter behov enligt dina krav på ditt space och IOps. Varje disk har ett prestanda mål på 500 IOps för standard lagring och upp till 5000 IOps per disk för Premium Storage.
 
-För att uppnå högsta IOps på Premium Storage diskar där deras cacheinställningar har angetts till antingen **ReadOnly** eller **ingen**, måste du inaktivera barriärer när du monterar fil systemet i Linux. Du behöver inte hinder eftersom skrivningarna till Premium Storage de säkerhetskopierade diskarna är varaktiga för dessa cacheinställningar.
+För att uppnå högsta IOps på Premium Storage diskar där deras cacheinställningar har angetts till antingen **ReadOnly** eller **ingen**, måste du inaktivera **barriärer** när du monterar fil systemet i Linux. Du behöver inte hinder eftersom skrivningarna till Premium Storage de säkerhetskopierade diskarna är varaktiga för dessa cacheinställningar.
 
-* Om du använder **reiserFS**inaktiverar du barriärer med hjälp av `barrier=none` monterings alternativet (för att `barrier=flush`Aktivera hinder, användning)
-* Om du använder **EXT3/Ext4**inaktiverar du barriärer med hjälp av `barrier=0` monterings alternativet (för att `barrier=1`Aktivera hinder, användning)
-* Om du använder **xfs**inaktiverar du barriärer med hjälp av `nobarrier` monterings alternativet (för att aktivera hinder `barrier`använder du alternativet)
+* Om du använder **reiserFS**inaktiverar du barriärer med hjälp av monterings alternativet `barrier=none` (för att aktivera hinder använder du `barrier=flush`)
+* Om du använder **EXT3/Ext4**, inaktiverar du hinder med monterings alternativet `barrier=0` (för att aktivera hinder använder du `barrier=1`)
+* Om du använder **xfs**inaktiverar du barriärer med hjälp av monterings alternativet `nobarrier` (för att aktivera hinder använder du alternativet `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Överväganden vid ohanterat lagrings konto
 Standard åtgärden när du skapar en virtuell dator med Azure CLI är att använda Azure Managed Disks.  Diskarna hanteras av Azure-plattformen och kräver inte någon förberedelse eller plats för att lagra dem.  Ohanterade diskar kräver ett lagrings konto och några ytterligare prestanda överväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).  I följande avsnitt beskrivs prestanda överväganden bara när du använder ohanterade diskar.  Standardvärdet och den rekommenderade lagrings lösningen är att använda hanterade diskar.
@@ -50,7 +50,7 @@ När du hanterar höga IOps-arbetsbelastningar och du har valt standard lagring 
  
 
 ## <a name="your-vm-temporary-drive"></a>VM-temporär enhet
-Som standard när du skapar en virtuell dator ger Azure dig en OS-disk ( **/dev/SDA**) och en tillfällig disk ( **/dev/SDB**).  Alla ytterligare diskar som du lägger till visas som **/dev/SDC**, **/dev/SDD**, **/dev/SDE** och så vidare. Alla data på din temporära disk ( **/dev/SDB**) är inte varaktiga och kan gå förlorade om vissa händelser som storleks ändring av virtuella datorer, omdistribution eller underhåll tvingar fram en omstart av den virtuella datorn.  Den temporära diskens storlek och typ är relaterad till den VM-storlek som du valde vid distributions tillfället. Alla virtuella datorer med Premium storlek (DS, G och DS_V2-serien) den tillfälliga enheten backas upp av en lokal SSD för ytterligare prestanda på upp till 48k IOps. 
+Som standard när du skapar en virtuell dator ger Azure dig en OS-disk ( **/dev/SDA**) och en tillfällig disk ( **/dev/SDB**).  Alla ytterligare diskar som du lägger till visas som **/dev/SDC**, **/dev/SDD**, **/dev/SDE** och så vidare. Alla data på din temporära disk ( **/dev/SDB**) är inte varaktiga och kan gå förlorade om vissa händelser som storleks ändring av virtuella datorer, omdistribution eller underhåll tvingar fram en omstart av den virtuella datorn.  Den temporära diskens storlek och typ är relaterad till den VM-storlek som du valde vid distributions tillfället. Alla virtuella datorer med Premium storlek (DS, G och DS_V2 serien) den tillfälliga enheten backas upp av en lokal SSD för ytterligare prestanda på upp till 48k IOps. 
 
 ## <a name="linux-swap-partition"></a>Linux-växlings partition
 Om din virtuella Azure-dator är från en Ubuntu-eller Core-avbildning kan du använda CustomData för att skicka en Cloud-config till Cloud-init. Om du har [överfört en anpassad Linux-avbildning](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som använder Cloud-Init kan du också konfigurera växla partitioner med Cloud-init.
@@ -59,14 +59,14 @@ I Ubuntu Cloud-avbildningar måste du använda Cloud-Init för att konfigurera v
 
 För avbildningar utan stöd för Cloud-Init har VM-avbildningar som distribueras från Azure Marketplace en VM Linux-Agent integrerad med operativ systemet. Den här agenten gör det möjligt för den virtuella datorn att samverka med olika Azure-tjänster. Förutsatt att du har distribuerat en standard avbildning från Azure Marketplace måste du göra följande för att konfigurera inställningarna för Linux-växlings filen på rätt sätt:
 
-Leta upp och ändra två poster i **/etc/waagent.conf** -filen. De styr förekomsten av en dedikerad växlings fil och storlek på växlings filen. De parametrar du behöver verifiera är `ResourceDisk.EnableSwap` och`ResourceDisk.SwapSizeMB` 
+Leta upp och ändra två poster i **/etc/waagent.conf** -filen. De styr förekomsten av en dedikerad växlings fil och storlek på växlings filen. De parametrar du behöver verifiera är `ResourceDisk.EnableSwap` och `ResourceDisk.SwapSizeMB` 
 
 Om du vill aktivera en korrekt aktive rad disk och monterad växlings fil kontrollerar du att parametrarna har följande inställningar:
 
 * ResourceDisk. EnableSwap = Y
 * ResourceDisk. SwapSizeMB = {size i MB för att uppfylla dina behov} 
 
-När du har gjort ändringen måste du starta om waagent eller starta om den virtuella Linux-datorn för att avspegla ändringarna.  Du vet att ändringarna har implementerats och att växlings filen har skapats när du använder `free` kommandot för att Visa ledigt utrymme. I följande exempel finns en växlings fil med 512 MB som skapats som ett resultat av en ändring av filen **waagent. conf** :
+När du har gjort ändringen måste du starta om waagent eller starta om den virtuella Linux-datorn för att avspegla ändringarna.  Du vet att ändringarna har implementerats och att en växlings fil har skapats när du använder kommandot `free` för att Visa ledigt utrymme. I följande exempel finns en växlings fil med 512 MB som skapats som ett resultat av en ändring av filen **waagent. conf** :
 
 ```bash
 azuseruser@myVM:~$ free

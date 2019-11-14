@@ -1,5 +1,5 @@
 ---
-title: Hämta en Windows-VHD från Azure | Microsoft Docs
+title: Hämta en Windows-VHD från Azure
 description: Ladda ned en virtuell Windows-hårddisk med Azure Portal.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: c1c09382102045dd248b6771d8d0ea1ef090b6eb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5891d7ea2b53ab3524cfff267e71b4f05779cfc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079622"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033598"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Hämta en Windows-VHD från Azure
 
@@ -35,7 +35,7 @@ Slutför följande steg för att använda den virtuella hård disken som en avbi
 2.  [Anslut till den virtuella datorn](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3.  Öppna kommando tolkens fönster som administratör på den virtuella datorn.
 4.  Ändra katalogen till *%WINDIR%\system32\sysprep* och kör Sysprep. exe.
-5.  I dialog rutan system förberedelse verktyg väljer du **Skriv system out-of-Box Experience (OOBE)** och kontrollerar att generalize är markerat.
+5.  I dialog rutan system förberedelse verktyg väljer du **Skriv system out-of-Box Experience (OOBE)** och kontrollerar att **generalize** är markerat.
 6.  I avslutnings alternativ väljer du **shutdown**och klickar sedan på **OK**. 
 
 Slutför följande steg för att använda den virtuella hård disken som en disk för en ny instans av en befintlig virtuell dator eller data disk:
@@ -55,7 +55,7 @@ Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad 
 3.  Ange förfallo tiden för URL: en till *36000*.
 4.  Klicka på **skapa URL**.
 
-    ![Skapa webbadress](./media/download-vhd/export-generate-new.png)
+    ![Generera URL](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
 > Förfallo tiden höjs från standardvärdet för att tillhandahålla tillräckligt med tid för att ladda ned den stora VHD-filen för ett Windows Server-operativsystem. Du kan vänta på att en VHD-fil som innehåller operativ systemet Windows Server ta flera timmar att ladda ned beroende på din anslutning. Om du hämtar en virtuell hård disk för en datadisk är standard tiden tillräckligt. 

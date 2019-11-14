@@ -1,5 +1,5 @@
 ---
-title: Distribuera dedikerade Azure-värdar med CLI | Microsoft Docs
+title: Distribuera Azure-dedikerade värdar med CLI
 description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827287"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036408"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Förhandsversion: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>För hands version: distribuera virtuella datorer till dedikerade värdar med Azure CLI
  
 
 Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
-Kontrol lera att du har installerat Azure CLI version 2.0.70 eller senare och loggat in på ett Azure-konto `az login`med hjälp av. 
+Kontrol lera att du har installerat Azure CLI version 2.0.70 eller senare och loggat in på ett Azure-konto med hjälp av `az login`. 
 
 > [!IMPORTANT]
 > Azures dedikerade värdar är för närvarande en offentlig för hands version.
@@ -239,7 +239,7 @@ Du kan exportera en mall om du nu vill skapa en ytterligare utvecklings miljö m
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-Det här kommandot skapar `myDHResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i dessa namn i mallfilen genom att lägga till `--include-parameter-default-value` parametern `az group export` i kommandot. Redigera din JSON-mall för att ange resurs namnen eller skapa en Parameters. JSON-fil som anger resurs namnen.
+Det här kommandot skapar `myDHResourceGroup.json`-filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i namnen i mallfilen genom att lägga till parametern `--include-parameter-default-value` i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller skapa en Parameters. JSON-fil som anger resurs namnen.
  
 Om du vill skapa en miljö från mallen använder du [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create).
 

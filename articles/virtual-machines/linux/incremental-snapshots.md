@@ -1,5 +1,5 @@
 ---
-title: Använd stegvisa ögonblicks bilder för säkerhets kopiering och återställning av ohanterade virtuella Azure Linux-diskar | Microsoft Docs
+title: Använd stegvisa ögonblicks bilder för säkerhets kopiering och återställning av ohanterade virtuella Azure Linux-diskar
 description: Skapa en anpassad lösning för säkerhets kopiering och återställning av dina virtuella Azure Linux-datorer med stegvisa ögonblicks bilder.
 services: virtual-machines-linux
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
 ms.subservice: disks
-ms.openlocfilehash: 8afa618fe32a5bc0b6b64bbabfbbdf6258edfab3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 67e17aba2f2068ebcff50e37489d4528fb52d89a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014596"
+ms.locfileid: "74036088"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Säkerhetskopiera Azure ohanterade virtuella dator diskar med stegvisa ögonblicks bilder
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

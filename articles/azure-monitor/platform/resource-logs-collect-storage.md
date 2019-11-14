@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8a1802f0f24ba5ccad3ec1c45f3baa29dfe6909f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262562"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030881"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arkivera Azures resurs loggar till lagrings kontot
 [Resurs loggar](resource-logs-overview.md) i Azure ger omfattande, frekventa data om den interna driften av en Azure-resurs. I den här artikeln beskrivs insamling av resurs loggar till ett Azure Storage-konto som lagrar data för arkivering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste [skapa ett Azure Storage-konto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2-konton stöds för närvarande inte som mål för diagnostikinställningar trots att de kan visas som ett giltigt alternativ i Azure Portal.
+
 
 Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också arkiverar [aktivitets loggen](activity-logs-overview.md) till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-exempel – skapa en DNS-zon och en post för ett domän namn
+title: Skapa en DNS-zon och en post för ett domän namn – Azure CLI – Azure DNS
 description: I det här Azure CLI-skriptexemplet visas hur du skapar en DNS-zon och -post för ett domännamn
 services: dns
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 691eeebf61ffd4ea7bee6b5ac6c60cafb076e11d
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 8ae4e8c515b658ac3f0bb4eb0d88706814993355
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156228"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037158"
 ---
-# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exempel för Azure CLI-skript: Skapa en DNS-zon och -post
+# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI-skriptexempel: Skapa en DNS-zon och -post
 
 I det här Azure CLI-skriptexemplet skapas en DNS-zon och -post för ett domännamn. 
 

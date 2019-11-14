@@ -1,17 +1,14 @@
 ---
 title: Exempel – SWIFT CSP-CSCF v2020 skiss-Control Mapping
 description: Kontroll mappning för SWIFT-CSCF v2020 skiss-exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 8ef32a2cf385c052437c5e5cbd7c95077a262e83
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0e5b45ec86acbe7c55aed0aa1611f499316e9118
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163004"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037827"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Kontroll mappning för SWIFT CSP-CSCF v2020 skiss-exempel
 
@@ -80,7 +77,7 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
-- Fjärrfelsökning bör inaktive ras för webb program
+- Fjärrfelsökning bör stängas av för webbprogram
 
 ## <a name="13-and-64-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>1,3 och 6,4 innehåll i gransknings poster | Centraliserad hantering av innehåll för planerad gransknings post
 
@@ -88,9 +85,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 
 ## <a name="22-27-and-64-response-to-audit-processing-failures"></a>2,2, 2,7 och 6,4 svar på gransknings bearbetnings problem
 
@@ -106,9 +103,9 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 
 ## <a name="13-22-27-64-and-65a-audit-generation"></a>1,3, 2,2, 2,7, 6,4 och 6.5 en gransknings generation
 
@@ -116,9 +113,9 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
@@ -229,10 +226,10 @@ Den här skissen hjälper dig att skydda konfidentiell och integritet på överf
 - API-appen bör bara vara tillgänglig via HTTPS
 - Visa gransknings resultat från Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera förutsättningar för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Funktionsapp bör endast vara tillgängligt via HTTPS
+- Funktionen App bör enbart vara åtkomliga via HTTPS
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade
 - Säker överföring till lagrings konton ska vara aktiverat
-- Webb program bör endast vara tillgängliga via HTTPS
+- Webbprogram bör enbart vara åtkomliga via HTTPS
 
 ## <a name="22-23-25-41-and-27-protection-of-information-at-rest--cryptographic-protection"></a>2,2, 2,3, 2,5, 4,1 och 2,7 skydd av information i vila | Kryptografiskt skydd
 
@@ -275,9 +272,9 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 - Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 - Avancerade data säkerhets inställningar för SQL Server ska innehålla en e-postadress för att ta emot säkerhets aviseringar
 - Diagnostikloggar i Azure Stream Analytics ska vara aktive rad
@@ -300,10 +297,10 @@ Avancerat skydd för Azure Storage identifierar ovanliga och potentiellt skadlig
 Nu när du har granskat kontroll mappningen av SWIFT CSP-CSCF v2020-skissen kan du gå till följande artiklar för att lära dig om skissen och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [Swift CSP-CSCF v2020 skiss-Overview](./index.md)
+> [Swift CSP-CSCF v2020 skiss – översikt](./index.md)
 > [Swift CSP-CSCF V2020 skiss – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

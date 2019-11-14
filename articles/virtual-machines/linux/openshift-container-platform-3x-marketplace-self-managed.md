@@ -1,5 +1,5 @@
 ---
-title: Distribuera OpenShift container Platform 3,11 själv Managed Marketplace-erbjudande i Azure | Microsoft Docs
+title: Distribuera OpenShift container Platform 3,11 själv Managed Marketplace-erbjudande i Azure
 description: Distribuera OpenShift container Platform 3,11-erbjudandet för egen hantering i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791617"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035527"
 ---
 # <a name="configure-prerequisites"></a>Konfigurera krav
 
@@ -89,7 +89,7 @@ Ange värden för indataparametrarna och klicka på **OK**.
 | Nya eller befintliga Virtual Network | Skapa ett nytt vNet (standard) eller Använd ett befintligt vNet |
 | Välj standard CIDR-inställningar eller anpassa IP-intervall (CIDR) | Acceptera standard CIDR-intervall eller Välj **anpassat IP-intervall** och ange anpassad CIDR-information.  Standardinställningar skapar vNet med CIDR för 10.0.0.0/14, huvud under nätet med 10.1.0.0/16, fjärrundernät med 10.2.0.0/16 och Compute-och CNS-undernätet med 10.3.0.0/16 |
 | Namn på Key Vault resurs grupp | Namnet på den resurs grupp som innehåller Key Vault |
-| Key Vault namn | Namnet på Key Vault som innehåller hemligheten med den privata SSH-nyckeln.  Endast alfanumeriska tecken och bindestreck tillåts och måste vara mellan 3 och 24 tecken |
+| Namn på Key Vault | Namnet på Key Vault som innehåller hemligheten med den privata SSH-nyckeln.  Endast alfanumeriska tecken och bindestreck tillåts och måste vara mellan 3 och 24 tecken |
 | Hemligt namn | Namnet på hemligheten som innehåller den privata SSH-nyckeln.  Endast alfanumeriska tecken och bindestreck tillåts |
 
    ![Bladet erbjudande infrastruktur](media/openshift-marketplace-self-managed/ocp-inframain.png)  

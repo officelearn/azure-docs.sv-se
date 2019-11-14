@@ -1,6 +1,6 @@
 ---
 title: Trafikvy i Azure Traffic Manager
-description: Introduktion till Traffic Manager Trafikvy
+description: I den här introduktionen lär du dig hur Traffic Manager trafikvyer fungerar.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1cdad5873ea0f6d2fab129aef7be012ea11e8a60
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035459"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023251"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager Trafikvy
 
@@ -64,7 +64,7 @@ De Azure-regioner där slut punkterna finns visas som blå punkter i kartan. Om 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>Hämtning av Tabellista och rå data
 
-Du kan visa Trafikvy data i tabell format i Azure Portal. Det finns en post för varje IP/Endpoint-par i DNS-matcharen som visar IP-adressen för DNS-matcharen, namnet på och den geografiska platsen för den Azure-region där slut punkten finns (om den är tillgänglig), volymen för begär Anden som är kopplade till den DNS-matcharen till den slut punkten och den representativa svars tid som är kopplad till slutanvändarna som använder DNS (där det är tillgängligt). Du kan också hämta Trafikvy data som en CSV-fil som kan användas som en del av ett analys arbets flöde som du väljer.
+Du kan visa Trafikvy data i tabell format i Azure Portal. Det finns en post för varje IP/Endpoint-par i DNS-matcharen som visar IP-adressen för DNS-matcharen, namnet på och den geografiska platsen för den Azure-region där slut punkten finns (om den är tillgänglig), antalet begär Anden som associeras med den här DNS-matcharen till den slut punkten och den representativa svars tid som är kopplad till slutanvändarna Du kan också hämta Trafikvy data som en CSV-fil som kan användas som en del av ett analys arbets flöde som du väljer.
 
 ## <a name="billing"></a>Fakturering
 

@@ -1,6 +1,6 @@
 ---
-title: Hur du aktiverar kapslad virtualisering i Azure Virtual Machines | Microsoft Docs
-description: Hur du aktiverar kapslad virtualisering i Azure Virtual Machines
+title: Så här aktiverar du kapslad virtualisering i Azure Virtual Machines
+description: Så här aktiverar du kapslad virtualisering i Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720205"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033125"
 ---
-# <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Hur du aktiverar kapslad virtualisering i en Azure VM
+# <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Så här aktiverar du kapslad virtualisering i en virtuell Azure-dator
 
-Kapslad virtualisering stöds i flera Azure VM-familjer. Den här funktionen ger stor flexibilitet i stöd för scenarier, till exempel miljöer för utveckling, testning, utbildning och demonstration.   
+Kapslad virtualisering stöds i flera virtuella Azure-datorer. Den här funktionen ger bra flexibilitet i stöd scenarier som utveckling, testning, utbildning och demonstrations miljöer.   
 
-Den här artikeln visar aktivera Hyper-V på en Azure virtuell dator och konfigurera Internet-anslutning till den virtuella gästdatorn.
+Den här artikeln beskriver hur du aktiverar Hyper-V på en virtuell Azure-dator och konfigurerar Internet anslutning till den virtuella gäst datorn.
 
-## <a name="create-a-nesting-capable-azure-vm"></a>Skapa en kapslade kompatibla Azure VM
+## <a name="create-a-nesting-capable-azure-vm"></a>Skapa en kapslad Azure VM-kompatibel dator
 
-Skapa en ny Windows Server 2016 Azure VM.  Snabbreferens stöder alla v3 virtuella datorer kapslad virtualisering. En fullständig lista över virtuella datorer storlekar som stöd för kapsling, kan du ta en titt på [Azure-beräkningsenhet artikeln](acu.md).
+Skapa en ny Windows Server 2016 Azure VM.  För snabb referens stöder alla v3-virtuella datorer kapslad virtualisering. En fullständig lista över virtuella dator storlekar som stöder kapsling finns i [artikeln om Azure Compute Unit](acu.md).
 
-Kom ihåg att välja en VM-storlek som är tillräckligt stor för att stödja kraven för en virtuell gästdator. I det här exemplet använder vi en D3_v3-storlek virtuella Azure-datorer. 
+Kom ihåg att välja en VM-storlek som är tillräckligt stor för att stödja kraven hos en virtuell gäst dator. I det här exemplet använder vi en D3_v3 storlek för virtuell Azure-dator. 
 
-Du kan visa regional tillgänglighet för Dv3 och Ev3-serien virtuella datorer [här](https://azure.microsoft.com/regions/services/).
+Du kan visa den regionala tillgängligheten för dv3-eller Ev3-seriens virtuella datorer [här](https://azure.microsoft.com/regions/services/).
 
 >[!NOTE]
 >
->Detaljerade anvisningar om hur du skapar en ny virtuell dator finns i [skapa och hantera Windows virtuella datorer med Azure PowerShell-modulen](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>Detaljerade anvisningar om hur du skapar en ny virtuell dator finns i [skapa och hantera virtuella Windows-datorer med modulen Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
-## <a name="connect-to-your-azure-vm"></a>Ansluta till din Azure VM
+## <a name="connect-to-your-azure-vm"></a>Anslut till din virtuella Azure-dator
 
 Skapa en fjärrskrivbordsanslutning till den virtuella datorn.
 
@@ -48,17 +48,17 @@ Skapa en fjärrskrivbordsanslutning till den virtuella datorn.
 
 4. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
-## <a name="enable-the-hyper-v-feature-on-the-azure-vm"></a>Aktivera Hyper-V-funktionen på Azure VM
-Du kan konfigurera dessa inställningar manuellt eller har vi lagt till ett PowerShell-skript för att automatisera konfigurationen.
+## <a name="enable-the-hyper-v-feature-on-the-azure-vm"></a>Aktivera Hyper-V-funktionen på den virtuella Azure-datorn
+Du kan konfigurera dessa inställningar manuellt eller så har vi angett ett PowerShell-skript för att automatisera konfigurationen.
 
-### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Alternativ 1: Använda ett PowerShell-skript för att konfigurera kapslad virtualisering
-Det finns ett PowerShell.skript för att aktivera kapslad virtualisering på en Windows Server 2016-värd på [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skriptet kontrollerar kraven och konfigurerar sedan kapslad virtualisering på Azure VM. En omstart av Azure VM är nödvändigt att slutföra konfigurationen. Det här skriptet kan fungera i andra miljöer, men är inte säkert. Kolla in Azure-blogginlägget med en video livedemonstration på kapslad virtualisering som körs på Azure! https://aka.ms/AzureNVblog.
+### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Alternativ 1: Använd ett PowerShell-skript för att konfigurera kapslad virtualisering
+Ett PowerShell-skript för att aktivera kapslad virtualisering på en Windows Server 2016-värd finns på [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skriptet kontrollerar krav och konfigurerar sedan kapslad virtualisering på den virtuella Azure-datorn. Det krävs en omstart av den virtuella Azure-datorn för att slutföra konfigurationen. Det här skriptet kan fungera i andra miljöer men är inte garanterat. Kolla in Azures blogg inlägg med en video demonstration om kapslad virtualisering som körs på Azure! https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Alternativ 2: Konfigurera kapslad virtualisering manuellt
 
-1. Öppna PowerShell som administratör på Azure-VM. 
+1. Öppna PowerShell som administratör på den virtuella Azure-datorn. 
 
-2. Aktivera Hyper-V-funktion och verktyg.
+2. Aktivera Hyper-V-funktionen och hanterings verktyg.
 
     ```powershell
     Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
@@ -68,14 +68,14 @@ Det finns ett PowerShell.skript för att aktivera kapslad virtualisering på en 
     >
     >Det här kommandot startar om den virtuella Azure-datorn. Du kommer att förlora RDP-anslutningen under omstarten.
     
-3. När den virtuella Azure-datorn har startats om återansluta till den virtuella datorn med RDP.
+3. När den virtuella Azure-datorn har startats om ansluter du till den virtuella datorn med RDP.
 
-## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>Konfigurera anslutning till internet för den virtuella gästdatorn
-Skapa ett nytt virtuellt nätverkskort för den virtuella gästdatorn och konfigurera en NAT-Gateway om du vill aktivera Internet-anslutning.
+## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>Konfigurera Internet anslutning för den virtuella gäst datorn
+Skapa ett nytt virtuellt nätverkskort för den virtuella gäst datorn och konfigurera en NAT-gateway för att aktivera Internet anslutning.
 
-### <a name="create-a-nat-virtual-network-switch"></a>Skapa en virtuell nätverksswitch för NAT
+### <a name="create-a-nat-virtual-network-switch"></a>Skapa en virtuell nätverks växel för NAT
 
-1. Öppna PowerShell som administratör på Azure-VM.
+1. Öppna PowerShell som administratör på den virtuella Azure-datorn.
    
 2. Skapa en intern växel.
 
@@ -93,14 +93,14 @@ Skapa ett nytt virtuellt nätverkskort för den virtuella gästdatorn och konfig
 
     >[!NOTE] 
     >
-    >Anteckna ”ifIndex” för den virtuella växeln som du nyss skapade.
+    >Anteckna "ifIndex" för den virtuella växel som du nyss skapade.
     
-4. Skapa en IP-adress för NAT-Gateway.
+4. Skapa en IP-adress för NAT-gatewayen.
     
-För att konfigurera gatewayen, behöver du lite information om nätverket:    
-  * IP-adress – IP-Adressen för NAT Gateway anger IPv4 eller IPv6-adress som används som standardgatewayadressen för virtuella nätverkets undernät. Formuläret är a.b.c.1 (till exempel ”192.168.0.1”). När den sista positionen inte behöver vara.1 det vanligtvis är (baserat på undernätsprefixets längd). Normalt bör du använda ett adressutrymme för RFC 1918 privat nätverk. 
-  * PrefixLength - undernätsprefixets längd definierar undernätet storleken (nätmask). Undernätsprefixets längd ska vara ett heltal mellan 0 och 32. 0 skulle mappa hela internet, 32 skulle bara tillåter en mappade IP-adress. Vanliga värden mellan 24 och 12 beroende på hur många IP-adresser måste vara kopplad till NAT-enheten. En gemensam PrefixLength är 24 – det här är en nätmask 255.255.255.0.
-  * InterfaceIndex - **ifIndex** är gränssnittsindex för den virtuella växeln som skapades i föregående steg. 
+Du behöver viss information om ditt nätverk för att konfigurera gatewayen:    
+  * IP-adress – NAT-gatewayens IP-adress anger IPv4-eller IPv6-adressen som ska användas som standard-gateway-adress för det virtuella nätverkets undernät. Det generiska formuläret är a. b. c. 1 (till exempel "192.168.0.1"). Den sista positionen behöver inte vara 1. det är vanligt vis (baserat på prefixlängd). Normalt använder du ett RFC 1918 privat nätverks adress utrymme. 
+  * PrefixLength – Undernätsprefixets längd definierar den lokala nät maskens storlek (nätmask). Undernätsprefixets längd är ett heltals värde mellan 0 och 32. 0 mappar hela Internet. 32 bara tillåta en mappad IP. Vanliga värden är mellan 24 och 12, beroende på hur många IP-adresser som måste kopplas till NAT. En vanlig PrefixLength är 24 – det här är en under näts mask på 255.255.255.0.
+  * InterfaceIndex – **ifIndex** är gränssnitts indexet för den virtuella växel som skapades i föregående steg. 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
@@ -108,83 +108,83 @@ För att konfigurera gatewayen, behöver du lite information om nätverket:
 
 ### <a name="create-the-nat-network"></a>Skapa NAT-nätverket
 
-För att konfigurera gatewayen, måste du ange information om Nätverks- och NAT-Gateway:
-  * Namn – detta är namnet på NAT-nätverket. 
-  * InternalIPInterfaceAddressPrefix - NAT-undernätsprefixet beskriver både NAT Gateway IP-adressprefix ovan samt NAT undernätsprefixets längd ovan. Formuläret blir a.b.c.0/NAT undernät prefixlängden. 
+För att du ska kunna konfigurera gatewayen måste du ange information om nätverket och NAT-gatewayen:
+  * Namn – det här är namnet på NAT-nätverket. 
+  * InternalIPInterfaceAddressPrefix – prefixet NAT-undernät beskriver både NAT-gatewayens IP-prefix från ovan, samt längden på NAT-undernätet. Det generiska formuläret är en. b. c. c. 0/NAT-Undernätsprefixets längd. 
 
-Skapa en ny NAT-nätverket i PowerShell.
+Skapa ett nytt NAT-nätverk i PowerShell.
 ```powershell
 New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 ```
 
 
-## <a name="create-the-guest-virtual-machine"></a>Skapa den virtuella gästdatorn
+## <a name="create-the-guest-virtual-machine"></a>Skapa den virtuella gäst datorn
 
 >[!IMPORTANT] 
 >
->Azure-gästagenten stöds inte i kapslade virtuella datorer och kan orsaka problem på både värd- och kapslade virtuella datorer. Installera inte Azure-agenten på kapslade virtuella datorer och inte använda en avbildning för att skapa kapslade virtuella datorer som redan har installerat Azure-gästagenten.
+>Azures gästa Gent stöds inte på kapslade virtuella datorer och kan orsaka problem på både värden och de kapslade virtuella datorerna. Installera inte Azure-agenten på kapslade virtuella datorer och Använd inte en avbildning för att skapa de kapslade virtuella datorerna där Azures gästa Gent redan är installerad.
 
-1. Öppna Hyper-V Manager och skapa en ny virtuell dator. Konfigurera den virtuella datorn om du vill använda det nya interna nätverket som du skapade.
+1. Öppna Hyper-V Manager och skapa en ny virtuell dator. Konfigurera den virtuella datorn så att den använder det nya interna nätverket som du skapade.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
     
-2. Installera ett operativsystem på den virtuella gästdatorn.
+2. Installera ett operativ system på den virtuella gäst datorn.
     
     >[!NOTE] 
     >
-    >Du behöver installationsmediet för ett operativsystem att installera på den virtuella datorn. I det här fallet använder vi Windows 10 Enterprise.
+    >Du behöver installationsmedia för att operativ systemet ska installeras på den virtuella datorn. I det här fallet använder vi Windows 10 Enterprise.
 
-## <a name="assign-an-ip-address-to-the-guest-virtual-machine"></a>Tilldela en IP-adress till den virtuella gästdatorn
+## <a name="assign-an-ip-address-to-the-guest-virtual-machine"></a>Tilldela en IP-adress till den virtuella gäst datorn
 
-Du kan tilldela en IP-adress till den virtuella gästdatorn antingen genom att manuellt ange en statisk IP-adress på den virtuella gästdatorn eller konfigurera DHCP på Azure-VM för att dynamiskt tilldela IP-adressen.
+Du kan tilldela en IP-adress till den virtuella gäst datorn antingen genom att manuellt ange en statisk IP-adress på den virtuella gäst datorn eller konfigurera DHCP på den virtuella Azure-datorn för att tilldela IP-adressen dynamiskt.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Alternativ 1: Konfigurera DHCP för att dynamiskt tilldela en IP-adress till den virtuella gästdatorn
-Följ stegen nedan för att konfigurera DHCP på den virtuella värddatorn för dynamisk adressallokering.
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Alternativ 1: Konfigurera DHCP för att dynamiskt tilldela en IP-adress till den virtuella gäst datorn
+Följ stegen nedan för att konfigurera DHCP på den virtuella värd datorn för dynamisk adress tilldelning.
 
-#### <a name="install-dchp-server-on-the-azure-vm"></a>Installera DHCP-Server på Azure VM
+#### <a name="install-dchp-server-on-the-azure-vm"></a>Installera DCHP-server på den virtuella Azure-datorn
 
-1. Öppna Serverhanteraren. På instrumentpanelen, klickar du på **Lägg till roller och funktioner**. Lägg till roller och funktioner som guiden visas.
+1. Öppna Serverhanteraren. Klicka på **Lägg till roller och funktioner**på instrument panelen. Guiden Lägg till roller och funktioner visas.
   
-2. I guiden klickar du på **nästa** fram till sidan serverroller.
+2. Klicka på **Nästa** på sidan Server roller i guiden.
   
-3. Klickar du på den **DHCP-Server** markerar du kryssrutan klickar du på **Lägg till funktioner**, och klicka sedan på **nästa** förrän du har slutfört guiden.
+3. Klicka för att markera kryss rutan **DHCP-server** , klicka på **Lägg till funktioner**och klicka sedan på **Nästa** tills du har slutfört guiden.
   
 4. Klicka på **Installera**.
 
-#### <a name="configure-a-new-dhcp-scope"></a>Konfigurera ett nytt DHCP-scope
+#### <a name="configure-a-new-dhcp-scope"></a>Konfigurera ett nytt DHCP-omfång
 
 1. Öppna DHCP-hanteraren.
   
-2. I navigeringsfönstret expanderar du servernamnet, högerklicka på **IPv4**, och klicka på **nytt Scope**. Guiden Nytt Scope visas klickar du på **nästa**.
+2. I navigerings fönstret expanderar du Server namnet, högerklickar på **IPv4**och klickar på **nytt omfång**. Guiden Nytt scope visas, klicka på **Nästa**.
   
-3. Ange ett namn och beskrivning för detta scope och klicka på **nästa**.
+3. Ange ett namn och en beskrivning för omfattningen och klicka på **Nästa**.
   
-4. Definiera en IP-adressintervall för DHCP-servern (till exempel 192.168.0.100 till 192.168.0.200).
+4. Definiera ett IP-intervall för DCHP-servern (till exempel 192.168.0.100 till 192.168.0.200).
   
-5. Klicka på **nästa** fram till sidan för standard-Gateway. Ange IP-adressen som du skapade tidigare (t.ex, 192.168.0.1) som standard-Gateway och klicka sedan på **Lägg till**.
+5. Klicka på **Nästa** tills sidan standardgateway visas. Ange den IP-adress som du skapade tidigare (till exempel 192.168.0.1) som standard-gateway och klicka sedan på **Lägg till**.
   
-6. Klicka på **nästa** tills guiden har slutförts, lämnar du alla standardvärden klickar **Slutför**.
+6. Klicka på **Nästa** tills guiden har slutförts, lämna alla standardvärden och klicka sedan på **Slutför**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Alternativ 2: Ange en statisk IP-adress manuellt på den virtuella gästdatorn
-Om du inte konfigurerade DHCP för att dynamiskt tilldela en IP-adress till den virtuella gästdatorn, följer du stegen nedan för att ange en statisk IP-adress.
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Alternativ 2: Ange en statisk IP-adress manuellt på den virtuella gäst datorn
+Om du inte konfigurerade DHCP för att dynamiskt tilldela en IP-adress till den virtuella gäst datorn följer du dessa steg för att ange en statisk IP-adress.
 
-1. Öppna PowerShell som administratör på Azure-VM.
+1. Öppna PowerShell som administratör på den virtuella Azure-datorn.
 
-2. Högerklicka på den virtuella gästdatorn och klicka på Anslut.
+2. Högerklicka på den virtuella gäst datorn och klicka på Anslut.
 
-3. Logga in på den virtuella gästdatorn.
+3. Logga in på den virtuella gäst datorn.
 
-4. Öppna nätverks- och delningscenter på den virtuella gästdatorn.
+4. Öppna Nätverks-och delnings Center på den virtuella gäst datorn.
 
-5. Konfigurera nätverkskort för en adress inom intervallet för NAT-nätverket som du skapade i föregående avsnitt.
+5. Konfigurera nätverkskortet för en adress inom intervallet för det NAT-nätverk som du skapade i föregående avsnitt.
 
 I det här exemplet ska du använda en adress i intervallet 192.168.0.0/24.
 
-## <a name="test-connectivity-in-guest-virtual-machine"></a>Testa anslutningen i den virtuella gästdatorn
+## <a name="test-connectivity-in-guest-virtual-machine"></a>Testa anslutningen på den virtuella gäst datorn
 
-I den virtuella gästdatorn, öppna webbläsaren och navigera till en webbsida.
+Öppna webbläsaren i den virtuella gäst datorn och navigera till en webb sida.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>Konfigurera intranätanslutning för den virtuella gästdatorn
+## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>Konfigurera intranät anslutning för den virtuella gäst datorn
 
-Anvisningar om hur du aktiverar transparent anslutning mellan virtuella gästdatorer och virtuella Azure-datorer hittar [det här dokumentet](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).
+Instruktioner för hur du aktiverar transparent anslutning mellan virtuella gäst datorer och virtuella Azure-datorer finns i [det här dokumentet](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).

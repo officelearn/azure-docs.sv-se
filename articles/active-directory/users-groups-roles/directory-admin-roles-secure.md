@@ -1,12 +1,12 @@
 ---
-title: Metod tips för säker administratörs åtkomst – Azure Active Directory | Microsoft Docs
+title: Metod tips för säker administratörs åtkomst – Azure AD | Microsoft Docs
 description: Se till att organisationens administrativa åtkomst-och administratörs konton är säkra. För system arkitekter och IT-proffs som konfigurerar Azure AD, Azure och Microsoft Online Services.
 services: active-directory
 keywords: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.author: curtand
-ms.date: 03/18/2019
+ms.date: 11/13/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -14,19 +14,19 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259415"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028444"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD
 
 Säkerheten för de flesta eller alla företags till gångar i den moderna organisationen beror på integriteten hos de privilegierade konton som administrerar och hanterar IT-system. Skadliga aktörer, inklusive cyberhot-angripare, använder ofta administratörs konton och andra delar av privilegie rad åtkomst för att försöka snabbt få åtkomst till känsliga data och system som använder stöld angrepp. För moln tjänster är förebyggande och svar gemensamma ansvar för moln tjänst leverantören och kunden. Mer information om de senaste hoten till slut punkter och molnet finns i [Microsoft Security Intelligence-rapporten](https://www.microsoft.com/security/operations/security-intelligence-report). Den här artikeln hjälper dig att utveckla en översikt över hur du kan stänga luckorna mellan dina aktuella planer och de rikt linjer som beskrivs här.
 
 > [!NOTE]
-> Microsoft strävar efter att ha den högsta nivån av förtroende, transparens, standard avvikelse och regelefterlevnad. Lär dig mer om hur Microsoft Global incident Response-teamet minimerar effekterna av attacker mot moln tjänster och hur säkerheten är inbyggd i Microsofts affärs produkter och moln tjänster på [Microsoft Trust Center – säkerhet](https://www.microsoft.com/trustcenter/security) och Microsoft kompatibla mål på [Microsoft Trust Center – efterlevnad](https://www.microsoft.com/trustcenter/compliance).
+> Microsoft strävar efter att ha den högsta nivån av förtroende, transparens, standard avvikelse och regelefterlevnad. Lär dig mer om hur Microsoft Global incident Response-teamet minimerar effekterna av attacker mot moln tjänster och hur säkerheten är inbyggd i Microsofts affärs produkter och moln tjänster på [Microsoft Trust Center – säkerhet](https://www.microsoft.com/trustcenter/security) och Microsofts efterlevnadsprinciper på [Microsoft Trust Center – efterlevnad](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -60,21 +60,21 @@ Det här dokumentet fokuserar främst på att skapa en översikt för att skydda
 
 ## <a name="develop-a-roadmap"></a>Utveckla en översikt 
 
-Microsoft rekommenderar att du utvecklar och följer en översikt för att skydda privilegie rad åtkomst mot cyberhot-attacker. Du kan alltid justera din översikt så att den passar dina befintliga funktioner och särskilda krav i din organisation. Varje steg i översikten bör öka kostnaderna och svårigheten för angripare att attackera privilegie rad åtkomst för dina lokala, molnbaserade och hybrid till gångar. Microsoft rekommenderar följande fyra översikts steg: Den här rekommenderade översikten schemalägger de mest effektiva och snabbaste implementeringarna först, baserat på Microsofts upplevelser med cyberhot-attackens incident-och svars implementering. Tids linjerna för den här översikten är ungefärliga.
+Microsoft rekommenderar att du utvecklar och följer en översikt för att skydda privilegie rad åtkomst mot cyberhot-attacker. Du kan alltid justera din översikt så att den passar dina befintliga funktioner och särskilda krav i din organisation. Varje steg i översikten bör öka kostnaderna och svårigheten för angripare att attackera privilegie rad åtkomst för dina lokala, molnbaserade och hybrid till gångar. Microsoft rekommenderar följande fyra översikts steg: den rekommenderade översikten schemalägger de mest effektiva och snabbaste implementeringarna först, baserat på Microsofts upplevelser med cyberhot-attackens incident-och svars implementering. Tids linjerna för den här översikten är ungefärliga.
 
 ![Faser i översikten med tids rader](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* Steg 1 (24-48 timmar): Kritiska objekt som vi rekommenderar att du gör omedelbart
+* Steg 1 (24-48 timmar): kritiska objekt som vi rekommenderar att du gör omedelbart
 
-* Steg 2 (2-4 veckor): Minimera de oftast använda angrepps teknikerna
+* Steg 2 (2-4 veckor): minimera de oftast använda angrepps metoderna
 
-* Steg 3 (1-3 månader): Utveckla synligheten och bygg full kontroll över administratörs aktiviteten
+* Steg 3 (1-3 månader): utveckla synlighet och bygga fullständig kontroll över administratörs aktivitet
 
-* Steg 4 (sex månader och senare): Fortsätt att skapa försvar för ytterligare skärp din säkerhets plattform
+* Steg 4 (sex månader och senare): Fortsätt att skapa försvar för ytterligare härdning av din säkerhets plattform
 
 Det här översikts ramverket är utformat för att maximera användningen av Microsofts tekniker som du kanske redan har distribuerat. Du kan också dra nytta av viktiga aktuella och kommande säkerhets tekniker och integrera säkerhets verktyg från andra leverantörer som du redan har distribuerat eller som överväger att distribuera. 
 
-## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Steg 1: Kritiska objekt som vi rekommenderar att du gör omedelbart
+## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Steg 1: kritiska objekt som vi rekommenderar att du gör omedelbart
 
 ![Steg 1 viktiga objekt att göra först](./media/directory-admin-roles-secure/stage-one.png)
 
@@ -123,9 +123,9 @@ Utvärdera de konton som är tilldelade eller berättigade till den globala admi
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivera Multi-Factor Authentication och registrera alla andra icke-federerade administratörs konton med hög privilegier
 
-Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: Global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har [https://aka.ms/mfasetup](https://aka.ms/mfasetup)registrerat sig på. Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, administratör för privilegie rad roll, Exchange Online-administratör och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
-## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Steg 2: Minimera de oftast använda angrepps teknikerna
+## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Steg 2: minimera de oftast använda angrepps metoderna
 
 ![Steg 2 begränsa angrepp som ofta används](./media/directory-admin-roles-secure/stage-two.png)
 
@@ -179,7 +179,7 @@ Azure AD Identity Protection är ett algoritm-baserat övervaknings-och rapporte
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Skaffa dina Office 365-säkra poäng (om du använder Office 365)
 
-Säkra poäng visar vilka Office 365-tjänster du använder (som OneDrive, SharePoint och Exchange) och tittar sedan på dina inställningar och aktiviteter och jämför dem med en bas linje som upprättats av Microsoft. Du får ett resultat baserat på hur justerat du är med bästa säkerhets praxis. Alla som har administratörs behörighet (global administratör eller en anpassad administratörs roll) för en Office 365 Business Premium-eller Enterprise-prenumeration kan komma [https://securescore.office.com](https://securescore.office.com/)åt säkra poäng på.
+Säkra poäng visar vilka Office 365-tjänster du använder (som OneDrive, SharePoint och Exchange) och tittar sedan på dina inställningar och aktiviteter och jämför dem med en bas linje som upprättats av Microsoft. Du får ett resultat baserat på hur justerat du är med bästa säkerhets praxis. Alla som har administratörs behörighet (global administratör eller en anpassad administratörs roll) för en Office 365 Business Premium-eller Enterprise-prenumeration kan komma åt säkra poäng på [https://securescore.office.com](https://securescore.office.com/).
 
 #### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Granska vägledningen för säkerhet och efterlevnad i Office 365 (om du använder Office 365)
 
@@ -195,7 +195,7 @@ Att utföra incident svar är effektivt ett komplext företag. Därför krävs d
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Skydda lokala privilegierade administratörs konton, om de inte redan gjorts
 
-Om din Azure Active Directory klient är synkroniserad med lokal Active Directory, följer du anvisningarna i Översikt över [säkerhets privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Steg 1. Detta omfattar att skapa separata administratörs konton för användare som behöver utföra lokala administrativa uppgifter, distribuera arbets stationer med privilegie rad åtkomst för Active Directory administratörer och skapa unika lokala administratörs lösen ord för arbets stationer och brygghuvudservrar.
+Om din Azure Active Directory klient är synkroniserad med lokal Active Directory följer du rikt linjerna i [säkerhets översikten för privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): steg 1. Detta omfattar att skapa separata administratörs konton för användare som behöver utföra lokala administrativa uppgifter, distribuera arbets stationer med privilegie rad åtkomst för Active Directory administratörer och skapa unika lokala administratörs lösen ord för arbets stationer och brygghuvudservrar.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Ytterligare steg för organisationer som hanterar åtkomst till Azure
 
@@ -205,7 +205,7 @@ Använd Enterprise Portal och Azure Portal för att identifiera de prenumeration
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Ta bort Microsoft-konton från administratörs roller
 
-Microsoft-konton från andra program, till exempel Xbox, Live och Outlook, ska inte användas som administratörs konton för organisations prenumerationer. Ta bort administratörs status från alla Microsoft-konton och Ersätt med Azure Active Directory (till chris@contoso.comexempel) arbets-eller skol konton.
+Microsoft-konton från andra program, till exempel Xbox, Live och Outlook, ska inte användas som administratörs konton för organisations prenumerationer. Ta bort administratörs status från alla Microsoft-konton och Ersätt med Azure Active Directory (till exempel chris@contoso.com) arbets-eller skol konton.
 
 #### <a name="monitor-azure-activity"></a>Övervaka Azure-aktivitet
 
@@ -218,7 +218,7 @@ Azure aktivitets loggen innehåller en historik över händelser på prenumerati
 Förbered principer för villkorlig åtkomst för lokala och molnbaserade program. Om du har användare som är anslutna till arbets platsen kan du få mer information om hur du konfigurerar [lokal villkorlig åtkomst med hjälp av Azure Active Directory enhets registrering](../active-directory-device-registration-on-premises-setup.md).
 
 
-## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Steg 3: Skapa synlighet och få fullständig kontroll över administratörs aktiviteten
+## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Steg 3: skapa synlighet och få fullständig kontroll över administratörs aktiviteten
 
 ![Steg 3 ta kontroll över administratörs aktivitet](./media/directory-admin-roles-secure/stage-three.png)
 
@@ -261,7 +261,7 @@ Om du redan använder Azure AD Privileged Identity Management justerar du tids r
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Bestäm exponering för lösenordsbaserade inloggnings protokoll (om du använder Exchange Online)
 
-Tidigare antog protokollen att kombinationer av användar namn/lösen ord är inbäddade i enheter, e-postkonton, telefoner och så vidare. Men nu med risken för cyberhot-attacker i molnet rekommenderar vi att du identifierar alla potentiella användare som, om deras autentiseringsuppgifter har komprometterats, kan vara oåterkalleliga för organisationen och undanta dem från att kunna logga in på sin e-post via användar namn/ lösen ord genom att implementera starka autentiseringskrav och villkorlig åtkomst. Du kan blockera [äldre autentisering med villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Läs informationen om [hur du blockerar grundläggande autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) genom exchnage online. 
+Tidigare antog protokollen att kombinationer av användar namn/lösen ord är inbäddade i enheter, e-postkonton, telefoner och så vidare. Men nu med risken för cyberhot-attacker i molnet, rekommenderar vi att du identifierar alla potentiella användare som, om deras autentiseringsuppgifter har komprometterats, kan vara oåterkalleliga för organisationen, och undanta dem från att kunna logga in på sin e-post via användar namn/lösen ord genom att implementera starka autentiseringskrav och villkorlig åtkomst. Du kan blockera [äldre autentisering med villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Läs informationen om [hur du blockerar grundläggande autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) genom exchnage online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Slutför en gransknings bedömning för roller för Office 365-roller (om du använder Office 365)
 
@@ -273,7 +273,7 @@ Du kan hämta den här rapporten från [hantering av säkerhets incidenter i Mic
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Fortsätt att skydda lokala privilegierade administratörs konton
 
-Om din Azure Active Directory är ansluten till den lokala Active Directory följer du rikt linjerna i [Översikt över säkerhets privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Steg 2. Detta omfattar distribution av arbets stationer med privilegie rad åtkomst för alla administratörer, vilket kräver MFA, med bara tillräckligt med administratör för DC-underhåll, vilket minskar risken för attacker på domäner, distribuerar ATA för attack identifiering.
+Om din Azure Active Directory är ansluten till den lokala Active Directory följer du rikt linjerna i [översikten över säkerhets privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): steg 2. Detta omfattar distribution av arbets stationer med privilegie rad åtkomst för alla administratörer, vilket kräver MFA, med bara tillräckligt med administratör för DC-underhåll, vilket minskar risken för attacker på domäner, distribuerar ATA för attack identifiering.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Ytterligare steg för organisationer som hanterar åtkomst till Azure
 
@@ -387,43 +387,43 @@ Avgör om du behöver [överföra ägarskapet för en Azure-prenumeration till e
 
 Mer information om hur Microsoft Office 365 hanterar säkerhets incidenter finns [i hantering av säkerhets incidenter i Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Vanliga frågor och svar: Vanliga frågor som vi får om att skydda privilegie rad åtkomst  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Vanliga frågor och svar: vanliga frågor vi får om att skydda privilegie rad åtkomst  
 
 **F:** Vad gör jag om jag inte har implementerat några skyddade åtkomst komponenter ännu?
 
-**Svarsfilen** Definiera minst två Break-glas-konto, tilldela MFA till dina privilegierade administratörs konton och skilj användar konton från globala administratörs konton.
+**Svar:** Definiera minst två Break-glas-konto, tilldela MFA till dina privilegierade administratörs konton och skilj användar konton från globala administratörs konton.
 
 **F:** Vad är det viktigaste problemet som måste åtgärdas först efter en överträdelse?
 
-**Svarsfilen** Se till att du kräver den starkaste autentiseringen för mycket utsatta individer.
+**Svar:** Se till att du kräver den starkaste autentiseringen för mycket utsatta individer.
 
 **F:** Vad händer om våra privilegierade administratörer har inaktiverats?
 
-**Svarsfilen** Skapa ett globalt administratörs konto som alltid hålls uppdaterat.
+**Svar:** Skapa ett globalt administratörs konto som alltid hålls uppdaterat.
 
 **F:** Vad händer om det bara finns en global administratör kvar och de inte kan nås? 
 
-**Svarsfilen** Använd ett av dina rast glas konton för att få omedelbar privilegie rad åtkomst.
+**Svar:** Använd ett av dina rast glas konton för att få omedelbar privilegie rad åtkomst.
 
 **F:** Hur kan jag skydda administratörer inom organisationen?
 
-**Svarsfilen** Låt administratörer alltid utföra sin dagliga verksamhet som standard "ej privilegierade" användare.
+**Svar:** Låt administratörer alltid utföra sin dagliga verksamhet som standard "ej privilegierade" användare.
 
 **F:** Vilka är de bästa metoderna för att skapa administratörs konton i Azure AD?
 
-**Svarsfilen** Reservera privilegie rad åtkomst för vissa administratörs uppgifter.
+**Svar:** Reservera privilegie rad åtkomst för vissa administratörs uppgifter.
 
 **F:** Vilka verktyg finns för att minska beständiga administratörs åtkomst?
 
-**Svarsfilen** Privileged Identity Management (PIM) och Azure AD admin-roller.
+**Svar:** Privileged Identity Management (PIM) och Azure AD admin-roller.
 
 **F:** Vad är Microsoft-positionen för att synkronisera administratörs konton till Azure AD?
 
-**Svarsfilen** Nivå 0-administratörs konton (inklusive konton, grupper och andra till gångar som har direkt eller indirekt administrativ kontroll över AD-skogen,-domänerna eller domän kontrol Lanterna, och alla till gångar) används endast för lokala AD-konton och är inte vanligt vis synkroniserat för Azure AD för molnet.
+**Svar:** Nivå 0-administratörs konton (inklusive konton, grupper och andra till gångar som har direkt eller indirekt administrativ kontroll över AD-skogen,-domänerna eller domän kontrol Lanterna och alla till gångar) används bara för lokala AD-konton och är vanligt vis inte synkroniserade för Azure AD för molnet.
 
 **F:** Hur skyddar vi administratörer från att tilldela slumpmässig administratörs åtkomst i portalen?
 
-**Svarsfilen** Använd icke-privilegierade konton för alla användare och de flesta administratörer. Börja med att utveckla organisationens organisation för att avgöra vilka få administratörs konton som ska vara privilegierade. Och Övervakare för nyligen skapade administrativa användare.
+**Svar:** Använd icke-privilegierade konton för alla användare och de flesta administratörer. Börja med att utveckla organisationens organisation för att avgöra vilka få administratörs konton som ska vara privilegierade. Och Övervakare för nyligen skapade administrativa användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

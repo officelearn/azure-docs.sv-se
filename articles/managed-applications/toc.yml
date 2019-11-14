@@ -75,6 +75,8 @@
           href: key-vault-access.md
         - name: Distribuera med hanterad identitet
           href: publish-managed-identity.md
+        - name: Distribuera med aviseringar
+          href: publish-notifications.md
     - name: Konsumenter
       items:
         - name: Övervaka hanterat program

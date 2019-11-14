@@ -24,6 +24,8 @@
 - name: Begrepp
   expanded: true
   items:
+    - name: Metodtips för apphantering
+      href: application-management-fundamentals.md
     - name: Molnappar och enkel inloggning
       items:
         - name: Planera integration av en molnapp

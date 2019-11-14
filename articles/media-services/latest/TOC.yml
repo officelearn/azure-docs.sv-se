@@ -109,7 +109,7 @@
     - name: Innehållsskydd
       items:
         - name: Dynamisk kryptering och nyckelleverans
-          displayName: 'content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay'
+          displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
         - name: Design för multi-DRM-system
           displayName: 'drm, access control'

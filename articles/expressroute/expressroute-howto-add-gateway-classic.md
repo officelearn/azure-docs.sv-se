@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera en VNet-gateway för ExpressRoute - klassiska: Azure PowerShell | Microsoft Docs'
+title: 'Azure-ExpressRoute: Lägg till en gateway till ett VNet: Klassiskt'
 description: Konfigurera en VNet-gateway för en klassisk distribution modellera VNet med PowerShell för en ExpressRoute-konfigurationen.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 101e03d07a15e9058ef236a575251b052017db32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75c2b400a2caf4e5f2e14589fc007bb506b46338
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365157"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031860"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell (klassisk)
 > [!div class="op_single_selector"]

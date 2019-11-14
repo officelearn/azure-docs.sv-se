@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 99b7de8c0e24fdbd12742b26394e61c956638525
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684424"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038282"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF
 
@@ -48,7 +48,7 @@ Data Migration Assistant (DMA) är ett fritt nedladdnings Bart verktyg för det 
   - MSDB, som är en system databas i SQL Server som används för att lagra SSIS-paket.
   - Hanterat fil system, som är en bestämd mapp i SQL Server installations Sök väg som används för att lagra SSIS-paket.
 
-DMA stöder för närvarande batch-utvärderingen av paket som lagras i **fil systemets** lagrings typ sedan **DMA-version v 4.5**.
+DMA stöder för närvarande batch-utvärderingen av paket som lagras i **fil systemet**, i **paket lagret**och **SSIS-katalogen** sedan **DMA version v 5.0**.
 
 Hämta [DMA](https://docs.microsoft.com/sql/dma/dma-overview)och [genomför din paket utvärdering med den](https://docs.microsoft.com/sql/dma/dma-assess-ssis).
 

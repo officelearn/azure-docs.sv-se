@@ -1,5 +1,5 @@
 ---
-title: Skapa och hantera en virtuell Azure-dator C# med | Microsoft Docs
+title: Skapa och hantera en virtuell Azure-dator med hjälp avC#
 description: Använd C# och Azure Resource Manager för att distribuera en virtuell dator och alla dess stöd resurser.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079598"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032793"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp avC# #
 
@@ -40,7 +40,7 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 
 1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
 2. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-3. I **mallar** >  *, Välj* **konsol program (.NET Framework)** , ange myDotnetProject som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.**C#**
+3. I **mallar** > **visualisering C#** väljer du **konsol program (.NET Framework)** , anger *myDotnetProject* som namn på projektet, väljer projektets plats och klickar sedan på **OK**.
 
 ## <a name="install-the-package"></a>Installera paketet
 
@@ -73,7 +73,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;&gt;** Ersätt  **&lt;prenumerations-&gt; ID** med prenumerations-ID, program-ID med Active Directory-program-ID, **&lt;autentisering-nyckel med&gt;** program nyckeln och  **&lt;&gt; klient-ID** med klient-ID: t.
+    Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID: **t,&lt;program-id&gt;** med Active Directory-program-ID, **&lt;autentisering-nyckel&gt;** med program nyckeln och **&lt;klient-ID&gt;med klient-ID: t** .
 
 3. Spara filen azureauth. Properties. 
 4. Ange en miljö variabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till den auktoriserade filen som du skapade. Du kan till exempel använda följande PowerShell-kommando:

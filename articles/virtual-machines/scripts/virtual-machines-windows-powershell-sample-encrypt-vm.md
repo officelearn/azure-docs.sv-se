@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell-skriptexempel – kryptera en virtuell Windows-dator | Microsoft Docs
+title: Azure PowerShell-skriptexempel – kryptera en virtuell Windows-dator
 description: Azure PowerShell-skriptexempel – kryptera en virtuell Windows-dator
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
-ms.openlocfilehash: b97292fb0a832f6eec1096d2274556d162e67ca7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c16c212cdf5854110a3fae1bf7fbb01592137629
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748642"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038909"
 ---
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>Kryptera en virtuell Windows-dator med Azure PowerShell
 

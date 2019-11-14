@@ -1,26 +1,26 @@
 ---
-title: Bevilja en enskild behörighet att överskrida begränsningar för registrering av appar – Azure Active Directory | Microsoft Docs
-description: Tilldela en anpassad roll för att bevilja obegränsade registrerade appar i Azure AD-Active Directory.
+title: Ta bort gränser för att skapa registrerings program – Azure AD | Microsoft Docs
+description: Tilldela en anpassad roll för att bevilja obegränsade registrerade appar i Azure AD-Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026277"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024396"
 ---
-# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabbstart: Bevilja behörighet att skapa obegränsade app-registreringar
+# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabb start: bevilja behörighet att skapa obegränsade app-registreringar
 
 I den här snabb starten ska du skapa en anpassad roll med behörighet att skapa ett obegränsat antal registrerade appar och sedan tilldela rollen till en användare. Den tilldelade användaren kan sedan använda Azure AD-portalen, Azure AD PowerShell, Azure AD Graph API eller Microsoft Graph API för att skapa program registreringar. Till skillnad från den inbyggda rollen program utvecklare ger den här anpassade rollen möjlighet att skapa ett obegränsat antal program registreringar. Rollen programutvecklare ger möjlighet, men det totala antalet skapade objekt är begränsat till 250 för att förhindra att [objekt kvoten för hela katalogen](directory-service-limits-restrictions.md)visas.
 
@@ -32,7 +32,7 @@ Den minst privilegierade rollen som krävs för att skapa och tilldela anpassade
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Skapa en ny anpassad roll med hjälp av Azure AD-portalen
 
-1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) With privilegie rad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) med privilegierad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
 1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan **ny anpassad roll**.
 
     ![Skapa eller redigera roller från sidan roller och administratörer](./media/roles-create-custom/new-custom-role.png)
@@ -49,7 +49,7 @@ Den minst privilegierade rollen som krävs för att skapa och tilldela anpassade
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Tilldela rollen till en användare med hjälp av Azure AD-portalen
 
-1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) With privilegie rad roll administratör eller global administratörs behörighet i din Azure AD-organisation.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) med privilegierad roll administratör eller global administratörs behörighet i din Azure AD-organisation.
 1. Välj **Azure Active Directory** och välj sedan **roller och administratörer**.
 1. Välj rollen program registrering skapare och välj **Lägg till tilldelning**.
 1. Välj önskad användare och klicka på **Välj** för att lägga till användaren i rollen.
@@ -63,8 +63,8 @@ Klart! I den här snabb starten har du skapat en anpassad roll med behörighet a
 
 Det finns två behörigheter som kan användas för att ge möjlighet att skapa program registreringar, var och en med olika beteenden.
 
-- Microsoft. Directory/Applications/createAsOwner: Genom att tilldela det här behörighets resultatet i skaparen som lagts till som första ägare till den skapade app-registreringen, så räknas den skapade program registreringen mot skapare objekt kvoten 250 skapade objekt.
-- Microsoft. Directory/applicationPolicies/skapa: Om du tilldelar det här behörighets resultatet i skaparen, läggs det inte till som första ägare till den skapade app-registreringen, och den skapade app-registreringen räknas inte mot skapare objekt kvoten 250 skapade objekt. Använd den här behörigheten noggrant, eftersom det inte finns något hinder för att skapa registrerings program förrän kvoten på katalog nivå har nåtts. Om båda behörigheterna tilldelas, prioriteras den här behörigheten.
+- Microsoft. Directory/Applications/createAsOwner: om du tilldelar behörighets resultatet i skaparen läggs det till som första ägare av den skapade app-registreringen, och den skapade registrerings program registreringen räknas mot skapare objekt kvoten 250 skapade objekt.
+- Microsoft. Directory/applicationPolicies/Create: om du tilldelar det här behörighets resultatet i skaparen, läggs det inte till som första ägare till den skapade app-registreringen, och den skapade app-registreringen räknas inte mot skapare objekt kvoten 250 skapade objekt. Använd den här behörigheten noggrant, eftersom det inte finns något hinder för att skapa registrerings program förrän kvoten på katalog nivå har nåtts. Om båda behörigheterna tilldelas, prioriteras den här behörigheten.
 
 ## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Skapa en anpassad roll med hjälp av Azure AD PowerShell
 
@@ -141,7 +141,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-Body
+Innehåll
 
 ```HTTP
 {
@@ -178,7 +178,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Body
+Innehåll
 
 ``` HTTP
 {

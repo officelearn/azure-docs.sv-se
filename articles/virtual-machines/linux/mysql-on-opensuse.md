@@ -1,5 +1,5 @@
 ---
-title: Installera MySQL på en virtuell OpenSUSE-dator i Azure | Microsoft Docs
+title: Installera MySQL på en virtuell OpenSUSE-dator i Azure
 description: Lär dig att installera MySQL på en virtuell OpenSUSE Linux-dator i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 223a5a5b77ded9eb26a5cf3f0003bc9d393615db
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d5f2ef2d82cbcced6202ad2c09f23dd734d373b3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300855"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035587"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installera MySQL på en virtuell dator som kör OpenSUSE Linux i Azure
 
@@ -36,7 +36,7 @@ Skapa först en resurs grupp. I det här exemplet heter resurs gruppen *mySQSUSE
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Skapa den virtuella datorn. I det här exemplet heter den virtuella datorn *myVM* och den virtuella datorns storlek är *Standard_D2s_v3*, men du bör välja den [virtuella dator storlek](sizes.md) som du tror är mest lämplig för din arbets belastning.
+Skapa den virtuella datorn. I det här exemplet heter den virtuella datorn *myVM* och storleken på den virtuella datorn är *Standard_D2s_v3*, men du bör välja den [VM-storlek](sizes.md) som du tror är mest lämplig för din arbets belastning.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -102,7 +102,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>MySQL-lösenord
 
-Efter installationen är MySQL-rot lösen ordet tomt som standard. Kör skriptet **MySQL @ no__t-1secure @ no__t-2installation** för att skydda MySQL. Skriptet gör att du kan ändra MySQL-rot lösen ordet, ta bort anonyma användar konton, inaktivera fjärrinloggning, ta bort test databaser och läsa in behörighets tabellen igen. 
+Efter installationen är MySQL-rot lösen ordet tomt som standard. Kör **installations skriptet mysql\_secure\_** för att skydda MySQL. Skriptet gör att du kan ändra MySQL-rot lösen ordet, ta bort anonyma användar konton, inaktivera fjärrinloggning, ta bort test databaser och läsa in behörighets tabellen igen. 
 
 När servern har startats om, SSH till den virtuella datorn igen.
 
@@ -137,7 +137,7 @@ Semikolon (;) i slutet av raden är det viktigt att du avslutar kommandot.
 ## <a name="create-a-database"></a>Skapa en databas
 
 
-Skapa en databas och bevilja användar behörigheterna `mysqluser`.
+Skapa en databas och ge `mysqluser` användar behörighet.
 
 ```sql
 CREATE DATABASE testdatabase;

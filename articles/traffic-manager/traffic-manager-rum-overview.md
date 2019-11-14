@@ -1,6 +1,6 @@
 ---
 title: Faktisk slutanvändarmätning i Azure Traffic Manager
-description: Introduktion till Faktisk slutanvändarmätning i Traffic Manager
+description: I den här introduktionen får du lära dig hur Azure Traffic Manager Faktisk slutanvändarmätning fungerar.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 4aa2649ba2e49e1fec1b9b124a9b82313280cee9
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1cb3bd1f4a665da4422d296641b193b1e45e45a2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333726"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037957"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Översikt över Traffic Manager Faktisk slutanvändarmätning
 

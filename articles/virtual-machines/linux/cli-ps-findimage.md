@@ -1,6 +1,6 @@
 ---
-title: Välj Linux VM-avbildningar med Azure CLI | Microsoft Docs
-description: Lär dig hur du använder Azure CLI för att fastställa utgivare, erbjudande, SKU och version för Marketplace-VM-avbildningar.
+title: Välj virtuella Linux-avbildningar med Azure CLI
+description: Lär dig hur du använder Azure CLI för att fastställa utgivare, erbjudande, SKU och version för VM-avbildningar på Marketplace.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,32 +16,32 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbe98c4ad3a1b737b9df0d2ea53d53875f26ba54
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: e4dd51640c4eeda2ec99c14812a534ee506faeda
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668374"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036870"
 ---
-# <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
+# <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta virtuella Linux-avbildningar på Azure Marketplace med Azure CLI
 
-Det här avsnittet beskriver hur du använder Azure CLI för att hitta VM-avbildningar på Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator via programmering med CLI, Resource Manager-mallar eller andra verktyg.
+I det här avsnittet beskrivs hur du använder Azure CLI för att hitta VM-avbildningar på Azure Marketplace. Använd den här informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator program mässigt med CLI-, Resource Manager-mallar eller andra verktyg.
 
-Även bläddra bland tillgängliga avbildningar och erbjudanden med hjälp av den [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, den [Azure-portalen](https://portal.azure.com), eller [Azure PowerShell](../windows/cli-ps-findimage.md). 
+Du kan också hitta tillgängliga bilder och erbjudanden med hjälp av [Azure Marketplace](https://azuremarketplace.microsoft.com/) -butik, [Azure Portal](https://portal.azure.com)eller [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-Se till att du installerat senast [Azure CLI](/cli/azure/install-azure-cli) och är inloggad på ett Azure-konto (`az login`).
+Se till att du har installerat den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och är inloggad på ett Azure-konto (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
-## <a name="list-popular-images"></a>Lista över populära bilder
+## <a name="list-popular-images"></a>Lista populära bilder
 
-Kör den [az vm bildlista](/cli/azure/vm/image) kommandot, utan de `--all` alternativet om du vill se en lista över populära VM-avbildningar på Azure Marketplace. Till exempel köra följande kommando för att visa en cachelagrad lista över populära bilder i tabellformat:
+Kör kommandot [AZ VM Image List](/cli/azure/vm/image) , utan alternativet `--all`, om du vill visa en lista över populära VM-avbildningar på Azure Marketplace. Kör till exempel följande kommando för att visa en cachelagrad lista över populära bilder i tabell format:
 
 ```azurecli
 az vm image list --output table
 ```
 
-Utdata innehåller bild-URN (värdet i den *Urn* kolumn). När du skapar en virtuell dator med någon av dessa populära Marketplace-avbildningar, kan du alternativt ange den *UrnAlias*, en förkortning som *UbuntuLTS*.
+Utdata innehåller bildens URN (värdet i kolumnen *urn* ). När du skapar en virtuell dator med någon av dessa populära Marketplace-avbildningar kan du alternativt ange *UrnAlias*, ett förkortat formulär, till exempel *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -59,9 +59,9 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## <a name="find-specific-images"></a>Söka efter specifika avbildningar
 
-Använd för att hitta en specifik VM-avbildning i Marketplace, den `az vm image list` med den `--all` alternativet. Den här versionen av kommandot tar lite tid att slutföra och kan returnera långa utdata så att du vanligtvis filtrera listan efter `--publisher` eller en annan parameter. 
+Om du vill hitta en speciell VM-avbildning på Marketplace använder du kommandot `az vm image list` med alternativet `--all`. Den här versionen av kommandot tar lite tid att slutföra och kan returnera långa utdata, så du filtrerar vanligt vis listan efter `--publisher` eller en annan parameter. 
 
-Till exempel följande kommando visar alla Debian-erbjudanden (Kom ihåg att utan den `--all` växla, söker bara den lokala cachen med vanliga avbildningar):
+Till exempel visar följande kommando alla Debian-erbjudanden (kom ihåg att utan växeln `--all` söker den bara efter det lokala cacheminnet för vanliga avbildningar):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -108,11 +108,11 @@ Debian             credativ     8                    credativ:Debian:8:8.0.20190
 ...
 ```
 
-Använda liknande filter med den `--location`, `--publisher`, och `--sku` alternativ. Du kan utföra delmatchningar på ett filter, till exempel söker efter `--offer Deb` att hitta alla Debian avbildningar.
+Använd liknande filter med alternativen `--location`, `--publisher`och `--sku`. Du kan utföra partiella matchningar i ett filter, till exempel söka efter `--offer Deb` för att hitta alla Debian-avbildningar.
 
-Om du inte anger en viss plats med den `--location` alternativet värdena för standardplatsen som returneras. (Ange en annan standardsökväg genom att köra `az configure --defaults location=<location>`.)
+Om du inte anger en viss plats med alternativet `--location` returneras värdena för standard platsen. (Ange en annan standard plats genom att köra `az configure --defaults location=<location>`.)
 
-Till exempel visar följande kommando alla Debian 8 SKU: er i platsen västra Europa:
+Följande kommando visar till exempel alla Debian 8 SKU: er på platsen Västeuropa:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -152,15 +152,15 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>Navigera bland avbildningarna
  
-Ett annat sätt att hitta en bild på en plats är att köra den [az vm list-avbildningsutgivare](/cli/azure/vm/image), [az vm list-avbildningserbjudanden](/cli/azure/vm/image), och [az vm-avbildning lista-SKU: er](/cli/azure/vm/image) kommandon i sekvens. Med följande kommandon kan du bestämma dessa värden.
+Ett annat sätt att söka efter en bild på en plats är att köra [listan AZ VM Image List-Publishers](/cli/azure/vm/image), [AZ VM Image List-erbjudanden](/cli/azure/vm/image)och [AZ VM Image List-SKU: er](/cli/azure/vm/image) i sekvens. Med de här kommandona fastställer du följande värden:
 
 1. Visa en lista över avbildningsutgivare.
 2. Visa en lista över erbjudanden från en viss utgivare.
 3. Visa en lista över SKU:er för ett visst erbjudande.
 
-Du kan sedan välja en version som ska distribueras för en vald SKU.
+Sedan kan du välja en version som du vill distribuera för en vald SKU.
 
-Till exempel följande kommando visar en lista över avbildningsutgivare i USA, västra:
+Följande kommando visar till exempel avbildnings utgivaren på platsen västra USA:
 
 ```azurecli
 az vm image list-publishers --location westus --output table
@@ -196,7 +196,7 @@ westus      akumina
 ...
 ```
 
-Använd den här informationen för att hitta erbjudanden från en viss utgivare. Till exempel för den *Canonical* utgivare i platsen USA, västra hitta erbjudanden genom att köra `azure vm image list-offers`. Skicka platsen och utgivaren som i följande exempel:
+Använd den här informationen för att hitta erbjudanden från en speciell utgivare. Till exempel för den *kanoniska* utgivaren på platsen västra USA hittar du erbjudanden genom att köra `azure vm image list-offers`. Skicka platsen och utgivaren som i följande exempel:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -213,7 +213,7 @@ westus      UbunturollingSnappy
 westus      UbuntuServer
 westus      Ubuntu_Core
 ```
-Du ser att regionen West US Canonical och publicerar den *UbuntuServer* erbjudandet. Men vad finns det för SKU:er? För att få dessa värden, köra `azure vm image list-skus` och ange platsen, utgivaren och erbjudandet som du har identifierats:
+Du ser det i regionen Västra USA, kanoniskt publicera *UbuntuServer* -erbjudandet på Azure. Men vad finns det för SKU:er? Du kan hämta dessa värden genom att köra `azure vm image list-skus` och ange plats, utgivare och erbjudande som du har identifierat:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -244,7 +244,7 @@ westus      18.10-DAILY
 westus      19.04-DAILY
 ```
 
-Använd slutligen den `az vm image list` kommando för att hitta en specifik version av SKU: N du vill, till exempel *18.04 LTS*:
+Använd slutligen kommandot `az vm image list` för att hitta en version av SKU: n som du vill ha, till exempel *18,04-LTS*:
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 18.04-LTS --all --output table
@@ -278,17 +278,17 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-Du kan nu välja exakt den avbildning som du vill använda genom att anteckna URN-värdet. Skicka det här värdet med den `--image` parameter när du skapar en virtuell dator med den [az vm skapa](/cli/azure/vm) kommando. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av avbildningen. 
+Nu kan du välja exakt den avbildning som du vill använda genom att anteckna värdet för URN. Skicka det här värdet med parametern `--image` när du skapar en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm) . Kom ihåg att du kan välja att ersätta versions numret i URN med "senaste". Den här versionen är alltid den senaste versionen av avbildningen. 
 
-Om du distribuerar en virtuell dator med Resource Manager-mall kan du ange parametrarna bild individuellt i den `imageReference` egenskaper. Se [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
+Om du distribuerar en virtuell dator med en Resource Manager-mall ställer du in avbildnings parametrarna individuellt i `imageReference` egenskaper. Se [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>Visa egenskaperna för energischemat
+### <a name="view-plan-properties"></a>Visa plan egenskaper
 
-Om du vill visa en bild Köpinformation för plan, kör den [az vm image show](/cli/azure/image) kommando. Om den `plan` -egenskapen i utdata är inte `null`, avbildningen har villkoren måste du godkänna innan programdistribution.
+Om du vill visa information om inköps planen för en bild kör du kommandot [AZ VM Image show](/cli/azure/image) . Om `plan`-egenskapen i utdata inte är `null`, har bilden några villkor som du måste acceptera innan du programmerar distributionen.
 
-Till exempel Canonical Ubuntu Server 18.04 LTS-avbildning inte har ytterligare villkor, eftersom den `plan` information är `null`:
+Till exempel har den kanoniska Ubuntu Server 18,04 LTS-avbildningen inga ytterligare villkor, eftersom `plan` information `null`:
 
 ```azurecli
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
@@ -310,7 +310,7 @@ Resultat:
 }
 ```
 
-Köra en liknande kommando för RabbitMQ certifierats av Bitnami-avbildningen visar följande `plan` egenskaper: `name`, `product`, och `publisher`. (Vissa bilder har också en `promotion code` egenskap.) Finns i följande avsnitt för att acceptera villkoren och aktivera programdistribution för att distribuera den här avbildningen.
+Om du kör ett liknande kommando för RabbitMQ-certifierad av Bitnami-avbildningen visas följande `plan` egenskaper: `name`, `product`och `publisher`. (Vissa bilder har också en `promotion code`-egenskap.) Information om hur du distribuerar den här avbildningen finns i följande avsnitt för att acceptera villkoren och aktivera programmerings distribution.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -335,15 +335,15 @@ Resultat:
 }
 ```
 
-### <a name="accept-the-terms"></a>Acceptera villkoren
+### <a name="accept-the-terms"></a>Godkänn villkoren
 
-Om du vill visa och godkänna licensvillkoren genom att använda den [az vm-avbildning acceptera-terms](/cli/azure/vm/image?) kommando. När du har accepterat villkoren kan du aktivera programdistribution i din prenumeration. Du behöver bara godkänna villkoren en gång per prenumeration för avbildningen. Exempel:
+Om du vill visa och godkänna licens villkoren använder du kommandot [AZ VM Image accept-terms](/cli/azure/vm/image?) . När du godkänner villkoren aktiverar du program mässig distribution i din prenumeration. Du behöver bara godkänna villkoren en gång per prenumeration på avbildningen. Exempel:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
-Utdata innehåller en `licenseTextLink` till licensen villkor och anger att värdet för `accepted` är `true`:
+Utdata innehåller en `licenseTextLink` till licens villkoren och anger att värdet för `accepted` är `true`:
 
 ```
 {
@@ -362,9 +362,9 @@ Utdata innehåller en `licenseTextLink` till licensen villkor och anger att vär
 }
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med hjälp av köp plan parametrar
+### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med parametrar för inköps plan
 
-När du accepterar villkoren för avbildningen kan distribuera du en virtuell dator i prenumerationen. Distribuera avbildningen med hjälp av den `az vm create` kommandot, ange parametrar för inköpsplanen dessutom till en URN för avbildningen. Till exempel vill distribuera en virtuell dator med RabbitMQ Certified med Bitnami-avbildningen:
+När du har accepterat villkoren för avbildningen kan du distribuera en virtuell dator i prenumerationen. Om du vill distribuera avbildningen med hjälp av kommandot `az vm create` anger du parametrar för inköps planen förutom en URN för avbildningen. Till exempel för att distribuera en virtuell dator med RabbitMQ-certifierad av Bitnami-avbildningen:
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus
@@ -373,4 +373,4 @@ az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabb
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-För att snabbt skapa en virtuell dator med hjälp av avbildningen information, se [skapa och hantera virtuella Linux-datorer med Azure CLI](tutorial-manage-vm.md).
+För att snabbt skapa en virtuell dator med hjälp av avbildnings informationen, se [skapa och hantera virtuella Linux-datorer med Azure CLI](tutorial-manage-vm.md).

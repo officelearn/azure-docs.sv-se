@@ -1,32 +1,31 @@
 ---
-title: Lägga till och ta bort användare för dynamiskt gruppmedlemskap – självstudie – Azure Active Directory
+title: Lägga till användare i en dynamisk grupp – självstudie – Azure AD | Microsoft Docs
 description: I den här självstudiekursen använder du grupper med användarmedlemskapsregler för att lägga till eller ta bort användare automatiskt
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1429841ca1376d67c7372f36bd35694afd4cd7ce
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102635"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027115"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
 
 I Azure Active Directory (Azure AD) kan du automatiskt lägga till eller ta bort användare i säkerhetsgrupper eller Office 365-grupper, så att du inte alltid måste göra det manuellt. När egenskaper för en användare eller enhet ändras utvärderar Azure AD alla dynamiska gruppregler i klientorganisationen för att se om ändringen ska lägga eller ta bort medlemmar.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa en automatiskt ifylld grupp av gäst användare från ett partner företag
 > * Tilldela licenser till gruppen för partnerspecifika funktioner för gästanvändare för åtkomst
@@ -34,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här funktionen kräver en Azure AD Premium-licens för dig som klient organisationens globala administratör. Om du inte har en väljer du **Licenser** > **Produkter** > **Testa/Köp** i Azure AD.
 

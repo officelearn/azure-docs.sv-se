@@ -1,17 +1,14 @@
 ---
 title: ISO 27001 skiss exempel – kontroll mappning
 description: Kontroll mappning av ISO 27001-skiss exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: f187bf5a77f756bbc6293a14e1873d13788d3929
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6d77573a37c27aba96bace1f6d228ac892b0ecd9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162473"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038340"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Kontroll mappning av ISO 27001-skiss exemplet
 
@@ -50,7 +47,7 @@ Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta 
 
 ## <a name="a923-management-of-privileged-access-rights"></a>En. 9.2.3-hantering av privilegierade behörigheter
 
-Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela fyra [Azure policy](../../../policy/overview.md) -definitioner för att granska externa konton med ägare och/eller Skriv behörigheter och konton med ägare och/eller Skriv behörigheter som inte har Multi-Factor Authentication har Aktiver ATS. Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen tilldelar också tre Azure Policy definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Den här skissen tilldelar också en Azure Policy-definition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga.
+Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela fyra [Azure policy](../../../policy/overview.md) -definitioner för att granska externa konton med ägare och/eller Skriv behörigheter och konton med ägare och/eller Skriv behörigheter som inte har Multi-Factor Authentication aktiverat. Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen tilldelar också tre Azure Policy definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Den här skissen tilldelar också en Azure Policy-definition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga.
 
 - \[för hands version\]: granska konton med ägar behörigheter som inte är MFA-aktiverade för en prenumeration
 - \[för hands version\]: granska konton med Skriv behörighet som inte är MFA-aktiverade för en prenumeration
@@ -211,7 +208,7 @@ Nu när du har granskat kontroll mappningen av ISO 27001-skissen kan du gå till
 > [Iso 27001 skiss – översikt](./index.md)
 > [ISO 27001 skiss – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

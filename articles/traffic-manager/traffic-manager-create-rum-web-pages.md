@@ -1,6 +1,6 @@
 ---
-title: Faktisk Slutanvändarmätning till Azure Traffic Manager med webbsidor | Microsoft Docs
-description: Konfigurera dina webbsidor för att skicka faktisk Slutanvändarmätning till Traffic Manager
+title: Faktisk slutanvändarmätning med webb sidor – Azure Traffic Manager
+description: I den här artikeln lär du dig hur du konfigurerar dina webb sidor för att skicka Faktisk slutanvändarmätning till Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -13,60 +13,60 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 2d044457df80f16a6e8073e7f3253a611f74d8a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e3cf5af5aaa894b1595d67c0056073a458b0a88
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071223"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040307"
 ---
-# <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Hur du skickar Real User Measurements till Azure Traffic Manager med webbsidor
+# <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Så här skickar du Faktisk slutanvändarmätning till Azure Traffic Manager med webb sidor
 
-Du kan konfigurera dina webbsidor för att skicka faktisk Slutanvändarmätning till Traffic Manager genom att skaffa en Real User Measurements (ROM)-nyckel och bädda in den genererade koden till webbsidan.
+Du kan konfigurera dina webb sidor så att de skickar Faktisk slutanvändarmätning till Traffic Manager genom att skaffa en Faktisk slutanvändarmätning (RUM) nyckel och bädda in den genererade koden på webb sidan.
 
-## <a name="obtain-a-real-user-measurements-key"></a>Få en Real User Measurements-nyckel
+## <a name="obtain-a-real-user-measurements-key"></a>Hämta en Faktisk slutanvändarmätning nyckel
 
-Mätningar du ta och skicka till Traffic Manager från klientprogrammet identifieras av tjänsten med hjälp av en unik sträng som kallas den **Real User Measurements (ROM) nyckel**. Du kan få en köra nyckel med hjälp av Azure portal, REST-API eller med hjälp av PowerShell eller Azure CLI.
+De mätningar du tar och skickar till Traffic Manager från ditt klient program identifieras av tjänsten med hjälp av en unik sträng, som kallas **faktisk slutanvändarmätning (Rom) nyckel**. Du kan hämta en RUM nyckel med hjälp av Azure Portal, en REST API eller med hjälp av PowerShell eller Azure CLI.
 
-Du kan hämta den ROM-nyckeln med hjälp av Azure portal:
-1. Logga in på Azure portal från en webbläsare. Om du inte redan har ett konto kan registrera du dig för en kostnadsfri utvärderingsversion för en månad.
-2. I portalens sökfältet söker du efter namnet på Traffic Manager-profilen som du vill ändra och klicka sedan på Traffic Manager-profilen i resultaten som visas.
-3. I profilbladet Traffic Manager-klickar du på **Real User Measurements** under **inställningar**.
-4. Klicka på **Generera nyckel** att skapa en ny ROM-nyckel.
+Hämta RUM-nyckeln med hjälp av Azure Portal:
+1. Logga in på Azure Portal i en webbläsare. Om du inte redan har ett konto kan du registrera dig för en kostnads fri utvärderings period på en månad.
+2. I portalens sökfält söker du efter namnet på Traffic Manager profilen som du vill ändra och klickar sedan på Traffic Manager profilen i resultatet som visas.
+3. I bladet Traffic Manager profil klickar du på **faktisk slutanvändarmätning** under **Inställningar**.
+4. Klicka på **generera nyckel** för att skapa en ny rum nyckel.
  
-   ![Generera Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generera Faktisk slutanvändarmätning nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Bild 1: Real User Measurements nyckelgenerering**
+   **Bild 1: Faktisk slutanvändarmätning nyckel skapande**
 
-5. Bladet visar nu ROM-nyckeln som genererades och ett JavaScript-kodfragment som krävs för att bädda in HTML-sidan.
+5. Bladet visar nu att RUM-nyckeln har genererats och att ett JavaScript-kodfragment måste vara inbäddat i din HTML-sida.
  
-    ![JavaScript-kod för Real User Measurements nyckel](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
+    ![JavaScript-kod för Faktisk slutanvändarmätning nyckel](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Bild 2: Real User Measurements nyckel och JavaScript-mått**
+    **Bild 2: skript för att Faktisk slutanvändarmätning nyckel och mätning**
  
-6. Klicka på den **kopiera** för att kopiera JavaScript-koden. 
+6. Klicka på **kopierings** knappen för att kopiera JavaScript-koden. 
 
 >[!IMPORTANT]
-> Använda det genererade JavaScriptet för Real User Measurements funktionen ska fungera korrekt. Ändringar i det här skriptet eller skript som används av Real User Measurements kan leda till oväntade funktionssätt.
+> Använd det genererade JavaScript-kommandot för Faktisk slutanvändarmätning funktionen för att fungera korrekt. Eventuella ändringar av det här skriptet eller skripten som används av Faktisk slutanvändarmätning kan leda till oförutsägbara beteenden.
 
-## <a name="embed-the-code-to-an-html-web-page"></a>Bädda in kod till en HTML-webbsida
+## <a name="embed-the-code-to-an-html-web-page"></a>Bädda in koden på en HTML-webbsida
 
-När du har fått nyckeln köra, är nästa steg att bädda in den här kopierade JavaScript i en HTML-sida som användarna besöker. Redigera HTML kan göras på många sätt och med hjälp av olika verktyg och arbetsflöden. Det här exemplet visar hur du uppdaterar en HTML-sida för att lägga till det här skriptet. Du kan använda den här vägledningen för att anpassa det till HTML-källa management-arbetsflöde.
+När du har fått nyckeln för RUM är nästa steg att bädda in det kopierade JavaScript-kommandot på en HTML-sida som dina slutanvändare besöker. Redigera HTML kan göras på många sätt och med olika verktyg och arbets flöden. Det här exemplet visar hur du uppdaterar en HTML-sida för att lägga till det här skriptet. Du kan använda den här vägledningen för att anpassa den till ditt arbets flöde för hantering av HTML-datakälla.
 
-1.  Öppna HTML-sidan i en textredigerare
-2.  Klistra in JavaScript-koden som du hade kopierat det tidigare steget i avsnittet BRÖDTEXT i HTML (den kopierade koden är på rad 8 och 9, se figur 3).
+1.  Öppna HTML-sidan i en text redigerare
+2.  Klistra in JavaScript-koden som du kopierade i föregående steg till avsnittet BRÖDTEXT i HTML (den kopierade koden finns på rad 8 & 9, se bild 3).
  
-    ![Bädda in Javascript-kod i webbsida för Real User Measurements](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
+    ![Bädda in JavaScript-kod på webb sidan för Faktisk slutanvändarmätning](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
-    **Bild 3: Enkel HTML-kod med inbäddade riktiga användare mätningar av JavaScript**
+    **Bild 3: enkel HTML med Embedded Faktisk slutanvändarmätning Java Script**
 
-3.  Spara HTML-fil och värden som den på en webbserver ansluten till internet. 
-4. Nästa gång den här sidan återges i en webbläsare, JavaScript som refererar till hämtas och skriptet körs mätning och rapportering av åtgärder.
+3.  Spara HTML-filen och placera den på en webb server som är ansluten till Internet. 
+4. Nästa gång den här sidan renderas i en webbläsare laddas det JavaScript-skript som refereras till och skriptet kör mät-och rapporterings åtgärderna.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Real User Measurements](traffic-manager-rum-overview.md)
-- Lär dig [så här fungerar Traffic Manager](traffic-manager-overview.md)
-- Läs mer om den [trafikroutningsmetoder](traffic-manager-routing-methods.md) stöds av Traffic Manager
-- Lär dig hur du [skapa en Traffic Manager-profil](traffic-manager-create-profile.md)
+- Läs mer om [faktisk slutanvändarmätning](traffic-manager-rum-overview.md)
+- Lär dig [hur Traffic Manager fungerar](traffic-manager-overview.md)
+- Läs mer om [metoderna för trafik-routning](traffic-manager-routing-methods.md) som stöds av Traffic Manager
+- Lär dig hur du [skapar en Traffic Manager-profil](traffic-manager-create-profile.md)
 

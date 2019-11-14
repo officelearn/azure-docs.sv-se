@@ -1,54 +1,53 @@
 ---
-title: Egenskaper för flera interaktion - Azure Active Directory-klient | Microsoft Docs
-description: Hantera dina Azure Active-klient-klienter genom att förstå klienterna som helt oberoende resurser
+title: Egenskaper för flera klient interaktioner – Azure AD | Microsoft Docs
+description: Hantera dina klient organisationer för Azure Active-klienter genom att förstå dina klienter som helt oberoende resurser
 services: active-tenant
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0ce791ee3536b9ab07605787209e59b7e5d60126
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60470080"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026299"
 ---
-# <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Förstå hur flera Azure Active Directory-klienter interagerar
+# <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Förstå hur flera Azure Active Directory klienter interagerar
 
-I Azure Active Directory (AD Azure), varje klient är en helt oberoende resurser: en peer-dator som är logiskt oberoende av andra klienter som du hanterar. Det finns ingen överordnad-underordnad-relation mellan klienter. Detta oberoende mellan klienter innehåller resursoberoende, administrativt oberoende och synkroniseringsoberoende.
+I Azure Active Directory (Azure AD) är varje klient är en helt oberoende resurs: en peer som är logiskt oberoende av de andra klienter som du hanterar. Det finns ingen överordnad-underordnad relation mellan klienter. Detta oberoende mellan klienterna omfattar resurs oberoende, administrativt oberoende och oberoende oberoende.
 
-## <a name="resource-independence"></a>Resursoberoende
-* Om du skapar eller tar bort en resurs i en klient har ingen inverkan på alla resurser i en annan klient, delvis med undantag av externa användare. 
-* Om du använder en av dina domännamn med en klient kan inte användas med andra innehavare.
+## <a name="resource-independence"></a>Resurs oberoende
+* Om du skapar eller tar bort en resurs i en klient har den ingen påverkan på någon resurs i en annan klient organisation, med undantag för externa användare. 
+* Om du använder ett av dina domän namn med en klient kan den inte användas med någon annan klient.
 
 ## <a name="administrative-independence"></a>Administrativt oberoende
-Om en icke-administrativa användare för klienten ”Contoso” skapar en Testklient 'Test' sedan:
+Om en icke-administrativ användare av klienten contoso skapar en test klient "test":
 
-* Som standard är den användare som skapar en klient har lagts till som en extern användare i den nya klienten och har tilldelats rollen global administratör i den klienten.
-* Administratörerna av klient ”Contoso” har inte någon direkt administratörsbehörighet till klient ”Test”, om inte en administratör för 'Test' uttryckligen beviljar dem dessa privilegier. Dock kan ”Contoso”-administratörerna styra åtkomsten till klient ”Test” om de kontrollera att användarkontot som skapade ”Test”.
-* Om du lägger till/ta bort en administratörsroll för en användare i en klient, påverkar inte ändringen administratörsroller som användaren har i en annan klient.
+* Som standard läggs den användare som skapar en klient organisation till som en extern användare i den nya klienten och tilldelas rollen global administratör i klienten.
+* Administratörerna för klient organisationen contoso har ingen direkt administratörs behörighet till klientens "test", såvida inte en administratör av "test" specifikt tilldelar dem dessa privilegier. Administratörer av contoso kan dock kontrol lera åtkomsten till klientens "test" om de styr det användar konto som skapade "test".
+* Om du lägger till/tar bort en administratörs roll för en användare i en klient, påverkar inte ändringen administratörs rollerna som användaren har i en annan klient.
 
-## <a name="synchronization-independence"></a>Synkroniseringsoberoende
-Du kan konfigurera varje Azure AD-klient oberoende om du vill synkronisera data från en enda instans av antingen:
+## <a name="synchronization-independence"></a>Oberoende synkronisering
+Du kan konfigurera varje Azure AD-klient oberoende för att hämta data som synkroniseras från en enda instans av antingen:
 
-* Verktyget Azure AD Connect att synkronisera data med en enda AD-skog.
-* Azure Active innehavaren Connector för Forefront Identity Manager för att synkronisera data med en eller flera lokala skogar och/eller icke-Azure AD-datakällor.
+* Azure AD Connect-verktyget, för att synkronisera data med en enda AD-skog.
+* Azure Active Tenant Connector för Forefront Identity Manager, för att synkronisera data med en eller flera lokala skogar och/eller icke-Azure AD-datakällor.
 
 ## <a name="add-an-azure-ad-tenant"></a>Lägg till en Azure AD-klient
-Om du vill lägga till en Azure AD-klient i Azure-portalen, logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är en global Azure AD-administratör, och till vänster, Välj **New**.
+Om du vill lägga till en Azure AD-klient i Azure Portal loggar du in på [Azure Portal](https://portal.azure.com) med ett konto som är en global Azure AD-administratör och väljer sedan **nytt**till vänster.
 
 > [!NOTE]
-> Till skillnad från andra Azure-resurser är dina klienter inte underordnade resurser till en Azure-prenumeration. Om din Azure-prenumeration avbryts eller upphört att gälla, kan du fortfarande använda klientorganisationens data med hjälp av Azure PowerShell, Azure Graph API eller Microsoft 365 Administrationscenter. Du kan också [associera en annan prenumeration med klient](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> Till skillnad från andra Azure-resurser är klient organisationerna inte underordnade resurser till en Azure-prenumeration. Om din Azure-prenumeration har avbrutits eller har upphört att gälla, kan du fortfarande komma åt dina klient data med hjälp av Azure PowerShell, Azure-Graph API eller Microsoft 365 administrations centret. Du kan också [associera en annan prenumeration med klienten](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt av Azure AD licensproblem och bästa praxis, se [vad är Azure Active-klient-licensiering?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).
+En översikt över Azure AD-licensierings problem och bästa praxis finns i [Vad är Azure Active Tenant Licensing?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).

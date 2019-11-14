@@ -1,5 +1,5 @@
 ---
-title: Azures serie konsol för SysRq-och NMI-anrop | Microsoft Docs
+title: Azures serie konsol för SysRq-och NMI-anrop
 description: Använda en serie konsol för SysRq-och NMI-anrop i Azure Virtual Machines.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 81fb9f99f4f7e4f77b39855445639369f65f0966
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091319"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035002"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använda en serie konsol för SysRq-och NMI-anrop
 
@@ -31,7 +31,7 @@ Du kan använda Azures serie konsol för att skicka en SysRq till en virtuell Az
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
-Om du väljer "skicka SysRq kommando" öppnas en dialog ruta som tillhandahåller vanliga alternativ för SysRq eller accepterar en sekvens med SysRq-kommandon som anges i dialog rutan.  Detta gör att serier med SysRq kan utföra en hög nivå åtgärd, till exempel en säker omstart med hjälp av `REISUB`:.
+Om du väljer "skicka SysRq kommando" öppnas en dialog ruta som tillhandahåller vanliga alternativ för SysRq eller accepterar en sekvens med SysRq-kommandon som anges i dialog rutan.  Detta gör att serier med SysRq kan utföra en hög nivå åtgärd, till exempel en säker omstart med hjälp av: `REISUB`.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
@@ -62,7 +62,7 @@ I administratörs hand boken för SysRq ovan:
 |``h``  |   Visar hjälp (någon annan nyckel än de som anges här visas också hjälp, men ``h`` är lätt att komma ihåg:-)
 |``i``  |    Skicka en SIGKILL till alla processer, förutom init.
 |``j``  |    Tvinga fram "Tina bara det"-fil system som frysts av FIFREEZE IOCTL.
-|``k``  |    Säker åtkomst nyckel (SAK) omsorg alla program i den aktuella virtuella konsolen. OBS! Se viktiga kommentarer nedan i avsnittet SAK.
+|``k``  |    Säker åtkomst nyckel (SAK) omsorg alla program i den aktuella virtuella konsolen. Obs! se viktiga kommentarer nedan i avsnittet SAK.
 |``l``  |    Visar en stack-och bakklarning för alla aktiva processorer.
 |``m``  |    Dumpar aktuell minnes information till konsolen.
 |``n``  |    Används för att göra RT-uppgifter snyggt
@@ -79,7 +79,7 @@ I administratörs hand boken för SysRq ovan:
 |``x``  |    Används av xmon-gränssnittet på PPC/powerpc-plattformar. Visa globala PMU-register på sparc64. Dumpa alla TLB-poster på MIPS.
 |``y``  |    Visa globala processor register [SPARC-64-/regionsspecifika]
 |``z``  |    Dumpa ftrace-bufferten
-|``0``-``9`` | Anger logg nivån för konsolen och styr vilka kernel-meddelanden som ska skrivas ut till konsolen. (``0``till exempel göra det så att endast nödfalls meddelanden som Panic eller hoppsans skulle göra det till konsolen.)
+|``0``-``9`` | Anger logg nivån för konsolen och styr vilka kernel-meddelanden som ska skrivas ut till konsolen. (``0``till exempel göra det så att endast nödfalls meddelanden som Panic eller HOPPSANs skulle göra det till konsolen.)
 
 ### <a name="distribution-specific-documentation"></a>Distribution – detaljerad dokumentation ###
 Information om distributions information om SysRq och hur du konfigurerar Linux för att skapa en kraschdump när den får ett SysRq "krasch"-kommando finns i länkarna nedan:
@@ -110,7 +110,7 @@ För Linux-system som stöder sysctl för att konfigurera kernel-parametrar kan 
 1. Starta om eller uppdatera sysctl genom att köra <br>
     `sysctl -p`
 
-Mer information om konfigurationer i Linux-kernel, `unknown_nmi_panic`inklusive `panic_on_io_nmi`, och `panic_on_unrecovered_nmi`, finns i: [Dokumentation för/proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Information om distributions information om NMI och hur du konfigurerar Linux för att skapa en kraschdump när den får en NMI finns i länkarna nedan:
+Mer information om konfigurationer i Linux-kernel, inklusive `unknown_nmi_panic`, `panic_on_io_nmi`och `panic_on_unrecovered_nmi`finns i: [dokumentation för/proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Information om distributions information om NMI och hur du konfigurerar Linux för att skapa en kraschdump när den får en NMI finns i länkarna nedan:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Kernel-krasch dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

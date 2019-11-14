@@ -1,17 +1,17 @@
 ---
-title: Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar – Azure Managed Disks | Microsoft Docs
+title: Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar – Azure Managed Disks
 description: Konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar med hjälp av PowerShell i distributions modellen för Resource Manager
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 64ff47f1dc4b06d1407497adf41981c670ea9064
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 92f70cbfcf261c218ea43b159ed49126f7b2ecd5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749531"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033903"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Windows-dator från ohanterade diskar till Managed disks
 
@@ -94,7 +94,7 @@ Innan du konverterar kontrollerar du att alla VM-tillägg är i läget etablerin
 
 Du kan också konvertera ohanterade diskar till hanterade diskar med hjälp av Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj den virtuella datorn i listan över virtuella datorer i portalen.
 3. I bladet för den virtuella datorn väljer du **diskar** på menyn.
 4. Överst på bladet **diskar** väljer **du migrera till Managed disks**.

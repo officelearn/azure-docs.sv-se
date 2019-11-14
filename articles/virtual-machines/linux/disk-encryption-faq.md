@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar – Azure Disk Encryption för virtuella Linux-datorer | Microsoft Docs
+title: Vanliga frågor och svar – Azure Disk Encryption för virtuella Linux-datorer
 description: Den här artikeln innehåller svar på vanliga frågor om Microsoft Azure disk kryptering för virtuella Linux IaaS-datorer.
 author: msmbaldwin
 ms.service: security
@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: f8d31c8df4d073ccd744e792d1316ce02e4bf387
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 77b092920bff75c806ec78a933d23df546bf636a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828642"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036355"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Vanliga frågor och svar om IaaS VM Azure Disk Encryption
 
@@ -140,6 +140,6 @@ Du kan ställa frågor eller lämna feedback om den [forum för Azure Disk Encry
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig mer om de vanligaste frågor som rör Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
 
-- [Azure Disk Encryption-översikt](disk-encryption-overview.md)
+- [Översikt av Azure Disk Encryption](disk-encryption-overview.md)
 - [Tillämpa diskkryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Azure datakryptering i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

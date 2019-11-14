@@ -1,6 +1,6 @@
 ---
-title: Azure CLI skriptexempel – skapa en virtuell Linux-dator med Azure Monitor | Microsoft Docs
-description: Azure CLI skriptexempel – skapa en virtuell Linux-dator med Azure Monitor
+title: Skript exempel för Azure CLI – skapa en virtuell Linux-dator med Azure Monitor
+description: Skript exempel för Azure CLI – skapa en virtuell Linux-dator med Azure Monitor
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b463df00f57d2dd8f00964eaf10bd0d5f2c2eaab
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: af71bc8e0ad793c37084ce3e5cc9f48ef8f55714
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709512"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037696"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Övervaka en virtuell dator med Azure Monitor
 
@@ -51,7 +51,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Azure Monitor-agenttillägg för att installera Log Analytics-agenten och registrera den virtuella datorn i en Log Analytics-arbetsyta. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Azure Monitor Agent-tillägget för att installera Log Analytics agent och registrera den virtuella datorn på en Log Analytics arbets yta. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

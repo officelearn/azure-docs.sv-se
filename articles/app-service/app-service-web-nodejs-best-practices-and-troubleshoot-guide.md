@@ -1,6 +1,6 @@
 ---
-title: Metodtips och felsökning för Node.js – Azure App Service
-description: Lär dig metodtips och felsökningssteg för node.js-program på Azure App Service.
+title: Metod tips och fel sökning för Node. js – Azure App Service
+description: Lär dig metod tips och fel söknings steg för Node-program på Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -13,61 +13,61 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719794"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024231"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metod tips och fel söknings guide för Node-program i Azure App Service Windows
 
-I den här artikeln får du lära dig metodtips och felsökning av [nodprogram](app-service-web-get-started-nodejs.md) som körs på Azure App Service (med [iisnode](https://github.com/azure/iisnode)).
+I den här artikeln lär du dig metod tips och fel söknings steg för [Node-program](app-service-web-get-started-nodejs.md) som körs på Azure App Service (med [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
-> Var försiktig när du använder felsökningssteg på din produktionsplats. Rekommendationen är att felsöka din app på en icke-produktion-konfiguration till exempel din mellanlagringsplats och när problemet är löst växla din mellanlagringsplats med din produktionsplatsen.
+> Var försiktig när du använder fel söknings steg på produktions platsen. Rekommendation är att felsöka din app på en icke-produktions-installation, till exempel mellanlagringsplatsen och när problemet är löst, byta mellanlagringsplatsen med produktions platsen.
 >
 
 ## <a name="iisnode-configuration"></a>IISNODE-konfiguration
 
-Detta [schemafilen](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) visar alla inställningar som du kan konfigurera för iisnode. Några av de inställningar som är användbara för ditt program:
+Den här [schema filen](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) visar alla inställningar som du kan konfigurera för iisnode. Några av de inställningar som är användbara för ditt program:
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
 
-Den här inställningen styr antalet noden processer som startas per IIS-program. Standardvärdet är 1. Du kan starta så många node.exes din VM vCPU antal genom att ändra värdet till 0. Det rekommenderade värdet är 0 för de flesta program så att du kan använda alla de virtuella processorer på din dator. Node.exe är single-threaded så att en node.exe förbrukar högst 1 virtuell processor. Om du vill få maximala prestanda från node-programmet som du vill använda alla virtuella processorer.
+Den här inställningen styr antalet Node-processer som startas per IIS-program. Standardvärdet är 1. Du kan starta så många Node. Exes som din VM vCPU Count genom att ändra värdet till 0. Det rekommenderade värdet är 0 för de flesta program så att du kan använda alla virtuella processorer på din dator. Node. exe är en enkel trådad, så att en Node. exe använder maximalt 1 vCPU. Om du vill få högsta möjliga prestanda från Node-programmet vill du använda alla virtuella processorer.
 
 ### <a name="nodeprocesscommandline"></a>nodeProcessCommandLine
 
-Den här inställningen styr sökvägen till node.exe. Du kan ange ett värde så att den pekar till node.exe-versionen.
+Den här inställningen styr sökvägen till Node. exe. Du kan ange det här värdet så att det pekar på Node. exe-versionen.
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Den här inställningen styr det maximala antalet samtidiga begäranden som skickas av iisnode till varje node.exe. Standardvärdet är oändligt på Azure App Service. Du kan konfigurera värde, beroende på hur många begäranden som programmet tar emot och hur snabbt ditt program bearbetar varje begäran.
+Den här inställningen styr det maximala antalet samtidiga förfrågningar som skickats av iisnode till varje Node. exe. På Azure App Service är standardvärdet oändligt. Du kan konfigurera värdet beroende på hur många förfrågningar appen tar emot och hur snabbt programmet bearbetar varje begäran.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Den här inställningen styr det maximala antalet gånger iisnode återförsök som gör anslutningen på en namngiven pipe att skicka begäranden till node.exe. Den här inställningen i kombination med namedPipeConnectionRetryDelay avgör den totala tidsgränsen för varje begärande i iisnode. Standardvärdet är 200 på Azure App Service. Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Den här inställningen styr det maximala antalet gånger som iisnode försöker upprätta anslutningen på den namngivna pipe för att skicka begär anden till Node. exe. Den här inställningen i kombination med namedPipeConnectionRetryDelay avgör den totala tids gränsen för varje begäran i iisnode. Standardvärdet är 200 på Azure App Service. Total timeout i sekunder = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
-Den här inställningen styr hur lång tid (i ms) iisnode väntar mellan varje nytt försök att skicka begäran till node.exe via en namngiven pipe. Standardvärdet är 250 ms.
-Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Den här inställningen styr hur lång tid (i MS) iisnode väntar mellan varje nytt försök att skicka begäran till Node. exe över namngiven pipe. Standardvärdet är 250 MS.
+Total timeout i sekunder = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000
 
-Den totala tidsgränsen i iisnode på Azure App Service är som standard 200 \* 250 ms = 50 sekunder.
+Som standard är den totala tids gränsen i iisnode på Azure App Service 200 \* 250 MS = 50 sekunder.
 
 ### <a name="logdirectory"></a>logDirectory
 
-Den här inställningen styr den katalog där iisnode-loggar stdout/stderr. Standardvärdet är iisnode, vilket är i förhållande till huvudskriptet-katalogen (katalog där huvudsakliga server.js förekommer)
+Den här inställningen styr katalogen där iisnode loggar STDOUT/stderr. Standardvärdet är iisnode, som är i förhållande till den huvudsakliga skript katalogen (katalogen där main server. js finns)
 
 ### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-Den här inställningen styr vilken version av node-inspector iisnode använder när du felsöker nodprogrammet. Iisnode-inspector-0.7.3.dll och iisnode-inspector.dll är för närvarande bara två giltiga värden för den här inställningen. Standardvärdet är iisnode-inspector-0.7.3.dll. Iisnode-inspector-0.7.3.dll version använder node-inspector-0.7.3 och använder webbsockets. Aktivera webbsockets på din Azure webapp att använda den här versionen. Se <https://ranjithblogs.azurewebsites.net/?p=98> för mer information om hur du konfigurerar iisnode om du vill använda den nya node-inspector.
+Den här inställningen styr vilken version av iisnode som används vid fel sökning av Node-programmet. Iisnode-Inspector-0.7.3. dll och iisnode-Inspector. dll är för närvarande de enda två giltiga värdena för den här inställningen. Standardvärdet är iisnode-Inspector-0.7.3. dll. Iisnode-Inspector--0.7.3. dll-versionen använder Node-kontrollant-0.7.3 och använder Web Sockets. Aktivera webb-socketar i Azure webapp och Använd den här versionen. Se <https://ranjithblogs.azurewebsites.net/?p=98> för mer information om hur du konfigurerar iisnode till att använda den nya Node-kontrollen.
 
 ### <a name="flushresponse"></a>flushResponse
 
-Standardbeteendet för IIS är det buffrar svarsdata för upp till 4 MB innan eller fram till slutet av svaret, beroende på vilket som kommer först. iisnode erbjuder en konfigurationsinställning kan åsidosätta detta beteende: för att tömma fragment av entiteten svarstexten när iisnode tar emot det från node.exe, måste du ange den iisnode/@flushResponse attribut i web.config till 'true':
+Standard beteendet för IIS är att den buffrar svars data upp till 4 MB innan de töms, eller till slutet av svaret, beroende på vilket som kommer först. iisnode erbjuder en konfigurations inställning för att åsidosätta det här beteendet: om du vill tömma ett fragment för entiteten svars enhet så snart iisnode tar emot det från Node. exe måste du ange iisnode/@flushResponse-attributet i Web. config till "true":
 
 ```xml
 <configuration>
@@ -78,9 +78,9 @@ Standardbeteendet för IIS är det buffrar svarsdata för upp till 4 MB innan el
 </configuration>
 ```
 
-Aktivera den tömning av varje fragment av svaret huvuddelen lägger till prestanda försämras som minskar genomströmningen i systemet med ~ 5% (från och med v0.1.13). Bäst att definiera omfattningen av den här inställningen bara till slutpunkter som kräver svar strömning (till exempel med hjälp av den `<location>` elementet i web.config)
+Om du aktiverar tömningen av varje fragment i bröd texten för svars enheten ökar prestanda genom strömningen i systemet med ~ 5% (från och med v-0.1.13). Det bästa sättet att omfånget för den här inställningen endast till slut punkter som kräver direkt uppspelning av svar (till exempel med hjälp av `<location>`-elementet i Web. config)
 
-Utöver detta är måste för direktuppspelning av program, du också ange responseBufferLimit för iisnode-hanteraren till 0.
+Förutom detta måste du också ange responseBufferLimit för iisnode-hanteraren till 0 för strömmande program.
 
 ```xml
 <handlers>
@@ -90,47 +90,47 @@ Utöver detta är måste för direktuppspelning av program, du också ange respo
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Ett semikolon avgränsade lista över filer som har bevakade för ändringar. En fil ändras utlöser Papperskorgen. Varje post består av ett valfritt katalognamnet samt ett obligatoriskt filnamn, som är i förhållande till katalogen där programmets startpunkt finns. Jokertecken är tillåtna i filnamnsdelen endast. Standardvärdet är `*.js;iisnode.yml`
+En semikolonavgränsad lista över filer som är bevakade för ändringar. Alla ändringar i en fil gör att programmet återanvänds. Varje post består av ett valfritt katalog namn och ett fil namn som krävs, som är relativ till den katalog där huvud program start punkten finns. Jokertecken tillåts endast i fil namns delen. Standardvärdet är `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-Standardvärdet är FALSKT. Om aktiverad, node-programmet kan ansluta till en namngiven pipe (miljövariabeln IISNODE\_kontroll\_PIPE) och skicka ett meddelande om ”återvinning”. Detta leder till w3wp att återanvända ett smidigt sätt.
+Standardvärdet är FALSKT. Om aktive rad kan Node-programmet ansluta till en namngiven pipe (miljövariabeln IISNODE\_kontroll\_PIPE) och skicka ett meddelande om "åter användning". Detta gör att W3wp återanvänds på ett smidigt sätt.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-Standardvärdet är 0, vilket innebär att den här funktionen är inaktiverad. Om värdet är ett värde större än 0, kommer iisnode sidan ut alla dess underordnade processer var 'idlePageOutTimePeriod' i millisekunder. Se [dokumentation](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) att förstå vad sidan ut innebär. Den här inställningen är användbar för program som förbrukar en hög mängd minne och vill sidan ut minne till disk ibland för att frigöra RAM-minne.
+Standardvärdet är 0, vilket innebär att den här funktionen är inaktive rad. När värdet är större än 0, kommer iisnode att visa alla sina underordnade processer varje "idlePageOutTimePeriod" i millisekunder. Se [dokumentationen](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) för att förstå vad en sida betyder. Den här inställningen är användbar för program som använder en hög mängd minne och vill kunna använda minne på disk ibland för att frigöra RAM-minne.
 
 > [!WARNING]
-> Var försiktig när du aktiverar följande konfigurationsinställningarna på program i produktion. Rekommendationen är att inte aktivera dem på live produktionsprogram.
+> Var försiktig när du aktiverar följande konfigurations inställningar för produktions program. Rekommendationen är att inte aktivera dem i direktsända produktions program.
 >
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-Standardvärdet är FALSKT. Om värdet är sant, iisnode lägger till en HTTP-Svarsrubrik `iisnode-debug` till alla HTTP-svar skickas den `iisnode-debug` huvudvärde är en URL. Enskilda diagnostiska uppgifter kan hämtas genom att titta på URL-fragment, men en visualisering är tillgängliga genom att öppna URL: en i en webbläsare.
+Standardvärdet är FALSKT. Om värdet är true lägger iisnode till ett HTTP-svarshuvuden `iisnode-debug` till varje HTTP-svar som det skickar `iisnode-debug`s huvudets värde är en URL. Enskilda delar av diagnostikinformation kan fås genom att titta på URL-fragment, men en visualisering är tillgänglig genom att öppna URL: en i en webbläsare.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
-Den här inställningen styr loggning av stdout- och stderr av iisnode. Iisnode samlar in stdout/stderr från noden processer det startar och skriver till den katalog som anges i inställningen ”logDirectory”. När den är aktiverad, ditt program skriver loggar till filsystemet och beroende på mängden loggning som utförs av programmet, det kan vara prestanda.
+Den här inställningen styr loggningen av STDOUT och stderr från iisnode. Iisnode fångar STDOUT/stderr från noden processer som startas och skriver till den katalog som anges i inställningen "logDirectory". När detta är aktiverat skriver ditt program loggar till fil systemet och beroende på hur mycket loggning som utförs av programmet kan det uppstå prestanda konsekvenser.
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-Standardvärdet är FALSKT. När visar inställd på SANT, iisnode HTTP-statuskoden och Win32-felkoden i webbläsaren. Win32-koden är användbara vid felsökning av vissa typer av problem.
+Standardvärdet är FALSKT. När värdet är true, visar iisnode HTTP-statuskod och Win32-felkoden i webbläsaren. Win32-koden är till hjälp vid fel sökning av vissa typer av problem.
 
-### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (aktivera inte på aktiva produktionsplatsen)
+### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (Aktivera inte på Live producting site)
 
-Den här inställningen styr felsökningsfunktionen. Iisnode är integrerad med node-inspector. Genom att aktivera den här inställningen kan aktivera du felsökning av nodprogrammet. När du aktiverar den här inställningen skapar iisnode node-inspector filer i katalogen 'debuggerVirtualDir' på den första debug-begäran till nodprogrammet. Du kan läsa in node-inspector genom att skicka en begäran om att `http://yoursite/server.js/debug`. Du kan styra debug URL-segment med ”debuggerPathSegment” inställningen. Som standard debuggerPathSegment = ”felsöka”. Du kan ange `debuggerPathSegment` GUID, till exempel så att det är svårare att identifieras av andra.
+Den här inställningen styr fel söknings funktionen. Iisnode är integrerat med Node-kontrollanten. Genom att aktivera den här inställningen aktiverar du fel sökning av Node-programmet. När du aktiverar den här inställningen skapar iisnode-filer för Node-kontrollant i "debuggerVirtualDir"-katalogen på den första fel söknings förfrågan till ditt Node-program. Du kan läsa in Node-kontrollen genom att skicka en begäran till `http://yoursite/server.js/debug`. Du kan kontrol lera fel söknings-URL-segmentet med inställningen "debuggerPathSegment". Som standard är debuggerPathSegment = ' debug '. Du kan ställa in `debuggerPathSegment` till ett GUID, till exempel så att det blir svårare att upptäcka andra.
 
-Läs [Felsök node.js-program på Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) för mer information om hur du felsöker.
+Läs [fel sökning Node. js-program i Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) för mer information om fel sökning.
 
-## <a name="scenarios-and-recommendationstroubleshooting"></a>Scenarier och rekommendationer/felsökning
+## <a name="scenarios-and-recommendationstroubleshooting"></a>Scenarier och rekommendationer/fel sökning
 
-### <a name="my-node-application-is-making-excessive-outbound-calls"></a>Min node-programmet gör överdriven utgående samtal
+### <a name="my-node-application-is-making-excessive-outbound-calls"></a>Mitt Node-program gör överdriven utgående samtal
 
-Många program bör du se utgående anslutningar som en del av deras vanliga funktion. Till exempel när en begäran kommer in, kan node-app kontakta en REST-API någon annanstans och hämta viss information för att bearbeta begäran. Du kan använda en agent för keep-alive när http eller https-anrop. Du kan använda modulen agentkeepalive ditt keep-alive ombud när du gör dessa utgående anrop.
+Många program vill göra utgående anslutningar som en del av deras vanliga åtgärd. Till exempel, när en förfrågan kommer i, vill du kontakta en REST API någon annan stans och hämta information för att bearbeta begäran. Du vill använda en Keep Alive-agent när du gör http-eller https-anrop. Du kan använda agentkeepalive-modulen som din Keep Alive-agent när du gör dessa utgående anrop.
 
-Modulen agentkeepalive säkerställer att sockets återanvänds på din Azure webapp VM. Skapa en ny socket för varje utgående begäran lägger till overhead i ditt program. Programmets återanvända sockets för utgående begäranden försäkrar du dig att ditt program inte överstiger maxsocket som allokeras per virtuell dator. Rekommendationen på Azure App Service är att ange värdet agentKeepAlive maxsocket totalt (4 instanser av node.exe \* 40 maxsocket/instans) 160 sockets per virtuell dator.
+Agentkeepalive-modulen säkerställer att socketar återanvänds på den virtuella Azure webapp-datorn. Om du skapar en ny socket på varje utgående begäran läggs resurser till i ditt program. Om du har program åter användnings platser för utgående begär Anden ser du till att programmet inte överskrider maxSockets som allokeras per virtuell dator. Rekommendationen Azure App Service är att ange värdet för agentKeepAlive maxSockets till totalt (4 instanser av Node. exe \* 40 maxSockets/instance) 160 Sockets per virtuell dator.
 
-Exempel [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) konfiguration:
+Exempel på [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) -konfiguration:
 
 ```nodejs
 let keepaliveAgent = new Agent({
@@ -142,17 +142,17 @@ let keepaliveAgent = new Agent({
 ```
 
 > [!IMPORTANT]
-> Det här exemplet förutsätter att du har 4 node.exe som körs på den virtuella datorn. Om du har ett annat antal node.exe som körs på den virtuella datorn, måste du ändra maxsocket ange därefter.
+> I det här exemplet förutsätts att du har 4 Node. exe som körs på den virtuella datorn. Om du har ett annat antal Node. exe som körs på den virtuella datorn måste du ändra maxSockets-inställningen enligt detta.
 >
 
-#### <a name="my-node-application-is-consuming-too-much-cpu"></a>Min noden program förbrukar för mycket CPU
+#### <a name="my-node-application-is-consuming-too-much-cpu"></a>Mitt Node-program förbrukar för mycket processor
 
-Du får en rekommendation från Azure App Service på din portal om hög cpu-förbrukning. Du kan också ställa in Övervakare kan du titta på vissa [mått](web-sites-monitor.md). Vid kontroll av CPU-användningen på den [instrumentpanelen för Azure-portalen](../azure-monitor/app/web-monitor-performance.md), kontrollerar du de högsta värdena för processor så att du inte missar högsta värden.
-Du kan profilera node-programmet för att ta reda på om du tror att ditt program förbrukar för mycket CPU och du kan förklara varför.
+Du kan få rekommendationer från Azure App Service på portalen om hög CPU-förbrukning. Du kan också konfigurera Övervakare för att se vissa [mått](web-sites-monitor.md). När du kontrollerar CPU-användningen på [instrument panelen i Azure-portalen](../azure-monitor/app/web-monitor-performance.md)kontrollerar du Max värdena för CPU så att du inte saknar högsta värden.
+Om du tror att ditt program förbrukar för mycket CPU och du inte kan förklara varför kan du profilera ditt Node-program för att ta reda på det.
 
-#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilering nodprogrammet på Azure App Service med V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilering av Node-programmet på Azure App Service med V8-profiler
 
-Anta exempelvis att du har en hello world-app som du vill profilera på följande sätt:
+Anta till exempel att du har en Hello World-app som du vill profilera enligt följande:
 
 ```nodejs
 const http = require('http');
@@ -173,16 +173,16 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Gå till webbplatsen Felsökningskonsolen `https://yoursite.scm.azurewebsites.net/DebugConsole`
+Gå till fel söknings konsolens webbplats `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
-Gå till katalogen site/wwwroot. Du kan se en kommandotolk som visas i följande exempel:
+Gå till platsen/wwwroot-katalogen. Du ser en kommando tolk som visas i följande exempel:
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 Kör kommandot `npm install v8-profiler`.
 
-Det här kommandot installerar v8-profiler under noden\_moduler katalogen och alla dess beroenden.
-Nu kan redigera din server.js för att Profilera ditt program.
+Det här kommandot installerar V8-profiler under noden Node\_modules och alla dess beroenden.
+Redigera nu Server. js för att profilera ditt program.
 
 ```nodejs
 const http = require('http');
@@ -208,80 +208,80 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Föregående kod profilerna i WriteConsoleLog fungerar och skriver sedan profilen utdata till filen 'profile.cpuprofile' under din plats wwwroot. Skicka en begäran till programmet. Du ser en ”profile.cpuprofile”-fil som skapats under din plats wwwroot.
+Föregående kod profilerar WriteConsoleLog-funktionen och skriver sedan profil resultatet till filen Profile. cpuprofile under platsen wwwroot. Skicka en begäran till ditt program. Du ser en ' Profile. cpuprofile '-fil som skapats under platsens wwwroot.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Hämta den här filen och öppna den med Chrome F12 Tools. Tryck på F12 på Chrome och välj sedan den **profiler** fliken. Välj den **belastningen** knappen. Välj din profile.cpuprofile-fil som du laddade ned. Klicka på den profil som du just läste in.
+Ladda ned den här filen och öppna den med Chrome F12-verktyg. Tryck på F12 på Chrome och välj sedan fliken **profiler** . Välj knappen **Läs in** . Välj din profil. cpuprofile-fil som du laddade ned. Klicka på den profil som du nyss läst in.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
-Du kan se att 95% av tiden har förbrukats av funktionen WriteConsoleLog. Utdata visar även de exakta radnummer och källfiler som har orsakat problemet.
+Du kan se att 95% av tiden har använts av funktionen WriteConsoleLog. Utdata visar också de exakta rad nummer och källfiler som orsakade problemet.
 
-### <a name="my-node-application-is-consuming-too-much-memory"></a>Min noden program förbrukar för mycket minne
+### <a name="my-node-application-is-consuming-too-much-memory"></a>Mitt Node-program förbrukar för mycket minne
 
-Om ditt program förbrukar för mycket minne, visas ett meddelande i Azure App Service på din portal om hög minnesförbrukning. Du kan ställa in Övervakare kan du titta på vissa [mått](web-sites-monitor.md). Vid kontroll av minnesanvändningen på de [instrumentpanelen för Azure-portalen](../azure-monitor/app/web-monitor-performance.md), bör du kontrollera de högsta värdena för minne så att du inte missar högsta värden.
+Om ditt program förbrukar för mycket minne visas ett meddelande från Azure App Service på portalen om hög minnes användning. Du kan ställa in Övervakare för att se vissa [mått](web-sites-monitor.md). När du kontrollerar minnes användningen på [instrument panelen i Azure-portalen](../azure-monitor/app/web-monitor-performance.md)måste du kontrol lera högsta tillåtna värden för minne så att du inte saknar högsta tillåtna värden.
 
-#### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Upptäcka läckor och Heap Diff för node.js
+#### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Läcka avkänning och heap-diff för Node. js
 
-Du kan använda [noden memwatch](https://github.com/lloyd/node-memwatch) för att identifiera minne läcker.
-Du kan installera `memwatch` precis som v8-profiler och redigera din kod för att avbilda och diff heapar för att identifiera minnesläckor i ditt program.
+Du kan använda [Node-memwatch](https://github.com/lloyd/node-memwatch) som hjälp för att identifiera minnes läckor.
+Du kan installera `memwatch` precis som V8-profiler och redigera koden för att avbilda och diff-heapar för att identifiera minnes läckor i programmet.
 
-### <a name="my-nodeexes-are-getting-killed-randomly"></a>Min node.exe är komma avslutades slumpmässigt
+### <a name="my-nodeexes-are-getting-killed-randomly"></a>Min Node. exe avslutas slumpmässigt
 
-Det finns flera skäl till varför node.exe datorn stängs av slumpmässigt:
+Det finns några skäl till varför Node. exe stängs av slumpmässigt:
 
-1. Programmet som utlöste undantagsfel utan felhantering – Kontrollera d:\\home\\LogFiles\\program\\loggning errors.txt-filen för att få information på undantag uppstod. Den här filen har stackspårningen för att felsöka och åtgärda ditt program.
-2. Programmet förbrukar för mycket minne, vilket påverkar andra processer från att komma igång. Om den totala mängden minnet i virtuell dator är nära 100%, kan din node.exe avslutas av Processhanteraren för. Processhanteraren stoppar vissa processer så att andra processer som prova att göra en del arbete. Profilera ditt program för minnesläckor för att åtgärda problemet. Om ditt program kräver stora mängder minne, kan du skala upp till en större virtuell dator (vilket ökar den ram-MINNET som är tillgängliga för den virtuella datorn).
+1. Ditt program utlöser undantag med undantag – check d:\\Home\\loggfiler\\program\\Logging-errors. txt för information om det undantag som genereras. Den här filen innehåller stack spårning som hjälper dig att felsöka och åtgärda ditt program.
+2. Ditt program förbrukar för mycket minne, vilket påverkar andra processer från att komma igång. Om det totala virtuella dator minnet är nära 100% kan Node. exe avslutas av process hanteraren. Process Manager omsorg vissa processer så att andra processer kan göra lite arbete. Åtgärda det här problemet genom att profilera ditt program för minnes läckor. Om programmet kräver stora mängder minne kan du skala upp till en större virtuell dator (vilket ökar det tillgängliga RAM-minne som är tillgängligt för den virtuella datorn).
 
-### <a name="my-node-application-does-not-start"></a>Mitt program för noden startar inte
+### <a name="my-node-application-does-not-start"></a>Mitt Node-program startar inte
 
-Om programmet returnerar 500-fel när den startas, kan det finnas flera skäl till:
+Om ditt program returnerar 500-fel när det startar kan det finnas några orsaker:
 
-1. Node.exe finns inte på rätt plats. Kontrollera nodeProcessCommandLine inställningen.
-2. Viktigaste skriptfil finns inte på rätt plats. Kontrollera web.config och kontrollera att namnet på den huvudsakliga skriptfilen i hanteraravsnittet matchar den huvudsakliga skriptfilen.
-3. Web.config-konfigurationen är inte rätt – Kontrollera inställningarna för namn/värden.
-4. Kallstart – programmet tar lång tid att starta. Om ditt program tar längre tid än (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1 000 sekunder iisnode returnerar ett 500-fel. Öka värdena för dessa inställningar så att den matchar ditt program starttiden för att förhindra att iisnode från timeout och returnera 500 fel.
+1. Node. exe finns inte på rätt plats. Kontrol lera nodeProcessCommandLine-inställningen.
+2. Huvud skript filen finns inte på rätt plats. Kontrol lera Web. config och se till att namnet på huvud skript filen i avsnittet hanterare matchar huvud skript filen.
+3. Konfigurationen av Web. config är felaktig – kontrol lera inställningarna namn/värden.
+4. Kall start – ditt program tar för lång tid att starta. Om programmet tar längre tid än (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000 sekunder returnerar iisnode ett 500-fel. Öka värdena för de här inställningarna så att de matchar programmets start tid för att förhindra iisnode från timeout och returnera 500-felet.
 
-### <a name="my-node-application-crashed"></a>Min node-programmet kraschade
+### <a name="my-node-application-crashed"></a>Mitt Node-program kraschade
 
-Programmet som utlöste undantagsfel utan felhantering – Kontrollera `d:\\home\\LogFiles\\Application\\logging-errors.txt` -filen för att få information på undantag kastades. Den här filen har stackspårningen för att diagnostisera och åtgärda ditt program.
+Ditt program utlöser undantag med undantags fel – se efter i `d:\\home\\LogFiles\\Application\\logging-errors.txt` filen om du vill ha mer information om det undantag som genereras. Den här filen har stack spårning för att hjälpa till att diagnostisera och åtgärda ditt program.
 
-### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Min node-programmet tar för lång tid att starta (kalla Start)
+### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Det tar för lång tid att starta en Node-app (kall start)
 
-Den vanliga orsaken till länge application starttider är ett stort antal filer i noden\_moduler. Ett program försöker läsa in de flesta av dessa filer när du börjar. Som standard eftersom filerna lagras på nätverksresursen på Azure App Service, kan läser in många filer ta tid.
-Vissa lösningar för att den här processen snabbare är:
+Den vanligaste orsaken till att en lång program start tid är ett stort antal filer i noden\_moduler. Programmet försöker läsa in de flesta av de här filerna när du startar. Som standard, eftersom filerna lagras på nätverks resursen på Azure App Service, kan det ta tid att läsa in många filer.
+Vissa lösningar för att göra den här processen snabbare är:
 
-1. Måste du ha en fast beroende struktur och inga dubbla beroenden med hjälp av npm3 för att installera modulerna.
-2. Försök att lazy läsa in din nod\_moduler och inte att läsa in alla moduler vid programstart. Lazy belastningen modulerna ska anropet till require('module') tänka på när du verkligen behöver modul i funktionen innan den första körningen av modulen kod.
-3. Azure App Service erbjuder en funktion som kallas lokala cachen. Den här funktionen kopierar innehållet från nätverksresursen till den lokala disken på den virtuella datorn. Eftersom filerna är local, inläsningstiden för noden\_moduler är mycket snabbare.
+1. Se till att du har en plan beroende struktur och inga dubbla beroenden genom att använda npm3 för att installera dina moduler.
+2. Försök att använda en Lazy-inläsning av noden\_moduler och läsa inte in alla moduler vid program start. Om du vill använda Lazy load måste anropet till Kräv (' module ') göras när du faktiskt behöver modulen i funktionen innan du börjar köra en kod i en modul.
+3. Azure App Service erbjuder en funktion som kallas lokal cache. Med den här funktionen kopieras innehållet från nätverks resursen till den lokala disken på den virtuella datorn. Eftersom filerna är lokala är inläsnings tiden för noden\_moduler mycket snabbare.
 
-## <a name="iisnode-http-status-and-substatus"></a>IISNODE http-status och understatus
+## <a name="iisnode-http-status-and-substatus"></a>IISNODE http-status och under status
 
-Den `cnodeconstants` [källfilen](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) listor som alla möjliga status/understatus kombinationer iisnode kan returnera pga ett fel.
+I `cnodeconstants` [käll filen](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) visas en lista över alla möjliga status-och under status kombinationer som iisnode kan returnera på grund av ett fel.
 
-Aktivera FREB för ditt program att se win32-felkoden (vara säker på att du aktiverar FREB bara på icke-produktion platser av prestandaskäl).
+Aktivera FREB för ditt program för att se Win32-felkoden (se till att du bara aktiverar FREB på webbplatser som inte är produktion av prestanda skäl).
 
-| HTTP-Status | Understatus för http | Möjlig orsak? |
+| Http-status | Http-understatus | Möjlig orsak? |
 | --- | --- | --- |
-| 500 |1000 |Det uppstod några fel skicka förfrågan om att IISNODE – kontrollerar om node.exe har startat. Har det gick kraschat node.exe vid start. Kontrollera din konfiguration för web.config för fel. |
-| 500 |1001 |-Win32Error 0x2 - App svarar inte på URL: en. Kontrollera URL-omskrivningsregler eller kontrollera om din uttryckliga app har rätt vägar definierade. -Win32Error 0x6d – namngiven pipe är upptagen – Node.exe tar inte emot begäranden eftersom pipe är upptaget. Kontrollera hög cpu-användning. -Övriga fel – kontrollera om node.exe kraschade. |
-| 500 |1002 |Node.exe kraschat – Kontrollera d:\\home\\LogFiles\\loggning-errors.txt för stackspårning. |
-| 500 |1003 |Pipe configuration problem – namngiven pipe-konfigurationen är felaktig. |
-| 500 |1004-1018 |Vissa fel uppstod när begäran skickades eller bearbetningen av svaret till och från node.exe. Kontrollera om node.exe kraschade. Kontrollera d:\\home\\LogFiles\\loggning-errors.txt för stackspårning. |
-| 503 |1000 |Inte tillräckligt med minne för att allokera mer namngivna pipe-anslutningar. Kontrollera varför din app förbrukar för mycket minne. Kontrollera maxConcurrentRequestsPerProcess inställningens värde. Om inte du har många begäranden och öka värdet för att förhindra det här felet. |
-| 503 |1001 |Begäran kunde inte skickas till node.exe eftersom programmet återanvänds. När programmet har återvunnits ska begäranden omdirigeras normalt. |
-| 503 |1002 |Kontrollera win32-felkoden faktiska orsak – begäran kunde inte skickas till en node.exe. |
-| 503 |1003 |Namngiven pipe är upptagen – kontrollera om node.exe förbrukar mycket Processorkraft |
+| 500 |1000 |Det uppstod ett problem med att skicka begäran till IISNODE – kontrol lera om Node. exe startades. Node. exe kunde krascha vid start. Kontrol lera om Web. config-konfigurationen innehåller fel. |
+| 500 |1001 |-Win32Error 0x2-appen svarar inte på URL: en. Kontrol lera reglerna för URL-omskrivning eller kontrol lera om rätt vägar har definierats för Express-appen. -Win32Error 0x6d – namngiven pipe är upptagen – Node. exe accepterar inte begär Anden eftersom pipe är upptagen. Kontrol lera hög CPU-användning. -Andra fel – kontrol lera om Node. exe har kraschat. |
+| 500 |1002 |Node. exe har kraschat – check d:\\start\\loggfiler\\Logging-errors. txt för stack spårning. |
+| 500 |1003 |Problem med pipe-konfiguration – den namngivna pipe-konfigurationen är felaktig. |
+| 500 |1004-1018 |Det uppstod ett fel vid sändning av begäran eller bearbetning av svaret till/från Node. exe. Kontrol lera om Node. exe har kraschat. Check d:\\start\\loggfiler\\Logging-errors. txt för stack spårning. |
+| 503 |1000 |Det finns inte tillräckligt med minne för att allokera fler namngivna pipe-anslutningar. Kontrol lera varför din app förbrukar så mycket minne. Kontrol lera värdet för maxConcurrentRequestsPerProcess-inställning. Om den inte är oändlig och du har många begär Anden ökar du värdet för att förhindra det här felet. |
+| 503 |1001 |Det gick inte att skicka begäran till Node. exe eftersom programmet återvinning. När programmet har återvunnits ska begär Anden behandlas normalt. |
+| 503 |1002 |Kontrol lera Win32-felkoden för faktisk orsak – det gick inte att skicka begäran till en Node. exe. |
+| 503 |1003 |Namngiven pipe är för upptagen – kontrol lera om Node. exe förbrukar överdriven CPU |
 
-NODE.exe har en inställning som kallas `NODE_PENDING_PIPE_INSTANCES`. Det här värdet anges till 5 000 på Azure App Service. Vilket innebär att node.exe kan acceptera 5000 begäranden i taget på en namngiven pipe. Det här värdet ska vara tillräckligt bra för de flesta node.js-program som körs på Azure App Service. Du bör inte se 503.1003 på Azure App Service på grund av högt värde för den `NODE_PENDING_PIPE_INSTANCES`
+NODE. exe har en inställning som heter `NODE_PENDING_PIPE_INSTANCES`. På Azure App Service är det här värdet inställt på 5000. Det innebär att Node. exe kan godkänna 5000-begäranden i taget på den namngivna pipe. Det här värdet bör vara tillräckligt tillräckligt för de flesta Node-programmen som körs på Azure App Service. Du bör inte se 503,1003 på Azure App Service på grund av det höga värdet för `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Fler resurser
 
-Du kan följa dessa länkar om du vill veta mer om node.js-program på Azure App Service.
+Följ dessa länkar om du vill veta mer om Node. js-program på Azure App Service.
 
 * [Kom igång med Node.js-webbappar i Azure App Service](app-service-web-get-started-nodejs.md)
-* [Felsöka en Node.js-webbapp i Azure App Service](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
+* [Felsöka en Node.js-webbapp i Azure Apptjänst](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)

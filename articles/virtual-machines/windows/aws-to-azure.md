@@ -1,5 +1,5 @@
 ---
-title: Flytta en virtuell Windows AWS-dator till Azure | Microsoft Docs
+title: Flytta en virtuell Windows AWS-dator till Azure
 description: Flytta en Amazon Web Services (AWS) EC2 Windows-instansen till en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 31f6ffc4f114039e0c53c1994f8c4364dea18298
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9bd01f24ac2cada02f51089d238519cd6c7e0248
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089510"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039271"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Flytta en virtuell Windows-dator från Amazon Web Services (AWS) till en virtuell Azure-dator
 
@@ -47,7 +47,7 @@ Du kan ladda upp både generaliserade och specialiserade virtuella hård diskar 
 
 Exportera EC2-instansen till en virtuell hård disk i en Amazon S3-Bucket. Följ stegen i artikeln för Amazon-dokumentation [som exporterar en instans som en virtuell dator med hjälp av import/export av virtuella datorer](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör kommandot [create-instance-export-Task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) för att exportera EC2-instansen till en VHD-fil. 
 
-Den exporterade VHD-filen sparas i den Amazon S3-Bucket som du anger. Den grundläggande syntaxen för att exportera den virtuella hård disken är nedan. Ersätt bara \<platshållartexten inom hakparenteser > med din information.
+Den exporterade VHD-filen sparas i den Amazon S3-Bucket som du anger. Den grundläggande syntaxen för att exportera den virtuella hård disken är nedan. Ersätt bara platshållartexten inom \<hakparenteser > med din information.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \
@@ -65,6 +65,6 @@ När den virtuella hård disken har exporter ATS följer du anvisningarna i [Hur
 Nu kan du ladda upp den virtuella hård disken till Azure och skapa en ny virtuell dator. 
 
 - Om du körde Sysprep på källan för att **generalisera** den innan du exporterar, se [överför en generaliserad virtuell hård disk och Använd den för att skapa nya virtuella datorer i Azure](upload-generalized-managed.md)
-- Om du inte körde Sysprep före exporten anses den virtuella hård diskenvara specialiserad, se [Ladda upp en specialiserad virtuell hård disk till Azure och skapa en ny virtuell dator](create-vm-specialized.md)
+- Om du inte körde Sysprep före exporten anses den virtuella hård disken vara **specialiserad**, se [Ladda upp en specialiserad virtuell hård disk till Azure och skapa en ny virtuell dator](create-vm-specialized.md)
 
  

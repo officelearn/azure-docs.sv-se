@@ -1,6 +1,6 @@
 ---
 title: Mått och aviseringar i Azure Traffic Manager
-description: Den här artikeln beskrivs tillgängliga mått för Traffic Manager i Azure.
+description: I den här artikeln lär du dig vilka mått och aviseringar som är tillgängliga för Traffic Manager i Azure.
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
@@ -10,59 +10,59 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: allensu
-ms.openlocfilehash: e689398a38030a712ec6beb651131d0424e44476
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e374e11053f0a1baabed72fdb240b34e2107b2a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071122"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038070"
 ---
-# <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager-mått och aviseringar
+# <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager mått och aviseringar
 
-Traffic Manager får du DNS-baserade Utjämning av nätverksbelastning som innehåller flera metoder för trafikroutning och alternativ för slutpunktsövervakning. Den här artikeln beskrivs för mått och tillhörande aviseringar som är tillgängliga för kunder. 
+Traffic Manager ger dig DNS-baserad belastnings utjämning som innehåller flera metoder för Routning och alternativ för slut punkts övervakning. I den här artikeln beskrivs mått och tillhör ande aviseringar som är tillgängliga för kunder. 
 
 ## <a name="metrics-available-in-traffic-manager"></a>Mått som är tillgängliga i Traffic Manager 
 
-Traffic Manager får följande mått på basis av per profil som kunder kan använda för att förstå deras användning av Traffic manager och status för slutpunkter som under denna profil.  
+Traffic Manager tillhandahåller följande mått per profil som kunder kan använda för att förstå användningen av Traffic Manager och statusen för deras slut punkter under profilen.  
 
-### <a name="queries-by-endpoint-returned"></a>Frågor efter slutpunkten returnerade
-Använd [mätvärdet](../azure-monitor/platform/metrics-supported.md) att visa antalet frågor som en Traffic Manager-profil som bearbetar under en angiven period. Du kan också visa samma information med en slutpunkt på Precision som hjälper dig att förstå hur många gånger en slutpunkt som returnerades i frågesvar från Traffic Manager.
+### <a name="queries-by-endpoint-returned"></a>Returnerade frågor efter slut punkt
+Använd [det här måttet](../azure-monitor/platform/metrics-supported.md) för att visa antalet frågor som en Traffic Manager profil bearbetar under en angiven period. Du kan också visa samma information på en slut punkts nivå som hjälper dig att förstå hur många gånger en slut punkt returnerades i fråge svaren från Traffic Manager.
 
-Bild 1 visar alla frågesvar som returnerar Traffic Manager-profilen i följande exempel. 
+I följande exempel visar bild 1 alla fråge svar som Traffic Manager profilen returnerar. 
 
   
-![Sammanställd vy över alla frågor](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![Sammanställd vy för alla frågor](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Bild 1: Sammanställd vy med alla frågor*
+*Bild 1: sammanställd vy med alla frågor*
   
-Bild 2 visar samma information, men den delas av slutpunkter. Därför kan du se mängden frågesvar där en viss slutpunkt returnerades.
+Bild 2 visar samma information, men den delas upp av slut punkter. Därför kan du se volymen av fråge svar där en angiven slut punkt returnerades.
 
-![Mått för Traffic Manager – delad vy av frågan volym per slutpunkt](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
+![Traffic Manager mått – delad vy av frågesträng per slut punkt](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Bild 2: Delad vy med frågan volym visas per slutpunkt returnerade*
+*Bild 2: delad vy med den fråga volym som visas per returnerad slut punkt*
 
-## <a name="endpoint-status-by-endpoint"></a>Slutpunktsstatus av slutpunkten
-Använd [mätvärdet](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) att förstå hälsostatus för slutpunkter i profilen. Det tar två värden:
- - Använd **1** om slutpunkten är igång.
- - Använd **0** om slutpunkten är nere.
+## <a name="endpoint-status-by-endpoint"></a>Slut punkts status efter slut punkt
+Använd [det här måttet](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) för att förstå hälso statusen för slut punkterna i profilen. Det tar två värden:
+ - Använd **1** om slut punkten är upp.
+ - Använd **0** om slut punkten är nere.
 
-Det här måttet kan antingen anges som ett samlat värde som representerar statusen för alla mått (bild 3) eller den kan delas (se bild 4) om du vill visa status för slutpunkter. Om den tidigare versionen, om aggregering nivå markeras som **genomsnittlig**, värdet för det här måttet är det aritmetiska medelvärdet av status för alla slutpunkter. Till exempel om en profil har två slutpunkter och endast ett är felfri, sedan det här måttet har värdet **0,50** som visas i bild 3. 
-
-
-![Mått för Traffic Manager – sammansatta vy över statusen för slutpunkten](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
-
-*Bild 3: Sammansatt vy över slutpunkten status mått – ”genomsnittlig” aggregering som valts*
+Det här måttet kan visas antingen som ett agg regerings värde som representerar status för alla mått (bild 3), eller så kan det delas (se bild 4) för att visa statusen för vissa slut punkter. Om agg regerings nivån är markerad som **genomsnittlig**, är värdet för det här måttet det aritmetiska genomsnittet av status för alla slut punkter. Om en profil exempelvis har två slut punkter och endast en är felfri, har det här måttet värdet **0,50** som visas i bild 3. 
 
 
-![Mått för Traffic Manager – dela vy över statusen för slutpunkten](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
+![Traffic Manager mått – sammansatt vy över slut punkts status](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Bild 4: Dela upp överblick över mått för slutpunkt-status*
+*Bild 3: sammansatt vy över slut punkts status mått – "genomsnittlig" agg regering valt*
 
-Du kan använda de här måtten via [Azure Monitor-tjänsten](../azure-monitor/platform/metrics-supported.md)'s portalen [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), och [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), eller via avsnittet mått i Traffic Manager-portalen.
 
-## <a name="alerts-on-traffic-manager-metrics"></a>Aviseringar i mått för Traffic Manager
-Förutom bearbetning och visa mått från Traffic Manager, Azure Monitor ger kunder möjlighet att konfigurera och mottagning av aviseringar som är associerade med de här måtten. Du kan välja vilka villkor som måste uppfyllas i de här måtten för en avisering ska ske, hur ofta dessa villkor måste övervakas och hur aviseringar ska skickas till dig. Mer information finns i [dokumentation aviseringar i Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+![Traffic Manager mått – delad vy över slut punkts status](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
+
+*Bild 4: delad vy över slut punkts status mått*
+
+Du kan använda dessa mått via [Azure Monitor tjänstens](../azure-monitor/platform/metrics-supported.md)portal, [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor)och [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), eller genom avsnittet mått i Traffic Managers Portal upplevelse.
+
+## <a name="alerts-on-traffic-manager-metrics"></a>Varningar om Traffic Manager mått
+Förutom att bearbeta och visa mått från Azure Monitor Traffic Manager kan kunderna konfigurera och ta emot aviseringar som är associerade med dessa mått. Du kan välja vilka villkor som måste uppfyllas i dessa mått för att en avisering ska inträffa, hur ofta dessa villkor måste övervakas och hur aviseringarna ska skickas till dig. Mer information finns i [dokumentationen om Azure Monitor-aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure Monitor-tjänsten](../azure-monitor/platform/metrics-supported.md)
-- Lär dig hur du [skapa ett diagram med Azure Monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)
+- Lär dig hur du [skapar ett diagram med hjälp av Azure Monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

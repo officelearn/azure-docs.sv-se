@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera IPSec-transportläge för Windows-värdar privat peering: ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute Private peering: konfigurera IPsec-transportläge – Windows-värdar'
 description: Så här att aktivera IPSec-transportläge mellan virtuella Azure Windows-datorer och lokala Windows-värdar via ExpressRoute privat peering med hjälp av grupprincipobjekt och organisationsenheter.
 services: expressroute
 author: fabferri
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367361"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022015"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurera IPSec-transportläge för ExpressRoute privat peering
 
@@ -43,17 +43,17 @@ Det här diagrammet visar IPsec-tunnlar under överföring i ExpressRoute privat
 ### <a name="working-with-ipsec-policy"></a>Arbeta med IPsec-princip
 
 I Windows, kryptering som är associerade med IPsec-principen. IPsec-princip bestämmer vilken IP-trafik är skyddad och säkerhetsmekanism som tillämpas på IP-paket.
-**IPSec-principer** består av följande objekt: **Filtrera listor**, **filteråtgärder**, och **säkerhetsregler**.
+**IPSec-principer** består av följande objekt: **Filter visar en lista över**, **filteråtgärder**, och **säkerhetsregler**.
 
 När du konfigurerar IPsec-principen, är det viktigt att du förstår termer som följande IPSec-princip:
 
-* **IPsec-princip:** En samling regler. Endast en princip kan vara aktiva (”tilldelats”) vid given tidpunkt. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. En dator kan tilldelas endast en aktiv IPsec-princip fått tid. I IPsec-princip kan du också definiera flera åtgärder som vidtas i olika situationer. Varje uppsättning med IPsec-regler är associerad med en filterlista som påverkar vilken typ av nätverkstrafik som regeln gäller.
+* **IPsec-princip:** en samling regler. Endast en princip kan vara aktiva (”tilldelats”) vid given tidpunkt. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. En dator kan tilldelas endast en aktiv IPsec-princip fått tid. I IPsec-princip kan du också definiera flera åtgärder som vidtas i olika situationer. Varje uppsättning med IPsec-regler är associerad med en filterlista som påverkar vilken typ av nätverkstrafik som regeln gäller.
 
-* **Filtrera listor:** Filtrera listor är paket med ett eller flera filter. En lista kan innehålla flera filter. Filter definierar om kommunikation tillåts, skyddad eller blockerad, enligt den IP-adressintervall, protokoll eller portar med specifika protocol. Varje filter som matchar en viss uppsättning villkor. till exempel paket som skickas från ett visst undernät till en viss dator på en specifik målport. När nätverksförhållanden matchar en eller flera av dessa filter, är filterlistan aktiverad. Varje filter har definierats i en specifik filterlista. Filter kan inte delas mellan adressfilterlistor. Dock kan en viss filterlista införlivas i flera IPsec-principer. 
+* **Filtrera listor:** adressfilterlistor är paket med ett eller flera filter. En lista kan innehålla flera filter. Filter definierar om kommunikation tillåts, skyddad eller blockerad, enligt den IP-adressintervall, protokoll eller portar med specifika protocol. Varje filter som matchar en viss uppsättning villkor. till exempel paket som skickas från ett visst undernät till en viss dator på en specifik målport. När nätverksförhållanden matchar en eller flera av dessa filter, är filterlistan aktiverad. Varje filter har definierats i en specifik filterlista. Filter kan inte delas mellan adressfilterlistor. Dock kan en viss filterlista införlivas i flera IPsec-principer. 
 
-* **Filteråtgärder:** En säkerhetsmetod definierar en uppsättning säkerhetsalgoritmer, protokoll, och viktiga erbjuder under IKE-förhandlingar på en dator. Filteråtgärder är en lista över säkerhetsmetoder, rangordnas i prioritetsordning.  När en dator förhandlar en IPsec-session, godkänner eller skickar förslag baserat på säkerhetsinställningen som lagras i listan över åtgärder.
+* **Filteråtgärder:** en säkerhetsmetod definierar en uppsättning säkerhetsalgoritmer, protokoll, och viktiga erbjuder under IKE-förhandlingar på en dator. Filteråtgärder är en lista över säkerhetsmetoder, rangordnas i prioritetsordning.  När en dator förhandlar en IPsec-session, godkänner eller skickar förslag baserat på säkerhetsinställningen som lagras i listan över åtgärder.
 
-* **Säkerhetsregler:** Reglerna styr hur och när en IPSec-princip skyddar kommunikationen. Den använder **filterlista** och **filteråtgärder** att skapa en IPsec-regel för att skapa IPsec-anslutning. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. Varje regel innehåller en lista över IP-filter och en samling säkerhetsåtgärder som äger rum vid matchning med filterlistan:
+* **Säkerhetsregler:** reglerna styr hur och när en IPSec-princip skyddar kommunikationen. Den använder **filterlista** och **filteråtgärder** att skapa en IPsec-regel för att skapa IPsec-anslutning. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. Varje regel innehåller en lista över IP-filter och en samling säkerhetsåtgärder som äger rum vid matchning med filterlistan:
   * IP-filteråtgärder
   * Autentiseringsmetoder
   * Inställningar för IP-tunnel
@@ -99,7 +99,7 @@ Se till att du uppfyller följande krav:
 
 * **Windows Azure virtuella datorer:** vm1, vm2
 
-## <a name="creategpo"></a>1. Skapa ett grupprincipobjekt
+## <a name="creategpo"></a>1. skapa ett grup princip objekt
 
 1. Öppna snapin-modulen Grupprinciphantering för att skapa ett nytt grupprincipobjekt som är länkade till en Organisationsenhet, och leta upp den Organisationsenhet som Grupprincipobjektet länkas. I det här exemplet heter Organisationsenheten **IPSecOU**. 
 
@@ -111,7 +111,7 @@ Se till att du uppfyller följande krav:
 
    [![11]][11]
 
-## <a name="enablelink"></a>2. Aktivera GPO-länk
+## <a name="enablelink"></a>2. Aktivera GPO-länken
 
 Om du vill tillämpa Grupprincipobjektet till Organisationsenheten Grupprincipobjektet inte bara vara kopplat till Organisationsenheten, men länken måste vara aktiverat.
 
@@ -120,7 +120,7 @@ Om du vill tillämpa Grupprincipobjektet till Organisationsenheten Grupprincipob
 
    [![12]][12]
 
-## <a name="filteraction"></a>3. Definiera IP-filteråtgärd
+## <a name="filteraction"></a>3. definiera åtgärden för IP-filter
 
 1. I listrutan, högerklickar du på **IP-säkerhetsprincip på Active Directory**, och klicka sedan på **hantera IP-filtrera listor och filteråtgärder...** .
 
@@ -151,7 +151,7 @@ Om du vill tillämpa Grupprincipobjektet till Organisationsenheten Grupprincipob
 
    [![23]][23]
 
-## <a name="filterlist1"></a>4. Definiera en IP-filterlista
+## <a name="filterlist1"></a>4. definiera en lista med IP-filter
 
 Skapa en filterlista som anger krypterade HTTP-trafik med målport 8080.
 
@@ -188,7 +188,7 @@ Skapa en filterlista som anger krypterade HTTP-trafik med målport 8080.
 
    [![32]][32]
 
-## <a name="filterlist2"></a>5. Redigera IP-filterlistan
+## <a name="filterlist2"></a>5. Redigera listan över IP-filter
 
 Om du vill kryptera samma typ av trafik i motsatt riktning (från den lokala värden för Azure-VM) måste ett andra IP-filter. Processen för hur du konfigurerar för det nya filtret är samma process som du använde för att ställa in den första IP-filtret. De enda skillnaderna är källans undernät och målundernätet.
 
@@ -207,7 +207,7 @@ Om du vill kryptera samma typ av trafik i motsatt riktning (från den lokala vä
 
 Om kryptering krävs mellan en lokal plats och en Azure-undernätet att skydda ett program, i stället för att ändra befintliga IP-filterlistan, kan du lägga till en ny IP-filterlista i stället. Associera 2 IP adressfilterlistor IPSec-principen i samma ger bättre flexibilitet eftersom en specifik IP-filterlistan kan ändras eller tas bort när som helst utan att påverka de andra IP-filter-listorna.
 
-## <a name="ipsecpolicy"></a>6. Skapa en IPsec-säkerhetsprincip 
+## <a name="ipsecpolicy"></a>6. skapa en IPsec-säkerhetsprincip 
 
 Skapa en IPSec-princip med säkerhetsregler.
 
@@ -224,7 +224,7 @@ Skapa en IPSec-princip med säkerhetsregler.
 
    [![40]][40]
 
-## <a name="editipsec"></a>7. Redigera IPsec-säkerhetsprincip
+## <a name="editipsec"></a>7. redigera IPsec-säkerhetsprincipen
 
 Lägg till IPSec-principen i den **IP-filterlistan** och **filteråtgärd** som du tidigare har konfigurerat.
 
@@ -252,7 +252,7 @@ Lägg till IPSec-principen i den **IP-filterlistan** och **filteråtgärd** som 
 6. Markerar du den befintliga **myEncryption** som du skapade tidigare.
 
    [![46]][46]
-7. Windows stöder fyra olika typer av autentiseringar: Kerberos, certifikat, NTLMv2 och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar, väljer **Active Directory-standard (Kerberos V5-protokollet)** , och klicka sedan på **nästa**.
+7. Windows har stöd för fyra olika typer av autentiseringar: Kerberos, certifikat, NTLMv2, och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar, väljer **Active Directory-standard (Kerberos V5-protokollet)** , och klicka sedan på **nästa**.
 
    [![47]][47]
 8. Den nya principen skapar säkerhetsregeln: **azure – den lokala-HTTP8080**. Klicka på **OK**.
@@ -261,7 +261,7 @@ Lägg till IPSec-principen i den **IP-filterlistan** och **filteråtgärd** som 
 
 IPsec-principen kräver att alla HTTP-anslutningar på målport 8080 att använda IPSec-transportläge. Eftersom HTTP är ett protokoll i klartext, säkerhetsprincip aktiverad försäkrar du dig data krypteras när de överförs via ExpressRoute privat peering. IP-säkerhetsprincip för Active Directory är mer komplicerad att konfigurera än Windows-brandväggen med avancerad säkerhet, men den tillåter flera anpassning av IPsec-anslutning.
 
-## <a name="assigngpo"></a>8. Tilldela IPsec Grupprincipobjektet till Organisationsenheten
+## <a name="assigngpo"></a>8. tilldela IPsec-GRUPPRINCIPOBJEKTet till ORGANISATIONSENHETen
 
 1. Visa principen. Säkerhetsprincip för gruppen är definierade, men har ännu inte tilldelats.
 

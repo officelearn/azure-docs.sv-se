@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 76b34e11bba00105792ac5163c5163184c185e09
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686164"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039626"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Stöd mat ris för haveri beredskap för virtuella Hyper-V-datorer till en sekundär plats
 
@@ -22,7 +22,7 @@ I den här artikeln sammanfattas vad som stöds när du använder tjänsten [Azu
 > Du kan bara replikera till en sekundär plats när dina Hyper-V-värdar hanteras i VMM-moln.
 
 > [!WARNING]
-> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](scvmm-site-recovery-deprecation.md) informationen innan du fortsätter.
+> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](site-to-site-deprecation.md) informationen innan du fortsätter.
 
 
 ## <a name="host-servers"></a>Värd servrar
@@ -58,7 +58,7 @@ Endast Linux-datorer med följande lagring kan replikeras:
 --- | --- 
 Värd-NIC-teamning | Ja 
 Värd-VLAN | Ja 
-Värd-IPv4 | Ja 
+Host - IPv4 | Ja 
 Värd-IPv6 | Nej 
 Gäst-VM – NIC Teaming | Nej
 Gäst-VM – IPv4 | Ja

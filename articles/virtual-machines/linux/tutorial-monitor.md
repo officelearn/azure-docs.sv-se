@@ -1,5 +1,5 @@
 ---
-title: Självstudie – övervaka virtuella Linux-datorer i Azure | Microsoft Docs
+title: Självstudie – övervaka virtuella Linux-datorer i Azure
 description: I den här självstudien får du lära dig hur du övervakar prestanda och identifierade program komponenter som körs på dina virtuella Linux-datorer.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 9c6458eea2b1352e7d13ea6691eac4498182ecd3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: eb3f73f3ceb27bec05d4e2e88877ea398de7cdf5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "71680080"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034371"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka en virtuell Linux-dator i Azure
 
 Azure Monitoring använder agenter för att samla in start-och prestanda data från virtuella Azure-datorer, lagra data i Azure Storage och göra dem tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Avancerad övervakning levereras med Azure Monitor for VMs genom att samla in prestanda mått, identifiera program komponenter som är installerade på den virtuella datorn och innehåller prestanda diagram och beroende karta.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på en virtuell dator
@@ -42,7 +42,7 @@ Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att u
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Skapa en virtuell dator
 
@@ -129,13 +129,13 @@ Så här aktiverar du övervakning av den virtuella Azure-datorn med Azure Monit
 
 1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 
-2. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
+2. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
 
-3. Välj **Testa nu**på sidan **Insights (för hands version)** .
+3. På den **Insights (förhandsversion)** väljer **Prova nu**.
 
-    ![Aktivera Azure Monitor for VMs för en virtuell dator](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Aktivera Azure Monitor för virtuella datorer för en virtuell dator](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
 
-4. Om du har en befintlig Log Analytics arbets yta i samma prenumeration på sidan **Azure Monitor Insights-onboarding** väljer du den i list rutan.  
+4. På den **Azure Monitor insikter Onboarding** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration, markerar du den i den nedrullningsbara listan.  
 
     I listan förväljs standard arbets ytan och den plats där den virtuella datorn distribueras i prenumerationen. 
 
@@ -144,7 +144,7 @@ Så här aktiverar du övervakning av den virtuella Azure-datorn med Azure Monit
 
 När du har aktiverat övervakning kan du behöva vänta flera minuter innan du kan visa prestanda måtten för den virtuella datorn.
 
-![Aktivera Azure Monitor for VMs övervakning av distributions bearbetning](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Aktivera Azure Monitor för virtuella datorer övervakning distributionsbearbetning](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Visa prestanda mått för virtuella datorer
 
@@ -152,7 +152,7 @@ Azure Monitor for VMs innehåller en uppsättning prestanda diagram som riktar s
 
 1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 
-2. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
+2. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
 
 3. Välj fliken **prestanda** .
 

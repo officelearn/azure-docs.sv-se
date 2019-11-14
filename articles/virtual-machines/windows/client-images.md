@@ -1,5 +1,5 @@
 ---
-title: Använda Windows Client-avbildningar i Azure | Microsoft Docs
+title: Använda Windows Client-avbildningar i Azure
 description: Så här använder du fördelarna med Visual Studio-prenumerationer för att distribuera Windows 7, Windows 8 eller Windows 10 i Azure för utveckling/testnings scenarier
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: dbb771351ee774a7fea33e5aaad3ae4d0c70f8b1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 812e6d251943d4418666f221ad8b5d2b6e501736
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079910"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039508"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda Windows-klienten i Azure för utveckling/testnings scenarier
 Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure för utveckling/testning-scenarier förutsatt att du har en lämplig Visual Studio-prenumeration (tidigare MSDN). Den här artikeln beskriver behörighets kraven för att köra Windows 7, Windows 8,1, Windows 10 Enterprise i Azure och använda följande Azure Gallery-avbildningar.
@@ -26,8 +26,8 @@ Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure f
 ![Avbildnings information från Azure Portal](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> För Windows 10 Pro-och Windows 10 Pro N-bilder i Azure-galleriet kan du läsa om [hur du distribuerar Windows 10 på Azure med värd rättigheter](windows-desktop-multitenant-hosting-deployment.md)
->![Pro-avbildningar för flera innehavare från Azure Portal](./media/client-images/windows-client-pro-images.png) 
+> För Windows 10 Pro-och Windows 10 Pro N-bilder i Azure-galleriet, se [hur du distribuerar Windows 10 på Azure med värd rättigheter för flera innehavare](windows-desktop-multitenant-hosting-deployment.md)
+>![Pro-bildinformation från Azure Portal](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>Prenumerations berättigande
@@ -38,10 +38,10 @@ För din bekvämlighet är vissa Windows 10-avbildningar tillgängliga från Azu
 ## <a name="eligible-offers"></a>Berättigade erbjudanden
 I följande tabell beskrivs de ID: n som är kvalificerade för att distribuera Windows 10 via Azure-galleriet. Windows 10-avbildningarna är bara synliga för följande erbjudanden. Visual Studio-prenumeranter som behöver köra Windows-klienten i en annan erbjudande typ kräver att du [förbereder och skapar](prepare-for-upload-vhd-image.md) en 64-bitars Windows 7-, Windows 8-eller Windows 10-avbildning och [laddar sedan upp till Azure](upload-generalized-managed.md).
 
-| Erbjudande | Erbjudandets nummer | Tillgängliga klient avbildningar |
+| Erbjudandets namn | Erbjudandets nummer | Tillgängliga klient avbildningar |
 |:--- |:---:|:---:|
 | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
-| [Visual Studio Enterprise-prenumeranter (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
+| [Prenumeranter på Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
 | [Visual Studio Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
 | [Visual Studio Test Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
 | [Visual Studio Premium med MSDN (förmån)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |

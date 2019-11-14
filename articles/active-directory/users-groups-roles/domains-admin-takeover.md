@@ -1,33 +1,32 @@
 ---
-title: Administratörs övertag ande av en ohanterad katalog – Azure Active Directory | Microsoft Docs
-description: Hur du tar över ett DNS-domännamn i en ohanterad katalog (skugg klient) i Azure Active Directory.
+title: Administratörs övertag ande av en ohanterad katalog – Azure AD | Microsoft Docs
+description: Hur du tar över ett DNS-domännamn i en ohanterad Azure AD-organisation (skugg klient).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315726"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027378"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
-I den här artikeln beskrivs två sätt att ta över ett DNS-domännamn i en ohanterad katalog i Azure Active Directory (Azure AD). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller "virus registrering" för en tjänst finns i [Vad är självbetjänings registrering för Azure Active Directory?](directory-self-service-signup.md)
+I den här artikeln beskrivs två sätt att ta över ett DNS-domännamn i en ohanterad katalog i Azure Active Directory (Azure AD). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller "viral"-registrering för en tjänst finns i [Vad är självbetjänings registrering för Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bestäm hur du vill ta över en ohanterad katalog
-Under administratörsövertagandet kan du bevisa ägarskapet enligt instruktionerna i [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Lägga till ett anpassat domännamn i Azure AD). I nästa avsnitt beskrivs administratörsupplevelsen mer detaljerat, men här följer en sammanfattning:
+Under processen för adminövertagande kan du bevisa ägarskapet enligt instruktionerna i [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Lägga till ett anpassat domännamn i Azure AD). I nästa avsnitt beskrivs administratörsupplevelsen mer detaljerat, men här följer en sammanfattning:
 
 * När du utför ett [”internt” adminövertagande](#internal-admin-takeover) av en ohanterad Azure-katalog läggs du till som global administratör för den ohanterade katalogen. Inga användare, domäner eller tjänstplaner migreras till en annan katalog som du administrerar.
 
@@ -58,13 +57,13 @@ När du har slutfört föregående steg är du nu den globala administratören f
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Lägga till domän namnet till en hanterad klient i Azure AD
 
 1. Öppna [Microsoft 365 administrations Center](https://admin.microsoft.com).
-2. Välj fliken **användare** och skapa ett nytt användar konto med ett namn som *användar\@-fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domän namnet. 
+2. Välj fliken **användare** och skapa ett nytt användar konto med ett namn som *användar\@fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domän namnet. 
 3. Se till att det nya användar kontot har globala administratörs behörigheter för Azure AD-klienten.
 4. Öppna fliken **domäner** i Microsoft 365 administrations Center väljer du domän namnet och väljer **ta bort**. 
   
    ![ta bort domän namnet från Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Om du har användare eller grupper i Office 365 som refererar till det borttagna domän namnet, måste de byta namn till. onmicrosoft.com-domänen. Om du tvingar bort domän namnet, kommer alla användare att byta namn automatiskt, i det här exemplet till *User\@fourthcoffeexyz.onmicrosoft.com*.
+5. Om du har användare eller grupper i Office 365 som refererar till det borttagna domän namnet, måste de byta namn till. onmicrosoft.com-domänen. Om du tvingar bort domän namnet får alla användare automatiskt ett nytt namn, i det här exemplet för att *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Logga in på [administrations centret för Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är den globala administratören för Azure AD-klienten.
   
@@ -73,7 +72,7 @@ När du har slutfört föregående steg är du nu den globala administratören f
    ![domän verifierad som tillagd i Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser tilldelade i Office 365-klienten måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *\@användarens fourthcoffeexyz.onmicrosoft.com* i stället för *\@User fourthcoffee. xyz*.
+> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser tilldelade i Office 365-klienten måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *användar\@fourthcoffeexyz.onmicrosoft.com* i stället för *användare\@fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Extern administratörs övertag Ande
 
@@ -83,7 +82,7 @@ När du verifierar ägarskapet för domän namnet tar Azure AD bort domän namne
 
 - Användare
 - Prenumerationer
-- Licenstilldelningar
+- Licens tilldelningar
 
 ### <a name="support-for-external-admin-takeover"></a>Stöd för extern administratörs övertag Ande
 Extern administratörs övertag ande stöds av följande onlinetjänster:
@@ -105,7 +104,7 @@ Du kan också använda [alternativet **ForceTakeover** ](#azure-ad-powershell-cm
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mer information om RMS för enskilda användare
 
-För [RMS för enskilda användare](/azure/information-protection/rms-for-individuals), när den ohanterade klienten finns i samma region som den klient som du äger, flyttas automatiskt de automatiskt skapade [Azure information Protection klient nyckeln](/azure/information-protection/plan-implement-tenant-key) och [standardskydds mallarna](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) över med domän namnet.
+För [RMS för enskilda användare](/azure/information-protection/rms-for-individuals), när den ohanterade innehavaren finns i samma region som den klient som du äger, flyttas automatiskt de automatiskt skapade [Azure information Protection klient nyckeln](/azure/information-protection/plan-implement-tenant-key) och [standardskydds mallarna](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) över med domän namnet.
 
 Nyckeln och mallarna flyttas inte över när den ohanterade klienten är i en annan region. Till exempel om den ohanterade klienten finns i Europa och den organisation som du äger är i Nordamerika.
 
@@ -114,7 +113,7 @@ Nyckeln och mallarna flyttas inte över när den ohanterade klienten är i en an
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdletar för alternativet ForceTakeover
 Du kan se dessa cmdletar som används i [PowerShell-exemplet](#powershell-example).
 
-Kommandon | Användning
+kommandon | Användning
 ------- | -------
 `connect-msolservice` | När du uppmanas till det loggar du in på den hanterade klienten.
 `get-msoldomain` | Visar dina domän namn som är kopplade till den aktuella klienten.
@@ -172,7 +171,7 @@ En lyckad utmaning går tillbaka till prompten utan ett fel.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lägg till ett anpassat domän namn i Azure AD](../fundamentals/add-custom-domain.md)
-* [Installera och konfigurera Azure PowerShell](/powershell/azure/overview)
+* [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet-referens](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)

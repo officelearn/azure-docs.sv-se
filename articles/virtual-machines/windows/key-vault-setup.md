@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Key Vault för virtuella Windows-datorer i Azure Resource Manager | Microsoft Docs
+title: Konfigurera Key Vault för virtuella Windows-datorer i Azure Resource Manager
 description: Konfigurera Key Vault för användning med en Azure Resource Manager virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: 225ce9fcbb18aa374f413e8e237c911c85cc77a6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a64163da1dee2bceb567436dc18ba0fa5274cfcb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999357"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038216"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Konfigurera Key Vault för virtuella datorer i Azure Resource Manager
 
@@ -56,7 +56,7 @@ Kör sedan följande kommando för att aktivera Key Vault för användning med m
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Använd mallar för att konfigurera Key Vault
-När du använder en mall måste du ange `enabledForDeployment` egenskapen till `true` för Key Vault resursen.
+När du använder en mall måste du ange `enabledForDeployment`-egenskapen som ska `true` för Key Vault resursen.
 
     {
       "type": "Microsoft.KeyVault/vaults",

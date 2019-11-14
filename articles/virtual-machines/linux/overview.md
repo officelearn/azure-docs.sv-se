@@ -1,5 +1,5 @@
 ---
-title: Översikt över virtuella Linux-datorer i Azure | Microsoft Docs
+title: Översikt över virtuella Linux-datorer i Azure
 description: Beskriver Azures beräknings-, lagrings- och nätverkstjänster med virtuella Linux-datorer.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 14ed21efec47e15663724bd782ad931903fb8f13
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc0145e23b940f6aca9021186254b966592f343d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082427"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035344"
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
 Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb – perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
@@ -118,7 +118,7 @@ Den virtuella datorn körs nu på Azure och du är redo att logga in.  Att anvä
 * [Översikt över virtuella nätverk](../../virtual-network/virtual-networks-overview.md)
 * [IP-adresser i Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Öppna portar till en virtuell Linux-dator i Azure](nsg-quickstart.md)
-* [Skapa ett fullständigt domännamn i Azure-portalen](portal-create-fqdn.md)
+* [Skapa ett fullständigt domännamn i Azure Portal](portal-create-fqdn.md)
 
 ## <a name="containers"></a>Containrar
 * [Virtuella datorer och containrar i Azure](containers.md)

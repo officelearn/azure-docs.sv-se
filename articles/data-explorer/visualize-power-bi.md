@@ -1,26 +1,26 @@
 ---
-title: 'Självstudier: Visualisera data från Azure Data Explorer i Power BI'
+title: 'Självstudie: Visualisera data från Azure Data Explorer i Power BI'
 description: I den här självstudien får du lära dig hur du ansluter till Azure Data Explorer med Power BI och visualiserar dina data.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775108"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037366"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudier: Visualisera data från Azure Data Explorer i Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudie: Visualisera data från Azure Data Explorer i Power BI
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Power BI är en lösning för företagsanalys där du kan visualisera dina data och dela resultaten i hela organisationen. I den här självstudien får du först lära dig hur du renderar visuella objekt i Azure Data Explorer. Därefter ansluter du till Azure Data Explorer med Power BI, skapar en rapport baserad på exempeldata och publicerar rapporten till Power BI-tjänsten.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. Om du inte har registrerat dig för Power BI Pro så [registrerar du dig för en kostnadsfri utvärderingsversion](https://app.powerbi.com/signupredirect?pbi_source=web) innan du börjar.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Rendera visuella objekt i Azure Data Explorer
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Skapa en rapport med visuella objekt
 > * Publicera och dela rapporten
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Förutom Azure- och Power BI-prenumerationer så behöver du följande för att slutföra den här självstudien:
 
@@ -219,7 +219,7 @@ Om du inte vill behålla den rapport som du skapade, tar du helt enkelt bort fil
 
 1. Under **Min arbetsyta**, bläddrar du ned till **Rapporter** och hittar **storm-events**.
 
-1. Välj ellipsen (**. . .**) bredvid **storm-events** och välj därefter **Ta bort**.
+1. Välj ellipsen ( **. . .** ) bredvid **storm-events** och välj därefter **Ta bort**.
 
     ![Ta bort rapporten](media/visualize-power-bi/remove-report.png)
 
@@ -228,4 +228,4 @@ Om du inte vill behålla den rapport som du skapade, tar du helt enkelt bort fil
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriv frågor](write-queries.md)
+> [Skriva frågor](write-queries.md)

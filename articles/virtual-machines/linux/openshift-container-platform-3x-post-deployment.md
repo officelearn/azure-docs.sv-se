@@ -1,5 +1,5 @@
 ---
-title: OpenShift container Platform 3,11 i Azure post-Deployment-uppgifter | Microsoft Docs
+title: OpenShift container Platform 3,11 i Azure post-Deployment-uppgifter
 description: Ytterligare aktiviteter för efter ett OpenShift container Platform 3,11-kluster har distribuerats.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: c1e04f048c081da4777045e5bee43991c95b4625
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392779"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035498"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -74,7 +74,7 @@ Anteckna den appId-egenskap som returnerades från kommandot för ett senare ste
 
 På Azure Portal:
 
-1. Välj **Azure Active Directory** > **app-registrering**.
+1. Välj **Azure Active Directory** > **app Registration**.
 2. Sök efter din registrering av appen (till exempel OCPAzureAD).
 3. Klicka på appens registrering i resultatet.
 4. Under **Inställningar**väljer du **nödvändiga behörigheter**.
@@ -155,7 +155,7 @@ sudo /usr/local/bin/master-restart api
 sudo /usr/local/bin/master-restart controllers
 ```
 
-I OpenShift-konsolen visas nu två alternativ för autentisering: htpasswd_auth och [App Registration].
+I OpenShift-konsolen visas nu två alternativ för autentisering: htpasswd_auth och [registrering av appar].
 
 ## <a name="monitor-openshift-with-azure-monitor-logs"></a>Övervaka OpenShift med Azure Monitor loggar
 

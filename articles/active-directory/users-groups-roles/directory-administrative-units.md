@@ -1,26 +1,25 @@
 ---
-title: Hantering av administrativa enheter (för hands version) – Azure Active Directory | Microsoft Docs
+title: Hantering av administrativa enheter (för hands version) – Azure AD | Microsoft Docs
 description: Använd administrativa enheter för mer detaljerad delegering av behörigheter i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/13/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b61186a876af90c812ec7faf41fa9f5b14bf4e
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 3c4958975a080a98fb900bf317229ba9eda795d5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336926"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028420"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Hantering av administrativa enheter i Azure Active Directory (för hands version)
 
@@ -40,7 +39,7 @@ Om du vill använda administrativa enheter måste du ha en Azure Active Director
 
 I den här för hands versionen är det enda sättet att skapa och hantera administrativa enheter att använda Azure Active Directory-modulen för Windows PowerShell-cmdlet: ar enligt beskrivningen i [arbeta med administrativa enheter](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-Mer information om program varu krav och installation av Azure AD-modulen finns i avsnittet om cmdlets för Azure AD-modulen för hantering av administrativa enheter, inklusive syntax, parameter beskrivningar och exempel, se [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Mer information om program varu krav och installation av Azure AD-modulen, och referensinformation om cmdlets för Azure AD-modulen för hantering av administrativa enheter, inklusive syntax, parameter beskrivningar och exempel finns i [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Nästa steg
 

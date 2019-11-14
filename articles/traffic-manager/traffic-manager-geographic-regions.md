@@ -1,6 +1,6 @@
 ---
-title: Hierarki för land/Region som används av Azure Traffic Manager geografiska routningstyp | Microsoft Docs
-description: Den här artikeln innehåller hierarki för land/Region som används av Azure Traffic Manager geografiska routningstyp
+title: Hierarki för land/region som används av geografisk routning – Azure Traffic Manager
+description: Den här artikeln innehåller hierarkin land/region som används av Azure Traffic Manager geografisk typ av Routning
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -12,163 +12,163 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: allensu
-ms.openlocfilehash: d16529e966fb2e16d1012f4aa0aafcff204a3093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13f4101c17d78a59e8cde724863d237ba888e6a4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071168"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037212"
 ---
-# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarki för land/Region som används av Azure Traffic Manager för geografisk routningsmetod
+# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarki för land/region som används av Azure Traffic Manager för geografisk Traffic routing-metod
 
-Den här artikeln visar en lista över länder och regioner som används av den **geografisk** prestandatrafik i Azure Traffic Manager. Du kan också hämta den här informationen via programmering genom att anropa den [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+I den här artikeln listas de länder och regioner som används av routningsmetod för **geografisk** trafik i Azure Traffic Manager. Du kan också få den här informationen genom programmering genom att anropa [Azure Traffic Managers REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
-- WORLD(World)
+- VÄRLD (världen)
 
-    - GEO-EU(Europe)
+    - GEO-EU (Europa)
 
-        - AD(Andorra)
+        - AD (Andorra)
 
-        - AL(Albania)
+        - AL (Albanien)
 
-        - AT(Austria)
+        - VID (Österrike)
 
-        - AX (Åland Islands)
+        - AX (Åland)
 
         - BA (Bosnien och Hercegovina)
 
-        - Be(Belgium)
+        - VARA (Belgien)
 
-        - BG(Bulgaria)
+        - BG (Bulgarien)
 
-        - BY(Belarus)
+        - AV (Vitryssland)
 
-        - CH(Switzerland)
+        - CH (Schweiz)
 
-        - CY(Cyprus)
+        - CY (Cypern)
 
         - CZ (Tjeckien)
 
-        - DE(Germany)
+        - DE (Tyskland)
 
-        - DK(Denmark)
+        - DK (Danmark)
 
-        - EE(Estonia)
+        - EE (Estland)
 
-        - ES(Spain)
+        - ES (Spanien)
 
-        - FI(Finland)
+        - FI (Finland)
 
         - FO (Färöarna)
 
-        - FR(France)
+        - Frankrike (Frankrike)
 
         - GB (Storbritannien)
 
-        - GG(Guernsey)
+        - GG (Guernseypund)
 
-        - GI(Gibraltar)
+        - GI (Gibraltar)
 
-        - GR(Greece)
+        - GR (Grekland)
 
-        - HR(Croatia)
+        - HR (Kroatien)
 
-        - HU(Hungary)
+        - HU (Ungern)
 
-        - IE(Ireland)
+        - IE (Irland)
 
-        - IM (Isle of Man)
+        - Snabb meddelande (Isle of man)
 
-        - IS(Iceland)
+        - ÄR (Island)
 
-        - IT(Italy)
+        - IT (Italien)
 
-        - JE(Jersey)
+        - JE (Jersey)
 
-        - LI(Liechtenstein)
+        - LI (Liechtenstein)
 
-        - LT(Lithuania)
+        - LT (Litauen)
 
-        - LU(Luxembourg)
+        - LU (Luxemburg)
 
-        - LV(Latvia)
+        - LV (Lettland)
 
-        - MC(Monaco)
+        - MC (Monaco)
 
-        - MD(Moldova)
+        - MD (Moldavien)
 
         - ME(Montenegro)
 
         - MK (Nordmakedonien)
 
-        - MT(Malta)
+        - MT (Malta)
 
-        - NL(Netherlands)
+        - NL (Nederländerna)
 
-        - NO(Norway)
+        - Nej (Norge)
 
-        - PL(Poland)
+        - PL (Polen)
 
-        - PT(Portugal)
+        - PT (Portugal)
 
-        - RO(Romania)
+        - RO (Rumänien)
 
-        - RS(Serbia)
+        - RS (Serbien)
 
-        - RU(Russia)
+        - RU (Ryssland)
 
-        - Se(Sweden)
+        - SE (Sverige)
 
-        - Si(Slovenia)
+        - SI (Slovenien)
 
-        - SJ(Svalbard)
+        - SJ (Svalbard)
 
-        - Sk(Slovakia)
+        - SK (Slovakien)
 
-        - SM(San Marino)
+        - SM (San Marino)
 
-        - UA(Ukraine)
-            - Regionen för Krim
+        - UA (Ukraina)
+            - Regionen Krim
 
         - VA (Vatikanstaten)
 
-        - XJ(Jan Mayen)
+        - XJ (Jan Mayen)
 
-        - XK(Kosovo)
+        - XK (Kosovo)
 
-    - GEO-ME(Middle East)
+    - GEO-ME (Mellanöstern)
 
         - AE (Förenade Arabemiraten)
 
-        - BH(Bahrain)
+        - BH (Bahrain)
 
-        - IL(Israel)
+        - IL (Israel)
 
-        - IQ(Iraq)
+        - SWEETIQ (Irak)
 
-        - IR(Iran)
+        - IR (Iran)
 
-        - Jo(Jordan)
+        - JO (Jordanien)
 
-        - KW(Kuwait)
+        - KW (Kuwait)
 
-        - LB(Lebanon)
+        - LB (Libanon)
 
-        - Om(Oman)
+        - OM (Oman)
 
-        - PS (Palestinska myndigheten)
+        - PS (palestinska myndigheten)
 
-        - QA(Qatar)
+        - Frågor och svar (Qatar)
 
-        - SY(Syria)
+        - SY (Syrien)
 
         - SA (Saudiarabien)
 
-        - TR(Turkey)
+        - TR (Turkiet)
 
-        - YE(Yemen)
+        - JULEN (Jemen)
 
-    - GEO-NA(North America / Central America / Caribbean)
+    - GEO-NA (Nordamerika/Central Amerika/Karibien)
 
         - AG (Antigua och Barbuda)
 
@@ -176,73 +176,73 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - AW(Aruba)
 
-        - BB(Barbados)
+        - BB (Barbados)
 
-        - BL (Saint-Barthélemy)
+        - BL (Sankt Barthélemy)
 
-        - BM(Bermuda)
+        - BM (snygg)
 
-        - BQ(Bonaire)
+        - BQ (Bonaire)
 
-        - BS(Bahamas)
+        - BS (Bahamas)
 
-        - BZ(Belize)
+        - BZ (Belize)
 
-        - CA(Canada)
+        - CA (Kanada)
 
             - CA-AB(Alberta)
 
-            - CA-BC(British Columbia)
+            - CA-BC (British Columbia)
 
-            - CA-MB(Manitoba)
+            - CA-MB (Manitoba)
 
-            - CA-NB(New Brunswick)
+            - CA-NB (ny Brunswick)
 
-            - CA-NL(Newfoundland and Labrador)
+            - CA-NL (Newfoundland och Labrador)
 
-            - CA-NS(Nova Scotia)
+            - CA-NS (Nova Scotia)
 
-            - CA-NT(Northwest Territories)
+            - CA-NT (nordvästra områden)
 
-            - CA-NU(Nunavut)
+            - CA-NU (Nunavut)
 
-            - CA-ON(Ontario)
+            - CA-på (Ontario)
 
-            - CA-PE(Prince Edward Island)
+            - CA-PE (Prince Edward ön)
 
             - CA-QC(Québec)
 
             - CA-SK(Saskatchewan)
 
-            - CA-YT(Yukon Territory)
+            - CA-YT (Yukon-område)
 
-        - CR(Costa Rica)
+        - CR (Costa Rica)
 
         - CU(Cuba)
 
-        - CW(CuraÃ§ao)
+        - FV (CuraÃ § Ao)
 
-        - DM(Dominica)
+        - DM (Dominica)
 
-        - GÖRA (Dominikanska republiken)
+        - GÖR (Dominikanska republiken)
 
-        - GD(Grenada)
+        - GD (Grenada)
 
         - GL(Greenland)
 
-        - GP(Guadeloupe)
+        - GP (Guadeloupe)
 
-        - GT(Guatemala)
+        - GT (Guatemala)
 
         - HN(Honduras)
 
         - HT(Haiti)
 
-        - JM(Jamaica)
+        - JM (Jamaica)
 
         - KN (Saint Kitts och Nevis)
 
-        - KY (Caymanöarna)
+        - KY (Cayman öarna)
 
         - LC (Saint Lucia)
 
@@ -252,45 +252,45 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - MS(Montserrat)
 
-        - MX(Mexico)
+        - MX (Mexiko)
 
-        - NI(Nicaragua)
+        - NI (Nicaragua)
 
-        - PA(Panama)
+        - PA (Panama)
 
         - PM (Saint Pierre och Miquelon)
 
-        - PR(Puerto Rico)
+        - PR (Puerto Rico)
 
-        - SV(El Salvador)
+        - SA (El Salvador)
 
-        - SX(Sint Maarten)
+        - SX (Sint Maarten)
 
-        - TC (Turks och Caicosöarna)
+        - TC (Turks-och Caicosöarna)
 
         - TT (Trinidad och Tobago)
 
-        - UM(U.S. Öar)
+        - UM (U.S. Islands)
 
-        - US(United States)
+        - US (USA)
 
-            - US-AK(Alaska)
+            - US-AK (Alaska)
 
-            - US-AL(Alabama)
+            - USA-AL (Alabama)
 
-            - US-AR(Arkansas)
+            - US-AR (Arkansas)
 
             - US-AZ(Arizona)
 
-            - US-CA(California)
+            - USA – CA (Kalifornien)
 
-            - US-CO(Colorado)
+            - USA – CO (Colorado)
 
-            - US-CT(Connecticut)
+            - US-CT (Connecticut)
 
-            - USA-DC(District of Columbia)
+            - USA – DC (District of Columbia)
 
-            - US-DE(Delaware)
+            - USA-DE (Delaware)
 
             - US-FL(Florida)
 
@@ -306,175 +306,175 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
             - US-IN(Indiana)
 
-            - US-KS(Kansas)
+            - US-KS (Kansas)
 
-            - US-KY(kentucky)
+            - US-KY (Kentucky)
 
-            - US-la(Louisiana)
+            - US-LA (Louisiana)
 
             - US-MA(Massachusetts)
 
             - US-MD(Maryland)
 
-            - US-ME(Maine)
+            - USA – mig (Maine)
 
-            - US-MI(Michigan)
+            - US-MI (Michigan)
 
             - US-MN(Minnesota)
 
-            - US-mo(Missouri)
+            - US-MO (Missouri)
 
-            - US-MS(Mississippi)
+            - US-MS (Mississippi)
 
             - US-MT(Montana)
 
-            - US-NC(North Carolina)
+            - US-NC (Nord Carolina)
 
-            - US-ND(North Dakota)
+            - US-ND (Nord Dakota)
 
-            - US-NE(Nebraska)
+            - US-NE (Nebraska)
 
-            - USA-NH(New Hampshire)
+            - US-NH (nya Hampshire)
 
-            - USA-NJ(New Jersey)
+            - US-NJ (New Jersey)
 
-            - USA-NM(New Mexico)
+            - USA – NM (ny Mexiko)
 
-            - US-NV(Nevada)
+            - US-NV (Nevada)
 
-            - USA-NY(New York)
+            - USA – Sverige (New York)
 
-            - US-OH(Ohio)
+            - OSS-OH (Ohio)
 
-            - US-OK(Oklahoma)
+            - US – OK (Oklahoma)
 
-            - US-or(Oregon)
+            - USA-eller (USA)
 
             - US-PA(Pennsylvania)
 
-            - USA-RI(Rhode Island)
+            - US-RI (Rhode ön)
 
-            - USA-SC(South Carolina)
+            - US-SC (södra Carolina)
 
-            - US-SD(South Dakota)
+            - US-SD (södra Dakota)
 
-            - US-TN(Tennessee)
+            - US-TN (Tennessee)
 
-            - US-TX(Texas)
+            - US-TX (Texas)
 
-            - US-ut(Utah)
+            - US-UT (Utah)
 
-            - US-VA(Virginia)
+            - USA-VA (Virginia)
 
             - US-VT(Vermont)
 
-            - US-WA(Washington)
+            - USA – WA (Washington)
 
-            - US-Wi(Wisconsin)
+            - USA – WI (Wisconsin)
 
-            - USA-WV(West Virginia)
+            - US-WV (västra Virginia)
 
-            - US-WY(Wyoming)
+            - US-WY (Wyoming)
 
         - VC (Saint Vincent och Grenadinerna)
 
-        - VG (Brittiska Jungfruöarna)
+        - VG (brittiska jungfru öarna)
 
-        - VI (US Jungfruolja Islands)
+        - VI (amerikanska jungfru öarna)
 
-        - XE(Sint Eustatius)
+        - XE (Sint Eustatius)
 
         - XS(Saba)
 
-    - GEO-AS(Asia)
+    - GEO-AS (Asien)
 
-        - AF(Afghanistan)
+        - AF (Afghanistan)
 
-        - AM(Armenia)
+        - AM (Armenien)
 
-        - AZ(Azerbaijan)
+        - AZ (Azerbajdzjan)
 
-        - BD(Bangladesh)
+        - BD (Bangladesh)
 
-        - BN(Brunei)
+        - BN (Brunei)
 
-        - BT(Bhutan)
+        - BT (Bhutan)
 
-        - Kopia (Kokosöarna (Keeling) öarna)
+        - CC (Cocos-Keelingöarna)
 
-        - CN(China)
+        - CN (Kina)
 
         - CX (Julön)
 
-        - GE(Georgia)
+        - GE (Georgien)
 
-        - HK (Hongkong SAR)
+        - HK (Hong Kong SAR)
 
-        - ID(Indonesia)
+        - ID (Indonesien)
 
-        - IN(India)
+        - I (Indien)
 
-        - I/o (Brittiska territoriet i Indiska oceanen)
+        - IO (brittiska territoriet i Indiska oceanen)
 
-        - JP(Japan)
+        - JP (Japan)
 
-        - KG(Kyrgyzstan)
+        - KG (Kirgizistan)
 
-        - KH(Cambodia)
+        - KH (Kambodja)
 
-        - KP (Nordkorea)
+        - KP (Nord Korea)
 
-        - KR(Korea)
+        - KR (Korea)
 
-        - KZ(Kazakhstan)
+        - KZ (Kazakstan)
 
-        - LA(Laos)
+        - LA (Laos)
 
         - LK(Sri Lanka)
 
-        - MM(Myanmar)
+        - MM (Myanmar)
 
-        - MN(Mongolia)
+        - MN (Mongoliet)
 
-        - Månad (Macao SAR)
+        - MO (Macao SAR)
 
-        - MV(Maldives)
+        - MV (Maldiverna)
 
-        - MY(Malaysia)
+        - MIN (Malaysia)
 
-        - NP(Nepal)
+        - NP (Nepal)
 
-        - PH(Philippines)
+        - PH (Filippinerna)
 
-        - PK(Pakistan)
+        - PK (Pakistan)
 
         - SG(Singapore)
 
-        - TH(Thailand)
+        - TH (Thailand)
 
-        - TJ(Tajikistan)
+        - TJ (Tadzjikistan)
 
-        - TL(Timor_Leste)
+        - TL (Timor_Leste)
 
-        - TM(Turkmenistan)
+        - TM (Turkmenistan)
 
-        - TW(Taiwan)
+        - TW (Taiwan)
 
         - UZ(Uzbekistan)
 
         - VN(Vietnam)
 
-    - GEO-AF(Africa)
+    - GEO-AF (Afrika)
 
-        - AO(Angola)
+        - AO (Angola)
 
         - BF (Burkina Faso)
 
-        - BI(Burundi)
+        - BI (Burundi)
 
-        - BJ(Benin)
+        - BJ (Benin)
 
-        - BV (Bouvetön)
+        - BV (Bouvet-ön)
 
         - BW(Botswana)
 
@@ -484,97 +484,97 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - Côte d’Ivoire
 
-        - CM(Cameroon)
+        - CM (Kamerun)
 
-        - CV(Cabo Verde)
+        - KA (Cabo Verde)
 
-        - DJ(Djibouti)
+        - DJ (Djibouti)
 
-        - DZ(Algeria)
+        - DZ (Algeriet)
 
-        - EG(Egypt)
+        - T. ex. (Egypten)
 
-        - ER(Eritrea)
+        - ER (Eritrea)
 
-        - ET(Ethiopia)
+        - ET (Etiopien)
 
-        - GA(Gabon)
+        - GA (Gabon)
 
-        - GH(Ghana)
+        - För-(Ghana)
 
-        - GM(Gambia)
+        - GM (Gambia)
 
-        - GN(Guinea)
+        - GN (Guinea)
 
         - GQ (Ekvatorialguinea)
 
-        - GW(Guinea_Bissau)
+        - GW (Guinea_Bissau)
 
-        - KE(Kenya)
+        - KE (Kenya)
 
-        - KM(Comoros)
+        - KM (Komorerna)
 
-        - LR(Liberia)
+        - LR (Liberia)
 
-        - LS(Lesotho)
+        - LS (Lesotho)
 
-        - LY(Libya)
+        - LY (Libyen)
 
-        - Ma(Morocco)
+        - MA (Marocko)
 
-        - MG(Madagascar)
+        - MG (Madagaskar)
 
         - ML(Mali)
 
-        - MR(Mauritania)
+        - MR (Mauretanien)
 
-        - MU(Mauritius)
+        - MU (Mauritius)
 
         - MW(Malawi)
 
-        - MZ(Mozambique)
+        - MZ (Moçambique)
 
-        - NA(Namibia)
+        - NA (Namibia)
 
-        - NE(Niger)
+        - NE (Niger)
 
-        - NG(Nigeria)
+        - NG (Nigeria)
 
-        - RE(Réunion)
+        - RE (Réunion)
 
-        - RW(Rwanda)
+        - RW (Rwanda)
 
-        - SC(Seychelles)
+        - SC (Seychellerna)
 
-        - SD(Sudan)
+        - SD (Sudan)
 
-        - SH (Sankta Helena, Ascension, Tristan da Cunha)
+        - SH (Saint Helena, Ascension, Tristan da Cunha)
 
-        - SL(Sierra Leone)
+        - SL (Sierra Leone)
 
         - SN(Senegal)
 
-        - SO(Somalia)
+        - SÅ (Somalia)
 
         - SS (Sydsudan)
 
-        - ST (São Tome och Príncipe)
+        - ST (São Tomé och Príncipe)
 
         - SZ(Swaziland)
 
-        - TD(Chad)
+        - TD (Tchad)
 
-        - TF (franska Sydterritorierna)
+        - TF (franska södra territorier)
 
-        - TG(Togo)
+        - TG (Togo)
 
-        - TN(Tunisia)
+        - TN (Tunisien)
 
         - TZ(Tanzania)
 
-        - UG(Uganda)
+        - ΜG (Uganda)
 
-        - YT(Mayotte)
+        - YT (Mayotte)
 
         - ZA (Sydafrika)
 
@@ -582,25 +582,25 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - ZW(Zimbabwe)
 
-    - GEO-an(Antarctica)
+    - GEO-a (Antarktis)
 
-        - AQ(Antarctica)
+        - AQ (Antarktis)
 
-    - GEO-SA(South America)
+    - GEO-SA (Syd Amerika)
 
-        - AR(Argentina)
+        - AR (Argentina)
 
-        - BO(Bolivia)
+        - BO (Bolivia)
 
-        - BR(Brazil)
+        - BR (Brasilien)
 
-        - CL(Chile)
+        - CL (Chile)
 
-        - CO(Colombia)
+        - CO (Colombia)
 
-        - EC(Ecuador)
+        - EG (Ecuador)
 
-        - FK(Falkland Islands)
+        - Sekundär nyckel (Falk lands öarna)
 
         - GF (Franska Guyana)
 
@@ -610,84 +610,84 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - PE(Peru)
 
-        - PY(Paraguay)
+        - PY (Paraguay)
 
-        - SR(Suriname)
+        - SR (Surinam)
 
-        - UY(Uruguay)
+        - UY (Uruguay)
 
         - VE(Venezuela)
 
-    - GEO-AP(Australia / Pacific)
+    - GEO-AP (Australien/Stilla havs området)
 
-        - AS(American Samoa)
+        - SOM (Amerikanska Samoa)
 
-        - AU(Australia)
+        - AU (Australien)
 
-            - AU-ACT(Australian Capital Territory)
+            - AU – ACT (australiska realkapital territoriet)
 
-            - AU-NSW(New South Wales)
+            - AU-NSW (New South Wales)
 
-            - AU-NT(Northern Territory)
+            - AU-NT (norra territoriet)
 
-            - AU-QLD(Queensland)
+            - AU-QLD (Queensland)
 
-            - AU-SA(South Australia)
+            - AU – SA (södra Australien)
 
-            - AU-TAS(Tasmania)
+            - AU-aktivitet (Tasmanien,)
 
-            - AU-VIC(Victoria)
+            - AU-VIC (Victoria)
 
-            - AU-WA(Western Australia)
+            - AU – WA (västra Australien)
 
         - CK (Cooköarna)
 
-        - FJ(Fiji)
+        - FJ (Fiji)
 
-        - FM(Micronesia)
+        - RM (Mikronesien)
 
-        - GU(Guam)
+        - GU (Guam)
 
-        - HM (Heardön och McDonaldöarna)
+        - IGNERINGSALGORITM (Heard-och McDonaldöarna)
 
-        - KI(Kiribati)
+        - KI (Kiribati)
 
-        - MH (Marshallöarna)
+        - MH (Marshall öarna)
 
-        - Management Pack (Nordmarianerna)
+        - MP (Nordmarianerna)
 
         - NC (Nya Kaledonien)
 
-        - NF (Norfolkön)
+        - NF (Norfolkön, Julön)
 
-        - NR(Nauru)
+        - NR (Nauru)
 
-        - NU(Niue)
+        - NU (Niue)
 
         - NZ (Nya Zeeland)
 
-        - PF (Franska Polynesien)
+        - PF (franska Polynesien)
 
         - PG (Papua Nya Guinea)
 
-        - PN (Pitcairnöarna)
+        - PN (Pitcairn)
 
         - PW(Palau)
 
         - SB (Salomonöarna)
 
-        - TK(Tokelau)
+        - TK (Tokelau)
 
-        - TO(Tonga)
+        - TILL (Tonga)
 
         - TV(Tuvalu)
 
-        - VU(Vanuatu)
+        - ANTECKNING (Vanuatu)
 
-        - Windows-Brandväggen (Wallis och Futuna)
+        - WF (Wallis och Futuna)
 
         - WS(Samoaöarna)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [geografisk prestandatrafik i Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).
+- Lär dig mer om [routningsmetod för geografisk trafik i Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

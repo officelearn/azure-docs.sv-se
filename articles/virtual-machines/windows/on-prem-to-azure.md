@@ -1,5 +1,5 @@
 ---
-title: Migrera från AWS och andra plattformar till Managed Disks i Azure | Microsoft Docs
+title: Migrera från AWS och andra plattformar till Managed Disks i Azure
 description: 'Skapa virtuella datorer i Azure med hjälp av VHD: er som laddats upp från andra moln som AWS eller andra virtualiseringsplattformen och dra nytta av Azure Managed Disks.'
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4611efa8767094ea8f92dac584a5610811947620
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102580"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033054"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar som ska Managed Disks i Azure
 
@@ -54,7 +54,7 @@ Det här avsnittet hjälper dig att fatta det bästa beslutet om VM och disk typ
 
 Om du planerar att migrera från ohanterade diskar till hanterade diskar bör du vara medveten om att användare med rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) inte kommer att kunna ändra storleken på den virtuella datorn (eftersom de kan förkonverteras). Detta beror på att virtuella datorer med hanterade diskar kräver att användaren har behörigheten Microsoft. Compute/disks/Write på OS-diskarna.
 
-### <a name="location"></a>Location
+### <a name="location"></a>Plats
 
 Välj en plats där Azure Managed Disks är tillgängliga. Om du migrerar till Premium-Managed Disks bör du också se till att Premium Storage är tillgängligt i den region där du planerar att migrera till. Se [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services) för uppdaterad information om tillgängliga platser.
 
@@ -71,7 +71,7 @@ Det finns sju typer av Premium-hanterade diskar som kan användas med den virtue
 
 | Typ av Premium diskar  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS per disk       | 120   | 240   | 500   | 1100  |2 300              | 5000              | 7500              | 7500              | 
 | Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 125 MB per sekund |150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund |
 
@@ -89,9 +89,9 @@ Det finns sju typer av standard-hanterade diskar som kan användas med den virtu
 
 **Premium-Managed Disks**
 
-Som standard är diskcachelagring *-* principen skrivskyddad för alla Premium-datadiskarna och *Läs-och skriv* behörighet för den Premium-operativsystems disk som är ansluten till den virtuella datorn. Den här konfigurations inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. För skrivskyddade eller skrivskyddade data diskar (till exempel SQL Server loggfiler) inaktiverar du diskcachelagring så att du kan uppnå bättre program prestanda.
+Som standard är diskcachelagring *-principen skrivskyddad* för alla Premium-datadiskarna och *Läs-och skriv* behörighet för den Premium-operativsystems disk som är ansluten till den virtuella datorn. Den här konfigurations inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. För skrivskyddade eller skrivskyddade data diskar (till exempel SQL Server loggfiler) inaktiverar du diskcachelagring så att du kan uppnå bättre program prestanda.
 
-### <a name="pricing"></a>Prissättning
+### <a name="pricing"></a>Priser
 
 Läs [om prissättningen för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Priset för Premium-Managed Disks är detsamma som de Premium-ohanterade diskarna. Priser för standard Managed Disks skiljer sig dock från vanliga ohanterade diskar.
 

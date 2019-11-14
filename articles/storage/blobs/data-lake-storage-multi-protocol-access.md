@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f782c5abe611086baae5d2ad71bc38516039a231
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796058"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033968"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Åtkomst till flera protokoll på Azure Data Lake Storage
 
@@ -49,6 +49,7 @@ De objekt som visas i den här tabellen ändras med tiden att stöd för Blob St
 |---|---|
 |[Låg frekvent åtkomst nivå](storage-blob-storage-tiers.md)|Allmänt tillgänglig|
 |BLOB-SDK: er |Allmänt tillgänglig|
+|BLOB REST-API: er|Allmänt tillgänglig|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Allmänt tillgänglig|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Allmänt tillgänglig|
 |[Diagnostikloggar](../common/storage-analytics-logging.md)| Förhandsversion|

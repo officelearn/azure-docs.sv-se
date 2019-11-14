@@ -1,5 +1,5 @@
 ---
-title: Förbereda en virtuell Debian Linux-hårddisk i Azure | Microsoft Docs
+title: Förbered en virtuell Debian Linux-hårddisk i Azure
 description: Lär dig hur du skapar Debian VHD-avbildningar för distribution i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: 009918a95ca1ff6189553d502fd06773fcd0d402
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7f371e2681ecc2b3bb4bcb3e1a8b642061dc2449
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083451"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036474"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en Debian VHD för Azure
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en. ISO-fil som hämtats från [Debian-webbplatsen](https://www.debian.org/distrib/) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer; Hyper-V är bara ett exempel. Instruktioner för hur du använder Hyper-V finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 ## <a name="installation-notes"></a>Installations information
@@ -33,7 +33,7 @@ Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-o
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till en virtuell hård disk måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Använd Azure-Manage för att skapa Debian-VHD: er
-Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure, till exempel [Azure-hantera](https://github.com/credativ/azure-manage) skript från [credativ](https://www.credativ.com/). Detta är den rekommenderade metoden jämfört med att skapa en avbildning från grunden. Om du till exempel vill skapa en Debian 8-VHD kör du följande kommandon för `azure-manage` att ladda ned verktyget (och beroenden `azure_build_image` ) och köra skriptet:
+Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure, till exempel [Azure-hantera](https://github.com/credativ/azure-manage) skript från [credativ](https://www.credativ.com/). Detta är den rekommenderade metoden jämfört med att skapa en avbildning från grunden. Om du till exempel vill skapa en Debian 8-VHD kör du följande kommandon för att ladda ned `azure-manage`-verktyget (och beroenden) och kör `azure_build_image` skriptet:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap
@@ -50,9 +50,9 @@ Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure
 ## <a name="manually-prepare-a-debian-vhd"></a>Förbered en virtuell Debian-VHD manuellt
 1. Välj den virtuella datorn i Hyper-V Manager.
 2. Klicka på **Anslut** för att öppna ett konsol fönster för den virtuella datorn.
-3. Om du har installerat operativ systemet med hjälp av ISO kan du kommentera ut vilken rad som`deb cdrom`helst som `/etc/apt/source.list`relaterar till "" i.
+3. Om du har installerat operativ systemet med hjälp av ISO kan du kommentera ut alla rader som rör "`deb cdrom`" i `/etc/apt/source.list`.
 
-4. Redigera filen och ändra parametern GRUB_CMDLINE_LINUX enligt följande om du vill inkludera ytterligare kernel-parametrar för Azure. `/etc/default/grub`
+4. Redigera `/etc/default/grub`-filen och ändra **GRUB_CMDLINE_LINUX** -parametern på följande sätt för att inkludera ytterligare kernel-parametrar för Azure.
    
         GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
 

@@ -1,6 +1,6 @@
 ---
-title: 'Länka ett virtuellt nätverk till en krets-ExpressRoute: Azure Portal | Microsoft Docs'
-description: Ansluta ett virtuellt nätverk till en Azure ExpressRoute-krets. Stegvisa instruktioner.
+title: 'ExpressRoute: länka ett VNet till en krets: Azure Portal'
+description: Anslut ett VNet till en Azure ExpressRoute-krets. Stegvisa instruktioner.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6185540340bba4299eb9307432480c91d531779a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088904"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022197"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Du kan dela en ExpressRoute-krets över flera prenumerationer. Bilden nedan visa
 
 - Var och en av de mindre moln inom det stora molnet används för att representera prenumerationer som hör till olika avdelningar inom en organisation.
 - Var och en av avdelningarna i organisationen kan använda sin egen prenumeration för att distribuera sina tjänster, men de kan dela en enda ExpressRoute-krets för att ansluta till ditt lokala nätverk.
-- En enda avdelning (i det här exemplet: IT) kan äga ExpressRoute-kretsen. Andra prenumerationer i organisationen kan använda ExpressRoute-krets och auktoriseringar som är kopplad till kretsen, inklusive prenumerationer som är länkade till andra Azure Active Directory-klienter och Enterprise Agreement-registreringar.
+- En avdelning (i det här exemplet: IT) kan äga ExpressRoute-kretsen. Andra prenumerationer i organisationen kan använda ExpressRoute-krets och auktoriseringar som är kopplad till kretsen, inklusive prenumerationer som är länkade till andra Azure Active Directory-klienter och Enterprise Agreement-registreringar.
 
   > [!NOTE]
   > Avgifter för anslutning och bandbredd för dedikerade kretsen tillämpas till ExpressRoute-krets ägare. Alla virtuella nätverk delar samma bandbredden.
@@ -120,7 +120,7 @@ Kretsen användaren måste resurs-ID och en auktoriseringsnyckeln från kretsäg
 3. Kontrollera att den **anslutningstypen** är inställd på ”ExpressRoute”.
 4. Fyll i information och klicka sedan på **OK** på sidan grunderna.
 
-   ![Grunderna sidan](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![Sidan Grundläggande inställningar](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. I den **inställningar** markerar, den **virtuell nätverksgateway** och kontrollera den **Lös in auktorisering** markerar du kryssrutan.
 6. Ange den **auktoriseringsnyckeln** och **Peer-kretsens URI** och ge ett namn för anslutningen. Klicka på **OK**. **Peer-kretsens URI** är resurs-ID för ExpressRoute-kretsen (som du hittar under egenskaps inställnings fönstret i ExpressRoute-kretsen).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Hämta ARP-tabeller – fel sökning – ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure-ExpressRoute: Hämta ARP-tabeller – fel sökning'
 description: Den här sidan innehåller instruktioner för hur du hämtar ARP-tabeller för en ExpressRoute-krets
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2410465052bd9ff83090c6f7122ffab2855af1d0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748156"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033438"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Hämta ARP-tabeller i distributions modellen för Resource Manager
 > [!div class="op_single_selector"]
@@ -178,5 +178,5 @@ eller
   * Hämta väg Sammanfattning för att fastställa tillstånd för BGP-sessioner 
   * Hämta routningstabellen för att avgöra vilka prefix som annonseras via ExpressRoute
 * Verifiera data överföring genom att granska byte in/ut
-* Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om det fortfarande uppstår problem.
+* Öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du fortfarande har problem.
 

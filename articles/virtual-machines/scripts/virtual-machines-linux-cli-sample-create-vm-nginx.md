@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NGINX | Microsoft Docs
+title: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NGINX
 description: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f1ed8b2d943a377fc868344cffffff931bb6fba1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4e3e24565375f68b4b5bdf1dfb0b16bb280aa417
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709612"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039475"
 ---
 # <a name="create-a-vm-with-nginx"></a>Skapa en virtuell dator med NGINX
 
@@ -66,7 +66,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Skapar en regel för nätverkssäkerhetsgrupp som tillåter inkommande trafik. I det här exemplet öppnas port 80 för HTTP-trafik. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Lägger till och kör ett VM-tillägg på en virtuell dator. I det här exemplet används det anpassade skripttillägget till att installera NGINX.|
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Lägger till och kör ett VM-tillägg till en virtuell dator. I det här exemplet används det anpassade skripttillägget till att installera NGINX.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

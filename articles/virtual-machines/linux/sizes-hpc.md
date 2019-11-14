@@ -1,5 +1,5 @@
 ---
-title: VIRTUELLA Azure Linux-storlekar – HPC | Microsoft Docs
+title: VIRTUELLA Azure Linux-storlekar – HPC
 description: Visar en lista över de olika storlekar som är tillgängliga för virtuella Linux-datorer med höga prestanda i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: ee99869c2b7a7b3ab38fdd9eae0687862ea53819
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 214ab48b6b0dca37eff3b3f155aaa92afc7fee16
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100867"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034899"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Storlek för beräkning av virtuella datorer med höga prestanda
 
@@ -88,7 +88,7 @@ Azure innehåller flera alternativ för att skapa kluster av virtuella Linux HPC
 
 * **Virtuella datorer** – distribuera RDMA-kompatibla HPC-datorer i samma tillgänglighets uppsättning (när du använder Azure Resource Manager distributions modell). Om du använder den klassiska distributions modellen distribuerar du de virtuella datorerna i samma moln tjänst. 
 
-* **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer, se till att du begränsar distributionen till en enda placerings grupp. I en Resource Manager-mall anger `singlePlacementGroup` du till exempel egenskapen till. `true` 
+* **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer, se till att du begränsar distributionen till en enda placerings grupp. I en Resource Manager-mall anger du till exempel egenskapen `singlePlacementGroup` som `true`. 
 
 * **MPI mellan virtuella datorer** – om MPI kommunikation krävs mellan virtuella datorer (VM) kontrollerar du att de virtuella datorerna finns i samma tillgänglighets uppsättning eller på den virtuella datorn med samma skalnings uppsättning.
 
@@ -96,7 +96,7 @@ Azure innehåller flera alternativ för att skapa kluster av virtuella Linux HPC
 
 * **Azure Batch** – skapa en [Azure Batch](/azure/batch/) pool för att köra MPI-arbetsbelastningar på Linux Compute-noder. Mer information finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](../../batch/batch-pool-compute-intensive-sizes.md). Se även [batch Shipyard](https://github.com/Azure/batch-shipyard) -projektet för att köra containerbaserade arbets belastningar i batch.
 
-* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) stöder flera Linux-distributioner som kan köras på Compute-noder som distribueras i RDMA-kompatibla virtuella Azure-datorer, som hanteras av en Windows Server Head-nod. Ett exempel på distribution finns i [skapa HPC-paket Linux RDMA-kluster i Azure](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
+* **Microsoft HPC pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) stöder flera Linux-distributioner som kan köras på Compute-noder som distribueras i RDMA-kompatibla virtuella Azure-datorer, som hanteras av en Windows Server Head-nod. Ett exempel på distribution finns i [skapa HPC-paket Linux RDMA-kluster i Azure](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
 
 ### <a name="network-considerations"></a>Nätverks överväganden
@@ -116,5 +116,5 @@ Azure innehåller flera alternativ för att skapa kluster av virtuella Linux HPC
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om att konfigurera, optimera och skala [HPC](../workloads/hpc/configure.md) -arbetsbelastningar på Azure.
+- Lär dig mer om att konfigurera, optimera och skala [HPC-arbetsbelastningar](../workloads/hpc/configure.md) på Azure.
 - Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

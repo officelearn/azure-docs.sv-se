@@ -1,6 +1,6 @@
 ---
-title: Övervaka dina virtuella Windows-datorer i Azure | Microsoft Docs
-description: Läs mer om alternativ för Windows-datorer i Azure för övervakning.
+title: Övervaka dina virtuella Windows-datorer i Azure
+description: Lär dig mer om övervaknings alternativ för virtuella Windows-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/14/2017
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 6cc7a48bb11057f0cd6785d9d26e001ade896512
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b08c63d544ce40b439ce179621f323e99fcb55e5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720183"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033193"
 ---
-# <a name="how-to-monitor-virtual-machines-in-azure"></a>Så här övervakar du virtuella datorer i Azure
+# <a name="how-to-monitor-virtual-machines-in-azure"></a>Övervaka virtuella datorer i Azure
 
 [!INCLUDE [virtual-machines-monitor](../../../includes/virtual-machines-monitor.md)]

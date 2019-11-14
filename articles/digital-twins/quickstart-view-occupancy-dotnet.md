@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/08/2019
-ms.openlocfilehash: efa5ede4937a2a7f48f9d64f06b78c6343345ad6
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 11/12/2019
+ms.openlocfilehash: d9a88a40a85ce4be9222f45d3bce53e91346040b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903788"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039379"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -83,11 +83,11 @@ En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://git
 
 1. Etableringssteget kan ta några minuter. En IoT-hubb etableras också i Digital Twins-instansen. Den loopas tills IoT-hubben visar Status=`Running`.
 
-    [exempel på ![provision](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
+    [![etablera exempel status = kör](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
 1. I slutet av körningen kopierar du enhetens `ConnectionString` för användning i exemplet med enhetssimulatorn. Kopiera den sträng som beskrivs i den här bilden.
 
-    [![kopiera anslutnings strängen](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![kopiera anslutnings strängen](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
     > Du kan visa och ändra ett spatialt diagram med hjälp av [Visningsprogrammet för Azure Digital Twins Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -120,20 +120,20 @@ Sensorexemplet simulerar slumpmässiga datavärden för två sensorer. Det är r
 1. Titta på den här kommandotolken och sensordatas kommandotolk sida vid sida.
 
     Kommando tolken för sensor data skickar simulerade rörelse-och koldioxid data till digitala dubbla sekunder var femte sekund. Den andra kommando tolken läser grafen i real tid för att ta reda på tillgängliga rum med färsk luft baserat på slumpmässiga simulerade data. Den visar ett av dessa villkor i nära realtid baserat på sensordata som skickades senast:
-   - Tillgängliga rum med frisk luft.
-   - Upptaget eller dålig luftkvalitet i rummet.
+   - `Room is available and air is fresh`
+   - `Room is not available or air quality is poor`
 
      [![Hämta tillgängliga utrymmen med frisk luft](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 Om du vill förstå vad som hände i den här snabb starten och vilka API: er som anropades öppnar du [Visual Studio Code](https://code.visualstudio.com/Download) med projektet kod arbets yta i `digital-twins-samples-csharp`. Ange följande kommando:
 
-```plaintext
+```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
 Självstudierna går på djupet i koden. Du lär dig hur du ändrar konfigurationsdata och vilka API:er som anropas. Mer information om API:er för hantering finns på Digital Twins Swagger-sidan:
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 

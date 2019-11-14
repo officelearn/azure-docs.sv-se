@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – konfigurera Linux-datorer i Azure med Ansible | Microsoft Docs
-description: I den här snabbstarten lär du dig hur du skapar en Linux-dator i Azure med Ansible
+title: Snabb start – Konfigurera virtuella Linux-datorer i Azure med Ansible
+description: I den här snabb starten får du lära dig hur du skapar en virtuell Linux-dator i Azure med Ansible
 keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
 ms.service: ansible
@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 325b581910bc343f57a2da00ab3ed6e447c1e9e3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668651"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037079"
 ---
-# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Snabbstart: Konfigurera Linux-datorer i Azure med Ansible
+# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Snabb start: Konfigurera virtuella Linux-datorer i Azure med Ansible
 
-Med hjälp av ett deklarativ språk gör Ansible att du kan automatisera skapande, konfiguration och distribution av Azure-resurser via Ansible-*spelböcker*. Den här artikeln beskriver vi en Ansible-spelbok för exemplet för att konfigurera Linux-datorer. Den [fullständiga Ansible-spelboken](#complete-sample-ansible-playbook) anges i slutet av den här artikeln.
+Med hjälp av ett deklarativ språk gör Ansible att du kan automatisera skapande, konfiguration och distribution av Azure-resurser via Ansible-*spelböcker*. Den här artikeln visar ett exempel på Ansible-Spelbok för konfiguration av virtuella Linux-datorer. Den [fullständiga Ansible-spelboken](#complete-sample-ansible-playbook) anges i slutet av den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
@@ -66,7 +66,7 @@ I följande avsnitt i ett Ansible-spelboksexempel skapas ett undernät med namne
 
 
 
-[Offentliga IP-adresser](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) tillåter att Internet-resurser kommunicerar inkommande till Azure-resurser. Offentliga IP-adresser kan också aktivera Azure-resurser kan kommunicera utgående till offentliga Azure-tjänster. I båda scenarierna måste tilldelas en IP-adress till den resurs som används. Adressen är dedikerad till resursen tills du ta bort den. Om en offentlig IP-adress inte är tilldelad till en resurs kan resursen ändå kommunicera utgående till Internet. Anslutningen görs av Azure tilldelar dynamiskt en tillgänglig IP-adress. Den dynamiskt tilldelade adressen inte är dedikerad till resursen.
+[Offentliga IP-adresser](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) tillåter att Internet-resurser kommunicerar inkommande till Azure-resurser. Offentliga IP-adresser gör det också möjligt för Azure-resurser att kommunicera utgående till offentliga Azure-tjänster. I båda scenarierna är en IP-adress som tilldelats till resursen som används. Adressen är dedikerad till resursen tills du tar bort tilldelningen. Om en offentlig IP-adress inte är tilldelad till en resurs, kan resursen fortfarande kommunicera utgående till Internet. Anslutningen görs genom att Azure dynamiskt tilldelar en tillgänglig IP-adress. Den dynamiskt tilldelade adressen är inte dedikerad till resursen.
 
 I följande avsnitt i ett Ansible-spelboksexempel skapas en offentlig IP-adress med namnet `myPublicIP`:
 
@@ -80,9 +80,9 @@ I följande avsnitt i ett Ansible-spelboksexempel skapas en offentlig IP-adress 
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-[Nätverkssäkerhetsgrupper](/azure/virtual-network/security-overview) filtrera nätverkstrafik mellan Azure-resurser i ett virtuellt nätverk. Säkerhetsregler definieras som styr inkommande och utgående trafik till och från Azure-resurser. Läs mer om Azure-resurser och nätverkssäkerhetsgrupper [integrering av virtuella nätverk för Azure-tjänster](/azure/virtual-network/virtual-network-for-azure-services)
+[Nätverks säkerhets grupper](/azure/virtual-network/security-overview) filtrerar nätverks trafik mellan Azure-resurser i ett virtuellt nätverk. Säkerhets regler definieras som reglerar inkommande och utgående trafik till och från Azure-resurser. Mer information om Azure-resurser och nätverks säkerhets grupper finns i [integrering av virtuella nätverk för Azure-tjänster](/azure/virtual-network/virtual-network-for-azure-services)
 
-Följande spelboken skapar en nätverkssäkerhetsgrupp med namnet `myNetworkSecurityGroup`. Nätverkssäkerhetsgruppen innehåller en regel som tillåter SSH-trafik på TCP-port 22.
+Följande Spelbok skapar en nätverks säkerhets grupp med namnet `myNetworkSecurityGroup`. Nätverks säkerhets gruppen innehåller en regel som tillåter SSH-trafik på TCP-port 22.
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -102,7 +102,7 @@ Följande spelboken skapar en nätverkssäkerhetsgrupp med namnet `myNetworkSecu
 
 Ett kort för virtuellt nätverksgränssnitt ansluter din virtuella dator till ett angivet virtuellt nätverk, en offentlig IP-adress och en nätverkssäkerhetsgrupp. 
 
-Följande avsnitt i en Exempelavsnitt Ansible spelbok skapar ett virtuellt nätverkskort med namnet `myNIC` är anslutna till de virtuella nätverksresurser som du har skapat:
+I följande avsnitt i ett exempel på ett Ansible Spelbok-avsnitt skapas ett virtuellt nätverkskort med namnet `myNIC` anslutna till de virtuella nätverks resurser som du har skapat:
 
 ```yaml
 - name: Create virtual network interface card
@@ -214,7 +214,7 @@ Det här avsnittet innehåller det Ansible-spelboksexempel som du har byggt unde
 
 Det här avsnittet beskriver hur du kör det Ansible-spelboksexempel som presenteras i den här artikeln.
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Öppna [Cloud Shell](/azure/cloud-shell/overview).
 
@@ -289,4 +289,4 @@ Det här avsnittet beskriver hur du kör det Ansible-spelboksexempel som present
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Snabbstart: Hantera en Linux-dator i Azure med Ansible](./ansible-manage-linux-vm.md)
+> [Snabb start: hantera en virtuell Linux-dator i Azure med Ansible](./ansible-manage-linux-vm.md)

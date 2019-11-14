@@ -1,18 +1,14 @@
 ---
 title: Storbritannien, officiella & UK NHS skiss exempel – kontroll mappning
 description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: e86c7040e94553b032b565e282639047a1ed8750
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162954"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037770"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
@@ -48,7 +44,7 @@ Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigu
 
 ## <a name="52-vulnerability-management"></a>5,2 sårbarhets hantering
 
-Den här skissen hjälper dig att hantera sårbarheter i informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade slut punkts skydd, system uppdateringar som saknas, sårbarheter för operativ system, SQL-sårbarheter och virtuella dator sårbarheter. Dessa insikter ger real tids information om säkerhets statusen för dina distribuerade resurser och kan hjälpa dig att prioritera åtgärds åtgärder.
+Den här skissen hjälper dig att hantera säkerhets risker i informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade slut punkts skydd, system uppdateringar som saknas, sårbarheter för operativ system, sårbarheter i SQL och virtuella dator sårbarheter. Dessa insikter ger real tids information om säkerhets statusen för dina distribuerade resurser och kan hjälpa dig att prioritera åtgärds åtgärder.
 
 - Övervaka saknade Endpoint Protection i Azure Security Center
 - System uppdateringar bör installeras på dina datorer
@@ -67,7 +63,7 @@ Den här skissen hjälper dig att skydda informations systemets till gångar gen
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 säker användar hantering/10 identitet och autentisering
 
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor autentisering aktive rad.
+Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat.
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
 - MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
@@ -124,7 +120,7 @@ Förutom att använda fler än 25 principer för lämplig säker användar hante
 
 ## <a name="12-secure-service-administration"></a>12 säker tjänst administration
 
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela fem [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Skriv behörigheter och konton med ägare, och/eller Skriv behörigheter som inte har Multi-Factor Authentication har Aktiver ATS.
+Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela fem [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Skriv behörigheter och konton med ägare, och/eller Skriv behörigheter som inte har Multi-Factor Authentication aktiverade.
 
 System som används för administration av en moln tjänst har hög privilegie rad åtkomst till tjänsten. Deras kompromisser skulle ha betydande påverkan, inklusive metoder för att kringgå säkerhets kontroller och stjäla eller manipulera stora mängder data. De metoder som används av tjänst leverantörens administratörer för att hantera drifts tjänsten bör utformas för att minska risken för utnyttjande som kan undergräva säkerheten för tjänsten. Om den här principen inte har implementerats kan en angripare ha möjlighet att kringgå säkerhets kontroller och stjäla eller manipulera stora mängder data.
 
@@ -156,8 +152,8 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 - Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
 - Distribuera nätverks övervakare när virtuella nätverk skapas
 
 ## <a name="next-steps"></a>Nästa steg
@@ -165,10 +161,10 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 Nu när du har granskat kontroll mappningen av NHS-ritningar från Storbritannien och Storbritannien kan du gå till följande artiklar och läsa mer om översikten och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> De [officiella och brittiska NHS-skisserna – översikt](./index.md)
-> [UK officiella och UK NHS-ritningar – distribuera steg](./deploy.md)
+> [Officiella och brittiska NHS-ritningar – översikt](./index.md)
+> [Storbritannien och Storbritannien NHS ritningar – distribuera steg](./deploy.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

@@ -1,5 +1,5 @@
 ---
-title: Uppdateringsinfrastruktur för Red Hat | Microsoft Docs
+title: Red Hat Update Infrastructure
 description: Läs mer om Red Hat-Uppdateringsinfrastruktur för Red Hat Enterprise Linux på begäran-instanser i Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 6b332af53f421230b3fb5401e525bd77c5e87ed9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b19ccad5254418092446aaf781d49fa7edf0e4f4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081390"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034308"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Uppdateringsinfrastruktur för Red Hat för på begäran Red Hat Enterprise Linux-datorer i Azure
  [Uppdateringsinfrastruktur för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att cloud-leverantörer, till exempel Azure för spegling av Red Hat-värdbaserade databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.
@@ -32,7 +32,7 @@ Information om Red Hat support-principer för alla versioner av RHEL finns på s
 ## <a name="important-information-about-azure-rhui"></a>Viktig information om Azure RHUI
 
 * Azure RHUI är en uppdaterings infrastruktur som stöder alla RHEL PAYG-VM: ar som skapats i Azure. Detta hindrar dig inte från att registrera dina virtuella PAYG RHEL-datorer med prenumerations hanteraren eller satellit eller någon annan källa med uppdateringar, men om du gör det med en PAYG VM kommer den att leda till indirekt dubbel fakturering. Se följande punkt för mer information.
-* Åtkomst till Azure som värd-RHUI ingår i priset för RHEL PAYG-avbildningen. Om du avregistrerar en PAYG RHEL virtuell dator från Azure som värd-RHUI konverterar som den virtuella datorn inte till en bring-your-own-license (BYOL) typ av virtuell dator. Om du har registrerat samma virtuella dator med en annan källa för uppdateringar kan roamingavgifter _indirekt_ dubbelklicka avgifter. Du debiteras för första gången för avgiften för Azure RHEL-programvara. Du debiteras den andra gången för Red Hat-prenumerationer som köpts tidigare. Om du ständigt behöver använda en annan uppdaterings infrastruktur än Azure-värdbaserade RHUI bör du överväga att registrera dig för att använda [RHEL BYOS](https://aka.ms/rhel-byos)-avbildningarna.
+* Åtkomst till Azure som värd-RHUI ingår i priset för RHEL PAYG-avbildningen. Om du avregistrerar en PAYG RHEL virtuell dator från Azure som värd-RHUI konverterar som den virtuella datorn inte till en bring-your-own-license (BYOL) typ av virtuell dator. Om du har registrerat samma virtuella dator med en annan källa för uppdateringar kan roamingavgifter _indirekt_ dubbelklicka avgifter. Du debiteras för första gången för avgiften för Azure RHEL-programvara. Du debiteras den andra gången för Red Hat-prenumerationer som köpts tidigare. Om du ständigt behöver använda en annan uppdaterings infrastruktur än Azure-värdbaserade RHUI bör du överväga att registrera dig för att använda [RHEL BYOS-avbildningarna](https://aka.ms/rhel-byos).
 
 * RHEL SAP PAYG-avbildningar i Azure (RHEL för SAP, RHEL for SAP HANA och RHEL for SAP Business Applications) är anslutna till dedikerade RHUI-kanaler som finns kvar på den särskilda RHEL-lägre versionen som krävs för SAP-certifiering.
 
@@ -40,13 +40,13 @@ Information om Red Hat support-principer för alla versioner av RHEL finns på s
 
 ## <a name="image-update-behavior"></a>Beteende för avbildnings uppdatering
 
-Från och med april 2019 erbjuder Azure RHEL-avbildningar som är anslutna till EUS-databaser (Extended Update Support) som standard och RHEL avbildningar som är anslutna till vanliga (icke-EUS) databaser som standard. Mer information om RHEL-EUS finns i dokumentation om och [EUs](https://access.redhat.com/articles/rhel-eus)i Red Hats [versions livs cykel](https://access.redhat.com/support/policy/updates/errata) . Standard beteendet för `sudo yum update` kan variera beroende på vilken RHEL-avbildning som du har tilldelat från, eftersom olika avbildningar är anslutna till olika lagrings platser.
+Från och med april 2019 erbjuder Azure RHEL-avbildningar som är anslutna till EUS-databaser (Extended Update Support) som standard och RHEL avbildningar som är anslutna till vanliga (icke-EUS) databaser som standard. Mer information om RHEL-EUS finns i dokumentation om och [EUs](https://access.redhat.com/articles/rhel-eus)i Red Hats [versions livs cykel](https://access.redhat.com/support/policy/updates/errata) . Standard beteendet för `sudo yum update` varierar beroende på vilken RHEL-avbildning som du har tilldelat från, eftersom olika avbildningar är anslutna till olika lagrings platser.
 
-För en fullständig avbildnings lista kan `az vm image list --publisher redhat --all` du köra med hjälp av Azure CLI.
+För en fullständig avbildnings lista kör `az vm image list --publisher redhat --all` med hjälp av Azure CLI.
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Avbildningar som är anslutna till icke-EUS-databaser
 
-Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till icke-EUS-lagringsplatser, kommer du att uppgraderas till den senaste `sudo yum update`RHEL-versionen när du kör. Om du till exempel etablerar en virtuell dator från en RHEL 7,4 PAYG-avbildning `sudo yum update`och kör, slutar du med en RHEL 7,7-dator (den senaste lägre versionen i RHEL7-serien).
+Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till icke-EUS-lagringsplatser, uppgraderas du till den senaste RHEL-versionen när du kör `sudo yum update`. Om du till exempel etablerar en virtuell dator från en RHEL 7,4 PAYG-avbildning och kör `sudo yum update`, slutar du med en RHEL 7,7-dator (den senaste lägre versionen i RHEL7-serien).
 
 Avbildningar som är anslutna till icke-EUS-lagringsplatser kommer inte att innehålla ett lägre versions nummer i SKU: n. SKU: n är det tredje elementet i URN (fullständigt namn på avbildningen). Till exempel är alla följande avbildningar kopplade till icke-EUS-databaser:
 
@@ -63,7 +63,7 @@ Observera att SKU: erna antingen är 7-LVM eller 7-RAW. Den lägre versionen ang
 
 ### <a name="images-connected-to-eus-repositories"></a>Bilder som är anslutna till EUS-databaser
 
-Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till EUS-lagringsplatserna uppgraderas du inte till den senaste RHEL-versionen `sudo yum update`när du kör. Detta beror på att avbildningarna som är anslutna till EUS-lagringsplatser också är versions låsta till sin speciella lägre version.
+Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till EUS-lagringsplatserna, uppgraderas du inte till den senaste RHEL-versionen när du kör `sudo yum update`. Detta beror på att avbildningarna som är anslutna till EUS-lagringsplatser också är versions låsta till sin speciella lägre version.
 
 Bilder som är anslutna till EUS-lagringsplatser kommer att innehålla ett lägre versions nummer i SKU: n. Till exempel är alla följande avbildningar kopplade till EUS-databaser:
 
@@ -108,7 +108,7 @@ Använd följande instruktioner för att låsa en RHEL VM till en viss del versi
     ```
 
     >[!NOTE]
-    > Ovanstående instruktion kommer att låsa den lägre RHEL-versionen till den aktuella del versionen. Ange en speciell del version om du vill uppgradera och låsa till en senare version som inte är den senaste. `echo 7.5 > /etc/yum/vars/releasever` Kommer till exempel att låsa din RHEL-version till RHEL 7,5
+    > Ovanstående instruktion kommer att låsa den lägre RHEL-versionen till den aktuella del versionen. Ange en speciell del version om du vill uppgradera och låsa till en senare version som inte är den senaste. `echo 7.5 > /etc/yum/vars/releasever` kommer till exempel att låsa RHEL-versionen till RHEL 7,5
 
 1. Uppdatera din virtuella RHEL-dator
     ```bash
@@ -167,15 +167,15 @@ Om du använder en nätverkskonfiguration för att ytterligare begränsa åtkoms
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Uppdatera har upphört att gälla RHUI-klientcertifikat på en virtuell dator
 
-Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7,4 (avbildnings-urn `RedHat:RHEL:7.4:7.4.2018010506`:), kommer du att uppleva anslutnings problem till RHUI på grund av ett nu utgånget SSL-klientcertifikat. Felet som visas kan se ut som _"SSL-peer avvisade certifikatet som förfallet"_ eller _"fel: Det går inte att hämta metadata för databas (repomd. xml) för databasen:... Verifiera sökvägen och försök igen_. Du kan åtgärda det här problemet genom att uppdatera RHUI-klient paketet på den virtuella datorn med hjälp av följande kommando:
+Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7,4 (avbildnings-URN: `RedHat:RHEL:7.4:7.4.2018010506`), kommer du att uppleva anslutnings problem till RHUI på grund av ett nu utgånget SSL-klientcertifikat. Felet som visas kan se ut som _"SSL-peer avvisade certifikatet som förfallet"_ eller _"fel: det går inte att hämta metadata för databas (repomd. xml) för databasen:... Verifiera sökvägen och försök igen_. Du kan åtgärda det här problemet genom att uppdatera RHUI-klient paketet på den virtuella datorn med hjälp av följande kommando:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 ```
 
-Om du kör `sudo yum update` kan du också uppdatera klient certifikat paketet (beroende på din RHEL-version), trots att "utgången SSL-certifikat" fel visas för andra lagrings platser. Om den här uppdateringen lyckas, ska normal anslutning till andra RHUI-lagringsplatser återställas så att du kan köra `sudo yum update` den.
+Om du kör `sudo yum update` kan även klient certifikats paketet uppdateras (beroende på din RHEL-version), trots att "upphört SSL-certifikat" fel visas för andra databaser. Om den här uppdateringen lyckas, ska normal anslutning till andra RHUI-lagringsplatser återställas så att du kan köra `sudo yum update` korrekt.
 
-Om du stöter på ett 404-fel när `yum update`du kör en kan du prova följande för att uppdatera yum-cachen:
+Om du stöter på ett 404-fel när du kör en `yum update`kan du prova följande för att uppdatera yum-cachen:
 ```bash
 sudo yum clean all;
 sudo yum makecache

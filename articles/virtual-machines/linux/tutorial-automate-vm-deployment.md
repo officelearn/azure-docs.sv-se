@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs – Anpassa en virtuell Linux-dator med cloud-init i Azure | Microsoft Docs
+title: Självstudie – anpassa en virtuell Linux-dator med Cloud-Init i Azure
 description: I den här självstudien får du lära dig hur du använder Cloud-Init och Key Vault för att anpassa virtuella Linux-datorer första gången de startas i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8bc396611f2e6f611de5a41de9525ba71287b363
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 27c7e32f081003ac236c6d1405eb3512f6c4433c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595108"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034640"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
 
-I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dator med SSH och installerade NGINX manuellt. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt, kan det vara användbart med någon form av automatisering. Ett vanligt sätt att anpassa en virtuell dator första gången den startar är att använda [cloud-init](https://cloudinit.readthedocs.io). I den här guiden får du lära du dig hur man:
+I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dator med SSH och installerade NGINX manuellt. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt, kan det vara användbart med någon form av automatisering. Ett vanligt sätt att anpassa en virtuell dator första gången den startar är att använda [cloud-init](https://cloudinit.readthedocs.io). I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en cloud-init-konfigurationsfil
@@ -33,7 +33,7 @@ I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dat
 > * Använda Key Vault för att förvara certifikat säkert
 > * Automatisera säker distribution av NGINX med cloud-init
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="cloud-init-overview"></a>Översikt över Cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init körs under hela den ursprungliga startprocessen finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.
@@ -42,7 +42,7 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 
 Vi arbetar med våra partners och försöker göra så att cloud-init inkluderas och fungerar i de avbildningar de tillhandahåller till Azure. Den här tabellen beskriver den aktuella tillgängligheten när det gäller cloud-init på Azure plattformsavbildningar:
 
-| Utgivare | Erbjudande | SKU | Version | moln-init Ready |
+| Utgivare | Erbjudande | SKU | Version | cloud-init är klara |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
@@ -121,7 +121,7 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Det kan ta några minuter innan du kan öppna appen. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att komma åt Node.js i en webbläsare.
+Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. Det kan ta några minuter innan du kan öppna programmet. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att komma åt Node.js i en webbläsare.
 
 För att låta webbtrafik nå din virtuella dator öppnar du port 80 från Internet med [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
@@ -130,7 +130,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Testa webbappen
-Nu kan du öppna en webbläsare och ange *http: \/ \/ \<publicIpAddress >* i adress fältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
+Nu kan du öppna en webbläsare och ange *http:\/\/\<publicIpAddress >* i adress fältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
 
 ![Visa NGINX-webbplats som körs](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -249,7 +249,7 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Det kan ta några minuter innan du kan öppna appen. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att komma åt Node.js i en webbläsare.
+Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. Det kan ta några minuter innan du kan öppna programmet. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att komma åt Node.js i en webbläsare.
 
 För att låta säker webbtrafik nå din virtuella dator ska du öppna port 443 från Internet med [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
@@ -261,7 +261,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testa säker webbapp
-Nu kan du öppna en webbläsare och ange *https: \/ \/ \<publicIpAddress >* i adress fältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
+Nu kan du öppna en webbläsare och ange *https:\/\/\<publicIpAddress >* i adress fältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
 
 ![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Virtuella nätverk och virtuella Linux-datorer i Azure | Microsoft Docs
+title: Virtuella nätverk och virtuella Linux-datorer i Azure
 description: Lär dig mer om nätverk i enlighet med grunderna i hur du skapar virtuella Linux-datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 2b0bcf0109bfdbc0b08f696e21d8adfd08ce04bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6d02ce362a1f64cf0dc9e40e3947bdfd01f4aeb4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082658"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035576"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Virtuella nätverk och virtuella datorer i Azure 
 

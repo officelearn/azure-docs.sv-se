@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
-ms.date: 08/06/2018
+ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899988"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031015"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilera webbappar som körs på en virtuell Azure-dator eller en virtuell dators skalnings uppsättning med hjälp av Application Insights Profiler
 
@@ -89,15 +89,15 @@ Vi har ännu inget sätt att ange Application Insights Profiler mottagare från 
 
     ![Kontrol lera om WAD-tillägget har installerats][wadextension]
 
-1. Hitta tillägget för VM-diagnostik för den virtuella datorn. Expandera resurs gruppen, Microsoft. Compute-virtualMachines, namn på virtuell dator och tillägg.  
+2. Hitta tillägget för VM-diagnostik för den virtuella datorn. Gå till [https://resources.azure.com](https://resources.azure.com). Expandera resurs gruppen, Microsoft. Compute-virtualMachines, namn på virtuell dator och tillägg.  
 
     ![Navigera till WAD-konfiguration i Azure Resource Explorer][azureresourceexplorer]
 
-1. Lägg till Application Insights Profiler-Sink i SinksConfig-noden under WadCfg. Om du inte redan har ett SinksConfig-avsnitt kan du behöva lägga till ett. Se till att ange rätt Application Insights iKey i dina inställningar. Du måste växla Explorer-läget till läsa/skriva i det övre högra hörnet och trycka på den blå knappen Redigera.
+3. Lägg till Application Insights Profiler-Sink i SinksConfig-noden under WadCfg. Om du inte redan har ett SinksConfig-avsnitt kan du behöva lägga till ett. Se till att ange rätt Application Insights iKey i dina inställningar. Du måste växla Explorer-läget till läsa/skriva i det övre högra hörnet och trycka på den blå knappen Redigera.
 
     ![Lägg till Application Insights Profiler mottagare][resourceexplorersinksconfig]
 
-1. När du är klar med redigeringen av config trycker du på "flytta". Om placeringen lyckas visas en grön bock i mitten av skärmen.
+4. När du är klar med redigeringen av config trycker du på "flytta". Om placeringen lyckas visas en grön bock i mitten av skärmen.
 
     ![Skicka skicka begäran om att tillämpa ändringarna][resourceexplorerput]
 

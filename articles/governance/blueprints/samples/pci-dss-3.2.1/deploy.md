@@ -1,18 +1,14 @@
 ---
 title: PCI-DSS v 3.2.1 skiss exempel – distribuera steg
 description: Distribuera steg för betalnings kortet bransch Data Security Standard v 3.2.1-exempel, inklusive information om skiss artefakt parameter.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: b765782adfa5fd63bc270ad28b74cf3bd1ca1d4a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b29a1a66b7407558769e506deed5e65f7ecb064c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163045"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037257"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuera skiss exemplet PCI-DSS v 3.2.1
 
@@ -111,7 +107,7 @@ Nu när du har granskat stegen för att distribuera PCI-DSS v 3.2.1-skissen kan 
 > [PCI-DSS v 3.2.1 skiss – översikt](./index.md)
 > [PCI-DSS v 3.2.1 skiss-kontroll mappning](./control-mapping.md)
 
-Ytterligare artiklar om ritningar och hur de används:
+Ytterligare artiklar om skisser och hur de används:
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

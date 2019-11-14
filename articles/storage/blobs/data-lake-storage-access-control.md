@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991917"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037243"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomst kontroll i Azure Data Lake Storage Gen2
 
@@ -36,7 +36,7 @@ När du använder RBAC-roll tilldelningar är en kraftfull mekanism för att kon
 När ett säkerhets objekt beviljas RBAC-databehörighet via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)eller via en anpassad roll, utvärderas dessa behörigheter först när en begäran auktoriseras. Om den begärda åtgärden auktoriseras av säkerhets objektets RBAC-tilldelningar, löses auktoriseringen omedelbart och inga ytterligare ACL-kontroller utförs. Alternativt, om säkerhetsobjektet inte har en RBAC-tilldelning eller om begärans åtgärd inte matchar den tilldelade behörigheten, utförs ACL-kontroller för att avgöra om säkerhets objekt har behörighet att utföra den begärda åtgärden.
 
 > [!NOTE]
-> Om säkerhets objekt har tilldelats den inbyggda roll tilldelningen lagrings-BLOB-dataägare, betraktas säkerhetsobjektet som en superanvändare och beviljas fullständig åtkomst till alla relevanta åtgärder, inklusive att ange ägare till en katalog eller både filer och ACL: er för kataloger och filer som de inte är ägare till. Super-User Access är det enda godkända sättet att ändra ägaren till en resurs.
+> Om säkerhets objekt har tilldelats den inbyggda roll tilldelningen Storage BLOB data-ägare, betraktas säkerhetsobjektet som en *superanvändare* och beviljas fullständig åtkomst till alla relevanta åtgärder, inklusive att ange ägare till en katalog eller fil, samt ACL: er för kataloger och filer som de inte är ägare till. Super-User Access är det enda godkända sättet att ändra ägaren till en resurs.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autentisering med delad nyckel och signatur för delad åtkomst (SAS)
 
@@ -64,7 +64,7 @@ Om du vill ange behörigheter för fil-och katalog nivå kan du läsa följande 
 |REST-API    |[Sökväg – uppdatera](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Om säkerhetsobjektet är ett huvud namn för *tjänsten* är det viktigt att använda objekt-ID: t för tjänstens huvud namn och inte objekt-ID: t för den relaterade appens registrering. För att hämta objekt-ID: t för tjänstens huvud namn öppnar du Azure CLI och använder sedan `az ad sp show --id <Your App ID> --query objectId`det här kommandot:. Se till att ersätta `<Your App ID>` plats hållaren med app-ID: t för din app Registration.
+> Om säkerhetsobjektet är ett huvud namn för *tjänsten* är det viktigt att använda objekt-ID: t för tjänstens huvud namn och inte objekt-ID: t för den relaterade appens registrering. För att hämta objekt-ID: t för tjänstens huvud namn öppnar du Azure CLI och använder sedan det här kommandot: `az ad sp show --id <Your App ID> --query objectId`. Se till att ersätta `<Your App ID>` plats hållaren med app-ID: t för din app Registration.
 
 ### <a name="types-of-access-control-lists"></a>Typer av åtkomst kontrol listor
 
@@ -90,7 +90,7 @@ Behörigheterna för ett behållar objekt är **läsa**, **skriva**och **köra**
 | **Köra (X)** | Betyder inte något i samband med Data Lake Storage Gen2 | Krävs för att bläddra bland de underordnade objekten i en katalog |
 
 > [!NOTE]
-> Om du beviljar behörigheter genom att endast använda ACL: er (ingen RBAC), så behöver du ge tjänstens huvud namn Läs-eller Skriv behörighet till en fil, och för varje mapp i hierarkin för mappar som leda till filen.
+> Om du beviljar behörigheter genom att endast använda ACL: er (ingen RBAC), så måste du ge säkerhets objektets behörighet att **köra** behörigheter till behållaren och till varje mapp i hierarkin för mappar som leder till filen.
 
 #### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 
@@ -154,8 +154,8 @@ I POSIX-ACL: erna är alla användare kopplade till en *primär grupp*. Använda
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Tilldela ägande grupp för en ny fil eller katalog
 
-* **Fall 1**: Rot katalogen "/". Den här katalogen skapas när en Data Lake Storage Gen2-behållare skapas. I det här fallet anges den ägande gruppen till den användare som skapade behållaren om den gjordes med OAuth. Om behållaren har skapats med hjälp av delad nyckel, en konto säkerhets Association eller en tjänst-SAS, är ägaren och ägande gruppen inställt på **$superuser**.
-* **Fall 2** (Alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade katalogen.
+* **Fall 1**: rot katalogen "/". Den här katalogen skapas när en Data Lake Storage Gen2-behållare skapas. I det här fallet anges den ägande gruppen till den användare som skapade behållaren om den gjordes med OAuth. Om behållaren har skapats med hjälp av delad nyckel, en konto säkerhets Association eller en tjänst-SAS, är ägaren och ägande gruppen inställt på **$superuser**.
+* **Fall 2** (alla andra fall): när ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade katalogen.
 
 ##### <a name="changing-the-owning-group"></a>Ändra den ägande gruppen
 
@@ -309,7 +309,7 @@ Ett GUID visas om posten representerar en användare och den användaren inte fi
 
 När du definierar ACL: er för tjänstens huvud namn är det viktigt att använda objekt-ID: t (OID) för *tjänstens huvud namn* för den app-registrering som du skapade. Det är viktigt att notera att registrerade appar har ett separat tjänst objekt i den aktuella Azure AD-klienten. Registrerade appar har ett OID som är synligt i Azure Portal, men *tjänstens huvud namn* har en annan (annan) OID.
 
-Om du vill hämta OID för det tjänst huvud namn som motsvarar en registrerad app kan du använda `az ad sp show` kommandot. Ange program-ID som parameter. Här är ett exempel på hur du hämtar OID för tjänstens huvud namn som motsvarar en app-registrering med app-ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Kör följande kommando i Azure CLI:
+Du kan hämta OID för tjänstens huvud namn som motsvarar en registrerad app genom att använda kommandot `az ad sp show`. Ange program-ID som parameter. Här är ett exempel på hur du hämtar OID för tjänstens huvud namn som motsvarar en app-registrering med app-ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Kör följande kommando i Azure CLI:
 
 ```
 $ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
@@ -335,6 +335,6 @@ ACL: er ärver inte. Standard-ACL: er kan dock användas för att ange ACL: er f
 * [POSIX ACL på Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL med åtkomstkontrollistor på Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Översikt över Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

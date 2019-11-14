@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en hanterad disk från en ögonblicksbild | Microsoft Docs
+title: Skriptexempel för Azure CLI – Skapa en hanterad disk från en ögonblicksbild
 description: Skriptexempel för Azure CLI – Skapa en hanterad disk från en ögonblicksbild
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 030f3d9455956c3c728e450aca058b2df10eb3d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a219b24c4d4b82363094ccba74db22e3b4018c4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302423"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023322"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Skapa en hanterad disk från en ögonblicksbild med CLI
 

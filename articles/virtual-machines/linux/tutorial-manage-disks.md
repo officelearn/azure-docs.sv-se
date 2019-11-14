@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Hantera Azure-diskar med Azure CLI | Microsoft Docs
+title: Självstudiekurs – hantera Azure-diskar med Azure CLI
 description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa och hantera Azure-diskar för virtuella datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9f4aec031d9ba8a162b022541c6e4cb35ce976a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081509"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034391"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Självstudiekurs – hantera Azure-diskar med Azure CLI
 
@@ -32,7 +32,7 @@ Virtuella Azure-datorer (VM) använder diskar för att lagra de virtuella datore
 > * Datadiskar
 > * Standard- och Premium-diskar
 > * Diskprestanda
-> * Ansluta och förbereda datadiskar
+> * Koppling och förberedelse av datadiskar
 > * Ändrar storlek på diskar
 > * Ögonblicksbilder
 
@@ -182,7 +182,7 @@ exit
 
 När du tar en ögonblicksbild skapar Azure en skrivskyddad kopia av disken vid en viss tidpunkt. Ögonblicksbilder av virtuella Azure-datorer är användbara för att snabbt spara tillståndet hos en virtuell dator innan ändringar i konfigurationen. Om det uppstår ett problem eller fel kan den virtuella datorn återställas med en ögonblicksbild. När en virtuell dator har mer än en disk tas en ögonblicksbild av varje disk oberoende av de andra. Om programkonsekventa säkerhetskopior krävs bör den virtuella datorn stoppas innan ögonblicksbilder tas. Ett annat alternativ är att använda [Azure Backup-tjänsten](/azure/backup/) som ger möjlighet till automatiserade säkerhetskopior medan den virtuella datorn körs.
 
-### <a name="create-snapshot"></a>Skapa ögonblicksbild
+### <a name="create-snapshot"></a>Skapa en ögonblicksbild
 
 Du behöver diskens ID eller namn för att skapa en ögonblicksbild av en virtuell dator. Använd kommandot [az vm show](/cli/azure/vm#az-vm-show) för att hämta diskens ID. I det här exemplet sparas diskens ID i en variabel så det kan användas i ett senare steg.
 
@@ -265,7 +265,7 @@ I den här kursen har du lärt dig mer om VM-diskar, till exempel:
 > * Datadiskar
 > * Standard- och Premium-diskar
 > * Diskprestanda
-> * Ansluta och förbereda datadiskar
+> * Koppling och förberedelse av datadiskar
 > * Ändrar storlek på diskar
 > * Ögonblicksbilder
 

@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Säkerhetskopiera virtuella Linux-datorer på Azure Portal | Microsoft Docs
+title: Självstudie – säkerhetskopiera virtuella Linux-datorer i Azure Portal
 description: I den här självstudiekursen lär du dig hur du använder Azure Portal för att skydda dina virtuella Linux-datorer med Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 890d4ab0dcbaa814b4ce3365025e4c35e4ba4c6b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103543"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034586"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Linux-datorer i Azure
 
-Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller specifika filer. I den här artikeln förklaras hur du återställer en enda fil till en virtuell Linux-dator som kör nginx. Om du inte redan har en virtuell dator att använda kan du skapa en med hjälp av [Linux-snabbstarten](quick-create-cli.md). I den här självstudiekursen får du lära du dig att:
+Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller specifika filer. I den här artikeln förklaras hur du återställer en enda fil till en virtuell Linux-dator som kör nginx. Om du inte redan har en virtuell dator att använda kan du skapa en med hjälp av [Linux-snabbstarten](quick-create-cli.md). I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en säkerhetskopia av en virtuell dator
@@ -43,7 +43,7 @@ När dataöverföringen har slutförts tas ögonblicksbilden bort och en återst
 ## <a name="create-a-backup"></a>Skapa en säkerhetskopia
 Skapa en schemalagd daglig säkerhetskopiering till ett Recovery Services-valv:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Virtuella datorer** på menyn till vänster. 
 3. Välj en virtuell dator som du vill säkerhetskopiera i listan.
 4. Klicka på **Säkerhetskopiering** i avsnittet **Inställningar** på bladet VM. Bladet **Aktivera säkerhetskopiering** öppnas.
@@ -93,8 +93,8 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
 7. Välj den virtuella datorn i listan.
 8. Klicka på **Säkerhetskopiering** i avsnittet **Inställningar** på bladet VM. Bladet **Säkerhetskopiera** öppnas. 
 9. På menyn överst på bladet väljer du **Filåterställning**. Bladet **Filåterställning** öppnas.
-10. I **steg 1: Välj återställnings punkt**, Välj en återställnings punkt i list rutan.
-11. I **steg 2: Ladda ned skript om du vill bläddra**och återställa filer klickar du på knappen **Hämta körbar fil** . Spara den nedladdade filen till din lokala dator.
+10. I **Steg 1: Välj återställningspunkt** väljer du en återställningspunkt från listrutan.
+11. I **Steg 2: Ladda ned skriptet för att söka och återställa filer** klickar du på knappen **Ladda ned körbar fil**. Spara den nedladdade filen till din lokala dator.
 7. Klicka på **Ladda ned skript** för att ladda ned skriptfilen lokalt.
 8. Öppna en Bash-kommandotolk och skriv följande, och ersätt *Linux_myVM_05-05-2017.sh* med rätt sökväg och filnamn för skriptet som du har laddat ned, ersätt *azureuser* med användarnamnet för den virtuella datorn och *13.69.75.209* med din virtuella dators offentliga IP-adress.
     
@@ -155,7 +155,7 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
 
     ![Standardversion av nginx-webbsida](./media/tutorial-backup-vms/nginx-working.png)
 
-18. På den lokala datorn går du tillbaka till fliken webbläsare för Azure Portal och i **steg 3: Demontera diskarna efter återställning** genom att klicka på knappen **demontera diskar** . Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter de 12 timmarna måste du ladda ned ett nytt skript för att skapa en ny monteringspunkt.
+18. På din lokala dator går du tillbaka till webbläsarfliken för Azure-portalen i **Steg 3: Demontera diskarna efter återställning** klickar du på knappen **Demontera diskar**. Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter de 12 timmarna måste du ladda ned ett nytt skript för att skapa en ny monteringspunkt.
 
 
 ## <a name="next-steps"></a>Nästa steg

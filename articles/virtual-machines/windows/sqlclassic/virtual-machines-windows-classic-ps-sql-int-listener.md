@@ -1,27 +1,28 @@
 ---
-title: Konfigurera en ILB-lyssnare för Always on-tillgänglighetsgrupper i Azure | Microsoft Docs
-description: Den här självstudien använder resurser som skapats med den klassiska distributions modellen och skapar en Always on-lyssnare för tillgänglighets grupp i Azure som använder en intern belastningsutjämnare.
+title: Konfigurera en ILB-lyssnare för tillgänglighets grupper (klassisk)
+description: Den här självstudien använder resurser som skapats med den klassiska distributions modellen och skapar en Always on-lyssnare för tillgänglighets grupp i för en SQL Server VM i Azure som använder en intern belastningsutjämnare.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 29aaedeafb3995cc09e221d2e049dd538808904a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101912"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032656"
 ---
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Konfigurera en ILB-lyssnare för Always on-tillgänglighetsgrupper i Azure
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurera en ILB-lyssnare för tillgänglighets grupper på Azure SQL Server virtuella datorer
 > [!div class="op_single_selector"]
 > * [Intern lyssnare](../classic/ps-sql-int-listener.md)
 > * [Extern lyssnare](../classic/ps-sql-ext-listener.md)
@@ -31,7 +32,7 @@ ms.locfileid: "70101912"
 ## <a name="overview"></a>Översikt
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Om du vill konfigurera en lyssnare för en Always on-tillgänglighetsgruppen i Resource Manager-modellen, se [Konfigurera en belastningsutjämnare för en Always on-tillgänglighets grupp i Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -66,7 +67,7 @@ Skapa en belastningsutjämnad slut punkt för varje virtuell dator som är värd
 
 6. Kör `Get-AzurePublishSettingsFile`. Denna cmdlet dirigerar dig till en webbläsare för att ladda ned en fil för publicerings inställningar till en lokal katalog. Du kan uppmanas att ange dina inloggnings uppgifter för din Azure-prenumeration.
 
-7. Kör följande `Import-AzurePublishSettingsFile` kommando med sökvägen till filen med publicerings inställningar som du laddade ned:
+7. Kör följande `Import-AzurePublishSettingsFile`-kommando med sökvägen till filen med publicerings inställningar som du laddade ned:
 
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
@@ -77,7 +78,7 @@ Skapa en belastningsutjämnad slut punkt för varje virtuell dator som är värd
         (Get-AzureVNetConfig).XMLConfiguration
 9. Anteckna *under nätets* namn som innehåller de virtuella datorer som är värdar för replikerna. Det här namnet används i $SubnetName-parametern i skriptet.
 
-10. Notera namnet på *VirtualNetworkSite* och Start- *AddressPrefix* för det undernät som innehåller de virtuella datorer som är värdar för replikerna. Leta efter en tillgänglig IP-adress genom att skicka båda värdena `Test-AzureStaticVNetIP` till kommandot och genom att undersöka *AvailableAddresses*. Om det virtuella nätverket till exempel heter *MyVNet* och har ett adress intervall för under nätet som börjar vid *172.16.0.128*, visar följande kommando tillgängliga adresser:
+10. Notera namnet på *VirtualNetworkSite* och Start- *AddressPrefix* för det undernät som innehåller de virtuella datorer som är värdar för replikerna. Leta efter en tillgänglig IP-adress genom att skicka båda värdena till kommandot `Test-AzureStaticVNetIP` och genom att undersöka *AvailableAddresses*. Om det virtuella nätverket till exempel heter *MyVNet* och har ett adress intervall för under nätet som börjar vid *172.16.0.128*, visar följande kommando tillgängliga adresser:
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Välj en av de tillgängliga adresserna och Använd den i parametern $ILBStaticIP i skriptet i nästa steg.
@@ -104,7 +105,7 @@ Skapa en belastningsutjämnad slut punkt för varje virtuell dator som är värd
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. När du har angett variablerna kopierar du skriptet från text redigeraren till PowerShell-sessionen för att köra det. Om meddelandet fortfarande visas **>>** trycker du på RETUR igen för att kontrol lera att skriptet börjar köras.
+13. När du har angett variablerna kopierar du skriptet från text redigeraren till PowerShell-sessionen för att köra det. Om meddelandet fortfarande visar **>>** trycker du på RETUR igen för att kontrol lera att skriptet börjar köras.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Kontrol lera att KB2854082 installeras vid behov
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -150,7 +151,7 @@ Skapa tillgänglighets gruppens lyssnare i två steg. Först skapar du kluster r
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. När du har angett variablerna, öppnar du ett upphöjt Windows PowerShell-fönster, klistrar in skriptet från text redigeraren till PowerShell-sessionen för att köra det. Om meddelandet fortfarande visas **>>** trycker du på RETUR igen för att kontrol lera att skriptet börjar köras.
+3. När du har angett variablerna, öppnar du ett upphöjt Windows PowerShell-fönster, klistrar in skriptet från text redigeraren till PowerShell-sessionen för att köra det. Om meddelandet fortfarande visar **>>** trycker du på RETUR igen för att kontrol lera att skriptet börjar köras.
 
 4. Upprepa föregående steg för varje virtuell dator.  
     Det här skriptet konfigurerar IP-adressresursen med IP-adressen för moln tjänsten och anger andra parametrar, t. ex. avsöknings port. När IP-adressresursen är online kan den svara på avsökningen på avsöknings porten från den belastningsutjämnade slut punkt som du skapade tidigare.

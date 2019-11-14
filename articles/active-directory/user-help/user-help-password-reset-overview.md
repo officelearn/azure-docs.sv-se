@@ -1,5 +1,5 @@
 ---
-title: Återställa ditt eget arbets-eller skol lösen ord översikt – Azure Active Directory | Microsoft Docs
+title: Återställa ditt eget arbets-eller skol lösen ord översikt – Azure AD
 description: En lista med länkar till artiklar om hur du registrerar och återställer lösen ordet för ditt arbets-eller skol konto utan Administratörs hjälp.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160600"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028494"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Återställa ditt eget arbets-eller skol lösen ord – översikt
 
@@ -34,5 +34,5 @@ Detaljerad information och anvisningar om hur du registrerar ditt konto för lö
 
 |Artikel |Beskrivning |
 |------|------------|
-| [Registrera dig för lösen ords återställning via självbetjäning](active-directory-passwords-reset-register.md) ] Instruktioner för hur du verifierar dina autentiseringsmetoder och registrerar dig för lösen ords återställning via självbetjäning så att du kan återställa ditt eget lösen ord.|
-| [Återställ ditt lösen ord](active-directory-passwords-update-your-own-password.md) ] Anvisningar om hur du återställer eller låser upp lösen ordet för ett arbets-eller skol konto.|
+| [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md) | Instruktioner för hur du verifierar dina autentiseringsmetoder och registrerar dig för lösen ords återställning via självbetjäning så att du kan återställa ditt eget lösen ord. |
+| [Återställa lösenordet](active-directory-passwords-update-your-own-password.md) | Anvisningar om hur du återställer eller låser upp lösen ordet för ett arbets-eller skol konto. |

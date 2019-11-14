@@ -1,6 +1,6 @@
 ---
-title: Skapa en Linux-VM i Azure från en mall | Microsoft Docs
-description: Hur du använder Azure CLI för att skapa en Linux VM från en Resource Manager-mall
+title: Skapa en virtuell Linux-dator i Azure från en mall
+description: Så här använder du Azure CLI för att skapa en virtuell Linux-dator från en Resource Manager-mall
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,33 +16,33 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f12bfaa09b74bf2d9004044dbedb8d7bb15965c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 3e32e9f17b5c48e18453724eb683ba2e86dd0cdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671578"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036492"
 ---
-# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Hur du skapar en Linux-dator med Azure Resource Manager-mallar
+# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager mallar
 
-Lär dig hur du skapar en Linux-dator (VM) med hjälp av en Azure Resource Manager-mall och Azure CLI från Azure Cloud shell. Om du vill skapa en Windows-dator, se [skapa en Windows-dator från en Resource Manager-mall](../windows/ps-template.md).
+Lär dig hur du skapar en virtuell Linux-dator med hjälp av en Azure Resource Manager-mall och Azure CLI från Azure Cloud Shell. Information om hur du skapar en virtuell Windows-dator finns i [skapa en virtuell Windows-dator från en Resource Manager-mall](../windows/ps-template.md).
 
 ## <a name="templates-overview"></a>Översikt över mallar
 
-Azure Resource Manager-mallar är JSON-filer som definierar infrastrukturen och konfigurationen av din Azure-lösning. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. Mer information om mallformatet och hur du konstruerar finns [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). JSON-syntaxen för resurstyper finns i [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions) (Definiera resurser i Azure Resource Manager-mallar).
+Azure Resource Manager mallar är JSON-filer som definierar infrastrukturen och konfigurationen för din Azure-lösning. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. Mer information om mallens format och hur du skapar den finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). JSON-syntaxen för resurstyper finns i [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions) (Definiera resurser i Azure Resource Manager-mallar).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en Azure virtuell dator vanligtvis innehåller två steg:
+Att skapa en virtuell Azure-dator innehåller vanligt vis två steg:
 
 1. Skapa en resursgrupp. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn.
 1. Skapa en virtuell dator.
 
-I följande exempel skapas en virtuell dator från en [Azure-snabbstartsmall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). SSH-autentisering tillåts för den här distributionen. När du uppmanas, anger du värdet för en egen offentlig SSH-nyckel, t.ex innehållet i *~/.ssh/id_rsa.pub*. Om du vill skapa ett SSH-nyckelpar kan du läsa [hur du skapar och använder en SSH-nyckelpar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md). Här är en kopia av mallen:
+I följande exempel skapas en virtuell dator från en [Azure snabb starts mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Endast SSH-autentisering tillåts för den här distributionen. När du uppmanas till det anger du värdet för din egen offentliga SSH-nyckel, till exempel innehållet i *~/.ssh/id_rsa. pub*. Om du behöver skapa ett SSH-nyckelpar kan du läsa [så här skapar du och använder ett SSH-nyckelpar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md). Här är en kopia av mallen:
 
 [!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
 
-Om du vill köra CLI-skript, Välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**:
+Om du vill köra CLI-skriptet väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -60,19 +60,19 @@ az group deployment create --resource-group $resourceGroupName --template-uri ht
 az vm show --resource-group $resourceGroupName --name "$projectName-vm" --show-details --query publicIps --output tsv
 ```
 
-Det senaste Azure CLI-kommandot visar offentlig IP-adressen för den nya virtuella datorn. Du behöver den offentliga IP-adressen för att ansluta till den virtuella datorn. Se nästa avsnitt i den här artikeln.
+Det sista Azure CLI-kommandot visar den offentliga IP-adressen för den nyligen skapade virtuella datorn. Du behöver den offentliga IP-adressen för att ansluta till den virtuella datorn. Se nästa avsnitt i den här artikeln.
 
-Du har angett en mall som lagras i GitHub i exemplet ovan. Du kan också hämta eller skapa en mall och ange den lokala sökvägen med den `--template-file` parametern.
+I föregående exempel angav du en mall som lagrats i GitHub. Du kan också hämta eller skapa en mall och ange den lokala sökvägen med parametern `--template-file`.
 
 Här följer några ytterligare resurser:
 
-- Läs hur du utvecklar Resource Manager-mallar i [dokumentation om Azure Resource Manager](/azure/azure-resource-manager/).
-- Scheman för Azure-dator finns i [Azure mallreferensen](/azure/templates/microsoft.compute/allversions).
-- Flera VM-mallexempel finns i [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](/azure/azure-resource-manager/).
+- Information om Azures virtuella dator scheman finns i [referens för Azure-mallar](/azure/templates/microsoft.compute/allversions).
+- För att se fler exempel på mallar för virtuella datorer, se [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Du kan sedan SSH till den virtuella datorn som vanligt. Ger dig egna offentliga IP-adress från det föregående kommandot:
+Du kan sedan använda SSH till den virtuella datorn som normalt. Ange en offentlig IP-adress från föregående kommando:
 
 ```bash
 ssh <adminUsername>@<ipAddress>
@@ -80,12 +80,12 @@ ssh <adminUsername>@<ipAddress>
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här exemplet skapade du en grundläggande Linux-VM. Fler Resource Manager-mallar som inkluderar ramverk för programmet eller skapa mer komplexa miljöer, bläddra i [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+I det här exemplet har du skapat en enkel virtuell Linux-dator. Om du vill ha fler Resource Manager-mallar som innehåller program ramverk eller skapa mer komplexa miljöer kan du bläddra i [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
-Mer information om hur du skapar mallar, visa JSON-syntax och egenskaper för resurstyper som du har distribuerat:
+Om du vill veta mer om hur du skapar mallar kan du Visa JSON-syntaxen och egenskaperna för de resurs typer som du har distribuerat:
 
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft. Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

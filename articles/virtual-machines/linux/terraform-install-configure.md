@@ -1,5 +1,5 @@
 ---
-title: Installera och konfigurera terraform för att etablera Azure-resurser | Microsoft Docs
+title: Installera och konfigurera terraform för att etablera Azure-resurser
 description: Lär dig hur du installerar och konfigurerar terraform för att skapa Azure-resurser
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: efba440448ac912b7656eeab017eef947ab25e95
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168729"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034688"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installera och konfigurera terraform för att etablera Azure-resurser
  
@@ -35,7 +35,7 @@ Terraform installeras som standard i [Cloud Shell](/azure/terraform/terraform-cl
 
 Om du vill installera terraform [hämtar](https://www.terraform.io/downloads.html) du lämpligt paket för operativ systemet till en separat installations katalog. Hämtningen innehåller en enda körbar fil som du även bör definiera en global sökväg för. Instruktioner för hur du ställer in sökvägen på Linux och Mac finns på [den här webb sidan](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Instruktioner för hur du anger sökvägen för Windows finns på [den här webb sidan](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
 
-Verifiera din Sök vägs konfiguration med `terraform` kommandot. En lista över tillgängliga terraform-alternativ visas, som i följande exempel:
+Verifiera din Sök vägs konfiguration med kommandot `terraform`. En lista över tillgängliga terraform-alternativ visas, som i följande exempel:
 
 ```console
 azureuser@Azure:~$ terraform
@@ -52,23 +52,23 @@ Om du har flera Azure-prenumerationer ska du först fråga ditt konto med [AZ-ko
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
-Om du vill använda en vald prenumeration ställer du in prenumerationen på den här sessionen med [AZ-kontot](/cli/azure/account#az-account-set). Ställ in miljövariabeln så att den innehåller värdet för `id` det returnerade fältet från den prenumeration som du vill använda: `SUBSCRIPTION_ID`
+Om du vill använda en vald prenumeration ställer du in prenumerationen på den här sessionen med [AZ-kontot](/cli/azure/account#az-account-set). Ange `SUBSCRIPTION_ID`-miljövariabeln så att den innehåller värdet för fältet returnerat `id` från den prenumeration som du vill använda:
 
 ```azurecli-interactive
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Nu kan du skapa ett huvud namn för tjänsten för användning med terraform. Använd [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)och ange omfånget till din prenumeration på följande sätt:
+Nu kan du skapa ett huvud namn för tjänsten för användning med terraform. Använd [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)och ange *omfånget* till din prenumeration på följande sätt:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Din `appId`, `password`, `sp_name`och returneras.`tenant` `appId` Anteckna och `password`.
+Din `appId`, `password`, `sp_name`och `tenant` returneras. Anteckna `appId` och `password`.
 
 ## <a name="configure-terraform-environment-variables"></a>Konfigurera terraform-miljövariabler
 
-Om du vill konfigurera terraform för att använda Azure AD-tjänstens huvud namn anger du följande miljövariabler som sedan används av [Azure terraform](https://registry.terraform.io/modules/Azure)-modulerna. Du kan också ställa in miljön om du arbetar med ett annat Azure-moln än Azure Public.
+Om du vill konfigurera terraform för att använda Azure AD-tjänstens huvud namn anger du följande miljövariabler som sedan används av [Azure terraform-modulerna](https://registry.terraform.io/modules/Azure). Du kan också ställa in miljön om du arbetar med ett annat Azure-moln än Azure Public.
 
 - `ARM_SUBSCRIPTION_ID`
 - `ARM_CLIENT_ID`
@@ -117,7 +117,7 @@ Utdata ser ut ungefär så här:
 Terraform has been successfully initialized!
 ```
 
-Du kan förhandsgranska de åtgärder som ska utföras av terraform-skriptet `terraform plan`med. När du är redo att skapa resurs gruppen använder du terraform-planen på följande sätt:
+Du kan förhandsgranska de åtgärder som ska utföras av terraform-skriptet med `terraform plan`. När du är redo att skapa resurs gruppen använder du terraform-planen på följande sätt:
 
 ```bash
 terraform apply

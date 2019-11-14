@@ -1,5 +1,5 @@
 ---
-title: Logga in på en virtuell Linux-dator med Azure Active Directory autentiseringsuppgifter | Microsoft Docs
+title: Logga in på en virtuell Linux-dator med Azure Active Directory autentiseringsuppgifter
 description: Lär dig hur du skapar och konfigurerar en virtuell Linux-dator för att logga in med Azure Active Directory autentisering.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327098"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035933"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Förhandsversion: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
 För att förbättra säkerheten för virtuella Linux-datorer i Azure kan du integrera med autentisering med Azure Active Directory (AD). När du använder Azure AD-autentisering för virtuella Linux-datorer kan du centralt styra och tillämpa principer som tillåter eller nekar åtkomst till de virtuella datorerna. Den här artikeln visar hur du skapar och konfigurerar en virtuell Linux-dator för att använda Azure AD-autentisering.
 
@@ -106,8 +106,8 @@ az vm extension set \
 
 Princip för Azure rollbaserad Access Control (RBAC) bestämmer vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM-inloggning:
 
-- **Administratörs inloggning för virtuell dator**: Användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med behörigheter för Windows-administratör eller Linux-rot användare.
-- **Användar inloggning för virtuell dator**: Användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.
+- **Administratörs inloggning för virtuell dator**: användare med den här rollen som tilldelas kan logga in på en virtuell Azure-dator med Windows-administratör eller Linux-rot användar privilegier.
+- **Användar inloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.
 
 > [!NOTE]
 > Om du vill tillåta att en användare loggar in på den virtuella datorn via SSH måste du tilldela antingen rollen *Administratörs inloggning för virtuell dator* eller *användar inloggning för virtuell dator* . En Azure-användare med rollen *ägare* eller *deltagare* som har tilldelats en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via SSH.
@@ -139,7 +139,7 @@ Först visar du den offentliga IP-adressen för den virtuella datorn med [AZ VM 
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Logga in på den virtuella Azure Linux-datorn med dina autentiseringsuppgifter för Azure AD. Med `-l` den här parametern kan du ange din egen Azure AD-kontoinformation. Ersätt exempel kontot med ditt eget. Konto adresser måste anges i gemener. Ersätt IP-exemplet med den offentliga IP-adressen för den virtuella datorn från föregående kommando.
+Logga in på den virtuella Azure Linux-datorn med dina autentiseringsuppgifter för Azure AD. Med parametern `-l` kan du ange din egen Azure AD-kontoinformation. Ersätt exempel kontot med ditt eget. Konto adresser måste anges i gemener. Ersätt IP-exemplet med den offentliga IP-adressen för den virtuella datorn från föregående kommando.
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
@@ -149,7 +149,7 @@ Du uppmanas att logga in på Azure AD med en engångs kod på [https://microsoft
 
 När du uppmanas till det anger du dina inloggnings uppgifter för Azure AD på inloggnings sidan. 
 
-Följande meddelande visas i webbläsaren när du har autentiserats:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Följande meddelande visas i webbläsaren när du har autentiserat dig: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Stäng webbläsarfönstret, gå tillbaka till SSH-prompten och tryck på **RETUR** -tangenten. 
 
@@ -157,12 +157,12 @@ Du är nu inloggad på den virtuella Azure Linux-datorn med roll behörigheter s
 
 ## <a name="sudo-and-aad-login"></a>Sudo och AAD-inloggning
 
-Första gången du kör sudo blir du ombedd att autentisera en andra gång. Om du inte vill att autentiseringen ska köras igen för att köra sudo, kan du redigera sudoers `/etc/sudoers.d/aad_admins` -filen och ersätta den här raden:
+Första gången du kör sudo blir du ombedd att autentisera en andra gång. Om du inte vill att autentiseringen ska köras igen för att köra sudo kan du redigera sudoers-filen `/etc/sudoers.d/aad_admins` och ersätta den här raden:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
-med den här raden:
+Med den här raden:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
@@ -190,7 +190,7 @@ Access denied
 
 Om du har slutfört Authentication-steget i en webbläsare kan du omedelbart uppmanas att logga in igen med en ny kod. Det här felet orsakas vanligt vis av ett matchnings fel mellan det inloggnings namn som du angav i SSH-prompten och det konto som du loggade in på Azure AD med. Så här löser du det här problemet:
 
-- Kontrol lera att det inloggnings namn som du angav i SSH-prompten är korrekt. Ett skrivfel i inloggnings namnet kan orsaka ett matchnings fel mellan det inloggnings namn som du angav i SSH-prompten och det konto som du loggade in på Azure AD med. Du skrev till exempel *azuresuer\@contoso.onmicrosoft.com* i stället för *azureuser\@contoso.onmicrosoft.com*.
+- Kontrol lera att det inloggnings namn som du angav i SSH-prompten är korrekt. Ett skrivfel i inloggnings namnet kan orsaka ett matchnings fel mellan det inloggnings namn som du angav i SSH-prompten och det konto som du loggade in på Azure AD med. Till exempel skrev du *azuresuer\@contoso.onmicrosoft.com* i stället för *azureuser\@contoso.onmicrosoft.com*.
 - Om du har flera användar konton ser du till att du inte anger något annat användar konto i webbläsarfönstret när du loggar in på Azure AD.
 - Linux är ett skift läges känsligt operativ system. Det finns en skillnad mellan "Azureuser@contoso.onmicrosoft.com" och "azureuser@contoso.onmicrosoft.com", vilket kan orsaka ett matchnings fel. Se till att du anger UPN med rätt Skift läges känslighet i SSH-prompten.
 

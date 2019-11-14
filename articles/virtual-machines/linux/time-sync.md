@@ -1,5 +1,5 @@
 ---
-title: Tidssynkronisering för virtuella Linux-datorer i Azure | Microsoft Docs
+title: Tidssynkronisering för virtuella Linux-datorer i Azure
 description: Tidssynkronisering för virtuella Linux-datorer.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 7e23b71edd05154f3c19a097ebf92c690426c777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e5d68a31db3797f9919d044eed284d0d09052390
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100789"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034648"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Tidssynkronisering för virtuella Linux-datorer i Azure
 
@@ -67,7 +67,7 @@ Som standard konfigureras de flesta Azure Marketplace-avbildningar för Linux ti
 
 I nyare Linux-distributioner använder VMICTimeSync-tjänsten precisions tids protokollet (PTP), men tidigare distributioner kanske inte har stöd för PTP och kommer att bli tillbaka till NTP för att hämta tid från värden.
 
-Kör `ntpq -p` kommandot för att bekräfta att NTP synkroniseras korrekt.
+För att bekräfta att NTP synkroniseras korrekt, kör kommandot `ntpq -p`.
 
 ### <a name="host-only"></a>Endast värd 
 

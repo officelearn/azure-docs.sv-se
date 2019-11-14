@@ -1,5 +1,5 @@
 ---
-title: VIRTUELLA Azure Linux-storlekar – Compute-optimerad | Microsoft Docs
+title: Storlekar på virtuella Azure Linux-datorer – Compute-optimerad
 description: Visar en lista över de olika optimerings storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 154209c78746e1a44c7cee51675150e8acca0f0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe95c6caf608e5746147fa5bc61ab6e7b63e1028
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082098"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034950"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Beräkna optimerade storlekar för virtuella datorer
 

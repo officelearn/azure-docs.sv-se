@@ -1,5 +1,5 @@
 ---
-title: Skapa och ladda upp en Oracle Linux VHD | Microsoft Docs
+title: Skapa och ladda upp en Oracle Linux VHD
 description: Lär dig att skapa och ladda upp en virtuell Azure-hårddisk (VHD) som innehåller ett Oracle Linux operativ system.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: ede12520fc6db089aea2d22b02dc32e72496830c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 16f3bc9e70f8fac6ab28318e1654742a2c3b76a1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082459"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035375"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Förbered en virtuell Oracle Linux-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du redan har installerat ett Oracle Linux operativ system på en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux installations anmärkningar
@@ -36,7 +36,7 @@ Den här artikeln förutsätter att du redan har installerat ett Oracle Linux op
 * NUMA stöds inte för större VM-storlekar på grund av ett fel i Linux kernel-versioner nedan 2.6.37. Det här problemet påverkar främst distributioner med hjälp av den överordnade Red Hat 2.6.32-kärnan. Med manuell installation av Azure Linux-agenten (waagent) inaktive ras NUMA i GRUB-konfigurationen för Linux-kärnan. Mer information om detta finns i stegen nedan.
 * Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken.  Mer information om detta finns i stegen nedan.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes) .
-* Kontrol lera att `Addons` lagrings platsen är aktive rad. `/etc/yum.repos.d/public-yum-ol6.repo`Redigera filen (Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) och ändra raden `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
+* Kontrol lera att `Addons`-lagringsplatsen är aktive rad. Redigera filen `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) och ändra rad `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
 Du måste slutföra vissa konfigurations steg i operativ systemet för att den virtuella datorn ska kunna köras i Azure.
@@ -48,11 +48,11 @@ Du måste slutföra vissa konfigurations steg i operativ systemet för att den v
         # sudo rpm -e --nodeps NetworkManager
    
     **Obs:** Om paketet inte redan är installerat kommer det här kommandot inte att fungera med ett fel meddelande. Detta är normalt.
-4. Skapa en fil med namnet **nätverk** i `/etc/sysconfig/` katalogen som innehåller följande text:
+4. Skapa en fil med namnet **nätverk** i katalogen `/etc/sysconfig/` som innehåller följande text:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-5. Skapa en fil med namnet **ifcfg-eth0** i `/etc/sysconfig/network-scripts/` katalogen som innehåller följande text:
+5. Skapa en fil med namnet **ifcfg-eth0** i katalogen `/etc/sysconfig/network-scripts/` som innehåller följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -83,7 +83,7 @@ Du måste slutföra vissa konfigurations steg i operativ systemet för att den v
    
    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten.
    
-   `crashkernel` Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
+   `crashkernel` alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
 10. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
 11. Installera Azure Linux-agenten genom att köra följande kommando. Den senaste versionen är 2.0.15.
     
@@ -121,11 +121,11 @@ Att förbereda en virtuell dator med Oracle Linux 7 för Azure liknar Oracle Lin
 
 1. Välj den virtuella datorn i Hyper-V Manager.
 2. Klicka på **Anslut** för att öppna ett konsol fönster för den virtuella datorn.
-3. Skapa en fil med namnet **nätverk** i `/etc/sysconfig/` katalogen som innehåller följande text:
+3. Skapa en fil med namnet **nätverk** i katalogen `/etc/sysconfig/` som innehåller följande text:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-4. Skapa en fil med namnet **ifcfg-eth0** i `/etc/sysconfig/network-scripts/` katalogen som innehåller följande text:
+4. Skapa en fil med namnet **ifcfg-eth0** i katalogen `/etc/sysconfig/network-scripts/` som innehåller följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -147,7 +147,7 @@ Att förbereda en virtuell dator med Oracle Linux 7 för Azure liknar Oracle Lin
    
         # sudo yum clean all
         # sudo yum -y update
-9. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna "/etc/default/grub" i en text redigerare och `GRUB_CMDLINE_LINUX` redigera parametern, till exempel:
+9. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna "/etc/default/grub" i en text redigerare och redigera `GRUB_CMDLINE_LINUX`-parametern, till exempel:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -157,7 +157,7 @@ Att förbereda en virtuell dator med Oracle Linux 7 för Azure liknar Oracle Lin
    
    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten.
    
-   `crashkernel` Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
+   `crashkernel` alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
 10. När du är klar med att redigera "/etc/default/grub" per ovan kör du följande kommando för att återskapa grub-konfigurationen:
     
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg

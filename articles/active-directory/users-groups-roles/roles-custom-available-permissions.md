@@ -1,24 +1,24 @@
 ---
-title: Anpassad administratörs roll behörigheter för app Registration Management-Azure Active Directory | Microsoft Docs
+title: Tillgängliga anpassade administratörs roll behörigheter – Azure AD | Microsoft Docs
 description: Anpassad administratörs roll behörigheter för att delegera identitets hantering.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ebffbc1c451404d93383a483eecdd4a25acf6b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928607"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025156"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Under typer och behörigheter för program registrering i Azure Active Directory
 
@@ -91,7 +91,7 @@ Ger åtkomst till läsa standard program registrerings egenskaper. Detta inklude
 
 Ger samma behörigheter som Microsoft. Directory/Applications/standard/Read, men endast för program med en enda klient.
 
-### <a name="update"></a>Uppdatera
+### <a name="update"></a>Uppdatering
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/allProperties/Update
 
@@ -131,7 +131,7 @@ Möjlighet att uppdatera namn, logo typ, URL-adress för webb sidor, användning
 
 Ger samma behörigheter som Microsoft. Directory/Applications/Basic/Update, men endast för program med en klient.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>Microsoft. Directory/program/autentiseringsuppgifter/uppdatera
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
 
 Möjlighet att uppdatera egenskaperna för certifikat och klient hemligheter på program med en enda klient och flera innehavare. Ger åtkomst till alla fält på sidan program registrerings certifikat & hemligheter:
 

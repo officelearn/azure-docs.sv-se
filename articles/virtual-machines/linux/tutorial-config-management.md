@@ -1,5 +1,5 @@
 ---
-title: Självstudie – hantera konfiguration av virtuella Linux-datorer i Azure | Microsoft Docs
+title: Självstudie – hantera konfiguration av virtuella Linux-datorer i Azure
 description: I den här självstudien får du lära dig att identifiera ändringar och hantera paket uppdateringar på en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: bc5029e0ea2d743fffe258af8e66728269d0933e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374346"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034561"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Linux-dator i Azure
 
 Med Azure [ändringsspårning](../../automation/change-tracking.md) kan du enkelt identifiera ändringar och [uppdateringshantering](../../automation/automation-update-management.md) göra det möjligt att hantera operativ system uppdateringar för dina virtuella Azure Linux-datorer.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Hantera Windows-uppdateringar
@@ -38,7 +38,7 @@ Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att u
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Skapa en virtuell dator
 

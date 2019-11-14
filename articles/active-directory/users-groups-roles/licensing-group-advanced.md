@@ -1,26 +1,26 @@
 ---
-title: Ytterligare scenarier för gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
+title: Ytterligare scenarier med gruppbaserad licensiering – Azure AD | Microsoft Docs
 description: Fler scenarier för Azure Active Directory gruppbaserad licensiering
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cfdb8b979d20b77bcbf2f6b0d17855dfa0ac817
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034145"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025953"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
 
@@ -28,7 +28,7 @@ Använd följande information och exempel för att få en mer avancerad förstå
 
 ## <a name="usage-location"></a>Användnings plats
 
-Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. I [Azure Portal](https://portal.azure.com)kan du ange användnings plats i **användar** &gt;- **profil** &gt; **Inställningar**.
+Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. I [Azure Portal](https://portal.azure.com)kan du ange användnings plats i **användar** &gt; **profil** &gt; **Inställningar**.
 
 För grupp licens tilldelningen ärver alla användare som saknar en användnings plats platsen för katalogen. Om du har användare på flera platser måste du se till att de stämmer överens med dina användar resurser innan du lägger till användare i grupper med licenser.
 
@@ -70,7 +70,7 @@ I det här exemplet ändrar du en användare och anger deras extensionAttribute1
 
 En användare kan vara medlem i flera grupper med licenser. Här följer några saker att tänka på:
 
-- Flera licenser för samma produkt kan överlappa och medför att alla aktiverade tjänster används för användaren. I följande exempel visas två licensierings grupper: *E3 Base Services* innehåller de grundläggande tjänster som ska distribueras först till alla användare. Och *E3 utökade tjänster* innehåller ytterligare tjänster (Sway och Planner) som endast distribueras till vissa användare. I det här exemplet har användaren lagts till i båda grupperna:
+- Flera licenser för samma produkt kan överlappa och medför att alla aktiverade tjänster används för användaren. I följande exempel visas två licens grupper: *E3 Base Services* innehåller de grundläggande tjänster som ska distribueras först till alla användare. Och *E3 utökade tjänster* innehåller ytterligare tjänster (Sway och Planner) som endast distribueras till vissa användare. I det här exemplet har användaren lagts till i båda grupperna:
 
   ![Skärm bild av aktiverade tjänster](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -112,7 +112,7 @@ Här är ett exempel på hur den här processen kan se ut:
 
 3. Gå till bladet [**Azure Active Directory > licenser > alla produkter**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) och välj *Office 365 Enterprise E5*. Välj sedan **licensierade grupper** för att visa en lista över alla grupper med produkten.
 
-4. Klicka på den grupp som du vill granska (i det här fallet *O365 E5-endast Exchange*). Då öppnas fliken **licenser** . Om du klickar på E5-licensen öppnas ett blad med alla aktiverade tjänster.
+4. Klicka på den grupp som du vill granska (i det här fallet *O365 E5-endast Exchange*). Då öppnas fliken **licenser** . om du klickar på E5-licensen öppnas ett blad med alla aktiverade tjänster.
    > [!NOTE]
    > Tjänsten *Microsoft Stream* har lagts till automatiskt och Aktiver ATS i den här gruppen, förutom *Exchange Online* -tjänsten:
 
@@ -128,7 +128,7 @@ Här är ett exempel på hur den här processen kan se ut:
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Använd PowerShell för att se vem som har ärvt och direkta licenser
 Du kan använda ett PowerShell-skript för att kontrol lera om användarna har en licens som tilldelats direkt eller ärvts från en grupp.
 
-1. Kör cmdleten `connect-msolservice` för att autentisera och ansluta till din klient.
+1. Kör `connect-msolservice`-cmdlet: en för att autentisera och ansluta till din klient.
 
 2. `Get-MsolAccountSku` kan användas för att identifiera alla etablerade produkt licenser i klienten.
 
@@ -193,7 +193,7 @@ I det här exemplet på utdata visas starten av bearbetningen, alla resulterande
 
 Det går inte att ta bort en grupp med en aktiv tilldelad licens. En administratör kan ta bort en grupp som inte realiserar att den kommer att göra att licenser tas bort från användarna – av den anledningen kräver vi att alla licenser tas bort från gruppen först innan den kan tas bort.
 
-När du försöker ta bort en grupp i Azure Portal kan du se ett fel meddelande som detta: Det gick inte att ta bort 0Screenshot-gruppen @ no__t-1 @no__t
+När du försöker ta bort en grupp i Azure Portal kan ett fel meddelande visas som detta: ![borttagning av skärm bilds gruppen misslyckades](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Gå till fliken **licenser** i gruppen och se om det finns några tilldelade licenser. Om ja, ta bort dessa licenser och försök att ta bort gruppen igen.
 

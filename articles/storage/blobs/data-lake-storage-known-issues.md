@@ -1,6 +1,6 @@
 ---
 title: Kända problem med Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Läs mer om begränsningar och kända problem med Azure Data Lake Storage Gen2
+description: Lär dig mer om begränsningar och kända problem med Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 95f2dbdbb34ff349d14be430b4e5a4fa84df0f5a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78693dceaac119279b1c1d06a6c3a18cc4fdb485
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581488"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033946"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -57,7 +57,7 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 | **Hanterings principer för Azure Blob Storage Lifecycle** | Alla åtkomst nivåer stöds. Arkiv åtkomst nivån är för närvarande en för hands version. Borttagning av BLOB-ögonblicksbilder stöds inte ännu. |
 | **Azure Content Delivery Network (CDN)** | Stöds inte ännu|
 | **Azure Search** |Stöds (för hands version)|
-| **Azure Storage Explorer** | Versions-/regionsspecifika stöd <br><br>Använd endast version `1.6.0` eller högre. <br>Version `1.6.0` är tillgänglig som en [kostnads fri nedladdning](https://azure.microsoft.com/features/storage-explorer/).|
+| **Azure Storage Explorer** | Versions-/regionsspecifika stöd <br><br>Använd endast versioner `1.6.0` via `1.10.0`. <br> Version `1.10.0` är tillgänglig som en [kostnads fri nedladdning](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). Version `1.11.0` stöds inte ännu.|
 | **Antal ACL: er för BLOB-behållare** |Stöds inte ännu|
 | **Blobfuse** |Stöds inte ännu|
 | **Anpassade domäner** |Stöds inte ännu|

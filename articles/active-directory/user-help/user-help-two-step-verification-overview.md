@@ -1,5 +1,5 @@
 ---
-title: Översikt över tvåstegsverifiering och ditt arbets-eller skol konto – Azure Active Directory | Microsoft Docs
+title: Säkerhets verifiering & ditt arbets-eller skol konto – Azure AD
 description: Lär dig mer om hur du ställer in dina säkerhets verifierings metoder för att använda tvåstegsverifiering med ditt arbets-eller skol konto.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8cda4b04a4555ed7747bb9444c2a5ec2e266573
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615990"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028469"
 ---
-# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Översikt över tvåstegsverifiering och ditt arbets-eller skol konto
+# <a name="two-factor-verification-and-your-work-or-school-account"></a>Tvåstegsverifiering och ditt arbets-eller skol konto
 
 Du har fått ett e-postmeddelande från någon på IT-avdelningen eller från din chef om att organisationen har lagt till ytterligare säkerhetsverifiering för ditt konto. Vad betyder det? Det innebär att din organisation vidtar extra åtgärder för att kontrollera att du är den som du uppger dig vara när du loggar in. Den här extra verifieringen, som även kallas tvåstegsverifiering, görs via en kombination av ditt användar namn, ditt lösen ord och en mobil enhet eller telefon.
 
@@ -29,7 +29,7 @@ Tvåstegsverifiering är säkrare än bara ett lösen ord eftersom det förlitar
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
->Det här innehållet är även avsett för användning med ditt arbets-eller skol konto, kontot som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, kan du danielle@outlook.comse hur du [aktiverar och inaktiverar tvåstegsverifiering på eller av för din Microsoft-konto genom att aktivera eller inaktivera tvåstegsverifiering](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Det här innehållet är även avsett för användning med ditt arbets-eller skol konto, kontot som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och ditt personliga Microsoft-konto, kan du se [Aktivera och inaktivera tvåstegsverifiering på eller av för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)om du har ett konto som du själv har konfigurerat för dig (till exempel danielle@outlook.com).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Vem bestämmer om du använder den här funktionen?
 

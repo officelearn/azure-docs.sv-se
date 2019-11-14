@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888488"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074353"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -134,7 +134,7 @@ Virtuella Azure-datorer behöver Internet åtkomst för kontroll kommandon. Om d
     - MARS-agenten använder bara Windows system Skriv åtgärd för att avbilda ögonblicks bilden.
     - Eftersom agenten inte använder några VSS-skrivare för programmet fångar den inte in programkonsekventa ögonblicks bilder.
 1. När du har tagit ögonblicks bilden med VSS skapar MARS-agenten en virtuell hård disk (VHD) i cache-mappen som du angav när du konfigurerade säkerhets kopian. Agenten lagrar också kontroll summor för varje data block.
-1. Stegvisa säkerhets kopieringar körs enligt det schema du anger, om du inte kör en ad hoc-säkerhetskopiering.
+1. Stegvisa säkerhets kopieringar körs enligt det schema du anger, om du inte kör en säkerhets kopiering på begäran.
 1. I stegvisa säkerhets kopieringar identifieras ändrade filer och en ny virtuell hård disk skapas. Den virtuella hård disken komprimeras och krypteras och skickas sedan till valvet.
 1. När den stegvisa säkerhets kopieringen har slutförts slås den nya virtuella hård disken samman med den virtuella hård disk som skapades efter den inledande replikeringen. Denna sammanlagda virtuella hård disk tillhandahåller det senaste tillstånd som ska användas för att jämföra säkerhets kopior.
 
@@ -148,7 +148,7 @@ Virtuella Azure-datorer behöver Internet åtkomst för kontroll kommandon. Om d
     - Med DPM/MABS kan du skydda säkerhets kopierings volymer, resurser, filer och mappar. Du kan också skydda datorns system tillstånd (Bare Metal) och du kan skydda vissa appar med app-medvetna inställningar för säkerhets kopiering.
 1. När du konfigurerar skydd för en dator eller app i DPM/MABS väljer du att säkerhetskopiera till den lokala MABS/DPM-disken för kortsiktig lagring och till Azure för onlineskydd. Du anger också när säkerhets kopieringen till den lokala DPM/MABS-lagringen ska köras och när Online-säkerhetskopiering till Azure ska köras.
 1. Disken för den skyddade arbets belastningen säkerhets kopie ras till de lokala MABS/DPM-diskarna enligt det schema som du har angett.
-4. DPM/MABS-diskarna säkerhets kopie ras till valvet av MARS-agenten som körs på DPM/MABS-servern.
+1. DPM/MABS-diskarna säkerhets kopie ras till valvet av MARS-agenten som körs på DPM/MABS-servern.
 
 ![Säkerhets kopiering av datorer och arbets belastningar som skyddas av DPM eller MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 

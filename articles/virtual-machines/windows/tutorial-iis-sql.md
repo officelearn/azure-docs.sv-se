@@ -1,5 +1,5 @@
 ---
-title: Självstudie, skapa virtuella datorer som kör en SQL-, IIS-, .NET-stack i Azure| Microsoft Docs
+title: Självstudie – Skapa virtuella datorer som kör en SQL-, IIS-, .NET-stack i Azure
 description: I den här självstudien lär du dig hur du installerar Azure SQL, IIS, .NET-stacken på en virtuell Windows-dator i Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8b2cf6f5475966426ee75cf73ce7bd84abc9ba42
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 286d00ce718a34dea15a075984cc3b2a5e4cfec3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101616"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064664"
 ---
-# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Självstudier: Installera SQL-, IIS-, .NET-stacken på en virtuell Windows-dator med Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Självstudie: Installera SQL-, IIS-, .NET-stacken på en virtuell Windows-dator med Azure PowerShell
 
 I den här självstudien installerar vi en SQL-, IIS-, .NET-stack med Azure PowerShell. Stacken består av två virtuella datorer som kör Windows Server 2016, en med IIS och .NET och den andra med SQL Server.
 

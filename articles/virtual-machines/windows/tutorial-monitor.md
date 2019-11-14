@@ -1,5 +1,5 @@
 ---
-title: Självstudie – övervaka virtuella Windows-datorer i Azure | Microsoft Docs
+title: Självstudie – övervaka virtuella Windows-datorer i Azure
 description: I den här självstudien får du lära dig hur du övervakar prestanda och identifierade program komponenter som körs på dina virtuella Windows-datorer.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a2f4083841c801db3edf1b2838b8d3271b700731
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 13e5cc9ee45cf230668ef7a7cbe85b6437044643
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71680066"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064759"
 ---
-# <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka en virtuell Windows-dator i Azure
+# <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka en virtuell Windows-dator i Azure
 
 Azure Monitoring använder agenter för att samla in start-och prestanda data från virtuella Azure-datorer, lagra data i Azure Storage och göra dem tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Avancerad övervakning levereras med Azure Monitor for VMs genom att samla in prestanda mått, identifiera program komponenter som är installerade på den virtuella datorn och innehåller prestanda diagram och beroende karta.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på en virtuell dator
 > * Visa startdiagnostik
 > * Visa statistik för en virtuell värddator
-> * Aktivera Azure Monitor för virtuella datorer
+> * Aktivera Azure Monitor for VMs
 > * Visa prestanda mått för virtuella datorer
 > * Skapa en avisering
 
@@ -143,7 +143,7 @@ I den här självstudien har du konfigurerat och visat prestanda för den virtue
 > * Aktivera startdiagnostik på den virtuella datorn
 > * Visa startdiagnostik
 > * Visa värdmått
-> * Aktivera Azure Monitor för virtuella datorer
+> * Aktivera Azure Monitor for VMs
 > * Visa VM-mått
 > * Skapa en avisering
 

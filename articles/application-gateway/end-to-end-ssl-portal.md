@@ -1,19 +1,20 @@
 ---
-title: Snabb start – Konfigurera SSL-kryptering från slut punkt till slut punkt med Azure Application Gateway-Azure Portal | Microsoft Docs
+title: Konfigurera SSL-kryptering från slut punkt till slut punkt med portalen
+titleSuffix: Azure Application Gateway
 description: Lär dig hur du använder Azure Portal för att skapa en Programgateway med SSL-kryptering från slut punkt till slut punkt.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: ba31b5ebf83edcd08060a2acc3b5639a521e2729
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243673"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075125"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Konfigurera SSL från slut punkt till slut punkt med hjälp av Application Gateway med portalen
 
@@ -60,7 +61,7 @@ Läs mer i [Aktivera SSL-avslutning när du skapar en ny Application Gateway](ht
 
    ![Lägg till certifikat](./media/end-to-end-ssl-portal/addcert.png)
 
-   För Standard_v2-och WAF_v2-programgatewayer bör du ladda upp rot certifikatet för backend-servercertifikatet i CER-format. Om backend-certifikatet utfärdas av en välkänd certifikat utfärdare (CA), kan du markera kryss rutan **Använd VÄLKÄND CA-certifikat** och sedan behöver du inte ladda upp ett certifikat.
+   För Standard_v2 och WAF_v2 programgatewayer, bör du ladda upp rot certifikatet för backend-servercertifikatet i CER-format. Om backend-certifikatet utfärdas av en välkänd certifikat utfärdare (CA), kan du markera kryss rutan **Använd VÄLKÄND CA-certifikat** och sedan behöver du inte ladda upp ett certifikat.
 
    ![Lägg till betrott rot certifikat](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
@@ -114,7 +115,7 @@ Om du väljer det senare alternativet ska du följa stegen i följande procedur.
 
    ![Lägg till certifikat](./media/end-to-end-ssl-portal/addcert.png)
 
-   För Standard_v2-och WAF_v2-programgatewayer bör du ladda upp rot certifikatet för backend-servercertifikatet i CER-format. Om backend-certifikatet utfärdas av en välkänd certifikat utfärdare, kan du markera kryss rutan **Använd VÄLKÄND CA-certifikat** och sedan behöver du inte ladda upp ett certifikat.
+   För Standard_v2 och WAF_v2 programgatewayer, bör du ladda upp rot certifikatet för backend-servercertifikatet i CER-format. Om backend-certifikatet utfärdas av en välkänd certifikat utfärdare, kan du markera kryss rutan **Använd VÄLKÄND CA-certifikat** och sedan behöver du inte ladda upp ett certifikat.
 
    ![Lägg till betrott rot certifikat](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 

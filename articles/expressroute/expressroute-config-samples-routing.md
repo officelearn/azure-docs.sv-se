@@ -1,5 +1,5 @@
 ---
-title: Routerkonfigurationer – Azure ExpressRoute | Microsoft Docs
+title: 'Azure-ExpressRoute: exempel på router-konfiguration'
 description: Den här sidan innehåller router config-exempel för Cisco och Juniper-routrar.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367480"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076670"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Routerkonfigurationer att konfigurera och hantera routning
 Den här sidan innehåller gränssnittet och routning Konfigurationsexempel för Cisco IOS-XE- och Juniper MX serie routrar när du arbetar med ExpressRoute. Dessa är avsedda att vara exempel endast vägledning och får inte användas eftersom. Du kan arbeta med leverantören om att få fram rätt konfigurationer för ditt nätverk. 
@@ -33,7 +32,7 @@ Routerkonfigurationer nedan gäller för alla peerkopplingar. Granska [ExpressRo
 ## <a name="cisco-ios-xe-based-routers"></a>Cisco IOS-XE baserat routrar
 Exemplen i det här avsnittet gäller för en router som kör IOS-XE-OS-familj.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Konfigurera och underordnade gränssnitt
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Konfigurera gränssnitt och under gränssnitt
 Du kommer att behöva ett gränssnitt för sub per peering i varje dator som du ansluter till Microsoft. Ett sub-gränssnitt kan identifieras med ett VLAN-ID eller ett stående par med VLAN-ID och en IP-adress.
 
 **Dot1Q gränssnittsdefinitionen**
@@ -64,7 +63,7 @@ Du måste konfigurera en BGP-session med Microsoft för varje peering. Exemplet 
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Konfigurera prefix som ska annonseras via BGP-sessionen
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. skapa prefix som ska annonseras via BGP-sessionen
 Du kan konfigurera routern att annonsera väljer prefix till Microsoft. Du kan göra det med hjälp av exemplet nedan.
 
     router bgp <Customer_ASN>
@@ -77,7 +76,7 @@ Du kan konfigurera routern att annonsera väljer prefix till Microsoft. Du kan g
      exit-address-family
     !
 
-### <a name="4-route-maps"></a>4. Väg maps
+### <a name="4-route-maps"></a>4. Route Maps
 Du kan använda route-kartor och prefix som visas på filter-prefix som sprids till nätverket. Du kan använda exemplet nedan för att utföra uppgiften. Kontrollera att du har rätt prefix listor installationen.
 
     router bgp <Customer_ASN>
@@ -98,7 +97,7 @@ Du kan använda route-kartor och prefix som visas på filter-prefix som sprids t
 ## <a name="juniper-mx-series-routers"></a>Juniper MX serie routrar
 Exemplen i det här avsnittet gäller för alla Juniper MX serie routrar.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Konfigurera och underordnade gränssnitt
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Konfigurera gränssnitt och under gränssnitt
 
 **Dot1Q gränssnittsdefinitionen**
 
@@ -149,7 +148,7 @@ Du måste konfigurera en BGP-session med Microsoft för varje peering. Exemplet 
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Konfigurera prefix som ska annonseras via BGP-sessionen
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. skapa prefix som ska annonseras via BGP-sessionen
 Du kan konfigurera routern att annonsera väljer prefix till Microsoft. Du kan göra det med hjälp av exemplet nedan.
 
     policy-options {
@@ -174,7 +173,7 @@ Du kan konfigurera routern att annonsera väljer prefix till Microsoft. Du kan g
     }
 
 
-### <a name="4-route-maps"></a>4. Väg maps
+### <a name="4-route-maps"></a>4. Route Maps
 Du kan använda route-kartor och prefix som visas på filter-prefix som sprids till nätverket. Du kan använda exemplet nedan för att utföra uppgiften. Kontrollera att du har rätt prefix listor installationen.
 
     policy-options {

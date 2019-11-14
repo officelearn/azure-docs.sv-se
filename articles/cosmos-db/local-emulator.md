@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997890"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075664"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -38,10 +38,10 @@ Eftersom Azure Cosmos-emulatorn tillhandahåller en emulerad miljö som körs p�
 * Azure Cosmos-emulatorn är inte en skalbar tjänst och har inte stöd för ett stort antal behållare.
 * Azure Cosmos-emulatorn erbjuder inte olika [Azure Cosmos DB konsekvens nivåer](consistency-levels.md).
 * Azure Cosmos-emulatorn erbjuder inte [replikering i flera regioner](distribute-data-globally.md).
-* Eftersom din kopia av Azure Cosmos-emulatorn kanske inte alltid är uppdaterad med de senaste ändringarna i Azure Cosmos DBs tjänsten, bör du referera till [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) för att korrekt beräkna ru: er-behoven för produktions data flödet () för din applicering.
+* Eftersom din kopia av Azure Cosmos-emulatorn kanske inte alltid är uppdaterad med de senaste ändringarna i Azure Cosmos DBs tjänsten, bör du referera till [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) för att korrekt beräkna ru: er-behoven i ditt program.
 * När du använder Azure Cosmos-emulatorn kan du som standard skapa upp till 25 behållare för fast storlek (stöds endast med Azure Cosmos DB SDK: er) eller 5 obegränsade behållare med hjälp av Azure Cosmos-emulatorn. Mer information om att ändra värdet finns i [Setting the PartitionCount value](#set-partitioncount) (Ange PartitionCount-värdet).
 
-## <a name="system-requirements"></a>Systemkraven
+## <a name="system-requirements"></a>Systemkrav
 
 Azure Cosmos-emulatorn har följande maskinvaru-och program varu krav:
 
@@ -61,7 +61,7 @@ Du kan ladda ned och installera Azure Cosmos-emulatorn från [Microsoft Download
 
 ## <a name="running-on-windows"></a>Köra i Windows
 
-Starta Azure Cosmos-emulatorn genom att välja Start-knappen eller trycka på Windows-tangenten. Börja skriva **Azure Cosmos**-emulatorn och välj emulatorn från listan över program.
+Starta Azure Cosmos-emulatorn genom att välja Start-knappen eller trycka på Windows-tangenten. Börja skriva **Azure Cosmos-emulatorn**och välj emulatorn från listan över program.
 
 ![Välj Start-knappen eller tryck på Windows-tangenten, börja skriva * * Azure Cosmos-emulator * * och välj emulatorn från listan över program](./media/local-emulator/database-local-emulator-start.png)
 
@@ -69,7 +69,7 @@ När emulatorn körs visas en ikon i aktivitetsfältets meddelandefält i Window
 
 Azure Cosmos-emulatorn körs som standard på den lokala datorn ("localhost") som lyssnar på port 8081.
 
-Azure Cosmos-emulatorn installeras `C:\Program Files\Azure Cosmos DB Emulator` som standard. Du kan också starta och stoppa emulatorn från kommandoraden. För mer information, se [kommandoradsverktygsreferensen](#command-line).
+Azure Cosmos-emulatorn installeras som standard `C:\Program Files\Azure Cosmos DB Emulator`. Du kan också starta och stoppa emulatorn från kommandoraden. För mer information, se [kommandoradsverktygsreferensen](#command-line).
 
 ## <a name="start-data-explorer"></a>Starta Datautforskaren
 
@@ -103,7 +103,7 @@ Precis som med Azure Cosmos DB stöder Azure Cosmos-emulatorn endast säker komm
 
 ## <a name="running-on-a-local-network"></a>Köra på ett lokalt nätverk
 
-Du kan köra emulatorn på ett lokalt nätverk. Om du vill aktivera nätverks åtkomst anger `/AllowNetworkAccess` du alternativet på [kommando raden](#command-line-syntax), vilket även kräver att du anger `/Key=key_string` eller. `/KeyFile=file_name` Du kan använda `/GenKeyFile=file_name` för att skapa en fil med en slumpmässig nyckel längst fram. Sedan kan du skicka det till `/KeyFile=file_name` eller `/Key=contents_of_file`.
+Du kan köra emulatorn på ett lokalt nätverk. Om du vill aktivera nätverks åtkomst anger du alternativet `/AllowNetworkAccess` på [kommando raden](#command-line-syntax), vilket även kräver att du anger `/Key=key_string` eller `/KeyFile=file_name`. Du kan använda `/GenKeyFile=file_name` för att skapa en fil med en slumpmässig nyckel. Sedan kan du skicka det till `/KeyFile=file_name` eller `/Key=contents_of_file`.
 
 För att aktivera nätverks åtkomst för första gången ska användaren stänga av emulatorn och ta bort emulatorns data katalog (%LOCALAPPDATA%\CosmosDBEmulator).
 
@@ -179,7 +179,7 @@ Starta emulatorn från en administratörs kommando tolk med "/EnableCassandraEnd
 
 ### <a name="gremlin-api"></a>Gremlin-API
 
-Starta emulatorn från en administratörs kommando tolk med "/EnableGremlinEndpoint". Alternativt kan du också ställa in miljövariabeln`AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Starta emulatorn från en administratörs kommando tolk med "/EnableGremlinEndpoint". Du kan också ställa in miljövariabeln `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
 * [Installera Apache-tinkerpop-Gremlin-Console-3.3.4](https://tinkerpop.apache.org/downloads.html)
 
@@ -244,33 +244,33 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
 | Avstängning| Stänger av Azure Cosmos-emulatorn.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Anger den sökväg där du kan lagra filer. Standardvärdet är%LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: En åtkomlig sökväg |
 |Port | Anger det portnummer som ska användas för emulatorn. Standardvärdet är 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<port\>: Enskilt portnummer |
-| ComputePort | Angett det port nummer som ska användas för tjänsten Compute interop Gateway. Gatewayens HTTP-slutpunkt avsöknings port beräknas som ComputePort + 79. Därför måste ComputePort och ComputePort + 79 vara öppna och tillgängliga. Standardvärdena är 8900, 8979. | CosmosDB. emulator. exe/ComputePort = \<ComputePort\> | \<computeport\>: Enskilt portnummer |
+| ComputePort | Angett det port nummer som ska användas för tjänsten Compute interop Gateway. Gatewayens HTTP-slutpunkt avsöknings port beräknas som ComputePort + 79. Därför måste ComputePort och ComputePort + 79 vara öppna och tillgängliga. Standardvärdena är 8900, 8979. | CosmosDB. emulator. exe/ComputePort = \<ComputePort\> | \<computeport\>: enskilt port nummer |
 | EnableMongoDbEndpoint | Aktiverar MongoDB-API | CosmosDB. emulator. exe/EnableMongoDbEndpoint | |
-| MongoPort | Anger det portnummer som ska användas för API för MongoDB-kompatibilitet. Standardvärdet är 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: Enskilt portnummer|
+| MongoPort | Anger det portnummer som ska användas för API för MongoDB-kompatibilitet. Standardvärdet är 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: Enskilt portnumber|
 | EnableCassandraEndpoint | Aktiverar API för Cassandra | CosmosDB. emulator. exe/EnableCassandraEndpoint | |
-| CassandraPort | Anger det port nummer som ska användas för Cassandra-slutpunkten. Standardvärdet är 10350. | CosmosDB. emulator. exe/CassandraPort = \<CassandraPort\> | \<cassandraport\>: Enskilt portnummer |
+| CassandraPort | Anger det port nummer som ska användas för Cassandra-slutpunkten. Standardvärdet är 10350. | CosmosDB. emulator. exe/CassandraPort = \<CassandraPort\> | \<cassandraport\>: enskilt port nummer |
 | EnableGremlinEndpoint | Aktiverar Gremlin-API | CosmosDB. emulator. exe/EnableGremlinEndpoint | |
 | GremlinPort | Port nummer som ska användas för Gremlin-slutpunkten. Standardvärdet är 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: Enskilt portnummer |
 |EnableTableEndpoint | Aktiverar Azure Tabell-API | CosmosDB. emulator. exe/EnableTableEndpoint | |
 |TablePort | Port nummer som ska användas för Azure Table-slutpunkten. Standardvärdet är 8902. | CosmosDB. emulator. exe/TablePort =\<port\> | \<port\>: Enskilt portnummer|
-| KeyFile | Läs verifierings nyckel från den angivna filen. Använd alternativet/GenKeyFile för att generera en KeyFile | CosmosDB. emulator. exe/KeyFile =\<fil namn\> | \<fil\>namn: Sökväg till filen |
-| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | CosmosDB. emulator. exe/ResetDataPath =\<sökväg > | \<sökväg\>: Filsökväg  |
+| KeyFile | Läs verifierings nyckel från den angivna filen. Använd alternativet/GenKeyFile för att generera en KeyFile | CosmosDB. emulator. exe/KeyFile =\<file_name\> | \<file_name\>: sökvägen till filen |
+| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | CosmosDB. emulator. exe/ResetDataPath =\<sökväg > | \<sökväg\>: fil Sök väg  |
 | StartTraces  |  Börja samla in fel söknings spårnings loggar. | CosmosDB. emulator. exe/StartTraces | |
 | StopTraces     | Avbryt insamlingen av fel söknings spårnings loggar. | CosmosDB. emulator. exe/StopTraces  | |
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat SSL-certifikat. | CosmosDB. emulator. exe/FailOnSslCertificateNameMismatch  | |
-| GenCert | Skapa och installera ett nytt självsignerat SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | CosmosDB. emulator. exe/GenCert =\<DNS-Names\> |\<DNS-namn\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
+| GenCert | Skapa och installera ett nytt självsignerat SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | CosmosDB. emulator. exe/GenCert =\<DNS-Names\> |\<DNS-namn\>: valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | CosmosDB.Emulator.exe /Key:\<key\> | \<nyckel\>: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor|
+| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | CosmosDB.Emulator.exe /Key:\<key\> | \<key\>: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |CosmosDB.Emulator.exe /EnableRateLimiting | |
 | DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |CosmosDB.Emulator.exe /DisableRateLimiting | |
 | NoUI | Visa inte emulatorns användargränssnitt. | CosmosDB.Emulator.exe /NoUI | |
 | NoExplorer | Visa inte datautforskaren vid start. |CosmosDB.Emulator.exe /NoExplorer | | 
-| PartitionCount | Anger det högsta antalet partitionerade behållare. Mer information finns i [ändra antalet behållare](#set-partitioncount) . | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Maximalt antal tillåtna behållare för enskilda partitioner. Standardvärdet är 25. Maxvärdet är 250 GB.|
-| DefaultPartitionCount| Anger standardvärdet för antalet partitioner för en partitionerad behållare. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<Standardvärdet för defaultpartitioncount\> är 25.|
+| PartitionCount | Anger det högsta antalet partitionerade behållare. Mer information finns i [ändra antalet behållare](#set-partitioncount) . | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: maximalt antal tillåtna behållare för enskilda partitioner. Standardvärdet är 25. Maxvärdet är 250 GB.|
+| DefaultPartitionCount| Anger standardvärdet för antalet partitioner för en partitionerad behållare. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> standardvärdet är 25.|
 | AllowNetworkAccess | Ger åtkomst till emulatorn över ett nätverk. Du måste även skicka /Key=\<key_string\> eller /KeyFile=\<file_name\> för att aktivera nätverksåtkomst. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> eller CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | Ändra inte brand Väggs regler när alternativet/AllowNetworkAccess används. |CosmosDB.Emulator.exe /NoFirewall | |
 | GenKeyFile | Generera en ny auktoriseringsnyckel och spara den i den angivna filen. Den genererade nyckeln kan användas med alternativen /Key eller /KeyFile. | CosmosDB.Emulator.exe /GenKeyFile=\<sökväg till nyckelfilen\> | |
-| Konsekvens | Ställ in konsekvensnivå för kontot. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<konsekvens\>: Värdet måste ha någon av följande [konsekvensnivåer](consistency-levels.md): Session, Stark, Eventuell eller BoundedStaleness. Standardvärdet är Session. |
+| Konsekvens | Ställ in konsekvensnivå för kontot. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<consistency\>: Värdet måste ha någon av följande [konsekvensnivåer](consistency-levels.md): session, stark, eventuell eller BoundedStaleness. Standardvärdet är Session. |
 | ? | Visa hjälpmeddelandet.| | |
 
 ## <a id="set-partitioncount"></a>Ändra antalet behållare
@@ -280,15 +280,15 @@ Som standard kan du skapa upp till 25 behållare med fast storlek (stöds endast
 Om du försöker skapa en behållare när det aktuella antalet partitioner har överskridits, genererar emulatorn ett ServiceUnavailable-undantag med följande meddelande.
 
 "Tyvärr har vi för närvarande hög efter frågan i den här regionen och kan inte slutföra din begäran för tillfället. Vi arbetar kontinuerligt för att få mer och mer kapacitet online och uppmana dig att försöka igen.
-Ta inte ovilliga till e- askcosmosdb@microsoft.com post när som helst eller av någon anledning.
-ActivityId 12345678-1234-1234-1234-123456789abc"
+Ta inte ovilliga till e-askcosmosdb@microsoft.com när som helst eller av någon anledning.
+ActivityId: 12345678-1234-1234-1234-123456789abc "
 
 Kör följande steg för att ändra antalet behållare som är tillgängliga i Azure Cosmos-emulatorn:
 
 1. Ta bort alla lokala Azure Cosmos-emulator-data genom att högerklicka på ikonen **Azure Cosmos DB emulator** i system fältet och sedan klicka på **Återställ data.** .
-2. Ta bort alla emulator-data i `%LOCALAPPDATA%\CosmosDBEmulator`den här mappen.
+2. Ta bort alla emulator-data i den här mappen `%LOCALAPPDATA%\CosmosDBEmulator`.
 3. Avsluta alla öppna instanser genom att högerklicka på ikonen för **Azure Cosmos DB-emulator** i meddelandefältet och klicka sedan på **Avsluta**. Det kan ta någon minut för alla instanser att avslutas.
-4. Installera den senaste versionen av [Azure Cosmos](https://aka.ms/cosmosdb-emulator)-emulatorn.
+4. Installera den senaste versionen av [Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator).
 5. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Till exempel: `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`.
 
 ## <a name="controlling-the-emulator"></a>Kontrollera emulatorn
@@ -299,7 +299,7 @@ Emulatorn levereras med en PowerShell-modul för att starta, stoppa, avinstaller
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-Du kan `PSModules` också placera katalogen `PSModulesPath` på och importera den på det sätt som visas i följande kommando:
+eller placera `PSModules` katalogen på `PSModulesPath` och importera den enligt följande kommando:
 
 ```powershell
 $env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
@@ -316,7 +316,7 @@ Här följer en sammanfattning av kommandon för att styra emulatorn från Power
 
 **Kommentarer**
 
-Returnerar ett av följande värden för ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, or ServiceControllerStatus.Stopped.
+Returnerar någon av dessa ServiceControllerStatus-värden: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running eller ServiceControllerStatus.Stopped.
 
 ### `Start-CosmosDbEmulator`
 
@@ -417,6 +417,24 @@ Om du stänger det interaktiva gränssnittet när emulatorn har startats stängs
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+Om du har ett .NET-klient program som körs på en Linux Docker-behållare och om du kör Azure Cosmos-emulatorn på en värddator, i det här fallet kan du inte ansluta till Azure Cosmos-kontot från emulatorn. Eftersom appen inte körs på värddatorn går det inte att lägga till det certifikat som är registrerat på den Linux-behållare som matchar emulatorns slut punkt. 
+
+Som en lösning kan du inaktivera verifieringen av serverns SSL-certifikat från klient programmet genom att skicka en `HttpClientHandler` instans som visas i följande exempel för .NET-kod. Den här lösningen kan bara användas om du använder `Microsoft.Azure.DocumentDB` NuGet-paketet, så stöds det inte med `Microsoft.Azure.Cosmos` NuGet-paketet:
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+Förutom att inaktivera verifiering av SSL-certifikat är det viktigt att du startar emulatorn med alternativet `/allownetworkaccess` och emulatorns slut punkt är tillgänglig från värd-IP-adressen i stället för `host.docker.internal` DNS.
+
 ## Körs på Mac eller Linux<a id="mac"></a>
 
 För närvarande kan Cosmos-emulatorn endast köras i Windows. Användare som kör Mac eller Linux kan köra emulatorn på en virtuell Windows-dator som värd för en hypervisor, till exempel paralleller eller VirtualBox. Nedan visas stegen för att aktivera detta.
@@ -475,9 +493,9 @@ Använd följande tips för att felsöka problem som kan uppstå med Azure Cosmo
 
 - Om du har installerat en ny version av emulatorn och fel uppstår ska du återställa dina data. Du kan återställa dina data genom att högerklicka på ikonen för Azure Cosmos-emulatorn i system fältet och sedan klicka på Återställ data.... Om detta inte löser felen kan du avinstallera emulatorn och eventuella äldre versioner av emulatorn om de hittas, ta bort katalogen C:\Program files\Azure Cosmos DB emulator och installera om emulatorn. I [Avinstallera den lokala emulatorn](#uninstall) finns instruktioner.
 
-- Om Azure Cosmos-emulatorn kraschar samlar du in dumpa filer från mappen%LOCALAPPDATA%\CrashDumps, komprimerar dem och bifogar dem till ett [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)e-postmeddelande till.
+- Om Azure Cosmos-emulatorn kraschar samlar du in dumpa filer från mappen%LOCALAPPDATA%\CrashDumps, komprimerar dem och bifogar dem till ett e-postmeddelande till [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- Om du upplever krascher `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`i kan detta vara ett symtom där prestanda räknarna är i ett skadat tillstånd. Genom att köra följande kommando från en administratörs kommando tolk åtgärdar du problemet:
+- Om du upplever krascher i `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`kan detta vara ett symtom där prestanda räknarna är i ett skadat tillstånd. Genom att köra följande kommando från en administratörs kommando tolk åtgärdar du problemet:
 
   ```cmd
   lodctr /R

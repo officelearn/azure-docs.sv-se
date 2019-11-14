@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU-drivrutins tillägg – virtuella Windows-datorer i Azure | Microsoft Docs
+title: NVIDIA GPU-drivrutins tillägg – virtuella Azure-datorer i Windows
 description: Microsoft Azure tillägget för att installera NVIDIA GPU-drivrutiner i virtuella datorer i N-serien som kör Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 13a7189d9758fd6d1e7daac38e948e1b482a019b
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686782"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073028"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutins tillägg för Windows
 
@@ -29,7 +29,7 @@ Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer med
 Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer i Linux N-serien](hpccompute-gpu-linux.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -37,9 +37,9 @@ Det här tillägget har stöd för följande OSs:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
+| Windows 10 | Kärna |
+| Windows Server 2016 | Kärna |
+| Windows Server 2012 R2 | Kärna |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
@@ -69,13 +69,13 @@ Följande JSON visar schemat för tillägget.
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 
-| Name | Värdet / exempel | Datatyp |
+| Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft. HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| apiVersion | 2015-06-15 | datum |
+| publisher | Microsoft.HpcCompute | sträng |
+| typ | NvidiaGpuDriverWindows | sträng |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -163,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Åtgärden lyckades |
 | 1 | Åtgärden lyckades. Omstart krävs. |
-| 100 | Åtgärden stöds inte eller kunde inte slutföras. | Möjliga orsaker: PowerShell-versionen stöds inte, VM-storleken är inte en virtuell dator i N-serien, det gick inte att hämta data. Kontrol lera loggfilerna för att ta reda på orsaken till felet. |
+| 100 | Åtgärden stöds inte eller kunde inte slutföras. | Möjliga orsaker: PowerShell-versionen stöds inte, VM-storleken är inte en virtuell dator i N-serien, fel vid hämtning av data. Kontrol lera loggfilerna för att ta reda på orsaken till felet. |
 | 240, 840 | Åtgärds-timeout. | Försök igen. |
 | -1 | Ett undantag inträffade. | Kontrol lera loggfilerna för att ta reda på orsaken till undantaget. |
 | -5x | Åtgärden avbröts på grund av en väntande omstart. | Starta om virtuell dator. Installationen fortsätter efter att datorn har startats om. Avinstallationen ska anropas manuellt. |

@@ -1,5 +1,5 @@
 ---
-title: Ladda upp en generaliserad virtuell hård disk för att skapa flera virtuella datorer i Azure | Microsoft Docs
+title: Ladda upp en generaliserad virtuell hård disk för att skapa flera virtuella datorer i Azure
 description: Överför en generaliserad virtuell hård disk till ett Azure Storage-konto för att skapa en virtuell Windows-dator som ska användas med distributions modellen för Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 933b648f15418c4838d3da1ea8379267765c784b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749177"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073330"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Överför en generaliserad virtuell hård disk till Azure för att skapa en ny virtuell dator
 

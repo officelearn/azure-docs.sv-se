@@ -1,22 +1,22 @@
 ---
-title: Självstudie – Skapa och distribuera din första Azure Resource Manager mall
-description: Beskriver stegen för att skapa din första Azure Resource Manager-mall. Du lär dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
+title: Självstudie – Skapa & Distribuera Azure Resource Manager mall
+description: Skapa din första Azure Resource Manager-mall. I självstudien får du lära dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
 author: mumian
 manager: carmonmills
 ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029550"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074360"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Självstudier: Skapa och distribuera din första Azure Resource Manager-mall
+# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Självstudie: skapa och distribuera din första Azure Resource Manager-mall
 
-I den här självstudien beskrivs Resource Manager-mallar. Det visar hur du skapar en start-mall och distribuerar den till Azure. Du lär dig mer om mallens struktur och de verktyg du behöver för att arbeta med mallar. Det tar ungefär **12 minuter** att slutföra den här självstudien, men den faktiska tiden varierar beroende på hur många verktyg du behöver installera.
+I den här självstudien beskrivs Azure Resource Manager mallar. Det visar hur du skapar en start-mall och distribuerar den till Azure. Du lär dig mer om mallens struktur och de verktyg du behöver för att arbeta med mallar. Det tar ungefär **12 minuter** att slutföra den här självstudien, men den faktiska tiden varierar beroende på hur många verktyg du behöver installera.
 
 Den här självstudien är den första i en serie. När du går igenom serien ändrar du stegvisa start mal len tills du har utforskat alla kärn delar av en Resource Manager-mall. Dessa element är Bygg stenarna för mycket mer komplexa mallar. Vi hoppas i slutet av serien och du är säker på att du har skapat dina egna mallar och kan automatisera dina distributioner med mallar.
 
@@ -69,9 +69,9 @@ OK, du är redo att börja lära dig om mallar.
 
     JSON-filen innehåller följande element:
 
-    - **$schema**: Anger platsen för JSON-schemafilen. Schema filen beskriver de egenskaper som är tillgängliga i en mall. Schemat definierar till exempel **resurser** som en av de giltiga egenskaperna för en mall. Bry dig inte om att datumet för schemat är 2015-01-01. Den här schema versionen är uppdaterad och innehåller alla de senaste funktionerna. Schema datumet har inte ändrats på grund av att det inte har skett några ändringar sedan introduktionen.
-    - **contentVersion**: Anger versionen för mallen (till exempel 1.0.0.0). Du kan ange valfritt värde för det här elementet. Använd det här värdet om du vill dokumentera viktiga ändringar i mallen. När du distribuerar resurser med hjälp av mallen kan det här värdet användas för att se till att rätt mall används.
-    - **resurser**: Innehåller de resurser som du vill distribuera eller uppdatera. För närvarande är det tomt, men du kommer att lägga till resurser senare.
+    - **$schema**: anger platsen för JSON schema filen. Schema filen beskriver de egenskaper som är tillgängliga i en mall. Schemat definierar till exempel **resurser** som en av de giltiga egenskaperna för en mall. Bry dig inte om att datumet för schemat är 2015-01-01. Den här schema versionen är uppdaterad och innehåller alla de senaste funktionerna. Schema datumet har inte ändrats på grund av att det inte har skett några ändringar sedan introduktionen.
+    - **contentVersion**: anger versionen för mallen (till exempel 1.0.0.0). Du kan ange valfritt värde för det här elementet. Använd det här värdet om du vill dokumentera viktiga ändringar i mallen. När du distribuerar resurser med hjälp av mallen kan det här värdet användas för att se till att rätt mall används.
+    - **resurser**: innehåller de resurser som du vill distribuera eller uppdatera. För närvarande är det tomt, men du kommer att lägga till resurser senare.
 
 1. Spara filen.
 
@@ -158,7 +158,7 @@ Distributions kommandot returnerar resultat. Leta efter `ProvisioningState` för
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **resurs grupper**på den vänstra menyn.
 

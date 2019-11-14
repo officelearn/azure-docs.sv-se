@@ -1,19 +1,19 @@
 ---
-title: Azure VPN Gateway | Microsoft Docs
+title: Om Azure VPN Gateway
 description: Läs mer om vad en VPN-gateway är och hur du kan använda en VPN-gateway för anslutning till ett virtuellt Azure-nätverk. Du kan bland annat använda IPsec/IKE-lösningar mellan olika platser eller VNet, eller från punkter till lokala VPN.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/31/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 82e9003036f67ecd3b3ecd7d8ab6cd434fcfc438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495694"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075443"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
@@ -53,7 +53,10 @@ Tabellen nedan kan hjälpa dig att bestämma det bästa anslutningsalternativet 
 
 ## <a name="gwsku"></a>Gateway-SKU:er
 
-När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal. Mer information om Gateway-SKU: er, inklusive funktioner som stöds, produktions-och dev-test och konfigurations steg, finns i artikeln [VPN Gateway inställningar-Gateway SKU: er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) . Äldre SKU-information finns i [arbeta med äldre SKU: er](vpn-gateway-about-skus-legacy.md).
+När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal.
+
+* Mer information om Gateway-SKU: er, inklusive funktioner som stöds, produktions-och dev-test och konfigurations steg, finns i artikeln [VPN Gateway inställningar-Gateway SKU: er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) .
+* Äldre SKU-information finns i [arbeta med äldre SKU: er](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>Gateway-SKU:er efter tunnel, anslutning och dataflöde
 
@@ -93,7 +96,6 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 
 Till skillnad från S2S-anslutningar, kräver P2S-anslutningar en lokal offentlig IP-adress eller en VPN-enhet. P2S-anslutningar kan användas tillsammans med S2S-anslutningar via samma VPN-gateway, under förutsättning att alla konfigurationskrav för båda anslutningarna är kompatibla. Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 
-
 ![Exempel på Azure VPN Gateway-anslutningar från punkt till plats](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
 ### <a name="deployment-models-and-methods-for-p2s"></a>Distributionsmodeller och -metoder för P2S
@@ -116,7 +118,7 @@ De virtuella nätverk som du ansluter kan finnas:
 
 Azure har för närvarande två distributionsmodeller: klassisk och Resource Manager. Om du har använt Azure ett tag har du förmodligen virtuella Azure-datorer och instansroller som kör i ett klassiskt VNet. Dina nyare virtuella datorer och rollinstanser kanske körs i ett VNet som skapats i Resource Manager. Du kan skapa en anslutning mellan virtuella nätverk så att resurserna i ett VNet kan kommunicera direkt med resurserna i ett annat.
 
-### <a name="vnet-peering"></a>VNET-peering
+### <a name="vnet-peering"></a>VNet-peering
 
 Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt virtuella nätverk uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 

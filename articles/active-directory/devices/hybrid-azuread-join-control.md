@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809222"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073617"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
@@ -33,7 +33,7 @@ Om du vill göra en kontrollerad verifiering av hybrid Azure AD-anslutning på W
 1. Rensa posten för tjänst anslutnings punkten (SCP) från Active Directory (AD) om den finns
 1. Konfigurera register inställningen på klient sidan för SCP på domänanslutna datorer med hjälp av ett grupprincip objekt (GPO)
 1. Om du använder AD FS måste du också konfigurera register inställningen på klient sidan för SCP på din AD FS-server med hjälp av ett grup princip objekt  
-
+1. Du kan också behöva [Anpassa synkroniseringsalternativ](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) i Azure AD Connect för att aktivera synkronisering av enheten. 
 
 
 ### <a name="clear-the-scp-from-ad"></a>Rensa SCP från AD
@@ -82,7 +82,7 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
 Om du använder AD FS måste du först konfigurera klient sidans SCP genom att följa anvisningarna ovan men länka GRUPPRINCIPOBJEKTet till dina AD FS-servrar. SCP-objektet definierar källan för auktoritet för enhets objekt. Det kan vara lokalt eller i Azure AD. När detta har kon figurer ATS för AD FS, upprättas källan för enhets objekt som Azure AD.
 
 > [!NOTE]
-> Om du inte konfigurerar klient sidans SCP på dina AD FS-servrar, betraktas källan för enhets identiteter som lokalt, och om du har tillbakaskrivning av enheten börjar AD FS ta bort enhets objekt från den lokala registrerade enhets behållaren efter en fastställd period.
+> Om du inte kunde konfigurera klient sidans SCP på dina AD FS-servrar anses källan för enhets identiteter vara lokalt. AD FS börjar sedan ta bort enhets objekt från den lokala katalogen efter den angivna perioden som definieras i AD FS-enhetens registrerings attribut "MaximumInactiveDays". ADFS Device Registration-objekt kan hittas med [cmdleten Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Kontrollerad verifiering av hybrid Azure AD-anslutning på Windows-enheter på nivån
 

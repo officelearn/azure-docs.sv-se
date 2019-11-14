@@ -1,24 +1,25 @@
 ---
-title: Hantera trafik till appar för flera klienter, till exempel App Service Web Apps med Azure Application Gateway – Portal
+title: Hantera trafik till appar för flera klienter med hjälp av portalen
+titleSuffix: Azure Application Gateway
 description: Den här artikeln innehåller rikt linjer för hur du konfigurerar Azure App tjänst webbappar som medlemmar i backend-poolen på en befintlig eller ny Programgateway.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68370423"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075168"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
 Eftersom App Service är en tjänst för flera innehavare i stället för en dedikera distribution använder den värd rubriken i den inkommande begäran för att lösa begäran till rätt app service-slutpunkt. DNS-namnet på programmet, som i sin tur är det DNS-namn som är associerat med programgatewayen fram till App Service, skiljer sig vanligt vis från domän namnet för Server delens app service. Därför är värd rubriken i den ursprungliga begäran som togs emot av Application Gateway inte samma som värd namnet för backend-tjänsten. På grund av detta, om inte värd huvudet i begäran från programgatewayen till Server delen ändras till Server dels tjänstens värdnamn, kan inte Server delen för flera klient organisationer lösa begäran till rätt slut punkt.
 
-Application Gateway innehåller en växel som `Pick host name from backend address` anropar och som åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen. Den här funktionen aktiverar stöd för Server delar för flera klient organisationer, till exempel Azure App service och API Management. 
+Application Gateway innehåller en växel med namnet `Pick host name from backend address` som åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen. Den här funktionen aktiverar stöd för Server delar för flera klient organisationer, till exempel Azure App service och API Management. 
 
 I den här artikeln kan du se hur du:
 
@@ -27,10 +28,10 @@ I den här artikeln kan du se hur du:
 > - Skapa en backend-pool och Lägg till en App Service
 > - Skapa HTTP-inställningar och anpassad avsökning med växeln Välj värdnamn aktiverat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Application Gateway: Om du inte har en befintlig Application Gateway, se How to [Create a Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- App Service: Om du inte har en befintlig app service, se [dokumentationen för App Service](https://docs.microsoft.com/azure/app-service/).
+- Application Gateway: om du inte har en befintlig Application Gateway, se så här [skapar du en Programgateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- App Service: om du inte har en befintlig App Service kan du läsa [dokumentationen om App Service](https://docs.microsoft.com/azure/app-service/).
 
 ## <a name="add-app-service-as-backend-pool"></a>Lägg till App Service som backend-pool
 
@@ -47,7 +48,7 @@ I den här artikeln kan du se hur du:
    ![App Service-backend](./media/configure-web-app-portal/backendpool.png)
    
    > [!NOTE]
-   > List rutan fyller bara i de app-tjänster som finns i samma prenumeration som din Application Gateway. Om du vill använda en app-tjänst som finns i en annan prenumeration än den som Application Gateway är i stället för att välja **app Services** i list rutan **mål** väljer du **IP-adress eller värdnamn** och anger värdnamn (exempel. azurewebsites.net) för App Service.
+   > List rutan fyller bara i de app-tjänster som finns i samma prenumeration som din Application Gateway. Om du vill använda en app-tjänst som finns i en annan prenumeration än den där Application Gateway är, i stället för att välja **app Services** i list rutan **mål** , väljer du **IP-adress eller värdnamn** och anger värdnamn (exempel. azurewebsites.net) för App Service.
 
 ## <a name="create-http-settings-for-app-service"></a>Skapa HTTP-inställningar för App Service
 
@@ -60,11 +61,11 @@ I den här artikeln kan du se hur du:
    > [!NOTE]
    > Om du väljer HTTPS behöver du inte ladda upp något autentiseringscertifikat eller ett betrott rot certifikat för att vitlista App Service-Dataservern eftersom App Service är en betrodd Azure-tjänst.
 
-4. Markera kryss rutan om du vill **använda App Service** . Observera att växlarna `Create a probe with pick host name from backend address` och `Pick host name from backend address` kommer automatiskt att aktive ras.`Pick host name from backend address` åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen.  
+4. Markera kryss rutan om du vill **använda App Service** . Observera att växlarna `Create a probe with pick host name from backend address` och `Pick host name from backend address` automatiskt kommer att aktive ras.`Pick host name from backend address` åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen.  
 
-   `Create a probe with pick host name from backend address`kommer automatiskt att skapa en hälso avsökning och koppla den till den här HTTP-inställningen. Du behöver inte skapa någon annan hälso avsökning för den här HTTP-inställningen. Du kan kontrol lera att en ny avsökning med <HTTP Setting name> namnet <Unique GUID> har lagts till i listan över hälso avsökningar och att den redan har `Pick host name from backend http settings enabled`växeln.
+   `Create a probe with pick host name from backend address` skapar automatiskt en hälso avsökning och kopplar den till den här HTTP-inställningen. Du behöver inte skapa någon annan hälso avsökning för den här HTTP-inställningen. Du kan kontrol lera att en ny avsökning med namnet <HTTP Setting name><Unique GUID> har lagts till i listan över hälso avsökningar och att den redan har växeln `Pick host name from backend http settings enabled`.
 
-   Om du redan har en eller flera http-inställningar som används för app service och om dessa http-inställningar använder samma protokoll som det du använder i den som du skapar, så får du en listruta i stället för `Create a probe with pick host name from backend address` växeln. Välj en av c anpassade avsökningar. Detta beror på att eftersom det redan finns en HTTP-inställning med App Service, och därför finns det också en hälso avsökning som har `Pick host name from backend http settings enabled` växeln. Välj anpassad avsökning i list rutan.
+   Om du redan har en eller flera HTTP-inställningar som används för app service och om dessa HTTP-inställningar använder samma protokoll som det du använder i den som du skapar, kommer du att få en listruta i stället för den `Create a probe with pick host name from backend address` växeln, och välja en av de anpassade avsökningarna. Det beror på att eftersom det redan finns en HTTP-inställning med App Service, så finns det också en hälso avsökning som har växeln `Pick host name from backend http settings enabled`. Välj anpassad avsökning i list rutan.
 
 5. Klicka på **OK** för att skapa http-inställningen.
 
@@ -90,7 +91,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Ytterligare konfiguration i händelse av omdirigering till app Services relativa sökväg
 
-När App Service skickar ett svar för omdirigering till klienten för att omdirigera till dess relativa sökväg (till exempel en omdirigering från contoso.azurewebsites.net/path1 till contoso.azurewebsites.net/path2), använder den samma värdnamn i plats rubriken för sitt svar som det i den begäran som den fått från Application Gateway. Klienten kommer därför att göra begäran direkt till contoso.azurewebsites.net/path2 i stället för att gå igenom Application Gateway (contoso.com/path2). Att kringgå Application Gateway är inte önskvärt.
+När App Service skickar ett svar för omdirigering till klienten för att omdirigera till dess relativa sökväg (till exempel en omdirigering från contoso.azurewebsites.net/path1 till contoso.azurewebsites.net/path2), använder den samma värdnamn i plats huvudet för svar som den som finns i den begäran som togs emot från Application Gateway. Klienten kommer därför att göra begäran direkt till contoso.azurewebsites.net/path2 i stället för att gå igenom Application Gateway (contoso.com/path2). Att kringgå Application Gateway är inte önskvärt.
 
 Om du är i ditt användnings fall finns det scenarier där App Service måste skicka ett svar på omdirigering till klienten, utföra de [ytterligare stegen för att skriva om plats rubriken](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
 

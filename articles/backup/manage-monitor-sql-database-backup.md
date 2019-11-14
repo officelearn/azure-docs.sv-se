@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b9a292d06ce68d211b5c758e287f2935411c6f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968359"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074770"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -117,7 +117,7 @@ Du kan köra olika typer av säkerhets kopieringar på begäran:
 - Differentiell säkerhetskopia
 - Loggsäkerhetskopia
 
-Du måste ange kvarhållningsperioden för fullständig säkerhets kopiering, men kvarhållningsintervallet för den fullständiga och fullständiga säkerhets kopieringen anges automatiskt till 45 dagar från aktuell tid.
+Du måste ange kvarhållningsperioden för fullständig säkerhets kopiering, men kvarhållningsintervall för fullständig säkerhets kopiering på begäran kommer automatiskt att ställas in på 45 dagar från aktuell tid.
 
 Mer information finns i [SQL Server säkerhets kopierings typer](backup-architecture.md#sql-server-backup-types).
 

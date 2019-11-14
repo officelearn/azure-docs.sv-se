@@ -1,7 +1,7 @@
 ---
 title: Belastnings utjämning på flera IP-konfigurationer – Azure Portal
-titlesuffix: Azure Load Balancer
-description: Belastnings utjämning för primära och sekundära IP-konfigurationer.
+titleSuffix: Azure Load Balancer
+description: I den här artikeln lär du dig mer om belastnings utjämning för primära och sekundära IP-konfigurationer med hjälp av Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274738"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077009"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Belastnings utjämning på flera IP-konfigurationer med hjälp av Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Portal](load-balancer-multiple-ip.md)
+> * [Portalen](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
@@ -42,7 +42,7 @@ I vårt scenario använder vi följande konfiguration:
 - Azure Load Balancer används för att exponera två frontend-IP-adresser, en för varje webbplats. Klient dels adresserna används för att distribuera trafik till respektive IP-konfiguration för varje webbplats.
 - Samma port nummer används för både frontend-IP-adresser och backend-poolens IP-adresser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vårt scenario exempel förutsätter att du har en resurs grupp med namnet **contosofabrikam** som är konfigurerad på följande sätt:
 
@@ -88,7 +88,7 @@ Skapa belastningsutjämnaren för konfigurationen:
 
 1. Bläddra till Azure Portal: https://portal.azure.com. Logga in med ditt Azure-konto.
 
-2. I det övre vänstra hörnet på skärmen väljer du **skapa en resurs** > **nätverk** > **Load Balancer**. Välj sedan **skapa**.
+2. I det övre vänstra hörnet på skärmen väljer du **skapa en resurs** > **nätverks** > **Load Balancer**. Välj sedan **skapa**.
 
 3. Under **skapa belastningsutjämnare**anger du ett namn för belastningsutjämnaren. I det här scenariot använder vi namnet **mylb**.
 
@@ -98,7 +98,7 @@ Skapa belastningsutjämnaren för konfigurationen:
 
 Belastningsutjämnaren börjar distribuera. Det kan ta några minuter innan distributionen har slutförts. När distributionen är klar visas belastningsutjämnaren som en resurs i resurs gruppen.
 
-### <a name="step-3-configure-the-front-end-ip-pool"></a>Steg 3: Konfigurera IP-adresspoolen på klient Sidan
+### <a name="step-3-configure-the-front-end-ip-pool"></a>Steg 3: Konfigurera klient delens IP-pool
 
 För varje webbplats (contoso.com och fabrikam.com) konfigurerar du klient delens IP-pool på belastningsutjämnaren:
 
@@ -128,7 +128,7 @@ För varje webbplats (contoso.com och fabrikam.com) konfigurerar du klient delen
 
 8. Skapa den andra IP-adressen för klient sidan genom att upprepa <a href="#step3-3">steg 3</a> till <a href="#step3-7">steg 7</a> i det här avsnittet.
 
-När klient delens pool har kon figurer ATS visas IP-adresserna under konfigurations inställningarna för belastningsutjämnarens **klient** del. 
+När klient delens pool har kon figurer ATS visas IP-adresserna under **konfigurations** inställningarna för belastningsutjämnarens klient del. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Steg 4: Konfigurera backend-poolen
 
@@ -168,7 +168,7 @@ Konfigurera en hälso avsökning för belastningsutjämnaren:
 
 4. Ange ett namn på hälso avsökningen (till exempel **http**). Välj **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Steg 6: Konfigurera belastningsutjämningsregler
+### <a name="step-6-configure-load-balancing-rules"></a>Steg 6: Konfigurera belastnings Utjämnings regler
 
 Konfigurera belastnings Utjämnings reglerna för varje webbplats (contoso.com och fabrikam.com):
     

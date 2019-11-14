@@ -1,5 +1,5 @@
 ---
-title: Lägg till övervakning & Diagnostik till en virtuell Azure-dator | Microsoft Docs
+title: Lägg till övervakning & Diagnostik till en virtuell Azure-dator
 description: Använd en Azure Resource Manager mall för att skapa en ny virtuell Windows-dator med Azure Diagnostics-tillägget.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092545"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073847"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar
 Azure-diagnostik-tillägget innehåller funktioner för övervakning och diagnostik på en Windows-baserad virtuell Azure-dator. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Mer information om hur du inkluderar tillägg som en del av en mall för virtuella datorer finns i [redigera Azure Resource Manager mallar med VM-tillägg](../windows/template-description.md#extensions) . I den här artikeln beskrivs hur du kan lägga till Azure-diagnostik-tillägget i en mall för virtuella Windows-datorer.  
@@ -157,24 +157,24 @@ MetricAggregation-värdet för *PT1M* och *PT1H* indikerar en agg regering över
 ## <a name="wadmetrics-tables-in-storage"></a>WADMetrics-tabeller i lagring
 Måtts konfigurationen ovan genererar tabeller i ditt diagnostik lagrings konto med följande namn konventioner:
 
-* **WADMetrics**: Standardprefix för alla WADMetrics-tabeller
-* **PT1H** eller **PT1M**: Indikerar att tabellen innehåller sammanställda data över 1 timme eller 1 minut
-* **P10D**: Visar att tabellen innehåller data i 10 dagar från det att tabellen började samla in data
-* **V2S**: Strängkonstant
-* **yyyymmdd**: Datumet då tabellen började samla in data
+* **WADMetrics**: standardprefix för alla WADMetrics-tabeller
+* **PT1H** eller **PT1M**: indikerar att tabellen innehåller sammanställda data över 1 timme eller 1 minut
+* **P10D**: visar att tabellen innehåller data i 10 dagar från när tabellen började samla in data
+* **V2S**: strängkonstant
+* **ÅÅÅÅMMDD**: datumet då tabellen började samla in data
 
-Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mått data som sammanställs under en timme för 10 dagar med början den 11-Nov-2015    
+Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mått data som sammanställts under en timme för 10 dagar med början 11-Nov-2015    
 
 Varje WADMetrics-tabell innehåller följande kolumner:
 
-* **PartitionKey**: Partitionsnyckel konstrueras baserat på värdet *resourceID* för att unikt identifiera VM-resursen. Exempel: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: Följer formatet `<Descending time tick>:<Performance Counter Name>`. Tids Skale beräkningen för fallande timmar är Max tids skal minus tiden i början av agg regerings perioden. Exempel: om exempel perioden startades 10-nov-2015 och 00:00Hrs UTC skulle beräkningen vara: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. För prestanda räknaren tillgängliga minnes byte kommer rad nyckeln att se ut så här:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: Är namnet på prestanda räknaren. Detta matchar den *counterSpecifier* som definierats i XML-konfigurationen.
-* **Max**: Det maximala värdet för prestanda räknaren över samlings perioden.
-* **Lägsta**: Det minimala värdet för prestanda räknaren över samlings perioden.
-* **Totalt**: Summan av alla värden för prestanda räknaren som rapporter ATS under samlings perioden.
-* **Antal**: Det totala antalet värden som rapporter ATS för prestanda räknaren.
-* **Genomsnitt**: Genomsnitt svärdet (total/Count) för prestanda räknaren över samlings perioden.
+* **PartitionKey**: partitionsnyckel konstrueras baserat på värdet *resourceID* för att unikt identifiera VM-resursen. Exempel: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey**: följer formatet `<Descending time tick>:<Performance Counter Name>`. Tids Skale beräkningen för fallande timmar är Max tids skal minus tiden i början av agg regerings perioden. Exempel: om exempel perioden startades 10-nov-2015 och 00:00Hrs UTC skulle beräkningen vara: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. För prestanda räknaren tillgängliga byte för minne kommer rad nyckeln att se ut så här: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName**: är namnet på prestanda räknaren. Detta matchar den *counterSpecifier* som definierats i XML-konfigurationen.
+* **Maximum**: det maximala värdet för prestanda räknaren över samlings perioden.
+* **Minimum**: det minimala värdet för prestanda räknaren över samlings perioden.
+* **Totalt**: summan av alla värden i prestanda räknaren som rapporter ATS under samlings perioden.
+* **Antal**: det totala antalet värden som rapporter ATS för prestanda räknaren.
+* **Genomsnitt**: det genomsnittliga värdet (total/Count) för prestanda räknaren över samlings perioden.
 
 ## <a name="next-steps"></a>Nästa steg
 * En fullständig exempel mall för en virtuell Windows-dator med diagnostik-tillägg finns i [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   

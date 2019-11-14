@@ -1,5 +1,5 @@
 ---
-title: Stackify för att spåra Azure Linux Agent-tillägg | Microsoft Docs
+title: Stackify-tillägget för Azure Linux-agenten
 description: Distribuera Stackify för att spåra om Linux-agenten på en virtuell Linux-dator.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 2278f1bef3a72408b097f9a2d676931fd07369f4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173975"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073644"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify för att spåra om Linux-Agent
 
@@ -37,7 +37,7 @@ Att spåra är det enda verktyg som tillhandahåller alla följande funktioner i
 
 Det här tillägget innehåller en installations Sök väg för Linux-agenten för spårning. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem 
 
@@ -150,7 +150,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMExtension` Kommandot kan användas för att distribuera Stackify för att spåra virtuella datorer för Linux-agenten till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell.
+`Set-AzVMExtension`-kommandot kan användas för att distribuera Stackify för att spåra virtuella datorer för Linux-agenten till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell.
 
 Tillägget kräver `environment` och `activationKey`.
 

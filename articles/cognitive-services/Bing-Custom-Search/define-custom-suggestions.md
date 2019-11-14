@@ -1,7 +1,7 @@
 ---
 title: Definiera anpassade förslag för automatiska förslag – Anpassad sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Beskriver hur du konfigurerar anpassade automatiska förslag med anpassade förslag
+description: Anpassad automatiska förslag returnerar en lista med föreslagna Sök frågesträngar som är relevanta för din Sök funktion.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405098"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072810"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Konfigurera din anpassade automatiska förslags upplevelse
 
@@ -36,7 +36,7 @@ Aktivera Bing-förslag genom att växla skjutreglaget för **Automatisk Bing-fö
 
 ## <a name="add-your-own-suggestions"></a>Lägg till egna förslag
 
-Lägg till dina egna fråge Strängs förslag genom att lägga till dem i listan under **användardefinierade förslag**. När du har lagt till ett förslag i listan trycker du på RETUR-tangenten **+** eller på ikonen. Du kan ange förslaget på valfritt språk. Du kan lägga till högst 5 000 fråge Strängs förslag.
+Lägg till dina egna fråge Strängs förslag genom att lägga till dem i listan under **användardefinierade förslag**. När du har lagt till ett förslag i listan trycker du på RETUR-tangenten eller på ikonen **+** . Du kan ange förslaget på valfritt språk. Du kan lägga till högst 5 000 fråge Strängs förslag.
 
 ## <a name="upload-suggestions"></a>Ladda upp förslag
 
@@ -48,7 +48,7 @@ Om du vill ta bort ett fråge Strängs förslag klickar du på ikonen Ta bort br
 
 ## <a name="block-suggestions"></a>Blockera förslag
 
-Om du inkluderar Bing-förslag kan du lägga till en lista med Sök fråga-strängar som du inte vill att Bing ska returnera. Om du vill lägga till blockerade frågesträngar klickar du på **Visa blockerade förslag**. Lägg till frågesträngen i listan och tryck på RETUR eller klicka på **+** ikonen. Du kan lägga till högst 50 blockerade frågesträngar.
+Om du inkluderar Bing-förslag kan du lägga till en lista med Sök fråga-strängar som du inte vill att Bing ska returnera. Om du vill lägga till blockerade frågesträngar klickar du på **Visa blockerade förslag**. Lägg till frågesträngen i listan och tryck på RETUR eller klicka på ikonen **+** . Du kan lägga till högst 50 blockerade frågesträngar.
 
 
 
@@ -65,7 +65,7 @@ Om du vill aktivera fråge Strängs förslag för ditt värdbaserade användar g
 
 ## <a name="calling-the-autosuggest-api"></a>Anropar API: et för automatiska förslag
 
-Skicka en `GET` begäran till följande slut punkt för att få förslag på frågesträngar med hjälp av API för anpassad Bing-sökning.
+Om du vill hämta föreslagna frågesträngar med hjälp av API för anpassad Bing-sökning skickar du en `GET` begäran till följande slut punkt.
 
 ```
 GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions 
@@ -81,9 +81,9 @@ Svaret innehåller en lista med `SearchAction` objekt som innehåller de föresl
         },  
 ```
 
-Varje förslag innehåller `displayText` fältet och `query` . `displayText` Fältet innehåller den föreslagna frågesträngen som du använder för att fylla i Sök rutans listruta.
+Varje förslag innehåller ett `displayText` och `query` fält. Fältet `displayText` innehåller den föreslagna frågesträng som du använder för att fylla i Sök rutans listruta.
 
-Om användaren väljer en föreslagen frågesträng från List rutan använder du frågesträngen i `query` fältet när du anropar [API för anpassad Bing-sökning](overview.md).
+Om användaren väljer en föreslagen frågesträng från List rutan använder du frågesträngen i fältet `query` när du anropar [API för anpassad Bing-sökning](overview.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

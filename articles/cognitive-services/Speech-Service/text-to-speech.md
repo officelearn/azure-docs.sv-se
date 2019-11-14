@@ -1,7 +1,7 @@
 ---
 title: Text till tal-tal-tjänsten
 titleSuffix: Azure Cognitive Services
-description: Funktionen för text till tal i tal service är en funktion som gör det möjligt för program, verktyg eller enheter att konvertera text till naturligt mänskligt syntetiskt tal. Välj mellan standard-och neurala röster eller skapa en egen anpassad röst som är unik för din produkt eller ditt varumärke. 75 + standard röster är tillgängliga på över 45 språk och nationella inställningar och 5 neurala-röster är tillgängliga på 4 språk och nationella inställningar.
+description: Funktionen för text till tal i tal-tjänsten gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturligt mänskligt syntetiskt tal. Välj Förvals röster eller skapa en egen anpassad röst.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: d3d4777d54e3ef6b20ab0ac0f0890da958411297
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468675"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075715"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
 Text till tal från Azure Speech Services är en tjänst som gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturligt mänskligt syntetiskt tal. Välj mellan standard-och neurala röster eller skapa en egen anpassad röst som är unik för din produkt eller ditt varumärke. 75 + standard röster är tillgängliga på över 45 språk och nationella inställningar och 5 neurala-röster är tillgängliga på 4 språk och nationella inställningar. En fullständig lista finns i [språk som stöds](language-support.md#text-to-speech).
 
 Med text till tal-teknik kan skapare av innehåll interagera med sina användare på olika sätt. Text till tal kan förbättra tillgängligheten genom att ge användarna ett alternativ för att interagera med innehållet audibly. Om användaren har nedsatt syn, ett inlärnings funktions sätt eller kräver navigerings information under körningen, kan text till tal förbättra en befintlig upplevelse. Text till tal är också ett värdefullt tillägg för röst robotar och röst assistenter.
-
 
 Genom att använda SSML (Speech syntes Markup Language), ett XML-baserat kodspråk, kan utvecklare som använder tjänsten för text till tal ange hur indata ska konverteras till syntetiskt tal. Med SSML kan du justera bredd, uttal, tal, volym och mycket annat. Mer information finns i [SSML](#speech-synthesis-markup-language-ssml).
 
@@ -54,10 +53,10 @@ Alla text inmatningar som skickas till text till tal-tjänsten måste strukturer
 
 När du använder text till tal-tjänsten debiteras du för varje tecken som konverteras till tal, inklusive interpunktion. SSML-dokumentet är inte fakturerbart, valfria element som används för att justera hur texten konverteras till tal, t. ex. fonem och färgdjup, räknas som fakturerbara tecken. Här är en lista över vad som är fakturerbara:
 
-* Text som skickas till text till tal-tjänsten i SSML-delen av begäran
-* Alla markeringar i textfältet för begär ande texten i SSML-format, förutom för `<speak>` och `<voice>` Taggar
-* Bokstäver, interpunktion, blank steg, tabbar, markeringar och alla blank stegs tecken
-* Varje kod punkt som definierats i Unicode
+- Text som skickas till text till tal-tjänsten i SSML-delen av begäran
+- Alla markeringar i textfältet för begär ande texten i SSML-format, förutom för `<speak>` och `<voice>` Taggar
+- Bokstäver, interpunktion, blank steg, tabbar, markeringar och alla blank stegs tecken
+- Varje kod punkt som definierats i Unicode
 
 Detaljerad information finns i [prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
@@ -68,16 +67,16 @@ Detaljerad information finns i [prissättning](https://azure.microsoft.com/prici
 
 I den här tabellen listas huvud funktionerna för text till tal:
 
-| Användningsfall | SDK | REST |
-|----------|-----|------|
-| Omvandla text till tal. | Ja | Ja |
-| Ladda upp data uppsättningar för röst anpassning. | Nej | Ja\* |
-| Skapa och hantera röst teckensnitts modeller. | Nej | Ja\* |
-| Skapa och hantera röst teckensnitts distributioner. | Nej | Ja\* |
-| Skapa och hantera röst teckensnitts test. | Nej | Ja\* |
-| Hantera prenumerationer. | Nej | Ja\* |
+| Användningsfall                                  | SDK | REST  |
+| ----------------------------------------- | --- | ----- |
+| Omvandla text till tal.                   | Ja | Ja   |
+| Ladda upp data uppsättningar för röst anpassning.     | Nej  | Ja\* |
+| Skapa och hantera röst teckensnitts modeller.      | Nej  | Ja\* |
+| Skapa och hantera röst teckensnitts distributioner. | Nej  | Ja\* |
+| Skapa och hantera röst teckensnitts test.       | Nej  | Ja\* |
+| Hantera prenumerationer.                     | Nej  | Ja\* |
 
-\* *dessa tjänster är tillgängliga med hjälp av Cris.AI-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index). De här API: erna för anpassad röst utbildning och hantering implementerar begränsning som begränsar begär anden till 25 per 5 sekunder, medan API för tal syntes implementerar sig själv begränsning som tillåter 200-begäranden per sekund som högsta. När begränsningen inträffar får du ett meddelande via meddelande rubriker.*
+\*_dessa tjänster är tillgängliga med hjälp av Cris.AI-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index). De här API: erna för anpassad röst utbildning och hantering implementerar begränsning som begränsar begär anden till 25 per 5 sekunder, medan API för tal syntes implementerar sig själv begränsning som tillåter 200-begäranden per sekund som högsta. När begränsningen inträffar får du ett meddelande via meddelande rubriker._
 
 ## <a name="get-started-with-text-to-speech"></a>Kom igång med text till tal
 
@@ -86,8 +85,8 @@ Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på 
 ### <a name="sdk-quickstarts"></a>Snabb starter för SDK
 
 | Snabb start (SDK) | Plattform | API-referens |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
+| ---------------- | -------- | ------------- |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)  | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
 | [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
 | [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Mellan](https://aka.ms/csspeech/csharpref) |
@@ -97,14 +96,14 @@ Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på 
 | [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Mellan](https://aka.ms/csspeech/javaref) |
 | [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-macos.md) | macOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
 | [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
-| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md) | macOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
+| Införliva (~/articles/Cognitive-Services/Speech-service/quickstarts/text-to-Speech-Langs/Swift-MacOS.MD | macOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
 | [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
 | [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Window, Linux, macOS | [Mellan](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>REST-snabb starter
 
 | Snabb start (REST) | Plattform | API-referens |
-|------------|----------|---------------|
+| ----------------- | -------- | ------------- |
 | [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Mellan](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Mellan](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Mellan](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -113,18 +112,18 @@ Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på 
 
 Exempel kod för text till tal finns på GitHub. De här exemplen tar upp text till tal-konvertering i de flesta populära programmeringsspråk.
 
-* [Text till tal-exempel (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Text till tal-exempel (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+- [Text till tal-exempel (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Text till tal-exempel (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>Referensdokument
 
-* [Speech SDK](speech-sdk-reference.md)
-* [Tal enheter SDK](speech-devices-sdk.md)
-* [REST API: tal till text](rest-speech-to-text.md)
-* [REST API: text till tal](rest-text-to-speech.md)
-* [REST API: batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
+- [Speech SDK](speech-sdk-reference.md)
+- [Tal enheter SDK](speech-devices-sdk.md)
+- [REST API: tal till text](rest-speech-to-text.md)
+- [REST API: text till tal](rest-text-to-speech.md)
+- [REST API: batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skaffa en prenumeration på kostnads fria tal tjänster](get-started.md)
-* [Skapa anpassade röst teckensnitt](how-to-customize-voice-font.md)
+- [Skaffa en prenumeration på kostnads fria tal tjänster](get-started.md)
+- [Skapa anpassade rösttyper](how-to-customize-voice-font.md)

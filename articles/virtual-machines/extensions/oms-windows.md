@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor tillägg för virtuell dator för Windows | Microsoft Docs
+title: Azure Monitor tillägg för virtuell dator för Windows
 description: Distribuera Log Analytics agenten på en virtuell Windows-dator med ett tillägg för virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: fe8bafcb63c1a27b905bdc339c07d30c9f0a5982
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168925"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073667"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor tillägg för virtuell dator för Windows
 
@@ -27,7 +27,7 @@ Azure Monitor-loggar innehåller övervaknings funktioner över molnbaserade och
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -39,7 +39,7 @@ Följande tabell innehåller en mappning av versionen av Windows Azure Monitor V
 | Log Analytics Windows agent-paket version | Azure Monitor version av Windows VM-tillägg | Utgivningsdatum | Viktig information |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18011 | 1.0.18011 | Juli 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Ökat MaxExpressionDepth till 10000 </li></ul> |
-| 10.20.18001 | 1.0.18001 | 2019 juni | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Möjlighet att inaktivera standardautentiseringsuppgifter när du skapar en proxy-anslutning (stöd för WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) har lagts till </li></ul>|
+| 10.20.18001 | 1.0.18001 | Juni 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Möjlighet att inaktivera standardautentiseringsuppgifter vid anslutning av proxy (stöd för WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) har lagts till </li></ul>|
 | 10.19.13515 | 1.0.13515 | Mars 2019 | <ul><li>Mindre stabiliserings korrigeringar </li></ul> |
 | 10.19.10006 | Saknas | Dec 2018 | <ul><li> Mindre stabiliserings korrigeringar </li></ul> | 
 | 8.0.11136 | Saknas | Sept 2018 |  <ul><li> Stöd har lagts till för att identifiera resurs-ID-ändring vid flyttning av virtuell dator </li><li> Stöd har lagts till för rapporterings resurs-ID vid användning av installation utan tillägg </li></ul>| 
@@ -88,12 +88,12 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
+| typ | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (t) * | 6f680a37-00c6-41C7-a93f-1437e3462574 |
 | workspaceKey (t.ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
-\*WorkspaceId kallas för consumerId i Log Analytics-API: et.
+\* workspaceId kallas consumerId i Log Analytics-API: et.
 
 ## <a name="template-deployment"></a>Malldistribution
 
@@ -159,7 +159,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMExtension` Kommandot kan användas för att distribuera tillägget Log Analytics agent virtuell dator till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell. 
+`Set-AzVMExtension`-kommandot kan användas för att distribuera den virtuella datorn med Log Analytics agent-tillägget till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

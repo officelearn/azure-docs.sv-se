@@ -1,29 +1,30 @@
 ---
-title: Konfigurera Azure Application Gateway med en privat klientdels-IP-adress
-description: Den här artikeln innehåller information om hur du konfigurerar en Programgateway med en privat klientdels-IP-adress
+title: Konfigurera en intern belastnings Utjämnings slut punkt (ILB)
+titleSuffix: Azure Application Gateway
+description: Den här artikeln innehåller information om hur du konfigurerar Application Gateway med en privat klient dels-IP-adress
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9e3150a5382e4d690ddf66c43bbe51e125509d3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66134658"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075221"
 ---
-# <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurera en Programgateway med en intern belastningsutjämnare (ILB) slutpunkt
+# <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurera en Programgateway med en intern belastningsutjämnare (ILB)
 
-Azure Application Gateway kan konfigureras med en internetuppkopplad VIP eller med en intern slutpunkt som inte är exponerad för Internet (med hjälp av en privat IP-adress för frontend-IP-adress), även känt som en intern belastningsutjämnare (ILB) slutpunkt. Konfigurera gatewayen med en privat IP-adress för klientdel är användbart för interna line-of-business-program som inte är exponerade mot Internet. Det är också användbart för tjänster och nivåer i ett affärsprogram med flera nivåer som finns vid en säkerhetsgräns som inte är exponerad för Internet men som fortfarande kräver distribution med resursallokering (round-robin), sessionsvaraktighet eller SSL-avslut (Secure Sockets Layer).
+Azure Application Gateway kan konfigureras med en Internet-baserad VIP eller med en intern slut punkt som inte exponeras för Internet (genom att använda en privat IP-adress för klient delens IP-adress), även kallad en intern belastningsutjämnare (ILB). Det är praktiskt att konfigurera gatewayen med en privat IP-adress i klient delen för interna affärs program som inte är exponerade för Internet. Det är också användbart för tjänster och nivåer i ett affärsprogram med flera nivåer som finns vid en säkerhetsgräns som inte är exponerad för Internet men som fortfarande kräver distribution med resursallokering (round-robin), sessionsvaraktighet eller SSL-avslut (Secure Sockets Layer).
 
-Den här artikeln vägleder dig igenom stegen för att konfigurera en Programgateway med en klientdel privat IP-adress från Azure Portal.
+Den här artikeln beskriver steg för steg hur du konfigurerar en Programgateway med en privat IP-adress för klient delen från Azure Portal.
 
 I den här artikeln får du lära dig hur du:
 
-- Skapa en privat klientdels-IP-konfiguration för en Application Gateway
-- Skapa en Programgateway med privata klientdelens IP-konfiguration
+- Skapa en privat frontend IP-konfiguration för en Application Gateway
+- Skapa en Programgateway med en privat klient delens IP-konfiguration
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -34,34 +35,34 @@ Logga in på Azure Portal på <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan skapa ett nytt virtuellt nätverk, eller så kan du använda ett befintligt namn. I det här exemplet skapar vi ett nytt virtuellt nätverk. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Application Gateway-instanser skapas i olika undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
+För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan antingen skapa ett nytt virtuellt nätverk eller använda ett befintligt. I det här exemplet ska vi skapa ett nytt virtuellt nätverk. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Application Gateway instanser skapas i separata undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
 
-1. Klicka på **New** hittades på det övre vänstra hörnet i Azure-portalen.
+1. Klicka på **ny** som finns i det övre vänstra hörnet av Azure Portal.
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
-3. Ange *myAppGateway* för namnet på application gateway och *myResourceGroupAG* för den nya resursgruppen.
+3. Ange *myAppGateway* som namn på Application Gateway och *myResourceGroupAG* för den nya resurs gruppen.
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
 5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
    - myVNet * – för namnet på det virtuella nätverket.
-   - 10.0.0.0/16* – för virtuella nätverkets adressutrymme.
+   - 10.0.0.0/16 * – för det virtuella nätverkets adress utrymme.
    - *myBackendSubnet* – Undernätsnamnet.
    - *10.0.0.0/24* – Undernätets adressutrymme.  
      ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
-7. Välj Frontend IP-konfigurationen som privat och som standard är en dynamisk IP-adresstilldelning. Den första tillgängliga adressen för valt undernätet anges som klientdelens IP-adress.
-8. Om du vill välja en privat IP-adress från adressintervallet i undernätet (statisk tilldelning) klickar du på rutan **väljer en specifik privat IP-adress** och ange IP-adress.
+7. Välj IP-konfigurationen för klient delen som privat och som standard är det en dynamisk IP-adresstilldelning. Den första tillgängliga adressen för det valda under nätet tilldelas som IP-adress för klient delen.
+8. Om du vill välja en privat IP-adress från under nätets adress intervall (statisk allokering) klickar du på rutan **Välj en speciell privat IP-adress** och anger IP-adressen.
    > [!NOTE]
-   > När du har allokerat, kan inte IP-adresstyp (statisk eller dynamisk) ändras senare.
-9. Välj din konfiguration för lyssnare för protokollet och port, konfiguration av WAF (vid behov) och klicka på OK.
-    ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
-10. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** att skapa nätverksresurser och application gateway. Det kan ta flera minuter för application gateway kan skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
+   > När det har allokerats kan IP-adress typen (statisk eller dynamisk) inte ändras senare.
+9. Välj lyssnar konfigurationen för protokollet och porten, WAF konfiguration (om det behövs) och klicka på OK.
+    ![Private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
+10. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** för att skapa nätverks resurserna och programgatewayen. Det kan ta flera minuter för application gateway kan skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
-## <a name="add-backend-pool"></a>Lägg till serverdelspool
+## <a name="add-backend-pool"></a>Lägg till backend-pool
 
-Serverdelspoolen används för att dirigera begäranden till backend-servrarna som ska tillhandahålla begäran. Serverdel kan bestå av nätverkskort, VM-skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade namn (FQDN) och flera innehavare serverprogram som Azure App Service. I det här exemplet använder vi virtuella datorer som mål-serverdelen. Vi kan använda befintliga virtuella datorer, eller så kan du skapa nya. I det här exemplet skapar vi två virtuella datorer som använder Azure som serverdelsservrar för application gateway. Detta gör att vi:
+Backend-poolen används för att dirigera begär anden till backend-servrar som kommer att betjäna begäran. Server delen kan bestå av nätverkskort, skalnings uppsättningar för virtuella datorer, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade domän namn (FQDN) och backend-ändar för flera klienter som Azure App Service. I det här exemplet kommer vi att använda virtuella datorer som mål Server del. Vi kan antingen använda befintliga virtuella datorer eller skapa nya. I det här exemplet ska vi skapa två virtuella datorer som Azure använder som backend-servrar för programgatewayen. För att göra detta kommer vi att:
 
-1. Skapa 2 nya virtuella datorer, *myVM* och *myVM2*, som ska användas som backend-servrarna.
-2. Installera IIS på de virtuella datorerna för att kontrollera att application gateway har skapats.
-3. Lägg till backend-servrarna till i serverdelspoolen.
+1. Skapa 2 nya virtuella datorer, *myVM* och *myVM2*, som ska användas som backend-servrar.
+2. Installera IIS på de virtuella datorerna för att kontrol lera att Application Gateway har skapats.
+3. Lägg till backend-servrarna i backend-poolen.
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -73,7 +74,7 @@ Serverdelspoolen används för att dirigera begäranden till backend-servrarna s
    - *Azure123456!* som lösenord.
    - Välj **Använd befintlig** och sedan *myResourceGroupAG*.
 4. Klicka på **OK**.
-5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+5. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 6. Kontrollera att **myVNet** har valts för det virtuella nätverket och att undernätet är **myBackendSubnet**.
 7. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
 8. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
@@ -81,7 +82,7 @@ Serverdelspoolen används för att dirigera begäranden till backend-servrarna s
 ### <a name="install-iis"></a>Installera IIS
 
 1. Öppna det interaktiva gränssnittet och kontrollera att det är inställt på **PowerShell**.
-    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![privat-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Kör följande kommando för att installera IIS på den virtuella datorn:
 
    ```azurepowershell

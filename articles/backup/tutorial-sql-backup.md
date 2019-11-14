@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747041"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074664"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Säkerhetskopiera en SQL Server-databas på en virtuell Azure-dator
 
@@ -23,9 +23,9 @@ Den här självstudien visar hur du säkerhetskopierar en SQL Server databas som
 > * Skapa och konfigurera ett valv.
 > * Identifiera databaser och konfigurera säkerhetskopieringar.
 > * Konfigurera automatiskt skydd för databaser.
-> * Kör en ad hoc-säkerhetskopiering.
+> * Kör en säkerhets kopiering på begäran.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 
@@ -102,7 +102,7 @@ Identifiera databaser som körs på den virtuella datorn.
 
     ![Meddelande som anger att distributionen lyckades](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup identifierar alla SQL Server-databaser på den virtuella datorn. Under identifieringen inträffar nedan i bakgrunden:
+8. Azure Backup identifierar alla SQL Server-databaser på den virtuella datorn. Under identifieringen sker följande i bakgrunden:
 
     * Azure Backup registrerar den virtuella datorn med valvet för säkerhetskopiering av arbetsbelastning. Alla databaser på den registrerade virtuella datorn kan endast säkerhetskopieras till det här valvet.
     * Azure Backup installerar tillägget **AzureBackupWindowsWorkload** på den virtuella datorn. Det installeras inte någon agent på SQL-databasen.
@@ -215,7 +215,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 
 14. När du har slutfört redigeringarna i säkerhetskopieringspolicyn väljer du **OK**.
 
-## <a name="run-an-ad-hoc-backup"></a>Köra en ad hoc-säkerhetskopiering
+## <a name="run-an-on-demand-backup"></a>Köra en säkerhets kopiering på begäran
 
 1. I Recovery Services-valvet väljer du säkerhets kopierings objekt.
 2. Klicka på SQL i Azure VM.
@@ -233,7 +233,7 @@ I den här självstudien använde du Azure Portal för att:
 > * Skapa och konfigurera ett valv.
 > * Identifiera databaser och konfigurera säkerhetskopieringar.
 > * Konfigurera automatiskt skydd för databaser.
-> * Kör en ad hoc-säkerhetskopiering.
+> * Kör en säkerhets kopiering på begäran.
 
 Fortsätta till nästa kurs för att återställa en virtuell Azure-dator från disken.
 

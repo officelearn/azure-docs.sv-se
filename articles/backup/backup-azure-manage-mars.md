@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 049b09f7927da2cc841130a0adeaa90768037db8
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 756fd720b468681b8ea31dc867cfdb6e44c0bb0a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903195"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075001"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services agent med hjälp av tjänsten Azure Backup
 
@@ -209,4 +209,4 @@ Om du har stoppat skyddet och bevarar data och valt att återuppta skyddet kan d
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om vilka scenarier och begränsningar som stöds finns i [support mat ris för mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Läs mer om hur du [säkerhetskopierar principen för ad hoc-säkerhetskopiering](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).
+- Lär dig mer om hur du [säkerhetskopierar princip på begäran](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

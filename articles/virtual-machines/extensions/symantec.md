@@ -1,5 +1,5 @@
 ---
-title: Installera Symantec Endpoint Protection på en virtuell Windows-dator i Azure | Microsoft Docs
+title: Installera Symantec Endpoint Protection på en virtuell Windows-dator i Azure
 description: Lär dig hur du installerar och konfigurerar Symantec-Endpoint Protection säkerhets tillägg på en ny eller befintlig virtuell Azure-dator som skapats med den klassiska distributions modellen.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 315cb5f22a3667db93c2421b924ac0d988e56164
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 143a697e509b96787ad3f52567f5a70fb7e5f4a4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168861"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072950"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Så installerar och konfigurerar du Symantec Endpoint Protection på virtuella Windows-datorer
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Den här artikeln visar hur du installerar och konfigurerar Symantec Endpoint Protection-klienten på en befintlig virtuell dator (VM) som kör Windows Server. Den här fullständiga klienten omfattar tjänster som virus-och spionprograms skydd, brand vägg och skydd mot intrång. Klienten installeras som ett säkerhets tillägg med hjälp av VM-agenten.
 
@@ -32,7 +32,7 @@ Om du har en befintlig prenumeration från Symantec för en lokal lösning kan d
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>Installera Symantec Endpoint Protection på en befintlig virtuell dator
 Innan du börjar behöver du följande:
 
-* Azure PowerShell-modulen, version 0.8.2 eller senare, på din arbets dator. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med kommandot **Get-modul Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell][PS]. Logga in på din Azure-prenumeration `Add-AzureAccount`med.
+* Azure PowerShell-modulen, version 0.8.2 eller senare, på din arbets dator. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med kommandot **Get-modul Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell][PS]. Logga in på din Azure-prenumeration med hjälp av `Add-AzureAccount`.
 * VM-agenten som körs på den virtuella Azure-datorn.
 
 Kontrol lera först att VM-agenten redan är installerad på den virtuella datorn. Fyll i namnet på moln tjänsten och namnet på den virtuella datorn och kör sedan följande kommandon på administratörs nivå Azure PowerShell kommando tolken. Ersätt allt inom citat tecken, inklusive < och > tecken.

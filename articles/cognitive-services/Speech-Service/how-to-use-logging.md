@@ -1,7 +1,7 @@
 ---
 title: Tal SDK-loggning – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: 'Aktivera loggning i tal-SDK: n.'
+description: Lär dig mer om hur du aktiverar loggning i talet SDKC++( C#, python, mål-C, Java).
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f6c97ac819947f84735bc0bc4c125b43db58dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559475"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075788"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Aktivera loggning i tal-SDK
 
-Loggning till filen är en valfri funktion för tal-SDK: n. Under utvecklings loggningen finns ytterligare information och diagnostik från tal SDK: s kärn komponenter. Den kan aktive ras genom att ange `Speech_LogFilename` egenskapen för ett tal konfigurations objekt till platsen och namnet på logg filen. Loggning aktive ras globalt när en identifierare skapas från den konfigurationen och kan inte inaktive ras efteråt. Du kan inte ändra namnet på en loggfil under en pågående inloggningssession.
+Loggning till filen är en valfri funktion för tal-SDK: n. Under utvecklings loggningen finns ytterligare information och diagnostik från tal SDK: s kärn komponenter. Du kan aktivera den genom att ställa in egenskapen `Speech_LogFilename` på ett tal konfigurations objekt till platsen och namnet på logg filen. Loggning aktive ras globalt när en identifierare skapas från den konfigurationen och kan inte inaktive ras efteråt. Du kan inte ändra namnet på en loggfil under en pågående inloggningssession.
 
 > [!NOTE]
 > Loggning är tillgängligt eftersom tal SDK-versionen 1.4.0 i alla API: er som stöds i tal SDK, med undantag för Java Script.
 
 ## <a name="sample"></a>Exempel
 
-Logg filens namn anges i ett konfigurations objekt. Ta med `config`som ett exempel och förutsatt att du har skapat en instans med namnet: `SpeechConfig`
+Logg filens namn anges i ett konfigurations objekt. Ta `SpeechConfig` som ett exempel och förutsatt att du har skapat en instans med namnet `config`:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -51,13 +51,13 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 Du kan skapa en tolk från konfigurationsobjektet konfiguration. Detta aktiverar loggning för alla identifierare.
 
 > [!NOTE]
-> Om du skapar en `SpeechSynthesizer` från config-objektet kommer den inte att aktivera loggning. Om loggning har Aktiver ATS kan du också få diagnostik från `SpeechSynthesizer`.
+> Om du skapar en `SpeechSynthesizer` från config-objektet, aktive ras inte loggning. Om loggning har Aktiver ATS kan du också få diagnostik från `SpeechSynthesizer`.
 
 ## <a name="create-a-log-file-on-different-platforms"></a>Skapa en loggfil på olika plattformar
 
 För Windows eller Linux kan logg filen finnas i valfri sökväg som användaren har Skriv behörighet för. Skriv behörighet till fil system platser i andra operativ system kan vara begränsad eller begränsad som standard.
 
-### <a name="universal-windows-platform-uwp"></a>Universell Windows-plattform (UWP)
+### <a name="universal-windows-platform-uwp"></a>Universal Windows Platform (UWP)
 
 UWP-program måste placera loggfiler på någon av program data platserna (lokal, nätverks växling eller tillfällig). En loggfil kan skapas i den lokala programmappen:
 
@@ -104,7 +104,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Om du vill komma åt en skapad fil lägger du till nedanstående `Info.plist` egenskaper i programmets egenskaps lista:
+Om du vill komma åt en skapad fil lägger du till nedanstående egenskaper till `Info.plist` egenskaps lista för programmet:
 
 ```xml
 <key>UIFileSharingEnabled</key>

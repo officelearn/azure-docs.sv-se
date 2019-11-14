@@ -1,18 +1,19 @@
 ---
-title: Konfigurera brand vägg för webbaserade program v2 på Application Gateway anpassade regler med Azure PowerShell
+title: Konfigurera version 2 av anpassade regler med PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Lär dig hur du konfigurerar WAF v2-anpassade regler med hjälp av Azure PowerShell
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 8c307ac5553c2c333425b6c14b9b4da4a6582f62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 48f45629b82e63dfc3f098b68e1be2523a3a0e5c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516804"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075391"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Konfigurera brand vägg för webbaserade program v2 på Application Gateway med en anpassad regel med hjälp av Azure PowerShell
 
@@ -26,7 +27,7 @@ Mer information om anpassade regel exempel finns i [skapa och använda anpassade
 
 Om du vill köra Azure PowerShell i den här artikeln i ett kontinuerligt skript som du kan kopiera, klistra in och köra, se [Azure Application Gateway PowerShell-exempel](powershell-samples.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell-modul
 

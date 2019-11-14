@@ -1,22 +1,22 @@
 ---
-title: Självstudie – Konfigurera en Azure DNS-aliaspost för att referera till en offentlig IP-adress i Azure.
+title: 'Självstudie: skapa en Azure DNS Ali Aset-post för att referera till en offentlig Azure-IP-adress'
 description: Den här självstudien visar hur du konfigurerar en Azure DNS-aliaspost för att referera till en offentlig IP-adress i Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 81dfbe5f46116d263c4a04d6178437a2c8bc1185
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430621"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072121"
 ---
-# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Självstudier: Konfigurera en aliaspost för att referera till en Azure offentlig IP-adress 
+# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Självstudie: Konfigurera en aliaspost för att referera till en offentlig IP-adress i Azure 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en nätverksinfrastruktur.
@@ -27,10 +27,10 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
-Anvisningar för att vara värd för din domän i Azure DNS finns i [självstudien: Använda Azure DNS som värd för din domän.](dns-delegate-domain-azure-dns.md)
+Anvisningar för att vara värd för din domän i Azure DNS finns i [Självstudie: var värd för din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
 
 Den exempeldomän som används i den här självstudien är contoso.com, men du använder ditt eget domännamn.
 
@@ -67,7 +67,7 @@ Installera IIS på **Web-01**.
 Skapa en aliaspost som pekar på den offentliga IP-adressen.
 
 1. Välj din Azure DNS-zon för att öppna zonen.
-2. Välj **Uppsättning av poster**.
+2. Välj **Postuppsättning**.
 3. I textrutan **Namn** väljer du **web01**.
 4. Lämna **Typ** som en **A**-post.
 5. Välj kryssrutan **Aliaspostuppsättning**.

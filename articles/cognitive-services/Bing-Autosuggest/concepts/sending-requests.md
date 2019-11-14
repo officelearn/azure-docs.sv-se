@@ -1,7 +1,7 @@
 ---
 title: Skickar begär anden till API för automatiska förslag i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skickar begär anden till API för automatiska förslag i Bing.
+description: API för automatiska förslag för Bing returnerar en lista med föreslagna frågor som baseras på den partiella frågesträngen i sökrutan. Läs mer om att skicka begär Anden.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: dbc8e2ccbd0a9d8c395a3b4e8a95e4e51f152792
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d479548e682e814345e13d9416d08ec453f90304
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882425"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072851"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Skickar begär anden till API för automatiska förslag i Bing.
 
@@ -27,7 +27,7 @@ Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du
 
 Skicka en `GET` begäran till följande slut punkt för att få förslag på frågor med Bing-API: et. Använd sidhuvudena och URL-parametrarna för att definiera ytterligare specifikationer.
 
-**Endpoint** Returnerar Sök förslag som JSON-resultat som är relevanta för användarens indata som `?q=""`definieras av.
+**Slut punkt:** Returnerar Sök förslag som JSON-resultat som är relevanta för användarens indata som definieras av `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
@@ -95,11 +95,11 @@ I följande exempel visas en begäran som returnerar de föreslagna frågesträn
 
 Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klientens ID-huvud om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
 
-Följande webb förslags grupp är ett svar på begäran ovan. Gruppen innehåller en lista med förslag för Sök frågor, med varje förslag, inklusive `displayText`fälten `query`, och `url` .
+Följande webb förslags grupp är ett svar på begäran ovan. Gruppen innehåller en lista med förslag för Sök frågor, med varje förslag, inklusive ett `displayText`, `query`och `url` fält.
 
 Fältet `displayText` innehåller den föreslagna frågan som du använder för att fylla i sökrutans listruta. Du måste visa alla förslag som svaret innehåller, och i den angivna ordningen.  
 
-Om användaren väljer en fråga i list rutan kan du använda den för att anropa en av [API:er för Bing-sökresultat](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) och visa resultatet själv eller skicka användaren till Bing-resultat sidan med det fält som returneras `url` .
+Om användaren väljer en fråga i list rutan kan du använda den för att anropa en av [API:er för Bing-sökresultat](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) och visa resultatet själv eller skicka användaren till Bing-resultat sidan med hjälp av fältet returnerat `url`.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 

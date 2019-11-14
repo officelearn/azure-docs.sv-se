@@ -1,7 +1,6 @@
 ---
 title: Felsök Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Felsöka kända problem med Azure Load Balancer
+description: Lär dig hur du felsöker kända problem med Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: chadmath
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154928"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076910"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -29,7 +28,7 @@ Den här sidan innehåller felsöknings information för vanliga Azure Load Bala
 - Virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar 
 - Virtuella datorer bakom Load Balancer svarar inte på trafiken på den konfigurerade porten
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Aktuellt Virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptom: virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar
 För att backend-servrarna ska delta i belastnings Utjämnings uppsättningen måste de klara avsöknings kontrollen. Mer information om hälso avsökningar finns i [förstå Load Balancer avsökningar](load-balancer-custom-probe-overview.md). 
 
 Load Balancer de virtuella datorerna i fjärrpoolen kanske inte svarar på avsökningarna på grund av någon av följande orsaker: 
@@ -38,13 +37,13 @@ Load Balancer de virtuella datorerna i fjärrpoolen kanske inte svarar på avsö
 - Brand väggen eller en nätverks säkerhets grupp blockerar porten på de virtuella datorerna i Load Balancer backend-poolen 
 - Andra felkonfigurationer i Load Balancer
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Orsak 1: Load Balancer backend-poolens VM-pool är inte felfri 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Orsak 1: den virtuella datorn för Load Balancer backend-poolen är inte felfri 
 
 **Verifiering och lösning**
 
 Lös problemet genom att logga in på de deltagande virtuella datorerna och kontrol lera om tillståndet för den virtuella datorn är felfritt och kan svara på **PsPing** eller **TCPing** från en annan virtuell dator i poolen. Om den virtuella datorn är ohälsosam eller inte kan svara på avsökningen, måste du åtgärda problemet och återställa den till ett felfritt tillstånd innan den kan ingå i belastnings utjämningen.
 
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Orsak 2: Load Balancer VM-adresspoolen lyssnar inte på avsöknings porten
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Orsak 2: den virtuella datorn i Load Balancer backend-poolen lyssnar inte på avsöknings porten
 Om den virtuella datorn är felfri, men inte svarar på avsökningen, kan en möjlig orsak vara att avsöknings porten inte är öppen på den deltagande virtuella datorn eller att den virtuella datorn inte lyssnar på den porten.
 
 **Verifiering och lösning**
@@ -55,7 +54,7 @@ Om den virtuella datorn är felfri, men inte svarar på avsökningen, kan en mö
 3. Om Port statusen inte visas som **avlyssning**konfigurerar du rätt port. 
 4. Du kan också välja en annan port, som visas som **lyssning**och uppdatera belastnings Utjämnings konfigurationen.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Orsak 3: Brand väggen eller en nätverks säkerhets grupp blockerar porten på de virtuella datorerna för belastningsutjämnare i backend-poolen  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Orsak 3: brand vägg eller en nätverks säkerhets grupp blockerar porten på de virtuella datorerna för belastningsutjämnare i backend-poolen  
 Om brand väggen på den virtuella datorn blockerar avsöknings porten, eller om en eller flera nätverks säkerhets grupper som kon figurer ATS i under nätet eller på den virtuella datorn, inte tillåter avsökningen att kontakta porten, kan den virtuella datorn inte svara på hälso avsökningen.          
 
 **Verifiering och lösning**
@@ -66,7 +65,7 @@ Om brand väggen på den virtuella datorn blockerar avsöknings porten, eller om
 * Om någon av dessa regler blockerar avsöknings trafiken tar du bort och konfigurerar om reglerna för att tillåta avsöknings trafiken.  
 * Testa om den virtuella datorn nu har börjat svara på hälso avsökningarna. 
 
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Orsak 4: Andra felkonfigurationer i Load Balancer
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Orsak 4: andra fel konfigurationer i Load Balancer
 Om alla föregående orsaker verkar vara verifierade och lösta korrekt, och backend-datorn fortfarande inte svarar på hälso avsökningen, kan du manuellt testa anslutningen och samla in vissa spår för att förstå anslutningen.
 
 **Verifiering och lösning**
@@ -81,7 +80,7 @@ Om alla föregående orsaker verkar vara verifierade och lösta korrekt, och bac
     - Kontrol lera att avsöknings paketen tvingas till ett annat mål (eventuellt via UDR-inställningar) innan belastningsutjämnaren når belastningsutjämnaren. Detta kan orsaka att trafiken aldrig når den virtuella backend-datorn. 
 * Ändra avsöknings typ (till exempel HTTP till TCP) och konfigurera motsvarande port i nätverks säkerhets grupper ACL: er och brand vägg för att kontrol lera om problemet beror på konfigurationen av avsöknings svaret. Mer information om konfiguration av hälso avsökning finns i [konfiguration av hälso avsöknings konfiguration för slut punkts belastning](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Aktuellt Virtuella datorer bakom Load Balancer svarar inte på trafik på den konfigurerade data porten
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Symptom: virtuella datorer bakom Load Balancer svarar inte på trafik på den konfigurerade data porten
 
 Om en virtuell dator i en virtuell dator i listan visas som felfri och svarar på hälso avsökningarna, men fortfarande inte ingår i belastnings utjämningen eller inte svarar på data trafiken, kan det bero på någon av följande orsaker: 
 * Load Balancer VM-adresspoolen lyssnar inte på data porten 
@@ -89,17 +88,17 @@ Om en virtuell dator i en virtuell dator i listan visas som felfri och svarar p�
 * Åtkomst till Load Balancer från samma virtuella dator och NIC 
 * Åtkomst till Internet Load Balancer-frontend från den deltagande Load Balancer backend-poolen VM 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Orsak 1: Load Balancer VM-adresspoolen lyssnar inte på data porten 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Orsak 1: den virtuella datorn i Load Balancer backend-poolen lyssnar inte på data porten 
 Om en virtuell dator inte svarar på data trafiken kan det bero på att mål porten inte är öppen på den deltagande virtuella datorn eller att den virtuella datorn inte lyssnar på den porten. 
 
 **Verifiering och lösning**
 
 1. Logga in på den virtuella datorns Server del. 
-2. Öppna en kommando tolk och kör följande kommando för att verifiera att det finns ett program som lyssnar på data porten  : netstat-a 
+2. Öppna en kommando tolk och kör följande kommando för att verifiera att det finns ett program som lyssnar på data porten:  netstat-a 
 3. Om porten inte finns med i status "lyssning" konfigurerar du rätt lyssnar port 
 4. Om porten är markerad som avlyssning kontrollerar du mål programmet på den porten för eventuella problem. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Orsak 2: Nätverks säkerhets gruppen blockerar porten på den virtuella datorn i Load Balancer backend-poolen  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Orsak 2: nätverks säkerhets gruppen blockerar porten på den virtuella datorn Load Balancer backend-poolen  
 
 Om en eller flera nätverks säkerhets grupper som kon figurer ATS i under nätet eller på den virtuella datorn blockerar käll-IP eller port, kommer den virtuella datorn inte att svara.
 
@@ -110,7 +109,7 @@ Om en eller flera nätverks säkerhets grupper som kon figurer ATS i under näte
 * Om någon av reglerna blockerar trafiken tar du bort och konfigurerar om reglerna för att tillåta data trafiken.  
 * Testa om den virtuella datorn nu har börjat svara på hälso avsökningarna.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Orsak 3: Åtkomst till Load Balancer från samma virtuella dator och nätverks gränssnitt 
+### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Orsak 3: komma åt Load Balancer från samma virtuella dator och nätverks gränssnitt 
 
 Om programmet som finns på den virtuella server delen av en Load Balancer försöker få åtkomst till ett annat program som finns i samma server dels dator i samma nätverks gränssnitt, så är det ett scenario som inte stöds och inte fungerar. 
 
@@ -118,7 +117,7 @@ Om programmet som finns på den virtuella server delen av en Load Balancer förs
 * Konfigurera separata VM-pooler per program. 
 * Konfigurera programmet i virtuella datorer med dubbla nätverkskort så att varje program använder sitt eget nätverks gränssnitt och IP-adress. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Orsak 4: Åtkomst till den interna Load Balancer-frontend-filen från den deltagande Load Balancer-adresspoolen för den virtuella datorn
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Orsak 4: komma åt den interna Load Balancer-frontend-filen från den deltagande Load Balancer backend-poolen VM
 
 Om ett internt Load Balancer har kon figurer ATS i ett virtuellt nätverk och en av de virtuella datorerna för en deltagar Server försöker komma åt den interna Load Balancer-frontend, kan fel uppstå när flödet mappas till den ursprungliga virtuella datorn. Det här scenariot stöds inte. Granska [begränsningar](load-balancer-overview.md#limitations) för en detaljerad diskussion.
 

@@ -1,7 +1,7 @@
 ---
 title: Load Balancer TCP-återställning vid inaktivitet i Azure
-titlesuffix: Azure Load Balancer
-description: Load Balancer med dubbelriktade TCP-paket vid inaktivitet
+titleSuffix: Azure Load Balancer
+description: I den här artikeln får du lära dig mer om Azure Load Balancer med dubbelriktade TCP-paket för inaktivitet vid inaktivitet.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b37253f37043d902d33504b99401781eb1c761c5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274160"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075924"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer med TCP-återställning vid inaktivitet (offentlig för hands version)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer med TCP-återställning vid inaktivitet (allmänt tillgänglig förhandsversion)
 
 Du kan använda [standard Load Balancer](load-balancer-standard-overview.md) för att skapa ett mer förutsägbart program beteende för dina scenarier genom att aktivera TCP-återställning vid inaktivitet för en viss regel. Load Balancerens standard beteende är att tyst släppa flöden när tids gränsen för inaktivitet för ett flöde uppnås.  Om du aktiverar den här funktionen kommer Load Balancer att skicka dubbelriktade TCP-återställningar (TCP-paket) vid inaktivitet.  Detta kommer att informera dina program slut punkter om att anslutningen har nått sin tids gräns och inte längre kan användas.  Slut punkter kan omedelbart upprätta en ny anslutning om det behövs.
 

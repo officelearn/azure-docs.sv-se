@@ -1,5 +1,6 @@
 ---
-title: Självstudie – Skapa en Application Gateway som är värd för flera webbplatser med hjälp av Azure Portal
+title: 'Självstudie: är värd för flera webbplatser med hjälp av Azure Portal'
+titleSuffix: Azure Application Gateway
 description: I den här självstudien får du lära dig hur du skapar en Programgateway som är värd för flera webbplatser med hjälp av Azure Portal.
 services: application-gateway
 author: vhorne
@@ -7,21 +8,21 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 3b6818d68b62b574e49817b574450625c231506c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833577"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075157"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Självstudie: skapa och konfigurera en Application Gateway som värd för flera webbplatser med hjälp av Azure Portal
 
 Du kan använda Azure Portal för att [Konfigurera värd för flera webbplatser](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här självstudien definierar du Server dels adress grupper med hjälp av virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. I den här självstudien förutsätts att du äger flera domäner. Vi använder *www.contoso.com* och *www.fabrikam.com* som exempel.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa en Application Gateway
+> * Skapa en programgateway
 > * Skapa virtuella datorer för backend-servrar
 > * Skapa backend-pooler med backend-servrar
 > * Skapa lyssnare för serverdelen
@@ -36,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com)
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
 1. Välj **Skapa en resurs** på den vänstra menyn på Azure-portalen. Fönstret **Nytt** visas.
 

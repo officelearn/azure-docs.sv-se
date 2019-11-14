@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en Basic-lastbalanserare – Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: Den här snabbstarten visar hur du skapar en Basic-lastbalanserare med PowerShell
+title: 'Snabb start: skapa en grundläggande Load Balancer-Azure PowerShell'
+titleSuffix: Azure Load Balancer
+description: I den här snabb starten ska du komma igång med att skapa en grundläggande Load Balancer med hjälp av PowerShell.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 378904b139edb7fe5d7c4376102ca6b153d84fb6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0743c1aff07014e83d72c43bdf85ad2d36f31d0a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129080"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075987"
 ---
-# <a name="get-started"></a>Snabbstart: Skapa en offentlig lastbalanserare med Azure PowerShell
+# <a name="get-started"></a>Snabbstart: Skapa en grundläggande lastbalanserare med Azure PowerShell
 
 Den här snabbstarten visar hur du skapar en Basic-lastbalanserare med Azure PowerShell. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Windows-servern och lastbalansera en webbapp mellan de virtuella datorerna.
 
@@ -129,7 +129,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 -BackendPort 3389
 ```
 
-### <a name="create-load-balancer"></a>Skapa lastbalanserare
+### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
 Skapa Basic-lastbalanseraren med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). Följande exempel skapar en offentlig Basic-lastbalanserare med namnet myLoadBalancer med klientdelens IP-konfiguration, serverdelspoolen, hälsoavsökningen, lastbalanseringsregeln och NAT-reglerna som du skapade i föregående steg:
 
@@ -268,7 +268,7 @@ Ange ett administratörsanvändarnamn och lösenord för de virtuella datorerna 
 $cred = Get-Credential
 ```
 
-Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. I det här exemplet tilldelas nätverkskorten (*VM1* och *VM2*) som skapas i föregående steg automatiskt till virtuella datorer *VM1* och *VM2* eftersom de har identiska namn och tilldelas samma virtuella nätverk (*myVnet*) och undernät (*undernät*). Eftersom nätverkskorten är kopplade till belastningsutjämnarens backend-pool läggs de virtuella datorerna automatiskt till i backend-poolen.
+Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. I det här exemplet tilldelas nätverkskorten (*VM1* och *VM2*) som skapas i föregående steg automatiskt till virtuella datorer *VM1* och *VM2* eftersom de har identiska namn och tilldelas samma virtuella nätverk (*myVnet*) och undernät (undernät). Eftersom nätverkskorten är kopplade till belastningsutjämnarens backend-pool läggs de virtuella datorerna automatiskt till i backend-poolen.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -319,7 +319,7 @@ Installera IIS med en anpassad webbsida på de båda virtuella datorerna på ser
           Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
 5. Stäng RDP-anslutningen med *myVM1*.
-6. **Skapa en RDP-anslutning på din lokala dator** med *myVM2* genom `mstsc /v:PublicIpAddress:4222` att köra kommandot och upprepa steg 4 för *VM2*.
+6. **Skapa en RDP-anslutning på din lokala dator** med *myVM2* genom att köra kommandot `mstsc /v:PublicIpAddress:4222` och upprepa steg 4 för *VM2*.
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren
 Hämta den offentliga IP-adressen för lastbalanseraren med hjälp av [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:

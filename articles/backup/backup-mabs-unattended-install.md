@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a02d9f42242b9a762c58ef65a798ff6ab8f53914
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210163"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074798"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Köra en obevakad installation av Azure Backup Server
 
@@ -24,7 +24,7 @@ De här stegen gäller inte om du installerar Azure Backup Server v1.
 
 1. Skapa en textfil på den server som är värd för Azure Backup Server v2 eller senare. (Du kan skapa filen i anteckningar eller i en annan text redigerare.) Spara filen som MABSSetup. ini.
 
-2. Klistra in följande kod i filen MABSSetup. ini. Ersätt texten innanför hakparenteserna (\< \>) med värden från din miljö. Följande text är ett exempel:
+2. Klistra in följande kod i filen MABSSetup. ini. Ersätt texten inom hakparenteserna (\< \>) med värden från din miljö. Följande text är ett exempel:
 
    ```text
    [OPTIONS]
@@ -55,11 +55,12 @@ De här stegen gäller inte om du installerar Azure Backup Server v1.
 
 Du kan använda dessa flaggor för installationen:</br>
 **/f**:. ini fil Sök väg</br>
-**/l**: Logg Sök väg</br>
-**/i**: Installationssökväg</br>
+**/l**: logg Sök väg</br>
+**/i**: installations Sök väg</br>
 **/x**: Avinstallera sökväg</br>
 
 ## <a name="next-steps"></a>Nästa steg
+
 När du har installerat säkerhets kopierings servern lär du dig hur du förbereder servern eller börjar skydda en arbets belastning.
 
 - [Förbered arbets belastningar för säkerhets kopierings Server](backup-azure-microsoft-azure-backup.md)

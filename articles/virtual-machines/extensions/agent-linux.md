@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure Linux VM-agent | Microsoft Docs
+title: Översikt över Azure Linux VM-agent
 description: Lär dig hur du installerar och konfigurerar Linux-agenten (waagent) för att hantera den virtuella datorns interaktion med Azure Fabric Controller.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169157"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073856"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 
@@ -60,7 +60,7 @@ Microsoft Azure Linux-agenten (waagent) hanterar Linux & FreeBSD-etablering och 
 * **VM-tillägg**
   
   * Inmatnings komponent som skapats av Microsoft och partners till virtuella Linux-datorer (IaaS) för att aktivera automatisering av program vara och konfiguration
-  * Referens implementering för VM-tillägg på[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Referens implementering för VM-tillägg på [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Kommunikation
 Informations flödet från plattformen till agenten sker via två kanaler:
@@ -72,7 +72,7 @@ Informations flödet från plattformen till agenten sker via två kanaler:
 Följande system har testats och är kända för att fungera med Azure Linux-agenten:
 
 > [!NOTE]
-> Den här listan kan skilja sig från den officiella listan över system som stöds på Microsoft Azures plattform, enligt beskrivningen här:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Den här listan kan skilja sig från den officiella listan över system som stöds på Microsoft Azures plattform, enligt beskrivningen här: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -107,12 +107,12 @@ Läs dokumentationen i [Azure Linux-agentens lagrings platsen på GitHub](https:
 
 ## <a name="command-line-options"></a>Kommando rads alternativ
 ### <a name="flags"></a>Flaggor
-* utförlig Öka utförligheten för angivet kommando
-* inför Hoppa över interaktiv bekräftelse för vissa kommandon
+* Verbose: öka utförligheten för angivet kommando
+* tvinga: hoppa över interaktiv bekräftelse för vissa kommandon
 
 ### <a name="commands"></a>Kommandon
-* Hjälp: Visar en lista över kommandon och flaggor som stöds.
-* avetablera Försök att rensa systemet och gör det lämpligt för reetablering. Följande åtgärd tar bort:
+* hjälp: visar de kommandon och flaggor som stöds.
+* avetablera: försök att rensa systemet och gör det lämpligt för att etablera. Följande åtgärd tar bort:
   
   * Alla SSH-värd nycklar (om etableringen. RegenerateSshHostKeyPair är "y" i konfigurations filen)
   * Namnserver-konfiguration i/etc/resolv.conf
@@ -125,11 +125,11 @@ Läs dokumentationen i [Azure Linux-agentens lagrings platsen på GitHub](https:
 > 
 > 
 
-* avetablera + användare: Utför allt inetablering (ovan) och tar också bort det senast etablerade användar kontot (hämtas från/var/lib/waagent) och tillhör ande data. Den här parametern är när du avetablerar en avbildning som tidigare har inträffat på Azure så att den kan fångas och återanvändas.
-* version: Visar versionen av waagent
-* serialconsole: Konfigurerar GRUB att markera ttyS0 (den första seriella porten) som start konsol. Detta säkerställer att kernel start-loggar skickas till den seriella porten och görs tillgänglig för fel sökning.
-* program Kör waagent som daemon för att hantera interaktion med plattformen. Det här argumentet anges till waagent i waagent init-skriptet.
-* har Kör waagent som bakgrunds process
+* avetablera + användare: utför allt inetablering (ovan) och tar också bort det senast etablerade användar kontot (hämtas från/var/lib/waagent) och tillhör ande data. Den här parametern är när du avetablerar en avbildning som tidigare har inträffat på Azure så att den kan fångas och återanvändas.
+* version: visar versionen av waagent
+* serialconsole: konfigurerar GRUB för att markera ttyS0 (den första seriella porten) som start konsol. Detta säkerställer att kernel start-loggar skickas till den seriella porten och görs tillgänglig för fel sökning.
+* daemon: kör waagent som en daemon för att hantera interaktion med plattformen. Det här argumentet anges till waagent i waagent init-skriptet.
+* Starta: kör waagent som bakgrunds process
 
 ## <a name="configuration"></a>Konfiguration
 En konfigurations fil (/etc/waagent.conf) styr åtgärder för waagent. Följande visar en exempel konfigurations fil:
@@ -170,7 +170,7 @@ Default: y
 Detta gör att användaren kan aktivera eller inaktivera etablerings funktionerna i agenten. Giltiga värden är "y" eller "n". Om etableringen är inaktiverat bevaras SSH-värden och användar nycklar i avbildningen och all konfiguration som anges i Azures etablerings-API ignoreras.
 
 > [!NOTE]
-> Parametern `Provisioning.Enabled` är som standard "n" på Ubuntu Cloud-avbildningar som använder Cloud-Init för etablering.
+> Standardvärdet för parametern `Provisioning.Enabled` är "n" på Ubuntu Cloud-avbildningar som använder Cloud-Init för etablering.
 > 
 > 
 

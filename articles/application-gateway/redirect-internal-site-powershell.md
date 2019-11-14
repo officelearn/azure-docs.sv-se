@@ -1,23 +1,19 @@
 ---
-title: Skapa en Application Gateway med intern omdirigering – Azure PowerShell | Microsoft Docs
+title: Intern omdirigering med PowerShell
+titleSuffix: Azure Application Gateway
 description: Lär dig hur du skapar en Programgateway som dirigerar om intern webb trafik till en lämplig backend-pool med servrar med hjälp av Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: c917ab08d9640599c31d2ebf911e1554cf90425d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835392"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075117"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med intern omdirigering med Azure PowerShell
 

@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera filer i Azure Stack virtuella datorer
+title: Säkerhetskopiera filer i Azure Stack virtuella datorer – Azure Backup
 description: Använd Azure Backup för att säkerhetskopiera och återställa Azure Stack filer och program till din Azure Stack-miljö.
 ms.reviewer: adigan
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210208"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074097"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Säkerhetskopiera filer och program på Azure Stack
 
@@ -55,7 +55,7 @@ Om du vill konfigurera Azure Backup Server för att skydda filer i Azure Stack v
 
     ![Guiden ny skydds grupp öppnas](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Om du vill välja att **Jag vill ha onlineskydd**måste du först välja **Jag vill ha kortsiktigt skydd med:** Diskdefragmenter. Azure Backup Server skyddar inte på band, så disk är det enda alternativet för kortsiktigt skydd.
+    Om du vill välja att **Jag vill ha onlineskydd**måste du först välja **Jag vill ha kortvarigt skydd med:** disk. Azure Backup Server skyddar inte på band, så disk är det enda alternativet för kortsiktigt skydd.
 
 5. På skärmen **Ange kortvariga mål** väljer du hur länge du vill behålla återställnings punkterna som sparas på disk och när du ska spara stegvisa säkerhets kopior. Klicka på **Nästa**.
 
@@ -71,14 +71,14 @@ Om du vill konfigurera Azure Backup Server för att skydda filer i Azure Stack v
 
 6. På skärmen **Granska diskallokering** granskar du disk utrymmet för lagringspoolen som allokerats för skydds gruppen.
 
-    **Total data storlek** är storleken på de data som du vill säkerhetskopiera och **disk utrymmet som** ska tillhandahållas på Azure Backup Server är det rekommenderade utrymmet för skydds gruppen. Azure Backup Server väljer den ideala säkerhets kopierings volymen baserat på inställningarna. Du kan dock redigera säkerhets kopierings volym alternativen i disk tilldelnings informationen. För arbets belastningarna väljer du önskad lagring i list menyn. Dina ändringar ändrar värdena för total lagring och ledigt lagrings utrymme i fönstret tillgängliga Disklagring. Underetablerat utrymme är mängden lagrings Azure Backup Server föreslår att du lägger till volymen, för att fortsätta med säkerhets kopieringar smidigt i framtiden.
+    **Total data storlek** är storleken på de data som du vill säkerhetskopiera och **disk utrymmet som ska tillhandahållas** på Azure Backup Server är det rekommenderade utrymmet för skydds gruppen. Azure Backup Server väljer den ideala säkerhets kopierings volymen baserat på inställningarna. Du kan dock redigera säkerhets kopierings volym alternativen i disk tilldelnings informationen. För arbets belastningarna väljer du önskad lagring i list menyn. Dina ändringar ändrar värdena för total lagring och ledigt lagrings utrymme i fönstret tillgängliga Disklagring. Underetablerat utrymme är mängden lagrings Azure Backup Server föreslår att du lägger till volymen, för att fortsätta med säkerhets kopieringar smidigt i framtiden.
 
 7. I **Välj metod för skapande av replik**väljer du hur du vill hantera den första fullständiga datareplikeringen. Om du väljer att replikera över nätverket rekommenderar Azure att du väljer en tid med låg belastning. Överväg att replikera data med hjälp av flyttbara media för stora mängder data eller mindre än optimala nätverks förhållanden.
 
 8. I **Välj alternativ för konsekvens kontroll**väljer du hur du vill automatisera konsekvens kontroller. Aktivera konsekvens kontroller för att endast köra när datareplikeringen blir inkonsekvent eller enligt ett schema. Om du inte vill konfigurera automatisk konsekvens kontroll kör du en manuell kontroll när som helst genom att:
     * I **skydds** delen i Azure Backup Server-konsolen högerklickar du på skydds gruppen och väljer **utför konsekvens kontroll**.
 
-9. Om du väljer att säkerhetskopiera till Azure, på sidan **ange data** för onlineskydd, se till att de arbets belastningar som du vill säkerhetskopiera till Azure är markerade.
+9. Om du väljer att säkerhetskopiera till Azure, på sidan **ange data för onlineskydd** , se till att de arbets belastningar som du vill säkerhetskopiera till Azure är markerade.
 
 10. I **Ange schema för onlinesäkerhetskopiering**anger du när stegvisa säkerhets kopieringar till Azure ska ske.
 
@@ -134,7 +134,7 @@ Du kan visa Azure Backup Server entiteter i Azure Portal genom att följa stegen
 2. Klicka på infrastruktur för säkerhets kopiering.
 3. Visa säkerhets kopierings hanterings servrar.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 Information om hur du använder Azure Backup Server för att skydda andra arbets belastningar finns i någon av följande artiklar:
 

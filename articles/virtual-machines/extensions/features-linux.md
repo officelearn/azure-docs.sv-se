@@ -1,5 +1,5 @@
 ---
-title: Azure VM-tillägg och-funktioner för Linux | Microsoft Docs
+title: Azure VM-tillägg och-funktioner för Linux
 description: Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de erbjuder eller förbättrar.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169011"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073754"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
@@ -37,7 +37,7 @@ Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt an
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Linux kan alla bash-skript köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i avsnittet om [anpassat skript tillägg för Linux-datorer](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Linux-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -85,7 +85,7 @@ Följande metoder kan användas för att köra ett tillägg mot en befintlig vir
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM-tillägg kan köras mot en befintlig virtuell dator med kommandot [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) . I följande exempel körs det anpassade skript tillägget mot en virtuell dator med namnet *myVM* i en resurs grupp med namnet *myResourceGroup*. Ersätt exempel resurs gruppens namn, namnet på den virtuella datorn och skriptet som ska\/köras (https:/RAW.githubusercontent.com/me/Project/Hello.sh) med din egen information. 
+Azure VM-tillägg kan köras mot en befintlig virtuell dator med kommandot [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) . I följande exempel körs det anpassade skript tillägget mot en virtuell dator med namnet *myVM* i en resurs grupp med namnet *myResourceGroup*. Ersätt exempel resurs gruppens namn, namnet på den virtuella datorn och skriptet som ska köras (https:\//raw.githubusercontent.com/me/project/hello.sh) med din egen information. 
 
 ```azurecli
 az vm extension set `
@@ -241,7 +241,7 @@ När agenten installeras skapas ett överordnat daemon. Den här överordnade pr
 
 Det går inte att uppdatera den överordnade processen automatiskt. Den överordnade kan bara uppdateras av en distribution-paket uppdatering.
 
-Kontrol lera vilken version du kör genom att kontrol lera `waagent` följande:
+Kontrol lera `waagent` på följande sätt för att kontrol lera vilken version du kör:
 
 ```bash
 waagent --version
@@ -336,7 +336,7 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 1. Kontrol lera loggen för Linux-agenten genom att titta på aktiviteten när ditt tillägg har allokerats i */var/log/waagent.log*
 
-2. Se de faktiska tilläggs loggarna för mer information *i\</var/log/Azure/tillägg >*
+2. Se de faktiska tilläggs loggarna för mer information i */var/log/azure/\<tillägg >*
 
 3. Sök efter felkoder, kända problem osv. i tilläggs dokumentation fel söknings avsnitt.
 
@@ -403,7 +403,7 @@ Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 
 ## <a name="common-vm-extension-reference"></a>Vanlig referens för VM-tillägg
 
-| Namn på tillägg | Beskrivning | Mer information |
+| Tilläggs namn | Beskrivning | Mer information |
 | --- | --- | --- |
 | Anpassat skript tillägg för Linux |Kör skript mot en virtuell Azure-dator |[Anpassat skript tillägg för Linux](custom-script-linux.md) |
 | VM Access-tillägg |Få åtkomst till en virtuell Azure-dator |[VM Access-tillägg](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

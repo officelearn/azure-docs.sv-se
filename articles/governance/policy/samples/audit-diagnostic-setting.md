@@ -1,17 +1,14 @@
 ---
 title: Exempel – Granska diagnostikinställning
 description: Den här exempelprincipdefinitionen granskar om diagnostikinställningarna inte är aktiverade för angivna resurstyper.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: b71876195ffd3993b49794835781e8ccbd1648d3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 5940fcc86221d4089609ac2d0828b0c710de7fbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977464"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076407"
 ---
 # <a name="sample---audit-diagnostic-setting"></a>Exempel – Granska diagnostikinställning
 
@@ -73,4 +70,4 @@ az policy assignment delete --name "Audit diagnostics" --resource-group myResour
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure-principexempel](index.md)
+- Granska fler exempel på [Azure Policy-exempel](index.md)

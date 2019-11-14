@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 90f69371457bbfe37789b12971343f738ff35e8e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e873980ce7aab1c5454a28e88df24bdb189c4860
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074836"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -52,11 +52,8 @@ Om du inte redan har loggat in på ditt konto loggar du in på [Azure Portal](ht
 
       ![Standard princip för säkerhets kopiering](./media/backup-during-vm-creation/daily-policy.png)
 
-
 > [!NOTE]
-> Azure Backup tjänst skapar en separat resurs grupp (förutom VM-gruppgruppen) för att lagra ögonblicks bilder med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen kommer att behållas under den tid i dagar som anges i avsnittet *Behåll ögonblicks bild av ögonblicks bilder* i säkerhets kopierings principen för den virtuella Azure-datorn.  Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
-Den här resurs gruppen ska också undantas från eventuella namn-och märkes begränsningar som en begränsnings princip skulle blockera skapandet av resurs plats samlingar i den igen och orsaka säkerhets kopierings problem.
-
+> Azure Backup tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för lagring av ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen kommer att behållas under den tid i dagar som anges i avsnittet *Behåll ögonblicks bild av ögonblicks bilder* i säkerhets kopierings principen för den virtuella Azure-datorn.  Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel. <br> Den här resurs gruppen ska också undantas från eventuella namn-och märkes begränsningar som en begränsnings princip skulle blockera skapandet av resurs plats samlingar i den igen och orsaka säkerhets kopierings problem.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhets kopiering när du har skapat den virtuella datorn
 
@@ -72,8 +69,6 @@ När den virtuella datorn har skapats gör du följande:
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Använd en Resource Manager-mall för att distribuera en skyddad virtuell dator
 
 I föregående steg förklaras hur du använder Azure Portal för att skapa en virtuell dator och skydda den i ett Recovery Services-valv. Om du snabbt vill distribuera en eller flera virtuella datorer och skydda dem i ett Recovery Services valv, se mallen [distribuera en virtuell Windows-dator och aktivera säkerhets kopiering](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

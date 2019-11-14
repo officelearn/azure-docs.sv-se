@@ -1,5 +1,5 @@
 ---
-title: 'Länka ett virtuellt nätverk till en ExpressRoute-krets: CLI: Azure| Microsoft Docs'
+title: 'Azure-ExpressRoute: länka ett virtuellt nätverk till en krets: CLI'
 description: Den här artikeln visar hur du länka virtuella nätverk (Vnet) till ExpressRoute-kretsar med hjälp av distributionsmodellen resurshanteraren och CLI.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
-ms.openlocfilehash: d858c83fb6669e5348b4256931e080656be0ebad
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621067"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076541"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av CLI
 
@@ -154,11 +152,11 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 
 Intervallet för *RoutingWeight* är 0 till 32000. Standardvärdet är 0.
 
-## <a name="configure-expressroute-fastpath"></a>Konfigurera ExpressRoute FastPath 
-Du kan aktivera [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) om ExpressRoute-kretsen finns på [ExpressRoute Direct](expressroute-erdirect-about.md) och din virtuella newtork-gateway är ultrahöga prestanda eller ErGw3AZ. FastPath förbättrar data sökvägen preformance, till exempel paket per sekund och anslutningar per sekund mellan ditt lokala nätverk och ditt virtuella nätverk. 
+## <a name="configure-expressroute-fastpath"></a>Konfigurera ExpressRoute-FastPath 
+Du kan aktivera [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) om ExpressRoute-kretsen finns på [ExpressRoute Direct](expressroute-erdirect-about.md) och den virtuella nätverk-gatewayen är Ultra Performance eller ErGw3AZ. FastPath förbättrar data Sök vägs förformingen, till exempel paket per sekund och anslutningar per sekund mellan ditt lokala nätverk och ditt virtuella nätverk. 
 
 > [!NOTE] 
-> Om du redan har en virtuell nätverksanslutning, men som inte har aktiverat FastPath måste du ta bort virtuell nätverksanslutning och skapa en ny. 
+> Om du redan har en virtuell nätverks anslutning men inte har aktiverat FastPath måste du ta bort den virtuella nätverks anslutningen och skapa en ny. 
 > 
 >  
 

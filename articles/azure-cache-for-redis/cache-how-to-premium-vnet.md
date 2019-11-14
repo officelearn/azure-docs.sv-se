@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: ec21c26c705dab94b15c1f76be5e62207b9f206f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815677"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075053"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -39,7 +39,7 @@ Stöd för Virtual Network (VNet) konfigureras på bladet **ny Azure-cache för 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-När du har valt pris nivån Premium kan du konfigurera Redis VNet-integrering genom att välja ett VNet som finns i samma prenumeration och plats som din cache. Om du vill använda ett nytt VNet skapar du det först genom att följa stegen i [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) eller [skapa ett virtuellt nätverk (klassisk) med hjälp av Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och återgå sedan till bladet **ny Azure-cache för Redis** för att skapa och Konfigurera din Premium-cache.
+När du har valt pris nivån Premium kan du konfigurera Redis VNet-integrering genom att välja ett VNet som finns i samma prenumeration och plats som din cache. Om du vill använda ett nytt VNet skapar du det först genom att följa stegen i [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) eller [skapa ett virtuellt nätverk (klassisk) med hjälp av Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och återgå sedan till bladet **ny Azure-cache för Redis** för att skapa och konfigurera din Premium-cache.
 
 Konfigurera VNet för din nya cache genom att klicka på **Virtual Network** på bladet **ny Azure-cache för Redis** och välj önskat VNet i list rutan.
 
@@ -104,16 +104,17 @@ När Azure cache för Redis finns i ett VNet används portarna i följande tabel
 
 #### <a name="outbound-port-requirements"></a>Krav för utgående portar
 
-Det finns sju port krav för utgående trafik.
+Det finns nio krav för utgående port.
 
 - Alla utgående anslutningar till Internet kan göras via en klients lokala gransknings enhet.
 - Tre av portarna dirigerar trafik till Azure-slutpunkter för att betjäna Azure Storage och Azure DNS.
 - De återstående port intervallen och för intern kommunikation med Redis-undernätet. Inga undernät NSG regler krävs för intern Redis-undernätets kommunikation.
 
-| Port (ar) | Direction | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
+| Port (ar) | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Utgående |TCP |Redis-beroenden för Azure Storage/PKI (Internet) | (Redis-undernät) |* |
-| 53 |Utgående |TCP/UDP |Redis-beroenden för DNS (Internet/VNet) | (Redis-undernät) | 168.63.129.16 och 169.254.169.254 <sup>1</sup> och alla anpassade DNS-servrar för under nätet <sup>3</sup> |
+| 443 | Utgående | TCP | Redis beroende av Azure Key Vault | (Redis-undernät) | AzureKeyVault <sup>1</sup> |
+| 53 |Utgående |TCP/UDP |Redis-beroenden för DNS (Internet/VNet) | (Redis-undernät) | 168.63.129.16 och 169.254.169.254 <sup>2</sup> och valfri anpassad DNS-server för under nätet <sup>3</sup> |
 | 8443 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
 | 10221-10231 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
 | 20226 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
@@ -121,7 +122,9 @@ Det finns sju port krav för utgående trafik.
 | 15000-15999 |Utgående |TCP |Intern kommunikation för Redis och geo-replikering | (Redis-undernät) |(Redis-undernät) (Geo-Replica-peer-undernät) |
 | 6379-6380 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
-<sup>1</sup> de här IP-adresserna som ägs av Microsoft används för att ADRESSERA den virtuella värddatorn som hanterar Azure DNS.
+<sup>1</sup> du kan använda tjänst tag gen "AzureKeyVault" med nätverks säkerhets grupper i Resource Manager.
+
+<sup>2</sup> de här IP-adresserna som ägs av Microsoft används för att ADRESSERA den virtuella värddatorn som hanterar Azure DNS.
 
 <sup>3</sup> behövs inte för undernät utan en anpassad DNS-server, eller nyare Redis-cache som ignorerar anpassad DNS.
 
@@ -133,9 +136,9 @@ Om du använder en mellanliggande replikering mellan cacheminnen i virtuella Azu
 
 Det finns åtta krav för ingående port intervall. Inkommande begär anden i dessa intervall är antingen inkommande från andra tjänster som finns i samma VNET eller internt i Redis under nät kommunikation.
 
-| Port (ar) | Direction | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
+| Port (ar) | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkommande |TCP |Klient kommunikation till Redis, Azure Load Balancing | (Redis-undernät) | (Redis-undernät), Virtual Network, Azure Load Balancer <sup>2</sup> |
+| 6379, 6380 |Inkommande |TCP |Klient kommunikation till Redis, Azure Load Balancing | (Redis-undernät) | (Redis-undernät), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 | 8500 |Inkommande |TCP/UDP |Belastnings utjämning i Azure | (Redis-undernät) |Azure Load Balancer |
 | 10221-10231 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät), Azure Load Balancer |
@@ -144,7 +147,7 @@ Det finns åtta krav för ingående port intervall. Inkommande begär anden i de
 | 16001 |Inkommande |TCP/UDP |Belastnings utjämning i Azure | (Redis-undernät) |Azure Load Balancer |
 | 20226 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
-<sup>2</sup> du kan använda tjänst tag gen "AzureLoadBalancer" (Resource Manager) (eller "AZURE_LOADBALANCER" för klassisk) för att redigera NSG-regler.
+<sup>1</sup> du kan använda tjänst tag gen "AzureLoadBalancer" (Resource Manager) (eller "AZURE_LOADBALANCER" för klassisk) för att redigera NSG-reglerna.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Ytterligare krav för VNET-nätverks anslutning
 
@@ -254,4 +257,3 @@ Lär dig mer om att använda fler funktioner för Premium-cache.
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
-

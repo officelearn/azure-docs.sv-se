@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU-drivrutins tillägg – virtuella Azure Linux-datorer | Microsoft Docs
+title: NVIDIA GPU-drivrutins tillägg – virtuella Azure Linux-datorer
 description: Microsoft Azure tillägget för att installera NVIDIA GPU-drivrutiner i virtuella datorer i N-serien som kör Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 83646c0b11bf558f667b29271a27d31e5489c157
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174015"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073733"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutins tillägg för Linux
 
@@ -26,11 +26,11 @@ ms.locfileid: "71174015"
 
 Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer i Linux N-serien. Beroende på VM-serien installerar tillägget CUDA eller GRID-drivrutiner. När du installerar NVIDIA-drivrutiner med det här tillägget accepterar du och godkänner villkoren i [licens avtalet för NVIDIA-slutanvändare](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
 
-Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds [finns](
-https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)här.
+Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer med Windows N-serien](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -70,24 +70,24 @@ Följande JSON visar schemat för tillägget.
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 
-| Name | Värdet / exempel | Datatyp |
+| Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| apiVersion | 2015-06-15 | datum |
+| publisher | Microsoft.HpcCompute | sträng |
+| typ | NvidiaGpuDriverLinux | sträng |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Inställningar
 
 Alla inställningar är valfria. Standard beteendet är att inte uppdatera kerneln om det inte krävs för installation av driv rutiner, installera den senaste driv rutinen och CUDA Toolkit (i tillämpliga fall).
 
-| Name | Beskrivning | Default Value | Giltiga värden | Datatyp |
+| Namn | Beskrivning | Default Value | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Uppdatera kärnan även om det inte krävs för att installera driv rutiner | false | true, false | boolean |
-| driverVersion | INGET Version av RUTNÄTs driv rutin<br> NC/ND: CUDA Toolkit-version. De senaste driv rutinerna för de valda CUDA installeras automatiskt. | latest | STÖDRASTRET "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | string |
-| installCUDA | Installera CUDA Toolkit. Endast relevant för virtuella datorer i NC/ND-serien. | true | true, false | boolean |
+| updateOS | Uppdatera kärnan även om det inte krävs för att installera driv rutiner | false | SANT, FALSKT | boolesk |
+| driverVersion | NV: RUTNÄTs driv rutins version<br> NC/ND: CUDA Toolkit-version. De senaste driv rutinerna för de valda CUDA installeras automatiskt. | senaste | RUTNÄT: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | sträng |
+| installCUDA | Installera CUDA Toolkit. Endast relevant för virtuella datorer i NC/ND-serien. | true | SANT, FALSKT | boolesk |
 
 
 ## <a name="deployment"></a>Distribution

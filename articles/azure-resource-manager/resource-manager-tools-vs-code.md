@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
-ms.openlocfilehash: 8d2b818846eeae44ffe05b4546a333510c638621
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4c0fd0968ce52e50a9171eecb3dfaebd1e2a4c46
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196158"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075017"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Använd Visual Studio Code för att skapa Azure Resource Manager mallar
 
@@ -70,7 +70,7 @@ När du hovrar över funktions namn, visar tillägget Signature-hjälpen för fu
 
 ### <a name="go-to-definition-for-variable-and-parameter-references"></a>Gå till definition för variabel-och parameter referenser
 
-Du kan gå till definitionen med **CTRL + klicka**eller genom att använda snabb menyn som visas på skärm bilden: ![Tillägg för Visual Studio Code Resource Manager-verktyg gå till definition](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
+Du kan gå till definitionen med **CTRL + klicka**eller genom att använda snabb menyn som visas i skärm bilden: ![tillägg för Visual Studio Code Resource Manager-verktyg gå till definition](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
 
 Du kan öppna definitionen med **Ctrl + Alt + klicka**.
 
@@ -121,5 +121,5 @@ Varningarna är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Resource Manager och Resource Manager-mallar finns i [Azure Resource Manager översikt](./resource-group-overview.md).
-- Information om hur du går igenom en snabb start med hjälp av [Visual Studio Code finns i snabb start: Skapa Azure Resource Manager mallar med Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+- Information om hur du skapar Azure Resource Manager-mallar finns i [Självstudier: skapa och distribuera din första Azure Resource Manager-mall](template-tutorial-create-first-template.md).
+- Information om hur du går igenom en snabb start med hjälp av Visual Studio Code finns i [snabb start: skapa Azure Resource Manager mallar med hjälp av Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)

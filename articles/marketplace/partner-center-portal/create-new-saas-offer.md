@@ -1,19 +1,19 @@
 ---
 title: Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 description: Så här skapar du ett nytt SaaS-erbjudande (Software as a Service) för att lista eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825562"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076949"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -33,7 +33,6 @@ Om du väljer en annan erbjudande typ kan du omdirigeras till den äldre [Cloud 
 Dialog rutan **nytt erbjudande** visas. 
 
 ![Dialog rutan Nytt erbjudande](./media/new-offer-popup.png)
-
 
 ## <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
@@ -105,16 +104,6 @@ I följande tabell visas ett exempel på uppdelning av kostnader och utbetalning
 > [!NOTE]
 > **Minskad service avgift för Marketplace**: för vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick.  Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd. 
 
-
-
-
-#### <a name="csp-program-opt-in"></a>Deltagande i CSP-programmet
-[Cloud Solution Provider (CSP)-](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) programmet gör det möjligt för program erbjudanden att uppnå miljon tals kvalificerade Microsoft-kunder med minimal marknadsföring och försäljnings investeringar.
-
-- **Kanaler: gör mitt erbjudande tillgängligt i CSP-programmet** (kryss ruta)
-
-Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet kan moln lösnings leverantörer sälja din produkt som en del av en samlad lösning till sina kunder. 
-
 ### <a name="list-through-microsoft"></a>Lista via Microsoft
 
 Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. Om du väljer att bara lista ditt erbjudande och inte Transact via Microsoft innebär det att Microsoft inte deltar direkt i program licens transaktioner. Det finns ingen kopplad transaktions avgift och utgivaren behåller 100% av alla licens avgifter som samlas in från kunden. Utgivaren ansvarar dock för att stödja alla aspekter av program licens transaktionen, inklusive men inte begränsat till: order uppfyllelse, mätning, fakturering, fakturering, betalning och insamling. 
@@ -141,7 +130,7 @@ Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Re
 
 En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Aktivera en testen het** (kryss ruta) 
+- **Aktivera en testen het** (kryss ruta)
 
 Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations miljö där kunder kan testa ditt erbjudande under en bestämd tids period. 
 
@@ -331,7 +320,6 @@ Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
 
 - [Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## <a name="preview"></a>Förhandsversion
 
 På fliken **förhands granskning** kan du definiera en begränsad **förhands gransknings grupp** för att släppa ditt erbjudande innan du publicerar erbjudandet Live till den bredare Marketplace-publiken.
@@ -416,8 +404,7 @@ Om du vill få information om kund prenumerationer som för närvarande ingår i
 
 - **Redigera marknader** (valfritt)
 
-Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan för alla marknads platser där du vill att den här planen ska vara tillgänglig. En sökruta och knapp för att välja "skatte mottagare", där Microsoft betalar försäljnings-och användnings skatt för din räkning, ingår i hjälpen. 
-
+Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan för alla marknads platser där du vill att den här planen ska vara tillgänglig. En sökruta och knapp för att välja "skatte mottagare", där Microsoft betalar försäljnings-och användnings skatt för din räkning, ingår i hjälpen.
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Du bör alltid granska priset för varje marknad innan du publicerar. Priserna kan granskas med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 
@@ -475,11 +462,15 @@ En klient organisation är en representation av en organisation med ett ID som r
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Moln lösnings leverantör (CSP) åter försäljare
+
+Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet kan moln lösnings leverantörer sälja din produkt som en del av en samlad lösning till sina kunder. Mer information finns i [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+
 ## <a name="publish"></a>Publicera
 
-#### <a name="submit-offer-to-preview"></a>Skicka erbjudande till för hands version
+När du har slutfört alla obligatoriska avsnitt i erbjudandet väljer du **publicera** i det övre högra hörnet i portalen. Du omdirigeras sedan till sidan **Granska och publicera** .
 
-När du har slutfört alla obligatoriska avsnitt i erbjudandet väljer du **publicera** i det övre högra hörnet i portalen. Du omdirigeras sedan till sidan **Granska och publicera** . 
+#### <a name="submit-offer-to-preview"></a>Skicka erbjudande till för hands version
 
 Om det här är första gången du publicerar det här erbjudandet kan du:
 

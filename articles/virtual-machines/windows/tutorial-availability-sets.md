@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Hög tillgänglighet för virtuella Windows-datorer i Azure | Microsoft Docs
+title: Självstudie – hög tillgänglighet för virtuella Windows-datorer i Azure
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att distribuera virtuella datorer med hög tillgänglighet i tillgänglighetsuppsättningar
 documentationcenter: ''
 services: virtual-machines-windows
@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b943a4476a6b0d639353816337deea96eb14fe24
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0f94f4d312cefec80a0f294e256ee1ad908b903c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101705"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068136"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Självstudier: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure PowerShell
 
 I den här självstudien lär du dig att öka tillgängligheten och tillförlitligheten för dina virtuella datorer (VM) med hjälp av tillgänglighetsuppsättningar. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en tillgänglighetsuppsättning
@@ -113,7 +113,7 @@ Om du tittar på tillgänglighetsuppsättningen i portalen genom att gå till **
 
 ## <a name="check-for-available-vm-sizes"></a>Kontrollera tillgängliga VM-storlekar 
 
-Du kan lägga till fler virtuella datorer i tillgänglighetsuppsättningen senare, men du måste veta vilka VM-storlekar som är tillgängliga för maskinvaran. Använd [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) för att visa en lista över alla tillgängliga storlekar i maskinvaruklustret för tillgänglighetsuppsättningen.
+Du kan lägga till fler virtuella datorer i tillgänglighetsuppsättningen senare, men du måste veta vilka VM-storlekar som är tillgängliga på maskinvaran. Använd [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) för att visa en lista över alla tillgängliga storlekar i maskinvaruklustret för tillgänglighetsuppsättningen.
 
 ```azurepowershell-interactive
 Get-AzVMSize `
@@ -138,7 +138,7 @@ I den här självstudiekursen lärde du dig att:
 > * Kontrollera tillgängliga VM-storlekar
 > * Kontrollera Azure Advisor
 
-Gå vidare till nästa självstudie om du vill veta mer om VM-skalningsuppsättningar.
+Gå vidare till nästa kurs vill veta mer om VM-skalningsuppsättningar.
 
 > [!div class="nextstepaction"]
 > [Skapa en VM-skalningsuppsättning](tutorial-create-vmss.md)

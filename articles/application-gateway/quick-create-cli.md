@@ -1,19 +1,20 @@
 ---
-title: 'Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI | Microsoft Docs'
+title: 'Snabb start: direkt webb trafik med CLI'
+titleSuffix: Azure Application Gateway
 description: Lär dig hur du använder Azure CLI för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd68f4a565c28f1dbac7e94442a8f8231af01328
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: de1f30d949509ab48999d0080ccc4df74321ce01
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314902"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075207"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI
 
@@ -23,13 +24,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-cli"></a>Azure CLI
 
 Om du väljer att installera och använda CLI lokalt kör du Azure CLI version 2.0.4 eller senare. Du kan ta reda på versionen genom att köra **az --version**. Information om att installera eller uppgradera finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Resursgrupp
 
 I Azure allokerar du relaterade resurser till en resursgrupp. Skapa en resursgrupp med hjälp av [az group create](/cli/azure/group#az-group-create). 
 
@@ -159,11 +160,11 @@ az network application-gateway create \
 
 Det kan ta upp till 30 minuter för Azure att skapa programgatewayen. När den har skapats kan du visa följande inställningar i avsnittet **Inställningar** på sidan **Programgateway**:
 
-- **appGatewayBackendPool**: Finns på sidan **Serverdelspooler**. Den anger den serverpool som krävs.
-- **appGatewayBackendHttpSettings**: Finns på sidan **HTTP-inställningar**. Den anger att programgatewayen använder port 80 och HTTP-protokollet för kommunikation.
-- **appGatewayHttpListener**: Finns på sidan **Lyssnare**. Den anger den standardlyssnare som är associerad med **appGatewayBackendPool**.
-- **appGatewayFrontendIP**: Finns på sidan **IP-konfigurationer för klientdel**. Den tilldelar *myAGPublicIPAddress* till **appGatewayHttpListener**.
-- **rule1**: Finns på sidan **Regler**. Den anger den standardroutningsregel som är associerad med **appGatewayHttpListener**.
+- **appGatewayBackendPool**: finns på sidan **Server dels pooler** . Den anger den serverpool som krävs.
+- **appGatewayBackendHttpSettings**: finns på sidan **http-inställningar** . Den anger att programgatewayen använder port 80 och HTTP-protokollet för kommunikation.
+- **appGatewayHttpListener**: finns på **sidan lyssnare**. Den anger den standardlyssnare som är associerad med **appGatewayBackendPool**.
+- **appGatewayFrontendIP**: finns på sidan **IP-konfigurationer för klient** del. Den tilldelar *myAGPublicIPAddress* till **appGatewayHttpListener**.
+- **regel 1**: finns på sidan **regler** . Den anger den standardroutningsregel som är associerad med **appGatewayHttpListener**.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
@@ -194,5 +195,5 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera webbtrafik med en programgateway som använder Azure CLI](./tutorial-manage-web-traffic-cli.md)
+> [Hantera webbtrafik med en programgateway med hjälp av Azure CLI](./tutorial-manage-web-traffic-cli.md)
 

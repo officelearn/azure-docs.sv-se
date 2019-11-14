@@ -1,7 +1,7 @@
 ---
 title: Azure Standard Load Balancer och Tillgänglighetszoner
-titlesuffix: Azure Load Balancer
-description: Standard Load Balancer och tillgänglighetszoner
+titleSuffix: Azure Load Balancer
+description: Med den här utbildnings vägen kommer du igång med Azure Standard Load Balancer och Tillgänglighetszoner.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 925e7857d337f7f2fd501e4e4467c05952b0da65
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882951"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076991"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -37,7 +37,7 @@ I samband med tillgänglighets zoner beskrivs beteende och egenskaper för en Lo
 
 Både offentliga och interna Load Balancer stödja zoner – redundanta och zonindelade scenarier och båda kan dirigera trafik mellan zoner vid behov (*belastnings utjämning mellan*zoner). 
 
-### <a name="frontend"></a>Klientdel
+### <a name="frontend"></a>Delen
 
 En Load Balancer-frontend är en IP-konfiguration för klient delen som hänvisar till antingen en offentlig IP-adressresurs eller en privat IP-adress inom under nätet för en virtuell nätverks resurs.  Den utgör den belastningsutjämnade slut punkten där tjänsten exponeras.
 
@@ -88,7 +88,7 @@ Följande utdrag är en illustration för hur du definierar en zon-redundant IP-
                 ],
 ```
 
-De föregående utdragen är inte fullständiga mallar, men tänk på att visa egenskaper för att uttrycka tillgänglighets zoner.  Du måste lägga till dessa instruktioner i dina mallar.
+Föregående utdrag är inte fullständiga mallar, men tänk på att visa egenskaper för att uttrycka tillgänglighets zoner.  Du måste lägga till dessa instruktioner i dina mallar.
 
 #### <a name="optional-zone-isolation"></a>Valfri zon isolering
 
@@ -151,7 +151,7 @@ Belastnings utjämning mellan zoner är möjligheten för Load Balancer att komm
 
 Du måste vara noga med att skapa scenariot på ett sätt som uttrycks av en tillgänglighets zon. Du behöver exempelvis garantera distributionen av virtuella datorer i en enskild zon eller flera zoner och justera zonindelade-frontend-och zonindelade-backend-resurser till samma zon.  Om du korsar tillgänglighets zoner med endast zonindelade-resurser, kommer scenariot att fungera, men det kanske inte har ett rensat felläge med avseende på tillgänglighets zoner. 
 
-### <a name="backend"></a>Serverdel
+### <a name="backend"></a>Backend
 
 Load Balancer fungerar med Virtual Machines-instanser.  Dessa kan vara fristående, tillgänglighets uppsättningar eller skalnings uppsättningar för virtuella datorer.  Alla instanser av virtuella datorer i ett enda virtuellt nätverk kan vara en del av backend-poolen oavsett om den har garanterats till en zon eller om den var garanterad för en zon.
 
@@ -165,7 +165,7 @@ Samma zon-redundanta och zonindelade egenskaper gäller för [utgående anslutni
 
 Algoritmen för Förallokering av SNAT-port är densamma i eller utan tillgänglighets zoner.
 
-### <a name="health-probes"></a>Hälsoavsökningar
+### <a name="health-probes"></a>Hälsotillståndsavsökningar
 
 Dina befintliga definitioner av hälso avsökningen förblir som de är utan tillgänglighets zoner.  Vi har dock expanderat hälso modellen på en infrastruktur nivå. 
 
@@ -200,7 +200,7 @@ Undvik att införa oönskade kors zon beroenden, vilket kommer att upphäver til
   - Om en zon Miss lyckas, är din slutpunkt-till-slutpunkt-tjänst att förstå detta och om status förloras, hur kommer du att återställa?
   - Kan programmet förstå hur man konvergerar på ett säkert sätt när en zon returnerar?
 
-Gå igenom [design mönster](https://docs.microsoft.com/azure/architecture/patterns/) för molnet i molnet för att förbättra återhämtningen hos ditt program till haveri situationer.
+Gå igenom [design mönster för molnet i molnet](https://docs.microsoft.com/azure/architecture/patterns/) för att förbättra återhämtningen hos ditt program till haveri situationer.
 
 ### <a name="zonalityguidance"></a>Zone-redundant jämfört med zonindelade
 
@@ -208,7 +208,7 @@ Zon-redundant kan ge en enkelhet med ett oberoende alternativ och samtidigt elas
 
 Zonindelade kan ge en uttrycklig garanti till en zon, som uttryckligen delar in överlappande med hälso tillståndet för zonen. Att skapa en Load Balancer regel med en zonindelade IP-adress-frontend eller zonindelade intern Load Balancer-frontend kan vara ett bra tillägg, särskilt om din anslutna resurs är en zonindelade virtuell dator i samma zon.  Eller så kanske ditt program kräver uttrycklig kunskap om vilken zon en resurs finns i förväg och du vill veta mer om tillgänglighet i separata zoner.  Du kan välja att exponera flera zonindelade-frontend-enheter för en slutpunkt-till-slutpunkt-tjänst som distribueras mellan zoner (det vill säga per zon zonindelade-frontend för flera zonindelade Virtual Machine Scale set).  Och om dina zonindelade-frontend-klienter är offentliga IP-adresser kan du använda dessa flera zonindelade-frontend-klienter för att exponera tjänsten med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Eller så kan du använda flera zonindelade-frontend-klienter för att få kunskap om hälso tillstånd och prestanda i olika zoner genom att övervaka lösningar från tredje part och exponera den övergripande tjänsten med en zon redundant klient del. Du bör bara hantera zonindelade-resurser med zonindelade-frontend-platser justerade till samma zon och undvika potentiellt skadliga kors zons scenarier för zonindelade-resurser.  Zonindelade-resurser finns bara i regioner där tillgänglighets zoner finns.
 
-Det finns ingen allmän vägledning om att ett är ett bättre alternativ än den andra utan att känna till tjänst arkitekturen.  Gå igenom [design mönster](https://docs.microsoft.com/azure/architecture/patterns/) för molnet i molnet för att förbättra återhämtningen hos ditt program till haveri situationer.
+Det finns ingen allmän vägledning om att ett är ett bättre alternativ än den andra utan att känna till tjänst arkitekturen.  Gå igenom [design mönster för molnet i molnet](https://docs.microsoft.com/azure/architecture/patterns/) för att förbättra återhämtningen hos ditt program till haveri situationer.
 
 ## <a name="limitations"></a>Begränsningar
 

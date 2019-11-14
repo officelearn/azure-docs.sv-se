@@ -1,5 +1,5 @@
 ---
-title: vCPU kvoter för Azure | Microsoft Docs
+title: vCPU kvoter för Azure
 description: Lär dig mer om vCPU kvoter för Azure.
 keywords: ''
 services: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 15773ce54370c4557bd760249d4490896f3f5dea
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 29eaad9835b74e9867454dffb35799a01bbb03e1
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749274"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073426"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>vCPU-kvoter för virtuella datorer
 
@@ -79,7 +79,7 @@ Premium Storage Managed Disks                1 10000 Count
 
 
 ## <a name="reserved-vm-instances"></a>Reserverade VM-instanser
-Reserverade VM-instanser, som är begränsade till en enda prenumeration utan flexibilitet för virtuella datorer, lägger till en ny aspekt i vCPU-kvoterna. Värdena beskriver antalet instanser av den angivna storleken som måste distribueras i prenumerationen. De fungerar som en plats hållare i kvot systemet för att säkerställa att kvoten är reserverad för att säkerställa att reserverade VM-instanser kan distribueras i prenumerationen. Om till exempel en enskild prenumeration har 10 Standard_D1 reserverade VM-instanser blir användnings gränsen för Standard_D1 reserverade VM-instanser 10. Detta gör att Azure ser till att det alltid finns minst 10 virtuella processorer tillgängligt i den totala regionala virtuella processorer-kvoten som ska användas för Standard_D1-instanser och det finns minst 10 virtuella processorer tillgängliga i standard-D-serien som vCPU kvoten ska användas för Standard_D1-instanser.
+Reserverade VM-instanser, som är begränsade till en enda prenumeration utan flexibilitet för virtuella datorer, lägger till en ny aspekt i vCPU-kvoterna. Värdena beskriver antalet instanser av den angivna storleken som måste distribueras i prenumerationen. De fungerar som en plats hållare i kvot systemet för att säkerställa att kvoten är reserverad för att säkerställa att reserverade VM-instanser kan distribueras i prenumerationen. Om till exempel en enskild prenumeration har 10 Standard_D1 reserverade VM-instanser är användnings gränsen för Standard_D1 reserverade VM-instanser 10. Detta gör att Azure ser till att det alltid finns minst 10 virtuella processorer tillgängligt i den totala regionala virtuella processorer-kvoten som ska användas för Standard_D1 instanser och det finns minst 10 virtuella processorer i standard kvoten på D-serien som ska användas för Standard_D1-instanser.
 
 Om en kvot ökning krävs för att köpa en enskild prenumeration i RI, kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för din prenumeration.
 

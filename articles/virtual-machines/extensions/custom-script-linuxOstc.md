@@ -1,5 +1,5 @@
 ---
-title: Köra anpassade skript på virtuella Linux-datorer i Azure | Microsoft Docs
+title: Köra anpassade skript på virtuella Linux-datorer i Azure
 description: Automatisera konfigurations uppgifter för virtuella Linux-datorer med hjälp av tillägget för anpassat skript v1
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: e5ef1bde9420104b596c22837048b054f918b3cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b7dbabf5be8b1f223f6e39f294b9d7022b83c4f8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092630"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073170"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använd Azures anpassade skript tillägg version 1 med virtuella Linux-datorer
 
@@ -37,7 +37,7 @@ Det finns två anpassade skript tillägg för Linux:
 
 * Version 2-Microsoft. Azure. Extensions. CustomScript
 
-Växla mellan nya och befintliga distributioner för att använda den nya versionen ([Microsoft. Azure. Extensions. CustomScript](custom-script-linux.md)) i stället. Den nya versionen är avsedd att vara en ersättning. Därför är migreringen lika enkel som att ändra namn och version. du behöver inte ändra tilläggs konfigurationen.
+Växla mellan nya och befintliga distributioner för att använda den nya versionen ([Microsoft. Azure. Extensions. CustomScript](custom-script-linux.md)) i stället. Den nya versionen är avsedd att vara en lättillgänglig ersättning. Därför är migreringen lika enkel som att ändra namn och version. Du behöver inte ändra tilläggskonfigurationen.
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -69,7 +69,7 @@ Om ditt skript finns på en lokal server kanske du fortfarande behöver fler bra
 * Kontrol lera att skripten inte kräver användarindata när de körs.
 * Det finns 90 minuter som tillåts för att skriptet ska kunna köras. allt längre leder till en misslyckad etablering av tillägget.
 * Starta inte om omstarter inuti skriptet. Detta leder till problem med andra tillägg som installeras och efter omstarten kommer tillägget inte att fortsätta efter omstarten. 
-* Om du har ett skript som utlöser en omstart installerar program, kör skript osv. Du bör schemalägga en omstart med hjälp av ett cron-jobb eller använda verktyg som DSC eller chef, Puppet-tillägg.
+* Om du har ett skript som gör en omstart installerar du program och kör skript osv. Du bör schemalägga en omstart med hjälp av ett cron-jobb eller använda verktyg som DSC eller chef, Puppet-tillägg.
 * Tillägget kör bara ett skript en gång, om du vill köra ett skript vid varje start, kan du använda [Cloud-Init-avbildning](../linux/using-cloud-init.md) och använda [skript per](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) startmodul. Du kan också använda skriptet för att skapa en system tjänst enhet.
 * Om du vill schemalägga när ett skript ska köras ska du använda tillägget för att skapa ett cron-jobb.
 * När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill ha mer frekventa status uppdateringar för ett skript som körs måste du skapa en egen lösning.
@@ -120,23 +120,23 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | publisher | Microsoft. OSTCExtensions | sträng |
-| type | CustomScriptForLinux | sträng |
+| typ | CustomScriptForLinux | sträng |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
 | commandToExecute (t. ex.) | python MyPythonScript.py \<my-param1\> | sträng |
-| enableInternalDNSCheck | true | boolean |
+| enableInternalDNSCheck | true | boolesk |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
 | storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
 
 ### <a name="property-value-details"></a>Information om egenskaps värde
 
 * `fileUris`: (valfritt, sträng mat ris) URI-listan för skripten
-* `enableInternalDNSCheck`: (valfritt, bool) standard är true, ange till false för att inaktivera DNS-kontroll.
-* `commandToExecute`: (valfritt, sträng) EntryPoint-skriptet som ska köras
+* `enableInternalDNSCheck`: (valfritt, bool) standard är sant, ange till false för att inaktivera DNS-kontroll.
+* `commandToExecute`: (valfri, sträng) Start punkts skriptet som ska köras
 * `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot
-* `storageAccountKey`: (valfritt, sträng) åtkomst nyckeln för lagrings kontot
+* `storageAccountKey`: (valfri, sträng) åtkomst nyckeln för lagrings kontot
 
 Du kan ange följande värden i offentliga eller skyddade inställningar: du behöver inte ange följande värden i både offentliga och skyddade inställningar.
 
@@ -295,7 +295,7 @@ Några saker att tänka på:
 
 1. Aktivera är när kommandot börjar köras.
 1. Hämtningen är relaterad till nedladdningen av CustomScript-tilläggs paketet från Azure, inte skriptfilerna som anges i fileUris.
-1. Du kan också se vilken loggfil som den skrivs till`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. Du kan också se vilken loggfil som den skrivs till `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Nästa steg är att gå igenom logg filen, detta är formatet:
 

@@ -1,7 +1,7 @@
 ---
 title: Scenario tillgänglighet – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Referens för regioner i tal-tjänsten.
+description: 'Tal-SDK: n har många scenarier i en mängd olika programmeringsspråk och miljöer. Alla scenarier är inte tillgängliga i alla programmeringsspråk eller i alla miljöer än. Nedan visas tillgänglighet för varje scenario.'
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02632e5bc84c7406ce3a42eb4be71cf6aaf75c15
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491349"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075763"
 ---
 # <a name="scenario-availability"></a>Scenario tillgänglighet
 
-Tjänsten Speech service SDK innehåller många olika scenarier i olika programmeringsspråk och miljöer.  Alla scenarier är inte tillgängliga för närvarande i alla programmeringsspråk eller i alla miljöer än.  Nedan visas tillgänglighet för varje scenario.
+Tal-SDK: n har många scenarier i en mängd olika programmeringsspråk och miljöer. Alla scenarier är inte tillgängliga i alla programmeringsspråk eller i alla miljöer än. Nedan visas tillgänglighet för varje scenario.
 
 - **Tal igenkänning (SR), fras lista, avsikt, översättning och lokala behållare**
   - Alla programmeringsspråk/miljöer där det finns en pil-länk <img src="media/index/link.jpg" height="15" width="15"></img> i snabb starts tabellen [här](https://aka.ms/csspeech).

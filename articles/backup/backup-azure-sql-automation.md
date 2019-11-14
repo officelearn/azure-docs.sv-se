@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 85d6b9e00798926bee2d5050767ba47512fc9e86
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012825"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074115"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
@@ -460,7 +460,7 @@ $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ````
 
-Kommandot adhoc backup returnerar ett jobb som ska spåras.
+Kommandot för säkerhets kopiering på begäran returnerar ett jobb som ska spåras.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -541,13 +541,13 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Det är viktigt att Observera att Azure Backup bara spårar användare som har utlöst jobb i SQL-säkerhetskopiering. Schemalagda säkerhets kopieringar (inklusive logg säkerhets kopior) syns inte i portalen/PowerShell. Men om det inte går att utföra schemalagda jobb genereras en [säkerhets kopierings avisering](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) och visas i portalen. [Använd Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) för att spåra alla schemalagda jobb och annan relevant information.
 
-Användare kan spåra adhoc/User-utlöst åtgärder med den JobID som returneras i [utdata](#on-demand-backup) från asynkrona jobb som säkerhets kopiering. Använd [Get-AzRecoveryServicesBackupJobDetail PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) cmdlet: en för att spåra jobbet och dess information.
+Användare kan spåra åtgärder på begäran/användare som utlöses med den JobID som returneras i [resultatet](#on-demand-backup) av asynkrona jobb som säkerhets kopiering. Använd [Get-AzRecoveryServicesBackupJobDetail PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) cmdlet: en för att spåra jobbet och dess information.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ````
 
-Använd [Get-AzRecoveryServicesBackupJob PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) cmdleten om du vill hämta en lista över adhoc-jobb och deras status från Azure Backup-tjänsten. I följande exempel returneras alla pågående SQL-jobb.
+Använd [Get-AzRecoveryServicesBackupJob PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) cmdleten om du vill hämta en lista över jobb på begäran och deras status från Azure Backup tjänsten. I följande exempel returneras alla pågående SQL-jobb.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
@@ -570,4 +570,4 @@ Anta till exempel att en SQL AG har två noder: SQL-Server-0 och SQL-Server-1 oc
 
 SQL-Server-0, SQL-Server-1 visas också som "AzureVMAppContainer" när [säkerhets kopierings behållarna visas](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Hämta bara den relevanta SQL-databasen för att [Aktivera säkerhets](#configuring-backup) kopiering och [adhoc](#on-demand-backup) - [cmdletarna](#restore-sql-dbs) är identiska.
+Hämta bara den relevanta SQL-databasen för att [Aktivera säkerhets](#configuring-backup) kopiering och [säkerhets kopiering på begäran](#on-demand-backup) och [Återställ PS-cmdletar](#restore-sql-dbs) är identiska.

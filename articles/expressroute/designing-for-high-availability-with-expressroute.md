@@ -1,21 +1,18 @@
 ---
-title: Design för hög tillgänglighet med Azure ExpressRoute | Microsoft Docs
+title: 'Azure-ExpressRoute: design för hög tillgänglighet'
 description: Den här sidan innehåller arkitektur rekommendationer för hög tillgänglighet när du använder Azure-ExpressRoute.
-documentationcenter: na
-services: networking
+services: expressroute
 author: rambk
-manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
-ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67466654"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076685"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Design för hög tillgänglighet med ExpressRoute
 

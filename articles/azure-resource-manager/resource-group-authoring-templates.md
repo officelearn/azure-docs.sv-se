@@ -6,18 +6,18 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 065f392f3089f4d6872cd39c6aaab2098afc6c90
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8fe665ed9a9c580f5ce7d7bf43e71b9672a2bc5b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012152"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075039"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager mallar
 
 I den här artikeln beskrivs strukturen för en Azure Resource Manager-mall. Den visar de olika avsnitten i en mall och de egenskaper som är tillgängliga i dessa avsnitt.
 
-Den här artikeln är avsedd för användare som har en viss välbekanthet med Resource Manager-mallar. Den innehåller detaljerad information om mallens struktur. Om du vill ha en introduktion till hur du skapar en mall, se [Azure Resource Manager mallar](template-deployment-overview.md).
+Den här artikeln är avsedd för användare som har en viss välbekanthet med Resource Manager-mallar. Den innehåller detaljerad information om mallens struktur. En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i [Självstudier: skapa och distribuera din första Azure Resource Manager-mall](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Mallformat
 

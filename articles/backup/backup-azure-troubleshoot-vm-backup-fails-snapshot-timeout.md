@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: b344af71eac04cc355ba157e18d9de9d84a9cc63
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 50db82206bbc0b98dcc80bd504022799011697d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969086"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074124"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa A
 
 Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd eller inte installerad och förhindra att Azure Backup-tjänsten utlöser ögonblicks bilder.  
 
-- Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd **startar du om agenten** och försöker säkerhetskopiera igen (försök med en ad hoc-säkerhetskopiering). Steg för att starta om agenten finns i virtuella [Windows-datorer](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) eller [virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
+- Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd **startar du om agenten** och försöker säkerhetskopiera igen (försök med en säkerhets kopiering på begäran). Anvisningar för att starta om agenten finns i [Virtuella Windows-datorer](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) eller [Virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
 - Om VM-agenten inte är installerad eller är inaktuell, installerar/uppdaterar du VM-agenten och försöker säkerhetskopiera igen. Anvisningar för hur du installerar/uppdaterar agenten finns i virtuella [Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) eller [virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-det gick inte att kommunicera med VM-agenten för ögonblicks bild status
@@ -179,7 +179,7 @@ De flesta Agent-relaterade eller felrelaterade fel för virtuella Linux-datorer 
 3. [Konfigurera agenten för automatisk omstart](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Kör en ny test säkerhets kopiering. Om felen kvarstår samlar du in följande loggar från den virtuella datorn:
 
-   - /var/lib/waagent/*. XML
+   - /var/lib/waagent/*.xml
    - /var/log/waagent.log
    - /var/log/azure/*
 
@@ -213,7 +213,7 @@ Avinstallera tillägget för att tvinga VMSnapshot-tillägget att läsas in på 
 Så här avinstallerar du tillägget:
 
 1. I [Azure Portal](https://portal.azure.com/)går du till den virtuella dator som har problem med säkerhets kopieringen.
-2. Välj **Inställningar**.
+2. Välj **inställningar**.
 3. Välj **Tillägg**.
 4. Välj **VMSnapshot-tillägg**.
 5. Välj **Avinstallera**.
@@ -239,15 +239,15 @@ Om du tar bort resurs gruppen för den virtuella datorn eller själva datorn, f�
 
 Om du vill rensa återställnings punkterna följer du någon av metoderna:<br>
 
-- [Rensa återställnings punkts samlingen genom att köra Ad hoc-säkerhetskopiering](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+- [Rensa återställnings punkts samlingen genom att köra säkerhets kopiering på begäran](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
 - [Rensa återställnings punkt samling från Azure Portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Rensa återställnings punkts samlingen genom att köra Ad hoc-säkerhetskopiering
+#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Rensa återställnings punkts samlingen genom att köra säkerhets kopiering på begäran
 
-När du har tagit bort låset utlöser du en ad hoc/manuell säkerhets kopiering. Detta säkerställer att återställnings punkterna rensas automatiskt. Den här ad hoc/manuell-åtgärden kan inte utföras första gången. den kommer dock att säkerställa automatisk rensning i stället för manuell borttagning av återställnings punkter. Efter rensningen bör nästa schemalagda säkerhets kopiering lyckas.
+När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. Detta säkerställer att återställnings punkterna rensas automatiskt. Vi förväntar dig att den här åtgärden på begäran upphör att fungera första gången; den kommer dock att säkerställa automatisk rensning i stället för manuell borttagning av återställnings punkter. Efter rensningen bör nästa schemalagda säkerhets kopiering lyckas.
 
 > [!NOTE]
-> Automatisk rensning sker efter några timmar efter att ad hoc/manuell säkerhets kopiering har Aktiver ATS. Om den schemalagda säkerhets kopieringen fortfarande Miss lyckas, försök att ta bort återställnings punkts samlingen manuellt med hjälp av stegen i listan [här](#clean-up-restore-point-collection-from-azure-portal)
+> Automatisk rensning sker efter några timmar efter att säkerhets kopieringen har påbörjats. Om den schemalagda säkerhets kopieringen fortfarande Miss lyckas, försök att ta bort återställnings punkts samlingen manuellt med hjälp av stegen i listan [här](#clean-up-restore-point-collection-from-azure-portal)
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Rensa återställnings punkt samling från Azure Portal <br>
 

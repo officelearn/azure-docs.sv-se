@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747081"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073978"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Säkerhetskopiera en virtuell dator med PowerShell
 
@@ -106,18 +106,18 @@ Aktivera säkerhets kopiering på följande sätt:
 
 ## <a name="start-a-backup-job"></a>Starta ett säkerhetskopieringsjobb
 
-Säkerhets kopieringar körs enligt det schema som anges i säkerhets kopierings principen. Du kan också köra en ad hoc-säkerhetskopiering:
+Säkerhets kopieringar körs enligt det schema som anges i säkerhets kopierings principen. Du kan också köra en säkerhets kopiering på begäran:
 
 - Det första första säkerhets kopierings jobbet skapar en fullständig återställnings punkt.
 - Efter den första säkerhets kopieringen skapar varje säkerhets kopierings jobb stegvisa återställnings punkter.
 - Inkrementella återställningspunkter är lagrings- och tidseffektiva eftersom de bara överför de ändringar som gjorts sedan den senaste säkerhetskopieringen.
 
-Om du vill köra en ad hoc-säkerhetskopiering använder du [säkerhets kopierings-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+Om du vill köra en säkerhets kopiering på begäran använder du [säkerhets kopierings-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 - Du anger en behållare i valvet som innehåller dina säkerhets kopierings data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Varje virtuell dator som säkerhetskopieras hanteras som ett objekt. Om du vill starta ett säkerhets kopierings jobb får du information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Kör ett ad hoc-säkerhets kopierings jobb på följande sätt:
+Kör ett säkerhets kopierings jobb på begäran på följande sätt:
 
 1. Ange behållaren, hämta information om virtuella datorer och kör säkerhets kopieringen.
 

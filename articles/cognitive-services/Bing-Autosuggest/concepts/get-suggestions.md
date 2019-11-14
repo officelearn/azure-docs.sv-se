@@ -1,7 +1,7 @@
 ---
 title: Föreslå söktermer med API:et för automatiska förslag i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder API för automatiska förslag i Bing.
+description: Den här artikeln beskriver begreppet att föreslå sökord med hjälp av API för automatiska förslag i Bing och effekten av frågans längd på relevans.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: cee4f68b734f0c2bec9fd629986ba7f6559f207e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882449"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072897"
 ---
 # <a name="suggesting-query-terms"></a>Föreslå frågeord
 
@@ -49,7 +49,7 @@ Följande svar innehåller en lista över [SearchAction](https://docs.microsoft.
 
 Varje förslag innehåller fälten `displayText`, `query` och `url`. Fältet `displayText` innehåller den föreslagna fråga som du använder för att fylla i sökrutans listruta. Du måste visa alla förslag som svaret innehåller, och i den angivna ordningen.
 
-I följande exempel visas en sökruta för listrutan med föreslagna söktermer från API:et för automatiska förslag i Bing.
+I följande exempel visas en nedrullningsbar sökruta med föreslagna sökord från API för automatiska förslag för Bing.
 
 ![Lista med automatiska förslag i sökrutans listruta](../media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 

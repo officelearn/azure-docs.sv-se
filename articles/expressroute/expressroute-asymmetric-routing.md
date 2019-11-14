@@ -1,20 +1,18 @@
 ---
-title: Asymmetrisk routning – Azure ExpressRoute | Microsoft Docs
+title: 'Azure-ExpressRoute: asymmetrisk routning'
 description: Den här artikeln beskriver problem som kan uppstå i samband med asymmetrisk routning i ett nätverk som har flera länkar till ett mål.
-documentationcenter: na
 services: expressroute
 author: osamazia
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
-ms.custom: seodec18
-ms.openlocfilehash: 2b2b678cad50e45660fb763c2a1f9194500edf8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730209"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072144"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrisk routning med flera nätverksvägar
 Den här artikeln förklarar hur utgående och återvändande nätverkstrafik kan ta olika vägar när det finns flera vägar tillgängliga mellan nätverkskällan och målet.
@@ -50,7 +48,7 @@ För att förstå den effekt som dessa två ändringar har på ett nätverk kan 
 
 Sedan aktiverar du ExpressRoute och använder tjänster som erbjuds av Microsoft via ExpressRoute. Alla andra tjänster från Microsoft används via Internet. Du distribuerar en separat brandvägg vid din nätverksgräns som är ansluten till ExpressRoute. Microsoft annonserar mer specifika prefix till ditt nätverk via ExpressRoute för specifika tjänster. Din routningsinfrastruktur väljer ExpressRoute som primär väg för dessa prefix. Om du inte annonserar dina offentliga IP-adresser till Microsoft via ExpressRoute kommunicerar Microsoft med dina offentliga IP-adresser via Internet. Vidarebefordran av trafiken från nätverket till Microsoft görs via ExpressRoute och omvänd trafik från Microsoft görs via Internet. När brandväggen vid din nätverksgräns ser ett svarspaket för ett flöde som den inte hittar i tillståndstabellen ignorerar den returtrafiken.
 
-Om du väljer att annonsera samma network adress translation (NAT) pool för ExpressRoute och för Internet, visas liknande problem med klienter i ditt nätverk på privata IP-adresser. Begäranden av tjänster som Windows Update går genom Internet eftersom IP-adresser för dessa tjänster inte annonseras via ExpressRoute. Returtrafiken kommer dock tillbaka via ExpressRoute. Om Microsoft tar emot en IP-adress med samma nätmask från Internet och ExpressRoute, prioriteras ExpressRoute framför Internet. Om en brandvägg eller en annan tillståndskänslig enhet vid din nätverksgräns och som använder ExpressRoute, inte har någon befintlig information om flödet, ignorerar den paket som hör till det flödet.
+Om du väljer att annonsera samma Network Address Translation-pool (NAT) för ExpressRoute och för Internet ser du liknande problem med klienter i nätverket på privata IP-adresser. Begäranden av tjänster som Windows Update går genom Internet eftersom IP-adresser för dessa tjänster inte annonseras via ExpressRoute. Returtrafiken kommer dock tillbaka via ExpressRoute. Om Microsoft tar emot en IP-adress med samma nätmask från Internet och ExpressRoute, prioriteras ExpressRoute framför Internet. Om en brandvägg eller en annan tillståndskänslig enhet vid din nätverksgräns och som använder ExpressRoute, inte har någon befintlig information om flödet, ignorerar den paket som hör till det flödet.
 
 ## <a name="asymmetric-routing-solutions"></a>Lösningar för asymmetrisk routning
 Det finns två olika sätt att lösa problemet med asymmetriska routning. Ett är via routning och det andra är med hjälp av källbaserad NAT (SNAT).

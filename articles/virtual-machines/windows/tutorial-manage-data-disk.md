@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Hantera Azure-diskar med Azure PowerShell | Microsoft Docs
+title: Självstudier – Hantera Azure-diskar med Azure PowerShell
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa och hantera Azure-diskar för virtuella datorer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: f44ea76ed22ab4feacc6ee37b165bbc33f7ddafc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7c68299e4df187b1e9006d9ee1f2f70a13df3c52
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101603"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064789"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Självstudier – Hantera Azure-diskar med Azure PowerShell
 
@@ -32,7 +32,7 @@ Azure Virtual Machines använder diskar för att lagra de virtuella datorernas o
 > * Datadiskar
 > * Standard- och Premium-diskar
 > * Diskprestanda
-> * Ansluta och förbereda datadiskar
+> * Koppling och förberedelse av datadiskar
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -69,7 +69,7 @@ I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås ge
 
 Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Skapa en virtuell dator med följande kommandon, om det behövs.
 
-Ange användarnamnet och lösenordet för administratörskontot på den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange användarnamnet och lösenordet för administratörskontot för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 
 Skapa den virtuella datorn med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Du uppmanas att ange ett användarnamn och lösenord för den virtuella datorns administratörkonto.

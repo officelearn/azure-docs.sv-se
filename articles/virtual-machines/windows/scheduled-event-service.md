@@ -1,5 +1,5 @@
 ---
-title: Övervaka schemalagda händelser för dina virtuella Windows-datorer i Azure | Microsoft Docs
+title: Övervaka schemalagda händelser för dina virtuella Windows-datorer i Azure
 description: Lär dig hur du övervakar dina virtuella Azure-datorer för schemalagda händelser.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376201"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073320"
 ---
 # <a name="monitoring-scheduled-events"></a>Övervaknings Schemalagda händelser
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 Hämta filen installation. zip för projektet från [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Anslut till **myCollectorVM** och kopiera. zip-filen till den virtuella datorn och extrahera alla filer. Öppna en PowerShell-prompt på den virtuella datorn. Flytta din prompt till mappen som innehåller `SchService.ps1`, till exempel: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` och konfigurera tjänsten.
+Anslut till **myCollectorVM** och kopiera. zip-filen till den virtuella datorn och extrahera alla filer. Öppna en PowerShell-prompt på den virtuella datorn. Flytta din prompt till mappen som innehåller `SchService.ps1`, till exempel: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`och konfigurera tjänsten.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -98,7 +98,7 @@ När händelser samlas in av tjänsten Schemalägg händelse kommer den att logg
 >
 > För vår konfiguration valde vi Windows, men du kan skapa en liknande lösning i Linux.
 
-Du kan när som helst stoppa/ta bort tjänsten schemalagd händelse genom att använda växlarna `–stop` och `–remove`.
+Du kan när som helst stoppa/ta bort den schemalagda händelse tjänsten med hjälp av växlarna `–stop` och `–remove`.
 
 ## <a name="connect-to-the-workspace"></a>Anslut till arbets ytan
 
@@ -157,9 +157,9 @@ När händelserna flyttas till Log Analytics kan du köra följande [fråga](/az
 
     ![Spara frågan](./media/notifications/save-query.png)
 
-1. Välj **ny aviserings regel**. 
-1. På sidan **Skapa regel** lämnar du `collectorworkspace` som **resurs**.
-1. Under **villkor**väljer du posten *när kund loggs ökningen är <login undefined>* . Sidan **Konfigurera signal logik** öppnas.
+1. Välj **Ny aviseringsregel**. 
+1. På sidan **Skapa regel** lämnar du `collectorworkspace` som **resursen**.
+1. Under **villkor**väljer du posten *när kund loggs ökningen <login undefined>* . Sidan **Konfigurera signal logik** öppnas.
 1. Under **tröskelvärde**anger du *0* och väljer sedan **färdig**.
 1. Under **åtgärder**väljer du **skapa åtgärds grupp**. Sidan **Lägg till åtgärds grupp** öppnas.
 1. I **Åtgärds grupp namn**skriver du *myActionGroup*.

@@ -5,7 +5,7 @@ metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: 'Dokumentation om API för bildsökning i Bing – självstudier, snabbstarter, API-referenser'
   titleSuffix: Azure Cognitive Services
-  description: 'Lär dig hur du använder API:et för bildsökning i Bing för att söka efter bilder på webben.'
+  description: 'Med API:et för bildsökning i Bing kan du integrera Bings bildsökningsfunktioner i dina program.'
   services: cognitive-services
   author: nitinme
   manager: nitinme

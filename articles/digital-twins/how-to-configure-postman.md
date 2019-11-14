@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 5a357a246f2ba6c294b107e447218f386623f5c5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/13/2019
+ms.openlocfilehash: 8967b61115d2e2e644dea93cb236f8a7cdfcfcbd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014183"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072297"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -58,14 +58,9 @@ Konfigurera Azure Active Directory-appen så att den använder det implicita bid
 
     [![godkännande av administratörs medgivande](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
+1. Konfigurera en andra **omdirigerings-URI** till `https://www.getpostman.com/oauth2/callback`.
 
-1. Välj **manifest** för att öppna applikations manifestet för appen. Ange *oauth2AllowImplicitFlow* till `true`.
-
-    [![Azure Active Directory implicit flöde](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
-
-1. Konfigurera en **svars-URL** till `https://www.getpostman.com/oauth2/callback`.
-
-    [Svars-URL för ![Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![lägga till en Postman omdirigerings-URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. Kopiera och behåll **program-ID: t** för din Azure Active Directory-app. Den används i de steg som följer.
 
@@ -106,10 +101,6 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
     [exempel på ![Postman-klient](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Välj **token för begäran**.
-
-    >[!TIP]
-    >Om du får fel meddelandet "OAuth 2 kunde inte slutföras" kan du prova följande:
-    > * Stäng Postman och öppna det på nytt och försök igen.
   
 1. Rulla nedåt och välj **Använd token**.
 
@@ -123,7 +114,7 @@ När du har slutfört de föregående stegen konfigurerar du Postman att göra e
 
 1. Serialisera icke-text data i filer. JSON-data sparas som en JSON-fil.
 1. Under fliken **brödtext** väljer du `form-data`. 
-1. Lägg till varje fil genom att tilldela ett **nyckel** namn och välja `file`.
+1. Lägg till varje fil genom att tilldela ett **nyckel** namn och välja `File`.
 1. Välj sedan varje fil via knappen **Välj fil** .
 
    [exempel på ![Postman-klient](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
@@ -133,7 +124,7 @@ När du har slutfört de föregående stegen konfigurerar du Postman att göra e
    > * Du behöver inte ange dessa rubriker för varje del.
    > * Du måste välja `multipart/mixed` eller en annan lämplig **innehålls typ** för hela begäran.
 
-1. Slutligen väljer du **Skicka** för att skicka din multipart HTTP POST-begäran.
+1. Slutligen väljer du **Skicka** för att skicka din multipart HTTP POST-begäran. Status koden för `200` eller `201` anger en lyckad begäran. Du ser även lämpligt svarsmeddelande.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17499fad64c8ae313f7a544015a04cc20e8bbabe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495704"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075432"
 ---
-|**VPN<br>Gateway<br>generation** |**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br> SSTP-anslutningar** | **P2S<br> IKEv2/OpenVPN-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** | **BGP** | **Zon – redundant** |
+|**VPN<br>Gateway<br>generation** |**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br> SSTP-anslutningar** | **P2S<br> IKEv2/OpenVPN-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
 |**Generation1**|**Basic**   | Max. 10    | Max. 128  | Stöds inte  | 100 Mbit/s  | Stöds inte| Nej |
 |**Generation1**|**VpnGw1**  | Max. 30*   | Max. 128  | Max. 250       | 650 Mbit/s  | Stöds | Nej |
@@ -46,13 +46,13 @@ ms.locfileid: "73495704"
 
 * I en enda tunnel kan högst 1 Gbit/s genom strömning uppnås. Benchmark för sammanställd data flöde i tabellen ovan baseras på mätningar av flera tunnlar som sammanställs via en enda Gateway. Prestandamåttet för aggregerat dataflöde för VPN Gateway är S2S + P2S kombinerat. **Om du har många P2S-anslutningar kan det påverka en S2S-anslutning negativt på grund av dataflödesbegränsningar.** Prestandamåttet för aggregerat datagenomflöde inte garanterat genomströmning på grund av villkor för Internet-trafik och dina program.
 
-* För att hjälpa våra kunder att förstå de relativa prestandan för SKU: er som använder olika algoritmer använde vi allmänt tillgängliga iPerf-och CTSTraffic-verktyg för att mäta prestanda. Tabellen nedan visar resultatet av prestandatester för generation 1, VpnGw SKU: er. Som du kan se erhålls bästa prestanda när vi använde GCMAES256-algoritm för kryptering och integritet i både IPsec och integritet. Vi fick genomsnitts prestanda när du använder AES256 för IPsec-kryptering och SHA256 för integritet. Vi fick lägsta prestanda när vi använde DES3 för IPsec-kryptering och SHA256 för integritet.
+För att hjälpa våra kunder att förstå de relativa prestandan för SKU: er som använder olika algoritmer använde vi allmänt tillgängliga iPerf-och CTSTraffic-verktyg för att mäta prestanda. Tabellen nedan visar resultatet av prestandatester för generation 1, VpnGw SKU: er. Som du kan se erhålls bästa prestanda när vi använde GCMAES256-algoritm för kryptering och integritet i både IPsec och integritet. Vi fick genomsnitts prestanda när du använder AES256 för IPsec-kryptering och SHA256 för integritet. Vi fick lägsta prestanda när vi använde DES3 för IPsec-kryptering och SHA256 för integritet.
 
 |**Skapa**|**SKU**   | **Algoritmer som<br>används** | **Data flödes<br>observeras** | **Paket per sekund som<br>observerats** |
 |---           |---       | ---                 | ---            | ---                    |
-|**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbit/s<br>500 Mbit/s<br>120 Mbit/s   | 58 000<br>50 000<br>50 000|
-|**Generation1**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbit/s<br>500 Mbit/s<br>120 Mbit/s | 90 000<br>80 000<br>55 000|
-|**Generation1**|**VpnGw3**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1,25 Gbit/s<br>550 Mbit/s<br>120 Mbit/s | 105 000<br>90 000<br>60 000|
-|**Generation1**|**VpnGw1AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbit/s<br>500 Mbit/s<br>120 Mbit/s   | 58 000<br>50 000<br>50 000|
-|**Generation1**|**VpnGw2AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbit/s<br>500 Mbit/s<br>120 Mbit/s | 90 000<br>80 000<br>55 000|
-|**Generation1**|**VpnGw3AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1,25 Gbit/s<br>550 Mbit/s<br>120 Mbit/s | 105 000<br>90 000<br>60 000|
+|**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbit/s<br>500 Mbps<br>120 Mbit/s   | 58 000<br>50 000<br>50 000|
+|**Generation1**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbit/s<br>500 Mbps<br>120 Mbit/s | 90,000<br>80,000<br>55 000|
+|**Generation1**|**VpnGw3**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1,25 Gbit/s<br>550 Mbit/s<br>120 Mbit/s | 105 000<br>90,000<br>60,000|
+|**Generation1**|**VpnGw1AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbit/s<br>500 Mbps<br>120 Mbit/s   | 58 000<br>50 000<br>50 000|
+|**Generation1**|**VpnGw2AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbit/s<br>500 Mbps<br>120 Mbit/s | 90,000<br>80,000<br>55 000|
+|**Generation1**|**VpnGw3AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1,25 Gbit/s<br>550 Mbit/s<br>120 Mbit/s | 105 000<br>90,000<br>60,000|

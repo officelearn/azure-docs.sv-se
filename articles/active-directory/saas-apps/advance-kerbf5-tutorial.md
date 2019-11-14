@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med F5 | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med F5 | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och F5.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1411d64a6adc6f340b3ad49ca38ca30136bdef47
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104557"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074765"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med F5
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
 I den här självstudien får du lära dig hur du integrerar F5 med Azure Active Directory (Azure AD). När du integrerar F5 med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar F5 med Azure Active
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -72,7 +72,7 @@ Om du vill konfigurera och testa Azure AD SSO med F5 slutför du följande Bygg 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera F5 – SSO](#configure-f5-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa F5 test användare](#create-f5-test-user)** – om du vill ha en motsvarighet till B. Simon i F5 som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -91,18 +91,18 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [F5-klientens support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [F5-klientens support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera F5** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -113,14 +113,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till F5.
 
@@ -128,7 +128,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **F5**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -188,9 +188,9 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     >[!Note]
     >Du behöver kontot för Kerberos-delegering för att kunna skapas och anges. Se avsnittet KCD (se tillägg för variabel referenser)
 
-    • Användar namn källa`session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    • Användar namn källa `session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    • Källa för användar sfär`session.logon.last.domain`
+    • Källa för användar sfär `session.logon.last.domain`
 
     ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure11.png)
 
@@ -246,15 +246,22 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 >[!Note]
 >Mer information finns [här](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf)
 
-* **Steg 1: Skapa ett Delegerings konto**
+* **Steg 1: skapa ett Delegerings konto**
 
-    * Exempel på domän namn: superdemo. live Sam-konto namn: Big-ipuser
+    * Exempel
+    ```
+    Domain Name : superdemo.live
+    Sam Account Name : big-ipuser
 
-    * New-ADUser-Name "APM Delegerings konto" host/big-ipuser.superdemo.live@superdemo.live -userPrincipalName-sAMAccountName "Big-ipuser"-PasswordNeverExpires $True-Enabled $True-AccountPassword (Read-Host-AsSecureString "Password! 1234")
+    New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
+    ```
 
-* **Steg 2: Ange SPN (på kontot för APM-delegering)**
+* **Steg 2: ange SPN (på kontot för APM-delegering)**
 
-    *  Exempel setspn – A Host/Big-ipuser. superdemo. live stor – ipuser
+    *  Exempel
+    ```
+    setspn –A host/big-ipuser.superdemo.live big-ipuser
+    ```
 
 * **Steg 3: SPN-delegering (för det App Service kontot)**
 
@@ -276,38 +283,38 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 | | |
 | -- | -- |
-| eb46b6b6. session. SAML. Last. assertionID | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
-| eb46b6b6. session. SAML. Last. assertionIssueInstant  | 2019-06-16T19:18:03.054 Z |
+| eb46b6b6. session. SAML. Last. assertionID | `<TENANT ID>` |
+| eb46b6b6. session. SAML. Last. assertionIssueInstant  | `<ID>` |
 | eb46b6b6. session. SAML. Last. assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/DisplayName | user0 |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/objectidentifier | 90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/tenantid | e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/EmailAddress | user0@superdemo.live |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/givenName | user0 |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/Name | user0@superdemo.live |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/Surname | 0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/displayname | user0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/objectidentifier | `<TENANT ID>` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/tenantid | `<TENANT ID>` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | `user0@superdemo.live` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/name | `user0@superdemo.live` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | 0 |
 | eb46b6b6. session. SAML. Last. Audience | `https://kerbapp.superdemo.live` |
 | eb46b6b6. session. SAML. Last. authNContextClassRef | urn: Oasis: namn: TC: SAML: 2.0: AC: klasser: lösen ord |
-| eb46b6b6. session. SAML. Last. authNInstant | 2019-06-16T19:18:00.318 Z |
-| eb46b6b6. session. SAML. senaste. identitet | user0@superdemo.live |
-| eb46b6b6. session. SAML. Last. inResponseTo | _b9c67faa63a224d7a63f4f3cbb09f78dc05fab |
-| eb46b6b6. session. SAML. Last. nameIDValue | user0@superdemo.live |
+| eb46b6b6. session. SAML. Last. authNInstant | `<ID>` |
+| eb46b6b6. session. SAML. senaste. identitet | `user0@superdemo.live` |
+| eb46b6b6. session. SAML. Last. inResponseTo | `<TENANT ID>` |
+| eb46b6b6. session. SAML. Last. nameIDValue | `user0@superdemo.live` |
 | eb46b6b6. session. SAML. Last. nameIdFormat | urn: Oasis: Names: TC: SAML: 1.1: NameID-format: emailAddress |
 | eb46b6b6. session. SAML. Last. responseDestination | `https://kerbapp.superdemo.live/saml/sp/profile/post/acs` |
-| eb46b6b6. session. SAML. Last. responseId | _a1eca95a-6c41-449e-bb53-1477ba106470 |
-| eb46b6b6. session. SAML. Last. responseIssueInstant | 2019-06-16T19:18:03.070 Z |
+| eb46b6b6. session. SAML. Last. responseId | `<TENANT ID>` |
+| eb46b6b6. session. SAML. Last. responseIssueInstant | `<ID>` |
 | eb46b6b6. session. SAML. Last. responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6. session. SAML. Last. result | 1 |
 | eb46b6b6. session. SAML. Last. samlVersion | 2.0 |
-| eb46b6b6. session. SAML. Last. sessionIndex | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
+| eb46b6b6. session. SAML. Last. sessionIndex | `<TENANT ID>` |
 | eb46b6b6. session. SAML. Last. statusValue | urn: Oasis: namn: TC: SAML: 2.0: status: lyckad |
-| eb46b6b6. session. SAML. Last. subjectConfirmDataNotOnOrAfter | 2019-06-16T19:23:03.054 Z |
+| eb46b6b6. session. SAML. Last. subjectConfirmDataNotOnOrAfter | `<ID>` |
 | eb46b6b6. session. SAML. Last. subjectConfirmDataRecipient | `https://kerbapp.superdemo.live/saml/sp/profile/post/acs` |
 | eb46b6b6. session. SAML. Last. subjectConfirmMethod | urn: Oasis: Names: TC: SAML: 2.0: cm: Bearer |
-| eb46b6b6. session. SAML. Last. validityNotBefore | 2019-06-16T19:13:03.054 Z |
-| eb46b6b6. session. SAML. Last. validityNotOnOrAfter | 2019-06-16T20:13:03.054 Z |
+| eb46b6b6. session. SAML. Last. validityNotBefore | `<ID>` |
+| eb46b6b6. session. SAML. Last. validityNotOnOrAfter | `<ID>` |
 
 ### <a name="create-f5-test-user"></a>Skapa F5-test användare
 
@@ -315,7 +322,7 @@ I det här avsnittet skapar du en användare som heter B. Simon i F5. Arbeta med
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt på F5 som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

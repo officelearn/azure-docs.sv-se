@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: e600fdb882294d14bb9f9216ac8d621ba5254170
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614402"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074719"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -31,7 +31,7 @@ Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator m�
 
 | Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
-| Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Varken differentiell säkerhets kopiering eller säkerhets kopiering av transaktions logg är möjlig. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars hoppas de säkerhets kopierings typer som inte stöds över under schemalagd säkerhets kopiering, eller så Miss söker säkerhets kopierings jobbet för ad hoc-säkerhetskopiering.
+| Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Varken differentiell säkerhets kopiering eller säkerhets kopiering av transaktions logg är möjlig. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars kommer de säkerhets kopierings typer som inte stöds att hoppas över under schemalagd säkerhets kopiering, eller så kommer säkerhets kopieringen inte att kunna utföra säkerhets kopiering på begäran.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -50,7 +50,7 @@ Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator m�
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Loggkedjan är bruten. | Databasen eller den virtuella datorn säkerhets kopie ras via en annan säkerhets kopierings lösning som trunkerar logg kedjan.|<ul><li>Kontrol lera om någon annan lösning för säkerhets kopiering eller skript används. Om så är fallet, stoppa den andra säkerhets kopierings lösningen. </li><li>Om säkerhets kopieringen var ad hoc-säkerhetskopiering, Utlös en fullständig säkerhets kopiering för att starta en ny logg kedja. För schemalagda säkerhets kopieringar behövs ingen åtgärd eftersom Azure Backups tjänsten automatiskt aktiverar en fullständig säkerhets kopiering för att åtgärda problemet.</li>|
+| Loggkedjan är bruten. | Databasen eller den virtuella datorn säkerhets kopie ras via en annan säkerhets kopierings lösning som trunkerar logg kedjan.|<ul><li>Kontrol lera om någon annan lösning för säkerhets kopiering eller skript används. Om så är fallet, stoppa den andra säkerhets kopierings lösningen. </li><li>Om säkerhets kopieringen var en säkerhets kopiering på begäran, Utlös en fullständig säkerhets kopiering för att starta en ny logg kedja. För schemalagda säkerhets kopieringar behövs ingen åtgärd eftersom Azure Backups tjänsten automatiskt aktiverar en fullständig säkerhets kopiering för att åtgärda problemet.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -62,7 +62,7 @@ Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator m�
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Den första fullständiga säkerhets kopieringen saknas för den här data källan. | Fullständig säkerhets kopiering saknas för databasen. Logg-och differentiella säkerhets kopieringar är överordnade till en fullständig säkerhets kopia, så se till att ta fullständiga säkerhets kopior innan du utlöser differentiella eller loggar säkerhets kopior. | Utlös en fullständig ad hoc-säkerhetskopiering.   |
+| Den första fullständiga säkerhets kopieringen saknas för den här data källan. | Fullständig säkerhets kopiering saknas för databasen. Logg-och differentiella säkerhets kopieringar är överordnade till en fullständig säkerhets kopia, så se till att ta fullständiga säkerhets kopior innan du utlöser differentiella eller loggar säkerhets kopior. | Utlös en fullständig säkerhets kopiering på begäran.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 

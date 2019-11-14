@@ -1,7 +1,7 @@
 ---
 title: Så här väljer du en enhet för ljud inspelning med tjänsten Speech SDK-tal
 titleSuffix: Azure Cognitive Services
-description: Läs mer om att välja enheter för ljudinspelning i Speech SDK.
+description: 'Lär dig mer om att välja enheter för ljud inspelning iC++tal C#-SDK: n (, python, mål-C, Java, Java Script) genom att hämta ID: na för de ljud enheter som är anslutna till ett system.'
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 967e4fbc5484c152867fe5558040631d21e6c0b3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562736"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072438"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Välj en enhet för ljudinspelning med Speech SDK
 
@@ -46,7 +46,8 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > Mikrofon användning är inte tillgängligt för Java Script som körs i Node. js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Ljudenhets-ID:n i Windows för datorprogram
@@ -374,14 +375,14 @@ innebär att ett Bluetooth-headset kan användas för en talaktiverad app.
 
 ## <a name="audio-device-ids-in-javascript"></a>Ljud enhets-ID: n i Java Script
 
-I Java Script kan metoden [MediaDevices. enumerateDevices ()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) användas för att räkna upp medie enheter och hitta ett enhets-ID att skicka `fromMicrophone(...)`till.
+I Java Script kan metoden [MediaDevices. enumerateDevices ()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) användas för att räkna upp medie enheter och hitta ett enhets-ID som ska skickas till `fromMicrophone(...)`.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Utforska våra exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

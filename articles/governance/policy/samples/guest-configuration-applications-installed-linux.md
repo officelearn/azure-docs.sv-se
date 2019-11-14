@@ -1,21 +1,18 @@
 ---
 title: Exempel – granska saknade program på virtuella Linux-datorer
 description: Detta exempel på principer för gäst konfiguration och definitioner granskar om de angivna programmen inte är installerade på virtuella Linux-datorer.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 05/02/2019
-ms.author: dacoulte
-ms.openlocfilehash: 5f4d4f4c1102c4409d891bb20b54788dc8ed40ee
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 0789b7f408c1f3eea000bfb2fc21ddf5feff790c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255741"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076216"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exempel – granska om de angivna programmen inte är installerade i virtuella Linux-datorer
 
-Den här principen för konfiguration av gäst konfiguration skapar en gransknings händelse när de angivna programmen inte installeras på virtuella Linux-datorer. ID: t för det här inbyggda initiativet är `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Den här principen för konfiguration av gäst konfiguration skapar en gransknings händelse när de angivna programmen inte installeras på virtuella Linux-datorer. ID för det här inbyggda initiativet är `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Alla initiativ för gäst konfiguration består av **gransknings** -och **deployIfNotExists** princip definitioner. Om du bara tilldelar en av princip definitionerna kommer gäst konfigurationen inte att fungera korrekt.
@@ -46,7 +43,7 @@ Initiativet skapas genom att du ansluter till **gransknings** -och **deployIfNot
 
 |Namn |Typ |Beskrivning |
 |---|---|---|
-|applicationName |Sträng |Program namn. Exempel: python, PowerShell eller en kommaavgränsad lista, till exempel python, PowerShell. Använd \* för matchning av jokertecken, t. ex. Power @ no__t-1. |
+|applicationName |Sträng |Program namn. Exempel: python, PowerShell eller en kommaavgränsad lista, till exempel python, PowerShell. Använd \* för matchning av jokertecken, t. ex. Power\*. |
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.
@@ -79,44 +76,44 @@ JSON som definierar reglerna för **deployIfNotExists** -princip definitionen.
 
 |Utgivare |Erbjudande |SKU |
 |-|-|-|
-|OpenLogic |CentOS @ no__t-0 |Alla utom 6 @ no__t-0 |
-|Redhat |RHEL |Alla utom 6 @ no__t-0 |
-|Redhat |luft | Alla |
-|credativ |Debian | Alla utom 7 @ no__t-0 |
-|SUSE |SLES @ no__t-0 |Alla utom 11 @ no__t-0 |
-|Canonical| UbuntuServer |Alla utom 12 @ no__t-0 |
-|Microsoft-dsvm |Linux-data-science-VM-Ubuntu |Alla |
-|Microsoft-dsvm |azureml |Alla |
-|Cloudera |Cloudera-CentOS-OS |Alla utom 6 @ no__t-0 |
+|OpenLogic |CentOS\* |Alla utom 6\* |
+|Redhat |RHEL |Alla utom 6\* |
+|Redhat |osa | Alla |
+|credativ |Debian | Alla utom 7\* |
+|SUSE |SLES\* |Alla utom 11\* |
+|Canonical| UbuntuServer |Alla utom 12\* |
+|microsoft-dsvm |linux-data-science-vm-ubuntu |Alla |
+|microsoft-dsvm |azureml |Alla |
+|Cloudera |Cloudera-CentOS-OS |Alla utom 6\* |
 |Cloudera |Cloudera-Altus-CentOS-OS |Alla |
-|Microsoft-Ads |Linux @ no__t-0 |Alla |
-|Microsoft-AKS |Alla |Alla |
+|microsoft-ads |linux\* |Alla |
+|microsoft-aks |Alla |Alla |
 |AzureDatabricks |Alla |Alla |
 |qubole-Inc |Alla |Alla |
-|DataStax |Alla |Alla |
+|datastax |Alla |Alla |
 |Couchbase |Alla |Alla |
 |scalegrid |Alla |Alla |
-|Tidszon |Alla |Alla |
+|tidszon |Alla |Alla |
 |paloaltonetworks |Alla |Alla |
 
 **Distributions** delen av regeln överför _installedApplication_ -parametern till gäst konfigurations agenten på den virtuella datorn. Den här konfigurationen gör att agenten kan utföra verifieringarna och rapportera efterlevnaden genom **gransknings** princip definitionen.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 När du har skapat **gransknings** -och **deployIfNotExists** -definitionerna i portalen rekommenderar vi att du grupperar dem till ett [initiativ](../concepts/definition-structure.md#initiatives) för tilldelning.
 
 ### <a name="create-copy-of-audit-definition"></a>Skapa en kopia av gransknings definition
 
-[![Deploy till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
-[![Deploy princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![distribuera princip exemplet till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![distribuera princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Genom att använda dessa knappar för att distribuera via portalen skapas en kopia av **gransknings** princip definitionen.
 Utan den kopplade **deployIfNotExists** -princip definitionen fungerar inte gäst konfigurationen som den ska.
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Skapa en kopia av deployIfNotExists-definitionen
 
-[![Deploy till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
-[![Deploy princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![distribuera princip exemplet till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![distribuera princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Genom att använda dessa knappar för att distribuera via portalen skapas en kopia av **deployIfNotExists** -princip definitionen. Utan den kopplade **gransknings** princip definitionen fungerar inte gäst konfigurationen som den ska.
 
@@ -228,7 +225,7 @@ Remove-AzPolicyDefinition -Id $definition
 
 ### <a name="azure-powershell-explanation"></a>Azure PowerShell-förklaring
 
-Skripten för distribution och borttagning använder följande kommandon. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
+Skripten för distribution och borttagning använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|

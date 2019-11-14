@@ -1,5 +1,5 @@
 ---
-title: Tillägg och funktioner för virtuella Azure-datorer | Microsoft Docs
+title: Tillägg och funktioner för virtuella Azure-datorer
 description: Lär dig vad Azure VM-tillägg är och hur du använder dem med Azure Virtual Machines
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
-ms.openlocfilehash: deb49267a262705370e48e150cc5ed6c4dc04247
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168883"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072966"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Tillägg och funktioner för virtuella Azure-datorer
 Tillägg för virtuella Azure-datorer (VM) är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. du kan använda befintliga avbildningar och sedan anpassa dem som en del av dina distributioner, så att du får ut så mycket som möjligt av egna Skapa bild.

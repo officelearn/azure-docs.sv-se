@@ -1,25 +1,23 @@
 ---
-title: Skapa en Programgateway med en VM-skalningsuppsättning – Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en Programgateway med en VM-skalningsuppsättning med Azure CLI.
+title: Använd Server del för skalnings uppsättning för virtuell dator – CLI
+titleSuffix: Azure Application Gateway
+description: Lär dig hur du skapar en Programgateway med en skalnings uppsättning för virtuella datorer med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 792d6da36851f74429d97a9779aff1727e8f64db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec1837419390fc29e53565881e41fd4265914f78
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133625"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074515"
 ---
-# <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Skapa en Programgateway med en VM-skalningsuppsättning med Azure CLI
+# <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Skapa en Programgateway med en skalnings uppsättning för virtuella datorer med hjälp av Azure CLI
 
-Du kan använda Azure CLI för att skapa en [programgatewayen](application-gateway-introduction.md) som använder en [virtual machine scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
+Du kan använda Azure CLI för att skapa en [Programgateway](application-gateway-introduction.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
 
 I den här artikeln kan du se hur du:
 
@@ -149,4 +147,4 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa en programgateway
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du vill veta mer om application gateway och deras associerade resurser kan du fortsätta i instruktionsartiklarna.
+Om du vill veta mer om programgatewayer och deras associerade resurser kan du fortsätta till instruktions artiklarna.

@@ -1,19 +1,19 @@
 ---
-title: Konfigurera SSL-princip på Azure Application Gateway – PowerShell
+title: Konfigurera SSL-princip med PowerShell
+titleSuffix: Azure Application Gateway
 description: Den här artikeln innehåller anvisningar för att konfigurera SSL-princip på Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/3/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5c881a42cdd6fd76c591cf12b341fd777d18baea
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018253"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075232"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurera SSL-princip versioner och chiffersviter på Application Gateway
 
@@ -23,7 +23,7 @@ Lär dig hur du konfigurerar SSL-principinställningar och chiffersviter på App
 
 ## <a name="get-available-ssl-options"></a>Hämta tillgängliga SSL-alternativ
 
-`Get-AzApplicationGatewayAvailableSslOptions` Cmdleten innehåller en lista över tillgängliga fördefinierade principer, tillgängliga chiffersviter och protokoll versioner som kan konfigureras. I följande exempel visas ett exempel på utdata från att köra cmdleten.
+`Get-AzApplicationGatewayAvailableSslOptions`-cmdleten innehåller en lista över tillgängliga fördefinierade principer, tillgängliga chiffersviter och protokoll versioner som kan konfigureras. I följande exempel visas ett exempel på utdata från att köra cmdleten.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501
@@ -73,7 +73,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Visa en lista över fördefinierade SSL-principer
 
-Application Gateway innehåller tre fördefinierade principer som kan användas. Cmdlet `Get-AzApplicationGatewaySslPredefinedPolicy` : en hämtar dessa principer. Varje princip har olika protokoll versioner och chiffersviter aktiverade. Dessa fördefinierade principer kan användas för att snabbt konfigurera en SSL-princip på din Application Gateway. Som standard väljs **AppGwSslPolicy20150501** om ingen speciell SSL-princip har definierats.
+Application Gateway innehåller tre fördefinierade principer som kan användas. Den `Get-AzApplicationGatewaySslPredefinedPolicy` cmdlet: en hämtar dessa principer. Varje princip har olika protokoll versioner och chiffersviter aktiverade. Dessa fördefinierade principer kan användas för att snabbt konfigurera en SSL-princip på din Application Gateway. Som standard väljs **AppGwSslPolicy20150501** om ingen speciell SSL-princip har definierats.
 
 Följande utdata är ett exempel på att köra `Get-AzApplicationGatewaySslPredefinedPolicy`.
 
@@ -110,7 +110,7 @@ CipherSuites:
 
 När du konfigurerar en anpassad SSL-princip skickar du följande parametrar: PolicyType, MinProtocolVersion, CipherSuite och ApplicationGateway. Om du försöker skicka andra parametrar får du ett fel meddelande när du skapar eller uppdaterar Application Gateway. 
 
-I följande exempel anges en anpassad SSL-princip på en Application Gateway. Den anger den lägsta protokoll versionen till `TLSv1_1` och aktiverar följande chiffersviter:
+I följande exempel anges en anpassad SSL-princip på en Application Gateway. Den ställer in den lägsta protokoll versionen till `TLSv1_1` och aktiverar följande chiffersviter:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Uppdatera en befintlig Application Gateway med en fördefinierad SSL-princip
 
-Om du vill ange en anpassad SSL-princip måste du skicka följande parametrar: **PolicyType**, **MinProtocolVersion**, **CipherSuite**och **ApplicationGateway**. Om du vill ange en fördefinierad SSL-princip måste du skicka följande parametrar: **PolicyType**, **PolicyName**och **ApplicationGateway**. Om du försöker skicka andra parametrar får du ett fel meddelande när du skapar eller uppdaterar Application Gateway.
+Om du vill ange en anpassad SSL-princip skickar du följande parametrar: **PolicyType**, **MinProtocolVersion**, **CipherSuite**och **ApplicationGateway**. Ange en fördefinierad SSL-princip genom att skicka följande parametrar: **PolicyType**, **PolicyName**och **ApplicationGateway**. Om du försöker skicka andra parametrar får du ett fel meddelande när du skapar eller uppdaterar Application Gateway.
 
 I följande exempel finns kod exempel för både en anpassad princip och en fördefinierad princip. Ta bort kommentaren till den princip som du vill använda.
 

@@ -1,5 +1,5 @@
 ---
-title: Använd Azure PowerShell för att aktivera diagnostik på en virtuell Windows-dator | Microsoft Docs
+title: Använd Azure PowerShell för att aktivera diagnostik på en virtuell Windows-dator
 services: virtual-machines-windows
 documentationcenter: ''
 description: Lär dig hur du använder PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d43859de71b6e41d5df444716b5504ca6b78400b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750101"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073146"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator som kör Windows
 

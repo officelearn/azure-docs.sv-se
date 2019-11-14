@@ -1,5 +1,5 @@
 ---
-title: Chefs tillägg för virtuella Azure-datorer | Microsoft Docs
+title: Chefs tillägg för virtuella Azure-datorer
 description: Distribuera chefs klienten till en virtuell dator med hjälp av VM-tillägget kock.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169141"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073188"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
 
 Chef Software tillhandahåller en DevOps-plattform för automatisering för Linux och Windows som möjliggör hantering av både fysiska och virtuella serverkonfigurationer. Kock VM-tillägget är ett tillägg som möjliggör chef på virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -36,7 +36,7 @@ VM-tillägget för chef kräver att den virtuella mål datorn är ansluten till 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver minst chefs serverns URL, verifierings klientens namn och validerings nyckeln för chefs servern. dessa värden finns i `knife.rb` filen Starter-Kit. zip som hämtas när du installerar chef för [Automatisk](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller fristående [chefs Server](https://downloads.chef.io/chef-server). Eftersom validerings nyckeln ska behandlas som känsliga data, bör den konfigureras under **protectedSettings** -elementet, vilket innebär att den endast dekrypteras på den virtuella mål datorn.
+Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver minst chefs serverns URL, verifierings klientens namn och validerings nyckeln för chefs servern. de här värdena finns i `knife.rb`-filen i Starter-Kit. zip som hämtas när du installerar [chefs automatisering](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller en fristående [chefs Server](https://downloads.chef.io/chef-server). Eftersom validerings nyckeln ska behandlas som känsliga data, bör den konfigureras under **protectedSettings** -elementet, vilket innebär att den endast dekrypteras på den virtuella mål datorn.
 
 ```json
 {
@@ -67,26 +67,26 @@ Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver mi
 
 ### <a name="core-property-values"></a>Egenskaps värden för kärna
 
-| Name | Värdet / exempel | Datatyp
+| Namn | Värdet / exempel | Datatyp
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | sträng |
-| type | `LinuxChefClient`(Linux), `ChefClient` (Windows) | sträng |
+| typ | `LinuxChefClient` (Linux) `ChefClient` (Windows) | sträng |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Inställningar
 
-| Name | Värdet / exempel | Datatyp | Krävs?
+| Namn | Värdet / exempel | Datatyp | Krävs?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | J |
-| Settings/bootstrap_options/validation_client_name | `myorg-validator` | sträng | J |
-| settings/runlist | `recipe[mycookbook::default]` | sträng | J |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
+| inställningar/bootstrap_options/validation_client_name | `myorg-validator` | sträng | Y |
+| settings/runlist | `recipe[mycookbook::default]` | sträng | Y |
 
 ### <a name="protected-settings"></a>Skyddade inställningar
 
-| Name | Exempel | Datatyp | Krävs?
+| Namn | Exempel | Datatyp | Krävs?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | J |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | Y |
 
 <!--
 ### Linux-specific settings
@@ -110,7 +110,7 @@ JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera kock VM-tillägget till en befintlig virtuell dator. Ersätt **validation_key** med innehållet i validerings nyckeln (filen som ett `.pem` tillägg).  Ersätt **validation_client_name**, **chef_server_url** och **run_list** `knife.rb` med dessa värden från filen i ditt Start paket.
+Azure CLI kan användas för att distribuera kock VM-tillägget till en befintlig virtuell dator. Ersätt **validation_key** med innehållet i validerings nyckeln (filen som ett `.pem` tillägg).  Ersätt **validation_client_name** **chef_server_url** och **run_list** med dessa värden från `knife.rb` filen i ditt Start paket.
 
 ```azurecli
 az vm extension set \

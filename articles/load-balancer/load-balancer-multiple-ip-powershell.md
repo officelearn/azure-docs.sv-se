@@ -1,10 +1,10 @@
 ---
-title: Belastningsutjämning på flera IP-konfigurationer – Azure CLI
-titlesuffix: Azure Load Balancer
-description: Belastningsutjämning mellan primära och sekundära IP-konfigurationer.
+title: Belastnings utjämning på flera IP-konfigurationer – Azure CLI
+titleSuffix: Azure Load Balancer
+description: I den här artikeln lär du dig mer om belastnings utjämning för primära och sekundära IP-konfigurationer med Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: anavinahar
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,58 +12,58 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: anavin
-ms.openlocfilehash: bbd21ffeffeaf036909b5ab89f1a07909a03c3f0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: allensu
+ms.openlocfilehash: 6ac9e362314cc45e6adbdcf1390f70cbe6b05de8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621715"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075967"
 ---
-# <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Belastningsutjämning på flera IP-konfigurationer med hjälp av PowerShell
+# <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Belastnings utjämning på flera IP-konfigurationer med PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](load-balancer-multiple-ip.md)
+> * [Portalen](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
 
-Den här artikeln beskriver hur du använder Azure Load Balancer med flera IP-adresser på ett sekundärt nätverksgränssnitt (NIC). För det här scenariot har vi två virtuella datorer som kör Windows med en primär och en sekundärt nätverkskort. Var och en av de sekundära nätverkskort har två IP-konfigurationer. Varje virtuell dator är värd för både webbplatser contoso.com och fabrikam.com. Varje webbplats är bunden till en av IP-konfigurationer på sekundärt nätverkskort. Vi kan använda Azure Load Balancer för att visa två frontend IP-adresser, en för varje webbplats, för att distribuera trafik till respektive IP-konfigurationen för webbplatsen. Det här scenariot använder samma portnummer i såväl klienter, som båda backend-pool IP-adresser.
+Den här artikeln beskriver hur du använder Azure Load Balancer med flera IP-adresser i ett sekundärt nätverks gränssnitt (NIC). I det här scenariot har vi två virtuella datorer som kör Windows, var och en med ett primärt och ett sekundärt nätverkskort. Vart och ett av de sekundära nätverkskorten har två IP-konfigurationer. Varje virtuell dator är värd för både websites contoso.com och fabrikam.com. Varje webbplats är kopplad till en av IP-konfigurationerna på det sekundära NÄTVERKSKORTet. Vi använder Azure Load Balancer för att exponera två IP-adresser för klient delen, en för varje webbplats, för att distribuera trafik till respektive IP-konfiguration för webbplatsen. I det här scenariot används samma port nummer både i båda frontend-klienterna och i båda IP-adresserna för backend-poolen.
 
-![LB scenariot bild](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
+![Bild av LB-scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Steg för att belastningsutjämna på flera IP-konfigurationer
+## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Steg för belastnings utjämning på flera IP-konfigurationer
 
 Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln:
 
 1. Installera Azure PowerShell. Se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
-2. Skapa en resursgrupp med hjälp av följande inställningar:
+2. Skapa en resurs grupp med följande inställningar:
 
     ```powershell
     $location = "westcentralus".
     $myResourceGroup = "contosofabrikam"
     ```
 
-    Mer information finns i steg 2 i [skapa en resursgrupp](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Mer information finns i steg 2 i [skapa en resurs grupp](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-3. [Skapa en Tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) som innehåller dina virtuella datorer. Det här scenariot använder du följande kommando:
+3. [Skapa en tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) som innehåller dina virtuella datorer. I det här scenariot använder du följande kommando:
 
     ```powershell
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Följ anvisningarna steg 3 till 5 i [skapa en virtuell Windows-dator](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) artikeln du förbereder skapandet av en virtuell dator med ett enda nätverkskort. Köra steget 6.1 och använder du följande i stället för steg 6.2:
+4. Följ anvisningarna steg 3 till 5 i [skapa en artikel i Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) för att förbereda skapandet av en virtuell dator med ett enda nätverkskort. Kör steg 6,1 och Använd följande i stället för steg 6,2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Slutför [skapa en virtuell Windows-dator](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) steg 6.3 via 6.8.
+    Slutför sedan [skapa en Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) -steg 6,3 till 6,8.
 
-5. Lägga till en sekundär IP-konfiguration till var och en av de virtuella datorerna. Följ instruktionerna i [tilldela flera IP-adresser till virtuella datorer](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) artikeln. Använd följande inställningar:
+5. Lägg till en andra IP-konfiguration till var och en av de virtuella datorerna. Följ anvisningarna i artikeln [tilldela flera IP-adresser till virtuella datorer](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) . Använd följande konfigurations inställningar:
 
     ```powershell
     $NicName = "VM1-NIC2"
@@ -73,11 +73,11 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
     $Subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $myVnet
     ```
 
-    Du behöver inte att associera de sekundära IP-konfigurationerna med offentliga IP-adresser i den här kursen. Redigera kommandot för att ta bort den offentliga IP-association delen.
+    Du behöver inte associera sekundära IP-konfigurationer med offentliga IP-adresser för den här självstudien. Redigera kommandot för att ta bort den offentliga IP-associerings delen.
 
-6. Slutför steg 4 till 6 i den här artikeln igen för VM2. Var noga med att ersätta VM-namn till VM2 på det när du gör detta. Observera att du inte behöver skapa ett virtuellt nätverk för den andra virtuella datorn. Du kanske eller kanske inte att skapa ett nytt undernät baserat på ditt användningsområde.
+6. Slutför steg 4 till och med 6 i den här artikeln igen för VM2. Se till att ersätta det virtuella dator namnet till VM2 när du gör detta. Observera att du inte behöver skapa ett virtuellt nätverk för den andra virtuella datorn. Du kanske inte kan skapa ett nytt undernät baserat på ditt användnings fall.
 
-7. Skapa två offentliga IP-adresser och lagra dem i rätt variablerna som visas:
+7. Skapa två offentliga IP-adresser och lagra dem i lämpliga variabler som de visas:
 
     ```powershell
     $publicIP1 = New-AzPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel contoso
@@ -87,14 +87,14 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
     $publicIP2 = Get-AzPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam
     ```
 
-8. Skapa två klientdelens IP-konfigurationer:
+8. Skapa två IP-konfigurationer för klient delen:
 
     ```powershell
     $frontendIP1 = New-AzLoadBalancerFrontendIpConfig -Name contosofe -PublicIpAddress $publicIP1
     $frontendIP2 = New-AzLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2
     ```
 
-9. Skapa din serverdelsadresspooler, en avsökning och regler för belastningsutjämning:
+9. Skapa dina backend-adresspooler, en avsökning och dina belastnings Utjämnings regler:
 
     ```powershell
     $beaddresspool1 = New-AzLoadBalancerBackendAddressPoolConfig -Name contosopool
@@ -106,13 +106,13 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
     $lbrule2 = New-AzLoadBalancerRuleConfig -Name HTTPf -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
     ```
 
-10. När du har dessa resurser som har skapats kan du skapa belastningsutjämnaren:
+10. När du har skapat dessa resurser skapar du belastningsutjämnaren:
 
     ```powershell
     $mylb = New-AzLoadBalancer -ResourceGroupName contosofabrikam -Name mylb -Location 'West Central US' -FrontendIpConfiguration $frontendIP1 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
     ```
 
-11. Lägg till andra backend-pool och frontend IP-adresskonfigurationen i din nyligen skapade belastningsutjämnare:
+11. Lägg till den andra backend-adresspoolen och klient delens IP-konfiguration i den nyligen skapade belastningsutjämnaren:
 
     ```powershell
     $mylb = Get-AzLoadBalancer -Name "mylb" -ResourceGroupName $myResourceGroup | Add-AzLoadBalancerBackendAddressPoolConfig -Name fabrikampool | Set-AzLoadBalancer
@@ -122,7 +122,7 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
     Add-AzLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzLoadBalancer
     ```
 
-12. Kommandona nedan få nätverkskorten och Lägg sedan till båda IP-konfigurationer för varje sekundär nätverkskort till serverdelsadresspoolen för belastningsutjämnaren:
+12. Kommandona nedan hämtar nätverkskorten och lägger sedan till båda IP-konfigurationerna för varje sekundärt nätverkskort till backend-adresspoolen för belastningsutjämnaren:
 
     ```powershell
     $nic1 = Get-AzNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
@@ -139,8 +139,8 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
     $nic2 | Set-AzNetworkInterface
     ```
 
-13. Slutligen måste du konfigurera DNS-resursposter så att den pekar till respektive frontend IP-adressen för belastningsutjämnaren. Du kan vara värd för dina domäner i Azure DNS. Läs mer om hur du använder Azure DNS med belastningsutjämnare, [med hjälp av Azure DNS med andra Azure-tjänster](../dns/dns-for-azure-services.md).
+13. Slutligen måste du konfigurera DNS-resursposter så att de pekar på Load Balancerens respektive frontend-IP-adress. Du kan vara värd för dina domäner i Azure DNS. Mer information om hur du använder Azure DNS med Load Balancer finns i [använda Azure DNS med andra Azure-tjänster](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur du kombinerar belastningsutjämning i Azure i [med tjänster för belastningsutjämning i Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Lär dig hur du kan använda olika typer av loggar i Azure för att hantera och felsöka belastningsutjämnare i [Azure Monitor-loggarna för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Lär dig mer om hur du kombinerar tjänster för belastnings utjämning i Azure med [hjälp av belastnings Utjämnings tjänster i Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Lär dig hur du kan använda olika typer av loggar i Azure för att hantera och felsöka belastningsutjämnare i [Azure Monitor loggar för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

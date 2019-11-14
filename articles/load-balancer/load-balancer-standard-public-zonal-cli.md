@@ -1,5 +1,5 @@
 ---
-title: Standard Load Balancer med zonindelade-frontend – Azure CLI
+title: Standard Load Balancer med zonindelade offentlig IP-adress klient del – Azure CLI
 titleSuffix: Azure Load Balancer
 description: Lär dig hur du skapar en offentlig Standard Load Balancer med en offentlig IP-zonindelade med Azure CLI
 services: load-balancer
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 5e6dd06cf43b0eb5389597dcedbc323f4c035333
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: b9c3a88df6801566bc927cfc18fda0adfa05a5ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048344"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076034"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Skapa en Standard Load Balancer med zonindelade-frontend med Azure CLI
+#  <a name="create-a-standard-load-balancer-with-zonal-public-ip-address-frontend-using-azure-cli"></a>Skapa en Standard Load Balancer med en offentlig IP-zonindelade med Azure CLI
 
 Den här artikeln beskriver hur du skapar en offentlig [standard Load Balancer](https://aka.ms/azureloadbalancerstandard) med en zonindelade-frontend med en offentlig IP-standardadress. I det här scenariot anger du en viss zon för dina klientdels- och serverdelsinstanser för att justera din datasökväg och dina resurser med en viss zon.
 

@@ -1,22 +1,23 @@
 ---
-title: Övervaka åtkomst loggar, prestanda loggar, Server dels hälsa och mått för Azure Application Gateway
+title: Backend-hälsa och diagnostiska loggar
+titleSuffix: Azure Application Gateway
 description: Lär dig hur du aktiverar och hanterar åtkomst loggar och prestanda loggar för Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958267"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075307"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
-Genom att använda Azure Application Gateway kan du övervaka resurser på följande sätt:
+Du kan övervaka Azure Application Gateway-resurser på följande sätt:
 
 * [Backend-hälsa](#back-end-health): Application Gateway ger möjlighet att övervaka servrarnas hälso tillstånd i backend-poolerna via Azure Portal och via PowerShell. Du kan också hitta hälso tillståndet för backend-poolerna via diagnostikloggar för prestanda.
 

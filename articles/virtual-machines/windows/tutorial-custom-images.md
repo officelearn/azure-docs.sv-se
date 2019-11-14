@@ -1,5 +1,5 @@
 ---
-title: Självstudier – Skapa anpassade VM-avbildningar med Azure PowerShell | Microsoft Docs
+title: Självstudie – Skapa anpassade VM-avbildningar med Azure PowerShell
 description: I den här självstudiekursen lär du dig hur du skapar en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58f7e530008303f16f2d015e29e60e95480cab2c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 906ac3b28a512a866e712cefda4355ad901c258d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390559"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064721"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 
@@ -28,7 +28,7 @@ Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en egen avbildning
+> * Skapa en anpassad avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
@@ -39,7 +39,7 @@ I offentlig för hands version har vi tjänsten [Azure VM Image Builder](https:/
 
 Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till en återanvändbar anpassad avbildning som du kan använda för att skapa nya VM-instanser.
 
-Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i självstudien. Om det behövs kan du skapa en med detta [skriptexempel](../scripts/virtual-machines-windows-powershell-sample-create-vm.md). När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
+Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Om det behövs kan du skapa en med detta [skriptexempel](../scripts/virtual-machines-windows-powershell-sample-create-vm.md). När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -161,7 +161,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en egen avbildning
+> * Skapa en anpassad avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning

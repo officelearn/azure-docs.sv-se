@@ -1,6 +1,6 @@
 ---
-title: Linux för ögonblicksbild av VM-tillägg för Azure Backup | Microsoft Docs
-description: Ta programkonsekvent säkerhetskopiering av den virtuella datorn från Azure Backup med hjälp av VM-tillägget för ögonblicksbild
+title: Linux-tillägg för VM-ögonblicksbild för Azure Backup
+description: Ta tillämpnings programmets konsekventa säkerhets kopiering av den virtuella datorn från Azure Backup med tillägget för ögonblicks bild
 services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhk
@@ -10,31 +10,31 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: e0e959647231fb87c023dcb5c4c48a205259de74
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 186468119fb5b630b56a91b38026f202b98630d6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705851"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072930"
 ---
-# <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Linux för ögonblicksbild av VM-tillägg för Azure Backup
+# <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Linux-tillägg för VM-ögonblicksbild för Azure Backup
 
 
 
-Azure Backup har stöd för att säkerhetskopiera arbetsbelastningar från en lokal plats till molnet och säkerhetskopiering av molnresurser till Recovery Services-valvet. Azure Backup använder tillägget för ögonblicksbild av virtuell dator för att ta en programkonsekvent säkerhetskopiering av virtuella Azure-datorer utan att behöva att stänga av den virtuella datorn. Linux för ögonblicksbild av VM-tillägget är publicerat och stöds av Microsoft som en del av Azure Backup-tjänsten. Azure Backup installerar tillägget som en del av första schemalagda säkerhetskopiering utlösta inlägget att aktivera säkerhetskopiering. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för tillägget för VM-ögonblicksbild.
+Azure Backup ger stöd för säkerhets kopiering av arbets belastningar från lokalt till molnet och säkerhets kopiering av moln resurser till Recovery Services Vault. Azure Backup använder tillägget för ögonblicks bilder av virtuella datorer för att utföra en konsekvent säkerhets kopiering av den virtuella Azure-datorn utan att behöva stänga av den virtuella datorn. VM Snapshot Linux-tillägget publiceras och stöds av Microsoft som en del av Azure Backup-tjänsten. Azure Backup installerar tillägget som en del av den första schemalagda säkerhets kopieringen som utlöses efter aktivering av säkerhets kopiering. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för VM-tillägget för ögonblicks bilder.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
-En lista över operativsystem som stöds finns i [operativsystem som stöds av Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
+En lista över operativ system som stöds finns i [operativ system som stöds av Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Tillägget för ögonblicksbild av virtuell dator kräver att den virtuella måldatorn är ansluten till internet när vi gör en säkerhetskopia av virtuell dator.
+Tillägget för VM-ögonblicksbild kräver att den virtuella mål datorn är ansluten till Internet när vi gör en säkerhets kopia av den virtuella datorn.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget för VM-ögonblicksbild. Tillägget kräver aktivitets-ID – detta anger att säkerhetskopieringsjobbet vilket utlöste ögonblicksbilder på den virtuella datorn, status för blob-uri - där status för ögonblicksbildsåtgärden skrivs Schemalagd starttid för ögonblicksbilden, loggar blob-uri - där loggarna som motsvarar ögonblicksbild uppgift skrivs, objstr-representation av VM-diskar och metadata.  Eftersom de här inställningarna ska behandlas som känsliga data, ska den lagras i en skyddad Konfigurationsinställningen. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att dessa inställningar rekommenderas som ska skickas från Azure Backup-tjänsten endast som en del av säkerhetskopieringen.
+Följande JSON visar schemat för ögonblicks bilds tillägget för den virtuella datorn. Tillägget kräver uppgifts-ID – detta identifierar det säkerhets kopierings jobb som utlöste ögonblicks bilden på den virtuella datorn, status-BLOB-URI: n, där status för ögonblicks bild åtgärden skrivs, den schemalagda start tiden för ögonblicks bilden, loggar BLOB-URI: Where loggar som motsvarar ögonblicks bild aktiviteten är skrivna, objstr-representation av VM-diskar och metadata.  Eftersom de här inställningarna ska behandlas som känsliga data bör de lagras i en skyddad inställnings konfiguration. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att de här inställningarna rekommenderas att endast skickas från Azure Backup-tjänsten som en del av säkerhets kopierings jobbet.
 
 ```json
 {
@@ -66,11 +66,11 @@ Följande JSON visar schemat för tillägget för VM-ögonblicksbild. Tillägget
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | sträng |
-| commandStartTimeUTCTicks | 6.36458E + 17 | sträng |
-| Nationella inställningar | en-us | sträng |
-| objectStr | Kodning av sas uri matris-”blobSASUri”: [”https:\/\/sopattna5365.blob.core.windows.net\/virtuella hårddiskar\/vmubuntu1404ltsc201652903941.vhd? SA = 2014-02-14 & sr = b & sig = TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA % 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & sp = rw ””, https:\/\/sopattna8461.blob.core.windows.net\/virtuella hårddiskar\/vmubuntu1404ltsc-20160629-122418.vhd? SA = 2014-02-14 & sr = b & sig = 5S0A6YDWvVwqPAkzWXVy % 2BS % 2FqMwzFMbamT5upwx05v8Q % 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & sp = rw ””, https:\/ \/ sopattna8461.BLOB.Core.Windows.NET\/bootdiagnostics-vmubuntu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541.vhd? SA = 2014-02-14 & sr = b & sig = X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4% 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & sp = rw ””, https:\/\/sopattna5365.blob.core.windows.net\/virtuella hårddiskar\/vmubuntu1404ltsc-20160701-163922.vhd? SA = 2014-02-14 & sr = b & sig = oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r % 2BC % 2BNIAork % 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & sp = rw ””, https:\/ \/ sopattna5365.BLOB.Core.Windows.NET\/virtuella hårddiskar\/vmubuntu1404ltsc-20170705-124311.vhd? SA = 2014-02-14 & sr = b & sig = ZUM9d28Mvvm % 2FfrhJ71TFZh0Ni90m38bBs3zMl % 2FQ9rs0% 3D & st = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & sp = rw ”] | sträng |
+| commandStartTimeUTCTicks | 6.36458 e + 17 | sträng |
+| språk | sv-se | sträng |
+| objectStr | Kodning av SAS URI-matris – "blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/VHD: er\/vmubuntu1404ltsc201652903941. VHD? sa = 2014-02-14 & SR = b & sig = TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW", "https:\/\/sopattna8461.blob.core.windows.net\/virtuella hård diskar\/vmubuntu1404ltsc-20160629-122418. VHD? sa = 2014-02-14 & SR = b & sig = 5S0A6YDWvVwqPAkzWXVy% 2BS% 2FqMwzFMbamT5upwx05v8Q% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna8461.blob.core.windows.net\/bootdiagnostics-vmubuntu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541. VHD? sa = 2014-02-14 & SR = b & sig = X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna5365.blob.core.windows.net\/VHD: er\/vmubuntu1404ltsc-20160701-163922. VHD? sa = 2014-02-14 & SR = b & sig = oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r% 2BC% 2BNIAork% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna5365.blob.core.windows.net\/virtuella hård diskar\/vmubuntu1404ltsc-20170705-124311. VHD? sa = 2014-02-14 & SR = b & sig = ZUM9d28Mvvm% 2FfrhJ71TFZh0Ni90m38bBs3zMl% 2FQ9rs0% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "] | sträng |
 | logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | sträng |
 | statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | sträng |
 
@@ -78,12 +78,12 @@ Följande JSON visar schemat för tillägget för VM-ögonblicksbild. Tillägget
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Dock är det rekommenderade sättet att lägga till en VM-tillägget för ögonblicksbild till en virtuell dator genom att aktivera säkerhetskopiering på den virtuella datorn. Detta kan ske via Resource Manager-mall.  En Resource Manager-mall som sker säkerhetskopieringen på en virtuell dator kan hittas på den [Azure Quick Start-galleriet](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Det rekommenderade sättet att lägga till ett ögonblicks bilds tillägg för virtuella datorer på en virtuell dator är dock att aktivera säkerhets kopiering på den virtuella datorn. Detta kan uppnås via en Resource Manager-mall.  En exempel på en Resource Manager-mall som aktiverar säkerhets kopiering på en virtuell dator finns i [Azure Snabbstart-galleriet](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att aktivera säkerhetskopiering på en virtuell dator. Post Aktivera säkerhetskopiering första schemalagda säkerhetskopieringsjobbet installerar tillägget för Vm-ögonblicksbild på den virtuella datorn.
+Azure CLI kan användas för att aktivera säkerhets kopiering på en virtuell dator. Efter att aktivera säkerhets kopiering måste det första schemalagda säkerhets kopierings jobbet installera VM Snapshot-tillägget på den virtuella datorn.
 
 ```azurecli
 az backup protection enable-for-vm \
@@ -111,7 +111,7 @@ Tillägget utförande-utdatan loggas till följande fil:
 
 ### <a name="error-codes-and-their-meanings"></a>Felkoder och deras innebörd
 
-Information om felsökning finns på den [felsökningsguide för säkerhetskopiering av virtuella Azure-datorn](../../backup/backup-azure-vms-troubleshoot.md).
+Felsöknings information finns i [fel söknings guiden för Azure VM-säkerhetskopiering](../../backup/backup-azure-vms-troubleshoot.md).
 
 ### <a name="support"></a>Support
 

@@ -1,5 +1,5 @@
 ---
-title: Anpassat skript tillägg för Azure för Windows | Microsoft Docs
+title: Anpassat skript tillägg för Azure för Windows
 description: Automatisera konfigurations uppgifter för virtuella Windows-datorer med hjälp av tillägget för anpassat skript
 services: virtual-machines-windows
 manager: carmonm
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204198"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073827"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skript tillägg för Windows
 
@@ -23,7 +23,7 @@ Det anpassade skript tillägget laddar ned och kör skript på virtuella Azure-d
 
 Det här dokumentet beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]  
 > Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom det väntar på sig själv.  
@@ -108,11 +108,11 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | publisher | Microsoft.Compute | sträng |
-| type | CustomScriptExtension | sträng |
+| typ | CustomScriptExtension | sträng |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (t. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| fileUris (t. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
 | timestamp (t.ex.) | 123456789 | 32-bitars heltal |
 | commandToExecute (t. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | sträng |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
@@ -125,9 +125,9 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 * `commandToExecute`: (**krävs**, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord, eller om dina fileUris är känsliga.
 * `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.
-* `timestamp`(valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
-* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste `fileUris` alla vara URL: er för Azure-blobar.
-* `storageAccountKey`: (valfritt, sträng) åtkomst nyckeln för lagrings kontot
+* `timestamp` (valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
+* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste alla `fileUris` vara URL: er för Azure-blobar.
+* `storageAccountKey`: (valfri, sträng) åtkomst nyckeln för lagrings kontot
 
 Följande värden kan anges i offentliga eller skyddade inställningar. tillägget kommer att neka alla konfigurationer där värdena nedan anges i både offentliga och skyddade inställningar.
 
@@ -141,12 +141,12 @@ Offentliga inställningar skickas i klartext till den virtuella dator där skrip
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat, som beskrivs i föregående avsnitt, kan användas i en Azure Resource Manager mall för att köra det anpassade skript tillägget under distributionen. Följande exempel visar hur du använder tillägget för anpassat skript:
 
-* [Självstudier: Distribuera tillägg för virtuella datorer med Azure Resource Manager mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Självstudie: distribuera tillägg för virtuella datorer med Azure Resource Manager mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Distribuera program på två nivåer i Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMCustomScriptExtension` Kommandot kan användas för att lägga till det anpassade skript tillägget till en befintlig virtuell dator. Mer information finns i [set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
+`Set-AzVMCustomScriptExtension` kommandot kan användas för att lägga till det anpassade skript tillägget till en befintlig virtuell dator. Mer information finns i [set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
@@ -161,7 +161,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Använda flera skript
 
-I det här exemplet har du tre skript som används för att bygga servern. **CommandToExecute** anropar det första skriptet och du har också alternativ för hur andra anropas. Du kan till exempel ha ett huvud skript som styr körningen, med rätt fel hantering, loggning och tillstånds hantering. Skripten laddas ned till den lokala datorn för att köra. `1_Add_Tools.ps1` Du skulle till exempel kunna anropa `2_Add_Features.ps1` genom att `.\2_Add_Features.ps1` lägga till i skriptet och upprepa processen för de andra skript som du definierar i `$settings`.
+I det här exemplet har du tre skript som används för att bygga servern. **CommandToExecute** anropar det första skriptet och du har också alternativ för hur andra anropas. Du kan till exempel ha ett huvud skript som styr körningen, med rätt fel hantering, loggning och tillstånds hantering. Skripten laddas ned till den lokala datorn för att köra. I `1_Add_Tools.ps1` kan du exempelvis anropa `2_Add_Features.ps1` genom att lägga till `.\2_Add_Features.ps1` i skriptet och upprepa processen för de andra skript som du definierar i `$settings`.
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -215,7 +215,7 @@ Du kan också ange egenskapen [ForceUpdateTag](/dotnet/api/microsoft.azure.manag
 
 ### <a name="using-invoke-webrequest"></a>Använda Invoke-webbegäran
 
-Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet måste du ange parametern `-UseBasicParsing` , annars visas följande fel meddelande när du kontrollerar den detaljerade statusen:
+Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) i skriptet måste du ange parametern `-UseBasicParsing` annars visas följande fel meddelande när du kontrollerar den detaljerade statusen:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
@@ -273,17 +273,17 @@ De angivna filerna laddas ned till följande mapp på den virtuella mål datorn.
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 
-där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget.  Värdet matchar det faktiska, aktuella `typeHandlerVersion` värdet för tillägget. `1.*`  Den faktiska katalogen kan till exempel vara `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget.  `1.*`-värdet matchar det faktiska, aktuella `typeHandlerVersion` svärdet för tillägget.  Den faktiska katalogen kan till exempel vara `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-När `commandToExecute` kommandot körs anger tillägget den här katalogen ( `...\Downloads\2`till exempel) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna `fileURIs` som hämtats via egenskapen. Se tabellen nedan för exempel.
+När du kör kommandot `commandToExecute`, anger tillägget den här katalogen (till exempel `...\Downloads\2`) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna som hämtats via egenskapen `fileURIs`. Se tabellen nedan för exempel.
 
-Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar `commandToExecute` i strängen, närhelst det är möjligt. Exempel:
+Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Exempel:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Sök vägs information efter det första URI-segmentet behålls för filer `fileUris` som hämtats via egenskaps listan.  Som visas i tabellen nedan mappas hämtade filer till under kataloger med hämtning för att avspegla `fileUris` värdenanas struktur.  
+Sök vägs information efter det första URI-segmentet behålls för filer som hämtats via `fileUris` egenskaps listan.  Som visas i tabellen nedan mappas hämtade filer till under kataloger med hämtning för att återspegla strukturen för `fileUris` värden.  
 
 #### <a name="examples-of-downloaded-files"></a>Exempel på hämtade filer
 

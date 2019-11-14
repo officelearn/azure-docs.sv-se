@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b01eb7730290fbf7340fc0a6d8cac8157498f64a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013622"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073480"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare som använder Azure Active Directory
 
@@ -28,33 +28,33 @@ Lägg till nya användare eller ta bort befintliga användare från din Azure Ac
 
 Du kan skapa en ny användare med hjälp av Azure Active Directory-portalen.
 
-### <a name="to-add-a-new-user"></a>Lägga till en ny användare
+Följ dessa steg om du vill lägga till en ny användare:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som användar administratör för organisationen.
 
-2. Välj **Azure Active Directory**väljer **användare**, och välj sedan **ny användare**.
+1. Sök efter och välj *Azure Active Directory* från vilken sida som helst.
 
-    ![Användare - sidan för alla användare med nya användaren markerat](media/add-users-azure-active-directory/new-user-all-users-blade.png)
+1. Välj **användare**och välj sedan **ny användare**.
 
-3. På sidan **ny användare** väljer du **skapa användare** och lägger sedan till användarens information.
+    ![Lägg till en användare via användare – alla användare i Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
-    ![Lägg till ny användare, användarsidan med användarinformation](media/add-users-azure-active-directory/new-user-user-blade.png)
+1. Ange information för den här användaren på sidan **användare** :
 
-   - **Namn (obligatoriskt)** : det första och sista namnet för den nya användaren. Till exempel Christer grönt.
+   - **Namn**. Krävs. Första och sista namnet på den nya användaren. Till exempel *Mary Parker*.
 
-   - **Användar namn (obligatoriskt)** : den nya användarens användar namn. Till exempel chris@contoso.com.
+   - **Användar namn**. Krävs. Användarnamn för den nya användaren. Till exempel `mary@contoso.com`.
 
-     Domän delen av användar namnet måste antingen använda det initiala standard domän namnet, <_yourdomainname_>. onmicrosoft. com eller ett anpassat domän namn i din Azure AD-organisation som contoso.com. Du kan välja i listan över tillgängliga domäner. Du kan också filtrera listan genom att skriva en del av domän namnet. Läs mer om hur du skapar ett anpassat domännamn, [lägga till ett anpassat domännamn i Azure Active Directory](add-custom-domain.md).
+     Domän delen av användar namnet måste antingen använda det initiala standard domän namnet, *\<yourdomainname >. onmicrosoft. com*eller ett anpassat domän namn, till exempel *contoso.com*. Mer information om hur du skapar ett anpassat domän namn finns i [lägga till ditt anpassade domän namn med hjälp av Azure Active Directory portalen](add-custom-domain.md).
 
-   - **Grupper**: du kan lägga till användaren i en eller flera befintliga grupper, eller så kan du göra det senare. Mer information om att lägga till användare till grupper finns i [hur du skapar en grundläggande grupp och Lägg till medlemmar](active-directory-groups-create-azure-portal.md).
+   - **Grupper**. Du kan också kan du lägga till användaren till en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om hur du lägger till användare till grupper finns i [skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
    - **Katalog roll**: om du kräver administratörs behörighet för Azure AD för användaren kan du lägga till dem i en Azure AD-roll. Du kan tilldela användaren till en global administratör eller en eller flera av de begränsade administratörs rollerna i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
 
    - **Jobb information**: du kan lägga till mer information om användaren här eller göra det senare. Läs mer om att lägga till användarinformation [lägga till eller ändra information om användarprofiler](active-directory-users-profile-azure-portal.md).
 
-4. Kopiera det automatiskt genererade lösenordet som angavs i den **lösenord** box. Du kan välja att använda det automatiskt genererade lösen ordet som anges i rutan lösen ord eller skapa ett anpassat lösen ord. Du behöver ge det här lösenordet till användaren för första inloggningsprocess.
+1. Kopiera det automatiskt genererade lösen ordet som anges i rutan **lösen ord** . Du måste ge det här lösen ordet till användaren för att kunna logga in för första gången.
 
-5. Välj **Skapa**.
+1. Välj **Skapa**.
 
 Användaren skapas och läggs till i din Azure AD-organisation.
 
@@ -74,24 +74,28 @@ Om du har en miljö med både Azure Active Directory (moln) och Windows Server A
 
 Du kan ta bort en befintlig användare med hjälp av Azure Active Directory-portalen.
 
-### <a name="to-delete-a-user"></a>Ta bort en användare
+Följ dessa steg om du vill ta bort en användare:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med ett användar administratörs konto för organisationen.
 
-1. Välj **Azure Active Directory**väljer **användare**, och sök sedan efter och välj den användare som du vill ta bort från Azure AD-klienten. Till exempel _Mary Parker_.
+1. Sök efter och välj *Azure Active Directory* från vilken sida som helst.
+
+1. Sök efter och välj den användare som du vill ta bort från Azure AD-klienten. Till exempel _Mary Parker_.
 
 1. Välj **ta bort användaren**.
 
     ![Användare - sidan för alla användare med ta bort användaren markerat](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    Användaren tas bort och inte längre visas på den **användare – alla användare** sidan. Användaren visas på den **borttagna användare** för de närmaste 30 dagarna och kan återställas under den tiden. Mer information om hur du återställer en användare finns i [återställa eller ta bort en nyligen borttagna användare permanent](active-directory-users-restore.md). När en användare tas bort görs alla licenser som används av användaren tillgängliga för andra användare som ska förbrukas.
+Användaren tas bort och inte längre visas på den **användare – alla användare** sidan. Användaren visas på den **borttagna användare** för de närmaste 30 dagarna och kan återställas under den tiden. Mer information om hur du återställer en användare finns i [återställa eller ta bort en nyligen borttagen användare med hjälp av Azure Active Directory](active-directory-users-restore.md).
 
-    >[!Note]
-    >Du måste använda Windows Server Active Directory för att uppdatera identitet, kontaktinformation eller jobbinformation för användare vars auktoritetskälla är Windows Server Active Directory. När du har slutfört uppdateringen måste du vänta tills nästa synkroniseringscykel ska slutföras innan ändringarna visas.
+När en användare tas bort görs alla licenser som används av användaren tillgängliga för andra användare.
+
+>[!Note]
+>Du måste använda Windows Server Active Directory för att uppdatera identitet, kontakt information eller jobb information för användare vars auktoritets källa är Windows Server Active Directory. När du har slutfört uppdateringen måste du vänta tills nästa synkroniseringscykel ska slutföras innan ändringarna visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har lagt till användarna, kan du utföra följande basic-processer:
+När du har lagt till dina användare kan du göra följande grundläggande processer:
 
 - [Lägga till eller ändra profilinformation](active-directory-users-profile-azure-portal.md)
 
@@ -101,4 +105,4 @@ När du har lagt till användarna, kan du utföra följande basic-processer:
 
 - [Arbeta med dynamiska grupper och användare](../users-groups-roles/groups-create-rule.md)
 
-Du kan också utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan Azure AD-organisation](../b2b/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Läs mer om andra tillgängliga åtgärder, [Azure Active Directory management supportdokumentation](../users-groups-roles/index.yml).
+Eller så kan du utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan katalog](../b2b/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Läs mer om andra tillgängliga åtgärder, [Azure Active Directory management supportdokumentation](../users-groups-roles/index.yml).

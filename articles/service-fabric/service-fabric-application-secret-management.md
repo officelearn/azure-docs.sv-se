@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: b05473fd9868821285853b089fe711aa48f347fc
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a24f670314d2f6679e37b438a74421e0e84604e2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973441"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075492"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric program
 Den här guiden vägleder dig genom stegen för att hantera hemligheter i ett Service Fabric program. Hemligheter kan vara vilken känslig information som helst, till exempel lagrings anslutnings strängar, lösen ord eller andra värden som inte ska hanteras i oformaterad text.
@@ -37,7 +37,7 @@ Att konfigurera ett krypterings certifikat och använda det för att kryptera he
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Ange krypterade hemligheter i ett program
 I föregående steg beskrivs hur du krypterar en hemlighet med ett certifikat och skapar en Base64 64-kodad sträng för användning i ett program. Den här Base-64-kodade strängen kan anges som en krypterad [parameter][parameters-link] i en tjänsts inställningar. XML eller som en krypterad [miljö variabel][environment-variables-link] i en tjänsts ServiceManifest. xml.
 
-Ange en krypterad [parameter][parameters-link] i tjänstens inställningar. XML-konfigurationsfil med attributet `IsEncrypted` inställt på `true`:
+Ange en krypterad [parameter][parameters-link] i din tjänsts konfigurations fil för inställningar. xml med attributet `IsEncrypted` inställd på `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -47,7 +47,7 @@ Ange en krypterad [parameter][parameters-link] i tjänstens inställningar. XML-
   </Section>
 </Settings>
 ```
-Ange en krypterad [miljö variabel][environment-variables-link] i tjänstens ServiceManifest. XML-fil med attributet `Type` inställt på `Encrypted`:
+Ange en krypterad [miljö variabel][environment-variables-link] i tjänstens ServiceManifest. XML-fil med attributet `Type` inställd på `Encrypted`:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -105,13 +105,13 @@ Om du vill åsidosätta värden i Settings. XML deklarerar du en parameter för 
 
 Du kan nu ange värdet som en *program parameter* när du skapar en instans av programmet. Du kan skapa en program instans med hjälp av PowerShell eller skriva in C#för enkel integrering i en build-process.
 
-Med PowerShell anges parametern till kommandot `New-ServiceFabricApplication` som en [hash-tabell](https://technet.microsoft.com/library/ee692803.aspx):
+Med hjälp av PowerShell anges parametern till kommandot `New-ServiceFabricApplication` som en hash- [tabell](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Med C#, anges program parametrar i en `ApplicationDescription` som en `NameValueCollection`:
+Med C#, anges program parametrar i en `ApplicationDescription` som `NameValueCollection`:
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -147,10 +147,12 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [säkerhet för program och tjänster](service-fabric-application-and-service-security.md)
+* Service Fabric [hemligheter](service-fabric-application-secret-store.md) 
+* Läs mer om [säkerhet för program och tjänster](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md
 [secret-management-windows-specific-link]: service-fabric-application-secret-management-windows.md
 [secret-management-linux-specific-link]: service-fabric-application-secret-management-linux.md
+[service fabric secrets store]: service-fabric-application-secret-store.md

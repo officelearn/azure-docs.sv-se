@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fa1912e80a98c98f058931708e191d0fff5bc66
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800155"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075417"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
-Anpassade IPsec/IKE-principer stöds på Azure **VpnGw1, VpnGw2, VpnGw3, Standard** och **HighPerformance** VPN-gatewayer. **Basic** SKU stöds **inte**.
+Anpassad IPsec/IKE-princip stöds på alla Azure SKU: er förutom Basic SKU.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Hur många principer kan jag ställa in för en anslutning?
 Du kan bara ange ***en*** principkombination för en viss anslutning.
@@ -27,22 +27,22 @@ Nej, du måste ange alla algoritmer och parametrar för både IKE (huvudläge) o
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Vilka är de algoritmer och viktiga fördelar som stöds i den anpassade principen?
 Tabellen nedan innehåller de krypteringsalgoritmer och nyckellängder som stöds och som kan konfigureras av kunden. Du måste välja ett alternativ för varje fält.
 
-| **IPsec/IKEv1, IKEv2**  | **Alternativ**                                                                   |
-| ---                     | ---                                                                           |
-| IKEv1, IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                             |
-| IKEv1, IKEv2-integritet  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH-grupp                | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
-| IPsec-kryptering        | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
-| IPsec Integrity         | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| PFS-grupp               | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
-| QM SA-livstid          | Sekunder (heltal. **min. 300**/standard 27 000 sekunder)<br>Kilobyte (heltal. **min. 1024**/standard 102400000 kilobyte) |
-| Trafikväljare        | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
-|                         |                                                                               |
+| **IPsec/IKEv2**  | **Alternativ**                                                                   |
+| ---              | ---                                                                           |
+| IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
+| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
+| IPsec-kryptering | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
+| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| PFS-grupp        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
+| QM SA-livstid   | Sekunder (heltal. **min. 300**/standard 27 000 sekunder)<br>Kilobyte (heltal. **min. 1024**/standard 102400000 kilobyte)           |
+| Trafikväljare | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                  |                                                                               |
 
 > [!IMPORTANT]
 > 1. DHGroup2048 och PFS2048 är samma som Diffie-Hellman-grupp **14** i IKE och IPsec PFS. De fullständiga mappningarna finns i avsnittet om [Diffie-Hellman-grupper](#DH).
 > 2. För GCMAES-algoritmer måste du ange samma GCMAES-algoritm och nyckellängd för både IPsec-kryptering och -integritet.
-> 3. Livs längden för IKEv1 och IKEv2 i huvud läge för IKEv2 är fast i 28 800 sekunder på Azure VPN-gatewayer.
+> 3. IKEv2 huvud läges livs längd för SA är fast i 28 800 sekunder på Azure VPN-gatewayer.
 > 4. QM SA-livslängder är valfria parametrar. Om inget har angetts används standardvärdena på 27 000 sekunder (7,5 timmar) och 102 400 000 kB (102 GB).
 > 5. UsePolicyBasedTrafficSelector är en valfri parameter för anslutningen. Läs nästa fråga från vanliga frågor och svar för ”UsePolicyBasedTrafficSelectors”
 

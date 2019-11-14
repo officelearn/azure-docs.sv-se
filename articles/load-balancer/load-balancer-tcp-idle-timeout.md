@@ -1,7 +1,7 @@
 ---
-title: Konfigurera Load Balancer TCP timeout för inaktivitet i Azure
-titlesuffix: Azure Load Balancer
-description: Konfigurera Load Balancer timeout för TCP-inaktivitet
+title: Konfigurera TCP-tidsgräns för belastnings utjämning i Azure
+titleSuffix: Azure Load Balancer
+description: I den här artikeln lär du dig hur du konfigurerar Azure Load Balancer timeout för TCP-inaktivitet.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 530bfbe85a564b3dd517e14df819586dee332a78
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274169"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076972"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurera timeout-inställningar för TCP-inaktivitet för Azure Load Balancer
 
@@ -26,7 +26,7 @@ ms.locfileid: "68274169"
 
 I standard konfigurationen har Azure Load Balancer en timeout-inställning på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls mellan klienten och moln tjänsten.
 
-När anslutningen är stängd kan klient programmet få följande fel meddelande: "Den underliggande anslutningen stängdes: En anslutning som förväntades hållas aktiv stängdes av servern. "
+När anslutningen är stängd kan klient programmet få följande fel meddelande: "den underliggande anslutningen stängdes: en anslutning som förväntades vara aktiv stängdes av servern."
 
 En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i dessa [.net-exempel](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). När Keep-Alive är aktiverat skickas paketen under perioder av inaktivitet på anslutningen. Dessa Keep-Alive-paket ser till att timeout-värdet för inaktivitet aldrig nås och att anslutningen upprätthålls under en längre period.
 
@@ -113,7 +113,7 @@ Du kan använda Azure SDK för att uppdatera din moln tjänst. Du gör slut punk
 
 ## <a name="rest-api-example"></a>REST API exempel
 
-Du kan konfigurera timeout för TCP-inaktivitet med hjälp av Service Management-API: et. Kontrol lera `x-ms-version` att sidhuvudet är inställt `2014-06-01` på version eller senare. Uppdatera konfigurationen av de angivna belastningsutjämnade slut punkterna för indatakälla på alla virtuella datorer i en distribution.
+Du kan konfigurera timeout för TCP-inaktivitet med hjälp av Service Management-API: et. Kontrol lera att `x-ms-version`s huvud är inställt på version `2014-06-01` eller senare. Uppdatera konfigurationen av de angivna belastningsutjämnade slut punkterna för indatakälla på alla virtuella datorer i en distribution.
 
 ### <a name="request"></a>Förfrågan
 

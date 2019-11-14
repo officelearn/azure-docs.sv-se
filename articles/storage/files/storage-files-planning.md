@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 33fa474d719ec8a20142f35f56cc697c11e03e86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0dd2ca35453859dcc16ef78ef4845a4198aad95
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926634"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066350"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. Eftersom Azure Files är fullständigt hanterat är det mycket enklare att distribuera den i produktions scenarier än att distribuera och hantera en fil server eller NAS-enhet. Den här artikeln handlar om de ämnen som du bör tänka på när du distribuerar en Azure-filresurs för produktions användning i din organisation.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Eftersom Azure Files är fullständigt hanterat är det mycket enklare att distribuera den i produktions scenarier än att distribuera och hantera en fil server eller NAS-enhet. Den här artikeln handlar om de ämnen som du bör tänka på när du distribuerar en Azure-filresurs för produktions användning i din organisation.
 
 ## <a name="management-concepts"></a>Hanterings begrepp
 
@@ -124,12 +124,12 @@ I följande tabell visas några exempel på dessa formler för de allokerade res
 |---------|---------|---------|---------|---------|
 |100         | 100     | Upp till 300     | 66   | 44   |
 |500         | 500     | Upp till 1 500   | 90   | 60   |
-|1 024       | 1 024   | Upp till 3 072   | 122   | 81   |
+|1,024       | 1,024   | Upp till 3 072   | 122   | 81   |
 |5 120       | 5 120   | Upp till 15 360  | 368   | 245   |
 |10 240      | 10 240  | Upp till 30 720  | 675 | 450   |
 |33 792      | 33 792  | Upp till 100 000 | 2 088 | 1 392   |
 |51 200      | 51 200  | Upp till 100 000 | 3 132 | 2 088   |
-|102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
+|102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
 
 > [!NOTE]
 > Fil resursernas prestanda är beroende av dator nätverks begränsningar, tillgänglig nätverks bandbredd, i/o-storlekar, parallellitet, bland många andra faktorer. För att uppnå maximal prestanda skalning sprider du belastningen över flera virtuella datorer. Se [fel söknings guiden](storage-troubleshooting-files-performance.md) för några vanliga prestanda problem och lösningar.
@@ -169,7 +169,7 @@ I följande avsnitt beskrivs skillnaderna mellan olika alternativ för redundans
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
-### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring.
+### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
 
 > [!Warning]  
 > Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det upphör synkroniseringen att fungera och det kan också leda till oväntad data förlust när det gäller nynivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
@@ -205,20 +205,24 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 
 |Region |Redundans stöds |
 |-------|---------|
-|Australien, östra |LRS     |
-|Australien, sydöstra|LRS |
-|Kanada, centrala  |LRS     |
+|Östra Australien |LRS     |
+|Sydöstra Australien|LRS |
+|Centrala Kanada  |LRS     |
+|Östra Kanada     |LRS     |
 |Indien, centrala  |LRS     |
-|Asien, östra      |LRS     |
+|USA, centrala *   |LRS     |
+|Östasien      |LRS     |
 |USA, östra *        |LRS     |
+|USA, östra 2 *      |LRS     |
 |Frankrike, centrala |LRS, ZRS|
 |Frankrike, södra   |LRS     |
-|Indien, södra    |LRS     |
-|Asien, sydöstra |LRS, ZRS|
-|USA, västra centrala|LRS     |
+|Norra Europa   |LRS     |
+|Södra Indien    |LRS     |
+|Sydostasien |LRS, ZRS|
+|Västra centrala USA|LRS     |
 |Västeuropa *    |LRS, ZRS|
 |USA, västra *        |LRS     |
-|USA, västra 2      |LRS, ZRS|
+|Västra USA 2      |LRS, ZRS|
 
 \* som stöds för nya konton, har inte alla befintliga konton slutfört uppgraderings processen. Du kan kontrol lera om dina befintliga lagrings konton har slutfört uppgraderings processen genom att försöka [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
 

@@ -1,28 +1,25 @@
 ---
 title: Exempel – nyckel valv utan vNet-slutpunkter
 description: Den här exempelprincipdefinitionen granskar Key Vault-valv för att identifiera instanser som saknar tjänstslutpunkter för virtuella nätverk.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255721"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076209"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exempel – Key Vault-valv utan slutpunkter för virtuella nätverk
 
-Den här principen granskar Key Vault-valv för att identifiera instanser som inte har några VNet-slutpunkter. Använd för att tillämpa dina säkerhetskrav. Mer information finns i avsnittet om [tjänstslutpunkter för virtuellt nätverk i Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+Det här exemplet på hur du [integrerar Key Vault med Azure policy](../../../key-vault/azure-policy.md) granskningar för nyckel valv som inte har några virtuella nätverks slut punkter. Använd för att tillämpa dina säkerhetskrav. Mer information finns i avsnittet om [tjänstslutpunkter för virtuellt nätverk i Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 Du kan distribuera det här exemplet med hjälp av:
 
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure CLI](#azure-cli)
-- [REST API](#rest-api)
+- [REST-API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,10 +44,10 @@ Det JSON som definierar principens regler, som används av Azure CLI och Azure P
 
 Inga parametrar har definierats i det här exemplet av en principdefinition.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
-[![Deploy till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
-[![Deploy princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
+[![distribuera princip exemplet till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
+[![distribuera princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -83,7 +80,7 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 ### <a name="azure-powershell-explanation"></a>Azure PowerShell-förklaring
 
-Skripten för distribution och borttagning använder följande kommandon. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
+Skripten för distribution och borttagning använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|
@@ -187,4 +184,5 @@ Det finns flera verktyg som kan användas för att interagera med Resource Manag
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska ytterligare [Azure Policy-exempel](index.md)
+- Lär dig hur du [integrerar Azure Key Vault med Azure policy](../../../key-vault/azure-policy.md).
 - Granska [Azure Policy-definitionsstruktur](../concepts/definition-structure.md)

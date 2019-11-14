@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Hämtar automatiska förslags resultat med hjälp av API för automatiska förslag i Bing'
+title: 'Självstudie: få automatiska förslags resultat med hjälp av API för automatiska förslag i Bing'
 titleSuffix: Azure Cognitive Services
-description: Visar hur du använder Automatiska förslag i Bing.
+description: I den här självstudien kommer du att bygga en webb sida som gör det möjligt för användarna att fråga API för automatiska förslag i Bing och visa frågeresultaten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d208187b7ba61fc0d217cef05a1bda559ca0c42b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996795"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072843"
 ---
-# <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudier: Hämta Sök förslag på en webb sida
+# <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudie: Hämta Sök förslag på en webb sida
 
 I den här självstudien skapar vi en webbsida där användarna kan fråga API:et Automatiska förslag i Bing.
 
@@ -25,11 +25,11 @@ I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > - Skicka en enkel fråga till API:et Automatiska förslag i Bing
-> - Visa frågeresultat
+> - Visa frågeresultatet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har någon nyckel kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har redan har en kan du registrera dig för [en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
 ## <a name="create-a-new-web-page"></a>Skapa en ny webbsida
 
@@ -64,9 +64,9 @@ Lägg till HTML-huvudinformationen och börja skriptavsnittet på följande sät
 <script type="text/javascript">
 ```
 
-## <a name="getsubscriptionkey-function"></a>Funktionen getSubscriptionKey
+## <a name="getsubscriptionkey-function"></a>getSubscriptionKey-funktionen
 
-Funktionen getSubscriptionKey returnerar nyckeln för API:et Automatiska förslag i Bing. Den hämtar nyckeln från lokal lagring (det vill säga en cookie) eller uppmanar användaren att ange nyckeln om det behövs.
+Funktionen getSubscriptionKey returnerar nyckeln för API:et Automatiska förslag i Bing. Den hämtar den antingen från lokal lagring (det vill säga en cookie) eller frågar användaren efter den om det behövs.
 
 Starta funktionen getSubscriptionKey och deklarera cookie-namnet enligt följande.
 
@@ -76,7 +76,7 @@ getSubscriptionKey = function() {
     var COOKIE = "bing-autosuggest-api-key";   // name used to store API key in key/value storage
 ```
 
-Hjälpfunktionen findCookie returnerar värdet för angiven cookie. Om cookien inte hittas, returneras en tom sträng.
+findCookie-hjälpfunktionen returnerar värdet för den angivna cookien. Om cookien inte hittas returneras en tom sträng.
 
 ```html
     function findCookie(name) {
@@ -106,7 +106,7 @@ Hjälpfunktionen getSubscriptionKeyCookie frågar användaren efter värdet på 
     }
 ```
 
-Hjälpfunktionen getSubscriptionKeyLocalStorage försöker först hämta nyckeln för API:et Automatiska förslag i Bing genom att leta upp rätt cookie. Om cookien inte hittas, uppmanas användaren att ange nyckelvärdet. Sedan returneras nyckelvärdet.
+Hjälpfunktionen getSubscriptionKeyLocalStorage försöker först hämta nyckeln för API:et Automatiska förslag i Bing genom att leta upp rätt cookie. Om cookien inte hittas frågar den användaren efter nyckelvärdet. Sedan returneras nyckelvärdet.
 
 ```html
     function getSubscriptionKeyLocalStorage() {
@@ -118,7 +118,7 @@ Hjälpfunktionen getSubscriptionKeyLocalStorage försöker först hämta nyckeln
     }
 ```
 
-Hjälpfunktionen getSubscriptionKey använder en enda parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et Automatiska förslag i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et Automatiska förslag i Bing.
+getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et Automatiska förslag i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et Automatiska förslag i Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -148,7 +148,7 @@ Returnera getSubscriptionKey-hjälpfunktionen som resultatet av den yttre getSub
 
 ## <a name="helper-functions"></a>Hjälpfunktioner
 
-Pre-hjälpfunktionen returnerar den angivna texten förformaterad med HTML-taggen [pre](https://www.w3schools.com/tags/tag_pre.asp).
+pre-hjälpfunktionen returnerar den angivna texten förformaterad med HTML-taggen [pre](https://www.w3schools.com/tags/tag_pre.asp).
 
 ```html
 function pre(text) {
@@ -164,7 +164,7 @@ function renderSearchResults(results) {
 }
 ```
 
-Funktionen renderErrorMessage visar det angivna felmeddelandet och felkoden.
+renderErrorMessage-funktionen visar det angivna felmeddelandet och felkoden.
 
 ```html
 function renderErrorMessage(message, code) {
@@ -266,7 +266,7 @@ Skapa ett HTML-formulär med ett textfält. Hantera händelsen **onsubmit**, anr
 </form>
 ```
 
-Lägg till HTML-**div**-taggen som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
+Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
 
 ```html
 <h2>Results</h2>

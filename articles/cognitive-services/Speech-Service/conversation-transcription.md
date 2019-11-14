@@ -1,7 +1,7 @@
 ---
 title: Vad är en konversations avskrift (för hands version) – tal service
 titleSuffix: Azure Cognitive Services
-description: Konversations avskrift är en tal-till-text-lösning som kombinerar tal igenkänning, högtalar identifiering och menings tilldelningar till varje talare (kallas även diarization) för att tillhandahålla real tids och/eller asynkron avskrift av alla samtalet. Konversations avskrift gör konversationer inkluderade för alla, till exempel deltagare som är döva och har svårt att höra.
+description: Konversations avskrift är en tal-till-text-lösning som kombinerar tal igenkänning, högtalar identifiering och menings tilldelningar till varje talare (kallas även diarization) för att tillhandahålla real tids och/eller asynkron avskrift av alla samtalet.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f4b7591d5ddb138db0abbdb673cadc6afd71f315
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608034"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075854"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>Vad är en konversations avskrift (för hands version)?
 

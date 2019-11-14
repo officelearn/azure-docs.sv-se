@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e7aa951634dffcafc20f198f85c15f5ac954fe58
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 61736d4f7e6b17c6037837bfdfe6d9cb8a00c5f6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609065"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076874"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Förskotts betalning för Azure Database for MariaDB beräknings resurser med reserverad kapacitet
 
@@ -32,12 +32,12 @@ Information om hur företags kunder och kunder som betalar per användning debit
 
 Reservations storleken bör baseras på den totala mängd data som används av den befintliga eller närmast distribuerade databas instansen i en angiven region och som använder samma prestanda nivå och maskin varu generation.</br>
 
-Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore MariaDB Database och två minnesoptimerade, Gen5 – 16 vCore MariaDB-databaser. Vi vill också att du planerar att distribuera inom en och samma månad ytterligare ett allmänt syfte, Gen5 – 32 vCore elastisk pool och en minnesoptimerade Gen5 – 16 vCore Database Server. Anta att du vet att du kommer att behöva dessa resurser i minst 1 år. I det här fallet bör du köpa en 64 (2x32) virtuella kärnor, 1 års reservation för enkel databas generell användning – Gen5 och en 48 (2x16 + 16) vCore 1 års reservation för enkel databas minne optimerad-Gen5
+Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore MariaDB Database och två minnesoptimerade, Gen5 – 16 vCore MariaDB-databaser. Vi vill också att du planerar att distribuera under nästa månad till ett ytterligare allmänt syfte, Gen5 – 32 vCore Database Server och en minnesoptimerade Gen5 – 16 vCore-databas server. Anta att du vet att du kommer att behöva dessa resurser i minst 1 år. I det här fallet bör du köpa en 64 (2x32) virtuella kärnor, 1 års reservation för enkel databas generell användning – Gen5 och en 48 (2x16 + 16) vCore 1 års reservation för enkel databas minne optimerad-Gen5
 
 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Köp Azure Database for MariaDB reserverad kapacitet
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Alla tjänster** > **Reservationer**.
 3.  Välj **Lägg till** och sedan i fönstret köp reservationer väljer du **Azure Database for MariaDB** för att köpa en ny reservation för dina MariaDB-databaser.
 4.  Fyll i de obligatoriska fälten. Befintliga eller nya databaser som matchar de attribut du väljer kvalificera för att hämta den reserverade kapacitets rabatten. Det faktiska antalet Azure Database for MariaDB-servrar som får rabatten beroende på omfattning och vald kvantitet.

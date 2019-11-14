@@ -8,39 +8,41 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: b150dc8e0688b27fdc677bf23a75389c493f1325
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 8d23eb5c177464642ffcafec8877fd2649c0d4f7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210204"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073998"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Återställa filer till en virtuell dator i Azure
-Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln beskriver hur du återställer enskilda filer. I den här självstudiekursen får du lära du dig att:
+
+Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln beskriver hur du återställer enskilda filer. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
+>
 > * lista och välja återställningspunkter
 > * ansluta en återställningspunkt till en virtuell dator
 > * återställa filer från en återställningspunkt.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.18 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.18 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Förutsättningar
 För den här självstudiekursen måste du ha en virtuell Linux-dator som har skyddats med Azure Backup. Du simulerar en oavsiktlig filborttagning och återställning genom att ta bort en sida från en webbserver. Om du behöver en virtuell Linux-dator som kör en webbserver som skyddas med Azure Backup kan du läsa mer i [Säkerhetskopiera en virtuell dator i Azure med CLI](quick-backup-vm-cli.md).
 
-
 ## <a name="backup-overview"></a>Översikt över Backup
+
 När Azure initierar en säkerhetskopiering tar tillägget på den virtuella datorn en ögonblicksbild. Säkerhetskopieringstillägget installeras på den virtuella datorn när den första säkerhetskopieringen begärs. Azure Backup kan också ta en ögonblicksbild av det underliggande lagringsutrymmet om den virtuella datorn inte körs när säkerhetskopieringen sker.
 
 Som standard skapar Azure Backup en filsystemkonsekvent säkerhetskopia. När Azure Backup har tagit ögonblicksbilden överförs data till Recovery Services-valvet. För att maximera effektiviteten identifierar och överför Azure Backup endast de datablock som har ändrats sedan föregående säkerhetskopia.
 
 När dataöverföringen har slutförts tas ögonblicksbilden bort och en återställningspunkt skapas.
 
-
 ## <a name="delete-a-file-from-a-vm"></a>Ta bort en fil från en virtuell dator
+
 Om du av misstag tar bort eller gör ändringar i en fil kan du återställa enskilda filer från en återställningspunkt. Med den här processen kan du bläddra bland filerna som säkerhetskopierats i en återställningspunkt och sedan återställa endast de filer du behöver. I det här exemplet tar vi bort en fil från en webbserver för att demonstrera återställningsprocessen på filnivå.
 
 1. Anslut till den virtuella datorn genom att hämta dess IP-adress med [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show):
@@ -75,8 +77,8 @@ Om du av misstag tar bort eller gör ändringar i en fil kan du återställa ens
     exit
     ```
 
-
 ## <a name="generate-file-recovery-script"></a>Generera filåterställningsskript
+
 För att återställa filerna tillhandahåller Azure Backup ett skript som ska köras på den virtuella datorn, som ansluter återställningspunkten som en lokal enhet. Du kan bläddra i den här lokala enheten, återställa filer till den virtuella datorn och sedan koppla bort återställningspunkten. Azure Backup fortsätter att säkerhetskopiera dina data baserat på den angivna principen för schema och kvarhållning.
 
 1. Visa en lista med återställningspunkterna för den virtuella datorn med [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). I det här exemplet väljer vi den senaste återställningspunkten för den virtuella datorn med namnet *myVM* som är skyddad i *myRecoveryServicesVault*:
@@ -116,8 +118,8 @@ För att återställa filerna tillhandahåller Azure Backup ett skript som ska k
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
-
 ## <a name="restore-file-to-your-vm"></a>Återställa filen till den virtuella datorn
+
 När återställningsskriptet har kopierats till den virtuella datorn kan du nu ansluta återställningspunkten och återställa filer.
 
 1. Anslut till den virtuella datorn med SSH. Ersätt *publicIPAddress* med den virtuella datorns offentliga IP-adress enligt följande:
@@ -146,19 +148,19 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465
-    
+
     Connecting to recovery point using ISCSI service...
-    
+
     Connection succeeded!
-    
+
     Please wait while we attach volumes of the recovery point to this machine...
-    
+
     ************ Volumes of the recovery point and their mount paths on this machine ************
-    
+
     Sr.No.  |  Disk  |  Volume  |  MountPath
-    
+
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170919213536/Volume1
-    
+
     ************ Open File Explorer to browse for files. ************
     ```
 
@@ -168,20 +170,20 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. Uppdatera webbsidan i webbläsaren. Nu läser webbplatsen in sidan korrekt igen, som i följande exempel:
+5. Uppdatera webbsidan i webbläsaren. Nu läser webbplatsen in sidan korrekt igen, som i följande exempel:
 
     ![NGINX-webbplats läses nu in korrekt](./media/tutorial-restore-files/nginx-restored.png)
 
-7. Stäng SSH-sessionen till den virtuella datorn på följande sätt:
+6. Stäng SSH-sessionen till den virtuella datorn på följande sätt:
 
     ```bash
     exit
     ```
 
-8. Demontera återställningspunkten från den virtuella datorn med [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). I följande exempel demonteras återställningspunkten från den virtuella datorn med namnet *myVM* i *myRecoveryServicesVault*.
+7. Demontera återställningspunkten från den virtuella datorn med [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). I följande exempel demonteras återställningspunkten från den virtuella datorn med namnet *myVM* i *myRecoveryServicesVault*.
 
     Ersätt *myRecoveryPointName* med namnet på din återställningspunkt som du fick i tidigare kommandon:
-    
+
     ```azurecli-interactive
     az backup restore files unmount-rp \
         --resource-group myResourceGroup \
@@ -192,9 +194,11 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
     ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudiekursen anslöt du en återställningspunkt till en virtuell dator och återställde filer för en webbserver. Du har lärt dig att:
 
 > [!div class="checklist"]
+>
 > * lista och välja återställningspunkter
 > * ansluta en återställningspunkt till en virtuell dator
 > * återställa filer från en återställningspunkt.
@@ -203,4 +207,3 @@ Gå vidare till nästa självstudiekurs där du får lära hur du säkerhetskopi
 
 > [!div class="nextstepaction"]
 > [Säkerhetskopiera Windows Server till Azure](tutorial-backup-windows-server-to-azure.md)
-

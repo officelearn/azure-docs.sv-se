@@ -1,5 +1,5 @@
 ---
-title: Tilläggs hanterare för önskad tillstånds konfiguration i Azure | Microsoft Docs
+title: Tilläggs hanterare för önskad tillstånds konfiguration i Azure
 description: Ladda upp och tillämpa en PowerShell DSC-konfiguration på en virtuell Azure-dator med DSC-tillägg
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: ee5a6c732bcb48cd347b8d87b95d2896d7230a08
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092378"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073791"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-tillägg
 
@@ -26,7 +26,7 @@ ms.locfileid: "70092378"
 
 PowerShell DSC-tillägget för Windows publiceras och stöds av Microsoft. Tillägget överför och tillämpar en PowerShell DSC-konfiguration på en virtuell Azure-dator. DSC-tillägget anropar PowerShell DSC för att införa den mottagna DSC-konfigurationen på den virtuella datorn. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ för DSC-tillägget för virtuella datorer för Windows.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -99,39 +99,39 @@ Följande JSON visar schemat för inställnings delen av DSC-tillägget i en Azu
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | date |
-| publisher | Microsoft.Powershell.DSC | string |
-| type | DSC | string |
+| apiVersion | 2018-10-01 | datum |
+| publisher | Microsoft.Powershell.DSC | sträng |
+| typ | DSC | sträng |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Egenskaps värden för inställningar
 
-| Name | Datatyp | Beskrivning
+| Namn | Datatyp | Beskrivning
 | ---- | ---- | ---- |
-| Settings. wmfVersion | string | Anger den version av Windows Management Framework som ska installeras på den virtuella datorn. Om du anger den här egenskapen till "senaste" installeras den uppdaterade versionen av WMF. De enda aktuella möjliga värdena för den här egenskapen är "4,0", "5,0" och "senaste". Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är "senaste". |
-| settings.configuration.url | string | Anger den URL-plats från vilken du vill ladda ned ZIP-filen för DSC-konfigurationen. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationUrlSasToken. Den här egenskapen krävs om Settings. Configuration. script och/eller Settings. Configuration. Function har definierats.
-| settings.configuration.script | string | Anger fil namnet på skriptet som innehåller definitionen av din DSC-konfiguration. Det här skriptet måste finnas i rotmappen för den zip-fil som hämtats från den URL som anges av egenskapen Configuration. URL. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. script har definierats.
-| settings.configuration.function | string | Anger namnet på din DSC-konfiguration. Konfigurationen med namnet måste finnas i skriptet som definieras av Configuration. script. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. Function definieras.
-| settings.configurationArguments | Collection | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer inte att krypteras.
-| settings.configurationData.url | string | Anger den URL från vilken du vill ladda ned konfigurations data filen (. pds1) som ska användas som indata för din DSC-konfiguration. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationDataUrlSasToken.
-| settings.privacy.dataEnabled | string | Aktiverar eller inaktiverar telemetri-samling. De enda möjliga värdena för den här egenskapen är Enable, Disable, eller $null. Om du lämnar den här egenskapen tom eller null aktive ras telemetri
-| settings.advancedOptions.forcePullAndApply | Bool | Den här inställningen är utformad för att förbättra upplevelsen av att arbeta med tillägget för att registrera noder med Azure Automation DSC.  Om värdet är `$true`kommer tillägget att vänta på den första körningen av konfigurationen som hämtas från tjänsten innan den returnerar ett lyckat/misslyckat försök.  Om värdet är inställt på $false, kommer statusen som returneras av tillägget bara att referera till om noden registrerades med Azure Automation tillstånds konfiguration och nodens konfiguration inte ska köras under registreringen.
-| settings.advancedOptions.downloadMappings | Collection | Definierar alternativa platser för nedladdning av beroenden, till exempel WMF och .NET
+| Settings. wmfVersion | sträng | Anger den version av Windows Management Framework som ska installeras på den virtuella datorn. Om du anger den här egenskapen till "senaste" installeras den uppdaterade versionen av WMF. De enda aktuella möjliga värdena för den här egenskapen är "4,0", "5,0" och "senaste". Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är "senaste". |
+| settings.configuration.url | sträng | Anger den URL-plats från vilken du vill ladda ned ZIP-filen för DSC-konfigurationen. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationUrlSasToken. Den här egenskapen krävs om Settings. Configuration. script och/eller Settings. Configuration. Function har definierats.
+| settings.configuration.script | sträng | Anger fil namnet på skriptet som innehåller definitionen av din DSC-konfiguration. Det här skriptet måste finnas i rotmappen för den zip-fil som hämtats från den URL som anges av egenskapen Configuration. URL. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. script har definierats.
+| settings.configuration.function | sträng | Anger namnet på din DSC-konfiguration. Konfigurationen med namnet måste finnas i skriptet som definieras av Configuration. script. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. Function definieras.
+| settings.configurationArguments | Samling | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer inte att krypteras.
+| settings.configurationData.url | sträng | Anger den URL från vilken du vill ladda ned konfigurations data filen (. pds1) som ska användas som indata för din DSC-konfiguration. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationDataUrlSasToken.
+| settings.privacy.dataEnabled | sträng | Aktiverar eller inaktiverar telemetri-samling. De enda möjliga värdena för den här egenskapen är Enable, Disable, eller $null. Om du lämnar den här egenskapen tom eller null aktive ras telemetri
+| settings.advancedOptions.forcePullAndApply | Bool | Den här inställningen är utformad för att förbättra upplevelsen av att arbeta med tillägget för att registrera noder med Azure Automation DSC.  Om värdet är `$true`väntar tillägget vid den första körningen av konfigurationen som hämtas från tjänsten innan det går att returnera/Miss lyckas.  Om värdet är inställt på $false, kommer statusen som returneras av tillägget bara att referera till om noden registrerades med Azure Automation tillstånds konfiguration och nodens konfiguration inte ska köras under registreringen.
+| settings.advancedOptions.downloadMappings | Samling | Definierar alternativa platser för nedladdning av beroenden, till exempel WMF och .NET
 
 ### <a name="protected-settings-property-values"></a>Egenskaps värden för skyddade inställningar
 
-| Name | Datatyp | Beskrivning
+| Namn | Datatyp | Beskrivning
 | ---- | ---- | ---- |
-| protectedSettings.configurationArguments | string | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer att krypteras. |
-| protectedSettings.configurationUrlSasToken | string | Anger SAS-token för åtkomst till den URL som definieras av Configuration. URL. Den här egenskapen kommer att krypteras. |
-| protectedSettings.configurationDataUrlSasToken | string | Anger SAS-token för åtkomst till den URL som definieras av configurationData. URL. Den här egenskapen kommer att krypteras. |
+| protectedSettings.configurationArguments | sträng | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer att krypteras. |
+| protectedSettings.configurationUrlSasToken | sträng | Anger SAS-token för åtkomst till den URL som definieras av Configuration. URL. Den här egenskapen kommer att krypteras. |
+| protectedSettings.configurationDataUrlSasToken | sträng | Anger SAS-token för åtkomst till den URL som definieras av configurationData. URL. Den här egenskapen kommer att krypteras. |
 
 
 ## <a name="template-deployment"></a>Malldistribution
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar.
 Mallarna är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av efter distribution.
-En exempel Resource Manager-mall som innehåller DSC-tillägget för Windows finns i [Azure Snabbstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)-galleriet.
+En exempel Resource Manager-mall som innehåller DSC-tillägget för Windows finns i [Azure Snabbstart-galleriet](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 

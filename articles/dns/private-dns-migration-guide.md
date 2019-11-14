@@ -1,18 +1,19 @@
 ---
 title: Migrera äldre Azure DNS Private Zones till ny resurs modell
+titleSuffix: Azure DNS
 description: Den här guiden innehåller steg-för-steg-instruktioner om hur du migrerar äldre privata DNS-zoner till den senaste resurs modellen
 services: dns
-author: rohinkoul
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: rohink
-ms.openlocfilehash: 9f52a568d42fa23a40a396311955626a1fa0073b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.author: allensu
+ms.openlocfilehash: 3beac014ee69120df518e0358a5fdbef5818f7cf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931264"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076737"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrera äldre Azure DNS privata zoner till ny resurs modell
 

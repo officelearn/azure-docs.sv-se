@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 53d7cb125f59491190aadb07755954ade78356fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813196"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075528"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
 
-Lär dig hur du får åtkomst till analys rapporter i Microsoft Partner Center för att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på Marketplace. Som partner kan du övervaka dina erbjudande listor med hjälp av diagrammet data visualisering och insikter som stöds av Partner Center och hitta sätt att maximera din försäljning. Med de förbättrade analys verktygen kan du arbeta med prestanda resultat och upprätthålla bättre relationer med dina kunder och åter försäljare. 
+Lär dig hur du får åtkomst till analys rapporter i Microsoft Partner Center för att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på Marketplace. Som partner kan du övervaka dina erbjudande listor med hjälp av diagrammet data visualisering och insikter som stöds av Partner Center och hitta sätt att maximera din försäljning. Med de förbättrade analys verktygen kan du arbeta med prestanda resultat och upprätthålla bättre relationer med dina kunder och åter försäljare.
 
 Om du vill komma åt Partner Center Analytics-verktyg öppnar du **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under kommersiell marknads plats.
 
@@ -141,7 +141,7 @@ I diagrammet **beställningar efter Marketplace licens typ** visas månads Visa 
 - **Faktureras via Azure: Microsoft fakturerar**kunder åt dig när du väljer att [sälja ditt erbjudande via Microsoft](./create-new-saas-offer.md#sell-through-microsoft) med den här licens typen. Betalnings typerna omfattar betala per användning via kredit kort eller företags fakturering.
 - **Bring Your Own License**: Microsoft debiterar inte kunder för deras användning av den här typen av Marketplace-erbjudande. Anges som **[Hämta nu (kostnads fritt)](./create-new-saas-offer.md#get-it-now-free)** i Marketplace.
 - **Kostnads fritt**: Microsoft debiterar inte kunder för deras användning av den här typen av Marketplace-erbjudande. Visas som **[kostnads fri utvärderings version](./create-new-saas-offer.md##free-trial-listing)** i Marketplace.
-- **Microsoft as åter försäljare**: representerar erbjudanden som säljs av Microsoft-återförsäljare som en del av **[CSP-programmet (Cloud Solution Provider)](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Microsoft as åter försäljare**: representerar erbjudanden som säljs av Microsoft-återförsäljare som en del av **[CSP-programmet (Cloud Solution Provider)](./create-new-saas-offer.md)** .
 
 ![Partner Center, analysera beställningar efter licens typ](./media/analyze-license-type.png)
 

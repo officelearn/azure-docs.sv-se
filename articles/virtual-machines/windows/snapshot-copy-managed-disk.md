@@ -1,5 +1,5 @@
 ---
-title: Skapa en ögonblicks bild av en virtuell hård disk i Azure | Microsoft Docs
+title: Skapa en ögonblicks bild av en virtuell hård disk i Azure
 description: Lär dig hur du skapar en kopia av en virtuell Azure-dator som ska användas som säkerhets kopiering eller vid fel sökning av problem.
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749139"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075345"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -29,7 +29,7 @@ Om du vill använda ögonblicks bilden för att skapa en ny virtuell dator, reko
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **skapa en resurs**i den vänstra menyn och Sök sedan efter och välj **ögonblicks bild**.
 3. I fönstret **ögonblicks bild** väljer du **skapa**. Fönstret **skapa ögonblicks bild** visas.
 4. Ange ett **namn** för ögonblicks bilden.

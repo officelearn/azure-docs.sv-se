@@ -1,18 +1,19 @@
 ---
-title: Introduktion till Azure Web Application-brandvägg på Azure Application Gateway
+title: Introduktion till Azure Web Application-brandvägg
+titleSuffix: Azure Web Application Firewall
 description: Den här artikeln innehåller en översikt över brand vägg för webbaserade program (WAF) på Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/05/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 6d073648dc908cbbe40962f7ba079abcfe85ce45
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4ba2772ffb89809c2262880385207a12c74882cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607313"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067151"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Web Application-brandvägg på Azure Application Gateway
 
@@ -198,7 +199,7 @@ Application Gateway WAF innehåller detaljerad rapportering om varje hot som ide
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Priser för WAF SKU för programgatewayen
 
-Pris modellerna skiljer sig åt för WAF_v1-och WAF_v2-SKU: er. Mer information finns på sidan med [Application Gateway prissättning](https://azure.microsoft.com/pricing/details/application-gateway/) . 
+Pris modellerna är olika för WAF_v1 och WAF_v2 SKU: er. Mer information finns på sidan med [Application Gateway prissättning](https://azure.microsoft.com/pricing/details/application-gateway/) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

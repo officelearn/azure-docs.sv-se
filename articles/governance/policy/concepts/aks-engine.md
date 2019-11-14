@@ -1,17 +1,14 @@
 ---
 title: Lär dig Azure Policy för AKS-motorn
 description: Lär dig hur Azure Policy använder CustomResourceDefinitions och öppna Policy Agent från Gatekeeper v3 för att hantera kluster med AKS-motorn.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 71f3f26b9ea7f24d674c911e18c785b0798a072c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512137"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072051"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Förstå Azure Policy för AKS-motorn
 
@@ -32,7 +29,7 @@ Utför följande åtgärder för att aktivera och använda Azure Policy för AKS
 - [Tilldela en princip definition för AKS-motorn](#built-in-policies)
 - [Vänta på verifiering](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. PolicyInsights** Resource Provider och skapa en roll tilldelning för kluster tjänstens huvud namn. 
 

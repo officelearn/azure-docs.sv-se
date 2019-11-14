@@ -1,5 +1,6 @@
 ---
-title: Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
+title: Generera ett självsignerat certifikat med en anpassad rot certifikat utfärdare
+titleSuffix: Azure Application Gateway
 description: Lär dig hur du skapar ett självsignerat Azure Application-Gateway-certifikat med en anpassad rot certifikat utfärdare
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833377"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075075"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
 
@@ -23,13 +24,13 @@ Application Gateway litar på din webbplats certifikat som standard om det är s
 > [!NOTE]
 > Självsignerade certifikat är inte betrodda som standard och de kan vara svåra att underhålla. De kan också använda inaktuella hash-och chiffersviter som kanske inte är starka. Köp ett certifikat som signerats av en välkänd certifikat utfärdare för bättre säkerhet.
 
-I den här artikeln får du lära dig att:
+I den här artikeln får du lära dig hur du:
 
 - Skapa din egen anpassade certifikat utfärdare
 - Skapa ett självsignerat certifikat signerat av din anpassade certifikat utfärdare
 - Ladda upp ett självsignerat rot certifikat till en Application Gateway för att autentisera backend-servern
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - **[Openssl](https://www.openssl.org/) på en dator som kör Windows eller Linux** 
 

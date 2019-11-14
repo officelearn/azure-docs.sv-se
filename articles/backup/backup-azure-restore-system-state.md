@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Återställa system tillstånd till en Windows-Server'
+title: 'Azure Backup: återställa system tillstånd till en Windows-Server'
 description: Steg för steg-förklaringar för återställning av Windows Server-systemtillstånd från en säkerhets kopia i Azure.
 ms.reviewer: saurse
 author: dcurwin
@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: beac49585239a1ecc15588a6c8160bc34c84c6ad
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 5fc9eb5a85b5ce834060f3f35e89ebc2acea2244
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210312"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074214"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
-Den här artikeln förklarar hur du återställer säkerhets kopior av Windows Server-systemtillstånd från ett Azure Recovery Services-valv. Om du vill återställa system tillstånd måste du ha en säkerhets kopia av system tillstånd (skapas med instruktionerna i [säkerhetskopiera system tillstånd](backup-azure-system-state.md#back-up-windows-server-system-state)och kontrol lera att du har installerat den [senaste versionen av Microsoft Azure Recovery Services (mars)](https://aka.ms/azurebackup_agent)-agenten. Att hämta Windows Server System tillstånds data från ett Azure Recovery Services-valv är en process i två steg:
+Den här artikeln förklarar hur du återställer säkerhets kopior av Windows Server-systemtillstånd från ett Azure Recovery Services-valv. Om du vill återställa system tillstånd måste du ha en säkerhets kopia av system tillstånd (skapas med instruktionerna i [säkerhetskopiera system tillstånd](backup-azure-system-state.md#back-up-windows-server-system-state)och kontrol lera att du har installerat den [senaste versionen av Microsoft Azure Recovery Services (mars)-agenten](https://aka.ms/azurebackup_agent). Att hämta Windows Server System tillstånds data från ett Azure Recovery Services-valv är en process i två steg:
 
 1. Återställ system tillstånd som filer från Azure Backup. När du återställer system tillstånd som filer från Azure Backup kan du antingen:
    * Återställa system tillstånd till samma server där säkerhets kopiorna gjordes, eller
@@ -25,8 +25,8 @@ Den här artikeln förklarar hur du återställer säkerhets kopior av Windows S
 
 2. Tillämpa återställda system tillstånds filer på en Windows-Server.
 
-
 ## <a name="recover-system-state-files-to-the-same-server"></a>Återställa system tillstånds filer till samma server
+
 Följande steg beskriver hur du återställer din Windows Server-konfiguration till ett tidigare tillstånd. Att återställa Server konfigurationen till ett känt, stabilt tillstånd, kan vara mycket värdefull. Följande steg återställer serverns system tillstånd från ett Recovery Services-valv.
 
 1. Öppna snapin-modulen **Microsoft Azure Backup**. Om du inte vet var snapin-modulen har installerats söker du efter **Microsoft Azure Backup**i datorn eller servern.
@@ -73,9 +73,9 @@ Om Windows-servern är skadad eller otillgänglig, och du vill återställa den 
 
 Den terminologi som används i dessa steg omfattar:
 
-- *Käll dator* – den ursprungliga dator som säkerhets kopian skapades från och som för tillfället inte är tillgänglig.
-- *Måldator* – den dator som data återställs till.
-- *Exempel valv* – det Recovery Services valv som *käll datorn* och *mål datorn* är registrerade på. <br/>
+* *Käll dator* – den ursprungliga dator som säkerhets kopian skapades från och som för tillfället inte är tillgänglig.
+* *Måldator* – den dator som data återställs till.
+* *Exempel valv* – det Recovery Services valv som *käll datorn* och *mål datorn* är registrerade på. <br/>
 
 > [!NOTE]
 > Säkerhets kopieringar som tas från en dator kan inte återställas till en dator som kör en tidigare version av operativ systemet. Säkerhets kopieringar som tagits från en Windows Server 2016-dator kan till exempel inte återställas till Windows Server 2012 R2. Inversen är dock möjlig. Du kan använda säkerhets kopior från Windows Server 2012 R2 för att återställa Windows Server 2016.
@@ -115,9 +115,6 @@ Den terminologi som används i dessa steg omfattar:
 
 13. Slutför återställnings processen genom att använda följande avsnitt för att [tillämpa de återställda filerna för system tillstånd på en Windows-Server](#apply-restored-system-state-on-a-windows-server).
 
-
-
-
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>Tillämpa återställt system tillstånd på en Windows Server
 
 När du har återställt system tillstånd som filer med Azure Recovery Services Agent använder du verktyget Windows Server Backup för att tillämpa det återställda system läget på Windows Server. Verktyget Windows Server Backup finns redan på servern. Följande steg beskriver hur du tillämpar det återställda system tillstånd.
@@ -147,7 +144,7 @@ När du har återställt system tillstånd som filer med Azure Recovery Services
 
     ![Välj om du vill återställa från en lokal server eller en annan](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
-7. Ange sökvägen till katalogen *WindowsImageBackup* eller Välj den lokala enhet som innehåller katalogen (till exempel D:\WindowsImageBackup), återställt som en del av återställningen av system tillstånds filer med Azure Recovery Services-agenten och klicka på **Nästa** .
+7. Ange sökvägen till katalogen *WindowsImageBackup* eller Välj den lokala enhet som innehåller katalogen (till exempel D:\WindowsImageBackup), återställt som en del av återställningen av system tillstånds filer med Azure Recovery Services-agenten och klicka på **Nästa**.
 
     ![sökväg till den delade filen](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
 
@@ -167,7 +164,6 @@ Säkerhets kopiering av system tillstånd omfattar Active Directory data. Använ
 
 1. Starta om domänkontrollanten i återställnings läge för katalog tjänster (DSRM).
 2. Följ stegen [här](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) för att använda Windows Server Backup cmdlets för att återställa AD DS.
-
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Felsöka misslyckad återställning av system tillstånd
 
@@ -192,6 +188,7 @@ Om den tidigare processen att tillämpa system tillstånd inte slutförs korrekt
     ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
+
     ![Hämta säkerhets kopie versioner för system tillstånd](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Kör följande kommando för att hämta alla volymer som är tillgängliga i säkerhets kopian.
@@ -207,9 +204,9 @@ Om den tidigare processen att tillämpa system tillstånd inte slutförs korrekt
     ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
+
      ![Hämta säkerhets kopie versioner för system tillstånd](./media/backup-azure-restore-system-state/winre-6.png)
 
-
-
 ## <a name="next-steps"></a>Nästa steg
+
 * Nu när du har återställt dina filer och mappar kan du [Hantera dina säkerhets kopior](backup-azure-manage-windows-server.md).

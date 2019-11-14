@@ -1,5 +1,5 @@
 ---
-title: Routerkonfiguration exempel - NAT - Azure ExpressRoute | Microsoft Docs
+title: 'Azure-ExpressRoute: exempel på router-NAT – NAT'
 description: Den här sidan innehåller routerkonfigurationer för Cisco och Juniper-routrar.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: ccee0f0c01119ebbfb5ba9c5980ee006a555a399
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367616"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072114"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Routerkonfigurationer att konfigurera och hantera NAT
 
@@ -83,7 +82,7 @@ NAT-kommandon:
 
 
 ## <a name="juniper-srx-series-routers"></a>Juniper SRX serie routrar
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Skapa redundanta Ethernet-gränssnitt för klustret
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. skapa redundanta Ethernet-gränssnitt för klustret
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -115,7 +114,7 @@ NAT-kommandon:
     }
 
 
-### <a name="2-create-two-security-zones"></a>2. Skapa två säkerhetszoner
+### <a name="2-create-two-security-zones"></a>2. skapa två säkerhets zoner
 * Förlitar sig på zon för interna nätverket och Untrust zon för externt nätverk mot Edge-routrar
 * Tilldela lämpliga gränssnitt till zoner
 * Tillåt tjänster på gränssnitt
@@ -123,7 +122,7 @@ NAT-kommandon:
     Security {zoner {säkerhetszon förtroende {-inkommande-värdtrafik {-systemtjänster {ping;                   } protokoll {bgp;                   gränssnitt för}} {reth0.100;               }} säkerhetszon Untrust {-inkommande-värdtrafik {-systemtjänster {ping;                   } protokoll {bgp;                   gränssnitt för}} {reth1.100;               }           }       }   }
 
 
-### <a name="3-create-security-policies-between-zones"></a>3. Skapa säkerhetsprinciper mellan zoner
+### <a name="3-create-security-policies-between-zones"></a>3. skapa säkerhets principer mellan zoner
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -213,10 +212,10 @@ NAT-kommandon:
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurera BGP för att annonsera selektiv prefix i varje riktning
-Referera till exempel i [routning Konfigurationsexempel](expressroute-config-samples-routing.md) sidan.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurera BGP för att annonsera selektiva prefix i varje riktning
+Se exempel på sidan [konfigurations exempel för routning](expressroute-config-samples-routing.md) .
 
-### <a name="6-create-policies"></a>6. Skapa principer
+### <a name="6-create-policies"></a>6. skapa principer
     routing-options {
                   autonomous-system <Customer-ASN>;
     }

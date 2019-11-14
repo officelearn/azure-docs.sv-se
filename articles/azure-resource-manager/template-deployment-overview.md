@@ -1,19 +1,19 @@
 ---
-title: Azure Resource Manager-mallar
-description: Beskriver hur du använder Azure Resource Manager mallar för att distribuera resurser.
+title: Översikt över Azure Resource Manager mallar
+description: Beskriver fördelarna med Azure Resource Manager mallar för att distribuera resurser.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300158"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074391"
 ---
-# <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
+# <a name="azure-resource-manager-templates-overview"></a>Översikt över Azure Resource Manager mallar
 
 Med flytten till molnet har många team antagit smidiga utvecklings metoder. Dessa team itererar snabbt. De måste distribuera sina lösningar flera gånger till molnet och känna till att deras infrastruktur är i ett tillförlitligt tillstånd. Eftersom infrastrukturen har blivit en del av den iterativa processen har indelningen mellan drift och utveckling försvunnit. Team behöver hantera infrastruktur-och program kod genom en enhetlig process.
 
@@ -41,7 +41,7 @@ Om du försöker bestämma mellan att använda Resource Manager-mallar och en an
 
 * **Spårade distributioner**: i Azure Portal kan du granska distributions historiken och få information om mall distributionen. Du kan se den mall som har distribuerats, de parameter värden som angavs i och eventuella värden. Annan infrastruktur som kod tjänster spåras inte via portalen.
 
-   ![Distributions historik](./media/template-deployment-overview/deployment-history.png)
+   ![Distributionshistorik](./media/template-deployment-overview/deployment-history.png)
 
 * **Princip som kod**: [Azure policy](../governance/policy/overview.md) är en princip som kod ramverk för att automatisera styrningen. Om du använder Azure-principer görs princip reparationer på icke-kompatibla resurser när de distribueras med hjälp av mallar.
 
@@ -125,5 +125,6 @@ Mer information om kapslade mallar finns i [Använda länkade mallar med Azure R
 
 ## <a name="next-steps"></a>Nästa steg
 
+* En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i [Självstudier: skapa och distribuera din första Azure Resource Manager-mall](template-tutorial-create-first-template.md).
 * Information om egenskaperna i mallfiler finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](resource-group-authoring-templates.md).
 * Information om hur du exporterar mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md).

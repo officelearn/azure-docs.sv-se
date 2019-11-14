@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: c9754c1d7fee5af13de6176dbf8a1ca6e57a71eb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213164"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076849"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostisera ignorerade aviseringar i Azure Notification Hubs
 
@@ -33,7 +33,7 @@ Det är viktigt att först förstå hur Notification Hubs Push-meddelanden till 
 
 I ett typiskt skicka meddelande flöde skickas meddelandet från *Server delen* till Notification Hubs. Notification Hubs bearbetar alla registreringar. Det tar hänsyn till de konfigurerade taggarna och tagg uttryck för att fastställa mål. Mål är de registreringar som behöver ta emot push-meddelanden. Dessa registreringar kan omfatta någon av våra plattformar som stöds: Android, Baidu (Android-enheter i Kina), Fire OS (Amazon) iOS, Windows och Windows Phone.
 
-När målen har upprättats Notification Hubs Push-meddelanden till *Push Notification Service* för enhets plattformen. Exempel på detta är APNs (Apple Push Notification Service) för Apple-och Firebase Cloud Messaging (FCM) för Google. Notification Hubs Push-meddelanden delas över flera batchar med registreringar. Den autentiserar med respektive Push Notification Service, baserat på de autentiseringsuppgifter som du angav i Azure Portal under **Konfigurera Notification Hub**. Push Notification Service vidarebefordrar sedan meddelandena till respektive *klient enheter*.
+När målen har upprättats Notification Hubs Push-meddelanden till *Push Notification Service* för enhets plattformen. Exempel på detta är APNs (Apple Push Notification Service) för iOS och macOS och Firebase Cloud Messaging (FCM) för Android-enheter. Notification Hubs Push-meddelanden delas över flera batchar med registreringar. Den autentiserar med respektive Push Notification Service, baserat på de autentiseringsuppgifter som du angav i Azure Portal under **Konfigurera Notification Hub**. Push Notification Service vidarebefordrar sedan meddelandena till respektive *klient enheter*.
 
 Det sista benet med meddelande leverans är mellan plattformens Push Notification Service och enheten. Meddelande leveransen kan inte utföras i någon av de fyra stegen i Push Notification-processen (klient, programserverprogram, Notification Hubs och plattformens Push Notification Service). Mer information om Notification Hubs arkitekturen finns i [Översikt över Notification Hubs].
 
@@ -103,7 +103,7 @@ Varje batch skickas till Push Notification Service, som i sin tur godkänner och
 
 I det här fallet tas den felaktiga registreringen bort från databasen. Sedan försöker vi leverera meddelandet igen för resten av enheterna i batchen.
 
-Om du vill ha mer information om det misslyckade leverans försöket vid en registrering kan du använda Notification Hubs rest [-API: er per meddelande telemetri: Få telemetri](https://msdn.microsoft.com/library/azure/mt608135.aspx) och [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx)om aviseringar. Exempel kod finns i [Skicka rest-exemplet](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Om du vill ha mer information om det misslyckade leverans försöket vid en registrering kan du använda Notification Hubs REST-API [: er per meddelande telemetri: Hämta telemetri för aviseringar](https://msdn.microsoft.com/library/azure/mt608135.aspx) och [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). Exempel kod finns i [Skicka rest-exemplet](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problem med Push Notification Service
 
@@ -115,7 +115,7 @@ Om en Push Notification-tjänst försöker leverera ett meddelande men enheten �
 
 Varje app lagrar bara ett senaste meddelande. Om flera meddelanden skickas medan en enhet är offline, kommer varje nytt meddelande att ta bort den sista. Att endast behålla den senaste aviseringen kallas *sammanslagning* i APN och *Komprimera* i FCM. (FCM använder en komprimerad nyckel.) När enheten är offline under en längre tid, ignoreras meddelanden som lagrats för enheten. Mer information finns i [APN-översikt] och [om FCM-meddelanden].
 
-Med Notification Hubs kan du skicka en sammanslagnings nyckel via ett HTTP-huvud med hjälp av det allmänna SendNotification-API: et. För .NET SDK skulle du till exempel använda `SendNotificationAsync`. SendNotification-API: et tar också emot HTTP-huvuden som skickas som är till respektive Push Notification Service.
+Med Notification Hubs kan du skicka en sammanslagnings nyckel via ett HTTP-huvud med hjälp av det allmänna SendNotification-API: et. För .NET SDK använder du till exempel `SendNotificationAsync`. SendNotification-API: et tar också emot HTTP-huvuden som skickas som är till respektive Push Notification Service.
 
 ## <a name="self-diagnosis-tips"></a>Tips om själv diagnos
 
@@ -125,7 +125,7 @@ Här följer sökvägar för att diagnosticera rotor saken till de borttagna med
 
 #### <a name="push-notification-service-developer-portal"></a>Push Notification Service Developer-portalen ####
 
-Verifiera autentiseringsuppgifter i respektive Push Notification Service Developer-portal (APN, FCM, Windows Notification Service osv.). Mer information finns i [Självstudie: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Verifiera autentiseringsuppgifter i respektive Push Notification Service Developer-portal (APN, FCM, Windows Notification Service osv.). Mer information finns i [Självstudier: skicka meddelanden till universell Windows-plattform appar med hjälp av Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Azure Portal ####
 
@@ -145,22 +145,22 @@ Du kan visa och hantera alla registreringar i hubben. Registreringarna kan kateg
 
 Högerklicka på din Notification Hub i **Server Explorer**och välj **diagnostisera**. 
 
-![Visual Studio-Server Explorer: Diagnostisera meny](./media/notification-hubs-diagnosing/diagnose-menu.png)
+![Visual Studio-Server Explorer: diagnosticera menyn](./media/notification-hubs-diagnosing/diagnose-menu.png)
 
 Följande sida visas:
 
-![Visual Studio: Diagnostisera sida](./media/notification-hubs-diagnosing/diagnose-page.png)
+![Visual Studio: diagnostisera sida](./media/notification-hubs-diagnosing/diagnose-page.png)
 
 Växla till sidan **enhets registreringar** :
 
-![Visual Studio: Enhets registreringar](./media/notification-hubs-diagnosing/VSRegistrations.png)
+![Visual Studio: enhets registreringar](./media/notification-hubs-diagnosing/VSRegistrations.png)
 
 Du kan använda **test sidan skicka** för att skicka ett test meddelande:
 
-![Visual Studio: Skicka test](./media/notification-hubs-diagnosing/test-send-vs.png)
+![Visual Studio: testa skicka](./media/notification-hubs-diagnosing/test-send-vs.png)
 
 > [!NOTE]
-> Använd Visual Studio för att redigera registreringar endast under utveckling/testning och med ett begränsat antal registreringar. Om du behöver redigera dina registreringar i bulk kan du använda funktionerna för export och import registrering som beskrivs i [How to: Exportera och ändra registreringarna i bulk](https://msdn.microsoft.com/library/dn790624.aspx).
+> Använd Visual Studio för att redigera registreringar endast under utveckling/testning och med ett begränsat antal registreringar. Om du behöver redigera dina registreringar i bulk bör du använda funktionen Exportera och importera registrering som beskrivs i [How to: export och ändring av registreringar i bulk](https://msdn.microsoft.com/library/dn790624.aspx).
 
 #### <a name="service-bus-explorer"></a>Service Bus Explorer ####
 
@@ -183,7 +183,7 @@ Du kan också skicka test meddelanden från Visual Studio.
 Mer information om hur du använder Notification Hubs med Visual Studio Server Explorer finns i följande artiklar:
 
 * [Så här visar du enhets registreringar för Notification Hub](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
-* [Djupgående: Visual Studio 2013 uppdatering 2 RC och Azure SDK 2,3]
+* [Djupgående spel: Visual Studio 2013 uppdatering 2 RC och Azure SDK 2,3]
 * [Vi presenterar lanseringen av Visual Studio 2013 Update 3 och Azure SDK 2,4]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Felsöka misslyckade meddelanden och granska meddelande resultatet
@@ -196,7 +196,7 @@ Om meddelandet inte kommer till klient enheten kan ett fel uppstå när Notifica
 
 Du kan använda egenskapen [EnableTestSend] för att få insikter om fel i Push Notification Service. Den här egenskapen aktive ras automatiskt när du skickar test meddelanden från portalen eller Visual Studio-klienten. Du kan använda den här egenskapen för att se detaljerad fel söknings information och även via API: er. För närvarande kan du använda den i .NET SDK. Den kommer att läggas till i alla klient-SDK: er slutligen.
 
-Om du vill `EnableTestSend` använda egenskapen med rest-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Exempel:
+Om du vill använda egenskapen `EnableTestSend` med REST-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Exempel:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -212,9 +212,9 @@ var result = await hub.SendWindowsNativeNotificationAsync(toast);
 Console.WriteLine(result.State);
 ```
 
-I slutet av körningen har `result.State` du bara tillstånd. `Enqueued` Resultaten ger inte några insikter om vad som hände med push-meddelandet.
+I slutet av körningen `result.State` bara tillstånd `Enqueued`. Resultaten ger inte några insikter om vad som hände med push-meddelandet.
 
-Sedan kan du använda den `EnableTestSend` booleska egenskapen. Använd egenskapen när du initierar `NotificationHubClient` för att få en detaljerad status om Push Notification Service-fel som inträffar när meddelandet skickas. `EnableTestSend` Sändnings anropet tar ytterligare tid att returnera eftersom det först behöver Notification Hubs för att leverera meddelandet till Push Notification Service.
+Sedan kan du använda egenskapen `EnableTestSend` Boolean. Använd egenskapen `EnableTestSend` medan du initierar `NotificationHubClient` för att få en detaljerad status om fel i Push Notification Service som inträffar när meddelandet skickas. Sändnings anropet tar ytterligare tid att returnera eftersom det först behöver Notification Hubs för att leverera meddelandet till Push Notification Service.
 
 ```csharp
     bool enableTestSend = true;
@@ -241,7 +241,7 @@ The Token obtained from the Token Provider is wrong
 Det här meddelandet anger att autentiseringsuppgifterna som kon figurer ATS i Notification Hubs är ogiltiga eller att det är problem med registreringarna i hubben. Ta bort den här registreringen och låt klienten återskapa registreringen innan meddelandet skickas.
 
 > [!NOTE]
-> Användningen av `EnableTestSend` egenskapen är kraftigt begränsad. Använd bara det här alternativet i en utvecklings-/test miljö och med en begränsad uppsättning registreringar. Fel söknings meddelanden skickas till 10 enheter. Det finns också en gräns för att bearbeta fel söknings sändningar, vid 10 per minut.
+> Användningen av `EnableTestSend`-egenskapen är kraftigt begränsad. Använd bara det här alternativet i en utvecklings-/test miljö och med en begränsad uppsättning registreringar. Fel söknings meddelanden skickas till 10 enheter. Det finns också en gräns för att bearbeta fel söknings sändningar, vid 10 per minut.
 
 ### <a name="review-telemetry"></a>Granska telemetri ###
 
@@ -291,7 +291,7 @@ Mer information om programmerings åtkomst finns i [program mässig åtkomst](ht
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Djupgående: Visual Studio 2013 uppdatering 2 RC och Azure SDK 2,3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Djupgående spel: Visual Studio 2013 uppdatering 2 RC och Azure SDK 2,3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Vi presenterar lanseringen av Visual Studio 2013 Update 3 och Azure SDK 2,4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Programmatic telemetry access]: https://msdn.microsoft.com/library/azure/dn458823.aspx

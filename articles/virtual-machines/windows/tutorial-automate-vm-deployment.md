@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs – Installera appar på en Windows-dator i Azure | Microsoft Docs
+title: Självstudie – installera program på en virtuell Windows-dator i Azure
 description: I kursen får du lära dig hur du använder tillägget för anpassat skript för att köra skript och distribuera appar till Windows-datorer i Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 02c038a1eefefb62dceb42e511b9a895691ef47b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 610f8efad473b5f4bed1abc6b2c063ec0ead66ed
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065366"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Självstudiekurs – Distribuera appar till en Windows-dator i Azure med tillägget för anpassat skript
 
-För att konfigurera virtuella datorer (VM) på ett snabbt och konsekvent sätt kan du använda [Anpassat skripttillägg för Windows](extensions-customscript.md). I den här självstudiekursen får du lära du dig att:
+För att konfigurera virtuella datorer (VM) på ett snabbt och konsekvent sätt kan du använda [Anpassat skripttillägg för Windows](extensions-customscript.md). I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Använd det anpassade skripttillägget till att installera IIS
@@ -71,7 +71,7 @@ Det tar några minuter att skapa resurserna och den virtuella datorn.
 
 
 ## <a name="automate-iis-install"></a>Automatisera installationen av IIS
-Använd [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) för att installera Anpassat skripttillägg. Tillägget kör `powershell Add-WindowsFeature Web-Server` för att installera IIS-webbservern och uppdaterar sedan sidan *Default.htm* så att värddatornamnet visas för den virtuella datorn:
+Använd [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) för att installera Anpassat skripttillägg. Tillägget kör `powershell Add-WindowsFeature Web-Server` för att installera IIS-webbservern och uppdaterar sedan sidan *Default.htm* till att visa värddatornamnet för den virtuella datorn:
 
 ```azurepowershell-interactive
 Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `

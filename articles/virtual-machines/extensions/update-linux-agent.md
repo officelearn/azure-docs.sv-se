@@ -1,5 +1,5 @@
 ---
-title: Uppdatera Azure Linux-agenten från GitHub | Microsoft Docs
+title: Uppdatera Azure Linux-agenten från GitHub
 description: Lär dig hur du uppdaterar Azure Linux-agenten för din virtuella Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: akjosh
-ms.openlocfilehash: 1ae3c3a74d1a46a98fa6676e18ffe71a4d6937a1
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 2215136c02d9cf967e0184af7588ce8d48362009
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168768"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072940"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Så här uppdaterar du Azure Linux-agenten på en virtuell dator
 
@@ -351,7 +351,7 @@ sudo systemctl restart waagent.service
 
 ## <a name="oracle-6-and-7"></a>Oracle 6 och 7
 
-För Oracle Linux kontrollerar du att `Addons` lagrings platsen är aktive rad. Välj att redigera `/etc/yum.repos.d/public-yum-ol6.repo`filen (Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux) och ändra raden `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
+För Oracle Linux kontrollerar du att `Addons`s databasen är aktive rad. Välj att redigera filen `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux) och ändra rad `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
 
 Om du vill installera den senaste versionen av Azure Linux-agenten skriver du:
 
@@ -389,15 +389,15 @@ Skriv sedan:
 sudo yum update WALinuxAgent
 ```
 
-Detta är vanligt vis allt du behöver, men om du av någon anledning behöver installera den https://github.com direkt använder du följande steg.
+Detta är vanligt vis allt du behöver, men om du av någon anledning behöver installera den från https://github.com direkt använder du följande steg.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>Uppdatera Linux-agenten när det inte finns något agent paket för distribution
 
 Installera wget (det finns vissa distributioner som inte installeras som standard, till exempel Red Hat, CentOS och Oracle Linux version 6,4 och 6,5) genom att skriva `sudo yum install wget` på kommando raden.
 
-### <a name="1-download-the-latest-version"></a>1. Hämta den senaste versionen
-Öppna [versionen av Azure Linux-agenten i GitHub](https://github.com/Azure/WALinuxAgent/releases) på en webb sida och ta reda på det senaste versions numret. (Du kan hitta din aktuella version genom att `waagent --version`skriva.)
+### <a name="1-download-the-latest-version"></a>1. Ladda ned den senaste versionen
+Öppna [versionen av Azure Linux-agenten i GitHub](https://github.com/Azure/WALinuxAgent/releases) på en webb sida och ta reda på det senaste versions numret. (Du kan hitta din aktuella version genom att skriva `waagent --version`.)
 
 #### <a name="for-version-22x-or-later-type"></a>För version 2.2. x eller senare, skriver du:
 ```bash
@@ -417,7 +417,7 @@ cd WALinuxAgent-2.2.14
 ### <a name="2-install-the-azure-linux-agent"></a>2. Installera Azure Linux-agenten
 
 #### <a name="for-version-22x-use"></a>Använd följande för version 2.2. x:
-Du kan behöva installera paketet `setuptools` först – se [här](https://pypi.python.org/pypi/setuptools). Kör sedan:
+Du kan behöva installera paketet `setuptools` First--se [här](https://pypi.python.org/pypi/setuptools). Kör sedan:
 
 ```bash
 sudo python setup.py install
@@ -463,7 +463,7 @@ För kärnor använder du:
 sudo systemctl restart waagent
 ```
 
-### <a name="4-confirm-the-azure-linux-agent-version"></a>4. Bekräfta Azure Linux-agentens version
+### <a name="4-confirm-the-azure-linux-agent-version"></a>4. bekräfta versionen av Azure Linux-agenten
     
 ```bash
 waagent -version

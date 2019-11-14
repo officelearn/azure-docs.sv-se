@@ -1,5 +1,5 @@
 ---
-title: Installera Trend Micro djup säkerhet på en virtuell dator | Microsoft Docs
+title: Installera Trend Micro djupgående säkerhet på en virtuell dator
 description: Den här artikeln beskriver hur du installerar och konfigurerar Trend Micro Security på en virtuell dator som har skapats med den klassiska distributions modellen i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: 14ef0a94cb8b2b735b3dc02cf5ccdcc65a6c1beb
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a9f99d418d572c14a7cdd7975483cf39f0707cba
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168800"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072995"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en virtuell Windows-dator
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -54,7 +54,7 @@ Gör så här när du kommer till **inställnings** bladet i guiden:
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Installera djup säkerhets agenten på en befintlig virtuell dator
 Om du vill installera agenten på en befintlig virtuell dator behöver du följande objekt:
 
-* Azure PowerShell-modulen, version 0.8.2 eller senare, är installerad på den lokala datorn. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med hjälp av kommandot **Get-module Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Logga in på din Azure-prenumeration `Add-AzureAccount`med.
+* Azure PowerShell-modulen, version 0.8.2 eller senare, är installerad på den lokala datorn. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med hjälp av kommandot **Get-module Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Logga in på din Azure-prenumeration med hjälp av `Add-AzureAccount`.
 * VM-agenten som är installerad på den virtuella mål datorn.
 
 Kontrol lera först att VM-agenten redan är installerad. Fyll i namnet på moln tjänsten och namnet på den virtuella datorn och kör sedan följande kommandon på administratörs nivå Azure PowerShell kommando tolken. Ersätt allt inom citat tecken, inklusive < och > tecken.

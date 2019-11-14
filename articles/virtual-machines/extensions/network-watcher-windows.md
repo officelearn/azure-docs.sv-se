@@ -1,5 +1,5 @@
 ---
-title: Tillägg för virtuell Azure Network Watcher agent-dator för Windows | Microsoft Docs
+title: Tillägg för virtuell Azure Network Watcher agent-dator för Windows
 description: Distribuera Network Watcher agenten på en virtuell Windows-dator med ett tillägg för virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 77685fd6549906cfb050e12d53ec151c964fda42
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 998e160edce25b9d466a1db090abcefeb7870172
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084414"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073691"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Network Watcher virtuell agent för virtuella datorer för Windows
 
@@ -30,7 +30,7 @@ ms.locfileid: "70084414"
 
 Det här dokumentet innehåller information om vilka plattformar och distributions alternativ som stöds för Network Watcher agentens tillägg för virtuell dator för Windows. Installationen av agenten störs inte eller kräver en omstart av den virtuella datorn. Du kan distribuera tillägget till virtuella datorer som du distribuerar. Om den virtuella datorn distribueras av en Azure-tjänst kan du läsa dokumentationen för tjänsten för att avgöra om den tillåter att installera tillägg på den virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -68,7 +68,7 @@ Följande JSON visar schemat för Network Watcher agent-tillägget. Tillägget k
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentWindows |
+| typ | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 
@@ -78,7 +78,7 @@ Du kan distribuera virtuella Azure-tillägg med Azure Resource Manager mallar. D
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMExtension` Använd kommandot för att distribuera Network Watcher agentens virtuella dator tillägg till en befintlig virtuell dator:
+Använd kommandot `Set-AzVMExtension` för att distribuera tillägget Network Watcher virtuell dator för virtuella datorer till en befintlig virtuell dator:
 
 ```powershell
 Set-AzVMExtension `

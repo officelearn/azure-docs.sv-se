@@ -1,17 +1,14 @@
 ---
 title: Exempel – Kräv kryptering för Data Lake Store
 description: Den här exempelprincipdefinitionen kräver att Data Lake Store-kryptering är aktiverat.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 9cee9f2d94f822679acee0813471e271a38a38e3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: a8ed66e9b07e1fc15c8a1a3c8c33f0e218eb62b3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977197"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74070658"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>Exempel – Kräv Data Lake Store-kryptering
 
@@ -83,4 +80,4 @@ az policy assignment delete --name "Data Lake Store encryption" --resource-group
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure-principexempel](index.md)
+- Granska fler exempel på [Azure Policy-exempel](index.md)

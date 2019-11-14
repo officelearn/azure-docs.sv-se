@@ -1,18 +1,19 @@
 ---
-title: Azure Application Gateway webb program brand vägg regel grupper och regler för inboknings paket
+title: Regel grupper och regler för boknings system
+titleSuffix: Azure Web Application Firewall
 description: Den här sidan innehåller information om regel grupper och regler för att öppna brand Väggs paket för webb program.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 59e4203ca219802a95a09761b90c00a039b47631
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516973"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075375"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regel grupper och regler för brand vägg för webb program brand vägg
 
@@ -121,7 +122,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |913120|Hittade namn/argument för begäran som är associerat med säkerhets skannern|
 
 
-### <a name="crs920-31"></a> <p x-ms-format-detection="none">BEGÄRAN-920-PROTOKOLL-TVÅNG</p>
+### <a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -187,7 +188,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |921170|Förorening av HTTP-parameter|
 |921180|HTTP-parameter nedsmutsning (% {TX. 1})|
 
-### <a name="crs930-31"></a> <p x-ms-format-detection="none">BEGÄRAN-930-APPLICATION-ATTACK-LFI</p>
+### <a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -196,7 +197,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |930120|Åtkomst försök för operativ system fil|
 |930130|Begränsat fil åtkomst försök|
 
-### <a name="crs931-31"></a> <p x-ms-format-detection="none">BEGÄRAN-931-APPLICATION-ATTACK-RFI</p>
+### <a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -205,7 +206,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |931120|Möjliga RFI-angrepp (Remote File inkludering) = URL-nyttolast används med avslutande frågetecken (?)|
 |931130|Möjliga RFI-angrepp (Remote File inkludering) = off-domain Reference/Link|
 
-### <a name="crs932-31"></a> <p x-ms-format-detection="none">BEGÄRAN-932-APPLICATION-ATTACK-R</p>
+### <a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -223,7 +224,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |932180|Begränsat fil överförings försök|
 |932190|Fjärrkörning av kommando: kringgå metod för att kringgå jokertecken|
 
-### <a name="crs933-31"></a> <p x-ms-format-detection="none">BEGÄRAN-933-APPLICATION-ATTACK-PHP</p>
+### <a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -242,7 +243,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |933180|PHP-injektering attack = variabel funktions anrop hittades|
 |933190|PHP-injektering: stängnings tag gen för PHP hittades|
 
-### <a name="crs941-31"></a> <p x-ms-format-detection="none">BEGÄRAN-941-APPLICATION-ATTACK-XSS</p>
+### <a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -339,7 +340,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |944130|Misstänkta Java-klasser|
 |944200|Utnyttjande av Java-deserialisering Apache Commons|
 
-# <a name="owasp-30tabowasp30"></a>[OWASP 3,0](#tab/owasp30)
+# <a name="owasp-30tabowasp30"></a>[OWASP 3.0](#tab/owasp30)
 
 ## <a name="owasp30"></a>Regel uppsättningar
 
@@ -366,7 +367,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |913101|Hittade användar agent som är kopplad till skript/allmän HTTP-klient|
 |913102|Hittade användar agent som är associerad med Web Crawler/bot|
 
-### <a name="crs920-30"></a> <p x-ms-format-detection="none">BEGÄRAN-920-PROTOKOLL-TVÅNG</p>
+### <a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -427,7 +428,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |921170|Förorening av HTTP-parameter|
 |921180|HTTP-parameter nedsmutsning (% @ {TX. 1})|
 
-### <a name="crs930-30"></a> <p x-ms-format-detection="none">BEGÄRAN-930-APPLICATION-ATTACK-LFI</p>
+### <a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -436,7 +437,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |930120|Åtkomst försök för operativ system fil|
 |930130|Begränsat fil åtkomst försök|
 
-### <a name="crs931-30"></a> <p x-ms-format-detection="none">BEGÄRAN-931-APPLICATION-ATTACK-RFI</p>
+### <a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -445,7 +446,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |931120|Möjliga RFI-angrepp (Remote File inkludering) = URL-nyttolast används med avslutande frågetecken (?)|
 |931130|Möjliga RFI-angrepp (Remote File inkludering) = off-domain Reference/Link|
 
-### <a name="crs932-30"></a> <p x-ms-format-detection="none">BEGÄRAN-932-APPLICATION-ATTACK-R</p>
+### <a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -456,7 +457,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |932170|Fjärrkörning av kommando = Shellshock (CVE-2014-6271)|
 |932171|Fjärrkörning av kommando = Shellshock (CVE-2014-6271)|
 
-### <a name="crs933-30"></a> <p x-ms-format-detection="none">BEGÄRAN-933-APPLICATION-ATTACK-PHP</p>
+### <a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |ruleId|Beskrivning|
 |---|---|
@@ -472,7 +473,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |933161|PHP-injektering-attack = funktions anrop för PHP-värde i PHP hittades|
 |933111|PHP-injektering-attack = fil uppladdning för PHP-skript hittades|
 
-### <a name="crs941-30"></a> <p x-ms-format-detection="none">BEGÄRAN-941-APPLICATION-ATTACK-XSS</p>
+### <a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
 |ruleId|Beskrivning|
 |---|---|

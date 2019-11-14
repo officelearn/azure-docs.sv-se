@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 03998d214c1fb977741976eca7b878d0c6b577aa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160383"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074072"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Självstudie: integrera MyWorkDrive med Azure Active Directory
 
@@ -62,7 +62,7 @@ Om du vill konfigurera och testa Azure AD SSO med MyWorkDrive, slutför du följ
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera MYWORKDRIVE SSO](#configure-myworkdrive-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa MyWorkDrive test User](#create-myworkdrive-test-user)** – om du vill ha en motsvarighet till Britta Simon i MyWorkDrive som är länkad till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -83,12 +83,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Mata in ditt eget företags MyWorkDrive-Server värd Namn: t. ex.
     > 
-    > Svars-URL: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
+    > Svarswebbadress: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
     > Inloggnings-URL:`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
@@ -100,9 +100,17 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 ### <a name="configure-myworkdrive-sso"></a>Konfigurera MyWorkDrive SSO
 
-1. Logga in på MyWorkDrive som säkerhets administratör i ett annat webbläsarfönster.
+1. Om du vill automatisera konfigurationen i MyWorkDrive måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
-2. På MyWorkDrive-servern på administratörs panelen klickar du på **Enterprise** och utför följande steg:
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+1. När du har lagt till tillägg i webbläsaren, klickar du på **installations MyWorkDrive** för att dirigera dig till MyWorkDrive-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på MyWorkDrive. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-4.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+1. Om du vill konfigurera MyWorkDrive manuellt i ett annat webbläsarfönster loggar du in på MyWorkDrive som säkerhets administratör.
+
+1. På MyWorkDrive-servern på administratörs panelen klickar du på **Enterprise** och utför följande steg:
 
     ![Administratören](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 
@@ -153,7 +161,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i MyWorkDriv
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen MyWorkDrive på åtkomst panelen, bör du loggas in automatiskt på den MyWorkDrive som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du väljer panelen MyWorkDrive på åtkomst panelen, bör du loggas in automatiskt på den MyWorkDrive som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

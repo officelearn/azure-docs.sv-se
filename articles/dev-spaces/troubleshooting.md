@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 0afdc0ac246e4cacbd4f45cca36c3c57b1c26e02
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005978"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072196"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -94,9 +94,13 @@ Trots fel meddelandet när du kör `az aks use-dev-spaces` med en version av Azu
 
 Åtgärda problemet genom att uppdatera installationen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) till 2.0.63 eller senare. Den här uppdateringen löser det fel meddelande som visas när du kör `az aks use-dev-spaces`. Alternativt kan du fortsätta att använda din aktuella version av Azure CLI och Azure dev Spaces CLI.
 
-### <a name="aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>AKS-kluster med autentiserade IP-adressintervall för API-Server
+### <a name="error-unable-to-reach-kube-apiserver"></a>Fel "Det gick inte att komma åt Kube-apiserver"
 
-Om du har aktiverat [tillåtna IP-adressintervall](../aks/api-server-authorized-ip-ranges.md) för ditt AKS-kluster, måste du också [skapa](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) eller [Uppdatera](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) klustret så att det går att [använda fler intervall utifrån din region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+Du kanske ser det här felet när det inte går att ansluta till ditt AKS-klusters API-server i Azure dev Spaces. 
+
+Om åtkomst till din AKS-kluster-API-Server är låst eller om du har [auktoriserade IP-adressintervall för API-Server](../aks/api-server-authorized-ip-ranges.md) för ditt AKS-kluster, måste du också [skapa](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) eller [Uppdatera](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) klustret så att det [tillåter ytterligare intervall baserat på din region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
+Se till att API-servern är tillgänglig genom att köra kubectl-kommandon. Om API-servern inte är tillgänglig kontaktar du AKS-supporten och försöker igen när API-servern fungerar.
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Vanliga problem vid förberedelse av ditt projekt för Azure dev Spaces
 

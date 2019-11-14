@@ -1,5 +1,5 @@
 ---
-title: Skapa och hantera en virtuell Windows-dator i Azure med python | Microsoft Docs
+title: Skapa och hantera en virtuell Windows-dator i Azure med hjälp av python
 description: Lär dig hur du använder python för att skapa och hantera en virtuell Windows-dator i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1686e86600fb28165ae44e7ca6c0c406dfa26d72
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102486"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065607"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av python
 
@@ -39,14 +39,14 @@ Det tar ungefär 20 minuter att utföra dessa steg.
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
 1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **python-utveckling** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **Python 3 64-bitar (3.6.0)** automatiskt väljs åt dig. Om du redan har installerat Visual Studio kan du lägga till python-arbetsbelastningen med Visual Studio Launcher.
-2. När du har installerat och startat Visual Studio klickar du på **fil** > **nytt** > **projekt**.
-3. Klicka på **mallar** > **python** > **python Application**, ange *myPythonProject* som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.
+2. När du har installerat och startat Visual Studio klickar du på **arkiv** > **nytt** > **projekt**.
+3. Klicka på **mallar** > **python** > **python-program**, ange *myPythonProject* som namn på projektet, Välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-packages"></a>Installera paket
 
 1. I Solution Explorer, under *myPythonProject*, högerklickar du på **python-miljöer**och väljer sedan **Lägg till virtuell miljö**.
 2. På skärmen Lägg till virtuell miljö godkänner du standard namnet på *Kuvert*, kontrollerar att *Python 3,6 (64-bit)* har valts för bas tolken och klickar sedan på **skapa**.
-3. Högerklicka på den miljö miljö som du har skapat, klicka på **Installera python-paket**, ange *Azure* i rutan Sök och tryck sedan på RETUR.
+3. Högerklicka *på den miljö* miljö som du har skapat, klicka på **Installera python-paket**, ange *Azure* i rutan Sök och tryck sedan på RETUR.
 
 Du bör se i utdata-Fönstren att Azure-paketen har installerats. 
 
@@ -439,7 +439,7 @@ Du kan stoppa en virtuell dator och behålla alla inställningar, men fortsätta
         compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
     ```
 
-    Om du vill frigöra den virtuella datorn ändrar du power_off-anropet till den här koden:
+    Om du vill frigöra den virtuella datorn ändrar du power_off anrop till den här koden:
 
     ```python
     compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)

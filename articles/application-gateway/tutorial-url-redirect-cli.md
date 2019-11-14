@@ -1,25 +1,26 @@
 ---
-title: Självstudie – Skapa en programgateway med webbadressbaserad omdirigering – Azure CLI
+title: 'Självstudie: URL-sökväg baserad omdirigering med CLI'
+titleSuffix: Azure Application Gateway
 description: I den här självstudien lär du dig hur du skapar en programgateway med webbadressbaserad omdirigering av trafiken i Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 7/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315942"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074428"
 ---
-# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudier: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
+# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudie: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
 
 Du kan använda Azure CLI till att konfigurera [webbadressbaserade routningsregler](tutorial-url-route-cli.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -283,7 +284,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` `http://40.121.222.19:8081/images/test.htm`, ,eller.`http://40.121.222.19:8080/video/test.htm`
+Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Som, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`eller `http://40.121.222.19:8081/images/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -295,15 +296,15 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/images/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
+Ändra URL: en till http://&lt;IP-adress&gt;: 8080/images/test.html, ersätta din IP-adress för &lt;IP-adress&gt;och du bör se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/video/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
+Ändra URL: en till http://&lt;IP-adress&gt;: 8080/video/test.html, ersätta din IP-adress för &lt;IP-adress&gt;och du bör se något som liknar följande exempel:
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Ändra nu URL: en till http://&lt;IP-address&gt;: 8081/images/test.htm, Ersätt IP-adressen för &lt;IP-adress&gt;och du bör se trafik som omdirigeras tillbaka till avbildningens backend-pool på http://&lt;IP-adress&gt;: 8080/images.
+Ändra nu URL: en till http://&lt;IP-adress&gt;: 8081/images/test.htm, Ersätt din IP-adress för &lt;IP-adress&gt;, och du bör se trafik som omdirigeras tillbaka till avbildningens backend-pool på http://&lt;IP-adress&gt;: 8080/images.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

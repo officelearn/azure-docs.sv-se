@@ -1,5 +1,5 @@
 ---
-title: Exportera Azure-resurs grupper som innehåller VM-tillägg | Microsoft Docs
+title: Exportera Azure-resurs grupper som innehåller VM-tillägg
 description: Exportera Resource Manager-mallar som innehåller tillägg för virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169058"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073131"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportera resurs grupper som innehåller VM-tillägg
 
@@ -78,7 +78,7 @@ När resurs gruppen har exporter ATS skapas en enskild mallparameter för att ti
 
 Eftersom varje skyddad inställning har en uppsättning obligatoriska egenskaper måste en lista över dessa egenskaper samlas in. Varje parameter i konfigurationen för skyddade inställningar finns i [Azure Resource Manager schema på GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Det här schemat innehåller bara parameter uppsättningar för de tillägg som anges i översikts avsnittet i det här dokumentet. 
 
-I lagrings platsen för schemat söker du efter det önskade tillägget, i det `IaaSDiagnostics`här exemplet. När objektet Extensions `protectedSettings` har hittats noterar du varje parameter. I exemplet på `IaasDiagnostic` tillägget är `storageAccountName`Kräv parametrar, `storageAccountKey`och `storageAccountEndPoint`.
+I lagrings platsen för schemat söker du efter det önskade tillägget, i det här exemplet `IaaSDiagnostics`. När tilläggen `protectedSettings` objekt har hittats noterar du varje parameter. I exemplet på `IaasDiagnostic`-tillägget är obligatoriska parametrar `storageAccountName`, `storageAccountKey`och `storageAccountEndPoint`.
 
 ```json
 "protectedSettings": {
@@ -104,9 +104,9 @@ I lagrings platsen för schemat söker du efter det önskade tillägget, i det `
 
 ### <a name="step-3---re-create-the-protected-configuration"></a>Steg 3 – återskapa den skyddade konfigurationen
 
-I den exporterade mallen söker du `protectedSettings` efter och ersätter objektet exporterat skyddat objekt med en ny som innehåller nödvändiga tilläggs parametrar och ett värde för var och en.
+I den exporterade mallen söker du efter `protectedSettings` och ersätter objektet exporterad skyddad inställning med en ny som innehåller nödvändiga tilläggs parametrar och ett värde för var och en.
 
-I exemplet på `IaasDiagnostic` tillägget skulle den nya skyddade inställnings konfigurationen se ut som i följande exempel:
+I exemplet på `IaasDiagnostic`-tillägget skulle den nya skyddade inställnings konfigurationen se ut som i följande exempel:
 
 ```json
 "protectedSettings": {
@@ -148,9 +148,9 @@ Den sista tilläggs resursen ser ut ungefär som följande JSON-exempel:
 }
 ```
 
-Om du använder mallparametrar för att ange egenskaps värden måste du skapa dem. När du skapar mallparametrar för skyddade inställnings värden ska du se till att `SecureString` använda parameter typen så att känsliga värden skyddas. Mer information om hur du använder parametrar finns i [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
+Om du använder mallparametrar för att ange egenskaps värden måste du skapa dem. När du skapar mallparametrar för skyddade inställnings värden ska du se till att använda `SecureString` parameter typ så att känsliga värden skyddas. Mer information om hur du använder parametrar finns i [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
 
-I exemplet för `IaasDiagnostic` tillägget skapas följande parametrar i avsnittet parametrar i Resource Manager-mallen.
+I exemplet på `IaasDiagnostic`-tillägget skapas följande parametrar i avsnittet parametrar i Resource Manager-mallen.
 
 ```json
 "storageAccountName": {

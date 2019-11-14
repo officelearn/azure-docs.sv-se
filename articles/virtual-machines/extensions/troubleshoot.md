@@ -1,5 +1,5 @@
 ---
-title: Fel sökning av problem med Windows VM-tillägg | Microsoft Docs
+title: Fel sökning av problem med Windows VM-tillägg
 description: Lär dig mer om fel sökning av problem med Azure Windows VM-tillägg
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 6108b3c8d4f4c5c93bc2543042294bc8167d4dd9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084298"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073657"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Felsöka problem med Azure Windows VM-tillägg
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -61,7 +61,7 @@ Här är exempel på utdata:
 ## <a name="troubleshooting-extension-failures"></a>Felsöka tilläggs fel
 ### <a name="rerun-the-extension-on-the-vm"></a>Kör tillägget på den virtuella datorn igen
 Om du kör skript på den virtuella datorn med ett anpassat skript tillägg kan du ibland stöta på ett fel där den virtuella datorn skapades men skriptet har misslyckats. Under dessa förhållanden är det rekommenderade sättet att återställa från det här felet att ta bort tillägget och köra mallen igen.
-Obs! I framtiden skulle den här funktionen förbättras för att ta bort behovet av att avinstallera tillägget.
+Obs! i framtiden skulle den här funktionen förbättras för att ta bort behovet av att avinstallera tillägget.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Ta bort tillägget från Azure PowerShell
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"

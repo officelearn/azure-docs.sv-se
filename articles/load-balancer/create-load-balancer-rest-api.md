@@ -1,7 +1,7 @@
 ---
-title: Skapa en Azure Load Balancer med REST API
-titlesuffix: Azure Load Balancer
-description: Lär dig hur du skapar en Azure-belastningsutjämnare med hjälp av REST API.
+title: Skapa en belastningsutjämnare med hjälp av REST API
+titleSuffix: Azure Load Balancer
+description: I den här artikeln får du lära dig hur du skapar en Azure Load Balancer med hjälp av REST API.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275544"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077080"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Skapa en Azure belastningsutjämnare med hjälp av REST API
 
-En Azure Load Balancer distribuerar nya inkommande flöden som inkommer till belastningsutjämnarens klientdel till backend-poolen instanser, enligt regler och hälsokontroller av slutpunkter. Load Balancer finns i två SKU: er: Basic och Standard. Förstå skillnaden mellan de två versionerna av SKU [Load Balancers SKU jämförelser](load-balancer-overview.md#skus).
+En Azure Load Balancer distribuerar nya inkommande flöden som inkommer till belastningsutjämnarens klientdel till backend-poolen instanser, enligt regler och hälsokontroller av slutpunkter. Belastningsutjämnaren är tillgänglig i två SKU: er: Basic och Standard. Förstå skillnaden mellan de två versionerna av SKU [Load Balancers SKU jämförelser](load-balancer-overview.md#skus).
  
 Den här anvisningen visar hur du skapar en Azure belastningsutjämnare med hjälp av [Azure REST API](/rest/api/azure/) för att läsa in belastningsutjämna inkommande begäran mellan flera virtuella datorer inom en Azure-nätverk. Fullständig referensdokumentation och ytterligare exempel finns i den [Azure Load Balancer REST-referens för](/rest/api/load-balancer/).
  
@@ -35,10 +35,10 @@ Använd följande HTTP PUT-begäran för att skapa en ny Azure belastningsutjäm
 
 |Namn  |I  |Krävs |Typ |Beskrivning |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   string      |  Autentiseringsuppgifterna för prenumerationen som unikt identifierar Microsoft Azure-prenumeration. Prenumerations-ID utgör en del av URI: N för varje tjänstanrop.      |
-|resourceGroupName     |     path    | True        |  string       |   Namnet på resursgruppen.     |
-|loadBalancerName     |  path       |      True   |    string     |    Namnet på belastningsutjämnaren.    |
-|api-version    |   query     |  True       |     string    |  API-klientversionen.      |
+|subscriptionId   |  path       |  True       |   sträng      |  Autentiseringsuppgifterna för prenumerationen som unikt identifierar Microsoft Azure-prenumeration. Prenumerations-ID utgör en del av URI: N för varje tjänstanrop.      |
+|resourceGroupName     |     path    | True        |  sträng       |   Namnet på resursgruppen.     |
+|loadBalancerName     |  path       |      True   |    sträng     |    Namnet på belastningsutjämnaren.    |
+|api-version    |   DocumentDB     |  True       |     sträng    |  API-klientversionen.      |
 
 
 
@@ -48,10 +48,10 @@ Den enda obligatoriska parametern är `location`. Om du inte definierar den *SKU
 
 | Namn | Typ | Beskrivning |
 | :--- | :--- | :---------- |
-| location | string | Resursplats. Hämta en aktuell lista över platser med hjälp av den [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) igen. |
+| location | sträng | Resursplats. Hämta en aktuell lista över platser med hjälp av den [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) igen. |
 
 
-## <a name="example-create-and-update-a-basic-load-balancer"></a>Exempel: Skapa och uppdatera en grundläggande Load Balancer
+## <a name="example-create-and-update-a-basic-load-balancer"></a>Exempel: Skapa och uppdatera en grundläggande belastningsutjämnare
 
 I det här exemplet skapar du först en grundläggande belastningsutjämnare tillsammans med dess resurser. Därefter konfigurerar du belastningsutjämningsresurserna som innehåller en klientdels-IP-konfiguration, en backend-adresspool, en belastningsutjämningsregel, en hälsoavsökning, och en inkommande NAT-regel.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 356eab6122272162f20e1516a9ef7f4ea0127084
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049059"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068900"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala data källor från Azure Logic Apps
 
@@ -27,9 +27,9 @@ Den här artikeln visar hur du skapar en Azure gateway-resurs för en tidigare [
 
 Information om hur du använder gatewayen med andra tjänster finns i följande artiklar:
 
-* [Microsoft Power BI lokal datagateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Automatisera automatisk lokal datagateway](/power-automate/gateway-reference)
-* [Microsoft Power Apps lokal datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Power automatisering av lokal datagateway](/power-automate/gateway-reference)
+* [Microsoft Power BI lokal datagateway](/power-bi/service-gateway-onprem)
+* [Microsoft Power Apps lokal datagateway](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services lokal datagateway](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>

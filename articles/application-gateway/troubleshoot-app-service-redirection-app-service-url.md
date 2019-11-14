@@ -1,18 +1,19 @@
 ---
-title: Felsöka Azure Application Gateway med App Service – omdirigering till App Service-URL
+title: Felsöka omdirigering till App Service-URL
+titleSuffix: Azure Application Gateway
 description: Den här artikeln innehåller information om hur du felsöker problemet vid omdirigering när Azure Application Gateway används med Azure App Service
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ef2bbf8804e96a3e25f053d189c6d85bfa845b0b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833178"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074480"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Felsöka App Service problem i Application Gateway
 

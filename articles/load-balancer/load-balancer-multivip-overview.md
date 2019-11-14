@@ -1,10 +1,9 @@
 ---
-title: Flera klient delar för Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Översikt över flera klient delar på Azure Load Balancer
+title: Flera klient delar – Azure Load Balancer
+description: Med den här utbildnings vägen kan du komma igång med en översikt över flera klient delar på Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: chkuhtz
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
-ms.author: chkuhtz
-ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: allensu
+ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884214"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075953"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klient delar för Azure Load Balancer
 
@@ -30,7 +29,7 @@ När du definierar en Azure Load Balancer är en klient del och en konfiguration
 
 Följande tabell innehåller några exempel på konfiguration av frontend:
 
-| Klientdel | IP-adress | protocol | port |
+| Delen | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -48,13 +47,13 @@ Med Azure Load Balancer kan du blanda båda regel typerna på samma belastnings 
 
 Vi utforskar dessa scenarier ytterligare genom att börja med standard beteendet.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Regel typ #1: Ingen åter användning av backend-portar
+## <a name="rule-type-1-no-backend-port-reuse"></a>Regel typ #1: ingen server dels port åter användning
 
 ![Bild av flera klient delar med grön och lila frontend](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
 I det här scenariot konfigureras klient dels inställningarna på följande sätt:
 
-| Klientdel | IP-adress | protocol | port |
+| Delen | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | ![grön frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![lila klient del](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -70,7 +69,7 @@ Vi definierar två regler:
 
 Den fullständiga mappningen i Azure Load Balancer är nu enligt följande:
 
-| Regel | Klientdelens ip-adress | protocol | port | Mål | port |
+| Regel | IP-adress för klient del | protocol | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP-IP-adress |80 |
 | ![lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP-IP-adress |81 |
@@ -104,21 +103,21 @@ För det här scenariot har varje virtuell dator i backend-poolen tre nätverks 
 
 Vi antar samma konfiguration för klient delen som i föregående scenario:
 
-| Klientdel | IP-adress | protocol | port |
+| Delen | IP-adress | protocol | port |
 | --- | --- | --- | --- |
 | ![grön frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![lila klient del](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
 
 Vi definierar två regler:
 
-| Regel | Klientdel | Mappa till backend-pool |
+| Regel | Delen | Mappa till backend-pool |
 | --- | --- | --- |
 | 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (i VM1 och VM2) |
 | 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (i VM1 och VM2) |
 
 I följande tabell visas en fullständig mappning i belastningsutjämnaren:
 
-| Regel | Klientdelens ip-adress | protocol | port | Mål | port |
+| Regel | IP-adress för klient del | protocol | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |samma som klient del (65.52.0.1) |samma som klient del (80) |
 | ![lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |samma som klient del (65.52.0.2) |samma som klient del (80) |

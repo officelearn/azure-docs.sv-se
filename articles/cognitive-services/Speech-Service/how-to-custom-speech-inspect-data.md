@@ -1,7 +1,7 @@
 ---
 title: Granska data kvaliteten för Custom Speech tal-tjänsten
 titleSuffix: Azure Cognitive Services
-description: Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Från Custom Speech-portalen kan du spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt.  Med det här verktyget kan du snabbt kontrol lera kvaliteten på vår bas linje för tal-till-text-modellen eller en utbildad anpassad modell utan att behöva skriva om ljud data.
+description: Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Du kan spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b5f064204c5bca35ccb1a628cb06978180c318c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: cf0deffb6fe484f7e3ee38b95f285bb4b7cc809c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801472"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072565"
 ---
 # <a name="inspect-custom-speech-data"></a>Granska Custom Speech data
 
@@ -43,18 +43,18 @@ När du har skapat ett test kan du jämföra modellerna sida vid sida.
 
 ## <a name="side-by-side-model-comparisons"></a>Jämförelser av modeller sida vid sida
 
-När test status är *klar*klickar du på test objekt namnet för att se information om testet. Den här informations sidan visar en lista över alla yttranden i din data uppsättning, vilket anger tolknings resultatet för de två modellerna jämte avskriften från den skickade data mängden.
+När test status är _klar_klickar du på test objekt namnet för att se information om testet. Den här informations sidan visar en lista över alla yttranden i din data uppsättning, vilket anger tolknings resultatet för de två modellerna jämte avskriften från den skickade data mängden.
 
 För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan olika typer av fel, inklusive infogning, borttagning och ersättning. Genom att lyssna på ljudet och jämföra igenkännings resultaten i varje kolumn (med mänsklig avskrift och resultatet av två tal till text-modeller) kan du bestämma vilken modell som uppfyller dina behov och var förbättringar behövs.
 
-Att kontrol lera kvalitets testning är användbart för att verifiera om kvaliteten på en slut punkt för tal igenkänning är tillräckligt för ett program.  Om du vill ha ett objektivt mått på precision, som kräver uppmätta ljud, följer du anvisningarna i [utvärdera noggrannhet](how-to-custom-speech-evaluate-data.md).
+Att kontrol lera kvalitets testning är användbart för att verifiera om kvaliteten på en slut punkt för tal igenkänning är tillräckligt för ett program. Om du vill ha ett objektivt mått på precision, som kräver uppmätta ljud, följer du anvisningarna i [utvärdera noggrannhet](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
-* [Träna din modell](how-to-custom-speech-train-model.md)
-* [Distribuera din modell](how-to-custom-speech-deploy-model.md)
+- [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
+- [Träna din modell](how-to-custom-speech-train-model.md)
+- [Distribuera din modell](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Förbered test data för Custom Speech](how-to-custom-speech-test-data.md)
+- [Förbered test data för Custom Speech](how-to-custom-speech-test-data.md)

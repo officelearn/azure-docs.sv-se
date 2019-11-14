@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 8aeef72c23f3ed40a7f187c976c67c2ae117189a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958483"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069634"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Tjänster med hög tillgänglighet som stöds av Azure HDInsight
 
@@ -123,7 +123,7 @@ Det andra Zookeeper-kvorumet är oberoende av det första kvorumet, så den akti
 
 HDInsight-kluster baserade på Apache Hadoop 2,4 eller högre, stöder garn-ResourceManager med hög tillgänglighet. Det finns två ResourceManagers, RM1 och RM2, som körs på huvudnoden 0 respektive huvudnoden 1. Som NameNode konfigureras garn ResourceManager också för automatisk redundans. En annan resurs hanteraren väljs automatiskt som aktiv när den aktuella aktiva ResourceManager stängs av eller slutar fungera.
 
-GARN resurs hanteraren använder sin inbäddade *ActiveStandbyElector* som en feldetektor och en val av ledare. Till skillnad från HDFS NodeManager behöver inte garn resurs hanteraren en separat ZKFC-daemon. Den aktiva ResourceManager skriver sina tillstånd till Apache Zookeeper.
+GARN resurs hanteraren använder sin inbäddade *ActiveStandbyElector* som en feldetektor och en val av ledare. Till skillnad från HDFS NameNode behöver inte garn resurs hanteraren en separat ZKFC-daemon. Den aktiva ResourceManager skriver sina tillstånd till Apache Zookeeper.
 
 Den höga tillgängligheten för garn resurs hanteraren är oberoende av NameNode och andra HDInsight-tjänster. Den aktiva ResourceManager kanske inte körs på den aktiva huvudnoden eller huvudnoden där den aktiva NameNode körs. Mer information om garn resurs hanteraren med hög tillgänglighet finns i [resurs hanteraren hög tillgänglighet](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 

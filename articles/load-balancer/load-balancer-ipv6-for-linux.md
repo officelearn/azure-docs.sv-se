@@ -1,7 +1,7 @@
 ---
 title: Konfigurera DHCPv6 för virtuella Linux-datorer
 titlesuffix: Azure Load Balancer
-description: Så här konfigurerar du DHCPv6 för virtuella Linux-datorer.
+description: I den här artikeln lär du dig hur du konfigurerar DHCPv6 för virtuella Linux-datorer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
-ms.openlocfilehash: 3e987b6718ead6b7014ec302d1a186dabef11126
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1eea6d71b06bac47dcc4fdca9302ee937e0fd54d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274919"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077041"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
 
@@ -64,7 +64,7 @@ Inkludera en *dhcp6: true* -instruktion för varje Ethernet-gränssnitt i konfig
             eno1:
               dhcp6: true
 
-Under tidig start skriver netplan "Network renderare"-konfigurationen till/Run för att kunna lämna kontroll över enheter till den angivna Network daemonen för att få referensinformation om netplan https://netplan.io/reference, se.
+Under tidig start skriver netplan "Network renderare"-konfigurationen till/Run för att kunna lämna kontroll över enheter till den angivna Network daemonen för att se om det finns mer information om netplan i https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor beroende virtuell dators tillägg för Windows | Microsoft Docs
+title: Azure Monitor beroende virtuell dators tillägg för Windows
 description: Distribuera den Azure Monitor beroende agenten på en virtuell Windows-dator med hjälp av ett tillägg för virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b2a86ffab0286559cfcce89252c889c530f00871
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750112"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073267"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Azure Monitor beroende virtuell dators tillägg för Windows
 
-Azure Monitor for VMs Map-funktionen hämtar data från Microsoft-beroende agenten. Tillägget för virtuell dator i Azure VM-beroende agent för Windows publiceras och stöds av Microsoft. Tillägget installerar beroende agenten på virtuella Azure-datorer. Det här dokumentet innehåller information om de plattformar, konfigurationer och distributions alternativ som stöds för Azure VM-beroende agents tillägg för virtuell dator för Windows.
+I Azure Monitor för virtuella datorer kartan funktionen hämtar data från Microsoft Dependency agenten. Tillägget för virtuell dator i Azure VM-beroende agent för Windows publiceras och stöds av Microsoft. Tillägget installerar beroende agenten på virtuella Azure-datorer. Det här dokumentet innehåller information om de plattformar, konfigurationer och distributions alternativ som stöds för Azure VM-beroende agents tillägg för virtuell dator för Windows.
 
 ## <a name="operating-system"></a>Operativsystem
 
@@ -69,12 +69,12 @@ Följande JSON visar schemat för tillägget Azure VM Dependency agent på en vi
 }
 ```
 
-### <a name="property-values"></a>Egenskaps värden
+### <a name="property-values"></a>Egenskapsvärden
 
 | Namn | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| Förläggare | Microsoft. Azure. Monitoring. DependencyAgent |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | typ | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
@@ -82,7 +82,7 @@ Följande JSON visar schemat för tillägget Azure VM Dependency agent på en vi
 
 Du kan distribuera virtuella Azure-tillägg med Azure Resource Manager mallar. Du kan använda JSON-schemat som beskrivs i föregående avsnitt i en Azure Resource Manager mall för att köra tillägget Azure VM-beroende agent under en Azure Resource Manager mall-distribution.
 
-JSON för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen. Eller så kan du placera den på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/child-resource-name-type.md).
+JSON för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen. Eller så kan du placera den på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resurs namn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/child-resource-name-type.md).
 
 I följande exempel förutsätts att tillägget för beroende agent är kapslat i den virtuella dator resursen. När du kapslar in tilläggs resursen placeras JSON i `"resources": []`-objektet på den virtuella datorn.
 
@@ -140,7 +140,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>Felsöka och support
+## <a name="troubleshoot-and-support"></a>Felsökning och support
 
 ### <a name="troubleshoot"></a>Felsöka
 
@@ -158,4 +158,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

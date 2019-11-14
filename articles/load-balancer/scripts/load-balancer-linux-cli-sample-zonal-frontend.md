@@ -1,12 +1,10 @@
 ---
-title: CLI-exempel – Virtuella datorer med lastbalanserare i en zon – Azure | Microsoft Docs
+title: Belastningsutjämna virtuella datorer inom en zon – Azure CLI
 description: Det här CLI-skriptexemplet visar hur du belastningsutjämnar trafik till virtuella datorer inom en specifik tillgänglighetszon
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
+manager: kumudD
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
@@ -16,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 29671283a1ef2906e03685a59d62ccc13c1307fe
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c99e232243e95d3aa0a85e09c2534973114e28ea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273741"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068768"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exempel för Azure CLI-skript: Belastningsutjämna trafik till virtuella datorer för hög tillgänglighet
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exempel på Azure CLI-skript: belastnings Utjämnings trafik till virtuella datorer i en bestämd tillgänglighets zon
 
 Det här Azure CLI-skriptexemplet skapar allt som behövs för att köra flera virtuella Ubuntu-datorer, konfigurerade med hög tillgänglighet och belastningsutjämning inom en specifik tillgänglighetszon. När du har kört skriptet har du tre virtuella datorer i en enda tillgänglighetszon inom ett område som kan nås via en Azure Standard Load Balancer. 
 

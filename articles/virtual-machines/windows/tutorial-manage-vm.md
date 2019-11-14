@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell | Microsoft Docs
+title: Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell
 description: I den här självstudien lär du dig hur du använder Azure PowerShell för att skapa och hantera virtuella Windows-datorer i Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101577"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067813"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Självstudier: Skapa och hantera virtuella Windows-datorer med Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Självstudie: skapa och hantera virtuella Windows-datorer med Azure PowerShell
 
 Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel datormiljö. I den här självstudien beskrivs de grundläggande distributionsuppgifterna för virtuella Azure-datorer, till exempel att välja en VM-storlek, välja en VM-avbildning och distribuera en virtuell dator. Lär dig att:
 
@@ -51,7 +51,7 @@ New-AzResourceGroup `
    -Location "EastUS"
 ```
 
-Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i hela den här självstudien.
+Resursgruppen som anges när du skapar eller ändrar en VM visas i hela den här självstudien.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -77,7 +77,7 @@ New-AzVm `
     -Credential $cred
 ```
 
-## <a name="connect-to-vm"></a>Ansluta till virtuell dator
+## <a name="connect-to-vm"></a>Ansluta till VM
 
 När distributionen har slutförts kan du skapa en fjärrskrivbordsanslutning med den virtuella datorn.
 
@@ -180,7 +180,7 @@ Storleken på den virtuella datorn avgör hur mycket beräkningsresurser (t.ex. 
 
 I följande tabell kategoriseras storlekarna i användningsfall.  
 
-| type                     | Normala storlekar           |    Beskrivning       |
+| Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
@@ -236,7 +236,7 @@ Start-AzVM `
    -Name $vm.name
 ```
 
-## <a name="vm-power-states"></a>Energinivåer för VM
+## <a name="vm-power-states"></a>Energisparlägen för VM
 
 En virtuell Azure-dator kan ha en av många energinivåer. 
 
@@ -245,7 +245,7 @@ En virtuell Azure-dator kan ha en av många energinivåer.
 |----|----|
 | Startar | Den virtuella datorn startas. |
 | Körs | Den virtuella datorn körs. |
-| Stoppar | Den virtuella datorn stoppas. |
+| Stoppas | Den virtuella datorn stoppas. |
 | Stoppad | Den virtuella datorn har stoppats. Virtuella datorer i ett stoppat tillstånd kan fortfarande medföra debitering.  |
 | Frigör | Den virtuella datorn frigörs. |
 | Frigjord | Anger att den virtuella datorn är frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanet. Virtuella datorer med tillståndet `Deallocated` medför inte några debiteringar. |
@@ -269,7 +269,7 @@ Status
 PowerState/running
 ```
 
-## <a name="management-tasks"></a>Hanteringsuppgifter
+## <a name="management-tasks"></a>Administrativa uppgifter
 
 Under livscykeln för en virtuell dator kan du köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa skript för att automatisera repetitiva och komplicerade uppgifter. Med hjälp av Azure PowerShell kan många vanliga administrativa uppgifter köras från kommandoraden eller i skript.
 

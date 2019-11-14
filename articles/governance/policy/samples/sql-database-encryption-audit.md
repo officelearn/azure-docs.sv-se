@@ -1,17 +1,14 @@
 ---
 title: Exempel – granska transparent data kryptering på SQL
 description: Den här exempelprincipdefinitionen granskar om transparent datakryptering inte är aktiverat för SQL-databasen.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 4027ad28b6589872dd2f52961710c4db95a257e7
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 60f617445c33de524cf71b0c81514bf93b3592d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254790"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069722"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>Exempel – Granska SQL-databaskryptering
 
@@ -65,4 +62,4 @@ az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel under [Exempel på Azure-princip](index.md)
+- Granska fler exempel på [Azure Policy-exempel](index.md)

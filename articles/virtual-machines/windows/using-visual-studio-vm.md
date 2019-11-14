@@ -1,5 +1,5 @@
 ---
-title: Använda Visual Studio på en virtuell Azure-dator | Microsoft Docs
+title: Använda Visual Studio på en virtuell Azure-dator
 description: Använda Visual Studio på en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 09/24/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 3cdec1bb9d4cb44c4cead6d2d208d661bf5da6ae
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 2879317289b0c828ac580a7df11771b1b4550bd2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971863"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067411"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett snabbt och enkelt sätt att gå från ingenting till en utvecklings miljö som är igång. System avbildningar med olika Visual Studio-konfigurationer är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -35,11 +35,11 @@ Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studi
 
 | Version                                                                                                                                                | Utgåvor              | Produkt version   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: Senaste (version 16,2) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.3.0    |
+| [Visual Studio 2019: senaste (version 16,2)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.3.0    |
 | [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, community | Version 16.0.8    |
-| [Visual Studio 2017: Senaste (version 15,9) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, community | Version 15.9.16   |
+| [Visual Studio 2017: senaste (version 15,9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, community | Version 15.9.16   |
 | [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, community | Version 15.0.25   |
-| [Visual Studio 2015: Senaste (uppdatering 3) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, community | Version 14.0.25431.01 |
+| [Visual Studio 2015: senaste (uppdatering 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, community | Version 14.0.25431.01 |
 
 > [!NOTE]
 > I enlighet med Microsofts Service policy har den ursprungligen publicerade (RTW) versionen av Visual Studio 2015 gått ut för service. Visual Studio 2015 uppdatering 3 är den enda återstående versionen som erbjuds för produkt raden för Visual Studio 2015.
@@ -97,7 +97,7 @@ Mer information finns i [Logga in i Visual Studio](/visualstudio/ide/signing-in-
 
 Spektrumet av utvecklings miljöer är enorma och det finns en verklig kostnad för att bygga ut mer komplexa miljöer. Oavsett din miljös konfiguration kan du spara eller avbilda en konfigurerad virtuell dator som en "bas avbildning" för framtida användning eller för andra medlemmar i din grupp. När du startar en ny virtuell dator kan du sedan etablera den från bas avbildningen i stället för Azure Marketplace-avbildningen.
 
-En snabb sammanfattning: Använd system förberedelse verktyget (Sysprep) och Stäng av den virtuella datorn som körs och avbilda sedan *(bild 1)* den virtuella datorn som en bild via användar gränssnittet i Azure Portal. Azure sparar filen `.vhd` som innehåller avbildningen i det lagrings konto som du väljer. Den nya avbildningen visas sedan som en avbildnings resurs i prenumerationens lista över resurser.
+En snabb sammanfattning: Använd system förberedelse verktyget (Sysprep) och Stäng av den virtuella datorn som körs och avbilda sedan *(bild 1)* den virtuella datorn som en bild via användar gränssnittet i Azure Portal. Azure sparar `.vhd`-filen som innehåller avbildningen i det lagrings konto som du väljer. Den nya avbildningen visas sedan som en avbildnings resurs i prenumerationens lista över resurser.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Bild 1) Avbilda en avbildning via Azure Portal gränssnittet.* </center>
 

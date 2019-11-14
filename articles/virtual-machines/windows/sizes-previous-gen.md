@@ -1,5 +1,5 @@
 ---
-title: Azure Windows VM-storlekar-tidigare generationer | Microsoft Docs
+title: Azure Windows VM-storlekar-tidigare generationer
 description: Visar en lista över tidigare generationer av storlekar som är tillgängliga för virtuella Windows-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 43fecfcdbb381588f0c717b7ca771c23c19f367d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b5d1483082b319c5668fba41a7adfec8ba45d25c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088467"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066157"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 

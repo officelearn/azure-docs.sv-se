@@ -1,11 +1,11 @@
 ---
-title: Använd Azure Load Balancer hälso avsökningar för att skala och tillhandahålla hög tillgänglighet för din tjänst
-titlesuffix: Azure Load Balancer
-description: Lär dig hur du använder hälsoavsökningar för att övervaka instanser bakom belastningsutjämnare
+title: Hälso avsökningar för att skala och tillhandahålla HA för tjänst
+titleSuffix: Azure Load Balancer
+description: I den här artikeln får du lära dig hur du använder hälso avsökningar för att övervaka instanser bakom Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: d9873c4d8d4ca2b74532706f079c7384bf38db42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033821"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077077"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 

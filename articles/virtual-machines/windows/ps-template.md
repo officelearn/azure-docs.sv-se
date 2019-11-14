@@ -1,5 +1,5 @@
 ---
-title: Skapa en virtuell Windows-dator från en mall i Azure | Microsoft Docs
+title: Skapa en virtuell Windows-dator från en mall i Azure
 description: Använd en Resource Manager-mall och PowerShell för att enkelt skapa en ny virtuell Windows-dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e1f50753f155d1583de3a1e8426975e1b0d6aee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 99e292930414ae027c9cbbf3a901d550041899d2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102522"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065554"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en virtuell Windows-dator från en Resource Manager-mall
 
@@ -60,7 +60,7 @@ New-AzResourceGroupDeployment `
 
 Om du väljer att installera och använda PowerShell lokalt i stället för från Azure Cloud Shell, kräver den här självstudien Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-I föregående exempel angav du en mall som lagrats i GitHub. Du kan också hämta eller skapa en mall och ange den lokala sökvägen med `--template-file` parametern.
+I föregående exempel angav du en mall som lagrats i GitHub. Du kan också hämta eller skapa en mall och ange den lokala sökvägen med parametern `--template-file`.
 
 Här följer några ytterligare resurser:
 

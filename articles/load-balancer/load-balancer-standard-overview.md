@@ -1,7 +1,7 @@
 ---
 title: Vad är Azure Standard Load Balancer?
 titlesuffix: Azure Load Balancer
-description: Översikt över Azure Standard Load Balancer-funktioner
+description: Med den här utbildnings vägen kan du komma igång med en översikt över Azure Standard Load Balancer-funktioner.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: allensu
-ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c14cf572410d02892aa8a2b3e9f0f42fce46d411
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274389"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068783"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Översikt över Azure Standard Load Balancer
 
@@ -68,9 +68,9 @@ När du överväger att utforma en backend-pool kan du utforma för det minsta a
   
 Standard Load Balancer lägger till stöd för [https Health PROBE](load-balancer-custom-probe-overview.md#httpprobe) (http-avsökning med Transport Layer Security (TLS)) för att övervaka dina https-program korrekt.  
 
-Dessutom tillåter Standard Load Balancer att alla upprättade [](load-balancer-custom-probe-overview.md#probedown)TCP-anslutningar fortsätter när hela Server delen avavsöks. (Grundläggande Load Balancer avslutar alla TCP-anslutningar till alla instanser).
+Dessutom tillåter Standard Load Balancer att alla upprättade TCP-anslutningar fortsätter när hela Server delen [avavsöks](load-balancer-custom-probe-overview.md#probedown). (Grundläggande Load Balancer avslutar alla TCP-anslutningar till alla instanser).
 
-Granska [Load Balancer hälso](load-balancer-custom-probe-overview.md) avsökningar för mer information.
+Granska [Load Balancer hälso avsökningar](load-balancer-custom-probe-overview.md) för mer information.
 
 ### <a name="az"></a>Tillgänglighetszoner
 
@@ -212,7 +212,7 @@ Standard Load Balancer är för närvarande tillgänglig i alla offentliga moln 
 
 Standard belastnings utjämning är tillgängliga med ett service avtal på 99,99%.  Se [standard load BALANCER SLA](https://aka.ms/lbsla) för mer information.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Standard Load Balancer-användning debiteras.
 
@@ -228,19 +228,19 @@ Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-pri
 - En Load Balancer regel kan inte omfatta två virtuella nätverk.  Frontend-enheter och deras relaterade Server dels instanser måste finnas i samma virtuella nätverk.  
 - [Flytt av prenumerations åtgärder](../azure-resource-manager/resource-group-move-resources.md) stöds inte för standard-SKU: er och pip-resurser.
 - Webb arbets roller utan ett virtuellt nätverk och andra Microsofts plattforms tjänster kan nås när bara en intern Standard Load Balancer används på grund av en sido effekt från hur för-VNet-tjänster och andra plattforms tjänster fungerar. Du måste inte förlita dig på detta eftersom själva själva tjänsten eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa [utgående anslutningar](load-balancer-outbound-connections.md) om du vill när du bara använder en intern standard Load Balancer.
-- Load Balancer är en TCP- eller UDP-produkt för belastningsutjämning och portvidarebefordran för dessa specifika IP-protokoll.  Belastningsutjämningsregler och inkommande NAT-regler stöds för TCP och UDP och stöds inte för andra IP-protokoll, inklusive ICMP. Load Balancer avslutar inte, svarar inte på eller på annat sätt interagerar med nyttolasten för ett UDP- eller TCP-flöde. Det är inte en proxy. Lyckad verifiering av anslutningen till en klient del måste ske i band med samma protokoll som används i en belastnings utjämning eller en inkommande NAT-regel (TCP eller UDP) _och_ minst en av dina virtuella datorer måste generera ett svar för en klient för att se ett svar från en Front-End.  Om du inte tar emot ett in-band-svar från Load Balancer klient delen indikerar det att inga virtuella datorer kunde svara.  Det går inte att interagera med en Load Balancer klient del utan att en virtuell dator kan svara.  Det här gäller även för utgående anslutningar där [portmaskerings-SNAT](load-balancer-outbound-connections.md#snat) bara stöds för TCP och UDP. Alla andra IP-protokoll, inklusive ICMP, kommer att misslyckas.  Tilldela en offentlig IP-adress på instansnivå som åtgärd.
-- Till skillnad från offentliga belastningsutjämnare som tillhandahåller [utgående anslutningar](load-balancer-outbound-connections.md) vid över gång från privata IP-adresser i det virtuella nätverket till offentliga IP-adresser, översätter inte interna belastningsutjämnare inte utgående anslutningar till klient delen för interna Load Balancer som båda finns i privata IP-adressutrymme.  Detta gör det möjligt att använda SNAT-tömning inuti unika interna IP-adressutrymme där ingen översättning krävs.  Sido effekt är att om ett utgående flöde från en virtuell dator i backend-poolen försöker köra ett flöde till klient delen av den interna Load Balancer i vilken pool den finns _och_ som mappas tillbaka till sig själv, kommer båda benen i flödet inte att matcha och flödet kommer att Miss lyckas.  Om flödet inte mappar tillbaka till samma virtuella dator i backend-poolen som skapade flödet till klient delen, lyckas flödet.   När flödet mappar tillbaka till sig själv visas det utgående flödet som härstammar från den virtuella datorn till klient delen och motsvarande inkommande flöde visas som härstammar från den virtuella datorn till sig själv. Från gästoperativsystemets perspektiv matchar inte de inkommande och utgående delarna av samma flöde i den virtuella datorn. TCP-stacken känner inte igen dessa halvor av samma flöde som en del av samma flöde som källan eftersom källan och målet inte matchar.  När flödet mappar till en annan virtuell dator i backend-poolen, matchar de hälften av flödet och den virtuella datorn kan svara på flödet.  Symptomet för det här scenariot är tillfälligt anslutnings-timeout. Det finns flera vanliga lösningar för att på ett tillförlitligt sätt uppnå det här scenariot (ursprungligt flöde från en backend-pool till backend-poolerna respektive interna Load Balancer klient delen) som innehåller antingen infogning av en tredjeparts-Proxy bakom den interna belastningen Balancer eller [använder regler för DSR-format](load-balancer-multivip-overview.md).  Du kan använda en offentlig lastbalanserare som åtgärd men det resulterande scenariot har en fallenhet för [SNAT-överbelastning](load-balancer-outbound-connections.md#snat) och bör undvikas om det inte hanteras noggrant.
+- Load Balancer är en TCP- eller UDP-produkt för belastningsutjämning och portvidarebefordran för dessa specifika IP-protokoll.  Belastningsutjämningsregler och inkommande NAT-regler stöds för TCP och UDP och stöds inte för andra IP-protokoll, inklusive ICMP. Load Balancer avslutar inte, svarar inte på eller på annat sätt interagerar med nyttolasten för ett UDP- eller TCP-flöde. Det är inte en proxy. Lyckad verifiering av anslutningen till en klient del måste ske i band med samma protokoll som används i en belastnings utjämning eller en inkommande NAT-regel (TCP eller UDP) _och_ minst en av dina virtuella datorer måste generera ett svar för en klient för att se ett svar från en klient del.  Om du inte tar emot ett in-band-svar från Load Balancer klient delen indikerar det att inga virtuella datorer kunde svara.  Det går inte att interagera med en Load Balancer klient del utan att en virtuell dator kan svara.  Det här gäller även för utgående anslutningar där [portmaskerings-SNAT](load-balancer-outbound-connections.md#snat) bara stöds för TCP och UDP. Alla andra IP-protokoll, inklusive ICMP, kommer att misslyckas.  Tilldela en offentlig IP-adress på instansnivå som åtgärd.
+- Till skillnad från offentliga belastningsutjämnare som tillhandahåller [utgående anslutningar](load-balancer-outbound-connections.md) vid över gång från privata IP-adresser i det virtuella nätverket till offentliga IP-adresser, översätter inte interna belastningsutjämnare inte utgående, utgående anslutningar till klient delen av en intern Load Balancer som båda finns i privata IP-adressutrymme.  Detta gör det möjligt att använda SNAT-tömning inuti unika interna IP-adressutrymme där ingen översättning krävs.  Sido effekt är att om ett utgående flöde från en virtuell dator i backend-poolen försöker köra ett flöde till klient delen av den interna Load Balancer i vilken pool den finns _och_ som mappas tillbaka till sig själv, kommer båda benen i flödet inte att matcha och flödet kommer att Miss lyckas.  Om flödet inte mappar tillbaka till samma virtuella dator i backend-poolen som skapade flödet till klient delen, lyckas flödet.   När flödet mappar tillbaka till sig själv visas det utgående flödet som härstammar från den virtuella datorn till klient delen och motsvarande inkommande flöde visas som härstammar från den virtuella datorn till sig själv. Från gästoperativsystemets perspektiv matchar inte de inkommande och utgående delarna av samma flöde i den virtuella datorn. TCP-stacken känner inte igen dessa halvor av samma flöde som en del av samma flöde som källan eftersom källan och målet inte matchar.  När flödet mappar till en annan virtuell dator i backend-poolen, matchar de hälften av flödet och den virtuella datorn kan svara på flödet.  Symptomet för det här scenariot är tillfälligt anslutnings-timeout. Det finns flera vanliga lösningar för att på ett tillförlitligt sätt uppnå det här scenariot (ursprungligt flöde från en backend-pool till backend-poolerna respektive interna Load Balancer klient delen) som innehåller antingen infogning av en tredjeparts-Proxy bakom den interna Load Balancer eller [med hjälp av DSR-stil regler](load-balancer-multivip-overview.md).  Du kan använda en offentlig lastbalanserare som åtgärd men det resulterande scenariot har en fallenhet för [SNAT-överbelastning](load-balancer-outbound-connections.md#snat) och bör undvikas om det inte hanteras noggrant.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om att använda [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
-- Läs mer om [hälso](load-balancer-custom-probe-overview.md)avsökningar.
+- Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
 - Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md).
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Lär dig mer om [flerdimensionella mått som stöds](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) för diagnostik i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
 - Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).
-- Läs mer om [TCP-återställning vid](load-balancer-tcp-reset.md)inaktivitet.
+- Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).
 - Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).
 - Lär dig mer om att använda [Load Balancer med flera klient](load-balancer-multivip-overview.md)delar.
 - Lär dig mer om [virtuella nätverk](../virtual-network/virtual-networks-overview.md).

@@ -1,17 +1,14 @@
 ---
 title: Exempel – framtvinga tagg och värde i resurs grupper
 description: Den här exempelprincipdefinitionen kräver en tagg och ett värde i en resursgrupp.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/31/2019
-ms.author: dacoulte
-ms.openlocfilehash: 5f4af5ee88ad491e7864e82afc337801e47f2204
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255771"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076280"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exempel – Lägg till tagg och dess värde i resursgrupper
 
@@ -22,7 +19,7 @@ Du kan distribuera det här exemplet med hjälp av:
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure CLI](#azure-cli)
-- [REST API](#rest-api)
+- [REST-API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,8 +48,8 @@ Det JSON som definierar principparametrarna, som används av Azure CLI och Azure
 
 |Namn |Typ |Fält |Beskrivning |
 |---|---|---|---|
-|tagName |Sträng |tags |Namnet på taggen, till exempel costCenter (kostnadsställe)|
-|tagValue |Sträng |tags |Taggens värde, till exempel headquarter (huvudkontor)|
+|tagName |Sträng |taggar |Namnet på taggen, till exempel costCenter (kostnadsställe)|
+|tagValue |Sträng |taggar |Taggens värde, till exempel headquarter (huvudkontor)|
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.
@@ -70,10 +67,10 @@ I den här exempelparametern definieras _tagName_ **costCenter** och _tagValue_ 
 }
 ```
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
-[![Deploy till azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
-[![Deploy princip exemplet till Azure gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![distribuera princip exemplet till azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![distribuera princip exemplet till Azure gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -109,7 +106,7 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 ### <a name="azure-powershell-explanation"></a>Azure PowerShell-förklaring
 
-Skripten för distribution och borttagning använder följande kommandon. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
+Skripten för distribution och borttagning använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|

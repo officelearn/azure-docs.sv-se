@@ -114,6 +114,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Vidarekoppla Key Vault-meddelanden med Event Grid
       href: event-grid-tutorial.md
+    - name: Integrera med Azure Policy
+      href: azure-policy.md
     - name: Azure Key Vault-loggning
       href: key-vault-logging.md
     - name: Åtkomst bakom brandväggar

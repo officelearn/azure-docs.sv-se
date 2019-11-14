@@ -482,6 +482,8 @@
               href: service-fabric-tutorial-deploy-api-management.md
             - name: Hantera programhemligheter
               href: service-fabric-application-secret-management.md
+            - name: Använda Service Fabric-lager för hemligheter
+              href: service-fabric-application-secret-store.md
               items:
                 - name: Konfigurera ett krypteringscertifikat och kryptera hemligheter på Windows
                   href: service-fabric-application-secret-management-windows.md

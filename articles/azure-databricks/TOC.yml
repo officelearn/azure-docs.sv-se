@@ -856,11 +856,20 @@
             - name: Spårningsöversikt
               href: /azure/databricks/applications/mlflow/tracking
               maintainContext: true
-            - name: Exempel på MLflow-spårning
-              href: /azure/databricks/applications/mlflow/  tracking-examples
+            - name: Träna en scikit-learn-modell
+              href: /azure/databricks/applications/mlflow/tracking-ex-scikit
+              maintainContext: true
+            - name: Träna PyTorch-modell
+              href: /azure/databricks/applications/mlflow/tracking-ex-pytorch
+              maintainContext: true
+            - name: Träna en PySpark-modell och spara i MLeap-format
+              href: /azure/databricks/applications/mlflow/tracking-ex-pyspark
+              maintainContext: true
+            - name: Spåra ML-modellträningsdata med Delta Lake
+              href: /azure/databricks/applications/mlflow/tracking-ex-delta
               maintainContext: true
             - name: Få tillgång till spårning externt
-              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
         - name: 'Spara, läsa in och distribuera modeller'
           items:
@@ -911,6 +920,9 @@
             - name: Tumor/normal pipeline
               href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
               maintainContext: true
+            - name: Varianter på anteckningar med Pipe Tansformer
+              href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
+              maintainContext: true
             - name: Varianter på anteckningsmetoder
               href: /azure/databricks/applications/genomics/secondary/annotate-variants
               maintainContext: true
@@ -920,26 +932,6 @@
             - name: Vep-pipeline
               href: /azure/databricks/applications/genomics/secondary/vep-pipeline
               maintainContext: true
-        - name: ETL
-          items:
-            - name: Översikt över Genomics ETL
-              href: /azure/databricks/applications/genomics/etl/index
-              maintainContext: true
-            - name: Variant-IO med Apache Spark SQL
-              href: /azure/databricks/applications/genomics/etl/variant-data
-              maintainContext: true
-            - name: Skapa Genomics Delta Lake
-              href: /azure/databricks/applications/genomics/etl/vcf2delta
-              maintainContext: true
-            - name: Variant på kvalitetskontroll
-              href: /azure/databricks/applications/genomics/etl/variant-qc
-              maintainContext: true
-            - name: Exempel på kvalitetskontroll
-              href: /azure/databricks/applications/genomics/etl/sample-qc
-              maintainContext: true
-            - name: Lyft över
-              href: /azure/databricks/applications/genomics/etl/lift-over
-              maintainContext: true
         - name: Tertiär analys
           items:
             - name: Översikt över tertiär analys
@@ -947,18 +939,6 @@
               maintainContext: true
             - name: Gemensam genotyp-pipeline
               href: /azure/databricks/applications/genomics/tertiary/joint-genotyping-pipeline
-              maintainContext: true
-            - name: Parallellisera kommandoradsverktyg med Pipe-transformator
-              href: /azure/databricks/applications/genomics/tertiary/pipe-transformer
-              maintainContext: true
-            - name: Normalisering av variant
-              href: /azure/databricks/applications/genomics/tertiary/variant-normalization
-              maintainContext: true
-            - name: Regressionstester
-              href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: Bibliotek för Python-statistik
-              href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
             - name: SAIGE
               href: /azure/databricks/applications/genomics/tertiary/saige
@@ -1228,7 +1208,10 @@
               maintainContext: true
             - name: Det gick inte att identifiera kodning i JSON
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true j
+              maintainContext: true
+            - name: Det gick inte att läsa filer i WASB
+              href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
         - name: DBFS
           items:
             - name: Det går inte att läsa objekt som lagras i DBFS-roten
@@ -1550,6 +1533,9 @@
           items:
             - name: Versionsinformation för plattformen
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: November 2019
+              href: /azure/databricks/release-notes/product/2019/november
               maintainContext: true
             - name: Oktober 2019
               href: /azure/databricks/release-notes/product/2019/october

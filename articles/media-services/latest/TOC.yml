@@ -138,6 +138,8 @@
         - name: Tidsväxling och live-till-VOD
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: Live transkription
+          href: live-transcription.md
         - name: Jämför funktioner
           href: live-event-types-comparison.md
         - name: Tillstånd och fakturering

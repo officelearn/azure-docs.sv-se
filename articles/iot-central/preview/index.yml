@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Dokumentation om Azure IoT Central (förhandsgranskningsfunktioner)
-summary: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst), som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
+summary: Azure IoT Central är en IoT-programplattform som gör skapandet av IoT-lösningar enklare. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
 metadata:
   title: Dokumentation om Azure IoT Central
-  description: Azure IoT Central är en fullständigt hanterad SaaS-lösning (programvara som en tjänst), som gör det enkelt att ansluta, övervaka och hantera IoT-tillgångar i skala. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
+  description: Azure IoT Central är en IoT-programplattform som gör skapandet av IoT-lösningar enklare. Azure IoT Central förenklar den inledande installationen av IoT-lösningen och minskar administrationen och sänker driftkostnaderna och de övergripande kostnaderna för ett typiskt IoT-projekt. Lär dig hur du skapar, anpassar, hanterar och använder ett Azure IoT Central-program med våra snabbstarter och självstudier.
   services: iot-central
   ms.service: iot-central
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 90faa0b7422814011096a10164a6f2bdfceba4d5
-  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+  ms.openlocfilehash: 97a378eaab323391ccfcc0b03f337f6693a2a761
+  ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/12/2019
-  ms.locfileid: "73929852"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74048331"
 landingContent:
 - title: Om Azure IoT Central (förhandsgranskningsfunktioner)
   linkLists:

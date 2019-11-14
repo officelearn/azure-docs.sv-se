@@ -8,7 +8,7 @@
   items:
     - name: Skapa en plats-till-plats-anslutning
       href: virtual-wan-site-to-site-portal.md
-    - name: Skapa punkt-till-plats-anslutningar
+    - name: Skapa användar-VPN-anslutningar (punkt-till-plats)
       href: virtual-wan-point-to-site-portal.md
     - name: Skapa en ExpressRoute-anslutning
       href: virtual-wan-expressroute-portal.md
@@ -20,36 +20,38 @@
       href: virtual-wan-ipsec.md
     - name: Arkitektur
       items:
+        - name: Migrera till Virtual WAN
+          href: migrate-from-hub-spoke-topology.md
         - name: Global Transit Network-arkitektur
           href: virtual-wan-global-transit-network-architecture.md
         - name: Office 365-kontrollplanet i virtuellt WAN-nätverk
           href: virtual-wan-office365-overview.md
 - name: Instruktionsguider
   items:
-    - name: Uppgradera en Virtual WAN-SKU
-      href: upgrade-virtual-wan.md
-    - name: Migrera till Virtual WAN
-      href: migrate-from-hub-spoke-topology.md
-    - name: Skapa en VPN-anslutning över privat ExpressRoute-peering
-      href: vpn-over-expressroute.md
-    - name: Anslut en virtuell nätverksgateway till Virtual WAN
+    - name: Anslut virtuell nätverksgateway till Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
     - name: Konfigurera global VNet-peering
       href: global-peering-vnet.md
+    - name: Skapa VPN-anslutning över ExpressRoute
+      href: vpn-over-expressroute.md
+    - name: Uppgradera en Virtual WAN-SKU
+      href: upgrade-virtual-wan.md
     - name: Konfigurera anpassad IPsec-princip
       href: virtual-wan-custom-ipsec-portal.md
-    - name: Konfigurera certifikat för användar-VPN
+    - name: Konfigurera certifikat för användar-VPN (punkt-till-plats)
       href: certificates-point-to-site.md
-    - name: Dirigera trafik från en virtuell hubb till en NVA
-      items:
-        - name: Azure Portal
-          href: virtual-wan-route-table-portal.md
-        - name: Azure PowerShell
-          href: virtual-wan-route-table.md
-    - name: Visa effektiva vägar för virtuell hubb
-      href: effective-routes-virtual-hub.md
-    - name: Automatisering för Virtual WAN-partner
+    - name: Konfigurera automation (Virtual WAN-partner)
       href: virtual-wan-configure-automation-providers.md
+    - name: Konfigurera routning
+      items:
+        - name: Dirigera trafik från en virtuell hubb till en NVA
+          items:
+            - name: Azure Portal
+              href: virtual-wan-route-table-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table.md
+        - name: Visa effektiva vägar för virtuell hubb
+          href: effective-routes-virtual-hub.md
 - name: Referens
   items:
     - name: Azure PowerShell

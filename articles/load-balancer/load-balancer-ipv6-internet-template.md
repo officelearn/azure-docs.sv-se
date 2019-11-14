@@ -1,11 +1,11 @@
 ---
 title: Distribuera en belastningsutjämnare mot Internet med IPv6-Azure-mall
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Så här distribuerar du IPv6-stöd för Azure Load Balancer och belastningsutjämnade virtuella datorer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
-keywords: IPv6, Azure Load Balancer, dubbel stack, offentlig IP, inbyggd IPv6, mobil, IoT
+keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: bfecb2a57cf5f086b6c9f99c50b857c8c1183e3e
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: e5cfc980387b63701fb3ff36e7fa8ac43800ecce
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025596"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048449"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en Internetbaserad lösning för belastnings utjämning med IPv6 med hjälp av en mall
 
@@ -29,12 +29,12 @@ ms.locfileid: "73025596"
 > * [Mall](load-balancer-ipv6-internet-template.md)
 
 
->[! OBS! den här artikeln innehåller en introduktion till IPv6-funktionen för att tillåta grundläggande belastningsutjämnare för att ge både IPv4-och IPv6-anslutning.  Mer omfattande IPv6-anslutning är nu tillgängligt med [IPv6 för Azure-virtuella nätverk](../virtual-network/ipv6-overview.md) som integrerar IPv6-anslutningar med dina virtuella nätverk och innehåller viktiga funktioner som IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierad routning, IPv6 Basic och Standard belastnings utjämning med mera.  IPv6 för Azure virtuella nätverk är den rekommenderade bästa praxis för IPv6-program i Azure. 
+>[! OBS! den här artikeln innehåller en introduktion till IPv6-funktionen för att tillåta grundläggande belastningsutjämnare för att ge både IPv4-och IPv6-anslutning.  Mer omfattande IPv6-anslutning är nu tillgängligt med [IPv6 för Azure-virtuella nätverk](../virtual-network/ipv6-overview.md) som integrerar IPv6-anslutningar med dina virtuella nätverk och innehåller viktiga funktioner som IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierad routning, IPv6 Basic och standard belastnings utjämning med mera.  IPv6 för Azure virtuella nätverk är den rekommenderade bästa praxis för IPv6-program i Azure. 
 >Mer information finns i [IPv6 för distribution av virtuella Azure-mallar](../virtual-network/ipv6-configure-standard-load-balancer-template-json.md)
 
 En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Lastbalanseraren ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänstinstanser i molntjänster eller virtuella datorer i en lastbalanseringsuppsättning. Azure Load Balancer kan även presentera dessa tjänster på flera portar, flera IP-adresser eller både och.
 
-## <a name="example-deployment-scenario"></a>Exempel på distributions scenario
+## <a name="example-deployment-scenario"></a>Exempelscenario för distribution
 
 Följande diagram illustrerar belastnings Utjämnings lösningen som distribueras med hjälp av exempel mal len som beskrivs i den här artikeln.
 
@@ -55,43 +55,43 @@ Den här artikeln hänvisar till en mall som publiceras i galleriet för [Azure 
 1. Öppna Azure Portal och logga in med ett konto som har behörighet att skapa virtuella datorer och nätverks resurser i en Azure-prenumeration. Även om du inte använder befintliga resurser måste kontot ha behörighet att skapa en resurs grupp och ett lagrings konto.
 2. Klicka på "+ nytt" på menyn och skriv sedan "mall" i sökrutan. Välj "Malldistribution" från Sök resultaten.
 
-    ![lb-IPv6-Portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. Klicka på "Malldistribution" på bladet allt.
 
-    ![lb-IPv6-Portal-steg 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Klicka på "skapa".
 
-    ![lb-IPv6-Portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. Klicka på Redigera mall. Ta bort det befintliga innehållet och kopiera/klistra in hela innehållet i mallfilen (om du vill ta med start och slut {}) klickar du på Spara.
 
     > [!NOTE]
     > Om du använder Microsoft Internet Explorer när du klistrar in får du en dialog ruta där du uppmanas att tillåta åtkomst till Urklipp i Windows. Klicka på Tillåt åtkomst.
 
-    ![lb-IPv6-Portal-Step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. Klicka på Redigera parametrar. I bladet parametrar anger du värdena per vägledning i avsnittet mallparametrar och klickar sedan på Spara för att stänga bladet parametrar. På bladet anpassad distribution väljer du din prenumeration, en befintlig resurs grupp eller skapar en. Om du skapar en resurs grupp väljer du en plats för resurs gruppen. Klicka sedan på **juridiska villkor**och sedan på **köp** för de juridiska villkoren. Azure börjar distribuera resurserna. Det tar flera minuter att distribuera alla resurser.
 
-    ![lb-IPv6-Portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     Mer information om dessa parametrar finns i avsnittet [mallparametrar och variabler](#template-parameters-and-variables) längre fram i den här artikeln.
 
 7. Om du vill se resurserna som skapats av mallen klickar du på Bläddra, bläddrar nedåt i listan tills du ser "resurs grupper" och klickar sedan på den.
 
-    ![lb-IPv6-Portal-STEP7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. På bladet resurs grupper klickar du på namnet på den resurs grupp som du angav i steg 6. Du ser en lista över alla resurser som har distribuerats. Om alla gick bra bör det stå "lyckades" under "senaste distribution". Om inte bör du kontrol lera att det konto som du använder har behörighet att skapa nödvändiga resurser.
 
-    ![lb-IPv6-Portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > Om du bläddrar i resurs grupperna direkt efter att ha slutfört steg 6, visar "senaste distribution" statusen för "distribution" medan resurserna distribueras.
 
 9. Klicka på "myIPv6PublicIP" i listan över resurser. Du ser att den har en IPv6-adress under IP-adress och att dess DNS-namn är det värde som du angav för parametern dnsNameforIPv6LbIP i steg 6. Den här resursen är den offentliga IPv6-adressen och värd namnet som är tillgängligt för Internet-klienter.
 
-    ![lb-IPv6-Portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera viktad resursallokering trafikroutningsmetod med Azure Traffic Manager | Microsoft Docs
-description: Den här artikeln förklarar hur du belastningsutjämna trafik med hjälp av en resursallokering-metod i Traffic Manager
+title: Konfigurera viktad trafik för resursallokering i Azure Traffic Manager
+description: I den här artikeln förklaras hur du läser in balans trafik med en Round-Robin-metod i Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -12,45 +12,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bfed558ec8db0ef715dad044c3965c1b1d8052b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071281"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040337"
 ---
-# <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Konfigurera viktad trafikroutningsmetod i Traffic Manager
+# <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Konfigurera metoden för att dirigera en viktad trafik i Traffic Manager
 
-Ett vanligt trafik routning metoden mönster är att tillhandahålla en uppsättning identiska slutpunkter, bland annat molntjänster och webbplatser, och skicka trafik till varje lika. Följande steg beskriver hur du konfigurerar den här typen av trafikroutningsmetod.
+Ett gemensamt metod mönster för trafik cirkulation är att tillhandahålla en uppsättning identiska slut punkter, bland annat moln tjänster och webbplatser, och skicka trafik till var och en. Följande steg beskriver hur du konfigurerar den här typen av metod för trafik dirigering.
 
 > [!NOTE]
-> Med Azure Web Apps tillhandahåller redan belastningsutjämning för resursallokering för webbplatser inom en Azure-Region (som kan innehålla flera datacenter). Traffic Manager kan du distribuera trafik mellan webbplatser på olika datacenter.
+> Azure Web App tillhandahåller redan Round Robin-funktioner för belastnings utjämning för webbplatser i en Azure-region (som kan bestå av flera data Center). Med Traffic Manager kan du distribuera trafik mellan webbplatser i olika data Center.
 
-## <a name="to-configure-the-weighted-traffic-routing-method"></a>Konfigurera viktad metod för trafikroutning
+## <a name="to-configure-the-weighted-traffic-routing-method"></a>Så här konfigurerar du den viktade routningsmetoden för trafik
 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
-2. I portalens sökfältet söker du efter den **Traffic Manager-profiler** och klicka sedan på namnet på profilen som du vill konfigurera routningsmetod för.
-3. I den **Traffic Manager-profil** bladet, kontrollera att både molntjänster och webbplatser som du vill ska ingå i din konfiguration finns.
-4. I den **inställningar** klickar du på **Configuration**, och i den **Configuration** bladet gör du följande:
-    1. För **trafik routning metodinställningar**, kontrollera att trafikroutningsmetod är **viktat**. Om det inte är det, klickar du på **viktat** från den nedrullningsbara listan.
-    2. Ange den **inställningar för Slutpunktsövervakning** identiska för alla alla slutpunkter i den här profilen på följande sätt:
-        1. Välj lämpliga **protokollet**, och ange den **Port** tal. 
-        2. För **sökväg** skriver ett snedstreck */* . Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
-        3. Överst på sidan klickar du på **spara**.
+2. I portalens sökfält söker du efter **Traffic Manager profiler** och klickar sedan på det profil namn som du vill konfigurera routningsmetod för.
+3. På bladet **Traffic Manager profil** kontrollerar du att både de moln tjänster och webbplatser som du vill inkludera i konfigurationen finns.
+4. I avsnittet **Inställningar** klickar du på **konfiguration**och slutför i **konfigurations** bladet på följande sätt:
+    1. För **Inställningar för trafikroutnings metod**kontrollerar du att metoden för trafikroutning **viktas**. Om så inte är fallet klickar du på **viktad** från List rutan.
+    2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
+        1. Välj lämpligt **protokoll**och ange **port** numret. 
+        2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
+        3. Klicka på **Spara**längst upp på sidan.
 5. Testa ändringarna i konfigurationen på följande sätt:
-    1.  I portalens sökfältet, Sök efter namnet på Traffic Manager-profilen och klickar på Traffic Manager-profilen i resultaten som visas.
-    2.  I den **Traffic Manager** profilera bladet, klickar du på **översikt**.
-    3.  Den **Traffic Manager-profil** visar bladet DNS-namnet på din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) att dirigeras till rätt slutpunkten som bestäms av routningstyp. I det här fallet alla begäranden dirigeras varje slutpunkt i en resursallokering.
-6. När Traffic Manager-profilen fungerar kan du redigera DNS-posten på auktoritativa DNS-servern att peka företagets domännamn till domännamnet för Traffic Manager.
+    1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.
+    2.  I bladet **Traffic Manager** profil klickar du på **Översikt**.
+    3.  Bladet **Traffic Manager profil** visar DNS-namnet för din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till den högra slut punkten som fastställs av typen av routning. I det här fallet dirigeras alla begär anden till varje slut punkt i en Round-Robin-miljö.
+6. När din Traffic Manager-profil fungerar redigerar du DNS-posten på den auktoritativa DNS-servern för att peka ditt företags domän namn till Traffic Manager domän namnet.
 
-![Konfigurera viktad trafikroutningsmetod med Traffic Manager][1]
+![Konfigurera metoden för att dirigera en viktad trafik med hjälp av Traffic Manager][1]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [prioritet prestandatrafik](traffic-manager-configure-priority-routing-method.md).
-- Lär dig mer om [prestanda prestandatrafik](traffic-manager-configure-performance-routing-method.md).
+- Lär dig mer om [routningsmetoden för prioritets trafik](traffic-manager-configure-priority-routing-method.md).
+- Lär dig mer om [routningsmetod för prestanda trafik](traffic-manager-configure-performance-routing-method.md).
 - Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
-- Lär dig hur du [testa inställningarna för Traffic Manager](traffic-manager-testing-settings.md).
+- Lär dig hur du [testar Traffic Manager inställningar](traffic-manager-testing-settings.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png

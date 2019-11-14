@@ -1,43 +1,44 @@
 ---
-title: Med Azure Log Analytics kan du granska loggarna för Application Gateway Web Application Firewall
-description: Den här artikeln visar hur du kan använda Azure Log Analytics för att granska loggarna för Application Gateway Web Application Firewall
+title: Granska WAF-loggar med Azure Log Analytics
+titleSuffix: Azure Application Gateway
+description: Den här artikeln visar hur du kan använda Azure Log Analytics för att undersöka Application Gateway brand Väggs loggar för webb program
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: aa867e33ef0faa96b6a66a9075a3a5b8b0b0bca4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9fe4462a71852e5f66268f798f6f0418f2dd39c4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712181"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048102"
 ---
-# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Använd Log Analytics för att undersöka brandväggsloggar för Application Gateway Web Application
+# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Använda Log Analytics för att undersöka loggar från brandväggen för webbaserade program för Application Gateway
 
-När Application Gateway WAF är i drift, kan du aktivera loggar granska vad som händer med varje begäran. Brandväggen loggar ger insikt i vilka WAF utvärderar matchar och blockerar. Du kan undersöka data i loggarna från brandväggen för att ge ytterligare insikter med Log Analytics. Läs mer om hur du skapar en Log Analytics-arbetsyta, [skapa en Log Analytics-arbetsyta i Azure-portalen](../azure-monitor/learn/quick-create-workspace.md). Läs mer om loggfrågor [översikt över log frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+När din Application Gateway WAF fungerar kan du aktivera loggar för att kontrol lera vad som händer med varje begäran. Brand Väggs loggar ger insikt om vad WAF utvärderar, matchar och blockerar. Med Log Analytics kan du undersöka data i brand Väggs loggarna för att ge ännu fler insikter. Mer information om hur du skapar en arbets yta för Log Analytics finns [i skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Mer information om logg frågor finns i [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importera WAF-loggar
 
-Om du vill importera dina loggar från brandväggen till Log Analytics, se [backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). När du har brandväggsloggar i Log Analytics-arbetsytan kan du visa data, skriva frågor, skapa visualiseringar och lägga till dem i instrumentpanelen i portalen.
+Information om hur du importerar brand Väggs loggar till Log Analytics finns i [backend-hälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). När du har brand Väggs loggar i Log Analytics arbets ytan kan du visa data, skriva frågor, Skapa visualiseringar och lägga till dem i portalens instrument panel.
 
 ## <a name="explore-data-with-examples"></a>Utforska data med exempel
 
-Om du vill visa rådata i brandväggsloggen för, kan du köra följande fråga:
+Om du vill visa rå data i brand Väggs loggen kan du köra följande fråga:
 
 ```
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"
 ```
 
-Detta ser ut ungefär som följande fråga:
+Detta ser ut ungefär som i följande fråga:
 
-![Log Analytics-fråga](media/log-analytics/log-query.png)
+![Log Analytics fråga](media/log-analytics/log-query.png)
 
-Du kan granska nedåt i data, och rita diagram eller skapa visualiseringar härifrån. Se följande frågor som utgångspunkt:
+Du kan öka detalj nivån i data och rita diagram eller skapa visualiseringar härifrån. Se följande frågor som utgångs punkt:
 
-### <a name="matchedblocked-requests-by-ip"></a>Matchade/blockerad begäranden efter IP
+### <a name="matchedblocked-requests-by-ip"></a>Matchade/blockerade begär Anden efter IP
 
 ```
 AzureDiagnostics
@@ -46,7 +47,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-### <a name="matchedblocked-requests-by-uri"></a>Matchade/blockerad begäranden av URI: N
+### <a name="matchedblocked-requests-by-uri"></a>Matchade/blockerade förfrågningar per URI
 
 ```
 AzureDiagnostics
@@ -55,7 +56,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-### <a name="top-matched-rules"></a>Främsta matchade reglerna
+### <a name="top-matched-rules"></a>Främsta matchade regler
 
 ```
 AzureDiagnostics
@@ -65,7 +66,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-### <a name="top-five-matched-rule-groups"></a>Översta fem matchande regelgrupper
+### <a name="top-five-matched-rule-groups"></a>De fem främsta matchade regel grupperna
 
 ```
 AzureDiagnostics
@@ -75,12 +76,12 @@ AzureDiagnostics
 | render piechart
 ```
 
-## <a name="add-to-your-dashboard"></a>Lägga till i instrumentpanelen
+## <a name="add-to-your-dashboard"></a>Lägg till på din instrument panel
 
-När du skapar en fråga kan du lägga till den på instrumentpanelen.  Välj den **fäst på instrumentpanelen** uppe till höger i log analytics-arbetsytan. Med de föregående fyra fästa på en instrumentpanel med exempel, är detta de data som du kan se en snabb överblick över:
+När du har skapat en fråga kan du lägga till den på din instrument panel.  Välj **Fäst vid instrument panelen** längst upp till höger i Log Analytics-arbetsytan. Med föregående fyra frågor fästa på en exempel instrument panel, är det här data som du kan se snabbt:
 
 ![Instrumentpanel](media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md)
+[Backend-hälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md)

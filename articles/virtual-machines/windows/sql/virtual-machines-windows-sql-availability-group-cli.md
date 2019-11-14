@@ -1,5 +1,5 @@
 ---
-title: Använd Azure CLI för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på en virtuell Azure-dator
+title: Konfigurera en tillgänglighets grupp (Azure CLI)
 description: Använd Azure CLI för att skapa Windows-redundansklustret, tillgänglighets gruppens lyssnare och den interna belastningsutjämnaren i en SQL Server VM i Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,17 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a6600af353daf2bfa7b49196f48ba5b60e6c45fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100567"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022369"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azure CLI för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på en virtuell Azure-dator
 Den här artikeln beskriver hur du använder [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) för att distribuera ett Windows-redundanskluster, lägger till SQL Server virtuella datorer i klustret och skapar den interna belastningsutjämnaren och lyssnare för en tillgänglighets grupp som alltid är tillgänglig. Distribution av Always on-tillgänglighetsgrupper görs fortfarande manuellt via SQL Server Management Studio (SSMS). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill automatisera installationen av en tillgänglighets grupp som alltid är tillgänglig med hjälp av Azure CLI måste du ha följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resurs grupp med en domänkontrollant. 
@@ -34,10 +35,10 @@ Om du vill automatisera installationen av en tillgänglighets grupp som alltid �
 ## <a name="permissions"></a>Behörigheter
 Du behöver följande konto behörigheter för att konfigurera tillgänglighets gruppen Always on med hjälp av Azure CLI: 
 
-- Ett befintligt domän användar konto som har behörighet att **skapa dator objekt** i domänen. Till exempel har ett domän administratörs konto vanligt vis tillräcklig behörighet (till exempel account@domain.com:). _Detta konto bör också vara en del av den lokala administratörs gruppen på varje virtuell dator för att skapa klustret._
+- Ett befintligt domän användar konto som har behörighet att **skapa dator objekt** i domänen. Till exempel har ett domän administratörs konto vanligt vis tillräcklig behörighet (till exempel: account@domain.com). _Detta konto bör också vara en del av den lokala administratörs gruppen på varje virtuell dator för att skapa klustret._
 - Domän användar kontot som styr SQL Servers tjänsten. 
  
-## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Steg 1: Skapa ett lagrings konto som ett moln vittne
+## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Steg 1: skapa ett lagrings konto som ett moln vittne
 Klustret behöver ett lagrings konto för att fungera som moln vittne. Du kan använda ett befintligt lagrings konto, eller så kan du skapa ett nytt lagrings konto. Om du vill använda ett befintligt lagrings konto kan du gå vidare till nästa avsnitt. 
 
 Följande kodfragment skapar lagrings kontot: 
@@ -51,9 +52,9 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 ```
 
 >[!TIP]
-> Du kan se felet `az sql: 'vm' is not in the 'az sql' command group` om du använder en inaktuell version av Azure CLI. Hämta den [senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) för att få ett tidigare fel.
+> Du kan se fel `az sql: 'vm' is not in the 'az sql' command group` om du använder en inaktuell version av Azure CLI. Hämta den [senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) för att få ett tidigare fel.
 
-## <a name="step-2-define-windows-failover-cluster-metadata"></a>Steg 2: Definiera metadata för Windows-redundanskluster
+## <a name="step-2-define-windows-failover-cluster-metadata"></a>Steg 2: definiera Windows-redundanskluster metadata
 Kommando gruppen Azure CLI [AZ SQL VM Group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) hanterar metadata för WSFC-tjänsten (Windows Server failover Cluster) som är värd för tillgänglighets gruppen. I kluster metadata ingår Active Directory domän, kluster konton, lagrings konton som ska användas som moln vittne och SQL Server version. Använd [AZ SQL VM Group Create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) för att definiera metadata för WSFC, så att när den första SQL Server VM läggs till skapas klustret enligt definitionen. 
 
 Följande kodfragment definierar metadata för klustret:
@@ -73,7 +74,7 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
   --storage-account '<ex:https://cloudwitness.blob.core.windows.net/>'
 ```
 
-## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>Steg 3: Lägg till SQL Server virtuella datorer i klustret
+## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>Steg 3: lägga till SQL Server virtuella datorer i klustret
 Om du lägger till den första SQL Server VM till klustret skapas klustret. Kommandot [AZ SQL VM Add-to-Group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) skapar klustret med det namn som tidigare angavs, installerar kluster rollen på de virtuella datorerna SQL Server och lägger till dem i klustret. Efterföljande användning av `az sql vm add-to-group` kommandot lägger till fler SQL Server virtuella datorer i det nya klustret. 
 
 Följande kodfragment skapar klustret och lägger till den första SQL Server VM: 
@@ -90,15 +91,15 @@ az sql vm add-to-group -n <VM1 Name> -g <Resource Group Name> --sqlvm-group <clu
 az sql vm add-to-group -n <VM2 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
   -b <bootstrap account password> -p <operator account password> -s <service account password>
 ```
-Använd det här kommandot om du vill lägga till andra SQL Server virtuella datorer i klustret. Ändra endast `-n` parametern för SQL Server VM namn. 
+Använd det här kommandot om du vill lägga till andra SQL Server virtuella datorer i klustret. Ändra endast parametern `-n` för SQL Server VM namn. 
 
-## <a name="step-4-create-the-availability-group"></a>Steg 4: Skapa tillgänglighets gruppen
+## <a name="step-4-create-the-availability-group"></a>Steg 4: skapa tillgänglighets gruppen
 Skapa tillgänglighets gruppen manuellt som vanligt, genom att använda [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell)eller [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > Skapa *inte* en lyssnare just nu eftersom detta görs via Azure CLI i följande avsnitt.  
 
-## <a name="step-5-create-the-internal-load-balancer"></a>Steg 5: Skapa den interna belastningsutjämnaren
+## <a name="step-5-create-the-internal-load-balancer"></a>Steg 5: skapa den interna belastningsutjämnaren
 
 Lyssnaren för Always on-tillgänglighetsgrupper kräver en intern instans av Azure Load Balancer. Den interna belastningsutjämnaren innehåller en "flytande" IP-adress för tillgänglighets gruppens lyssnare som möjliggör snabbare redundans och åter anslutning. Om SQL Server virtuella datorer i en tillgänglighets grupp ingår i samma tillgänglighets uppsättning kan du använda en grundläggande belastningsutjämnare. Annars måste du använda en standard belastningsutjämnare.  
 
@@ -119,17 +120,17 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
 >[!IMPORTANT]
 > Den offentliga IP-resursen för varje SQL Server VM måste ha en standard-SKU för att vara kompatibel med standard belastnings utjämningen. Ta reda på SKU: n för den virtuella datorns offentliga IP-resurs genom att gå till **resurs grupp**, välja din **offentliga IP** -adressresurs för önskad SQL Server VM och leta upp värdet under **SKU** i fönstret **Översikt** .  
 
-## <a name="step-6-create-the-availability-group-listener"></a>Steg 6: Skapa tillgänglighets gruppens lyssnare
+## <a name="step-6-create-the-availability-group-listener"></a>Steg 6: skapa tillgänglighets gruppens lyssnare
 När du har skapat tillgänglighets gruppen manuellt kan du skapa en lyssnare med hjälp av [AZ SQL VM AG-Listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
-*Under näts resurs-ID: t* är `/subnets/<subnetname>` värdet som läggs till i resurs-ID: t för den virtuella nätverks resursen. Så här identifierar du under nätets resurs-ID:
+*Under näts resurs-ID: t* är värdet för `/subnets/<subnetname>` som läggs till i resurs-ID: t för den virtuella nätverks resursen. Så här identifierar du under nätets resurs-ID:
    1. Gå till din resurs grupp i [Azure Portal](https://portal.azure.com). 
    1. Välj den virtuella nätverks resursen. 
    1. Välj **Egenskaper** i fönstret **Inställningar** . 
-   1. Identifiera resurs-ID för det virtuella nätverket och Lägg `/subnets/<subnetname>` till i slutet av det för att skapa ett under näts resurs-ID. Exempel:
-      - Ditt virtuella nätverks resurs-ID är:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
-      - Under nätets namn är:`default`
-      - Därför är ditt under näts resurs-ID:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
+   1. Identifiera resurs-ID för det virtuella nätverket och Lägg till `/subnets/<subnetname>` i slutet av det för att skapa ett under näts resurs-ID. Exempel:
+      - Ditt virtuella nätverks resurs-ID är: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
+      - Under nätets namn är: `default`
+      - Därför är ditt under näts resurs-ID: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
 
 
 Följande kodfragment skapar tillgänglighets gruppens lyssnare:

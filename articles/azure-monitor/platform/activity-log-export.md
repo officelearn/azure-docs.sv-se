@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 68bf455bbdfb6d2d45c5eccc60c3ad8ce40d3247
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515776"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048254"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure aktivitets logg till lagring eller Azure Event Hubs
+
+> [!NOTE]
+> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](activity-log-collect.md).
+
 [Azure aktivitets loggen](activity-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Förutom att Visa aktivitets loggen i Azure Portal eller kopiera den till en Log Analytics arbets yta där den kan analyseras med andra data som samlas in av Azure Monitor, kan du skapa en logg profil för att arkivera aktivitets loggen till ett Azure Storage-konto eller strömma den till en  Event Hub.
 
 ## <a name="archive-activity-log"></a>Arkivera aktivitets logg
@@ -35,7 +39,7 @@ Lagrings kontot behöver inte finnas i samma prenumeration som den prenumeration
 > [!NOTE]
 >  Du kan för närvarande inte arkivera data till ett lagrings konto som ligger bakom ett säkert virtuellt nätverk.
 
-### <a name="event-hubs"></a>Händelsehubbar
+### <a name="event-hubs"></a>Event Hubs
 Om du skickar aktivitets loggen till en Event Hub måste du [skapa en Event Hub](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du tidigare har strömmat aktivitets logg händelser till den här Event Hubs namn rymden, kommer den händelsehubben att återanvändas.
 
 Principen för delad åtkomst definierar de behörigheter som används av den strömmande mekanismen. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst för Event Hubs namn området i Azure Portal under fliken Konfigurera för ditt Event Hubs namn område.
@@ -55,9 +59,9 @@ Logg profilen definierar följande.
 
 **Vilka regioner (platser) som ska exporteras.** Du bör inkludera alla platser eftersom många händelser i aktivitets loggen är globala händelser.
 
-**Hur länge aktivitets loggen ska behållas i ett lagrings konto.** En kvarhållning på noll dagar innebär att loggar hålls för alltid. Annars kan värdet vara valfritt antal dagar mellan 1 och 365.
+**Hur länge aktivitets loggen ska behållas i ett lagrings konto.** En kvarhållning av noll dagar innebär loggar hålls alltid. Annars kan värdet vara valfritt antal dagar mellan 1 och 365.
 
-Om bevarande principer har ställts in, men lagrings loggar i ett lagrings konto är inaktiverat, har bevarande principerna ingen påverkan. Bevarande principer tillämpas per dag, så i slutet av en dag (UTC) loggar loggar från den dag som nu överskrider bevarande principen bort. Om du till exempel har en bevarande princip på en dag, i början av dagen i dag, loggas loggarna från dagen innan igår bort. Borttagnings processen börjar vid midnatt UTC, men Observera att det kan ta upp till 24 timmar innan loggarna tas bort från ditt lagrings konto.
+Om bevarande principer har ställts in, men lagrings loggar i ett lagrings konto är inaktiverat, har bevarande principerna ingen påverkan. Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto.
 
 
 > [!IMPORTANT]
@@ -155,8 +159,8 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
     | namn |Ja |Namn på din logg profil. |
     | lagrings konto-ID |Ja |Resurs-ID för det lagrings konto som aktivitets loggar ska sparas i. |
     | platser |Ja |Blankstegsavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
-    | antalet |Ja |Antal dagar som händelser ska behållas, mellan 1 och 365. Om värdet är noll lagras loggarna oändligt (för alltid).  Om värdet är noll ska parametern Enabled vara inställd på falskt. |
-    |aktiva | Ja |Sant eller falskt.  Används för att aktivera eller inaktivera bevarande principen.  Om värdet är true måste parametern Days vara ett värde som är större än 0.
+    | days |Ja |Antal dagar som händelser ska behållas, mellan 1 och 365. Om värdet är noll lagras loggarna oändligt (för alltid).  Om värdet är noll ska parametern Enabled vara inställd på falskt. |
+    |enabled | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarande principen.  Om värdet är true måste parametern Days vara ett värde som är större än 0.
     | kategorier |Ja |Blankstegsavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är Write, Delete och action. |
 
 
@@ -224,7 +228,7 @@ Oavsett om du skickar till Azure Storage eller Event Hub, skrivs aktivitets logg
 ```
 Elementen i denna JSON beskrivs i följande tabell.
 
-| Element namn | Beskrivning |
+| Elementnamn | Beskrivning |
 | --- | --- |
 | time |Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
 | resourceId |Resurs-ID för den påverkade resursen. |
@@ -232,12 +236,12 @@ Elementen i denna JSON beskrivs i följande tabell.
 | category |Kategori för åtgärden, t. ex. Skriv, Läs, åtgärd. |
 | resultType |Typ av resultat, t. ex. Lyckad, misslyckad, start |
 | resultSignature |Beror på resurs typen. |
-| durationMs |Åtgärdens varaktighet i millisekunder |
+| durationMs |Varaktighet i millisekunder |
 | callerIpAddress |IP-adressen för den användare som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
 | correlationId |Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| identitet |JSON-blob som beskriver auktoriseringen och anspråk. |
-| auktoriseringsregeln |BLOB för RBAC-egenskaper för händelsen. Innehåller vanligt vis egenskaperna "Action", "roll" och "omfattning". |
-| Nivå |Händelsens nivå. Ett av följande värden: _kritisk_, _fel_, _Varning_, _information_och _utförlig_ |
+| identity |JSON-blob som beskriver auktoriseringen och anspråk. |
+| authorization |BLOB för RBAC-egenskaper för händelsen. Innehåller vanligt vis egenskaperna "Action", "roll" och "omfattning". |
+| nivå |Händelsens nivå. Ett av följande värden: _kritisk_, _fel_, _Varning_, _information_och _utförlig_ |
 | location |Region där platsen inträffade (eller global). |
 | properties |Uppsättning `<Key, Value>` par (t. ex. ord lista) som beskriver information om händelsen. |
 

@@ -1,21 +1,18 @@
 ---
-title: Skapa en Programgateway med SSL-avslutning – Azure CLI | Microsoft Docs
+title: SSL-avslutning med CLI-Azure Application Gateway
 description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för SSL-avslutning med Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 188c252064028ccecc0fd4fe231cda190d2b4c08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d1decdda096fb902ff605205d7193e1264e5170
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135156"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047999"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Skapa en programgateway med SSL-avslutning med hjälp av Azure CLI
 
@@ -177,4 +174,4 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa en programgateway med certifikatet
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du vill veta mer om application gateway och deras associerade resurser kan du fortsätta i instruktionsartiklarna.
+Om du vill veta mer om programgatewayer och deras associerade resurser kan du fortsätta till instruktions artiklarna.

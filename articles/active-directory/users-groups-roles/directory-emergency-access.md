@@ -1,10 +1,11 @@
 ---
-title: Hantera administratörs konton för nöd åtkomst – Azure Active Directory | Microsoft Docs
+title: Hantera administratörs konton för nöd åtkomst – Azure AD | Microsoft Docs
 description: Den här artikeln beskriver hur du använder konton för nöd situationer för att förhindra oavsiktligt låsning av din Azure Active Directory (Azure AD)-organisation.
 services: active-directory
 author: markwahl-msft
+manager: daveba
 ms.author: curtand
-ms.date: 09/09/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772446"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028130"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
@@ -71,7 +72,7 @@ Om du använder lösen ord kontrollerar du att kontona har starka lösen ord som
 
 Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter från nödfalls kontona och utlösa meddelanden till andra administratörer. När du övervakar aktiviteten på Bryt glas konton kan du kontrol lera att dessa konton endast används för testning eller faktiska nöd situationer. Du kan använda Azure Log Analytics för att övervaka inloggnings loggarna och utlösa e-post och SMS-aviseringar till dina administratörer när Break glas-konton loggar in.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 1. [Skicka inloggnings loggar för Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) till Azure Monitor.
 
@@ -88,7 +89,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som tilldelats rollen övervaknings deltagare i Azure Monitor.
 1. Välj **alla tjänster**", ange" Log Analytics "i sökningen och välj sedan **Log Analytics arbets ytor**.
 1. Välj en arbetsyta.
-1. I arbets ytan väljer du **aviseringar** > **ny aviserings regel**.
+1. I arbets ytan väljer du **aviseringar** > **ny varnings regel**.
     1. Under **resurs**kontrollerar du att prenumerationen är den som du vill associera varnings regeln med.
     1. Välj **Lägg till**under **villkor**.
     1. Välj **anpassad loggs ökning** under **signal namn**.
@@ -100,8 +101,8 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 
     1. Under **aviserings logik**anger du följande:
 
-        - Baserat på: Antal resultat
-        - Operator Större än
+        - Baserat på: antal resultat
+        - Operator: större än
         - Tröskel värde: 0
 
     1. Under **utvärdera baserat på**väljer du **perioden (i minuter)** för hur länge du vill att frågan ska köras och hur ofta **(i minuter)** som du vill att frågan ska köras. Frekvensen ska vara mindre än eller lika med perioden.

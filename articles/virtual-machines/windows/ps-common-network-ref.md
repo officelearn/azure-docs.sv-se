@@ -1,5 +1,5 @@
 ---
-title: Vanliga PowerShell-kommandon för virtuella Azure-nätverk | Microsoft Docs
+title: Vanliga PowerShell-kommandon för virtuella Azure-nätverk
 description: Vanliga PowerShell-kommandon för att komma igång med att skapa ett virtuellt nätverk och dess associerade resurser för virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: d7ab705291b8705994aed96f1d270f792e4b2fb0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3abde706ddff297094c7fbb1579b534894b349d2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102527"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032920"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Vanliga PowerShell-kommandon för virtuella Azure-nätverk
 
@@ -34,7 +34,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-| Uppgift | Kommando |
+| Aktivitet | Kommando |
 | ---- | ------- |
 | Skapa undernätskonfigurationer |$subnet 1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1"-AddressPrefix xx. X. X. X/XX<BR>$subnet 2 = New-AzVirtualNetworkSubnetConfig-Name "mySubnet2"-AddressPrefix XX. X. X. X/XX<BR><BR>Ett vanligt nätverk kan ha ett undernät för en [belastningsutjämnare mot Internet](../../load-balancer/load-balancer-internet-overview.md) och ett separat undernät för en [intern belastningsutjämnare](../../load-balancer/load-balancer-internal-overview.md). |
 | Skapa ett virtuellt nätverk |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet"-ResourceGroupName $MyResourceGroup-location $location-AddressPrefix xx. X. X. X/XX-undernät $subnet 1, $subnet 2 |
@@ -45,12 +45,12 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 | Skapa en avsökning |$healthProbe = [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) -Name "unprobe"-RequestPath ' healthProbe. aspx '-Protocol http-port 80-IntervalInSeconds 15-ProbeCount 2<BR><BR>Innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för instanser av virtuella datorer i backend-adresspoolen. |
 | Skapa en belastnings Utjämnings regel |$lbRule = [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) -Name http-FrontendIpConfiguration $FrontendIP-BackendAddressPool $BeAddressPool-PROBE $HealthProbe-Protocol TCP-FrontendPort 80-BackendPort 80<BR><BR>Innehåller regler som tilldelar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen. |
 | Skapa en inkommande NAT-regel |$inboundNATRule = [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) -Name "myInboundRule1"-FrontendIpConfiguration $FrontendIP-Protocol TCP-FrontendPort 3441-BackendPort 3389<BR><BR>Innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen. |
-| Skapa en lastbalanserare |$loadBalancer = [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) -ResourceGroupName $MyResourceGroup-Name "myLoadBalancer"-location $location-FrontendIpConfiguration $FrontendIP-InboundNatRule $InboundNATRule-LoadBalancingRule $LbRule-BackendAddressPool $ beAddressPool – avsöknings $healthProbe |
+| Skapa en lastbalanserare |$loadBalancer = [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) -ResourceGroupName $MyResourceGroup-Name "myLoadBalancer"-location $location-FrontendIpConfiguration $FrontendIP-InboundNatRule $InboundNATRule-LoadBalancingRule $LbRule-BackendAddressPool $BeAddressPool-PROBE $healthProbe |
 | Skapa ett nätverks gränssnitt |$nic 1 = [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) -ResourceGroupName $MyResourceGroup-Name "myNIC" – location $location-PrivateIpAddress xx. X. X. X-undernät $subnet 2-LoadBalancerBackendAddressPool $loadBalancer. BackendAddressPools [0]-LoadBalancerInboundNatRule $loadBalancer. InboundNatRules [0]<BR><BR>Skapa ett nätverks gränssnitt med den offentliga IP-adressen och det virtuella nätverks under nätet som du skapade tidigare. |
 
 ## <a name="get-information-about-network-resources"></a>Hämta information om nätverks resurser
 
-| Uppgift | Kommando |
+| Aktivitet | Kommando |
 | ---- | ------- |
 | Lista virtuella nätverk |[Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>Visar en lista över alla virtuella nätverk i resurs gruppen. |
 | Hämta information om ett virtuellt nätverk |Get-AzVirtualNetwork-Name "myVNet"-ResourceGroupName $myResourceGroup |
@@ -64,7 +64,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="manage-network-resources"></a>Hantera nätverksresurser
 
-| Uppgift | Kommando |
+| Aktivitet | Kommando |
 | ---- | ------- |
 | Lägga till ett undernät i ett virtuellt nätverk |[Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig) -AddressPrefix xx. X. X. X/XX-Name "mySubnet1"-VirtualNetwork $vnet<BR><BR>Lägger till ett undernät i ett befintligt virtuellt nätverk. $Vnet-värdet representerar det objekt som returneras av Get-AzVirtualNetwork. |
 | Ta bort ett virtuellt nätverk |[Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork) -Name "myVNet"-ResourceGroupName $myResourceGroup<BR><BR>Tar bort det angivna virtuella nätverket från resurs gruppen. |

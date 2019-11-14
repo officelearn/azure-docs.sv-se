@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1021ad1983f78252d924a5d3cb674419732d66e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 00731d3520c98c3fd770dc411f6c5c940555fbe5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932065"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048588"
 ---
 # <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Använd SSL för att skydda en genom Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ TLS och SSL är beroende av *digitala certifikat*, som hjälper till med krypter
 
 Detta är den allmänna processen för att skydda en:
 
-1. Hämta ett domän namn.
+1. Få ett domännamn.
 
 2. Skaffa ett digitalt certifikat.
 
@@ -50,7 +50,7 @@ Detta är den allmänna processen för att skydda en:
 
 Det finns små skillnader när du skyddar er över [distributions mål](how-to-deploy-and-where.md).
 
-## <a name="get-a-domain-name"></a>Hämta ett domän namn
+## <a name="get-a-domain-name"></a>Få ett domännamn
 
 Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www\.contoso.com) till den IP-adress som är värd för.
 
@@ -58,8 +58,8 @@ Om du inte redan har ett domän namn kan du köpa ett från en *domän namns reg
 
 Det finns många sätt att hämta ett SSL-certifikat (digitalt certifikat). Det vanligaste är att köpa en från en *certifikat utfärdare* (ca). Oavsett var du får certifikatet behöver du följande filer:
 
-* Ett **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
-* En **nyckel**. Nyckeln måste också vara PEM-kodad.
+* En **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
+* En **nyckeln**. Nyckeln måste också vara PEM-kodad.
 
 När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för (till exempel www\.contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera identiteten för. Om dessa adresser inte matchar får klienten ett fel meddelande.
 
@@ -67,7 +67,7 @@ När du begär ett certifikat måste du ange det fullständiga domän namnet fö
 > Om certifikat utfärdaren inte kan ange certifikatet och nyckeln som PEM-kodade filer kan du använda ett verktyg som [openssl](https://www.openssl.org/) för att ändra formatet.
 
 > [!WARNING]
-> Använd endast *självsignerade* certifikat för utveckling. Använd dem inte i produktions miljöer. Självsignerade certifikat kan orsaka problem i dina klient program. Mer information finns i dokumentationen för de nätverks bibliotek som används av klient programmet.
+> Använd endast *självsignerade* certifikat för utveckling. Använd dem inte i produktions miljöer. Självsignerade certifikat kan orsaka problem i din klient program. Mer information finns i dokumentationen för de nätverks bibliotek som används av klient programmet.
 
 ## <a id="enable"></a>Aktivera SSL och distribuera
 
@@ -85,7 +85,7 @@ När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett
 
 Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett certifikat som du köper.
 
-  * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "unservice" ett domän namn med\<sex slumpmässiga tecken >.\<azureregion >. cloudapp. Azure. com ", där \<azureregion > är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
+  * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "contoso" domän namnet "contoso\<sex-slumpmässiga tecken >.\<azureregion >. cloudapp. Azure. com ", där \<azureregion > är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
 
     Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange parametern *ssl_certificate* till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
 
@@ -98,11 +98,19 @@ Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett cer
     from azureml.core.compute import AksCompute
     # Config used to create a new AKS cluster and enable SSL
     provisioning_config = AksCompute.provisioning_configuration()
-    provisioning_config.enable_ssl(leaf_domain_label = "myservice")
+    # Leaf domain label generates a name using the formula
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  where "######" is a random series of characters
+    provisioning_config.enable_ssl(leaf_domain_label = "contoso")
+
+
     # Config used to attach an existing AKS cluster to your workspace and enable SSL
     attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                           cluster_name = cluster_name)
-    attach_config.enable_ssl(leaf_domain_label = "myservice")
+    # Leaf domain label generates a name using the formula
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  where "######" is a random series of characters
+    attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
   * När du använder *ett certifikat som du har köpt*använder du parametrarna *ssl_cert_pem_file*, *ssl_key_pem_file*och *ssl_cname* . Följande exempel visar hur du använder *. pem* -filer för att skapa en konfiguration som använder ett SSL-certifikat som du har köpt:
@@ -135,7 +143,7 @@ aci_config = AciWebservice.deploy_configuration(
 
 Mer information finns i [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-).
 
-## <a name="update-your-dns"></a>Uppdatera din DNS
+## <a name="update-your-dns"></a>Uppdatera din DNS-Server
 
 Sedan måste du uppdatera din DNS så att den pekar på.
 

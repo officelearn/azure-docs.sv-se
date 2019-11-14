@@ -1,10 +1,10 @@
 ---
-title: Utöka eller förnya Azures resurs roll tilldelningar i Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Förnya Azure-resursens roll tilldelningar i PIM – Azure AD | Microsoft Docs
 description: Lär dig hur du utökar eller förnyar roll tilldelningar för Azure-resurser i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfe6a545aa9acae8045e9c9756fc2711504d75d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 577c028582bc3b23d13e71522bb83db558065ee2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895560"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022901"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Utöka eller förnya Azures resurs roll tilldelningar i Privileged Identity Management
 
@@ -43,7 +43,7 @@ Följande steg beskriver processen för att begära, matcha eller administrera e
 
 ### <a name="self-extend-expiring-assignments"></a>Själv utökning tilldelningar som upphör att gälla
 
-Användare eller grupper som har tilldelats en roll kan utöka förfallna roll tilldelningar direkt från fliken **behörig** eller **aktiv** på sidan **Mina roller** i en resurs och på sidan **mina roller** på den översta nivån i Privileged Identity Managements portalen . Användare eller grupper kan begära att utöka kvalificerade och aktiva (tilldelade) roller som upphör att gälla under de kommande 14 dagarna.
+Användare eller grupper som har tilldelats en roll kan utöka förfallna roll tilldelningar direkt från fliken **behörig** eller **aktiv** på sidan **Mina roller** i en resurs och från sidan **mina roller** på den översta nivån i Privileged Identity Managements portalen. Användare eller grupper kan begära att utöka kvalificerade och aktiva (tilldelade) roller som upphör att gälla under de kommande 14 dagarna.
 
 ![Azure-resurser – sidan mina roller visar kvalificerade roller med en åtgärds kolumn](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 

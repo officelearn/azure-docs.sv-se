@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Virtuella datorer med lastbalanserare i flera tillgänglighetszoner – Azure Portal'
+title: 'Självstudie: belastningsutjämna virtuella datorer i tillgänglighets zoner – Azure Portal'
 titlesuffix: Azure Load Balancer
 description: Den här kursen visar hur du skapar en Standard Load Balancer med zonredundant klientdel för att lastbalansera virtuella datorer i flera tillgänglighetszoner med hjälp av Azure Portal
 services: load-balancer
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 5b024321a18c6dec4f56a7cbc12c5a8fa748f903
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2079ec95b582ed724583112f7af4865af66eef9d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273483"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048876"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. Den här kursen går stegvis igenom hur du skapar en offentlig Standard Load Balancer som lastbalanserar virtuella datorer i flera tillgänglighetszoner. Det här hjälper till att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter. Med zonredundans kan en eller flera tillgänglighetszoner misslyckas och datasökvägen överleva så länge en zon i regionen har god status. Lär dig att:
 
@@ -54,11 +54,11 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Subscription               | Välj din prenumeration.    |    
-    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | type          | Välj **Offentligt**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -123,7 +123,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 
 Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region som kan fungera som serverdelsservrar för lastbalanseraren.
 
-1. Klicka på **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
+1. Klicka på **Skapa en resurs** > **Beräkna** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
     - *azureuser* – för administratörens användarnamn.    
     - *myResourceGroupLBAZ* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.

@@ -1,25 +1,25 @@
 ---
-title: 'Microsoft Graph-API: er för PIM (för hands version) – Azure Active Directory | Microsoft Docs'
+title: 'Microsoft Graph-API: er för PIM (för hands version) – Azure AD | Microsoft Docs'
 description: 'Innehåller information om hur du använder Microsoft Graph-API: er för Azure AD Privileged Identity Management (PIM) (för hands version).'
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/13/2018
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49d49f42e0d705981a5b4e41630b425fcb02e940
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: aea9fbb14d3892419af104c44c8bfd5528eef421
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756262"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021916"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Microsoft Graph-API: er för Privileged Identity Management (förhands granskning)
 

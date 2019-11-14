@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en offentlig grundläggande lastbalanserare med hjälp av Azure-portalen'
-titlesuffix: Azure Load Balancer
+title: 'Snabb start: skapa en offentlig grundläggande Load Balancer-Azure Portal'
+titleSuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en offentlig grundläggande lastbalanserare med Azure Portal.
 services: load-balancer
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3cbb4271909cf739dc3ce13712e388f2fc8e20a5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274090"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048692"
 ---
-# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en Basic-lastbalanserare med hjälp av Azure-portalen
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Snabb start: skapa en grundläggande Load Balancer med hjälp av Azure Portal
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande begäranden sprids över virtuella datorer. Du kan använda Azure-portalen för att skapa en lastbalanserare och balansera trafik över virtuella datorer. Den här snabbstarten visar hur du skapar och konfigurerar en lastbalanserare, serverdelsservrar och nätverksresurser på prisnivån Grundläggande.
 
@@ -37,13 +37,13 @@ Först skapar du en Basic-lastbalanserare med hjälp av portalen. Det namn och d
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Value                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Subscription               | Välj din prenumeration.    |    
-    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | type          | Välj **Offentligt**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | *MyPublicIP*   |
@@ -62,9 +62,9 @@ Sedan skapar du ett virtuellt nätverk och två virtuella datorer för serverdel
    
 1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
    
-   - **Namn**: Skriv *MyVNet*.
-   - **ResourceGroup**: I listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
-   - **Undernät** > **namn**: Skriv *MyBackendSubnet*.
+   - **Namn**: Skriv *MyVnet*.
+   - **ResourceGroup**: i listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
+   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
    
 1. Välj **Skapa**.
 
@@ -75,13 +75,13 @@ Sedan skapar du ett virtuellt nätverk och två virtuella datorer för serverdel
 1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumeration** > **Resursgrupp**: I listrutan väljer du **MyResourceGroupLB**.
+   - **Prenumeration** > **Resursgrupp**: i listrutan väljer du **MyResourceGroupLB**.
    - **Instansinformation** > **Namn på virtuell dator**: Skriv *MyVM1*.
    - **Instansinformation** > **Tillgänglighetsalternativ**: 
      1. I listrutan väljer du **Tillgänglighetsuppsättning**. 
      2. Välj **Skapa ny**, skriv *MyAvailabilitySet* och välj **OK**.
   
-1. Välj fliken **Nätverk** eller välj **Nästa: Diskar** och sedan **Nästa: Nätverk**. 
+1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
    
    Kontrollera att följande har valts:
    - **Virtuellt nätverk**: **MyVnet**
@@ -110,14 +110,14 @@ I det här avsnittet skapar du regler för nätverkssäkerhetsgrupper (NSG) för
    
 1. I dialogrutan **Lägg till ingående säkerhetsregel** för HTTP-regeln skriver eller väljer du följande:
    
-   - **Källa**: Välj **Service Tag** (Tjänsttagg).  
+   - **Källa**: Välj **Tjänsttagg**.  
    - **Källtjänsttagg**: Välj **Internet**. 
    - **Målportintervall**: Skriv *80*.
    - **Protokoll**: Välj **TCP**. 
    - **Åtgärd**: Välj **Tillåt**.  
    - **Prioritet**: Skriv *100*. 
    - **Namn**: Skriv *MyHTTPRule*. 
-   - **Beskrivning**: Skriv *tillåt HTTP*. 
+   - **Beskrivning**: Skriv *Tillåt HTTP*. 
    
 1. Välj **Lägg till**. 
    
@@ -188,7 +188,7 @@ En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtue
 
 Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackEndPool**, även det med port 80. 
 
-**Så här skapar du belastningsutjämningsregeln:**
+**Så här skapar du lastbalanserarregeln:**
 
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
@@ -198,7 +198,7 @@ Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klien
 1. På sidan **Lägg till belastningsutjämningsregel** skriver eller väljer du följande värden:
    
    - **Namn**: Skriv *MyLoadBalancerRule*.
-   - **Klientdels-API-adress:** Skriv *LoadBalancerFrontend*.
+   - **Klientdels-IP-adress:** Skriv *LoadBalancerFrontend*.
    - **Protokoll**: Välj **TCP**.
    - **Port**: Skriv *80*.
    - **Serverdelsport**: Skriv *80*.

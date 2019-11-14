@@ -1,18 +1,19 @@
 ---
-title: Begränsa webb trafik med en brand vägg för webbaserade program – Azure PowerShell
+title: Begränsa webb trafik med hjälp av PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Lär dig hur du begränsar webb trafik med en brand vägg för webbaserade program på en Programgateway med hjälp av Azure PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: b96065b6551f604cfd817a00e6a39cec37c71377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.topic: conceptual
+ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502284"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046276"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Aktivera brand vägg för webbaserade program med Azure PowerShell
 
@@ -74,7 +75,7 @@ $pip = New-AzPublicIpAddress `
   -Sku Standard
 ```
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
 I det här avsnittet ska du skapa resurser som stöder programgatewayen och sedan skapa den och en WAF. Du skapar bland annat följande resurser:
 

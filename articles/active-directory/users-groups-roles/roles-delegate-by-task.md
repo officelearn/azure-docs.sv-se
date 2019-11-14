@@ -1,11 +1,10 @@
 ---
-title: Delegera minst privilegierade roller efter administratörs uppgift – Azure Active Directory | Microsoft Docs
+title: Delegera roller efter administratörs uppgift – Azure Active Directory | Microsoft Docs
 description: Roller som ska delegeras för identitets uppgifter i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -15,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5933fdd9932bd8c13ab0f231d677ce06112662ed
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: b8ccd98553b06ef3fcd2241c8223889c0a86e331
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169760"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024659"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörs roller efter administratörs uppgift i Azure Active Directory
 
@@ -73,7 +72,7 @@ Aktivitet | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Konfigurera företags egenskaper | Global administratör | 
 
-## <a name="connect"></a>Connect
+## <a name="connect"></a>Anslut
 
 Aktivitet | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
@@ -171,13 +170,13 @@ Uppdatera grupp egenskaper | Grupp ägare ([Se dokumentationen](https://docs.mic
 
 Aktivitet | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera aviserings meddelanden| Säkerhets administratör | 
-Konfigurera och aktivera eller inaktivera MFA-principen| Säkerhets administratör | 
-Konfigurera och aktivera eller inaktivera inloggnings risk princip| Säkerhets administratör | 
-Konfigurera och aktivera eller inaktivera användar risk princip | Säkerhets administratör | 
-Konfigurera vecko sammandrag | Säkerhets administratör| 
-Ignorera alla risk identifieringar | Säkerhets administratör | 
-Åtgärda eller ignorera sårbarhet | Säkerhets administratör | 
+Konfigurera aviserings meddelanden| Säkerhetsadministratör | 
+Konfigurera och aktivera eller inaktivera MFA-principen| Säkerhetsadministratör | 
+Konfigurera och aktivera eller inaktivera inloggnings risk princip| Säkerhetsadministratör | 
+Konfigurera och aktivera eller inaktivera användar risk princip | Säkerhetsadministratör | 
+Konfigurera vecko sammandrag | Säkerhetsadministratör| 
+Ignorera alla risk identifieringar | Säkerhetsadministratör | 
+Åtgärda eller ignorera sårbarhet | Säkerhetsadministratör | 
 Läs all konfiguration | Säkerhets läsare | 
 Läs alla risk identifieringar | Säkerhets läsare | 
 Läs sårbarheter | Säkerhets läsare | 
@@ -204,7 +203,7 @@ Aktivitet | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
 Läs inloggnings loggar | Rapport läsare | Säkerhets läsare, säkerhets administratör
 
-## <a name="multi-factor-authentication"></a>Multifaktorautentisering
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Aktivitet | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
@@ -251,7 +250,7 @@ Konfigurera meddelande | Global administratör |
 Konfigurera lokal integrering | Global administratör |
 Konfigurera egenskaper för lösen ords återställning | Användar administratör | Global administratör
 Konfigurera registrering | Global administratör |
-Läs all konfiguration | Säkerhets administratör | Användar administratör |
+Läs all konfiguration | Säkerhetsadministratör | Användar administratör |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -316,7 +315,7 @@ Läs riskfyllda inloggningar | Säkerhets läsare |
 
 Aktivitet | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Ignorera alla händelser | Säkerhets administratör | 
+Ignorera alla händelser | Säkerhetsadministratör | 
 Läs all konfiguration | Säkerhets läsare | 
 Läs användare som har flaggats för risk | Säkerhets läsare | 
 

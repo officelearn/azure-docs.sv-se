@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4a0736267ca00b67f35abc7cf263e7cf19543d81
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6ab01cf42dac280e64470355f7ea5804cad669d7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932131"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048793"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -194,7 +194,7 @@ Skriptet innehåller två funktioner som läser in och kör modellen:
 
 * `init()`: den här funktionen laddar normalt modellen till ett globalt objekt. Den här funktionen körs bara en gång, när Docker-behållaren för webb tjänsten startas.
 
-* `run(input_data)`: den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
+* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>Hitta modell filer i ditt post skript
 
@@ -233,7 +233,7 @@ När du registrerar en modell anger du ett modell namn som används för att han
 När du registrerar en modell ger du den ett namn. Namnet motsvarar var modellen placeras, antingen lokalt eller under tjänst distributionen.
 
 > [!IMPORTANT]
-> Om du använde automatisk maskin inlärning för att träna en modell, används ett `model_id`-värde som modell namn. Ett exempel på hur man registrerar och distribuerar en modell som är utbildad med automatisk maskin inlärning finns i [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) på GitHub.
+> Om du använde automatisk maskin inlärning för att träna en modell, används ett `model_id`-värde som modell namn. Ett exempel på hur man registrerar och distribuerar en modell som är utbildad med automatisk maskin inlärning finns i [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features) på GitHub.
 
 I följande exempel returneras en sökväg till en enda fil med namnet `sklearn_mnist_model.pkl` (som har registrerats med namnet `sklearn_mnist`):
 
@@ -375,8 +375,8 @@ def run(data):
 
 Fler exempel finns i följande skript:
 
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
+* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
@@ -530,7 +530,7 @@ Följande tabell innehåller ett exempel på hur du skapar en distributions konf
 
 | Beräkningsmål | Exempel på distributions konfiguration |
 | ----- | ----- |
-| Lokal | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Lokala | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -572,7 +572,7 @@ Information om hur du använder profilering från CLI finns i [AZ ml modell Prof
 Mer information finns i följande dokument:
 
 * [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profil ()](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
+* [profil ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 * [Fil schema för konfigurations härledning](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
@@ -584,7 +584,7 @@ Distributionen använder distributions konfigurationen för konfigurations konfi
 Om du vill distribuera en modell lokalt måste du ha Docker installerat på den lokala datorn.
 
 #### <a name="using-the-sdk"></a>Med SDK
-
+zzs
 ```python
 from azureml.core.webservice import LocalWebservice, Webservice
 
@@ -1137,8 +1137,8 @@ Obs! de här beroendena ingår i den förskapade sklearn-härlednings containern
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill ta bort en distribuerad webb tjänst använder du `service.delete()`.
-Använd `model.delete()`om du vill ta bort en registrerad modell.
+Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
+Ta bort registrerade modellen genom att använda `model.delete()`.
 
 Mer information finns i dokumentationen för [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
@@ -1146,7 +1146,7 @@ Mer information finns i dokumentationen för [WebService. Delete ()](https://doc
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
+* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
 * [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

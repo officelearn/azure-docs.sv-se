@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514716"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034085"
 ---
 # <a name="azcopy-login"></a>azcopy inloggning
 
@@ -35,6 +35,13 @@ Mer information finns i exemplen.
 ```azcopy
 azcopy login [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
+
+- [Kom igång med AzCopy](storage-use-azcopy-v10.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exempel
 
@@ -80,7 +87,7 @@ Logga in som tjänstens huvud namn med en klient hemlighet. Ange miljövariabeln
 azcopy login --service-principal
 ```
 
-Logga in som tjänstens huvud namn med ett certifikat och lösen ord. Ange miljövariabeln AZCOPY_SPA_CERT_PASSWORD till certifikatets lösen ord för cert-baserad tjänstens huvud tillstånd.
+Logga in som tjänstens huvud namn med ett certifikat och lösen ord. Ange miljövariabeln AZCOPY_SPA_CERT_PASSWORD till certifikatets lösen ord för cert-baserad tjänstens huvud namns behörighet.
 
 ```azcopy
 azcopy login --service-principal --certificate-path /path/to/my/cert
@@ -111,6 +118,6 @@ Se till att behandla/path/to/My/cert som en sökväg till en PEM-eller PKCS12-fi
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [AzCopy](storage-ref-azcopy.md)

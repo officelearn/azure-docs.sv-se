@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 10/31/2019
-ms.openlocfilehash: 9f8783dc6d3c14b086364639b60273dbae626cee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6104a8b01cc9fca5ff8de973e7fc2af77cda8515
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587984"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048211"
 ---
 # <a name="collect-azure-activity-log-with-diagnostic-settings-preview"></a>Samla in Azure aktivitets logg med diagnostikinställningar (förhands granskning)
 [Azure aktivitets loggen](activity-logs-overview.md) är en [plattforms logg](platform-logs-overview.md) som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Fram till nu har du skapat en logg profil för att skicka aktivitets logg poster till [ett händelsehubben eller lagrings konto](activity-log-export.md) och använde en koppling för att samla in dem i en [Log Analytics-arbetsyta](activity-log-collect.md).
@@ -22,6 +22,8 @@ Nu kan du konfigurera insamling av Azure aktivitets loggen med samma [diagnostik
 - Konsekvent metod för att samla in alla plattforms loggar.
 - Samla in aktivitets logg över flera prenumerationer och klienter.
 - Filtrera samling för att endast samla in loggar för särskilda kategorier.
+- Samla in alla aktivitets logg kategorier. Vissa kategorier samlas inte in med hjälp av den föregående metoden.
+- Snabbare svars tid för logg inmatning. Den föregående metoden har ungefär 15 minuters fördröjning medan diagnostikinställningar bara lägger till ungefär 1 minut.
 
 ## <a name="considerations"></a>Överväganden
 Överväg följande information om aktivitets loggs insamling med hjälp av diagnostikinställningar innan du aktiverar den här funktionen.

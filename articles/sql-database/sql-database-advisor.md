@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-ms.date: 12/19/2018
-ms.openlocfilehash: fb7ba90724a98a34adf4aa279eefc8e3d7a63bf3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/12/2019
+ms.openlocfilehash: a113ea3fd4828a498d1f53ea7604df7bc8588eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811390"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048415"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Prestanda rekommendationer för SQL Database
 
@@ -25,6 +25,17 @@ Azure SQL Database lär sig och anpassar sig till ditt program. Den innehåller 
 > [!TIP]
 > [Automatisk justering](sql-database-automatic-tuning.md) är den rekommenderade metoden för att automatiskt justera några av de vanligaste problemen med databas prestanda. [Fråga prestanda insikter](sql-database-query-performance.md) är den rekommenderade metoden för grundläggande Azure SQL Database behov av prestanda övervakning. [Azure SQL-analys](../azure-monitor/insights/azure-sql.md) är den rekommenderade metoden för avancerad övervakning av databas prestanda i stor skala, med inbyggd intelligens för automatisk prestanda fel sökning.
 >
+
+## <a name="performance-recommendations-options"></a>Alternativ för prestanda rekommendationer
+
+Tillgängliga alternativ för prestanda rekommendation Azure SQL Database:
+
+| Prestanda rekommendation | Stöd för enkel databas och poolad databas | Stöd för instans databas |
+| :----------------------------- | ----- | ----- |
+| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Nej | 
+| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (> 90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
+| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande parametrization i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Nej |
+| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när SQL Database tjänsten meddelar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i SQL-databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Nej |
 
 ## <a name="create-index-recommendations"></a>Skapa index rekommendationer
 SQL Database övervakar kontinuerligt de frågor som körs och identifierar de index som kan förbättra prestandan. När det är tillräckligt säkert att ett visst index saknas, skapas en ny rekommendation för **create index** .
@@ -50,8 +61,7 @@ Förutom att identifiera saknade index, SQL Database kontinuerligt analysera pre
 
 Ta bort index rekommendationer går också igenom verifieringen efter implementeringen. Om prestandan förbättras är effekt rapporten tillgänglig. Om prestanda försämras återställs rekommendationen.
 
-
-## <a name="parameterize-queries-recommendations"></a>Rekommendationer för Parameterisera-frågor
+## <a name="parameterize-queries-recommendations-preview"></a>Rekommendationer för Parameterisera-frågor (för hands version)
 Rekommendationer för *Parameterisera-frågor* visas när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma körnings plan för frågan. Det här villkoret skapar en möjlighet att tillämpa Tvingad Parameterisering. Tvingad Parameterisering, i sin tur, tillåter att fråge planer cachelagras och återanvänds i framtiden, vilket förbättrar prestanda och minskar resursanvändningen. 
 
 Varje fråga som utfärdats mot SQL Server ursprungligen måste kompileras för att generera en körnings plan. Varje genererad plan läggs till i planens cacheminne. Efterföljande körningar av samma fråga kan återanvända den här planen från cachen, vilket eliminerar behovet av ytterligare kompilering. 

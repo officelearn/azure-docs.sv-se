@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fa7ee6663aae24451af195de4a8225c7a6b351e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647150"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049178"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Identifiera data avvikelser (för hands version) på data uppsättningar
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Mått och insikter är tillgängliga via den [Azure Application Insights](https:
 > [!Important]
 > Observera att övervakning av data med SDK är tillgängligt i alla versioner, samtidigt som du övervakar data genom att använda Studio på webben bara Enterprise Edition.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du vill skapa och arbeta med data uppsättnings övervakare behöver du:
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
@@ -147,7 +147,7 @@ De här inställningarna gäller för den schemalagda data behandlings övervakn
 | Aktivera | Aktivera eller inaktivera schemat i pipelinen för data uppsättnings övervakaren | Inaktivera detta om du vill analysera historiska data med den egna fyllnings inställningen. Den kan aktive ras när data uppsättnings övervakaren har skapats. | Ja | 
 | Svarstid | Tid i timmar tar det för data att komma in i data uppsättningen. Till exempel, om det tar tre dagar innan data kommer in i SQL DB Mina dataset-inkapslingar, ställer du in svars tiden på 72. | Kan inte ändras efter att data uppsättnings övervakaren har skapats | Nej | 
 | E-postadresser | E-postadresser för aviseringar baserat på överträdelse av tröskelvärdet för data avvikelse i procent. | E-postmeddelanden skickas via Azure Monitor. | Ja | 
-| Fastställd | Tröskelvärde för data avvikelse i procent för e-postavisering. | Ytterligare aviseringar och händelser kan anges för många andra mått i arbets ytans associerade Application Insights-resurs. | Ja | 
+| Tröskelvärde | Tröskelvärde för data avvikelse i procent för e-postavisering. | Ytterligare aviseringar och händelser kan anges för många andra mått i arbets ytans associerade Application Insights-resurs. | Ja | 
 
 ### <a name="backfill-settings"></a>Inställningar för bakfyllning
 
@@ -179,7 +179,7 @@ Den resulterande data uppsättnings övervakaren kommer att visas i listan. Väl
 
 ### <a name="from-python-sdk"></a>Från python SDK
 
-Mer information finns i [referens dokumentationen för python SDK för data](https://aka.ms/datadriftapi) drift. 
+Mer information finns i [referens dokumentationen för python SDK för data](/python/api/azureml-datadrift/azureml.datadrift) drift. 
 
 Här följer ett exempel på hur du skapar en data uppsättnings övervakare med python SDK
 
@@ -321,7 +321,7 @@ Kolumner eller funktioner i data uppsättningen klassificeras som kategoriska el
 | Funktions typ | Datatyp | Tillstånd | Begränsningar | 
 | ------------ | --------- | --------- | ----------- |
 | Kategoriska | sträng, bool, int, Float | Antalet unika värden i funktionen är mindre än 100 och mindre än 5% av antalet rader. | Null behandlas som sin egen kategori. | 
-| Numeriska | int, Float | Av en numerisk datatyp och inte uppfyller villkoren för en kategoriska-funktion. | Funktionen utelämnas om > 15% av värdena är null. | 
+| Numeriskt | int, Float | Av en numerisk datatyp och inte uppfyller villkoren för en kategoriska-funktion. | Funktionen utelämnas om > 15% av värdena är null. | 
 
 ## <a name="next-steps"></a>Nästa steg
 

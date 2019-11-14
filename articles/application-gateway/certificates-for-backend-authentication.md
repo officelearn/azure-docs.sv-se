@@ -1,18 +1,19 @@
 ---
-title: Certifikat som krävs för vit listning-backend i Azure Application Gateway
-description: Den här artikeln innehåller exempel på hur ett SSL-certifikat kan konverteras till autentiseringscertifikat och betrodda rot certifikat som krävs för vit listning Server dels instanser i Azure Application Gateway
+title: Certifikat som krävs för att tillåta backend-servrar
+titleSuffix: Azure Application Gateway
+description: Den här artikeln innehåller exempel på hur ett SSL-certifikat kan konverteras till autentiseringscertifikat och betrodda rot certifikat som krävs för att tillåta Server dels instanser i Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 48944c513bd075e3859503fdadc4001261dc8c4a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774780"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048176"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Skapa certifikat för att tillåta Server delen med Azure Application Gateway
 
@@ -25,7 +26,7 @@ I den här artikeln kan du se hur du:
 > - Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)
 > - Exportera ett betrott rot certifikat från ett Server dels certifikat (för v2-SKU)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett befintligt Server dels certifikat krävs för att generera de autentiseringscertifikat eller betrodda rot certifikat som krävs för att tillåta Server dels instanser med Application Gateway. Server dels certifikatet kan vara detsamma som SSL-certifikatet eller ett annat för ytterligare säkerhet. Application Gateway ger dig ingen mekanism för att skapa eller köpa ett SSL-certifikat. I test syfte kan du skapa ett självsignerat certifikat men du bör inte använda det för produktions arbets belastningar. 
 
@@ -61,11 +62,11 @@ Exportera filen offentlig Key. cer från SSL-certifikatet (inte den privata nyck
 
 7. Ditt certifikat har exporter ATS.
 
-   ![Klart](./media/certificates-for-backend-authentication/success.png)
+   ![Lyckades](./media/certificates-for-backend-authentication/success.png)
 
    Det exporterade certifikatet ser ut ungefär så här:
 
-   ![Exporterat](./media/certificates-for-backend-authentication/exported.png)
+   ![Exporterar](./media/certificates-for-backend-authentication/exported.png)
 
 8. Om du öppnar det exporterade certifikatet med hjälp av anteckningar ser du något som liknar det här exemplet. Avsnittet i blått innehåller den information som överförs till Application Gateway. Om du öppnar ditt certifikat med anteckningar och det inte ser ut ungefär så här betyder det vanligt vis att du inte exporterade det med hjälp av Base-64-kodad X. 509 (. CER-format. Dessutom, om du vill använda en annan text redigerare, vet du att vissa redigerare kan introducera oavsiktlig formatering i bakgrunden. Detta kan skapa problem när du överför texten från det här certifikatet till Azure.
 

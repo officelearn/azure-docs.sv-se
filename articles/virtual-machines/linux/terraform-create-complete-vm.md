@@ -1,5 +1,5 @@
 ---
-title: Använd terraform för att skapa en komplett virtuell Linux-dator i Azure | Microsoft Docs
+title: Använd terraform för att skapa en komplett virtuell Linux-dator i Azure
 description: Lär dig hur du använder terraform för att skapa och hantera en komplett Linux-miljö för virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: bb4628477719d0aa2f176c466047531b42d7cfc3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924881"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034707"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Skapa en fullständig Linux-infrastruktur för virtuella datorer i Azure med terraform
 
@@ -191,7 +191,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 Det sista steget är att skapa en virtuell dator och använda alla resurser som skapats. I följande avsnitt skapas en virtuell dator med namnet *myVM* och bifogas det virtuella nätverkskortet med namnet *myNIC*. Den senaste *Ubuntu 16,04-LTS-* avbildningen används och en användare med namnet *azureuser* skapas med lösenordsautentisering inaktive rad.
 
- SSH Key-data tillhandahålls i avsnittet *ssh_keys* . Ange en giltig Offentlig SSH-nyckel i fältet *key_data* .
+ Information om SSH-nycklar finns i avsnittet *ssh_keys* . Ange en giltig Offentlig SSH-nyckel i fältet *key_data* .
 
 ```hcl
 resource "azurerm_virtual_machine" "myterraformvm" {

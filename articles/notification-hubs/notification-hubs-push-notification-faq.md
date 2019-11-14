@@ -1,5 +1,5 @@
 ---
-title: 'Azure Notification Hubs: Vanliga frågor och svar (FAQ) | Microsoft Docs'
+title: 'Azure Notification Hubs: vanliga frågor och svar (FAQ) | Microsoft Docs'
 description: Vanliga frågor och svar om att utforma/implementera lösningar på Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
@@ -13,18 +13,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 5de8c9523e05411a4751766c836b8e99ebb977c1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: ee1bd413894ff5c12883279ccd8a9e9eac3c1790
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213146"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048791"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 
 ## <a name="general"></a>Allmänt
 
@@ -38,16 +38,16 @@ Rekommenderad mappning matchar en namnrymd med en app. I ett namn område kan du
 
 Du hittar den senaste pris informationen på sidan [Notification Hubs priser] . Notification Hubs faktureras på namn områdes nivå. (Information om definitionen av ett namn område finns i "Vad är resurs strukturen för Notification Hubs?") Notification Hubs har tre nivåer:
 
-* **Kostnads fri**: Den här nivån är en lämplig utgångs punkt för att utforska push-funktionerna. Det rekommenderas inte för produktions program. Du får 500 enheter och 1 000 000 push-meddelanden per namnrymd per månad, utan garanti för service nivå avtal (SLA).
-* **Basic**: Den här nivån (eller standard nivån) rekommenderas för mindre produktions program. Du får 200 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje.
-* **Standard**: Den här nivån rekommenderas för medel stora och stora produktions program. Du får 10 000 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje. Innehåller omfattande telemetri (ytterligare information om push-status har angetts).
+* **Kostnads fri**: den här nivån är en lämplig utgångs punkt för att utforska push-funktionerna. Det rekommenderas inte för produktions program. Du får 500 enheter och 1 000 000 push-meddelanden per namnrymd per månad, utan garanti för service nivå avtal (SLA).
+* **Basic**: den här nivån (eller standard nivån) rekommenderas för mindre produktions program. Du får 200 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje.
+* **Standard**: den här nivån rekommenderas för medel stora och stora produktions program. Du får 10 000 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje. Innehåller omfattande telemetri (ytterligare information om push-status har angetts).
 
 Standard-nivå funktioner:
 
-* **Avancerad telemetri**: Du kan använda telemetri för Notification Hubs per meddelande för att spåra push-begäranden och Plattformsspecifikt meddelandesystem feedback för fel sökning.
-* Flera **innehavare**: Du kan arbeta med Plattformsspecifikt meddelandesystem autentiseringsuppgifter på en namn områdes nivå. Med det här alternativet kan du enkelt dela klienter i hubbar inom samma namnrymd.
-* **Schemalagd push**: Du kan schemalägga att meddelanden ska skickas när som helst.
-* **Mass åtgärder**: Möjliggör registrering av export/import-funktioner enligt beskrivningen i [Export/import av registreringar] dokumentet för registrering.
+* **Avancerad telemetri**: du kan använda Notification Hubs per meddelande-telemetri för att spåra eventuella push-begäranden och plattformsspecifikt meddelandesystem feedback för fel sökning.
+* Flera **innehavare**: du kan arbeta med plattformsspecifikt meddelandesystem autentiseringsuppgifter på en namn områdes nivå. Med det här alternativet kan du enkelt dela klienter i hubbar inom samma namnrymd.
+* **Schemalagd push**: du kan schemalägga meddelanden så att de skickas när som helst.
+* **Mass åtgärder**: aktiverar registreringar av export/import-funktioner som beskrivs i dokument för [Export/import av registreringar] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Vad är service avtal för Notification Hubs?
 
@@ -182,6 +182,10 @@ Vi har två rekommendationer för App-Server delar:
 Om du inte har en server del, när appen startar på mål enheter, utför de en ny registrering i den sekundära Notification Hub. Slutligen kommer den sekundära meddelande hubben att alla aktiva enheter har registrerats.
 
 Det kommer att finnas en tids period när enheter med appar som inte är öppna får aviseringar.
+
+### <a name="is-all-of-my-data-stored-in-encrypted-form"></a>Är alla mina data lagrade i krypterad form?
+
+Azure Notification Hubs krypterar alla kunddata i vila med undantag av registrerings märken. Därför bör du inte lagra personliga eller konfidentiella data med hjälp av taggar.
 
 ### <a name="is-there-audit-log-capability"></a>Finns det funktioner för gransknings logg?
 

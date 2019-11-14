@@ -1,10 +1,10 @@
 ---
-title: Konfigurera prioritet trafikroutningsmetod med Azure Traffic Manager | Microsoft Docs
-description: Den här artikeln förklarar hur du konfigurerar prioritet trafikroutningsmetod i Traffic Manager
+title: Konfigurera prioriterad trafik routning – Azure Traffic Manager
+description: Den här artikeln beskriver hur du konfigurerar routningsmetoden för prioritets trafik i Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,42 +12,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9954c7733c30efaea4a74e04949556a3a8617fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048482"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040351"
 ---
-# <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Konfigurera prioriterad routningsmetod för trafik i Traffic Manager
+# <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Konfigurera metod för prioritetsordning för trafik i Traffic Manager
 
-Oavsett webbplatsläge ger Azure Websites redan redundansfunktionen för webbplatser inom ett datacenter (även kallat en region). Traffic Manager ger redundans för webbplatser på olika datacenter.
+Oberoende av webbplats läget innehåller Azure Websites redan funktioner för redundans för webbplatser i ett Data Center (kallas även region). Traffic Manager tillhandahåller redundans för webbplatser i olika data Center.
 
-Ett vanligt mönster för-redundans är att skicka trafik till en primär tjänst och tillhandahåller en uppsättning identiska Säkerhetskopieringstjänster för redundans. Följande steg beskriver hur du konfigurerar den här prioriterade redundansen med Azure molntjänster och webbplatser:
+Ett vanligt mönster för redundansväxling av tjänster är att skicka trafik till en primär tjänst och tillhandahålla en uppsättning identiska säkerhets kopierings tjänster för redundans. Följande steg beskriver hur du konfigurerar prioriterad redundans med Azure Cloud Services och Websites:
 
-## <a name="to-configure-the-priority-traffic-routing-method"></a>Så här konfigurerar du prioritet trafikroutningsmetod
+## <a name="to-configure-the-priority-traffic-routing-method"></a>Så här konfigurerar du metoden för prioritets väg för trafik
 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
-2. I portalens sökfältet söker du efter den **Traffic Manager-profiler** och klicka sedan på namnet på profilen som du vill konfigurera routningsmetod för.
-3. I den **Traffic Manager-profil** bladet, kontrollera att både molntjänster och webbplatser som du vill ska ingå i din konfiguration finns.
-4. I den **inställningar** klickar du på **Configuration**, och i den **Configuration** bladet gör du följande:
-    1. För **trafik routning metodinställningar**, kontrollera att trafikroutningsmetod är **prioritet**. Om det inte är det, klickar du på **prioritet** från den nedrullningsbara listan.
-    2. Ange den **inställningar för Slutpunktsövervakning** identiska för alla alla slutpunkter i den här profilen på följande sätt:
-        1. Välj lämpliga **protokollet**, och ange den **Port** tal. 
-        2. För **sökväg** skriver ett snedstreck */* . Du måste ange en sökväg och filnamn för att övervaka slutpunkter. Ett snedstreck ”/” är en giltig post för den relativa sökvägen och innebär att filen är i rotkatalogen (standard).
-        3. Överst på sidan klickar du på **spara**.
-5. I den **inställningar** klickar du på **slutpunkter**.
-6. I den **slutpunkter** bladet granska prioritetsordning för dina slutpunkter. När du väljer den **prioritet** trafikroutningsmetod, ordningen på de valda slutpunkter frågor. Kontrollera prioritetsordningen för slutpunkter.  Den primära slutpunkten är längst upp. Kontrollera i den ordning som visas. alla begäranden som kommer att dirigeras till den första slutpunkten och om Traffic Manager identifierar den vara felaktig, trafiken växlar automatiskt över till nästa slutpunkten. 
-7. Om du vill ändra prioritetsordningen slutpunkten klickar du på slutpunkten, och i den **Endpoint** bladet som visas, klickar du på **redigera** och ändra den **prioritet** värde efter behov. 
-8. Klicka på **spara** spara ändra slutpunktsinställningarna för.
-9. När du har slutfört konfigurationsändringarna klickar du på **spara** längst ned på sidan.
+2. I portalens sökfält söker du efter **Traffic Manager profiler** och klickar sedan på det profil namn som du vill konfigurera routningsmetod för.
+3. På bladet **Traffic Manager profil** kontrollerar du att både de moln tjänster och webbplatser som du vill inkludera i konfigurationen finns.
+4. I avsnittet **Inställningar** klickar du på **konfiguration**och slutför i **konfigurations** bladet på följande sätt:
+    1. För **Inställningar för trafikroutnings metod**kontrollerar du att metoden för trafikroutning är **prioritet**. Om så inte är fallet klickar du på **prioritet** i list rutan.
+    2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
+        1. Välj lämpligt **protokoll**och ange **port** numret. 
+        2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
+        3. Klicka på **Spara**längst upp på sidan.
+5. I avsnittet **Inställningar** klickar du på **slut punkter**.
+6. På bladet **slut punkter** granskar du prioritets ordningen för dina slut punkter. När du väljer metoden **prioriterad** trafikroutning är ordningen för de valda slut punkterna. Kontrol lera prioritetsordningen för slut punkter.  Den primära slut punkten är överst. Dubbel kontroll av den ordning som den visas. alla begär Anden dirigeras till den första slut punkten och om Traffic Manager identifierar att den inte är felfri växlar trafiken automatiskt över till nästa slut punkt. 
+7. Om du vill ändra prioritets ordning för slut punkten klickar du på slut punkten och på bladet **slut punkt** som visas klickar du på **Redigera** och ändrar **prioritet** svärdet efter behov. 
+8. Klicka på **Spara** för att spara ändringar av slut punkts inställningarna.
+9. När du har slutfört konfigurations ändringarna klickar du på **Spara** längst ned på sidan.
 10. Testa ändringarna i konfigurationen på följande sätt:
-    1.  I portalens sökfältet, Sök efter namnet på Traffic Manager-profilen och klickar på Traffic Manager-profilen i resultaten som visas.
-    2.  I den **Traffic Manager** profilera bladet, klickar du på **översikt**.
-    3.  Den **Traffic Manager-profil** visar bladet DNS-namnet på din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) att dirigeras till rätt slutpunkten som bestäms av routningstyp. I det här fallet alla begäranden dirigeras till den första slutpunkten och om Traffic Manager identifierar den vara felaktig, trafiken växlar automatiskt över till nästa slutpunkten.
-11. När Traffic Manager-profilen fungerar kan du redigera DNS-posten på auktoritativa DNS-servern att peka företagets domännamn till domännamnet för Traffic Manager.
+    1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.
+    2.  I bladet **Traffic Manager** profil klickar du på **Översikt**.
+    3.  Bladet **Traffic Manager profil** visar DNS-namnet för din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till den högra slut punkten som fastställs av typen av routning. I det här fallet dirigeras alla begär anden till den första slut punkten och om Traffic Manager identifierar att den inte är felfri växlar trafiken automatiskt över till nästa slut punkt.
+11. När din Traffic Manager-profil fungerar redigerar du DNS-posten på den auktoritativa DNS-servern för att peka ditt företags domän namn till Traffic Manager domän namnet.
 
-![Konfigurera prioritet trafikroutningsmetod med Traffic Manager][1]
+![Konfigurera Traffic routing-metoden med hjälp av Traffic Manager][1]
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -55,7 +55,7 @@ Ett vanligt mönster för-redundans är att skicka trafik till en primär tjäns
 - Lär dig mer om [routningsmetoden för viktad trafik](traffic-manager-configure-weighted-routing-method.md).
 - Lär dig mer om [routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md).
 - Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
-- Lär dig hur du [testa inställningarna för Traffic Manager](traffic-manager-testing-settings.md).
+- Lär dig hur du [testar Traffic Manager inställningar](traffic-manager-testing-settings.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-priority-routing-method/traffic-manager-priority-routing-method.png

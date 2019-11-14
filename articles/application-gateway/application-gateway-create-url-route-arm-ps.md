@@ -1,18 +1,19 @@
 ---
-title: Skapa en Programgateway med URL Path-baserade regler för routning – Azure PowerShell | Microsoft Docs
+title: URL-sökväg-baserade regler för routning med PowerShell
+titleSuffix: Azure Application Gateway
 description: Lär dig hur du skapar URL Path-baserade routningsregler för en Programgateway och en skalnings uppsättning för virtuella datorer med hjälp av Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ebe09e2c10bed1779d9189755f66bbea9bca1d43
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e7934ba0b33bff7ffb8e89e7b56c5b998a232289
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306259"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048055"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Skapa en Application Gateway med URL Path-baserade routningsregler med Azure PowerShell
 
@@ -345,7 +346,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel,, eller `http://52.168.55.24:8080/video/test.htm`. `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm`
+Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta den offentliga IP-adressen för Application Gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Som, `http://52.168.55.24`, `http://52.168.55.24:8080/images/test.htm`eller `http://52.168.55.24:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -353,11 +354,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testa basadressen i programgatewayen](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Ändra URL: en `http://<ip-address>:8080/video/test.htm`till, och ersätt din IP- `<ip-address>`adress för, så ser du något som liknar följande exempel:
+Ändra URL: en till `http://<ip-address>:8080/video/test.htm`, och ersätt din IP-adress för `<ip-address>`. du bör se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Ändra URL: en `http://<ip-address>:8080/video/test.htm` till och du bör se något som liknar följande exempel:
+Ändra URL: en till `http://<ip-address>:8080/video/test.htm` så ser du något som liknar följande exempel:
 
 ![Testa videoadressen i programgatewayen](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 

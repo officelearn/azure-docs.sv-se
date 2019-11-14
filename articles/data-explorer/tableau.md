@@ -1,60 +1,60 @@
 ---
-title: Använda Open Database Connectivity (ODBC) anslutning till Azure Data Explorer för att visualisera data med Tableau
-description: I den här artikeln får du lära dig hur du använder en Open Database Connectivity (ODBC)-anslutning till Azure Data Explorer-anslutning för att visualisera data med Tableau.
+title: Använd Open Database Connectivity (ODBC) anslutning till Azure Datautforskaren för att visualisera data med Tableau
+description: I den här artikeln får du lära dig hur du använder en Open Database Connectivity (ODBC) anslutning till Azure Datautforskaren-anslutningen för att visualisera data med Tableau.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a0948ae35a5c23768df117979db819861ac64529
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dd8fbd761a3442536919e17bae5465adf6b945f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66499091"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023868"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Visualisera data från Azure Data Explorer i Tableau
+# <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Visualisera data från Azure Datautforskaren i Tableau
 
- [Tableau](https://www.tableau.com/) är en visual analytics plattform för business intelligence. För att ansluta till Azure Data Explorer från Tableau och hämta data från ett kluster i exemplet, använder du drivrutinen för SQL Server Open Database Connectivity (ODBC). 
+ [Tableau](https://www.tableau.com/) är en Visual Analytics-plattform för Business Intelligence. Om du vill ansluta till Azure Datautforskaren från Tableau och hämta data från ett exempel kluster använder du driv rutinen SQL Server Open Database Connectivity (ODBC). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra den här artikeln:
 
-* [Ansluta till Azure Data Explorer med ODBC](connect-odbc.md) med hjälp av ODBC-drivrutinen för att ansluta till Azure Data Explorer från Tableau. 
+* [Anslut till azure datautforskaren med ODBC](connect-odbc.md) med SQL Server ODBC-drivrutinen för att ansluta till Azure datautforskaren från Tableau. 
 
-* Tableau Desktop, full, eller [utvärderingsversion](https://www.tableau.com/products/desktop/download) version.
+* Tableau Desktop, full eller [utvärderings](https://www.tableau.com/products/desktop/download) version.
 
-* Ett kluster som innehåller exempeldata StormEvents. Mer information finns i [skapa ett Azure Data Explorer-kluster och databasen](create-cluster-database-portal.md) och [mata in exempeldata i Azure Data Explorer](ingest-sample-data.md).
+* Ett kluster som innehåller exempel data för StormEvents. Mer information finns i [skapa ett azure datautforskaren-kluster och databas](create-cluster-database-portal.md) och mata [in exempel Data i Azure datautforskaren](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="visualize-data-in-tableau"></a>Visualisera data i Tableau 
 
-När du har konfigurerat ODBC kan du sätta exempeldata i Tableau.
+När du har konfigurerat ODBC kan du hämta exempel data till Tableau.
 
-1. I Tableau Desktop på den vänstra menyn väljer **andra databaser (ODBC)** .
+1. I Tableau Desktop väljer du **andra databaser (ODBC)** på den vänstra menyn.
 
     ![Ansluta med ODBC](media/tableau/connect-odbc.png)
 
-1. För **DSN**, Välj den datakälla som du skapade för ODBC och välj sedan **logga In**.
+1. För **DSN**väljer du den data källa som du skapade för ODBC och väljer sedan **Logga**in.
 
     ![ODBC-inloggning](media/tableau/odbc-sign-in.png)
 
-1. För **databasen**, välja databasen på exemplet klustret, till exempel *TestDatabase*. För **schemat**väljer *dbo*, och för **tabell**väljer den *StormEvents* exempeltabell.
+1. För **databas**väljer du databasen i exempel klustret, till exempel *TestDatabase*. För **schema**väljer du *dbo*, och för **tabell**väljer du exempel tabellen *StormEvents* .
 
     ![Välj databas och tabell](media/tableau/select-database-table.png)
 
-1. Tableau visas nu att schemat innehåller exempeldata. Välj **Uppdatera nu** att ta med data i Tableau.
+1. Tableau visar nu schemat för exempel data. Välj **Uppdatera nu** för att hämta data till Tableau.
 
     ![Uppdatera data](media/tableau/update-data.png)
 
-    När data importeras visar Tableau datarader liknar följande bild.
+    När data importeras visar Tableau rader med data som liknar följande bild.
 
-    ![Resultatuppsättningen](media/tableau/result-set.png)
+    ![Resultat uppsättning](media/tableau/result-set.png)
 
-1. Nu kan du skapa visualiseringar i Tableau baserat på data som du har med Datautforskaren i Azure. Mer information finns i [Tableau Learning](https://www.tableau.com/learn).
+1. Nu kan du skapa visualiseringar i Tableau baserat på de data du fick från Azure Datautforskaren. Mer information finns i [Tableau Learning](https://www.tableau.com/learn).
 
 ## <a name="next-steps"></a>Nästa steg
 

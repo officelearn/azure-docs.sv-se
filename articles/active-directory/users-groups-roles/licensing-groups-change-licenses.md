@@ -1,27 +1,27 @@
 ---
-title: Ändra licens tilldelningar för användare och grupper – Azure Active Directory | Microsoft Docs
-description: Beskriver den rekommenderade processen för att migrera användare i en grupp till olika tjänst licenser (Office 365 Enterprise E1 och E3) med hjälp av grupp licensiering
+title: Ändra licens planer för användare och grupper – Azure AD | Microsoft Docs
+description: Så här migrerar du användare i en grupp till olika tjänst planer med hjälp av grupp licensiering i Azure Active Directory
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7212983470e71ff6d7c1c33de142767ecf38d1f
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034008"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025895"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Ändra licens tilldelningar för en användare eller grupp i Azure Active Directory
 

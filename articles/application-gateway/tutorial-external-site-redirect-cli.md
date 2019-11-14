@@ -1,33 +1,28 @@
 ---
-title: Skapa en Programgateway med extern trafik omdirigering – Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en Programgateway som omdirigerar interna webbtrafik till i poolen med hjälp av Azure CLI.
+title: Omdirigering av extern trafik med CLI-Azure Application Gateway
+description: Lär dig hur du skapar en Programgateway som dirigerar om intern webb trafik till rätt pool med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: bf3061509e08648aa63b843a4b1d7b8968f3e88e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45b5dc9c73cc98d049d6eb02776f08f790e708eb
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133669"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047586"
 ---
-# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Skapa en Programgateway med extern omdirigering med Azure CLI
+# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med extern omdirigering med hjälp av Azure CLI
 
-Du kan använda Azure CLI för att konfigurera [web traffic omdirigering](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudien konfigurerar du en lyssnare och en regel som omdirigerar Internet-trafik som anländer vid application gateway till en extern plats.
+Du kan använda Azure CLI för att konfigurera [omdirigering av webb trafik](application-gateway-multi-site-overview.md) när du skapar en [Application Gateway](application-gateway-introduction.md). I den här självstudien konfigurerar du en lyssnare och regel som omdirigerar webb trafik som kommer till Application Gateway till en extern plats.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en lyssnare och omdirigering av regel
+> * Skapa en regel för avlyssning och omdirigering
 > * Skapa en programgateway
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -91,9 +86,9 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 - *appGatewayFrontendIP* – tilldelar *myAGPublicIPAddress* till *appGatewayHttpListener*.
 - *regel 1* – standardroutningsregel som är associerad med *appGatewayHttpListener*.
 
-### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
+### <a name="add-the-redirection-configuration"></a>Lägg till omdirigerings konfigurationen
 
-Lägg till omdirigeringskonfiguration som skickar trafik från programgatewayen till *bing.com* med [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Lägg till den omdirigerings konfiguration som skickar trafik från programgatewayen till *Bing.com* med [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -104,9 +99,9 @@ az network application-gateway redirect-config create \
   --target-url "https://bing.com"
 ```
 
-### <a name="add-a-listener-and-routing-rule"></a>Lägg till en lyssnare och en regel för vidarebefordran
+### <a name="add-a-listener-and-routing-rule"></a>Lägg till en lyssnare och regel för routning
 
-En lyssnare krävs för att aktivera application-gateway för att dirigera trafik på rätt sätt. Skapa lyssnaren med [az network application-gateway http-listener skapa](/cli/azure/network/application-gateway) med frontend-port som skapats med [az network application-gateway frontend-port skapar](/cli/azure/network/application-gateway). En regel måste anges för lyssnaren veta vart du ska skicka inkommande trafik. Skapa en grundläggande regel med namnet *redirectRule* med [az network application-gateway rule skapa](/cli/azure/network/application-gateway) med konfigurationen för omdirigering.
+En lyssnare krävs för att programgatewayen ska kunna dirigera trafiken på rätt sätt. Skapa lyssnaren med [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway) med frontend-porten som skapats med [AZ Network Application-Gateway klient del-Port Create](/cli/azure/network/application-gateway). En regel krävs för lyssnaren för att veta var inkommande trafik ska skickas. Skapa en grundläggande regel med namnet *redirectRule* med [AZ Network Application-Gateway Rule Create](/cli/azure/network/application-gateway) med konfigurationen för omdirigering.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,14 +128,14 @@ az network application-gateway rule create \
 
 Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
-Du bör se *bing.com* visas i webbläsaren.
+Du bör se *Bing.com* visas i webbläsaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > * Konfigurera nätverket
-> * Skapa en lyssnare och omdirigering av regel
+> * Skapa en regel för avlyssning och omdirigering
 > * Skapa en programgateway
 
 > [!div class="nextstepaction"]

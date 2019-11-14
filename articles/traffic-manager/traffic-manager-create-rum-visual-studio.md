@@ -1,6 +1,6 @@
 ---
-title: Faktisk Slutanvändarmätning till Azure Traffic Manager med Visual Studio Mobile Center | Microsoft Docs
-description: Konfigurera din mobila program som utvecklats med Visual Studio Mobile Center för att skicka faktisk Slutanvändarmätning till Traffic Manager
+title: Faktisk slutanvändarmätning med Visual Studio Mobile Center – Azure Traffic Manager
+description: Konfigurera ditt mobil program som utvecklats med Visual Studio Mobile Center för att skicka Faktisk slutanvändarmätning till Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -13,55 +13,55 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 95207cea5988a22b0b3caa23be39b481f9fd687b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 734049a45eca2688b2ad309ee3245bbb7bf152de
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071261"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040322"
 ---
-# <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Hur du skickar faktisk Slutanvändarmätning till Traffic Manager med Visual Studio Mobile Center
+# <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Så här skickar du Faktisk slutanvändarmätning till Traffic Manager med Visual Studio Mobile Center
 
-Du kan ställa in din mobila program som utvecklats med Visual Studio Mobile Center för att skicka faktisk Slutanvändarmätning till Traffic Manager genom att följa stegen:
+Du kan konfigurera ditt mobil program som utvecklats med Visual Studio Mobile Center för att skicka Faktisk slutanvändarmätning till Traffic Manager genom att följa stegen:
 
 >[!NOTE]
-> För närvarande kan stöds skicka faktisk Slutanvändarmätning till Traffic manager endast för Android.
+> För närvarande stöds endast sändning av Faktisk slutanvändarmätning till Traffic Manager för Android.
 
-Om du vill konfigurera Real User Measurements måste du hämta en nyckel och instrumenterar din app med köra paketet.
+Om du vill konfigurera Faktisk slutanvändarmätning måste du skaffa en nyckel och instrumentera appen med Rom-paketet.
 
 ## <a name="step-1-obtain-a-key"></a>Steg 1: Hämta en nyckel
     
-Mätningar du ta och skickas till Traffic Manager från klientprogrammet identifieras av tjänsten med hjälp av en unik sträng som kallas nyckeln Real User Measurements (ROM). Du kan få en köra nyckel med hjälp av Azure portal, REST-API eller med hjälp av PowerShell / CLI-gränssnitt.
+De mätningar du tar och skickar till Traffic Manager från ditt klient program identifieras av tjänsten med hjälp av en unik sträng, som kallas Faktisk slutanvändarmätning (Rom) nyckel. Du kan hämta en RUM nyckel med hjälp av Azure Portal, en REST API eller med hjälp av PowerShell/CLI-gränssnitt.
 
-Du kan hämta den ROM-nyckeln med hjälp av Azure portal på följande sätt:
-1. Logga in på Azure portal från en webbläsare. Om du inte redan har ett konto kan registrera du dig för en kostnadsfri utvärderingsversion för en månad.
-2. I portalens sökfältet söker du efter namnet på Traffic Manager-profilen som du vill ändra och klicka sedan på Traffic Manager-profilen i resultaten som visas.
-3. På profilsidan Traffic Manager-klickar du på **Real User Measurements** under **inställningar**.
-4. Klicka på **Generera nyckel** att skapa en ny ROM-nyckel.
+Hämta RUM-nyckeln med Azure Portal hjälp av följande procedur:
+1. Logga in på Azure Portal i en webbläsare. Om du inte redan har ett konto kan du registrera dig för en kostnads fri utvärderings period på en månad.
+2. I portalens sökfält söker du efter namnet på Traffic Manager profilen som du vill ändra och klickar sedan på Traffic Manager profilen i resultatet som visas.
+3. På sidan Traffic Manager profil klickar du på **faktisk slutanvändarmätning** under **Inställningar**.
+4. Klicka på **generera nyckel** för att skapa en ny rum nyckel.
         
-   ![Generera Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generera Faktisk slutanvändarmätning nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Bild 1: Real User Measurements nyckelgenerering**
+   **Bild 1: Faktisk slutanvändarmätning nyckel skapande**
 
-5. Sidan visar ROM-nyckeln som genereras och ett JavaScript-kodfragment som krävs för att bädda in HTML-sidan.
+5. Sidan visar den RUM nyckel som genereras och ett kods tycke för JavaScript-kod som måste bäddas in på HTML-sidan.
  
-   ![JavaScript-kod för Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
+   ![JavaScript-kod för Faktisk slutanvändarmätning nyckel](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-   **Bild 2: Real User Measurements nyckel och JavaScript-mått**
+   **Bild 2: skript för att Faktisk slutanvändarmätning nyckel och mätning**
  
-6. Klicka på den **kopiera** för att kopiera nyckeln ROM. 
+6. Klicka på **kopierings** knappen för att kopiera rum nyckeln. 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Steg 2: Instrumentera din app i köra Mobile Center SDK-paketet
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Steg 2: instrumenterar din app med Rom-paketet för Mobile Center SDK
 
-Om du inte har använt Visual Studio Mobile Center, gå till dess [webbplats](https://mobile.azure.com). Detaljerad information om SDK-integrering finns [komma igång med Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
+Om du inte har arbetat med Visual Studio Mobile Center kan du besöka [webbplatsen](https://mobile.azure.com). Detaljerade anvisningar om SDK-integrering finns [komma igång med Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
 
-Utför följande procedur för att använda Real User Measurements:
+Slutför följande procedur om du vill använda Faktisk slutanvändarmätning:
 
-1.  Lägg till SDK: N i projektet
+1.  Lägg till SDK i projektet
 
-    Du måste uttryckligen referera paketdatabasen i förhandsversionen av ATM ROM SDK.
+    Under för hands versionen av ATM Rom SDK måste du uttryckligen referera till paketets lagrings plats.
 
-    I din **App/build.gradle** filen lägger du till följande rader:
+    Lägg till följande rader i **appen/build. gradle-** filen:
 
     ```groovy
     repositories {
@@ -70,7 +70,7 @@ Utför följande procedur för att använda Real User Measurements:
         }
     }
     ```
-    I din **App/build.gradle** filen lägger du till följande rader:
+    Lägg till följande rader i **appen/build. gradle-** filen:
 
     ```groovy
     dependencies {
@@ -80,16 +80,16 @@ Utför följande procedur för att använda Real User Measurements:
     }
     ```
 
-2. Starta SDK
+2. Starta SDK: n
 
-    Öppna appens huvudaktivitetsklassen och Lägg till följande importuttryck:
+    Öppna appens huvud aktivitets klass och Lägg till följande import uttryck:
 
     ```java
     import com.microsoft.azure.mobile.MobileCenter;
     import com.microsoft.azure.mobile.rum.RealUserMeasurements;
     ```
 
-    Leta efter den `onCreate` återanrop i samma filen och Lägg till följande kod:
+    Leta efter `onCreate` motringning i samma fil och Lägg till följande kod:
 
     ```java
     RealUserMeasurements.setRumKey("<Your RUM Key>");
@@ -97,10 +97,10 @@ Utför följande procedur för att använda Real User Measurements:
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Real User Measurements](traffic-manager-rum-overview.md)
-- Lär dig [så här fungerar Traffic Manager](traffic-manager-overview.md)
-- Läs mer om [Mobile Center](https://docs.microsoft.com/mobile-center/)
+- Läs mer om [faktisk slutanvändarmätning](traffic-manager-rum-overview.md)
+- Lär dig [hur Traffic Manager fungerar](traffic-manager-overview.md)
+- Lär dig mer om [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - [Registrera dig](https://mobile.azure.com) för Mobile Center
-- Läs mer om den [trafikroutningsmetoder](traffic-manager-routing-methods.md) stöds av Traffic Manager
-- Lär dig hur du [skapa en Traffic Manager-profil](traffic-manager-create-profile.md)
+- Läs mer om [metoderna för trafik-routning](traffic-manager-routing-methods.md) som stöds av Traffic Manager
+- Lär dig hur du [skapar en Traffic Manager-profil](traffic-manager-create-profile.md)
 

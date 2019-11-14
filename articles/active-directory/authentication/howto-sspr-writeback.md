@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a16ad3c571086a73a2aae192fb2d00bce4d5f9
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 9e12fe38ba69f6ac8f27130e01baff0c358aa409
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808151"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021761"
 ---
 # <a name="how-to-configure-password-writeback"></a>Anvisningar: Konfigurera tillbakaskrivning av lösen ord
 
@@ -99,7 +99,7 @@ Utför följande steg för att ställa in rätt behörigheter för tillbakaskriv
     * **Skriv pwdLastSet**
 9. Välj **tillämpa/OK** för att tillämpa ändringarna och avsluta alla öppna dialog rutor.
 
-Eftersom auktoritets källan är lokalt gäller principerna för lösen ords komplexitet från samma anslutna data källa. Kontrol lera att du har ändrat de befintliga grup principerna för "minsta längd på lösen ord". Grup principen bör inte vara inställd på 1, vilket innebär att lösen ordet ska vara minst en dag gammal innan den kan uppdateras. Du måste kontrol lera att den är inställd på 0. Du hittar de här inställningarna i `gpmc.msc` under **dator konfiguration > principer > Windows-inställningar > säkerhets inställningar > konto principer**. Kör `gpupdate /force` för att säkerställa att ändringen börjar gälla. 
+Eftersom auktoritets källan är lokalt gäller principerna för lösen ords komplexitet från samma anslutna data källa. Kontrol lera att du har ändrat de befintliga grup principerna för "lägsta ålder för lösen ord". Grup principen bör inte vara inställd på 1, vilket innebär att lösen ordet ska vara minst en dag gammal innan den kan uppdateras. Du måste kontrol lera att den är inställd på 0. Du hittar de här inställningarna i `gpmc.msc` under **dator konfiguration > principer > Windows-inställningar > säkerhets inställningar > konto principer**. Kör `gpupdate /force` för att säkerställa att ändringen börjar gälla. 
 
 ## <a name="next-steps"></a>Nästa steg
 

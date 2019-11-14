@@ -1,23 +1,18 @@
 ---
-title: Skapa en Programgateway med flera plats värdar – Azure CLI | Microsoft Docs
+title: Värd för flera webbplatser med CLI-Azure Application Gateway
 description: Lär dig hur du skapar en Programgateway som är värd för flera platser med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717269"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047339"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Skapa en Programgateway med flera webbplats värdar med hjälp av Azure CLI
 

@@ -1,25 +1,25 @@
 ---
-title: Slutför en åtkomst granskning av Azure AD-roller i PIM-Azure Active Directory | Microsoft Docs
+title: Slutför åtkomst granskning av Azure AD-roller i PIM – Azure AD | Microsoft Docs
 description: Lär dig att slutföra en åtkomst granskning av Azure AD-roller i Azure AD Privileged Identity Management (PIM) och visa resultatet
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 197abc0642d6abf1278a75c2101c195cafeb53b2
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: fe2d85d605b9ee418a5709ddcdb448c56be1d918
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809144"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022285"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Slutför en åtkomst granskning av Azure AD-roller i Privileged Identity Management
 
@@ -41,11 +41,11 @@ På bladet detalj gransknings information finns det ett antal alternativ för at
 
 Om en åtkomst granskning har kon figurer ATS så att användarna kan granska dem, skickar knappen **Påminn** ut ett meddelande.
 
-### <a name="stop"></a>Stopp
+### <a name="stop"></a>Stoppa
 
 Alla åtkomst granskningar har ett slutdatum, men du kan använda **stopp** -knappen för att avsluta den tidigt. Om några användare inte har granskats av den här gången kan de inte göra det efter att du har stoppat granskningen. Du kan inte starta om en granskning när den har stoppats.
 
-### <a name="apply"></a>Ansök
+### <a name="apply"></a>Använd
 
 När en åtkomst granskning har slutförts måste du, antingen på grund av att du nått slutdatumet eller stoppa den manuellt, **använda knappen Verkställ** för att implementera resultatet av granskningen. Om en användares åtkomst nekades i granskningen är detta det steg som tar bort roll tilldelningen.  
 

@@ -1,34 +1,34 @@
 ---
-title: Konfigurera grupp inställningar med PowerShell – Azure Active Directory | Microsoft Docs
+title: Konfigurera grupp inställningar med PowerShell – Azure AD | Microsoft Docs
 description: Hantera inställningarna för grupper med hjälp av Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18fbaad8ce15ab4eb9a08d5edc273098e7fb372e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6a1b900d4a67390ae867d770c3b984c43fd501b5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263960"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026760"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
-Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets för Azure Active Directory (Azure AD) för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland enhetliga grupper). 
+
+Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets för Azure Active Directory (Azure AD) för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland enhetliga grupper).
 
 > [!IMPORTANT]
 > Vissa inställningar kräver en licens för Azure Active Directory Premium P1. Mer information finns i tabellen [mall inställningar](#template-settings) .
 
-Mer information om hur du förhindrar användare som inte är administratörer att skapa säkerhets grupper får du genom att ange @ no__t-0 enligt beskrivningen i [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Mer information om hur du hindrar icke-administratörer från att skapa säkerhets grupper får du genom att ange `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` enligt beskrivningen i [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 Inställningarna för Office 365-grupper konfigureras med ett inställnings objekt och ett SettingsTemplate-objekt. Inlednings vis ser du inte några inställnings objekt i katalogen, eftersom din katalog är konfigurerad med standardinställningarna. Om du vill ändra standardinställningarna måste du skapa ett nytt inställnings objekt med hjälp av en mall för inställningar. Inställningar mallar definieras av Microsoft. Det finns flera olika inställnings mallar. Om du vill konfigurera inställningar för Office 365-grupper för din katalog använder du mallen "Group. Unified". Om du vill konfigurera inställningar för Office 365-grupper i en enskild grupp använder du mallen "Group. Unified. Guest". Den här mallen används för att hantera gäst åtkomst till en Office 365-grupp. 
 
@@ -284,7 +284,7 @@ Det här steget tar bort inställningar på katalog nivå, som gäller för alla
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet-syntax-referens
 Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="additional-reading"></a>Ytterligare läsning
+## <a name="additional-reading"></a>Ytterligare resurser
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

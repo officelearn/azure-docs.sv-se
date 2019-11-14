@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ab0d3aac6944e331223d91eb98b50b3308be12c3
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 567110b2e0429930720abf6af5f2727e4ad9d3bb
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797639"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048279"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
@@ -251,7 +251,7 @@ I instrument panelen för resurs gruppen söker du efter lagrings kontot (datahu
 
 **Betydelse**: Azure AD App Registration-konfigurationen har inte skett korrekt.  
 
-**Korrigerande åtgärd**: be IT-administratören (som har Läs behörighet för klient organisationen) att använda vårt [skript](https://aka.ms/PPCreateAADappregistration) för att skapa en Azure AD-App-registrering. Det här skriptet tar automatiskt hand om konfigurations stegen. som  
+**Korrigerande åtgärd**: be IT-administratören (som har Läs behörighet för klient organisationen) att använda vårt [skript](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) för att skapa en Azure AD-App-registrering. Det här skriptet tar automatiskt hand om konfigurations stegen.
 
 **Fel**: det gick inte att skapa det nya Active Directory programmet "dummyname" i den här klienten: det finns redan ett annat objekt med samma värde för URI: er för egenskaps identifierare
 

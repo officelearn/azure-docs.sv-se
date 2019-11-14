@@ -3,16 +3,16 @@ title: Metod tips för att använda Power BI för att fråga och visualisera Azu
 description: I den här artikeln lär du dig metod tips för att använda Power BI för att fråga och visualisera Azure Datautforskaren-data.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db1d530c9cab77ae612c83a0d4f52478fb9ee270
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286747"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024022"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Metod tips för att använda Power BI för att fråga och visualisera Azure Datautforskaren-data
 
@@ -46,12 +46,12 @@ I följande avsnitt finns tips och trick för att använda Kusto-frågespråk me
 
 ### <a name="complex-queries-in-power-bi"></a>Komplexa frågor i Power BI
 
-Komplexa frågor är enklare att uttryckas i Kusto än i Power Query. De bör implementeras som [Kusto-funktioner](/azure/kusto/query/functions)och anropas i Power BI. Den här metoden krävs när du använder **DirectQuery** med `let`-instruktioner i din Kusto-fråga. Eftersom Power BI ansluter till två frågor och `let`-satser inte kan användas med operatorn `join` kan syntaxfel uppstå. Spara därför varje del av funktionen Join as a Kusto och Tillåt Power BI att koppla samman de här två funktionerna.
+Komplexa frågor är enklare att uttryckas i Kusto än i Power Query. De bör implementeras som [Kusto-funktioner](/azure/kusto/query/functions)och anropas i Power BI. Den här metoden krävs när du använder **DirectQuery** med `let`-instruktioner i din Kusto-fråga. Eftersom Power BI ansluter till två frågor och `let`-instruktioner inte kan användas med `join`-operatorn kan syntaxfel uppstå. Spara därför varje del av funktionen Join as a Kusto och Tillåt Power BI att koppla samman de här två funktionerna.
 
 ### <a name="how-to-simulate-a-relative-date-time-operator"></a>Så här simulerar du en relativ datum-och tids operator
 
 Power BI innehåller inte en *relativ* datum-och tids operator som `ago()`.
-Om du vill simulera `ago()` använder du en kombination av `DateTime.FixedLocalNow()`-och `#duration`-Power BI funktioner.
+Om du vill simulera `ago()`använder du en kombination av funktionerna `DateTime.FixedLocalNow()` och `#duration` Power BI.
 
 I stället för den här frågan med operatorn `ago()`:
 
@@ -78,9 +78,9 @@ Kusto-frågor returnerar som standard upp till 500 000 rader eller 64 MB, enligt
 
 De här alternativen utfärdar [set-instruktioner](/azure/kusto/query/setstatement) med din fråga för att ändra standard antalet frågor:
 
-  * **Begränsa post numret för frågeresultatet** genererar en `set truncationmaxrecords`
-  * **Begränsa data storlek för frågeresultat i byte** genererar en `set truncationmaxsize`
-  * **Inaktivera resulterande trunkering** genererar en `set notruncation`
+  * **Begränsa post numret för frågeresultatet** genererar ett `set truncationmaxrecords`
+  * **Begränsa data storlek för frågeresultat i byte** genererar ett `set truncationmaxsize`
+  * **Inaktivera resulterande trunkering** genererar ett `set notruncation`
 
 ### <a name="using-query-parameters"></a>Använda frågeparametrar
 
@@ -106,7 +106,7 @@ I fönstret **Redigera frågor** , **Start** > **avancerad redigerare**
 
 1. Ersätt relevant del av frågan med din parameter. Dela upp frågan i flera delar och slå tillbaka dem med ett et-tecken (&), tillsammans med parametern.
 
-   I frågan ovan tar vi till exempel `State == 'ALABAMA'`-delen och delar upp den till: `State == '` och `'` och vi ska placera `State`-parametern mellan dem:
+   I frågan ovan tar vi till exempel `State == 'ALABAMA'` delen och delar upp den för att: `State == '` och `'` och vi ska placera `State`-parametern mellan dem:
    
     ```kusto
     "StormEvents | where State == '" & State & "' | take 100"
@@ -140,7 +140,7 @@ Du kan använda en frågeparameter i alla fråge steg som stöder den. Filtrera 
 
 Power BI innehåller en schemaläggare för data uppdatering som regelbundet kan utfärda frågor mot en data källa. Den här mekanismen bör inte användas för att schemalägga kontroll kommandon till Kusto eftersom Power BI förutsätter att alla frågor är skrivskyddade.
 
-### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI kan bara skicka korta (@no__t 02000 tecken) frågor till Kusto
+### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI kan bara skicka korta (&lt;2000 tecken) frågor till Kusto
 
 Om du kör en fråga i Power BI resulterar i följande fel: _"DataSource. error: Web. Contents kunde inte hämta innehåll från..."_ frågan är förmodligen längre än 2000 tecken. Power BI använder **PowerQuery** för att fråga Kusto genom att utfärda en HTTP GET-begäran som kodar frågan som en del av den URI som hämtas. Därför är Kusto-frågor som utfärdats av Power BI begränsade till den maximala längden för en begärande-URI (2000 tecken, minus liten offset). Som en lösning kan du definiera en [lagrad funktion](/azure/kusto/query/schema-entities/stored-functions) i Kusto och har Power BI använda funktionen i frågan.
 

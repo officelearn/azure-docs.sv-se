@@ -1,5 +1,5 @@
 ---
-title: Utföra en uppgradering på plats av en SQL Server-version på en virtuell Azure-dator | Microsoft Docs
+title: Uppgradering på plats av SQL Server Edition
 description: Lär dig hur du ändrar versionen av din SQL Server VM i Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/26/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eec2e588b1c2b03e9880dad0848b8213bf5fa449
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1db45097b0416b680571cb47ec1d9b52f9275c43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100511"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022208"
 ---
 # <a name="perform-an-in-place-upgrade-of-a-sql-server-edition-on-an-azure-vm"></a>Utföra en uppgradering på plats av en SQL Server-version på en virtuell Azure-dator
 
@@ -28,7 +29,7 @@ Versionen av SQL Server bestäms av produkt nyckeln och anges med installations 
 
 Om du har uppdaterat versionen av SQL Server med hjälp av installations mediet efter registreringen med providern för SQL VM-resurs, uppdaterar du sedan Azure-faktureringen genom att ange egenskapen SQL Server Edition för den virtuella SQL-resursen på följande sätt:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Gå till din SQL Server virtuella dator resursen. 
 1. Under **Inställningar**väljer du **Konfigurera**. Välj sedan önskad version av SQL Server i list rutan under **utgåva**. 
 
@@ -38,7 +39,7 @@ Om du har uppdaterat versionen av SQL Server med hjälp av installations mediet 
 1. Välj **tillämpa** för att tillämpa dina ändringar i din version av metadata. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill göra en direkt ändring av versionen av SQL Server behöver du följande: 
 

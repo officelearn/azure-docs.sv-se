@@ -9,24 +9,16 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1ed57e30273c9ba3feb110e0e5acbd3bcc7ffd40
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990176"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062931"
 ---
-> [!IMPORTANT]
-> * Bladet ny **Azure Active Directory** > **Appregistreringar** ersätter bladet äldre **Azure Active Directory** > **Appregistreringar (bakåtkompatibelt)** 2019.
-> * Appregistreringar som skapas eller visas på bladet äldre visas automatiskt på det nya bladet.
-> * Omfattande information om hur du migrerar till den nya Azure App registrerings upplevelsen finns i [utbildnings guiden för Azure App-registrering](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) och [Azure Active Directory snabb start](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
-
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 
    [![ny program registrering i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > På den nya registrerings panelen för Azure Active Directory appen kan du filtrera de visade apparna genom att välja **ägda program**.
 
     Din app visas här när du har registrerat den.
 

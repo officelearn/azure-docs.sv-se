@@ -4,12 +4,12 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b150cad22528234286fa7939bf7055e8312ed361
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 3086d15ba541aa7f08f983dac4bc363f43248a9e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229251"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062934"
 ---
 ## <a name="webapi-project"></a>WebAPI-projekt
 1. Öppna det **AppBackend** -projekt som du skapade i självstudien **meddela användare** i Visual Studio.
@@ -36,10 +36,11 @@ ms.locfileid: "68229251"
 
             public Notification CreateNotification(string payload)
             {
-                var notification = new Notification() {
-                Id = notifications.Count,
-                Payload = payload,
-                Read = false
+                var notification = new Notification
+                {
+                    Id = notifications.Count,
+                    Payload = payload,
+                    Read = false
                 };
 
                 notifications.Add(notification);
@@ -88,8 +89,8 @@ ms.locfileid: "68229251"
         }
 
 
-Observera att `Post` metoden nu inte skickar ett popup-meddelande. Den skickar ett RAW-meddelande som endast innehåller meddelande-ID och inte något känsligt innehåll. Se också till att kommentera sändnings åtgärden för de plattformar som du inte har konfigurerade autentiseringsuppgifter för i Notification Hub, eftersom de leder till fel.
+Observera att metoden `Post` nu inte skickar ett popup-meddelande. Den skickar ett RAW-meddelande som endast innehåller meddelande-ID och inte något känsligt innehåll. Se också till att kommentera sändnings åtgärden för de plattformar som du inte har konfigurerade autentiseringsuppgifter för i Notification Hub, eftersom de leder till fel.
 
 1. Nu kommer vi att omdistribuera den här appen till en Azure-webbplats för att göra den tillgänglig från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
-2. Välj Azure-webbplats som publicerings mål. Logga in med ditt Azure-konto och välj en befintlig eller ny webbplats och anteckna URL-egenskapen för **målet** på fliken **anslutning** . Vi ska referera till den här URL:en som *serverdelens slutpunkt* senare i den här självstudiekursen. Klicka på **Publicera**.
+2. Välj Azure-webbplats som publicerings mål. Logga in med ditt Azure-konto och välj en befintlig eller ny webbplats och anteckna URL-egenskapen för **målet** på fliken **anslutning** . Vi kommer att referera till denna URL som *backend-slutpunkt* senare i den här självstudien. Klicka på **Publicera**.
 

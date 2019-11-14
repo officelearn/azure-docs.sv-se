@@ -1,73 +1,73 @@
 ---
-title: Administratörens godkännande för LinkedIn-kontoanslutningar - Azure Active Directory | Microsoft Docs
-description: Beskriver hur du aktiverar eller inaktiverar LinkedIn-integrering-kontoanslutningar i Microsoft-appar i Azure Active Directory
+title: Administrativt medgivande för LinkedIn-konto anslutningar – Azure AD | Microsoft Docs
+description: Förklarar hur du aktiverar eller inaktiverar LinkedIn-integrerings konto anslutningar i Microsoft-appar i Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 0bf65f69d9dcaf6de2236c98b56b58ec7e021099
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164729"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025400"
 ---
-# <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-kontoanslutningar i Azure Active Directory
+# <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-konto anslutningar i Azure Active Directory
 
-Du kan låta användare i din organisation åtkomst till sina LinkedIn anslutningar inom vissa Microsoft-appar. Inga data delas förrän användare godkänna att ansluta sina konton. Du kan integrera din organisation i Azure Active Directory (Azure AD) [Administrationscenter](https://aad.portal.azure.com).
+Du kan ge användare i organisationen åtkomst till sina LinkedIn-anslutningar i vissa Microsoft-appar. Inga data delas förrän användare beviljats att ansluta sina konton. Du kan integrera din organisation i [administrations centret](https://aad.portal.azure.com)för Azure Active Directory (Azure AD).
 
 > [!IMPORTANT]
-> LinkedIn-kontoanslutningar inställning för närvarande distribueras till Azure AD-organisationer. När den distribueras till din organisation, aktiveras den som standard.
+> Inställningen för LinkedIn-konto anslutningar är för närvarande distribuerad till Azure AD-organisationer. När den distribueras till din organisation är den aktive rad som standard.
 > 
-> Undantag:
+> Undantag
 > * Inställningen är inte tillgänglig för kunder som använder Microsoft Cloud för amerikanska myndigheter, Microsoft Cloud Tyskland eller Azure och Office 365 som drivs av 21Vianet i Kina.
-> * Inställningen är inaktiverad som standard för klienter som etableras i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Tyskland.
-> * Inställningen är inaktiverad som standard för klienter som etableras i Frankrike.
+> * Inställningen är inaktive rad som standard för klienter etablerade i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Tyskland.
+> * Inställningen är inaktive rad som standard för klienter etablerade i Frankrike.
 >
-> När LinkedIn-kontoanslutningar är aktiverade för din organisation fungerar kontoanslutningar när användare godkänna att appar får åtkomst till företagets data å deras vägnar. Information om inställningen för medgivande finns i [hur du tar bort en användares åtkomst till ett program](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> När LinkedIn-konton har Aktiver ATS för din organisation fungerar konto anslutningarna efter att de har gett appar till gång till företags data för deras räkning. Information om inställningen för användar medgivande finns i [så här tar du bort en användares åtkomst till ett program](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
-## <a name="enable-linkedin-account-connections-in-the-azure-portal"></a>Aktivera LinkedIn-kontoanslutningar i Azure portal
+## <a name="enable-linkedin-account-connections-in-the-azure-portal"></a>Aktivera LinkedIn-konto anslutningar i Azure Portal
 
-Du kan aktivera LinkedIn-kontoanslutningar för de användare som du vill ha åtkomst från hela organisationen för bara utvalda användare i din organisation.
+Du kan aktivera LinkedIn-konto anslutningar för enbart de användare som du vill ha åtkomst till, från hela organisationen till endast valda användare i din organisation.
 
-1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com/) med ett konto som är en global administratör för Azure AD-organisation.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com/) med ett konto som är en global administratör för Azure AD-organisationen.
 1. Välj **användare**.
-1. På den **användare** bladet väljer **användarinställningar**.
-1. Under **LinkedIn-kontoanslutningar**, Tillåt användare att ansluta sina konton för att komma åt sina LinkedIn anslutningar inom vissa Microsoft-appar. Inga data delas förrän användare godkänna att ansluta sina konton.
+1. Välj **användar inställningar**på bladet **användare** .
+1. Under **LinkedIn-konto anslutningar**kan användare ansluta sina konton för att komma åt sina LinkedIn-anslutningar i vissa Microsoft-appar. Inga data delas förrän användare beviljats att ansluta sina konton.
 
-    * Välj **Ja** aktiverar tjänsten för alla användare i din organisation
-    * Välj **vald grupp** aktiverar tjänsten för en grupp för markerade användare i din organisation
-    * Välj **nr** att ångra detta godkännande från alla användare i din organisation
+    * Välj **Ja** om du vill aktivera tjänsten för alla användare i din organisation
+    * Välj **markerad grupp** om du vill aktivera tjänsten för endast en grupp med valda användare i din organisation
+    * Välj **Nej** om du vill återkalla medgivande från alla användare i din organisation
 
-    ![Integrera LinkedIn-kontoanslutningar i organisationen](./media/linkedin-integration/linkedin-integration.png)
+    ![Integrera LinkedIn-konto anslutningar i organisationen](./media/linkedin-integration/linkedin-integration.png)
 
-1. När du är klar väljer du **spara** att spara dina inställningar.
+1. När du är klar väljer du **Spara** för att spara inställningarna.
 
 > [!Important]
-> LinkedIn-integrering aktiveras inte helt för användarna tills de samtycka till att ansluta sina konton. Inga data delas när du aktiverar kontoanslutningar för dina användare.
+> LinkedIn-integrering är inte helt aktive rad för dina användare förrän de godkänner att de ansluter sina konton. Inga data delas när du aktiverar konto anslutningar för dina användare.
 
-### <a name="assign-selected-users-with-a-group"></a>Tilldela valda användare med en grupp
-Vi har ersatt 'Valda' alternativet som anger en lista över användare med möjlighet att välja en grupp användare så att du kan göra möjligheten att ansluta LinkedIn och Microsoft-konton för en grupp i stället för många enskilda användare. Om du inte har aktiverats för valda individer LinkedIn-kontoanslutningar, behöver du inte göra något. Om du redan har aktiverat LinkedIn-kontoanslutningar för valda enskilda användare, bör du:
+### <a name="assign-selected-users-with-a-group"></a>Tilldela markerade användare till en grupp
+Vi har ersatt alternativet "valt" som anger en lista med användare med alternativet att välja en grupp användare så att du kan ansluta LinkedIn-och Microsoft-konton för en enskild grupp i stället för många enskilda användare. Om du inte har LinkedIn-konto anslutningar aktiverade för utvalda enskilda användare behöver du inte göra något. Om du tidigare har aktiverat LinkedIn-konto anslutningar för valda enskilda användare bör du:
 
 1. Hämta den aktuella listan över enskilda användare
-1. Flytta är aktiverad enskilda användare till en grupp
-1. Använd gruppen från den tidigare som den valda gruppen i LinkedIn-kontoanslutningar i Azure AD-administrationscentret.
+1. Flytta de för närvarande aktiverade enskilda användarna till en grupp
+1. Använd gruppen från föregående som den valda gruppen i inställningen för LinkedIn-konto anslutningar i administrations centret för Azure AD.
 
 > [!NOTE]
-> Även om du inte flytta dina för tillfället valda enskilda användare till en grupp, kan de fortfarande se LinkedIn-information i Microsoft-appar.
+> Även om du inte flyttar dina för tillfället markerade enskilda användare till en grupp kan de fortfarande se LinkedIn-information i Microsoft-appar.
 
 ### <a name="get-the-current-list-of-selected-users"></a>Hämta den aktuella listan över valda användare
 
-1. Logga in på Microsoft 365 med ditt administratörskonto.
-1. Gå till https://linkedinselectedusermigration.azurewebsites.net/. Lista över användare som har valts för LinkedIn-kontoanslutningar visas.
+1. Logga in på Microsoft 365 med ditt administratörs konto.
+1. Gå till https://linkedinselectedusermigration.azurewebsites.net/. Du ser en lista över användare som har marker ATS för LinkedIn-konto anslutningar.
 1. Exportera listan till en CSV-fil.
 
 ### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Flytta de markerade enskilda användarna till en grupp
@@ -86,29 +86,29 @@ Vi har ersatt 'Valda' alternativet som anger en lista över användare med möjl
   foreach($user in $users} { Add-AzureADGroupMember -ObjectId $groupId -RefObjectId $user ; Write-Host $i Added $user ; $i++ ; Start-Sleep -Milliseconds 10 }
   ```
 
-Om du vill använda i gruppen i steg två som den valda gruppen i LinkedIn-kontoanslutningar i Azure AD administratörscenter finns i [aktivera LinkedIn-kontoanslutningar i Azure-portalen](#enable-linkedin-account-connections-in-the-azure-portal).
+Om du vill använda gruppen från steg två som den valda gruppen i inställningen för inställningar för LinkedIn-konto i Azure AD Admin Center, se [Aktivera LinkedIn-konton anslutningar i Azure Portal](#enable-linkedin-account-connections-in-the-azure-portal).
 
-## <a name="use-group-policy-to-enable-linkedin-account-connections"></a>Använda grupprinciper för att aktivera LinkedIn-kontoanslutningar
+## <a name="use-group-policy-to-enable-linkedin-account-connections"></a>Använd grupprincip för att aktivera LinkedIn-konto anslutningar
 
-1. Ladda ned den [Office 2016 administrativa mallar-filer (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-1. Extrahera den **ADMX** filer och kopiera dem till din centrala store.
-1. Öppna Grupprinciphantering.
-1. Skapa ett grupprincipobjekt med följande inställning: **Användarkonfiguration** > **Administrationsmallar** > **Microsoft Office 2016** > **diverse**  >  **Visa LinkedIn-funktionerna i Office-program**.
-1. Välj **aktiverat** eller **inaktiverad**.
+1. Hämta [Office 2016-filerna för administrativa mallar (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
+1. Extrahera **ADMX** -filerna och kopiera dem till den centrala butiken.
+1. Öppna grupprincip hantering.
+1. Skapa ett grupprincip-objekt med följande inställning: **användar konfiguration** > **Administrativa mallar** > **Microsoft Office 2016** > **Diverse** > **Visa LinkedIn-funktioner i Office-program**.
+1. Välj **aktive rad** eller **inaktive**rad.
   
    Status | Verkan
    ------ | ------
-   **Aktiverad** | Den **visa LinkedIn-funktionerna i Office-program** i alternativen för Office 2016 är aktiverad. Användare i organisationen kan använda LinkedIn-funktionerna i sina Office 2016-program.
-   **Inaktiverad** | Den **visa LinkedIn-funktionerna i Office-program** i Office 2016 alternativ är inaktiverad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktionerna i Office 2016-programmen.
+   **Aktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är aktive rad. Användare i din organisation kan använda LinkedIn-funktioner i sina Office 2016-program.
+   **Inaktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är inaktive rad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina Office 2016-program.
 
-Den här grupprincipen påverkar endast Office 2016-appar för en lokal dator. Om användarna har inaktiverat LinkedIn i deras Office 2016-appar, kan de fortfarande se LinkedIn-funktionerna i Office 365.
+Den här grup principen påverkar endast Office 2016-appar för en lokal dator. Om användarna inaktiverar LinkedIn i sina Office 2016-appar kan de fortfarande se LinkedIn-funktioner i Office 365.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Användarens medgivande och Datadelning på LinkedIn](linkedin-user-consent.md)
+* [Användar medgivande och data delning för LinkedIn](linkedin-user-consent.md)
 
-* [LinkedIn-information och funktioner i din Microsoft-appar](https://go.microsoft.com/fwlink/?linkid=850740)
+* [LinkedIn-information och-funktioner i dina Microsoft-appar](https://go.microsoft.com/fwlink/?linkid=850740)
 
-* [LinkedIn Hjälpcenter](https://www.linkedin.com/help/linkedin)
+* [LinkedIn Help Center](https://www.linkedin.com/help/linkedin)
 
-* [Visa din aktuella inställningen för LinkedIn-integrering i Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)
+* [Visa den aktuella LinkedIn-integrerings inställningen i Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)

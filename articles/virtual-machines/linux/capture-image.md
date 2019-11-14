@@ -1,5 +1,5 @@
 ---
-title: Avbilda en avbildning av en virtuell Linux-dator i Azure med hjälp av Azure CLI | Microsoft Docs
+title: Avbilda en avbildning av en virtuell Linux-dator i Azure med hjälp av Azure CLI
 description: Avbilda en avbildning av en virtuell Azure-dator som ska användas för Mass distributioner med hjälp av Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0767031ff6eee59de6cf447464328f66c50ef71a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552789"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036910"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell hård disk
 
@@ -53,7 +53,7 @@ Först avetablerar du den virtuella datorn med hjälp av Azure VM-agenten för a
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Kör bara det här kommandot på en virtuell dator som du ska avbilda som en avbildning. Det här kommandot garanterar inte att avbildningen är klar med all känslig information eller är lämplig för omdistribution. Parametern `+user` tar också bort det senast etablerade användar kontot. Använd endast `-deprovision` om du vill behålla autentiseringsuppgifterna för användar kontot på den virtuella datorn.
+   > Kör bara det här kommandot på en virtuell dator som du ska avbilda som en avbildning. Det här kommandot garanterar inte att avbildningen är klar med all känslig information eller är lämplig för omdistribution. Parametern `+user` tar också bort det senast etablerade användar kontot. Använd endast `-deprovision`om du vill behålla autentiseringsuppgifterna för användar kontot på den virtuella datorn.
  
 3. Fortsätt genom att ange **y** . Du kan lägga till parametern `-force` för att undvika det här bekräftelse steget.
 4. När kommandot har slutförts anger du **Avsluta** för att stänga SSH-klienten.  Den virtuella datorn kommer fortfarande att köras nu.

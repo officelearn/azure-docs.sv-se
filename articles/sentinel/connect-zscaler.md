@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe7ba0f6daec0b85ec73611ba4e48d72f16146e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45351cc29b2b7028863aff06ab5a511674604d6f
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515140"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048946"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Anslut Zscaler Internet åtkomst till Azure Sentinel
 
@@ -30,7 +30,7 @@ ms.locfileid: "73515140"
 Den här artikeln förklarar hur du ansluter din Zscaler-enhet med Internet åtkomst till Azure Sentinel. Med Zscaler data Connector kan du enkelt ansluta dina ZIA-loggar (Zscaler Internet Access) med Azure Sentinel, om du vill visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda Zscaler på Azure Sentinel får du mer insikter om din organisations Internet användning och förbättrar säkerhets åtgärdens funktioner. 
 
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Du måste distribuera en agent på en särskild Linux-dator (VM eller lokalt) för att stödja kommunikationen mellan Zscaler Internet åtkomst och Azure Sentinel. Följande diagram beskriver installationen i händelse av en virtuell Linux-dator i Azure.
 
@@ -48,7 +48,7 @@ Se till att konfigurera datorns säkerhet enligt din organisations säkerhets pr
 Om du vill använda TLS-kommunikation mellan säkerhets lösningen och syslog-datorn måste du konfigurera syslog-daemonen (rsyslog eller syslog-ng) för att kommunicera i TLS: [kryptera syslog-trafik med TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [kryptera logg meddelanden med TLS – syslog – ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Kontrol lera att Linux-datorn som du använder som proxy kör något av följande operativ system:
 
 - 64-bitars
@@ -106,7 +106,7 @@ I det här steget måste du välja den Linux-dator som ska fungera som en proxy 
     - Port = 514
     - Format = CEF
     - IP-adress – se till att skicka CEF-meddelanden till IP-adressen för den virtuella dator som du dedikerat för detta ändamål.
- Mer information finns i [Zscaler Azure Sentinel integration guide](https://aka.ms/ZscalerCEFInstructions).
+ Mer information finns i [distributions hand boken för Zscaler och Azure Sentinel](https://aka.ms/ZscalerCEFInstructions).
  
    > [!NOTE]
    > Den här lösningen stöder Syslog RFC 3164 eller RFC 5424.

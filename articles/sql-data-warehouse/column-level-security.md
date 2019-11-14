@@ -11,16 +11,16 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 34172e313b537d59287a424683ea1555cbba9b99
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693079"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049161"
 ---
 # <a name="column-level-security"></a>Säkerhet på kolumn nivå
 Säkerhet på kolumn nivå (CLS) gör det möjligt för kunder att kontrol lera åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap.
-
+Uppdatera till video nedan eftersom den här videon har publicerats [säkerhet på radnivå](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) är också tillgänglig i SQL Data Warehouse. 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
 CLS fören klar utformningen och kodningen av säkerhet i ditt program. Med CLS kan du implementera begränsningar för kolumn åtkomst för att skydda känsliga data. Till exempel ser du till att specifika användare bara har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databasen tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Den här begränsningen gör ditt säkerhets system mer tillförlitligt och stabilt genom att minska det övergripande säkerhets systemets Area. Dessutom eliminerar CLS även behovet av att introducera vyer för att filtrera bort kolumner för att få åtkomst begränsningar för användarna.

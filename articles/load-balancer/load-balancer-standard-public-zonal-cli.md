@@ -1,6 +1,6 @@
 ---
-title: Skapa en Standard Load Balancer med zonindelade-frontend med Azure CLI
-titlesuffix: Azure Load Balancer
+title: Standard Load Balancer med zonindelade-frontend – Azure CLI
+titleSuffix: Azure Load Balancer
 description: Lär dig hur du skapar en offentlig Standard Load Balancer med en offentlig IP-zonindelade med Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7da41456a4f4bb88d402d27b42b31f6d4adfa7f6
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 5e6dd06cf43b0eb5389597dcedbc323f4c035333
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274304"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048344"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Skapa en Standard Load Balancer med zonindelade-frontend med Azure CLI
 
@@ -64,7 +64,7 @@ az network public-ip create \
 ## <a name="create-azure-standard-load-balancer"></a>Skapa Azure-Standard Load Balancer
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
 - en klientdels-IP-pool som tar emot inkommande nätverkstrafik i lastbalanseraren.
-- en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+- en serverdels-IP-pool dit klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
 - en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
 - en lastbalanseringsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
@@ -217,7 +217,7 @@ runcmd:
 ```
 
 ### <a name="create-the-zonal-virtual-machines"></a>Skapa de virtuella zonindelade-datorerna
-Skapa de virtuella datorerna med [AZ VM Create](/cli/azure/vm#az-vm-create). I följande exempel skapas tre virtuella datorer i zon 1 och genererar SSH-nycklar om de inte redan finns:
+Skapa de virtuella [datorerna med AZ VM Create](/cli/azure/vm#az-vm-create). I följande exempel skapas tre virtuella datorer i zon 1 och genererar SSH-nycklar om de inte redan finns:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do

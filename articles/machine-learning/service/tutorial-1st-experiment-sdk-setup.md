@@ -10,19 +10,19 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b2434102e0355d5c26c501588c360f74eb98404d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582483"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049144"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här självstudien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks. Den här självstudien är **del ett i en själv studie kurs i två delar**, och täcker konfiguration och konfiguration av python-miljön, samt skapa en arbets yta för att hantera experiment och maskin inlärnings modeller. [**Del två**](tutorial-1st-experiment-sdk-train.md) bygger på detta för att träna flera Machine Learning-modeller och introducera modell hanterings processen med hjälp av både Azure Machine Learning Studio och SDK.
 
-I den här kursen för du göra följande:
+I den här kursen har du:
 
 > [!div class="checklist"]
 > * Skapa en [Azure Machine Learning-arbetsyta](concept-workspace.md) som ska användas i nästa självstudie.
@@ -81,7 +81,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 1. I det översta fältet väljer du en Notebook-VM som ska användas för att köra antecknings boken. De här virtuella datorerna är förkonfigurerade med allt du behöver för att köra Azure Machine Learning. Du kan välja en virtuell dator som skapats av valfri användare av din arbets yta. 
 
-1. Om inga virtuella datorer hittas väljer du **+ Lägg till beräkning** för att skapa den virtuella datorn.
+1. Om inga virtuella datorer hittas väljer du **+ Lägg till virtuell dator** för att skapa den virtuella datorn. 
 
     1. Ange ett namn när du skapar en virtuell dator.  Namnet måste innehålla mellan 2 och 16 tecken. Giltiga tecken är bokstäver, siffror och tecken och måste också vara unika i din Azure-prenumeration.
 

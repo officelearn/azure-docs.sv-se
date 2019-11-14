@@ -1,5 +1,5 @@
 ---
-title: Migrera virtuella Azure-datorer till Managed Disks | Microsoft Docs
+title: Migrera virtuella Azure-datorer till Managed Disks
 description: Migrera virtuella Azure-datorer som skapats med ohanterade diskar i lagrings konton för att använda Managed Disks.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7487d53195b45664b094ccc3a8418bd0c700e052
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7b907cf5bf64aa1a8a458a8d2b42c30dffd0dfd1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693485"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029801"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrera virtuella Azure-datorer till Managed Disks i Azure
 

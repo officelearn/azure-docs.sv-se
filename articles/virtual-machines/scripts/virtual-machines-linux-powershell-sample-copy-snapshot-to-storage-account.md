@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure PowerShell – Exportera/kopiera ögonblicksbild som VHD till ett lagringskonto i annan region | Microsoft Docs
+title: Azure PowerShell skript exempel – exportera/kopiera ögonblicks bild som VHD till ett lagrings konto i annan region
 description: Skriptexempel för Azure PowerShell – Exportera/kopiera ögonblicksbild som VHD till ett lagringskonto i samma andra region
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 7c721c10bd02824247df71abea4e037678fd5584
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c1ad520aadf8b2bafa9fdd03333e50b47612fa49
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749967"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040191"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Exportera/kopiera hanterade ögonblicksbilder som VHD till ett lagringskonto i en annan region med PowerShell
 

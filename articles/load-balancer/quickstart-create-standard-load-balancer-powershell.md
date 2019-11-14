@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en Standard Load Balancer – Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: Den här snabbstarten visar hur du skapar en Standard Load Balancer med PowerShell
+title: 'Snabb start: skapa en Standard Load Balancer-Azure PowerShell'
+titleSuffix: Azure Load Balancer
+description: Den här snabb starten visar hur du skapar en Standard Load Balancer med hjälp av Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0e00728e091a7d7d96cb624135519b17524d2227
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b387df5049fff2cb17e8d0758f1cf5fd8f0d0853
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274111"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049112"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Snabbstart: Skapa en Standard Load Balancer med Azure PowerShell
+# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Snabb start: skapa en Standard Load Balancer med Azure PowerShell
 
 Den här snabbstarten visar hur du skapar en Standard Load Balancer med Azure PowerShell. Om du vill testa belastningsutjämnaren distribuerar du tre virtuella datorer som kör Windows Server och belastningsutjämna en webbapp mellan de virtuella datorerna. Mer information om Standard Load Balancer finns i [Vad är en Standard Load Balancer](load-balancer-standard-overview.md).
 
@@ -298,7 +298,7 @@ Det tar några minuter att skapa och konfigurera de tre virtuella datorerna.
 
 Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serverdelen enligt följande:
 
-1. Hämta de tre virtuella datorernas offentliga IP-adresser `Get-AzPublicIPAddress`med hjälp av.
+1. Hämta de tre virtuella datorernas offentliga IP-adresser med hjälp av `Get-AzPublicIPAddress`.
 
    ```azurepowershell
      $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress

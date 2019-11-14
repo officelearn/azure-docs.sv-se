@@ -1,26 +1,25 @@
 ---
-title: Delegera program administratörs skapande och hanterings behörigheter – Azure Active Directory | Microsoft Docs
+title: Delegera hantering av program administratörs behörighet – Azure AD | Microsoft Docs
 description: Bevilja behörigheter för program åtkomst hantering i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 461ee1fc73448f16ba68850d6137fb396c658abd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025509"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024855"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegera registrerings behörigheter för app i Azure Active Directory
 
@@ -61,8 +60,8 @@ I vissa fall inkluderar företags program som skapats från program galleriet b�
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Tilldela en ägare till ett företags program
 
-1. Logga in på [din Azure AD-organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with ett konto som är berättigat till program administratören eller moln program administratören för organisationen.
-1. På [Appregistreringar sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)@no__t – 1for organisationen väljer du en app för att öppna sidan Översikt för appen.
+1. Logga in på [din Azure AD-organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigat till program administratören eller moln program administratören för organisationen.
+1. På [Appregistreringar sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) för organisationen väljer du en app för att öppna översikts sidan för appen.
 1. Välj **ägare** om du vill se en lista över ägare för appen.
 1. Välj **Lägg till** för att välja en eller flera ägare som ska läggas till i appen.
 
@@ -75,8 +74,8 @@ I vissa fall inkluderar företags program som skapats från program galleriet b�
 
 Azure AD har en uppsättning inbyggda administratörs roller för att bevilja åtkomst till att hantera konfigurationen i Azure AD för alla program. Dessa roller är det rekommenderade sättet att ge IT-experter åtkomst till att hantera omfattande program konfigurations behörigheter utan att bevilja åtkomst till att hantera andra delar av Azure AD som inte är relaterade till program konfigurationen.
 
-- Program administratör: Användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph och Azure AD Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
-- Moln program administratör: Användare i den här rollen har samma behörigheter som program administratörs rollen, förutom möjligheten att hantera programproxyn. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
+- Program administratör: användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph och Azure AD Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
+- Moln program administratör: användare med den här rollen har samma behörigheter som program administratörs rollen, förutom möjligheten att hantera programproxyn. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
 
 Mer information och se beskrivningen av dessa roller finns i [tillgängliga roller](directory-assign-admin-roles.md#available-roles).
 

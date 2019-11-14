@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 1ddb947e9bcbdde655b5c83cffb67e8fc13d9d0e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930244"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048681"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klient program till ditt Azure IoT Central-program (Node. js)
 
@@ -30,7 +30,9 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 ## <a name="create-a-device-template"></a>Skapa en enhets mall
 
-I ditt Azure IoT Central-program behöver du en enhets mall med följande mått, enhets egenskaper, inställningar och kommandon:
+I ditt Azure IoT Central-program behöver du en enhets mall med följande mått, enhets egenskaper, inställningar och kommandon.
+
+Mer information om giltiga egenskaps namn finns i [format för taggar och egenskaper](../../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
 ### <a name="telemetry-measurements"></a>Mått för telemetri
 

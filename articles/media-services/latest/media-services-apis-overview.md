@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0c263e1353a07ca388ea9a7fb48ebcf99be07fc1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820638"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049014"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -95,7 +95,7 @@ Media Services har följande tids krävande åtgärder:
 * [Starta Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Stoppa LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  Använd parametern `removeOutputsOnStop` för att ta bort alla associerade Live-utdata när händelsen stoppas.  
+  Använd `removeOutputsOnStop`-parametern för att ta bort alla associerade Live-utdata när händelsen stoppas.  
 * [Återställ LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Skapa LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Ta bort LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -122,7 +122,7 @@ Endast en långvarig åtgärd stöds för en specifik Live-händelse eller någo
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET-referens](https://aka.ms/ams-v3-dotnet-ref)|
 |[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java-referens](https://aka.ms/ams-v3-java-ref)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python-referens](https://aka.ms/ams-v3-python-ref)|
-|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js-referens](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js-referens](/javascript/api/overview/azure/mediaservices/management)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go-referens](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 

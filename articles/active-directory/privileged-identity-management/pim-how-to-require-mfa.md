@@ -1,5 +1,5 @@
 ---
-title: Multi-Factor Authentication (MFA) och Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: MFA eller 2FA och Privileged Identity Management – Azure AD | Microsoft Docs
 description: Lär dig hur Azure AD Privileged Identity Management (PIM) validerar Multi-Factor Authentication (MFA).
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/31/2018
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa58c354198e648227b9b0b43d1f60546f87d32
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6df593909c3ae5962e413eb84e64196fade0326b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063068"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022143"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Multi-Factor Authentication och Privileged Identity Management
 
@@ -36,7 +36,7 @@ Det finns två alternativ för att verifiera Multi-Factor Authentication när en
 
 Det enklaste alternativet är att förlita dig på Azure Multi-Factor Authentication för användare som aktiverar en privilegie rad roll. För att göra detta måste du först kontrol lera att dessa användare är licensierade, om det behövs, och har registrerat sig för Azure Multi-Factor Authentication. Mer information om hur du distribuerar Azure Multi-Factor Authentication finns i [distribuera molnbaserad Azure-Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md). Vi rekommenderar, men krävs inte, att du konfigurerar Azure AD för att genomdriva multifaktorautentisering för dessa användare när de loggar in. Detta beror på att Multi-Factor Authentication-kontrollerna görs med Privileged Identity Management.
 
-Alternativt kan du, om användarna autentiseras lokalt, ha din identitetsprovider ansvarig för Multi-Factor Authentication. Om du till exempel har konfigurerat AD Federation Services för att kräva SmartCard-baserad autentisering innan du får åtkomst till Azure AD, kan du [skydda moln resurser med Azure Multi-Factor Authentication och AD FS](../authentication/howto-mfa-adfs.md) innehåller instruktioner för att konfigurera AD FS till skicka anspråk till Azure AD. När en användare försöker aktivera en roll, accepterar Privileged Identity Management att Multi-Factor Authentication redan har verifierats för användaren när den tar emot lämpliga anspråk.
+Alternativt kan du, om användarna autentiseras lokalt, ha din identitetsprovider ansvarig för Multi-Factor Authentication. Om du till exempel har konfigurerat AD Federation Services för att kräva SmartCard-baserad autentisering innan du har åtkomst till Azure AD, kan du [skydda moln resurser med Azure Multi-Factor Authentication och AD FS](../authentication/howto-mfa-adfs.md) innehåller instruktioner för att konfigurera AD FS för att skicka anspråk till Azure AD. När en användare försöker aktivera en roll, accepterar Privileged Identity Management att Multi-Factor Authentication redan har verifierats för användaren när den tar emot lämpliga anspråk.
 
 ## <a name="next-steps"></a>Nästa steg
 

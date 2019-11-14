@@ -1,31 +1,31 @@
 ---
-title: PowerShell-exempel för hantering av grupper och för hands version av grupp till lokala-Azure Active Directory | Microsoft Docs
+title: PowerShell V2-exempel för hantering av grupper – Azure AD | Microsoft Docs
 description: Den här sidan innehåller PowerShell-exempel som hjälper dig att hantera dina grupper i Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, grupper, grupp hantering
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381840"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026699"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupp hantering
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -60,7 +60,7 @@ Innan du kan börja hantera grupper med Azure AD PowerShell-cmdlets måste du an
     PS C:\Windows\system32> Connect-AzureAD
 ```
 
-Cmdlet: en efterfrågar de autentiseringsuppgifter som du vill använda för att få åtkomst till din katalog. I det här exemplet använder karen@drumkit.onmicrosoft.com vi för att få åtkomst till demonstrations katalogen. Cmdleten returnerar en bekräftelse för att visa att sessionen är ansluten till din katalog:
+Cmdlet: en efterfrågar de autentiseringsuppgifter som du vill använda för att få åtkomst till din katalog. I det här exemplet använder vi karen@drumkit.onmicrosoft.com för att få åtkomst till demonstrations katalogen. Cmdleten returnerar en bekräftelse för att visa att sessionen är ansluten till din katalog:
 
 ```powershell
     Account                       Environment Tenant
@@ -130,7 +130,7 @@ Du kan söka efter en speciell grupp med parametern-filter. Den här parametern 
 ```
 
 > [!NOTE]
-> Azure AD PowerShell-cmdlets implementerar OData-frågan standard. Mer information finns i **$filter** i [OData system Query-alternativ med OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)-slutpunkten.
+> Azure AD PowerShell-cmdlets implementerar OData-frågan standard. Mer information finns i **$filter** i [OData system Query-alternativ med OData-slutpunkten](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
 ## <a name="create-groups"></a>Skapa grupper
 
@@ -199,7 +199,7 @@ Om du vill ta bort grupper från katalogen använder du cmdleten Remove-AzureADG
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>Hantera gruppmedlemskap
+## <a name="manage-group-membership"></a>Hantera grupp medlemskap
 
 ### <a name="add-members"></a>Lägg till medlemmar
 
@@ -270,7 +270,7 @@ Så här inaktiverar du grupp skapande för icke-administratörer:
    PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
    ```
   
-2. Om den returneras `UsersPermissionToCreateGroupsEnabled : True`kan användare som inte är administratörer skapa grupper. Så här inaktiverar du den här funktionen:
+2. Om den returnerar `UsersPermissionToCreateGroupsEnabled : True`kan användare som inte är administratörer skapa grupper. Så här inaktiverar du den här funktionen:
   
    ```powershell 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
@@ -312,13 +312,13 @@ När en grupp skapas kan slutanvändaren ange ett e-smek namn eller alias som sk
   
 * missbruk
 * innehavaradministration
-* administratör
+* administratörstoken
 * hostmaster
 * majordomo
 * Master
-* skogen
+* Skogen
 * säker
-* säkerhet
+* security
 * ssl-admin
 * uppmana
 
@@ -334,7 +334,7 @@ Office 365-grupp tillbakaskrivning är en offentlig förhands gransknings funkti
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0)-cmdletar.
+Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

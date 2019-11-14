@@ -1,24 +1,24 @@
 ---
-title: Skapa och tilldela en anpassad roll i rollbaserad åtkomst kontroll i Azure AD – Azure Active Directory | Microsoft Docs
+title: Skapa anpassade roller i rollbaserad åtkomst kontroll i Azure AD | Microsoft Docs
 description: Skapa och tilldela anpassade Azure AD-roller med resurs omfång på Azure Active Directory resurser.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026395"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025278"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Skapa och tilldela en anpassad roll i Azure Active Directory
 
@@ -30,7 +30,7 @@ Du kan skapa anpassade roller på fliken [roller och administratörer](https://p
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Skapa en ny anpassad roll för att ge åtkomst till hantering av app-registreringar
 
-1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) With privilegie rad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) med privilegierad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
 1. Välj **Azure Active Directory** > **roller och administratörer** > **ny anpassad roll**.
 
    ![Skapa eller redigera roller från sidan roller och administratörer](./media/roles-create-custom/new-custom-role.png)
@@ -40,11 +40,11 @@ Du kan skapa anpassade roller på fliken [roller och administratörer](https://p
    ![Ange ett namn och en beskrivning för en anpassad roll på fliken grundläggande](./media/roles-create-custom/basics-tab.png)
 
 1. På fliken **behörigheter** väljer du de behörigheter som krävs för att hantera grundläggande egenskaper och egenskaper för autentiseringsuppgifter för app-registreringar. En detaljerad beskrivning av varje behörighet finns [under typer och behörigheter för program registrering i Azure Active Directory](./roles-custom-available-permissions.md).
-   1. Ange först "autentiseringsuppgifter" i Sök fältet och välj behörigheten `microsoft.directory/applications/credentials/update`.
+   1. Ange först "autentiseringsuppgifter" i Sök fältet och välj `microsoft.directory/applications/credentials/update` behörighet.
 
       ![Välj behörigheter för en anpassad roll på fliken behörigheter](./media/roles-create-custom/permissions-tab.png)
 
-   1. Ange sedan "grundläggande" i Sök fältet, välj behörigheten `microsoft.directory/applications/basic/update` och klicka sedan på **Nästa**.
+   1. Ange sedan "grundläggande" i Sök fältet, Välj `microsoft.directory/applications/basic/update` behörighet och klicka sedan på **Nästa**.
 1. På fliken **Granska + skapa** granskar du behörigheterna och väljer **skapa**.
 
 Den anpassade rollen visas i listan över tillgängliga roller att tilldela.
@@ -122,7 +122,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
     ```
 
-    Body
+    Innehåll
 
     ``` HTTP
    {
@@ -151,7 +151,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
-    Body
+    Innehåll
 
     ``` HTTP
    {

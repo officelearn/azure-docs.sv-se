@@ -3,22 +3,22 @@ title: Visualisera data med Azure Datautforskaren Connector för Power BI
 description: 'I den här artikeln får du lära dig hur du använder ett av de tre alternativen för visualisering av data i Power BI: Power BI anslutningen för Azure Datautforskaren.'
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a2ec179321c5d9cb6e9627e397fcb6ae09dc82ed
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 361ea6ed76207e8e9721f64df61738b6cd9631dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349136"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024218"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualisera data med Azure Datautforskaren Connector för Power BI
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Power BI är en lösning för företagsanalys där du kan visualisera dina data och dela resultaten i hela organisationen. Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: använda den inbyggda anslutningsappen, importera en fråga från Azure Data Explorer eller använda en SQL-fråga. Den här artikeln visar hur du använder den inbyggda anslutningen för att hämta data och visualisera dem i en Power BI rapport. Det är enkelt att använda Azure Datautforskaren Native Connector för att skapa Power BI-instrumentpaneler. Power BI-anslutningen har stöd för [import-och Direct-frågor för anslutnings läge](https://docs.microsoft.com/power-bi/desktop-directquery-about). Du kan bygga instrument paneler med **import** -eller **DirectQuery** -läge beroende på scenario-, skalnings-och prestanda krav. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra den här artikeln:
 

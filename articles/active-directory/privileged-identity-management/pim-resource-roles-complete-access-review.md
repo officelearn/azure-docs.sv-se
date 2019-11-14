@@ -1,26 +1,26 @@
 ---
-title: Slutför en åtkomst granskning av Azures resurs roller i Privileged Identity Management-Azure Active Directory | Microsoft Docs
-description: Lär dig hur du utför en åtkomst granskning av Azure Resource roles i Azure AD Privileged Identity Management (PIM).
+title: Slutför åtkomst granskning av Azure Resource roles i PIM – Azure AD | Microsoft Docs
+description: Lär dig hur du utför en åtkomst granskning av Azure Resource roles Privileged Identity Management i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6761d1d6aea796e0cca708676f69c47328642cc2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9e45249245aaab97070b7e774d4b6bab6827bdc9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895815"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021987"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Slutför en åtkomst granskning av Azures resurs roller i Privileged Identity Management
 
@@ -44,15 +44,15 @@ På informations sidan för åtkomst granskningen finns ett antal alternativ fö
 
 ![Alternativ för att hantera en granskning-stopp, återställning, tillämpa och ta bort](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
-### <a name="stop"></a>Stopp
+### <a name="stop"></a>Stoppa
 
 Alla åtkomst granskningar har ett slutdatum. Välj **stopp** för att avsluta det tidigt. Användare som inte har slutfört sin granskning vid den här tiden kommer inte att kunna slutföra den när du har stoppat granskningen. Du kan inte starta om en granskning när den har stoppats.
 
 ### <a name="reset"></a>Återställ
 
-Du kan återställa en åtkomst granskning för att ta bort alla beslut som fattas på den. När du har återställt en åtkomst granskning markeras alla användare som avvisade igen.
+Du kan återställa en åtkomst granskning för att ta bort alla beslut som fattas på den. När du har återställt en åtkomst granskning markeras alla användare som inte granskas igen.
 
-### <a name="apply"></a>Ansök
+### <a name="apply"></a>Använd
 
 När en åtkomst granskning har slutförts väljer du **tillämpa** för att implementera resultatet av granskningen. Om en användares åtkomst nekades i granskningen tar det här steget bort roll tilldelningen.  
 

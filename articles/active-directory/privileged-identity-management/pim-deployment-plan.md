@@ -1,25 +1,25 @@
 ---
-title: Distribuera Privileged Identity Management (PIM)-Azure Active Directory | Microsoft Docs
+title: Distribuera Privileged Identity Management (PIM) – Azure AD | Microsoft Docs
 description: Beskriver hur du planerar distributionen av Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/08/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1263d494ff26ff6ab87d39bc864271f14457b3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756266"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021857"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -44,7 +44,7 @@ Azure AD Privileged Identity Management hjälper dig att hantera privilegierade 
 
 **Sänk kostnaderna** – minska kostnaderna genom att eliminera ineffektiva problem, mänskliga fel och säkerhets problem genom att distribuera Privileged Identity Management korrekt. Netto resultatet är en minskning av cyberhot brottslighet som är associerad med privilegierade identiteter, vilket är kostsamt och svårt att återställa från. Privileged Identity Management hjälper också organisationen att minska kostnaderna som är kopplade till gransknings åtkomst information när det gäller att följa regler och standarder.
 
-Mer information finns i [Vad är Azure AD Privileged Identity Management?](pim-configure.md).
+Mer information finns i [vad är Azure AD Privileged Identity Management?](pim-configure.md).
 
 ### <a name="licensing-requirements"></a>Licensierings krav
 
@@ -75,7 +75,7 @@ Mer information finns i [terminologi](pim-configure.md#terminology).
 1. När användaren har aktiverat sin roll får han eller hon rollen för en förkonfigurerad tids period.
 1. Administratörer kan visa en historik över alla Privileged Identity Management aktiviteter i gransknings loggen. De kan också skydda sina Azure AD-organisationer ytterligare och möta kompatibiliteten med hjälp av Privileged Identity Management funktioner som åtkomst granskningar och aviseringar.
 
-Mer information finns i [Vad är Azure AD Privileged Identity Management?](pim-configure.md).
+Mer information finns i [vad är Azure AD Privileged Identity Management?](pim-configure.md).
 
 ### <a name="roles-that-can-be-managed-by-privileged-identity-management"></a>Roller som kan hanteras av Privileged Identity Management
 
@@ -196,7 +196,7 @@ Det är viktigt att tänka på vilka data och behörigheter som är mest känsli
 Om det finns roller med tilldelade gäst användare är de särskilt utsatta för angrepp.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft rekommenderar** att du hanterar alla roller med gäst användare som använder Privileged Identity Management för att minska risken kopplade till komprometterade gäst användar konton.
+> : heavy_check_mark: **Microsoft rekommenderar** att du hanterar alla roller med gäst användare som använder Privileged Identity Management för att minska risken som är kopplad till komprometterade gäst användar konton.
 
 Reader-roller som katalog läsaren, meddelande Center läsaren och säkerhets läsaren antas ibland vara mindre viktiga jämfört med andra roller eftersom de inte har Skriv behörighet. Vi har dock sett att vissa kunder också skyddar dessa roller eftersom angripare som har fått åtkomst till dessa konton kan läsa känsliga data, till exempel personligt identifierbar information (PII). Du bör tänka på detta när du bestämmer om läsarnas roller i din organisation måste hanteras med hjälp av Privileged Identity Management.
 
@@ -210,21 +210,21 @@ När du bestämmer vilka roll tilldelningar som ska hanteras med Privileged Iden
 Om du är en global administratör som har problem med att avgöra vilka prenumerationer/resurser som är viktigast bör du kontakta Prenumerationens ägare i din organisation för att samla in en lista över resurser som hanteras av varje prenumeration. Du bör sedan arbeta med prenumerations ägarna för att gruppera resurserna baserat på allvarlighets grad, då de komprometteras (låg, medium, hög). Du bör prioritera hantering av resurser med Privileged Identity Management baserat på den här allvarlighets graden.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft rekommenderar** att du arbetar med prenumerationer/resurs ägare av kritiska tjänster för att konfigurera Privileged Identity Management-arbetsflöde för alla roller i känsliga prenumerationer/resurser.
+> : heavy_check_mark: **Microsoft rekommenderar** att du arbetar med prenumerationer/resurs ägare av kritiska tjänster för att skapa Privileged Identity Management-arbetsflöde för alla roller i känsliga prenumerationer/resurser.
 
 Privileged Identity Management för Azure-resurser stöder tids gränser för tjänst konton. Du bör behandla tjänst konton exakt på samma sätt som du skulle behandla ett vanligt användar konto.
 
 För prenumerationer/resurser som inte är lika kritiska behöver du inte konfigurera Privileged Identity Management för alla roller. Du bör dock fortfarande skydda rollen ägare och användar åtkomst administratör med Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft rekommenderar** att du hanterar ägar roller och användar åtkomst administratörs roller för alla prenumerationer/resurser med hjälp av Privileged Identity Management.
+> : heavy_check_mark: **Microsoft rekommenderar** att du hanterar ägar roller och administratörs roller för användar åtkomst för alla prenumerationer/resurser med hjälp av Privileged Identity Management.
 
 ### <a name="decide-which-role-assignments-should-be-permanent-or-eligible"></a>Bestäm vilka roll tilldelningar som ska vara permanenta eller berättigade
 
 När du har bestämt listan över roller som ska hanteras av Privileged Identity Management måste du bestämma vilka användare som ska få den kvalificerade rollen och den permanent aktiva rollen. Permanent aktiva roller är de normala roller som tilldelas via Azure Active Directory och Azure-resurser, medan berättigade roller bara kan tilldelas i Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft rekommenderar** att du har noll aktiva tilldelningar för både Azure AD-roller och andra Azure-resurs roller än de rekommenderade två återställnings [konton för brytar glas](../users-groups-roles/directory-emergency-access.md), som ska ha den permanenta Global administratörs roll.
+> : heavy_check_mark: **Microsoft rekommenderar** att du har noll aktiva tilldelningar för både Azure AD-roller och andra Azure-resurstilldelningar än de rekommenderade två återställnings [konton för brytar glas](../users-groups-roles/directory-emergency-access.md), som ska ha den permanenta globala administratörs rollen.
 
 Även om vi rekommenderar ständig administratör är det ibland svårt för organisationer att uppnå detta direkt. Följande är saker att tänka på när du fattar det här beslutet:
 
@@ -243,16 +243,16 @@ Innan du implementerar din Privileged Identity Management-lösning är det bra a
 | Roll | Kräv MFA | Avisering | Incident biljett | Kräv godkännande | God kännare | Varaktighet för aktivering | Permanent administratör |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Global administratör | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra globala administratörer | 1 timme | Konton för nöd åtkomst |
-| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | röntgen | röntgen | Inget | 2 timme | Inget |
-| Support administratör | röntgen | röntgen | :heavy_check_mark: | röntgen | Inget | 8 timmar | Inget |
+| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Ingen | 2 timme | Ingen |
+| Support administratör | :x: | :x: | :heavy_check_mark: | :x: | Ingen | 8 timmar | Ingen |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Privileged Identity Management inställningar för Azure-resurs roller
 
 | Roll | Kräv MFA | Avisering | Kräv godkännande | God kännare | Varaktighet för aktivering | Aktiv administratör | Aktiv utgång | Giltig förfallo datum |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Inget | Ej tillämpligt | 3 månad |
-| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | röntgen | Inget | 1 timme | Inget | Ej tillämpligt | 3 månad |
-| Virtuell dator deltagare | röntgen | :heavy_check_mark: | röntgen | Inget | 3 timmar | Inget | Ej tillämpligt | 6 månad |
+| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Ingen | Saknas | 3 månad |
+| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :x: | Ingen | 1 timme | Ingen | Saknas | 3 månad |
+| Virtuell dator deltagare | :x: | :heavy_check_mark: | :x: | Ingen | 3 timmar | Ingen | Saknas | 6 månad |
 
 I följande tabell beskrivs var och en av inställningarna.
 
@@ -261,9 +261,9 @@ I följande tabell beskrivs var och en av inställningarna.
 | Roll | Namnet på den roll som du definierar inställningarna för. |
 | Kräv MFA | Om den kvalificerade användaren behöver utföra MFA innan rollen aktive ras.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du tillämpar MFA för alla administratörs roller, särskilt om rollerna har gäst användare. |
 | Avisering | Om detta är inställt på Sant får du ett e-postmeddelande när en berättigad användare aktiverar rollen.<br/><br/>**Obs:** Vissa organisationer har ingen e-postadress knutna till sina administratörs konton, för att få dessa e-postaviseringar ska du ange en alternativ e-postadress så att administratörer får e-postmeddelandena. |
-| Incident biljett | Om den berättigade användaren behöver registrera ett incident biljett nummer när de aktiverar sin roll. Med den här inställningen kan en organisation identifiera varje aktivering med ett internt incident nummer för att minimera oönskade aktiveringar.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att man drar nytta av incident nummer för att koppla Privileged Identity Management till det interna systemet. Detta är särskilt användbart för god kännare som behöver kontext för aktiveringen. |
+| Incident biljett | Om den berättigade användaren behöver registrera ett incident biljett nummer när de aktiverar sin roll. Med den här inställningen kan en organisation identifiera varje aktivering med ett internt incident nummer för att minimera oönskade aktiveringar.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att man drar nytta av incident nummer för att koppla Privileged Identity Management till ditt interna system. Detta är särskilt användbart för god kännare som behöver kontext för aktiveringen. |
 | Kräv godkännande | Om den kvalificerade användaren behöver få godkännande för att aktivera rollen.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du ställer in godkännande för roller med mest behörighet. Baserat på användnings mönster för alla Privileged Identity Management-kunder, global administratör, användar administratör, Exchange-administratör, säkerhets administratör och lösen ords administratör är de vanligaste rollerna med godkännande inställningar. |
-| God kännare | Om godkännande krävs för att aktivera den berättigade rollen, listar du de personer som ska godkänna begäran. Som standard ställer Privileged Identity Management god kännaren till alla användare som är privilegierade roll administratörer oavsett om de är permanenta eller berättigade.<br/><br/>**Obs:** Om en användare både är berättigad till en Azure AD-roll och en god kännare av rollen, kan de inte godkänna sig själva.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du väljer god kännare som mest kunniga om den aktuella rollen och dess frekventa användare i stället för en global administratör. |
+| God kännare | Om godkännande krävs för att aktivera den berättigade rollen, listar du de personer som ska godkänna begäran. Som standard ställer Privileged Identity Management god kännaren till alla användare som är privilegierade roll administratörer oavsett om de är permanenta eller berättigade.<br/><br/>**Obs:** Om en användare både är berättigad till en Azure AD-roll och en god kännare av rollen, kan de inte godkänna sig själva.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du väljer god kännare som är de som är mest kunniga om den aktuella rollen och dess frekventa användare snarare än en global administratör. |
 | Varaktighet för aktivering | Hur lång tid en användare aktive ras i rollen innan den upphör att gälla. |
 | Permanent administratör | Lista över användare som kommer att vara permanent administratör för rollen (måste aldrig aktivera).<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du har ingen ständig administratör för alla roller förutom globala administratörer. Läs mer om dem i som ska vara berättigade och som bör vara aktiva permanent i den här planen. |
 | Aktiv administratör | För Azure-resurser är Active Administrator en lista över användare som aldrig kommer att behöva aktivera för att använda rollen. Detta kallas inte permanent administratör som i Azure AD-roller eftersom du kan ange en förfallo tid för när användaren ska förlora den här rollen. |
@@ -285,8 +285,8 @@ I den här tabellen identifierar du de test användare som ska kontrol lera att 
 
 | Rollnamn | Testa användare |
 | --- | --- |
-| &lt;Role namn &gt; | &lt;Users att testa rollen &gt; |
-| &lt;Role namn &gt; | &lt;Users att testa rollen &gt; |
+| &lt;roll namn&gt; | &lt;användare för att testa rollen&gt; |
+| &lt;roll namn&gt; | &lt;användare för att testa rollen&gt; |
 
 ### <a name="test-implementation"></a>Testa implementering
 
@@ -338,7 +338,7 @@ Distribution av Privileged Identity Management kommer att införa ytterligare st
 - Kontakt information eller supportavdelningen för eventuella problem som är associerade med PIM
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft rekommenderar** att du ställer in tid hos supportavdelningen/support-teamet för att gå igenom den Privileged Identity Management arbets flödet (om din organisation har ett internt IT-support team). Förse dem med lämpliga dokument och din kontakt information.
+> : heavy_check_mark: **Microsoft rekommenderar** att du ställer in tid hos supportavdelningen/support-teamet för att gå igenom Privileged Identity Management arbets flödet (om din organisation har ett internt IT-support team). Förse dem med lämpliga dokument och din kontakt information.
 
 ### <a name="move-to-production"></a>Flytta till produktion
 

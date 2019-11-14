@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 335e3c3ddabbf5bc267458fc1c55fef0e551583e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d4dedf2f90baa5eae005f47719e67bd8e97d8490
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833782"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039032"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -77,12 +77,12 @@ Här följer gränserna för en enda Logic app-körning:
 
 | Namn | Gräns | Anteckningar |
 | ---- | ----- | ----- |
-| Utlös samtidighet | * Obegränsat när samtidighets kontrollen är inaktive rad <p><p>* 25 är standard gränsen när samtidighets kontrollen är aktive rad, som inte kan återställas när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan köras samtidigt eller parallellt. <p><p>**Obs!** när samtidigheten är aktive rad minskas SplitOn-gränsen till 100 objekt för [debatchering av matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). Om antalet objekt överskrider den här gränsen är SplitOn-funktionen inaktive rad. <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra utlösarens samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [Utlös instansen i tur och ordning](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Utlös samtidighet | * Obegränsat när samtidighets kontrollen är inaktive rad <p><p>* 25 är standard gränsen när samtidighets kontrollen är aktive rad, som inte kan återställas när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan köras samtidigt eller parallellt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt för [debatchering av matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra utlösarens samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [Utlös instansen i tur och ordning](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximalt antal väntande körningar | När samtidighets kontrollen är aktive rad är det minsta antalet väntande körningar 10 plus antalet samtidiga körningar (Utlös samtidighet). Du kan ändra det maximala antalet upp till 100. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan vänta på att köras när din Logic app redan kör maximalt antal samtidiga instanser. <p><p>Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Förgrunds mat ris objekt | 100 000 | Den här gränsen beskriver det högsta antalet mat ris objekt som en "for each"-loop kan bearbeta. <p><p>Du kan använda [åtgärden fråga](../connectors/connectors-native-query.md)för att filtrera större matriser. |
 | Samtidighets samtidighet | 20 är standard gränsen när samtidighets kontrollen är inaktive rad. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen är det högsta antalet upprepningar av slingor som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra "för varje" samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [Kör "för varje" slingor i följd](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn objekt | * 100 000 utan utlösarens samtidighet <p><p>* 100 med utlösarens samtidighet | För utlösare som returnerar en matris kan du ange ett uttryck som använder en ' SplitOn '-egenskap som [delar upp eller avgruppera mat ris objekt i flera arbets flödes instanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning, i stället för att använda en "förgrunds"-slinga. Det här uttrycket refererar till matrisen som används för att skapa och köra en arbets flödes instans för varje mat ris objekt. <p><p>**Obs!** när samtidigheten är aktive rad minskas SplitOn-gränsen. Om antalet objekt överskrider den här gränsen inaktive ras SplitOn. |
-| Tills iterationer | 5 000 | |
+| SplitOn objekt | * 100 000 utan utlösarens samtidighet <p><p>* 100 med utlösarens samtidighet | För utlösare som returnerar en matris kan du ange ett uttryck som använder en ' SplitOn '-egenskap som [delar upp eller avgruppera mat ris objekt i flera arbets flödes instanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning, i stället för att använda en "förgrunds"-slinga. Det här uttrycket refererar till matrisen som används för att skapa och köra en arbets flödes instans för varje mat ris objekt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt. |
+| Tills iterationer | 5 000 | |
 ||||
 
 <a name="throughput-limits"></a>
@@ -96,10 +96,10 @@ Här är gränserna för en enda Logic app-definition:
 | Namn | Gräns | Anteckningar |
 | ---- | ----- | ----- |
 | Åtgärd: körningar per 5 minuter | 100 000 är standard gränsen, men 300 000 är max gränsen. | Om du vill ändra standard gränsen läser du köra din Logi Kap par [i läget "hög genom strömning"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), som finns i för hands version. Eller så kan du distribuera arbets belastningen i mer än en Logic app vid behov. |
-| Åtgärd: utgående utgående samtal | ~ 2 500 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
-| Runtime-slutpunkt: samtidiga inkommande samtal | ~ 1 000 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
-| Runtime-slutpunkt: Läs anrop per 5 minuter  | 60 000 | Du kan distribuera arbets belastningen i mer än en app vid behov. |
-| Runtime-slutpunkt: anropa anrop per 5 minuter | 45 000 | Du kan distribuera arbets belastningen i mer än en app vid behov. |
+| Åtgärd: utgående utgående samtal | ~2,500 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
+| Runtime-slutpunkt: samtidiga inkommande samtal | ~1,000 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
+| Runtime-slutpunkt: Läs anrop per 5 minuter  | 60,000 | Du kan distribuera arbets belastningen i mer än en app vid behov. |
+| Runtime-slutpunkt: anropa anrop per 5 minuter | 45,000 | Du kan distribuera arbets belastningen i mer än en app vid behov. |
 | Innehålls data flöde per 5 minuter | 600 MB | Du kan distribuera arbets belastningen i mer än en app vid behov. |
 ||||
 
@@ -131,7 +131,7 @@ Azure Logic Apps stöder Skriv åtgärder, inklusive infogningar och uppdatering
 
 Här följer begränsningarna för en enskild HTTP-begäran eller ett synkront anslutnings anrop:
 
-#### <a name="timeout"></a>Standardvärde
+#### <a name="timeout"></a>Timeout
 
 Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-begäranden, så tids gränsen för dessa åtgärder kan vara längre än dessa gränser. Mer information finns i teknisk information för den aktuella anslutningen och även för [arbets flödes utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
@@ -213,7 +213,7 @@ Här följer gränserna för antalet artefakter för varje integrations konto ni
 |----------|------|-------|----------|
 | EDI handels avtal | 10 | 1 | 1,000 |
 | EDI-handels partner | 25 | 2 | 1,000 |
-| Kartor | 25 | 500 | 1,000 |
+| Maps | 25 | 500 | 1,000 |
 | Scheman | 25 | 500 | 1,000 |
 | Sammansättningar | 10 | 25 | 1,000 |
 | Certifikat | 25 | 2 | 1,000 |
@@ -233,10 +233,10 @@ Här följer gränserna för antalet artefakter för varje integrations konto ni
 
 | Runtime-slutpunkt | Gräns | Anteckningar |
 |------------------|-------|-------|
-| Läs anrop per 5 minuter | 60 000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
-| Anropa anrop per 5 minuter | 45 000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
-| Spåra anrop per 5 minuter | 45 000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
-| Blockerar samtidiga anrop | ~ 1 000 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
+| Läs anrop per 5 minuter | 60,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
+| Anropa anrop per 5 minuter | 45,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
+| Spåra anrop per 5 minuter | 45,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
+| Blockerar samtidiga anrop | ~1,000 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
 ||||
 
 <a name="b2b-protocol-limits"></a>

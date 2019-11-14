@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NLB | Microsoft Docs
+title: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NLB
 description: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med NLB
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2e9b536ae6c7056348ac964a2c85ccd698a80ae4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 858151a0803ba86aeca91f35e3e6f30394bf8ea8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709373"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040262"
 ---
 # <a name="create-a-highly-available-vm"></a>Skapa en virtuell dator med hög tillgänglighet
 

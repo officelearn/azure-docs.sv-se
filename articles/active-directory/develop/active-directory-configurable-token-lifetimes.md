@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473944"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046559"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
@@ -53,11 +53,11 @@ Klienter använder åtkomsttoken för att få åtkomst till en skyddad resurs. E
 
 ### <a name="saml-tokens"></a>SAML-token
 
-SAML-token används av många webbaserade SAAS-program och hämtas med hjälp av Azure Active Directorys SAML2-protokollets slut punkt.  De används också av program som använder WS-Federation.    Standard livstiden för token är 1 timme. Efter från-och program perspektiv anges giltighets perioden för token genom NotOnOrAfter-värdet för < villkor... > element i token.  Efter giltighets perioden för token måste klienten initiera en ny autentiseringsbegäran, som ofta uppfylls utan interaktiv inloggning som ett resultat av sessionstoken för enkel inloggning (SSO).
+SAML-token används av många webbaserade SAAS-program och hämtas med hjälp av Azure Active Directorys SAML2-protokollets slut punkt. De används också av program som använder WS-Federation. Standard livstiden för token är 1 timme. Från ett programs perspektiv anges giltighets perioden för token genom NotOnOrAfter-värdet för `<conditions …>`-elementet i token. När giltighets perioden för token har upphört måste klienten initiera en ny autentiseringsbegäran, som ofta uppfylls utan interaktiv inloggning som ett resultat av sessionstoken för enkel inloggning (SSO).
 
-Värdet för NotOnOrAfter kan ändras med parametern AccessTokenLifetime i en TokenLifetimePolicy.  Den ställs in på den livstid som kon figurer ATS i principen om det finns någon, plus en klock skev på fem minuter.
+Värdet för NotOnOrAfter kan ändras med hjälp av parametern `AccessTokenLifetime` i en `TokenLifetimePolicy`. Den ställs in på den livstid som kon figurer ATS i principen om det finns någon, plus en klock skev på fem minuter.
 
-Observera att mottagar bekräftelse NotOnOrAfter som anges i <SubjectConfirmationData>-elementet inte påverkas av konfigurationen för token livs längd. 
+Observera att mottagar bekräftelse NotOnOrAfter som anges i `<SubjectConfirmationData>`-elementet inte påverkas av konfigurationen för token livs längd. 
 
 ### <a name="refresh-tokens"></a>Uppdatera token
 
@@ -66,7 +66,7 @@ När en klient får åtkomst-token för åtkomst till en skyddad resurs får kli
 Det är viktigt att skilja mellan konfidentiella klienter och offentliga klienter, eftersom detta påverkar hur länge uppdaterade token kan användas. Mer information om olika typer av klienter finns i [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Livs längd för token med konfidentiella klient uppdaterings-token
-Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom dessa flöden är säkrare är standard livs längden för uppdateringstoken som utfärdats till dessa flöden `until-revoked`, kan inte ändras med hjälp av en princip och kommer inte att återkallas på frivilliga lösen ords återställning.
+Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord (hemligt). De kan bevisa att förfrågningar kommer från det skyddade klient programmet och inte från en skadlig aktör. En webbapp är till exempel en konfidentiell klient eftersom den kan lagra en klient hemlighet på webb servern. Den exponeras inte. Eftersom dessa flöden är säkrare är det `until-revoked`att standard livstiden för uppdateringstoken som utfärdats till dessa flöden är, inte kan ändras med hjälp av en princip och kommer inte att återkallas för frivilliga lösen ords återställning.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Livs längd för token med offentliga klient uppdaterings-token
 
@@ -124,7 +124,7 @@ Mer information om relationen mellan program objekt och tjänst huvud objekt fin
 
 Giltighet för token utvärderas vid den tidpunkt då token används. Principen med den högsta prioriteten för det program som används börjar gälla.
 
-Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/api/system.timespan) -objektet-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle bli `80.00:30:00`.  Den inledande D-filen kan släppas om noll, så 90 minuter skulle vara `00:90:00`.  
+Alla tidsintervallen som används här formateras enligt C# [TimeSpan](/dotnet/api/system.timespan) -objektet-D. hh: mm: SS.  Så 80 dagar och 30 minuter skulle vara `80.00:30:00`.  Det inledande D-värdet kan tas bort om noll, så 90 minuter skulle `00:90:00`.  
 
 > [!NOTE]
 > Här är ett exempel scenario.
@@ -216,7 +216,7 @@ I exemplen får du lära dig att:
 * Skapa en princip för en intern app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvud namn och din övergripande organisation. Om du är nybörjare på Azure AD rekommenderar vi att du lär dig [hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Gör så här för att komma igång:
@@ -367,7 +367,7 @@ I det här exemplet skapar du några principer för att lära dig hur prioritets
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Ange värdet false för flaggan `IsOrganizationDefault`:
+3. Ange `IsOrganizationDefault` flagga till falskt:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false

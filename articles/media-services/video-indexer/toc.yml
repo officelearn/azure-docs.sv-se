@@ -15,6 +15,10 @@
   items:
     - name: Använda Video Indexer-API
       href: video-indexer-use-apis.md
+- name: Exempel
+  items:
+    - name: Analys för liveuppspelning
+      href: live-stream-analysis.md
 - name: Begrepp
   items:
     - name: Översikt

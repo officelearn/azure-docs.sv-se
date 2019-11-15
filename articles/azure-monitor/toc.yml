@@ -140,6 +140,8 @@
                   href: learn/quick-create-workspace-posh.md
             - name: Ta bort och återställa en arbetsyta
               href: platform/delete-workspace.md
+            - name: Flytta en arbetsyta
+              href: platform/move-workspace.md
             - name: Design för tjänstleverantörer
               href: platform/service-providers.md
             - name: Hantera åtkomst

@@ -180,6 +180,8 @@
       items:
         - name: Azure Data Factory
           items:
+            - name: Integration med Data Factory
+              href: data-factory-integration.md
             - name: Masskopiera data med en Azure Data Factory-mall
               href: data-factory-template.md
             - name: Köra kontrollkommandon med Azure Data Factory

@@ -5,7 +5,7 @@ metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
   title: 'Dokumentation om API för visuell sökning i Bing – självstudier, snabbstarter, API-referenser'
   titleSuffix: Azure Cognitive Services
-  description: 'Lär dig att använda API:et för visuell sökning i Bing för att få insikter om en bild.'
+  description: 'Ladda upp en bild eller tillhandahåll URL:en till en bild och API:et kan identifiera en mängd information om bilden, inklusive hitta liknande bilder, shoppingkällor och webbsidor.'
   services: cognitive-services
   author: swhite-msft
   manager: nitinme

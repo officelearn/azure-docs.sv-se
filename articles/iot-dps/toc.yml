@@ -145,6 +145,8 @@
       href: how-to-send-additional-data.md
     - name: Felsökning
       href: how-to-troubleshoot-dps.md
+    - name: Kommunicera med din DPS med hjälp av MQTT-protokoll
+      href: iot-dps-mqtt-support.md
 - name: Referens
   items:
     - name: REST-API

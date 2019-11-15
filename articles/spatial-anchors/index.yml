@@ -27,6 +27,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Relationer mellan fästpunkter och navigering.</a>
           - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Upplevelseriktlinjer.</a>
           - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Loggning och diagnostik.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Grov omlokalisering.</a>
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph

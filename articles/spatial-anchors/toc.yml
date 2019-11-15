@@ -57,6 +57,20 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: I C++/WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
+    - name: Använda sensorer på enheten för att identifiera närliggande fästpunkter
+      items:
+        - name: 'I C#/Unity'
+          href: how-tos/set-up-coarse-reloc-unity.md
+        - name: I Objective-C
+          href: how-tos/set-up-coarse-reloc-objc.md
+        - name: I Swift
+          href: how-tos/set-up-coarse-reloc-swift.md
+        - name: I Java
+          href: how-tos/set-up-coarse-reloc-java.md
+        - name: I C++/NDK
+          href: how-tos/set-up-coarse-reloc-cpp-ndk.md
+        - name: I C++/WinRT
+          href: how-tos/set-up-coarse-reloc-cpp-winrt.md
 - name: Exempel
   items:
     - name: Azure Spatial Anchors-exempel (GitHub)
@@ -71,6 +85,8 @@
       href: concepts/guidelines-effective-anchor-experiences.md
     - name: Loggning och diagnostik
       href: concepts/logging-diagnostics.md
+    - name: Grov omlokalisering
+      href: concepts/coarse-reloc.md
 - name: Referenser
   items:
     - name: SDK för Unity

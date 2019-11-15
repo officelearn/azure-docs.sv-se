@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Styrning
+      tocHref: /azure/governance
+      topicHref: /azure/governance
+      items:
+        - name: Princip
+          tocHref: /azure/lighthouse
+          topicHref: /azure/governance/policy
+        - name: Princip
+          tocHref: /azure/azure-monitor
+          topicHref: /azure/governance/policy

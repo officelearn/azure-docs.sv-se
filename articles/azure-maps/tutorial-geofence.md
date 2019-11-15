@@ -1,22 +1,22 @@
 ---
-title: Skapa en geofence med hjälp av Azure Maps | Microsoft Docs
-description: Konfigurera en geofence med hjälp av Azure Maps.
+title: 'Självstudie: skapa ett geografiskt avgränsnings tecken med Azure Maps'
+description: 'Självstudie: Konfigurera en avgränsning med hjälp av Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694932"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107093"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>Konfigurera en geofence med hjälp av Azure Maps
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geografiskt avgränsnings tecken genom att använda Azure Maps
 
 Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Det scenario som vi behandlar i den här självstudien är till för att hjälpa byggnadschefer att övervaka potentiellt farlig utrustning som flyttas utanför angivna byggområden. På byggarbetsplatser finns det dyr utrustning och förordningar som måste följas. Det kräver normalt att utrustningen förvaras på byggarbetsplatsen och inte förs bort utan tillstånd.
 
@@ -32,7 +32,7 @@ I den här självstudien lär du dig att:
 > *   Använda Azure Maps geofence-tjänst-API:er för att spåra huruvida en byggsresurs befinner sig på byggarbetsplatsen.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 
@@ -154,13 +154,13 @@ Vi använder postman-programmet för att ladda upp geofence för byggarbetsplats
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Kopiera din status-URI och Lägg `subscription-key` till en parameter till den med dess värde som din Azure Maps konto prenumerations nyckel. Status-URI-formatet ska vara som det som anges nedan:
+6. Kopiera din status-URI och Lägg till en `subscription-key`-parameter till den med dess värde som din Azure Maps konto prenumerations nyckel. Status-URI-formatet ska vara som det som anges nedan:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. För att hämta `udId` öppnar du en ny flik i Postman-appen och väljer Hämta http-metod på fliken Builder och gör en get-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId för senare användning.
+7. För att hämta `udId` öppnar du en ny flik i Postman-appen och väljer Hämta HTTP-metod på fliken Builder och gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId för senare användning.
 
    ```JSON
    {

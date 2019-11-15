@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072066"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108405"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importera en logikapp som ett API
 
@@ -29,9 +29,9 @@ I den här artikeln kan du se hur du:
 >
 > -   Importera en logikapp som ett API
 > -   Testa API:et i Azure Portal
-> -   Testa API:et i Developer-portalen
+> -   Testa API:et i utvecklarportalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 -   Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 -   Kontrollera att det finns en logikapp i din prenumeration som gör en HTTP-slutpunkt tillgänglig. Mer information finns i avsnittet om att [utlösa arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md)
@@ -59,7 +59,7 @@ I den här artikeln kan du se hur du:
 
 7. Välj **Skapa**.
 
-## <a name="test-the-imported-api-in-the-azure-portal"></a>Testa det importerade API: et i Azure Portal
+## <a name="test-the-api-in-the-azure-portal"></a>Testa API:et i Azure Portal
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.
 
@@ -72,22 +72,6 @@ Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt 
 4. Tryck på **Skicka**.
 
     Serverdelen svarar med **200 OK** och några data.
-
-## <a name="call-operation"> </a>Anropa en åtgärd från utvecklarportalen
-
-Åtgärder kan också anropas från **utvecklarportalen** för att testa API:er.
-
-1. Välj det API som du skapade i steget Importera och publicera ett serverdels-API.
-2. Tryck på **Utvecklarportalen**.
-
-    Webbplatsen Developer-portalen öppnas.
-
-3. Välj det **API** som du skapade.
-4. Klicka på den åtgärd som du vill testa.
-5. Tryck på **Testa**.
-6. Tryck på **Skicka**.
-
-    När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

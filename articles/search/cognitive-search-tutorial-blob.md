@@ -1,5 +1,5 @@
 ---
-title: 'REST-självstudie: Bygg en AI-pipeline för att extrahera text och struktur från JSON-blobbar'
+title: 'Självstudie: Extrahera text och struktur från JSON-blobbar'
 titleSuffix: Azure Cognitive Search
 description: 'Stega genom ett exempel på text extrahering och naturlig språk bearbetning över innehåll i JSON-blobbar med Postman och Azure Kognitiv sökning REST-API: er.'
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790194"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113670"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Självstudie: Lägg till struktur i "ostrukturerat innehåll" med AI-anrikning
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Självstudie: Extrahera text och struktur från JSON-blobbar i Azure med hjälp av REST API: er (Azure Kognitiv sökning)
 
-Om du har ostrukturerad text-eller bild innehåll kan en [AI-pipeline](cognitive-search-concept-intro.md) hjälpa dig att extrahera information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bildfiler (JPG, PNG, TIFF) fokuserar den här självstudien på Word-baserat innehåll, använder språk identifiering och text analys för att skapa nya fält och information som du kan använda i frågor, ansikte och filter.
+Om du har ostrukturerad text-eller bild innehåll i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) hjälpa dig att extrahera information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bildfiler (JPG, PNG, TIFF) fokuserar den här självstudien på Word-baserat innehåll, använder språk identifiering och text analys för att skapa nya fält och information som du kan använda i frågor, ansikte och filter.
 
 > [!div class="checklist"]
 > * Börja med hela dokument (ostrukturerad text) som PDF, MD, DOCX och PPTX i Azure Blob Storage.
@@ -84,13 +84,13 @@ I den här genom gången används Azure Kognitiv sökning för indexering och fr
 
 1. Spara anslutnings strängen i anteckningar. Du behöver det senare när du konfigurerar anslutningen till data källan.
 
-### <a name="cognitive-services"></a>Kognitiva tjänster
+### <a name="cognitive-services"></a>Cognitive Services
 
 AI-berikning backas upp av Cognitive Services, inklusive Textanalys och Visuellt innehåll för naturligt språk och bild bearbetning. Om målet var att slutföra en faktisk prototyp eller ett projekt, skulle du i den här punkten etablera Cognitive Services (i samma region som Azure Kognitiv sökning) så att du kan koppla den till indexerings åtgärder.
 
 I den här övningen kan du hoppa över resurs etableringen eftersom Azure Kognitiv sökning kan ansluta till Cognitive Services bakom kulisserna och ge dig 20 kostnads fria transaktioner per indexerare. Eftersom den här självstudien använder 7 transaktioner är den kostnads fria fördelningen tillräckligt. För större projekt bör du planera för etablering Cognitive Services på S0-nivån betala per användning. Mer information finns i [bifoga Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
-### <a name="azure-cognitive-search"></a>Azure-Kognitiv sökning
+### <a name="azure-cognitive-search"></a>Kognitiv sökning i Azure
 
 Den tredje komponenten är Azure-Kognitiv sökning, som du kan [skapa i portalen](search-create-service-portal.md). Du kan använda den kostnads fria nivån för att slutföra den här genom gången. 
 
@@ -100,7 +100,7 @@ Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nycke
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en har `https://mydemo.search.windows.net`ts, är tjänstens namn `mydemo`.
 
-2. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
     Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 

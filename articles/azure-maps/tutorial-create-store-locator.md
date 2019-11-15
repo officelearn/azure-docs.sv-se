@@ -1,24 +1,24 @@
 ---
-title: Skapa en butikslokaliserare med Azure Maps | Microsoft Docs
-description: Skapa en butikslokaliserare med hjälp av Azure Maps.
+title: 'Självstudie: skapa en Store-positionerare med hjälp av Azure Maps'
+description: 'Självstudie: skapa en Store-positionerare med hjälp av Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933074"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107079"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Skapa en butikslokaliserare med hjälp av Azure Maps
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
-Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här guiden får du lära dig att:
+Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här självstudiekursen får du lära du dig att:
     
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:et Azure Kartkontroll.
@@ -33,7 +33,7 @@ Den här självstudien vägleder dig genom processen med att skapa en enkel buti
 
 Gå vidare till [exemplet på livebutikslokaliserare](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) eller [källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här självstudien måste du först [skapa ditt Azure Maps-konto](./tutorial-search-location.md#createaccount) och följa stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta den primära prenumerations nyckeln för ditt konto.
 
@@ -44,14 +44,14 @@ Innan du sätter igång i koden är det en bra idé att börja med en design. Di
 <br/>
 <center>
 
-![Tråd block för en butiks Locator för Contoso kaffe kaffe affär platser](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![tråd block för en butiks Locator för Contoso kaffe kaffe handlande platser](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 För att maximera butikslokaliserarens användbarhet använder vi en dynamisk layout som anpassar sig när en användares skärmbredd är mindre än 700 bildpunkter. En dynamisk layout gör det enklare att använda butikslokaliseraren på en liten skärm, som på en mobil enhet. Här är ett trådblock i en layout för liten skärm:  
 
 <br/>
 <center>
 
-![Tråd block för Contoso kaffe Store Locator på en mobil enhet](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![trådram för Contoso kaffe Store Locator på en mobil enhet](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lista över närliggande butiker, en karta som har vissa markörer (symboler) och ett popup-fönster som visar ytterligare information när användaren väljer en markör. Närmare bestämt följer här de funktioner som vi bygger in i den här butikslokaliseraren i den här självstudien:
 
@@ -76,7 +76,7 @@ Innan vi skapar ett program för butikslokaliserare måste vi skapa en dataupps�
 <br/>
 <center>
 
-![Skärm bild av Store Locator-data i en Excel-arbetsbok](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+![skärm bild av Store Locator-data i en Excel-arbetsbok](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 Du kan [ladda ned Excel-arbetsboken](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
@@ -98,14 +98,14 @@ Om du vill konvertera arbetsboken till en flat textfil sparar du arbetsboken som
 <br/>
 <center>
 
-![Skärm bild av dialog rutan Spara som typ](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+![skärm bild av dialog rutan Spara som typ](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Om du öppnar textfilen i anteckningar liknar den följande bild:
 
 <br/>
 <center>
 
-![Skärm bild av en anteckningar-fil som visar en flik-avgränsad data uppsättning](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+![skärm bild av en anteckningar-fil som visar en tabbavgränsad data uppsättning](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Konfigurera projektet
@@ -115,7 +115,7 @@ För att skapa projektet använder du [Visual Studio](https://visualstudio.micro
 <br/>
 <center>
 
-![Skärm bild av projektmappen för enkel Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![skärm bild av projektmappen i](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center> för enkel lagrings plats
 
 ## <a name="create-the-user-interface"></a>Skapa användargränssnittet
 
@@ -933,21 +933,21 @@ Första gången en användare väljer knappen My Location (Min plats) visas en s
 <br/>
 <center>
 
-![Skärm bild av webbläsarens begäran om åtkomst till användarens plats](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+![skärm bild av webbläsarens begäran om att komma åt användarens plats](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 När du zoomar in tillräckligt i ett område som har kaféer separeras klustren i enskilda platser. Välj en av ikonerna på kartan eller ett objekt på panelen på sidopanelen för att se ett popup-fönster som visar information om den platsen.
 
 <br/>
 <center>
 
-![Skärm bild av den färdiga Store-lokaliseraren](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+![skärm bild av den färdiga Store-lokaliseraren](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Om du ändrar storlek på webbläsarfönstret till mindre än 700 bildpunkter eller öppnar programmet på en mobil enhet ändras layouten så att den passar bättre för mindre skärmar. 
 
 <br/>
 <center>
 
-![Skärm bild av den lilla skärm versionen av Store Locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+![skärm bild av en liten skärms version av Store Locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>Nästa steg
 

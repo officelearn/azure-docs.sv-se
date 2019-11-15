@@ -1,25 +1,25 @@
 ---
 title: C#Självstudie om sid brytning för Sök Resultat
 titleSuffix: Azure Cognitive Search
-description: Den här självstudien bygger på projektet "skapa ditt första app-Azure-Kognitiv sökning", med valet av två typer av växling. Först används en rad sid nummer knappar, samt knapparna första, nästa, föregående och sista. Det andra växlings systemet använder oändlig rullning som utlöses genom att flytta en lodrät rullnings list till dess nedre gräns.
+description: Den här självstudien visar hur du växlar Sök resultat. Det bygger på ett befintligt hotell projekt med sid indelning efter första, nästa, föregående, senaste och numrerade knappar. Ett andra växlings system använder oändlig rullning som utlöses genom att flytta en lodrät rullnings list till dess nedre gräns.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 935e6d43cf77d94b485d55eb4bc5eb517bf802a0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 04f8229a86fbd8fbd5404997926412e760e74973
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794005"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113766"
 ---
 # <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C#Självstudie: sid brytning för Sök Resultat – Azure Kognitiv sökning
 
 Lär dig hur du implementerar två olika växlings system, det första baserat på sid nummer och det andra vid oändlig rullning. Båda växlings systemen används ofta och valet av rätt är beroende av den användar upplevelse som du vill ha med resultatet. I den här självstudien skapas växlings systemen i projektet som skapats i [ C# självstudien: skapa din första app – Azure kognitiv sökning-](tutorial-csharp-create-first-app.md) självstudie.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Utöka din app med numrerad sid indelning
 > * Utöka din app med oändlig rullning

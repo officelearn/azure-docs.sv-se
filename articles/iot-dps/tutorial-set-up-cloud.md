@@ -1,23 +1,23 @@
 ---
-title: Konfigurera moln för Azure IoT Hub Device Provisioning-tjänst i portalen | Microsoft Docs
-description: Konfigurera moln resurser för enhets etablering i [Azure Portal](https://portal.azure.com) med hjälp av IoT Hub Device PROVISIONING service (DPS)
+title: 'Självstudie: konfigurera molnet för Azure IoT Hub Device Provisioning Service i portalen'
+description: 'Självstudie: Konfigurera moln resurser för enhets etablering i [Azure Portal](https://portal.azure.com) med hjälp av IoT Hub Device PROVISIONING service (DPS)'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f0e61f264ac0e6a4a2306bc94234811b38941bb5
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888756"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112788"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Konfigurera molnresurser för enhetsetablering med IoT Hub Device Provisioning-tjänst
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Självstudie: Konfigurera moln resurser för enhets etablering med IoT Hub Device Provisioning Service
 
-Den här självstudien visar hur du konfigurerar molnet för en automatisk enhetsetablering med IoT Hub Device Provisioning-tjänsten. I den här guiden får du lära dig att:
+Den här självstudien visar hur du konfigurerar molnet för en automatisk enhetsetablering med IoT Hub Device Provisioning-tjänsten. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Använd Azure-portalen för att skapa en IoT Hub Device Provisioning-tjänst och hämta ID-omfånget
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Skapa en Device Provisioning-tjänstinstans och hämta ID-omfång
 

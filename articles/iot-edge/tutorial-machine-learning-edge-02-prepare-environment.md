@@ -1,21 +1,21 @@
 ---
-title: Konfigurera miljö-Machine Learning på Azure IoT Edge | Microsoft Docs
-description: Förbered din miljö för utveckling och distribution av moduler för maskin inlärning i gränsen.
+title: 'Självstudie: Konfigurera miljö – Machine Learning på Azure IoT Edge'
+description: 'Självstudie: Förbered din miljö för utveckling och distribution av moduler för maskin inlärning i gränsen.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1db94e683a0dfb3b60b12bc5ac205c766d405d0a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2ea4248ebaedd318e4112e41169f72bc80b1120f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299829"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114067"
 ---
-# <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudier: Konfigurera en miljö för maskin inlärning på IoT Edge
+# <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
 > [!NOTE]
 > Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
@@ -26,7 +26,7 @@ Den här artikeln från slut punkt till slut punkt Azure Machine Learning i IoT 
 
 Det här steget utförs vanligt vis av en molnbaserad utvecklare. En del program vara kan också vara till hjälp för en data expert.
 
-Under den här artikeln utför vi olika uppgifter för utvecklare, inklusive kodning, kompilering, konfiguration och distribution av IoT Edge moduler och IoT-enheter. För enkel användning skapade vi ett PowerShell-skript som skapar en virtuell Azure-dator med många av de krav som redan har kon figurer ATS. Den virtuella dator som vi skapar måste kunna hantera [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), vilket innebär att vi väljer en [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) dator storlek.
+Under den här artikeln utför vi olika uppgifter för utvecklare, inklusive kodning, kompilering, konfiguration och distribution av IoT Edge moduler och IoT-enheter. För enkel användning skapade vi ett PowerShell-skript som skapar en virtuell Azure-dator med många av de krav som redan har kon figurer ATS. Den virtuella dator som vi skapar måste kunna hantera [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), vilket är anledningen till att vi valde en [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) dator storlek.
 
 Den virtuella utvecklings datorn kommer att konfigureras med:
 
@@ -37,7 +37,7 @@ Den virtuella utvecklings datorn kommer att konfigureras med:
 * [Git Credential Manager för Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-kod](https://code.visualstudio.com/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
 * [VS Code-tillägg](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
@@ -77,8 +77,8 @@ DevVM-katalogen innehåller de filer som behövs för att skapa en virtuell Azur
     ```
 
     * När du uppmanas anger du följande information:
-      * **ID för Azure-prenumeration**: Ditt prenumerations-ID, som du hittar i Azure Portal
-      * **Resurs grupps namn**: Namnet på en ny eller befintlig resurs grupp i Azure
+      * **ID för Azure-prenumeration**: ditt PRENUMERATIONS-ID, som du hittar i Azure Portal
+      * **Resurs grupp namn**: namnet på en ny eller en befintlig resurs grupp i Azure
       * **Plats**: Välj en Azure-plats där den virtuella datorn ska skapas. Till exempel westus2 eller europanorra. Mer information finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).
       * **AdminUsername**: Ange ett minnes minnes namn för det administratörs konto som du vill skapa och använda på den virtuella datorn.
       * **AdminPassword**: Ange ett lösen ord för administratörs kontot på den virtuella datorn.
@@ -87,7 +87,7 @@ DevVM-katalogen innehåller de filer som behövs för att skapa en virtuell Azur
 
     * Du uppmanas att logga in i Azure.
 
-    * Skriptet bekräftar informationen för att skapa den virtuella datorn. Tryck `y` på `Enter` eller för att fortsätta.
+    * Skriptet bekräftar informationen för att skapa den virtuella datorn. Fortsätt genom att trycka på `y` eller `Enter`.
 
 Skriptet körs i flera minuter eftersom det utför följande steg:
 
@@ -102,7 +102,7 @@ Skriptet körs i flera minuter eftersom det utför följande steg:
 
 För att hjälpa dig att minska kostnaderna har den virtuella datorn skapats med ett schema för automatisk avstängning som är inställt på 1900 PST. Du kan behöva uppdatera den här tids inställningen beroende på din plats och ditt schema. Så här uppdaterar du schemat för avstängning:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Navigera till den virtuella datorn i resurs gruppen som du angav i föregående avsnitt.
 
@@ -118,7 +118,7 @@ Nu när vi har skapat en virtuell dator måste vi slutföra installationen av de
 
 1. Skriptet för att skapa virtuella datorer skapade en RDP-fil på Skriv bordet.
 
-2. Dubbelklicka på filen med namnet  **\<Azure VM name\>. RDP**.
+2. Dubbelklicka på filen med namnet\<namnet på den **virtuella Azure-datorn\>. RDP**.
 
 3. Du kommer att visas i en dialog ruta som säger att den fjärranslutna anslutningens utgivare är okänd. Klicka på kryss rutan **fråga mig inte igen om anslutningar till den här datorn** och välj sedan **Anslut**.
 
@@ -130,7 +130,7 @@ Nu när vi har skapat en virtuell dator måste vi slutföra installationen av de
 
 Nu när du har anslutit till utvecklings datorn lägger du till några användbara tillägg i Visual Studio Code för att förenkla utvecklings upplevelsen.
 
-1. I ett PowerShell-fönster navigerar du till **C\\:\\\\source IoTEdgeAndMlSample DevVM**.
+1. I ett PowerShell-fönster navigerar du till **C:\\source\\IoTEdgeAndMlSample\\DevVM**.
 
 2. Tillåt att skript körs på den virtuella datorn genom att skriva.
 
@@ -182,7 +182,7 @@ I det här avsnittet ska du använda ett skript för att skapa en Azure IoT-hubb
     ```
 
     * Du uppmanas att logga in i Azure.
-    * Skriptet bekräftar informationen för att skapa hubben och lagrings kontot. Tryck `y` på `Enter` eller för att fortsätta.
+    * Skriptet bekräftar informationen för att skapa hubben och lagrings kontot. Fortsätt genom att trycka på `y` eller `Enter`.
 
 Det tar ungefär två minuter att köra skriptet. När du är klar matas skriptet ut namnet på hubben och lagrings kontot.
 
@@ -202,7 +202,7 @@ Som en del av att skapa IoT-hubben skapade även skriptet som vi körde i föreg
 
 1. Under **Blob Storage**väljer du **turbofanDeviceStorage**.
 
-1. Observera att den här slut punkten pekar på en BLOB-behållare med namnet **devicedata** i det lagrings konto som skapades i det sista steget, som heter **\<iotedgeandml unikt suffix\>** .
+1. Observera att den här slut punkten pekar på en BLOB-behållare med namnet **devicedata** i det lagrings konto som skapades i det sista steget, som heter **iotedgeandml\<unikt suffix\>** .
 
 1. Observera också att **BLOB-filens format** har ändrats från standardformat till att i stället placera partitionen som det sista elementet i namnet. Vi hittar det här formatet är enklare för de fil åtgärder som vi ska göra med Azure Notebooks senare i självstudien.
 

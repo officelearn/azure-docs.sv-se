@@ -1,20 +1,20 @@
 ---
-title: Konfigurera regler och åtgärder i Azure IoT Central | Microsoft Docs
+title: 'Självstudie: Konfigurera regler och åtgärder i Azure IoT Central'
 description: Den här självstudien visar hur du som byggare konfigurerar telemetribaserade regler och åtgärder i Azure IoT Central-programmet.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 06/09/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5358563de9f35d2cef74a32cb1794de418066810
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9c2c8c1bacf4abfa775747a03d2a4a6121b67714
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955797"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106590"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Självstudie: Konfigurera regler och åtgärder för enheten i Azure IoT Central
 
@@ -24,7 +24,7 @@ ms.locfileid: "72955797"
 
 I den här självstudien skapar du en regel som skickar ett e-postmeddelande när temperaturen i en ansluten luftkonditioneringsenhet överskrider 90&deg; F.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en telemetribaserad regel
@@ -55,7 +55,7 @@ Innan du börjar bör du slutföra självstudien om att [definiera en ny enhetst
     | Namn                                         | Temperaturmeddelande för luftkonditionering |
     | Aktivera regeln för alla enheter med den här mallen | På                                |
     | Tillstånd                                    | Temperaturen är högre än 90    |
-    | Sammansättning                                  | Inget                              |
+    | Sammansättning                                  | Ingen                              |
 
     ![Regelvillkor för temperatur](media/tutorial-configure-rules/temperaturerule.png)
 

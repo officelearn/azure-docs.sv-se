@@ -1,22 +1,22 @@
 ---
-title: Implementera IoT spatial Analytics med Azure Maps | Microsoft Docs
-description: 'Integrera IoT Hub med API: er för Azure Maps-tjänsten.'
+title: 'Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps'
+description: 'Självstudie: integrera IoT Hub med API: er för Azure Maps-tjänsten.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933209"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107054"
 ---
-# <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementera IoT spatial Analytics med hjälp av Azure Maps
+# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
 Att spåra och fånga relevanta händelser som inträffar i utrymme och tid är ett vanligt IoT-scenario. Till exempel i flottans hantering, till gångs spårning, mobilitet och smarta stads program. Den här självstudien vägleder dig genom ett lösnings mönster för att använda Azure Maps-API: er mot relevanta händelser som registrerats av IoT Hub med hjälp av den händelse prenumerations modell Event Grid som
 
@@ -70,14 +70,14 @@ Följande diagram innehåller en översikt över systemet.
  
   <center>
 
-  ![System översikt](./media/tutorial-iot-hub-maps/system-diagram.png)</center>
+  ![system översikt](./media/tutorial-iot-hub-maps/system-diagram.png)</center>
 
 Figuren nedan visar det avgränsnings områden som är markerat i blått och hyr fordonets väg som en grön linje.
 
   ![Netstängsel-väg](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -91,12 +91,12 @@ För att slutföra stegen i den här självstudien måste du först skapa en res
 
 3. Under resurs grupper väljer du **Lägg till**.
     
-   ![Lägg till resursgrupp](./media/tutorial-iot-hub-maps/add-resource-group.png) 
+   ![Lägg till resurs grupp](./media/tutorial-iot-hub-maps/add-resource-group.png) 
 
 4. Ange följande egenskaps värden:
     * **Prenumeration:** Välj Azure-prenumeration.
-    * **Resursgrupp:** Ange "ContosoRental" som resurs grupps namn.
-    * **Nationella** Välj en region för resurs gruppen.  
+    * **Resurs grupp:** Ange "ContosoRental" som resurs grupps namn.
+    * **Region:** Välj en region för resurs gruppen.  
 
     ![Resurs grupps information](./media/tutorial-iot-hub-maps/resource-details.png)
 
@@ -113,7 +113,7 @@ För att logga händelse data skapar vi ett **v2storage** -konto för generell a
 
 1. I ditt lagrings konto navigerar du till blobbar.
 
-    ![Blobar](./media/tutorial-iot-hub-maps/blobs.png)
+    ![blobar](./media/tutorial-iot-hub-maps/blobs.png)
 
 2. Klicka på knappen behållare längst upp till vänster och namnge behållaren "contoso-hyr-logs" och klicka på "OK".
 
@@ -165,7 +165,7 @@ Vi använder [Postman-programmet](https://www.getpostman.com) för att [överfö
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
     
-    Värdet "interjson" mot `dataFormat` parametern i URL-sökvägen representerar formatet för de data som laddas upp.
+    Värdet "interjson" mot `dataFormat`-parametern i URL-sökvägen representerar formatet för de data som laddas upp.
 
 3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt prenumerations nyckel värde med din Azure Maps primära prenumerations nyckel.
    
@@ -181,13 +181,13 @@ Vi använder [Postman-programmet](https://www.getpostman.com) för att [överfö
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Kopiera din status-URI och Lägg `subscription-key` till en parameter till den med dess värde som din Azure Maps konto prenumerations nyckel. Status-URI-formatet ska vara som det som anges nedan:
+6. Kopiera din status-URI och Lägg till en `subscription-key`-parameter till den med dess värde som din Azure Maps konto prenumerations nyckel. Status-URI-formatet ska vara som det som anges nedan:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. För att hämta `udId` öppnar du en ny flik i Postman-appen och väljer Hämta http-metod på fliken Builder och gör en get-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId för senare användning.
+7. För att hämta `udId` öppnar du en ny flik i Postman-appen och väljer Hämta HTTP-metod på fliken Builder och gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId för senare användning.
 
    ```JSON
    {
@@ -243,7 +243,7 @@ När du har lagt till en Event Grid-prenumeration i Azure-funktionen kommer du n
 
 ![hubb – tex-Route](./media/tutorial-iot-hub-maps/hub-route.png)
 
-I vårt exempel scenario vill vi filtrera ut alla meddelanden där hyr fordonet flyttar. För att det ska gå att publicera sådana telemetri händelser till Event Grid ska vi använda routnings frågan för att filtrera händelserna där `Engine` egenskapen är **"på"** . Det finns olika sätt att fråga IoT-meddelanden från enhet till molnet för att lära dig mer om syntax för meddelanderoutning, se [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax)meddelanderoutning. Om du vill skapa en cirkulations fråga, klickar du på **RouteToEventGrid** -vägen och ersätter **Oper. åga** med **"motor =" på "** och klickar på **Spara**. Nu kan IoT Hub bara publicera enhets telemetri där motorn är på.
+I vårt exempel scenario vill vi filtrera ut alla meddelanden där hyr fordonet flyttar. För att det ska gå att publicera sådana telemetri händelser till Event Grid ska vi använda routnings frågan för att filtrera händelserna där egenskapen `Engine` är **"på"** . Det finns olika sätt att fråga IoT-meddelanden från enhet till molnet för att lära dig mer om syntax för meddelanderoutning, se [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax)meddelanderoutning. Om du vill skapa en cirkulations fråga, klickar du på **RouteToEventGrid** -vägen och ersätter **Oper. åga** med **"motor =" på "** och klickar på **Spara**. Nu kan IoT Hub bara publicera enhets telemetri där motorn är på.
 
 ![hubb – tex-filter](./media/tutorial-iot-hub-maps/hub-filter.png)
 

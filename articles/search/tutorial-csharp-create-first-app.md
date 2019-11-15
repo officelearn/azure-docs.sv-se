@@ -1,25 +1,25 @@
 ---
 title: C#självstudie för att skapa din första app
 titleSuffix: Azure Cognitive Search
-description: Lär dig hur du skapar ditt första search-program steg för steg. I självstudien finns både en länk till en fungerande app på GitHub och den fullständiga processen för att bygga appen från grunden. Lär dig mer om de viktigaste komponenterna i Azure Kognitiv sökning.
+description: Lär dig hur du skapar din C# första söknings app stegvisa steg för steg. I självstudien finns både en länk till en fungerande app på GitHub och den fullständiga processen för att bygga appen från grunden. Lär dig mer om de viktigaste komponenterna i Azure Kognitiv sökning.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3f234a11aeaf7af4e47fb0cf6310ecd68d35e4da
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794138"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112228"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C#Självstudie: skapa din första app – Azure-Kognitiv sökning
 
 Lär dig hur du skapar ett webb gränssnitt för att fråga och presentera Sök Resultat från ett index med Azure Kognitiv sökning. Den här självstudien börjar med en befintlig, värdbaserad index så att du kan fokusera på att skapa en Sök sida. Indexet innehåller fiktiva hotell data. När du har en grundläggande sida kan du förbättra den i efterföljande lektioner för att inkludera sid indelning, ansikte och en typ i förväg-upplevelse.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera en utvecklings miljö
 > * Modell data strukturer
@@ -502,7 +502,7 @@ Azure Kognitiv sökning-anropet är inkapslat i vår **RunQueryAsync** -metod.
 
     I den här metoden ser vi först till att vår Azure-konfiguration initieras och anger sedan vissa Sök parametrar. Namnen på fälten i **Select** -parametern matchar exakt egenskaps namnen i **hotellet** -klassen. Det går att lämna ut den **valda** parametern, i vilket fall alla egenskaper returneras. Att ange inga **val** parametrar är dock inte effektivt om vi bara är intresserade av en delmängd av data. Genom att ange de egenskaper som vi är intresse rad av returneras endast dessa egenskaper.
 
-    Det asynkrona anropet till search (**modell. resultList = await _indexClient. Documents. SearchAsync&lt;hotell&gt;(modell. searchText, parametrar);** ) är vad den här själv studie kursen och appen är till för. **DocumentSearchResult** -klassen är en intressant och en bra idé (när appen körs) är att ange en Bryt punkt här och använda en fel sökare för att undersöka innehållet i **Model. resultList**. Du bör se att det är intuitivt, som ger dig de data du bad om och inte mycket annat.
+    Det asynkrona anropet till search (**modell. resultList = await _indexClient. Documents. SearchAsync&lt;hotell&gt;(modell. searchText, parametrar);** ) är vad den här själv studie kursen och appen är mer om. **DocumentSearchResult** -klassen är en intressant och en bra idé (när appen körs) är att ange en Bryt punkt här och använda en fel sökare för att undersöka innehållet i **Model. resultList**. Du bör se att det är intuitivt, som ger dig de data du bad om och inte mycket annat.
 
 För tillfället för sanningen.
 

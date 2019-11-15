@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: samla in händelser från ett Space – med Azure Digitals-dubbla | Microsoft Docs'
+title: 'Självstudie: samla in händelser från ett digitalt Azure-utrymme'
 description: Lär dig hur du tar emot meddelanden från dina utrymmet genom att integrera Azure Digital Twins med Logic Apps med hjälp av stegen i den här självstudien.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: 00efae0b87de90d2abb1d488afa6b51b1b188b30
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/12/2019
+ms.openlocfilehash: 3cb5d8a6cb605d2150be1e34a9f4b0ac7955aed6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009288"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107688"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 

@@ -1,22 +1,22 @@
 ---
-title: Dirigera elektriska bilar med Azure Notebooks (python) | Microsoft Docs
-description: 'Dirigera elektriska fordon med Azure Maps API: er för Routning och Azure Notebooks.'
+title: 'Självstudie: dirigera elektriska bilar med Azure Notebooks (python)'
+description: 'Självstudie: dirigera elektriska fordon med Azure Maps API: er för Routning och Azure Notebooks.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9628e34b752abc8d77225a612f9f6daaf02fcbf7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010936"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109598"
 ---
-# <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Dirigera elektriska bilar med Azure Notebooks (python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
 Azure Maps är en portfölj med geospatiala tjänst-API: er som är internt integrerade i Azure. Med dessa API: er kan utvecklare, företag och ISV: er skapa plats medveten appar, IoT, mobilitet, logistik och till gångs spårnings lösningar. 
 

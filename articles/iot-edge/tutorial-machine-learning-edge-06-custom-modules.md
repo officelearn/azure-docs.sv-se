@@ -1,19 +1,19 @@
 ---
-title: Skapa och distribuera anpassade moduler – Machine Learning på Azure IoT Edge | Microsoft Docs
-description: Skapa och distribuera IoT Edge moduler som bearbetar data från löv enheter via en maskin inlärnings modell och sedan skickar insikter till IoT Hub.
+title: 'Självstudie: skapa och distribuera anpassade moduler – Machine Learning på Azure IoT Edge'
+description: 'Självstudie: skapa och distribuera IoT Edge moduler som bearbetar data från löv enheter via en maskin inlärnings modell och sedan skickar insikter till IoT Hub.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7bfe620510d5ff88a20c518be1f4dd1fb422daa2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494001"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106559"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler
 
@@ -22,7 +22,7 @@ ms.locfileid: "73494001"
 
 I den här artikeln skapar vi tre IoT Edge moduler som tar emot meddelanden från löv enheter, kör data via din Machine Learning-modell och vidarebefordrar insikter till IoT Hub.
 
-IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubben som en meddelande utjämning lagras moduler oberoende av varandra. Moduler behöver bara ange de indata som de accepterar meddelanden och de utdata som de skriver meddelanden till.
+IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubben som en meddelande utjämning lagras moduler oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden.
 
 Vi vill att IoT Edge-enheten ska utföra fyra saker för oss:
 

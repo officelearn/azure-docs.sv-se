@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073340"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107840"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
@@ -25,7 +25,7 @@ Azure API Management har funktioner för att importera Azure-funktionsappar som 
 
 Den här artikeln visar hur du importerar en Azure-funktionsapp som API i Azure API Management. Vi beskriver också testprocessen.
 
-Du lär dig hur du:
+Du lär dig att göra följande:
 
 > [!div class="checklist"]
 > * Importera en Azure-funktionsapp som API
@@ -34,7 +34,7 @@ Du lär dig hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i utvecklarportalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför snabbstarten [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 * Se till att du har en Azure Funktions-app i din prenumeration. Mer information finns i [Skapa en Azure-funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Det måste innehålla funktioner med HTTP-utlösare och inställningar för auktoriseringsnivå inställda på *Anonym* eller *Funktion*.
@@ -117,7 +117,7 @@ Import av en Azure-funktionsapp genererar automatiskt:
 * Värd nyckel i Funktionsapp med namnet APIM-{namnet på*din Azure API Management*-tjänstinstans},
 * Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Funktionsapp instance Name*}-Key, som innehåller den skapade värd nyckeln.
 
-För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begäranden från API Management till Funktionsapp i en rubrik. Äldre API: er skickar värd nyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Det här beteendet kan ändras via `PATCH Backend` [REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) -anropet på den *Server dels* enhet som är associerad med Funktionsapp.
+För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begäranden från API Management till Funktionsapp i en rubrik. Äldre API: er skickar värd nyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Det här beteendet kan ändras via `PATCH Backend` [REST API anrop](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) på den *Server dels* enhet som är kopplad till Funktionsapp.
 
 > [!WARNING]
 > Om du tar bort eller ändrar värdet för antingen värdnyckeln för Azure-funktionsappen eller det namngivna Azure API Management-värdet bryts kommunikationen mellan tjänsterna. Värdena synkroniseras inte automatiskt.
@@ -142,7 +142,7 @@ För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begär
 
 ![Lägg till från funktionsapp](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Testa det nya API Management-API:et i Azure-portalen
+## <a name="test-in-azure-portal"></a>Testa det nya API: et i Azure Portal
 
 Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett praktiskt sätt att visa och testa åtgärderna i ett API.  
 
@@ -157,26 +157,6 @@ Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett pra
 4. Välj **Skicka**.
 
     Serverdelen svarar med **200 OK** och några data.
-
-## <a name="test-in-developer-portal"></a> Anropa en åtgärd från utvecklarportalen
-
-Du kan även anropa åtgärder från utvecklarportalen för att testa API:er. 
-
-1. Välj det API du skapade i Importera och publicera ett serverdels-API.
-
-2. Välj **Developer portal** (Utvecklarportal).
-
-    Webbplatsen för utvecklarportalen öppnas.
-
-3. Välj det **API** som du skapade.
-
-4. Välj den åtgärd som du vill testa.
-
-5. Välj **Prova**.
-
-6. Välj **Skicka**.
-    
-    När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

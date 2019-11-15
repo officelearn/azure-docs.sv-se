@@ -1,25 +1,25 @@
 ---
 title: C#Självstudie om autokomplettering och förslag
 titleSuffix: Azure Cognitive Search
-description: Den här självstudien bygger på projektet "Sök Resultat sid brytning – Azure Kognitiv sökning" för att lägga till komplettering och förslag. Målet är en rikare användar upplevelse. Lär dig hur du kombinerar en listruta med förslag med intern komplettering.
+description: I den här självstudien visas automatisk komplettering och förslag som ett sätt att samla in Sök villkors information från användare som använder list rutan. Det bygger på ett befintligt hotell projekt.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786492"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114557"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C#Självstudie: Lägg till komplettering och förslag – Azure Kognitiv sökning
 
 Lär dig hur du implementerar automatisk komplettering (Skriv-Ahead och förslag) när en användare börjar skriva i sökrutan. I den här självstudien visar vi resultaten för resultat och förslag separat, och visar sedan en metod för att kombinera dem för att skapa en rikare användar upplevelse. En användare behöver bara ange två eller tre nycklar för att hitta alla resultat som är tillgängliga. Den här självstudien bygger på det växlings projekt som skapades i [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Lägg till förslag
 > * Lägg till markering i förslagen
@@ -311,7 +311,7 @@ Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ify
 
     Ett alternativ för autokomplettering returneras överst i **resultat** listan, följt av alla förslag.
 
-2. Först implementerar vi ett stick i vyn så att ett ljust grått ord för automatisk komplettering återges direkt under Bolder text som anges av användaren. HTML innehåller relativ placering för detta ändamål. Ändra **TextBoxFor** -instruktionen (och dess omgivande &lt;div&gt;-instruktioner) till följande, och Observera att en andra sökruta som identifieras som **nedan är rätt** under vår vanliga sökruta genom att hämta den här sökrutan 39 pixlar av dess standard plats!
+2. Först implementerar vi ett stick i vyn så att ett ljust grått ord för automatisk komplettering återges direkt under Bolder text som anges av användaren. HTML innehåller relativ placering för detta ändamål. Ändra **TextBoxFor** -instruktionen (och dess omgivande &lt;div&gt;-instruktioner) till följande, och Observera att en andra sökruta som identifieras som **nedan är rätt** under vår vanliga sökruta genom att hämta den här sökrutan 39 pixlar från sin standard plats!
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -433,7 +433,7 @@ Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ify
     </script>
     ```
 
-    Observera att smarta använder funktionen **Interval** för att både rensa den underliggande texten när den inte längre matchar vad användaren skriver, och även för att ställa in samma Skift läge (övre eller lägre) när användaren skriver (som "pa" matchar "pa", "pa", "pa" vid sökning) , så att den överliggande texten är prydlig.
+    Observera att smarta använder funktionen **Interval** för att både ta bort den underliggande texten när den inte längre matchar vad användaren skriver, och även för att ange samma Skift läge (övre eller lägre) när användaren skriver (som "pa" matchar "pa", "pa", "pa" vid sökning), så att den översatta texten är snygg.
 
     Läs igenom kommentarerna i skriptet för att få en mer fullständig förståelse.
 

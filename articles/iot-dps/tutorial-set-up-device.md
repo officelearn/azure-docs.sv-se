@@ -1,22 +1,22 @@
 ---
-title: Konfigurera enheten för Azure IoT Hub Device Provisioning-tjänsten
-description: Konfigurera enheten för etablering via IoT Hub Device Provisioning-tjänsten under tillverkningsprocessen
+title: 'Självstudie: Konfigurera enheten för Azure-IoT Hub Device Provisioning Service'
+description: 'Självstudie: Konfigurera enheten för att etablera via IoT Hub Device Provisioning Service under processen för enhets tillverkning'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65911695"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112768"
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera enheten för etablering med Azure IoT Hub Device Provisioning-tjänsten
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: Konfigurera en enhet för etablering med hjälp av Azure-IoT Hub Device Provisioning Service
 
 I den tidigare självstudiekursen fick du lära dig att konfigurera Azure IoT Hub Device Provisioning-tjänsten för att automatiskt etablera dina enheter till din IoT-hubb. I den här kursen visar vi hur du konfigurerar din enhet under tillverkningsprocessen och gör så att den kan etableras automatiskt med IoT-hubben. Enheten etableras baserat på dess [attesteringsmetod](concepts-device.md#attestation-mechanism) vid den första starten och anslutningen till etableringstjänsten. Den här självstudien omfattar följande uppgifter:
 
@@ -27,25 +27,25 @@ I den tidigare självstudiekursen fick du lära dig att konfigurera Azure IoT Hu
 
 Den här självstudien förutsätter att du redan har skapat din instans för enhetsetableringstjänsten och en IoT-hubb enligt instruktionerna i den tidigare självstudien [Konfigurera molnresurser](tutorial-set-up-cloud.md).
 
-I den här kursen används [lagringsplatsen för Azure IoT SDK:er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c), som innehåller klient-SDK:t för enhetsetableringstjänsten för C. Detta SDK har för närvarande stöd för TPM och X.509 för enheter som körs på Windows- eller Ubuntu-implementeringar. Den här självstudien är baserad på användning av en Windows-utvecklingsklient, vilket även förutsätter grundläggande kunskaper i Visual Studio. 
+I den här kursen används [lagringsplatsen för Azure IoT SDK:er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c), som innehåller klient-SDK:t för enhetsetableringstjänsten för C. Detta SDK har för närvarande stöd för TPM och X.509 för enheter som körs på Windows- eller Ubuntu-implementeringar. Den här självstudien baseras på användning av en Windows-utvecklingsprogram, som även förutsätter grundläggande kunskaper i Visual Studio. 
 
 Om du inte är bekant med processen för automatisk etablering ska du läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md) innan du fortsätter. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med den [”utveckling för stationära datorer med C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbetsbelastning aktiverat.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med arbets belastningen ["Skriv C++bords utveckling med"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Skapa en plattformsspecifik version av SDK
 
-Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din programvara för enhetsregistrering. Men innan du kan använda det måste du skapa en version av SDK:t som är specifik för plattformen för din utvecklingsklient och din attesteringsmetod. I de här självstudierna skapar du ett SDK som använder Visual Studio på en Windows-utvecklingsplattform för en typ av attestering som stöds:
+Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din programvara för enhetsregistrering. Men innan du kan använda det måste du skapa en version av SDK:t som är specifik för plattformen för din utvecklingsklient och din attesteringsmetod. I den här självstudien skapar du ett SDK som använder Visual Studio på en Windows-utvecklings plattform för en typ av attestering som stöds:
 
-1. Ladda ned den [CMake-buildsystemet](https://cmake.org/download/).
+1. Ladda ned [cmake build-systemet](https://cmake.org/download/).
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
@@ -96,8 +96,8 @@ Beroende på om du har byggt SDK för att använda attestering för en fysisk TP
 
 - För en X.509-enhet måste du erhålla de certifikat som utfärdats till dina enheter. Etableringstjänsten visar två typer av registreringsposter som styr åtkomst för enheter med hjälp av X.509-attesteringsmetoden. Vilka certifikat som krävs beror på de registreringstyper som du kommer att använda.
 
-    1. Enskilda registreringar: Registrering för en specifik enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-security.md#end-entity-leaf-certificate).
-    1. Registrering av grupper: Den här typen av post för registrering av kräver mellanliggande eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    1. Enskilda registreringar: registrering för en specifik enskild enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-security.md#end-entity-leaf-certificate).
+    1. Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Simulerade enheter
 
@@ -128,9 +128,9 @@ Beroende på om du har byggt SDK för att använda attestering för en simulerad
 
   1. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **dice\_device\_enrollment** (dice-enhetsregistrering) och markera **Set as Startup Project** (Ange som startprojekt). 
   
-  1. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på den första *-----END CERTIFICATE-----*, och se till att du får med båda raderna. Du behöver bara det första certifikatet från utmatningsfönstret.
+  1. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på den första *-----END CERTIFICATE-----* , och se till att du får med båda raderna. Du behöver bara det första certifikatet från utmatningsfönstret.
  
-  1. Skapa en fil med namnet **_X509testcert.pem_**, öppna den i valfritt textredigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. Du kommer att använda den senare för enhetsregistrering. När din registreringsprogramvara körs använder den samma certifikat vid automatisk etablering.    
+  1. Skapa en fil med namnet **_X509testcert.pem_** , öppna den i valfritt textredigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. Du kommer att använda den senare för enhetsregistrering. När din registreringsprogramvara körs använder den samma certifikat vid automatisk etablering.    
 
 Dessa säkerhetsuppgifter krävs vid registrering av enheten till enhetsetableringstjänsten. Etableringstjänsten väntar tills enheten har startats och ansluter till den vid en senare tidpunkt. När enheten startar för första gången interagerar logiken hos klient-SDK:t med din krets (eller simulator) för att extrahera säkerhetsartefakterna från enheten och verifierar registreringen med enhetsetableringstjänsten. 
 
@@ -141,7 +141,7 @@ Det sista steget är att skriva ett registreringsprogram som använder klient-SD
 > [!NOTE]
 > För det här steget förutsätter vi att en simulerad enhet används genom att du kör ett SDK-exempelregistreringsprogram från din arbetsstation. Men samma koncept gäller om du skapar ett registreringsprogram för distribution till en fysisk enhet. 
 
-1. Välj bladet **Översikt** i Azure Portal för enhetsetableringstjänsten och kopiera värdet för **_ID-omfång_**. *ID-omfång* genereras av tjänsten och garanterar unikhet. Det är oföränderligt och används för att unikt identifiera registrerings-ID:n.
+1. Välj bladet **Översikt** i Azure Portal för enhetsetableringstjänsten och kopiera värdet för **_ID-omfång_** . *ID-omfång* genereras av tjänsten och garanterar unikhet. Det är oföränderligt och används för att unikt identifiera registrerings-ID:n.
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
@@ -156,7 +156,7 @@ Det sista steget är att skriva ett registreringsprogram som använder klient-SD
 
     `global_prov_uri`-variabeln gör att klientregistrerings-API:t för IoT-hubb `IoTHubClient_LL_CreateFromDeviceAuth` kan ansluta till den avsedda instansen för enhetsetableringstjänsten.
 
-1. I **main()**-funktionen i samma fil kommenterar/avkommenterar du `hsm_type`-variabeln som matchar den attesteringsmetod som används av enhetens registreringsprogramvara (TPM eller X.509): 
+1. I **main()** -funktionen i samma fil kommenterar/avkommenterar du `hsm_type`-variabeln som matchar den attesteringsmetod som används av enhetens registreringsprogramvara (TPM eller X.509): 
 
     ```c
     hsm_type = SECURE_DEVICE_TYPE_TPM;

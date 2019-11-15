@@ -4,7 +4,7 @@ title: Dokumentation om API för nyhetssökning i Bing
 metadata:
   title: 'Dokumentation om API för nyhetssökning i Bing – självstudier, snabbstarter, API-referenser'
   titleSuffix: Azure Cognitive Services
-  description: 'Lär dig hur du använder API:et för nyhetssökning i Bing för att söka efter nyheter på webben.'
+  description: 'Med API:et för nyhetssökning i Bing kan du integrera Bings nyhetssökningsfunktioner i dina program.'
   services: cognitive-services
   author: aahill
   manager: nitinme

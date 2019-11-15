@@ -1,24 +1,24 @@
 ---
-title: Använd Azure IoT Hub Device Provisioning Service till att etablera enheter över belastningsutjämnade IoT-hubbar | Microsoft Docs
-description: Enhetsetableringstjänstens automatiska enhetsetablering över lastbalanserade IoT-hubbar i Azure-portalen
+title: 'Självstudie: Använd Azure IoT Hub Device Provisioning Service för att etablera enheter över belastningsutjämnade IoT-hubbar'
+description: 'Självstudie: enhets etablerings tjänst automatisk enhets etablering över belastningsutjämnade IoT-hubbar i Azure Portal'
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ed1b128fc2663cfc09c40f001bd0b14663a728e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6cd5dcb1fd96ac0fda75bf89dcf7259695cf971d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486017"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112779"
 ---
-# <a name="provision-devices-across-load-balanced-iot-hubs"></a>Etablera enheter över belastningsutjämnade IoT-hubbar
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Självstudie: etablera enheter över belastningsutjämnade IoT-hubbar
 
-Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här guiden får du lära dig att:
+Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Använda Azure Portal till att etablera en andra enhet till en andra IoT-hubb 
@@ -28,7 +28,7 @@ Den här självstudien visar hur du etablerar enheter för flera belastningsutj�
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien bygger på den tidigare självstudien [Etablera enhet till en hubb](tutorial-provision-device-to-hub.md).
 

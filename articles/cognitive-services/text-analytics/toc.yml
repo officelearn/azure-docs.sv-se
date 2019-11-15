@@ -27,9 +27,9 @@
         - name: Använda PHP
           href: quickstarts/php.md
         - name: Använda Go
-          href: quickstarts/php.md
+          href: quickstarts/go.md
         - name: Använda Ruby
-          href: quickstarts/php.md
+          href: quickstarts/ruby.md
 - name: Självstudier
   items:
     - name: Integrera Power BI för att analysera kundfeedback

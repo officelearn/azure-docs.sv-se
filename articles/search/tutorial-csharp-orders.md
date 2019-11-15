@@ -1,19 +1,19 @@
 ---
 title: C#Självstudie om att beställa resultat
 titleSuffix: Azure Cognitive Search
-description: Den här självstudien bygger på projektet "Sök Resultat sid brytning – Azure Kognitiv sökning" för att lägga till ordningen för Sök resultat. Lär dig hur du beställer resultat på en primär egenskap och för resultat som har samma primära egenskap och hur du beställer resultat på en sekundär egenskap. Slutligen kan du lära dig att beställa resultat baserat på en bedömnings profil.
+description: Den här självstudien visar hur du beställer Sök resultat. Det bygger på ett tidigare hotell projekt, sortering efter primär egenskap, sekundär egenskap och innehåller en bedömnings profil för att lägga till förstärknings kriterier.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794058"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112679"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C#Självstudie: ordna resultaten – Azure Kognitiv sökning
 
@@ -21,7 +21,7 @@ Fram till den här punkten i våra självstudier, returneras och visas resultate
 
 För att kunna jämföra returnerade resultat enkelt, bygger det här projektet på det oändliga rullnings bara projektet som skapades i [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Ordna resultat baserat på en egenskap
 > * Ordna resultat baserat på flera egenskaper

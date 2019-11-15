@@ -1,20 +1,20 @@
 ---
-title: Lägga till en riktig enhet till ett Azure IoT Central-program | Microsoft Docs
-description: Lär dig hur du lägger till och konfigurerar en riktig enhet i ditt Azure IoT Central-program. Du kan också lära dig om koden i din riktiga enhet.
+title: 'Självstudie: lägga till en riktig enhet i ett Azure IoT Central-program'
+description: 'Självstudie: Lär dig hur du lägger till och konfigurerar en riktig enhet i ditt Azure IoT Central-program. Du kan också lära dig om koden i din riktiga enhet.'
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 08/23/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fce5be4d059d7b3698f1e76a4ec6ff46c4ce3c0b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5234c371cc4a7238148915f4dcca1faac564f608
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824612"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108969"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudie: Lägga till en riktig enhet till Azure IoT Central-programmet
 
@@ -27,7 +27,7 @@ Den här självstudien består av två delar:
 * Först lär du dig att som operatör lägga till och konfigurera en riktig enhet i Azure IoT Central-programmet. I slutet av den här delen hämtar du en anslutningssträng som används i den andra delen.
 * Sedan lär du dig, som enhetsutvecklare, om koden i din riktiga enhet. Du lägger till anslutningssträngen från den första delen i exempelkoden.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till en ny, riktig enhet
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Förstå hur klientkod mappas till programmet
 > * Konfigurera klientkod för den riktiga enheten
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du köra verktyget minst den första Builder-självstudien för att skapa ett Azure IoT Central-program: [definiera en ny enhets typ](tutorial-define-device-type.md) (krävs)
 

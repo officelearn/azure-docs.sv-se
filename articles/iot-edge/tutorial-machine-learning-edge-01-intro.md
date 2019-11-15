@@ -1,109 +1,109 @@
 ---
-title: Detaljerad genomgång av Machine Learning på Azure IoT Edge | Microsoft Docs
-description: En övergripande självstudiekurs som beskriver de olika uppgifterna som krävs för att skapa en slutpunkt till slutpunkt för maskininlärning på edge-scenario.
+title: 'Självstudie: detaljerad genom gång av Machine Learning på Azure IoT Edge'
+description: En självstudie på hög nivå som vägleder dig genom de olika aktiviteterna som behövs för att skapa en slut punkt till slut punkt, maskin inlärning i gräns scenariot.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 916e48752431be41ff150c2ac84e66eb1e98e81f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057752"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106504"
 ---
-# <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Självstudier: En slutpunkt till slutpunkt-lösning med Azure Machine Learning och IoT Edge
+# <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Självstudie: en lösning från slut punkt till slut punkt med hjälp av Azure Machine Learning och IoT Edge
 
-Ofta, vill IoT-program dra nytta av det smarta molnet och en intelligent gräns. I de här självstudierna vägleder vi dig igenom träna en maskininlärningsmodell med data som samlas in från IoT-enheter i molnet, distribuerar den modellen till IoT Edge, underhålla och förfina modellen med jämna mellanrum.
+IoT-program vill ofta dra nytta av det intelligenta molnet och den intelligenta gränsen. I den här självstudien vägleder vi dig genom utbildningen av en maskin inlärnings modell med data som samlas in från IoT-enheter i molnet, distribution av modellen till IoT Edge och underhåll och raffinering av modellen med jämna mellanrum.
 
-Det primära syftet med den här självstudien är att införa bearbetning av IoT-data med machine learning, särskilt på gränsen. Medan vi touch många aspekter av en allmän machine learning-arbetsflöde för är den här självstudiekursen inte avsedd som en djupgående introduktion till machine learning. Som en fall in, försök vi inte att skapa en modell som är optimerad för det – vi göra bara tillräckligt för att illustrera hur du skapar och använder en lönsamma modell för bearbetning av IoT.
+Det främsta syftet med den här självstudien är att introducera bearbetningen av IoT-data med Machine Learning, specifikt på gränsen. Medan vi vidrör många aspekter av ett allmänt Machine Learning-arbetsflöde är den här självstudien inte avsedd som en djupgående introduktion till Machine Learning. Som ett litet exempel försöker vi inte skapa en mycket optimerad modell för användnings fallet – vi räcker bara för att illustrera processen med att skapa och använda en praktisk modell för IoT-databearbetning.
 
-## <a name="target-audience-and-roles"></a>Målgrupp och roller
+## <a name="target-audience-and-roles"></a>Mål grupp och roller
 
-Den här uppsättningen med artiklar är avsedd för utvecklare utan tidigare erfarenhet av IoT utveckling eller machine learning. Distribuera machine learning-kant kräver kunskaper om hur du ansluter en mängd olika tekniker. Därför den här självstudien tar upp ett hela slutpunkt till slutpunkt för att visa ett sätt att ansluta till dessa tekniker tillsammans för en IoT-lösning. Dessa uppgifter kan fördelas mellan flera personer med olika specialiseringar i en verklig-miljö. Utvecklare skulle exempelvis fokusera på enheten eller molnet kod, medan dataexperter utformats modeller för textanalys. Om du vill aktivera en enskild utvecklare att kunna slutföra den här självstudiekursen har vi lagt till ytterligare vägledning för insikter och länkar till mer information som vi hoppas att räcker för att förstå vad som görs, samt varför.
+Den här uppsättningen med artiklar är avsedd för utvecklare utan tidigare erfarenhet av IoT-utveckling eller maskin inlärning. Att distribuera maskin inlärning i Edge kräver kunskaper om hur du ansluter en mängd olika tekniker. Därför täcker den här självstudien en hel del-till-slutpunkt-scenario som visar ett sätt att ansluta till dessa tekniker tillsammans för en IoT-lösning. I en verklig miljö kan dessa uppgifter distribueras mellan flera personer med olika specialiseringar. Utvecklare skulle till exempel kunna fokusera på antingen enhets-eller moln kod, medan data experter utformade analys modeller. För att göra det möjligt för en enskild utvecklare att slutföra den här självstudien har vi tillhandahållit kompletterande vägledning med insikter och länkar till mer information som vi hoppas räcker för att förstå vad som är klart, samt varför.
 
-Du kan också arbeta tillsammans med kollegor för olika roller kursen tillsammans att kunskaperna fullständig förses med, och lär dig som ett team hur saker passar ihop.
+Alternativt kan du samar beta med kollegor med olika roller för att följa självstudien tillsammans, och få din fullständiga expertis att stå och lära sig som ett lag som passar ihop.
 
-I båda fallen för att förstå smartkortsläsare, anger alla artiklarna i den här självstudien vilken roll för användaren. Rollerna är:
+I båda fallen visas användarens roll i varje artikel i den här självstudien för att orientera läsarna. Dessa roller omfattar:
 
-* Molnutveckling (inklusive en cloud-utvecklare som arbetar i en DevOps-kapacitet)
+* Moln utveckling (inklusive en molnbaserad utvecklare som arbetar i en DevOps-kapacitet)
 * Datanalys
 
-## <a name="use-case-predictive-maintenance"></a>Användningsfall: Förebyggande underhåll
+## <a name="use-case-predictive-maintenance"></a>Användnings fall: förutsägande underhåll
 
-Vi utifrån ett användningsfall som visas på konferensen på Prognostics och hälsohantering (PHM08) i 2008 det här scenariot. Målet är att förutsäga komponenternas livslängd (RUL) av en uppsättning turbofan flygplan motorer. Dessa data har genererats med hjälp av C-MAPSS, kommersiella versioner av MAPSS (modulära Aero Propulsion System simulering) programvara. Den här programvaran ger en flexibel turbofan engine simulering miljö för att simulera bekvämt hälsotillstånd, kontroll och motor parametrar.
+Vi bygger det här scenariot på ett användnings fall som presenteras i konferensen om Prognostics och Health Management (PHM08) i 2008. Målet är att förutse återstående livs längd (RUL) för en uppsättning turbofan flyg Plans motorer. Den här informationen genererades med hjälp av C-MAPS, den kommersiella versionen av MAPS (modulärt Aero-prodrivmedel system simulering). Den här program varan tillhandahåller en flexibel miljö för turbofan motor simulering som gör det enkelt att simulera hälso-, kontroll-och motor parametrarna.
 
-De data som används i den här självstudien hämtas från den [Turbofan engine försämring simulering datauppsättning](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+De data som används i den här självstudien hämtas från [data uppsättningen för turbofan-motorns degraderinging-simulering](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
-Från filen Viktigt:
+Från Readme-filen:
 
-***Experimentella Scenario***
+***Experiment scenario***
 
-*Datauppsättningar består av flera multivarierad tidsserier. Varje datauppsättning är ytterligare indelade i träning och testning delmängder. Varje tidsserie är från en annan modul – det vill säga, data som kan anses vara från en flotta med motorer av samma typ. Varje motor börjar med olika grader av inledande slitage och tillverkning variation som är okända för användaren. Den här slitage och variation anses vara normal, d.v.s., anses det inte uppstår. Det finns tre inställningar som har en betydande inverkan på motorns prestanda. De här inställningarna ingår även i data. Data är angripen sensor bruset.*
+*Data uppsättningar består av flera multivarierad tids serier. Varje data uppsättning är ytterligare indelad i utbildning och test del mängder. Varje tids serie är från en annan motor, d.v.s. data kan anses vara från en flotta av motorer av samma typ. Varje motor börjar med olika grader av inledande slitage och tillverknings variation som är okänt för användaren. Detta slitage betraktas som vanligt, d.v.s. det anses inte vara ett fel tillstånd. Det finns tre operativa inställningar som har en betydande effekt på motorns prestanda. Dessa inställningar ingår också i datan. Data är förorenade av sensor brus.*
 
-*Motorn fungerar normalt i början av varje tidsserier och utvecklar ett fel vid en viss tidpunkt under serien. I träningsmängden växer felet i storlek tills systemfel. I test-uppsättningen slutar tidsserien lite tid innan systemfel. Målet med tävlingen är att förutsäga antalet återstående operativa cykler innan misslyckades i testmängd, t.ex, antal operativa cykler efter den senaste cykel som motorn fortsätter att fungera. Du får också en vektor med värden som true återstående driftstid (RUL) för testdata.*
+*Motorn fungerar normalt i början av varje tids serie och utvecklar ett fel vid någon tidpunkt under serien. I inlärnings uppsättningen växer felet i storleksordning tills systemet havererar. I test uppsättningen går tids serien ut en stund innan systemet kraschar. Målet med tävlingen är att förutsäga antalet återstående operativa cykler innan det uppstår problem i test uppsättningen, d.v.s. antalet operativa cykler efter den senaste cykeln som motorn fortsätter att fungera. Tillhandahöll också en Vector med sanna återstående användbara livs längd värden (RUL) för test data.*
 
-Eftersom data publicerades för en tävling, har flera metoder för att härleda machine learning-modeller publicerats oberoende av varandra. Vi har upptäckt att bedriva exempel är att hjälpa dig att förstå processen och skäl som ingår i skapandet av en specifik machine learning-modell. Se till exempel:
+Eftersom data har publicerats för en tävling har flera metoder för att härleda maskin inlärnings modeller publicerats oberoende av varandra. Vi hittade att inlärnings exempel är användbart för att förstå processen och orsaken till att en speciell Machine Learning-modell skapas. Se till exempel:
 
-[Förutsägelsemodell för flygplan motorn fel](https://github.com/jancervenka/turbofan_failure) av GitHub användaren jancervenka.
+[Modell för att förutsäga flyg Plans motorn](https://github.com/jancervenka/turbofan_failure) av GitHub User jancervenka.
 
-[Turbofan engine försämring](https://github.com/hankroark/Turbofan-Engine-Degradation) av GitHub användaren hankroark.
+[Turbofan-motorn försämras](https://github.com/hankroark/Turbofan-Engine-Degradation) av GitHub User hankroark.
 
 ## <a name="process"></a>Process
 
-Bilden nedan visar ungefärlig stegen följer vi i den här självstudien:
+Bilden nedan illustrerar de grova steg som vi följer i den här självstudien:
 
-![Arkitekturdiagram för processtegen](media/tutorial-machine-learning-edge-01-intro/tutorial-steps-overview.png)
+![Arkitektur diagram för process steg](media/tutorial-machine-learning-edge-01-intro/tutorial-steps-overview.png)
 
-1. **Samla in utbildningsdata**: Börjar genom att samla in utbildningsdata. I vissa fall kan data har redan tagits ut och är tillgänglig i en databas eller i form av datafiler. I annat fall, särskilt för IoT-scenarier ska data samlas in från IoT-enheter och sensorer och lagras i molnet.
+1. **Samla in utbildnings data**: processen börjar genom att samla in tränings data. I vissa fall har data redan samlats in och är tillgängliga i en databas eller i form av datafiler. I andra fall, särskilt för IoT-scenarier, måste data samlas in från IoT-enheter och sensorer och lagras i molnet.
 
-   Vi förutsätter att du inte har en uppsättning turbofan-motorer, så projektfilerna omfattar en enkel enhetssimulator som skickar NASA enhetens data till molnet.
+   Vi förutsätter att du inte har en samling av turbofan-motorer, så att projektfilerna innehåller en enkel enhets simulator som skickar NASA enhets data till molnet.
 
-1. **Förbereda data**. I de flesta fall kräver rådata som samlas in från enheter och sensorer förberedelse för machine learning. Det här steget kan omfatta data rensa, formatera om data eller Förbearbeta för att mata in ytterligare information maskininlärning kan nyckeln av.
+1. **Förbered data**. I de flesta fall kräver rå data som samlas in från enheter och sensorer förberedelser för maskin inlärning. Det här steget kan innebära att data rensas, att data formateras om eller förbearbetas för att mata in ytterligare information Machine Learning kan ligga ut.
 
-   För vår flygplan motorn Maskindata innebär förberedelse av data att beräkna explicit tid att fel tiderna för varje datapunkt i det här exemplet utifrån de faktiska observationerna på data. Den här informationen kan de machine learning-algoritm för att hitta korrelationer mellan faktiska sensor datamönster och förväntade återstående livstiden för motorn. Det här steget är mycket domänspecifika.
+   För maskin data i flyg Plans motorn innebär data förberedelse att du beräknar explicita tids-till-feltider för varje data punkt i exemplet baserat på de faktiska observationerna av data. Med den här informationen kan Machine Learning-algoritmen hitta korrelationer mellan faktiska sensor data mönster och den förväntade återstående livs längden för motorn. Det här steget är mycket domänanslutet.
 
-1. **Skapa en modell för maskininlärning**. Baserat på förberedda data kan experimentera vi nu med olika maskininlärningsalgoritmer och parameterizations träna modeller och jämför resultatet med varandra.
+1. **Bygg en Machine Learning-modell**. Utifrån de för beredda data kan vi nu experimentera med olika Machine Learning-algoritmer och parameterizations för att träna modeller och jämföra resultatet till varandra.
 
-   Vi kan i så fall jämför förväntade resultatet beräknas av modellen med verkliga resultat observerats på en uppsättning motorer för testning. Vi kan hantera olika iterationer av modeller som vi skapar i ett modell-register i Azure Machine Learning.
+   I det här fallet jämför vi det förväntade resultatet som beräknas av modellen med det faktiska resultatet i en uppsättning motorer. I Azure Machine Learning kan vi hantera olika iterationer av modeller som vi skapar i ett modell register.
 
-1. **Distribuera modellen**. När vi har en modell som uppfyller våra framgångskriterier kan flytta vi till distribution. Som innebär att omsluta modellen i en webbapp för tjänsten som kan matas med data med hjälp av REST-anrop och returnera analysresultat. Web service-app är sedan paketeras i en dockerbehållare, vilket i sin tur kan distribueras i molnet eller som en IoT Edge-modul. I det här exemplet fokusera vi på distribution till IoT Edge.
+1. **Distribuera modellen**. Vi kan gå vidare till distributionen när vi har en modell som uppfyller våra framgångar-kriterier. Det innefattar att omsluta modellen till en webbapp som kan matas med data med hjälp av REST-anrop och returnera analys resultat. Webbtjänst-appen paketeras sedan i en Docker-behållare, som i sin tur kan distribueras antingen i molnet eller som en IoT Edge modul. I det här exemplet fokuserar vi på distribution till IoT Edge.
 
-1. **Underhålla och förbättra modellen**. Vår arbetet utförs inte när modellen har distribuerats. I många fall vill vi fortsätta samla in data och regelbundet överföra dessa data till molnet. Vi kan sedan använda dessa data att träna och förbättra vår modell som vi sedan kan distribuera om till IoT Edge.
+1. **Underhålla och förfina modellen**. Vårt arbete utförs inte när modellen har distribuerats. I många fall vill vi fortsätta samla in data och regelbundet överföra dessa data till molnet. Vi kan sedan använda dessa data för att omträna och förfina vår modell, som vi sedan kan distribuera till IoT Edge.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Du behöver åtkomst till en Azure-prenumeration där du har behörighet att skapa resurser för att slutföra den här självstudien. Flera av de tjänster som används i den här självstudien kommer att debiteras Azure. Om du inte redan har en Azure-prenumeration kanske du kan komma igång med en [kostnadsfritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/).
+För att slutföra självstudien måste du ha åtkomst till en Azure-prenumeration där du har behörighet att skapa resurser. Flera av de tjänster som används i den här självstudien debiteras Azure-avgifter. Om du inte redan har en Azure-prenumeration kan du komma igång med ett [kostnads fritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
-Du behöver också en dator med PowerShell installerat där du kan köra skript för att ställa in en Azure virtuell dator som din utvecklingsdator.
+Du behöver också en dator med PowerShell installerat där du kan köra skript för att konfigurera en virtuell Azure-dator som utvecklings dator.
 
-I det här dokumentet har använder vi följande uppsättning verktyg:
+I det här dokumentet använder vi följande uppsättning verktyg:
 
-* Azure IoT hub för datainsamling
+* En Azure IoT Hub för data insamling
 
-* Azure-anteckningsböcker som våra viktigaste klientdelen för förberedelse av data och machine learning-experimentering. Köra python kod på en bärbar dator på en delmängd av exempeldata är ett bra sätt att få snabb iterativ och interaktiva arbetet vid dataförberedelse av. Jupyter-anteckningsböcker kan också användas för att förbereda skript körs i skala i en beräkning serverdel.
+* Azure Notebooks som vår huvud klient för förberedelse av data och maskin inlärnings experiment. Att köra python-kod i en bärbar dator på en delmängd av exempel data är ett bra sätt att få snabb och interaktiv data behandling under förberedelse av data. Jupyter-anteckningsböcker kan också användas för att förbereda skript som ska köras i stor skala i en beräknings Server del.
 
-* Azure Machine Learning som serverdel för maskininlärning i skala och för bildhantering för maskininlärning. Vi kan förbättra Azure Machine Learning-serverdelen med hjälp av skript förberedde och testas i Jupyter-anteckningsböcker.
+* Azure Machine Learning som Server del för maskin inlärning i skala och för generering av Machine Learning-avbildningar. Vi driver Azure Machine Learning Server del med skript som är beredda och testade i Jupyter Notebooks.
 
-* Azure IoT Edge för ut-molnprogram av en machine learning-avbildning
+* Azure IoT Edge för program utanför molnet för en Machine Learning-avbildning
 
-Det finns självklart andra alternativ som är tillgängliga. I vissa fall, till exempel kan IoT Central användas som ett alternativ utan kod för att hämta inledande utbildningsdata från IoT-enheter.
+Det finns andra tillgängliga alternativ. I vissa fall kan exempelvis IoT Central användas som ett alternativ utan kod för att samla in initiala tränings data från IoT-enheter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudien är uppdelad i följande avsnitt:
+Den här självstudien är indelad i följande avsnitt:
 
-1. Ställ in din utvecklingsdator och Azure-tjänster.
-2. Generera utbildningsdata för de machine learning-modulen.
-3. Träna och distribuera machine learning-modul.
-4. Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway.
-5. Skapa och distribuera IoT Edge-moduler.
+1. Konfigurera din utvecklings dator och Azure-tjänster.
+2. Generera utbildnings data för Machine Learning-modulen.
+3. Träna och distribuera Machine Learning-modulen.
+4. Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway.
+5. Skapa och distribuera IoT Edge moduler.
 6. Skicka data till din IoT Edge-enhet.
 
-Fortsätt till nästa artikel om du ställer in en utvecklingsdator och etablera Azure-resurser.
+Fortsätt till nästa artikel för att konfigurera en utvecklings dator och etablera Azure-resurser.
 
 > [!div class="nextstepaction"]
-> [Konfigurera en miljö för machine learning på IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)
+> [Konfigurera en miljö för maskin inlärning på IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)

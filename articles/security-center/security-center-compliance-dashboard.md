@@ -1,5 +1,5 @@
 ---
-title: Kontroll av regelefterlevnad – Azure Security Center
+title: 'Självstudie: kontroll av regelefterlevnad – Azure Security Center'
 description: 'Självstudie: Lär dig hur du kan förbättra din efterlevnad med hjälp av Azure Security Center.'
 services: security-center
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: c448697339948b30d73e88c183211e7a1154fe77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 01c0f1199ab8c376fe5bb5e864f81a2730879ed1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686435"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112314"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudie: förbättra din regelefterlevnad
 ---
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad.
 Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) vägleder dig genom uppgraderingen till Standard.

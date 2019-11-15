@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b96cfe9813eef9caf1f1f21e43470a23c7032cb1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072129"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108506"
 ---
 # <a name="import-an-openapi-specification"></a>Importera en OpenAPI-specifikation
 
@@ -31,9 +31,9 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 > * Importerar en OpenAPI-specifikation för serverdels-API
 > * Testa API:et i Azure Portal
-> * Testa API:et i Developer-portalen
+> * Testa API:et i utvecklarportalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
@@ -43,6 +43,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 
 1. Välj **API: er** under **API-HANTERING**.
 2. Välj **OpenAPI-specifikation** i listan **Lägg till ett nytt API**.
+
     ![OpenAPI-specifikation](./media/import-api-from-oas/oas-api.png)
 3. Ange lämpliga inställningar. Du kan ange alla API-värden när du skapar specifikationen. Du kan också ange en del värden senare på fliken **Inställningar**. <br/> Om du trycker på **Tabb** fylls några (eller alla) fält i med information från den angivna serverdelstjänsten.
 
@@ -56,47 +57,25 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     |**Beskrivning**|Ange en valfri beskrivning av API: et.|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
     |**API URL-suffix**|*konferens*|Suffixet läggs till i API-hanteringstjänstens bas-URL. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.|
     |**URL-schema**|*HTTPS*|Fastställer vilka protokoll som kan användas för att få åtkomst till API:et. |
-    |**Produkter**|*Obegränsat*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Obegränsat**. |
+    |**Produkter**|*Obegränsat*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**. |
 
 4. Välj **Skapa**.
 
 > [!NOTE]
 > Begränsningar för API-import finns dokumenterade i [en annan artikel](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testa det nya APIM API:et i Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API: et i Azure Portal
+
+![Testa API-karta](./media/api-management-get-started/01-import-first-api-01.png)
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.
 
-![Test-API](./media/api-management-get-started/01-import-first-api-01.png)
-
-1. Välj det API som du skapade i föregående steg.
+1. Välj det API som du skapade i föregående steg (från fliken **API:er**).
 2. Tryck på fliken **Test**.
-3. Klicka på **GetSpeakers**.
-
-    Sidan visar fälten för frågeparametrar, men i det här fallet har vi inte några. Sidan visar även fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade APIM-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt.
+3. Klicka på **GetSpeakers**. På sidan visas fälten för frågeparametrar (inga i det här fallet) och huvuden. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Nyckeln fylls i automatiskt.
 4. Tryck på **Skicka**.
 
     Serverdelen svarar med **200 OK** och några data.
-
-## <a name="call-operation"> </a>Anropa en åtgärd från Developer-portalen
-
-Åtgärder kan också anropas från **utvecklarportalen** för att testa API:er.
-
-1. Välj det API som du skapade i steget Importera och publicera ett serverdels-API.
-2. Tryck på **Utvecklarportalen**.
-
-    ![Testa i Developer-portalen](./media/api-management-get-started/developer-portal.png)
-
-    Webbplatsen Developer-portalen öppnas.
-3. Välj **API**.
-4. Välj **Demokonferens-API**.
-5. Klicka på **GetSpeakers**.
-
-    Sidan visar fälten för frågeparametrar, men i det här fallet har vi inte några. Sidan visar även fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade APIM-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt.
-6. Tryck på **Testa**.
-7. Tryck på **Skicka**.
-
-    När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

@@ -1,19 +1,19 @@
 ---
-title: Skapa en app för att övervaka en solter med IoT Central | Microsoft Docs
-description: Lär dig hur du skapar ett sol panel program med hjälp av Azure IoT Central programmallar.
+title: 'Självstudie: skapa en app för att övervaka en solter med IoT Central'
+description: 'Självstudie: Lär dig hur du skapar ett sol panel program med hjälp av Azure IoT Central programmallar.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c560c7e298dabbb5a3c31d90e0d48d0d63cfac5f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5560cb31e31f7cf33ac8ae71d649e88be3dbb6e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581525"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112500"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Självstudie: skapa och gå igenom en mall för övervakning av solpanels program 
 
@@ -30,7 +30,7 @@ Den här självstudien vägleder dig genom processen för att skapa övervakning
 
 Om du inte har någon prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 - Ingen
 - Azure-prenumeration rekommenderas, men du behöver inte testa
 

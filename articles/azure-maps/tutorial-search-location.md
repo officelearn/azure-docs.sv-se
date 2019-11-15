@@ -1,24 +1,24 @@
 ---
-title: Söka med Azure Maps | Microsoft Docs
-description: Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
+title: 'Självstudie: Sök med Azure Maps'
+description: 'Självstudie: Sök efter intresse punkt i närheten med Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8945ccef1dd44570f4f59c7c91c2fe05b222c5bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576929"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109513"
 ---
-# <a name="search-nearby-points-of-interest-using-azure-maps"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
+# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här guiden får du lära dig att:
+Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Maps-konto
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -46,7 +46,7 @@ Skapa ett nytt Maps-konto med följande steg:
     * Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
     * *Namn* för ditt nya konto.
     * *Pris nivån* för det här kontot.
-    * Läs *licensen* och *sekretesspolicyn* och markera kryssrutan för att godkänna villkoren.
+    * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
     * Klicka på knappen **Skapa**.
 
 ![Skapa Maps-konto i portalen](./media/tutorial-search-location/create-account.png)

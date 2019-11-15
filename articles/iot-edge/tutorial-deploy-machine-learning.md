@@ -1,30 +1,30 @@
 ---
-title: Distribuera Azure Machine Learning till en enhet – Azure IoT Edge | Microsoft Docs
+title: 'Självstudie: Distribuera Azure Machine Learning till en enhet – Azure IoT Edge'
 description: I den här självstudien skapar du en Azure Machine Learning modell och distribuerar den sedan som en modul till en gräns enhet
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/16/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 28e5e09ea64f7ac1272e8ed126d5b4153b952c1d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2d56d434fbdaf8c05c4d4db75bffb65468a5bc42
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494036"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114030"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
 Använd Azure Notebooks för att utveckla en Machine Learning-modul och distribuera den till en Linux-enhet som kör Azure IoT Edge. 
 
-Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure Machine Learning på IoT Edge finns i [Azure Machine Learning dokumentation](../machine-learning/service/how-to-deploy-to-iot.md).
+Du kan använda IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure Machine Learning på IoT Edge finns i [Azure Machine Learning dokumentation](../machine-learning/service/how-to-deploy-to-iot.md).
 
 Azure Machine Learning-modulen som du skapar i den här självstudiekursen läser av miljödata som genereras av enheten och märker meddelandena som avvikande eller normala.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Machine Learning-modul
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En Azure IoT Edge-enhet:
 
@@ -70,7 +70,7 @@ I det här avsnittet konverterar du tränade Machine Learning-modeller och till 
 
    ![Kör vid kostnads fri beräkning](./media/tutorial-deploy-machine-learning/run-on-free-compute.png)
 
-6. Öppna filen **aml_config/config. JSON** .
+6. Öppna filen **aml_config/config.JSON** .
 
 7. Redigera konfigurations filen så att den innehåller värdena för ditt Azure-prenumerations-ID, en resurs grupp i din prenumeration och din Azure Machine Learning arbets ytans namn. Du kan hämta alla dessa värden från **översikts** avsnittet på din arbets yta i Azure. 
 

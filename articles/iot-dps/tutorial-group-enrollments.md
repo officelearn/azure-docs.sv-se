@@ -1,27 +1,27 @@
 ---
-title: Etablera en simulerad X.509-enhet på Azure IoT Hub med Java och registreringsgrupper | Microsoft Docs
+title: 'Självstudie: etablera en simulerad X. 509-enhet till Azure IoT Hub med hjälp av Java-och registrerings grupper'
 description: Azure-självstudie – Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK och registreringsgrupper för IoT Hub Device Provisioning-tjänsten
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/04/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3cb506b241adab44df490e2fe7f363d35f0f747
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61251167"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112446"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK och tjänst-SDK och gruppregistreringar för IoT Hub Device Provisioning-tjänsten
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Självstudie: skapa och etablera en simulerad X. 509-enhet med Java-enhets-och tjänst-SDK och grupp registreringar för IoT Hub Device Provisioning Service
 
 Dessa steg visar hur du simulerar en X.509-enhet på utvecklingsdatorn som kör Windows OS och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben med registreringsgrupper. 
 
-Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal](./quick-setup-auto-provision.md) innan du fortsätter.
+Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen](./quick-setup-auto-provision.md) innan du fortsätter.
 
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
@@ -35,7 +35,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 1. Använd följande [certifikatöversikt](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) för att skapa dina testcertifikat.
 
     > [!NOTE]
-    > Det här steget kräver [OpenSSL](https://www.openssl.org/), som antingen kan byggas och installeras från källkoden eller laddas ned och installeras från en [tredje part](https://wiki.openssl.org/index.php/Binaries), till exempel [den här](https://sourceforge.net/projects/openssl/). Om du redan har skapat dina _rot-_, _mellanliggande_ och _enhets_-certifikat kan du hoppa över det här steget.
+    > Det här steget kräver [OpenSSL](https://www.openssl.org/), som antingen kan byggas och installeras från källkoden eller laddas ned och installeras från en [tredje part](https://wiki.openssl.org/index.php/Binaries), till exempel [den här](https://sourceforge.net/projects/openssl/). Om du redan har skapat dina _rot-_ , _mellanliggande_ och _enhets_-certifikat kan du hoppa över det här steget.
     >
 
     1. Gå igenom de två första stegen för att skapa dina _rot-_ och _mellanliggande_ certifikat.
@@ -73,7 +73,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. I den nedladdade källkoden går du till exempelmappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Öppna filen **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** i valfritt redigeringsprogram och lägg till följande information:
+1. I den nedladdade källkoden går du till exempelmappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Öppna filen **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** i valfritt redigeringsprogram och lägg till följande information:
 
     1. Lägg till `[Provisioning Connection String]` för etableringstjänsten från portalen enligt följande:
 
@@ -127,7 +127,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
     1. Spara filen _ServiceEnrollmentGroupSample.java_.
 
-1. Öppna ett kommandofönster och navigera till mappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
+1. Öppna ett kommandofönster och navigera till mappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 
 1. Skapa exempelkoden genom att använda följande kommando:
 
@@ -177,7 +177,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
     Om du har genererat enhetscertifikaten med Bash-gränssnittet innehåller ./certs/new-device.cert.pem den offentliga nyckeln. Enhetens privata nyckel finns i filen ./private/new-device.key.pem.
 
-    Öppna filen med den offentliga nyckeln och uppdatera variabeln `leafPublicPem` med det värdet. Kopiera texten från _-----BEGIN PRIVATE KEY-----_ till _-----END PRIVATE KEY-----_.
+    Öppna filen med den offentliga nyckeln och uppdatera variabeln `leafPublicPem` med det värdet. Kopiera texten från _-----BEGIN PRIVATE KEY-----_ till _-----END PRIVATE KEY-----_ .
 
     ```java
     private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -189,7 +189,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
         "-----END CERTIFICATE-----\n";
     ```
 
-    Öppna filen med den privata nyckeln och uppdatera variabeln `leafPrivatePem` med det värdet. Kopiera texten från _-----BEGIN RSA PRIVATE KEY-----_ till _-----END RSA PRIVATE KEY-----_.
+    Öppna filen med den privata nyckeln och uppdatera variabeln `leafPrivatePem` med det värdet. Kopiera texten från _-----BEGIN RSA PRIVATE KEY-----_ till _-----END RSA PRIVATE KEY-----_ .
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
@@ -252,7 +252,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 Om du vill fortsätta att arbeta med och utforska enhetsklientexemplet ska du inte rensa de resurser som har skapats i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Öppna bladet **Hantera registreringar** för tjänsten och klicka på fliken **Enskilda registreringar**. Välj *REGISTRERINGS-ID* för enheten du har registrerat i den här snabbstarten och klicka på knappen **Ta bort** högst upp. 
+1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Öppna bladet **Hantera registreringar** för din tjänst och klicka sedan på fliken **enskilda registreringar** . Välj *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp. 
 1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Öppna bladet **IoT-enheter** för din hubb, välj *ENHETS-ID* för enheten du har registrerat i den här snabbstarten och klicka på knappen **Ta bort** högst upp.
 
 

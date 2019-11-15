@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d83db424ee6e9a009353ca568232b38260883a4c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4e8097eeb07420bee4ba30eb0fedbe5d4db2db9d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793606"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113323"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-cognitive-search-indexers"></a>C#Självstudie: crawla en Azure SQL-databas med Azure Kognitiv sökning indexerare
+# <a name="c-tutorial-import-azure-sql-database-using-azure-cognitive-search-indexers"></a>C#Självstudie: importera Azure SQL Database med Azure Kognitiv sökning indexerare
 
 Lär dig hur du konfigurerar en indexerare för att extrahera sökbara data från ett Azure SQL Database-exempel. [Indexerare](search-indexer-overview.md) är en komponent i Azure kognitiv sökning som crawlar externa data källor och fyller i ett [Sök index](search-what-is-an-index.md) med innehåll. För alla indexerare används indexeraren för Azure SQL Database. 
 
@@ -54,7 +54,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 

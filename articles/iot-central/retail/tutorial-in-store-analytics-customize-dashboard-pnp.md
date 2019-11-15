@@ -1,5 +1,5 @@
 ---
-title: Anpassa instrument panelen för operatören i Azure IoT Central | Microsoft Docs
+title: 'Självstudie: anpassa instrument panelen för operatören i Azure IoT Central'
 description: I den här självstudien visas hur du anpassar instrument panelen för operatören i ett IoT Central program och hanterar enheter.
 services: iot-central
 ms.service: iot-central
@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 10/03/2019
-ms.openlocfilehash: cb43facfc6b838a6e29a1b08e50648abf0f04911
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.date: 11/12/2019
+ms.openlocfilehash: 0dcabada522bf8189d163936551ea94cb4dd2657
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615298"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112912"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Självstudie: anpassa instrument panelen för operatör och hantera enheter i Azure IoT Central
 
@@ -24,7 +24,7 @@ ms.locfileid: "73615298"
 
 I den här självstudien får du som ett verktyg som beskriver hur du anpassar instrument panelen för operatören i Azure IoT Central i Store Analytics-program. Program operatörer kan använda den anpassade instrument panelen för att köra programmet och hantera anslutna enheter.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Ändra instrument panelens namn
 > * Anpassa bild paneler på instrument panelen
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Lägg till egenskaps paneler för att Visa enhets information
 > * Lägg till kommando paneler för att köra kommandon
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här själv studie kursen bör du slutföra den första självstudien för att skapa Azure IoT Central in-Store Analytics-program och lägga till enheter:
 

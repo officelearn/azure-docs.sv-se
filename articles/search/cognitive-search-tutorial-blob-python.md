@@ -1,5 +1,5 @@
 ---
-title: 'Python-självstudie: anropa Cognitive Services i en pipeline för AI-anrikning'
+title: 'Självstudie: skapa en färdigheter i python med hjälp av REST API: er'
 titleSuffix: Azure Cognitive Search
 description: Stega genom ett exempel på data extrahering, naturligt språk och bild-AI-bearbetning i Azure Kognitiv sökning med en Jupyter python-anteckningsbok. Extraherade data indexeras och lätt nås av frågan.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790207"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113673"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Python-självstudie: anropa API:er för Cognitive Services i en Azure Kognitiv sökning-pipeline för anrikning
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Självstudie: skapa en pipeline för AI-anrikning med REST och python
 
 I den här självstudien får du lära dig Mechanics programmerings data i Azure Kognitiv sökning med *kognitiva kunskaper*. Färdigheter backas upp av NLP (Natural Language Processing) och bild analys funktioner i Cognitive Services. Genom färdigheter komposition och konfiguration kan du extrahera text-och text representationer av en bild eller skannad dokument fil. Du kan också identifiera språk, entiteter, nyckel fraser och mycket annat. Resultatet är omfattande ytterligare innehåll i ett sökindex som skapats med AI-anrikninger i en indexerings pipeline. 
 
@@ -58,7 +58,7 @@ Om du vill interagera med din Azure Kognitiv sökning-tjänst behöver du tjäns
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: eb3f73f3ceb27bec05d4e2e88877ea398de7cdf5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034371"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112003"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka en virtuell Linux-dator i Azure
 
@@ -133,7 +133,7 @@ Så här aktiverar du övervakning av den virtuella Azure-datorn med Azure Monit
 
 3. På den **Insights (förhandsversion)** väljer **Prova nu**.
 
-    ![Aktivera Azure Monitor för virtuella datorer för en virtuell dator](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Aktivera Azure Monitor för virtuella datorer för en virtuell dator](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. På den **Azure Monitor insikter Onboarding** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration, markerar du den i den nedrullningsbara listan.  
 

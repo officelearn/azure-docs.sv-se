@@ -1,19 +1,19 @@
 ---
-title: Skicka enhets data via transparent Gateway – Machine Learning på Azure IoT Edge | Microsoft Docs
-description: Använd din utvecklings dator som en simulerad IoT Edge enhet för att skicka data till IoT Hub genom att gå igenom en enhet som kon figurer ATS som en transparent Gateway.
+title: 'Självstudie: skicka enhets data via transparent Gateway – Machine Learning på Azure IoT Edge'
+description: 'Självstudie: Använd din utvecklings dator som en simulerad IoT Edge enhet för att skicka data till IoT Hub genom att gå igenom en enhet som kon figurer ATS som en transparent Gateway.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 224afe19e50e52c56c223ff1a52f9989943ce712
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1a1974a9d9e635bad4094e38c2c194ff49993611
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163106"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113956"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Självstudie: skicka data via transparent Gateway
 
@@ -107,7 +107,7 @@ Utdata från avroFileWriter-modulen kan observeras enkelt genom att titta på de
 
 5. När 10 minuter har förflutit ska modulen Ladda upp filerna. Om överföringen lyckas tas filerna bort från disken.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure-lagring
 
 Vi kan se resultatet av vår löv enhet som skickar data genom att titta på de lagrings konton där vi förväntar sig att data ska vidarebefordras.
 

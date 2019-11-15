@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: e1534a562c81fc92fdf0c21452458c51b10f0bc9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074229"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108095"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importera ett SOAP-API och konvertera till REST
 
@@ -28,9 +28,9 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 > * Importera ett SOAP-API och konvertera till REST
 > * Testa API:et i Azure Portal
-> * Testa API:et i Developer-portalen
+> * Testa API:et i utvecklarportalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
@@ -49,7 +49,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 
 5. Tryck tabb.
 
-    Följande fält blir ifyllda med informationen från SOAP-API: et: Visnings namn, namn, beskrivning.
+    Följande fält fyllas i med informationen från SOAP API:t: visningsnamn, namn, beskrivning.
 6. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.
 9. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används den *obegränsade* produkten.  Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.
 
@@ -61,7 +61,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     * **Obegränsat**   
 10. Välj **Skapa**.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testa det nya APIM API:et i Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API: et i Azure Portal
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.  
 
@@ -73,21 +73,6 @@ Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt 
 1. Tryck på **Skicka**.
 
     Serverdelen svarar med **200 OK** och några data.
-
-## <a name="call-operation"> </a>Anropa en åtgärd från utvecklarportalen
-
-Åtgärder kan också anropas från **utvecklarportalen** för att testa API:er. 
-
-1. Välj det API som du skapade i steget Importera och publicera ett serverdels-API.
-2. Tryck på **Utvecklarportalen**.
-
-    Webbplatsen Developer-portalen öppnas.
-3. Välj det **API** som du skapade.
-4. Klicka på den åtgärd som du vill testa.
-5. Tryck på **Testa**.
-6. Tryck på **Skicka**.
-    
-    När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

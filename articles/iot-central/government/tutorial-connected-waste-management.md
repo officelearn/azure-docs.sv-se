@@ -1,18 +1,18 @@
 ---
-title: Skapa en ansluten hanterings app för slöseri med Azure IoT Central | Microsoft Docs
-description: Lär dig att skapa ett anslutet program för hantering av program med hjälp av Azure IoT Central programmallar.
+title: 'Självstudie: skapa en ansluten hanterings app för slöseri med Azure IoT Central'
+description: 'Självstudie: Lär dig hur du skapar ett anslutet program för hantering av program med hjälp av Azure IoT Central programmallar.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: fa2ea8cdf5148d27b025c62fbeec512ceac0943e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 38da444779a56f39d4119f3797ddb5bd2f31aeae
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890814"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112636"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
 
@@ -31,7 +31,7 @@ I självstudien får du lära dig att:
 > * Konfigurera jobb
 > * Anpassa din program anpassning med adresser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 -  En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -67,7 +67,7 @@ Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för s
 
 6. Nu har du skapat en ansluten app för avfalls hantering med hjälp av **mallen Azure IoT Central ansluten avfalls hantering**. 
 
-Grattis! Det nyligen skapade programmet levereras med förkonfigurerade:
+Gratulerar! Det nyligen skapade programmet levereras med förkonfigurerade:
 * Exempel instrument panels instrument paneler
 * Exempel på fördefinierad enhet med fördefinierat antal anslutna avfalls platser
 * Simulerade anslutna avfalls lager enheter

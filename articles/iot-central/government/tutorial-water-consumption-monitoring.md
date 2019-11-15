@@ -1,19 +1,19 @@
 ---
-title: Skapa en app för övervakning av program förbrukning med Azure IoT Central | Microsoft Docs
-description: Lär dig att skapa ett program för övervakning av vatten förbrukning med hjälp av Azure IoT Central programmallar.
+title: 'Självstudie: skapa en app för övervakning av vatten förbrukning med Azure IoT Central'
+description: 'Självstudie: Lär dig att skapa ett program för övervakning av vatten förbrukning med hjälp av Azure IoT Central programmallar.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 09/24/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d79c4585d9764e2cc5cebd679372a97946479396
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0b100e0bebc7c5b26449e396650da5434334075d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889156"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112633"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten förbrukning i IoT Central
 
@@ -32,7 +32,7 @@ I självstudien får du lära dig att:
 > * Konfigurera jobb
 > * Anpassa din program anpassning med adresser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 -  En Azure-prenumeration rekommenderas. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -68,7 +68,7 @@ Så här skapar du ett nytt program för övervakning av Azure IoT Central vatte
 
 6. Nu har du skapat en app för övervakning av dricks-appar med hjälp av mallen Azure IoT Central **vattenförbruknings övervakning** .
 
-Grattis! Du är klar med att skapa ett program för övervakning av vatten kvalitet, som medföljer förkonfigurerat:
+Gratulerar! Du är klar med att skapa ett program för övervakning av vatten kvalitet, som medföljer förkonfigurerat:
 * Exempel instrument panels instrument paneler
 * Exempel på fördefinierade vatten flöden och ventiler för ventilbaserade enheter
 * Simulerade vatten flöden och smarta ventil enheter

@@ -1,6 +1,6 @@
 ---
-title: Använda IoT Hub-händelser för att utlösa Azure Logic Apps | Microsoft Docs
-description: Använd händelseroutningstjänsten i Azure Event Grid och skapa automatiserade processer för att utföra Azure Logic Apps-åtgärder baserade på IoT Hub-händelser.
+title: 'Självstudie: använda IoT Hub händelser för att utlösa Azure Logic Apps'
+description: 'Självstudie: Använd tjänsten för händelse dirigering i Azure Event Grid skapa automatiserade processer för att utföra Azure Logic Apps åtgärder baserat på IoT Hub händelser.'
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -10,22 +10,22 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e003cb650b0589ab43c984850838c56cbbf1ff2f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60823834"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106774"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Självstudie: Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Självstudie: skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps
 
 Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa åtgärder i underordnade företagsprogram.
 
 Den här artikeln går igenom en exempelkonfiguration som använder IoT Hub och Event Grid. Du lär dig hur du konfigurerar en Azure-logikapp att skicka ett e-postmeddelande varje gång en enhet läggs till i din IoT-hubb. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, t.ex. Office 365 Outlook, Outlook.com eller Gmail. Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic App-anslutningsprogram som stöds finns i [Översikt över anslutningsappar](https://docs.microsoft.com/connectors/)
 * Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -128,8 +128,8 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 5. Logga in på ditt e-postkonto om du uppmanas att göra det. 
 
 6. Skapa e-postmallen. 
-   * **Till**: Ange den e-postadress som meddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning. 
-   * **Ämne** och **Meddelandetext**: Skriv e-postmeddelandets text. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata.  
+   * **Till**: Ange e-postadressen som meddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning. 
+   * **Ämne** och **Brödtext**: Skriv e-postmeddelandets text. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata.  
 
    Din e-postmall kanske liknar den i det här exemplet:
 
@@ -162,8 +162,8 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
    ![Skapa ny händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Skapa händelseprenumerationen med följande värden: 
-   * **Händelsetyp**: Avmarkera Prenumerera på alla händelsetyper och välj **En enhet har skapats** på menyn.
-   * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in den webbadress som du kopierade från logikappen och bekräfta valet.
+   * **Händelsetyp**: avmarkera Prenumerera på alla händelsetyper och välj **En enhet har skapats** på menyn.
+   * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in webbadressen som du kopierade från logikappen och bekräfta valet.
 
      ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
@@ -177,8 +177,8 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
 6. Skapa följande filter:
 
-   * **Ämne börjar med**: Ange `devices/Building1_` för att filtrera fram enhetshändelser i byggnad 1.
-   * **Ämne slutar med**: Ange `_Temperature` för att filtrera fram enhetshändelser relaterade till temperatur.
+   * **Ämnet börjar med**: Ange `devices/Building1_` för att filtrera fram enhetshändelser i byggnad 1.
+   * **Ämnet slutar med**: Ange `_Temperature` för att filtrera fram enhetshändelser relaterade till temperatur.
 
 5. Spara händelseprenumerationen genom att välja **Skapa**.
 
@@ -188,7 +188,7 @@ Testa logikappen genom att skapa en ny enhet för att utlösa ett e-postmeddelan
 
 1. Välj **IoT-enheter** från din IoT-hubb. 
 2. Välj **Lägg till**.
-3. Ange `Building1_Floor1_Room1_Temperature` för **Enhets-ID**.
+3. Ange **för**Enhets-ID`Building1_Floor1_Room1_Temperature`.
 4. Välj **Spara**. 
 5. Du kan lägga till flera enheter med olika enhets-ID:n för att testa händelseprenumerationsfiltren. Prova de här exemplen: 
    * Building1_Floor1_Room1_Light

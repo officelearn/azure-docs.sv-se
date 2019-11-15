@@ -1,24 +1,24 @@
 ---
-title: Flera vägar med Azure Maps | Microsoft Docs
-description: Hitta rutter för olika färdmedel med hjälp av Azure Maps
+title: 'Självstudie: flera vägar med Azure Maps'
+description: 'Självstudie: hitta vägar för olika färd sätt med hjälp av Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916313"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106717"
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Hitta rutter för olika färdmedel med hjälp av Azure Maps
+# <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta vägar för olika färd sätt med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service för att hitta rutten till orienteringspunkt, prioriterad efter färdmedel. Du visar två olika vägar på kartan, en för bilar och lastbilar som kan ha vägbegränsningar på grund av höjd, vikt eller farlig last. I den här guiden får du lära dig att:
+Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service för att hitta rutten till orienteringspunkt, prioriterad efter färdmedel. Du visar två olika vägar på kartan, en för bilar och lastbilar som kan ha vägbegränsningar på grund av höjd, vikt eller farlig last. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:n för kartkontroll
@@ -26,7 +26,7 @@ Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route S
 > * Skapa vägfrågor som deklarerar resläge
 > * Visa flera vägar på kartan
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du fortsätter följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) för att skapa en Azure Maps konto prenumeration med pris nivån S1 och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta den primära prenumerations nyckeln för ditt konto.
 
@@ -80,7 +80,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     </html>
     ```
 
-    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den här funktionen innehåller infogad JavaScript-kod för att komma åt Azure Maps-API:erna.
+    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den här funktionen innehåller infogad JavaScript-kod för att komma åt API:et i Azure Maps.
 
 3. Lägg till följande JavaScript-kod i funktionen `GetMap`. Ersätt strängen `<Your Azure Maps Key>` med den primära nyckel som du kopierade från ditt Maps-konto.
 
@@ -95,7 +95,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     });
     ```
 
-    `atlas.Map` Klassen ger kontrollen för en visuell och interaktiv webb karta och är en komponent i Azure Kartkontroll-API: et.
+    Klassen `atlas.Map` ger kontrollen för en visuell och interaktiv webb karta och är en komponent i Azure Kartkontroll-API: et.
 
 4. Spara filen och öppna den i webbläsaren. Du har nu en grundläggande karta som du kan utveckla mer.
 
@@ -103,7 +103,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
 
 ## <a name="visualize-traffic-flow"></a>Visualisera trafikflödet
 
-1. Lägga till displayen för trafikflöde i kartan. Maps `ready` -händelsen väntar tills Maps-resurserna har lästs in och är redo att interagera med den.
+1. Lägga till displayen för trafikflöde i kartan. Maps-`ready` händelsen väntar tills Maps-resurserna har lästs in och är redo att interagera med den.
 
     ```javascript
     map.events.add("ready", function() {
@@ -114,7 +114,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     });
     ```
 
-    I kartans `ready` händelse hanterare `relative`anges trafik flödes inställningen på kartan, vilket är hastigheten på vägen i förhållande till det fria flödet. Du kan också ange den till `absolute` hastighet på vägen, eller `relative-delay` som visar den relativa hastighet där den skiljer sig från fritt flöde.
+    I Map-`ready` händelse hanteraren anges trafik flödes inställningen på kartan till `relative`, vilket är hastigheten för vägen i förhållande till fri flödet. Du kan också ange den till `absolute` hastighet på vägen, eller `relative-delay` som visar den relativa hastighet där den skiljer sig från fritt flöde.
 
 2. Spara filen **MapTruckRoute.html** och uppdatera sidan i webbläsaren. Om du interagerar med kartan och zoomar in till Los Angeles, bör du se gator med aktuella trafikdata.
 
@@ -126,7 +126,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
 
 I den här självstudien beräknas och renderas två vägar på kartan. En väg som använder fartleder som är tillgängliga för bilar och den andra som är tillgänglig för lastbilar. Vid rendering visar vi en symbolikon för början och slutet på vägen samt linjer med olika färger för varje vägfärd.
 
-1. När du har initierat kartan lägger du till följande JavaScript-kod i `ready` mappnings händelse hanteraren.
+1. När du har initierat kartan lägger du till följande JavaScript-kod i Maps-`ready` händelse hanteraren.
 
     ```JavaScript
     //Wait until the map resources have fully loaded.
@@ -159,9 +159,9 @@ I den här självstudien beräknas och renderas två vägar på kartan. En väg 
     });
     ```
     
-    I mappar `ready` händelse hanteraren skapas en data källa för att lagra flödes linjerna samt start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt. 
+    I Maps `ready` händelse hanteraren skapas en data källa för att lagra väg linjerna samt start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt. 
     
-2. För den här självstudien ska du ange en startpunkt som ett fiktivt företag i Seattle som heter Fabrikam, och målplatsen som ett Microsoft-kontor. Lägg till följande `ready` kod i händelse hanteraren för Maps.
+2. För den här självstudien ska du ange en startpunkt som ett fiktivt företag i Seattle som heter Fabrikam, och målplatsen som ett Microsoft-kontor. Lägg till följande kod i händelse hanteraren för Maps-`ready`.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -191,7 +191,7 @@ I den här självstudien beräknas och renderas två vägar på kartan. En väg 
     });
     ```
 
-    Start- och slutpunkterna läggs till i datakällan. Avgränsningsfältet för start- och slutpunkterna beräknas med hjälp av funktionen `atlas.data.BoundingBox.fromData`. Den här markerings rutan används för att ställa in kart kameror för visning över hela vägen med `map.setCamera` hjälp av funktionen. En utfyllnad läggs till för att kompensera för bildpunktsdimensionerna för symbolikonerna.
+    Start- och slutpunkterna läggs till i datakällan. Avgränsningsfältet för start- och slutpunkterna beräknas med hjälp av funktionen `atlas.data.BoundingBox.fromData`. Den här markerings rutan används för att ställa in kart kameror för visning över hela vägen med hjälp av funktionen `map.setCamera`. En utfyllnad läggs till för att kompensera för bildpunktsdimensionerna för symbolikonerna.
 
 4. Spara filen och uppdatera webbläsaren om du vill se de fästen som visas på kartan. Nu är kartan centrerad över Seattle, och du kan se de runda blå kartnålarna som markerar startpunkten, och den blå kartnålen som markerar slutpunkten.
 
@@ -216,7 +216,7 @@ Det här avsnittet visar hur du använder Maps Route service API för att hitta 
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` Skapar en`SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. Principen tar i principen och skapar en pipeline-instans. [](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) `atlas.service.MapsURL.newPipeline()` `SubscriptionKeyCredential` Representerar en URL som Azure Maps väg åtgärder. [](https://docs.microsoft.com/rest/api/maps/route) `routeURL`
+   `SubscriptionKeyCredential` skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()` tar i `SubscriptionKeyCredential`s principen och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) -instans. `routeURL` representerar en URL för att Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) -åtgärder.
 
 2. När du har angett autentiseringsuppgifter och URL: en lägger du till följande JavaScript-kod för att skapa en väg från start till slut punkt för en truck som bär USHazmatClass2-klassa last och visa resultatet.
 
@@ -245,7 +245,7 @@ Det här avsnittet visar hur du använder Maps Route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras `geojson.getFeatures()` med hjälp av metoden. Väg linjen läggs sedan till i data källan. Det lägger också till ett index på 0 för att säkerställa att det återges före andra rader i data källan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i väg linjen för trucken, en linje färg som är en bra nyans av blått och en linje bredd på nio bild punkter.
+    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av metoden `geojson.getFeatures()`. Väg linjen läggs sedan till i data källan. Det lägger också till ett index på 0 för att säkerställa att det återges före andra rader i data källan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i väg linjen för trucken, en linje färg som är en bra nyans av blått och en linje bredd på nio bild punkter.
 
 3. Lägg till följande JavaScript-kod för att skapa en väg för en bil och visa resultatet.
 
@@ -265,7 +265,7 @@ Det här avsnittet visar hur du använder Maps Route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras `geojson.getFeatures()` med hjälp av metoden. Väg linjen läggs sedan till i data källan. Två egenskaper läggs till i vagn linje linjen, en linje färg som är en lila färg och en linje bredd på fem bild punkter.  
+    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av metoden `geojson.getFeatures()`. Väg linjen läggs sedan till i data källan. Två egenskaper läggs till i vagn linje linjen, en linje färg som är en lila färg och en linje bredd på fem bild punkter.  
 
 4. Spara filen **MapTruckRoute.html** och uppdatera webbläsaren så att den visar resultatet. För en lyckad anslutning med den API:er i Maps bör du se en karta som liknar följande.
 

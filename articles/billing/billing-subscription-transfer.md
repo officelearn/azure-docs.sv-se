@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325de36f3aa480847bc647827260f7f65765b5d7
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: beef37b0ece9cf57c86927b9f57d85ad4a25dbd1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103755"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746317"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
@@ -202,6 +202,10 @@ Ditt konto ansvarar för betalning för all användning som rapporteras från ti
 ### <a name="can-i-use-a-different-payment-method"></a>Kan jag använda en annan betalningsmetod?
 
 Ja. När du godkänner överföringsbegäran kan du välja en befintlig betalningsmetod som är kopplad till ditt konto eller lägga till en ny betalningsmetod.
+
+### <a name="how-can-i-transfer-ownership-of-my-enterprise-agreement-ea-subscription-account-ownership-if-the-original-account-owner-is-no-longer-with-the-organization"></a>Hur överför jag kontoägarskapet för min Enterprise-avtalsprenumeration (EA) om den ursprungliga kontoinnehavaren inte längre finns i organisationen?
+
+Företagsadministratörer kan uppdatera kontoägarskapet för alla konton, även efter att den ursprungliga kontoinnehavaren inte längre är en del av organisationen. Det kan de göra genom att följa instruktionerna för [överföring av kontoägarskap för alla prenumerationer](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
 
 ## <a name="troubleshooting"></a>Felsökning
 

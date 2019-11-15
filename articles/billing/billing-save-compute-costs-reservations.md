@@ -5,18 +5,18 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499242"
+ms.locfileid: "73580098"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
-Med Azure-reservationer kan du spara pengar genom åtagande om ett år eller tre år med virtuella datorer, SQL-databasberäkningskapacitet, Azure Cosmos DB-dataflöde eller andra Azure-resurser. Åtagande gör att du kan få rabatt på de resurser du använder. Reservationer kan avsevärt minska dina kostnader för virtuell dator, SQL-databasberäkning, Azure Cosmos DB eller andra resurskostnader med upp till 72 % jämfört med priserna för betalning per användning. Reservation ger en rabatt och påverkar inte resursernas körningsstatus.
+Med Azure-reservationer kan du spara pengar genom abonnemang på ett år eller tre år med virtuella datorer, Azure Blob Storage eller Azure Data Lake Storage Gen2, SQL-databasberäkningskapacitet, Azure Cosmos DB-dataflöde eller andra Azure-resurser. Åtagande gör att du kan få rabatt på de resurser du använder. Reservationer kan betydlig minska dina resurskostnader med upp till 72 % på Betala per användning-priser. Reservation ger en rabatt och påverkar inte resursernas körningsstatus.
 
 Du kan betala för en reservation i förväg eller månadsvis. Totalbeloppet för reservationer är detsamma oavsett om du betalar i förväg eller per månad. Det tillkommer inte några extra avgifter när du väljer månadsbetalning. Månatlig betalning är tillgänglig för Azure-reservationer, inte produkter från tredje part.
 
@@ -24,13 +24,14 @@ Du kan köpa en reservation i [Azure-portalen](https://ms.portal.azure.com/?micr
 
 ## <a name="why-buy-a-reservation"></a>Varför är det bra att köpa en reservation?
 
-Om du har virtuella datorer, Azure Cosmos DB eller SQL-databaser som körs under långa tidsperioder får du det mest kostnadseffektiva alternativet genom att köpa en reservation. När du till exempel kontinuerligt kör fyra instanser av en tjänst utan en reservation debiteras du enligt priserna för betala per användning. När du köper en reservation för dessa resurser får du reservationsrabatten omedelbart. Resurserna debiteras inte längre enligt priserna för betala per användning.
+Om du har virtuella datorer, blob-lagringsdata, Azure Cosmos DB eller SQL-databaser som använder betydande kapacitet eller dataflöde, eller som körs under långa tidsperioder, får du det mest kostnadseffektiva alternativet genom att köpa en reservation. När du till exempel kontinuerligt kör fyra instanser av en tjänst utan en reservation debiteras du enligt priserna för betala per användning. När du köper en reservation för dessa resurser får du reservationsrabatten omedelbart. Resurserna debiteras inte längre enligt priserna för betala per användning.
 
 ## <a name="charges-covered-by-reservation"></a>Avgifter som omfattas av reservation
 
 Tjänstplaner:
 
 - **Reserverad VM-instans** – en reservation omfattar bara den virtuella datorns beräkningskostnader. Den omfattar inte avgifter för ytterligare programvara, nätverk eller lagring.
+- **Reserverad kapacitet i Azure Storage** – En reservation omfattar lagringskapacitet för standardlagringskonton för blob-lagring eller Azure Data Lake Gen2-lagring. Reservationen omfattar inte bandbredds- eller transaktionsavgifter.
 - **Reserverad Azure Cosmos DB-kapacitet** – en reservation omfattar det dataflöde som allokeras för dina resurser. Den omfattar inte avgifter för lagring och nätverk.
 - **SQL Database-reserverad v-kärna** – endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
 - **SQL Data Warehouse** – en reservation omfattar cDWU-användning. En reservation omfattar inte lagrings- eller nätverksavgifter som är kopplade till SQL Data Warehouse-användningen.
@@ -134,6 +135,7 @@ När du köper en reservation kan rabatten tillämpas på andra instanser med at
 Tjänstplaner:
 
 - Reserverade VM-instanser: När du köper reservationen och väljer **Optimerad för flexibel instansstorlek** beror rabattens täckning på den VM-storlek som du väljer. Reservationen kan tillämpas på de virtuella datorernas (VM) storlekar i seriegrupp med samma storlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Reserverad kapacitet i Azure Storage: Du kan köpa reserverad kapacitet för Azure Storage-standardkonton på 100 TiB eller 1 PiB per månad. Reserverad kapacitet i Azure Storage är tillgänglig i alla regioner för alla åtkomstnivåer (frekvent, lågfrekvent eller arkiv) och för alla replikeringsalternativ (LRS, GRS eller ZRS).
 - Reserverad SQL Database-kapacitet: Rabattens täckning beror på vilken prestandanivå du väljer. Mer information finns i artikeln om [hur en Azure-reservationsrabatt tillämpas](billing-understand-reservation-charges.md).
 - Reserverad Azure Cosmos DB-kapacitet: Rabattens täckning beror på det etablerade dataflödet. Mer information finns i artikeln om [hur en Azure Cosmos DB-reservationsrabatt tillämpas](billing-understand-cosmosdb-reservation-charges.md).
 

@@ -1,41 +1,41 @@
 ---
-title: Självstudie – Skapa ett virtuellt Hubbs nätverk i Azure med terraform
-description: Självstudie som illustrerar hur du skapar ett hubb-VNet i Azure som fungerar som en gemensam kopplings punkt mellan andra nätverk
+title: Självstudie – Skapa ett virtuellt Hubbs nätverk i Azure med hjälp av terraform
+description: Självstudie som illustrerar hur du skapar ett virtuellt Hubbs nätverk i Azure som fungerar som en gemensam kopplings punkt mellan andra nätverk
 ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 231f8c6b98db785f3ef155af271be7e354998d54
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 25c4d6fa881f7ec6c96dd5ea7c935544374bc57d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969426"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077707"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-in-azure-using-terraform"></a>Självstudie: skapa ett virtuellt hubb nätverk i Azure med terraform
+# <a name="tutorial-create-a-hub-virtual-network-in-azure-by-using-terraform"></a>Självstudie: skapa ett virtuellt hubb nätverk i Azure med hjälp av terraform
 
-Det virtuella hubb-nätverket (VNet) fungerar som central punkt för anslutning till det lokala nätverket. Det virtuella nätverket är värd för delade tjänster som förbrukas av arbets belastningar som finns i eker-virtuella nätverk. I demonstrations syfte är inga delade tjänster implementerade i den här självstudien.
+Det virtuella hubb nätverket fungerar som central punkt för anslutning till det lokala nätverket. Det virtuella nätverket är värd för delade tjänster som förbrukas av arbets belastningar som finns i de virtuella eker-nätverken. I demonstrations syfte är inga delade tjänster implementerade i den här självstudien.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Använd HCL (HashiCorp Language) för att implementera hubbens VNet i hubben för nav-eker
-> * Använd terraform för att skapa en Hubbs hopp ruta för virtuell dator
-> * Använd terraform för att skapa hubb för virtuella privata nätverk Gateway
-> * Använd terraform för att skapa hubb och lokala gateway-anslutningar
+> * Använd HCL (HashiCorp Configuration Language) för att implementera det virtuella hubb nätverket i en nav-och-eker-topologi.
+> * Använd terraform för att skapa en nav-hoppsida för virtuella datorer.
+> * Använd terraform för att skapa en hubb för virtuell privat nätverksgateway.
+> * Använd terraform för att skapa hubb och lokala gateway-anslutningar.
 
 ## <a name="prerequisites"></a>Krav
 
-1. [Skapa en nav-och eker hybrid nätverkstopologi med terraform i Azure](./terraform-hub-spoke-introduction.md).
-1. [Skapa lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md).
+1. [Skapa en topologi för topologi-och-eker hybrid nätverk med terraform i Azure](./terraform-hub-spoke-introduction.md).
+1. [Skapa ett lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
 Hubbs nätverket består av följande komponenter:
 
-- Hubb virtuellt nätverk
-- Hubb för virtuell nätverksgateway
+- Ett virtuellt hubb nätverk
+- En hubb för virtuell nätverksgateway
 - Hubb Gateway-anslutningar 
 
 Följande konfigurations fil för terraform definierar resurserna:
@@ -52,13 +52,13 @@ Följande konfigurations fil för terraform definierar resurserna:
     cd clouddrive
     ```
 
-1. Ändra sökvägen till den nya katalogen:
+1. Ändra kataloger till den nya katalogen.
 
     ```bash
     cd hub-spoke
     ```
 
-## <a name="declare-the-hub-vnet"></a>Deklarera hubbens VNet
+## <a name="declare-the-hub-virtual-network"></a>Deklarera det virtuella hubb nätverket
 
 Skapa konfigurations filen terraform som deklarerar det virtuella hubb nätverket.
 
@@ -226,9 +226,9 @@ Skapa konfigurations filen terraform som deklarerar det virtuella hubb nätverke
     }
     ```
     
-1. Spara filen och avsluta redigeraren.
+3. Spara filen och avsluta redigeraren.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Skapa en hubb för virtuella nätverk med terraform i Azure](./terraform-hub-spoke-hub-nva.md))
+> [Skapa en hubb för virtuella nätverk med terraform i Azure](./terraform-hub-spoke-hub-nva.md)

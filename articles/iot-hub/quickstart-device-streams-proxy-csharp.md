@@ -1,5 +1,5 @@
 ---
-title: Snabb start för Azure C# IoT Hub enhets STRÖMMAR för SSH och RDP (för hands version) | Microsoft Docs
+title: Snabb start för Azure C# IoT Hub enhets STRÖMMAR för SSH och RDP
 description: I den här snabb starten kör du två C# exempel program som aktiverar SSH-och RDP-scenarier över en IoT Hub enhets ström.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: d84a20a554308e1705c304a18062a4a1d762a72b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d131e0112070dcc60e601b2859e8c9df8d40764a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901433"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084355"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med C# hjälp av ett proxy-program (för hands version)
 
@@ -26,7 +26,7 @@ Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förha
 
 Den här artikeln beskriver först inställningarna för SSH (med port 22) och beskriver hur du ändrar installations port för RDP. Eftersom enhets strömmar är program-och protokoll-oberoende kan samma exempel ändras för att hantera andra typer av program trafik. Ändringen avser vanligt vis bara att ändra kommunikations porten till den som används av det avsedda programmet.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Följande bild illustrerar hur enhets lokala och lokala proxy-program i det här exemplet möjliggör slut punkt till slut punkt mellan SSH-klienten och SSH-daemon-processer. Här förutsätter vi att Daemon körs på samma enhet som enhetens lokala proxy-program.
 
@@ -51,9 +51,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * USA, centrala
+  * Centrala USA
   * Centrala USA-EUAP
-  * Asien, sydöstra
+  * Sydostasien
   * Europa, norra
 
 * De två exempel programmen som du kör i den här snabb starten är C#skrivna. Du behöver .NET Core SDK 2.1.0 eller senare på din utvecklings dator.
@@ -190,7 +190,7 @@ Konsol utmatning på tjänst sidan (tjänstens lokala proxy-program lyssnar på 
 
 ![Utdata från tjänst-lokalt proxy-program](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Konsol utdata i programmet för enhets lokalt proxy som ansluter till SSH-daemon på IP-adressen *: 22*:
+Konsol utdata i programmet för enhets lokalt proxy, som ansluter till SSH-daemonen på *ip_address: 22*:
 
 ![Enhet – lokalt proxyprogram utdata](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

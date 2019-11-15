@@ -1,21 +1,19 @@
 ---
-title: Kontinuerlig distribution för Azure Functions | Microsoft Docs
+title: Löpande distribution för Azure Functions
 description: Använd funktionerna för kontinuerlig distribution i Azure App Service för att publicera dina funktioner.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/25/2016
+ms.date: 09/25/2019
 ms.author: glenga
-ms.openlocfilehash: fb3cd885c0a16b3dc3a79150043b25cb271040bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dae75153cffbf2f0e836e1a28b78a9f05f54e6e0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097102"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091184"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
 
@@ -27,7 +25,7 @@ Kontinuerlig distribution är ett lämpligt alternativ för projekt där du inte
 * [GitHub](https://github.com)
 * [Bitbucket](https://bitbucket.org/)
 
-Enhets distributionen för funktioner i Azure är Function-appen. Alla funktioner i en Function-app distribueras samtidigt. När du aktiverar kontinuerlig distribution konfigureras åtkomst till funktions kod i Azure Portal som skrivskyddad eftersom källan till sanningen är inställt på någon annan stans.
+Enhets distributionen för funktioner i Azure är Function-appen. Alla funktioner i en Function-app distribueras samtidigt. När du aktiverar kontinuerlig distribution konfigureras åtkomst till funktions kod i Azure Portal som *skrivskyddad* eftersom källan till sanningen är inställt på någon annan stans.
 
 ## <a name="requirements-for-continuous-deployment"></a>Krav för kontinuerlig distribution
 
@@ -35,11 +33,14 @@ För att kontinuerlig distribution ska lyckas måste katalog strukturen vara kom
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
+>[!NOTE]  
+> Kontinuerlig distribution stöds ännu inte för Linux-appar som körs i en förbruknings plan. 
+
 ## <a name="credentials"></a>Konfigurera kontinuerlig distribution
 
 Slutför de här stegen för att konfigurera kontinuerlig distribution för en befintlig Function-app. Stegen demonstrerar integreringen med en GitHub-lagringsplats, men liknande steg gäller för Azure databaser eller andra käll kods centraler.
 
-1. I din Function-app i [Azure Portal](https://portal.azure.com)väljer du **Platform features** > **Deployment Center**.
+1. I din Function-app i [Azure Portal](https://portal.azure.com)väljer du **plattforms funktioner** > **Deployment Center**.
 
     ![Öppna distributions Center](./media/functions-continuous-deployment/platform-features.png)
 
@@ -55,8 +56,8 @@ Slutför de här stegen för att konfigurera kontinuerlig distribution för en b
 
 4. Välj en av följande build-providers:
 
-    * **App Service build-tjänst**: Bäst när du inte behöver en version eller om du behöver en allmän version.
-    * **Azure-pipeliner (för hands version)** : Bäst när du behöver mer kontroll över versionen. Den här providern är för närvarande en för hands version.
+    * **App Service Build Service**: bäst när du inte behöver en version eller om du behöver en allmän version.
+    * **Azure-pipeliner (för hands version)** : bäst när du behöver mer kontroll över versionen. Den här providern är för närvarande en för hands version.
 
     ![Välj en build-Provider](./media/functions-continuous-deployment/build.png)
 
@@ -78,7 +79,7 @@ När processen är färdig distribueras all kod från den angivna källan till d
 
 Om du redan har skrivit funktioner i [Azure Portal](https://portal.azure.com) och du vill ladda ned innehållet i din app innan du växlar till kontinuerlig distribution, går du till fliken **Översikt** i din Function-app. Välj knappen **Hämta appens innehåll** .
 
-![Ladda ned appinnehåll](./media/functions-continuous-deployment/download.png)
+![Hämta app-innehåll](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > När du har konfigurerat kontinuerlig integrering kan du inte längre redigera dina källfiler i functions-portalen.

@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery fel sökning av problem med Azure-till-Azure-replikering | Microsoft Docs
+title: Felsöka Azure VM-replikering i Azure Site Recovery
 description: Felsök fel vid replikering av virtuella Azure-datorer för haveri beredskap.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: baf7a21d04e8f9bcf86c67abde302a558dfba01c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910388"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084928"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
 
@@ -81,7 +80,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Om Symantecs CA-certifikat inte hittas kör du följande kommando för att ladda ned filen. Kontrol lera om det finns några fel och följ rekommenderade åtgärder för nätverks fel.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Kontrol lera om Baltimore rot certifikat finns:
 
@@ -89,9 +88,9 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Om Baltimore inte hittas kör du det här kommandot för att ladda ned certifikatet:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
 
-1. Kontrol lera om DigiCert_Global_Root_CA-certifikatet finns:
+1. Kontrol lera om DigiCert_Global_Root_CA certifikatet finns:
 
     **# LS DigiCert_Global_Root_CA. pem**
 
@@ -99,7 +98,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
     **antal wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt**
 
-    **# openssl x509-in DigiCertGlobalRootCA. CRT-informera der-PEM-out DigiCert_Global_Root_CA. pem**
+    **# openssl x509-in DigiCertGlobalRootCA. CRT-informera der-PEM DigiCert_Global_Root_CA. pem**
 
 1. Kör omhash-skriptet för att uppdatera certifikatets ämnes-hashar för de nyligen hämtade certifikaten:
 
@@ -155,7 +154,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
         **# ls-l 653b494a. 0 b204d74a. 0 3513523f. 0**
 
-    - Output
+    - Resultat
 
         `-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0`
 
@@ -167,7 +166,7 @@ Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 För att Site Recovery replikering ska fungera krävs utgående anslutning från den virtuella datorn till vissa URL-adresser eller IP-intervall. Om den virtuella datorn finns bakom en brandvägg eller använder regler för nätverkssäkerhetsgrupper (NSG) för att styra utgående anslutningar, kan du står inför ett av de här problemen.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Ärende 1: Det gick inte att registrera den virtuella Azure-datorn med Site Recovery (felkod 151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problem 1: det gick inte att registrera den virtuella Azure-datorn med Site Recovery (felkod 151195)
 
 #### <a name="possible-cause"></a>Möjlig orsak 
 
@@ -177,13 +176,13 @@ Det här problemet uppstår ofta när du har växlat över den virtuella datorn 
 
 #### <a name="fix-the-problem"></a>Åtgärda problemet
 
-Om du använder en anpassad DNS måste du kontrol lera att DNS-servern är tillgänglig från området för katastrof återställning. Om du vill ta reda på om du har en anpassad DNS går du till nätverks >  **-DNS-servrar**för *haveri beredskap*på den virtuella datorn.
+Om du använder en anpassad DNS måste du kontrol lera att DNS-servern är tillgänglig från området för katastrof återställning. Om du vill ta reda på om du har en anpassad DNS på den virtuella datorn går du till *Disaster Recovery network* > **DNS-servrar**.
 
 ![Lista med anpassade DNS-servrar](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
 
 Försök att öppna DNS-servern från den virtuella datorn. Om servern inte är tillgänglig kan du göra den tillgänglig antingen genom att redundansväxla DNS-servern eller genom att skapa en webbplats som är mellan DR-nätverket och DNS.
 
-### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Ärende 2: Site Recovery konfigurationen misslyckades (felkod 151196)
+### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problem 2: Site Recovery konfigurationen misslyckades (felkod 151196)
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
@@ -197,7 +196,7 @@ Om du använder Azure NSG-regler eller brand Väggs-proxy för att kontrol lera 
 > [!NOTE]
 > Om de virtuella datorerna ligger bakom en intern belastningsutjämnare som är *standard* har belastningsutjämnaren som standard inte åtkomst till IP-intervall för Office 365 (det vill säga login.microsoftonline.com). Ändra antingen den interna belastnings Utjämnings typen till *grundläggande* eller skapa utgående åtkomst enligt beskrivningen i artikeln [Konfigurera belastnings utjämning och utgående regler](https://aka.ms/lboutboundrulescli).
 
-### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problem 3: Site Recovery konfigurationen misslyckades (felkod 151197)
+### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problem 3: Site Recovery konfiguration misslyckades (felkod 151197)
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
@@ -207,7 +206,7 @@ Det går inte att upprätta anslutningen till Site Recovery tjänst slut punkter
 
 Site Recovery kräver åtkomst till [Site Recovery IP-intervall](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), beroende på region. Kontrol lera att de IP-adressintervall som krävs är tillgängliga från den virtuella datorn.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Ärende 4: Azure-till-Azure-replikeringen misslyckades när nätverks trafiken går via en lokal proxyserver (felkod 151072)
+### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problem 4: Azure-till-Azure-replikeringen misslyckades när nätverks trafiken går via en lokal proxyserver (felkod 151072)
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
@@ -220,7 +219,7 @@ Mobilitets tjänst agenten identifierar proxyinställningarna från Internet Exp
 Om du föredrar att bara ange proxyn för mobilitets tjänsten kan du ange proxyinformation i filen ProxyInfo. conf på följande platser:
 
 - **Linux**:/usr/local/InMage/config/
-- **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config
+- **Windows**: C:\Programdata\Microsoft Azure Site Recovery\Config
 
 I ProxyInfo. conf anger du proxyinställningarna i följande initierings fil format:
 
@@ -255,7 +254,7 @@ Kontrol lera att data diskarna har initierats och försök sedan igen.
 
 - **Windows**: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 
-- **Linux**: [Initiera en ny data disk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+- **Linux**: [initiera en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Kontakta supporten om problemet kvarstår.
 
@@ -272,14 +271,14 @@ Om du vill göra replikeringsstatus för den virtuella datorn felfritt igen kan 
 
 #### <a name="to-protect-the-disks"></a>Skydda diskarna
 
-1. Gå till **replikerade objekt** > namn > **diskar**för*virtuella datorer*.
+1. Gå till **replikerade objekt** > *VM-namn* > **diskar**.
 1. Välj den oskyddade disken och välj sedan **Aktivera replikering**:
 
     ![Aktivera replikering på VM-diskar](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 
 #### <a name="to-dismiss-the-warning"></a>Ignorera varningen
 
-1. Gå till **replikerade objekt** > *namn på virtuell dator*.
+1. Gå till **replikerade objekt** > *VM-namn*.
 1. Välj varningen i avsnittet **Översikt** och välj sedan **OK**.
 
     ![Ignorera varning om ny disk](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
@@ -294,7 +293,7 @@ Du kan ignorera den här varningen om du aldrig planerar att skydda den här vir
 > Om du inte gör rensningen:
 >
 > - När du aktiverar replikering med hjälp av Recovery Services valvet visas inte den virtuella datorn.
-> - Om du försöker skydda den**virtuella datorn med** > hjälp av**haveri beredskap**för en **virtuell dator** > Miss fungerar åtgärden med meddelandet "det går inte att aktivera replikering på grund av befintliga inaktuella resurs länkar på den virtuella datorn. "
+> - Om du försöker skydda den virtuella datorn med hjälp av den **virtuella datorns** > **Inställningar** > **haveri beredskap**, Miss Miss fungerar åtgärden med meddelandet "det går inte att aktivera replikering på grund av befintliga INAKTUELLA resurs länkar på den virtuella datorn".
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
@@ -336,17 +335,17 @@ En föråldrad konfiguration kan ske på en virtuell Azure-dator om du har aktiv
 
 ## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>Det går inte att visa den virtuella Azure-datorn eller resurs gruppen för valet i jobbet "Aktivera replikering"
 
-### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Orsak 1: Resurs gruppen och den virtuella käll datorn finns på olika platser
+### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Orsak 1: resurs gruppen och den virtuella käll datorn finns på olika platser
 
 Site Recovery kräver för närvarande resurs gruppen för käll regionen och de virtuella datorerna på samma plats. Om de inte är det kan du inte hitta den virtuella datorn eller resurs gruppen när du försöker tillämpa skyddet.
 
-Som en lösning kan du aktivera replikering från den virtuella datorn i stället för Recovery Services valvet. Gå till **käll dator** > **Egenskaper** > **haveri återställning** och aktivera replikeringen.
+Som en lösning kan du aktivera replikering från den virtuella datorn i stället för Recovery Services valvet. Gå till **käll-VM** > **Egenskaper** > **haveri beredskap** och aktivera replikeringen.
 
-### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Orsak 2: Resurs gruppen tillhör inte den valda prenumerationen
+### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Orsak 2: resurs gruppen tillhör inte den valda prenumerationen
 
 Du kanske inte kan hitta resurs gruppen vid tidpunkten för skyddet om resurs gruppen inte ingår i den valda prenumerationen. Kontrol lera att resurs gruppen tillhör den prenumeration som du använder.
 
-### <a name="cause-3-stale-configuration"></a>Orsak 3: Föråldrad konfiguration
+### <a name="cause-3-stale-configuration"></a>Orsak 3: inaktuell konfiguration
 
 Du kanske inte ser den virtuella datorn som du vill aktivera för replikering om en inaktuell Site Recovery-konfiguration har lämnats på den virtuella Azure-datorn. Det här tillståndet kan inträffa om du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och sedan:
 
@@ -369,11 +368,11 @@ Du kanske inte ser den virtuella datorn som du vill aktivera för replikering om
 
 ## <a name="unable-to-select-a-virtual-machine-for-protection"></a>Det går inte att välja en virtuell dator för skydd
 
-### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Orsak 1: Ett tillägg har installerats på den virtuella datorn i ett tillstånd där det inte gick att svara
+### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Orsak 1: den virtuella datorn har ett tillägg installerat i ett tillstånd där det inte gick att ange eller inte svarar
 
-Gå till > **Inställningar**förVirtualMachines-tilläggochSökeftereventuellatillägg > i felaktigt tillstånd. Avinstallera eventuella misslyckade tillägg och försök sedan igen för att skydda den virtuella datorn.
+Gå till **virtual machines** > **Inställningar** > **tillägg** och Sök efter eventuella tillägg i ett felaktigt tillstånd. Avinstallera eventuella misslyckade tillägg och försök sedan igen för att skydda den virtuella datorn.
 
-### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Orsak 2: Etablerings statusen för den virtuella datorn är inte giltig
+### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Orsak 2: etablerings statusen för den virtuella datorn är inte giltig
 
 Se fel söknings stegen i [etablerings statusen för den virtuella datorn är inte giltig](#the-vms-provisioning-state-is-not-valid-error-code-150019)längre fram i den här artikeln.
 
@@ -394,21 +393,21 @@ Om du vill aktivera replikering på den virtuella datorn måste etablerings stat
 
 ## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Det går inte att välja den virtuella mål datorn (fliken nätverks val är inte tillgänglig)
 
-### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Orsak 1: Din virtuella dator är ansluten till ett nätverk som redan har mappats till ett mål nätverk
+### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Orsak 1: din virtuella dator är ansluten till ett nätverk som redan har mappats till ett mål nätverk
 
 Om den virtuella käll datorn ingår i ett virtuellt nätverk och en annan virtuell dator från samma virtuella nätverk redan har mappats till ett nätverk i mål resurs gruppen, är List rutan nätverks val inte tillgänglig (visas nedtonad) som standard.
 
 ![Listan över nätverks val är inte tillgänglig](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Orsak 2: Du har tidigare skyddat den virtuella datorn med hjälp av Site Recovery och sedan inaktiverade replikeringen
+### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Orsak 2: du har tidigare skyddat den virtuella datorn med hjälp av Site Recovery och sedan inaktiverade replikeringen
 
 Om du inaktiverar replikering av en virtuell dator tas inte nätverks mappningen bort. Mappningen måste tas bort från det Recovery Services valv där den virtuella datorn skyddades. Gå till *Recovery Services valv* > **Site Recovery infrastruktur** > **nätverks mappning**.
 
-![Ta bort nätverksmappning](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+![Ta bort nätverks mappning](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 
 Mål nätverket som konfigurerades under haveri beredskap kan ändras efter den första installationen, efter att den virtuella datorn har skyddats:
 
-![Ändra nätverksmappning](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+![Ändra nätverks mappning](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
 
 Observera att ändringar av nätverks mappning påverkar alla skyddade virtuella datorer som använder samma nätverks mappning.
 
@@ -456,7 +455,7 @@ Följande exempel är rader från GRUB-filer där enhets namn (visas i fetstil) 
 
 - Fil/Boot/grub2/grub.cfg
 
-  > Linux/Boot/vmlinuz-3.12.49-11-default **root =/dev/sda2** $ {extra_cmdline} **Resume =/dev/sda1** Started = tyst tyst showopts
+  > Linux/Boot/vmlinuz-3.12.49-11-default **root =/dev/sda2** $ {extra_cmdline} **Resume =/dev/sda1** Starter = tyst tyst showopts
 
 - Fil:/boot/grub/menu.lst
 
@@ -467,7 +466,7 @@ Följande exempel är rader från GRUB-filer där enhets namn (visas i fetstil) 
 
 Ersätt varje enhets namn med motsvarande UUID:
 
-1. Hitta enhetens UUID genom att köra kommandot **blkid** ***enhets namn***. Exempel:
+1. Hitta enhetens UUID genom att köra kommandot **blkid** ***enhets namn***. Till exempel:
 
     ```
     blkid /dev/sda1
@@ -476,7 +475,7 @@ Ersätt varje enhets namn med motsvarande UUID:
     /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Ersätt enhets namnet med dess UUID i format **roten = UUID**=*UUID* och **återuppta = UUID**=*UUID*. Till exempel ser raden från/boot/grub/menu.lst (diskuterad tidigare) ut så här:
+1. Ersätt enhets namnet med dess UUID i formaten **root = UUID**=*UUID* och **Resume = UUID**=*UUID*. Till exempel ser raden från/boot/grub/menu.lst (diskuterad tidigare) ut så här:
 
     > kernel/Boot/vmlinuz-3.0.101-63-default **root = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **Resume = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** Starter = tyst crashkernel = 256M-: 128M showopts VGA = 0x314
 
@@ -490,7 +489,7 @@ Konfigurationsfilerna för GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/Boot/g
 
 - Fil:/boot/grub2/grub.cfg på RHEL7:
 
-    > linux16/vmlinuz-3.10.0-957.el7.x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **Rd. LVM. lv = rootvg/root Rd. LVM. lv = rootvg/swap** rhgb quiet lang = en_US. UTF-8
+    > linux16/vmlinuz-3.10.0-957.el7. x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **Rd. LVM. lv = rootvg/root Rd. LVM. lv = rootvg/byte** RHGB quiet LANG = en_US. UTF-8
 
 - Fil:/etc/default/grub på RHEL7:
 
@@ -498,7 +497,7 @@ Konfigurationsfilerna för GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/Boot/g
 
 - Fil:/boot/grub/menu.lst på RHEL6:
 
-    > kernel/vmlinuz-2.6.32-754.EL6.x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = Auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = PC-= US **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb quiet
+    > kernel/vmlinuz-2.6.32-754.EL6. x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = Auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = PC-= US **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb quiet
 
 I varje exempel visar delen i fetstil att GRUB måste identifiera två LVM-enheter med namnen "rot" och "Växla" från volym gruppen "rootvg".
 

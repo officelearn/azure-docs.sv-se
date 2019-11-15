@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c9dbc24aa93b1f2c89b23120abb018c920835d8d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 612da322e0d248f9b0000c8f0006893b87b74e44
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896985"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084649"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -36,7 +36,7 @@ I Azure Storage finns dessa datatjänster:
 
 Varje tjänst nås via ett lagringskonto. För att komma igång läser du [Skapa ett lagringskonto](storage-quickstart-create-account.md).
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blobb-lagring
 
 Azure Blob Storage är Microsofts objektlagringslösning för molnet. Blob Storage är optimerat för att lagra stora mängder ostrukturerade data, exempelvis text eller binära data. 
 
@@ -130,7 +130,7 @@ Mer information om haveriberedskap finns i avsnittet om [haveriberedskap och red
 
 Du kan flytta data till eller från Azure Storage på flera olika sätt. Vilket alternativ du väljer beror på storleken på datauppsättningen och din nätverksbandbredd. Mer information finns i [Välja en Azure-lösning för dataöverföring](storage-choose-data-transfer-solution.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Detaljerad information om priser för Azure Storage finns på [prissidan](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -143,7 +143,7 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 - [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
 - [Azure Storage klient bibliotek för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Azure Storage klient bibliotek för Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Azure Storage klient bibliotek för Node. js](https://docs.microsoft.com/javascript/api/azure-storage)
+- [Azure Storage klient bibliotek för Node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage)
 - [Azure Storage klient bibliotek för python](https://github.com/Azure/azure-storage-python)
 - [Azure Storage klient bibliotek för PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage klient bibliotek för ruby](https://github.com/Azure/azure-storage-ruby)

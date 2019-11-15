@@ -1,205 +1,203 @@
 ---
-title: Konfigurera haveriberedskap för Active Directory och DNS med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du implementerar en lösning för haveriberedskap för Active Directory och DNS med Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Konfigurera katastrof återställning Active Directory/DNS med Azure Site Recovery
+description: Den här artikeln beskriver hur du implementerar en katastrof återställnings lösning för Active Directory och DNS med Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038862"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084590"
 ---
-# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera haveriberedskap för Active Directory och DNS
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera katastrof återställning för Active Directory och DNS
 
-Företagsprogram som SharePoint, Dynamics AX och SAP beror på Active Directory och DNS-infrastrukturen ska fungera korrekt. När du konfigurerar haveriberedskap för program, behöver du ofta att återställa Active Directory och DNS innan du återställer andra programkomponenter, för att säkerställa att rätt programfunktionen.
+Företags program som SharePoint, Dynamics AX och SAP är beroende av Active Directory och en DNS-infrastruktur för att fungera korrekt. När du konfigurerar haveri beredskap för program, behöver du ofta återställa Active Directory och DNS innan du återställer andra program komponenter, för att säkerställa korrekt program funktion.
 
-Du kan använda [Site Recovery](site-recovery-overview.md) att skapa en haveriberedskapsplan för Active Directory. När avbrott uppstår kan initiera du redundans. Du kan ha Active Directory dig och som körs i ett par minuter. Om du har distribuerat Active Directory för flera program på din primära plats, till exempel kan för SharePoint och SAP, du växla över den fullständiga platsen. Du kan först växlar över Active Directory med Site Recovery. Växla över de andra programmen, med programspecifika återställningsplaner.
+Du kan använda [Site Recovery](site-recovery-overview.md) för att skapa en katastrof återställnings plan för Active Directory. När ett avbrott inträffar kan du initiera en redundansväxling. Du kan ha Active Directory igång på några minuter. Om du har distribuerat Active Directory för flera program på den primära platsen, till exempel för SharePoint och SAP, kanske du vill växla över hela platsen. Du kan först redundansväxla Active Directory att använda Site Recovery. Sedan växlar du över de andra programmen med hjälp av programspecifika återställnings planer.
 
-Den här artikeln beskriver hur du skapar en lösning för haveriberedskap för Active Directory. Den innehåller förutsättningar och instruktioner för redundans. Du bör känna till Active Directory och Site Recovery innan du börjar.
+Den här artikeln beskriver hur du skapar en katastrof återställnings lösning för Active Directory. Det innehåller nödvändiga komponenter och instruktioner för redundans. Du bör vara bekant med Active Directory och Site Recovery innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Om du replikerar till Azure, [förbereda Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, Azure Virtual Network, ett lagringskonto och ett Recovery Services-valv.
+* Om du replikerar till Azure förbereder du [Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, ett Azure-Virtual Network, ett lagrings konto och ett Recovery Services-valv.
 * Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
 
 ## <a name="replicate-the-domain-controller"></a>Replikera domänkontrollanten
 
-- Du måste ställa in Site Recovery-replikering på minst en virtuell dator som är värd för en domänkontrollant eller DNS.
-- Om du har flera domänkontrollanter i din miljö kan ställa du också in ytterligare en domänkontrollant på målplatsen. Ytterligare en domänkontrollant kan vara i Azure eller i ett sekundärt lokalt datacenter.
-- Om du har bara ett fåtal program och en domänkontrollant, kan du redundansväxla hela platsen. I det här fallet bör du använda Site Recovery replikera domänkontrollanten till målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). Du kan använda samma replikerad domänkontrollant eller DNS-dator för [redundanstest](#test-failover-considerations).
-- - Om du har många program och mer än en domänkontrollant i din miljö eller om du planerar att växla över några program samtidigt, förutom att replikera den domain controller virtuella datorn med Site Recovery, rekommenderar vi att du ställer in en ytterligare en domänkontrollant på målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). För [redundanstest](#test-failover-considerations), du kan använda en domänkontrollant som replikeras av Site Recovery. Du kan använda ytterligare en domänkontrollant på målplatsen för redundans.
+- Du måste konfigurera Site Recovery replikering på minst en virtuell dator som är värd för en domänkontrollant eller DNS.
+- Om du har flera domänkontrollanter i din miljö måste du också konfigurera ytterligare en domänkontrollant på mål platsen. Den ytterligare domänkontrollanten kan vara i Azure eller i ett sekundärt lokalt Data Center.
+- Om du bara har några få program och en domänkontrollant kanske du vill växla över hela platsen tillsammans. I det här fallet rekommenderar vi att du använder Site Recovery för att replikera domänkontrollanten till mål platsen (antingen i Azure eller i ett sekundärt lokalt Data Center). Du kan använda samma replikerade domänkontrollant eller virtuell DNS-dator för [redundanstest](#test-failover-considerations).
+- - Om du har många program och fler än en domänkontrollant i din miljö, eller om du planerar att redundansväxla ett fåtal program samtidigt, rekommenderar vi att du skapar en säkerhets kopia av den virtuella datorn för domänkontrollanten med Site Recovery. ytterligare en domänkontrollant på mål platsen (antingen i Azure eller i ett sekundärt lokalt Data Center). För [redundanstest](#test-failover-considerations)kan du använda den domänkontrollant som replikeras av Site Recovery. För redundans kan du använda ytterligare en domänkontrollant på mål platsen.
 
 ## <a name="enable-protection-with-site-recovery"></a>Aktivera skydd med Site Recovery
 
-Du kan använda Site Recovery för att skydda den virtuella dator som är värd för en domänkontrollant eller DNS.
+Du kan använda Site Recovery för att skydda den virtuella datorn som är värd för domänkontrollanten eller DNS.
 
 ### <a name="protect-the-vm"></a>Skydda den virtuella datorn
-Den domänkontrollant som replikeras med hjälp av Site Recovery används för [redundanstest](#test-failover-considerations). Kontrollera att den uppfyller följande krav:
+Den domänkontrollant som replikeras med hjälp av Site Recovery används för [redundanstest](#test-failover-considerations). Se till att den uppfyller följande krav:
 
-1. Domänkontrollanten är en global katalogserver.
-2. Domänkontrollanten ska vara FSMO-rollägare för roller som krävs under ett redundanstest. I annat fall dessa roller måste vara [tagit](https://aka.ms/ad_seize_fsmo) efter redundansen.
+1. Domänkontrollanten är en global katalog server.
+2. Domänkontrollanten ska vara FSMO-Rollens ägare för roller som behövs vid redundanstestningen. Annars måste dessa roller tas [över efter redundansväxlingen](https://aka.ms/ad_seize_fsmo) .
 
-### <a name="configure-vm-network-settings"></a>Konfigurera nätverksinställningar för virtuella datorer
-För den virtuella datorn som är värd för domänkontrollanten eller DNS i Site Recovery, konfigurerar du nätverksinställningar under den **beräkning och nätverk** inställningarna för den replikerade virtuella datorn. Detta säkerställer att den virtuella datorn är ansluten till rätt nätverk efter redundansväxling.
+### <a name="configure-vm-network-settings"></a>Konfigurera inställningar för virtuellt dator nätverk
+För den virtuella dator som är värd för domänkontrollanten eller DNS, i Site Recovery konfigurerar du nätverks inställningar under **beräknings-och nätverks** inställningarna för den replikerade virtuella datorn. Detta säkerställer att den virtuella datorn är ansluten till rätt nätverk efter redundansväxlingen.
 
 ## <a name="protect-active-directory"></a>Skydda Active Directory
 
 ### <a name="site-to-site-protection"></a>Plats-till-plats-skydd
-Skapa en domänkontrollant på den sekundära platsen. När du befordrar servern till en domänkontrollant, ange namnet på samma domän som används på den primära platsen. Du kan använda den **Active Directory-platser och tjänster** snapin-modulen kan konfigurera inställningar på länken platsobjektet som platserna ska läggas till. Du kan styra när replikeringen sker mellan två eller flera platser och hur ofta det inträffar genom att konfigurera inställningar på en plats. Mer information finns i [schemalägga replikering mellan platser](https://technet.microsoft.com/library/cc731862.aspx).
+Skapa en domänkontrollant på den sekundära platsen. När du befordrar servern till en roll för domänkontrollant anger du namnet på samma domän som används på den primära platsen. Du kan använda snapin-modulen **Active Directory platser och tjänster** för att konfigurera inställningar för plats länk objektet som platserna läggs till i. Genom att konfigurera inställningar på en plats länk kan du styra när replikeringen sker mellan två eller flera platser och hur ofta det inträffar. Mer information finns i [Schemalägga replikering mellan platser](https://technet.microsoft.com/library/cc731862.aspx).
 
-### <a name="site-to-azure-protection"></a>Plats-till-Azure-skydd
-Skapa först en domänkontrollant i en Azure-nätverk. När du befordrar servern till en domänkontrollant, kan du ange samma domännamn som används på den primära platsen.
+### <a name="site-to-azure-protection"></a>Skydd från plats till Azure
+Skapa först en domänkontrollant i ett virtuellt Azure-nätverk. När du befordrar servern till en roll för domänkontrollant anger du samma domän namn som används på den primära platsen.
 
-Konfigurera sedan om DNS-server för det virtuella nätverket använder DNS-server i Azure.
+Konfigurera sedan om DNS-servern för det virtuella nätverket så att den använder DNS-servern i Azure.
 
 ![Azure-nätverk](./media/site-recovery-active-directory/azure-network.png)
 
-### <a name="azure-to-azure-protection"></a>Azure till Azure-skydd
-Skapa först en domänkontrollant i en Azure-nätverk. När du befordrar servern till en domänkontrollant, kan du ange samma domännamn som används på den primära platsen.
+### <a name="azure-to-azure-protection"></a>Azure-till-Azure-skydd
+Skapa först en domänkontrollant i ett virtuellt Azure-nätverk. När du befordrar servern till en roll för domänkontrollant anger du samma domän namn som används på den primära platsen.
 
-Konfigurera sedan om DNS-server för det virtuella nätverket använder DNS-server i Azure.
+Konfigurera sedan om DNS-servern för det virtuella nätverket så att den använder DNS-servern i Azure.
 
-## <a name="test-failover-considerations"></a>Testa tänka på vid
-För att undvika påverkan på produktionsarbetsbelastningar kan inträffar testa redundans i ett nätverk som är isolerat från produktionsnätverket.
+## <a name="test-failover-considerations"></a>Överväganden vid testning av redundans
+För att undvika påverkan på produktions arbets belastningar sker redundanstest i ett nätverk som är isolerat från produktions nätverket.
 
-De flesta programmen kräver förekomsten av en domänkontrollant eller en DNS-server. Innan programmet växlar måste skapa du därför en domänkontrollant i det isolerade nätverket som ska användas för att testa redundans. Det enklaste sättet att göra detta är att använda Site Recovery för att replikera en virtuell dator som är värd för en domänkontrollant eller DNS. Kör ett redundanstest för den virtuella domain controller datorn innan du kör ett redundanstest av återställningsplanen för programmet. Här är hur du gör det:
+De flesta program kräver närvaro av en domänkontrollant eller en DNS-server. Innan programmet växlar över måste du därför skapa en domänkontrollant i det isolerade nätverket som ska användas för redundanstest. Det enklaste sättet att göra detta är att använda Site Recovery för att replikera en virtuell dator som är värd för en domänkontrollant eller DNS. Kör sedan ett redundanstest för den virtuella domänkontrollanten på den virtuella datorn innan du kör ett redundanstest för återställnings planen för programmet. Så här gör du:
 
-1. Använd Site Recovery till [replikera](vmware-azure-tutorial.md) den virtuella dator som är värd för en domänkontrollant eller DNS.
-2. Skapa ett isolerat nätverk. Alla virtuella nätverk som du skapar i Azure är isolerade från andra nätverk som standard. Vi rekommenderar att du använder samma IP-adressintervallet för det här nätverket som du använder i företagets nätverk. Aktivera inte plats-till-plats-anslutningen i det här nätverket.
-3. Ange en DNS-IP-adress i det isolerade nätverket. Använd IP-adressen som du förväntar dig DNS-virtuella datorn för att hämta. Om du replikerar till Azure, kan du ange IP-adressen för den virtuella datorn som används vid redundans. Ange IP-adressen i den replikerade virtuella datorn i den **beräkning och nätverk** inställningar, Välj den **mål-IP** inställningar.
+1. Använd Site Recovery för att [Replikera](vmware-azure-tutorial.md) den virtuella datorn som är värd för domänkontrollanten eller DNS.
+2. Skapa ett isolerat nätverk. Alla virtuella nätverk som du skapar i Azure är isolerade från andra nätverk som standard. Vi rekommenderar att du använder samma IP-adressintervall för det här nätverket som du använder i produktions nätverket. Aktivera inte plats-till-plats-anslutning i det här nätverket.
+3. Ange en DNS-IP-adress i det isolerade nätverket. Använd IP-adressen som du förväntar dig att den virtuella DNS-datorn ska hämta. Om du replikerar till Azure anger du IP-adressen för den virtuella dator som används vid redundansväxling. Ange IP-adressen i den replikerade virtuella datorn i inställningarna för **beräkning och nätverk** genom att välja **mål-IP-** inställningar.
 
-    ![Testning i Azure-nätverk](./media/site-recovery-active-directory/azure-test-network.png)
+    ![Azure test Network](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery försöker skapa virtuella datorer för testning i ett undernät med samma namn och genom att använda samma IP-adress som har angetts i den **beräkning och nätverk** inställningarna för den virtuella datorn. Om ett undernät med samma namn inte är tillgängligt i Azure-nätverk som har angetts för redundanstestning, skapas den virtuella testdatorn i alfabetisk ordning första undernätet.
+    > Site Recovery försöker skapa virtuella test datorer i ett undernät med samma namn och genom att använda samma IP-adress som anges i **beräknings-och nätverks** inställningarna för den virtuella datorn. Om ett undernät med samma namn inte är tillgängligt i det virtuella Azure-nätverket som anges för redundanstest, skapas den virtuella test datorn i det alfabetiskt första under nätet.
     >
-    > Om mål-IP är en del av det valda undernätet, försöker Site Recovery skapa virtuella testdatorn redundans med hjälp av IP-måladressen. Om mål-IP inte är en del av det valda undernätet, skapas virtuella testdatorn redundans med hjälp av nästa tillgängliga IP-Adressen i det valda undernätet.
+    > Om mål-IP-adressen är en del av det valda under nätet försöker Site Recovery skapa den virtuella datorn för redundanstest genom att använda mål-IP-adressen. Om mål-IP-adressen inte är en del av det valda under nätet skapas den virtuella datorn för redundanstest genom att använda nästa tillgängliga IP-adress i det valda under nätet.
     >
     >
 
 ### <a name="test-failover-to-a-secondary-site"></a>Testa redundans till en sekundär plats
 
-1. Om du replikerar till en annan lokal plats och du använder DHCP, [konfigurera DNS och DHCP för att testa redundans](hyper-v-vmm-test-failover.md#prepare-dhcp).
-2. Göra en redundanstestning av domain controller virtuell dator som körs i det isolerade nätverket. Använd den senaste tillgängliga *programkonsekvent* återställningspunkt av domain controller virtuell dator till gör redundanstestningen.
-3. Kör ett redundanstest för den återställningsplan som innehåller virtuella datorer som programmet körs på.
-4. När testet är klart, *Rensa redundanstestet* på domain controller virtuella datorn. Det här steget tar bort den domänkontrollant som har skapats för att testa redundans.
+1. Om du replikerar till en annan lokal plats och använder DHCP [konfigurerar du DNS och DHCP för redundanstest](hyper-v-vmm-test-failover.md#prepare-dhcp).
+2. Gör ett redundanstest för den virtuella domänkontrollanten på den virtuella datorn som körs i det isolerade nätverket. Använd den senaste tillgängliga *programkonsekventa* återställnings punkten för den virtuella domänkontrollanten för att utföra redundanstest.
+3. Kör ett redundanstest för återställnings planen som innehåller virtuella datorer som programmet körs på.
+4. När testningen är klar *rensar du redundanstest* på den virtuella domänkontrollanten. Det här steget tar bort domänkontrollanten som skapades för redundanstest.
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Ta bort referenser till andra domänkontrollanter
-När du initierar ett redundanstest innehåller inte alla domänkontrollanter i testnätverket. Om du vill ta bort referenser till andra domänkontrollanter som finns i produktionsmiljön, du kan behöva [överta FSMO Active Directory-roller](https://aka.ms/ad_seize_fsmo) och gör [metadataborttagning](https://technet.microsoft.com/library/cc816907.aspx) för domänkontrollanter som saknas .
+När du startar en redundanstest ska du inte ta med alla domänkontrollanter i test nätverket. Om du vill ta bort referenser till andra domänkontrollanter som finns i produktions miljön kan du behöva ta [fsmo Active Directory-roller](https://aka.ms/ad_seize_fsmo) och göra [metadata-rensning](https://technet.microsoft.com/library/cc816907.aspx) för domän kontrollers som saknas.
 
 
-### <a name="issues-caused-by-virtualization-safeguards"></a>Problem som orsakas av skyddsmekanismerna för virtualisering
+### <a name="issues-caused-by-virtualization-safeguards"></a>Problem som orsakas av virtualiseringsbaserad skydd
 
 > [!IMPORTANT]
-> Vissa av de konfigurationer som beskrivs i det här avsnittet är inte standard- eller standard domain controller konfigurationer. Om du inte vill göra dessa ändringar till en domänkontrollant för produktion, kan du skapa en domänkontrollant som är dedikerad för Site Recovery ska använda för att testa redundans. Dessa bara göra ändringar i domänkontrollanten.  
+> Några av de konfigurationer som beskrivs i det här avsnittet är inte standardkonfigurationer för domänkontrollanten eller standard. Om du inte vill göra dessa ändringar i en produktionsavdelning kan du skapa en domänkontrollant som är dedikerad för Site Recovery ska användas för redundanstest. Gör dessa ändringar endast på den domänkontrollanten.  
 >
 >
 
-Från och med Windows Server 2012 [ytterligare säkerhetsåtgärder som är inbyggda i Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Dessa skydd hjälper till att skydda virtualiserade domänkontrollanter mot USN återställningar om den underliggande hypervisor-plattformen stöder **VM-Generationsid**. Azure stöder **VM-Generationsid**. Därför har domänkontrollanter som kör Windows Server 2012 eller senare på Azure-datorer dessa ytterligare säkerhetsåtgärder.
+Från och med Windows Server 2012 [är ytterligare skydd inbyggda i Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Dessa skydd bidrar till att skydda virtualiserade domänkontrollanter mot USN-återställningar om den underliggande hypervisor **-plattformen stöder VM-GenerationID**. Azure stöder **VM-GenerationID**. Därför har domänkontrollanter som kör Windows Server 2012 eller senare på virtuella Azure-datorer ytterligare skydd.
 
 
-När **VM-Generationsid** återställs, den **InvocationID** återställs även värdet för AD DS-databasen. Dessutom RID-poolen förkastas och sysvol-mappen markeras som icke-auktoritativ. Mer information finns i [introduktion till virtualisering av Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) och [på ett säkert sätt virtualisering av DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+När **VM-GenerationID** återställs återställs också **InvocationID** -värdet för AD DS-databasen. Dessutom ignoreras RID-poolen och SYSVOL-mappen markeras som icke-auktoritativ. Mer information finns i [Introduktion till Active Directory Domain Services virtualisering](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) och [säker virtualisera DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Redundansväxel till Azure kan orsaka **VM-Generationsid** att återställa. När du återställer **VM-Generationsid** utlöser ytterligare säkerhetsåtgärder när domain controller virtuella datorn startar i Azure. Detta kan resultera i en *betydande fördröjning* ska kunna logga in på den domain controller virtuella datorn.
+Växling till Azure kan orsaka att **VM-GenerationID** återställs. Om du återställer **VM-GenerationID** utlöses ytterligare skydd när domänkontrollantens virtuella dator startas i Azure. Detta kan leda till en *betydande fördröjning* i att kunna logga in på den virtuella domänkontrollanten.
 
-Eftersom den här domänkontrollanten används endast i ett redundanstest virtualiseringsskydd inte är nödvändiga. Att se till att den **VM-Generationsid** ändras inte värdet för domain controller virtuell dator kan du ändra värdet för följande DWORD till **4** i den lokala domänkontrollanten:
+Eftersom den här domänkontrollanten endast används i en redundanstest, är det inte nödvändigt att virtualisera skyddet. För att säkerställa att värdet för **VM-GenerationID** för den virtuella domänkontrollanten inte ändras kan du ändra värdet för följande DWORD till **4** i den lokala domänkontrollanten:
 
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start`
 
 
-#### <a name="symptoms-of-virtualization-safeguards"></a>Symtomen för virtualiseringsskydd
+#### <a name="symptoms-of-virtualization-safeguards"></a>Symptom på skydd av virtualisering
 
-Om efter ett redundanstest utlöses skyddsmekanismerna för virtualisering, visas en eller flera av följande:  
+Om Virtualization-skydd utlöses efter ett redundanstest, kan ett eller flera av följande symptom visas:  
 
-* Den **GenerationID** värdet ändras.
+* Värdet för **GenerationID** ändras.
 
     ![Ändring av generations-ID](./media/site-recovery-active-directory/Event2170.png)
 
-* Den **InvocationID** värdet ändras.
+* Värdet för **InvocationID** ändras.
 
     ![Ändring av anrops-ID](./media/site-recovery-active-directory/Event1109.png)
 
-* Mappen Sysvol och NETLOGON-resurser är inte tillgängliga.
+* SYSVOL-mappen och NETLOGON-resurser är inte tillgängliga.
 
-    ![Mappen Sysvol-resursen](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Resurs för SYSVOL-mapp](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs sysvol-mappen](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs SYSVOL-mapp](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR-databaser tas bort.
 
-    ![DFSR-databaser har tagits bort](./media/site-recovery-active-directory/Event2208.png)
+    ![DFSR-databaser tas bort](./media/site-recovery-active-directory/Event2208.png)
 
 
-### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Felsöka domänkontrollantproblem under redundanstest
+### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Felsöka problem med domänkontrollanten under testning av redundans
 
 > [!IMPORTANT]
-> Några av de konfigurationer som beskrivs i det här avsnittet är inte standard- eller standard domain controller konfigurationer. Om du inte vill göra dessa ändringar till en domänkontrollant för produktion, kan du skapa en domänkontrollant som är dedikerad för redundanstest för Site Recovery. Ändra bara till den dedikerade domänkontrollanten.  
+> Några av de konfigurationer som beskrivs i det här avsnittet är inte standardkonfigurationer för domänkontrollanter eller standard. Om du inte vill göra dessa ändringar i en produktionsavdelning kan du skapa en domänkontrollant som är dedikerad för Site Recovery redundanstest. Gör ändringarna endast på den dedikerade domänkontrollanten.  
 >
 >
 
-1. Kör följande kommando för att kontrollera om mappen sysvol och NETLOGON-mappen delas i Kommandotolken:
+1. I kommando tolken kör du följande kommando för att kontrol lera om SYSVOL-mappen och NETLOGON-mappen delas:
 
     `NET SHARE`
 
-2. Kör följande kommando för att se till att domänkontrollanten fungerar korrekt i Kommandotolken:
+2. Kör följande kommando i kommando tolken för att kontrol lera att domänkontrollanten fungerar korrekt:
 
     `dcdiag /v > dcdiag.txt`
 
-3. Leta efter följande text i utdataloggen. Texten bekräftar att domänkontrollanten fungerar korrekt.
+3. I utgående loggen letar du efter följande text. Texten bekräftar att domänkontrollanten fungerar korrekt.
 
-    * ”lyckades test anslutning”
-    * ”lyckades test annonserar”
-    * ”lyckades test MachineAccount”
+    * "godkänd test anslutning"
+    * "klar test annonsering"
+    * "test MachineAccount" har slutförts
 
-Om föregående villkor är uppfyllda är det troligt att domänkontrollanten fungerar korrekt. Om den inte gör du följande:
+Om föregående villkor är uppfyllda är det troligt att domänkontrollanten fungerar korrekt. Om den inte gör det utför du följande steg:
 
-1. Göra en auktoritativ återställning på domänkontrollanten. Tänk på följande information:
-    * Även om vi inte rekommenderar [FRS replikering](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), om du använder FRS-replikering, följer du stegen för en auktoritativ återställning. Processen beskrivs i [använda registernyckeln BurFlags för att starta om tjänsten File Replication](https://support.microsoft.com/kb/290762).
+1. Gör en auktoritativ återställning av domänkontrollanten. Tänk på följande:
+    * Även om vi inte rekommenderar [FRS-replikering](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)bör du följa stegen för en auktoritativ återställning om du använder FRS-replikering. Processen beskrivs i [använda register nyckeln BURFLAGS för att initiera om tjänsten File Replication](https://support.microsoft.com/kb/290762).
 
-        Mer information om BurFlags finns i bloggposten [D2 och D4: Vad är det för? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Om du använder DFSR replikering, följer du instruktionerna för en auktoritativ återställning. Processen beskrivs i [tvinga fram en auktoritär och icke-auktoritativ synkronisering för DFSR-replikerad sysvol-mappen (till exempel ”D4/D2” för FRS)](https://support.microsoft.com/kb/2218556).
+        Mer information om BurFlags finns i blogg inlägget [D2 och D4: Vad är det för?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+    * Om du använder DFSR-replikering slutför du stegen för en auktoritativ återställning. Processen beskrivs i [tvinga en auktoritativ och icke-auktoritativ synkronisering för DFSR-replikerad SYSVOL-mapp (till exempel "D4/D2" för FRS)](https://support.microsoft.com/kb/2218556).
 
-        Du kan också använda PowerShell-funktioner. Mer information finns i [DFSR SYSVOL auktoritativa/icke-auktoritativ återställning PowerShell funktioner](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
+        Du kan också använda PowerShell-funktionerna. Mer information finns i [DFSR-SYSVOL auktoritär/icke-auktoritativ Restore PowerShell Functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. Kringgå kravet på den inledande synkroniseringen genom att ange följande registernyckel till **0** i den lokala domänkontrollanten. Om det DWORD-värdet inte finns, kan du skapa den under den **parametrar** noden.
+2. Kringgå det inledande kravet för synkronisering genom att ange följande register nyckel till **0** i den lokala domänkontrollanten. Om DWORD inte finns kan du skapa det under noden **parametrar** .
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Mer information finns i [felsöka DNS-händelse-ID 4013: DNS-servern kunde inte läsa in AD-integrerade DNS-zoner](https://support.microsoft.com/kb/2001093).
+    Mer information finns i [FELSÖKA DNS-händelse-ID 4013: DNS-servern kunde inte läsa in AD-integrerade DNS-zoner](https://support.microsoft.com/kb/2001093).
 
-3. Inaktivera kravet på att en global katalogserver är tillgängliga för att verifiera användarinloggning. Om du vill göra detta, i den lokala domänkontrollanten, anger du följande registernyckel **1**. Om det DWORD-värdet inte finns, kan du skapa den under den **Lsa** noden.
+3. Inaktivera kravet på att en global katalog server ska vara tillgänglig för att verifiera användar inloggningen. Det gör du genom att ange följande register nyckel i den lokala domänkontrollanten till **1**. Om DWORD inte finns kan du skapa det under **LSA** -noden.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Mer information finns i [inaktivera kravet på att en global katalogserver är tillgängliga för att validera användarinloggningar](https://support.microsoft.com/kb/241789).
+    Mer information finns i [Inaktivera kravet på att en global katalog server ska vara tillgänglig för att verifiera användar inloggningar](https://support.microsoft.com/kb/241789).
 
-### <a name="dns-and-domain-controller-on-different-machines"></a>DNS- och domänkontrollant på olika datorer
+### <a name="dns-and-domain-controller-on-different-machines"></a>DNS och domänkontrollant på olika datorer
 
-Om du kör en domänkontrollant och DNs på samma virtuella dator, kan du hoppa över den här proceduren.
+Om du kör domänkontrollanten och DNs på samma virtuella dator kan du hoppa över den här proceduren.
 
 
-Om DNS inte är på samma virtuella dator som domänkontrollant, måste du skapa en DNS VM för att testa redundans. Du kan använda en ny DNS-server och skapa alla nödvändiga zoner. Till exempel kan Active Directory-domänen är contoso.com, du skapa en DNS-zon med namnet contoso.com. Poster som motsvarar Active Directory måste uppdateras i DNS på följande sätt:
+Om DNS inte finns på samma virtuella dator som domänkontrollanten måste du skapa en virtuell DNS-dator för redundanstest. Du kan använda en ny DNS-server och skapa alla zoner som krävs. Om din Active Directory domän exempelvis är contoso.com, kan du skapa en DNS-zon med namnet contoso.com. De poster som motsvarar Active Directory måste uppdateras i DNS på följande sätt:
 
-1. Se till att de här inställningarna är uppfyllda innan du börjar någon annan virtuell dator i återställningsplanen:
-   * Zonen måste ha namnet efter skogsrotens namn.
-   * Zonen måste vara filbaserat.
-   * Zonen måste vara aktiverat för säkra och osäkra uppdateringar.
-   * Konfliktlösare för den virtuella datorn som är värd för domänkontrollanten måste peka på IP-adressen för den virtuella datorn i DNS.
+1. Se till att dessa inställningar är på plats innan någon annan virtuell dator i återställnings planen startar:
+   * Zonen måste ha namnet efter skogens rot namn.
+   * Zonen måste vara filbaserad.
+   * Zonen måste vara aktive rad för säkra och oskyddade uppdateringar.
+   * Matcharen för den virtuella datorn som är värd för domänkontrollanten ska peka på IP-adressen för den virtuella DNS-datorn.
 
 2. Kör följande kommando på den virtuella datorn som är värd för domänkontrollanten:
 
     `nltest /dsregdns`
 
-3. Kör följande kommandon för att lägga till en zon på DNS-servern, tillåta ej säkra uppdateringar och lägga till en post för zonen till DNS:
+3. Kör följande kommandon för att lägga till en zon på DNS-servern, tillåta oskyddade uppdateringar och lägga till en post för zonen i DNS:
 
     `dnscmd /zoneadd contoso.com  /Primary`
 
@@ -210,4 +208,4 @@ Om DNS inte är på samma virtuella dator som domänkontrollant, måste du skapa
     `dnscmd /config contoso.com /allowupdate 1`
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [skyddar arbetsbelastningar med Azure Site Recovery](site-recovery-workload.md).
+Lär dig mer om att [skydda företags arbets belastningar med Azure Site Recovery](site-recovery-workload.md).

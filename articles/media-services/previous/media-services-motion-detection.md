@@ -14,19 +14,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: c319b3e53f550e56fbf4f655cb9cfa43326f9c72
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: fd31528325ddbe913333bc228fc3847242abcd24
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882430"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083758"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure-medieanalys
-
-> [!IMPORTANT]
-> Granska [indragnings planer](media-services-analytics-overview.md#retirement-plans) för vissa medie processorer.
-
+ 
 ## <a name="overview"></a>Översikt
+
 Med hjälp av MP ( **Azure Media motion Detector** Media processor) kan du på ett effektivt sätt identifiera intresse områden inom en i övrigt lång och en video som inte är i händelse av händelse. Rörelse identifiering kan användas på statiska kamera tagningar för att identifiera delar av videon där rörelsen sker. Den genererar en JSON-fil som innehåller en metadata med tidsstämplar och den bindnings region där händelsen inträffade.
 
 Den här tekniken är riktad mot säkerhets video flöden och kan kategorisera rörelsen i relevanta händelser och falska positiva identifieringar, till exempel skuggor och belysnings ändringar. På så sätt kan du generera säkerhets aviseringar från kamera flöden utan att skicka skräp post med oändliga irrelevanta händelser, samtidigt som du kan extrahera en mängd intresse från långa övervaknings videor.
@@ -46,7 +44,7 @@ Du kan använda följande parametrar:
 
 | Namn | Alternativ | Beskrivning | Standard |
 | --- | --- | --- | --- |
-| sensitivityLevel |Sträng: låg, medium, hög |Anger känslighets nivån då rörelserna rapporteras. Justera detta för att justera antalet falska positiva identifieringar. |säker |
+| sensitivityLevel |String: low, medium, high |Anger känslighets nivån då rörelserna rapporteras. Justera detta för att justera antalet falska positiva identifieringar. |säker |
 | frameSamplingValue |Positivt heltal |Anger med vilken frekvens algoritmen körs. 1 lika med varje bild ruta, 2 betyder varje andra ram och så vidare. |1 |
 | detectLightChange |Boolean: true, false |Anger om ljus ändringar rapporteras i resultaten |! |
 | mergeTimeThreshold |XS-Time: hh: mm: SS<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelse händelser där 2 händelser kombineras och rapporteras som 1. |00:00:00 |
@@ -100,12 +98,12 @@ I följande tabell beskrivs elementen i JSON-filen för utdata.
 | Element | Beskrivning |
 | --- | --- |
 | version |Detta avser versionen av video-API: et. Den aktuella versionen är 2. |
-| tidsplan |"Tickar" per sekund för videon. |
+| timescale |"Tickar" per sekund för videon. |
 | redovisningsmotkonto |Tids förskjutningen för tidsstämplar i "ticker". I version 1,0 av video-API: er, är det alltid 0. I framtida scenarier som vi stöder kan detta värde ändras. |
 | ram |Bildrutor per sekund i videon. |
 | bredd, höjd |Avser videons bredd och höjd i bild punkter. |
 | start |Start-tidsstämpeln i "ticks". |
-| Giltighet |Händelsens längd i "ticks". |
+| duration |Händelsens längd i "ticks". |
 | interval |Intervallet för varje post i händelsen, i "Tick". |
 | evenemang |Varje event-fragment innehåller den rörelse som identifierats inom den tids perioden. |
 | typ |I den aktuella versionen är det alltid "2" för allmän rörelse. Den här etiketten ger video-API: er möjlighet att kategorisera rörelsen i framtida versioner. |
@@ -380,13 +378,13 @@ namespace VideoMotionDetection
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Tillhörande länkar
+## <a name="related-links"></a>Relaterade länkar
 [Azure Media Services rörelse detektor blogg](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)

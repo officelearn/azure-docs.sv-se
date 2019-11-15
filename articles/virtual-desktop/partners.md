@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/14/2019
 ms.author: helohr
-ms.openlocfilehash: dc93480807f34a79ee02f628f7b6f090c7efa428
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c482291e665656bf16f28cd114a9cb8141ae77c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931708"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084019"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -133,6 +133,16 @@ Nerdio utökar värdet för virtuella Windows-datorer genom att göra det enkelt
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Gå till partner webbplatsen](https://getnerdio.com/windows-virtual-desktop/).
 
+## <a name="numecent"></a>Numecent
+
+![Numecent-logotyp](./media/partners/numecent.png)
+
+Numecent är en Windows Virtual Desktop-tjänst för mervärdes tjänster som avsevärt minskar den totala drift kostnaden genom snabb onboarding och migrering av komplicerade eller inkompatibla Windows-appar i Windows-miljöer för virtuella skriv bord. Numecent minimerar också mängden konfiguration som användarna behöver göra, minskar program uppdateringar och fören klar komplexa processer. Eftersom Numecent Cloudpaging har stöd för fler program än något annat program leverans verktyg minskar tiden och IT-arbetsbelastningar i miljöer med en mängd olika program. 
+
+När det används med Windows Virtual Desktop minskar Cloudpaging ytterligare kostnader genom att slutföra livs cykeln för program varu till gång från distribution till uppgradering, avläsning och borttagning av program. Cloudpaging fören klar avbildnings hanteringen genom att dynamiskt konfigurera appar efter behov i real tid till Windows-distributioner av virtuella datorer. Cloudpaging gör det möjligt för program att köras utan administration eller åtgärder genom de periodiska Windows 10-uppdateringarna. Cloudpaging minskar också licens kostnaden för dyra program genom att aktivera effektivare distribution och användning av dessa program. 
+
+- [Gå till partner webbplatsen](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+
 ## <a name="policypak"></a>PolicyPak
 
 ![PolicyPak-logotyp](./media/partners/policypak.png)
@@ -147,21 +157,22 @@ De vanligaste användnings fallen för PolicyPak är att ta bort lokala administ
 
 ![PrinterLogic-logotyp](./media/partners/printerlogic.png)
 
-PrinterLogic är en Windows Virtual Desktop-tjänst för mervärdes tjänst leverantörer som gör det möjligt för IT-proffs att ta bort alla utskrifts servrar och leverera en server lös utskrifts infrastruktur med hög tillgänglighet. PrinterLogic utökar värdet för virtuella Windows-datorer och Azure genom att göra det enkelt att hantera ett centralt och distribuera skrivar objekt till valfri skrivare eller slut punkts operativ system.   
+PrinterLogic är en Windows Virtual Desktop-tjänst för mervärdes tjänst leverantörer som gör det möjligt för IT-proffs att ta bort alla utskrifts servrar och leverera en server lös utskrifts infrastruktur med hög tillgänglighet. PrinterLogic utökar värdet för virtuella Windows-datorer och Azure genom att göra det enkelt att hantera ett centralt och distribuera skrivar objekt till valfri skrivare eller slut punkts operativ system. 
 
-PrinterLogic-plattformen är tillgänglig som SaaS eller som en webbstack i ditt eget privata moln, men-plattformen ser till att användarna alltid har rätt skrivare de behöver i sina virtuella sessioner baserat på användar-ID, enhets namn eller plats. Den här funktionen kompletteras av en fullständig uppsättning funktioner för utskrifts hantering i företags form, till exempel utskrifts spårning och rapportering, mobil utskrift och säker utskrift av säkerhet för bricka. 
+PrinterLogic-plattformen är tillgänglig som SaaS eller som en webbstack i ditt eget privata moln, men-plattformen ser till att användarna alltid har rätt skrivare de behöver i sina virtuella sessioner baserat på användar-ID, enhets namn eller plats. Den här funktionen kompletteras av en fullständig uppsättning funktioner för utskrifts hantering i företags form, till exempel utskrifts spårning och rapportering, mobil utskrift och säker utskrift av säkerhet för bricka. 
 
 - [Gå till partner webbplatsen](https://www.printerlogic.com).
 
-## <a name="numecent"></a>Numecent
+## <a name="printix"></a>Printix
 
-![Numecent-logotyp](./media/partners/numecent.png)
+![Printix-logotyp](./media/partners/printix.png)
 
-Numecent är en Windows Virtual Desktop-tjänst för mervärdes tjänster som avsevärt minskar den totala drift kostnaden genom snabb onboarding och migrering av komplicerade eller inkompatibla Windows-appar i Windows-miljöer för virtuella skriv bord. Numecent minimerar också mängden konfiguration som användarna behöver göra, minskar program uppdateringar och fören klar komplexa processer. Eftersom Numecent Cloudpaging har stöd för fler program än något annat program leverans verktyg minskar tiden och IT-arbetsbelastningar i miljöer med en mängd olika program. 
+Printix är ett Windows-tillägg för mervärdes tjänst leverantör för virtuella datorer som automatiserar användar anslutning till kontors utskrifts resurser. Som den saknade delen i din kund Azure-migrering är Printix den mest kostnads effektiva tjänsten som är tillgänglig för att ta bort infrastruktur och IT-uppgifter som är kopplade till stöd för och optimering av utskrifts arbets flöden för varje användare, oavsett plats.
 
-När det används med Windows Virtual Desktop minskar Cloudpaging ytterligare kostnader genom att slutföra livs cykeln för program varu till gång från distribution till uppgradering, avläsning och borttagning av program. Cloudpaging fören klar avbildnings hanteringen genom att dynamiskt konfigurera appar efter behov i real tid till Windows-distributioner av virtuella datorer. Cloudpaging gör det möjligt för program att köras utan administration eller åtgärder genom de periodiska Windows 10-uppdateringarna. Cloudpaging minskar också licens kostnaden för dyra program genom att aktivera effektivare distribution och användning av dessa program. 
+Utskrift är en grundläggande uppgift om alla Office-och Small Business-miljöer. För att kunna dra full nytta av Windows Virtual Desktop och ge en bra användar upplevelse är det viktigt att se till att användarna kan ansluta till skrivare med minsta möjliga ansträngning och maximal tillförlitlighet. Med Printix kan du få ut mesta möjliga av Windows Virtual Desktop via enkel inloggning (SSO), tyst konfiguration, regelbundna uppdateringar och kontinuerlig övervakning av utskrifts miljön.
 
-- [Gå till partner webbplatsen](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
+- [Gå till partner webbplatsen](https://www.printix.net/printix-for-windows-virtual-desktop)
 
 ## <a name="rdpsoft"></a>RDPSoft
 

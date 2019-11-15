@@ -1,5 +1,5 @@
 ---
-title: Kommunicera med en enhets app i Node. js via IoT Hub enhets strömmar (förhands granskning) | Microsoft Docs
+title: Kommunicera med Device-appen i Node. js med Azure IoT Hub enhets strömmar
 description: I den här snabb starten ska du köra ett Node. js-program på tjänst sidan som kommunicerar med en IoT-enhet via en enhets ström.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4acfe148e424d41308e310abd2a10e4e21133799
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 538e04d7ae4f6528c26762a8efac06d02b4f86bc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900849"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083736"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i Node. js via IoT Hub enhets strömmar (för hands version)
 
@@ -44,10 +44,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 
-  * USA, centrala
+  * Centrala USA
   * Centrala USA-EUAP
   * Europa, norra
-  * Asien, sydöstra
+  * Sydostasien
 
 Om du vill köra programmet på tjänst sidan i den här snabb starten behöver du Node. js v10. x. x eller senare på din utvecklings dator.
 

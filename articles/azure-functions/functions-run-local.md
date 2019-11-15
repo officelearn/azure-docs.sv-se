@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 60ef89308eceeb8ae74caba7230f1dc9c6940f47
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 72abfef1f86fe47eb7817241a674741f56817f24
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469106"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082710"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -47,14 +47,14 @@ Om inget annat anges är exemplen i den här artikeln för version 2. x.
 
 [Azure Functions Core tools] innehåller en version av samma körnings miljö som har behörighet Azure Functions runtime som du kan köra på din lokala utvecklings dator. Den innehåller också kommandon för att skapa funktioner, ansluta till Azure och distribuera funktions projekt.
 
-### <a name="v2"></a>Version 2. x
+### <a name="v2"></a>Version 2.x
 
 Version 2. x av verktygen använder Azure Functions runtime 2. x som bygger på .NET Core. Den här versionen stöds på alla plattformar .NET Core 2. x stöder, inklusive [Windows](#windows-npm), [MacOS](#brew)och [Linux](#linux). 
 
 > [!IMPORTANT]
 > Du kan kringgå kravet för att installera .NET Core 2. x SDK med hjälp av [tilläggs paket].
 
-#### <a name="windows-npm"></a>Aktivitets
+#### <a name="windows-npm"></a>Windows
 
 I följande steg används NPM för att installera kärn verktyg i Windows. Du kan också använda [choklad](https://chocolatey.org/). Mer information finns i Readme- [verktyg för viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
@@ -177,12 +177,19 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--csx`** | Initierar ett C# skript-(. CSX)-projekt. Du måste ange `--csx` i efterföljande kommandon. |
+| **`--csharp`**<br/> **`--dotnet`** | Initierar ett [ C# klass biblioteks projekt (. CS)](functions-dotnet-class-library.md). |
+| **`--csx`** | Initierar ett [ C# skript-(. CSX)-projekt](functions-reference-csharp.md). Du måste ange `--csx` i efterföljande kommandon. |
 | **`--docker`** | Skapa en Dockerfile för en behållare med hjälp av en bas avbildning som baseras på vald `--worker-runtime`. Använd det här alternativet när du planerar att publicera till en anpassad Linux-behållare. |
+| **`--docker-only`** |  Lägger till en Dockerfile i ett befintligt projekt. Prompter för Worker-körning om detta inte anges eller anges i Local. Settings. JSON. Använd det här alternativet när du planerar att publicera ett befintligt projekt i en anpassad Linux-behållare. |
 | **`--force`** | Initiera projektet även när det finns befintliga filer i projektet. Den här inställningen skriver över befintliga filer med samma namn. Andra filer i projektmappen påverkas inte. |
-| **`--no-source-control -n`** | Förhindrar att en git-lagringsplats skapas som standard i version 1. x. Git-lagringsplatsen skapas inte som standard i version 2. x. |
+| **`--java`**  | Initierar ett [Java-projekt](functions-reference-java.md). |
+| **`--javascript`**<br/>**`--node`**  | Initierar ett [JavaScript-projekt](functions-reference-node.md). |
+| **`--no-source-control`**<br/>**`-n`** | Förhindrar att en git-lagringsplats skapas som standard i version 1. x. Git-lagringsplatsen skapas inte som standard i version 2. x. |
+| **`--powershell`**  | Initierar ett [PowerShell-projekt](functions-reference-powershell.md). |
+| **`--python`**  | Initierar ett [python-projekt](functions-reference-python.md). |
 | **`--source-control`** | Anger om en git-lagringsplats skapas. Som standard skapas inte en lagrings plats. När `true`skapas en lagrings plats. |
-| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är `dotnet`, `node` (Java Script), `java`och `python`. När du inte har angett uppmanas du att välja din körning under initieringen. |
+| **`--typescript`**  | Initierar ett [typescript-projekt](functions-reference-node.md#typescript). |
+| **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är: `csharp`, `dotnet`, `java`, `javascript`,`node` (Java Script), `powershell`, `python`och `typescript`. När du inte har angett uppmanas du att välja din körning under initieringen. |
 
 > [!IMPORTANT]
 > Som standard skapar version 2. x av kärn verktygen Function app-projekt för .net-körningen som [ C# klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C# projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C# skript-filer (. CSX) som skapats i version 1. x och i portalen måste du inkludera parametern `--csx` när du skapar och distribuerar funktioner.
@@ -196,7 +203,7 @@ Som standard migreras de här inställningarna inte automatiskt när projektet p
 Värdena för funktionen app-inställningar kan också läsas i koden som miljövariabler. Mer information finns i avsnittet miljövariabler i de här språkspecifika referens avsnitten:
 
 * [C#förkompilerade](functions-dotnet-class-library.md#environment-variables)
-* [C#skript (. CSX)](functions-reference-csharp.md#environment-variables)
+* [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -292,7 +299,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 Kör Functions-värden om du vill köra ett Functions-projekt. Värden aktiverar utlösare för alla funktioner i projektet. 
 
-### <a name="version-2x"></a>Version 2. x
+### <a name="version-2x"></a>Version 2.x
 
 I version 2. x av körnings miljön varierar Start kommandot beroende på ditt projekt språk.
 
@@ -315,7 +322,7 @@ npm install
 npm start     
 ```
 
-### <a name="version-1x"></a>Version 1. x
+### <a name="version-1x"></a>Version 1.x
 
 Version 1. x av Functions-körningen kräver kommandot `host`, som i följande exempel:
 
@@ -465,11 +472,11 @@ Följande publicerings alternativ stöds bara i version 2. x:
 | **`--list-included-files`** | Visar en lista över publicerade filer, som baseras på. funcignore-filen. |
 | **`--nozip`** | Stänger av standard `Run-From-Package`s läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
-| **`--build [-b]`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. (accepterar: fjärran sluten, lokal) |
+| **`--build`**<br/>**`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local`. |
 | **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C# skript (. CSX)-projekt. |
-| **`--no-build`** | Hoppa över att skapa dotNet-funktioner. |
+| **`--no-build`** | Bygg inte funktioner i .NET-klass bibliotek. |
 | **`--dotnet-cli-params`** | När du publicerar C# kompilerade (. CSPROJ)-funktioner anropar kärn verktygen "dotNet build--output bin/Publish". Alla parametrar som skickas till detta läggs till i kommando raden. |
 
 ### <a name="deployment-custom-container"></a>Distribution (anpassad behållare)
@@ -523,5 +530,5 @@ Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-prob
 [Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [tilläggs paket]: functions-bindings-register.md#extension-bundles

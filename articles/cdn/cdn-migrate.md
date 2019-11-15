@@ -1,6 +1,6 @@
 ---
-title: Migrera en Azure CDN-profil från Verizon Standard till Premium för Verizon | Microsoft Docs
-description: Mer information om att migrera en profil från Verizon Standard till Premium för Verizon.
+title: Migrera Azure CDN profil från Verizon standard till Verizon Premium
+description: Lär dig mer om att migrera en profil från Verizon standard till Verizon Premium.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,40 +15,40 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: c11155223220c075c28769a19875691783cce3bd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8ab66117be4f05550b00defafc883108646be283
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593634"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083061"
 ---
-# <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrera en Azure CDN-profil från Standard Verizon till Premium Verizon
+# <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrera en Azure CDN profil från standard Verizon till Premium Verizon
 
-När du skapar en profil för Azure Content Delivery Network (CDN) att hantera dina slutpunkter, erbjuder Azure CDN fyra olika produkter som du kan välja bland. Information om olika produkter och deras tillgängliga funktioner finns i [jämför Azure CDN produktfunktioner](cdn-features.md).
+När du skapar en profil för Azure Content Delivery Network (CDN) för att hantera dina slut punkter, erbjuder Azure CDN fyra olika produkter som du kan välja bland. Information om de olika produkterna och deras tillgängliga funktioner finns i [jämföra Azure CDN produkt funktioner](cdn-features.md).
 
-Om du har skapar en **Azure CDN Standard från Verizon** profil och använder den för att hantera dina CDN-slutpunkter, har du möjlighet att uppgradera den till en **Azure CDN Premium från Verizon** profil. När du uppgraderar kommer dina CDN-slutpunkter och alla dina data att bevaras. 
+Om du har skapat en **Azure CDN Standard från Verizon** -profilen och använder den för att hantera dina CDN-slutpunkter, har du möjlighet att uppgradera den till en **Azure CDN Premium från Verizon** -profil. När du uppgraderar bevaras dina CDN-slutpunkter och alla dina data. 
 
 > [!IMPORTANT]
-> När du har uppgraderat till en **Azure CDN Premium från Verizon** profilen du inte senare konvertera den tillbaka till en **Azure CDN Standard från Verizon** profil.
+> När du har uppgraderat till en **Azure CDN Premium från Verizon** -profilen kan du inte senare konvertera tillbaka den till en **Azure CDN Standard från Verizon** -profilen.
 > 
 
-Så här uppgraderar du en **Azure CDN Standard från Verizon** profil, kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).
+Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill uppgradera en **Azure CDN Standard från Verizon** -profilen.
 
 ## <a name="profile-comparison"></a>Jämförelse av profil
-**Azure CDN Premium från Verizon** profiler har följande viktiga skillnader från **Azure CDN Standard från Verizon** profiler:
-- För vissa Azure CDN funktioner som [komprimering](cdn-improve-performance.md), [cachelagringsregler](cdn-caching-rules.md), och [geofiltrering](cdn-restrict-access-by-country.md), du kan inte använda Azure CDN-gränssnittet, måste du använda Verizon-portalen via den **Hantera** knappen.
-- API: Till skillnad från med Standard Verizon, du kan inte använda API: et till att styra de funktioner som kan nås från Premium Verizon-portalen. Du kan dock använda API: et för att kontrollera andra vanliga funktioner, till exempel skapa/ta bort en slutpunkt, rensa/läser in cachelagrade tillgångar och aktivering/inaktivering av en anpassad domän.
-- Prissättning: Premium Verizon har en annan prisstrukturen för överföring av data än Standard Verizon. Mer information finns i [prissättningen för CDN](https://azure.microsoft.com/pricing/details/cdn/).
+**Azure CDN Premium från Verizon** -profiler har följande viktiga skillnader från **Azure CDN Standard från Verizon** -profiler:
+- För vissa Azure CDN funktioner som [komprimering](cdn-improve-performance.md), [regler för cachelagring](cdn-caching-rules.md)och [geo-filtrering](cdn-restrict-access-by-country.md)kan du inte använda Azure CDN-gränssnittet. du måste använda Verizon-portalen via knappen **Hantera** .
+- API: till skillnad från vanliga Verizon kan du inte använda API: et för att styra de funktioner som nås från Premium Verizon-portalen. Du kan dock använda API: t för att kontrol lera andra vanliga funktioner, till exempel skapa/ta bort en slut punkt, rensa/läsa in cachelagrade till gångar och aktivera/inaktivera en anpassad domän.
+- Priser: Premium Verizon har en annan pris struktur för data överföringar än vanliga Verizon. Mer information finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
 
-**Azure CDN Premium från Verizon** profiler har följande ytterligare funktioner:
-- [Tokenautentisering](cdn-token-auth.md): Tillåter användare att skaffa och använda en token för att hämta säkra resurser.
-- [Regelmotor](cdn-rules-engine.md): Kan du anpassa hur HTTP-begäranden ska hanteras.
-- Avancerade analysverktyg:
+**Azure CDN Premium från Verizon** -profiler har följande ytterligare funktioner:
+- [Token-autentisering](cdn-token-auth.md): tillåter användare att hämta och använda en token för att hämta säkra resurser.
+- [Regel motor](cdn-rules-engine.md): gör det möjligt att anpassa hur HTTP-begäranden hanteras.
+- Avancerade analys verktyg:
    - [Detaljerad HTTP-analys](cdn-advanced-http-reports.md)
-   - [Edge-prestandaanalys](cdn-edge-performance.md)
-   - [Analys i realtid](cdn-real-time-alerts.md)
+   - [Kant prestanda analys](cdn-edge-performance.md)
+   - [Analys i real tid](cdn-real-time-alerts.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om regelmotorn i [Azure CDN regelmotor – referens](cdn-rules-engine-reference.md).
+Läs mer om regel motorn i [Azure CDN regel motor referens](cdn-rules-engine-reference.md).
 

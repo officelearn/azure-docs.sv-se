@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera MACsec-ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure-ExpressRoute: Konfigurera MACsec'
 description: Den här artikeln hjälper dig att konfigurera MACsec för att skydda anslutningarna mellan dina gräns-routrar och Microsofts gräns routrar.
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 081c448ff09148668dbe5e244e80421a47d77152
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748269"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083552"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurera MACsec på ExpressRoute Direct-portar
 
@@ -137,4 +137,4 @@ När du har konfigurerat MACsec (inklusive MACsec Key Update) på dina ExpressRo
 ## <a name="next-steps"></a>Nästa steg
 1. [Skapa en ExpressRoute-krets på ExpressRoute Direct](expressroute-howto-erdirect.md)
 2. [Länka en ExpressRoute-krets till ett virtuellt Azure-nätverk](expressroute-howto-linkvnet-arm.md)
-3. [Verifiera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)
+3. [Kontrollera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)

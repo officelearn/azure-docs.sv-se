@@ -1,5 +1,5 @@
 ---
-title: Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
+title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9125c69f9d2f4d7289120f86059ffab3b7f9228a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961285"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082200"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -23,14 +23,14 @@ I den här artikeln sammanfattas komponenter och inställningar som stöds för 
 
 ## <a name="deployment-scenarios"></a>Distributionsscenarier
 
-**Scenario** | **Detaljer**
+**Scenario** | **Information**
 --- | ---
 Haveri beredskap för virtuella VMware-datorer | Replikering av lokala virtuella VMware-datorer till Azure. Du kan distribuera det här scenariot i Azure Portal eller med hjälp av [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Haveri beredskap för fysiska servrar | Replikering av lokala Windows/Linux fysiska servrar till Azure. Du kan distribuera det här scenariot i Azure Portal.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokala virtualiseringslösningar
 
-**Server** | **Krav** | **Detaljer**
+**Server** | **Krav** | **Information**
 --- | --- | ---
 vCenter Server | Version 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att du använder en vCenter-Server i återställnings distributionen för haveri beredskap.
 vSphere-värdar | Version 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard körs processervern på konfigurations servern. [Läs mer](vmware-physical-azure-config-process-server-overview.md).
@@ -67,7 +67,7 @@ Site Recovery stöder replikering av alla arbets belastningar som körs på en d
 > [!Note]
 > I följande tabell visas stödet för datorer med BIOS-start. I [lagrings](#storage) avsnittet finns stöd för UEFI-baserade datorer.
 
-**Komponent** | **Detaljer**
+**Komponent** | **Information**
 --- | ---
 Dator inställningar | Datorer som replikeras till Azure måste uppfylla [Azure-kraven](#azure-vm-requirements).
 Dator arbets belastning | Site Recovery stöder replikering av alla arbets belastningar som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
@@ -145,7 +145,7 @@ BTRFS | BTRFS stöds från samlad [uppdatering 34](https://support.microsoft.com
 
 ## <a name="vmdisk-management"></a>Hantering av virtuell dator/disk
 
-**Åtgärd** | **Detaljer**
+**Åtgärd** | **Information**
 --- | ---
 Ändra storlek på disk på replikerad virtuell dator | Stöds.
 Lägg till disk på replikerad virtuell dator | Stöds ej.<br/> Inaktivera replikering för den virtuella datorn, Lägg till disken och aktivera sedan replikering igen.
@@ -242,13 +242,13 @@ Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (
 Tillgänglighetsuppsättningar | Ja
 Tillgänglighetszoner | Nej
 ) | Ja
-Hanterade diskar | Ja
+Managed Disks | Ja
 
 ## <a name="azure-vm-requirements"></a>Krav för virtuell Azure-dator
 
 Lokala virtuella datorer som replikeras till Azure måste uppfylla de krav på virtuella Azure-datorer som sammanfattas i den här tabellen. När Site Recovery kör en krav kontroll för replikering kommer kontrollen att Miss klar om några av kraven inte uppfylls.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 Gäst operativ system | Kontrol lera att [operativ system som stöds](#replicated-machines) för replikerade datorer. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.
@@ -304,7 +304,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer
 
 ## <a name="obtain-latest-components"></a>Hämta de senaste komponenterna
 
-**Namn** | **Beskrivning** | **Detaljer**
+**Namn** | **Beskrivning** | **Information**
 --- | --- | ---
 Konfigurationsserver | Installerat lokalt.<br/> Koordinerar kommunikationen mellan lokala VMware-servrar eller fysiska datorer och Azure. | - [Läs mer om](vmware-physical-azure-config-process-server-overview.md) konfigurations servern.<br/> - [Lär dig](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) att uppgradera till den senaste versionen.<br/> - [Lär dig hur](vmware-azure-deploy-configuration-server.md) du konfigurerar konfigurations servern. 
 Processerver | Installeras som standard på konfigurationsservern.<br/> Tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure.<br/> När distributionen växer kan du lägga till ytterligare process servrar för att hantera större volymer av replikeringstrafiken. | - [Lär dig mer om](vmware-physical-azure-config-process-server-overview.md) processervern.<br/> - [Lär dig](vmware-azure-manage-process-server.md#upgrade-a-process-server) att uppgradera till den senaste versionen.<br/> - [Lär dig hur](vmware-physical-large-deployment.md#set-up-a-process-server) du konfigurerar skalbara process servrar.

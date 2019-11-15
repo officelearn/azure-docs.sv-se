@@ -14,17 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 48b5136505c3d0cb5e2e2027f832655e4b3445bf
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881731"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084825"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Använd Azure-medieanalys för att konvertera text innehåll i video filer till digital text  
-
-> [!IMPORTANT]
-> Granska [indragnings planer](media-services-analytics-overview.md#retirement-plans) för vissa medie processorer.
 
 ## <a name="overview"></a>Översikt
 Om du behöver Extrahera text innehåll från dina videofiler och generera en redigerbar, sökbar digital text, bör du använda Azure-medieanalys OCR (optisk tecken läsning). Azure Media-processorn identifierar text innehåll i dina videofiler och genererar textfiler för din användning. Med OCR kan du automatisera extraheringen av meningsfulla metadata från video signalen på mediet.
@@ -48,7 +45,7 @@ Uppgifts konfiguration (förval). När du skapar en aktivitet med **Azure Media 
 ### <a name="attribute-descriptions"></a>Beskrivningar av attribut
 | Attributnamn | Beskrivning |
 | --- | --- |
-|AdvancedOutput| Om du anger AdvancedOutput till True innehåller JSON-utdata positions data för varje enskilt ord (förutom fraser och regioner). Om du inte vill se de här uppgifterna ställer du in flaggan på falskt. Standardvärdet är false. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+|AdvancedOutput| Om du anger AdvancedOutput till True innehåller JSON-utdata positions data för varje enskilt ord (förutom fraser och regioner). Om du inte vill se de här uppgifterna ställer du in flaggan på falskt. Standardvärdet är FALSKT. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Språk |(valfritt) beskriver språket för den text som du vill titta på. Något av följande: identifiera (standard), arabiska, ChineseSimplified, ChineseTraditional, Tjeckiska Danska, nederländska, engelska, finska, franska, tyska, grekiska, ungerska, italienska, japanska, koreanska, norska, polska, portugisiska, rumänska, ryska, SerbianCyrillic, SerbianLatin, slovakiska, spanska, svenska och turkiska. |
 | TextOrientation |(valfritt) beskriver orienteringen för den text som du vill titta på.  "Left" innebär att övre delen av alla bokstäver riktas mot vänster.  Standard texten (som du hittar i en bok) kan kallas "upp".  Något av följande: identifiera automatiskt (standard), upp, höger, nedåt och till vänster. |
 | TimeInterval |(valfritt) beskriver samplings frekvensen.  Standardvärdet är var 1/2 sekund.<br/>JSON-format – HH: mm: SS. SSS (standard 00:00:00.500)<br/>XML-format – W3C XSD duration primitiv (standard PT 0,5) |
@@ -113,10 +110,10 @@ Utdata innehåller följande attribut:
 | Offset |tids förskjutning för tidsstämplar. I version 1,0 av video-API: er, är det alltid 0. |
 | Bildfrekvens |Bild rutor per sekund för videon |
 | LED |videoklippets bredd i bild punkter |
-| Våghöjd |videoklippets höjd i bild punkter |
+| våghöjd |videoklippets höjd i bild punkter |
 | Fragment |matris med tidsbaserade segment med video som metadata segmenteras i |
-| start |Start tid för ett fragment i "ticks" |
-| Giltighet |längden på ett fragment i "tickas" |
+| Starta |Start tid för ett fragment i "ticks" |
+| duration |längden på ett fragment i "tickas" |
 | interval |intervall för varje händelse inom det aktuella fragmentet |
 | evenemang |matris som innehåller regioner |
 | regionen |objekt som representerar identifierade ord eller fraser |

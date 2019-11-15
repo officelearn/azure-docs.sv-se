@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: fb6a1022308ee26aa8a4f2ac39c58fce26243419
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 2d740c8d078770267669a0be749ca8d5d210bb72
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903579"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083168"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 
@@ -26,7 +26,7 @@ I den här snabbstarten sker säkerhetskopieringen på en befintlig virtuell Azu
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på <https://portal.azure.com>
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Välj en virtuell dator som du vill säkerhetskopiera
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597442"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082755"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Vad är Microsoft Flow, Logic Apps, Functions och WebJobs?
 
@@ -41,7 +41,7 @@ Microsoft Flow ger kontorspersonalen möjlighet att göra enkla integreringar (t
 
 Tabellen nedan hjälper dig att avgöra huruvida Microsoft Flow eller Logic Apps passar bäst för en specifik integrering:
 
-|  | Microsoft Flow | Logikappar |
+|  | Microsoft Flow | Logic Apps |
 | --- | --- | --- |
 | Användare |Kontorsarbetarna, användare i verksamheten, SharePoint-administratörer |Professionella integratörer och utvecklare, IT-proffs |
 | Scenarier |Självbetjäning |Avancerade integreringar |
@@ -58,13 +58,13 @@ Med Azure Functions utvecklar du orkestreringarna genom att skriva kod och anvä
 
 Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktioner från logikappar och logikappar från funktioner. Välj hur du skapar varje orkestrering utifrån tjänsternas funktioner eller vad du föredrar. I följande tabell visas några av de viktigaste skillnaderna mellan tjänsterna:
  
-|  | Bestående funktioner | Logikappar |
+|  | Pålitliga funktioner | Logic Apps |
 | --- | --- | --- |
 | Utveckling | Kod först (imperativt) | Designer först (deklarativt) |
-| Anslutningsmöjlighet | [Ett dussintal inbyggda bindningstyper](functions-triggers-bindings.md#supported-bindings), skriv kod för anpassade bindningar | [Stor samling anslutningsprogram](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [skapa egna anslutningsprogram](../logic-apps/custom-connector-overview.md) |
+| Anslutning | [Ett dussintal inbyggda bindningstyper](functions-triggers-bindings.md#supported-bindings), skriv kod för anpassade bindningar | [Stor samling anslutningsprogram](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [skapa egna anslutningsprogram](../logic-apps/custom-connector-overview.md) |
 | Åtgärder | Varje aktivitet är en Azure-funktion. Skriv kod för aktivitetsfunktioner |[Stor samling färdiga åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | Övervakning | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure-portalen](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor-loggar](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| Förvaltning | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| Hantering | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Körningskontext | Kan köras [lokalt](functions-runtime-overview.md) eller i molnet | Körs bara i molnet|
 
 <a name="function"></a>
@@ -83,7 +83,7 @@ WebJobs och WebJobs-SDK:n fungerar bäst tillsammans, men du kan använda WebJob
 
 Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutlösare och anslutningsappar med andra Azure-tjänster. Här är några faktorer som du bör tänka på när du väljer mellan Azure Functions och WebJobs med WebJobs-SDK:n:
 
-|  | Functions | WebJobs med Webjobs-SDK:n |
+|  | Funktioner | WebJobs med Webjobs-SDK:n |
 | --- | --- | --- |
 |[Serverlös appmodell](https://azure.microsoft.com/solutions/serverless/) med [automatisk skalning](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Utveckla och testa i webbläsaren](functions-create-first-azure-function.md) |✔||
@@ -123,12 +123,12 @@ Det finns mer information om integreringstjänster via följande länkar:
 * [Artikel av Christopher Anderson om hur man utnyttjar Azure Functions och Azure App Service i integreringsscenarier](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Artikel av Charles Lamanna om hur man förenklar integreringar](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webbsändning med Logic Apps](https://aka.ms/logicappslive)
-* [Vanliga frågor och svar om Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Vanliga frågor och svar om Microsoft Flow](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång genom att skapa ditt första flöde, din första logikapp eller din första funktionsapp. Välj någon av följande länkar:
 
-* [Kom igång med Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Kom igång med Microsoft Flow](/power-automate/getting-started)
 * [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)

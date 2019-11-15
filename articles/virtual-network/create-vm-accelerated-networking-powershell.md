@@ -1,5 +1,5 @@
 ---
-title: Skapa en virtuell Azure-dator med accelererat nätverk | Microsoft Docs
+title: Skapa en virtuell Azure-dator med accelererat nätverk – Azure PowerShell
 description: Lär dig hur du skapar en virtuell Linux-dator med accelererat nätverk.
 services: virtual-network
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: f8f4f55f2c2aa4a0f9cce08e10c9f12f81a54dba
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678000"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083705"
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell Windows-dator med accelererat nätverk
+# <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Skapa en virtuell Windows-dator med accelererat nätverk med Azure PowerShell
 
 I den här självstudien får du lära dig hur du skapar en virtuell Windows-dator (VM) med accelererat nätverk. Information om hur du skapar en virtuell Linux-dator med accelererat nätverk finns i [skapa en virtuell Linux-dator med accelererat nätverk](create-vm-accelerated-networking-cli.md). Accelererat nätverk möjliggör SR-IOV (Single root I/O Virtualization) till en virtuell dator, vilket avsevärt förbättrar nätverkets prestanda. Den här högpresterande sökvägen kringgår värden från Datapath, minskar svars tiden, skakningarna och CPU-användningen, för användning med de mest krävande nätverks belastningarna på VM-typer som stöds. Följande bild visar kommunikationen mellan två virtuella datorer med och utan accelererat nätverk:
 
@@ -53,7 +53,7 @@ På instanser som stöder hyperthreading stöds accelererat nätverk på VM-inst
 
 Mer information om VM-instanser finns i [storlekar för virtuella Windows-datorer](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="regions"></a>Regions
+### <a name="regions"></a>Regioner
 Tillgängligt i alla offentliga Azure-regioner och Azure Government molnet.
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Aktivera accelererat nätverk på en virtuell dator som körs
@@ -74,7 +74,7 @@ När den virtuella datorn har skapats kan du bekräfta att accelererat nätverk 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Installera [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den version som är installerad. Om du behöver installera eller uppgradera installerar du den senaste versionen av AZ-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az). Logga in på ett Azure-konto med [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)i en PowerShell-session.
+Installera [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az`för att hitta den version som är installerad. Om du behöver installera eller uppgradera installerar du den senaste versionen av AZ-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az). Logga in på ett Azure-konto med [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)i en PowerShell-session.
 
 Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn som ingår *myResourceGroup*, *myNic*och *myVM*.
 

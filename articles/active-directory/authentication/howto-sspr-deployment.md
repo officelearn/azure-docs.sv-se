@@ -11,14 +11,17 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743247"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081525"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuera självbetjäning av lösenordsåterställning för Azure AD
+
+> [!NOTE]
+> Den här guiden förklarar självbetjäning för återställning av lösen ord och hur du distribuerar den. Om du letar efter verktyget för återställning av lösen ord för självbetjäning för att komma tillbaka till ditt konto går du till [https://aka.ms/sspr](https://aka.ms/sspr). 
 
 Lösen ords återställning via självbetjäning (SSPR) är en Azure Active Directory funktion som gör att anställda kan återställa sina lösen ord utan att behöva kontakta IT-personalen. Medarbetare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Under registreringen väljer den anställda en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen.
 
@@ -53,7 +56,7 @@ Den kombinerade registrerings upplevelsen kräver inte att organisationer aktive
 
 Följande inställningar krävs för att aktivera SSPR tillsammans med rekommenderade värden.
 
-| Område | Inställning | Value |
+| Område | Inställning | Värde |
 | --- | --- | --- |
 | **Egenskaper för SSPR** | Återställning av lösen ord för självbetjäning har Aktiver ATS | **Vald** grupp för pilot/ **alla** för produktion |
 | **Autentiseringsmetoder** | Autentiseringsmetoder som krävs för registrering | Alltid 1 mer än vad som krävs för återställning |
@@ -62,8 +65,8 @@ Följande inställningar krävs för att aktivera SSPR tillsammans med rekommend
 |   | Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation | 90 – 180 dagar |
 | **Meddelanden** | Meddela användare om lösenordsåterställning | Ja |
 |   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Ja |
-| **Eventuella** | Anpassa helpdesk-länk | Ja |
-|   | Anpassad e-postadress eller URL till helpdesk | Support webbplats eller e-postadress |
+| **Eventuella** | Anpassa supportavdelningen-länk | Ja |
+|   | E-post eller URL för anpassad helpdesk | Support webbplats eller e-postadress |
 | **Lokal integration** | Skriv tillbaka lösen ord till lokal AD | Ja |
 |   | Tillåt att användare låser upp kontot utan att återställa lösen ordet | Ja |
 
@@ -87,7 +90,7 @@ Ange **Kräv att användare registrerar sig när de loggar in** på **Ja**. Den 
 
 Ange **antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation** till mellan **90** och **180** dagar, om inte din organisation har ett affärs behov för kortare tids ramar.
 
-### <a name="notifications-settings"></a>Meddelandeinställningar
+### <a name="notifications-settings"></a>Aviserings inställningar
 
 Konfigurera både **meddela användare om lösen ords** återställning och **meddela alla administratörer när andra administratörer återställer sina lösen ord** till **Ja**. Om du väljer **Ja** på båda ökar säkerheten genom att se till att användarna är medvetna om deras lösen ord har återställts och att alla administratörer är medvetna om en administratör ändrar ett lösen ord. Om användare eller administratörer får sådant meddelande och de inte har initierat ändringen, kan de omedelbart rapportera en potentiell säkerhets överträdelse.
 
@@ -136,7 +139,7 @@ För att säkerställa att distributionen fungerar som förväntat, bör du plan
 | Återställ användar lösen ord från Windows 10-AADJ eller H + AADJ enhets Lås skärmen när användaren har registrerat sig | Användare kan återställa lösen ord |
 | SSPR-registrering och användnings data är tillgängliga för administratörer i nära real tid | Är tillgänglig via gransknings loggar |
 
-### <a name="support-plan"></a>Supportavtal
+### <a name="support-plan"></a>Supportplan
 
 Medan SSPR vanligt vis inte skapar användar problem är det viktigt att ha support personal för beredd för att hantera problem som kan uppstå.
 
@@ -206,7 +209,7 @@ Windows 10-enheter som kör version 1803 eller högre som antingen är anslutna 
 
 ### <a name="configure-password-writeback"></a>Konfigurera tillbakaskrivning av lösen ord
 
-Steg för att konfigurera tillbakaskrivning av lösen ord för din organisation finns i artikeln [så här gör du: Konfigurera tillbakaskrivning](howto-sspr-writeback.md)av lösen ord.
+Steg för att konfigurera tillbakaskrivning av lösen ord för din organisation finns i artikeln [instruktion: Konfigurera tillbakaskrivning av lösen ord](howto-sspr-writeback.md).
 
 ## <a name="manage-sspr"></a>Hantera SSPR
 
@@ -214,8 +217,8 @@ Nödvändiga roller för att hantera funktioner som är associerade med lösen o
 
 | Affärs roll/persona | Azure AD-roll (om det behövs) |
 | :---: | :---: |
-| Nivå 1-helpdesk | Lösenordsadminitratör |
-| Nivå 2-supportavdelningen | Användaradministratör |
+| Nivå 1-helpdesk | Lösen ords administratör |
+| Nivå 2-supportavdelningen | Användar administratör |
 | SSPR-administratör | Global administratör |
 
 ### <a name="support-scenarios"></a>Support scenarier

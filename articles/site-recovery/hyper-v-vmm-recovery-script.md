@@ -1,81 +1,81 @@
 ---
-title: Lägga till ett skript i en återställningsplan för haveriberedskap med Azure Site Recovery | Microsoft Docs
-description: Lär dig mer om att lägga till ett VMM-skript i en återställningsplan för haveriberedskap för Hyper-V-datorer i VMM-moln.
+title: Lägg till ett skript i en återställnings plan i Azure Site Recovery
+description: Lär dig hur du lägger till ett VMM-skript i en återställnings plan för haveri beredskap för virtuella Hyper-V-datorer i VMM-moln.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64700453"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084879"
 ---
-# <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägg till ett VMM-skript i en återställningsplan
+# <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägga till ett VMM-skript i en återställnings plan
 
-Den här artikeln beskrivs hur du skapar ett skript i System Center Virtual Machine Manager (VMM) och lägga till den i en återställningsplan i [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskriver hur du skapar ett System Center Virtual Machine Manager-skript (VMM) och lägger till det i en återställnings plan i [Azure Site Recovery](site-recovery-overview.md).
 
-Skriv dina kommentarer eller frågor längst ned i den här artikeln eller i den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Du kan använda PowerShell-skript i dina återställningsplaner. För att vara tillgängliga från återställningsplanen, måste du redigera skriptet och placera skriptet i VMM-biblioteket. Ha följande i åtanke när du skriver skriptet:
+Du kan använda PowerShell-skript i dina återställnings planer. För att kunna nås från återställnings planen måste du skriva skriptet och placera skriptet i VMM-biblioteket. Tänk på följande när du skriver skriptet:
 
-* Kontrollera att skript använder trycatch-block, så att undantag hanteras på ett smidigt sätt.
-    - Om ett undantag inträffar i skriptet skriptet har körts och uppgiften visar som misslyckades.
-    - Resten av skriptet körs inte om ett fel inträffar.
-    - Om ett felmeddelande när du kör en oplanerad redundans, fortsätter återställningsplanen.
-    - Om ett fel inträffar när du kör en planerad redundans, stoppar återställningsplanen. Åtgärda de skript, kontrollera att den körs som förväntat och kör sedan återställningsplanen igen.
-        - Den `Write-Host` kommandot inte fungerar i ett recovery plan-skript. Om du använder den `Write-Host` kommandot i ett skript skriptet misslyckas. Skapa en proxyskript som körs i sin tur huvudsakliga skriptet för att skapa utdata. För att säkerställa att alla utdata skickas ut, använda den **\> \>** kommando.
-        - Skriptet sin tidsgräns om den inte returnera inom 600 sekunder.
-        - Om något skrivs till STDERR klassificeras skriptet som misslyckad. Den här informationen visas i de information om skriptkörning.
+* Se till att skript använder try-catch-block, så att undantag hanteras på ett smidigt sätt.
+    - Om ett undantag inträffar i skriptet, slutar skriptet att köras och uppgiften visas som misslyckad.
+    - Om ett fel inträffar körs inte resten av skriptet.
+    - Om ett fel inträffar när du kör en oplanerad redundansväxling fortsätter återställnings planen.
+    - Om ett fel inträffar när du kör en planerad redundansväxling stoppas återställnings planen. Korrigera skriptet, kontrol lera att det fungerar som förväntat och kör sedan återställnings planen igen.
+        - Kommandot `Write-Host` fungerar inte i ett återställnings plan skript. Om du använder kommandot `Write-Host` i ett skript, Miss lyckas skriptet. Skapa utdata genom att skapa ett proxy-skript som i sin tur kör huvud skriptet. För att säkerställa att alla utdata är skickas kan du använda kommandot **\>\>** .
+        - Skriptet nådde tids gränsen om det inte returneras inom 600 sekunder.
+        - Om något skrivs till STDERR klassificeras skriptet som misslyckat. Den här informationen visas i skript körnings informationen.
 
-* Skript i en återställningsplan körs i kontexten för VMM-tjänstkontot. Se till att det här kontot har läsbehörighet för fjärresursen där skriptet finns. Testa skriptet ska köras med samma nivå av användarrättigheter som VMM-tjänstkontot.
-* VMM-cmdlets levereras i en Windows PowerShell-modulen. Modulen är installerad när du installerar VMM-konsolen. Om du vill läsa in modulen i skriptet, använder du följande kommando i skriptet: 
+* Skript i en återställnings plan körs i kontexten för VMM-tjänstkontot. Se till att det här kontot har Läs behörighet för den fjär resurs som skriptet finns på. Testa skriptet så att det körs med samma nivå av användar rättigheter som VMM-tjänstkontot.
+* VMM-cmdlets levereras i en Windows PowerShell-modul. Modulen installeras när du installerar VMM-konsolen. Om du vill läsa in modulen i skriptet använder du följande kommando i skriptet: 
 
     `Import-Module -Name virtualmachinemanager`
 
     Mer information finns i [Kom igång med Windows PowerShell och VMM](https://technet.microsoft.com/library/hh875013.aspx).
-* Se till att du har minst en biblioteksserver i VMM-distribution. Som standard är sökvägen till Biblioteksresursen för en VMM-server finns lokalt på VMM-servern. Mappnamnet är MSCVMMLibrary.
+* Se till att du har minst en biblioteks server i VMM-distributionen. Som standard finns sökvägen till biblioteks resursen för en VMM-server lokalt på VMM-servern. Mappnamnet är MSCVMMLibrary.
 
-  Om din biblioteksresurssökväg är remote (eller om den är lokal utan inte delas med MSCVMMLibrary), konfigurera filresursen på följande sätt med hjälp av \\libserver2.contoso.com\share\ som exempel:
+  Om din biblioteks resurs Sök väg är fjärran sluten (eller om den är lokal men inte delas med MSCVMMLibrary) konfigurerar du resursen på följande sätt med hjälp av \\libserver2. contoso. com\share\ som exempel:
   
-  1. Öppna Registereditorn och gå sedan till **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure plats Recovery\Registration**.
+  1. Öppna Registereditorn och gå sedan till **HKEY_LOCAL_MACHINE \Software\microsoft\azure site Recovery\Registration**.
 
-  1. Ändra värdet för **ScriptLibraryPath** till  **\\\libserver2.contoso.com\share\\** . Ange fullständig FQDN. Ge behörighet till plats där. Det här är rotnoden i resursen. Om du vill söka efter rotnoden i VMM, går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
+  1. Ändra värdet för **ScriptLibraryPath** till **\\\libserver2.contoso.com\share\\** . Ange fullständigt fullständigt domän namn. Ange behörigheter till resursens plats. Detta är rot-noden för resursen. Om du vill kontrol lera rotnoden i VMM går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
 
-  1. Testa skriptet genom att använda ett konto som har samma nivå av användarrättigheter som VMM-tjänstkontot. Med hjälp av dessa användarrättigheter verifierar som fristående testade skript som körs på samma sätt som de körs i återställningsplaner. På VMM-servern ställer du in körningsprincipen att kringgå på följande sätt:
+  1. Testa skriptet med hjälp av ett användar konto som har samma nivå av användar rättigheter som VMM-tjänstkontot. Genom att använda dessa användar rättigheter verifieras att de fristående, testade skripten körs på samma sätt som de körs i återställnings planer. På VMM-servern anger du körnings principen som ska kringgås enligt följande:
 
-     a. Öppna den **64-bitars Windows PowerShell** konsolen som administratör.
+     a. Öppna **Windows PowerShell-konsolen 64-bitars** som administratör.
      
-     b. Ange **Set-executionpolicy kringgå**. Mer information finns i [med hjälp av cmdleten Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Ange **set-ExecutionPolicy bypass**. Mer information finns i [använda cmdleten Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
 
      > [!IMPORTANT]
-     > Ange **Set-executionpolicy kringgå** endast i 64-bitars PowerShell-konsolen. Om du ställer in det för 32-bitars PowerShell-konsolen kör inte skripten.
+     > Ange **set-ExecutionPolicy kringgå** endast i 64-bitars PowerShell-konsolen. Om du ställer in den för 32-bitars PowerShell-konsolen körs inte skripten.
 
-## <a name="add-the-script-to-the-vmm-library"></a>Lägg till skript till VMM-biblioteket
+## <a name="add-the-script-to-the-vmm-library"></a>Lägg till skriptet i VMM-biblioteket
 
-Om du har en VMM-källplats kan skapa du ett skript på VMM-servern. Ta sedan skriptet i din plan.
+Om du har en VMM-datakälla kan du skapa ett skript på VMM-servern. Ta sedan med skriptet i din återställnings plan.
 
-1. Skapa en ny mapp i Biblioteksresursen. Till exempel \<VMM-servernamn > \MSSCVMMLibrary\RPScripts. Placera mappen på käll- och målservrar för VMM.
-1. Skapa skriptet. Till exempel kalla skriptet RPScript. Kontrollera att skriptet fungerar som förväntat.
-1. Placera skriptet i den \<VMM-servernamn > \MSSCVMMLibrary mapp på de käll- och VMM-servrarna.
+1. Skapa en ny mapp i biblioteks resursen. Till exempel \<VMM-servernamn > \MSSCVMMLibrary\RPScripts. Placera mappen på käll-och mål VMM-servrarna.
+1. Skapa skriptet. Namnge till exempel skriptet RPScript. Kontrol lera att skriptet fungerar som förväntat.
+1. Placera skriptet i mappen \<VMM-serverns namn > \MSSCVMMLibrary på käll-och mål VMM-servrarna.
 
-## <a name="add-the-script-to-a-recovery-plan"></a>Lägg till skriptet i en återställningsplan
+## <a name="add-the-script-to-a-recovery-plan"></a>Lägg till skriptet i en återställnings plan
 
-När du har lagt till virtuella datorer eller replikeringsgrupper i en återställningsplan och skapat planen kan du lägga till skriptet i gruppen.
+När du har lagt till virtuella datorer eller replikeringsgrupper i en återställnings plan och skapat planen kan du lägga till skriptet i gruppen.
 
-1. Öppna återställningsplanen.
-1. I den **steg** väljer du ett objekt. Välj antingen **skriptet** eller **manuell åtgärd**.
-1. Ange om du vill lägga till skript eller åtgärder före eller efter det valda objektet. Om du vill flytta positionen för skriptet uppåt eller nedåt, Välj den **Flytta upp** och **Flytta ned** knappar.
-1. Om du lägger till en VMM-skript, väljer **redundans till VMM skript**. I **skriptets sökväg**, ange den relativa sökvägen till resursen. Ange till exempel **\RPScripts\RPScript.PS1**.
-1. Om du lägger till en Azure Automation-runbook kan du ange Automation-konto där runbook finns. Välj den Azure-runbookskript som du vill använda.
-1. För att säkerställa att skriptet fungerar som förväntat, gör du ett redundanstest av återställningsplanen.
+1. Öppna återställnings planen.
+1. I listan **steg** väljer du ett objekt. Välj sedan antingen **skript** eller **manuell åtgärd**.
+1. Ange om du vill lägga till skriptet eller åtgärden före eller efter det valda objektet. Klicka på knapparna **Flytta upp** och **Flytta ned** om du vill flytta upp eller ned skript positionen.
+1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**. Ange den relativa sökvägen till resursen i **skript Sök väg**. Skriv till exempel **\RPScripts\RPScript.ps1**.
+1. Om du lägger till en Azure Automation Runbook anger du det Automation-konto som Runbook finns i. Välj sedan det Azure Runbook-skript som du vill använda.
+1. Kontrol lera att skriptet fungerar som förväntat genom att göra ett redundanstest för återställnings planen.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [köra redundansväxlingar](site-recovery-failover.md).
+* Läs mer om att [köra redundans](site-recovery-failover.md).
 

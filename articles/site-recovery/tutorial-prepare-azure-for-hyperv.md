@@ -1,21 +1,21 @@
 ---
-title: Förbereda Azure-resurser för haveriberedskap för lokala datorer
+title: Förbered Azure för haveri beredskap för Hyper-V med Azure Site Recovery
 description: Lär dig hur du förbereder Azure för haveri beredskap för lokala virtuella Hyper-V-datorer med hjälp av Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814347"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084177"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
+# <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Förbereda Azure-resurser för haveri beredskap för Hyper-V
 
  [Azure Site Recovery](site-recovery-overview.md) hjälper affärs kontinuitet och haveri beredskap (BCDR) genom att köra affärsappar som körs under planerade och oplanerade drifts avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på [Azure Portal](https://portal.azure.com).
 
-## <a name="verify-account-permissions"></a>Verifiera kontobehörighet
+## <a name="verify-account-permissions"></a>Kontrollera kontobehörigheten
 
 Om du precis har skapat ett kostnads fritt Azure-konto är du administratör för den prenumerationen. Om du inte är administratör kan du arbeta med administratören för att tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en ny virtuell dator måste du ha behörighet för att:
 
@@ -48,11 +48,11 @@ Om du precis har skapat ett kostnads fritt Azure-konto är du administratör fö
 
 För att slutföra dessa uppgifter bör ditt konto tilldelas den inbyggda rollen för den virtuella datorn Contributor. Om du vill hantera Site Recovery åtgärder i ett valv måste ditt konto tilldelas den inbyggda rollen Site Recovery Contributor.
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure. Lagringskontot måste finnas i samma region som Recovery Services-valvet.
+Bilder av replikerade datorer lagras i Azure Storage. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure. Lagringskontot måste finnas i samma region som Recovery Services-valvet.
 
-1. På [Azure Portal](https://portal.azure.com) -menyn väljer du **skapa ett** > lagrings konto för resurs**lagring** >  **-BLOB, fil, tabell, kö**.
+1. På [Azure Portal](https://portal.azure.com) -menyn väljer du **skapa en resurs** > **lagring** > **lagrings konto – BLOB, fil, tabell, kö**.
 2. I **Skapa lagringskonto** anger du ett namn för kontot.  Det namn du väljer måste vara unikt inom Azure, vara mellan 3 och 24 tecken långt och endast använda gemener och siffror. I den här självstudien använder du **contosovmsacct1910171607**.
 3. För **Distributionsmodell** väljer du **Resource Manager**.
 4. I **typ av konto**väljer du **lagring (generell användning v1)** . Välj inte blobblagring.
@@ -63,7 +63,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 9. I **plats**väljer du den geografiska platsen för ditt lagrings konto. I den här självstudien använder du **Västeuropa**.
 10. Skapa lagringskontot genom att välja **Skapa**.
 
-   ![skapar ett lagringskonto](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Skapa ett lagringskonto](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 

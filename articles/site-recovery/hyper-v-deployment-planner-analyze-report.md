@@ -1,5 +1,5 @@
 ---
-title: Analysera Distributionshanteraren för Azure Site Recovery rapporten för haveri beredskap för virtuella Hyper-V-datorer till Azure | Microsoft Docs
+title: Analysera rapporten för distributions planeraren för Hyper-V i Azure Site Recovery
 description: Den här artikeln beskriver hur du analyserar en rapport som genereras av Distributionshanteraren för Azure Site Recovery för haveri beredskap för virtuella Hyper-V-datorer till Azure.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: aafeeb59446ac914bba25874f74871fc5f189498
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693590"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084948"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera Distributionshanteraren för Azure Site Recovery rapporten
 I den här artikeln diskuteras bladen i Excel-rapporterna som genereras av distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
@@ -133,7 +133,7 @@ Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som st
 
 **Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Site Recovery-licensen. 
 
-**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundansväxlingstest. Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker kostnaden för beräkning och lagring för de virtuella datorer som körs. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundansväxlingstest. Site Recovery startar virtuella datorer under redundansväxlingstest. DR-testkostnaden täcker kostnaden för beräkning och lagring för de virtuella datorer som körs. 
 
 **Azure Storage Cost per Month/Year** (Azure Storage-kostnad per månad/år): Diagrammet visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test. Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](hyper-v-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
 
@@ -179,7 +179,7 @@ Excel-rapporten som genereras av distributionshanteraren för Site Recovery inne
 
 **VM Name** (Namn på virtuell dator): Den virtuella datorns namn som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VHD:er) som är kopplade till de virtuella datorerna. Namnen inkluderar de Hyper-V-värdnamn där de virtuella datorerna placerades när verktyget upptäckte de under profileringsperioden.
 
-**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/windows/disks-types.md). Här ryms den profilerade höga omsättningen eller IOPS-disken i en högre premiumdiskstorlek än storleken som är mappad till disken. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek: 
+**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja**\* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/windows/disks-types.md). Här ryms den profilerade höga omsättningen eller IOPS-disken i en högre premiumdiskstorlek än storleken som är mappad till disken. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek: 
 * < 128 GB är en P10.
 * 128 GB till 256 GB är en P15.
 * 256 till 512 GB är en P20.
@@ -274,8 +274,8 @@ Följande tabell innehåller gränserna för Site Recovery. Dessa gränser är b
 **Replication Storage Target** (Lagringsmål för replikering) | **Genomsnittlig I/O-storlek för virtuell källdator** |**Genomsnittlig dataomsättning för virtuell källdator** | **Total dataomsättning per dag för virtuell källdisk**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s per virtuell dator | 168 GB per virtuell dator
-Premium-lagring | 8 kB  | 5 MB/s per virtuell dator | 421 GB per virtuell dator
-Premium-lagring | 16 kB eller mer| 20 MB/s per virtuell dator | 1684 GB per virtuell dator
+Premium Storage | 8 kB  | 5 MB/s per virtuell dator | 421 GB per virtuell dator
+Premium Storage | 16 kB eller mer| 20 MB/s per VM | 1684 GB per VM
 
 Gränserna är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 

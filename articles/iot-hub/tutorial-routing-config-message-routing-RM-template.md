@@ -1,5 +1,5 @@
 ---
-title: Konfigurera meddelanderoutning för Azure IoT Hub att använda en Azure Resource Manager-mall | Microsoft Docs
+title: Konfigurera meddelanderoutning för Azure IoT Hub att använda en Azure Resource Manager-mall
 description: Konfigurera meddelanderoutning för Azure IoT Hub att använda en Azure Resource Manager-mall
 author: robinsh
 manager: philmeagit st
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ef73aed577645af5af82c439abb57022b389d040
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809718"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084393"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Självstudie: Använd en Azure Resource Manager-mall för att konfigurera IoT Hub meddelanderoutning
 
@@ -44,7 +44,7 @@ I följande avsnitt beskrivs de parametrar som används.
 
 ### <a name="parameters"></a>Parametrar
 
-De flesta av dessa parametrar har standardvärden. De som slutar med **_In** kombineras med *randomValue* för att göra dem globalt unika. 
+De flesta av dessa parametrar har standardvärden. De som slutar med **_In** sammanfogas med *randomValue* för att göra dem globalt unika. 
 
 **randomValue**: det här värdet genereras från aktuellt datum/tid när du distribuerar mallen. Det här fältet finns inte i parameter filen, eftersom det genereras i själva mallen.
 
@@ -54,7 +54,7 @@ De flesta av dessa parametrar har standardvärden. De som slutar med **_In** kom
 
 **plats**: det här fältet är den Azure-region som du distribuerar till, till exempel "väst".
 
-**consumer_group**: det här fältet är konsument grupps uppsättningen för meddelanden som kommer genom Dirigerings slut punkten. Det används för att filtrera resultat i Azure Stream Analytics. Det finns till exempel hela strömmen där du får allt, eller om du har data som kommer till med consumer_group inställt på **contoso**, kan du ställa in en Azure Stream Analytics Stream (och Power BI rapporten) för att bara visa dessa poster. Det här fältet används i del 2 av den här självstudien.
+**consumer_group**: det här fältet är konsument grupps uppsättningen för meddelanden som kommer genom Dirigerings slut punkten. Det används för att filtrera resultat i Azure Stream Analytics. Det finns till exempel hela strömmen där du får allt, eller om du har data som kommer till med consumer_group har angetts till **contoso**, kan du skapa en Azure Stream Analytics data ström (och Power BI rapport) så att bara de posterna visas. Det här fältet används i del 2 av den här självstudien.
 
 **sku_name**: det här fältet är skalningen för IoT Hub. Värdet måste vara S1 eller högre. en kostnads fri nivå fungerar inte för den här självstudien eftersom den inte tillåter flera slut punkter.
 
@@ -68,7 +68,7 @@ De flesta av dessa parametrar har standardvärden. De som slutar med **_In** kom
 
 **storage_endpoint**: det här fältet är namnet på lagrings konto slut punkten som används av meddelanderoutning.
 
-**service_bus_namespace_in**: det här fältet är namnet på Service Bus namn området som ska skapas. Det här värdet sammanfogas med randomValue för att göra det globalt unikt.
+**service_bus_namespace_in**: det här fältet är namnet på det Service Bus namn område som ska skapas. Det här värdet sammanfogas med randomValue för att göra det globalt unikt.
 
 **service_bus_queue_in**: det här fältet är namnet på den Service Bus kö som används för att dirigera meddelanden. Det här värdet sammanfogas med randomValue för att göra det globalt unikt.
 
@@ -84,9 +84,9 @@ Dessa värden används i mallen och är mest härledda från parametrar.
 
 **storageAccountName**: det här fältet är namnet på lagrings kontot efter att randomValue har länkats. 
 
-**service_bus_namespace**: det här fältet är namn området efter att randomValue har länkats.
+**service_bus_namespace**: det här fältet är namn området efter att ha randomValue sammanfogats.
 
-**service_bus_queue**: det här fältet är namnet på Service Bus kön efter att randomValue har länkats.
+**service_bus_queue**: det här fältet är namnet på Service Bus kön efter att ha randomValue sammanfogats.
 
 **sbVersion**: den version av Service Bus-API som ska användas. I det här fallet är det "2017-04-01".
 

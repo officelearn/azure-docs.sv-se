@@ -1,17 +1,17 @@
 ---
-title: Hantera VMware vCenter-servrar för haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery | Microsoft Docs
+title: Hantera VMware vCenter-servrar i Azure Site Recovery
 description: Den här artikeln beskriver hur du lägger till och hanterar VMware vCenter för haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8f339103f67f37d10999ef43fa57a6eb27b60f37
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904255"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083966"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Hantera VMware vCenter Server
 
@@ -35,14 +35,14 @@ Det tar ungefär 15 minuter för konto informationen att synkroniseras med Site 
 
 |**Aktivitet** | **Konto** | **Behörigheter** | **Detaljer**|
 |--- | --- | --- | ---|
-|**Automatisk identifiering/migrering (utan återställning efter fel)** | Du behöver minst en skrivskyddad användare | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till** underordnad till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
-|**Replikering/redundans** | Du behöver minst en skrivskyddad användare| Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med **spridning till** underordnat objekt till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).<br/><br/> Användbart för migrering, men inte fullständig replikering, redundans och återställning efter fel.|
-|**Replikering/redundans/återställning** | Vi rekommenderar att du skapar en roll (AzureSiteRecoveryRole) med de behörigheter som krävs och sedan tilldelar rollen till en VMware-användare eller-grupp | Data Center objekt – > sprids till underordnat objekt, roll = AzureSiteRecoveryRole<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till** underordnad till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
+|**Automatisk identifiering/migrering (utan återställning efter fel)** | Du behöver minst en skrivskyddad användare | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
+|**Replikering/redundans** | Du behöver minst en skrivskyddad användare| Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med **spridning till underordnat** objekt till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).<br/><br/> Användbart för migrering, men inte fullständig replikering, redundans och återställning efter fel.|
+|**Replikering/redundans/återställning** | Vi rekommenderar att du skapar en roll (AzureSiteRecoveryRole) med de behörigheter som krävs och sedan tilldelar rollen till en VMware-användare eller-grupp | Data Center objekt – > sprids till underordnat objekt, roll = AzureSiteRecoveryRole<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
 
 
 ## <a name="add-vmware-server-to-the-vault"></a>Lägg till VMware-servern i valvet
 
-1. I Azure Portal öppnar du valvet > **Site Recovery infrastruktur** > **konfigurations**servrar och öppnar konfigurations servern.
+1. I Azure Portal öppnar du ditt valv > **Site Recovery infrastruktur** > **konfigurations**servrar och öppnar konfigurations servern.
 2. Klicka på **+ vCenter**på sidan **information** .
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
@@ -65,7 +65,7 @@ Det tar ungefär 15 minuter för konto informationen att synkroniseras med Site 
 
 ## <a name="delete-a-vcenter-server"></a>Ta bort en vCenter-Server
 
-1. I Azure Portal öppnar du valvet > **Site Recovery infrastruktur** > **konfigurations**servrar och öppnar konfigurations servern.
+1. I Azure Portal öppnar du ditt valv > **Site Recovery infrastruktur** > **konfigurations**servrar och öppnar konfigurations servern.
 2. På sidan **information** väljer du vCenter-servern.
 3. Klicka på knappen **ta bort** .
 

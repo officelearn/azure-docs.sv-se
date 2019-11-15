@@ -1,5 +1,5 @@
 ---
-title: Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager | Microsoft Docs
+title: Haveri beredskap för virtuella Hyper-V-datorer med Azure Site Recovery och PowerShell
 description: Automatisera haveri beredskap för virtuella Hyper-V-datorer till Azure med Azure Site Recovery tjänsten med PowerShell och Azure Resource Manager.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200528"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082680"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager
 
@@ -47,7 +47,7 @@ Dessutom har det särskilda exemplet som beskrivs i den här artikeln följande 
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Steg 1: Logga in på ditt Azure-konto
 
-1. Öppna en PowerShell-konsol och kör det här kommandot för att logga in på ditt Azure-konto. Cmdleten hämtar en webb sida där du uppmanas att ange dina autentiseringsuppgifter för ditt konto: **Connect-AzAccount**.
+1. Öppna en PowerShell-konsol och kör det här kommandot för att logga in på ditt Azure-konto. Cmdleten hämtar en webb sida där du uppmanas att ange dina autentiseringsuppgifter för kontot: **Connect-AzAccount**.
     - Alternativt kan du inkludera dina kontoautentiseringsuppgifter som en parameter i cmdleten **Connect-AzAccount** med hjälp av parametern **-Credential** .
     - Om du är CSP-partner som arbetar för en klient kan du ange kunden som en klient, genom att använda sitt tenantID eller klientens primära domän namn. Exempel: **Connect-AzAccount-Tenant "fabrikam.com"**
 2. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
@@ -86,7 +86,7 @@ Ange valv kontexten enligt följande:
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>Steg 4: Skapa en Hyper-V-plats
+## <a name="step-4-create-a-hyper-v-site"></a>Steg 4: skapa en Hyper-V-plats
 
 1. Skapa en ny Hyper-V-plats på följande sätt:
 
@@ -104,7 +104,7 @@ Ange valv kontexten enligt följande:
 
 5. Kopiera den nedladdade nyckeln till Hyper-V-värden. Du behöver nyckeln för att registrera Hyper-V-värden på platsen.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Steg 5: Installera providern och agenten
+## <a name="step-5-install-the-provider-and-agent"></a>Steg 5: installera providern och agenten
 
 1. Hämta installations programmet för den senaste versionen av providern från [Microsoft](https://aka.ms/downloaddra).
 2. Kör installations programmet på Hyper-V-värden.
@@ -115,15 +115,15 @@ Ange valv kontexten enligt följande:
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
 Om du kör en Hyper-V Core-server laddar du ned installations filen och följer de här stegen:
-1. Extrahera filerna från AzureSiteRecoveryProvider. exe till en lokal katalog genom att köra det här kommandot:```AzureSiteRecoveryProvider.exe /x:. /q```
-2. Körnings ```.\setupdr.exe /i``` resultat loggas i%programdata%\ASRLogs\DRASetupWizard.log.
+1. Extrahera filerna från AzureSiteRecoveryProvider. exe till en lokal katalog genom att köra det här kommandot: ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Kör ```.\setupdr.exe /i``` resultat loggas till%Programdata%\ASRLogs\DRASetupWizard.log.
 
 3. Registrera servern genom att köra det här kommandot:
 
     ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
 
 
-## <a name="step-6-create-a-replication-policy"></a>Steg 6: Skapa replikeringsprincip
+## <a name="step-6-create-a-replication-policy"></a>Steg 6: skapa en replikeringsprincip
 
 Innan du börjar bör du tänka på att det angivna lagrings kontot ska finnas i samma Azure-region som valvet och ska ha geo-replikering aktiverat.
 
@@ -190,7 +190,7 @@ Innan du börjar bör du tänka på att det angivna lagrings kontot ska finnas i
 
 
 
-## <a name="step-8-run-a-test-failover"></a>Steg 8: Köra ett redundanstest
+## <a name="step-8-run-a-test-failover"></a>Steg 8: köra ett redundanstest
 1. Kör ett redundanstest enligt följande:
 
         $nw = Get-AzVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

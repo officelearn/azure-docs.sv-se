@@ -1,23 +1,22 @@
 ---
-title: 'Konfigurera Global Reach-ExpressRoute: Azure | Microsoft Docs'
-description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att skapa ett privat nätverk mellan dina lokala nätverk och aktivera Global Reach.
+title: 'Azure-ExpressRoute: Konfigurera Global Reach'
+description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att göra ett privat nätverk mellan ditt lokala nätverk och aktivera Global räckvidd.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 64abf820a502db0ee0033ce52ed148bae6b8ffc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 76de7a8854a58deb924cbbe3177ad5a7b5fd57a2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748180"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083469"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurera ExpressRoute Global Reach
 
-Den här artikeln hjälper dig att konfigurera ExpressRoute Global Reach med hjälp av PowerShell. Mer information finns i [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+Den här artikeln hjälper dig att konfigurera ExpressRoute Global räckvidd med hjälp av PowerShell. Mer information finns i [ExpressRouteRoute Global räckvidd](expressroute-global-reach.md).
 
  ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -50,7 +49,7 @@ Aktivera anslutningar mellan dina lokala nätverk. Det finns separata uppsättni
 
 ### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>ExpressRoute-kretsar i samma Azure-prenumeration
 
-1. Använd följande kommandon för att hämta krets 1 och krets 2. De två kretsarna finns i samma prenumeration.
+1. Använd följande kommandon för att hämta krets 1 och 2-kretsen. Två kretsar är i samma prenumeration.
 
    ```azurepowershell-interactive
    $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
@@ -80,7 +79,7 @@ När föregående åtgärd har slutförts kommer du att ha anslutning mellan din
 
 Om de två kretsarna inte finns i samma Azure-prenumeration behöver du behörighet. I följande konfiguration genereras auktorisering i krets 2-prenumerationen och auktoriseringsregeln skickas till kretsen 1.
 
-1. Generera en nyckel för autentisering.
+1. Generera en auktoriseringsnyckel.
 
    ```azurepowershell-interactive
    $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
@@ -121,11 +120,11 @@ Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -Expre
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
-Du kan köra åtgärden Hämta för att verifiera statusen.
+Du kan köra Get-åtgärden för att kontrollera statusen.
 
 När den föregående åtgärden har slutförts har du inte längre någon anslutning mellan ditt lokala nätverk via dina ExpressRoute-kretsar.
 
 ## <a name="next-steps"></a>Nästa steg
-1. [Läs mer om ExpressRoute Global Reach](expressroute-global-reach.md)
-2. [Verifiera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)
+1. [Mer information om ExpressRoute Global räckvidd](expressroute-global-reach.md)
+2. [Kontrollera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)
 3. [Länka en ExpressRoute-krets till ett virtuellt Azure-nätverk](expressroute-howto-linkvnet-arm.md)

@@ -1,19 +1,19 @@
 ---
-title: Konfigurera katastrof återställning för virtuella Hyper-V-datorer mellan lokala platser med Azure Site Recovery
+title: Konfigurera haveri beredskap för Hyper-V till en sekundär plats med Azure Site Recovery
 description: Lär dig att konfigurera haveriberedskap för virtuella Hyper-V-datorer mellan dina lokala platser med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d3fe578444b99cc7f8c762ae9e96766ca10aa305
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 559f29624ef0946374c3e87a26f0983f202a20d7
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039674"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082638"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -41,7 +41,7 @@ För att slutföra den här kursen gör du följande:
 - Kontrollera att de virtuella datorer som du vill replikera uppfyller [stöd för replikerad dator](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Förbereda VMM-servrar för nätverksmappning.
 
-### <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
+### <a name="prepare-for-network-mapping"></a>Förbered för nätverksmappning
 
 [Nätverksmappning](hyper-v-vmm-network-mapping.md) mappar mellan lokala VMM-VM-nätverk i käll- och målmoln. Mappning utför följande:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70673dc7d42a0c7d9b60f3c3f877c1985dac3c98
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 238afdf9e50eaccba51d996ce6e9cfd06ea36899
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097802"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091988"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med kommandot `mount` och vid start genom att skapa en post i `/etc/fstab`.
@@ -22,11 +22,11 @@ Det rekommenderade sättet att montera en Azure-filresurs på Linux är att anv�
 | | SMB 2.1 <br>(Monteras på virtuella datorer inom samma Azure-region) | SMB 3.0 <br>(Monteras från lokalt och över flera regioner) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04 + | 16.04 + |
-| Red Hat Enterprise Linux (RHEL) | 7 + | 7.5 + |
-| CentOS | 7 + |  7.5 + |
-| Debian | 8 + | 10 + |
+| Red Hat Enterprise Linux (RHEL) | 7+ | 7.5 + |
+| CentOS | 7+ |  7.5 + |
+| Debian | 8+ | 10 + |
 | openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | 12 + | 12 SP3 + |
+| SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
 Om du använder en Linux-distribution som inte finns med i tabellen ovan kan du kontrol lera om din Linux-distribution stöder SMB 3,0 med kryptering genom att kontrol lera Linux kernel-versionen. SMB 3,0 med kryptering har lagts till i Linux-kernel-version 4,11. `uname` kommandot returnerar den version av Linux-kärnan som används:
 
@@ -53,7 +53,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    I äldre versioner av **Red Hat Enterprise Linux** och **CentOS**använder du `dnf` Package Manager:
+    I äldre versioner av **Red Hat Enterprise Linux** och **CentOS**använder du `yum` Package Manager:
 
     ```bash
     sudo yum install cifs-utils 
@@ -173,7 +173,7 @@ När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath`
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Använd följande kommando för att lägga till följande rad i `/etc/fstab`** : i exemplet nedan är den lokala Linux-filen och mappens behörigheter standard 0755, vilket innebär Läs-, skriv-och körnings behörighet för ägaren (baserat på filen/katalogen Linux-ägaren), läsa och köra för användare i ägar gruppen och läsa och köra andra i systemet. Du kan använda alternativen `uid` och `gid` montering för att ange användar-ID och grupp-ID för monteringen. Du kan också använda `dir_mode` och `file_mode` för att ange anpassade behörigheter som önskade. Mer information om hur du anger behörigheter finns i [UNIX numerisk notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) på wikipedia.
+1. **Använd följande kommando för att lägga till följande rad i `/etc/fstab`** : i exemplet nedan är den lokala Linux-filen och mappens behörigheter standard 0755, vilket innebär Läs-, skriv-och körnings behörighet för ägaren (baserat på filen/katalogen Linux-ägaren), läsa och köra för användare i ägar gruppen och läsa och köra för andra i systemet. Du kan använda alternativen `uid` och `gid` montering för att ange användar-ID och grupp-ID för monteringen. Du kan också använda `dir_mode` och `file_mode` för att ange anpassade behörigheter som önskade. Mer information om hur du anger behörigheter finns i [UNIX numerisk notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) på wikipedia.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -282,5 +282,5 @@ Gruppen Azure Files för Linux-användare ger ett forum där du kan dela feedbac
 Mer information om Azure Files finns på följande länkar:
 
 * [Planera för en Azure Files-distribution](storage-files-planning.md)
-* [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
+* [Vanliga frågor och svar](../storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md) (Felsökning)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: robinsh
-ms.openlocfilehash: 8d071d4cd6ae3f9a52433104075e396d70d5bc57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828700"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083269"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Så här klonar du en Azure IoT-hubb till en annan region
 
@@ -391,7 +391,7 @@ Portalen verifierar nu mallen och distribuerar den klonade hubben. Om du har kon
 
 Nu när du har skapat och kört måste du kopiera alla enheter från den ursprungliga hubben till klonen. 
 
-Det finns flera sätt att göra detta på. Du har antingen använt [DPS (Device Provisioning service)](/azure/iot-dps/about-iot-dps.md)för att etablera enheterna, eller så har du inte gjort det. Om du har gjort det är det inte svårt. Om du inte gjorde det kan det vara mycket komplicerat. 
+Det finns flera sätt att göra detta på. Du har antingen använt [DPS (Device Provisioning service)](/azure/iot-dps/about-iot-dps)för att etablera enheterna, eller så har du inte gjort det. Om du har gjort det är det inte svårt. Om du inte gjorde det kan det vara mycket komplicerat. 
 
 Om du inte använde DPS för att etablera dina enheter kan du hoppa över nästa avsnitt och börja med [att använda importera/exportera för att flytta enheterna till den nya hubben](#using-import-export-to-move-the-devices-to-the-new-hub).
 

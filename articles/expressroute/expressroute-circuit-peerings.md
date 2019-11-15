@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute-kretsar och peering | Microsoft Docs
+title: 'Azure-ExpressRoute: kretsar och peering'
 description: Den här sidan innehåller en översikt över ExpressRoute-kretsar och routning domäner/peering.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6673e114c249cb86c648155b889e925554e9458
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123480"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083640"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-kretsar och peering
 
@@ -31,7 +30,7 @@ En ExpressRoute-krets representerar en logisk anslutning mellan din lokala infra
 
 ExpressRoute-kretsar mappas inte till alla fysiska enheter. En krets identifieras unikt genom en standard som GUID kallas för en Tjänstnyckel (s-nyckel). Tjänstnyckeln är enda information som utbyts mellan Microsoft anslutningsleverantören och du. S-nyckeln är inte en hemlighet av säkerhetsskäl. Det finns en 1:1-mappning mellan en ExpressRoute-krets och s-nyckel.
 
-Nya ExpressRoute-kretsar kan innehålla två oberoende peering: Privat peering och Microsoft-peering. Befintliga ExpressRoute-kretsar kan innehålla tre peer-kopplingar: Azure offentlig, Azure Private och Microsoft. Varje peering är två oberoende BGP-sessioner, var och en av dem redundant konfigureras för hög tillgänglighet. Det finns en 1: n (1 < = N < = 3) mappning mellan en ExpressRoute-krets och routning domäner. En ExpressRoute-krets kan ha en, två eller alla tre peerings aktiveras per ExpressRoute-krets.
+Nya ExpressRoute-kretsar kan innehålla två oberoende peerings: privat peering och Microsofts peering. Medan befintliga ExpressRoute-kretsar kan innehålla tre peerings: Azure offentliga, privata Azure och Microsoft. Varje peering är två oberoende BGP-sessioner, var och en av dem redundant konfigureras för hög tillgänglighet. Det finns en 1: n (1 < = N < = 3) mappning mellan en ExpressRoute-krets och routning domäner. En ExpressRoute-krets kan ha en, två eller alla tre peerings aktiveras per ExpressRoute-krets.
 
 Varje krets har en fast bandbredd (50 Mbit/s, 100 Mbit/s, 200 Mbit/s, 500 Mbit/s, 1 Gbit/s, 10 Gbit/s) och mappas till en anslutningsprovider och en peering-plats. Den bandbredd som du väljer delas mellan alla krets peer-kopplingar
 
@@ -41,7 +40,7 @@ Standardkvoter och begränsningar gäller för varje ExpressRoute-krets. Referer
 
 ## <a name="routingdomains"></a>ExpressRoute-peering
 
-En ExpressRoute-krets har flera associerade routningsdomäner/peering-kopplingar: Azure offentlig, Azure Private och Microsoft. Varje peering har konfigurerats identiskt på två routrar (i aktiv-aktiv eller dela belastningen konfiguration) för hög tillgänglighet. Azure-tjänster som kategoriseras som *Azures offentliga* och *privat Azure* som motsvarar den IP-adresser scheman.
+En ExpressRoute-krets innehåller flera routning domäner/peerkopplingar kopplade till den: Azure offentliga, Azures privata och Microsoft. Varje peering har konfigurerats identiskt på två routrar (i aktiv-aktiv eller dela belastningen konfiguration) för hög tillgänglighet. Azure-tjänster som kategoriseras som *Azures offentliga* och *privat Azure* som motsvarar den IP-adresser scheman.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 

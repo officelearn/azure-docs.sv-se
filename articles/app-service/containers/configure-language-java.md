@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Linux Java-appar – Azure App Service | Microsoft Docs
 description: Lär dig hur du konfigurerar Java-appar som körs i Azure App Service i Linux.
-keywords: Azure App Service, Web App, Linux, oss, Java, Java EE, JEE, Java
+keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
 services: app-service
 author: bmitchell287
 manager: barbkess
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e63d8f03b26c9039fe4093cf15b13522dbb49af9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886047"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081474"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -239,9 +239,9 @@ Börja med att följa anvisningarna för [att ge appen åtkomst till Key Vault](
 
 Om du vill mata in de här hemligheterna i din våren-eller Tomcat-konfigurationsfil använder du syntaxen för miljö variabel insprutning (`${MY_ENV_VAR}`). För våren-konfigurationsfiler läser du den här dokumentationen om de [externa konfigurationerna](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
-## <a name="using-the-java-key-store"></a>Använda Java-nyckel arkivet
+### <a name="using-the-java-key-store"></a>Använda Java-nyckel arkivet
 
-Som standard kommer alla offentliga eller privata certifikat som [laddats upp till App Service Linux](../configure-ssl-certificate.md) att läsas in i Java-nyckel arkivet när behållaren startar. Det innebär att dina uppladdade certifikat är tillgängliga i anslutnings kontexten när du gör utgående TLS-anslutningar.
+Som standard kommer alla offentliga eller privata certifikat som [laddats upp till App Service Linux](../configure-ssl-certificate.md) att läsas in i Java-nyckel arkivet när behållaren startar. Det innebär att dina uppladdade certifikat är tillgängliga i anslutnings kontexten när du gör utgående TLS-anslutningar. När du har laddat upp certifikatet måste du starta om App Service för att det ska kunna läsas in i Java-nyckel arkivet.
 
 Du kan interagera eller felsöka Java-nyckel verktyget genom att [öppna en SSH-anslutning](app-service-linux-ssh-support.md) till app service och köra kommandot `keytool`. En lista över kommandon finns i [dokumentationen för nyckel verktyget](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) . Certifikaten lagras i Javas standard plats för nyckel lagring, `$JAVA_HOME/jre/lib/security/cacerts`.
 
@@ -251,7 +251,7 @@ Ytterligare konfiguration kan vara nödvändig för att kryptera JDBC-anslutning
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 
-### <a name="manually-initialize-and-load-the-key-store"></a>Initiera och Läs in nyckel lagret manuellt
+#### <a name="manually-initialize-and-load-the-key-store"></a>Initiera och Läs in nyckel lagret manuellt
 
 Du kan initiera nyckel lagringen och lägga till certifikat manuellt. Skapa en app-inställning, `SKIP_JAVA_KEYSTORE_LOAD`, med värdet `1` för att inaktivera App Service från att läsa in certifikaten i nyckel arkivet automatiskt. Alla offentliga certifikat som laddats upp till App Service via Azure-portalen lagras under `/var/ssl/certs/`. Privata certifikat lagras under `/var/ssl/private/`.
 
@@ -579,7 +579,7 @@ I följande steg förklaras kraven för att ansluta befintliga App Service och d
 
 6. Använd Azure CLI för att lägga till inställningar till App Service som innehåller information om databas anslutningen. Ersätt `<resource group>` och `<webapp name>` med de värden som din App Service använder. Ersätt `<database server name>`, `<database name>`, `<admin name>`och `<admin password>` med information om databas anslutningen. Du kan hämta App Service-och databas information från Azure Portal.
 
-    **PostgreSQL**
+    **PostgreSQL:**
 
     ```bash
     az webapp config appsettings set \
@@ -591,7 +591,7 @@ I följande steg förklaras kraven för att ansluta befintliga App Service och d
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL**
+    **MySQL:**
 
     ```bash
     az webapp config appsettings set \

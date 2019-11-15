@@ -1,18 +1,18 @@
 ---
-title: 'Ändra en ExpressRoute-krets: PowerShell: klassisk Azure | Microsoft Docs'
-description: Den här artikeln vägleder dig igenom stegen för att kontrol lera status, uppdatera eller ta bort och avetablera din ExpressRoute klassiska distributions modell krets.
+title: 'Azure-ExpressRoute: ändra en krets: PowerShell: klassisk'
+description: Den här artikeln vägleder dig igenom stegen för att kontrollera status, uppdatera eller ta bort och Avetablerar ExpressRoute-kretsen klassiska modellen.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9f1c05b85fac6dd0168d9c2b2944326800e90493
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643674"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083584"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Ändra en ExpressRoute-krets med PowerShell (klassisk)
 
@@ -21,11 +21,11 @@ ms.locfileid: "73643674"
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
 
-Den här artikeln vägleder dig igenom stegen för att kontrol lera status, uppdatera eller ta bort och avetablera din ExpressRoute klassiska distributions modell krets. Den här artikeln gäller den klassiska distributionsmodellen.
+Den här artikeln vägleder dig igenom stegen för att kontrollera status, uppdatera eller ta bort och Avetablerar ExpressRoute-kretsen klassiska modellen. Den här artikeln gäller den klassiska distributionsmodellen.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -35,7 +35,7 @@ Den här artikeln vägleder dig igenom stegen för att kontrol lera status, uppd
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Installera de senaste versionerna av Azure Service Management (SM) PowerShell-modulerna och ExpressRoute-modulen. Du kan inte använda Azure CloudShell-miljön för att köra SM-moduler.
+Installera de senaste versionerna av Azure Service Management (SM) PowerShell-moduler och ExpressRoute-modulen. Du kan inte använda Azure CloudShell-miljön för att köra SM-moduler.
 
 1. Följ anvisningarna i artikeln [Installera Service Management Module](/powershell/azure/servicemanagement/install-azure-ps) för att installera Azure Service Management-modulen. Om du redan har installerat AZ-eller RM-modulen måste du använda-AllowClobber.
 2. Importera de installerade modulerna. När du använder följande exempel justerar du sökvägen så att den återspeglar platsen för de installerade PowerShell-modulerna.
@@ -52,7 +52,7 @@ Installera de senaste versionerna av Azure Service Management (SM) PowerShell-mo
 
 ## <a name="get-the-status-of-a-circuit"></a>Hämta status för en krets
 
-Du kan hämta den här informationen när du vill genom att använda `Get-AzureCircuit`-cmdlet. Om du gör anropet utan några parametrar visas alla kretsar.
+Du kan hämta den här informationen när som helst med hjälp av den `Get-AzureCircuit` cmdlet. Att göra anropet utan några parametrar visas alla kretsar.
 
 ```powershell
 Get-AzureDedicatedCircuit
@@ -76,7 +76,7 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-Du kan hämta information om en speciell ExpressRoute-krets genom att skicka tjänst nyckeln som en parameter till anropet.
+Du kan få information om en viss ExpressRoute-krets genom att skicka tjänstnyckeln som en parameter i anropet.
 
 ```powershell
 Get-AzureDedicatedCircuit -ServiceKey "*********************************"
@@ -103,16 +103,16 @@ Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka ansl
 
 Du kan utföra följande uppgifter utan avbrott:
 
-* Aktivera eller inaktivera ett ExpressRoute Premium-tillägg för din ExpressRoute-krets.
-* Öka bandbredden för din ExpressRoute-krets om det finns tillgänglig kapacitet på porten. Nedgradera bandbredden för en krets stöds inte.
-* Ändra Mät planen från datapriser till obegränsade data. Det finns inte stöd för att ändra Mät planen från obegränsade data till datapriser.
+* Aktivera eller inaktivera en ExpressRoute-premiumtillägget för ExpressRoute-krets.
+* Öka bandbredden för ExpressRoute-kretsen under förutsättning att det finns tillgänglig kapacitet på porten. Nedgradera bandbredden för en krets stöds inte.
+* Ändra Avläsning av planen från förbrukade Data till obegränsade Data. Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
 
-Läs [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) för mer information om begränsningar och begränsningar.
+Referera till den [ExpressRoute vanliga frågor och svar](expressroute-faqs.md) mer information om gränser och begränsningar.
 
-### <a name="enable-the-expressroute-premium-add-on"></a>Aktivera ExpressRoute Premium-tillägget
+### <a name="enable-the-expressroute-premium-add-on"></a>Aktivera Expressroutes premiumtillägg
 
-Du kan aktivera ExpressRoute Premium-tillägget för din befintliga krets genom att använda följande PowerShell-cmdlet:
+Du kan aktivera Expressroutes premiumtillägg för din befintliga krets med hjälp av följande PowerShell-cmdlet:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
@@ -127,24 +127,24 @@ Sku                              : Premium
 Status                           : Enabled
 ```
 
-Din krets kommer nu att ha ExpressRoute Premium-funktionerna aktiverade. När kommandot har körts slutförs faktureringen för Premium-tilläggs funktionen.
+Kretsen har nu de ExpressRoute premium-tillägg-funktioner som aktiveras. När kommandot har körts utan problem, börjar faktureringen för funktionen för premium-tillägg.
 
-### <a name="disable-the-expressroute-premium-add-on"></a>Inaktivera ExpressRoute Premium-tillägget
+### <a name="disable-the-expressroute-premium-add-on"></a>Inaktivera Expressroutes premiumtillägg
 
 > [!IMPORTANT]
-> Den här åtgärden kan inte utföras om du använder resurser som är större än vad som tillåts för standard kretsen.
+> Den här åtgärden kan misslyckas om du använder resurser som är större än vad som tillåts för standard-krets.
 >
 >
 
 #### <a name="considerations"></a>Överväganden
 
-* Kontrol lera att antalet virtuella nätverk som är länkade till kretsen är mindre än 10 innan du degraderar från Premium till standard. Om du inte gör det Miss lyckas din uppdateringsbegäran och du debiteras premie priserna.
-* Du måste ta bort länken mellan alla virtuella nätverk i andra politiska regioner. Om du inte gör det Miss lyckas uppdateringsbegäran och du debiteras premie priserna.
-* Routningstabellen måste vara mindre än 4 000 vägar för privat peering. Om din väg tabell storlek är större än 4 000 vägar släpps BGP-sessionen och aktive ras inte igen förrän antalet annonserade prefix går under 4 000.
+* Se till att antalet virtuella nätverk som är länkade till kretsen är mindre än 10 innan du börjar Nedgradera från premium till standard. Om du inte gör det, din begäran om uppdatering misslyckas och du debiteras priserna för premium.
+* Du måste ta bort länken alla virtuella nätverk i andra geopolitiska regioner. Om du inte din begäran om uppdatering misslyckas och du debiteras priserna för premium.
+* Din routningstabell måste vara mindre än 4 000 vägar för privat peering. Om din väg tabell är större än 4 000 vägar, släpper BGP-sessionen och reenabled inte tills antalet annonserade prefix sjunker till under 4 000.
 
-#### <a name="to-disable-the-premium-add-on"></a>Så här inaktiverar du Premium-tillägget
+#### <a name="to-disable-the-premium-add-on"></a>Inaktivera premium-tillägget
 
-Du kan inaktivera ExpressRoute Premium-tillägget för din befintliga krets genom att använda följande PowerShell-cmdlet:
+Du kan inaktivera Expressroutes premiumtillägg för din befintliga krets med hjälp av följande PowerShell-cmdlet:
 
 ```powershell
 
@@ -162,18 +162,18 @@ Status                           : Enabled
 
 ### <a name="update-the-expressroute-circuit-bandwidth"></a>Uppdatera ExpressRoute-kretsens bandbredd
 
-Se [vanliga frågor och svar](expressroute-faqs.md) om vilka bandbredds alternativ som stöds för din Provider i ExpressRoute. Du kan välja valfri storlek som är större än den befintliga kretsens storlek så länge den fysiska porten (som din krets har skapats på) tillåter.
+Kontrollera den [ExpressRoute vanliga frågor och svar](expressroute-faqs.md) för bandbreddsalternativ för din leverantör som stöds. Du kan välja valfri storlek som är större än storleken på din befintliga krets så länge som gör att den fysiska porten (där din krets skapas).
 
 > [!IMPORTANT]
-> Du kan behöva återskapa ExpressRoute-kretsen om det inte finns tillräckligt med kapacitet på den befintliga porten. Du kan inte uppgradera kretsen om det inte finns någon ytterligare kapacitet tillgänglig på den platsen.
+> Du kan behöva återskapa ExpressRoute-krets om det finns lite kapacitet på befintliga porten. Du kan inte uppgradera kretsen om det finns inga ytterligare kapacitet på den platsen.
 >
-> Du kan inte minska bandbredden för en ExpressRoute-krets utan avbrott. Med degradering av bandbredd måste du avetablera ExpressRoute-kretsen och sedan etablera om en ny ExpressRoute-krets.
+> Du kan inte minska bandbredden för en ExpressRoute-krets utan avbrott. Nedgradera bandbredd måste du ta bort etableringen av ExpressRoute-kretsen och etablera om en ny ExpressRoute-krets.
 >
 >
 
 #### <a name="resize-a-circuit"></a>Ändra storlek på en krets
 
-När du har bestämt vilken storlek du behöver kan du använda följande kommando för att ändra storlek på kretsen:
+Du kan använda följande kommando för att ändra storlek på din krets när du har bestämt vilken storlek som du behöver:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
@@ -188,9 +188,9 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-När din krets har ändrats på Microsoft-sidan måste du kontakta anslutnings leverantören för att uppdatera konfigurationerna på sidan för att matcha den här ändringen. Faktureringen börjar för det uppdaterade bandbredds alternativet från den här tidpunkten.
+När kretsen har tagits anpassat på Microsoft-sida kan kontakta du din anslutningsleverantör om du vill uppdatera konfigurationer på sin sida för att matcha den här ändringen. Faktureringen börjar för alternativet uppdaterade bandbredd från och med nu på.
 
-Om du ser följande fel när du ökar krets bandbredden innebär det att det inte finns tillräckligt med bandbredd kvar på den fysiska porten där din befintliga krets skapas. Du måste ta bort den här kretsen och skapa en ny krets av den storlek du behöver.
+Om du ser följande fel om du vill öka kretsens bandbredd, betyder det lämnas utan tillräckligt mycket bandbredd på den fysiska porten där din befintliga krets skapas. Du måste ta bort den här kretsen och skapa en ny krets av samma storlek som du behöver.
 
 ```powershell
 Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
@@ -206,9 +206,9 @@ At line:1 char:1
 
 ### <a name="considerations"></a>Överväganden
 
-* Du måste ta bort länken mellan alla virtuella nätverk från ExpressRoute-kretsen för att åtgärden ska lyckas. Kontrol lera om det finns några virtuella nätverk som är länkade till kretsen om den här åtgärden Miss lyckas.
-* Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.
-* Om tjänst leverantören har avetablerat kretsen (etablerings statusen för tjänst leverantören är inställt på **inte etablerad**) kan du ta bort kretsen. Därmed avbryts faktureringen för kretsen.
+* Du måste ta bort länken alla virtuella nätverk från ExpressRoute-krets för att åtgärden ska lyckas. Kontrollera om du har några virtuella nätverk som är länkade till kretsen om åtgärden misslyckas.
+* Om leverantören för ExpressRoute-krets Etableringsstatus är **etablering** eller **etablerad** måste du samarbeta med din tjänstleverantör för att avetablera kretsen på sidan. Vi fortsätter att reservera resurser och debitera dig tills tjänstleverantören har slutförts avetablera kretsen och meddelar oss.
+* Om tjänsteleverantören har tagit bort etableringen kretsen (tjänstleverantören Etableringsstatus är inställd på **inte etablerats**), du kan sedan ta bort kretsen. Därmed avbryts faktureringen för kretsen.
 
 #### <a name="delete-a-circuit"></a>Ta bort en krets
 

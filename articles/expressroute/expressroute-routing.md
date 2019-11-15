@@ -1,5 +1,5 @@
 ---
-title: 'Krav för routning – ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure-ExpressRoute: krav för routning'
 description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029032"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083316"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -198,7 +197,7 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 | **Sydafrika**| |
 | Sydafrika, norra | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
 | Sydafrika, västra | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
-| **FÖRENADE ARABEMIRATEN**| |
+| **Förenade Arabemiraten**| |
 | Förenade Arabemiraten, norra | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
 | Förenade Arabemiraten, centrala | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 

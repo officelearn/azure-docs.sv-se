@@ -1,27 +1,26 @@
 ---
-title: Vanliga frågor och svar om Azure Site Recovery
-description: I den här artikeln beskrivs populära frågor om Azure Site Recovery.
-services: site-recovery
+title: Allmänna frågor om tjänsten Azure Site Recovery
+description: I den här artikeln beskrivs populära allmänna frågor om Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 9ab2466a201662cfde4655aedd12f9fd1b21c964
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053717"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078526"
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: vanliga frågor och svar
-I den här artikeln sammanfattas vanliga frågor om Azure Site Recovery.</br>
-För vissa frågor i olika ASR-scenarier, se vanliga frågor och svar om scenarier.<br>
+# <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
-- [Katastrof återställning av Azure VM till Azure](azure-to-azure-common-questions.md)
-- [Katastrof återställning av VMware VM till Azure](vmware-azure-common-questions.md)
-- [Haveri beredskap för virtuella Hyper-V-datorer till Azure](hyper-v-azure-common-questions.md)
+I den här artikeln sammanfattas vanliga frågor om Azure Site Recovery. Granska de här artiklarna för vissa scenarier
+
+- [Frågor om haveri beredskap för virtuella Azure-datorer till Azure](azure-to-azure-common-questions.md)
+- [Frågor om haveri beredskap för virtuella VMware-datorer till Azure](vmware-azure-common-questions.md)
+- [Frågor om haveri beredskap för virtuella Hyper-V-datorer till Azure](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>Allmänt
 
@@ -60,7 +59,7 @@ Vi har stöd för Azure-paket, moln plattforms system och System Center-baserade
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Finns det stöd för distributioner med ett enda Azure Pack och en enda VMM-server?
 Ja, du kan replikera virtuella Hyper-V-datorer till Azure, eller mellan Service Provider-platser.  Observera att Azure Runbook-integrering inte är tillgängligt om du replikerar mellan platser för tjänst leverantörer.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 ### <a name="where-can-i-find-pricing-information"></a>Var kan jag hitta pris information?
 Granska [Site Recovery pris](https://azure.microsoft.com/pricing/details/site-recovery/) information.
@@ -195,7 +194,7 @@ Ja. Du kan läsa mer om hur du begränsar bandbredden i de här artiklarna:
 
 
 
-## <a name="failover"></a>växling vid fel
+## <a name="failover"></a>Redundans
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Hur får jag åtkomst till virtuella Azure-datorer efter redundansväxlingen om jag växlar över till Azure?
 
 Du kan komma åt virtuella Azure-datorer via en säker Internetanslutning, via ett plats-till-plats-VPN eller över Azure ExpressRoute. Du måste förbereda ett antal saker för att kunna ansluta. [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).

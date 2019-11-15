@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a7cd61854176dc702f213211b14c2361b3e433ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5196dbbfb52ce75031a53764b371d6d34b43fba7
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825367"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091423"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för Java
 
@@ -33,7 +33,7 @@ Använd klient biblioteket för Azure Blob Storage-V12 för Java för att:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 eller senare
 * [Apache Maven](https://maven.apache.org/download.cgi)
@@ -152,7 +152,7 @@ public class App
 
 När exempel programmet gör en begäran för att Azure Storage, måste det vara auktoriserat. Om du vill auktorisera en begäran lägger du till autentiseringsuppgifterna för ditt lagrings konto i programmet som en anslutnings sträng. Visa autentiseringsuppgifterna för lagringskontot genom att följa dessa steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.
 3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Här kan du visa åtkomstnycklarna för kontot och den fullständiga anslutningssträngen för varje nyckel.
 4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att välja **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
@@ -201,11 +201,11 @@ Följande diagram visar relationen mellan de här resurserna.
 
 Använd följande Java-klasser för att interagera med dessa resurser:
 
-* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): klassen `BlobServiceClient` gör att du kan ändra Azure Storage resurser och blob-behållare. Lagrings kontot innehåller namn området på den översta nivån för Blob Service.
-* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder): klassen `BlobServiceClientBuilder` ger en Fluent Builder-API för att hjälpa till att hjälpa till att konfigurera och instansiera `BlobServiceClient` objekt.
-* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient): klassen `BlobContainerClient` gör att du kan ändra Azure Storage behållare och deras blobbar.
-* [BlobClient](/java/api/com.azure.storage.blob.blobclient): klassen `BlobClient` gör att du kan ändra Azure Storage blobbar.
-* [BlobItem](/java/api/com.azure.storage.blob.blobitem): klassen `BlobItem` representerar enskilda blobbar som returneras från ett anrop till `listBlobsFlat`.
+* [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClient.html): klassen `BlobServiceClient` gör att du kan ändra Azure Storage resurser och blob-behållare. Lagrings kontot innehåller namn området på den översta nivån för Blob Service.
+* [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html): klassen `BlobServiceClientBuilder` ger en Fluent Builder-API för att hjälpa till att hjälpa till att konfigurera och instansiera `BlobServiceClient` objekt.
+* [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html): klassen `BlobContainerClient` gör att du kan ändra Azure Storage behållare och deras blobbar.
+* [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html): klassen `BlobClient` gör att du kan ändra Azure Storage blobbar.
+* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): klassen `BlobItem` representerar enskilda blobbar som returneras från ett anrop till `listBlobsFlat`.
 
 ## <a name="code-examples"></a>Kod exempel
 
@@ -243,7 +243,7 @@ Välj ett namn för den nya behållaren. Koden nedan lägger till ett UUID-värd
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om namngivning av containrar och blobar finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Därefter skapar du en instans av klassen [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) och anropar sedan [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) -metoden för att skapa behållaren i ditt lagrings konto.
+Därefter skapar du en instans av klassen [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html) och anropar sedan [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#create--) -metoden för att skapa behållaren i ditt lagrings konto.
 
 Lägg till den här koden i slutet av `Main`-metoden:
 
@@ -263,8 +263,8 @@ BlobContainerClient containerClient = blobServiceClient.createBlobContainer(cont
 Följande kodfragment:
 
 1. Skapar en textfil i den lokala *data* katalogen.
-1. Hämtar en referens till ett [BlobClient](/java/api/com.azure.storage.blob.blobclient) -objekt genom att anropa metoden [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) i behållaren från avsnittet [skapa en behållare](#create-a-container) .
-1. Överför den lokala text filen till blobben genom att anropa metoden [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) . Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
+1. Hämtar en referens till ett [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html) -objekt genom att anropa metoden [getBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#getBlobClient-java.lang.String-) i behållaren från avsnittet [skapa en behållare](#create-a-container) .
+1. Överför den lokala text filen till blobben genom att anropa metoden [uploadFromFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html#uploadFromFile-java.lang.String-) . Den här metoden skapar blobben om den inte redan finns, men den kommer inte att skriva över den om den gör det.
 
 Lägg till den här koden i slutet av `Main`-metoden:
 
@@ -290,7 +290,7 @@ blobClient.uploadFromFile(localPath + fileName);
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Visa en lista över blobarna i behållaren genom att anropa metoden [listBlobsFlat](/java/api/com.azure.storage.blob.blobcontainerclient.listblobsflat) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
+Visa en lista över blobarna i behållaren genom att anropa metoden [listBlobs](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#listBlobs--) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
 
 Lägg till den här koden i slutet av `Main`-metoden:
 
@@ -305,7 +305,7 @@ for (BlobItem blobItem : containerClient.listBlobs()) {
 
 ### <a name="download-blobs"></a>Ladda ned blobbar
 
-Ladda ned den tidigare skapade blobben genom att anropa [downloadToFile](/java/api/com.azure.storage.blob.blobclient.downloadtofile) -metoden. Exempel koden lägger till suffixet "DOWNLOAD" i fil namnet så att du kan se båda filerna i det lokala fil systemet.
+Ladda ned den tidigare skapade blobben genom att anropa [downloadToFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/specialized/BlobClientBase.html#downloadToFile-java.lang.String-) -metoden. Exempel koden lägger till suffixet "DOWNLOAD" i fil namnet så att du kan se båda filerna i det lokala fil systemet.
 
 Lägg till den här koden i slutet av `Main`-metoden:
 
@@ -322,7 +322,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 ### <a name="delete-a-container"></a>Ta bort en container
 
-Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med [Delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) -metoden. Den tar också bort de lokala filer som skapats av appen.
+Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med [Delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--) -metoden. Den tar också bort de lokala filer som skapats av appen.
 
 Appen pausar indata från användaren genom att anropa `System.console().readLine()` innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna faktiskt har skapats korrekt innan de tas bort.
 

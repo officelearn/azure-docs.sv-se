@@ -1,5 +1,5 @@
 ---
-title: Konfigurera katastrof återställning för SQL Server med SQL Server och Azure Site Recovery | Microsoft Docs
+title: Konfigurera katastrof återställning för SQL Server med Azure Site Recovery
 description: I den här artikeln beskrivs hur du konfigurerar haveri beredskap för SQL Server med SQL Server och Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934839"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084742"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera katastrof återställning för SQL Server
 
@@ -54,18 +54,18 @@ Site Recovery dirigerar redundanstest och redundansväxlingen för hela programm
 
 Det finns vissa krav för att se till att din återställnings plan är helt anpassad beroende på dina behov. En SQL Server distribution behöver vanligt vis en Active Directory-distribution. Den behöver också anslutning för program nivån.
 
-### <a name="step-1-set-up-active-directory"></a>Steg 1: Konfigurera Active Directory
+### <a name="step-1-set-up-active-directory"></a>Steg 1: konfigurera Active Directory
 
 Konfigurera Active Directory på den sekundära återställnings platsen för SQL Server att köras korrekt.
 
-* **Litet företag**: Du har ett litet antal program och en enda domänkontrollant för den lokala platsen. Om du vill redundansväxla hela platsen använder Site Recovery replikering. Den här tjänsten replikerar domänkontrollanten till det sekundära data centret eller till Azure.
-* **Medel stora till stora företag**: Du kan behöva konfigurera ytterligare domänkontrollanter.
+* **Litet företag**: du har ett litet antal program och en enda domänkontrollant för den lokala platsen. Om du vill redundansväxla hela platsen använder Site Recovery replikering. Den här tjänsten replikerar domänkontrollanten till det sekundära data centret eller till Azure.
+* **Medel stora till stora företag**: du kan behöva konfigurera ytterligare domänkontrollanter.
   - Om du har ett stort antal program, har en Active Directory skog och vill växla över via program eller arbets belastning, konfigurerar du en annan domänkontrollant i det sekundära data centret eller i Azure.
   -  Om du använder Always on-tillgänglighetsgrupper för att återställa till en fjärrplats, konfigurerar du en annan domänkontrollant på den sekundära platsen eller i Azure. Den här domänkontrollanten används för den återställda SQL Server-instansen.
 
 Anvisningarna i den här artikeln förutsätter att en domänkontrollant är tillgänglig på den sekundära platsen. Mer information finns i procedurerna för [att skydda Active Directory med Site Recovery](site-recovery-active-directory.md).
 
-### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Steg 2: Säkerställa anslutning till andra nivåer
+### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Steg 2: kontrol lera anslutningen till andra nivåer
 
 När databas nivån körs i Azure-regionen måste du kontrol lera att du har anslutning till program-och webb nivåerna. Vidta nödvändiga åtgärder i förväg för att verifiera anslutningen med redundanstest.
 
@@ -74,7 +74,7 @@ För att förstå hur du kan utforma program för anslutnings överväganden, se
 * [Utforma ett program för haveri beredskap för molnet](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * [Katastrof återställnings strategier för elastisk pool](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
-### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Steg 3: Samverka med Always on, aktiv geo-replikering och grupper för automatisk redundans
+### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Steg 3: samverka med Always on, aktiv geo-replikering och grupper för automatisk redundans
 
 BCDR Technologies Always on, Active geo-replikering och autofailover-grupper har sekundära repliker av SQL Server som körs i Azures mål region. Det första steget för din programredundans är att ange den här repliken som primär. Det här steget förutsätter att du redan har en domänkontrollant i den sekundära. Steget kanske inte behövs om du väljer att göra en automatisk redundansväxling. Redundansväxla bara dina webb-och program nivåer när databasen har redundans slutförts.
 
@@ -85,13 +85,13 @@ BCDR Technologies Always on, Active geo-replikering och autofailover-grupper har
 
 1. Importera skripten för att redundansväxla SQL tillgänglighets grupp i både en [virtuell Resource Manager-dator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) och en [klassisk virtuell dator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Importera skripten till ditt Azure Automation-konto.
 
-    [![Bild av en "distribuera till Azure"-logo typ](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![avbildning av en logo typ för "distribuera till Azure"](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Lägg till skriptet ASR-SQL-FailoverAG som en för åtgärd för den första gruppen i återställnings planen.
 
 1. Följ instruktionerna som finns i skriptet för att skapa en Automation-variabel. Den här variabeln innehåller namnet på tillgänglighets grupperna.
 
-### <a name="step-4-conduct-a-test-failover"></a>Steg 4: Utför ett redundanstest
+### <a name="step-4-conduct-a-test-failover"></a>Steg 4: utför ett redundanstest
 
 Vissa BCDR-tekniker, som SQL Always on, stöder inte redundanstest. Vi rekommenderar att du använder den här metoden *endast när du använder sådan teknik*.
 
@@ -109,7 +109,7 @@ Vissa BCDR-tekniker, som SQL Always on, stöder inte redundanstest. Vi rekommend
 
 1. Ta med lyssnaren online.
 
-    ![Skärm bild av fönster med etiketten Content_AG som visar Server namn och status](./media/site-recovery-sql/bring-listener-online.png)
+    ![Skärm bild av fönster med etiketten Content_AG visar Server namn och status](./media/site-recovery-sql/bring-listener-online.png)
 
 1. Se till att belastningsutjämnaren i redundansklustret har en IP-adress, från den frontend-IP-adresspool som motsvarar varje tillgänglighets grupps lyssnare och med SQL Server VM i backend-poolen.
 

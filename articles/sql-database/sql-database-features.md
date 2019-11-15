@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 294fd39bfa78219df4bb0134aa744dd7515ff0f2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807811"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092154"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database funktioner
 
@@ -60,7 +60,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Distribuerade transaktioner-MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Inga – se [elastiska transaktioner](sql-database-elastic-transactions-overview.md) |  Inga se [skillnader mellan länkade servrar](sql-database-managed-instance-transact-sql-information.md#linked-servers). Försök att konsolidera databaser från flera distribuerade SQL Server instanser till en hanterad instans under migreringen. |
 | [DML-utlösare](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | De flesta – se enskilda uttryck |  Ja |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | De flesta – se enskilda DMV: er |  Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md) |
-| [Händelse meddelanden](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Inga-se [aviseringar](sql-database-insights-alerts-portal.md) | Nej |
+| [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Inga-se [aviseringar](sql-database-insights-alerts-portal.md) | Nej |
 | [Uttryck](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Utökade händelser (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Några-se [utökade händelser i SQL Database](sql-database-xevent-db-diff-from-svr.md) | Ja – Visa [skillnader i utökade händelser](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej | Nej |
@@ -122,9 +122,9 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [Tillgänglighetszoner](/azure/availability-zones/az-overview) | Ja | Nej |
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Ja | Nej |
 | Kvarhållning av säkerhetskopior | Ja. 7 dagar som standard, max 35 dagar. | Ja. 7 dagar som standard, max 35 dagar. |
-| [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Ja | Ja |
+| [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Ja | Ja |
 | Fil system åtkomst | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. |
-| [Geo-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja – alla tjänst nivåer förutom storskalig | Ja – använder [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
+| [Geo-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja – alla tjänst nivåer förutom storskalig | Ja – alla tjänst nivåer förutom storskalig |
 | [Skalnings arkitektur](sql-database-service-tier-hyperscale.md) | Ja | Nej |
 | [Långsiktig kvarhållning av säkerhets kopior – LTR](sql-database-long-term-retention.md) | Ja, Behåll automatiskt säkerhets kopieringar upp till 10 år. | Inte ännu. Använd `COPY_ONLY` [manuella säkerhets kopieringar](sql-database-managed-instance-transact-sql-information.md#backup) som en tillfällig lösning. |
 | Pausa/återuppta | Ja, i [Server lös modell](sql-database-serverless.md) | Nej | 
@@ -155,7 +155,7 @@ Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att han
 | Azure PowerShell | Ja | Ja |
 | [BACPAC-fil (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja – se [SQL Database export](sql-database-export.md) | Ja – se [SQL Database export](sql-database-export.md) |
 | [BACPAC-fil (importera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja – se [SQL Database import](sql-database-import.md) | Ja – se [SQL Database import](sql-database-import.md) |
-| [DQS (Data Quality Services)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Nej | Nej |
+| [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Nej | Nej |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [Ja](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | Ja, [version 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |

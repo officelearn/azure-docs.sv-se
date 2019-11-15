@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med MyVR | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med MyVR | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MyVR.
 services: active-directory
 documentationCenter: na
@@ -13,151 +13,155 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10473c820cd0dbb7c7db3f33de203ca4d636414b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0bb55832443a9f4ac71122d92292c18346a9f48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096495"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081902"
 ---
-# <a name="tutorial-integrate-myvr-with-azure-active-directory"></a>Självstudier: Integrera MyVR med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-myvr"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med MyVR
 
-I de här självstudierna lär du dig att integrera MyVR med Azure Active Directory (AD Azure). När du integrerar MyVR med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar MyVR med Azure Active Directory (Azure AD). När du integrerar MyVR med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till MyVR.
-* Ge dina användare att automatiskt inloggad till MyVR med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till MyVR.
+* Gör det möjligt för användarna att logga in automatiskt till MyVR med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Aktiverat prenumeration MyVR enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* MyVR för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. 
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Har stöd för MyVR **SP och IDP** -initierad SSO.
-* Har stöd för MyVR **Just In Time** etableringen av användare.
 
-## <a name="adding-myvr-from-the-gallery"></a>Att lägga till MyVR från galleriet
 
-För att konfigurera integrering av MyVR i Azure AD, som du behöver lägga till MyVR från galleriet i din lista över hanterade SaaS-appar.
+* MyVR stöder **SP-och IDP** -INITIERAd SSO
+* MyVR stöder **just-in-Time** User-etablering
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+
+## <a name="adding-myvr-from-the-gallery"></a>Lägga till MyVR från galleriet
+
+Om du vill konfigurera integreringen av MyVR i Azure AD måste du lägga till MyVR från galleriet i listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **MyVR** i sökrutan.
-1. Välj **MyVR** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **MyVR** i sökrutan.
+1. Välj **MyVR** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-Konfigurera och testa Azure AD enkel inloggning med MyVR med en testanvändare kallas **B. Simon**. Du måste upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i MyVR för SSO ska fungera.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-myvr"></a>Konfigurera och testa enkel inloggning med Azure AD för MyVR
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med MyVR, utför du följande byggblock:
+Konfigurera och testa Azure AD SSO med MyVR med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i MyVR.
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
-1. **[Konfigurera MyVR SSO](#configure-myvr-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med B. Simon.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera B. Simon att använda Azure AD enkel inloggning.
-1. **[Skapa testanvändare MyVR](#create-myvr-test-user)**  – du har en motsvarighet för B. Simon i MyVR som är länkad till en Azure AD-representation av användaren.
-1. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
+Om du vill konfigurera och testa Azure AD SSO med MyVR, slutför du följande Bygg stenar:
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera MYVR SSO](#configure-myvr-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa MyVR test User](#create-myvr-test-user)** -om du vill ha en motsvarighet till B. Simon i MyVR som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **MyVR** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **MyVR** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** om användaren vill konfigurera programmet i **IDP** initierad läge, användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **spara** .
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-   I rutan **Inloggnings-URL** anger du följande URL: `https://ess.virtualroster.net/ess/login.aspx`
+    I rutan **Inloggnings-URL** anger du en URL:  `https://ess.virtualroster.net/ess/login.aspx`
 
-1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
+1. MyVR-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+
+    ![image](common/edit-attribute.png)
+
+1. Utöver ovan förväntar sig MyVR-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
    | Namn | Källattribut|
    | ---------------| --------------- |
-   | givenName | user.givenname |
-   | surname | user.surname |
-   | emailaddress | user.mail |
-   | EmployeeID | user.employeeid |
+   | employeeid | user.employeeid |
 
-   1. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-   1. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-   1. Lämna **Namnrymd** tom.
-   1. Välj Källa som **Attribut**.
-   1. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-   1. Klicka på **OK**.
-   1. Klicka på **Spara**.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-   ![Länk för hämtning av certifikat](common/certificatebase64.png)
+1. I avsnittet **Konfigurera MyVR** kopierar du lämpliga URL: er baserat på ditt krav.
 
-1. På den **konfigurera MyVR** avsnittet, kopiera den lämpliga URL: er efter behov.
-
-   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-### <a name="configure-myvr-sso"></a>Konfigurera MyVR SSO
-
-Att konfigurera enkel inloggning på **MyVR** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [MyVR supportteamet](mailto:arno.vandenberg@Kronos.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
-   1. I **Namn**-fältet skriver du `B. Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MyVR.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till MyVR.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **MyVR**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **MyVR**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-   ![Länken Lägg till användare](common/add-assign-user.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B. Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-myvr-test-user"></a>Skapa MyVR testanvändare
+## <a name="configure-myvr-sso"></a>Konfigurera MyVR SSO
 
-I det här avsnittet skapas en användare som kallas B. Simon i MyVR. MyVR stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i MyVR, skapas en ny efter autentisering.
+Om du vill konfigurera enkel inloggning på **MyVR** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för MyVR](mailto:arno.vandenberg@Kronos.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="create-myvr-test-user"></a>Skapa MyVR test användare
 
-När du väljer panelen MyVR i åtkomstpanelen, bör det vara loggas in automatiskt till MyVR som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+I det här avsnittet skapas en användare som heter B. Simon i MyVR. MyVR stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i MyVR skapas en ny efter autentiseringen.
+
+## <a name="test-sso"></a>Testa SSO 
+
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på panelen MyVR på åtkomst panelen, bör du loggas in automatiskt på den MyVR som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova MyVR med Azure AD](https://aad.portal.azure.com/)
+

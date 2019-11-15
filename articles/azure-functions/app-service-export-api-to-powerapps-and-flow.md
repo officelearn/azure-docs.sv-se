@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 2ed154d15176ed6706a69f0a6be4c60159d478c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b12d1fec9b7852835d3d5b5346d64868d2ee8c46
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087698"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082849"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserad API till PowerApps och Microsoft Flow
 
@@ -30,7 +30,7 @@ På samma sätt kan utvecklare som vill exponera sina API: er mer brett inom en 
 Innan du exporterar ett API måste du beskriva API: et med en OpenAPI-definition (tidigare kallad [Swagger](https://swagger.io/) -fil). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade. PowerApps och Microsoft Flow kan skapa anpassade anslutningar för valfri OpenAPI 2,0-definition. Azure Functions och Azure App Service har inbyggt stöd för att skapa, vara värd för och hantera OpenAPI-definitioner. Mer information finns i [hantera en RESTful-API med CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
-> Du kan också bygga anpassade anslutningar i PowerApps och Microsoft Flow användar gränssnitt, utan att använda en OpenAPI-definition. Mer information finns i [Registrera och använda en anpassad anslutning (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) och [Registrera och använda en anpassad anslutning (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
+> Du kan också bygga anpassade anslutningar i PowerApps och Microsoft Flow användar gränssnitt, utan att använda en OpenAPI-definition. Mer information finns i [Registrera och använda en anpassad anslutning (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) och [Registrera och använda en anpassad anslutning (Microsoft Flow)](/power-automate/developer/register-custom-api).
 
 Exportera API-definitionen genom att följa dessa steg:
 
@@ -123,11 +123,11 @@ Följ dessa steg om du vill importera API-definitionen till PowerApps och Micros
 
     ![Fliken definitioner](media/app-service-export-api-to-powerapps-and-flow/tab-definitions.png)
 
-    Det här exemplet har en åtgärd med `CalculateCosts`namnet. Metadata, till exempel **Beskrivning**, kommer från openapi-filen.
+    Det här exemplet har en åtgärd med namnet `CalculateCosts`. Metadata, till exempel **Beskrivning**, kommer från openapi-filen.
 
 7. Klicka på **Skapa koppling** överst på sidan.
 
-Nu kan du ansluta till den anpassade anslutningen i PowerApps och Microsoft Flow. Mer information om hur du skapar anslutningar i PowerApps och Microsoft Flow portaler finns i [Registrera din anpassade anslutning (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) och [Registrera din anpassade anslutning (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
+Nu kan du ansluta till den anpassade anslutningen i PowerApps och Microsoft Flow. Mer information om hur du skapar anslutningar i PowerApps och Microsoft Flow portaler finns i [Registrera din anpassade anslutning (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) och [Registrera din anpassade anslutning (Microsoft Flow)](/power-automate/get-started-flow-dev#create-a-custom-connector).
 
 <a name="auth"></a>
 ## <a name="specify-authentication-type"></a>Ange autentiseringstyp
@@ -149,21 +149,21 @@ Under exporten anger du konfigurations värden som tillåter PowerApps och Micro
 I det här avsnittet beskrivs de autentiseringstyper som stöds i **Express** -läge: API-nyckel, Azure Active Directory och generisk OAuth 2,0. PowerApps och Microsoft Flow stöder även grundläggande autentisering och OAuth 2,0 för vissa tjänster som Dropbox, Facebook och SalesForce.
 
 ### <a name="api-key"></a>API-nyckel
-När du använder en API-nyckel uppmanas användarna av din anslutning att ange nyckeln när de skapar en anslutning. Du anger ett API-nyckel namn för att hjälpa dem att förstå vilken nyckel som behövs. I det tidigare exemplet använder vi namnet `API Key (contact meganb@contoso.com)` så att människor vet var du ska hämta information om API-nyckeln. För Azure Functions är nyckeln vanligt vis en av värd nycklarna, som täcker flera funktioner i Function-appen.
+När du använder en API-nyckel uppmanas användarna av din anslutning att ange nyckeln när de skapar en anslutning. Du anger ett API-nyckel namn för att hjälpa dem att förstå vilken nyckel som behövs. I det tidigare exemplet använder vi namnet `API Key (contact meganb@contoso.com)` så att personer vet var de ska hämta information om API-nyckeln. För Azure Functions är nyckeln vanligt vis en av värd nycklarna, som täcker flera funktioner i Function-appen.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 När du använder Azure AD behöver du två Azure AD-programregistreringar: en för själva API: et och en för det anpassade anslutnings programmet:
 
 - Om du vill konfigurera registrering för API: et använder du funktionen [App Service autentisering/auktorisering](../app-service/configure-authentication-provider-aad.md) .
 
-- Om du vill konfigurera registreringen för anslutningen följer du stegen i [lägga till ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Registreringen måste ha delegerad åtkomst till ditt API och svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- Om du vill konfigurera registreringen för anslutningen följer du stegen i [lägga till ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Registreringen måste ha delegerad åtkomst till ditt API och en svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
-Mer information finns i exempel på Azure AD-registrering för [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) och [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). I de här exemplen används Azure Resource Manager som API: et. Ersätt ditt API om du följer anvisningarna.
+Mer information finns i exempel på Azure AD-registrering för [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) och [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). I de här exemplen används Azure Resource Manager som API: et. Ersätt ditt API om du följer anvisningarna.
 
 Följande konfigurations värden måste anges:
 - **Klient-ID** – klient-ID för din ANSLUTNINGS Azure AD-registrering
 - **Klient hemlighet** – klient hemligheten för din ANSLUTNINGS Azure AD-registrering
-- **Inloggnings-URL** – bas-URL: en för Azure AD. I Azure är det vanligt vis `https://login.windows.net`.
+- **Inloggnings-URL** – bas-URL: en för Azure AD. I Azure är detta vanligt vis `https://login.windows.net`.
 - **Klient-ID** – ID för den klient som ska användas för inloggningen. Detta bör vara "common" eller ID: t för den klient som anslutningen skapas i.
 - **Resurs-URL** – resurs-URL för Azure AD-registreringen för ditt API
 

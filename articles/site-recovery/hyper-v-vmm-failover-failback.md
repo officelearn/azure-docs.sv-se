@@ -1,19 +1,19 @@
 ---
-title: Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till ett sekundärt Data Center under haveri beredskap med Azure Site Recovery | Microsoft Docs
+title: Konfigurera redundans/återställning efter fel till en sekundär Hyper-V-plats med Azure Site Recovery
 description: Lär dig hur du växlar över virtuella Hyper-V-datorer till den sekundära lokala platsen och växlar tillbaka till den primära platsen under haveri beredskap med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f93c9bd679272f76665a6c8e4a0c611327699839
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813699"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082589"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till den sekundära lokala platsen
 
@@ -30,12 +30,12 @@ Den här artikeln beskriver hur du växlar över en virtuell Hyper-V-dator som h
 
 Redundans och återställning efter fel har tre steg:
 
-1. **Redundansväxla till sekundär plats**: Redundansväxla datorer från den primära platsen till den sekundära.
-2. **Växla tillbaka från den sekundära platsen**: Replikera virtuella datorer från sekundär till primär och kör en planerad redundansväxling för att återställa igen.
+1. **Redundansväxla till sekundär plats**: redundansväxla datorer från den primära platsen till den sekundära.
+2. **Växla tillbaka från den sekundära platsen**: replikera virtuella datorer från sekundär till primär och kör en planerad redundansväxling för att återställa.
 3. Efter den planerade redundansväxlingen kan du också starta replikeringen från den primära platsen till den sekundära igen.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Kontrol lera att du har slutfört en [haveri beredskap](hyper-v-vmm-test-failover.md) för att kontrol lera att allt fungerar som förväntat.
 - Slutför återställning efter fel genom att kontrol lera att de primära och sekundära VMM-servrarna är anslutna till Site Recovery.
@@ -53,12 +53,12 @@ Du kan köra en regelbunden eller planerad redundansväxling för virtuella Hype
 
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **+Redundans**.
-1. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery försöker stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Site Recovery kommer också att försöka synkronisera lokala data som ännu inte har skickats till den sekundära platsen, innan redundansväxlingen utlöses. Observera att redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+1. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery försöker stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Site Recovery kommer också att försöka synkronisera lokala data som ännu inte har skickats till den sekundära platsen, innan redundansväxlingen utlöses. Observera att redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
 2. Du bör nu kunna se den virtuella datorn i det sekundära VMM-molnet.
 3. När du har verifierat den virtuella datorn **genomför** du redundansväxlingen. Detta tar bort alla tillgängliga återställningspunkter.
 
 > [!WARNING]
-> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.  
+> **Avbryt inte en pågående redundansväxling**: Innan redundansen startas så stoppas replikeringen av den virtuella datorn. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Omvänd replikering och redundans

@@ -11,19 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 30e8fa51df42d202d77ecdbc6a31fe3c7aaac6f4
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 592fd8901fc7f8a82a390f3c125c712ef5829a52
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968628"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083718"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services äldre komponenter
 
 Med tiden har du konstanta förbättringar och förbättringar av media service-komponenter. Därför har vissa äldre komponenter dragits tillbaka. Du hittar anvisningar om hur du migrerar ditt program från den äldre komponenten till en aktuell komponent i följande artiklar.
-
+ 
 ## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>Indragnings planer för äldre komponenter och vägledning för migrering
 
 Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Encoder* (WAME) och *Azure Media Encoder* (amn). Dessa processorer dras tillbaka den 30 november 2019.
@@ -32,15 +32,11 @@ Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Enco
 * [Migrera från Azure Media Encoder till Media Encoder Standard](migrate-azure-media-encoder.md)
 
 Vi meddelar också att följande Medieanalys medie processorer tas ur bruk: 
-
+ 
 |Namn på mediebearbetare|Datum för indragning|Ytterligare information|
 |---|---|
 |[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 1 januari 2020|Medie processorn kommer att ersättas av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Mer information finns i [Migrera från Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).|
 |[Azure Media Indexer](media-services-index-content.md)|1 oktober 2020|Medie processorn kommer att ersättas av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Mer information finns i [Migrera från Azure Media Indexer till Azure Media Services video Indexer](migrate-indexer-v1-v2.md)
-|[Azure Media Face Detector](media-services-face-and-emotion-detection.md)|1 februari 2020|Den här Medieanalys förhands gransknings processorn dras tillbaka och kommer inte att flyttas till allmän tillgänglighet. Vi kommer att utvärdera sina scenarier och användnings fall med kunder för framtida investeringar.|
-|[Azure Media Motion Detector](media-services-motion-detection.md)|1 februari 2020|Den här Medieanalys förhands gransknings processorn dras tillbaka och kommer inte att flyttas till allmän tillgänglighet. Vi kommer att utvärdera sina scenarier och användnings fall med kunder för framtida investeringar.|
-|[Azure Media OCR](media-services-video-optical-character-recognition.md)|1 februari 2020|Medie processorn ersätts av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) och för [hands inställningen för Azure Media Services v3 API video Analyzer](../latest/analyzing-video-audio-files-concept.md).|
-|[Azure Media Video Thumbnails](media-services-video-summarization.md)|1 februari 2020|Medie processorn ersätts av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) och för [hands inställningen för Azure Media Services v3 API video Analyzer](../latest/analyzing-video-audio-files-concept.md).|
 
 ## <a name="next-steps"></a>Nästa steg
 

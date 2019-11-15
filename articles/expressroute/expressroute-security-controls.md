@@ -1,20 +1,18 @@
 ---
-title: Säkerhets kontroller för Azure-ExpressRoute
+title: 'Azure-ExpressRoute: säkerhets kontroller'
 description: En check lista över säkerhets kontroller för utvärdering av Azure-ExpressRoute
 services: expressroute
 ms.service: expressroute
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ab73ba6dd4b78d3cd0be5f4c7f7a502e5c58e08
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886542"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079936"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Säkerhets kontroller för Azure-ExpressRoute
 
@@ -26,10 +24,10 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för tjänst slut punkt| Gäller inte |  |
-| Stöd för VNet-injektering| Gäller inte | |
+| Stöd för tjänst slut punkt| Saknas |  |
+| Stöd för VNet-injektering| Saknas | |
 | Stöd för nätverks isolering och brand vägg| Ja | Varje kund ingår i en egen routningsdomän och dirigeras sedan till sitt eget VNet |
-| Stöd för Tvingad tunnel trafik| Gäller inte | Via Border Gateway Protocol (BGP). |
+| Stöd för Tvingad tunnel trafik| Saknas | Via Border Gateway Protocol (BGP). |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
@@ -43,16 +41,16 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Authentication| Ja | Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
-| Authorization|  Ja |Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
+| Autentisering| Ja | Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
+| Auktorisering|  Ja |Tjänst konto för gateway för Microsoft (GWM) (kontrollant); JIT-åtkomst (just in Time) för utveckling och OP. |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar |  Gäller inte | ExpressRoute lagrar inte kund information. |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Gäller inte |  |
-| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Saknas | ExpressRoute lagrar inte kund information. |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Saknas |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Saknas | |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Nej | |
 | Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |
 

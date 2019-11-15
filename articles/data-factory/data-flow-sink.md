@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519319"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082937"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
 
@@ -28,7 +28,7 @@ Om du vill ta Sink alla inkommande fält aktiverar du **Auto Map**. Om du vill v
 ## <a name="output"></a>Resultat 
 För Azure Blob Storage-eller Data Lake Storage Sink-typer skriver du ut transformerade data till en mapp. Spark genererar partitionerade utdatafiler baserat på det partitionerings schema som används av Sink-omvandlingen. 
 
-Du kan ställa in partitionerings schema från fliken **Optimize (optimera** ). Om du vill att Data Factory sammanfoga dina utdata till en enda fil väljer du **enskild partition**.
+Du kan ställa in partitionerings schema från fliken **Optimize (optimera** ). Om du vill att Data Factory sammanfoga dina utdata till en enda fil väljer du **enskild partition**. Om du vill underhålla eller skapa partitionerade mappar använder du **nyckel partitionering** och anger de nycklar som du vill använda för partitionerade mappstrukturer.
 
 ![Alternativ på fliken optimera](media/data-flow/opt001.png "mottagar alternativ")
 

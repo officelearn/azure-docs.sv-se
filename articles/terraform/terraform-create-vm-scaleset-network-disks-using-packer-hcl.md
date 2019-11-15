@@ -1,37 +1,37 @@
 ---
-title: Självstudie – Skapa skalnings uppsättning för virtuella Azure-datorer från en anpassad Packer-avbildning med terraform
+title: Självstudie – Skapa en skalnings uppsättning för virtuella Azure-datorer från en anpassad avbildning av en packare med hjälp av terraform
 description: Använd Terraform för att konfigurera och versionshantera en VM-skalningsuppsättning för Azure från en anpassad avbildning som skapats genom Packer (komplett med ett virtuellt nätverk och hanterade anslutna diskar).
 ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 080fda3077a10d0605f061aca5226783457348f9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7d2813a51e63d86b56712bb6d07efc2f65ec65a0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837526"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077819"
 ---
-# <a name="tutorial-create-azure-virtual-machine-scale-set-from-a-packer-custom-image-using-terraform"></a>Självstudie: skapa en skalnings uppsättning för virtuella Azure-datorer från en anpassad Packer-avbildning med terraform
+# <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Självstudie: skapa en skalnings uppsättning för virtuella Azure-datorer från en anpassad avbildning av en packare med hjälp av terraform
 
-I den här självstudien använder du [Terraform](https://www.terraform.io/) för att skapa och distribuera en [VM-skalningsuppsättning för Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) som skapats med en anpassad avbildning som genererats med hjälp av [Packer](https://www.packer.io/intro/index.html) med hanterade diskar, genom att använda [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
+I den här självstudien använder du [terraform](https://www.terraform.io/) för att skapa och distribuera en [skalnings uppsättning för en virtuell Azure-dator](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) som skapats med en anpassad avbildning som skapats med hjälp av [Packer](https://www.packer.io/intro/index.html) med hanterade diskar som använder [HashiCorp konfigurations språk](https://www.terraform.io/docs/configuration/syntax.html) (HCL). 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera din Terraform-distribution
-> * Använda variabler och utdata för Terraform-distribution 
-> * Skapa och distribuera en nätverksinfrastruktur
-> * Skapa en anpassad avbildning av virtuell dator med Packer
-> * Skapa och distribuera en VM-skalningsuppsättning med den anpassade avbildningen
-> * Skapa och distribuera en jumpbox 
+> * Konfigurera din terraform-distribution.
+> * Använd variabler och utdata för terraform-distribution.
+> * Skapa och distribuera en nätverks infrastruktur.
+> * Skapa en anpassad avbildning av en virtuell dator med hjälp av Packer.
+> * Skapa och distribuera en skalnings uppsättning för virtuella datorer med hjälp av den anpassade avbildningen.
+> * Skapa och distribuera en hopp.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- **Terraform**: [Installera terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Terraform**: [Installera terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure).
 - **SSH-nyckel par**: [skapa ett SSH](/azure/virtual-machines/linux/mac-create-ssh-keys)-nyckelpar.
 - **Packer**: [Installera Packer](https://www.packer.io/docs/install/index.html).
 
@@ -47,7 +47,7 @@ Skapa tre nya filer i en tom katalog med följande namn:
 
 I det här steget definierar du variabler som anpassar resurserna som skapas av Terraform.
 
-Redigera filen `variables.tf`, kopiera följande kod och spara ändringarna.
+Redigera `variables.tf`-filen, kopiera följande kod och spara sedan ändringarna.
 
 ```hcl
 variable "location" {
@@ -63,11 +63,11 @@ variable "resource_group_name" {
 ```
 
 > [!NOTE]
-> Standardvärdet för variabeln resource_group_name är odefinierad – definiera ditt eget värde.
+> Standardvärdet för resource_group_name-variabeln är unset. Definiera ditt eget värde.
 
 Spara filen.
 
-När du distribuerar Terraform-mallen hämtar du det fullständigt kvalificerade domännamnet som används för att få åtkomst till programmet. Använd resurstypen `output` för Terraform och hämta egenskapen `fqdn` för resursen. 
+När du distribuerar din terraform-mall vill du hämta det fullständigt kvalificerade domän namnet som används för att få åtkomst till programmet. Använd resurstypen `output` för Terraform och hämta egenskapen `fqdn` för resursen. 
 
 Redigera filen `output.tf` och kopiera följande kod för att göra det fullständigt kvalificerade domännamnet tillgängligt för de virtuella datorerna. 
 
@@ -80,9 +80,9 @@ output "vmss_public_ip" {
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Definiera nätverksinfrastrukturen i en mall 
 
 I det här steget skapar du följande nätverksinfrastruktur i en ny Azure-resursgrupp: 
-  - Ett virtuellt nätverk med adressutrymmet 10.0.0.0/16 
-  - Ett undernät med adressutrymmet 10.0.2.0/24
-  - Två offentliga IP-adresser. En används av lastbalanseraren för VM-skalningsuppsättningen, och den andra används för att ansluta till SSH-jumpboxen
+  - Ett virtuellt nätverk med adress utrymmet 10.0.0.0/16.
+  - Ett undernät med adress utrymmet 10.0.2.0/24.
+  - Två offentliga IP-adresser. En används av den virtuella datorns skal uppsättnings belastningsutjämnare. Den andra används för att ansluta till SSH-bygeln.
 
 Du behöver även en resursgrupp där alla resurser skapas. 
 
@@ -132,7 +132,7 @@ resource "azurerm_public_ip" "vmss" {
 ``` 
 
 > [!NOTE]
-> Vi rekommenderar att du taggar resurser som distribueras i Azure för att underlätta deras identifiering i framtiden.
+> Tagga resurserna som distribueras i Azure för att under lätta identifieringen i framtiden.
 
 ## <a name="create-the-network-infrastructure"></a>Skapa nätverksinfrastrukturen
 
@@ -152,32 +152,32 @@ terraform apply
 
 Kontrollera att det fullständigt kvalificerade domännamnet för den offentliga IP-adressen motsvarar din konfiguration.
 
-![Det fullständigt kvalificerade domännamnet för offentlig IP-adress för VM-skalningsuppsättningen i Terraform](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
+![Skalnings uppsättning för virtuell dator terraform fullständigt kvalificerat domän namn för offentlig IP-adress](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
 
 Resursgruppen innehåller följande resurser:
 
 ![VM-skalningsuppsättningen för Terraform-nätverksresurser](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
 
 
-## <a name="create-an-azure-image-using-packer"></a>Skapa en Azure-avbildning med Packer
-Skapa en anpassad Linux-avbildning genom att följa stegen i självstudien [How to use Packer to create Linux virtual machine images in Azure](/azure/virtual-machines/linux/build-image-with-packer) (Så här använder du Packer för att skapa Linux-avbildningar i Azure).
+## <a name="create-an-azure-image-by-using-packer"></a>Skapa en Azure-avbildning med hjälp av Packer
+Skapa en anpassad Linux-avbildning genom att följa stegen i självstudien så här [använder du Packer för att skapa avbildningar av virtuella Linux-datorer i Azure](/azure/virtual-machines/linux/build-image-with-packer).
  
-Följ självstudien för att skapa en avetablerad Ubuntu-avbildning med NGINX installerat.
+Följ själv studie kursen för att skapa en avetablerad Ubuntu-avbildning med Nginx installerat.
 
-![När du skapar Packer-avbildningen har du en avbildning](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
+![När du har skapat Packer-avbildningen har du en avbildning](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
 
 > [!NOTE]
-> För den här självstudien körs ett kommando för att installera nginx i Packer-avbildningen. Du kan även köra ditt egna skript när du skapar.
+> I den här själv studie kursen körs ett kommando för att installera nginx i Packer-avbildningen. Du kan även köra ditt egna skript när du skapar.
 
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Redigera infrastrukturen för att lägga till VM-skalningsuppsättningen
 
 I det här steget skapar du följande resurser i nätverket som distribuerades tidigare:
-- Azure Load Balancer för att betjäna programmet och koppla det till den offentliga IP-adress som distribuerats tidigare.
-- En Azure-lastbalanserare och regler för att hantera programmet och koppla det till den offentliga IP-adress som konfigurerades tidigare.
-- Azure-backend-adresspool och tilldela den till belastningsutjämnaren.
+- En Azure Load Balancer för att hantera programmet. Koppla den till den offentliga IP-adress som distribuerades tidigare.
+- En Azure-belastningsutjämnare och regler för att betjäna programmet. Koppla den till den offentliga IP-adress som har kon figurer ATS tidigare.
+- En Azure-backend-adresspool. Tilldela den till belastningsutjämnaren.
 - En hälso avsöknings port som används av programmet och som är konfigurerad på belastningsutjämnaren.
-- En skalnings uppsättning för virtuella datorer som finns bakom belastningsutjämnaren, körs på det virtuella nätverk som distribuerats tidigare.
-- [Nginx](https://nginx.org/) på noderna i den virtuella datorns skala installerade från den anpassade avbildningen.
+- En skalnings uppsättning för virtuella datorer som finns bakom belastningsutjämnaren och körs på det virtuella nätverk som distribuerades tidigare.
+- [Nginx](https://nginx.org/) på noderna i den virtuella datorns skala som installeras från en anpassad avbildning.
 
 
 Lägg till följande kod i slutet av filen `vmss.tf`.
@@ -342,7 +342,7 @@ Innehållet i resursgruppen ser ut som i följande bild:
 Det här valfria steget aktiverar SSH-åtkomst till instanser av VM-skalningsuppsättningen med en jumpbox.
 
 Lägg till följande resurser i din befintliga distribution:
-- Ett nätverksgränssnitt som är anslutet till samma undernät som VM-skalningsuppsättningen
+- Ett nätverks gränssnitt som är anslutet till samma undernät som den virtuella datorns skalnings uppsättning
 - En virtuell dator med det här nätverksgränssnittet
 
 Lägg till följande kod i slutet av filen `vmss.tf`:
@@ -419,7 +419,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
 }
 ```
 
-Redigera `outputs.tf` för att lägga till följande kod som visar värdnamnet för jumpboxen när distributionen är klar:
+Redigera `outputs.tf` för att lägga till följande kod som visar den hopp rutans värdnamn när distributionen är klar:
 
 ```
 output "jumpbox_public_ip" {
@@ -435,12 +435,12 @@ Distribuera jumpboxen.
 terraform apply 
 ```
 
-När distributionen är klar ser innehållet i resursgruppen ut som i följande bild:
+När distributionen har slutförts ser innehållet i resurs gruppen ut som följande bild:
 
 ![Resursgrupp för VM-skalningsuppsättning med Terraform](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
 
 > [!NOTE]
-> Inloggning med ett lösenord är inaktiverat på jumpboxen och VM-skalningsuppsättningen som du distribuerade. Logga in med SSH för att få åtkomst till de virtuella datorerna.
+> Inloggning med ett lösen ord är inaktiverat i hoppet och den skalnings uppsättning för virtuella datorer som du har distribuerat. Logga in med SSH för att få åtkomst till de virtuella datorerna.
 
 ## <a name="clean-up-the-environment"></a>Rensa miljön
 
@@ -450,7 +450,7 @@ Följande kommandon tar bort resurserna som skapades i den här självstudien:
 terraform destroy
 ```
 
-Skriv `yes` när du ombes bekräfta borttagningen av resurserna. Destruktionsprocessen kan ta ett par minuter att slutföra.
+Ange *Ja* när du uppmanas att bekräfta borttagningen av resurserna. Destruktionsprocessen kan ta ett par minuter att slutföra.
 
 ## <a name="next-steps"></a>Nästa steg
 

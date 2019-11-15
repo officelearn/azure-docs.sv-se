@@ -1,33 +1,23 @@
 ---
-title: Flytta Azure MS till en annan region med Azure Site Recovery
-description: Använd Azure Site Recovery för att flytta virtuella IaaS-datorer i Azure från en Azure-region till en annan.
+title: Flytta virtuella Azure-datorer till en annan region med Azure Site Recovery
+description: Använd Azure Site Recovery för att flytta virtuella Azure-datorer från en Azure-region till en annan.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: e3a3db66b4833a8ba21dc9d3c1938f645919221c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954174"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091947"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
+# <a name="moving-azure-vms-to-another-azure-region"></a>Flytta virtuella Azure-datorer till en annan Azure-region
 
-Azure växer tillsammans med kund basen och lägger till stöd för nya regioner för att hålla jämna steg med ökande krav. Nya funktioner läggs också till månatlig över tjänster. Du kanske vill flytta dina virtuella datorer (VM) till en annan region eller till Tillgänglighetszoner för att öka tillgängligheten.
+Den här artikeln innehåller en översikt över de orsaker och steg som ingår i flytta virtuella Azure-datorer till en annan Azure-region med hjälp av [Azure Site Recovery](site-recovery-overview.md). 
 
-I den här självstudien beskrivs olika scenarier där du vill flytta dina virtuella datorer. Det beskriver också hur du konfigurerar arkitekturen i mål regionen för att uppnå högre tillgänglighet. 
-
-I den här självstudien lär du dig att:
-
-> [!div class="checklist"]
-> 
-> * Skäl att flytta virtuella datorer
-> * Typiska arkitekturer
-> * Flytta virtuella datorer som är till en mål region
-> * Flytta virtuella datorer för att öka tillgängligheten
 
 ## <a name="reasons-to-move-azure-vms"></a>Skäl att flytta virtuella Azure-datorer
 

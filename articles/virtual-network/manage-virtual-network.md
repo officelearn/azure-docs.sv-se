@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515564"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084703"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -30,16 +30,16 @@ Lär dig hur du skapar och tar bort ett virtuellt nätverk och ändrar inställn
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
-- Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.
+- Om du använder portalen öppnar du https://portal.azure.comoch loggar in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 - Det konto som du loggar in på eller ansluta till Azure med måste tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Välj **+ skapa en resurs** > **nätverk** > **virtuellt nätverk**.
+1. Välj **+ skapa en resurs** > **nätverk** > **virtuella nätverk**.
 2. Ange eller välj värden för följande inställningar och välj sedan **skapa**:
-   - **Namn**: namnet måste vara unikt i den [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som du väljer för att skapa det virtuella nätverket i. Du kan inte ändra namnet när det virtuella nätverket har skapats. Du kan skapa flera virtuella nätverk över tid. Information om namngivning av förslag finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). Genom att följa en namngivnings konvention kan du göra det enklare att hantera flera virtuella nätverk.
+   - **Namn**: namnet måste vara unikt i den [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som du väljer för att skapa det virtuella nätverket i. Du kan inte ändra namnet när det virtuella nätverket har skapats. Du kan skapa flera virtuella nätverk över tid. Information om namngivning av förslag finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Genom att följa en namngivnings konvention kan du göra det enklare att hantera flera virtuella nätverk.
    - **Adress utrymme**: adress utrymmet för ett virtuellt nätverk består av ett eller flera icke överlappande adress intervall som anges i CIDR-notering. Adress intervallet som du definierar kan vara offentliga eller privata (RFC 1918). Oavsett om du definierar adress intervallet som offentligt eller privat, kan adress intervallet bara nås från det virtuella nätverket, från sammankopplade virtuella nätverk och från alla lokala nätverk som du har anslutit till det virtuella nätverket. Du kan inte lägga till följande adress intervall:
      - 224.0.0.0/4 (multicast)
      - 255.255.255.255/32 (sändning)
@@ -173,8 +173,8 @@ Om du vill utföra uppgifter i virtuella nätverk måste ditt konto tilldelas ro
 
 | Åtgärd                                  |   Namn                                |
 |---------------------------------------- |   --------------------------------    |
-|Microsoft. Network/virtualNetworks/Read   |   Läs ett virtuellt nätverk              |
-|Microsoft. Network/virtualNetworks/Write  |   Skapa eller uppdatera ett virtuellt nätverk  |
+|Microsoft.Network/virtualNetworks/read   |   Läs ett virtuellt nätverk              |
+|Microsoft.Network/virtualNetworks/write  |   Skapa eller uppdatera ett virtuellt nätverk  |
 |Microsoft. Network/virtualNetworks/Delete |   Ta bort ett virtuellt nätverk            |
 
 ## <a name="next-steps"></a>Nästa steg

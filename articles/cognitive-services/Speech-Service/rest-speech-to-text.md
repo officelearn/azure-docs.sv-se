@@ -10,22 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552979"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091214"
 ---
-# <a name="speech-to-text-rest-api"></a>Tal till text-REST API
+# <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
 Som ett alternativ till [tal-SDK](speech-sdk.md)gör det möjligt för tal tjänster att konvertera tal till text med hjälp av en REST API. Varje tillgänglig slutpunkt är associerad med en region. Ditt program kräver en prenumerationsnyckel för den slutpunkt som du tänker använda.
 
 Innan du använder tal-till-text-REST API förstå:
-* Begär Anden som använder REST API får bara innehålla 10 sekunders inspelat ljud.
+
+* Begär Anden som använder REST API och sändning av ljud direkt får bara innehålla upp till 60 sekunders ljud.
 * Tal till text REST API: et returnerar endast slutliga resultaten. Ofullständiga resultat tillhandahålls inte.
 
-Om du skickar längre ljud är ett krav för ditt program kan du använda den [tal SDK](speech-sdk.md) eller [batch avskrift](batch-transcription.md).
+Om det är ett krav för ditt program att skicka längre ljud bör du överväga att använda [talet SDK](speech-sdk.md) eller en filbaserad REST API, t. ex. [batch-avskriftering](batch-transcription.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -33,7 +34,7 @@ Om du skickar längre ljud är ett krav för ditt program kan du använda den [t
 
 Dessa regioner har stöd för tal till text-avskrift med hjälp av REST-API. Kontrollera att du väljer den slutpunkt som matchar din region för prenumerationen.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
 
 ## <a name="query-parameters"></a>Frågeparametrar
 
@@ -42,8 +43,8 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 | Parameter | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
 | `language` | Identifierar talat språk som tolkas. Se [språk som stöds](language-support.md#speech-to-text). | Krävs |
-| `format` | Anger resultatformatet. Godkända värden är `simple` och `detailed`. Enkel resultatet inkluderar `RecognitionStatus`, `DisplayText`, `Offset`, och `Duration`. Detaljerad respons omfattar flera resultat med tillförsikt värden och fyra olika representationer. Standardinställningen är `simple`. | Valfri |
-| `profanity` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `masked`, som ersätter svordomar med asterisker `removed`, vilket tar bort alla svordomar från resultatet, eller `raw`, som innehåller svordomar i resultatet. Standardinställningen är `masked`. | Valfri |
+| `format` | Anger resultatformatet. Godkända värden är `simple` och `detailed`. Enkel resultatet inkluderar `RecognitionStatus`, `DisplayText`, `Offset`, och `Duration`. Detaljerad respons omfattar flera resultat med tillförsikt värden och fyra olika representationer. Standardinställningen är `simple`. | Valfritt |
+| `profanity` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `masked`, vilket ersätter svordomar med asterisker, `removed`, vilket tar bort alla svordomar från resultatet, eller `raw`, som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfritt |
 
 ## <a name="request-headers"></a>Begärandehuvud
 
@@ -54,9 +55,9 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för tal till t
 | `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för tal tjänster. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
 | `Content-type` | Beskriver format och codec-enheten för den angivna ljuddata. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus`. | Krävs |
-| `Transfer-Encoding` | Anger att segmenterat ljuddata skickas, i stället för en enskild fil. Använd bara den här rubriken om storlekar ljuddata. | Valfri |
-| `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Tal tjänsterna bekräftar den inledande begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
-| `Accept` | Om det måste vara `application/json`. Tal tjänsterna tillhandahåller resultat i JSON. Vissa webbramverk för begäran innehåller ett inkompatibelt standardvärdet om du inte anger något, så det är bra att alltid `Accept`. | Valfritt men rekommenderas. |
+| `Transfer-Encoding` | Anger att segmenterat ljuddata skickas, i stället för en enskild fil. Använd bara den här rubriken om storlekar ljuddata. | Valfritt |
+| `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Tal tjänsterna bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
+| `Accept` | Om det måste vara `application/json`. Tal tjänsterna tillhandahåller resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept`. | Valfritt men rekommenderas. |
 
 ## <a name="audio-formats"></a>Ljudformat
 
@@ -72,7 +73,7 @@ Ljud skickas i brödtexten i HTTP `POST` begäran. Det måste vara i något av f
 
 ## <a name="sample-request"></a>Exempelbegäran
 
-Det här är en vanliga HTTP-begäran. Exemplet nedan innehåller värdnamn och nödvändiga rubriker. Det är viktigt att notera att tjänsten förväntar sig även ljuddata som inte ingår i det här exemplet. Som nämnts tidigare, rekommenderas storlekar, men krävs inte.
+Exemplet nedan innehåller värdnamn och nödvändiga rubriker. Det är viktigt att notera att tjänsten förväntar sig även ljuddata som inte ingår i det här exemplet. Som nämnts tidigare, rekommenderas storlekar, men krävs inte.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -91,14 +92,14 @@ HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
 | HTTP-statuskod | Beskrivning | Möjlig orsak |
 |------------------|-------------|-----------------|
 | 100 | Fortsätt | Den första begäran har godkänts. Gå vidare med att skicka resten av data. (Används med segmentvis överföring). |
-| 200 | Ok | Begäran lyckades. svarstexten är ett JSON-objekt. |
-| 400 | Felaktig förfrågan | Språkkod inte eller är inte ett språk som stöds. Ogiltig ljudfil. |
+| 200 | OK | Begäran lyckades. svarstexten är ett JSON-objekt. |
+| 400 | Felaktig förfrågan | Språk koden har inte angetts, inte ett språk som stöds, ogiltig ljudfil osv. |
 | 401 | Behörighet saknas | Prenumerationsnyckel eller auktorisering token är ogiltig i regionen eller ogiltig slutpunkt. |
-| 403 | Förbjudna | Prenumerationsnyckel eller auktorisering saknas token. |
+| 403 | Förbjudet | Prenumerationsnyckel eller auktorisering saknas token. |
 
 ## <a name="chunked-transfer"></a>Segmentvis överföring
 
-Chunked Transfer (`Transfer-Encoding: chunked`) kan hjälpa till att minska igenkännings fördröjningen eftersom det gör att tal tjänsterna kan börja bearbeta ljud filen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat. Det här alternativet är avsedd endast för att förbättra svarstiden.
+Segment överföring (`Transfer-Encoding: chunked`) hjälper till att minska svars tiden för igenkänning. Det gör att tal tjänsterna kan börja bearbeta ljud filen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat.
 
 Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
 
@@ -146,7 +147,7 @@ Resultaten anges som JSON. Den `simple` format innehåller fälten på översta 
 | Parameter | Beskrivning  |
 |-----------|--------------|
 |`RecognitionStatus`|Status, till exempel `Success` för lyckad erkännande. Se nästa tabell.|
-|`DisplayText`|Den tolkade texten efter versaler, skiljetecken, inverterade text normalisering (konvertera tal till kortare former, till exempel 200 för ”tvåhundra” eller ”Dr. Smith ”för” läkare smith ”), och svordomar Maskning. Visa endast om åtgärden lyckades.|
+|`DisplayText`|Den tolkade texten efter versaler, interpunktion, inverterad text normalisering (konvertering av talade text till kortare former, till exempel 200 för "200" eller "Dr. Smith" för "läkare Smith") och svordomar. Visa endast om åtgärden lyckades.|
 |`Offset`|Tid (i 100 nanosekunder enheter) som okänt tal som börjar gälla i ljudströmmen.|
 |`Duration`|Tiden (i 100 nanosekunder enheter) för den identifierade tal i ljudströmmen.|
 
@@ -163,7 +164,7 @@ Den `RecognitionStatus` fältet får innehålla dessa värden:
 > [!NOTE]
 > Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat.
 
-Formatet innehåller samma data `simple` som formatet, tillsammans med `NBest`en lista över alternativa tolkningar av samma igenkännings resultat. `detailed` De här resultaten rangordnas från de mest sannolikaste sannolika. Den första posten är samma som det huvudsakliga igenkännings resultatet.  När du använder den `detailed` format, `DisplayText` tillhandahålls som `Display` för varje resultat i den `NBest` lista.
+`detailed`-formatet innehåller samma data som `simple`-formatet, tillsammans med `NBest`, en lista över alternativa tolkningar av samma resultat. De här resultaten rangordnas från de mest sannolikaste sannolika. Den första posten är samma som det huvudsakliga igenkännings resultatet.  När du använder den `detailed` format, `DisplayText` tillhandahålls som `Display` för varje resultat i den `NBest` lista.
 
 Varje objekt i den `NBest` listan innehåller:
 
@@ -177,7 +178,7 @@ Varje objekt i den `NBest` listan innehåller:
 
 ## <a name="sample-responses"></a>Exempel-svar
 
-Detta är ett typiskt svar för `simple` erkännande.
+Ett typiskt svar för `simple` igenkänning:
 
 ```json
 {
@@ -188,7 +189,7 @@ Detta är ett typiskt svar för `simple` erkännande.
 }
 ```
 
-Detta är ett typiskt svar för `detailed` erkännande.
+Ett typiskt svar för `detailed` igenkänning:
 
 ```json
 {

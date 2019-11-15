@@ -12,13 +12,13 @@ author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/14/2019
-ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826797"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082497"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med SQL Database anslutnings problem och tillfälliga fel
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du kan förhindra, felsöka, diagnostisera och m
 
 Ett tillfälligt fel, som även kallas ett tillfälligt fel, har en underliggande orsak som snart löser sig själv. En tillfällig orsak till tillfälliga fel är när Azure-systemet snabbt byter maskin varu resurser för att få bättre belastnings utjämning för olika arbets belastningar. De flesta av dessa omkonfigurations händelser slutförs på mindre än 60 sekunder. Under den här tids perioden för omkonfiguration kan du ha problem med att ansluta till SQL Database. Program som ansluter till SQL Database ska byggas för att förvänta sig dessa tillfälliga fel. Hantera dem genom att implementera logik för omprövning i koden i stället för att visa dem till användare som program fel.
 
-Om ditt klient program använder ADO.NET, meddelas ditt program om det tillfälliga felet genom Throw of **SqlException**. Jämför egenskapen **Number** mot listan över tillfälliga fel som finns längst upp i artikeln [SQL-felkoder för SQL Database klient program](sql-database-develop-error-messages.md).
+Om ditt klient program använder ADO.NET, meddelas ditt program om det tillfälliga felet genom Throw of **SqlException**. 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -90,7 +90,7 @@ Om du vill testa logiken för omprövning måste du simulera eller orsaka ett fe
 
 Ett sätt som du kan testa din logik för omprövning är att koppla bort klient datorn från nätverket medan programmet körs. Felet är:
 
-- **SqlException. Number** = 11001
+- **SqlException.Number** = 11001
 - Meddelande: "ingen sådan värd är känd"
 
 Som en del av det första försöket att ansluta igen kan du återansluta klient datorn till nätverket och sedan försöka ansluta.
@@ -108,7 +108,7 @@ För att göra det här testet praktiskt kan du koppla bort datorn från nätver
 
 Ditt program kan stava fel på användar namnet före det första anslutnings försöket. Felet är:
 
-- **SqlException. Number** = 18456
+- **SqlException.Number** = 18456
 - Meddelande: "inloggningen misslyckades för användaren" WRONG_MyUserName "."
 
 Som en del av det första försöket med nya försök kan programmet korrigera fel stavningen och sedan försöka ansluta.

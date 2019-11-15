@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 09/04/2019
-ms.openlocfilehash: ebf63d14a8fb883158d1ac3e0a8f3d6658920aa7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 0b8bfff03414dd02360cab1957ea2205e392235d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826646"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082485"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
@@ -62,7 +62,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 Ett fullständigt exempel skript finns i [Kopiera en databas till en ny server](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-Databas kopieringen är en asynkron åtgärd, men mål databasen skapas direkt efter att begäran har godkänts. Om du vill avbryta kopieringen medan du fortfarande pågår släpper du mål databasen med hjälp av cmdleten [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
+Databas kopieringen är en asynkron åtgärd, men mål databasen skapas direkt efter att begäran har godkänts. Om du vill avbryta kopieringen medan du fortfarande pågår släpper du mål databasen med cmdleten [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
 
 ## <a name="rbac-roles-to-manage-database-copy"></a>RBAC-roller för att hantera databas kopia
 
@@ -72,8 +72,8 @@ Om du vill skapa en databas kopia måste du ha följande roller
 - SQL Server deltagar roll eller
 - Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft. SQL/Servers/databaser/läsa   
-   Microsoft. SQL/Servers/databaser/skriva   
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
 
 Om du vill avbryta en databas kopia måste du ha följande roller
 
@@ -81,8 +81,8 @@ Om du vill avbryta en databas kopia måste du ha följande roller
 - SQL Server deltagar roll eller
 - Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft. SQL/Servers/databaser/läsa   
-   Microsoft. SQL/Servers/databaser/skriva   
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
    
 Om du vill hantera databas kopiering med Azure Portal måste du också ha följande behörigheter:
 
@@ -156,6 +156,26 @@ När den nya databasen är online på mål servern använder du instruktionen [A
 Alla användare i den nya databasen behåller de behörigheter som de hade i käll databasen. Användaren som initierade databas kopian blir databas ägaren till den nya databasen och tilldelas en ny säkerhets identifierare (SID). När kopieringen är klar och innan andra användare mappas om, så kan databas ägaren logga in på den nya databasen.
 
 Information om hur du hanterar användare och inloggningar när du kopierar en databas till en annan SQL Database-Server finns i [så här hanterar du Azure SQL Database-säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
+
+## <a name="database-copy-errors"></a>Databas kopierings fel
+
+Följande fel kan uppstå när du kopierar en databas i Azure SQL Database. Mer information finns i [Kopiera en Azure SQL Database](sql-database-copy.md).
+
+| Felkod | Severity | Beskrivning |
+| ---:| ---:|:--- |
+| 40635 |16 |Klienten med IP-adressen (%.&#x2a;ls) är tillfälligt inaktiverad. |
+| 40637 |16 |Skapa databas kopiering har inaktiverats för tillfället. |
+| 40561 |16 |Databas kopieringen misslyckades. Käll-eller mål databasen finns inte. |
+| 40562 |16 |Databas kopieringen misslyckades. Käll databasen har släppts. |
+| 40563 |16 |Databas kopieringen misslyckades. Mål databasen har släppts. |
+| 40564 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen. |
+| 40565 |16 |Databas kopieringen misslyckades. Högst 1 samtidiga databas kopiering från samma källa tillåts. Släpp mål databasen och försök igen senare. |
+| 40566 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen. |
+| 40567 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen. |
+| 40568 |16 |Databas kopieringen misslyckades. Käll databasen är inte tillgänglig. Släpp mål databasen och försök igen. |
+| 40569 |16 |Databas kopieringen misslyckades. Mål databasen är inte tillgänglig. Släpp mål databasen och försök igen. |
+| 40570 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen senare. |
+| 40571 |16 |Databas kopieringen misslyckades på grund av ett internt fel. Släpp mål databasen och försök igen senare. |
 
 ## <a name="next-steps"></a>Nästa steg
 

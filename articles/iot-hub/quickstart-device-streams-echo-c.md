@@ -1,5 +1,5 @@
 ---
-title: Kommunicera med en enhets app i C via Azure IoT Hub enhets strömmar (för hands version) | Microsoft Docs
+title: Kommunicera med enhetens app i C med Azure IoT Hub enhets strömmar
 description: I den här snabb starten kör du ett C-program på enhets sidan som kommunicerar med en IoT-enhet via en enhets ström.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: b0a23486d81ac6b48bf7bb256e3583973a338002
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d53b36beeca2c5e0456965cf5af19e5324b31ad9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900906"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084205"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i C via IoT Hub enhets strömmar (för hands version)
 
@@ -56,10 +56,10 @@ Du behöver följande krav:
 
 För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * USA, centrala
+  * Centrala USA
   * Centrala USA-EUAP
   * Europa, norra
-  * Asien, sydöstra
+  * Sydostasien
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 

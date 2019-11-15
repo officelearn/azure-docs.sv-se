@@ -1,5 +1,5 @@
 ---
-title: Övervakning, mått och aviseringar – Azure ExpressRoute | Microsoft Docs
+title: 'Azure-ExpressRoute: övervakning, mått och aviseringar'
 description: Den här sidan innehåller information om ExpressRoute-övervakning
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672077"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083434"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
@@ -32,16 +31,16 @@ När ett mått har valts tillämpas standard agg regeringen. Du kan också anvä
 ### <a name="available-metrics"></a>Tillgängliga mått
 |**Mått**|**Kategori**|**Dimension (er)**|**Funktion (er)**|
 | --- | --- | --- | --- |
-|ARP-tillgänglighet|Tillgänglighet|<ui><li>Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ (privat/offentlig/Microsoft)</ui></li>|ExpressRoute|
-|BGP-tillgänglighet|Tillgänglighet|<ui><li> Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ</ui></li>|ExpressRoute|
+|ARP-tillgänglighet|Tillgänglighet|<ui><li>Peer (primär/sekundär ExpressRoute router)</ui></li><ui><li> Peering-typ (privat/offentlig/Microsoft)</ui></li>|ExpressRoute|
+|BGP-tillgänglighet|Tillgänglighet|<ui><li> Peer (primär/sekundär ExpressRoute router)</ui></li><ui><li> Peering-typ</ui></li>|ExpressRoute|
 |BitsInPerSecond|Trafik|<ui><li> Peering-typ (ExpressRoute)</ui></li><ui><li>Länk (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
 |BitsOutPerSecond|Trafik| <ui><li>Peering-typ (ExpressRoute)</ui></li><ui><li> Länk (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
-|GlobalReachBitsInPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global räckvidd|
-|GlobalReachBitsOutPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global räckvidd|
-|AdminState|Fysisk anslutning|Länka|ExpressRoute Direct|
-|LineProtocol|Fysisk anslutning|Länka|ExpressRoute Direct|
-|RxLightLevel|Fysisk anslutning|<ui><li>Operationsföljdslänkkod</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Fysisk anslutning|<ui><li>Operationsföljdslänkkod</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|GlobalReachBitsInPerSecond|Trafik|<ui><li>Skey för peer-krets (tjänst nyckel)</ui></li>|Global räckvidd|
+|GlobalReachBitsOutPerSecond|Trafik|<ui><li>Skey för peer-krets (tjänst nyckel)</ui></li>|Global räckvidd|
+|AdminState|Fysisk anslutning|Länk|ExpressRoute Direct|
+|LineProtocol|Fysisk anslutning|Länk|ExpressRoute Direct|
+|RxLightLevel|Fysisk anslutning|<ui><li>Länka</ui></li><ui><li>Lane-</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Fysisk anslutning|<ui><li>Länka</ui></li><ui><li>Lane-</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >Användning av *GlobalGlobalReachBitsInPerSecond* och *GlobalGlobalReachBitsOutPerSecond* visas bara om minst en global Reach anslutning har upprättats.
 >
@@ -116,7 +115,7 @@ Du kan visa avsändnings ljus nivån (den ljus nivå som ExpressRoute Direct-por
 
 2. Klicka på **+ Välj mål** och välj resursen som ExpressRoute-gateway-anslutning.
 
-   ![mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definiera Aviseringsinformationen.
 
    ![Åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

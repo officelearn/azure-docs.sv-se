@@ -1,26 +1,26 @@
 ---
-title: Köra ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery-tjänsten
-description: Lär dig att köra ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region för virtuella Azure IaaS-datorer med hjälp av Azure Site Recovery-tjänsten.
+title: Kör en granskning av haveri beredskap i Azure VM med Azure Site Recovery
+description: Lär dig hur du kör en haveri beredskap på en sekundär region för virtuella Azure-datorer med hjälp av tjänsten Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cb234f9fa2fc5df68fb2bf4dde3a377ea15532eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 817a220e36ac250b1d5a5aa90d0bddbfb155cc26
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053382"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091325"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Kör ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region
+# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Köra en haveri beredskaps granskning till en sekundär region för virtuella Azure-datorer 
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra de som är tillgängliga under planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-I den här självstudien visar vi hur du kör ett programåterställningstest för en virtuell Azure-dator från en Azure-region till en annan med ett redundanstest. Testet verifierar din replikeringsstrategi utan dataförlust eller driftstopp och påverkar inte din produktionsmiljö. I den här guiden får du lära dig att:
+I den här självstudien visar vi hur du kör ett programåterställningstest för en virtuell Azure-dator från en Azure-region till en annan med ett redundanstest. Testet verifierar din replikeringsstrategi utan dataförlust eller driftstopp och påverkar inte din produktionsmiljö. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Kontrollera förutsättningarna
@@ -33,7 +33,7 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 
 - Innan du kör ett redundanstest rekommenderar vi att du kontrollerar VM-egenskaperna så att allt är som förväntat.  VM-egenskaper finns i **Replikerade objekt**. På bladet **Information** finns information om datorinställningar och status.
 - **Vi rekommenderar att du använder ett separat nätverk för virtuella Azure-datorer när du testar redundans**, i stället för det standardnätverk som skapades när du aktiverade replikeringen.
-- Beroende på dina käll nätverks konfigurationer för varje nätverkskort kan du välja att ange **undernät, IP-adress, offentlig IP-adress, nätverks säkerhets grupp eller internt Load Balancer** att ansluta till varje nätverkskort under inställningarna för redundanstest i Compute & Network tidigare för att genomföra DR-granskning.
+- Beroende på din käll nätverks konfiguration för varje nätverkskort kan du välja att ange **undernät, IP-adress, offentlig IP-adress, nätverks säkerhets grupp eller internt Load Balancer** att ansluta till varje nätverkskort under inställningarna för redundanstest i Compute & Network innan du utför en Dr-granskning.
 
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest

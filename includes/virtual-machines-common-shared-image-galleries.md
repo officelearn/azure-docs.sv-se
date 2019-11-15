@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 18c85995c545e1b603333fd6788b70cd863865ce
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905021"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085280"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -31,7 +31,7 @@ Om du har ett stort antal hanterade avbildningar som du behöver underhålla och
 
 Funktionen för delad bild galleri har flera resurs typer:
 
-| Resurs | Beskrivning|
+| Resource | Beskrivning|
 |----------|------------|
 | **Hanterad avbildning** | En grundläggande bild som kan användas separat eller som används för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från [generaliserade](#generalized-and-specialized-images) virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
 | **Ögonblicks bild** | En kopia av en virtuell hård disk som kan användas för att skapa en **avbildnings version**. Ögonblicks bilder kan hämtas från en [specialiserad](#generalized-and-specialized-images) virtuell dator (en som inte har generaliserats), sedan används separat eller med ögonblicks bilder av data diskar för att skapa en specialiserad avbildnings version.
@@ -95,7 +95,7 @@ Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål 
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Australien, centrala     | Kina, östra        | Indien, södra        | Europa, västra        |
 | Australien, centrala 2   | Kina, östra 2      | Sydostasien     | Storbritannien, södra           |
-| Östra Australien        | Kina, norra       | Östra Japan         | Storbritannien, västra            |
+| Australien, östra        | Kina, norra       | Japan, östra         | Storbritannien, västra            |
 | Australien, sydöstra   | Kina, norra 2     | Västra Japan         | US DoD, centrala     |
 | Södra Brasilien          | Asien, östra         | Sydkorea, centrala      | US DoD, östra        |
 | Centrala Kanada        | USA, östra           | Sydkorea, södra        | Arizona (USA-förvaltad region)     |
@@ -143,7 +143,7 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Åtkomst
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
@@ -186,7 +186,7 @@ Följande SDK: er har stöd för att skapa delade avbildnings gallerier:
 
 - [NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 

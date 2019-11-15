@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f2cf69b456aeccd6da5ac393b88171fb3bb03cf2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470073"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082539"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -91,7 +91,7 @@ Se [Application Gateway-undernätets storleks överväganden](https://docs.micro
 
 Ja. Förutom flera instanser av en specifik Application Gateway distribution kan du etablera en annan unik Application Gateway resurs till ett befintligt undernät som innehåller en annan Application Gateway resurs.
 
-Ett enda undernät kan inte stödja både Standard_v2 och standard Application Gateway tillsammans.
+Ett enda undernät har inte stöd för både Standard_v2-och standard Application Gateway tillsammans.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Stöder Application Gateway x-vidarebefordrade-för rubriker?
 
@@ -290,10 +290,6 @@ Nej, Använd endast alfanumeriska tecken i PFX-filens lösen ord.
 
 Ja. WAF stöder alla funktioner i standard-SKU: n.
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>Vilka datoriserade boknings versioner stöder Application Gateway?
-
-Application Gateway stöder boknings system för [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) och datoriserat system som [3,0](application-gateway-crs-rulegroups-rules.md#owasp30).
-
 ### <a name="how-do-i-monitor-waf"></a>Hur gör jag för att övervaka WAF?
 
 Övervaka WAF via diagnostisk loggning. Mer information finns i [diagnostisk loggning och statistik för Application Gateway](application-gateway-diagnostics.md).
@@ -308,7 +304,7 @@ Ja. Mer information finns i [Anpassa WAF Rule Groups och Rules](application-gate
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>Vilka regler är för närvarande tillgängliga för WAF?
 
-WAF stöder för närvarande BOKNINGs- [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) och [3,0](application-gateway-crs-rulegroups-rules.md#owasp30). De här reglerna ger grundläggande säkerhet mot de flesta 10 högsta säkerhets risker som öppnar webb program säkerhets projekt (OWASP): 
+WAF stöder för närvarande BOKNINGs- [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3,0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)och [3,1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). De här reglerna ger grundläggande säkerhet mot de flesta 10 högsta säkerhets risker som öppnar webb program säkerhets projekt (OWASP): 
 
 * Skydd mot SQL-inmatning
 * Skript skydd över hela platsen

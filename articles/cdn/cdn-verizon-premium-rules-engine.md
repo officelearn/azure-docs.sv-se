@@ -1,95 +1,95 @@
 ---
-title: Åsidosätt HTTP beteende med hjälp av Azure CDN från Verizon Premium regelmotor | Microsoft Docs
-description: Regelmotorn kan du anpassa hur HTTP-begäranden hanteras av Azure CDN från Verizon Premium, till exempel blockera leverans av vissa typer av innehåll, definiera en Cachelagringsprincip och ändra HTTP-huvuden.
+title: Åsidosätt HTTP-beteende med Azure CDN-Verizon Premium Rules-motor
+description: Med regel motorn kan du anpassa hur HTTP-begäranden hanteras av Azure CDN från Verizon Premium, till exempel blockera leverans av vissa typer av innehåll, definiera en princip för cachelagring och ändra HTTP-huvuden.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aa0606eafb8fe4c517b0c18e0137058a120115ba
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593192"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082959"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Åsidosätt HTTP beteende med hjälp av Azure CDN från Verizon Premium regelmotor
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Åsidosätt HTTP-beteende med Azure CDN från Verizon Premium Rules Engine
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Översikt
 
-Regelmotor Azure CDN kan du anpassa hur HTTP-begäranden ska hanteras. Till exempel blockera leverans av vissa typer av innehåll, definiera en Cachelagringsprincip eller ändra ett HTTP-huvud. Den här självstudien visar hur du skapar en regel som ändrar funktionssättet för cachelagring av CDN-tillgångar. Läs mer om vilken syntax som motorn regler [Azure CDN regelmotor – referens](cdn-verizon-premium-rules-engine-reference.md).
+Med motorn för Azure CDNs regler kan du anpassa hur HTTP-begäranden hanteras. Till exempel blockera leverans av vissa innehålls typer, definiera en princip för cachelagring eller ändra ett HTTP-huvud. Den här självstudien visar hur du skapar en regel som ändrar cachelagringen av CDN-tillgångar. Mer information om syntaxen för regel motorn finns i [Azure CDN regel motor referens](cdn-verizon-premium-rules-engine-reference.md).
 
-## <a name="access"></a>Access
+## <a name="access"></a>Åtkomst
 
-För att komma åt regelmotorn, måste du först välja **hantera** högst upp på den **CDN-profil** sidan för att komma åt sidan för hantering av Azure CDN. Beroende på om slutpunkten är optimerad för acceleration av dynamisk webbplats (DSA), åt du sedan regelmotor med uppsättningen regler som är lämpliga för din typ av slutpunkt:
+Om du vill komma åt regel motorn måste du först välja **Hantera** överst på sidan **CDN-profil** för att komma åt sidan Azure CDN hantering. Beroende på om din slut punkt är optimerad för DSA (Dynamic site acceleration) kommer du till regel motorn med den uppsättning regler som är lämpliga för din typ av slut punkt:
 
-- Slutpunkter som är optimerad för allmän webbleverans eller andra icke-DSA-optimering:
+- Slut punkter som är optimerade för allmän webb leverans eller annan icke-DSA-optimering:
     
-    Välj den **HTTP stora** och sedan välja **regelmotor**.
+    Välj fliken **http-stor** och välj sedan **regel motor**.
 
-    ![Regelmotor för HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
+    ![Regel motor för HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
 
-- Slutpunkter som är optimerade för DSA:
+- Slut punkter som är optimerade för DSA:
     
-    Välj den **ADN** och sedan välja **regelmotor**.
+    Välj fliken **och** och välj sedan **regel motor**.
     
-    ADN är en term som används av Verizon för att ange DSA-innehåll. Alla regler som du skapar här ignoreras av alla slutpunkter i din profil som inte har optimerats för DSA.
+    OCH är en term som används av Verizon för att ange DSA-innehåll. Alla regler som du skapar här ignoreras av eventuella slut punkter i din profil som inte är optimerade för DSA.
 
-    ![Regelmotor för DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Regel motor för DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## <a name="tutorial"></a>Självstudier
 
-1. Från den **CDN-profil** väljer **hantera**.
+1. På sidan **CDN-profil** väljer du **Hantera**.
    
-    ![Knappen för CDN-profil hantera](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Knappen Hantera CDN-profil](./media/cdn-rules-engine/cdn-manage-btn.png)
    
-    CDN-hanteringsportalen öppnas.
+    Hanterings portalen för CDN öppnas.
 
-2. Välj den **HTTP stora** och sedan välja **regelmotor**.
+2. Välj fliken **http-stor** och välj sedan **regel motor**.
    
-    Alternativ för en ny regel visas.
+    Alternativen för en ny regel visas.
    
-    ![Nya alternativ för CDN](./media/cdn-rules-engine/cdn-new-rule.png)
+    ![Nya regel alternativ för CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > Angiven ordning i vilken flera regler påverkar hur de ska hanteras. En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel.
+   > Ordningen för hur flera regler visas påverkar hur de hanteras. En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel.
    >
 
-3. Ange ett namn i den **namn / beskrivning** textrutan.
+3. Ange ett namn i text rutan **namn/beskrivning** .
 
-4. Identifiera vilken typ av förfrågningar som regeln gäller för. Använda matchningsvillkor standard **alltid**.
+4. Identifiera vilken typ av förfrågningar som regeln gäller för. Använd standard villkoret för matchning, **alltid**.
    
-   ![Matchningsvillkor för CDN-regel](./media/cdn-rules-engine/cdn-request-type.png)
+   ![Villkor för CDN-regel matchning](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!NOTE]
-   > Flera matchningsvillkor är tillgängliga i den nedrullningsbara listan. För information om den markerade matchningsvillkor, väljer du endast i informationssyfte ikonen till vänster.
+   > Det finns flera matchnings villkor i list rutan. Om du vill ha mer information om det valda matchnings villkoret väljer du den blå informations ikonen till vänster.
    >
-   >  En detaljerad lista över villkorsuttryck Se [regelmotor – villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
+   >  En detaljerad lista över villkors uttryck finns i [regel motor villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
    >  
-   > En detaljerad lista över matchningsvillkor Se [regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
+   > En detaljerad lista över matchnings villkor finns i [regel motor matchnings villkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md).
    >
    >
 
-5. Om du vill lägga till en ny funktion, Välj den **+** bredvid knappen **funktioner**.  I listrutan till vänster, Välj **kraft interna Max-Age**.  Ange i textrutan som visas, **300**. Ändra inte de återstående standardvärdena.
+5. Om du vill lägga till en ny funktion väljer du knappen **+** bredvid **funktioner**.  Välj **tvinga intern max ålder**i list rutan till vänster.  I text rutan som visas anger du **300**. Ändra inte återstående standardvärden.
    
-   ![Funktionen för CDN-regel](./media/cdn-rules-engine/cdn-new-feature.png)
+   ![Funktionen CDN-regel](./media/cdn-rules-engine/cdn-new-feature.png)
    
    > [!NOTE]
-   > Flera funktioner är tillgängliga i den nedrullningsbara listan. För information om den valda funktionen väljer du endast i informationssyfte ikonen till vänster.
+   > Det finns flera funktioner i list rutan. Om du vill ha mer information om den markerade funktionen väljer du den blå informations ikonen till vänster.
    >
-   > För **kraft interna Max-Age**, tillgångens `Cache-Control` och `Expires` rubriker åsidosätts för att styra när kantnod CDN uppdaterar tillgången från ursprunget. I det här exemplet cachelagrar kantnod CDN tillgången i 300 sekunder eller 5 minuter innan den uppdateras tillgången från dess ursprung.
+   > För **tvångs intern max-ålder**åsidosätts till gångens `Cache-Control` och `Expires` huvuden för att kontrol lera när CDN Edge-noden uppdaterar till gången från ursprunget. I det här exemplet cachelagrar CDN Edge-noden till gången i 300 sekunder eller 5 minuter innan den uppdaterar till gången från sitt ursprung.
    >
-   > En detaljerad lista över funktioner finns i [regelmotor – funktioner](cdn-verizon-premium-rules-engine-reference-features.md).
+   > En detaljerad lista över funktioner finns i [funktioner i regel motorn](cdn-verizon-premium-rules-engine-reference-features.md).
    >
    >
 
-6. Välj **Lägg till** att spara den nya regeln.  Den nya regeln är nu väntar på godkännande. När det har godkänts får status ändras från **väntande XML** till **Active XML**.
+6. Välj **Lägg till** för att spara den nya regeln.  Den nya regeln väntar nu på godkännande. När den har godkänts ändras statusen från **väntar XML** till **aktiv XML**.
    
    > [!IMPORTANT]
-   > Regler ändringar kan ta upp till 10 minuter att sprida via Azure CDN.
+   > Regel ändringar kan ta upp till 10 minuter innan de sprids via Azure CDN.
    >
    >
 
@@ -100,4 +100,4 @@ För att komma åt regelmotorn, måste du först välja **hantera** högst upp p
 - [Regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Regelmotor – villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Regelmotor – funktioner](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Azure Fridays: Azure CDN kraftfulla nya premium-funktioner](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
+- [Azure-fredagar: Azure CDN de kraftfulla nya Premium-funktionerna](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery-exkludera diskar vid replikering av virtuella Azure-datorer med hjälp av Azure PowerShell | Microsoft Docs
+title: Undanta virtuella Azure-diskar från replikering med Azure Site Recovery och Azure PowerShell
 description: Lär dig hur du undantar diskar av virtuella Azure-datorer under Azure Site Recovery med hjälp av Azure PowerShell.
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 317a8ba48851ebf65fe52e79f6cf9d9c45786f6f
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: beb4ee6fcf6413634d7d728e3f070294e8ce3787
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053414"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084978"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Undanta diskar från PowerShell-replikering av virtuella Azure-datorer
 

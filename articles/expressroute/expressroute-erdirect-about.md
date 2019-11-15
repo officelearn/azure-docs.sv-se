@@ -1,5 +1,5 @@
 ---
-title: Om ExpressRoute Direct - Azure | Microsoft Docs
+title: Om Azure ExpressRoute Direct
 description: Den här sidan ger en översikt över ExpressRoute Direct
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123389"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083592"
 ---
 # <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
 
@@ -22,7 +21,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
 Viktiga funktioner som tillhandahåller ExpressRoute Direct inkludera, men inte begränsat till:
 
 * Stora datainmatningar till tjänster som Storage och Cosmos DB
-* Fysisk isolering för branscher som är reglerade och kräver dedikerad och isolerad anslutning som: banker, myndigheter och detaljhandeln
+* Fysisk isolering för branscher som regleras och kräver särskilda och isoleras anslutning som: Bank, myndigheter och detaljhandel
 * Detaljerad kontroll över kretsfördelning utifrån affärsenheter
 
 ## <a name="onboard-to-expressroute-direct"></a>Publicera till ExpressRoute Direct
@@ -73,8 +72,8 @@ ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure sto
     * Ethertype = 0x8100
     * Måste lägga till den yttre VLAN-taggen (STAG) baserat på det VLAN-ID som anges av Microsoft- *endast tillgängligt på QinQ*
     * Måste ha stöd för flera BGP-sessioner (VLAN) per port och enhet
-    * IPv4-och IPv6-anslutning. *Inga ytterligare under gränssnitt kommer att skapas för IPv6. IPv6-adressen kommer att läggas till i det befintliga*under gränssnittet. 
-    * Valfritt: Stöd för [BFD-stöd (dubbelriktad vidarebefordring)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) som är konfigurerat som standard för alla privata peer-kopplingar på ExpressRoute-kretsar
+    * IPv4-och IPv6-anslutning. *Inga ytterligare under gränssnitt kommer att skapas för IPv6. IPv6-adressen kommer att läggas till i det befintliga under gränssnittet*. 
+    * Valfritt: stöd för [BFD-stöd (dubbelriktad vidarebefordring)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) som är konfigurerat som standard för alla privata peer-kopplingar på ExpressRoute-kretsar
 
 ## <a name="vlan-tagging"></a>VLAN-märkning
 

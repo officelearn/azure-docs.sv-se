@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Netskope Cloud Security | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netskope Cloud Security.
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Netskope Administratörskonsol | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netskope Administratörskonsol.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,68 +13,68 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e33d05450e19331d876029b07d520634a40ab31
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: dec8f8065114b89dfa7bcaceee3f26855953dde2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884453"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081810"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-cloud-security"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Netskope Cloud Security
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Netskope Administratörskonsol
 
-I den här självstudien får du lära dig hur du integrerar Netskope Cloud Security med Azure Active Directory (Azure AD). När du integrerar Netskope Cloud Security med Azure AD kan du:
+I den här självstudien får du lära dig att integrera Netskope-Administratörskonsol med Azure Active Directory (Azure AD). När du integrerar Netskope-Administratörskonsol med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Netskope Cloud Security.
-* Gör det möjligt för användarna att logga in automatiskt för att Netskope moln säkerhet med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till Netskope Administratörskonsol.
+* Gör det möjligt för användarna att logga in automatiskt för att Netskope Administratörskonsol med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Netskope-prenumeration med enkel inloggning (SSO) för moln säkerhet.
+* Netskope Administratörskonsol enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Netskope Cloud Security stöder **SP-och IDP** -INITIERAd SSO
+* Netskope Administratörskonsol stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-netskope-cloud-security-from-the-gallery"></a>Lägga till Netskope Cloud Security från galleriet
+## <a name="adding-netskope-administrator-console-from-the-gallery"></a>Lägga till Netskope Administratörskonsol från galleriet
 
-Om du vill konfigurera integreringen av Netskope Cloud Security i Azure AD måste du lägga till Netskope Cloud Security från galleriet till din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Netskope-Administratörskonsol i Azure AD måste du lägga till Netskope Administratörskonsol från galleriet till listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , Skriv **Netskope Cloud Security** i sökrutan.
-1. Välj **Netskope Cloud Security** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet** , skriv **Netskope administratörskonsol** i sökrutan.
+1. Välj **Netskope administratörskonsol** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netskope-cloud-security"></a>Konfigurera och testa enkel inloggning med Azure AD för Netskope Cloud Security
+## <a name="configure-and-test-azure-ad-single-sign-on-for-netskope-administrator-console"></a>Konfigurera och testa enkel inloggning med Azure AD för Netskope Administratörskonsol
 
-Konfigurera och testa Azure AD SSO med Netskope Cloud Security med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Netskope Cloud Security.
+Konfigurera och testa Azure AD SSO med Netskope Administratörskonsol med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Netskope Administratörskonsol.
 
-Om du vill konfigurera och testa Azure AD SSO med Netskope Cloud Security, fyller du i följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med Netskope Administratörskonsol slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera Netskope Cloud Security SSO](#configure-netskope-cloud-security-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa Netskope Cloud Security test User](#create-netskope-cloud-security-test-user)** – för att få en motsvarighet till B. Simon i Netskope Cloud Security som är länkad till Azure AD-representation av användare.
+1. **[Konfigurera Netskope ADMINISTRATÖRSKONSOL SSO](#configure-netskope-administrator-console-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa Netskope administratörskonsol test User](#create-netskope-administrator-console-test-user)** – om du vill ha en motsvarighet till B. Simon i Netskope-administratörskonsol som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **Netskope Cloud Security** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Netskope administratörskonsol** program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -84,20 +84,23 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `Netskope_<OrgKey>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<tenant_host_name>/saml/acs`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<tenant_host_name>/saml/acs`
+
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Du får de här värdena förklaras senare i självstudien.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<tenantname>.goskope.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Netskope Cloud Security client support team](mailto:support@netskope.com) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Inloggnings-URL-värdena är inte riktiga. Uppdatera inloggnings-URL-värdet med den faktiska inloggnings-URL: en. Kontakta [Netskope administratörskonsol client support team](mailto:support@netskope.com) för att få inloggnings-URL-värde. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Netskope Cloud Security Application förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+1. Netskope Administratörskonsol-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/default-attributes.png)
 
-1. Utöver ovan förväntar sig Netskope Cloud Security-program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+1. Utöver ovan förväntar sig Netskope-Administratörskonsol program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
     | Namn |  Källattribut|
     | ---------| --------- |
@@ -110,7 +113,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera Netskope Cloud Security** kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **Konfigurera Netskope administratörskonsol** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -128,10 +131,10 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Netskope Cloud Security.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Netskope Administratörskonsol.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Netskope Cloud Security**.
+1. I listan program väljer du **Netskope administratörskonsol**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
@@ -144,19 +147,81 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-## <a name="configure-netskope-cloud-security-sso"></a>Konfigurera Netskope Cloud Security SSO
+## <a name="configure-netskope-administrator-console-sso"></a>Konfigurera Netskope Administratörskonsol SSO
 
-Om du vill konfigurera enkel inloggning på **Netskope Cloud Security** -sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [Netskope Cloud Security Support Team](mailto:support@netskope.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+1. Öppna en ny flik i webbläsaren och logga in på din Netskope Administratörskonsol företags plats som administratör.
 
-### <a name="create-netskope-cloud-security-test-user"></a>Skapa Netskope Cloud Security test User
+1. Klicka på fliken **Inställningar** i det vänstra navigerings fönstret.
 
-I det här avsnittet skapar du en användare som heter B. Simon i Netskope Cloud Security. Arbeta med [Netskope Cloud Security Support Team](mailto:support@netskope.com) för att lägga till användarna i Netskope Cloud Security Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-settings.png)
+
+1. Klicka på fliken **Administration** .
+
+    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-administration.png)
+
+1. Klicka på **SSO** -fliken.
+
+    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-sso.png)
+
+1. I avsnittet **nätverks inställningar** utför du följande steg:
+    
+    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+
+    a. Kopiera **intygets URL-** värde och klistra in det i text rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+
+    b. Kopiera **tjänste leverantörens ID-** värde och klistra in det i text rutan **identifierare** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+
+1. Klicka på **Redigera inställningarna** under Inställningar för **SSO/service nivå** .
+
+    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+
+1. I popup-fönstret **Inställningar** utför du följande steg:
+
+    ![Netskope Administratörskonsol konfiguration](./media/netskope-cloud-security-tutorial/configuration.png)
+
+    a. Välj **Aktivera SSO**.
+
+    b. I text rutan **IDP URL** klistrar du in värdet för **inloggnings-URL** : en som du har kopierat från Azure Portal.
+
+    c. I text rutan för **entitets-ID för IDP** klistrar du in värdet för **Azure AD-identifieraren** , som du har kopierat från Azure Portal.
+
+    d. Öppna det hämtade base64-kodade certifikatet i anteckningar, kopiera innehållet i det till Urklipp och klistra in det i text rutan **IDP-certifikat** .
+
+    e. Välj **Aktivera SSO**.
+
+    f. I text rutan **IDP service nivå mål** klistrar du in URL-värdet för **utloggning** , som du har kopierat från Azure Portal.
+
+    g. Klicka på **Skicka**.
+
+### <a name="create-netskope-administrator-console-test-user"></a>Skapa Netskope Administratörskonsol test användare
+
+1. Öppna en ny flik i webbläsaren och logga in på din Netskope Administratörskonsol företags plats som administratör.
+
+1. Klicka på fliken **Inställningar** i det vänstra navigerings fönstret.
+
+    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/config-settings.png)
+
+1. Klicka på fliken **Active Platform** .
+
+    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/user1.png)
+
+1. Klicka på fliken **användare** .
+
+    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/add-user.png)
+
+1. Klicka på **Lägg till användare**.
+
+    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/user-add.png)
+
+1. Ange e-postadressen för den användare som du vill lägga till och klicka på **Lägg till**.
+
+    ![Netskope Administratörskonsol skapande av användare](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för moln säkerhet i Netskope på åtkomst panelen, bör du loggas in automatiskt på den Netskope Cloud-säkerhet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Netskope Administratörskonsol på åtkomst panelen, bör du loggas in automatiskt på den Netskope Administratörskonsol som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -166,4 +231,4 @@ När du klickar på panelen för moln säkerhet i Netskope på åtkomst panelen,
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Netskope Cloud Security med Azure AD](https://aad.portal.azure.com/)
+- [Prova Netskope Administratörskonsol med Azure AD](https://aad.portal.azure.com/)

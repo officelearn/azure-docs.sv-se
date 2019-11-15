@@ -1,5 +1,5 @@
 ---
-title: Konfigurera och använda mått och diagnostikloggar med Azure IoT Hub | Microsoft Docs
+title: Konfigurera och använda mått och diagnostikloggar med Azure IoT Hub
 description: Lär dig hur du konfigurerar och använder mått och diagnostikloggar med en Azure IoT Hub. Detta ger data som ska analyseras för att hjälpa till att diagnostisera problem som navet kan ha.
 author: robinsh
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 3bda78a54b0914465a50d664ab0323444203a387
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890367"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084364"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudie: Konfigurera och Använd mått och diagnostikloggar med IoT Hub
 
@@ -34,11 +34,11 @@ I den här självstudien utför du följande åtgärder:
 > * Kör appen tills aviseringarna börjar utlösas. 
 > * Visa måttresultaten och kontrollera diagnostikloggarna. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Installera [Visual Studio](https://www.visualstudio.com/). 
+- [Installera Visual Studio](https://www.visualstudio.com/). 
 
 - Ett e-postkonto som kan ta emot e-post.
 
@@ -46,7 +46,7 @@ I den här självstudien utför du följande åtgärder:
 
 ## <a name="set-up-resources"></a>Konfigurera resurser
 
-För den är självstudien använder du en IoT-hubb, ett lagringskonto och en simulerad IoT-enhet. De här resurserna kan skapas med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet av självstudien kan du ta bort allt i ett steg genom att ta bort resursgruppen.
+För den är självstudien använder du en IoT-hubb, ett lagringskonto och en simulerad IoT-enhet. De här resurserna kan skapas med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet kan du ta bort allt i ett steg genom att ta bort resursgruppen.
 
 Det här är steg som krävs.
 

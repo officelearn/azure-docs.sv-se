@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d2c3b09277963781b90f65705e03f936f81b14ee
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 91a6681c2ef4a6d0ac01889e6e92e752975e90a5
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232361"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089464"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Skala upp en app i Azure App Service
 
 Den här artikeln visar hur du skalar din app i Azure App Service. Det finns två arbets flöden för skalning, skala upp och ut och den här artikeln beskriver arbets flödet skala upp.
 
-* [Skala upp](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Få mer processor, minne, disk utrymme och ytterligare funktioner som dedikerade virtuella datorer, anpassade domäner och certifikat, mellanlagringsplatser, autoskalning med mera. Du skalar upp genom att ändra pris nivån för den App Service plan som appen tillhör.
-* [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Öka antalet VM-instanser som kör din app.
-  Du kan skala ut till upp till 20 instanser, beroende på din pris nivå. [App Service-miljöer](environment/intro.md) i **isolerad** nivå ökar ytterligare antalet utskalning till 100 instanser. Mer information om att skala ut finns i [skala antalet instanser manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md). Där får du reda på hur du använder autoskalning, vilket är att skala antalet instanser automatiskt baserat på fördefinierade regler och scheman.
+* [Skala upp](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): få mer processor, minne, disk utrymme och ytterligare funktioner som dedikerade virtuella datorer (VM), anpassade domäner och certifikat, mellanlagring, automatisk skalning och mycket annat. Du skalar upp genom att ändra pris nivån för den App Service plan som appen tillhör.
+* [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): öka antalet virtuella dator instanser som kör din app.
+  Du kan skala ut till så många som 30 instanser, beroende på din pris nivå. [App Service-miljöer](environment/intro.md) i **isolerad** nivå ökar ytterligare antalet utskalning till 100 instanser. Mer information om att skala ut finns i [skala antalet instanser manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md). Där får du reda på hur du använder autoskalning, vilket är att skala antalet instanser automatiskt baserat på fördefinierade regler och scheman.
 
 Skalnings inställningarna tar bara några sekunder att tillämpa och påverka alla appar i din [App Service plan](../app-service/overview-hosting-plans.md).
 De kräver inte att du ändrar koden eller distribuerar om ditt program.
@@ -83,7 +83,7 @@ En tabell med begränsningar, kvoter och begränsningar för tjänster, samt fun
 
 <a name="Next Steps"></a>
 
-## <a name="more-resources"></a>Flera resurser
+## <a name="more-resources"></a>Fler resurser
 
 [Skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md)  
 [Konfigurera PremiumV2-nivån för App Service](app-service-configure-premium-tier.md)

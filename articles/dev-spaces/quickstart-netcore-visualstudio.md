@@ -5,25 +5,25 @@ author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 11/13/2019
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 41dea16f7938d391f8cdf03e1a731e8082f74b26
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5a7ab993c58730594a0c4e10572939d3dccbdf02
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695477"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091833"
 ---
-# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio och .NET Core på Kubernetes med Azure dev Spaces
+# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Snabb start: Felsöka och iterera med Visual Studio och .NET Core på Kubernetes med Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Iterativt utvecklar kod i containrar med Visual Studio.
 - Felsöka kod som körs i klustret med Visual Studio.
 
@@ -32,7 +32,7 @@ Med Azure dev Spaces kan du också felsöka och iterera med:
 - [Node. js och Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core och Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - Visual Studio 2019 på Windows med arbets belastningen Azure Development installerad. Du kan också använda Visual Studio 2017 i Windows med arbets belastningen webb utveckling och [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools) installerat. Om du inte har Visual Studio installerat kan du ladda ned det [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -52,7 +52,7 @@ Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Så
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
-Navigera till ditt AKS-kluster i Azure Portal och klicka på *dev Spaces*. Ändra *Aktivera dev Spaces* till *Ja* och klicka på *Spara*.
+Navigera till ditt AKS-kluster i Azure Portal och klicka på *dev Spaces*. Ändra *Använd dev Spaces* till *Ja* och klicka på *Spara*.
 
 ![Aktivera dev Spaces i Azure Portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
@@ -60,11 +60,11 @@ Navigera till ditt AKS-kluster i Azure Portal och klicka på *dev Spaces*. Ändr
 
 1. Öppna Visual Studio.
 1. Skapa ett nytt projekt.
-1. Välj *ASP.net Core webb program* och ge projektet *webfrontend*.
-1. Klicka på *OK*.
+1. Välj *ASP.net Core webb program* och klicka på *Nästa*.
+1. Namnge projektet *webfrontend* och klicka på *skapa*.
 1. När du uppmanas väljer du *webb program (modell-Visa-kontrollant)* för mallen.
-1. Välj *.net Core* och *ASP.net Core 2,0* överst.
-1. Klicka på *OK*.
+1. Välj *.net Core* och *ASP.net Core 2,1* överst.
+1. Klicka på *Skapa*.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Anslut ditt projekt till ditt utvecklings utrymme
 
@@ -93,12 +93,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-I exemplet ovan är http://webfrontend.1234567890abcdef1234.eus.azds.io/ den offentliga URL: en. Navigera till tjänstens offentliga URL och interagera med tjänsten som körs i ditt utvecklings utrymme.
+I exemplet ovan är den offentliga URL: en http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Navigera till tjänstens offentliga URL och interagera med tjänsten som körs i ditt utvecklings utrymme.
 
 Den här processen kan ha inaktiverat offentlig åtkomst till din tjänst. Om du vill aktivera offentlig åtkomst kan du uppdatera [ingress-värdet i *Values. yaml*][ingress-update].
 

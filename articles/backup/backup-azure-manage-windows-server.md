@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9e5103fad517e695198602a182574de964a9c504
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747439"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091132"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -99,8 +99,8 @@ Som standard visas all information, förutom den **senaste förekomst tiden**, i
 * Säkerhets kopierings objekt
 * Skyddad Server
 * Severity
-* Varaktighet
-* Skapande tid
+* Duration
+* Skapandetid
 * Status
 * Senaste förekomst tid
 
@@ -204,7 +204,7 @@ Menyn säkerhets kopierings jobb visar status för alla åtgärder, på alla sä
 
 2. Välj filter inställningarna och klicka på **Slutför**. Den filtrerade listan uppdateras utifrån de nya inställningarna.
 
-#### <a name="item-type"></a>Objekt typ
+#### <a name="item-type"></a>Objekttyp
 
 Objekt typen är typen av säkerhets kopierings hantering för den skyddade instansen. Det finns fyra typer. Se följande lista. Du kan visa alla objekt typer eller en objekt typ. Det går inte att markera två eller tre objekt typer. De tillgängliga objekt typerna är:
 

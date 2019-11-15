@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Integrera ett Azure Storage-konto med Azure CDN | Microsoft Docs
+title: Snabb start – integrera ett Azure Storage-konto med Azure CDN
 description: Lär dig hur man använder Azure Content Delivery Network (CDN) för att leverera innehåll med hög bandbredd genom att cachelagra blobbar från Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594020"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083080"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure storage-konto med Azure CDN
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure Storage-konto med Azure CDN
 I den här snabbstarten aktiverar du [Azure Content Delivery Network (CDN)](cdn-overview.md) för att cachelagra innehåll från Azure Storage. Azure CDN ger utvecklarna en global lösning när det gäller att leverera innehåll med hög bandbredd. Det kan cachelagra blobbar och statiskt innehåll för beräkningsinstanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
-Använd följande procedur om du vill skapa ett nytt lagringskonto för en Azure-prenumeration. Ett lagringskonto ger åtkomst till Azure Storage-tjänster. Lagringskontot som representerar den högsta nivån av namnområdet för att komma åt var och en av komponenter för Azure Storage-tjänsten: Azure Blob, Queue och Table storage. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+Använd följande procedur om du vill skapa ett nytt lagringskonto för en Azure-prenumeration. Ett lagringskonto ger åtkomst till Azure Storage-tjänster. Lagringskontot representerar namnrymdens högsta nivå för åtkomst till var och en av Azure Storages tjänstkomponenter: Azure Blob, Queue och Table Storage. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 Om du vill skapa ett lagringskonto måste du vara tjänstadministratör eller medadministratör för den associera prenumerationen.
 
@@ -66,11 +66,11 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
     
 4. När det gäller resten av inställningarna så använd de värden som anges i följande tabell:
 
-    | Inställning  | Value |
+    | Inställning  | Värde |
     | -------- | ----- |
     | **Distributionsmodell** | Använd standardvärdet. |
     | **Typ av konto** | Använd standardvärdet. |
-    | **Location**    | Välj **USA, centrala** i listrutan. |
+    | **Plats**    | Välj **USA, centrala** i listrutan. |
     | **Replikering** | Använd standardvärdet. |
     | **Prestanda** | Använd standardvärdet. |
     | **Säker överföring krävs** | Använd standardvärdet. |
@@ -94,11 +94,11 @@ Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskont
     
 2. Skapa en ny slutpunkt genom att ange den nödvändiga information som visas i följande tabell:
 
-    | Inställning  | Value |
+    | Inställning  | Värde |
     | -------- | ----- |
-    | **CDN-profil** | Välj **Skapa nytt** och ange ditt profilnamn, till exempel *my-cdn-profile-123*. Det här namnet måste vara globalt unikt.  |
+    | **CDN-profil** | Välj **Skapa ny** och ange ditt profil namn, till exempel *My-CDN-Profile-123*. Det här namnet måste vara globalt unikt.  |
     | **prisnivå** | Välj **Standard Verizon** i listrutan. |
-    | **CDN-slutpunktsnamn** | Ange slutpunktens värdnamn, d.v.s. *my-endpoint-123*. Det här namnet måste vara globalt unikt. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_ .azureedge.net. |
+    | **CDN-slutpunktsnamn** | Ange slut punktens värdnamn, t. ex. *min-slutpunkt-123*. Det här namnet måste vara globalt unikt. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_ .azureedge.net. |
     | **Ursprungets värdnamn** | En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server. |
 
 3. Välj **Skapa**. När slutpunkten har skapats visas den i listan med slutpunkter.
@@ -146,5 +146,5 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 Mer information om hur du lägger till en anpassad domän och aktiverar HTTPS för din CDN-slutpunkt finns i följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lagringsblobar för åtkomst med hjälp av en anpassad Azure CDN-domän via HTTPS](cdn-storage-custom-domain-https.md)
+> [Självstudie: Använda lagringsblobar via en anpassad Azure CDN-domän och HTTPS](cdn-storage-custom-domain-https.md)
 

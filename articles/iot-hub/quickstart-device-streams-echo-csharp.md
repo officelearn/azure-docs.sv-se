@@ -1,5 +1,5 @@
 ---
-title: Kommunicera med en enhets app C# i via Azure IoT Hub enhets strömmar (för hands version) | Microsoft Docs
+title: Kommunicera med enhetens app C# i med Azure IoT Hub enhets strömmar
 description: I den här snabb starten kör du två C# exempel program som kommunicerar via en enhets ström som upprättats via IoT Hub.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c994b77105fe94eef418c0befc4c135ec09ada14
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900938"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084302"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets C# program i via IoT Hub enhets strömmar (för hands version)
 
@@ -31,10 +31,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Krav
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
-  * USA, centrala
+  * Centrala USA
   * Centrala USA-EUAP
   * Europa, norra
-  * Asien, sydöstra
+  * Sydostasien
 
 * De två exempel programmen som du kör i den här snabb starten är C#skrivna. Du behöver .NET Core SDK 2.1.0 eller senare på din utvecklings dator.
   * Hämta [.net Core SDK för flera plattformar från .net](https://www.microsoft.com/net/download/all).

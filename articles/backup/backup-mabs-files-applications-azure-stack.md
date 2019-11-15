@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 70da426f1dff843f1e2515052431f54f8ea83780
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074097"
+ms.locfileid: "74091571"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Säkerhetskopiera filer och program på Azure Stack
 
@@ -134,7 +134,7 @@ Du kan visa Azure Backup Server entiteter i Azure Portal genom att följa stegen
 2. Klicka på infrastruktur för säkerhets kopiering.
 3. Visa säkerhets kopierings hanterings servrar.
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
 Information om hur du använder Azure Backup Server för att skydda andra arbets belastningar finns i någon av följande artiklar:
 

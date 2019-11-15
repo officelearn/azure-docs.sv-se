@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med ljusstyrka mönstret Omnichannel kontakta Center | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ljusstyrka mönstret Omnichannel kontakta Center.
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med ljust mönster Omnichannel Contact Center | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ljust mönster Omnichannel Contact Center.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,167 +13,162 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205b1746bac30a015d4efe4bde573be44563e2f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 27cda1f1a797ca0cb8e1b9d1c4cd7498c22ddde5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450263"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081940"
 ---
-# <a name="tutorial-integrate-bright-pattern-omnichannel-contact-center-with-azure-active-directory"></a>Självstudier: Integrera ljusstyrka mönstret Omnichannel kontakta Center med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bright-pattern-omnichannel-contact-center"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med ljust mönster Omnichannel Contact Center
 
-I de här självstudierna lär du dig att integrera ljusstyrka mönstret Omnichannel kontakta Center med Azure Active Directory (AD Azure). När du integrerar ljusstyrka mönstret Omnichannel kontakta Center med Azure AD, kan du:
+I den här självstudien får du lära dig att integrera ljust mönster Omnichannel Contact Center med Azure Active Directory (Azure AD). När du integrerar ljust mönster Omnichannel kontakt Center med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till ljusstyrka mönstret Omnichannel kontakta Center.
-* Ge dina användare att automatiskt inloggad till ljusstyrka mönstret Omnichannel kontakta Center med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har till gång till ljust mönster Omnichannel kontakt Center.
+* Gör det möjligt för användarna att logga in automatiskt till ljust mönster Omnichannel kontakt Center med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Aktiverat prenumeration ljusstyrka mönstret Omnichannel kontakta Center enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Ljust mönster Omnichannel kontakt Center för enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Ljus mönstret Omnichannel kontakta Center har stöd för **SP och IDP** -initierad SSO
-* Ljus mönstret Omnichannel kontakta Center har stöd för **Just In Time** etableringen av användare
 
-## <a name="adding-bright-pattern-omnichannel-contact-center-from-the-gallery"></a>Att lägga till ljusstyrka mönstret Omnichannel kontakta Center från galleriet
 
-För att konfigurera integrering av ljusstyrka mönstret Omnichannel kontakta Center i Azure AD, som du behöver lägga till ljusstyrka mönstret Omnichannel kontakta Center från galleriet i din lista över hanterade SaaS-appar.
+* Ljust mönster Omnichannel Contact Center stöder **SP-och IDP** -INITIERAd SSO
+* Ljust mönster Omnichannel Contact Center stöder **just-in-Time** User-etablering
+
+
+## <a name="adding-bright-pattern-omnichannel-contact-center-from-the-gallery"></a>Lägga till ljust mönster Omnichannel kontakt Center från galleriet
+
+Om du vill konfigurera integreringen av ett ljust mönster Omnichannel kontakt Center i Azure AD måste du lägga till ljust mönster Omnichannel kontakt Center från galleriet till din lista över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **ljusstyrka mönstret Omnichannel kontakta Center** i sökrutan.
-1. Välj **ljusstyrka mönstret Omnichannel kontakta Center** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** skriver du **ljust mönster Omnichannel kontakt Center** i rutan Sök.
+1. Välj **ljust mönster Omnichannel kontakt Center** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-Konfigurera och testa Azure AD SSO med ljusstyrka mönstret Omnichannel kontakta Center med hjälp av en testanvändare kallas **B.Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i ljusstyrka mönstret Omnichannel kontakta Center.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-bright-pattern-omnichannel-contact-center"></a>Konfigurera och testa enkel inloggning med Azure AD för ljust mönster Omnichannel kontakt Center
 
-Slutför följande byggblock för att konfigurera och testa Azure AD enkel inloggning med ljusstyrka mönstret Omnichannel kontakta Center:
+Konfigurera och testa Azure AD SSO med ljust mönster Omnichannel kontakt Center med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i ett ljust mönster Omnichannel kontakt Center.
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera ljusstyrka mönstret Omnichannel kontakta Center SSO](#configure-bright-pattern-omnichannel-contact-center-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med B.Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera B.Simon att använda Azure AD enkel inloggning.
-5. **[Skapa ljusstyrka mönstret Omnichannel kontakta Center testanvändare](#create-bright-pattern-omnichannel-contact-center-test-user)**  – du har en motsvarighet för B.Simon i ljusstyrka mönstret Omnichannel kontakta Center som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
+Om du vill konfigurera och testa Azure AD SSO med ljust mönster Omnichannel Contact Center, fyller du i följande Bygg stenar:
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera ljust mönster Omnichannel kontakt Center SSO](#configure-bright-pattern-omnichannel-contact-center-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa ett ljust mönster Omnichannel kontakt Center-Test användare](#create-bright-pattern-omnichannel-contact-center-test-user)** – för att få en motsvarighet till B. Simon i ljust mönster Omnichannel kontakt Center som är länkat till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **ljusstyrka mönstret Omnichannel kontakta Center** programsidan integration, hitta den **hantera** och väljer **enda inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+
+1. På sidan [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **ljus mönster Omnichannel kontakt Center** och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `<SUBDOMAIN>_sso`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.brightpattern.com/agentdesktop/sso/redirect`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.brightpattern.com/agentdesktop/sso/redirect`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.brightpattern.com/`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.brightpattern.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [ljusstyrka mönstret Omnichannel kontakta Center Client supportteamet](mailto:support@brightpattern.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [ljust mönster Omnichannel kontakt Center klient support team](mailto:support@brightpattern.com) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Ljus mönstret Omnichannel kontakta Center-program förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+1. Ett ljust mönster Omnichannel Contact Center-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/edit-attribute.png)
 
-1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
+1. Förutom över, förväntar sig ett starkt mönster Omnichannel Contact Center-program att få fler attribut att skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
     | Namn | Namnrymd  |
     | ---------------| --------------- |
     | firstName | user.givenname |
     | lastName | user.surname |
-    | email | user.mail |
+    | e-post | user.mail |
 
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-    c. Lämna **Namnrymd** tom.
+1. I avsnittet **Konfigurera ett ljust mönster Omnichannel Contact Center** kopierar du lämpliga URL: er baserat på ditt krav.
 
-    d. Välj Källa som **Attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    f. Klicka på **Ok**
-
-    g. Klicka på **Spara**.
-
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
-
-   ![Länk för hämtning av certifikat](common/certificatebase64.png)
-
-1. På den **konfigurera ljusstyrka mönstret Omnichannel kontakta Center** avsnittet, kopiera den lämpliga URL: er efter behov.
-
-   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-### <a name="configure-bright-pattern-omnichannel-contact-center-sso"></a>Konfigurera ljusstyrka mönstret Omnichannel kontakta Center SSO
-
-Att konfigurera enkel inloggning på **ljusstyrka mönstret Omnichannel kontakta Center** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopieras URL: er från Azure portal för att [ Ljus mönstret Omnichannel kontakta Center supportteamet](mailto:support@brightpattern.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning om du beviljar åtkomst till ljusstyrka mönstret Omnichannel kontakta Center.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till ljust mönster Omnichannel Contact Center.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **ljusstyrka mönstret Omnichannel kontakta Center**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **ljus mönster Omnichannel Contact Center**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-bright-pattern-omnichannel-contact-center-test-user"></a>Skapa ljusstyrka mönstret Omnichannel kontakta Center testanvändare
+## <a name="configure-bright-pattern-omnichannel-contact-center-sso"></a>Konfigurera ljust mönster Omnichannel kontakt Center SSO
 
-I det här avsnittet skapas en användare som kallas B.Simon i ljusstyrka mönstret Omnichannel kontakta Center. Ljus mönstret Omnichannel kontakta Center stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i ljusstyrka mönstret Omnichannel kontakta Center, skapas en ny efter autentisering.
+Om du vill konfigurera enkel inloggning på ett **ljust mönster Omnichannel kontakt Center** sida måste du skicka det nedladdade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [starkt mönster Omnichannel Contact Center support team](mailto:support@brightpattern.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="create-bright-pattern-omnichannel-contact-center-test-user"></a>Skapa ljus mönster Omnichannel kontakt Center Test användare
 
-När du väljer panelen ljusstyrka mönstret Omnichannel kontakta Center i åtkomstpanelen, bör det vara loggas in automatiskt till ljusstyrka mönstret Omnichannel kontakta-Center där du konfigurerar enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+I det här avsnittet skapas en användare som heter B. Simon i ett ljust mönster Omnichannel kontakt Center. Ljust mönster Omnichannel Contact Center stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i ljust mönster Omnichannel Contact Center, skapas en ny efter autentisering.
+
+## <a name="test-sso"></a>Testa SSO 
+
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på panelen ljus mönster Omnichannel kontakt Center på åtkomst panelen, bör du loggas in automatiskt på det ljus mönster Omnichannel Contact Center som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova ljust mönster Omnichannel kontakt Center med Azure AD](https://aad.portal.azure.com/)
+

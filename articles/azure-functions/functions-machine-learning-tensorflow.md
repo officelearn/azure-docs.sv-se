@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: dbf2b4b5113598fee742c3864bede782a624773c
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 491adb2719dc7c05a2943634e83027376c9327c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817453"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082733"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudie: använda Machine Learning-modeller i Azure Functions med python och TensorFlow
 
@@ -39,7 +39,7 @@ Om du vill skapa Azure Functions i python måste du installera några verktyg.
 
 - [Python 3,6](https://www.python.org/downloads/release/python-360/)
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
-- En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/)
+- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="clone-the-tutorial-repository"></a>Klona självstudiernas databas
 
@@ -100,7 +100,7 @@ En Function-app kan innehålla en eller flera Azure Functions. Öppna mappen *St
 
 - [*Local. Settings. JSON*](functions-run-local.md#local-settings-file): innehåller program inställningar som används för lokal utveckling
 - [*Host. JSON*](functions-host-json.md): innehåller inställningar för Azure Functions värd och tillägg
-- [*Requirements. txt*](functions-reference-python.md#python-version-and-package-management): innehåller python-paket som krävs av det här programmet
+- [*Requirements. txt*](functions-reference-python.md#package-management): innehåller python-paket som krävs av det här programmet
 
 ## <a name="create-an-http-function"></a>Skapa en HTTP-funktion
 
@@ -221,7 +221,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(json.dumps(results), headers = headers)
 ```
 
-Se till att spara ändringarna.
+Se till att spara dina ändringar.
 
 Den här funktionen tar emot en bild-URL i en frågesträngparametern med namnet `img`. Den anropar `predict_image_from_url` från hjälp biblioteket som laddar ned avbildningen och returnerar en förutsägelse med TensorFlow-modellen. Funktionen returnerar sedan ett HTTP-svar med resultatet.
 

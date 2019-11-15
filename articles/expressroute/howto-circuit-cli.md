@@ -1,19 +1,18 @@
 ---
-title: 'Skapa och ändra en ExpressRoute-krets: Azure CLI | Microsoft Docs'
+title: 'Skapa och ändra en ExpressRoute-krets: Azure CLI'
 description: Den här artikeln visar hur du skapar, etablera, verifiera, uppdatera, ta bort och Avetablerar en ExpressRoute-krets med hjälp av CLI.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 75729811b63e8de3047e45e9b90f5fa3ec657901
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657071"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083225"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Skapa och ändra en ExpressRoute-krets med hjälp av CLI
 
@@ -56,9 +55,9 @@ Välj den prenumeration som du vill skapa en ExpressRoute-krets.
 az account set --subscription "<subscription ID>"
 ```
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Hämta listan över providers som stöds, platser och bandbredder
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Hämta listan över providers, platser och bandbredder som stöds
 
-Innan du skapar en ExpressRoute-krets, behöver du lista över anslutningsleverantörer som stöds, platser och bandbreddsalternativ för. CLI-kommando `az network express-route list-service-providers` returnerar den här informationen som du ska använda i senare steg:
+Innan du skapar en ExpressRoute-krets, behöver du lista över anslutningsleverantörer som stöds, platser och bandbreddsalternativ för. CLI-kommandot `az network express-route list-service-providers` returnerar den här informationen, som du kommer att använda i senare steg:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -125,7 +124,7 @@ Kontrollera svaret för att se om din anslutningsleverantör finns. Anteckna fö
 
 Du är nu redo att skapa en ExpressRoute-krets.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Skapa en ExpressRoute-krets
+### <a name="3-create-an-expressroute-circuit"></a>3. skapa en ExpressRoute-krets
 
 > [!IMPORTANT]
 > ExpressRoute-kretsen debiteras från den tidpunkt då en Tjänstnyckel utfärdas. Utför den här åtgärden när anslutningsleverantören är redo att lägga till kretsen.
@@ -142,8 +141,8 @@ I följande exempel visar hur du skapar en 200 Mbit/s ExpressRoute-krets via Equ
 
 Kontrollera att du anger rätt SKU-nivån och SKU-serien:
 
-* SKU-nivån avgör om en ExpressRoute-standard eller en ExpressRoute-premiumtillägget är aktiverat. Du kan ange Standard om du får du standard-SKU eller ”Premium” på premium-tillägget.
-* SKU-familjen avgör vilken fakturering. Du kan ange 'Metereddata' för ett abonnemang med förbrukade data och ”Unlimiteddata” för en obegränsad dataplan. Du kan ändra fakturering typen från 'Metereddata' till 'Unlimiteddata', men du kan inte ändra typen från 'Unlimiteddata' till 'Metereddata'.
+* SKU-nivån avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, *standard* eller *Premium*.
+* SKU-familjen avgör vilken fakturering. Du kan ange *Metereddata* för ett abonnemang med förbrukade data och *Unlimiteddata* för en obegränsad dataplan. Du kan ändra typen fakturering från *Metereddata* till *Unlimiteddata*, men du kan inte ändra typen från *Unlimiteddata* till *Metereddata*. En *lokal* krets är endast *Unlimiteddata* .
 
 
 ExpressRoute-kretsen debiteras från den tidpunkt då en Tjänstnyckel utfärdas. I följande exempel är en begäran om en ny Tjänstnyckel:
@@ -154,9 +153,9 @@ az network express-route create --bandwidth 200 -n MyCircuit --peering-location 
 
 Svaret innehåller tjänstnyckeln.
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Lista över alla ExpressRoute-kretsar
+### <a name="4-list-all-expressroute-circuits"></a>4. lista alla ExpressRoute-kretsar
 
-Om du vill hämta en lista över alla ExpressRoute-kretsar som du skapade, kör den `az network express-route list` kommando. Du kan hämta den här informationen när som helst med hjälp av det här kommandot. Visa alla kretsar genom att göra anrop utan parametrar.
+Om du vill hämta en lista över alla ExpressRoute-kretsar som du har skapat kör du kommandot `az network express-route list`. Du kan hämta den här informationen när som helst med hjälp av det här kommandot. Visa alla kretsar genom att göra anrop utan parametrar.
 
 ```azurecli-interactive
 az network express-route list
@@ -199,7 +198,7 @@ Du kan få detaljerade beskrivningar av alla parametrar genom att köra kommando
 az network express-route list -h
 ```
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Skicka tjänstnyckeln till din anslutningsleverantör för etablering
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. skicka tjänst nyckeln till din anslutnings leverantör för etablering
 
 'Korsanslutningens' innehåller information om det aktuella tillståndet för etablering på tjänstleverantör sida. Status innehåller tillståndet på Microsoft-sida. Mer information finns i den [arbetsflöden artikeln](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
@@ -224,7 +223,7 @@ Du kan använda en ExpressRoute-krets, måste den vara i följande tillstånd:
 "circuitProvisioningState": "Enabled
 ```
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Regelbundet kontrollera status och tillståndet för nyckeln krets
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. kontrol lera regelbundet status och tillståndet för krets nyckeln
 
 Kontrollera status och tillståndet för krets nyckeln får du reda på när din provider har aktiverat din krets. När kretsen har konfigurerats, visas ”Korsanslutningens” som etablerad, som visas i följande exempel:
 
@@ -263,7 +262,7 @@ Svaret liknar följande exempel:
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-### <a name="7-create-your-routing-configuration"></a>7. Skapa din routningskonfiguration
+### <a name="7-create-your-routing-configuration"></a>7. skapa konfigurationen för routning
 
 Stegvisa instruktioner finns i den [ExpressRoute-krets routningskonfiguration](howto-routing-cli.md) artikeln om du vill skapa och ändra krets peerings.
 
@@ -272,7 +271,7 @@ Stegvisa instruktioner finns i den [ExpressRoute-krets routningskonfiguration](h
 >
 >
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Länka ett virtuellt nätverk till en ExpressRoute-krets
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. länka ett virtuellt nätverk till en ExpressRoute-krets
 
 Därefter länka ett virtuellt nätverk till ExpressRoute-kretsen. Använd den [länka virtuella nätverk till ExpressRoute-kretsar](howto-linkvnet-cli.md) artikeln.
 

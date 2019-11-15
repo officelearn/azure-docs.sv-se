@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub enhets strömmar C snabb start för SSH och RDP (för hands version) | Microsoft Docs
+title: Azure IoT Hub enhets strömmar C snabb start för SSH och RDP
 description: I den här snabb starten kör du ett exempel C-program som fungerar som en proxy för att aktivera SSH-och RDP-scenarier över IoT Hub enhets strömmar.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 5d610f14dc037d1585b7f8ec1e0dd28944847b7a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c8554fc3f691af05a2c6a660d07ffb9a6ff29f31
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900857"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084323"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C proxy-program (för hands version)
 
@@ -26,7 +26,7 @@ Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransk
 
 I den här snabb starten beskrivs inställningarna för SSH-trafik (Secure Shell) i tunnel trafik (med port 22) genom enhets strömmar. Installationen av RDP-trafik (Remote Desktop Protocol) är snarlik och kräver en enkel konfigurations ändring. Eftersom enhets strömmar är program-och protokoll-oberoende kan du ändra den här snabb starten för att hantera andra typer av program trafik.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjliggör slutpunkt-till-slutpunkt-anslutningar mellan SSH-klienten och SSH-daemon-processer. Under den offentliga för hands versionen stöder C SDK endast enhets strömmar på enhets sidan. Därför täcker den här snabb starten instruktioner för att endast köra enhetens lokala proxy-program. Följ anvisningarna i något av följande snabb starter för att skapa och köra det medföljande programmet på tjänst sidan:
 
@@ -54,10 +54,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * USA, centrala
+  * Centrala USA
   * Centrala USA-EUAP
   * Europa, norra
-  * Asien, sydöstra
+  * Sydostasien
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) med [Skriv bords utveckling C++ med](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat arbets belastning.
 * Installera den senaste versionen av [Git](https://git-scm.com/download/).

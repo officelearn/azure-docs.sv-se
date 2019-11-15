@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 72874e7b96e2ec8909a325b5ae598b900ebe8079
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ff2dac5d27cfffb92922038c1d1c67cd5118557a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791884"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082385"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service Hybridanslutningar #
 
@@ -119,7 +119,7 @@ Välj hybrid anslutning för att se information. Du kan se all information som d
 
 Det finns en gräns för antalet hybrid anslutnings slut punkter som kan användas i en App Service plan. Varje hybrid anslutning som används kan dock användas över valfritt antal appar i planen. Till exempel räknas en enskild hybrid anslutning som används i fem separata appar i ett App Service plan som en hybrid anslutning.
 
-### <a name="pricing"></a>Prissättning ###
+### <a name="pricing"></a>Priser ###
 
 Förutom att det finns ett App Service plan SKU-krav finns det ytterligare kostnader att använda Hybridanslutningar. Det finns en avgift för varje lyssnare som används av en hybrid anslutning. Lyssnaren är Hybridanslutningshanteraren. Om du har fem Hybridanslutningar stöd för två hybrid anslutnings hanterare, är det 10 lyssnare. Mer information finns i [Service Bus prissättning][sbpricing].
 
@@ -221,7 +221,13 @@ Om du vill använda det här API: et behöver du skicka nyckel och vidarebefordr
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
-## <a name="troubleshooting"></a>Felsöka ##
+## <a name="secure-your-hybrid-connections"></a>Skydda din Hybridanslutningar ##
+
+En befintlig hybrid anslutning kan läggas till i andra App Service Web Apps av alla användare som har tillräcklig behörighet för det underliggande Azure Service Bus reläet. Det innebär att om du måste hindra andra från att återanvända samma hybrid anslutning (till exempel när mål resursen är en tjänst som inte har några ytterligare säkerhets åtgärder för att förhindra obehörig åtkomst) måste du låsa åtkomsten till Azure Service Bus Relay.
+
+Alla som har `Reader` åtkomst till reläet kan _Se_ hybrid anslutningen vid försök att lägga till den i webbappen i Azure-portalen, men de kan inte _lägga till_ den eftersom de saknar behörighet att hämta anslutnings strängen som används för att upprätta relä anslutningen. För att kunna lägga till hybrid anslutningen måste de ha `listKeys` behörighet (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). `Contributor` rollen eller någon annan roll som innehåller den här behörigheten för reläet gör att användarna kan använda hybrid anslutningen och lägga till den i sina egna Web Apps.
+
+## <a name="troubleshooting"></a>Felsökning ##
 
 Statusen "ansluten" innebär att minst en HCM har kon figurer ATS med hybrid anslutningen och att den kan komma åt Azure. Om statusen för din hybrid anslutning inte är **ansluten**konfigureras inte din hybrid anslutning på någon HCM som har åtkomst till Azure.
 

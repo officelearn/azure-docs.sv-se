@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991434"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083213"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services (AMS) gör det möjligt att på ett säkert sätt överföra, lagra, koda och paketera video- eller ljudinnehåll för att strömma både på begäran och live till olika klienter (till exempel TV, datorer och mobila enheter).
 
@@ -33,11 +33,11 @@ Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live
 
 ## <a name="overview"></a>Översikt
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
@@ -151,7 +151,7 @@ AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och la
 
     **Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Kunder som har en **Premium**-slutpunkt för direktuppspelning får som standard en direktuppspelande enhet (SU). Du kan skala slutpunkten för direktuppspelning genom att lägga till direktuppspelande enheter. Varje direktuppspelande enhet ger ytterligare bandbreddskapacitet till programmet. Mer information om hur du skalar **Premium**-slutpunkter för direktuppspelning finns i avsnittet [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Skala slutpunkter för direktuppspelning).
 
-* Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** eller **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**.
+* Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**.
 
     Förutom att ange typ av reserverad enhet kan du etablera **reserverade enheter** (RU:er) för ditt konto. Antalet etablerade RU:er anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto.
 
@@ -179,14 +179,14 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 |Namn|Status|Datacenter
 |---|---|---|
-|Standard|Allmän tillgänglighet (GA)|Alla|
-|Premium|Allmän tillgänglighet (GA)|Alla|
+|Standard|Allmänt tillgänglig|Alla|
+|Premium|Allmänt tillgänglig|Alla|
 
 ### <a name="live-encoding"></a>Live Encoding
 
 #### <a name="availability"></a>Tillgänglighet
 
-Tillgängligt i alla datacenter förutom: Tyskland, Brasilien, södra, Indien, västra, Indien, södra och Indien, centrala. 
+Tillgänglig i alla datacenter förutom: Tyskland, södra Brasilien, västra Indien, södra Indien och centrala Indien. 
 
 ### <a name="encoding-media-processors"></a>Mediebearbetare för kodning
 
@@ -196,8 +196,8 @@ AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media En
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
-|Media Encoder Standard|Allmän tillgänglighet (GA)|Alla|
-|Arbetsflöde för Media Encoder Premium|Allmän tillgänglighet (GA)|Alla utom Kina|
+|Media Encoder Standard|Allmänt tillgänglig|Alla|
+|Arbetsflöde för Media Encoder Premium|Allmänt tillgänglig|Alla utom Kina|
 
 ### <a name="analytics-media-processors"></a>Mediebearbetare för analys
 
@@ -208,11 +208,10 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
 |Azure Media Face Detector|Förhandsversion|Alla|
-|Azure Media Indexer|Allmän tillgänglighet (GA)|Alla|
+|Azure Media Indexer|Allmänt tillgänglig|Alla|
 |Azure Media Motion Detector|Förhandsversion|Alla|
 |Azure Media OCR|Förhandsversion|Alla|
 |Azure Media Redactor|Förhandsversion|Alla|
-|Azure Media Stabilizer|Förhandsversion|Alla|
 |Azure Media Video Thumbnails|Förhandsversion|Alla|
 |Azure Media Indexer 2|Förhandsversion|Allt utom Kina och federala myndigheter|
 
@@ -224,11 +223,11 @@ Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filer
 
 |Kryptering|Status|Datacenter|
 |---|---|---| 
-|Storage|Allmän tillgänglighet (GA)|Alla|
-|128-bitars AES-nycklar|Allmän tillgänglighet (GA)|Alla|
-|Fairplay|Allmän tillgänglighet (GA)|Alla|
-|PlayReady|Allmän tillgänglighet (GA)|Alla|
-|Widevine|Allmän tillgänglighet (GA)|Alla utom Tyskland, federala myndigheter och Kina.
+|Storage|Allmänt tillgänglig|Alla|
+|128-bitars AES-nycklar|Allmänt tillgänglig|Alla|
+|Fairplay|Allmänt tillgänglig|Alla|
+|PlayReady|Allmänt tillgänglig|Alla|
+|Widevine|Allmänt tillgänglig|Alla utom Tyskland, federala myndigheter och Kina.
 
 ### <a name="reserved-units-rus"></a>Reserverade enheter (RU:er)
 
@@ -242,7 +241,7 @@ Tillgängligt i alla datacenter.
 
 ### <a name="reserved-unit-ru-type"></a>Typ av reserverad enhet (RU)
 
-Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: S1, S2 eller S3.
+Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: S1, S2 och S3.
 
 Mer information finns i avsnittet om [skalning](#scaling).
 
@@ -250,9 +249,9 @@ Mer information finns i avsnittet om [skalning](#scaling).
 
 |Namn på RU-typ|Status|Datacenter
 |---|---|---|
-|S1|Allmän tillgänglighet (GA)|Alla|
-|S2|Allmän tillgänglighet (GA)|Alla utom södra Brasilien och västra Indien|
-|S3|Allmän tillgänglighet (GA)|Allt utom västra Indien|
+|S1|Allmänt tillgänglig|Alla|
+|S2|Allmänt tillgänglig|Alla utom södra Brasilien och västra Indien|
+|S3|Allmänt tillgänglig|Allt utom västra Indien|
 
 ## <a name="next-steps"></a>Nästa steg
 

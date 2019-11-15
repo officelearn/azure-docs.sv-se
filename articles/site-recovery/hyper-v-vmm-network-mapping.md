@@ -1,18 +1,18 @@
 ---
-title: Om nätverks mappning för virtuell Hyper-V-dator (med VMM) haveri beredskap till Azure med Site Recovery
+title: Om Hyper-V (med VMM) nätverks mappning med Site Recovery
 description: Beskriver hur du konfigurerar nätverks mappning för haveri beredskap för virtuella Hyper-V-datorer (hanteras i VMM-moln) till Azure, med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 637f327b40341ac04f37baf9e43f136a0315b17f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813666"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082566"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Förbereda nätverks mappning för haveri beredskap för virtuella Hyper-V-datorer till Azure
 
@@ -53,12 +53,12 @@ Nätverks mappningen fungerar på följande sätt:
 
 Här är ett exempel på hur du kan illustrera den här mekanismen. Låt oss ta en organisation med två platser i New York och Chicago.
 
-**Location** | **VMM-server** | **VM-nätverk** | **Mappad till**
+**Plats** | **VMM-server** | **VM-nätverk** | **Mappad till**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappad till VMNetwork1 – Chicago
- |  | VMNetwork2-NewYork | Ingen mappning
+ |  | VMNetwork2-NewYork | Inte mappad
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappad till VMNetwork1-NewYork
- | | VMNetwork2-Chicago | Ingen mappning
+ | | VMNetwork2-Chicago | Inte mappad
 
 I det här exemplet:
 
@@ -78,7 +78,7 @@ SilverCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>
 
 ### <a name="logical-and-vm-network-settings"></a>Inställningar för logiska och virtuella dator nätverk
 
-**Location** | **Logiskt nätverk** | **Associerat VM-nätverk**
+**Plats** | **Logiskt nätverk** | **Associerat VM-nätverk**
 ---|---|---
 New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
@@ -92,7 +92,7 @@ I följande tabell visas de alternativ som är tillgängliga när du väljer det
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Tillgängligt
  | GoldCloud1 | GoldCloud2 | Tillgängligt
-VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Saknas
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Inte tillgängligt
  | GoldCloud1 | GoldCloud2 | Tillgängligt
 
 

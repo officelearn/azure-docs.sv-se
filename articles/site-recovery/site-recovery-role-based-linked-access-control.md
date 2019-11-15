@@ -1,21 +1,21 @@
 ---
-title: Hantera Azure Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC) | Microsoft Docs
+title: Hantera rollbaserad åtkomst kontroll i Azure Site Recovery
 description: Den här artikeln beskriver hur du använder rollbaserad åtkomst kontroll (RBAC) för att hantera Azure Site Recovery åtkomst.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929224"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083762"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC)
 
-Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du åtskilja ansvars områden i ditt team och bara bevilja vissa åtkomst behörigheter till användare som behövs för att utföra vissa jobb.
+Azure rollbaserad åtkomst kontroll (RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du åtskilja ansvars områden i ditt team och bara bevilja vissa åtkomst behörigheter till användare som behövs för att utföra vissa jobb.
 
 Azure Site Recovery tillhandahåller tre inbyggda roller för att kontrol lera Site Recovery hanterings åtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
@@ -43,31 +43,31 @@ En användare behöver följande behörigheter för att slutföra replikeringen 
 
 | **Resurstyp** | **Distributions modell** | **Permission** |
 | --- | --- | --- |
-| Databearbetning | Resurshanterare | Microsoft. Compute/availabilitySets/Read |
-|  |  | Microsoft. Compute/virtualMachines/Read |
-|  |  | Microsoft. Compute/virtualMachines/Write |
-|  |  | Microsoft. Compute/virtualMachines/Delete |
+| Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
+|  |  | Microsoft.Compute/virtualMachines/read |
+|  |  | Microsoft.Compute/virtualMachines/write |
+|  |  | Microsoft.Compute/virtualMachines/delete |
 |  | Klassisk | Microsoft. ClassicCompute/domän namn/läsa |
 |  |  | Microsoft. ClassicCompute/domän namn/skrivning |
 |  |  | Microsoft. ClassicCompute/domän namn/ta bort |
 |  |  | Microsoft. ClassicCompute/virtualMachines/Read |
-|  |  | Microsoft. ClassicCompute/virtualMachines/Write |
+|  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft. ClassicCompute/virtualMachines/Delete |
-| Nätverk | Resurshanterare | Microsoft. Network/networkInterfaces/Read |
-|  |  | Microsoft. Network/networkInterfaces/Write |
-|  |  | Microsoft. Network/networkInterfaces/Delete |
-|  |  | Microsoft. Network/networkInterfaces/JOIN/åtgärd |
-|  |  | Microsoft. Network/virtualNetworks/Read |
+| Nätverk | Resource Manager | Microsoft.Network/networkInterfaces/read |
+|  |  | Microsoft.Network/networkInterfaces/write |
+|  |  | Microsoft.Network/networkInterfaces/delete |
+|  |  | Microsoft.Network/networkInterfaces/join/action |
+|  |  | Microsoft.Network/virtualNetworks/read |
 |  |  | Microsoft. Network/virtualNetworks/subnets/Read |
 |  |  | Microsoft. Network/virtualNetworks/subnets/Join/Action |
-|  | Klassisk | Microsoft. ClassicNetwork/virtualNetworks/Read |
+|  | Klassisk | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft. ClassicNetwork/virtualNetworks/JOIN/åtgärd |
-| Lagring | Resurshanterare | Microsoft. Storage/storageAccounts/Read |
-|  |  | Microsoft. Storage/storageAccounts/listnycklar/åtgärd |
-|  | Klassisk | Microsoft. ClassicStorage/storageAccounts/Read |
-|  |  | Microsoft. ClassicStorage/storageAccounts/Listnycklar/Action |
-| Resursgrupp | Resurshanterare | Microsoft. Resources/Deployments/* |
-|  |  | Microsoft. Resources/Subscriptions/resourceGroups/Read |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
+|  |  | Microsoft.Storage/storageAccounts/listkeys/action |
+|  | Klassisk | Microsoft.ClassicStorage/storageAccounts/read |
+|  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
+| Resursgrupp | Resource Manager | Microsoft. Resources/Deployments/* |
+|  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Överväg att använda de [inbyggda rollerna](../role-based-access-control/built-in-roles.md) "Virtual Machine Contributor" och "klassisk virtuell dator deltagare" för Resource Manager respektive klassiska distributions modeller.
 
@@ -76,5 +76,5 @@ En användare behöver följande behörigheter för att slutföra replikeringen 
 * Lär dig hur du hanterar åtkomst med:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
+  * [REST-API](../role-based-access-control/role-assignments-rest.md)
 * [Rollbaserad Access Control fel sökning](../role-based-access-control/troubleshooting.md): få förslag på hur du löser vanliga problem.

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 690df14e4e09b4a35589446029468a7d757d2732
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888618"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092266"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Självstudie: träna och distribuera din första modell i R med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ I den här självstudien kommer du att lära dig följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 1. Följ [installations anvisningarna](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) för att:
     + Installera Anaconda
@@ -108,7 +108,7 @@ experiment_name <- "accident-logreg"
 exp <- experiment(ws, experiment_name)
 ```
 
-### <a name="create-a-compute-target"></a>Skapa ett beräknings mål
+### <a name="create-a-compute-target"></a>Skapa ett beräkningsmål
 Genom att använda Azure Machine Learning Compute (AmlCompute), en hanterad tjänst så kan datavetare träna maskininlärningsmodeller i kluster med virtuella Azure-datorer. Exempel innefattar virtuella datorer med GPU-stöd. I den här självstudien skapar du ett AmlCompute-kluster med en nod som utbildnings miljö. I koden nedan skapas beräknings klustret om det inte redan finns på arbets ytan.
 
 Du kan behöva vänta några minuter på att ditt beräknings kluster ska tillhandahållas om det inte redan finns.
@@ -353,17 +353,17 @@ aci_service$scoring_uri
 Ta bort resurserna när du inte längre behöver dem. Ta inte bort någon resurs som du planerar att använda fortfarande. 
 
 Ta bort webb tjänsten:
-```{r delete_service, eval=FALSE}
+```R
 delete_webservice(aci_service)
 ```
 
 Ta bort den registrerade modellen:
-```{r delete_model, eval=FALSE}
+```R
 delete_model(model)
 ```
 
 Ta bort beräknings klustret:
-```{r delete_compute, eval=FALSE}
+```R
 delete_compute(compute)
 ```
 

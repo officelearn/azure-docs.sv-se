@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: e8e6eb9be65b038780fa6e21cf20f4c5dda27a31
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 61c9d887f1b193258161cd96ccfa3618e8371890
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991446"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081007"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 
@@ -62,7 +62,7 @@ Själva tjänsten har inte direkt stöd för det här scenariot. Din hanterade d
 Ja. Mer information finns i [så här aktiverar du Azure AD Domain Services med hjälp av PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Kan jag aktivera Azure AD Domain Services med hjälp av en Resource Manager-mall?
-Nej, det är för närvarande inte möjligt att aktivera Azure AD Domain Services med hjälp av en mall. En skriptad metod finns i [så här aktiverar du Azure AD Domain Services med hjälp av PowerShell](powershell-create-instance.md).
+Ja, du kan skapa en Azure AD Domain Services hanterad domän med hjälp av en Resource Manager-mall. Ett tjänst huvud namn och en Azure AD-grupp för administration måste skapas med hjälp av Azure Portal eller Azure PowerShell innan mallen distribueras. När du skapar en Azure AD Domain Services hanterad domän i Azure Portal, finns det ett alternativ för att exportera mallen för användning med ytterligare distributioner. Det finns också en [exempel-mall i GitHub mallar exempel lagrings platsen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-AAD-DomainServices).
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kan jag lägga till domänkontrollanter till en Azure AD Domain Services hanterad domän?
 Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad domän. Du behöver inte etablera, konfigurera eller på annat sätt hantera domänkontrollanter för den här domänen. Dessa hanterings aktiviteter tillhandahålls som en tjänst av Microsoft. Därför kan du inte lägga till ytterligare domänkontrollanter (Läs-och skriv skydd) för den hanterade domänen.
@@ -139,7 +139,7 @@ Nej. Azure AD Domain Services är en Azure-tjänst enligt principen betala per a
 ### <a name="what-azure-regions-is-the-service-available-in"></a>Vilka Azure-regioner finns tjänsten i?
 På sidan [Azure-tjänster per region](https://azure.microsoft.com/regions/#services/) kan du se en lista över de Azure-regioner där Azure AD Domain Services är tillgängligt.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Läs [fel söknings guiden](troubleshoot.md) för lösningar på vanliga problem med att konfigurera eller administrera Azure AD Domain Services.
 

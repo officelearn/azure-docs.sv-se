@@ -9,29 +9,28 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: f7e5f698a822cd68d8319102e1b8bddbbfa8ad70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c710e2b7c4376fc1725032c86cd02d9a6c8cafac
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821324"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090355"
 ---
 # <a name="monitor-and-improve-performance"></a>Övervaka och förbättra prestanda
 
 Azure SQL Database identifierar potentiella problem i databasen och rekommenderar åtgärder som kan förbättra arbets Belastningens prestanda genom att tillhandahålla intelligenta justerings åtgärder och rekommendationer.
 
-Om du vill granska databasens prestanda använder du panelen **prestanda** på sidan Översikt eller navigerar till avsnittet "support + fel sökning":
+## <a name="performance-tuning-options"></a>Alternativ för prestanda justering
 
-   ![Visa prestanda](./media/sql-database-performance/entries.png)
+Alternativ för prestanda justering som är tillgängliga Azure SQL Database finns på navigerings menyn för databasen under "intelligenta prestanda":
 
-I avsnittet "support + fel sökning" kan du använda följande sidor:
-
-
-1. [Prestanda översikt](#performance-overview) för att övervaka databasens prestanda. 
-2. [Prestanda rekommendationer](#performance-recommendations) för att hitta prestanda rekommendationer som kan förbättra arbets Belastningens prestanda.
-3. [Query Performance Insight](#query-performance-insight) för att hitta de främsta resurs krävande frågorna.
-4. [Automatisk justering](#automatic-tuning) som gör att Azure SQL Database automatiskt optimerar databasen.
+| Alternativ för prestanda justering | Stöd för enkel databas och poolad databas | Stöd för instans databas |
+| :----------------------------- | ----- | ----- |
+| **[Prestanda översikt](#performance-overview)** – övervaka alla prestanda aktiviteter för din databas. | Ja | Nej | 
+| **[Prestanda rekommendationer](#performance-recommendations)** – visar prestanda rekommendationer som kan förbättra arbets Belastningens prestanda. | Ja | Nej | 
+| **[Query Performance Insight](#query-performance-insight)** – visar prestanda för de mest krävande frågorna i databasen. | Ja | Nej | 
+| **[Automatisk justering](#automatic-tuning)** – Använd Azure SQL Database för att automatiskt optimera databas prestanda. | Ja | Nej | 
 
 ## <a name="performance-overview"></a>Prestanda översikt
 
@@ -58,10 +57,6 @@ Du kan också hitta fullständig historik över justerings åtgärder som har ti
 
 Lär dig hur du hittar en rekommendationer för att tillämpa rekommendationer i artikeln [hitta och tillämpa prestanda rekommendationer](sql-database-advisor-portal.md) .
 
-## <a name="automatic-tuning"></a>Automatisk inställning
-
-Azure SQL-databaser kan justera databas prestanda automatiskt genom att tillämpa [prestanda rekommendationer](sql-database-advisor.md). Läs mer i artikeln om [Automatisk justering](sql-database-automatic-tuning.md). Om du vill aktivera den kan du läsa [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
-
 ## <a name="query-performance-insight"></a>Query Performance Insight
 
 Med [query Performance Insight](sql-database-query-performance.md) kan du ägna mindre tid åt att felsöka databas prestanda genom att tillhandahålla:
@@ -74,8 +69,11 @@ Med [query Performance Insight](sql-database-query-performance.md) kan du ägna 
 
 Mer information om den här sidan finns i artikeln **[så här använder du Query Performance Insight](sql-database-query-performance.md)** .
 
+## <a name="automatic-tuning"></a>Automatisk inställning
+
+Azure SQL-databaser kan justera databas prestanda automatiskt genom att tillämpa [prestanda rekommendationer](sql-database-advisor.md). Läs mer i artikeln om [Automatisk justering](sql-database-automatic-tuning.md). Om du vill aktivera den kan du läsa [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
+
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Azure SQL Database prestanda vägledning för enskilda databaser](sql-database-performance-guidance.md)
 * [När ska en elastisk pool användas?](sql-database-elastic-pool-guidance.md)
-

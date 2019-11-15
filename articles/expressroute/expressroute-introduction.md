@@ -1,5 +1,5 @@
 ---
-title: 'Utöka ditt lokala nätverk till Azure över en privat anslutning – Översikt över ExpressRoute: Azure | Microsoft Docs'
+title: 'Översikt över Azure ExpressRoute: Anslut via en privat anslutning'
 description: Den tekniska översikten över ExpressRoute förklarar hur du kan använda en ExpressRoute-anslutning för att utöka ditt lokala nätverk till Azure över en privat anslutning.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: a068912857c16d2257d09e221477afc5d4a8d603
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123323"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083412"
 ---
 # <a name="expressroute-overview"></a>Översikt över ExpressRoute
 Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Office 365.
@@ -80,7 +79,7 @@ Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microso
 Viktiga funktioner som ExpressRoute Direct ger är till exempel:
 
 * Stora datainmatningar till tjänster som Storage och Cosmos DB
-* Fysisk isolering för reglerade branscher som kräver dedikerade och isolerade anslutningar, till exempel: banker, myndigheter och detaljhandeln
+* Fysisk isolering för branscher som är reglerade och kräver dedikerade och isolerade anslutningar, till exempel bankväsende, myndigheter och detaljhandel
 * Detaljerad kontroll över kretsfördelning utifrån affärsenheter
 
 Mer information finns i [Om ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
@@ -91,7 +90,7 @@ Du kan köpa ExpressRoute-kretsar för en mängd olika bandbredder. Listan med b
 * 50 Mbit/s
 * 100 Mbit/s
 * 200 Mbit/s
-* 500 Mbit/s
+* 500 Mbps
 * 1 Gbit/s
 * 2 Gbit/s
 * 5 Gbit/s

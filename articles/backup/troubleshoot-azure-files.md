@@ -7,12 +7,12 @@ ms.author: dacurwin
 ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: a6914fadcc69db534bb8476bbd8c89aa716a8bcb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c589cba1386433e13318dabbd2873f789ee42df3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074695"
+ms.locfileid: "74091497"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
 
@@ -31,7 +31,7 @@ Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filre
 
 Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS), USA, östra (EUS), USA, östra 2 (EUS2), Europa, norra (NE), Sydostasien (SEA), Europa, västra (WE) och USA, västra 2 (WUS2).
 
-## <a name="configuring-backup"></a>Konfigurera säkerhetskopiering
+## <a name="configuring-backup"></a>Konfigurerar säkerhets kopiering
 
 Följande tabell används för att konfigurera säkerhetskopieringen:
 
@@ -44,7 +44,7 @@ Följande tabell används för att konfigurera säkerhetskopieringen:
 | Det går inte att konfigurera säkerhetskopiering av filresursen (eller konfigurera skyddsprincipen). | <ul><li>Försök igen och se om problemet kvarstår. <li> Kontrollera att filresursen du vill skydda inte har tagits bort. <li> Om du skyddar flera filresurser samtidigt och säkerhetskopieringen av vissa av filresurserna misslyckas, kan du prova igen att konfigurera säkerhetskopieringen för de filresurser som misslyckas. |
 | Det går inte att ta bort Recovery Services-valvet efter att skyddet för en filresurs har tagits bort. | I Azure Portal öppnar du ditt valv > **Infrastruktur för säkerhetskopiering** > **Lagringskonton** och klickar på **Avregistrera** för att ta bort lagringskontot från Recovery Services-valvet.|
 
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Felmeddelanden för säkerhetskopierings- eller återställningsjobb
+## <a name="error-messages-for-backup-or-restore-job-failures"></a>Fel meddelanden för säkerhets kopiering eller återställning av jobb fel
 
 | Felmeddelanden | Lösningstips |
 | -------------- | ----------------------------- |

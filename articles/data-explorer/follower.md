@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: a46cf78d902ec8391d7dc3667a6d66daa78927ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828570"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083196"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Använd följande databas för att koppla databaser i Azure Datautforskaren
 
@@ -26,7 +26,7 @@ Att ansluta en databas till ett annat kluster med hjälp av följande funktioner
 * Ett enda kluster kan följa databaser från flera ledar kluster. 
 * Ett kluster kan innehålla både uppföljnings databaser och ledar databaser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 1. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 1. [Skapa kluster och databas](/azure/data-explorer/create-cluster-database-portal) för ledare och uppföljning.
@@ -242,7 +242,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>Hantera huvud konton
 
-När du kopplar en databas anger du **Standard säkerhets objekt för ändrings typ "** . Standardvärdet är insamlingen av [auktoriserade objekt](/azure/kusto/management/access-control/index.md#authorization) i ledar databasen
+När du kopplar en databas anger du **Standard säkerhets objekt för ändrings typ "** . Standardvärdet är insamlingen av [auktoriserade objekt](/azure/kusto/management/access-control/index#authorization) i ledar databasen
 
 |**Metod** |**Beskrivning**  |
 |---------|---------|
@@ -250,7 +250,7 @@ När du kopplar en databas anger du **Standard säkerhets objekt för ändrings 
 |**Bytt**   |    Inga arv av huvud konton från den ursprungliga databasen. Nya säkerhets objekt måste skapas för den bifogade databasen. Minst ett huvud konto måste läggas till för att blockera huvud arv.     |
 |**Alternativet**   |   De bifogade databas huvud kontona innehåller bara huvud kontona för den ursprungliga databasen utan ytterligare huvud objekt.      |
 
-Mer information om hur du använder kontroll kommandon för att konfigurera de auktoriserade huvud kontona finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower.md).
+Mer information om hur du använder kontroll kommandon för att konfigurera de auktoriserade huvud kontona finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower).
 
 ### <a name="manage-permissions"></a>Hantera behörigheter
 
@@ -258,7 +258,7 @@ Att hantera behörighet för skrivskyddad databas är detsamma som för alla dat
 
 ### <a name="configure-caching-policy"></a>Konfigurera princip för cachelagring
 
-Databas administratören för databaserna kan ändra [principen för cachelagring](/azure/kusto/management/cache-policy) av den anslutna databasen eller någon av dess tabeller i värd klustret. Standardvärdet är insamlingen av databas-och cachelagrade principer på databas-och tabell nivå. Du kan till exempel ha en princip på 30 dagar för att placera ledar databasen för att köra Månatlig rapportering och en tre dagars caching-princip på databasen för att endast fråga efter den senaste informationen för fel sökning. Mer information om hur du använder kontroll kommandon för att konfigurera principen för cachelagring i databasen eller tabellen finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower.md).
+Databas administratören för databaserna kan ändra [principen för cachelagring](/azure/kusto/management/cache-policy) av den anslutna databasen eller någon av dess tabeller i värd klustret. Standardvärdet är insamlingen av databas-och cachelagrade principer på databas-och tabell nivå. Du kan till exempel ha en princip på 30 dagar för att placera ledar databasen för att köra Månatlig rapportering och en tre dagars caching-princip på databasen för att endast fråga efter den senaste informationen för fel sökning. Mer information om hur du använder kontroll kommandon för att konfigurera principen för cachelagring i databasen eller tabellen finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -270,4 +270,4 @@ Databas administratören för databaserna kan ändra [principen för cachelagrin
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om konfiguration av uppföljnings kluster finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower.md).
+* Information om konfiguration av uppföljnings kluster finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower).

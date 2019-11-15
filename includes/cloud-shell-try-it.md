@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
-ms.openlocfilehash: 47873016a8e355127df36928f2c26439cf3f28c4
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: c52e626a8f87ed38ce6684f0ef011de6fef9e0af
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901448"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078734"
 ---
 ## <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
 
@@ -20,7 +20,7 @@ Starta Azure Cloud Shell:
 | Alternativ | Exempel/länk |
 |-----------------------------------------------|---|
 | Välj **Prova** i det övre högra hörnet av ett kodblock. Om du väljer **testa** kopieras inte koden automatiskt till Cloud Shell. | ![Exempel på hur du provar Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Gå till [https://shell.azure.com](https://shell.azure.com) eller Välj knappen **Starta Cloud Shell** för att öppna Cloud Shell i webbläsaren. | [![starta Cloud Shell i ett nytt fönster](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Gå till [https://shell.azure.com](https://shell.azure.com), eller Välj knappen **Starta Cloud Shell** för att öppna Cloud Shell i webbläsaren. | [![starta Cloud Shell i ett nytt fönster](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
 | Välj knappen **Cloud Shell** i den övre högra meny raden i [Azure Portal](https://portal.azure.com). | ![Cloud Shell-knappen i Azure Portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 För att köra koden i den här artikeln i Azure Cloud Shell:

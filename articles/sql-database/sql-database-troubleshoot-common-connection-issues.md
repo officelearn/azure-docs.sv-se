@@ -11,17 +11,17 @@ author: dalechen
 manager: dcscontentpm
 ms.author: daleche
 ms.reviewer: jrasnik
-ms.date: 01/25/2019
-ms.openlocfilehash: dc58e495256bff9521eb6567736700f5ffcd6e4f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: ffbe52bfcef3f32a12e97d37c39a2199cefe72ce
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822463"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082467"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Felsöka anslutnings problem till Azure SQL Database
 
-När anslutningen till Azure SQL Database Miss lyckas får du [fel meddelanden](sql-database-develop-error-messages.md). Den här artikeln är ett centraliserat avsnitt som hjälper dig att felsöka problem med Azure SQL Database-anslutningen. Den introducerar [vanliga orsaker](#cause) till anslutnings problem, rekommenderar [ett fel söknings verktyg](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) som hjälper dig att identifiera problemet och ger fel söknings steg för att lösa [tillfälliga fel](#troubleshoot-transient-errors) och [beständiga eller icke-tillfälliga fel ](#troubleshoot-persistent-errors). 
+När anslutningen till Azure SQL Database Miss lyckas får du [fel meddelanden](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). Den här artikeln är ett centraliserat avsnitt som hjälper dig att felsöka problem med Azure SQL Database-anslutningen. Den introducerar [vanliga orsaker](#cause) till anslutnings problem, rekommenderar [ett fel söknings verktyg](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) som hjälper dig att identifiera problemet och ger fel söknings steg för att lösa [tillfälliga fel](#troubleshoot-transient-errors) och [beständiga eller icke-tillfälliga fel ](#troubleshoot-persistent-errors).
 
 Om du stöter på anslutnings problem kan du prova med fel söknings stegen som beskrivs i den här artikeln.
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -56,8 +56,6 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 
 > [!NOTE]
 > Det här fel meddelandet är vanligt vis tillfälligt (kort livs längd).
-> 
-> 
 
 Felet uppstår när databasen flyttas (eller konfigureras om) och programmet förlorar anslutningen till databasen. Händelser vid databas konfiguration inträffar på grund av en planerad händelse (till exempel en program uppgradering) eller en oplanerad händelse (till exempel en process krasch eller belastnings utjämning). De flesta omkonfigurations händelser är vanligt vis korta och bör slutföras på mindre än 60 sekunder. Dessa händelser kan dock ibland ta längre tid att slutföra, till exempel när en stor transaktion orsakar en tids krävande återställning.
 
@@ -69,6 +67,7 @@ Felet uppstår när databasen flyttas (eller konfigureras om) och programmet fö
 4. Om problem med anslutningen fortsätter, eller om varaktigheten för programmet stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en specifik dag, kan du skicka en support förfrågan till Azure genom att välja **få support** på [Azure Support](https://azure.microsoft.com/support/options) webbplats.
 
 ## <a name="troubleshoot-persistent-errors"></a>Felsöka beständiga fel
+
 Om programmet inte kan ansluta till Azure SQL Database, indikerar det vanligt vis ett problem med något av följande:
 
 * Brand Väggs konfiguration. Azure SQL Database eller klients IDE brand väggen blockerar anslutningar till Azure SQL Database.
@@ -76,17 +75,14 @@ Om programmet inte kan ansluta till Azure SQL Database, indikerar det vanligt vi
 * Användar fel: till exempel felskrivna anslutnings parametrar, t. ex. Server namnet i anslutnings strängen.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
-1. Konfigurera [brand Väggs regler](sql-database-configure-firewall-settings.md) som tillåter KLIENTens IP-adress. För tillfälliga test ändamål ställer du in en brand Väggs regel med 0.0.0.0 som första IP-adressintervall och använder 255.255.255.255 som sista IP-adressintervall. Då öppnas servern med alla IP-adresser. Om detta löser problemet med anslutningen tar du bort den här regeln och skapar en brand Väggs regel för en lämplig, begränsad IP-adress eller ett IP-adressintervall. 
+
+1. Konfigurera [brand Väggs regler](sql-database-configure-firewall-settings.md) som tillåter KLIENTens IP-adress. För tillfälliga test ändamål ställer du in en brand Väggs regel med 0.0.0.0 som första IP-adressintervall och använder 255.255.255.255 som sista IP-adressintervall. Då öppnas servern med alla IP-adresser. Om detta löser problemet med anslutningen tar du bort den här regeln och skapar en brand Väggs regel för en lämplig, begränsad IP-adress eller ett IP-adressintervall.
 2. Kontrol lera att port 1433 är öppen för utgående anslutningar på alla brand väggar mellan klienten och Internet. Granska [Konfigurera Windows-brandväggen för att tillåta SQL Server åtkomst](https://msdn.microsoft.com/library/cc646023.aspx) och [hybrid identitet krävs portar och protokoll](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) för ytterligare pekare som är relaterade till ytterligare portar som du måste öppna för Azure Active Directory autentisering.
 3. Kontrol lera anslutnings strängen och andra anslutnings inställningar. Se avsnittet anslutnings sträng i [avsnittet anslutnings problem](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Kontrol lera tjänstens hälso tillstånd på instrument panelen. Om du tror att det finns ett regionalt avbrott kan du läsa mer i [återställa från ett avbrott](sql-database-disaster-recovery.md) för att återställa till en ny region.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Sök i dokumentationen om Microsoft Azure](https://azure.microsoft.com/search/documentation/)
-* [Visa de senaste uppdateringarna för tjänsten Azure SQL Database](https://azure.microsoft.com/updates/?service=sql-database)
 
-## <a name="additional-resources"></a>Ytterligare resurser
 * [Översikt över SQL Database utveckling](sql-database-develop-overview.md)
 * [Allmän vägledning om tillfälligt fel hantering](../best-practices-retry-general.md)
 * [Anslutnings bibliotek för SQL Database och SQL Server](sql-database-libraries.md)
-

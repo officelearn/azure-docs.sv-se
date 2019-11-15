@@ -4,53 +4,53 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187367"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085281"
 ---
-Diagnostisera problem med en Microsoft Azure-molntjänst kräver att samla in tjänstens loggfiler på virtuella datorer när problemen inträffar. Du kan använda den AzureLogCollector tillägg på begäran för att utföra enstaka loggsamlingar från en eller flera moln virtuella datorer (från både web-roller och worker-roller) och överföra de insamlade filerna till ett Azure storage-konto – allt utan att logga in via en fjärranslutning till någon för de virtuella datorerna.
+Att diagnostisera problem med en Microsoft Azure moln tjänst kräver att tjänstens loggfiler samlas in på virtuella datorer när det uppstår problem. Du kan använda AzureLogCollector-tillägget på begäran för att utföra en engångs insamling av loggar från en eller flera virtuella datorer i moln tjänsten (från både webb roller och arbets roller) och överföra de insamlade filerna till ett Azure Storage-konto – allt utan att fjärrlogga in på någon av de virtuella datorerna.
 
 > [!NOTE]
-> Beskrivningar för de flesta av de loggade informationen finns på http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> Beskrivningar av de flesta loggade uppgifter finns på https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
-Det finns två lägen för samlingen beroende på vilka typer av filer ska samlas in.
+Det finns två lägen för samling beroende på vilka typer av filer som ska samlas in.
 
-* **Azure gäst-agenten loggar endast (GA)** . Det här samlingsläget innehåller alla loggar som rör Azure-gästagenterna och andra Azure-komponenter.
-* **Alla loggar (fullständig)** . Den här samlingsläget samlar in alla filer i plus GA-läge:
+* **Endast Azure gästa Gent loggar (ga)** . Detta samlings läge innehåller alla loggar som rör Azures gäst agenter och andra Azure-komponenter.
+* **Alla loggar (fullständig)** . Det här samlings läget samlar in alla filer i GA-läge plus:
   
-  * händelseloggarna system och program
-  * HTTP-felloggar
+  * system-och program händelse loggar
+  * HTTP-fel loggar
   * IIS-loggar
-  * Installationsloggar
-  * andra systemloggar
+  * Installations loggar
+  * andra system loggar
 
-I båda lägena samling kan ytterligare data insamlingsmappar anges med hjälp av en samling med följande struktur:
+I båda samlings lägena kan ytterligare data insamlings mappar anges med hjälp av en samling med följande struktur:
 
-* **Namn på**: Namnet på samlingen som används som namnet på undermapp i zip-filen med insamlade filer.
-* **Plats**: Sökvägen till mappen på den virtuella datorn där filerna ska samlas in finns.
-* **SearchPattern**: Mönstret för namnen på filer ska samlas in. Standardvärdet är ”\*”
-* **Rekursiva**: om filerna ska samlas in är placerad rekursivt under den angivna platsen.
+* **Namn**: namnet på samlingen, används som namn på undermappen inuti zip-filen med de insamlade filerna.
+* **Plats**: sökvägen till mappen på den virtuella datorn där de filer som ska samlas in finns.
+* **SearchPattern**: mönstret för namnen på de filer som ska samlas in. Standardvärdet är "\*"
+* **Rekursiv**: om de filer som ska samlas in rekursivt under den angivna platsen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-* Har ett lagringskonto för tillägget att spara genererade zip-filer.
-* Azure PowerShell. Se [installera Azure PowerShell](/powershell/azure/install-az-ps)] för installationsanvisningar.
+* Spara genererade zip-filer med ett lagrings konto för tillägg.
+* Azure PowerShell. Installations anvisningar finns i [installera Azure PowerShell](/powershell/azure/install-az-ps)].
 
 ## <a name="add-the-extension"></a>Lägga till tillägget
-Du kan använda [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdletar eller [Service Management REST API: er](https://msdn.microsoft.com/library/ee460799.aspx) att lägga till AzureLogCollector-tillägget.
+Du kan använda [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets eller [Service Management REST-API: er](https://msdn.microsoft.com/library/ee460799.aspx) för att lägga till AzureLogCollector-tillägget.
 
-För molntjänster, den befintliga Azure Powershell-cmdleten **Set-AzureServiceExtension**, kan användas för att aktivera tillägget på molntjänstrollinstanser. Varje gång det här tillägget är aktiverat via denna cmdlet, utlöses loggar in på de valda rollinstanserna av valda roller.
+För Cloud Services kan den befintliga Azure PowerShell-cmdleten **set-AzureServiceExtension**användas för att aktivera tillägget på moln tjänst roll instanser. Varje gång det här tillägget aktive ras via denna cmdlet utlöses logg insamling på de valda roll instanserna för valda roller.
 
-För virtuella datorer, den befintliga Azure Powershell-cmdleten **Set-AzureVMExtension**, kan användas för att aktivera tillägget på virtuella datorer. Varje gång det här tillägget är aktiverat cmdlet: ar, utlöses loggar in på varje instans.
+För Virtual Machines kan den befintliga Azure PowerShell-cmdleten **set-AzureVMExtension**användas för att aktivera tillägget på Virtual Machines. Varje gång det här tillägget aktive ras via cmdlets utlöses logg insamling på varje instans.
 
-Det här tillägget använder internt, JSON-baserade PublicConfiguration och PrivateConfiguration. Följande är layouten för en exempel-JSON för offentliga och privata konfiguration.
+Det här tillägget använder internt JSON-baserade PublicConfiguration och PrivateConfiguration. Följande är layouten för ett exempel-JSON för offentlig och privat konfiguration.
 
 ### <a name="publicconfiguration"></a>PublicConfiguration
 
@@ -86,15 +86,15 @@ Det här tillägget använder internt, JSON-baserade PublicConfiguration och Pri
 ```
 
 > [!NOTE]
-> Det här tillägget behöver inte **privateConfiguration**. Du kan bara ange en tom struktur för den **– PrivateConfiguration** argumentet.
+> Det här tillägget behöver inte **privateConfiguration**. Du kan bara ange en tom struktur för argumentet **– PrivateConfiguration** .
 > 
 > 
 
-Du kan följa en av de två följande steg för att lägga till AzureLogCollector till en eller flera instanser av en molntjänst eller virtuell dator av valda roller, vilket då även utlöser samlingar på varje virtuell dator för att köra och skicka de insamlade filerna på Azure-konto anges.
+Du kan följa ett av de två följande stegen för att lägga till AzureLogCollector i en eller flera instanser av en moln tjänst eller virtuell dator med valda roller, som utlöser samlingarna på varje virtuell dator för att köra och skicka de insamlade filerna till det angivna Azure-kontot.
 
-## <a name="adding-as-a-service-extension"></a>Att lägga till som en tjänsttillägg
+## <a name="adding-as-a-service-extension"></a>Lägga till som tjänst tillägg
 1. Följ anvisningarna för att ansluta Azure PowerShell till din prenumeration.
-2. Ange namn, plats, roller och rollen tjänstinstanser som du vill lägga till och aktivera AzureLogCollector-tillägget.
+2. Ange tjänst namn, fack, roller och roll instanser som du vill lägga till och aktivera AzureLogCollector-tillägget.
 
    ```powershell
    #Specify your cloud service name
@@ -113,7 +113,7 @@ Du kan följa en av de två följande steg för att lägga till AzureLogCollecto
    $mode = "GA"
    ```
 
-3. Ange mappen ytterligare data som samlas in filer (det här steget är valfritt).
+3. Ange den ytterligare datamapp som filerna ska samlas in för (det här steget är valfritt).
 
    ```powershell
    #add one location
@@ -129,23 +129,23 @@ Du kan följa en av de två följande steg för att lägga till AzureLogCollecto
    ```
 
    > [!NOTE]
-   > Du kan använda token `%roleroot%` ange rotenheten rollen eftersom den inte använda en fast enhet.
+   > Du kan använda token `%roleroot%` för att ange rollens rot enhet eftersom den inte använder en fast enhet.
    > 
    > 
-4. Ange Azure storage-kontonamn och nyckel som insamlade filer ska överföras.
+4. Ange namnet på det Azure Storage-konto och den nyckel som de insamlade filerna ska överföras till.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-5. Anropa SetAzureServiceLogCollector.ps1 (ingår i slutet av artikeln) på följande sätt om du vill aktivera tillägget AzureLogCollector för en molntjänst. När körningen är klar kan kan du hitta den överförda filen under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. Anropa SetAzureServiceLogCollector. ps1 (ingår i slutet av artikeln) enligt följande för att aktivera AzureLogCollector-tillägget för en moln tjänst. När körningen är klar kan du hitta den överförda filen under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
    ```powershell
    .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
    ```
 
-Följande är definitionen av parametrarna som skickades till skriptet. (Detta kopieras nedan samt.)
+Följande är definitionen av de parametrar som skickas till skriptet. (Detta kopieras även nedan.)
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -177,14 +177,14 @@ param (
 )
 ```
 
-* **ServiceName**: Din molntjänstens namn.
-* **roller**: En lista över roller, till exempel ”WebRole1” eller ”WorkerRole1”.
-* **Instanser**: En lista över namnen på rollinstanser som är avgränsade med kommatecken, använder du jokerteckensträng (”*”) för alla rollinstanser.
-* **Fack**: Namnet på distributionsplatsen. ”Produktion” eller ”mellanlagring”.
-* **Läget**: Samlingsläget. ”Full” eller ”allmänt tillgänglig”.
-* **StorageAccountName**: Namnet på Azure storage-konto för att lagra insamlade data.
-* **StorageAccountKey**: Namnet på Azure storage-kontonyckel.
-* **AdditionalDataLocationList**: En lista med följande struktur:
+* **ServiceName**: namnet på din moln tjänst.
+* **Roller**: en lista över roller, till exempel "WebRole1" eller "WorkerRole1".
+* **Instanser**: en lista med namnen på roll instanser avgränsade med kommatecken--Använd jokertecken ("*") för alla roll instanser.
+* **Fack**: plats namn. "Produktion" eller "mellanlagring".
+* **Läge**: samlings läge. "Fullständig" eller "GA".
+* **StorageAccountName**: namnet på Azure Storage-kontot för lagring av insamlade data.
+* **StorageAccountKey**: namnet på Azure Storage-kontots nyckel.
+* **AdditionalDataLocationList**: en lista över följande struktur:
 
   ```powershell
   {
@@ -195,10 +195,10 @@ param (
   }
   ```
 
-## <a name="adding-as-a-vm-extension"></a>Att lägga till som ett VM-tillägg
+## <a name="adding-as-a-vm-extension"></a>Lägga till som ett VM-tillägg
 Följ anvisningarna för att ansluta Azure PowerShell till din prenumeration.
 
-1. Ange namnet på tjänsten, virtuell dator och samlingsläget.
+1. Ange tjänstens namn, VM och samlings läge.
 
    ```powershell
    #Specify your cloud service name
@@ -224,16 +224,16 @@ Följ anvisningarna för att ansluta Azure PowerShell till din prenumeration.
         #more locations can be added....
    ```
   
-2. Ange Azure storage-kontonamn och nyckel som insamlade filer ska överföras.
+2. Ange namnet på det Azure Storage-konto och den nyckel som de insamlade filerna ska överföras till.
 
    ```powershell
    $StorageAccountName = 'YourStorageAccountName'
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-3. Anropa SetAzureVMLogCollector.ps1 (ingår i slutet av artikeln) på följande sätt om du vill aktivera tillägget AzureLogCollector för en molntjänst. När körningen är klar kan kan du hitta den överförda filen under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. Anropa SetAzureVMLogCollector. ps1 (ingår i slutet av artikeln) enligt följande för att aktivera AzureLogCollector-tillägget för en moln tjänst. När körningen är klar kan du hitta den överförda filen under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
-Följande är definitionen av parametrarna som skickades till skriptet. (Detta kopieras nedan samt.)
+Följande är definitionen av de parametrar som skickas till skriptet. (Detta kopieras även nedan.)
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -259,12 +259,12 @@ param (
 )
 ```
 
-* **ServiceName**: Din molntjänstens namn.
-* **VMName**: Namnet på den virtuella datorn.
-* **Läget**: Samlingsläget. ”Full” eller ”allmänt tillgänglig”.
-* **StorageAccountName**: Namnet på Azure storage-konto för att lagra insamlade data.
-* **StorageAccountKey**: Namnet på Azure storage-kontonyckel.
-* **AdditionalDataLocationList**: En lista med följande struktur:
+* **ServiceName**: namnet på din moln tjänst.
+* **VMName**: namnet på den virtuella datorn.
+* **Läge**: samlings läge. "Fullständig" eller "GA".
+* **StorageAccountName**: namnet på Azure Storage-kontot för lagring av insamlade data.
+* **StorageAccountKey**: namnet på Azure Storage-kontots nyckel.
+* **AdditionalDataLocationList**: en lista över följande struktur:
 
   ```
   {
@@ -275,7 +275,7 @@ param (
   }
   ```
 
-## <a name="extention-powershell-script-files"></a>Tillägget PowerShell-skriptfiler
+## <a name="extention-powershell-script-files"></a>PowerShell-skriptfiler för omfattning
 ### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector.ps1
 
 ```powershell

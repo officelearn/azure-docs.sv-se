@@ -1,18 +1,18 @@
 ---
 title: Vad är nytt i Azure Site Recovery
-description: Innehåller en sammanfattning av nya funktioner som introducerats i Azure Site Recovery
+description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 19bf79cdb6bcdc0c20d47c698647383b758338db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961324"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091704"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -26,7 +26,7 @@ Du kan följa och prenumerera på Site Recovery uppdaterings meddelanden i [Azur
 
 För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste utgivna versionen. Dessa sammanfattas i följande tabell.
 
-**Uppdatera** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
+**Uppdatering** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
 [Samlad uppdatering 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [Samlad uppdatering 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
@@ -44,7 +44,7 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 Samlad [uppdatering 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -91,7 +91,7 @@ Observera följande för katastrof återställning av virtuella Azure-datorer ti
 
 Samlad [uppdatering 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -122,7 +122,7 @@ Nya funktioner för haveri beredskap i VMware till Azure sammanfattas i tabellen
 
 Samlad [uppdatering 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -162,7 +162,7 @@ Lagringskonto | Site Recovery stöder nu användning av lagrings konton med bran
 
 Samlad [uppdatering 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -183,7 +183,7 @@ Nya funktioner för haveri beredskap för virtuella Azure-datorer sammanfattas i
 
 Samlad [uppdatering 38](https://support.microsoft.com/help/4513507/) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -204,7 +204,7 @@ Nu kan du replikera diskar upp till 8 TB vid replikering till en virtuell Azure-
 
 Samlad [uppdatering 37](https://support.microsoft.com/help/4508614/) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -226,7 +226,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 Samlad [uppdatering 36](https://support.microsoft.com/help/4503156) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -259,7 +259,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 Samlad [uppdatering 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen)
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
@@ -280,7 +280,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 Samlad [uppdatering 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).
@@ -290,7 +290,7 @@ Samlad [uppdatering 34](https://support.microsoft.com/help/4490016/update-rollup
 
 Samlad [uppdatering 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).
@@ -328,7 +328,7 @@ Accelererat nätverk möjliggör SR-IOV (Single root I/O Virtualization) till en
 
 Samlad [uppdatering 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).
@@ -355,7 +355,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 Samlad [uppdatering 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) tillhandahåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).
@@ -407,7 +407,7 @@ Haveri beredskap för virtuella Azure-datorer medför kostnader för VM-licensie
 
 Samlad [uppdatering 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) tillhandahåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).
@@ -427,7 +427,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 Samlad [uppdatering 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).
@@ -439,7 +439,7 @@ Samlad [uppdatering 29](https://support.microsoft.com/help/4466466/update-rollup
 
 Samlad [uppdatering 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) innehåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).
@@ -468,7 +468,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 Samlad [uppdatering 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) tillhandahåller följande uppdateringar.
 
-**Uppdatera** | **Detaljer**
+**Uppdatering** | **Detaljer**
 --- | ---
 **Leverantörer och agenter** | En uppdatering av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen).

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 15bf955d6055ed91b486d34cf9d805de34e9f8f5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 92717e704fb3f9e79b364fcf47bbcc096c5dd1d0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074831"
+ms.locfileid: "74090742"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 
@@ -22,6 +22,8 @@ Azure Backup Server v2 och senare har stöd för Modern Backup Storage som ger l
 > [!NOTE]
 > Om du vill använda Modern Backup Storage måste du köra backup server v2 eller v3 på Windows Server 2016 eller v3 på Windows Server 2019.
 > Om du kör backup server v2 på en tidigare version av Windows Server kan Azure Backup Server inte dra nytta av Modern Backup Storage. I stället skyddas arbets belastningar på samma sätt som med säkerhets kopierings servern v1. Mer information finns i [matrisen](backup-mabs-protection-matrix.md)för säkerhets kopiering av Server versions skydd.
+>
+> För att uppnå förbättrade prestanda för säkerhets kopiering rekommenderar vi att du distribuerar MABS v3 med skiktad lagring på Windows Server 2019. Se DPM-artikeln "[Konfigurera MB med Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" för steg för att konfigurera skiktat lagrings utrymme.
 
 ## <a name="volumes-in-backup-server"></a>Volymer i säkerhets kopierings Server
 
@@ -64,6 +66,11 @@ Genom att använda backup server v2 eller senare med volymer som disk lagring ka
     ![Välj server och disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## <a name="add-volumes-to-backup-server-disk-storage"></a>Lägg till volymer på säkerhets kopierings serverns disk lagring
+
+> [!NOTE]
+>
+> - Lägg endast till en disk i poolen för att behålla kolumn antalet till 1. Sedan kan du lägga till diskar efter behov efteråt.
+> - Om du lägger till flera diskar i lagringspoolen är antalet diskar lagrade som antalet kolumner. När du lägger till fler diskar kan de bara vara en multipel av antalet kolumner.
 
 Om du vill lägga till en volym på säkerhets kopierings servern går du igenom **hanterings** fönstret och skannar lagringen på nytt och väljer sedan **Lägg till**. En lista över alla volymer som ska läggas till för lagring av reserv servrar visas. När de tillgängliga volymerna har lagts till i listan med valda volymer kan du ge dem ett eget namn som hjälper dig att hantera dem. Om du vill formatera dessa volymer till ReFS så att backup server kan använda fördelarna med Modern Backup Storage väljer du **OK**.
 

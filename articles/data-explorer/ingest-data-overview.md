@@ -7,18 +7,18 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285909"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091790"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Data inmatning för Azure Datautforskaren
 
 Data inmatning är den process som används för att läsa in data poster från en eller flera källor för att skapa eller uppdatera en tabell i Azure Datautforskaren. Data blir tillgängliga för fråga när de har matats in. Diagrammet nedan visar flödet från slut punkt till slut punkt för arbete i Azure Datautforskaren, inklusive data inmatning.
 
-![Data flöde](media/ingest-data-overview/data-flow.png)
+![Dataflöde](media/ingest-data-overview/data-flow.png)
 
 Tjänsten Azure Datautforskaren data management, som är ansvarig för data inmatning, innehåller följande funktioner:
 
@@ -70,7 +70,7 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga data med
 
 * [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST-API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Metoder**för att mata in program vara:
 
@@ -117,11 +117,9 @@ För organisationer med en befintlig infrastruktur som baseras på en meddelande
 
 ## <a name="supported-data-formats"></a>Data format som stöds
 
-För alla inmatnings metoder förutom inmatning från fråga formaterar du data så att Azure Datautforskaren kan parsa det. De data format som stöds är:
-
-* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
-* JSON (tabbavgränsad, flerradig), Avro
-* ZIP och GZIP 
+För alla inmatnings metoder förutom inmatning från fråga formaterar du data så att Azure Datautforskaren kan parsa det. 
+* De data format som stöds är: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (Line-separerad, multi-line), Avro och Parquet. 
+* Stöder ZIP-och GZIP-komprimering.
 
 > [!NOTE]
 > När data matas in härleds data typer baserat på mål tabellens kolumner. Om en post är ofullständig eller om ett fält inte kan parsas som den data typ som krävs fylls motsvarande tabell kolumner med null-värden.

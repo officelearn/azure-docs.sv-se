@@ -1,25 +1,26 @@
 ---
-title: Självstudie – skapa en Azure DNS-aliaspost för att stödja apex domännamn med Traffic Manager
+title: 'Självstudie: skapa en aliasresurspost som stöder domäns Apex Names-Traffic Manager'
+titleSuffix: Azure DNS
 description: Den här självstudien visar hur du konfigurerar en Azure DNS-aliaspost för att stödja användning av ditt apex-domännamn med Traffic Manager.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921431"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082259"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Självstudier: Konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Självstudie: Konfigurera en aliaspost för att hantera apex-domännamn med Traffic Manager 
 
 Du kan skapa en aliaspost för ditt domännamnsapex för att referera till en Azure Traffic Manager-profil. Ett exempel kan vara contoso.com. I stället för att använda en omdirigeringstjänst konfigurerar du Azure DNS till att referera till en Traffic Manager-profil direkt från din zon. 
 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell värddator och nätverksinfrastruktur.
@@ -30,10 +31,10 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
-Anvisningar om hur du kan använda din domän i Azure DNS finns i [självstudien: Använda Azure DNS som värd för din domän.](dns-delegate-domain-azure-dns.md)
+Anvisningar om att hantera din domän i Azure DNS finns i [Självstudie: Hantera din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
 
 Den exempeldomän som används i den här självstudien är contoso.com, men du använder ditt eget domännamn.
 
@@ -99,7 +100,7 @@ Upprepa den här proceduren för att lägga till slutpunkten **Web-02** med hjä
 Skapa en aliaspost som pekar på Traffic Manager-profilen.
 
 1. Välj din Azure DNS-zon för att öppna zonen.
-2. Välj **Uppsättning av poster**.
+2. Välj **Postuppsättning**.
 3. Lämna textrutan **Namn** tom för att representera domännamnsapex. Ett exempel kan vara contoso.com.
 4. Lämna **Typ** som en **A**-post.
 5. Välj kryssrutan **Aliaspostuppsättning**.

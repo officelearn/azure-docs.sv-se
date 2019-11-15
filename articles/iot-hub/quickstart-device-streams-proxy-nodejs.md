@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub enhets strömmar Node. js snabb start för SSH och RDP (för hands version) | Microsoft Docs
+title: Azure IoT Hub enhets strömmar Node. js snabb start för SSH och RDP
 description: I den här snabb starten kör du ett exempel-Node. js-program som fungerar som en proxy för att aktivera SSH-och RDP-scenarier över IoT Hub enhets strömmar.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 676b05b94fad506fba7c5bd2bd00061ae8a0426b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7f2b98f196a0889406e7821c60db7066a21b9178
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900754"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084274"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett Node. js-proxyprogram (för hands version)
 
@@ -41,9 +41,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * USA, centrala
+  * Centrala USA
   * Centrala USA-EUAP
-  * Asien, sydöstra
+  * Sydostasien
   * Europa, norra
   
 

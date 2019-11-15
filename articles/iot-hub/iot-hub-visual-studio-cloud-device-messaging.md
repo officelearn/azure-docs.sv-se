@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure IoT Hub Cloud Device-meddelanden med Cloud Explorer för Visual Studio | Microsoft Docs
+title: Använda VS Cloud Explorer för att hantera Azure IoT Hub enhets meddelanden
 description: Lär dig hur du använder Cloud Explorer för Visual Studio för att övervaka enhet till moln meddelanden och skicka molnet till enhets meddelanden i Azure IoT Hub.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: b8ea705b55c1485cab2e1478d2d455f1d4a427d3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050265"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079482"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Cloud Explorer för Visual Studio för att skicka och ta emot meddelanden mellan enheten och IoT Hub
 
@@ -54,7 +54,7 @@ Cloud Explorer-komponenten från Visual Studio Installer för Visual Studio 2017
 
 Följ dessa steg för att få åtkomst till hubben:
 
-1. I Visual Studio väljer du **Visa** > **Cloud Explorer** för att öppna Cloud Explorer.
+1. I Visual Studio väljer du **visa** > **Cloud Explorer** för att öppna Cloud Explorer.
 
 1. Välj ikonen för konto hantering för att visa dina prenumerationer.
 
@@ -64,9 +64,9 @@ Följ dessa steg för att få åtkomst till hubben:
 
 1. Välj de Azure-prenumerationer som du vill använda och välj **Använd**.
 
-1. Expandera din prenumeration och expandera **IoT**-hubbar.  Under varje hubb kan du se dina enheter för den hubben.
+1. Expandera din prenumeration och expandera **IoT-hubbar**.  Under varje hubb kan du se dina enheter för den hubben.
 
-    ![Enhetslista](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
+    ![Enhets lista](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
 
 ## <a name="monitor-device-to-cloud-messages"></a>Övervaka meddelanden från enheten till molnet
 

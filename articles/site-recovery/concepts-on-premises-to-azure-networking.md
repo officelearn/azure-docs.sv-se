@@ -1,5 +1,5 @@
 ---
-title: Ansluta till virtuella Azure-datorer efter redundansväxling från lokal plats till Azure med Azure Site Recovery
+title: Ansluta till virtuella Azure-datorer med en lokal redundans med Azure Site Recovery
 description: Beskriver hur du ansluter till virtuella Azure-datorer efter en redundansväxling från en lokal plats till Azure med hjälp av Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333035"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084266"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ansluta till virtuella Azure-datorer efter redundansväxling från lokal plats 
 

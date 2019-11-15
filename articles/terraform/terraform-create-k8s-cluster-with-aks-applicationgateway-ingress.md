@@ -5,13 +5,13 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: 853175665ce16c9ec972b184f9e07838b407b628
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.date: 11/13/2019
+ms.openlocfilehash: 31faedf247f8dd0799a4ee52cabc8386f0363ff6
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969578"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082575"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Självstudie: skapa en Application Gateway ingress-kontrollant i Azure Kubernetes-tjänsten
 
@@ -33,6 +33,8 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 - **Konfigurera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform och konfigurera åtkomst till Azure)
+
+- **Azure-resurs grupp**: om du inte har en Azure-resurs grupp som ska användas för demonstrationen [skapar du en Azure-resurs grupp](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Anteckna resurs gruppens namn och plats eftersom dessa värden används i demonstrationen.
 
 - **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anteckna värdena för appId, displayName och password (lösenord).
 
@@ -102,7 +104,7 @@ Skapa konfigurations filen terraform som visar alla variabler som krävs för de
     
     ```hcl
     variable "resource_group_name" {
-      description = "Name of the resource group already created."
+      description = "Name of the resource group."
     }
 
     variable "location" {
@@ -312,7 +314,7 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
       name                         = "publicIp1"
       location                     = data.azurerm_resource_group.rg.location
       resource_group_name          = data.azurerm_resource_group.rg.name
-      public_ip_address_allocation = "static"
+      allocation_method            = "Static"
       sku                          = "Standard"
 
       tags = var.tags
@@ -470,17 +472,17 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
 
     ```
 
-1. Spara filen och avsluta redigeraren.
+1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
 
 Koden som anges i det här avsnittet anger namnet på klustret, platsen och resource_group_name. `dns_prefix` värde – som utgör en del av det fullständigt kvalificerade domän namnet (FQDN) som används för att komma åt klustret-har angetts.
 
 Med `linux_profile`-posten kan du konfigurera de inställningar som gör det möjligt att logga in på arbetsnoder med SSH.
 
-Med AKS betalar du bara för arbetarnoderna. `agent_pool_profile` posten konfigurerar information för dessa arbetsnoder. `agent_pool_profile record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du värdet `count` i den här posten.
+Med AKS betalar du bara för arbetarnoderna. `agent_pool_profile` posten konfigurerar information för dessa arbetsnoder. `agent_pool_profile record` innehåller antalet arbetsnoder som ska skapas och typen av arbetsnoder. Om du behöver skala upp eller ned klustret i framtiden ändrar du `count` värde i den här posten.
 
 ## <a name="create-a-terraform-output-file"></a>Skapa en Terraform-utdatafil
 
-Med [terraform-utdata](https://www.terraform.io/docs/configuration/outputs.html) kan du definiera värden som är markerade för användaren när terraform använder en plan och kan frågas med kommandot `terraform output`. I det här avsnittet skapar du en utdatafil som tillåter åtkomst till klustret med [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
+Med [terraform-utdata](https://www.terraform.io/docs/configuration/outputs.html) kan du definiera värden som är markerade för användaren när terraform tillämpar en plan och kan frågas med hjälp av kommandot `terraform output`. I det här avsnittet skapar du en utdatafil som tillåter åtkomst till klustret med [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. I Cloud Shell skapar du en fil som heter `output.tf`.
 
@@ -534,15 +536,13 @@ Med [terraform-utdata](https://www.terraform.io/docs/configuration/outputs.html)
 
 Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mönstret fungerar bra i en miljö med en enda person. I en miljö med flera personer behöver du dock spåra tillstånd på servern med [Azure Storage](/azure/storage/). I det här avsnittet får du lära dig att hämta nödvändig lagrings konto information och skapa en lagrings behållare. Information om terraform lagras sedan i den behållaren.
 
-1. I Azure-portalen väljer du **Alla tjänster** i vänstermenyn.
+1. I Azure Portal, under **Azure-tjänster**, väljer du **lagrings konton**. (Om alternativet **lagrings konton** inte är synligt på huvud sidan väljer du **fler tjänster** och letar upp och väljer det.)
 
-1. Välj **Lagringskonton**.
-
-1. På fliken **Lagringskonton** väljer du namnet på det lagringskonto där Terraform ska lagra tillstånd. Du kan till exempel använda lagringskontot som skapades när du öppnade Cloud Shell första gången.  Lagringskontonamnet som skapades av Cloud Shell börjar vanligtvis med `cs` följt av en slumpmässig sträng med siffror och bokstäver. 
+1. På sidan **lagrings konton** väljer du namnet på det lagrings konto som terraform är till för att lagra tillstånd. Du kan till exempel använda lagringskontot som skapades när du öppnade Cloud Shell första gången.  Lagringskontonamnet som skapades av Cloud Shell börjar vanligtvis med `cs` följt av en slumpmässig sträng med siffror och bokstäver. 
 
     Anteckna det lagrings konto du väljer eftersom du behöver det senare.
 
-1. Välj **Åtkomstnycklar** på fliken för lagringskonto.
+1. Välj **Åtkomstnycklar** på lagringskontosidan.
 
     ![Menyn Lagringskonto](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
@@ -550,7 +550,7 @@ Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mön
 
     ![Lagringskontots åtkomstnycklar](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
-1. I Cloud Shell skapar du en behållare i ditt Azure Storage-konto (Ersätt &lt;YourAzureStorageAccountName > och &lt;YourAzureStorageAccountAccessKey > plats hållare med lämpliga värden för ditt Azure Storage-konto).
+1. I Cloud Shell skapar du en behållare i ditt Azure Storage-konto. Ersätt plats hållarna med lämpliga värden för ditt Azure Storage-konto.
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
@@ -559,7 +559,7 @@ Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mön
 ## <a name="create-the-kubernetes-cluster"></a>Skapa Kubernetes-klustret
 I det här avsnittet ser du hur du använder kommandot `terraform init` för att skapa resurserna som definieras i konfigurationsfilerna som du skapade i föregående avsnitt.
 
-1. I Cloud Shell initierar du terraform (Ersätt &lt;YourAzureStorageAccountName > och &lt;YourAzureStorageAccountAccessKey > plats hållare med lämpliga värden för ditt Azure Storage-konto).
+1. I Cloud Shell initierar du terraform. Ersätt plats hållarna med lämpliga värden för ditt Azure Storage-konto.
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -569,24 +569,24 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
 
     ![Exempel på resultat för "terraform init"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 
-1. Skapa en fil med namnet `main.tf` i Cloud Shell:
+1. Skapa en fil med namnet `terraform.tfvars`i Cloud Shell:
 
     ```bash
     code terraform.tfvars
     ```
 
-1. Klistra in följande variabler som skapats tidigare i redigeraren:
+1. Klistra in följande variabler som skapades tidigare i redigeraren. Använd `az account list-locations`för att hämta plats svärdet för din miljö.
 
     ```hcl
-    resource_group_name = <Name of the Resource Group already created>
+    resource_group_name = "<Name of the Resource Group already created>"
 
-    location = <Location of the Resource Group>
+    location = "<Location of the Resource Group>"
       
-    aks_service_principal_app_id = <Service Principal AppId>
+    aks_service_principal_app_id = "<Service Principal AppId>"
       
-    aks_service_principal_client_secret = <Service Principal Client Secret>
+    aks_service_principal_client_secret = "<Service Principal Client Secret>"
       
-    aks_service_principal_object_id = <Service Principal Object Id>
+    aks_service_principal_object_id = "<Service Principal Object Id>"
         
     ```
 
@@ -598,7 +598,7 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
     terraform plan -out out.plan
     ```
 
-    Kommandot `terraform plan` visar de resurser som skapas när du kör kommandot `terraform apply`:
+    Kommandot `terraform plan` visar de resurser som skapas när du kör `terraform apply` kommandot:
 
     ![Exempel på resultat för "terraform plan"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
@@ -671,19 +671,19 @@ Azure Active Directory Pod identitet ger tokenbaserad åtkomst till [Azure Resou
 
 Om RBAC är **aktiverat**kör du följande kommando för att installera Azure AD Pod-identiteten i klustret:
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-    ```
+```bash
+kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
+```
 
 Om RBAC är **inaktiverat**kör du följande kommando för att installera Azure AD Pod-identiteten i klustret:
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-    ```
+```bash
+kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+```
 
 ## <a name="install-helm"></a>Installera Helm
 
-I den här artikeln används [Helm](/azure/aks/kubernetes-helm) -Kubernetes Package Manager-för att installera `application-gateway-kubernetes-ingress`-paketet:
+Koden i det här avsnittet använder [Helm](/azure/aks/kubernetes-helm) -Kubernetes Package Manager-för att installera `application-gateway-kubernetes-ingress`-paketet:
 
 1. Om RBAC är **aktiverat**kör du följande uppsättning kommandon för att installera och konfigurera Helm:
 
@@ -708,7 +708,7 @@ I den här artikeln används [Helm](/azure/aks/kubernetes-helm) -Kubernetes Pack
 
 ## <a name="install-ingress-controller-helm-chart"></a>Installera Helm-diagram för ingress-styrenhet
 
-1. Ladda ned `helm-config.yaml` om du vill konfigurera AGIC:
+1. Ladda ned `helm-config.yaml` för att konfigurera AGIC:
 
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
@@ -717,17 +717,17 @@ I den här artikeln används [Helm](/azure/aks/kubernetes-helm) -Kubernetes Pack
 1. Redigera `helm-config.yaml` och ange lämpliga värden för `appgw` och `armAuth` avsnitt.
 
     ```bash
-    nano helm-config.yaml
+    code helm-config.yaml
     ```
 
     Värdena beskrivs på följande sätt:
 
-    - `verbosityLevel`: anger detalj nivån för AGIC-loggningens infrastruktur. Se [loggnings nivåer](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) för möjliga värden.
-    - `appgw.subscriptionId`: ID för Azure-prenumerationen för app-gatewayen. Exempel: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+    - `verbosityLevel`: anger detalj nivån för AGIC-loggnings infrastrukturen. Se [loggnings nivåer](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) för möjliga värden.
+    - `appgw.subscriptionId`: Azure-prenumerations-ID för app-gatewayen. Exempel: `a123b234-a3b4-557d-b2df-a0bc12de1234`
     - `appgw.resourceGroup`: namnet på den Azure-resurs grupp där app Gateway skapades. 
-    - `appgw.name`: Application Gateway namn. Exempel: `applicationgateway1`.
-    - `appgw.shared`: denna booleska flagga ska vara standard till `false`. Ange till `true` om du behöver en [delad app-Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
-    - `kubernetes.watchNamespace`: Ange namn utrymmet som AGIC ska titta på. Namn området kan vara ett enskilt sträng värde eller en kommaavgränsad lista över namn områden.
+    - `appgw.name`: namnet på Application Gateway. Exempel: `applicationgateway1`.
+    - `appgw.shared`: denna booleska flagga ska vara standard för `false`. Ange till `true` om du behöver en [delad app-Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `kubernetes.watchNamespace`: Ange namn utrymmet som AGIC ska titta på. Namn området kan vara ett enskilt sträng värde eller en kommaavgränsad lista över namn områden. Om du lämnar den här variabeln kommenterad eller anger den till en tom sträng eller en tom sträng resulterar det i ingångs kontroll för alla tillgängliga namn områden.
     - `armAuth.type`: värdet antingen `aadPodIdentity` eller `servicePrincipal`.
     - `armAuth.identityResourceID`: resurs-ID för den hanterade identiteten.
     - `armAuth.identityClientId`: klient-ID för identiteten.
@@ -736,8 +736,8 @@ I den här artikeln används [Helm](/azure/aks/kubernetes-helm) -Kubernetes Pack
     Viktiga anteckningar:
     - `identityResourceID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_client_id)"`.
     - `identityClientID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_resource_id)"`.
-    - Värdet `<resource-group>` är resurs gruppen för din app-Gateway.
-    - Värdet `<identity-name>` är namnet på den skapade identiteten.
+    - `<resource-group>`-värdet är resurs gruppen för din app-Gateway.
+    - `<identity-name>`-värdet är namnet på den skapade identiteten.
     - Alla identiteter för en angiven prenumeration kan listas med hjälp av: `az identity list`.
 
 1. Installera paketet Application Gateway ingress-kontrollant:
@@ -759,8 +759,18 @@ När du har installerat App Gateway, AKS och AGIC, kan du installera en exempel 
 2. Använd YAML-filen:
 
     ```bash
-    kubectl apply -f apsnetapp.yaml
+    kubectl apply -f aspnetapp.yaml
     ```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort de resurser som skapats i den här artikeln när de inte längre behövs.  
+
+Ersätt plats hållaren med lämpligt värde. Alla resurser i den angivna resurs gruppen tas bort.
+
+```bash
+az group delete -n <resource-group>
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,18 +1,18 @@
 ---
 title: Felsök uppgradering av Microsoft Azure Site Recovery-providern
-description: Lös vanliga problem när du uppgraderar Microsoft Azure Site Recovery-providern
+description: Lös vanliga problem som uppstår när du uppgraderar Microsoft Azure Site Recovery-providern.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 73309103d422391aae3d72e3b0267d5d5a85515a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953759"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083928"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Felsöka uppgraderingsfel för Microsoft Azure Site Recovery-providern
 

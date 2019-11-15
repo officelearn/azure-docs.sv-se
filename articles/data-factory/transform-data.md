@@ -11,12 +11,12 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0b91d22454d6023094f269b184c845047092b4fb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 268c1e66010720d1da052183165ce1cea50a1095
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954277"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092016"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "73954277"
 > * [Anpassad .NET-](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver datatransformerings aktiviteter i Azure Data Factory som du kan använda för att omvandla och bearbeta dina rå data till förutsägelser och insikter i stor skala. En omvandlings aktivitet körs i en dator miljö som Azure Databricks eller Azure HDInsight. Den innehåller länkar till artiklar med detaljerad information om varje omvandlings aktivitet.
+Den här artikeln beskriver datatransformerings aktiviteter i Azure Data Factory som du kan använda för att transformera och bearbeta dina rå data till förutsägelser och insikter i stor skala. En omvandlings aktivitet körs i en dator miljö som Azure Databricks eller Azure HDInsight. Den innehåller länkar till artiklar med detaljerad information om varje omvandlings aktivitet.
 
 Data Factory stöder följande data omvandlings aktiviteter som kan läggas till i [pipelines](concepts-pipelines-activities.md) som är individuellt eller länkade till en annan aktivitet.
 

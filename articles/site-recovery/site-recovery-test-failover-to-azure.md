@@ -1,20 +1,20 @@
 ---
-title: Köra en haveri beredskaps granskning till Azure med Azure Site Recovery
-description: Lär dig mer om att köra en haveri beredskap från lokal plats till Azure med hjälp av tjänsten Azure Site Recovery.
+title: Köra ett redundanstest (haveri beredskap) till Azure i Azure Site Recovery
+description: Lär dig mer om att köra ett redundanstest från en lokal plats till Azure med hjälp av tjänsten Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 8342f60d8a0f91cc4807d25307510c1cbe7ee5c8
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814365"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091744"
 ---
-# <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure 
+# <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Köra ett redundanstest (haveri beredskap) till Azure 
 
 
 Den här artikeln beskriver hur du kör en haveri beredskap på Azure med hjälp av en Site Recovery redundanstest.  
@@ -28,14 +28,14 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 ![Testa redundans](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. I Site Recovery i Azure Portal klickar du på **återställnings planer** > *recoveryplan_name* > **testa redundans**.
+1. I Site Recovery i Azure Portal klickar du på **återställnings planer** > *Recoveryplan_name* > **testa redundans**.
 2. Välj en **återställnings punkt** som redundansen ska utföras på. Du kan välja något av följande alternativ:
-    - **Senaste bearbetade**: Det här alternativet växlar över alla virtuella datorer i planen till den senaste återställnings punkten som bearbetats av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
-    - **Senaste appkonsekventa**: Det här alternativet växlar över alla virtuella datorer i planen till den senaste programkonsekventa återställnings punkten som bearbetas av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna.
-    - **Senaste**: Med det här alternativet bearbetas först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställnings punkt för varje virtuell dator innan de växlar över till den. Det här alternativet ger lägsta återställnings punkt mål (återställnings punkt mål), eftersom den virtuella datorn som skapades efter redundansväxlingen har alla data som repliker ATS till Site Recovery När redundansväxlingen utlöstes.
-    - **Senaste bearbetade multi-VM**: Det här alternativet är tillgängligt för återställnings planer med en eller flera virtuella datorer som har konsekvens för flera virtuella datorer aktiverade. Virtuella datorer med inställningen aktive rad redundans till den senaste vanliga återställnings punkten med flera virtuella datorer. Andra virtuella datorer växlar över till den senaste bearbetade återställnings punkten.  
-    - **Senaste app med flera virtuella datorer – konsekvent**: Det här alternativet är tillgängligt för återställnings planer med en eller flera virtuella datorer som har konsekvens för flera virtuella datorer aktiverade. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga programkonsekventa multi-VM-programkonsekventa återställnings punkt. Andra virtuella datorer växlar över till den senaste programkonsekventa återställnings punkten.
-    - **Anpassat**: Använd det här alternativet om du vill redundansväxla en specifik virtuell dator till en viss återställnings punkt.
+    - **Senast bearbetad**: det här alternativet växlar över alla virtuella datorer i planen till den senaste återställnings punkten som bearbetats av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
+    - **Senaste program – konsekvent**: det här alternativet växlar över alla virtuella datorer i planen till den senaste programkonsekventa återställnings punkten som bearbetas av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna.
+    - **Senaste**: det här alternativet bearbetar först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställnings punkt för varje virtuell dator innan den växlar över till den. Det här alternativet ger lägsta återställnings punkt mål (återställnings punkt mål), eftersom den virtuella datorn som skapades efter redundansväxlingen har alla data som repliker ATS till Site Recovery När redundansväxlingen utlöstes.
+    - **Senaste bearbetade multi-VM**: det här alternativet är tillgängligt för återställnings planer med en eller flera virtuella datorer som har konsekvens för flera virtuella datorer aktiverade. Virtuella datorer med inställningen aktive rad redundans till den senaste vanliga återställnings punkten med flera virtuella datorer. Andra virtuella datorer växlar över till den senaste bearbetade återställnings punkten.  
+    - **Senaste app med flera virtuella datorer – konsekvent**: det här alternativet är tillgängligt för återställnings planer med en eller flera virtuella datorer som har konsekvens för flera virtuella datorer aktiverade. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga programkonsekventa multi-VM-programkonsekventa återställnings punkt. Andra virtuella datorer växlar över till den senaste programkonsekventa återställnings punkten.
+    - **Anpassad**: Använd det här alternativet om du vill redundansväxla en specifik virtuell dator till en viss återställnings punkt.
 3. Välj ett virtuellt Azure-nätverk där de virtuella test datorerna ska skapas.
 
     - Site Recovery försöker skapa virtuella test datorer i ett undernät med samma namn och samma IP-adress som anges i **beräknings-och nätverks** inställningarna för den virtuella datorn.
@@ -52,10 +52,10 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 
 När ett redundanstest utlöses inträffar följande:
 
-1. **Krav**: En krav kontroll körs för att säkerställa att alla villkor som krävs för redundans är uppfyllda.
-2. **Redundans**: Redundansväxlingen bearbetar och för beredda data så att en virtuell Azure-dator kan skapas från den.
-3. **Senaste**: Om du har valt den senaste återställnings punkten skapas en återställnings punkt utifrån de data som har skickats till tjänsten.
-4. **Starta**: Det här steget skapar en virtuell Azure-dator med hjälp av de data som bearbetades i föregående steg.
+1. **Krav**: en krav kontroll körs för att säkerställa att alla villkor som krävs för redundans är uppfyllda.
+2. **Redundans**: redundansväxlingen och för beredda data, så att en virtuell Azure-dator kan skapas från den.
+3. **Senaste**: om du har valt den senaste återställnings punkten skapas en återställnings punkt utifrån de data som har skickats till tjänsten.
+4. **Starta**: det här steget skapar en virtuell Azure-dator med hjälp av de data som bearbetades i föregående steg.
 
 ### <a name="failover-timing"></a>Tids inställning för redundans
 
@@ -103,9 +103,9 @@ Om du vill köra ett redundanstest för program testning behöver du en kopia av
 
 Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter redundans följer du de krav som sammanfattas i tabellen.
 
-**Redundans** | **Location** | **Åtgärder**
+**Redundans** | **Plats** | **Åtgärder**
 --- | --- | ---
-**Virtuell Azure-dator som kör Windows** | Lokal dator före redundans | För att få åtkomst till den virtuella Azure-datorn via Internet aktiverar du RDP och kontrollerar att TCP-och UDP-regler har lagts till för **offentlig**och att RDP tillåts för alla profiler i **Windows-brandväggen** > **tillåtna appar**.<br/><br/> För att komma åt den virtuella Azure-datorn via en plats-till-plats-anslutning aktiverar du RDP på datorn och ser till att RDP tillåts i **Windows-brandväggen** -> **tillåtna appar och funktioner**för **domän nätverk och privata** nätverk.<br/><br/>  Kontrol lera att SAN-principen för operativ systemet är inställd på **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Se till att inga Windows-uppdateringar väntar på den virtuella datorn när du aktiverar en redundansväxling. Windows Update kan starta när du växlar över och du kan inte logga in på den virtuella datorn förrän uppdateringen är klar.
+**Virtuell Azure-dator som kör Windows** | Lokal dator före redundans | För att få åtkomst till den virtuella Azure-datorn via Internet aktiverar du RDP och kontrollerar att TCP-och UDP-regler har lagts till för **offentlig**och att RDP tillåts för alla profiler i **Windows-brandväggen** > **tillåtna appar**.<br/><br/> För att få åtkomst till den virtuella Azure-datorn via en plats-till-plats-anslutning aktiverar du RDP på datorn och ser till att RDP tillåts i **Windows-brandväggen** -> **tillåtna appar och funktioner**för **domän nätverk och privata** nätverk.<br/><br/>  Kontrol lera att SAN-principen för operativ systemet är inställd på **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Se till att inga Windows-uppdateringar väntar på den virtuella datorn när du aktiverar en redundansväxling. Windows Update kan starta när du växlar över och du kan inte logga in på den virtuella datorn förrän uppdateringen är klar.
 **Virtuell Azure-dator som kör Windows** | Virtuell Azure-dator efter redundans |  [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrol lera **startdiagnostik** för att verifiera en skärm bild av den virtuella datorn.<br/><br/> Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och läser igenom de här [fel söknings tipsen](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Virtuell Azure-dator som kör Linux** | Lokal dator före redundans | Kontrol lera att Secure Shell-tjänsten på den virtuella datorn är inställd på att starta automatiskt vid system start.<br/><br/> Kontrollera att brandväggsreglerna tillåter en SSH-anslutning till tjänsten.
 **Virtuell Azure-dator som kör Linux** | Virtuell Azure-dator efter redundans | Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Kontrol lera **startdiagnostiken** för en skärm bild av den virtuella datorn.<br/><br/>

@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: a546df73f316b4eb6c215a6f52d68f87ad09c1a2
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881697"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084807"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video Thumbnails för att skapa en video Sammanfattning  
-
-> [!IMPORTANT]
-> Granska [indragnings planer](media-services-analytics-overview.md#retirement-plans) för vissa medie processorer.
-
+ 
 ## <a name="overview"></a>Översikt
+
 Med **Azure Media Video thumbnails** Media processor (MP) kan du skapa en sammanfattning av en video som är användbar för kunder som bara vill förhandsgranska en sammanfattning av en lång video. Kunder kan till exempel vilja se en kort "sammanfattnings video" när de hovrar över en miniatyr bild. Genom att ändra parametrarna för **Azure Media Video thumbnails** via en konfigurations för inställning kan du använda MP: s kraftfulla bild identifierings-och kombinations teknik för att algorithmically generera ett beskrivande under klipp.  
 
 **Azure Media Video thumbnail** MP är för närvarande en för hands version.
@@ -58,7 +56,7 @@ När du skapar en video miniatyr uppgift med **Azure Media Video thumbnails**må
 
 För närvarande kan du ändra följande parametrar:
 
-| EntryPointName | Beskrivning |
+| Param | Beskrivning |
 | --- | --- |
 | outputAudio |Anger om den resulterande videon innehåller ett ljud. <br/>Tillåtna värden är: true eller false. Standardvärdet är true. |
 | fadeInFadeOut |Anger om över gångar ska användas mellan de separata rörelse miniatyrerna.  <br/>Tillåtna värden är: true eller false.  Standardvärdet är true. |

@@ -1,18 +1,18 @@
 ---
-title: Konfigurera katastrof återställning till Azure för ett stort antal virtuella VMware-datorer eller fysiska servrar med Azure Site Recovery | Microsoft Docs
+title: Skala VMware/fysisk haveri beredskap med Azure Site Recovery
 description: Lär dig hur du konfigurerar haveri beredskap till Azure för ett stort antal lokala virtuella VMware-datorer eller fysiska servrar med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 7ef4a9d5f63282736b010e67b467f82474bcf409
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782658"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082228"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
 
@@ -30,12 +30,12 @@ Som en del av din strategi för affärs kontinuitet och haveri beredskap (BCDR) 
 
 Några allmänna metod tips för storskalig katastrof återställning. Dessa metod tips beskrivs i detalj i nästa avsnitt i dokumentet.
 
-- **Identifiera mål krav**: Beräkna ut kapacitet och resurs behov i Azure innan du konfigurerar haveri beredskap.
-- **Planera för Site Recovery-komponenter**: Ta reda på vilka Site Recovery-komponenter (konfigurations Server, process servrar) du behöver för att uppfylla den uppskattade kapaciteten.
+- **Identifiera mål krav**: beräkna ut kapacitet och resurs behov i Azure innan du konfigurerar haveri beredskap.
+- **Planera för Site Recovery-komponenter**: ta reda på vad Site Recovery komponenter (konfigurations Server, process servrar) som du behöver för att uppfylla den uppskattade kapaciteten.
 - **Konfigurera en eller flera skalbara process servrar**: Använd inte processervern som körs som standard på konfigurations servern. 
-- **Kör de senaste uppdateringarna**: Site Recovery-teamet släpper regelbundet nya versioner av Site Recovery-komponenter och kontrollerar att du kör de senaste versionerna. Om du vill ha hjälp med det spårar du [vad som är nytt](site-recovery-whats-new.md) för uppdateringar och [aktiverar och installerar uppdateringar](service-updates-how-to.md) när de släpps.
-- **Övervaka**proaktivt: När du får haveri beredskap igång bör du proaktivt övervaka status och hälsa för replikerade datorer och infrastruktur resurser.
-- **Granskningar av haveri beredskap**: Du bör köra granskningar på haveri nivå regelbundet. De påverkar inte produktions miljön, men se till att redundansen till Azure fungerar som förväntat när det behövs.
+- **Kör de senaste uppdateringarna**: Site Recovery team frigör nya versioner av Site Recovery-komponenter regelbundet och du bör kontrol lera att du kör de senaste versionerna. Om du vill ha hjälp med det spårar du [vad som är nytt](site-recovery-whats-new.md) för uppdateringar och [aktiverar och installerar uppdateringar](service-updates-how-to.md) när de släpps.
+- **Övervaka proaktivt**: när du får haveri beredskap igång bör du proaktivt övervaka status och hälsa för replikerade datorer och infrastruktur resurser.
+- **Granskning av haveri beredskap**: du bör köra granskningar på haveri nivå regelbundet. De påverkar inte produktions miljön, men se till att redundansen till Azure fungerar som förväntat när det behövs.
 
 
 
@@ -71,11 +71,11 @@ Kör sedan planeraren på följande sätt:
 Med hjälp av dina insamlade uppskattningar och rekommendationer kan du planera för mål resurser och kapacitet. Om du körde distributions planeraren för virtuella VMware-datorer kan du använda ett antal [rapport rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) för att hjälpa dig.
 
 - **Kompatibla virtuella datorer**: Använd det här numret för att identifiera antalet virtuella datorer som är klara för haveri beredskap till Azure. Rekommendationer om nätverks bandbredd och Azure-kärnor baseras på det här antalet.
-- **Nödvändig nätverks bandbredd**: Observera den bandbredd du behöver för delta-replikering av kompatibla virtuella datorer. 
+- **Nödvändig nätverks bandbredd**: anteckna vilken bandbredd du behöver för delta-replikering av kompatibla virtuella datorer. 
     - När du kör planeraren anger du önskad återställnings punkt på några minuter. Rekommendationerna visar vilken bandbredd som krävs för att uppfylla återställnings perioden 100% och 90% av tiden. 
     - Rekommendationerna för nätverks bandbredden tar hänsyn till den bandbredd som krävs för det totala antalet konfigurations servrar och process servrar som rekommenderas i Planner.
-- **Nödvändiga Azure-kärnor**: Observera antalet kärnor som du behöver i Azures Azure-region, baserat på antalet kompatibla virtuella datorer. Om du inte har tillräckligt många kärnor går det inte att skapa de virtuella Azure-datorer som krävs för redundans Site Recovery.
-- **Rekommenderad storlek för VM-batch**: Den rekommenderade batchstorleken baseras på möjligheten att slutföra den inledande replikeringen för batchen inom 72 timmar som standard, samtidigt som du är klar med 100%. Värdet för timme kan ändras.
+- **Nödvändiga Azure-kärnor**: Observera antalet kärnor du behöver i Azures Azure-region, baserat på antalet kompatibla virtuella datorer. Om du inte har tillräckligt många kärnor går det inte att skapa de virtuella Azure-datorer som krävs för redundans Site Recovery.
+- **Rekommenderad storlek på virtuell dator**: den rekommenderade batchstorleken är baserad på möjligheten att slutföra den inledande replikeringen för batchen inom 72 timmar som standard, samtidigt som den uppfyller 100%. Värdet för timme kan ändras.
 
 Du kan använda dessa rekommendationer för att planera för Azure-resurser, nätverks bandbredd och VM-batching.
 
@@ -83,7 +83,7 @@ Du kan använda dessa rekommendationer för att planera för Azure-resurser, nä
 
 Vi vill se till att tillgängliga kvoter i mål prenumerationen räcker för att hantera redundans.
 
-**Aktivitet** | **Detaljer** | **Åtgärd**
+**Aktivitet** | **Information** | **Åtgärd**
 --- | --- | ---
 **Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om att öka kvoterna.
 **Kontrol lera begränsningar för redundans** | Antalet redundanser får inte överskrider gränsen för Site Recovery redundans. |  Om redundans överskrider gränserna kan du lägga till prenumerationer och redundansväxla till flera prenumerationer eller öka kvoten för en prenumeration. 
@@ -188,7 +188,7 @@ När du har startat replikeringen för den första batchen med virtuella datorer
 1. Tilldela en katastrof återställnings administratör för att övervaka hälso status för replikerade datorer.
 2. [Övervaka händelser](site-recovery-monitor-and-troubleshoot.md) för replikerade objekt och infrastrukturen.
 3. [Övervaka hälsan](vmware-physical-azure-monitor-process-server.md) för dina skalbara process servrar.
-4. Registrera dig för att få [e-](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) postaviseringar för händelser, för enklare övervakning.
+4. Registrera dig för att få [e-postaviseringar](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) för händelser, för enklare övervakning.
 5. Genomför regelbunden [haveri beredskap](site-recovery-test-failover-to-azure.md)för att se till att allt fungerar som förväntat.
 
 

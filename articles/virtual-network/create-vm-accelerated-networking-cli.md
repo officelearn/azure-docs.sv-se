@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure-dator med Accelererat nätverk | Microsoft Docs
-description: Lär dig hur du skapar en Linux-dator med Accelererat nätverk aktiverat.
+title: Skapa en virtuell Azure-dator med accelererat nätverk med Azure CLI
+description: Lär dig hur du skapar en virtuell Linux-dator med accelererat nätverk aktiverat.
 services: virtual-network
 documentationcenter: na
 author: gsilva5
@@ -16,83 +16,83 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873426"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083661"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en Linux-dator med Accelererat nätverk
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Skapa en virtuell Linux-dator med accelererat nätverk med Azure CLI
 
-I den här självstudien får du lära dig hur du skapar en Linux-dator (VM) med Accelererat nätverk. Om du vill skapa en virtuell Windows-dator med Accelererat nätverk [skapa en virtuell Windows-dator med Accelererat nätverk](create-vm-accelerated-networking-powershell.md). Accelererat nätverk gör det möjligt för enskild rot i/o-virtualisering (SR-IOV) till en virtuell dator, vilket avsevärt minskar tiden nätverkets prestanda. Den här sökvägen för högpresterande kringgår värden från datapath, vilket minskar latens och jitter CPU-belastningen för användning med de mest krävande arbetsbelastningarna på VM-typer som stöds. Följande bild visar kommunikation mellan två virtuella datorer med och utan accelererat nätverk:
+I den här självstudien får du lära dig hur du skapar en virtuell Linux-dator (VM) med accelererat nätverk. Information om hur du skapar en virtuell Windows-dator med accelererat nätverk finns i [skapa en virtuell Windows-dator med accelererat nätverk](create-vm-accelerated-networking-powershell.md). Accelererat nätverk möjliggör SR-IOV (Single root I/O Virtualization) till en virtuell dator, vilket avsevärt förbättrar nätverkets prestanda. Den här högpresterande sökvägen kringgår värden från Datapath, minskar svars tiden, skakningarna och CPU-användningen, för användning med de mest krävande nätverks belastningarna på VM-typer som stöds. Följande bild visar kommunikationen mellan två virtuella datorer med och utan accelererat nätverk:
 
 ![Jämförelse](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Alla nätverkstrafiken och från den virtuella datorn måste passera värden och den virtuella växeln utan accelererat nätverk. Den virtuella växeln tillhandahåller alla tvingande, till exempel nätverkssäkerhetsgrupper, åtkomstkontrollistor, isolering och andra virtualiserade nätverkstjänster nätverkstrafik. Mer information om virtuella växlar den [Hyper-V-nätverksvirtualisering och virtuella växeln](https://technet.microsoft.com/library/jj945275.aspx) artikeln.
+Utan accelererat nätverk måste all nätverks trafik i och från den virtuella datorn passera värden och den virtuella växeln. Den virtuella växeln tillhandahåller all princip tillämpning, till exempel nätverks säkerhets grupper, åtkomst kontrol listor, isolering och andra virtualiserade nätverks tjänster till nätverks trafik. Läs mer om virtuella växlar i artikeln om [Hyper-V-nätverksvirtualisering och virtuell växel](https://technet.microsoft.com/library/jj945275.aspx) .
 
-Med accelererat nätverk trafik anländer till den virtuella datorns nätverksgränssnitt (NIC) och sedan vidarebefordras till den virtuella datorn. Alla nätverksprinciper som gäller för den virtuella växeln Avlastade nu och tillämpas i maskinvara. Tillämpa principen i maskinvara kan nätverkskort för att vidarebefordra trafik direkt till den virtuella datorn, vilket kringgår värden och den virtuella växeln, samtidigt som den principen som det tillämpas på värden.
+Med accelererat nätverk anländer nätverks trafiken till den virtuella datorns nätverks gränssnitt (NIC) och vidarebefordras sedan till den virtuella datorn. Alla nätverks principer som den virtuella växeln gäller avlastas nu och används i maskin vara. Genom att tillämpa principen i maskin vara kan NÄTVERKSKORTet vidarebefordra nätverks trafik direkt till den virtuella datorn, kringgå värden och den virtuella växeln, samtidigt som all princip som används i värden upprätthålls.
 
-Fördelarna med accelererat nätverk gäller endast för den virtuella datorn som den är aktiverad på. För bästa resultat är det perfekt för att aktivera den här funktionen på minst två virtuella datorer är anslutna till samma Azure virtuella nätverk (VNet). Vid kommunikation mellan virtuella nätverk eller ansluta lokala har den här funktionen minimal påverkan på Total svarstid.
+Fördelarna med accelererade nätverk gäller endast den virtuella dator som den är aktive rad på. För bästa resultat är det idealiskt att aktivera den här funktionen på minst två virtuella datorer som är anslutna till samma virtuella Azure-nätverk (VNet). När du kommunicerar via virtuella nätverk eller ansluter lokalt har den här funktionen minimal påverkan på den totala svars tiden.
 
 ## <a name="benefits"></a>Fördelar
-* **Lägre latens / högre paket per sekund (pps):** Ta bort den virtuella växeln från datapath tar bort paket tid i värden för behandling av princip för och ökar antalet paket som kan bearbetas i den virtuella datorn.
-* **Reducerat jitter:** Virtuell växel bearbetning beror på mängden principinformation som måste installeras och arbetsbelastningen processorkraft som klarar bearbetningen. Avlastning av principtillämpning till maskinvara tar bort den variationen genom att tillhandahålla paket direkt till den virtuella datorn, ta bort värden till VM-kommunikation och all programvara avbrott och kontext växlar.
-* **Minskad CPU-belastning:** Kringgår den virtuella växeln på värden leder till färre CPU-belastningen för bearbetning av nätverkstrafik.
+* **Lägre latens/högre paket per sekund (PPS):** Att ta bort den virtuella växeln från Datapath tar bort de tid paket som ägnas åt värden för princip bearbetning och ökar antalet paket som kan bearbetas inuti den virtuella datorn.
+* **Reducerade Darr:** Bearbetning av virtuella växlar beror på den mängd princip som måste tillämpas och arbets belastningen för den processor som utför bearbetningen. Genom att avlasta den tvingande principen till maskin varan tar du bort den variabiliteten genom att leverera paket direkt till den virtuella datorn, ta bort värden till kommunikation mellan virtuella datorer och alla program avbrott och kontext byten.
+* **Minskad processor användning:** Om den virtuella växeln kringgås i värden går det snabbare att bearbeta nätverks trafiken.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
-Följande distributioner stöds direkt från Azure-galleriet: 
-* **Ubuntu 14.04 med azure linux-kernel**
-* **Ubuntu 16.04 eller senare** 
+Följande distributioner stöds i rutan från Azure-galleriet: 
+* **Ubuntu 14,04 med Linux-Azure-kernel**
+* **Ubuntu 16,04 eller senare** 
 * **SLES12 SP3 eller senare** 
-* **RHEL 7.4 eller senare**
-* **CentOS 7.4 eller senare**
-* **CoreOS Linux**
-* **Debian ”utvidga” med backportar kernel**
-* **Oracle Linux 7.4 och senare med Red Hat kompatibla Kernel (RHCK)**
-* **Oracle Linux 7.5 och senare med UEK version 5**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **RHEL 7,4 eller senare**
+* **CentOS 7,4 eller senare**
+* **Core-Linux**
+* **Debian "Sträck ut" med backports-kernel**
+* **Oracle Linux 7,4 och senare med Red Hat-kompatibel kernel (RHCK)**
+* **Oracle Linux 7,5 och senare med UEK version 5**
+* **FreeBSD 10,4, 11,1 & 12,0**
 
-## <a name="limitations-and-constraints"></a>Begränsningar och villkor
+## <a name="limitations-and-constraints"></a>Begränsningar och begränsningar
 
-### <a name="supported-vm-instances"></a>VM-instanser som stöds
-Accelererat nätverk stöds i de flesta generella och beräkningsoptimerade instansstorlekar med minst 2 virtuella processorer.  Dessa alternativ som stöds är: D/DSv2 och F/Fs
+### <a name="supported-vm-instances"></a>Virtuella dator instanser som stöds
+Accelererat nätverk stöds i de flesta generella syftes-och beräknings optimerade instans storlekar med 2 eller fler virtuella processorer.  Dessa serier som stöds är: D/DSv2 och F/FS
 
-På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Serier som stöds är: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms-/ Mms- och Ms/Mmsv2.
+På instanser som stöder hyperthreading stöds accelererat nätverk på VM-instanser med 4 eller fler virtuella processorer. Serien som stöds är: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS och MS/Mmsv2.
 
-Läs mer på VM-instanser, [Linux VM-storlekar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Mer information om VM-instanser finns i [storlekar för virtuella Linux-datorer](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="regions"></a>Regions
-Tillgängligt i alla offentliga Azure-regioner samt Azure Government-moln.
+### <a name="regions"></a>Regioner
+Tillgängligt i alla offentliga Azure-regioner och Azure Government moln.
 
 <!-- ### Network interface creation 
 Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
-### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Aktivering av Accelererat nätverk på en aktiv virtuell dator
-En VM-storlek som stöds utan accelererat nätverk aktiverat kan bara ha funktionen aktiverad när den stoppas och frigörs.  
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Aktivera accelererat nätverk på en virtuell dator som körs
+En virtuell dator storlek som stöds utan accelererat nätverk kan bara aktivera funktionen när den stoppas och frigörs.  
 ### <a name="deployment-through-azure-resource-manager"></a>Distribution via Azure Resource Manager
-Virtuella datorer (klassiska) kan inte distribueras med Accelererat nätverk.
+Virtuella datorer (klassisk) kan inte distribueras med accelererat nätverk.
 
-## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Skapa en virtuell Linux-dator med Azure Accelererat nätverk
+## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Skapa en virtuell Linux-dator med Azure-accelererat nätverk
 ## <a name="portal-creation"></a>Skapa Portal
-Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure CLI, du kan också [skapa en virtuell dator med accelererat nätverk med Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen, i den **skapa en virtuell dator** bladet väljer du den **nätverk** fliken.  I den här fliken finns ett alternativ för **Accelerated networking**.  Om du har valt en [operativsystem som stöds](#supported-operating-systems) och [VM-storlek](#supported-vm-instances), det här alternativet kommer automatiskt att fylla i ”på”.  Om inte, den fylla i alternativet ”Off” för Accelererat nätverk och ge användaren en orsak till varför den inte är aktiveras.   
+Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure CLI, kan du också [skapa en virtuell dator med accelererat nätverk med hjälp av Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen väljer du fliken **nätverk** i bladet **skapa en virtuell dator** .  På den här fliken finns ett alternativ för **accelererat nätverk**.  Om du har valt ett [operativ system som stöds](#supported-operating-systems) och storleken på den [virtuella datorn](#supported-vm-instances), fylls det här alternativet i automatiskt på "på".  Om inte, kommer den att fylla i alternativet "av" för accelererat nätverk och ge användaren en anledning till varför det inte är aktiverat.   
 
-* *Obs:* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
+* *Obs:* Endast operativ system som stöds kan aktive ras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för accelererat nätverk skapar du en virtuell dator med CLI eller PowerShell. 
 
-När den virtuella datorn har skapats kan du bekräfta Accelererat nätverk är aktiverat genom att följa anvisningarna i den [bekräfta att accelererat nätverk är aktiverat](#confirm-that-accelerated-networking-is-enabled).
+När den virtuella datorn har skapats kan du bekräfta att accelererat nätverk har Aktiver ATS genom att följa anvisningarna i [kontrol lera att accelererat nätverk är aktiverat](#confirm-that-accelerated-networking-is-enabled).
 
-## <a name="cli-creation"></a>Skapa en CLI
+## <a name="cli-creation"></a>Skapa CLI
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Installera senast [Azure CLI](/cli/azure/install-azure-cli) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index). I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår *myResourceGroup*, *myNic*, och *myVm*.
+Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index). Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn som ingår *myResourceGroup*, *myNic*och *myVm*.
 
-Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *centralus* plats:
+Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för den *centrala* platsen:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
 ```
 
-Välj en region som stöds av Linux som anges i [Linux nätverksaccelerering](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Välj en Linux-region som stöds i [Linux-accelererat nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät:
 
@@ -106,7 +106,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
-Skapa en nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
+Skapa en nätverks säkerhets grupp med [AZ Network NSG Create](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -114,7 +114,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Nätverkssäkerhetsgruppen innehåller flera standardregler, varav inaktiverar all inkommande åtkomst från Internet. Öppna en port för att tillåta SSH-åtkomst till den virtuella datorn med [az network nsg-regel skapar](/cli/azure/network/nsg/rule):
+Nätverks säkerhets gruppen innehåller flera standard regler, varav en inaktiverar all inkommande åtkomst från Internet. Öppna en port för att tillåta SSH-åtkomst till den virtuella datorn med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule):
 
 ```azurecli
 az network nsg rule create \
@@ -131,9 +131,9 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-### <a name="create-a-network-interface-with-accelerated-networking"></a>Skapa ett nätverksgränssnitt med accelererat nätverk
+### <a name="create-a-network-interface-with-accelerated-networking"></a>Skapa ett nätverks gränssnitt med accelererat nätverk
 
-Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip). En offentlig IP-adress krävs inte om du inte planerar att få åtkomst till den virtuella datorn från Internet, men för att slutföra stegen i den här artikeln, det krävs.
+Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip). En offentlig IP-adress krävs inte om du inte planerar åtkomst till den virtuella datorn från Internet, men du måste utföra stegen i den här artikeln.
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Skapa ett nätverksgränssnitt med [az network nic skapa](/cli/azure/network/nic) med aktiverat accelererat nätverk. I följande exempel skapas ett nätverksgränssnitt med namnet *myNic* i den *mySubnet* undernät för den *myVnet* virtuellt nätverk och ingår i  *myNetworkSecurityGroup* nätverkssäkerhetsgrupp kopplad till nätverksgränssnittet:
+Skapa ett nätverks gränssnitt med [AZ Network NIC Create](/cli/azure/network/nic) med accelererat nätverk aktiverat. I följande exempel skapas ett nätverks gränssnitt med namnet *myNic* i *under nätet undernät för* det virtuella *myVnet* -nätverket och associerar *myNetworkSecurityGroup* nätverks säkerhets grupp till nätverks gränssnittet:
 
 ```azurecli
 az network nic create \
@@ -154,10 +154,10 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-### <a name="create-a-vm-and-attach-the-nic"></a>Skapa en virtuell dator och kopplar nätverkskortet
-När du skapar den virtuella datorn, anger du nätverkskortet du skapade med `--nics`. Välj en storlek och distribution som anges i [Linux nätverksaccelerering](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+### <a name="create-a-vm-and-attach-the-nic"></a>Skapa en virtuell dator och koppla NÄTVERKSKORTet
+När du skapar den virtuella datorn anger du det nätverkskort som du skapade med `--nics`. Välj en storlek och distribution som visas i ett [snabbare nätverk i Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS-avbildningen och en storlek som stöder Accelerated Networking (*Standard_DS4_v2*):
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS-avbildningen och en storlek som har stöd för accelererat nätverk (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \
@@ -170,9 +170,9 @@ az vm create \
     --nics myNic
 ```
 
-En lista över alla storlekar för Virtuella datorer och egenskaper finns i [Linux VM-storlekar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+En lista över alla storlekar och egenskaper för virtuella datorer finns i [storlekar för virtuella Linux-datorer](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Utdata som liknar följande Exempelutdata returneras när den virtuella datorn har skapats. Anteckna **publicIpAddress**. Den här adressen används för att få åtkomst till den virtuella datorn i efterföljande steg.
+När den virtuella datorn har skapats returneras utdata som liknar följande exempel utdata. Anteckna **publicIpAddress**. Den här adressen används för att få åtkomst till den virtuella datorn i efterföljande steg.
 
 ```azurecli
 {
@@ -187,23 +187,23 @@ Utdata som liknar följande Exempelutdata returneras när den virtuella datorn h
 }
 ```
 
-### <a name="confirm-that-accelerated-networking-is-enabled"></a>Bekräfta att accelererat nätverk är aktiverat
+### <a name="confirm-that-accelerated-networking-is-enabled"></a>Bekräfta att accelererat nätverk har Aktiver ATS
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt `<your-public-ip-address>` med offentliga IP-adress som tilldelats den virtuella dator du skapade och Ersätt *azureuser* om du har använt ett annat värde för `--admin-username` när du skapade den virtuella datorn.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt `<your-public-ip-address>` med den offentliga IP-adress som tilldelats den virtuella datorn som du skapade och Ersätt *azureuser* om du använde ett annat värde för `--admin-username` när du skapade den virtuella datorn.
 
 ```bash
 ssh azureuser@<your-public-ip-address>
 ```
 
-Från Bash-gränssnittet och ange `uname -r` och bekräfta att kernel-versionen är en av följande versioner eller senare:
+Från bash-gränssnittet anger `uname -r` och kontrollerar att kernel-versionen är en av följande versioner, eller mer:
 
-* **Ubuntu 16.04**: 4.11.0-1013
+* **Ubuntu 16,04**: 4.11.0-1013
 * **SLES SP3**: 4.4.92-6.18
 * **RHEL**: 7.4.2017120423
 * **CentOS**: 7.4.20171206
 
 
-Bekräfta Mellanox VF-enheten visas den virtuella datorn med den `lspci` kommando. Den returnerade utdatan liknar följande utdata:
+Bekräfta att Mellanox VF-enheten exponeras för den virtuella datorn med kommandot `lspci`. De utdata som returneras liknar följande utdata:
 
 ```bash
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
@@ -214,7 +214,7 @@ Bekräfta Mellanox VF-enheten visas den virtuella datorn med den `lspci` kommand
 0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
 ```
 
-Sök efter aktivitet på VF (virtual function) med den `ethtool -S eth0 | grep vf_` kommando. Om du får utdata liknar följande exempel utdata, snabbare nätverksfunktioner är aktiverad och fungerar.
+Sök efter aktivitet på VF (virtuell funktion) med kommandot `ethtool -S eth0 | grep vf_`. Om du får utdata som liknar följande exempel på utdata är accelererat nätverk aktiverat och fungerar.
 
 ```bash
 vf_rx_packets: 992956
@@ -223,21 +223,21 @@ vf_tx_packets: 2656684
 vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
-Accelererat nätverk har nu aktiverats för den virtuella datorn.
+Accelererat nätverk har nu Aktiver ATS för den virtuella datorn.
 
-## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Hantera dynamisk bindning och återkallelse av-funktion 
-Program måste köra över syntetiska nätverkskort som är exponerad på den virtuella datorn. Om programmet körs direkt via VF-NIC kan den inte har tagit emot **alla** paket som är avsedd för den virtuella datorn, eftersom vissa paket som visas över syntetisk gränssnittet.
-Om du kör ett program över syntetiska nätverkskort det garanterar att programmet tar emot **alla** paket som är avsedda till den. Gör det också se till att programmet köras, även om VF återkallas när värden blir servad. Program som binder till syntetiska nätverkskort är en **obligatorisk** krav för alla program som utnyttjar **Accelerated Networking**.
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Hantera dynamisk bindning och återkallande av virtuell funktion 
+Programmen måste köras via det syntetiska NÄTVERKSKORTet som exponeras i den virtuella datorn. Om programmet körs direkt över VF-NÄTVERKSKORTet får det inte **alla** paket som är avsedda för den virtuella datorn, eftersom vissa paket visas över det syntetiska gränssnittet.
+Om du kör ett program över det syntetiska NÄTVERKSKORTet garanterar det att programmet tar emot **alla** paket som är avsedda för det. Det ser också till att programmet fortsätter att köras, även om VF-objektet återkallas när värden betjänas. Program bindningar till det syntetiska NÄTVERKSKORTet är ett **obligatoriskt** krav för alla program som drar nytta av **accelererat nätverk**.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>Aktivera Accelererat nätverk på befintliga virtuella datorer
-Om du har skapat en virtuell dator utan Accelererat nätverk, är det möjligt att aktivera den här funktionen på en befintlig virtuell dator.  Den virtuella datorn måste ha stöd för Accelererat nätverk genom att uppfylla följande krav som också beskrivs ovan:
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Aktivera accelererat nätverk på befintliga virtuella datorer
+Om du har skapat en virtuell dator utan accelererat nätverk är det möjligt att aktivera den här funktionen på en befintlig virtuell dator.  Den virtuella datorn måste ha stöd för accelererat nätverk genom att uppfylla följande krav som också beskrivs ovan:
 
-* Den virtuella datorn måste vara en storlek som stöds för Accelererat nätverk
-* Den virtuella datorn måste vara stöds Azure Gallery image (och kernel-version för Linux)
-* Alla virtuella datorer i en tillgänglighetsuppsättning eller VMSS måste vara stoppad/frigjord innan du aktiverar Accelererat nätverk på en NIC
+* Den virtuella datorn måste ha en storlek som stöds för accelererat nätverk
+* Den virtuella datorn måste vara en Azure Gallery-avbildning som stöds (och kernel-version för Linux)
+* Alla virtuella datorer i en tillgänglighets uppsättning eller VMSS måste stoppas/frigöras innan du aktiverar accelererat nätverk på något nätverkskort
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>Ange enskilda virtuella datorer och virtuella datorer i en tillgänglighetsuppsättning
-Först stoppa/frigör den virtuella datorn eller om en Tillgänglighetsuppsättning, alla virtuella datorer i uppsättningen:
+### <a name="individual-vms--vms-in-an-availability-set"></a>Enskilda virtuella datorer & virtuella datorer i en tillgänglighets uppsättning
+Först stoppa/frigör den virtuella datorn eller, om det finns en tillgänglighets uppsättning, alla virtuella datorer i uppsättningen:
 
 ```azurecli
 az vm deallocate \
@@ -245,9 +245,9 @@ az vm deallocate \
     --name myVM
 ```
 
-Viktigt,. Observera att om den virtuella datorn skapades individuellt, utan en tillgänglighetsuppsättning du bara behöva stoppa/frigör den enskilda virtuella datorn om du vill aktivera Accelererat nätverk.  Om den virtuella datorn skapades med en tillgänglighetsuppsättning måste alla virtuella datorer i tillgänglighetsuppsättningen är stoppad/frigjord innan du aktiverar Accelererat nätverk på något av nätverkskorten. 
+Viktigt, Observera att om din virtuella dator har skapats individuellt, utan en tillgänglighets uppsättning, behöver du bara stoppa/frigöra den enskilda virtuella datorn för att aktivera accelererat nätverk.  Om den virtuella datorn skapades med en tillgänglighets uppsättning måste alla virtuella datorer som finns i tillgänglighets uppsättningen stoppas/frigörs innan du aktiverar accelererat nätverk på något av nätverkskorten. 
 
-Stoppat, aktivera Accelererat nätverk på nätverkskortet för den virtuella datorn:
+När du har stoppat aktiverar du accelererat nätverk på den virtuella datorns nätverkskort:
 
 ```azurecli
 az network nic update \
@@ -256,7 +256,7 @@ az network nic update \
     --accelerated-networking true
 ```
 
-Starta om virtuell dator eller, om i en Tillgänglighetsuppsättning, alla virtuella datorer i uppsättningen och bekräfta att Accelererat nätverk är aktiverat: 
+Starta om den virtuella datorn eller, om den finns i en tillgänglighets uppsättning, alla virtuella datorer i uppsättningen och bekräfta att accelererat nätverk är aktiverat: 
 
 ```azurecli
 az vm start --resource-group myResourceGroup \
@@ -264,7 +264,7 @@ az vm start --resource-group myResourceGroup \
 ```
 
 ### <a name="vmss"></a>VMSS
-VMSS skiljer sig men följer samma arbetsflöde.  Stoppa först de virtuella datorerna:
+VMSS skiljer sig något åt, men följer samma arbets flöde.  Stoppa först de virtuella datorerna:
 
 ```azurecli
 az vmss deallocate \
@@ -272,7 +272,7 @@ az vmss deallocate \
     --resource-group myrg
 ```
 
-När de virtuella datorerna har stoppats, uppdatera egenskapen Accelererat nätverk under nätverksgränssnittet:
+När de virtuella datorerna har stoppats uppdaterar du egenskapen för accelererat nätverk under nätverks gränssnittet:
 
 ```azurecli
 az vmss update --name myvmss \
@@ -280,7 +280,7 @@ az vmss update --name myvmss \
     --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
 ```
 
-Observera att en VMSS har du VM-uppgraderingar som gäller uppdateringar med hjälp av tre olika inställningar, automatiskt, löpande och manuellt.  I dessa anvisningar är principen inställd på automatisk så att VMSS tar över ändringarna direkt efter omstart.  Ange den till automatisk så att ändringarna omedelbart plockas upp: 
+Obs! en VMSS har uppgraderingar av virtuella datorer som tillämpar uppdateringar med tre olika inställningar, automatiska, rullande och manuella.  I dessa instruktioner är principen inställd på automatisk så att VMSS kommer att hämta ändringarna direkt efter omstarten.  Så här ställer du in det på automatiskt så att ändringarna omedelbart hämtas: 
 
 ```azurecli
 az vmss update \
@@ -289,7 +289,7 @@ az vmss update \
     --set upgradePolicy.mode="automatic"
 ```
 
-Slutligen ska du starta om VMSS:
+Starta slutligen om VMSS:
 
 ```azurecli
 az vmss start \
@@ -297,15 +297,15 @@ az vmss start \
     --resource-group myrg
 ```
 
-När du startar om, vänta på att uppgraderingen ska slutföras, men när det har slutförts, VF visas inuti den virtuella datorn.  (Kontrollera att du använder en OS- och VM-storlek som stöds.)
+När du har startat om väntar du tills uppgraderingarna har slutförts, men då visas VF i den virtuella datorn.  (Kontrol lera att du använder ett OS-och VM-storlek som stöds.)
 
-### <a name="resizing-existing-vms-with-accelerated-networking"></a>Ändra storlek på befintliga virtuella datorer med Accelererat nätverk
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Ändra storlek på befintliga virtuella datorer med accelererat nätverk
 
-Virtuella datorer med Accelererat nätverk aktiverat kan bara ändras till virtuella datorer som har stöd för Accelererat nätverk.  
+Virtuella datorer med accelererat nätverk aktiverat kan bara ändras till virtuella datorer som har stöd för accelererat nätverk.  
 
-En virtuell dator med Accelererat nätverk aktiverat kan inte ändras till en VM-instans som inte har stöd för Accelererat nätverk med hjälp av storleksändring-åtgärd.  I stället att ändra storlek på en av dessa virtuella datorer: 
+Det går inte att ändra storlek på en virtuell dator med accelererat nätverk till en VM-instans som inte stöder accelererat nätverk med åtgärden ändra storlek.  I stället kan du ändra storlek på en av de virtuella datorerna: 
 
-* Stoppa/frigöra den virtuella datorn eller om du är i tillgänglighet set/VMSS, stoppa/Frigör alla virtuella datorer i uppsättningen/VMSS.
-* Accelererat nätverk måste inaktiveras på nätverkskortet för den virtuella datorn eller om de finns i en tillgänglighet set/VMSS, alla virtuella datorer i uppsättningen/VMSS.
-* VM-tillgänglighet set/VMSS kan flyttas till en ny storlek som inte har stöd för Accelererat nätverk och startas om när Accelererat nätverk är inaktiverat.  
+* Stoppa/frigör den virtuella datorn eller om den finns i en tillgänglighets uppsättning/VMSS, stoppa/frigör alla virtuella datorer i uppsättningen/VMSS.
+* Accelererat nätverk måste vara inaktiverat på NÄTVERKSKORTet för den virtuella datorn eller, om det finns en tillgänglighets uppsättning/VMSS, alla virtuella datorer i uppsättningen/VMSS.
+* När det accelererade nätverket har inaktiverats kan VM/tillgänglighets uppsättningen/VMSS flyttas till en ny storlek som inte har stöd för accelererat nätverk och startas om.  
 

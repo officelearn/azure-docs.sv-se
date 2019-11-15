@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 09/24/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 2879317289b0c828ac580a7df11771b1b4550bd2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1f89cc55b8b62ca3c28d8d00ee733141179781ed
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067411"
+ms.locfileid: "74078588"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett snabbt och enkelt sätt att gå från ingenting till en utvecklings miljö som är igång. System avbildningar med olika Visual Studio-konfigurationer är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -28,14 +28,14 @@ Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett 
 Ny Azure-användare? [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Alla prenumerationer är inte eligble för att distribuera Windows 10-avbildningar. Mer information finns i [använda Windows-klienten i Azure för utveckling/testnings scenarier](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+> Alla prenumerationer är inte berättigade att distribuera Windows 10-avbildningar. Mer information finns i [använda Windows-klienten i Azure för utveckling/testnings scenarier](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
 
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
 Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace.  För varje släppt större version ser du den ursprungligen "lanserad till webb"-versionen (RTW) och de senaste uppdaterade versionerna.  Var och en av dessa versioner har Visual Studio Enterprise-och community-versionerna av Visual Studio.  De här avbildningarna uppdateras minst varje månad för att inkludera de senaste versionerna av Visual Studio och Windows.  Även om namnen på bilderna är desamma, innehåller varje avbildnings Beskrivning den installerade produkt versionen och bildens datum.
 
 | Version                                                                                                                                                | Utgåvor              | Produkt version   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: senaste (version 16,2)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.3.0    |
+| [Visual Studio 2019: senaste (version 16,3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.3.0    |
 | [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, community | Version 16.0.8    |
 | [Visual Studio 2017: senaste (version 15,9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, community | Version 15.9.16   |
 | [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, community | Version 15.0.25   |

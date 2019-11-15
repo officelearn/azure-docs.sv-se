@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961589"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091636"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -66,17 +66,13 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
     Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det finns åtkomst till:
 
     - download.microsoft.com
-    - URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Service-valvet finns)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (för Azures offentliga geografiska områden)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (för Azure Kina 21Vianet)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (för Azure amerikanska myndigheter)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (för Azure Germany)
+    - URL: er för återställnings tjänsten (geo-Name) refererar till den region där Recovery Service-valvet finns) - <https://pod01-rec2.geo-name.backup.windowsazure.com> (för offentliga Azure-geografiska områden) - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (för Azure Kina) - <https://pod01-rec2.geo-name.backup.windowsazure.us> (för Azure amerikanska myndigheter) - <https://pod01-rec2.geo-name.backup.windowsazure.de> (för Azure Germany)
     - utgående port 3260
 
 > [!Note]
 >
-> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. Till exempel: det nedladdade skript namnet börjar med \'VMname\'\_\'namn\'_\'GUID\', t. ex. ContosoVM_wcus_12345678....<br><br>
-> - URL: en är "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. Till exempel: det nedladdade skript namnet börjar med \'VMname\'\_\'namn\'_\'GUID\', t. ex. ContosoVM_wcus_12345678
+> - URL: en ska vara <https://pod01-rec2.wcus.backup.windowsazure.com>
 
    För Linux kräver skriptet "Open-iSCSI"-och ' lshw '-komponenter för att ansluta till återställnings punkten. Om komponenterna inte finns på den dator där skriptet körs, ställer skriptet efter behörighet att installera komponenterna. Ange medgivande för att installera de nödvändiga komponenterna.
 
@@ -141,21 +137,21 @@ För att lista volym grupp namnen under en fysisk volym.
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 Om du vill visa en lista över alla logiska volymer, namn och deras sökvägar i en volym grupp.
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 Montera de logiska volymerna till valfri sökväg.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>För RAID-matriser
@@ -164,7 +160,7 @@ Följande kommando visar information om alla RAID-diskar.
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  Den relevanta RAID-disken visas som `/dev/mdm/<RAID array name in the protected VM>`
@@ -173,7 +169,7 @@ Använd monterings kommandot om RAID-disken har fysiska volymer.
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 Om RAID-disken har en annan LVM som kon figurer ATS i den, använder du den föregående proceduren för LVM-partitioner men använder volym namnet i stället för RAID-diskens namn

@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: e0d55b3661e7dbff1519691bd396a30b8c527010
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 92388c54804d85d2825a25abd0c234081670e8d4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936056"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092187"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
+# <a name="move-azure-vms-to-another-azure-region"></a>Flytta virtuella Azure-datorer till en annan Azure-region
 
 Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service) från en region till en annan för att förbättra tillförlitlighet, tillgänglighet, hantering och styrning. Den här självstudien visar hur du flyttar virtuella datorer till en annan region med hjälp av Azure Site Recovery. Du lär dig följande:
 

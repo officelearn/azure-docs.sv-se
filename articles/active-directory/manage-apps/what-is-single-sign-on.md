@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 8f8d1c9f53d08d017c6c07abf8e00ab77e6879e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477182"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091397"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 
@@ -73,7 +73,7 @@ SAML-baserad enkel inloggning stöds för program som använder någon av dessa 
 
 Information om hur du konfigurerar ett SaaS-program för SAML-baserad enkel inloggning finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md). Många program vara som en tjänst (SaaS) har också en [programspecifik självstudie](../saas-apps/tutorial-list.md) som steg för steg tar dig igenom konfigurationen för SAML-baserad enkel inloggning.
 
-Om du vill konfigurera ett program för WS-Federation följer du samma anvisningar för att konfigurera program för SAML-baserad enkel inloggning. mer information finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md). I steget för att konfigurera programmet till att använda Azure AD måste du ersätta inloggnings-URL: en för Azure AD för slut punkten `https://login.microsoftonline.com/<tenant-ID>/wsfed`WS-Federation.
+Om du vill konfigurera ett program för WS-Federation följer du samma anvisningar för att konfigurera program för SAML-baserad enkel inloggning. mer information finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md). I steget för att konfigurera programmet till att använda Azure AD måste du ersätta inloggnings-URL: en för Azure AD för slut punkten för WS-Federation-`https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 Om du vill konfigurera ett lokalt program för SAML-baserad enkel inloggning, se [SAML enkel inloggning för lokala program med Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -97,6 +97,8 @@ Lösenordsbaserad enkel inloggning har stöd för alla molnbaserade program som 
    > Internet Explorer har begränsad support och tar inte längre emot nya program uppdateringar. Microsoft Edge är den rekommenderade webbläsaren.
 
 - Microsoft Edge på Windows 10-jubileums version eller senare
+- Microsoft Edge för iOS och Android
+- Intune Managed Browser
 - Chrome på Windows 7 eller senare, och i Mac OS X eller senare
 - Firefox 26.0 eller senare på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare
 
@@ -188,9 +190,9 @@ Eftersom det här scenariot erbjuds via ett partnerskap mellan Azure AD och Ping
 Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Självstudier för att integrera SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md)
 * [Konfigurera lösenordsbaserad enkel inloggning](configure-password-single-sign-on-non-gallery-applications.md)
 * [Konfigurera länkad inloggning](configure-linked-sign-on.md)
 * [Introduktion till hantering av åtkomst till program](what-is-access-management.md)
-* Nedladdnings länk: [Distributions plan för enkel inloggning](https://aka.ms/SSODeploymentPlan).
+* Nedladdningslänk: [enkel inloggning distributionsplan](https://aka.ms/SSODeploymentPlan).

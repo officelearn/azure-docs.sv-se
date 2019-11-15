@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747476"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091096"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Säkerhetskopiera och återställa Azure-filresurser
 
@@ -28,7 +28,7 @@ I den här guiden får du lära du dig att:
 > * Avbryta skyddet i Azure Files
 > * Ta bort dina säkerhetskopierade data
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den finns i någon av de [lagringskontotyper som stöds](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). När du har kontrollerat detta kan du skydda din filresurser.
 
@@ -201,7 +201,7 @@ Du kan ta bort säkerhets kopian av en fil resurs under aktiviteten Avbryt säke
 
 Följande procedur förutsätter att säkerhetskopieringen av den virtuella datorn har stoppats. När säkerhetskopieringen har stoppats är alternativen Återuppta säkerhetskopiering och Ta bort säkerhetskopieringsdata tillgängliga i instrumentpanelen Säkerhetskopieringsobjekt. Klicka på Ta bort säkerhetskopieringsdata och skriv namnet på filresursen för att bekräfta borttagningen. Du kan också ange en orsak till borttagningen eller en kommentar.
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure-filresurser finns i
 

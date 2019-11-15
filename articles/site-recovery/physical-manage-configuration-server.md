@@ -1,5 +1,5 @@
 ---
-title: Hantera konfigurations servern för haveri beredskap för lokala fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
+title: Hantera konfigurations servern för fysiska servrar i Azure Site Recovery
 description: Den här artikeln beskriver hur du hanterar den Azure Site Recovery konfigurations servern för haveri beredskap för fysiska servrar till Azure.
 services: site-recovery
 author: mayurigupta13
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: f87210cd14570687eebae88896830bb3ee00b74e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242992"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084604"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för fysiska servrar
 
@@ -26,7 +26,7 @@ I tabellen sammanfattas kraven för distribution av den lokala konfigurations se
 
 | **Komponent** | **Krav** |
 | --- |---|
-| CPU-kärnor| 8 |
+| Processorkärnor| 8 |
 | RAM | 16 GB|
 | Antal diskar | 3, inklusive OS-disken, cache-disk för processerver och lagrings enhet för återställning efter fel |
 | Ledigt diskutrymme (processerverns cacheminne) | 600 GB
@@ -39,7 +39,7 @@ I tabellen sammanfattas kraven för distribution av den lokala konfigurations se
 | IIS | -Ingen befintlig standard webbplats <br> -Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning  <br> -Ingen befintlig webbplats/program som lyssnar på port 443<br>|
 | Typ av nätverkskort | VMXNET3 (när den distribueras som en virtuell VMware-dator) |
 | IP-adresstyp | Statisk |
-| Internet-åtkomst | Servern behöver åtkomst till följande URL: er: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (krävs inte för skalbara process servrar) <br> - time.nist.gov <br> - time.windows.com |
+| Internet-åtkomst | Servern behöver åtkomst till följande URL: er: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (krävs inte för skalbara process servrar) <br> - time.nist.gov <br> - time.windows.com |
 | Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)|
 
 ## <a name="download-the-latest-installation-file"></a>Hämta den senaste installations filen
@@ -155,7 +155,7 @@ Du kan ändra proxyinställningarna för Configuration Server-datorn på följan
 3. Klicka på fliken **valv registrering** .
 4. Hämta en ny valv registrerings fil från portalen och ange den som indata för verktyget.
 
-   ![registrera-konfiguration-Server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Ange den nya informationen om proxy och klicka på knappen **Registrera** .
 6. Öppna ett admin PowerShell-kommando fönster.
 7. Kör följande kommando:
@@ -175,7 +175,7 @@ Du kan ändra proxyinställningarna för Configuration Server-datorn på följan
 2. Starta cspsconfigtool. exe med hjälp av genvägen på Skriv bordet.
 3. Klicka på fliken **valv registrering** .
 4. Ladda ned en ny registrerings fil från portalen och ange den som indata för verktyget.
-      ![registrera-Configuration-Server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Ange information om proxyservern och klicka på knappen **Registrera** .  
 6. Öppna ett admin PowerShell-kommando fönster.
 7. Kör följande kommando

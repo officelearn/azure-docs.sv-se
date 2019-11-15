@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea174de04d0e75bc996c6f692edd474a9396346a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9ae7390afead843fa0784454f7e0374bedf735ad
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474275"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081535"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -219,7 +219,7 @@ En lösning för det här felet är att ha separata användar konton för admini
 
 Om din fråga inte besvaras här, lämnar du den i kommentarerna längst ned på sidan. Eller så finns det ytterligare alternativ för att få hjälp:
 
-* Sök i [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/search?form=mssupport&q=phonefactor&rtc=1) efter lösningar på vanliga tekniska problem.
+* Sök i [Microsoft Support Knowledge Base](https://support.microsoft.com) efter lösningar på vanliga tekniska problem.
 * Sök efter och bläddra efter tekniska frågor och svar från communityn eller Ställ din egen fråga i [Azure Active Directory forumen](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Om du är en äldre PhoneFactor-kund och har frågor eller behöver hjälp med att återställa ett lösen ord använder du länken [lösen ords återställning](mailto:phonefactorsupport@microsoft.com) för att öppna ett support ärende.
 * Kontakta en support tekniker via [Azure Multi-Factor Authentication-Server-Support (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss är det bra om du kan inkludera så mycket information om problemet som möjligt. Information som du kan tillhandahålla inkluderar sidan där du såg felet, den speciella felkoden, det ID som identifierades och ID: t för den användare som såg felet.

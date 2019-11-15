@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-ms.date: 02/07/2019
-ms.openlocfilehash: af657d28bc3052ebefe25ea54891b8d3555692c9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825843"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082442"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database program utveckling
 
@@ -48,7 +48,7 @@ Undvik tids krävande transaktioner eftersom en infrastruktur eller ett anslutni
 
 ## <a name="resiliency"></a>Återhämtning
 
-Azure SQL Database är en moln tjänst där du kan vänta på tillfälliga fel som inträffar i den underliggande infrastrukturen eller i kommunikationen mellan moln enheter. Även om Azure SQL Database är elastisk på de transitiva infrastruktur felen kan dessa problem påverka din anslutning. När ett tillfälligt fel uppstår när du ansluter till SQL Database, ska koden [försöka anropa igen](sql-database-connectivity-issues.md). Vi rekommenderar att logik för omprövning använder begränsningslogik så att den inte överbelastar SQL Database med flera klienter som försöker samtidigt. Omprövnings logik är beroende av [fel meddelanden för SQL Database klient program](sql-database-develop-error-messages.md).
+Azure SQL Database är en moln tjänst där du kan vänta på tillfälliga fel som inträffar i den underliggande infrastrukturen eller i kommunikationen mellan moln enheter. Även om Azure SQL Database är elastisk på de transitiva infrastruktur felen kan dessa problem påverka din anslutning. När ett tillfälligt fel uppstår när du ansluter till SQL Database, ska koden [försöka anropa igen](sql-database-connectivity-issues.md). Vi rekommenderar att logik för omprövning använder begränsningslogik så att den inte överbelastar SQL Database med flera klienter som försöker samtidigt. Omprövnings logik är beroende av [fel meddelanden för SQL Database klient program](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
 
 Mer information om hur du förbereder för planerade underhålls händelser på din Azure SQL-databas finns i [Planera för underhålls händelser i Azure i Azure SQL Database](sql-database-planned-maintenance.md).
 

@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: be6eb6f13d7abf80537d155472a4072f7d08c06c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747457"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091603"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -109,7 +109,7 @@ Ja. Om du valde **Behåll säkerhetskopieringsdata** när du stoppade skyddet ka
 
 Om ett pågående återställnings jobb avbryts stoppas återställnings processen och alla filer som återställs före annulleringen förblir i konfigurerat mål (ursprunglig eller alternativ plats) utan återställningar.
 
-## <a name="manage-backup"></a>Hantera säkerhetskopiering
+## <a name="manage-backup"></a>Hantera säkerhets kopiering
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>Kan jag använda PowerShell för att konfigurera/hantera/återställa säkerhetskopior av Azure-filresurser?
 
@@ -119,7 +119,7 @@ Ja. Läs den detaljerade dokumentationen [här](backup-azure-afs-automation.md)
 
 Alla ögonblicksbilder som tas av Azure Backup kan nås via Visa ögonblicksbilder i Portal, PowerShell eller CLI. Läs mer om ögonblicksbilder av Azure-filresurser i [Översikt över resursögonblicksbilder för Azure Files (förhandsversion)](../storage/files/storage-snapshots-files.md).
 
-### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Vad är maximala kvarhållningstiden jag kan konfigurera för säkerhetskopiering?
+### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Vad är den maximala kvarhållning som jag kan konfigurera för säkerhets kopieringar?
 
 Säkerhetskopiering för Azure-filresurser ger dig möjlighet att konfigurera principer med kvarhållning i upp till 180 dagar. Men med [alternativet för ”säkerhetskopiering på begäran” i PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup) kan du till och med behålla en återställningspunkt i tio år.
 
@@ -127,9 +127,9 @@ Säkerhetskopiering för Azure-filresurser ger dig möjlighet att konfigurera pr
 
 När en ny princip tillämpas på en eller flera filresurser följs schemat och kvarhållningstiden för den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning vid nästa rensningsjobb och tas bort.
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
-Den här informationen handlar bara om säkerhetskopiering av Azure Files. Om du vill veta mer om andra användningsområden i Azure Backup kan du läsa andra vanliga frågor och svar om säkerhetskopiering:
+Mer information om andra områden i Azure Backup finns i några av de vanliga frågorna om säkerhets kopiering:
 
 - [Recovery Services-valv – vanliga frågor och svar](backup-azure-backup-faq.md)
 - [Säkerhetskopiering av virtuella Azure-datorer – vanliga frågor och svar ](backup-azure-vm-backup-faq.md)

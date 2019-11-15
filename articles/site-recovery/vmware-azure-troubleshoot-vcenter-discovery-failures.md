@@ -1,20 +1,20 @@
 ---
-title: Felsök återställning efter fel till lokal plats under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery
-description: I den här artikeln beskrivs olika sätt att felsöka problem med återställning efter fel och skydd under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery.
+title: Felsök fel i VMware vCenter-identifiering i Azure Site Recovery
+description: Den här artikeln beskriver hur du felsöker VMware vCenter Discovery-fel i Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053856"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091238"
 ---
-# <a name="troubleshoot-vcenter-discovery-failures"></a>Felsöka vCenter-identifieringsfel
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Felsöka vCenter Server identifierings fel
 
 Den här artikeln hjälper dig att felsöka problem som inträffar på grund av fel i VMware vCenter-identifiering.
 

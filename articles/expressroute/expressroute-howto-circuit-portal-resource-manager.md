@@ -1,5 +1,5 @@
 ---
-title: 'Skapa och ändra en ExpressRoute-krets – Portal: Azure | Microsoft Docs'
+title: 'ExpressRoute: skapa och ändra en krets: Azure Portal'
 description: Skapa, etablera, verifiera, uppdatera, ta bort och Avetablerar en ExpressRoute-krets.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.reviewer: ganesr
-ms.custom: seodec18
-ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 42fe0a91261453251d56f1c556083e93f5c76bec
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846587"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083573"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 
@@ -42,7 +40,7 @@ Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azu
 
 Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
-### <a name="2-create-a-new-expressroute-circuit"></a>2. Skapa en ny ExpressRoute-krets
+### <a name="2-create-a-new-expressroute-circuit"></a>2. skapa en ny ExpressRoute-krets
 
 > [!IMPORTANT]
 > ExpressRoute-kretsen debiteras från den tidpunkt då en Tjänstnyckel utfärdas. Se till att du utför den här åtgärden när anslutningsleverantören är redo att lägga till kretsen.
@@ -79,41 +77,41 @@ Du kan visa egenskaperna för kretsen genom att välja den. På den **översikt*
 
 ![Visa egenskaper](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
-### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Skicka tjänstnyckeln till din anslutningsleverantör för etablering
+### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. skicka tjänst nyckeln till din anslutnings leverantör för etablering
 
 På den här sidan **Providerstatus** innehåller information om det aktuella tillståndet för etablering på tjänstleverantör sida. **Status-krets** ger tillståndet på Microsoft-sida. Mer information om krets Etableringsstatus finns i den [arbetsflöden](expressroute-workflows.md#expressroute-circuit-provisioning-states) artikeln.
 
 När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
-Leverantörs status: Inte etablerad<BR>
-Krets status: Aktiverad
+Providerstatus: inte etablerats<BR>
+Circuit status: aktiverat
 
 ![Starta etableringsprocessen](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Kretsen ändras till följande tillstånd när anslutningsleverantören håller på att aktivera den för du:
 
-Leverantörs status: Etablering<BR>
-Krets status: Aktiverad
+Providerstatus: etablering<BR>
+Circuit status: aktiverat
 
 Du kan använda en ExpressRoute-krets, måste den vara i följande tillstånd:
 
-Leverantörs status: Etablerat<BR>
-Krets status: Aktiverad
+Providerstatus: etablerats<BR>
+Circuit status: aktiverat
 
-### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Regelbundet kontrollera status och tillståndet för nyckeln krets
+### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. kontrol lera regelbundet status och tillståndet för krets nyckeln
 
 Du kan visa egenskaperna för kretsen som du är intresserad av genom att välja den. Kontrollera den **Providerstatus** och se till att den har flyttats till **etablerad** innan du fortsätter.
 
 ![Kretsen och provider-status](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
 
-### <a name="6-create-your-routing-configuration"></a>6. Skapa din routningskonfiguration
+### <a name="6-create-your-routing-configuration"></a>6. skapa konfigurationen för routning
 
 Stegvisa instruktioner finns i den [ExpressRoute-krets routningskonfiguration](expressroute-howto-routing-portal-resource-manager.md) artikeln om du vill skapa och ändra krets peerings.
 
 > [!IMPORTANT]
 > Dessa anvisningar gäller endast för kretsar som skapas med tjänstleverantörer som erbjuder tjänster för layer-2-anslutning. Om du använder en leverantör av tjänster som erbjuder Hanterade layer 3-tjänster (vanligtvis en IP VPN, t.ex. MPLS), anslutningsleverantören konfigurerar och hanterar routning åt dig.
 
-### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. Länka ett virtuellt nätverk till en ExpressRoute-krets
+### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. länka ett virtuellt nätverk till en ExpressRoute-krets
 
 Därefter länka ett virtuellt nätverk till ExpressRoute-kretsen. Använd den [länka virtuella nätverk till ExpressRoute-kretsar](expressroute-howto-linkvnet-arm.md) artikel när du arbetar med Resource Manager-distributionsmodellen.
 

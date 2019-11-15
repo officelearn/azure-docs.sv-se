@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 98ebc8d9408d937730643056f65c3d8011c1fdc4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493455"
+ms.locfileid: "73581588"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Visa experiment information.
 > * Distribuera modellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -87,7 +87,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
         ---|---|---
         Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Kommaseparerade
-        Encoding|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
+        Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
 
@@ -171,18 +171,21 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
 
 1. Välj knappen **distribuera bästa modell** i det nedre vänstra hörnet.
 
-1. Fyll i fönstret **distribuera bästa modell** enligt följande:
+1. Fyll i fönstret **distribuera en modell** enligt följande:
 
     Fält| Värde
     ----|----
     Distributions namn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning
-    Bedömnings skript| Skapa
-    Miljö skript| Skapa
+    Compute-typ | Välj Azure Compute Instance (ACI)
+    Aktivera autentisering| Tillåt. 
+    Använd anpassade distributioner| Tillåt. Tillåter att standard driv rutins filen (bedömnings skriptet) och miljö filen skapas automatiskt. 
     
+    I det här exemplet använder vi de standardvärden som anges i menyn *Avancerat* . 
+
 1. Välj **Distribuera**.  
 
-    I fönstret **Rekommenderad modell** visas ett meddelande om att distributionen lyckades under **distribuera status** när distributionen är klar. Välj **Uppdatera** regelbundet för att kontrol lera distributions statusen.
+    Ett grönt meddelande visas längst upp på skärmen **Kör** och i fönstret för **Rekommenderad modell** visas ett status meddelande under **distributions status**. Välj **Uppdatera** regelbundet för att kontrol lera distributions statusen.
     
 Nu har du en fungerande webb tjänst för att generera förutsägelser. 
 

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en processerver i Azure för virtuell VMware-dator och återställning av fysiskt server med Azure Site Recovery | Microsoft Docs
+title: Konfigurera en processor Server VMware/fysisk återställning efter fel i Azure Site Recovery
 description: Den här artikeln beskriver hur du konfigurerar en processerver i Azure för att återställa virtuella Azure-datorer till VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968841"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083959"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Konfigurera en processerver i Azure för återställning efter fel
 

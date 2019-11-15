@@ -8,18 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 9421f730ea6480c9e4223dd9ddbd15852b1fce8f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072590"
+ms.locfileid: "74091199"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Viktig information: tal enheter SDK
 
 I följande avsnitt listas ändringar i de senaste versionerna.
+
+## <a name="speech-devices-sdk-170"></a>1\.7.0 för tal enheter SDK:
+
+*   Linux ARM stöds nu.
+*   Inledande binärfiler för Roobov2 anges (Linux-ARM64).
+*   Windows-användare kan använda AudioConfig. fromDefaultMicrophoneInput () eller AudioConfig. fromMicrophoneInput (enhets namn) för att ange vilken mikrofon som ska användas.
+*   Biblioteks storleken har optimerats.
+*   Stöd för multi-turn-igenkänning med samma tal-/avsikts igenkännings objekt.
+*   Korrigera tillfällig låsning som skulle inträffa när du stoppar igenkänningen.
+*   Exempel appar innehåller nu en exempel deltagare. Properties-fil för att demonstrera fil formatet.
+*   Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.7.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-160"></a>1\.6.0 för tal enheter SDK:
 

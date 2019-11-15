@@ -1,18 +1,18 @@
 ---
 title: Övervaka Azure Site Recovery processerver
-description: Den här artikeln beskriver hur du övervakar Azure Site Recovery processerver.
+description: Den här artikeln beskriver hur du övervakar Azure Site Recovery processerver som används för haveri beredskap för virtuella VMware-datorer/fysiska servrar
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383212"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082231"
 ---
 # <a name="monitor-the-process-server"></a>Övervaka processervern
 
@@ -51,7 +51,7 @@ För att undvika problem med processervern är det viktigt att:
 
 Processervern genererar ett antal hälso aviseringar som sammanfattas i följande tabell.
 
-**Aviserings typ** | **Detaljer**
+**Aviserings typ** | **Information**
 --- | ---
 ![Felfri][green] | Processervern är ansluten och felfritt.
 ![Varning][yellow] | CPU-användning > 80% under de senaste 15 minuterna
@@ -59,11 +59,11 @@ Processervern genererar ett antal hälso aviseringar som sammanfattas i följand
 ![Varning][yellow] | Ledigt utrymme i cache-mappen < 30% under de senaste 15 minuterna
 ![Varning][yellow] | Site Recovery övervakar väntande/utgående data var femte minut och beräknar att data i processervern inte kan överföras till Azure inom 30 minuter.
 ![Varning][yellow] | Process Server-tjänsterna körs inte under de senaste 15 minuterna
-![Kritiskt][red] | CPU-användning > 95% under de senaste 15 minuterna
-![Kritiskt][red] | Minnes användning > 95% under de senaste 15 minuterna
-![Kritiskt][red] | Ledigt utrymme i cache-mappen < 25% under de senaste 15 minuterna
-![Kritiskt][red] | Site Recovery övervakar väntande/utgående data var femte minut och beräknar att data i processervern inte kan överföras till Azure inom 45 minuter.
-![Kritiskt][red] | Inget pulsslag från processervern i 15 minuter.
+![Kritisk][red] | CPU-användning > 95% under de senaste 15 minuterna
+![Kritisk][red] | Minnes användning > 95% under de senaste 15 minuterna
+![Kritisk][red] | Ledigt utrymme i cache-mappen < 25% under de senaste 15 minuterna
+![Kritisk][red] | Site Recovery övervakar väntande/utgående data var femte minut och beräknar att data i processervern inte kan överföras till Azure inom 45 minuter.
+![Kritisk][red] | Inget pulsslag från processervern i 15 minuter.
 
 ![Tabell nyckel](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 

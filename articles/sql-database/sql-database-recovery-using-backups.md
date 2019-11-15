@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821212"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091953"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Återställa en Azure SQL-databas med hjälp av automatisk säkerhets kopiering av databasen
 
@@ -108,11 +108,13 @@ Du återställer borttagna databaser från Azure Portal från servern och instan
 
 Om du vill återställa en enskild eller pool borttagen databas med hjälp av Azure Portal, öppnar du sidan Server översikt och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
 
-  ![Skärm bild av alternativ för borttagna databaser](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Skärm bild av återställa borttagen Azure SQL Database](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="managed-instance-database"></a>Hanterad instans databas
 
-Du kan inte använda Azure Portal för att återställa en borttagen databas på en hanterad instans. Du kan använda PowerShell för detta ändamål. 
+Om du vill återställa en hanterad databas med hjälp av Azure Portal öppnar du översikts sidan för hanterade instanser och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
+
+  ![Skärm bild av Återställ borttagen Azure SQL-instans databas](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>Borttagen databas återställning med hjälp av PowerShell
 

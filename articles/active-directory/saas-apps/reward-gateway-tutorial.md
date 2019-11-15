@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med utmärkelse Gateway | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och utmärkelse Gateway.
+title: 'Självstudie: Azure Active Directory integrering med belönings-Gateway | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och belönings-Gateway.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cdc4420758b67dc3a578b9530fb7039ed53ee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcd12b0c47dc587153df51d4d30eb2abe4cc2657
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092799"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081944"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Självstudier: Azure Active Directory-integrering med utmärkelse Gateway
+# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Självstudie: Azure Active Directory integrering med belönings-Gateway
 
-Lär dig hur du integrerar utmärkelse Gateway med Azure Active Directory (AD Azure) i den här självstudien.
-Integrera utmärkelse Gateway med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera belönings-Gateway med Azure Active Directory (Azure AD).
+Genom att integrera belönad Gateway med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till utmärkelse Gateway.
-* Du kan aktivera användarna att vara automatiskt inloggad till utmärkelse Gateway (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan kontrol lera Azure AD som har åtkomst till belöna Gateway.
+* Du kan göra det möjligt för dina användare att vara automatiskt inloggade till belönings-Gateway (enkel inloggning) med deras Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med utmärkelse Gateway, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med belönings-Gateway behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Utmärkelse Gateway enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Prenumeration för enkel inloggning med belönad Gateway
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Belöna Gateway stöder **IDP** -initierad SSO
+* Belönings-gatewayen stöder **IDP** INITIERAd SSO
 
-## <a name="adding-reward-gateway-from-the-gallery"></a>Lägger till utmärkelse Gateway från galleriet
+## <a name="adding-reward-gateway-from-the-gallery"></a>Lägga till en belönings-Gateway från galleriet
 
-För att konfigurera integrering av utmärkelse Gateway i Azure AD, som du behöver lägga till utmärkelse Gateway från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av belönings-gateway i Azure AD måste du lägga till belöna Gateway från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till utmärkelse Gateway från galleriet:**
+**Gör så här om du vill lägga till en belönings-Gateway från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av utmärkelse Gateway i Azure AD, som du behö
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **utmärkelse Gateway**väljer **utmärkelse Gateway** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **belönings-Gateway**, väljer **belöna Gateway** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Trafik-Gateway i listan med resultat](common/search-new-app.png)
+     ![Belönings-gateway i resultat listan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med utmärkelse Gateway baserat på en testanvändare som kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i utmärkelse Gateway ska upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD med belönings-Gateway baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i belönings-Gateway.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med utmärkelse Gateway, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med belöna Gateway måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för trafik-Gateway](#configure-reward-gateway-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa utmärkelse Gateway testanvändare](#create-reward-gateway-test-user)**  – du har en motsvarighet för Britta Simon i utmärkelse Gateway som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. Konfigurera enkel inloggning för **[belönings Gateway](#configure-reward-gateway-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa belönings-gatewayens test användare](#create-reward-gateway-test-user)** – om du vill ha en motsvarighet till Britta Simon i belönings-gateway som är länkad till Azure AD-representation av användare.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med utmärkelse Gateway:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med belöna Gateway:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **utmärkelse Gateway** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**på sidan **belöna Gateway** Application Integration.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med utmärk
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![Utmärkelse Gateway-domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Information om enkel inloggning för belöna Gateway-domän och URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:
     
@@ -124,25 +124,25 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med utmärk
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`|
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Om du vill ha starta dessa värden hur du konfigurerar en Integration på utmärkelse Manager-portalen. Information finns på https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. För att hämta de här värdena börjar du skapa en integrering på The belöning Manager-portalen. Information finns på https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **ställa in räkning Gateway** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera belöning Gateway** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-reward-gateway-single-sign-on"></a>Konfigurera enkel inloggning för trafik-Gateway
+### <a name="configure-reward-gateway-single-sign-on"></a>Konfigurera enkel inloggning för belönad Gateway
 
-Att konfigurera enkel inloggning på **utmärkelse Gateway** sida, börjar skapa en Integration på utmärkelse Manager-portalen. Använd hämtade metadata för att hämta ditt signeringscertifikat och överföra som under konfigurationen. Information finns på https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
+Om du vill konfigurera enkel inloggning på sidan för **belönings-Gateway** börjar du konfigurera en integrering på The belöning Manager-portalen. Använd hämtade metadata för att hämta ditt signerings certifikat och ladda upp det under konfigurationen. Information finns på https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -162,24 +162,24 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
+    b. I fältet **användar namn** anger `brittasimon@yourcompanydomain.extension`  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till utmärkelse Gateway.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till belöna Gateway.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **utmärkelse Gateway**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **belöna Gateway**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **utmärkelse Gateway**.
+2. I listan program väljer du **belönings-Gateway**.
 
-    ![Länken utmärkelse Gateway i listan med program](common/all-applications.png)
+    ![Länken belöna gateway i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -195,15 +195,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-reward-gateway-test-user"></a>Skapa utmärkelse Gateway testanvändare
+### <a name="create-reward-gateway-test-user"></a>Skapa belönings-Gateway test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i utmärkelse Gateway. Arbeta med [utmärkelse Gateway supportteamet](mailto:clientsupport@rewardgateway.com) att lägga till användare i utmärkelse Gateway-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i belöning Gateway. Arbeta med [support teamet för support teamet](mailto:clientsupport@rewardgateway.com) för att lägga till användare i belöna Gateway-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen utmärkelse Gateway i åtkomstpanelen, bör det vara loggas in automatiskt till utmärkelse Gateway som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för att dela gateway på åtkomst panelen, bör du loggas in automatiskt på den belönings-gateway som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

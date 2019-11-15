@@ -1,6 +1,6 @@
 ---
-title: Flytta en Azure Site Recovery-konfiguration till en annan Azure-region | Microsoft Docs
-description: Vägledning för att flytta en Site Recovery-konfiguration till en annan Azure-region
+title: Flytta ett Azure Site Recovery valv till en annan region
+description: Beskriver hur du flyttar ett Recovery Services valv (Azure Site Recovery) till en annan Azure-region
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2cf06a0c4e35d22cbad260201183516db2f07436
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 32dff9a165125ab1949560ce36438ae266cd3036
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013468"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090303"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Flytta ett Recovery Services valv och Azure Site Recovery konfigurationen till en annan Azure-region
 
@@ -33,7 +33,7 @@ I det här dokumentet kommer du att:
 > [!IMPORTANT]
 > För närvarande finns det inget första klass sätt att flytta ett Recovery Services valv och haveri beredskaps konfigurationen som är till en annan region. Den här artikeln vägleder dig genom processen att inaktivera replikering och konfigurera den i den nya regionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att du tar bort och tar bort konfigurationen för haveri beredskap innan du försöker flytta de virtuella Azure-datorerna till en annan region. 
 
@@ -45,12 +45,12 @@ I det här dokumentet kommer du att:
 ## <a name="identify-the-resources-that-were-used-by-azure-site-recovery"></a>Identifiera de resurser som användes av Azure Site Recovery
 Vi rekommenderar att du gör det här innan du fortsätter till nästa steg. Det är enklare att identifiera relevanta resurser medan de virtuella datorerna replikeras.
 
-För varje virtuell Azure-dator som replikeras går du till**Egenskaper** för **skyddade objekt** > **replikerade objekt** > och identifierar följande resurser:
+För varje virtuell Azure-dator som replikeras går du till **skyddade objekt** > **replikerade objekt** > **Egenskaper** och identifierar följande resurser:
 
-- Målresursgrupp
-- Cachelagringskonto
+- Mål resurs grupp
+- Lagrings konto för cache
 - Mål lagrings konto (i händelse av en ohanterad diskbaserad virtuell Azure-dator) 
-- Målnätverk
+- Mål nätverk
 
 
 ## <a name="disable-the-existing-disaster-recovery-configuration"></a>Inaktivera den befintliga haveri återställnings konfigurationen

@@ -1,6 +1,6 @@
 ---
-title: Installera program programåtkomstpanelens webbläsartillägg – Azure | Microsoft Docs
-description: Åtgärda vanliga fel som uppstod när du installerar programåtkomstpanelens webbläsartillägg.
+title: Installera program åtkomst panelens webb läsar tillägg – Azure | Microsoft Docs
+description: Åtgärda vanliga fel när du installerar åtkomst panelens webb läsar tillägg.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,116 +16,116 @@ ms.date: 05/04/2018
 ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598a69593046354e83fe35b7b2ecfb0745e8b637
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 580207bb10680e84cfda7d4b1874f2b460602973
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388320"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082171"
 ---
-# <a name="install-the-access-panel-browser-extension"></a>Installera programåtkomstpanelens webbläsartillägg
+# <a name="install-the-access-panel-browser-extension"></a>Installera åtkomst panelens webb läsar tillägg
 
-Åtkomstpanelen är en webbaserad portal. Om du har ett arbets eller skolkonto i Azure Active Directory (Azure AD) kan använda du åtkomstpanelen för att visa och starta molnbaserade program som en Azure AD-administratör har gett dig åtkomst till. 
+Åtkomst panelen är en webbaserad portal. Om du har ett arbets-eller skol konto i Azure Active Directory (Azure AD) kan du använda åtkomst panelen för att visa och starta molnbaserade program som en Azure AD-administratör har gett dig åtkomst till. 
 
-Om du använder Azure AD-versioner kan du också använda självbetjäning och apphanteringsfunktionerna via åtkomstpanelen. 
+Om du använder Azure AD-versioner kan du också använda funktioner för självbetjänings grupp och program hantering via åtkomst panelen. 
 
-Åtkomstpanelen är separat från Azure-portalen. Det kräver inte du har en Azure-prenumeration.
+Åtkomst panelen är separat från Azure Portal. Du behöver inte ha någon Azure-prenumeration.
 
-## <a name="web-browser-requirements"></a>Webbläsarkrav
+## <a name="web-browser-requirements"></a>Webb läsar krav
 
-Minimum åtkomstpanelen kräver en webbläsare som stöder JavaScript och har aktiverat CSS. Om du vill logga in på program via lösenordsbaserad SSO i åtkomstpanelen, måste du ha access panel-tillägg som installerats i din webbläsare. Tillägget laddas ned automatiskt när du väljer ett program som har konfigurerats för lösenordsbaserad SSO.
+Åtkomst panelen kräver minst en webbläsare som stöder Java Script och har CSS aktiverat. Om du vill logga in på program via lösenordsbaserad SSO på åtkomst panelen måste du ha åtkomst panel tillägget installerat i webbläsaren. Tillägget laddas ned automatiskt när du väljer ett program som är konfigurerat för lösenordsbaserad SSO.
 
-Du kan använda någon av följande webbläsare för lösenordsbaserad enkel inloggning:
+För lösenordsbaserad SSO kan du använda någon av följande webbläsare:
 
-- **Microsoft Edge**: på Windows 10 Anniversary Edition eller senare. 
-- **Chrome**: på Windows 7 eller senare, och i Mac OS X eller senare.
-- **Firefox 26.0 eller senare**: på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
+- **Microsoft Edge**: på Windows 10-jubileums version eller senare. 
+- **Chrome**: på Windows 7 eller senare och på MacOS X eller senare.
+- **Firefox 26,0 eller senare**: på Windows XP SP2 eller senare och på Mac OS X 10,6 eller senare.
 
-## <a name="install-the-access-panel-browser-extension"></a>Installera programåtkomstpanelens webbläsartillägg
+## <a name="install-the-access-panel-browser-extension"></a>Installera åtkomst panelens webb läsar tillägg
 
-Om du vill installera programåtkomstpanelens webbläsartillägg, gör du följande:
+Så här installerar du åtkomst panelens webb läsar tillägg:
 
-1.  Öppna i någon av webbläsarna som stöds, den [åtkomstpanelen](https://myapps.microsoft.com), och sedan logga in som en användare i din Azure AD-konto.
+1.  I någon av de webbläsare som stöds öppnar du [åtkomst panelen](https://myapps.microsoft.com)och loggar in som en användare i ditt Azure AD-konto.
 
-2.  Välj en lösenordsbaserad SSO-program.
+2.  Välj ett lösenords-baserat SSO-program.
 
-3.  När du uppmanas, väljer **installera nu**.  
-    Du dirigeras till länken för din valda webbläsare. 
+3.  När du uppmanas väljer du **Installera nu**.  
+    Du dirigeras till nedladdnings länken för den valda webbläsaren. 
     
 4.  Välj **Lägg till**.
 
-5.  Om du uppmanas, antingen **aktivera** eller **Tillåt** tillägget.
+5.  Om du uppmanas **att aktivera** eller **tillåta** tillägget.
 
-6.  När installationen är klar startar du om din webbläsare.
+6.  Starta om webbläsaren när installationen är klar.
 
-7.  Logga in på åtkomstpanelen och kontrollera att se om du börjar din lösenordsbaserad SSO-program.
+7.  Logga in på åtkomst panelen och kontrol lera om du kan starta dina lösenordsbaserade SSO-program.
 
-Du kan också hämta tillägget för Chrome och Microsoft Edge direkt från följande platser:
+Du kan också ladda ned tillägget för Chrome och Microsoft Edge direkt från följande platser:
 
 - [Chrome-tillägg](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge-tillägget](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Microsoft Edge-tillägg](https://www.microsoft.com/en-us/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
 - [Firefox-tillägg](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
-## <a name="use-the-my-apps-secure-sign-in-extension"></a>Använd den Mina appar skyddat Inloggningstillägg
-* Om du använder en Mina appar-URL än `https://myapps.microsoft.com`, konfigurera standard-URL genom att göra följande:
-   1. När du arbetar *inte* inloggad på tillägget, högerklicka på tilläggsikonen.
-   2. På menyn, Välj **Mina appar URL**.
-   3. Välj standard-URL.
-   4. Välj tillägg.
-   5. För att logga in till tillägget, Välj **logga in att komma igång**.
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Använd tillägget Mina appar säker inloggning
+* Om du använder en min Apps-URL förutom `https://myapps.microsoft.com`konfigurerar du din standard-URL genom att göra följande:
+   1. När du *inte* är inloggad på tillägget högerklickar du på ikonen för tillägg.
+   2. På menyn väljer du **min Apps URL**.
+   3. Välj din standard-URL.
+   4. Välj ikonen för tillägg.
+   5. Om du vill logga in i tillägget väljer **du logga in för att komma igång**.
 
-* För att logga in direkt till en app i webbläsaren, gör du följande:
-   1. När du installerar tillägget, loggar du in till den genom att välja **logga in att komma igång**.
-   2. Logga in på appen med inloggnings URL.  
-       Inloggnings URL är vanligtvis URL: en för den app som visar formuläret logga in.
-      Tillägget bör ändra tillstånd och att du vet att det finns ett lösenord.
-   3. Välj tillägg för att logga in.
+* Om du vill logga in direkt till en app från webbläsaren gör du följande:
+   1. När du har installerat tillägget loggar du in på det genom att välja **Logga in för att komma igång**.
+   2. Logga in på appen med inloggnings-URL: en.  
+       Inloggnings-URL: en är vanligt vis URL: en för appen som visar inloggnings formuläret.
+      Tillägget bör ändra tillstånd och meddela dig om att ett lösen ord är tillgängligt.
+   3. Logga in genom att välja ikonen för tillägg.
 
-* Starta en app från tillägget genom att göra följande:
-   1. När du installerar tillägget, loggar du in till den genom att välja **logga in att komma igång**.
-   2. Välj tillägg till menyn öppnas.
+* Om du vill starta en app från tillägget gör du följande:
+   1. När du har installerat tillägget loggar du in på det genom att välja **Logga in för att komma igång**.
+   2. Välj tilläggs ikonen för att öppna dess meny.
    3. Sök efter en app som är tillgänglig i portalen Mina appar.
-   4. Välj appen i listan med sökresultat.  
-       De tre sista appar som du har använt visas i den **nyligen använda** genväg lista.
+   4. Välj appen i listan Sök resultat.  
+       De tre senaste apparna som du har använt visas i listan över **nyligen använda** genvägar.
        
-* Om du vill använda internt företag URL: er samtidigt remote, gör du följande:
-    1. [Konfigurera programproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) på din klient
-    2. [Publicera programmet](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) och URL: en via programproxy
-    3. Installera tillägget och logga in till den genom att välja inloggning att komma igång
-    4. Nu kan du bläddra till interna företagets URL även under remote
+* Om du vill använda interna företags-URL: er vid fjärr anslutning gör du följande:
+    1. [Konfigurera Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) på din klient
+    2. [Publicera programmet](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) och URL: en via programproxyn
+    3. Installera tillägget och logga in på det genom att välja Logga in för att komma igång
+    4. Nu kan du bläddra till den interna företags-URL: en även vid fjärr anslutning
 
 > [!NOTE]
-> Föregående alternativ är endast tillgängligt för Microsoft Edge, Chrome och Firefox.
+> Föregående alternativ är endast tillgängliga för Microsoft Edge, Chrome och Firefox.
 
-## <a name="set-up-a-group-policy-for-internet-explorer"></a>Konfigurera en grupprincip för Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Konfigurera en grup princip för Internet Explorer
 
-Du kan konfigurera en grupprincip som gör det möjligt att fjärrinstallera access panel-tillägg för Internet Explorer på användarnas datorer.
+Du kan konfigurera en grup princip som gör att du kan fjärrinstallera åtkomst panels tillägget för Internet Explorer på användarnas datorer.
 
-Innan du konfigurerar en Grupprincip kan du se till att:
+Innan du konfigurerar en grup princip bör du kontrol lera att:
 
--   Du har ställt in [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), och du har anslutit dina användares datorer till domänen.
+-   Du har konfigurerat [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)och du har anslutit användarnas datorer till din domän.
 
--   Om du vill redigera den grupprincipobjekt (GPO), måste du ha *redigera inställningar för* behörigheter. Den här behörigheten ges som standard till medlemmar i följande säkerhetsgrupper: Domänadministratörer, Företagsadministratörer och skapare och ägare av Grupprincip.
+-   Om du vill redigera grupprincip-objektet (GPO) måste du ha behörigheterna *Redigera inställningar* . Den här behörigheten beviljas som standard medlemmar i följande säkerhets grupper: domän administratörer, företags administratörer och skapare och ägare av grup princip.
 
-Steg för steg instruktioner om att konfigurera en Grupprincip och distribuera den till användare finns i [distribuera access panel-tillägg för Internet Explorer med hjälp av Grupprincip](deploy-access-panel-browser-extension.md).
+Steg för steg-anvisningar om hur du konfigurerar grup principen och distribuerar den till användare finns i [distribuera åtkomst panel tillägget för Internet Explorer med hjälp av grup princip](deploy-access-panel-browser-extension.md).
 
-## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Felsöka access panel-tillägg i Internet Explorer
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Felsöka åtkomst panel tillägget i Internet Explorer
 
-Åtkomst till en diagnostikverktyget och information om hur du konfigurerar tillägget för Internet Explorer, se [Felsök access panel-tillägg för Internet Explorer](manage-access-panel-browser-extension.md).
+Information om åtkomst till ett diagnos verktyg och information om hur du konfigurerar tillägget för Internet Explorer finns i [Felsöka åtkomst panel tillägget för Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer är på begränsat stöd och inte längre ta emot nya programuppdateringar. Microsoft Edge är den rekommendera webbläsaren.
+> Internet Explorer har begränsad support och tar inte längre emot nya program uppdateringar. Microsoft Edge är den rekommenderade webbläsaren.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Om föregående steg inte löser problemet
 
-Öppna ett supportärende med följande information om den är tillgänglig:
+Öppna ett support ärende med följande information, om det är tillgängligt:
 
--   Korrelations-ID för fel
+-   Korrelations fel-ID
 -   UPN (användarens e-postadress)
 -   TenantID
 -   Typ av webbläsare
--   Tidszon och den tid eller tidsram när felet uppstod
--   Fiddler-spårningar
+-   Tidszon och tid eller tidsram när felet uppstod
+-   Fiddler-spår
 
 ## <a name="next-steps"></a>Nästa steg
 [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](what-is-single-sign-on.md)

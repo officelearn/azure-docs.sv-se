@@ -1,5 +1,5 @@
 ---
-title: Väder prognoser med Azure Machine Learning med data från IoT Hub | Microsoft Docs
+title: Väder prognoser med Azure Machine Learning med IoT Hub data
 description: Använd Azure Machine Learning för att förutsäga risken för regn utifrån temperatur-och fuktighets data som din IoT Hub samlar in från en sensor.
 author: robinsh
 manager: philmea
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: d7b71a6aa17e8eeae55fd6c8c6e9a5aa9e0ce524
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7114febe85af4acaf94ef7fe64fe47988fd6321
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498893"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079269"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning
 
@@ -163,7 +163,7 @@ Du får lära dig hur du använder Azure Machine Learning för att göra väder 
 
    Ersätt `[YourOutputAlias]` med utdataalias för jobbet.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 

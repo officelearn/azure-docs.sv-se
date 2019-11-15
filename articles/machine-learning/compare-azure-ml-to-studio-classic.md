@@ -8,23 +8,23 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 00a2268442f94822064f86d95b14160d67e1516c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716693"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084763"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Hur Azure Machine Learning skiljer sig från ML Studio (klassisk)
 
 I den här artikeln jämförs funktioner, funktioner och gränssnitt för Azure Machine Learning till ML Studio (klassisk). 
 
 ## <a name="about-ml-studio-classic"></a>Om ML Studio (klassisk)
-[Ml Studio (klassisk)](/studio/what-is-ml-studio.md) är en gemensam, dra och släpp-visuell arbets yta där du kan bygga, testa och distribuera maskin inlärnings lösningar utan att behöva skriva kod. Den använder förinställda och förkonfigurerade Machine Learning-algoritmer och data hanterings moduler samt en patentskyddad beräknings plattform.
+[Ml Studio (klassisk)](studio/what-is-ml-studio.md) är en gemensam, dra och släpp-visuell arbets yta där du kan bygga, testa och distribuera maskin inlärnings lösningar utan att behöva skriva kod. Den använder förinställda och förkonfigurerade Machine Learning-algoritmer och data hanterings moduler samt en patentskyddad beräknings plattform.
 
 ## <a name="about-azure-machine-learning"></a>Om Azure Machine Learning
 
-Under tiden tillhandahåller [Azure Machine Learning](/service/overview-what-is-azure-ml.md) både ett webb gränssnitt som kallas designer (för hands version) **och** flera SDK: er och CLI för att snabbt kunna utveckla data, träna och distribuera maskin inlärnings modeller. Med Azure Machine Learning du skala, stöd för flera ramverk, avancerade ML-funktioner som automatiserad maskin inlärning och pipeline-support.
+Under tiden tillhandahåller [Azure Machine Learning](service/overview-what-is-azure-ml.md) både ett webb gränssnitt som kallas designer (för hands version) **och** flera SDK: er och CLI för att snabbt kunna utveckla data, träna och distribuera maskin inlärnings modeller. Med Azure Machine Learning du skala, stöd för flera ramverk, avancerade ML-funktioner som automatiserad maskin inlärning och pipeline-support.
 
 Azure Machine Learning designer har en liknande dra-och-släpp-upplevelse till Studio (klassisk). Men till skillnad från den tillverkarspecifika beräknings plattformen i Studio (klassisk) använder designern dina egna beräknings resurser, är skalbara och är helt integrerade i Azure Machine Learning.  
 
@@ -39,7 +39,7 @@ Här är en snabb jämförelse.
 |---| --- | --- |
 ||Designern är i för hands version, Azure Machine Learning är GA|Allmänt tillgänglig (GA) | 
 |Dra och släpp-gränssnitt| Ja | Ja|
-|Olika| Skala med beräknings mål|Skala (10 GB inlärnings data gräns) | 
+|Experiment| Skala med beräknings mål|Skala (10 GB inlärnings data gräns) | 
 |Moduler för gränssnitt| [Många populära moduler](algorithm-module-reference/module-reference.md) | Mycket |
 |Inlärnings mål| AML Compute (GPU/CPU)|Patentskyddat Compute Target, endast CPU|
 |Inferencing Compute-mål| Azure Kubernetes service för real tids härledning <br/>AML-beräkning för batch-härledning|Eget webb tjänst format, inte anpassningsbart | 

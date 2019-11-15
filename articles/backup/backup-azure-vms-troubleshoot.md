@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0be9973aed1aaf5074c3b61d6249b95e8fd45a64
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747190"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090912"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -50,7 +50,7 @@ Fel meddelande: det gick inte att kopiera säkerhetskopierade data från valvet
 
 Detta kan inträffa på grund av tillfälliga lagrings fel eller otillräckligt lagrings konto IOPS för säkerhets kopierings tjänsten för att överföra data till valvet inom tids gränsen. Konfigurera säkerhets kopiering av virtuella datorer med dessa [metod tips](backup-azure-vms-introduction.md#best-practices) och försök att säkerhetskopiera igen.
 
-## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM är inte i ett tillstånd som tillåter säkerhets kopieringar.
+## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM är inte i ett tillstånd som tillåter säkerhets kopieringar
 
 Felkod: UserErrorVmNotInDesirableState <br/>
 Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar.<br/>
@@ -161,7 +161,7 @@ Det gick inte att utföra ögonblicks bild åtgärden eftersom gränsen för ög
   * Se till att värdet för **isanysnapshotfailed** är inställt på falskt i/etc/Azure/vmbackup.conf
   * Schemalägg Azure Site Recovery vid en annan tidpunkt, så att det inte står i konflikt med säkerhets kopierings åtgärden.
 
-## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-åtgärden misslyckades på grund av otillräckliga VM-resurser.
+## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-åtgärden misslyckades på grund av otillräckliga VM-resurser
 
 Felkod: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades på grund av otillräckliga VM-resurser.
@@ -194,8 +194,8 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | **Felkod**: ExtensionSnapshotBitlockerError <br/> **Fel meddelande**: det gick inte att utföra ögonblicks bild åtgärden med den tjänsten Volume Shadow Copy (VSS) åtgärds fel **enheten är låst av BitLocker-diskkryptering. Du måste låsa upp den här enheten från kontroll panelen.** |Inaktivera BitLocker för alla enheter på den virtuella datorn och kontrol lera om problemet med VSS är löst. |
 | **Felkod**: VmNotInDesirableState <br/> **Fel meddelande**: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar. |<ul><li>Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet. <li> Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.  |
 | VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. |Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent). |
-| **Felkod**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverkskommunikation. | <ol><li> Öppna Registereditorn genom att köra **regedit. exe** i förhöjd läge. <li> Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>|
-| **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det C++ inte gick att installera Visual redistributable för Visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.  |
+| **Felkod**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverkskommunikation. | <ol><li> Öppna Registereditorn genom att köra **regedit. exe** i förhöjd läge. <li> Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft**. <li> Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
+| **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det C++ inte gick att installera Visual redistributable för Visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.  |
 
 ## <a name="jobs"></a>Jobb
 

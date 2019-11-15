@@ -1,18 +1,18 @@
 ---
-title: Arkitektur för haveri beredskap för fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
+title: Katastrof återställnings arkitektur för fysiska servrar i Azure Site Recovery
 description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används vid haveri beredskap för lokala fysiska servrar till Azure med tjänsten Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a5d3dfe6457c4b70f0b23c2d8aa7ac5e58e68dc7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 23e8e4f9a092e871e62da27c8bf0c58a3bb8eb5b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814464"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084689"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fysisk server till Azure Disaster Recovery-arkitektur
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver arkitekturen och processerna som används när du re
 
 Följande tabell och grafik ger en övergripande bild av de komponenter som används för replikering av fysiska servrar till Azure.  
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 **Azure** | En Azure-prenumeration och ett Azure-nätverk. | Replikerade data från lokala fysiska datorer lagras på Azure Managed disks. Virtuella Azure-datorer skapas med replikerade data när du kör en redundans från en lokal plats till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
 **Konfigurationsserver** | En enda lokal fysisk dator eller virtuell VMware-dator distribueras för att köra alla lokala Site Recovery-komponenter. Den virtuella datorn kör konfigurations servern, processervern och huvud mål servern. | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering.
@@ -63,15 +63,15 @@ När replikeringen har kon figurer ATS och du har kört en haveri beredskap (tes
 - När du har utlöst den inledande redundansväxlingen genomför du den för att börja komma åt arbets belastningen från den virtuella Azure-datorn.
 - När din primära lokala plats är tillgänglig igen, kan du återställa dit.
 - Du måste konfigurera en infrastruktur för återställning efter fel, inklusive:
-    - **Tillfällig processerver i Azure**: Om du vill återställa från Azure konfigurerar du en virtuell Azure-dator så att den fungerar som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
-    - **VPN-anslutning**: Om du vill växla tillbaka behöver du en VPN-anslutning (eller Azure-ExpressRoute) från Azure-nätverket till den lokala platsen.
-    - **Separat huvud mål server**: Som standard hanterar huvud mål servern som installerades med konfigurations servern på den lokala virtuella VMware-datorn en återställning efter fel. Men om du behöver återställa stora mängder trafik måste du konfigurera en separat lokal huvud mål server för det här ändamålet.
-    - **Princip för återställning efter fel**: Om du vill replikera tillbaka till din lokala plats behöver du en princip för återställning efter fel. Detta skapades automatiskt när du skapade replikeringsprincipen från lokal plats till Azure.
-    - **VMware-infrastruktur**: Du behöver en VMware-infrastruktur för återställning efter fel. Du kan inte växla tillbaka till en fysisk server.
+    - **Tillfällig processerver i Azure**: om du vill återställa från Azure konfigurerar du en virtuell Azure-dator så att den fungerar som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
+    - **VPN-anslutning**: om du vill återställa behöver du en VPN-anslutning (eller Azure-ExpressRoute) från Azure-nätverket till den lokala platsen.
+    - **Separat huvud mål server**: som standard är huvud mål servern som installerades med konfigurations servern, på den lokala virtuella VMware-datorn, hanterar återställning efter fel. Men om du behöver återställa stora mängder trafik måste du konfigurera en separat lokal huvud mål server för det här ändamålet.
+    - **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en återställningsprincip. Detta skapades automatiskt när du skapade replikeringsprincipen från lokal plats till Azure.
+    - **VMware-infrastruktur**: du behöver en VMware-infrastruktur för återställning efter fel. Du kan inte växla tillbaka till en fysisk server.
 - Efter att komponenterna är på plats sker återställning i tre steg:
-    - Steg 1: Återaktivera skyddet av virtuella Azure-datorer så att de replikeras från Azure tillbaka till lokala virtuella VMware-datorer.
-    - Steg 2: Kör en redundansväxling på den lokala platsen.
-    - Steg 3: När arbets belastningarna har misslyckats igen aktiverar du replikering igen.
+    - Steg 1: skydda virtuella datorer i Azure så att de replikeras från Azure tillbaka till lokala virtuella VMware-datorer.
+    - Steg 2: kör en redundansväxling till den lokala platsen.
+    - Steg 3: när arbets belastningarna har misslyckats igen återaktiverar du replikeringen.
 
 **VMware-återställning från Azure**
 

@@ -103,7 +103,7 @@
             - name: Hantera användare och roller
               href: how-to-assign-roles.md
             - name: Använda virtuella nätverk
-              displayName: vnet
+              displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
             - name: Säkra webbtjänster med SSL
               href: how-to-secure-web-service.md

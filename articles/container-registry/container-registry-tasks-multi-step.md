@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 06bdcc1cd4f9bfcb1a77140d70435545fbe01079
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931495"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148765"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Kör åtgärder för att skapa, testa och korrigera flera steg i ACR-aktiviteter
 
@@ -84,7 +84,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-Se [uppgifts exempel][task-examples] för att slutföra yaml-filer och Dockerfiles för flera steg i flera olika scenarier.
+Se [exempel på uppgifter](container-registry-tasks-samples.md) för yaml-filer och Dockerfiles för flera steg i flera olika scenarier.
 
 ## <a name="run-a-sample-task"></a>Köra en exempel aktivitet
 
@@ -155,7 +155,7 @@ Mer information om automatiserade versioner av Git-incheckning eller bas avbildn
 Du kan hitta aktiviteter med flera steg och exempel här:
 
 * [Uppgifts referens](container-registry-tasks-reference-yaml.md) – uppgifts typer, egenskaper och användning.
-* Exempel på [aktiviteter][task-examples] – exempel `task.yaml` filer för flera scenarier, enkla att komplexa.
+* Exempel på [aktiviteter](container-registry-tasks-samples.md) – exempel `task.yaml` och Docker-filer för flera scenarier, enkla att komplexa.
 * [Cmd-lagrings platsen](https://github.com/AzureCR/cmd) – en samling behållare som kommandon för ACR-uppgifter.
 
 <!-- IMAGES -->

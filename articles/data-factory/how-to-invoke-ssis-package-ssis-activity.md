@@ -8,22 +8,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/14/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b8ed0a04d2d13556f38873ef5f346d49ba4d1845
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ddb7cd06934c85243717dd2a34dc99bae582b6fa
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673733"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122960"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) i en Azure Data Factory-pipeline med hjälp av aktiviteten kör SSIS-paket. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -57,7 +57,7 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
 
     När du skapar eller redigerar en länkad nyckel valvs tjänst kan du välja eller redigera ditt befintliga nyckel valv eller skapa ett nytt. Se till att bevilja Data Factory hanterad identitets åtkomst till ditt nyckel valv om du inte redan har gjort det. Du kan också ange dina hemligheter direkt i följande format: `<Key vault linked service name>/<secret name>/<secret version>`. Om ditt paket behöver 32-bitars körning för att köra, markerar du kryss rutan **32-bit runtime** .
 
-   För **paket plats**väljer du **SSISDB**, **fil system (paket)** eller **fil system (projekt)** . Om du väljer **SSISDB** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades med SSIS-katalogen (SSISDB) som hanteras av en Azure SQL Database-Server eller en hanterad instans, anger du det paket som ska köras som har distribuerats i SSISDB. 
+   För **paket plats**väljer du **SSISDB**, **fil system (paket)** , **fil system (projekt)** eller **inbäddat paket**. Om du väljer **SSISDB** som paket plats, som väljs automatiskt om din Azure-SSIS IR etablerades med SSIS-katalogen (SSISDB) som hanteras av en Azure SQL Database-Server eller en hanterad instans, anger du det paket som ska köras som har distribuerats i SSISDB. 
 
     Om din Azure-SSIS IR körs och kryss rutan **manuella poster** är avmarkerad bläddrar du och väljer dina befintliga mappar, projekt, paket eller miljöer från SSISDB. Välj **Uppdatera** för att hämta nyligen tillagda mappar, projekt, paket eller miljöer från SSISDB så att de är tillgängliga för bläddring och val. Om du vill bläddra i eller välja miljöer för dina paket körningar måste du konfigurera dina projekt i förväg för att lägga till dessa miljöer som referenser från samma mappar under SSISDB. Mer information finns i [skapa och MAPPA SSIS miljöer](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
 
@@ -82,6 +82,10 @@ I det här steget använder du Data Factory gränssnittet eller appen för att s
    Ange sedan autentiseringsuppgifterna för att komma åt ditt projekt, paket eller konfigurationsfiler. Om du tidigare har angett värdena för paketets körnings uppgifter (se föregående) kan du återanvända dem genom att markera kryss rutan **samma som för paket körnings uppgifter** . Annars anger du värdena för dina paket åtkomst uppgifter i rutorna **domän**, **användar namn**och **lösen ord** . Om du till exempel lagrar projektet, paketet eller konfigurationen i Azure Files, är domänen `Azure`, användar namnet är `<storage account name>`och lösen ordet är `<storage account key>`. 
 
    Du kan också använda hemligheter som lagras i nyckel valvet som värden (se föregående). Dessa autentiseringsuppgifter används för att komma åt ditt paket och underordnade paket i åtgärden kör paket, allt från sin egen sökväg eller samma projekt, samt konfigurationer som innehåller de som anges i dina paket. 
+
+   Om du väljer **inbäddat paket** som paket plats, drar du och släpper ditt paket för att köra eller **Ladda upp** det från en filmapp i rutan som visas. Paketet komprimeras och bäddas in automatiskt i aktivitetens nytto Last. När du har bäddat in paketet kan du **Ladda ned** det senare för redigering. Du kan också **Parameterisera** ditt inbäddade paket genom att tilldela det till en pipeline-parameter som kan användas i flera aktiviteter och därmed optimera storleken på din pipeline-nyttolast. Om det inbäddade paketet inte är krypterat och vi identifierar användningen av kör paket-uppgiften i den, markeras kryss rutan **Kör paket uppgift** automatiskt och relevanta underordnade paket med deras fil system referenser läggs till automatiskt så att du även kan bädda in dem. Om vi inte kan identifiera användningen av kör paket uppgift måste du markera kryss rutan **Kör paket uppgift** manuellt och lägga till relevanta underordnade paket med sina fil system referenser en i taget så att du kan bädda in dem. Om de underordnade paketen använder SQL Server referenser kontrollerar du att SQL Server kan nås av din Azure-SSIS IR.  Det finns för närvarande inte stöd för att använda projekt referenser för underordnade paket.
+   
+   ![Ange egenskaper på fliken Inställningar – manuell](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
    
    Om du använde skydds nivån **EncryptAllWithPassword** eller **EncryptSensitiveWithPassword** när du skapade paketet via SQL Server Data Tools anger du värdet för lösen ordet i rutan **krypterings lösen ord** . Du kan också använda en hemlighet som lagrats i nyckel valvet som dess värde (se föregående). Om du har använt skydds nivån **EncryptSensitiveWithUserKey** , ange dina känsliga värden i konfigurationsfiler igen eller på fliken **SSIS-parametrar**, **anslutnings hanterare**eller **egenskaps åsidosättningar** (se senare). 
 
@@ -281,7 +285,7 @@ I det här steget skapar du en pipeline med en aktivitet för att köra SSIS-pak
    }
    ```
 
-   Om du vill köra paket som är lagrade i fil system, fil resurser eller Azure Files anger du värdena för egenskaperna för ditt paket eller logg plats enligt följande:
+   Om du vill köra paket som lagras i fil system, fil resurser eller Azure Files anger du värdena för egenskaperna för ditt paket och logg plats enligt följande:
 
    ```json
    {
@@ -353,6 +357,31 @@ I det här steget skapar du en pipeline med en aktivitet för att köra SSIS-pak
                                    "value": "MyAccountKey"
                                }
                            }
+                       }
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   Om du vill köra inbäddade paket anger du värdena för egenskapen för paket platsen enligt följande:
+
+   ```json
+   {
+       {
+           {
+               {
+                   "packageLocation": {
+                       "type": "InlinePackage",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+                           "packageName": "MyPackage.dtsx",
+                           "packageContent":"My compressed/uncompressed package content",
+                           "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
                        }
                    }
                }

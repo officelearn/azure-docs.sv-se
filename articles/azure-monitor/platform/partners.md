@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827445"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144479"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -35,12 +35,6 @@ Varnings logik logg hanteraren samlar in VM-, program-och Azure-plattforms logga
 AppDynamics Application Performance Management (APM) gör det möjligt för program ägare att snabbt felsöka prestanda Flask halsar och optimera prestanda för programmen som körs i Azure-miljön. Den kan övervaka Azure Cloud Services (PaaS), Web & Worker-roller, Virtual Machines (IaaS), fjärrtjänst identifiering (Microsoft Azure Service Bus), Microsoft Azure kö, Microsoft Azure Remote Services (Azure Blob), Azure Queue (Microsoft Service Bus), data Lagring och Microsoft Azure Blob Storage. AppDynamics APM är tillgängligt på Azure Marketplace.
 
 [Gå till dokumentationen.][appdynamics-doc]
-
-## <a name="microfocus-arcsight"></a>ArcSight för mikrofokus
-
-ArcSight har en smart koppling för Azure Monitor Event Hub.
-
-[Läs mer.][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
@@ -69,7 +63,7 @@ Circonus är en plattform för övervakning och analys av mikrotjänster som byg
 
 Enhets-och automatiserat molnet med en plattform byggd för att spara tid och pengar. CloudHealth ger insyn, intuitiv optimering och stabil styrnings praxis för moln hantering. CloudHealth-plattformen gör det möjligt för företag och MSP att maximera avkastningen på moln investeringar. Fatta säkra beslut kring kostnader, användning, prestanda och säkerhet.
 
-[Läs mer.][cloudhealth-doc]
+[Läs mer][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -127,6 +121,31 @@ InfluxData är skaparen av InfluxDB och levererar en modern plattform med öppen
 LogicMonitor® är den ledande SaaS-baserade prestanda övervaknings plattformen för komplex IT-infrastruktur. Med täckning för tusentals tekniker ger LogicMonitor detaljerad insyn i infrastruktur-och program prestanda. LM Clouds omfattande Azure-övervakning gör det möjligt för användare att korrelera prestanda för Azure-molnet, lokala resurser och hybrid moln resurser – allt från en enda plattform. Automatisk resurs identifiering, som är inbyggt i övervakningsfunktionerna, förkonfigurerade tröskelvärden för aviseringar och anpassningsbara instrument paneler kombinerar för att ge den den hastighet, flexibilitet och synlighet som krävs för att lyckas.
 
 [Gå till dokumentationen.][logicmonitor-doc]
+
+## <a name="logrhythm"></a>LogRhythm
+
+![LogRhythm-logotyp](./media/partners/logrhythm.png)
+
+LogRhythm är en ledare i NextGen SIEM och ger organisationer på sex kontinenter möjlighet att minska risken för risker genom att snabbt upptäcka, svara på och neutralisera cyberhot. LogRhythm för TLM-arbetsflöde (Threat Lifecycle Management) är grunden för säkerhets åtgärder och hjälper kunderna att skydda sina moln, fysiska och virtuella infrastrukturer för IT-miljöer och miljöiska miljöer. Om du är LogRhythm-kund och är redo att starta din Azure-resa måste du installera och konfigurera LogRhythm-integrering med öppen insamlare och EventHub. Mer information, inklusive dokumentation om både konfiguration av Azure Monitor och öppen insamlare, finns [här](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+
+
+
+## <a name="microfocus"></a>Mikrofokus
+
+![Logo typ för mikrofokus](./media/partners/microfocus.png)     
+
+**ArcSight** för mikrofokus har en smart koppling för Azure Monitor Event Hub.
+
+[Läs mer](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight-dokumentation.")
+
+Mikrofokus **drifts brygga** övervakar automatiskt alla hybrid IT-resurser – alla enheter, operativ system, databaser, program eller tjänster, oavsett var den körs och tillämpar AIOps för alla data typer – händelser, statistik, loggar och beroenden. Det ger en unik kombination av övervakning av tjänst kvalitet, tillsammans med djup Application Health Analytics och innehåller omfattande övervakning av prestanda och tillgänglighet för Microsoft Azure tjänster. Med drifts bryggor kan kunder tillhandahålla en enda ruta av glas, som är tillgängligt på valfri enhet med en webbläsare, på ett sätt som både företag och IT-intressenter kan förstå.
+
+Läs mer
+- [Översikt över OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
+- [Ladda ner](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) – SiteScope är en komponent i Operations Bridge Suite.
+
+
 
 ## <a name="moogsoft"></a>Moogsoft
 
@@ -243,7 +262,6 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 <!--Partner Documentation-->
 [alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic-dokumentation."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics-dokumentation."
-[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight-dokumentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introduktion till Botmetric."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 

@@ -3,7 +3,7 @@ title: Gör resurser säkrare med Azure Advisor | Microsoft Docs
 description: Använd Azure Advisor för att förbättra säkerheten för dina Azure-distributioner.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 manager: ''
 ms.assetid: ''
 ms.service: advisor
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1e9c3556d904dd961a2b8f99f84983c35ccf5c6a
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.author: sagupt
+ms.openlocfilehash: 8392e3b74677a8977684300d33ceb663c4e2fe81
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772284"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145328"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Gör resurser säkrare med Azure Advisor
 
@@ -41,6 +41,6 @@ Mer information om Advisor-rekommendationer finns i:
 * [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
-
+* [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)
 
  

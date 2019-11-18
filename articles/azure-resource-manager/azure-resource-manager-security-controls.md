@@ -1,19 +1,14 @@
 ---
-title: Säkerhets kontroller för Azure Resource Manager
+title: Säkerhetskontroller
 description: En check lista över inbyggda säkerhets kontroller för utvärdering av Azure Resource Managers tjänsten.
-services: azure-resource-manager
-author: msmbaldwin
-manager: rkarlin
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 78f3f41ca2f0aa45d295fd9846cf3aa96cccea72
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b2916a87c5cef01605054569285362fcf1c649c8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390467"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147563"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Säkerhets kontroller för Azure Resource Manager
 
@@ -27,7 +22,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja |  |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | HTTPS/TLS. |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Gäller inte | Azure Resource Manager lagrar inget kund innehåll, endast kontroll data. |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Saknas | Azure Resource Manager lagrar inget kund innehåll, endast kontroll data. |
 | Kryptering på kolumn nivå (Azure Data Services)| Ja | |
 | Krypterade API-anrop| Ja | |
 
@@ -46,14 +41,14 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Nej | |
 | Loggning och granskning av kontroll-och hanterings plan| Ja | Aktivitets loggar visar alla Skriv åtgärder (placering, POST, DELETE) som utförs på resurserna. Se [Visa aktivitets loggar för att granska åtgärder på resurser](resource-group-audit.md). |
-| Loggning och granskning av data planet| Gäller inte | |
+| Loggning och granskning av data planet| Saknas | |
 
 ## <a name="identity"></a>Identitet
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
 | Autentisering| Ja | [Azure Active Directory](/azure/active-directory) baserad.|
-| Autentisering| Ja | |
+| Auktorisering| Ja | |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 

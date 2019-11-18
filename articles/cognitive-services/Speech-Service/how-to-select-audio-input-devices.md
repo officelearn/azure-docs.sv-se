@@ -1,5 +1,5 @@
 ---
-title: Så här väljer du en enhet för ljud inspelning med tjänsten Speech SDK-tal
+title: Så här väljer du en enhet för ljudinspelning med Speech SDK
 titleSuffix: Azure Cognitive Services
 description: 'Lär dig mer om att välja enheter för ljud inspelning iC++tal C#-SDK: n (, python, mål-C, Java, Java Script) genom att hämta ID: na för de ljud enheter som är anslutna till ett system.'
 services: cognitive-services
@@ -10,18 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 967e4fbc5484c152867fe5558040631d21e6c0b3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072438"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109971"
 ---
-# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Välj en enhet för ljudinspelning med Speech SDK
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Gör så här: Välj en enhet för ljud inspelning med talet SDK
 
-Version 1.3.0 av talet SDK introducerar ett API för att välja ljud indata.
-Den här artikeln beskriver hur du hämtar ID: n för ljud enheterna som är anslutna till ett system.
-Dessa kan sedan användas i Speech SDK genom att du konfigurerar ljudenheten med `AudioConfig`-objektet:
+Version 1.3.0 av talet SDK introducerar ett API för att välja ljud indata. Den här artikeln beskriver hur du hämtar ID: n för ljud enheterna som är anslutna till ett system. Dessa kan sedan användas i Speech SDK genom att du konfigurerar ljudenheten med `AudioConfig`-objektet:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -53,6 +51,7 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Ljudenhets-ID:n i Windows för datorprogram
 
 Ljudenhetens [ID-strängar för slutpunkten](/windows/desktop/CoreAudio/endpoint-id-strings) kan hämtas från [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice)-objektet i Windows för datorprogram.
+
 Följande kodexempel visar hur du kan använda den för att räkna upp ljudenheter i C++:
 
 ```cpp
@@ -177,6 +176,7 @@ Ett exempel på ett enhets-ID är `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-454
 ## <a name="audio-device-ids-on-uwp"></a>Ljudenhets-ID:n i UWP
 
 I en universell Windows-plattform (UWP) kan ljudenheter hämtas med hjälp av `Id()`-egenskapen för motsvarande [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation)-objekt.
+
 Följande kodexempel visar hur du gör detta i C++ och C#:
 
 ```cpp
@@ -227,13 +227,16 @@ Ett exempel på ett enhets-ID är `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab6
 ## <a name="audio-device-ids-on-linux"></a>Ljudenhets-ID:n i Linux
 
 Enhetens ID:n har valts med hjälp av standard-ID:n för ALSA enheter.
+
 ID:n för de indata som är anslutna till datorn finns i `arecord -L`-kommandots utdata.
 De kan också hämtas med hjälp av [ALSA C-biblioteket](https://www.alsa-project.org/alsa-doc/alsa-lib/).
+
 Exempel på ID:n är `hw:1,0` och `hw:CARD=CC,DEV=0`.
 
 ## <a name="audio-device-ids-on-macos"></a>Ljudenhets-ID:n i macOS
 
 Följande funktion som implementeras i Objective-C skapar en lista med namn och ID:n för de ljudenheter som är anslutna till en Mac.
+
 Strängen `deviceUID` används för att identifiera en enhet i Speech SDK för macOS.
 
 ```objc
@@ -362,8 +365,8 @@ UID för den inbyggda mikrofonen är till exempel `BuiltInMicrophoneDevice`.
 
 ## <a name="audio-device-ids-on-ios"></a>Ljudenhets-ID:n i iOS
 
-Ljudenhetsval med Speech SDK stöds inte i iOS.
-Appar med SDK kan dock påverka det ljud som dirigeras via [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
+Ljudenhetsval med Speech SDK stöds inte i iOS. Appar med SDK kan dock påverka det ljud som dirigeras via [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
+
 Till exempel instruktionen
 
 ```objc

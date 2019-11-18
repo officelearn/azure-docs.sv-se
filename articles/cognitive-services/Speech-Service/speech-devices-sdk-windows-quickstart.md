@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: kör tal enheter SDK i Windows-Speech-tjänsten'
+title: 'Snabb start: kör tal enheter SDK i Windows'
 titleSuffix: Azure Cognitive Services
 description: Krav och anvisningar för att komma igång med en Windows Speech-enhet SDK.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: e59cfaa1260cd33c8912437d56bbbb2ace2f43ed
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090454"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111681"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Snabb start: Kör exempel programmet för tal enheter SDK i Windows
 
@@ -105,22 +105,21 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Om du använder en konversations avskrift behövs även din information om din nyckel och region i `Cts.java`:
+   Om du använder en konversations avskrift behövs även din information om din nyckel och region i `Cts.java`:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. Standard nyckelordet (Keyword) är "Computer". Du kan också prova något av de andra angivna nyckelorden, t. ex. "Machine" eller "Assistant". Resursfiler för dessa alternativa nyckelord finns i avsnittet om tal enheter SDK i mappen nyckelord. `C:\SDSDK\JRE-Sample-Release\keyword\Computer` innehåller till exempel de filer som används för nyckelordet "dator".
 
-   > [!TIP]
-   > Du kan också [skapa ett anpassat nyckelord](speech-devices-sdk-create-kws.md).
+    > [!TIP]
+    > Du kan också [skapa ett anpassat nyckelord](speech-devices-sdk-create-kws.md).
 
     Om du vill använda ett nytt nyckelord uppdaterar du följande rad i `FunctionsList.java`och kopierar nyckelordet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet `machine.zip`:
 
    * Kopiera `kws.table`-filen från zip-paketet till projektmappen **/-klasserna**i Project-mappen.
-
    * Uppdatera `FunctionsList.java` med nyckelords namnet:
 
      ```java
@@ -143,23 +142,23 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 ## <a name="create-and-run-a-standalone-application"></a>Skapa och köra ett fristående program
 
-1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Exportera**. 
+1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Exportera**.
 
 1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa**.
 
-   ![Skärm bild av export fönstret](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![Skärm bild av export fönstret](media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför**.
- 
+
    ![Skärm bild av körbara JAR File export](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. Sätt `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` i målmappen som väljs ovan som de här filerna behövs för programmet.
 
 1. Köra det fristående programmet
 
-     ```powershell
-     java -jar SpeechDemo.jar
-     ```
+   ```powershell
+   java -jar SpeechDemo.jar
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

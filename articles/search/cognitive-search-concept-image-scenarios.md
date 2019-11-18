@@ -1,5 +1,5 @@
 ---
-title: Bearbeta och extrahera text från bilder i en pipeline för berikning
+title: Extrahera text från bilder
 titleSuffix: Azure Cognitive Search
 description: Behandla och extrahera text och annan information från bilder i Azure Kognitiv sökning pipelines.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787744"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113850"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Så här bearbetar och extraherar du information från bilder i AI-anriknings scenarier
 
@@ -58,13 +58,13 @@ Du anger imageAction i [Indexer-definitionen](https://docs.microsoft.com/rest/ap
 }
 ```
 
-När *imageAction* är inställt på ett annat värde än "ingen", kommer fältet New *normalized_images* att innehålla en matris med bilder. Varje bild är en komplex typ som har följande medlemmar:
+När *imageAction* är inställt på ett annat värde än "ingen", kommer fältet ny *normalized_images* innehålla en matris med bilder. Varje bild är en komplex typ som har följande medlemmar:
 
 | Bild medlem       | Beskrivning                             |
 |--------------------|-----------------------------------------|
 | data               | BASE64-kodad sträng för den normaliserade bilden i JPEG-format.   |
 | LED              | Den normaliserade bildens bredd i bild punkter. |
-| Våghöjd             | Den normaliserade bildens höjd i bild punkter. |
+| våghöjd             | Den normaliserade bildens höjd i bild punkter. |
 | originalWidth      | Bildens ursprungliga bredd före normalisering. |
 | originalHeight      | Bildens ursprungliga höjd innan normalisering. |
 | rotationFromOriginal |  Räknaren medsols rotation i grader som uppstod när den normaliserade bilden skulle skapas. Ett värde mellan 0 och 360 grader. Det här steget läser metadata från den avbildning som genereras av en kamera eller skanner. Vanligt vis en multipel av 90 grader. |
@@ -109,7 +109,7 @@ Ett vanligt scenario är att skapa en enskild sträng som innehåller allt fil i
 1. Kör OCR-kunskaper med `"/document/normalized_images"` som inmatade
 1. Sammanfoga text representationen av dessa bilder med den obehandlade text som extraherats från filen. Du kan använda [text sammanfognings](cognitive-search-skill-textmerger.md) kunskapen för att konsolidera båda text segmenten i en enda stor sträng.
 
-I följande exempel skapar färdigheter ett *merged_text* -fält som innehåller text innehållet i ditt dokument. Den innehåller också OCRed-texten från var och en av de inbäddade bilderna. 
+I följande exempel färdigheter skapas ett *merged_text* -fält som innehåller text innehållet i ditt dokument. Den innehåller också OCRed-texten från var och en av de inbäddade bilderna. 
 
 #### <a name="request-body-syntax"></a>Syntax för begär ande text
 ```json
@@ -162,7 +162,7 @@ I följande exempel skapar färdigheter ett *merged_text* -fält som innehåller
 }
 ```
 
-Nu när du har ett merged_text-fält kan du mappa det som ett sökbart fält i din index definition. Alla filernas innehåll, inklusive texten i bilderna, är sökbara.
+Nu när du har ett merged_text fält kan du mappa det som ett sökbart fält i din index definition. Alla filernas innehåll, inklusive texten i bilderna, är sökbara.
 
 ## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualisera avgränsnings rutor för extraherad text
 
@@ -213,7 +213,7 @@ Om du behöver transformera normaliserade koordinater till det ursprungliga koor
         }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Analysera bild kunskaper](cognitive-search-skill-image-analysis.md)
 + [OCR-kunskaper](cognitive-search-skill-ocr.md)

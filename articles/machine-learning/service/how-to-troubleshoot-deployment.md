@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: dab79f1d63a20e12f148766db5fcc3fc313a1f3a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076898"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123222"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
@@ -56,7 +56,7 @@ Mer information om den här processen i den [modellhantering](concept-model-mana
 
 Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet.
 
-Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) eller [webservice. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
+Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none--overwrite-false-) eller [webservice. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none--overwrite-false-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
 
 1. Registrera modellen. Här är exempelkod:
 

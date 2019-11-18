@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 222ca8781ae9532f10ed7d113b93eac78c6a3bba
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575899"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129066"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
 
@@ -23,7 +23,7 @@ ms.locfileid: "73575899"
 *Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga för v2-körningen.  
 
 > [!NOTE]
-> Den här artikeln är för Azure Functions 2. x.  En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
+> Den här artikeln är för Azure Functions 2. x.  En referens för host.json i Functions 1.x, se [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
 
 Andra konfigurations alternativ för Function-appar hanteras i dina [app-inställningar](functions-app-settings.md).
 
@@ -48,6 +48,10 @@ Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
         "queues": {},
         "sendGrid": {},
         "serviceBus": {}
+    },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -135,6 +139,12 @@ Konfigurations inställningar finns i [Event Hub-utlösare och bindningar](funct
 
 Egenskap som returnerar ett objekt som innehåller alla bindande inställningar, till exempel [http](#http) och [eventHub](#eventhub).
 
+## <a name="extensionbundle"></a>extensionBundle 
+
+Med tilläggs paket kan du lägga till en kompatibel uppsättning funktions bindnings tillägg i din app. Mer information finns i [tilläggs paket för lokal utveckling](functions-bindings-register.md#extension-bundles).
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
+
 ## <a name="functions"></a>functions
 
 En lista med funktioner som jobb värden kör. En tom matris innebär att köra alla-funktioner. Endast avsedd att användas när du [Kör lokalt](functions-run-local.md). I Function-appar i Azure bör du i stället följa stegen i [så här inaktiverar du funktioner i Azure Functions](disable-function.md) för att inaktivera vissa funktioner i stället för att använda den här inställningen.
@@ -174,7 +184,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|aktiva|true|Anger om funktionen är aktive rad. | 
+|enabled|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
 |healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold`-inställningen.| 
 |healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
@@ -208,7 +218,7 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never`, `always``debugOnly`. |
 |logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
-|konsol|Saknas| Loggnings inställningen för [konsolen](#console) . |
+|konsol|Saknas| Den [console](#console) inställning för aktivitetsloggning. |
 |applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>konsol
@@ -251,7 +261,7 @@ Du hittar konfigurations inställningar i [utlösare och bindningar för lagring
 
 Det går att hitta konfigurations inställningen i [SendGrid-utlösare och bindningar](functions-bindings-sendgrid.md#host-json).
 
-## <a name="servicebus"></a>Service Bus
+## <a name="servicebus"></a>serviceBus
 
 Du hittar konfigurations inställningen i [Service Bus utlösare och bindningar](functions-bindings-service-bus.md#host-json).
 

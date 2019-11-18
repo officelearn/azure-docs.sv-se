@@ -1,23 +1,21 @@
 ---
-title: Skapa en Programgateway med ett certifikat – Azure CLI | Microsoft Docs
+title: Omdirigering av HTTP till HTTPS med CLI
+titleSuffix: Azure Application Gateway
 description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för SSL-avslutning med Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 1a5479cb54e15c0e740d800c8ee248a67e5ec5fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff615507723b949105fc2b604d6bff869bdb33dc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133926"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108767"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering med Azure CLI
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med HTTP till HTTPS-omdirigering med hjälp av Azure CLI
 
 Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) med ett certifikat för SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS-porten i application gateway. I det här exemplet kan du också skapa en [virtual machine scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för serverdelspoolen för application gateway som innehåller två instanser av virtuella datorer.
 
@@ -121,7 +119,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>Lägg till HTTP-porten
 
-Du kan använda [az network application-gateway frontend-port skapar](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) att lägga till HTTP-porten till application gateway.
+Du kan använda [AZ Network Application-Gateway frontend-port Create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) för att lägga till http-porten till Application Gateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -131,9 +129,9 @@ az network application-gateway frontend-port create \
   --name httpPort
 ```
 
-### <a name="add-the-http-listener"></a>Lägg till HTTP-lyssnare
+### <a name="add-the-http-listener"></a>Lägg till HTTP-lyssnaren
 
-Du kan använda [az network application-gateway http-listener skapa](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) att lägga till lyssnaren med namnet *myListener* till application gateway.
+Du kan använda [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) för att lägga till lyssnaren med namnet ' *lyssnare* till programgatewayen.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -144,9 +142,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
+### <a name="add-the-redirection-configuration"></a>Lägg till omdirigerings konfigurationen
 
-Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Lägg till konfigurationen för omdirigering av HTTP till HTTPS i Application Gateway med [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -159,9 +157,9 @@ az network application-gateway redirect-config create \
   --include-query-string true
 ```
 
-### <a name="add-the-routing-rule"></a>Lägg till regel för vidarebefordran
+### <a name="add-the-routing-rule"></a>Lägg till regel för routning
 
-Lägg till en routningsregel med namnet *2* med konfigurationen för omdirigering i application gateway med hjälp av [az network application-gateway rule skapa](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Lägg till Routningsprincipen med namnet *regel 2* med omdirigerings konfigurationen till Application Gateway med [AZ Network Application-Gateway Rule Create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -175,7 +173,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
-I det här exemplet skapar du en VM-skalningsuppsättning med namnet *myvmss* som ger servrar för serverdelspoolen i application gateway. De virtuella datorerna i skalningsuppsättningen är associerade med undernätet *myBackendSubnet* och *appGatewayBackendPool*. Du kan skapa skalningsuppsättningen med [az vmss create](/cli/azure/vmss#az-vmss-create).
+I det här exemplet skapar du en skalnings uppsättning för virtuell dator med namnet *myvmss* som tillhandahåller servrar för backend-poolen i Application Gateway. De virtuella datorerna i skalningsuppsättningen är associerade med undernätet *myBackendSubnet* och *appGatewayBackendPool*. Du kan skapa skalningsuppsättningen med [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \

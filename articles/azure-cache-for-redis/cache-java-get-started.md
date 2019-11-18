@@ -1,32 +1,25 @@
 ---
-title: 'Snabbstart: Använda Azure cache för Redis med Java'
+title: 'Snabb start: Använd Azure cache för Redis med Java'
 description: I den här snabbstarten skapar du en ny Java-app som använder Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 019defe782f8258acfd508745d36a0a6599d2e61
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 6163392c80d40b6ea65e681aa175c21c244099b9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273905"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122702"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Snabbstart: Använda Azure cache för Redis med Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Snabb start: Använd Azure cache för Redis med Java
 
 I den här snabb starten införlivar du Azure cache för Redis i en Java-app med hjälp av [Jedis](https://github.com/xetorthio/jedis) Redis-klienten för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
@@ -133,7 +126,7 @@ mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
 ![Azure cache för Redis-appen har slutförts](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
@@ -159,7 +152,7 @@ Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig att använda Azure Cache for Redis från ett Java-program. Fortsätt till nästa snabbstart om du vill använda Azure Cache for Redis med en ASP.NET-webbapp.
+I den här snabbstarten har du lärt dig att använda Azure Cache for Redis från ett Java-program. Fortsätta till nästa snabbstart om du vill använda Azure Cache for Redis med en ASP.NET-webbapp.
 
 > [!div class="nextstepaction"]
 > [Skapa en ASP.NET-webbapp som använder en Azure Cache for Redis.](./cache-web-app-howto.md)

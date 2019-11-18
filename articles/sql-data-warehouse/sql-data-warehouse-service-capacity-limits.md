@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c4ab9d9cc8007281e0e5729fe883e654107be6fe
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e3661797ea408f219a67a1862901fee7c27a1d58
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645297"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123917"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Kapacitets gränser för Azure Synapse Analytics (tidigare SQL DW)
 
@@ -26,11 +26,11 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU för en enskild SQL-pool (data lager) enhet | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU per server |54 000<br></br>Varje SQL Server (t. ex. myserver.database.windows.net) har som standard en DTU-kvot på 54 000, vilket tillåter upp till 9 DW6000c. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka kvoten genom att [skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) och välja *kvot* som typ av begäran.  För att beräkna dina DTU-behov multiplicerar du 7,5 med den totala DWU som krävs, eller multiplicerar 9,0 med den totala cDWU som behövs. Till exempel:<br></br>DW6000 x 7,5 = 45 000 DTU: er<br></br>DW6000c x 9,0 = 54 000 DTU: er.<br></br>Du kan visa den aktuella DTU-förbrukningen från SQL Server-alternativet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
+| [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU per server |54,000<br></br>Varje SQL Server (t. ex. myserver.database.windows.net) har som standard en DTU-kvot på 54 000, vilket ger upp till DW5000c. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka kvoten genom att [skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) och välja *kvot* som typ av begäran.  För att beräkna dina DTU-behov multiplicerar du 7,5 med den totala DWU som krävs, eller multiplicerar 9,5 med den totala cDWU som behövs. Exempel:<br></br>DW6000 x 7,5 = 45 000 DTU: er<br></br>DW5000c x 9,5 = 47 500 DTU: er.<br></br>Du kan visa den aktuella DTU-förbrukningen från SQL Server-alternativet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
 | Databas anslutning |Maximalt antal samtidiga öppna sessioner |1024<br/><br/>Antalet samtidiga öppna sessioner varierar beroende på den valda DWU. DWU600c och högre stöder högst 1024 öppna sessioner. DWU500c och nedan stöder maximalt antal samtidiga sessioner av öppen session på 512. Obs! det finns gränser för hur många frågor som kan köras samtidigt. Om samtidigheten överskrids hamnar begäran i en intern kö där den väntar på att bearbetas. |
 | Databas anslutning |Maximalt minne för för beredda uttryck |20 MB |
-| [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |128<br/><br/>  Högst 128 samtidiga frågor kommer att köras och återstående frågor placeras i kö.<br/><br/>Antalet samtidiga frågor kan minska när användare tilldelas högre resurs klasser eller när inställningen [Data Warehouse Unit] Memory-samtidighets-limits.md) sänks. Vissa frågor, som DMV-frågor, tillåts alltid att köras och påverkar inte gränsen för samtidiga frågor. Mer information om körning av samtidiga frågor finns i artikeln [samtidighets gräns] minnes-samtidighets-limits.md). |
-| [TempDB](sql-data-warehouse-tables-temporary.md) |Maximalt GB |399 GB per DW100. I DWU1000 är tempdb därför storleken 3,99 TB. |
+| [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |128<br/><br/>  Högst 128 samtidiga frågor kommer att köras och återstående frågor placeras i kö.<br/><br/>Antalet samtidiga frågor kan minska när användare tilldelas högre resurs klasser eller när inställningen för [data lagrets enhet](memory-concurrency-limits.md) sänks. Vissa frågor, som DMV-frågor, tillåts alltid att köras och påverkar inte gränsen för samtidiga frågor. Mer information om körning av samtidiga frågor finns i artikeln om [högsta antal](memory-concurrency-limits.md) samtidiga frågor. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximalt GB |399 GB per DW100. I DWU1000 är tempdb därför storleken 3,99 TB. |
 
 ## <a name="database-objects"></a>Databas objekt
 | Kategori | Beskrivning | Maximal |
@@ -49,9 +49,9 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | Index |Nyckel kolumner per index. |16<br/><br/>Gäller endast för rowstore-index. Grupperade columnstore-index inkluderar alla kolumner. |
 | Statistik |Storlek på kombinerade kolumn värden. |900 byte. |
 | Statistik |Kolumner per statistik objekt. |32 |
-| Statistik |Statistik som skapats på kolumner per tabell. |30 000 |
+| Statistik |Statistik som skapats på kolumner per tabell. |30,000 |
 | Lagrade procedurer |Maximala kapslings nivåer. |8 |
-| Visa |Kolumner per vy |1 024 |
+| Visa |Kolumner per vy |1,024 |
 
 ## <a name="loads"></a>Övriga
 | Kategori | Beskrivning | Maximal |
@@ -65,27 +65,27 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | Fråga |Samtidiga frågor i systemvyer. |100 |
 | Fråga |Köade frågor om systemvyer |1000 |
 | Fråga |Maximalt antal parametrar |2098 |
-| Batch |Maximal storlek |65536 * 4096 |
+| Batch |Maximal storlek |65,536*4096 |
 | Välj resultat |Kolumner per rad |4096<br/><br/>Du kan aldrig ha fler än 4096 kolumner per rad i Välj resultat. Det finns ingen garanti för att du alltid kan ha 4096. Om din frågeplan kräver en temporär tabell, kan kolumnerna 1024 per tabell gälla. |
 | VÄLJ |Kapslade under frågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade under frågor i en SELECT-instruktion. Det finns ingen garanti för att du alltid kan ha 32. Till exempel kan en koppling introducera en under fråga i frågeuttrycket. Antalet under frågor kan också begränsas av tillgängligt minne. |
 | VÄLJ |Kolumner per koppling |1024 kolumner<br/><br/>Du kan aldrig ha fler än 1024 kolumner i kopplingen. Det finns ingen garanti för att du alltid kan ha 1024. Om JOIN-planen kräver en temporär tabell med fler kolumner än KOPPLINGs resultatet gäller gränsen 1024 för den temporära tabellen. |
 | VÄLJ |Byte per grupp efter kolumner. |8060<br/><br/>Kolumnerna i GROUP BY-satsen får innehålla högst 8060 byte. |
 | VÄLJ |Byte per sortering efter kolumner |8060 byte<br/><br/>Kolumnerna i ORDER BY-satsen får innehålla högst 8060 byte |
-| Identifierare per instruktion |Antalet refererade identifierare |65 535<br/><br/> Antalet identifierare som kan ingå i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632. Mer information finns i [internt fel: en gräns för uttrycks tjänster har nåtts](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Sträng litteraler | Antal sträng litteraler i en instruktion | 20 000 <br/><br/>Antalet sträng konstanter i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632.|
+| Identifierare per instruktion |Antalet refererade identifierare |65,535<br/><br/> Antalet identifierare som kan ingå i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632. Mer information finns i [internt fel: en gräns för uttrycks tjänster har nåtts](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
+| Sträng litteraler | Antal sträng litteraler i en instruktion | 20,000 <br/><br/>Antalet sträng konstanter i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632.|
 
 ## <a name="metadata"></a>Metadata
 | System visning | Maximalt antal rader |
 |:--- |:--- |
-| sys. DM-_pdw_component_health_alerts |10 000 |
-| sys. DM-_pdw_dms_cores |100 |
-| sys. DM-_pdw_dms_workers |Totalt antal DMS-arbetare för de senaste 1000 SQL-begärandena. |
-| sys. DM-_pdw_errors |10 000 |
-| sys. DM-_pdw_exec_requests |10 000 |
-| sys. DM-_pdw_exec_sessions |10 000 |
-| sys. DM-_pdw_request_steps |Totalt antal steg för de senaste 1000 SQL-begäranden som lagras i sys. DM _pdw_exec_requests. |
-| sys. DM-_pdw_os_event_logs |10 000 |
-| sys. DM-_pdw_sql_requests |De senaste 1000 SQL-begäranden som lagras i sys. DM _pdw_exec_requests. |
+| sys.dm_pdw_component_health_alerts |10 000 |
+| sys.dm_pdw_dms_cores |100 |
+| sys.dm_pdw_dms_workers |Totalt antal DMS-arbetare för de senaste 1000 SQL-begärandena. |
+| sys.dm_pdw_errors |10 000 |
+| sys.dm_pdw_exec_requests |10 000 |
+| sys.dm_pdw_exec_sessions |10 000 |
+| sys.dm_pdw_request_steps |Totalt antal steg för de senaste 1000 SQL-begäranden som lagras i sys. dm_pdw_exec_requests. |
+| sys.dm_pdw_os_event_logs |10 000 |
+| sys.dm_pdw_sql_requests |De senaste 1000 SQL-begäranden som lagras i sys. dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Nästa steg
 Rekommendationer om hur du använder Azure Synapse finns i [lathund-bladet](cheat-sheet.md).

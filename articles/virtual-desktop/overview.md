@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 3781b71237f97cfd004805846f7c30f8cfe9b9f5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4db9e1e812390f173da89a508c1dbc6782f4454f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013154"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74119996"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -117,8 +117,8 @@ Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 
 Windows Virtual Desktop stöder följande x64-operativ system avbildningar:
 
-* Windows 10 Enterprise multi-session
-* Windows 10 Enterprise
+* Windows 10 Enterprise multi-session, version 1809 eller senare
+* Windows 10 Enterprise, version 1809 eller senare
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016

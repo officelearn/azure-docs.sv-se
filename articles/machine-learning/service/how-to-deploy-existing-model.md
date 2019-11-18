@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 4e82d52428195797fb5cdc7a54e900fff7d37655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b25189eb63961056c7966722dccb6857736d0c35
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671449"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123223"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Använd en befintlig modell med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Om du har en maskin inlärnings modell som har tränats utanför Azure Machine L
 >
 > Allmän information om distributions processen finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
 
@@ -63,7 +63,7 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
-Mer information finns i referensen [Model. register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none-) .
+Mer information finns i referensen [Model. register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) .
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -265,7 +265,7 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-Mer information finns i referensen [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-) .
+Mer information finns i referensen [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
 
 Använd följande kommando för att distribuera modellen från CLI. Det här kommandot distribuerar version 1 av den registrerade modellen (`sentiment:1`) med hjälp av konfigurationen för konfigurations härledning och distribution som lagras i `inferenceConfig.json` och `deploymentConfig.json` filer:
 

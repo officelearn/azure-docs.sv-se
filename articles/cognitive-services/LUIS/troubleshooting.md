@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: c7e34b816f33c5286557dfc5d58711128ff68437
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075887"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123109"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -50,7 +50,7 @@ Ja, det är bra att träna din **ingen** avsikt med mer yttranden när du lägge
 Se den [Bing stavningskontroll kontrollera API V7](luis-tutorial-bing-spellcheck.md) självstudien. LUIS tillämpar begränsningar har införts av Bing stavningskontroll kontrollera API V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Hur gör jag för att redigera min LUIS-app via programmering?
-Redigera LUIS-app via programmering genom att använda den [redigering API](https://go.microsoft.com/fwlink/?linkid=2092087). Se [anropa LUIS redigering API](./luis-quickstart-node-add-utterance.md) och [skapa en LUIS-app via programmering med hjälp av Node.js](./luis-tutorial-node-import-utterances-csv.md) exempel på hur du anropar API: et redigering. Redigera-API kräver att du använder en [redigering nyckeln](luis-concept-keys.md#azure-resources-for-luis) i stället för en slutpunktsnyckel. Programmässig redigering kan upp till 1 000 000 anrop per månad och fem transaktioner per sekund. Mer information på de nycklar som du använder med LUIS finns i [hantera nycklar](./luis-concept-keys.md).
+Redigera LUIS-app via programmering genom att använda den [redigering API](https://go.microsoft.com/fwlink/?linkid=2092087). Se [anropa LUIS redigering API](./get-started-get-model-rest-apis.md) och [skapa en LUIS-app via programmering med hjälp av Node.js](./luis-tutorial-node-import-utterances-csv.md) exempel på hur du anropar API: et redigering. Redigera-API kräver att du använder en [redigering nyckeln](luis-concept-keys.md#azure-resources-for-luis) i stället för en slutpunktsnyckel. Programmässig redigering kan upp till 1 000 000 anrop per månad och fem transaktioner per sekund. Mer information på de nycklar som du använder med LUIS finns i [hantera nycklar](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Där matchar mönstret-funktion som tillhandahålls reguljärt uttryck?
 Den tidigare **mönsterfunktion** för närvarande är inaktuell, ersatts av  **[mönster](luis-concept-patterns.md)** .

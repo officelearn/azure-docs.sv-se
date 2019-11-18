@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Hämta bildinformation med SDK för visuell sökning i Bing för Node.js'
+title: 'Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing SDK för Node. js'
 titleSuffix: Azure Cognitive Services
-description: Ladda upp en bild med hjälp av API för visuell sökning i Bing och får information om den.
+description: Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Node.js SDK.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: f0dd0bb82f899146956b5671497d298c7ce076ef
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: fd69179c98e999323936daf7e83b165126c20381
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360514"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111583"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Snabbstart: Hämta bildinformation med SDK för visuell sökning i Bing för Node.js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing SDK för Node. js
 
 Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Node.js SDK. Även om den visuella sökningen i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * [Node.js](https://www.nodejs.org/)
 * SDK för visuell sökning i Bing för Node.js
     * För att skapa ett konsolprogram med API för visuell sökning i Bing, kör följande kommando:

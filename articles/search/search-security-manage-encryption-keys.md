@@ -1,5 +1,5 @@
 ---
-title: Kryptering – rest med Kundhanterade nycklar i Azure Key Vault (för hands version)
+title: Kryptering – rest med Kundhanterade nycklar (förhands granskning)
 titleSuffix: Azure Cognitive Search
 description: Kompletterande kryptering på Server sidan över index och synonymer mappar i Azure Kognitiv sökning via nycklar som du skapar och hanterar i Azure Key Vault. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721748"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112932"
 ---
-# <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Innehålls kryptering av Azure Kognitiv sökning med Kundhanterade nycklar i Azure Key Vault
+# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering – resten av innehållet i Azure Kognitiv sökning att använda Kundhanterade nycklar i Azure Key Vault
 
 > [!IMPORTANT] 
 > Stöd för kryptering vid vila är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06-Preview](search-api-preview.md) och [.net SDK version 8,0 – för hands version](search-dotnet-sdk-migration-version-9.md) innehåller den här funktionen. Det finns för närvarande inget stöd för portalen.
@@ -28,7 +28,7 @@ Kryptering med Kundhanterade nycklar konfigureras på mappnings nivån index ell
 
 Du kan använda olika nycklar från olika nyckel valv. Det innebär att en enskild Sök tjänst kan vara värd för flera krypterade indexes\synonym-kartor, varje krypterad potentiellt en annan kundhanterad nyckel, tillsammans med indexes\synonym Maps som inte är krypterade med Kundhanterade nycklar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande tjänster används i det här exemplet. 
 

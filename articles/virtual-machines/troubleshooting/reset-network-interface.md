@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058471"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111721"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Så här återställer du nätverks gränssnittet för Azure Windows VM 
 
@@ -68,7 +68,7 @@ Den här artikeln visar hur du återställer nätverks gränssnittet för Azure 
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
+    Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. Försök att använda RDP till din dator.  Om det lyckas kan du ändra den privata IP-adressen tillbaka till den ursprungliga om du vill. Annars kan du behålla det.
 
@@ -109,7 +109,7 @@ Följ dessa steg om du vill återställa nätverks gränssnittet:
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. Försök att använda RDP till din dator. Om det lyckas kan du ändra den privata IP-adressen tillbaka till den ursprungliga om du vill. Annars kan du behålla det. 
 
@@ -117,10 +117,10 @@ Följ dessa steg om du vill återställa nätverks gränssnittet:
 När du har fjärr skrivbordet till datorn måste du ta bort de gamla nätverkskorten för att undvika det potentiella problemet:
 
 1.  Öppna Enhetshanteraren.
-2.  Välj **Visa** > **Visa dolda enheter**.
+2.  Välj **visa** > **Visa dolda enheter**.
 3.  Välj **nätverkskort**. 
 4.  Sök efter de nätverkskort som heter "Microsoft Hyper-V nätverkskort".
-5.  Du kan se ett otillgängligt nätverkskort som är nedtonat. Högerklicka på kortet och välj sedan Avinstallera.
+5.  Du kan se ett otillgängligt kort som är nedtonat. Högerklicka på kortet och välj sedan Avinstallera.
 
     ![NÄTVERKSKORTets avbildning](media/reset-network-interface/nicpage.png)
 

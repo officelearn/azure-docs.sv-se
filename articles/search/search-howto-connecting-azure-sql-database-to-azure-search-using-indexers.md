@@ -1,5 +1,5 @@
 ---
-title: Ansluta och indexera Azure SQL Database innehåll med hjälp av indexerare
+title: Sök över Azure SQL-data
 titleSuffix: Azure Cognitive Search
 description: Importera data från Azure SQL Database med hjälp av indexerare för full texts ökning i Azure Kognitiv sökning. Den här artikeln beskriver anslutningar, indexerings konfiguration och data inmatning.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792197"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113301"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>Ansluta till och indexera Azure SQL Database innehåll med Azure Kognitiv sökning indexerare
+# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL Database innehåll med hjälp av en Azure Kognitiv sökning-indexerare
 
 Innan du kan skicka frågor till ett [Azure kognitiv sökning-index](search-what-is-an-index.md)måste du fylla i det med dina data. Om data finns i en Azure SQL-databas, kan en **azure kognitiv sökning-indexerare för Azure SQL Database** (eller **Azure SQL-indexeraren** för kort) automatisera indexerings processen, vilket innebär att mindre kod kan skriva och mindre infrastruktur för att vara försiktig.
 
@@ -271,17 +271,17 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mappning mellan SQL-och Azure Kognitiv sökning data typer
 | SQL-datatyp | Tillåtna fält typer för mål index | Anteckningar |
 | --- | --- | --- |
-| bitmask |EDM. Boolean, EDM. String | |
-| int, smallint, tinyint |EDM. Int32, EDM. Int64, EDM. String | |
-| bigint |EDM. Int64, EDM. String | |
-| verkligt, flyttal |EDM. Double, EDM. String | |
+| bit |Edm.Boolean, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
+| verkligt, flyttal |Edm.Double, Edm.String | |
 | smallmoney, Money decimal tal |Edm.String |Azure Kognitiv sökning stöder inte konvertering av decimal typer till EDM. Double eftersom detta skulle förlora precisionen |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |En SQL-sträng kan användas för att fylla i ett samlings fält (EDM. String) om strängen representerar en JSON-matris med strängar: `["red", "white", "blue"]` |
-| smalldatetime, DateTime, datetime2, date, DateTimeOffset |EDM. DateTimeOffset, EDM. String | |
+| smalldatetime, DateTime, datetime2, date, DateTimeOffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Placering |Edm.GeographyPoint |Endast geografi instanser av typ punkt med SRID 4326 (vilket är standard) stöds |
-| rowversion |Gäller inte |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
-| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |Gäller inte |Stöds inte |
+| rowversion |Saknas |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
+| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |Saknas |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurations inställningar
 SQL-indexeraren visar flera konfigurations inställningar:
@@ -299,7 +299,7 @@ De här inställningarna används i `parameters.configuration`-objektet i index 
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **F: kan jag använda Azure SQL-indexeraren med SQL-databaser som körs på virtuella IaaS-datorer i Azure?**
 

@@ -1,5 +1,5 @@
 ---
-title: Service administration för Azure Kognitiv sökning i portalen
+title: Tjänst administration i portalen
 titleSuffix: Azure Cognitive Search
 description: Hantera en Azure Kognitiv sökning-tjänst, en värd för moln Sök tjänst på Microsoft Azure, med hjälp av Azure Portal.
 manager: nitinme
@@ -9,20 +9,20 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793510"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113281"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) -> 
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Kognitiv sökning är en fullständigt hanterad, molnbaserad Sök tjänst som används för att skapa en omfattande Sök upplevelse i anpassade appar. Den här artikeln beskriver de tjänst administrations uppgifter som du kan utföra i [Azure Portal](https://portal.azure.com) för en Sök tjänst som du redan har etablerad. Tjänst administration är lätt att utforma, begränsad till följande uppgifter:
 
@@ -62,8 +62,8 @@ I instrument panelen är resurs övervakning begränsad till den information som
 
 Med hjälp av Sök tjänsten REST API kan du få ett antal dokument och index program mässigt: 
 
-* [Hämta index statistik](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Räkna dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Hämta Indexstatistiken](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Antal dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Haveri beredskap och drift avbrott
 

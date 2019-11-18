@@ -13,20 +13,20 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 24cba4b02bb046a16db04635a1bf5ef4f6b619a6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3282106651f9ec101251d7d35369040df9572b06
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234503"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122856"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabbstart: Skapa en datafabrik och pipeline med .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabb start: skapa en data fabrik och pipeline med .NET SDK
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](quickstart-create-data-factory-dot-net.md)
 
-Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azure-datafabrik. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. En självstudie om hur du **transformerar** data med hjälp av Azure Data Factory finns i [Självstudie: Transformera data med Spark](tutorial-transform-data-spark-portal.md).
+Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azure-datafabrik. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du **omvandlar** data med Azure Data Factory går du till [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md) (Självstudie: Omvandla data med Spark).
 
 > [!NOTE]
 > Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md).
@@ -43,7 +43,7 @@ Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 
-Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som*kan komma åt resurser genom att följa anvisningarna för att utföra dessa uppgifter:
+Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser*, följer du anvisningarna för att utföra dessa uppgifter:
 
 1. Skapa ett program i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)som representerar det .NET-program som du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
 2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), hämtar du **program-ID** och **klient-ID**och noterar de här värdena som du använder senare i den här självstudien. 
@@ -55,13 +55,13 @@ Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program 
 Skapa sedan ett C# .net-konsol program i Visual Studio:
 
 1. Starta **Visual Studio**.
-2. I fönstret Starta väljer du **skapa en ny projekt** > **konsol app (.NET Framework)** . .NET version 4.5.2 eller senare krävs.
+2. I fönstret Starta väljer du **skapa ett nytt projekt** >  **-konsol program (.NET Framework)** . .NET version 4.5.2 eller senare krävs.
 3. Skriv **ADFv2QuickStart**i **projekt namn**.
 4. Välj **Skapa** för att skapa projektet.
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **verktyg** > **NuGet Package Manager** > Package Manager-**konsolen**.
+1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
 2. I fönstret **Package Manager-konsol** kör du följande kommandon för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -85,7 +85,7 @@ Skapa sedan ett C# .net-konsol program i Visual Studio:
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt plats hållarna med dina egna värden. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, Azure SQL Database och mer) och beräkningarna (HDInsight och andra) som används av Data Factory kan finnas i andra regioner.
+2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt plats hållarna med dina egna värden. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, Azure SQL Database och mer) och beräkningarna (HDInsight och andra) som används av Data Factory kan finnas i andra regioner.
 
    ```csharp
    // Set variables
@@ -256,7 +256,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
+Lägg till följande kod i **Main**-metoden som **utlöser en pipelinekörning**.
 
 Den här koden anger också värden för parametrarna **inputPath** och **outputPath** som anges i pipelinen med de faktiska värdena för käll-och mottagar-BLOB-sökvägar.
 
@@ -287,7 +287,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
        pipelineRun = client.PipelineRuns.Get(
            resourceGroup, dataFactoryName, runResponse.RunId);
        Console.WriteLine("Status: " + pipelineRun.Status);
-       if (pipelineRun.Status == "InProgress")
+       if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
            System.Threading.Thread.Sleep(15000);
        else
            break;

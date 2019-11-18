@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333220"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111850"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -31,6 +31,7 @@ GZRS och RA-GZRS är för närvarande tillgängliga för förhands granskning i 
 
 - Nordeuropa
 - Västeuropa
+- Storbritannien, södra
 - USA, östra
 - USA, östra 2
 - USA, centrala
@@ -141,14 +142,14 @@ Om du vill begära en Direktmigrering använder du [Azure Portal](https://ms.por
     - **Problem typ**: Välj **datamigrering**.
     - **Kategori**: Välj **MIGRERA till (RA-) GZRS i en region**.
     - **Title**: Ange en beskrivande rubrik, till exempel **(RA-) GZRS för konto migrering**.
-    - **Information**: Skriv ytterligare information i **informations** rutan, till exempel "Jag vill migrera till GZRS från [LRS, GRS] i regionen \_ @ no__t-3." eller "Jag vill migrera till RA-GZRS från [LRS, RA-GRS] i regionen \_ @ no__t-1."
+    - **Information**: Skriv ytterligare information i **informations** rutan, till exempel "Jag vill migrera till GZRS från [LRS, GRS] i \_\_ region." eller "Jag vill migrera till RA-GZRS från [LRS, RA-GRS] i \_\_ region."
 5. Välj **Nästa**.
 6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
 7. Välj **Skapa**.
 
 En support representant kommer att kontakta dig för att få hjälp.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Lokalt redundant lagring (LRS): låg kostnads data redundans för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

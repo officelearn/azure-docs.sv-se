@@ -1,18 +1,18 @@
 ---
 title: Så här fungerar en Application Gateway
-description: Den här artikeln innehåller information om hur en Application Gateway fungerar
+description: Den här artikeln innehåller information om hur en Application Gateway accepterar inkommande begär Anden och dirigerar dem till Server delen.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 5cb7473b309e1aefe6237671fac73c042b33f2cf
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d9d7ae3bc321f1f000fac1a875589df352077f33
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326875"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129820"
 ---
 # <a name="how-an-application-gateway-works"></a>Så här fungerar en Application Gateway
 

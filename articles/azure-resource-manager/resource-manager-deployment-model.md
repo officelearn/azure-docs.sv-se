@@ -1,19 +1,16 @@
 ---
-title: Resource Manager och klassisk distribution | Microsoft Docs
+title: Resource Manager och klassisk distribution
 description: Beskriver skillnaderna mellan Resource Manager-distributionsmodellen och den klassiska distributionsmodellen (eller Service Management).
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9356a1603a39f2ac4d18b27445bf0f8d3a555d7e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 3cca9c71c754b39d065a599c5bb116176ec89408
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982461"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150608"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager kontra klassisk distribution: Förstå distributionsmodeller och tillståndet för dina resurser
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager jämfört med klassisk distribution: Förstå distributionsmodeller och dina resursers tillstånd
 
 > [!NOTE]
 > Informationen i den här artikeln används bara när du migrerar från den klassiska distributionen till Azure Resource Manager-distributionen.

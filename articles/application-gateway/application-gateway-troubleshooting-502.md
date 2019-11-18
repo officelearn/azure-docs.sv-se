@@ -1,18 +1,18 @@
 ---
 title: Felsöka dåliga Gateway-fel – Azure Application Gateway
-description: Lär dig hur du felsöker Application Gateway 502-fel
+description: 'Lär dig hur du felsöker Application Gateway server fel: 502-webb servern tog emot ett ogiltigt svar när den fungerade som en gateway eller proxyserver.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: baf1eccdd6fe910bd98e8b39ef29b7bd8e88a7d5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048161"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130482"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsöka Felaktiga Gateway-fel i Application Gateway
 

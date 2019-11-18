@@ -1,6 +1,6 @@
 ---
 title: Azure Container Instances behållar grupper
-description: Förstå hur grupper med flera behållare fungerar i Azure Container Instances
+description: Lär dig mer om behållar grupper i Azure Container Instances, en samling instanser som delar en livs cykel och resurser, till exempel lagring och nätverk
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ef6745e18a0df3ee0a572f106d1507d0fca32ac2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904453"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150200"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållar grupper i Azure Container Instances
 
 Resursen på den översta nivån i Azure Container Instances är *behållar gruppen*. I den här artikeln beskrivs vilka behållar grupper som är och vilka typer av scenarier de aktiverar.
 
-## <a name="how-a-container-group-works"></a>Så här fungerar en behållar grupp
+## <a name="what-is-a-container-group"></a>Vad är en behållar grupp?
 
 En behållar grupp är en samling behållare som är schemalagda på samma värddator. Behållarna i en behållar grupp delar en livs cykel, resurser, lokalt nätverk och lagrings volymer. Det liknar begreppet *Pod* i [Kubernetes][kubernetes-pod].
 

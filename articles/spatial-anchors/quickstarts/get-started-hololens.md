@@ -8,14 +8,14 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94cae186cee099618772f53d2b820e12f20cad64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7069a3c8b266938e974d1b7130a349e0c9b66b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562411"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111827"
 ---
-# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Snabbstart: Skapa en HoloLens-app med Azure Spatial Anchors, i C++/WinRT och DirectX
+# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Snabb start: skapa en HoloLens-app med Azures spatiala C++ankare, i/WinRT och DirectX
 
 I den här snabbstarten beskrivs hur du skapar en HoloLens-app med [Azure Spatial Anchors](../overview.md) i C++/WinRT och DirectX. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en HoloLens-app som kan spara och återkalla en spatial fästpunkt.
 
@@ -28,9 +28,9 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande så att du kan utföra den här snabbstarten:
+Kontrollera att du har följande för genomföra den här snabbstarten:
 - En Windows-dator med <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> installerad med arbets belastningen **universell Windows-plattform utveckling** och **Windows 10 SDK-komponenten (10.0.18362.0 eller senare)** och <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a>.
 - [C++/WinRT Visual Studio-tillägget (VSIX)](https://aka.ms/cppwinrt/vsix) för Visual Studio bör installeras från [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 - En HoloLens-enhet med [utvecklarläge](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) aktiverat. Den här artikeln kräver en HoloLens-enhet med [Windows-uppdateringen från 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (kallas även RS5). Uppdatera till den senaste versionen på HoloLens genom att öppna appen **Inställningar**, gå till **Uppdatering och säkerhet** och välja **Sök efter uppdateringar**.
@@ -44,7 +44,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 Öppna `HoloLens\DirectX\SampleHoloLens.sln` i Visual Studio.
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
 Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
@@ -58,7 +58,7 @@ Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
 
 Ändra **Lösningskonfiguration** till **Version**, ändra **Lösningsplattform** till **x86** och välj **Enhet** bland alternativen för distributionsmål.
 
-Om du använder HoloLens 2 använder du **arm** som **lösnings plattform**i stället för **x86**.
+Om du använder HoloLens 2 använder du **arm64** som **lösnings plattform**i stället för **x86**.
 
 ![Visual Studio-konfiguration](./media/get-started-hololens/visual-studio-configuration.png)
 
@@ -75,4 +75,4 @@ Stoppa appen i Visual Studio genom att välja **Stoppa felsökning** eller tryck
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Självstudier: Dela Spatial Anchors mellan olika enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)

@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 441c938e9ab74eafecaf0f9188c0884696eccfae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2aa8311c9284d9aff3c50fcec30bc8ab9df6b11b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503992"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125618"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
+>
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Skapa ett LUIS-program och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=jre)
@@ -39,16 +40,16 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder din LUIS Endpoing-nyckel och region. Infoga den här koden i try/catch-blocket i huvud
+Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder din LUIS-slutpunkt nyckel och region. Infoga den här koden i try/catch-blocket i huvud
 
 I det här exemplet används metoden `FromSubscription()` för att bygga `SpeechConfig`. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
 > [!NOTE]
-> Det är viktigt att använda slut punkts nyckeln LUIS och inte start-eller Authroing-nycklarna eftersom endast slut punkts nyckeln är giltig för tal till avsikts igenkänning. Mer information om hur du hämtar rätt nyckel finns i [skapa ett Luis-program och hämta en slut punkts nyckel](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) .
+> Det är viktigt att använda slut punkts nyckeln LUIS och inte start-eller redigerings nycklarna eftersom endast slut punkts nyckeln är giltig för tal till avsikts igenkänning. Mer information om hur du hämtar rätt nyckel finns i [skapa ett Luis-program och hämta en slut punkts nyckel](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) .
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-## <a name="initialize-a-intentrecognizer"></a>Initiera en IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Initiera en IntentRecognizer
 
 Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden direkt under din tal konfiguration.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
@@ -60,7 +61,7 @@ Nu måste du associera ett `LanguageUnderstandingModel` med avsikts igenkänning
 
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
-Från `IntentRecognizer`-objektet kommer du att anropa metoden `recognizeOnceAsync()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att stoppa reconizing tal.
+Från `IntentRecognizer`-objektet kommer du att anropa metoden `recognizeOnceAsync()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=41)]
 
@@ -76,7 +77,8 @@ Det är viktigt att publicera tal resurserna när du är klar med dem. Infoga de
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-I det här läget bör din kod se ut så här: (vi har lagt till några kommentarer till den här versionen) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
+Nu bör din kod se ut så här:  
+(Vi har lagt till några kommentarer till den här versionen) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: e00feed416eb3e06b703a2ef4fe040f0c815716e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464297"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109946"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Om API för tal-SDK ljud inspelnings ström
 
-API: t för tal-SDK är ett sätt att strömma ljud strömmar till igenkännings funktionen istället för att använda antingen mikrofonen eller indatafil **-API:** er.
+API: t för tal-SDK är ett sätt att strömma ljud till igenkännings funktionen i stället för att använda antingen mikrofonen eller indatafil **-API:** erna.
 
 Följande steg krävs när du använder ljud inspelnings strömmar:
 
@@ -29,7 +29,7 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
 
   Motsvarande kod i SDK: n för att skapa ljud formatet ser ut så här:
 
-  ```
+  ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
   int samplesPerSecond = 16000;
@@ -40,7 +40,7 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
 
 - Skapa din egen klass för ljud indata-Stream härledda från `PullAudioInputStreamCallback`. Implementera `Read()` och `Close()` medlemmar. Den exakta funktions signaturen är språk beroende, men koden kommer att se ut ungefär som i det här kod exemplet:
 
-  ```
+  ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
       ContosoConfig config;
 
@@ -59,9 +59,9 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
    };
   ```
 
-- Skapa en ljud konfiguration baserat på ditt ljud format och en indataströmmen. Skicka både din vanliga tal konfiguration och konfigurationen av ljud indata när du skapar din tolk. Till exempel:
+- Skapa en ljud konfiguration baserat på ditt ljud format och en indataströmmen. Skicka både din vanliga tal konfiguration och konfigurationen av ljud indata när du skapar din tolk. Exempel:
 
-  ```
+  ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
   var speechConfig = SpeechConfig.FromSubscription(...);
@@ -75,5 +75,5 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Se identifiera tal iC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Se hur du kan känna igen tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

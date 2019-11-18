@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 491d97411cec65d4f747495a6246b4c62d33e973
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2c840b9de25ff6997037c284c60390e7afa03ec
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499639"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125626"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Python 3.6](https://www.python.org/downloads/) eller senare.
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-kod](https://code.visualstudio.com/)
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
 
@@ -138,4 +138,4 @@ När du är färdig med den här snabb starten tar du bort filen från fil syste
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägg till yttranden och träna](../luis-get-started-python-add-utterance.md)
+> [Lägg till yttranden och träna](../get-started-get-model-rest-apis.md)

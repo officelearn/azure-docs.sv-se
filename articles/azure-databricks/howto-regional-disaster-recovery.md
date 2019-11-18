@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601750"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129337"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveri beredskap för Azure Databricks kluster
 
@@ -286,7 +286,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
 8. **Migrera Azure Blob Storage och Azure Data Lake Storage monteras**
 
-   Montera manuellt alla [Azure Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage.html) och [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) monterings punkter med en Notebook-baserad lösning. Lagrings resurserna skulle ha monterats på den primära arbets ytan och måste upprepas på den sekundära arbets ytan. Det finns inget externt API för monteringar.
+   Montera manuellt alla [Azure Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage) och [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) monterings punkter med en Notebook-baserad lösning. Lagrings resurserna skulle ha monterats på den primära arbets ytan och måste upprepas på den sekundära arbets ytan. Det finns inget externt API för monteringar.
 
 9. **Migrera kluster init-skript**
 

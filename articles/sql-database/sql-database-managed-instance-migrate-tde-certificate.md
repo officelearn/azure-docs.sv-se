@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 202267d4fffc7c6f0d99cd2a6ef3bbee82947a81
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821794"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132406"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrera certifikat för TDE-skyddad databas till Azure SQL Database Hanterad instans
 
@@ -32,7 +32,7 @@ Ett annat alternativ som använder en helt hanterad tjänst för smidig migrerin
 > [!IMPORTANT]
 > Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Snart när återställningen är färdig ersätts det migrerade certifikatet med ett annat skydd, antingen tjänst-hanterat certifikat eller asymmetrisk nyckel från nyckel valvet, beroende på vilken typ av transparent data kryptering som du har angett på instansen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -41,7 +41,7 @@ Ett annat alternativ som använder en helt hanterad tjänst för smidig migrerin
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Pvk2Pfx-verktyget är en del av [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), en fristående, självständig kommandoradsmiljö.
-- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 eller senare installerat.
+- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell) version 5.0 eller senare installerat.
 - Azure PowerShell-modulen [installeras och uppdateras](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - [AZ. SQL-modul](https://www.powershellgallery.com/packages/Az.Sql).
   Kör följande kommandon i PowerShell för att installera/uppdatera PowerShell-modulen:

@@ -1,5 +1,5 @@
 ---
-title: 'Gör så här: utföra anpassade kommandon på klienten med talet SDK (för hands version)'
+title: Så här uppfyller du anpassade kommandon på klienten med talet SDK
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln hanterar du anpassade kommando aktiviteter på klienten med talet SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: a986da74a668075457e28a9a37b6a11fd04a84e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507026"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110067"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Gör så här: utföra kommandon på klienten med talet SDK (för hands version)
 
@@ -26,15 +26,15 @@ I den här artikeln får du:
 - Definiera och skicka en anpassad JSON-nyttolast från programmet för anpassade kommandon
 - Ta emot och visualisera det anpassade JSON-nyttolasten C# från ett UWP-program för tal-SDK
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - En Azure-prenumerations nyckel för tal tjänster
-   - [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
+  - [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
 - En tidigare skapad app med anpassade kommandon
-   - [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
+  - [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
 - Ett klient program som är kompatibla med Speech SDK
-   - [Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>Valfritt: kom igång snabbt
 
@@ -45,14 +45,15 @@ I den här artikeln beskrivs steg för steg hur du gör ett klient program att p
 1. Öppna ditt tidigare skapade program för anpassade kommandon från [tal Studio](https://speech.microsoft.com/)
 1. Kontrol lera att du har den tidigare skapade regeln som svarar på användaren genom att titta i avsnittet **regler för slut för ande** .
 1. Om du vill skicka en nytto Last direkt till klienten skapar du en ny regel med åtgärden skicka aktivitet
+
    > [!div class="mx-imgBorder"]
    > ![skicka regel för slut för ande av aktivitet](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Inställning    | Föreslaget värde                                  | Beskrivning                                        |
-   | ---------- | ------------------------------------------------ | -------------------------------------------------- |
-   | Regelnamn  | UpdateDeviceState                                | Ett namn som beskriver syftet med regeln          |
-   | Villkor | Obligatorisk parameter – `OnOff` och `SubjectDevice` | Villkor som avgör när regeln kan köras    |
-   | Åtgärder    | `SendActivity` (se nedan)                        | Den åtgärd som ska vidtas när regel villkoret är sant |
+   | Inställning | Föreslaget värde | Beskrivning |
+   | ------- | --------------- | ----------- |
+   | Regelnamn | UpdateDeviceState | Ett namn som beskriver syftet med regeln |
+   | Villkor | Obligatorisk parameter – `OnOff` och `SubjectDevice` | Villkor som avgör när regeln kan köras |
+   | Åtgärder | `SendActivity` (se nedan) | Den åtgärd som ska vidtas när regel villkoret är sant |
 
    > [!div class="mx-imgBorder"]
    > ![skicka](media/custom-speech-commands/fulfill-sdk-send-activity-action.png) för aktivitets nytto Last
@@ -139,6 +140,6 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. TV-apparatens visuella tillstånd ska ändras till "på"
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"]
 > [Gör så här: Lägg till valideringar i anpassade kommando parametrar (för hands version)](./how-to-custom-speech-commands-validations.md)
-

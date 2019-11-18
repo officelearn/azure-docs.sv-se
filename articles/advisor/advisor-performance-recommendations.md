@@ -3,17 +3,17 @@ title: Förbättra prestanda för Azure-program med Azure Advisor | Microsoft Do
 description: Använd Advisor för att optimera prestanda för dina Azure-distributioner.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.author: sagupt
+ms.openlocfilehash: 08af119e7f9e72de4a8ae4a1842289a4fd5d925e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885740"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144143"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
@@ -125,3 +125,4 @@ Mer information om Advisor-rekommendationer finns i:
 * [Rekommendationer om Advisor-kostnader](advisor-performance-recommendations.md)
 * [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
+* [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)

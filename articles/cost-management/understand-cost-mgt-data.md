@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 681ccc768b1fa3d5a968847d11987fbd83898b59
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: bf3c2224361cd2890a0b8b4686506eac6858d9cb
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721365"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123000"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -41,7 +41,7 @@ Följande information visar de [Microsoft Azure erbjudanden](https://azure.micro
 | **Betala per användning** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Kostnads fri utvärderings version](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Azure i Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | Azure-pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P-MS-AZR-0125P, MS-AZR-0128P-MS-AZR-0130P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | Azure-pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 oktober 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 oktober 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 oktober 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 oktober 2018<sup>2</sup> |
@@ -61,12 +61,13 @@ Följande erbjudanden stöds inte än:
 | Kategori  | **Erbjudandets namn** | **Kvot-ID** | **Erbjudande nummer** |
 | --- | --- | --- | --- |
 | **Azure Germany** | [Azure Germany – betala per användning](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Government** | Azure Government – Betala per användning | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Leverantör av moln lösningar (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Leverantör av moln lösningar (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Leverantör av moln lösningar (CSP)** | Azure Tyskland i CSP för Microsoft Cloud i Tyskland   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Betala per användning**                 | Microsoft Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Betala per användning** | [Azure för studenter](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018 – 01-01 | MS-AZR-0170P |
-| **Betala per användning**                 | [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016 – 01-01 | MS-AZR-0036P |
+| **Betala per användning** | [Azure för studenter](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Betala per användning**                 | [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Supportavtal** | Standard Support                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Supportavtal** | Professional Direct support         | Default_2014-09-01 | MS-AZR-0042P |
 | **Supportavtal** | Support för utvecklare                   | Default_2014-09-01 | MS-AZR-0043P |
@@ -100,7 +101,7 @@ _<sup>**6**</sup> marknads plats köp är inte tillgängliga för erbjudandet be
 
 _<sup>**7**</sup> reservations köp är bara tillgängliga för Enterprise-avtal-konton (EA) för tillfället._
 
-**Metadatatjänst**
+**Metadata**
 
 | **Inbegrip** | **Ingår inte** |
 | --- | --- |
@@ -127,79 +128,6 @@ Betala per användning-prenumerationer – om fakturerings månaden slutar den 1
 
 Oavsett om du använder [Cost Management-API: er](index.yml), Power BI eller Azure Portal för att hämta data, förväntas den aktuella fakturerings periodens kostnader för att få en omklassificering och därmed ändras tills fakturan stängs.
 
-## <a name="cost-management-data-fields"></a>Cost Management data fält
-
-Följande data fält finns i användnings detalj filen och Cost Management API: er. I följande fetstilta fält kan partner använda filter och gruppering efter funktioner i kostnads analys för att analysera kostnader med flera fält. Fetstilta fält gäller endast för Microsofts kund avtal som stöds av partner.
-
-| **Fält namn** | **Beskrivning** |
-| --- | --- |
-| invoiceId | Faktura-ID visas på fakturan för den aktuella transaktionen. |
-| previousInvoiceID | Referens till en ursprunglig faktura det finns en åter betalning (negativ kostnad). Fylls bara i när det finns en åter betalning. |
-| billingAccountName | Namnet på det fakturerings konto som representerar partnern. Det påförs alla kostnader i de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rätt inköp som SaaS, Azure Marketplace och reservationer. |
-| billingAccountID | Identifierare för det fakturerings konto som representerar partnern. |
-| billingProfileID | Identifierare för den fakturerings profil som grupperar kostnader över fakturor i en enda fakturerings valuta för de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rättighets köp som SaaS, Azure Marketplace och reservera. |
-| billingProfileName | Namnet på den fakturerings profil som grupperar kostnader över fakturor i en enda fakturerings valuta för de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rätt inköp som SaaS, Azure Marketplace och reservera. |
-| invoiceSectionName | Namnet på projektet som debiteras på fakturan. Ej tillämpligt för Microsofts kund avtal som har registrerats av partner. |
-| invoiceSectionID | Identifierare för projektet som debiteras på fakturan. Ej tillämpligt för Microsofts kund avtal som har registrerats av partner. |
-| **CustomerTenantID** | Identifierare för den Azure Active Directory klienten för kunden&#39;s prenumeration. |
-| **CustomerName** | Namnet på Azure Active Directory klient organisation för kund&#39;s-prenumerationen. |
-| **CustomerTenantDomainName** | Domän namn för Azure Active Directory klient organisation för kund&#39;s-prenumerationen. |
-| **PartnerTenantID** | Identifierare för partner&#39;s Azure Active Directory klient. |
-| **PartnerName** | Namnet på partner Azure Active Directory klient organisationen. |
-| **ResellerMPNID** | MPNID för den åter försäljare som är associerad med prenumerationen. |
-| costCenter | Kostnads ställe som är associerat med prenumerationen. |
-| billingPeriodStartDate | Fakturerings periodens start datum, som du ser på fakturan. |
-| billingPeriodEndDate | Fakturerings periodens slutdatum, som det visas på fakturan. |
-| servicePeriodStartDate | Start datum för klassificerings perioden när tjänste användningen har bedömts för avgifter. Priserna för Azure-tjänster bestäms för klassificerings perioden. |
-| servicePeriodEndDate | Slutdatum för den period då tjänste användningen har bedömts för avgifter. Priserna för Azure-tjänster bestäms utifrån klassificerings perioden. |
-| datum | För Azures förbruknings data visas användnings datum som klassificerat. För reserverad instans visas inköps datum. För återkommande kostnader och engångs kostnader, till exempel Marketplace och support, visas inköps datumet. |
-| productID | Identifierare för den produkt som har upplupna kostnader per förbrukning eller inköp. Det är den sammansatta nyckeln productID och SKuID, som visas i Partner Center. |
-| produkt | Namnet på den produkt som har upplupna kostnader per förbrukning eller inköp, som du ser på fakturan. |
-| serviceFamily | Visar tjänst familjen för köpta eller debiterade produkter. Till exempel lagring eller beräkning. |
-| productOrderID | Identifieraren för det till gångs-eller Azure-Plans namn som prenumerationen tillhör. Till exempel Azure-plan. |
-| productOrderName | Namnet på den Azure-plan som prenumerationen tillhör. Till exempel Azure-plan. |
-| consumedService | Förbrukad tjänst (äldre taxonomi) som används i tidigare EA-användnings information. |
-| meterID | Mätnings identifierare för uppmätt förbrukning. |
-| meterName | Identifierar namnet på mätaren för uppmätt förbrukning. |
-| meterCategory | Identifierar den översta tjänsten för användning. |
-| meterSubCategory | Definierar vilken typ eller under kategori av Azure-tjänst som kan påverka priset. |
-| meterRegion | Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger. |
-| subscription ID | Unikt Microsoft-genererad identifierare för Azure-prenumerationen. |
-| subscriptionName | Namnet på Azure-prenumerationen. |
-| Period | Visar giltighetstiden för erbjudandet. Reserverade instanser visar till exempel 12 månader av en årlig period på den reserverade instansen. Vid Engångs köp eller återkommande inköp visar termen en månad för SaaS, Azure Marketplace och support. Gäller inte för Azure-förbrukning. |
-| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Typ av utgivare som identifierar utgivaren som första part, åter försäljare av tredje part eller från tredje parts myndighet. |
-| PartNumber | Del nummer för den oanvända reserverade instansen och Azure Marketplace-tjänster. |
-| publisherName | Namnet på utgivaren av tjänsten, inklusive Microsoft eller tredje parts utgivare. |
-| reservationId | Identifierare för köpet av den reserverade instansen. |
-| reservationName | Namnet på den reserverade instansen. |
-| reservationOrderId | Ordernr för den reserverade instansen. |
-| frequency | Betalnings frekvens för en reserverad instans. |
-| resourceGroup | Namnet på den Azure-resurs grupp som används för livs cykel resurs hantering. |
-| instanceID (eller) ResourceID | Identifierare för resurs instansen. |
-| resourceLocation | Namnet på resurs platsen. |
-| Plats | Normaliserad plats för resursen. |
-| effectivePrice | Det effektiva enhets priset för tjänsten i pris valutan. Unikt för en produkt, tjänst familj, mätare och erbjudande. Används med priser i pris dokumentet för fakturerings kontot. När det finns ett pris på nivå eller en inkluderad kvantitet visas det blandade priset för förbrukning. |
-| Kvantitet | Uppmätt kvantitet köpt eller förbrukad. Den Mät mängd som används under fakturerings perioden. |
-| unitOfMeasure | Identifierar enheten som tjänsten debiteras i. Till exempel GB och timmar. |
-| pricingCurrency | Den valuta som definierar enhets priset. |
-| billingCurrency | Valutan som definierar den fakturerade kostnaden |
-| chargeType | Definierar den typ av kostnad som kostnaden representerar i Azure Cost Management som inköp och åter betalning. |
-| costinBillingCurrency | ExtendedCost eller blandade kostnader före skatt i den fakturerade valutan. |
-| costinPricingCurrency | ExtendedCost eller blandade kostnader före skatt i prissättnings valutan som motsvarar priserna. |
-| **costinUSD** | Beräknad ExtendedCost eller blandade kostnader före skatt i USD. |
-| **paygCostInBillingCurrency** | Visar kostnader om priserna är i detaljhandelspriser. Visar priser enligt principen betala per användning i fakturerings valutan. Endast tillgängligt i RBAC-scope. |
-| **paygCostInUSD** | Visar kostnader om priserna är i detaljhandelspriser. Visar priserna för betala per användning i USD. Endast tillgängligt i RBAC-scope. |
-| exchangeRate | Växelkurs som används för att konvertera från pris valutan till fakturerings valutan. |
-| exchangeRateDate | Datum för den växelkurs som&#39;används för att konvertera från pris nivån till fakturerings valutan. |
-| isAzureCreditEligible | Anger om kostnaden är berättigad till betalning av Azure-krediter. |
-| serviceInfo1 | Äldre fält som fångar valfria tjänstspecifika metadata. |
-| serviceInfo2 | Äldre fält som fångar valfria tjänstspecifika metadata. |
-| additionalInfo | Tjänstspecifika metadata. Det kan till exempel vara en avbildningstyp för en virtuell dator. |
-| tagg | Tagg som du tilldelar mätaren. Använd taggar för att gruppera fakturerings poster. Du kan till exempel använda taggar för att distribuera kostnader på den avdelning som använder mätaren. |
-| **partnerEarnedCreditRate** | Rabatt som används om det finns en partner som har fått partner administratörs åtkomst. |
-| **partnerEarnedCreditApplied** | Anger om den partner som har intjänad kredit har tillämpats. |
-
-
 ## <a name="usage-data-update-frequency-varies"></a>Uppdaterings frekvensen för användnings data varierar
 
 Tillgängligheten för dina inaktuella användnings data i Cost Management är beroende av ett par faktorer, inklusive:
@@ -222,4 +150,4 @@ Historiska data för kreditbaserade och betala in-Advance-erbjudanden kanske int
 
 ## <a name="see-also"></a>Se även
 
-- Om du inte redan har slutfört den första snabb starten för Cost Management läser du den för att [börja analysera kostnaderna](quick-acm-cost-analysis.md).
+- Om du inte har redan slutfört den första snabbstarten för kostnadshantering, kan du läsa den på [börja analysera kostnaderna](quick-acm-cost-analysis.md).

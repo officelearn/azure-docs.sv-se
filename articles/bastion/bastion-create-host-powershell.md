@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fea9c9a99250c8abe26f953b1c6632b561a6013
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6cae6d258da2ddf0c3bfaade65ae74f1201b67b7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518052"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121071"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Skapa en Azure skydds-värd med hjälp av Azure PowerShell
 
@@ -39,7 +39,7 @@ Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs med hjälp a
 2. Skapa en offentlig IP-adress för Azure-skydds. Den offentliga IP-adressen är den offentliga IP-adressen som skydds-resursen som RDP/SSH kommer att få åtkomst till (via port 443). Den offentliga IP-adressen måste finnas i samma region som den skydds-resurs som du skapar.
 
    ```azurepowershell-interactive
-   $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Dynamic -Sku Standard
+   $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Static -Sku Standard
    ```
 
 3. Skapa en ny Azure skydds-resurs i AzureBastionSubnet för det virtuella nätverket. Det tar ungefär 5 minuter för skydds-resursen att skapas och distribueras.

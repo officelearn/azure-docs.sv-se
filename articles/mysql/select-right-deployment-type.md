@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606663"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132430"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Välj rätt MySQL Server-alternativ i Azure
 
@@ -38,7 +38,7 @@ De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 | MySQL-korrigering     | Automatisk  | Hanteras av kunder |
 | Hög tillgänglighet | Modellen med hög tillgänglighet (HA) baseras på inbyggda funktioner för redundansväxling för när ett avbrott på nod-nivå sker. I sådana fall skapar tjänsten automatiskt en ny instans och kopplar lagring till den här instansen. | Kunders arkitekt, implementera, testa och underhålla hög tillgänglighet. Funktioner kan omfatta Always on-redundanskluster, Always on-gruppreplikering, logg överföring eller transaktionell replikering.|
 | Zon redundans | Stöds inte för närvarande | Virtuella Azure-datorer kan konfigureras för att köras i olika tillgänglighets zoner. För en lokal lösning måste kunderna skapa, hantera och underhålla ett eget sekundärt Data Center.|
-| Hybrid scenarier | Med [datareplikering](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)kan du synkronisera data från en extern MySQL-server till tjänsten Azure Database for MySQL. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) kan du replikera data från en Azure Database for MySQL huvud server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.| Hanteras av kunder
+| Hybrid scenarier | Med [datareplikering](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)kan du synkronisera data från en extern MySQL-server till tjänsten Azure Database for MySQL. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) kan du replikera data från en Azure Database for MySQL huvud server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.| Hanteras av kunder
 | Säkerhets kopiering och återställning | Skapar automatiskt [Server säkerhets kopior](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) och lagrar dem i användar konfigurations lagring som antingen är lokalt redundant eller Geo-redundant. Tjänsten tar full, differentiell och transaktions logg säkerhets kopior | Hanteras av kunder |
 | Övervaka databas åtgärder | Ger kunderna möjlighet att [ställa in aviseringar](https://docs.microsoft.com/azure/mysql/concepts-monitoring) för databas åtgärden och vidta åtgärder för att nå tröskelvärden. | Hanteras av kunder |
 | Advanced Threat Protection | Tillhandahåller [Avancerat skydd](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). Det här skyddet identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. | Kunderna måste bygga det här skyddet för sig själva.

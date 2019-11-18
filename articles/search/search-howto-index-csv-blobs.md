@@ -1,5 +1,5 @@
 ---
-title: Indexera CSV-blobar med delimitedText tolknings läge (för hands version)
+title: Sök över CSV-blobbar
 titleSuffix: Azure Cognitive Search
 description: Extrahera och importera CSV från Azure Blob Storage med delimitedText tolknings läge, för närvarande i offentlig för hands version.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4edeb8d535504c305319aad35637bb1b09f65984
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 2166e100f03f21c218618d19dc37ee70c6ab29ef
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719244"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113026"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Så här indexerar du CSV-blobar med delimitedText tolknings läge och blob-indexerare i Azure Kognitiv sökning 
 
@@ -46,7 +46,7 @@ Om blobbar inte innehåller en inledande rubrik rad, ska rubrikerna anges i inde
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Du kan anpassa avgränsnings tecken med konfigurations inställningen `delimitedTextDelimiter`. Till exempel:
+Du kan anpassa avgränsnings tecken med konfigurations inställningen `delimitedTextDelimiter`. Exempel:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 

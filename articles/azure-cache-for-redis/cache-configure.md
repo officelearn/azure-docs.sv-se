@@ -1,25 +1,17 @@
 ---
-title: Så här konfigurerar du Azure cache för Redis | Microsoft Docs
+title: Så här konfigurerar du Azure cache för Redis
 description: Förstå standard konfigurationen för Redis för Azure cache för Redis och lär dig hur du konfigurerar Azure cache för Redis-instanser
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 6bc4b69122df7d29a611571a750229f47337015c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7c0642377e75e621e1774936262ffddd166ff06d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756798"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122871"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -89,7 +81,7 @@ I avsnittet **taggar** kan du organisera dina resurser. Mer information finns i 
 
 ### <a name="diagnose-and-solve-problems"></a>Diagnostisera och lösa problem
 
-Klicka på **diagnostisera och lös problem** för att tillhandahålla vanliga problem och strategier för att lösa dem.
+Klicka på **diagnostisera och lösa problem** måste anges med vanliga problem och strategier för att lösa dem.
 
 
 
@@ -153,7 +145,7 @@ Mer information om `maxmemory`-principer finns i [avlägsna principer](https://r
 
 **Maxfragmentationmemory-reserverad-** inställningen konfigurerar mängden minne i MB som är reserverad för att få plats för fragmentering. Genom att ange det här värdet kan du ha en mer konsekvent redis-server när cachen är full eller nära full och fragmenteringen är hög. När minnet är reserverat för sådana åtgärder är det inte tillgängligt för lagring av cachelagrade data.
 
-En sak att tänka på när du väljer ett nytt minnes reservations värde (**maxmemory-reserverad** eller **maxfragmentationmemory**) är hur den här ändringen kan påverka ett cacheminne som redan körs med stora mängder data. Om du till exempel har en 53 GB-cache med 49 GB data, ändrar du reservation svärdet till 8 GB, så tar den här ändringen bort det högsta tillgängliga minnet för systemet ned till 45 GB. Om antingen din nuvarande `used_memory` eller dina `used_memory_rss` värden är högre än den nya gränsen på 45 GB måste systemet ta bort data förrän både `used_memory` och `used_memory_rss` är under 45 GB. Avlägsnandet kan öka Server belastningen och fragmenteringen av minnet. Mer information om cache-mått som `used_memory` och `used_memory_rss` finns i [tillgängliga mått och rapporterings intervall](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+En sak att tänka på när du väljer ett nytt minnes reservations värde (**maxmemory-reserverad** eller **maxfragmentationmemory**) är hur den här ändringen kan påverka ett cacheminne som redan körs med stora mängder data. Om du till exempel har en 53 GB-cache med 49 GB data, ändrar du reservation svärdet till 8 GB, så tar den här ändringen bort det högsta tillgängliga minnet för systemet ned till 45 GB. Om antingen din nuvarande `used_memory` eller dina `used_memory_rss` värden är högre än den nya gränsen på 45 GB måste systemet ta bort data förrän både `used_memory` och `used_memory_rss` är under 45 GB. Avlägsnandet kan öka Server belastningen och fragmenteringen av minnet. Mer information om cache-mått som `used_memory` och `used_memory_rss`finns i [tillgängliga mått och rapporterings intervall](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > De **maxmemory-reserverade** och **maxfragmentationmemory** inställningarna är bara tillgängliga för cacheminnen standard och Premium.
@@ -320,14 +312,14 @@ Med export kan du exportera data som lagras i Azure cache för Redis till Redis-
 > 
 > 
 
-### <a name="reboot"></a>Omstart
+### <a name="reboot"></a>Starta om
 På bladet **starta om** kan du starta om noderna i cacheminnet. Med den här omstarts funktionen kan du testa ditt program för återhämtning om det uppstår ett problem med en cache-nod.
 
-![Omstart](./media/cache-configure/redis-cache-reboot.png)
+![Starta om](./media/cache-configure/redis-cache-reboot.png)
 
 Om du har en Premium-cache med aktive rad kluster kan du välja vilken Shards som ska startas om.
 
-![Omstart](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Starta om](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Om du vill starta om en eller flera noder i cacheminnet väljer du önskade noder och klickar på **starta om**. Om du har en Premium-cache med klustrad aktive rad väljer du de Shard (ar) som ska startas om och klickar sedan på **starta om**. Efter några minuter startar den markerade noden om och är tillbaka online några minuter senare.
 
@@ -371,7 +363,7 @@ Inställningarna i avsnittet **support och fel sökning** innehåller alternativ
 * [Resurs hälsa](#resource-health)
 * [Ny supportbegäran](#new-support-request)
 
-### <a name="resource-health"></a>Resource Health
+### <a name="resource-health"></a>Resurshälsa
 **Resource Health** bevakar din resurs och meddelar dig om den körs som förväntat. Mer information om Azure Resource Health Service finns i [Översikt över Azure Resource Health](../resource-health/resource-health-overview.md).
 
 > [!NOTE]
@@ -404,7 +396,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |
 | `maxmemory-policy` |`volatile-lru` |Maxmemory-principen är inställningen för hur Redis väljer vad som ska tas bort när `maxmemory` (storleken på det cache-erbjudande som du valde när du skapade cachen) har nåtts. Med Azure cache för Redis är standardvärdet `volatile-lru`, vilket tar bort nycklarna med en förfallo uppsättning med hjälp av en LRU-algoritm. Den här inställningen kan konfigureras i Azure Portal. Mer information finns i [minnes principer](#memory-policies). |
 | `maxmemory-samples` |3 |För att spara minne är LRU och minimala TTL-algoritmer approximerade algoritmer i stället för exakta algoritmer. Som standard kontrollerar Redis tre nycklar och plockar den som användes mindre nyligen. |
-| `lua-time-limit` |5 000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
+| `lua-time-limit` |5 000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
 | `lua-event-limit` |500 |Max storlek för skript händelse kön. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns på [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
@@ -434,7 +426,7 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 > 
 
 <a name="maxclients"></a>
-<sup>2</sup> `maxclients` skiljer sig åt för varje Azure-cache för pris nivån Redis.
+<sup>2</sup>`maxclients` skiljer sig åt för varje Azure-cache för pris nivån Redis.
 
 * Basic-och standard-cache
   * C0 (250 MB) cache-upp till 256 anslutningar
@@ -463,8 +455,8 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 > 
 > * BGREWRITEAOF
 > * BGSAVE
-> * KONFIGURATIONSFIL
-> * FÖRBIGÅ
+> * CONFIG
+> * DEBUG
 > * FLYTTAR
 > * Spara
 > * ANVÄNDARINITIERADE
@@ -506,7 +498,7 @@ shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```
 
-I det föregående exemplet är Shard 1 den valda Shard, men `myKey` finns i Shard 0, som anges i `(shard 0)` delen av fel meddelandet. I det här exemplet väljer `myKey` du Shard 0 med Shard-väljaren och utfärdar sedan det önskade kommandot.
+I det föregående exemplet är Shard 1 den valda Shard, men `myKey` finns i Shard 0, som anges i `(shard 0)` delen av fel meddelandet. I det här exemplet väljer `myKey`du Shard 0 med Shard-väljaren och utfärdar sedan det önskade kommandot.
 
 
 ## <a name="move-your-cache-to-a-new-subscription"></a>Flytta cacheminnet till en ny prenumeration

@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: SDK för visuell sökning i Bing, Python'
 titleSuffix: Azure Cognitive Services
-description: Konfiguration av SDK:n för visuell sökning, SDK Python-konsolprogram.
+description: Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Python SDK.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4d5679e75f0feb4fd502abc92fc7c1de16b53bc8
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204023"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111567"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Snabbstart: Hämta bildinformation med SDK för visuell sökning i Bing för Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Snabb start: Hämta image Insights med hjälp av Visuell sökning i Bing SDK för python
 
 Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Python SDK. Även om den visuella sökningen i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Python](https://www.python.org/) 2.x eller 3.x
 * Det rekommenderas att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv).

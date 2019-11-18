@@ -8,25 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575574"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132203"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
 Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen med att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
 
@@ -109,7 +109,6 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -215,7 +214,7 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -297,30 +296,6 @@ SDK använder tre Azure Monitor exportörer för att skicka olika typer av telem
 4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces`.
 
 5. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
-
-## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
-
-1. Nu kan du öppna Application Insights **översikts** fönstret i Azure Portal för att visa information om ditt program som körs. Välj **Live Metrics Stream**.
-
-   ![Skärm bild av översikts fönstret med "Live Metrics Stream" markerat i en röd ruta](./media/opencensus-python/0005-overview-live-metrics-stream.png)
-
-2. Gå tillbaka till **översikts** fönstret. Välj **program karta** för en visuell layout av beroende relationerna och anropa tiden mellan program komponenterna.
-
-   ![Skärm bild av en grundläggande program karta](./media/opencensus-python/0007-application-map.png)
-
-   Eftersom vi bara spårade ett metod anrop är vår program karta inte intressant. Men en program karta kan skalas för att visualisera mycket fler distribuerade program:
-
-   ![Programkarta](media/opencensus-python/application-map.png)
-
-3. Välj **Undersök prestanda** för att analysera prestanda i detalj och fastställ rotor saken till långsamma prestanda.
-
-   ![Skärm bild av prestanda information](./media/opencensus-python/0008-performance.png)
-
-4. Om du vill öppna den heltäckande upplevelsen för transaktions information väljer du **exempel**och sedan något av de exempel som visas i den högra rutan. 
-
-   Även om vår app-app bara visar en enda händelse, kan ett mer komplext program hjälpa dig att utforska slutpunkt-till-slutpunkt-transaktionen ned till nivån för en enskild händelses anrops stack.
-
-   ![Skärm bild av transaktions gränssnittet från slut punkt till slut punkt](./media/opencensus-python/0009-end-to-end-transaction.png)
 
 ## <a name="view-your-data-with-queries"></a>Visa dina data med frågor
 

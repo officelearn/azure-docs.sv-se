@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/08/2019
+ms.date: 11/13/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fe8483bd6055acb0a2c741192ec80211b9969a16
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5bfc5e6471d768b89a66610a2618bc1a44cf709d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175883"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145930"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Hantera undantag och fel i MSAL
 
@@ -40,7 +40,7 @@ Vid tyst eller interaktiv hämtning av token kan appar komma över fel under inl
 
 Den fullständiga listan med fel visas i [MSALError-uppräkningen](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
 
-Alla MSAL-producerade fel returneras med `MSALErrorDomain` domän. 
+Alla MSAL-producerade fel returneras med `MSALErrorDomain` domän.
 
 För systemfel returnerar MSAL den ursprungliga `NSError` från system-API: et. Om till exempel hämtning av token Miss lyckas på grund av brist på nätverks anslutning, returnerar MSAL ett fel med `NSURLErrorDomain`-domänen och `NSURLErrorNotConnectedToInternet`s kod.
 
@@ -242,6 +242,17 @@ Swift
     application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
 ```
 
+## <a name="msal-for-python-error-handling"></a>MSAL för hantering av python-fel
+
+I MSAL för python förmedlas de flesta fel som ett retur värde från API-anropet. Felet visas som en ord lista som innehåller JSON-svaret från Microsoft Identity Platform.
+
+* Ett lyckat svar innehåller `"access_token"` nyckeln. Svars formatet definieras av OAuth2-protokollet. Mer information finns i [5,1 svar](https://tools.ietf.org/html/rfc6749#section-5.1)
+* Ett fel svar innehåller `"error"` och `"error_description"`vanligt vis. Svars formatet definieras av OAuth2-protokollet. Mer information finns i [5,2-fel svar](https://tools.ietf.org/html/rfc6749#section-5.2)
+
+När ett fel returneras innehåller `"error_description"` nyckeln ett läsbart meddelande. som i sin tur innehåller vanligt vis en felkod för Microsoft Identity Platform. Mer information om de olika fel koderna finns i [fel koder för autentisering och auktorisering](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+
+I MSAL för python är undantag sällsynt eftersom de flesta fel hanteras genom att returnera ett felvärde. `ValueError` undantaget utlöses bara när det är problem med hur du försöker använda biblioteket, till exempel när API-parameter (s) har fel format.
+
 ## <a name="net-exceptions"></a>.NET-undantag
 
 När du bearbetar undantag kan du använda själva undantags typen och `ErrorCode` medlem för att skilja mellan undantag. `ErrorCode` värden är konstanter av typen [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
@@ -284,7 +295,7 @@ MSAL exponerar ett `Classification`-fält som du kan läsa för att ge en bättr
 | UserPasswordExpired | Användarens lösen ord har upphört att gälla. | Anropa AcquireTokenInteractively () så att användaren kan återställa sina lösen ord. |
 | PromptNeverFailed| Interaktiv autentisering anropades med parameter tolken = aldrig, tvinga MSAL att förlita sig på webbläsarens cookies och inte att visa webbläsaren. Detta har misslyckats. | Anropa AcquireTokenInteractively () utan prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK har inte tillräckligt med information för att hämta en token från cachen. Detta kan bero på att det inte finns några token i cachen eller om det inte gick att hitta något konto. Fel meddelandet innehåller mer information.  | Anropa AcquireTokenInteractively (). |
-| Inget    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
+| Ingen    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
 
 ## <a name="code-example"></a>Kodexempel
 
@@ -344,7 +355,6 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
  }
 }
 ```
-
 
 ## <a name="javascript-errors"></a>JavaScript-fel
 

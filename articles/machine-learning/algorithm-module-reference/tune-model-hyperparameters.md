@@ -1,5 +1,5 @@
 ---
-title: Finjustera modellens egenskaper
+title: Finjustera hyperparametrar för modell
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder modulen för att finjustera modells parametrar i Azure Machine Learning-tjänsten för att utföra en parameter svep på en modell för att fastställa de optimala parameter inställningarna.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: fd796297bafeb437b55eca7f38cbd7ae55e19b93
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716714"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131222"
 ---
-# <a name="tune-model-hyperparameters"></a>Finjustera modellens egenskaper
+# <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
 I den här artikeln beskrivs hur du använder modulen finjustera modells för hands parametrar i Azure Machine Learning designer (för hands version). Målet är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
 

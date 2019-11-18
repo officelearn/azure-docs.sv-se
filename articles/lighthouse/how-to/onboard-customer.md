@@ -1,22 +1,18 @@
 ---
 title: Registrera en kund för Azure-delegerad resurshantering
 description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 11/7/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 1d5e9c44fe7669a89c52d2ac14299c2687f11dc5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 61b639a65d42d64a828db896b7c815c3d8f84734
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827240"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131253"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
-Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera en kund till Azure-delegerad resurs hantering, så att deras delegerade resurser (prenumerationer och/eller resurs grupper) kan nås och hanteras via din egen Azure Active Directory ( Azure AD-klient. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera en kund till Azure-delegerad resurs hantering, så att deras delegerade resurser (prenumerationer och/eller resurs grupper) kan nås och hanteras via din egen Azure Active Directory (Azure AD)-klient. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
 
 Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in till din klient, kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder utan att behöva logga in på varje enskild kund klient.
 
@@ -110,7 +106,7 @@ az role definition list --name "<roleName>" | grep name
 > [!TIP]
 > Vi rekommenderar att du tilldelar [borttagnings rollen för hanterade tjänster för registrering av hanterade tjänster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) när du registrerar en kund, så att användare i din klient kan [ta bort åtkomst till delegeringen](#remove-access-to-a-delegation) senare om det behövs. Om den här rollen inte är tilldelad kan delegerade resurser bara tas bort av en användare i kundens klient organisation.
 
-## <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager mall
+## <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
 
 För att publicera kunden måste du skapa en [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) mall för ditt erbjudande med följande information. Värdena för **mspOfferName** och **mspOfferDescription** är synliga för kunden när du visar erbjudande information på [sidan tjänst leverantörer](view-manage-service-providers.md) i Azure Portal.
 

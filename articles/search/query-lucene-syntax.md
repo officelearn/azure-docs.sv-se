@@ -1,7 +1,7 @@
 ---
-title: Lucene-frågesyntax
+title: Lucene-frågesyntaxen
 titleSuffix: Azure Cognitive Search
-description: Referens för fullständig Lucene-syntax som används med Azure Kognitiv sökning.
+description: Referens för fullständig Lucene-frågesyntax som används i Azure Kognitiv sökning för jokertecken, fuzzy search, RegEx och andra avancerade fråge konstruktioner.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786274"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112181"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene-frågesyntax i Azure Kognitiv sökning
 
@@ -169,7 +169,7 @@ I följande exempel kan du illustrera skillnaderna. Anta att det finns en bedöm
 >  Du kan inte använda * eller? symbol som det första tecknet i en sökning.  
 >  Ingen text analys utförs för Sök frågor med jokertecken. Vid tidpunkten för frågor jämförs jokertecken med de analyserade villkoren i Sök indexet och expanderas.
 
-## <a name="see-also"></a>Se också  
+## <a name="see-also"></a>Se även  
 
 + [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [OData-uttrycks syntax för filter och sortering](query-odata-filter-orderby-syntax.md)   

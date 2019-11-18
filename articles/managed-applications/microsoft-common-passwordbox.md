@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 083b0be20d4e9ad7769a9c673139a361fb7b70d4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ab51a4096745c2930199685ac678638a956f21e0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009178"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151542"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. password
+
 En kontroll som kan användas för att ange och bekräfta ett lösen ord.
 
 ## <a name="ui-sample"></a>UI-exempel
+
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
 ## <a name="schema"></a>Schema
+
 ```json
 {
   "name": "element1",
@@ -48,16 +51,19 @@ En kontroll som kan användas för att ange och bekräfta ett lösen ord.
 }
 ```
 
-## <a name="remarks"></a>Kommentarer
-- Det här elementet har inte stöd för egenskapen `defaultValue`.
-- Implementerings information om `constraints`finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
-- Om `options.hideConfirmation` är inställt på **Sant**, döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **FALSKT**.
-
 ## <a name="sample-output"></a>Exempel på utdata
+
 ```json
 "p4ssw0rd"
 ```
 
+## <a name="remarks"></a>Kommentarer
+
+- Det här elementet har inte stöd för egenskapen `defaultValue`.
+- Implementerings information om `constraints`finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
+- Om `options.hideConfirmation` är inställt på **Sant**, döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **FALSKT**.
+
 ## <a name="next-steps"></a>Nästa steg
+
 * En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
 * En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

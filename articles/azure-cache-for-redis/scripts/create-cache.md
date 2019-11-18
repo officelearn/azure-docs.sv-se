@@ -1,28 +1,21 @@
 ---
-title: Azure CLI skriptexempel – skapa en Azure Cache för Redis | Microsoft Docs
+title: Azure CLI skriptexempel – skapa en Azure Cache för Redis
 description: Azure CLI skriptexempel – skapa en Azure Cache för Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 tags: azure-service-management
-ms.assetid: afd7f6e0-9297-4c98-a95e-597be939cef7
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
-ms.openlocfilehash: f4900242c9b6e5eecd5364d74bfcd8e2bc4efb2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0ca7131a4ea9a512ac31231754f86d218c35025
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607730"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121315"
 ---
-# <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache för Redis
+# <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache for Redis
 
 I det här scenariot kan du lära dig hur du skapar en Azure Cache för Redis.
 

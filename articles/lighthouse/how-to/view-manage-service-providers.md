@@ -1,22 +1,18 @@
 ---
 title: Visa och hantera tjänstleverantörer
 description: Kunder kan använda sidan tjänst leverantörer i Azure Portal för att visa information om tjänst leverantörer, Service Provider-erbjudanden och delegerade resurser.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286590"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132175"
 ---
 # <a name="view-and-manage-service-providers"></a>Visa och hantera tjänstleverantörer
 
-Kunder kan använda sidan **tjänst leverantörer** i [Azure Portal](https://portal.azure.com) om du vill visa information om tjänst leverantörer och service provider-erbjudanden, delegera vissa resurser via [Azure delegerad resurs hantering](../concepts/azure-delegated-resource-management.md)och handla ytterligare tjänst leverantören erbjuder. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Kunder kan använda sidan **tjänst leverantörer** i [Azure Portal](https://portal.azure.com) om du vill visa information om tjänst leverantörer och service provider-erbjudanden, delegera vissa resurser via [Azure delegerad resurs hantering](../concepts/azure-delegated-resource-management.md)och shoppa för ytterligare tjänst leverantörs erbjudanden. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
 
 För att få åtkomst till sidan **tjänst leverantörer** i Azure Portal kan kunden välja **alla tjänster**och sedan söka efter **tjänst leverantörer** och välja den. De kan också hitta den genom att ange "tjänste leverantörer" i sökrutan längst upp i Azure Portal.
 
@@ -50,6 +46,12 @@ Så här delegerar du prenumerationer eller resurs grupper:
 En kund kan lägga till ett nytt erbjudande för service provider från sidan **leverantörs erbjudanden** genom att välja **Lägg till erbjudande**. Tjänste leverantören måste ha publicerat ett erbjudande för den här kunden. Kunden kan sedan välja erbjudandet från den **privata erbjudande** skärmen och sedan välja **skapa**.
 
 Om kunden vill ta bort ett Service Provider-erbjudande kan de välja pappers korgs ikonen på raden för det erbjudandet. När du har bekräftat borttagningen kommer tjänste leverantören inte längre att ha åtkomst till de kund resurser som tidigare har delegerats för det erbjudandet.
+
+## <a name="update-service-provider-offers"></a>Uppdatering av tjänst leverantören erbjuder
+
+När en kund har lagt till ett erbjudande kan en tjänste leverantör publicera en uppdaterad version av samma erbjudande på Azure Marketplace. De kan till exempel vilja lägga till en ny roll definition. Om en ny version av erbjudandet har publicerats visas en "uppdatering"-ikon i raden för det erbjudandet på sidan **Provider-erbjudanden** . Kunden kan välja den här ikonen för att se skillnaderna mellan den aktuella versionen av erbjudandet och den nya. 
+
+Efter att ha granskat ändringarna kan kunden välja att uppdatera till den nya versionen. När de gör det kommer de auktoriseringar och andra inställningar som anges i den nya versionen att gälla för alla prenumerationer och/eller resurs grupper som har delegerats för erbjudandet.
 
 ## <a name="view-delegations"></a>Visa delegeringar
 

@@ -1,17 +1,14 @@
 ---
-title: Visa Azures aktivitets loggar för att övervaka resurser | Microsoft Docs
+title: Visa Azures aktivitets loggar för att övervaka resurser
 description: Använd aktivitets loggarna om du vill granska användar åtgärder och fel. Visar Azure Portal PowerShell, Azure CLI och REST.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3ac407fa4cfef1530cb6bbfde2ec666b5a07e324
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329446"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150858"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visa aktivitets loggar för att övervaka åtgärder på resurser
 
@@ -29,7 +26,7 @@ Aktivitetsloggar behålls i 90 dagar. Du kan fråga efter alla datumintervall f�
 
 Du kan hämta information från aktivitets loggarna via portalen, PowerShell, Azure CLI, Insights REST API eller [Insights .net-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 1. Om du vill visa aktivitets loggarna via portalen väljer du **övervaka**.
 

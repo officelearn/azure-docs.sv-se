@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9a226c17dd72d0dcd6403277054cf264f0094e65
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 4efa535118d075addf78b2e9be6a645c458d6bb4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850510"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125620"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
+>
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Skapa ett LUIS-program och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md)
@@ -39,7 +40,7 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder din LUIS Endpoing-nyckel och region. Infoga den här koden härnäst.
+Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder din LUIS-slutpunkt nyckel och region. Infoga den här koden härnäst.
 
 Det här exemplet skapar `SpeechConfig`-objektet med hjälp av nyckel och region i LUIS. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
@@ -48,7 +49,7 @@ Det här exemplet skapar `SpeechConfig`-objektet med hjälp av nyckel och region
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-## <a name="initialize-a-intentrecognizer"></a>Initiera en IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Initiera en IntentRecognizer
 
 Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden direkt under din tal konfiguration.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
@@ -60,7 +61,7 @@ Nu måste du associera ett `LanguageUnderstandingModel` med avsikts igenkänning
 
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
-Från `IntentRecognizer`-objektet kommer du att anropa metoden `recognize_once()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att stoppa reconizing tal.
+Från `IntentRecognizer`-objektet kommer du att anropa metoden `recognize_once()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Visa tolknings resultat (eller fel)
@@ -71,7 +72,8 @@ I using-instruktionen, under ditt anrop till `recognize_once()`, lägger du till
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-I det här läget bör din kod se ut så här: (vi har lagt till några kommentarer till den här versionen) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
+Nu bör din kod se ut så här:  
+(Vi har lagt till några kommentarer till den här versionen) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

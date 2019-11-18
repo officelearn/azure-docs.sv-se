@@ -7,25 +7,23 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: f7fa5d7ef68613301c30e26d21f69a80559dbcb9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030019"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133007"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arkitektur – Hyper-V-replikering till en sekundär plats
 
 Den här artikeln beskriver de komponenter och processer som ingår i replikeringen av lokala virtuella Hyper-V-datorer i System Center Virtual Machine Manager-moln (VMM) till en sekundär VMM-plats med tjänsten [Azure Site Recovery](site-recovery-overview.md) på Azure-portalen.
-
-> [!WARNING]
-> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](site-to-site-deprecation.md) informationen innan du fortsätter.
+a
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
 Följande tabell och grafik ger en övergripande bild av de komponenter som används för Hyper-V-replikering till en sekundär plats.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 **Azure** | Azure-prenumeration | Du kan skapa ett Recovery Services-valv i Azure-prenumerationen för att dirigera och hantera replikeringen mellan VMM-platser.
 **VMM-server** | Du behöver en primär och sekundär VMM-plats. | Vi rekommenderar att det finns en VMM-server på den primära platsen och en på den sekundära platsen.

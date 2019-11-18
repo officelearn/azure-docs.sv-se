@@ -1,5 +1,5 @@
 ---
-title: 'Anvisningar: använda automatisk språk identifiering för tal till text-tal-tjänst'
+title: Så här använder du automatisk språk identifiering för tal till text
 titleSuffix: Azure Cognitive Services
 description: 'Tal-SDK: n stöder automatisk språk identifiering för tal till text. När du använder den här funktionen jämförs ljudet med den angivna listan med språk och den mest sannolika matchningen fastställs. Det returnerade värdet kan sedan användas för att välja den språk modell som används för tal till text.'
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
-ms.openlocfilehash: e156704d3ad54c3437f921fae536a497e1d94868
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506971"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110176"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Automatisk språk identifiering för tal till text
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du använder `AutoDetectSourceLanguage
 
 Automatisk språk identifiering har för närvarande en gräns på Server sidan på två språk per identifiering. Behåll den här begränsningen i åtanke när du `AudoDetectSourceLanguageConfig`-objektet. I exemplen nedan skapar du en `AutoDetectSourceLanguageConfig`och använder den sedan för att skapa en `SpeechRecognizer`.
 
->[!TIP]
+> [!TIP]
 > Du kan också ange en anpassad modell som ska användas när du utför tal till text. Mer information finns i [använda en anpassad modell för automatisk språk identifiering](#use-a-custom-model-for-automatic-language-detection).
 
 Följande kodfragment visar hur du använder automatisk språk identifiering i dina appar:
@@ -80,4 +80,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Dokumentation om tal SDK-referens](speech-sdk.md)
+- [Dokumentation om tal SDK-referens](speech-sdk.md)

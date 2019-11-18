@@ -1,5 +1,5 @@
 ---
-title: Fält mappningar för automatisk indexering med indexerare
+title: Fältmappningar i indexerare
 titleSuffix: Azure Cognitive Search
 description: Konfigurera fält mappningar i en indexerare för att redovisa skillnader i fält namn och data representationer.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786976"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123988"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
 
@@ -175,20 +175,23 @@ Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda sa
 
 #### <a name="base64-encoding-options"></a>Base64-kodnings alternativ
 
-Azure Kognitiv sökning har stöd för två olika base64-kodningar: **HTTPSERVERUTILITY URL-token**och **URL-säker base64-kodning utan utfyllnad**. En sträng som är Base64-kodad vid indexering ska senare avkodas med samma kodnings alternativ, eller annars matchar inte resultatet originalet.
+Azure Kognitiv sökning stöder URL-säker base64-kodning och normal base64-kodning. En sträng som är Base64-kodad vid indexering ska avkodas senare med samma kodnings alternativ, eller annars matchar inte resultatet originalet.
 
 Om `useHttpServerUtilityUrlTokenEncode`-eller `useHttpServerUtilityUrlTokenDecode`-parametrarna för kodning och avkodning anges till `true`kommer `base64Encode` beter sig som [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) och `base64Decode` fungerar som [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Om du inte använder den fullständiga .NET Framework (det vill säga du använder .NET Core eller ett annat ramverk) för att skapa nyckel värden för att emulera Azure Kognitiv sökning-beteendet bör du ange `useHttpServerUtilityUrlTokenEncode` och `useHttpServerUtilityUrlTokenDecode` `false`. Beroende på vilket bibliotek du använder kan base64-kodning och avkodnings funktioner skilja sig från de som används av Azure Kognitiv sökning.
+> [!WARNING]
+> Om `base64Encode` används för att skapa nyckel värden måste `useHttpServerUtilityUrlTokenEncode` anges till sant. Endast URL-säker base64-kodning kan användas för nyckel värden. Se [namngivnings &#40;regler Azure&#41; kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/naming-rules) för att få en fullständig uppsättning begränsningar för tecken i nyckel värden.
+
+.NET-biblioteken i Azure Kognitiv sökning antar den fullständiga .NET Framework, som innehåller inbyggd kodning. Alternativen `useHttpServerUtilityUrlTokenEncode` och `useHttpServerUtilityUrlTokenDecode` utnyttjar den här inbyggda functionaity. Om du använder .NET Core eller ett annat ramverk rekommenderar vi att du ställer in de här alternativen för att `false` och anropa ramverkets kodning och avkodnings funktioner direkt.
 
 I följande tabell jämförs olika base64-kodningar för sträng `00>00?00`. Om du vill ta reda på vilken ytterligare bearbetning som krävs för dina base64-funktioner, använder du din biblioteks kodnings funktion i strängen `00>00?00` och jämför utdata med förväntad utdata `MDA-MDA_MDA`.
 
-| Encoding | Base64-koda utdata | Ytterligare bearbetning efter biblioteks kodning | Ytterligare bearbetning före biblioteks avkodning |
+| Kodning | Base64-koda utdata | Ytterligare bearbetning efter biblioteks kodning | Ytterligare bearbetning före biblioteks avkodning |
 | --- | --- | --- | --- |
 | Base64 med utfyllnad | `MDA+MDA/MDA=` | Använd URL-säkra tecken och ta bort utfyllnad | Använd standard base64-tecken och Lägg till utfyllnad |
 | Base64 utan utfyllnad | `MDA+MDA/MDA` | Använd URL-säkra tecken | Använd standard base64-tecken |
 | URL – säker base64 med utfyllnad | `MDA-MDA_MDA=` | Ta bort utfyllnad | Lägg till utfyllnad |
-| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Inget | Inget |
+| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Ingen | Ingen |
 
 <a name="extractTokenAtPositionFunction"></a>
 

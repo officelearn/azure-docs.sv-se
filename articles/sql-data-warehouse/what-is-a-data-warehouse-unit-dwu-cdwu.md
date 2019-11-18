@@ -11,12 +11,12 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: caa23d3e86fba86aa45e677f7ab85859cda6ddce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685339"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133155"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informations lager enheter (DWU: er) och beräknings data lager enheter (cDWUs)
 
@@ -46,7 +46,7 @@ Service nivå målet (service nivå målet) är inställningen för skalbarhet s
   > [!NOTE]
   > Generation 2 SQL-pool har nyligen lagt till ytterligare skalnings funktioner som stöder beräknings nivåer så lågt som 100 cDWU. Befintliga SQL-pooler för närvarande på gen1 som kräver lägre beräknings nivåer kan nu uppgraderas till Gen2 i de regioner som för närvarande är tillgängliga utan extra kostnad.  Om din region inte stöds ännu kan du fortfarande uppgradera till en region som stöds. Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 
-I T-SQL bestämmer SERVICE_OBJECTIVE-inställningen tjänst nivå och prestanda nivå för SQL-poolen.
+I T-SQL bestämmer inställningen för SERVICE_OBJECTIVE tjänst nivå och prestanda nivå för SQL-poolen.
 
 ```sql
 --Gen1
@@ -128,7 +128,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 2. Under **skala**flyttar du skjutreglaget åt vänster eller höger för att ändra DWU-inställningen.
 
-3. Klicka på **Spara**. Ett bekräftelsemeddelande visas. Klicka på **Ja** för att bekräfta eller **Nej** för att avbryta.
+3. Klicka på **Save** (Spara). Ett bekräftelsemeddelande visas. Klicka på **Ja** för att bekräfta eller **Nej** för att avbryta.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -204,7 +204,7 @@ Så här kontrollerar du status för DWU-ändringar:
     ;
     ```
     
-Denna DMV returnerar information om olika hanterings åtgärder på SQL-poolen, till exempel åtgärden och status för åtgärden, som antingen är IN_PROGRESS eller SLUTFÖRd.
+Denna DMV returnerar information om olika hanterings åtgärder på SQL-poolen, till exempel åtgärden och status för åtgärden, som antingen IN_PROGRESS eller har SLUTFÖRts.
 
 ## <a name="the-scaling-workflow"></a>Arbets flödet för skalning
 
@@ -215,4 +215,4 @@ När du startar en skalnings åtgärd omsorg systemet först alla öppna session
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar prestanda finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md) och [minnes-och samtidiga gränser] minnes samtidighet – Limits.MD).
+Mer information om hur du hanterar prestanda finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md) och [minnes-och samtidiga gränser](memory-concurrency-limits.md).

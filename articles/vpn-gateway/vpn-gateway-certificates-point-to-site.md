@@ -1,5 +1,6 @@
 ---
-title: 'Skapa och exportera certifikat för punkt-till-plats: PowerShell: Azure | Microsoft Docs'
+title: 'Generera och exportera certifikat för P2S: PowerShell'
+titleSuffix: Azure VPN Gateway
 description: Skapa ett självsignerat rot certifikat, exportera den offentliga nyckeln och generera klient certifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8f7d4f71853e1640146a38fb39384c20ca9553eb
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: f28e76e9dcaf1331fd26a2321cd4deca1027e693
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285730"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151371"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
 
@@ -24,7 +25,7 @@ Om du inte har åtkomst till en dator med Windows 10 eller Windows Server 2016 k
 
 [!INCLUDE [generate and export certificates](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
-## <a name="install"></a>Installera ett exporterat klient certifikat
+## <a name="install"></a>Installera en exporterade klientcertifikat
 
 Varje klient som ansluter till VNet över en P2S-anslutning kräver att ett klient certifikat installeras lokalt.
 

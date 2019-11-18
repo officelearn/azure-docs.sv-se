@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: hantera, distribuera, & övervaka ML-modeller'
+title: 'MLOps: ML modell hantering'
 titleSuffix: Azure Machine Learning
-description: 'Lär dig hur du använder Azure Machine Learning för MLOps: distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. Du kan distribuera de modeller som du har tränat med Azure Machine Learning, på den lokala datorn eller från andra källor.'
+description: 'Lär dig mer om modell hantering med Azure Machine Learning (MLOps). Distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716598"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123597"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: hantera, distribuera och övervaka modeller med Azure Machine Learning
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
 I den här artikeln får du lära dig hur du använder Azure Machine Learning för att hantera livs cykeln för dina modeller. Azure Machine Learning använder en metod för Machine Learning åtgärder (MLOps) som förbättrar kvaliteten och konsekvensen för dina maskin inlärnings lösningar. 
 
@@ -47,7 +47,7 @@ Med modell registreringen kan du lagra och version av dina modeller i Azure-moln
 > [!TIP]
 > En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i Azure Machine Learning arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
  
-Registrerade modeller identifieras med namn och version. Varje gången du registrerar en modell med samma namn som en befintlig, kommer registret att öka versionen. Du kan också lägga till ytterligare metadata-Taggar under registreringen som kan användas när du söker efter modeller. Azure Machine Learning stöder alla modeller som kan läsas in med python-3.5.2 eller högre.
+Registrerade modeller identifieras med namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller. Azure Machine Learning stöder alla modeller som kan läsas in med python-3.5.2 eller högre.
 
 > [!TIP]
 > Du kan också registrera modeller som har tränats utanför Azure Machine Learning.

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824258"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111876"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,13 +37,13 @@ Med Azure Machine Learning kan du övervaka indata till en modell som distribuer
 + Skicka aviseringar till data drift per e-post.
 
 > [!Note]
-> Den här tjänsten är i (för hands version) och är begränsad i konfigurations alternativen. Information och uppdateringar finns i vår [API-dokumentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) och [viktig](azure-machine-learning-release-notes.md) information. 
+> Den här tjänsten är i (för hands version) och är begränsad i konfigurations alternativen. Information och uppdateringar finns i vår [API-dokumentation](https://docs.microsoft.com/python/api/azureml-datadrift/) och [viktig](azure-machine-learning-release-notes.md) information. 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Så här övervakas data driften i Azure Machine Learning
 
 Med hjälp av Azure Machine Learning övervakas data driften via data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](how-to-machine-learning-interpretability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Skicka en DataDriftDetector-körning
 
-Med `DataDriftDetector`-objektet konfigurerat kan du skicka en [data körnings körning](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) på ett visst datum för modellen. Som en del av körningen aktiverar du DataDriftDetector-aviseringar genom att ange parametern `drift_threshold`. Om [datadrift_coefficient](#metrics) är över den angivna `drift_threshold`skickas ett e-postmeddelande.
+Med `DataDriftDetector`-objektet konfigurerat kan du skicka en [data körnings körning](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) på ett visst datum för modellen. Som en del av körningen aktiverar du DataDriftDetector-aviseringar genom att ange parametern `drift_threshold`. Om [datadrift_coefficient](#visualize-drift-metrics) är över den angivna `drift_threshold`skickas ett e-postmeddelande.
 
 ```python
 # adhoc run today

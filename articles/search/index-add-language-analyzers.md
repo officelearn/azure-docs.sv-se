@@ -1,5 +1,5 @@
 ---
-title: Lägga till språk analys verktyg i sträng fält i ett index
+title: Lägga till språk analys verktyg i sträng fält
 titleSuffix: Azure Cognitive Search
 description: Flerspråkiga lexikala text analyser för icke-engelska frågor och index i Azure Kognitiv sökning.
 manager: nitinme
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790145"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111805"
 ---
-# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>Lägga till språk analys verktyg i ett Azure Kognitiv sökning-index
+# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Lägga till språk analys verktyg i sträng fält i ett Azure Kognitiv sökning-index
 
 En *språk analys* är en specifik typ av [text analys](search-analyzers.md) som utför en lexikal analys med hjälp av språk reglerna för mål språket. Alla sökbara fält har en **analys** egenskap. Om indexet innehåller översatta strängar, t. ex. separata fält för engelsk och kinesisk text, kan du ange språk analys verktyg för varje fält för att få åtkomst till de omfattande språk funktionerna i dessa analys verktyg.  
 
@@ -61,66 +61,66 @@ Mer information om index egenskaper finns i [create index &#40;Azure kognitiv s�
 
 |Språk|Microsoft Analyzer-namn|Namn på Lucene Analyzer|  
 |--------------|-----------------------------|--------------------------|  
-|Arabiska|ar. Microsoft|ar. Lucene|  
+|Arabiska|ar.microsoft|ar. Lucene|  
 |Armeniska||hy. Lucene|  
-|Bangla|BN. Microsoft||  
-|Baskiska||EU. Lucene|  
-|Bulgariska|BG. Microsoft|BG. Lucene|  
-|Katalanska|ca. Microsoft|ca. Lucene|  
-|Kinesiska, förenklad|zh-hans. Microsoft|zh-hans. Lucene|  
-|Kinesiska, traditionell|zh-Hant. Microsoft|zh-Hant. Lucene|  
-|Kroatiska|HR. Microsoft||  
-|Tjeckiska|CS. Microsoft|CS. Lucene|  
-|Danska|da. Microsoft|da. Lucene|  
-|Nederländska|nl. Microsoft|nl. Lucene|  
-|Svenska|en. Microsoft|en. Lucene|  
-|Estniska|et. Microsoft||  
-|Finska|Fi. Microsoft|Fi. Lucene|  
-|Franska|fr. Microsoft|fr. Lucene|  
+|Bangla|bn.microsoft||  
+|Baskiska||eu.lucene|  
+|Bulgariska|bg.microsoft|BG. Lucene|  
+|Katalanska|ca.microsoft|ca. Lucene|  
+|Kinesiska, förenklad|zh-Hans.microsoft|zh-Hans.lucene|  
+|Kinesiska, traditionell|zh-Hant.microsoft|zh-Hant. Lucene|  
+|Kroatiska|hr.microsoft||  
+|Tjeckiska|cs.microsoft|CS. Lucene|  
+|Danska|da.microsoft|da. Lucene|  
+|Nederländska|nl.microsoft|nl. Lucene|  
+|Svenska|en.microsoft|en. Lucene|  
+|Estniska|et.microsoft||  
+|Finska|fi.microsoft|Fi. Lucene|  
+|Franska|fr.microsoft|fr. Lucene|  
 |Galiciska||GL. Lucene|  
-|Tyska|de. Microsoft|de. Lucene|  
-|Grekiska|El. Microsoft|El. Lucene|  
-|Gujarati|gu. Microsoft||  
-|Hebreiska|he. Microsoft||  
-|Hindi|Hej. Microsoft|Hej. Lucene|  
-|Ungerska|HU. Microsoft|HU. Lucene|  
-|Isländska|är. Microsoft||  
-|Indonesiska (Bahasa)|ID. Microsoft|ID. Lucene|  
-|Irländska||ga. Lucene|  
-|Italienska|den. Microsoft|IT. Lucene|  
-|Japanska|Ja. Microsoft|Ja. Lucene|  
-|Kannada|KN. Microsoft||  
-|Koreanska|Ko. Microsoft|Ko. Lucene|  
-|Lettiska|LV. Microsoft|LV. Lucene|  
-|Litauiska|lt. Microsoft||  
-|Malayalam|ml. Microsoft||  
-|Malajiska (latinsk)|MS. Microsoft||  
-|Marathi|Mr. Microsoft||  
-|Norska|Obs! Microsoft|Nej. Lucene|  
+|Tyska|de.microsoft|de. Lucene|  
+|Grekiska|el.microsoft|El. Lucene|  
+|Gujarati|gu.microsoft||  
+|Hebreiska|he.microsoft||  
+|Hindi|hi.microsoft|Hej. Lucene|  
+|Ungerska|hu.microsoft|HU. Lucene|  
+|Isländska|is.microsoft||  
+|Indonesiska (Bahasa)|id.microsoft|ID. Lucene|  
+|Iriska||ga. Lucene|  
+|Italienska|it.microsoft|IT. Lucene|  
+|Japanska|ja.microsoft|Ja. Lucene|  
+|Kannada|kn.microsoft||  
+|Koreanska|ko.microsoft|ko.lucene|  
+|Lettiska|lv.microsoft|lv.lucene|  
+|Litauiska|lt.microsoft||  
+|Malayalam|ml.microsoft||  
+|Malajiska (latinsk)|ms.microsoft||  
+|Marathi|mr.microsoft||  
+|Norska|nb.microsoft|Nej. Lucene|  
 |Persiska||FA. Lucene|  
-|Polska|pl. Microsoft|pl. Lucene|  
-|Portugisiska (Brasilien)|pt-br. Microsoft|pt-br. Lucene|  
-|Portugisiska (Portugal)|pt-pt. Microsoft|pt-pt. Lucene|  
-|Punjabi|PA. Microsoft||  
-|Rumänska|ro. Microsoft|ro. Lucene|  
-|Ryska|ru. Microsoft|ru. Lucene|  
-|Serbiska (kyrillisk)|SR-kyrilliska. Microsoft||  
-|Serbiska (latinsk)|SR-Latin. Microsoft||  
-|Slovakiska|sk. Microsoft||  
-|Slovenska|SL. Microsoft||  
-|Spanska|ES. Microsoft|ES. Lucene|  
-|Svenska|sa. Microsoft|sa. Lucene|  
-|Tamilska|ta. Microsoft||  
-|Telugu|te. Microsoft||  
-|Thai|Microsoft|th. Lucene|  
-|Turkiska|TR. Microsoft|TR. Lucene|  
-|Ukrainska|Storbritannien. Microsoft||  
-|Urdu|ditt. Microsoft||  
-|Vietnamesiska|Vi. Microsoft||  
+|Polska|pl.microsoft|pl. Lucene|  
+|Portugisiska (Brasilien)|pt-Br.microsoft|pt-Br.lucene|  
+|Portugisiska (Portugal)|pt-Pt.microsoft|pt-Pt.lucene|  
+|Punjabi|pa.microsoft||  
+|Rumänska|ro.microsoft|ro. Lucene|  
+|Ryska|ru.microsoft|ru. Lucene|  
+|Serbiska (kyrillisk)|sr-cyrillic.microsoft||  
+|Serbiska (latinsk)|sr-latin.microsoft||  
+|Slovakiska|sk.microsoft||  
+|Slovenska|sl.microsoft||  
+|Spanska|es.microsoft|ES. Lucene|  
+|Svenska|sv.microsoft|sv.lucene|  
+|Tamilska|ta.microsoft||  
+|Telugu|te.microsoft||  
+|Thai|th.microsoft|th. Lucene|  
+|Turkiska|tr.microsoft|TR. Lucene|  
+|Ukrainska|uk.microsoft||  
+|Urdu|ur.microsoft||  
+|Vietnamesiska|vi.microsoft||  
 
  Alla analyser med namn som är kommenterade med **Lucene** drivs av [Apache Lucenes språk analys verktyg](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Se också  
+## <a name="see-also"></a>Se även  
 
 + [Skapa index &#40;Azure kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

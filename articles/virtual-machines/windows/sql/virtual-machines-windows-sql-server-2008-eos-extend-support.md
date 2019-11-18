@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d1b3961b61d45718e726b31ec406445b202a0adf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034179"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132771"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Utöka stödet för SQL Server 2008 och SQL Server 2008 R2 med Azure
 
@@ -64,7 +64,7 @@ SQL Server kräver programkonsekventa Azure Site Recovery ögonblicks bilder fö
 
 Katastrof återställnings lösningar för EOS SQL Server på en virtuell Azure-dator är följande:
 
-- **SQL Server säkerhets kopieringar**: Använd Azure Backup för att skydda din EOS SQL Server mot utpressnings tro, oavsiktlig borttagning och skada. Lösningen är för närvarande en för hands version för EOS SQL Server och stöder SQL Server 2008 och 2008 R2 som körs på Windows 2008 R2 SP1. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
+- **SQL Server säkerhets kopieringar**: Använd Azure Backup för att skydda din EOS SQL Server mot utpressnings tro, oavsiktlig borttagning och skada. Lösningen är för närvarande en för hands version för EOS SQL Server och stöder SQL Server 2008 och 2008 R2 som körs på Windows 2008 R2 SP1. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
 - **Logg överföring**: du kan skapa en logg överförings replik i en annan zon eller Azure-region med kontinuerliga återställningar för att minska RTO. Du måste konfigurera logg överföring manuellt.
 - **Azure Site Recovery**: du kan REPLIKERA den virtuella datorn mellan zoner och regioner via Azure Site Recovery replikering. SQL Server kräver programkonsekventa ögonblicks bilder för att garantera återställning i händelse av en katastrof. Azure Site Recovery erbjuder en lägsta återställnings period på 1 timme och en 2-timmars återställnings tid (plus SQL Server återställnings tid) RTO för EOS SQL Server haveri beredskap.
 

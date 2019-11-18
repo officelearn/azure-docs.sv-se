@@ -4,15 +4,15 @@ description: Beskriver data källor och anslutningar som stöds för tabell 1200
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572965"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120012"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -20,7 +20,7 @@ Data källor och anslutningar som visas i guiden hämta data eller importera i V
 
 ## <a name="azure-data-sources"></a>Azure-datakällor
 
-|Data Källa  |Minnesintern  |DirectQuery  |
+|Datakälla  |Minnesintern  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Ja      |    Ja      |
 |Azure SQL Data Warehouse     |   Ja      |   Ja       |
@@ -35,7 +35,7 @@ Data källor och anslutningar som visas i guiden hämta data eller importera i V
 <a name="tab1400a">1</a> – tabell 1400 och högre modeller.   
 <a name="azsqlmanaged">2</a> -Azure SQL Database Hanterad instans stöds. Eftersom den hanterade instansen körs i Azure VNet med en privat IP-adress måste den offentliga slut punkten vara aktive rad på instansen. Om den inte är aktive rad krävs en lokal datagateway.    
 <a name="databricks">3</a> -Azure Databricks med Spark-anslutningen stöds inte för närvarande.   
-<a name="gen2">4</a> -ADLS Gen2 stöds inte för närvarande.
+<a name="gen2">4</a> -ADLS Gen2 anslutningen stöds inte för närvarande, men Blob Storage koppling kan användas med en ADLS Gen2 data källa.
 
 
 **Provider**   
@@ -43,21 +43,21 @@ InMemory-och DirectQuery-modeller som ansluter till Azure-datakällor använder 
 
 ## <a name="other-data-sources"></a>Andra data källor
 
-Anslutning till lokala data källor från och Azure AS Server kräver en lokal gateway. När du använder en gateway krävs 64-bitars providers.
+Anslutning till lokala data källor från en Azure Analysis Services server kräver en lokal gateway. När du använder en gateway krävs 64-bitars providers.
 
 ### <a name="in-memory-and-directquery"></a>InMemory och DirectQuery
 
-|Data Källa | InMemory-Provider | DirectQuery-Provider |
+|Datakälla | InMemory-Provider | DirectQuery-Provider |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11,0, Microsoft OLE DB Provider för SQL Server .NET Framework Data Provider för SQL Server | .NET Framework data leverantör för SQL Server |
-| SQL Server informations lager |SQL Server Native Client 11,0, Microsoft OLE DB Provider för SQL Server .NET Framework Data Provider för SQL Server | .NET Framework data leverantör för SQL Server |
+| SQL Server |Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0, .NET Framework Data Provider för SQL Server | .NET Framework data leverantör för SQL Server |
+| SQL Server Data Warehouse |Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0, .NET Framework Data Provider för SQL Server | .NET Framework data leverantör för SQL Server |
 | Oracle | OLE DB Provider för Oracle, Oracle Data Provider för .NET |Oracle Data Provider för .NET |
 | Teradata |OLE DB Provider för Teradata, Teradata Data Provider för .NET |Teradata Data Provider för .NET |
 | | | |
 
 ### <a name="in-memory-only"></a>Endast minnes intern
 
-|Data Källa  |  
+|Datakälla  |  
 |---------|
 |Access-databas     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
@@ -76,7 +76,7 @@ Anslutning till lokala data källor från och Azure AS Server kräver en lokal g
 |ODBC-fråga     | 
 |OLE DB     |   
 |PostgreSQL databas<sup>[1](#tab1400b)</sup>    | 
-|Salesforce-objekt<sup>[1](#tab1400b)</sup> |  
+|Salesforce Objects<sup>[1](#tab1400b)</sup> |  
 |Salesforce-rapporter<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  

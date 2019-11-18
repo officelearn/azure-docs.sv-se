@@ -7,17 +7,17 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en ASP.NET-app
+    - name: ASP.NET-app
       href: cache-web-app-howto.md
-    - name: Skapa en NET-app
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Skapa en .NET Core-app
+    - name: .NET Core-app
       href: cache-dotnet-core-quickstart.md
-    - name: Skapa en Node.js-app
-      href: cache-nodejs-get-started.md
-    - name: Skapa en Java-app
+    - name: .NET-app
+      href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: Java-app
       href: cache-java-get-started.md
-    - name: Skapa en Python-app
+    - name: Node.js-app
+      href: cache-nodejs-get-started.md
+    - name: Python-app
       href: cache-python-get-started.md
 - name: Självstudier
   items:
@@ -33,10 +33,10 @@
       href: cli-samples.md
 - name: Begrepp
   items:
-    - name: Bästa praxis
-      href: cache-best-practices.md
     - name: Redundans och korrigering
       href: cache-failover.md
+    - name: Bästa praxis
+      href: cache-best-practices.md
     - name: Metodtips för cachelagring på arkitektur
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Instruktionsguider
@@ -45,12 +45,14 @@
       items:
         - name: Välja en cache-nivå
           href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+        - name: Distribuera din cache med klustring
+          href: cache-how-to-premium-clustering.md
         - name: Bevara din cache med Redis-datapersistence
           href: cache-how-to-premium-persistence.md
         - name: Skydda din cache med ett virtuellt nätverk
           href: cache-how-to-premium-vnet.md
-        - name: Distribuera din cache med klustring
-          href: cache-how-to-premium-clustering.md
+        - name: Konfigurera geo-replikering
+          href: cache-how-to-geo-replication.md
         - name: Migrera från Managed Cache Service
           href: cache-migrate-to-redis.md
     - name: Automatisera
@@ -79,8 +81,6 @@
       items:
         - name: Konfigurera i Azure Portal
           href: cache-configure.md
-        - name: Konfigurera geo-replikering
-          href: cache-how-to-geo-replication.md
         - name: Importera/exportera data
           href: cache-how-to-import-export-data.md
         - name: Starta om

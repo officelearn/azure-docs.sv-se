@@ -1,25 +1,22 @@
 ---
-title: Självstudie – Lägg till mall funktioner till Azure Resource Manager mall
+title: Självstudie – Lägg till mall funktioner
 description: Lägg till mallar i Azure Resource Manager-mallen för att skapa värden.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ca6e7f326ba67eac33e4dee5fa844d7676ab864b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fe571c2a0088375feff8351f49a476669461b6aa
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963963"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150245"
 ---
-# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Självstudier: Lägg till mallar i Resource Manager-mallen
+# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Självstudie: Lägg till mallar i Resource Manager-mallen
 
 I den här självstudien får du lära dig hur du lägger till [mallar](resource-group-template-functions.md) i mallen. Du använder funktioner för att dynamiskt konstruera värden. Förutom dessa funktioner som tillhandahålls av systemet kan du också skapa [användardefinierade funktioner](./template-user-defined-functions.md). Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om parametrar](template-tutorial-add-parameters.md), men det är inte obligatoriskt.
 
@@ -77,7 +74,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Du ser att en lagrings konto resurs har distribuerats och har samma plats som resurs gruppen.

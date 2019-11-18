@@ -10,17 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 4f9999b696191a7ea317906cedfc6c6946c3ae5e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886356"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121273"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudie: Strömma data till Azure Databricks med Event Hubs
-
-> [!IMPORTANT]
-> Den här självstudien fungerar med versionen av Azure Databricks runtime 5,2.
 
 I den här självstudien ansluter du ett datainmatningssystem med Azure Databricks för att strömma data till ett Apache Spark-kluster i nästan realtid. Du konfigurerar datainmatningssystemet med Azure Event Hubs och ansluter det sedan till Azure Databricks så att de meddelanden som skickas kan bearbetas. Om du vill få åtkomst till en dataström använder du Twitter-API:er till att mata in tweets i Event Hubs. När du har datan i Azure Databricks kan du köra analysjobb och analysera datan ytterligare.
 
@@ -39,7 +36,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa anteckningsböcker i Azure Databricks
 > * Bifoga bibliotek för Event Hubs och Twitter-API
 > * Skicka tweets till Event Hubs
-> * Läs tweets från Event Hubs
+> * Läsa tweets från Event Hubs
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -47,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
 > Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 - Ett Event Hubs-namnområde.
@@ -59,7 +56,7 @@ Du kan uppfylla dessa krav genom att slutföra stegen i artikeln [Skapa ett Azur
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -69,7 +66,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     ![Databricks på Azure Portal](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
-3. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
+3. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
 
     ![Skapa en Azure Databricks-arbetsyta](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Skapa en Azure Databricks-arbetsyta")
 
@@ -104,7 +101,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     Godkänn alla övriga standardvärden, förutom följande:
 
    * Ange ett namn för klustret.
-   * I den här artikeln skapar du ett kluster med **5,2** Runtime.
+   * I den här artikeln skapar du ett kluster med **6,0* -körning.
    * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
    Välj den kluster arbetare och den driv rutins nod som passar dina tekniska kriterier och [budget](https://azure.microsoft.com/pricing/details/databricks/).
@@ -297,7 +294,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Utdata som l
     ...
     ...
 
-## <a name="read-tweets-from-event-hubs"></a>Läs tweets från Event Hubs
+## <a name="read-tweets-from-event-hubs"></a>Läsa tweets från Event Hubs
 
 I anteckningsboken **ReadTweetsFromEventHub** klistrar du in följande kod och ersätter platshållarna med värdena för den Azure Event Hubs som du skapade tidigare. Den här anteckningsboken läser de tweets som du tidigare strömmade till Event Hubs med hjälp av anteckningsboken **SendTweetsToEventHub**.
 
@@ -409,7 +406,7 @@ Klart! Med Azure Databricks har du nu strömmat data till Azure Event Hubs näst
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med självstudien kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med självstudien kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
@@ -425,7 +422,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa anteckningsböcker i Azure Databricks
 > * Bifoga bibliotek för Event Hubs och Twitter-API
 > * Skicka tweets till Event Hubs
-> * Läs tweets från Event Hubs
+> * Läsa tweets från Event Hubs
 
 Gå vidare till nästa självstudie om du vill lära dig hur du utför sentiment-analys på strömmade data med hjälp av Azure Databricks och [COGNITIVE Services API](../cognitive-services/text-analytics/overview.md).
 

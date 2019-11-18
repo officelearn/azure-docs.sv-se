@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 087f1d76aaab4b05425262e0c1fb87b168c99b95
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: bc4a64985d19daf9d2f6bb86b6cfb4814f141e4b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931222"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152055"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play Preview-enhet (Linux)
 
@@ -57,7 +57,7 @@ Du hittar _anslutnings strängen för din företags modell databas_ i [Azure-cer
 
 ## <a name="prepare-an-iot-hub"></a>Förbered en IoT-hubb
 
-Du behöver också en Azure IoT-hubb i din Azure-prenumeration för att slutföra den här snabb starten. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Om du inte har en IoT-hubb kommer det att finnas steg för att skapa en nedan.
+Du behöver också en Azure IoT-hubb i din Azure-prenumeration för att slutföra den här snabb starten. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Om du inte redan har en IoT-hubb att använda följer du resten av det här avsnittet för att skapa ett.
 
 Om du använder Azure CLI lokalt bör `az`-versionen vara **2.0.75** eller senare, Azure Cloud Shell använder den senaste versionen. Använd kommandot `az --version` för att kontrol lera vilken version som är installerad på datorn.
 
@@ -82,13 +82,13 @@ Föregående kommandon skapar en resurs grupp med namnet `pnpquickstarts_rg` och
 > [!IMPORTANT]
 > Under den offentliga för hands versionen är IoT Plug and Play-funktioner bara tillgängliga på IoT-hubbar som skapats i regionerna **Central USA**, **Nord Europa**och **Östra Japan** .
 
-Kör följande kommando för att skapa en enhets identitet i din IoT-hubb. Ersätt plats hållarna **YourIoTHubName** och **YourDevice** med dina faktiska namn.
+Kör följande kommando för att skapa en enhets identitet i din IoT-hubb. Ersätt plats hållarna **YourIoTHubName** och **YourDeviceID** med ditt eget _IoT Hub namn_ och ett valfritt _enhets-ID_ .
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-Kör följande kommandon för att hämta _enhets anslutnings strängen_ för enheten som du just har registrerat.
+Kör följande kommandon för att hämta _enhets anslutnings strängen_ för enheten som du nyss registrerade (Anmärkning för användning senare).
 
 ```azurecli-interactive
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
@@ -173,7 +173,7 @@ Du kan använda enhets-SDK-källkoden för att skapa den genererade enhets koden
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
-    ./sample_device "<device connection string>"
+    ./sample_device "<YourDeviceConnectionString>"
     ```
 
 1. Enhets programmet börjar skicka data till IoT Hub.
@@ -213,8 +213,9 @@ az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
 Använd följande kommando för att visa alla egenskaper som har skickats av enheten:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<Your company model repository connection string>"
+az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

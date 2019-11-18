@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
-ms.openlocfilehash: 6c2a8fa57bf6e3a552da57588bdbe752ef0d22e2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5f2d23b3fe33691d37dc00b2d4e79036293252d9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609572"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132866"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Event Grid händelse schema för Azure Machine Learning
 
@@ -24,7 +24,7 @@ En lista över exempel på skript och självstudier finns i [händelse källan f
 
 Azure Machine Learning avger följande händelse typer:
 
-| Händelse typ | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. MachineLearningServices. ModelRegistered | Utlöses när en ny modell eller modell version har registrerats. |
 | Microsoft. MachineLearningServices. ModelDeployed | Utlöses när modell (er) har distribuerats till en slut punkt. |
@@ -155,8 +155,8 @@ En händelse har följande data på översta nivån:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| Motiv | sträng | Publisher-definierad sökväg till händelsens ämne. |
-| Typ | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
 | eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
 | data | objekt | Händelse data för Blob Storage. |
@@ -178,9 +178,9 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ServiceName | sträng | Namnet på den distribuerade tjänsten. |
+| Tjänstnamn | sträng | Namnet på den distribuerade tjänsten. |
 | ServiceComputeType | sträng | Compute-typen (t. ex. ACI, AKS) för den distribuerade tjänsten. |
-| ModelIds | sträng | En gemensam avgränsad lista med modell-ID: n. ID: na för de modeller som distribueras i tjänsten. |
+  | ModelIds | sträng | En kommaavgränsad lista med modell-ID: n. ID: na för de modeller som distribueras i tjänsten. |
 | ServiceTags | objekt | Den distribuerade tjänstens taggar. |
 | ServiceProperties | objekt | Egenskaperna för den distribuerade tjänsten. |
 
@@ -189,7 +189,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ExperimentId | sträng | ID för experimentet som körningen tillhör. |
-| experimentName | sträng | Namnet på experimentet som körningen tillhör. |
+| ExperimentName | sträng | Namnet på experimentet som körningen tillhör. |
 | RunId | sträng | ID för körningen som har slutförts. |
 | RunType | sträng | Körnings typen för den slutförda körningen. |
 | RunTags | objekt | Taggarna för den slutförda körningen. |
@@ -214,4 +214,4 @@ Data-objektet har följande egenskaper för varje händelse typ:
 * En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
 * Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md)
 * En introduktion till att använda Azure Event Grid med Azure Machine Learning finns i [använda Azure Machine Learning händelser](/azure/machine-learning/service/concept-event-grid-integration)
-* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa event drived Machine Learning-arbetsflöden](/azure/machine-learning/service/event-schema-machine-learning)
+* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa event drived Machine Learning-arbetsflöden](/azure/machine-learning/service/how-to-use-event-grid)

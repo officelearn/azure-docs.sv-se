@@ -1,25 +1,17 @@
 ---
-title: Konfigurera en Virtual Network för en Premium Azure-cache för Redis | Microsoft Docs
+title: Konfigurera en Virtual Network för en Premium Azure-cache för Redis
 description: Lär dig hur du skapar och hanterar Virtual Network support för din Premium-nivå i Azure-cache för Redis-instanser
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b2ddac9439183321691104d4eedccb0c971d19c9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075053"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129414"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -161,7 +153,7 @@ Det finns krav på nätverks anslutning för Azure cache för Redis som inte inl
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Hur kan jag kontrol lera att mitt cacheminne fungerar i ett VNET?
 
 >[!IMPORTANT]
->När du ansluter till en Azure-cache för Redis-instans som finns i ett VNET måste dina cache-klienter finnas i samma VNET eller i ett virtuellt nätverk med VNET-peering aktiverat. Detta omfattar alla test program eller verktyg för diagnostik-Pinging. Oavsett var klient programmet finns måste nätverks säkerhets grupper konfigureras så att klientens nätverks trafik kan komma åt Redis-instansen.
+>När du ansluter till en Azure-cache för Redis-instans som finns i ett VNET måste dina cache-klienter finnas i samma VNET eller i ett VNET med VNET-peering aktiverat inom samma Azure-region. Global VNET-peering stöds inte för närvarande. Detta omfattar alla test program eller verktyg för diagnostik-Pinging. Oavsett var klient programmet finns måste nätverks säkerhets grupper konfigureras så att klientens nätverks trafik kan komma åt Redis-instansen.
 >
 >
 

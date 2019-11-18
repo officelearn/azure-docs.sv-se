@@ -1,45 +1,46 @@
 ---
-title: 'Självstudie: Identifiera avsikter från tal med hjälp av Speech SDK för C#'
+title: Identifiera avsikter från tal med hjälp av tal-SDKC#
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien lär du dig att identifiera avsikter från tal med hjälp av Speech SDK för C#.
+description: I den här guiden får du lära dig att identifiera avsikter från tal med hjälp av tal- C#SDK för.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c61f8c0fe1c2a04d390567cc0bc94f22bc5e897
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464619"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110156"
 ---
-# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudie: Identifiera avsikter från tal med hjälp av Speech SDK för C#
+# <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Identifiera avsikter från tal med hjälp av tal-SDK förC#
 
 Cognitive Services [Speech SDK](speech-sdk.md) integreras med [language Understanding-tjänsten (Luis)](https://www.luis.ai/home) för att ge **avsikts igenkänning**. En avsikt är något som användaren vill göra: boka en flygning, titta på vädret eller ringa ett samtal. Användaren kan använda de termer som känns naturliga. Med Machine Learning kan LUIS mappa användar förfrågningar till de avsikter som du har definierat.
 
 > [!NOTE]
 > Ett LUIS-programmet definierar avsikter och entiteter som du vill identifiera. Det är separat från det C#-program som använder Speech-tjänsten. I den här artikeln betyder ”app” LUIS-appen medan ”program” innebär C#-koden.
 
-I den här självstudien använder du Speech SDK för att utveckla ett C#-konsolprogram som härleder avsikter från användaryttranden via enhetens mikrofon. Du lär dig följande:
+I den här guiden använder du tal-SDK: n för C# att utveckla ett konsol program som härleder intentor från användar yttranden via din enhets mikrofon. Du lär dig följande:
 
 > [!div class="checklist"]
-> * Skapa ett Visual Studio-projekt som refererar till Speech SDK NuGet-paketet
-> * Skapa en tal konfiguration och få en avsikts igenkänning
-> * Hämta modellen för LUIS-appen och lägga till de avsikter som du behöver
-> * Ange språk för taligenkänning
-> * Identifiera tal från en fil
-> * Använd asynkron, händelsedriven kontinuerlig igenkänning
+>
+> - Skapa ett Visual Studio-projekt som refererar till Speech SDK NuGet-paketet
+> - Skapa en tal konfiguration och få en avsikts igenkänning
+> - Hämta modellen för LUIS-appen och lägga till de avsikter som du behöver
+> - Ange språk för taligenkänning
+> - Identifiera tal från en fil
+> - Använd asynkron, händelsedriven kontinuerlig igenkänning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Se till att du har följande saker innan du påbörjar den här självstudien:
+Se till att du har följande saker innan du börjar den här guiden:
 
-* Ett LUIS-konto. Du kan skaffa ett kostnadsfritt via [LUIS-portalen](https://www.luis.ai/home).
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (vilken utgåva som helst).
+- Ett LUIS-konto. Du kan skaffa ett kostnadsfritt via [LUIS-portalen](https://www.luis.ai/home).
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (vilken utgåva som helst).
 
 ## <a name="luis-and-speech"></a>LUIS och tal
 
@@ -47,15 +48,15 @@ LUIS integreras med tal tjänsterna för att identifiera avsikter från tal. Du 
 
 LUIS använder tre typer av nycklar:
 
-|Nyckeltyp|Syfte|
-|--------|-------|
-|Redigering|Gör att du kan skapa och ändra LUIS-appar program mässigt|
-|Starter|Gör att du kan testa ditt LUIS-program med enbart text|
-|Slutpunkt |Auktoriserar åtkomst till en viss LUIS-app|
+| Nyckeltyp  | Syfte                                               |
+| --------- | ----------------------------------------------------- |
+| Redigering | Gör att du kan skapa och ändra LUIS-appar program mässigt |
+| Starter   | Gör att du kan testa ditt LUIS-program med enbart text   |
+| Slutpunkt  | Auktoriserar åtkomst till en viss LUIS-app            |
 
-För den här självstudien behöver du slut punkts nyckel typen. I självstudien används exempel programmet Home Automation LUIS, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
+Du behöver en slut punkts nyckel typ för den här guiden. Den här guiden använder LUIS-appen för hem automatisering, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
 
-När du skapar en LUIS-app genererar LUIS automatiskt en start nyckel så att du kan testa appen med hjälp av text frågor. Den här nyckeln aktiverar inte integrering av tal tjänster och fungerar inte med den här självstudien. Skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnadsfria prenumerationsnivån för den här självstudiekursen.
+När du skapar en LUIS-app genererar LUIS automatiskt en start nyckel så att du kan testa appen med hjälp av text frågor. Den här nyckeln aktiverar inte integrering av tal tjänster och fungerar inte med den här guiden. Skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnads fria prenumerations nivån för den här guiden.
 
 När du har skapat LUIS-resursen på Azure-instrumentpanelen loggar du in på [Luis-portalen](https://www.luis.ai/home), väljer ditt program på sidan **Mina appar** och växlar sedan till appens **hanterings** sida. Slutligen väljer du **nycklar och slut punkter** i sido panelen.
 
@@ -66,11 +67,11 @@ På sidan **nycklar och inställningar för slut punkt** :
 1. Rulla ned till avsnittet **resurser och nycklar** och välj **tilldela resurs**.
 1. Gör följande ändringar i dialog rutan **tilldela en nyckel till din app** :
 
-   * Under **klient**väljer du **Microsoft**.
-   * Under **prenumerations namn**väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
-   * Under **nyckel**väljer du den Luis-resurs som du vill använda med appen.
+   - Under **klient**väljer du **Microsoft**.
+   - Under **prenumerations namn**väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
+   - Under **nyckel**väljer du den Luis-resurs som du vill använda med appen.
 
-   Om en stund visas den nya prenumerationen i tabellen längst ned på sidan. 
+   Om en stund visas den nya prenumerationen i tabellen längst ned på sidan.
 
 1. Välj ikonen bredvid en tangent för att kopiera den till Urklipp. (Du kan använda valfri nyckel.)
 
@@ -112,13 +113,13 @@ Sedan lägger du till kod i projektet.
 
 1. Ersätt platshållarna i den här metoden med din LUIS-prenumerationsnyckel, region och app-ID på följande sätt.
 
-   |Platshållare|Ersätt med|
-   |-----------|------------|
-   |`YourLanguageUnderstandingSubscriptionKey`|Din LUIS-slutpunktsnyckel. Återigen måste du hämta det här objektet från Azure-instrumentpanelen, inte en "Start nyckel". Du hittar den på sidan **nycklar och slut punkter** för appen (under **Hantera**) i [Luis-portalen](https://www.luis.ai/home).|
-   |`YourLanguageUnderstandingServiceRegion`|Den korta identifieraren för den region som din LUIS-prenumeration är i, till exempel `westus` för USA, västra. Se [regioner](regions.md).|
-   |`YourLanguageUnderstandingAppId`|LUIS-app-ID. Du hittar den på appens **inställnings** sida på Luis- [portalen](https://www.luis.ai/home).|
+   | Platshållare | Ersätt med |
+   | ----------- | ------------ |
+   | `YourLanguageUnderstandingSubscriptionKey` | Din LUIS-slutpunktsnyckel. Återigen måste du hämta det här objektet från Azure-instrumentpanelen, inte en "Start nyckel". Du hittar den på sidan **nycklar och slut punkter** för appen (under **Hantera**) i [Luis-portalen](https://www.luis.ai/home). |
+   | `YourLanguageUnderstandingServiceRegion` | Den korta identifieraren för den region som din LUIS-prenumeration är i, till exempel `westus` för USA, västra. Se [regioner](regions.md). |
+   | `YourLanguageUnderstandingAppId` | LUIS-app-ID. Du hittar den på appens **inställnings** sida på Luis- [portalen](https://www.luis.ai/home). |
 
-När dessa ändringar har gjorts kan du skapa (**CTRL + SHIFT + B**) och köra (**F5**) själv studie programmet. När du uppmanas kan du prova att säga "Stäng av ljuset" i DATORns mikrofon. Programmet visar resultatet i konsol fönstret.
+När de här ändringarna har gjorts kan du skapa (**CTRL + SHIFT + B**) och köra (**F5**) programmet. När du uppmanas kan du prova att säga "Stäng av ljuset" i DATORns mikrofon. Programmet visar resultatet i konsol fönstret.
 
 Följande avsnitt innehåller en beskrivning av koden.
 
@@ -137,10 +138,10 @@ Nu importerar du modellen från LUIS-appen med hjälp av `LanguageUnderstandingM
 
 Om du vill lägga till avsikter måste du ange tre argument: LUIS-modellen (som har skapats och heter `model`), namnet på avsikten och ett avsikts-ID. Skillnaden mellan ID och namnet är som följer.
 
-|`AddIntent()`&nbsp;argument|Syfte|
-|--------|-------|
-|intentName|Namnet på avsikten enligt vad som definierats i LUIS-appen. Det här värdet måste matcha namnet på LUIS-avsikten exakt.|
-|intentID|Ett ID som tilldelas till en igenkänd avsikt av Speech SDK. Det här värdet kan vara vad du vill. Det behöver inte motsvara det namn på avsikten som definierats i LUIS-appen. Om flera avsikter till exempel hanteras av samma kod kan du använda samma ID för dem.|
+| `AddIntent()`&nbsp;argument | Syfte |
+| --------------------------- | ------- |
+| `intentName` | Namnet på avsikten enligt vad som definierats i LUIS-appen. Det här värdet måste matcha namnet på LUIS-avsikten exakt. |
+| `intentID` | Ett ID som tilldelas till en igenkänd avsikt av Speech SDK. Det här värdet kan vara vad du vill. Det behöver inte motsvara det namn på avsikten som definierats i LUIS-appen. Om flera avsikter till exempel hanteras av samma kod kan du använda samma ID för dem. |
 
 LUIS-appen för hem automatisering har två avsikter: en för att aktivera en enhet och en annan för att stänga av en enhet. Raderna nedan lägger till dessa avsikter till igenkännaren. Ersätt de tre `AddIntent`-raderna i metoden `RecognizeIntentAsync()` med den här koden.
 
@@ -155,24 +156,24 @@ I stället för att lägga till enskilda avsikter kan du också använda metoden
 
 När igenkännaren har skapats och avsikterna lagts till kan igenkänningen börja. Speech SDK stöder både engångsigenkänning och kontinuerlig igenkänning.
 
-|Igenkänningsläge|Metoder att anropa|Resultat|
-|----------------|-----------------|---------|
-|Engångsigenkänning|`RecognizeOnceAsync()`|Returnerar den igenkända avsikten, om sådan finns, efter ett yttrande.|
-|Kontinuerlig igenkänning|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Känner igen flera yttranden; genererar händelser (till exempel `IntermediateResultReceived`) när resultatet är tillgängligt.|
+| Igenkänningsläge | Metoder att anropa | Resultat |
+| ---------------- | --------------- | ------ |
+| Engångsigenkänning | `RecognizeOnceAsync()` | Returnerar den igenkända avsikten, om sådan finns, efter ett yttrande. |
+| Kontinuerlig igenkänning | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Känner igen flera yttranden; genererar händelser (till exempel `IntermediateResultReceived`) när resultatet är tillgängligt. |
 
-Självstudieprogrammet använder engångsigenkänning och anropar därför `RecognizeOnceAsync()` för att påbörja igenkänning. Resultatet är ett `IntentRecognitionResult`-objekt som innehåller information om den igenkända avsikten. Du extraherar LUIS JSON-svaret med hjälp av följande uttryck:
+Programmet använder ett enda bilds läge och anropar `RecognizeOnceAsync()` för att börja känna igen. Resultatet är ett `IntentRecognitionResult`-objekt som innehåller information om den igenkända avsikten. Du extraherar LUIS JSON-svaret med hjälp av följande uttryck:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
 ```
 
-Själv studie kursen går inte att parsa JSON-resultatet. Den visar bara JSON-texten i konsol fönstret.
+Programmet kan inte parsa JSON-resultatet. Den visar bara JSON-texten i konsol fönstret.
 
 ![Resultat för enkel LUIS-igenkänning](media/sdk/luis-results.png)
 
 ## <a name="specify-recognition-language"></a>Ange igenkänningsspråk
 
-Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Lägg exempelvis till `config.SpeechRecognitionLanguage = "de-de";` i självstudieprogrammet innan du skapar igenkännaren om du vill känna igen avsikter på tyska. Mer information finns i [språk som stöds](language-support.md#speech-to-text).
+Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Du kan till exempel lägga till `config.SpeechRecognitionLanguage = "de-de";` i vårt program innan du skapar tolken för att identifiera avsikter på tyska. Mer information finns i [språk som stöds](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Kontinuerlig igenkänning från en fil
 
@@ -196,4 +197,4 @@ Sök efter koden från den här artikeln i mappen **samples/csharp/sharedcontent
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så identifierar du tal](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Snabb start: identifiera tal från en mikrofon](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

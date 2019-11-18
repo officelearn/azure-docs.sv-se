@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/14/2019
+ms.openlocfilehash: 5fd5295e52f0fef5e1432fdb2f81d2ba0e1717e8
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162288"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109777"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälso tillståndet för dina virtuella Azure-datorer
 
@@ -26,46 +26,50 @@ Den här artikeln visar hur du snabbt kan utvärdera, undersöka och lösa häls
 
 Information om hur du konfigurerar Azure Monitor for VMs finns i [aktivera Azure Monitor for VMS](vminsights-enable-overview.md).
 
+>[!NOTE]
+>Vi har nyligen [lanserat ändringar](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) som vi gör i hälso funktionen baserat på feedback vi har fått från våra kunder med offentlig för hands version. Med tanke på antalet ändringar vi kommer att göra, kommer vi att sluta erbjuda hälso funktionen för nya kunder. Befintliga kunder kan fortsätta att använda hälso funktionen. Mer information finns i [vanliga frågor och svar om allmän tillgänglighet](vminsights-ga-release-faq.md). 
+
 ## <a name="monitoring-configuration-details"></a>Konfigurations information för övervakning
 
 Det här avsnittet beskriver standard hälso villkoren för att övervaka virtuella datorer i Azure Windows och Linux. Alla hälso kriterier är förkonfigurerade för att skicka en avisering när de identifierar ett ohälsosamt tillstånd.
 
-| Övervakarens namn | Frekvens (min) | Lookback varaktighet (min) | Operator | Fastställd | Avisering om tillstånd | Allvarsgrad | Arbets belastnings kategori | 
+| Övervakarens namn | Frekvens (min) | Lookback varaktighet (min) | Operator | Tröskelvärde | Avisering om tillstånd | Severity | Arbets belastnings kategori | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
-| Logisk disk online | 5 | 15 | <> | 1 (sant) | Kritiskt | Sev1 | Linux | 
+| Logisk disk online | 5 | 15 | <> | 1 (sant) | Kritisk | Sev1 | Linux | 
 | Ledigt utrymme på logisk disk | 5 | 15 | < | 200 MB (varning)<br> 100 MB (kritiskt) | Varning | Sev1<br> Sev2 | Linux | 
-| Ledig noder i procent för logisk disk | 5 | 15 | < | 5 % | Kritiskt | Sev1 | Linux | 
-| Ledigt utrymme i procent för logisk disk | 5 | 15 | < | 5 % | Kritiskt | Sev1 | Linux | 
+| Ledig noder i procent för logisk disk | 5 | 15 | < | 5 % | Kritisk | Sev1 | Linux | 
+| Ledigt utrymme i procent för logisk disk | 5 | 15 | < | 5 % | Kritisk | Sev1 | Linux | 
 | Status för nätverkskort | 5 | 15 | <> | 1 (sant) | Varning | Sev2 | Linux | 
-| Tillgängligt minne i megabyte för operativ system | 5 | 10 | < | 2,5 MB | Kritiskt | Sev1 | Linux | 
-| Disk medel s/disk läsning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
-| Disk medel s/disk överföring | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
-| Disk medel s/disk skrivning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
-| Disk status | 5 | 25 | <> | 1 (sant) | Kritiskt | Sev1 | Linux | 
-| Total processor tid i procent för operativ system | 5 | 10 | >= | 95% | Kritiskt | Sev1 | Linux | 
-| Total processor användning i procent | 5 | 10 | >= | 95% | Kritiskt | Sev1 | Windows | 
-| Fel eller fel i fil systemet | 60 | 60 | <> | 4 | Kritiskt | Sev1 | Windows | 
+| Tillgängligt minne i megabyte för operativ system | 5 | 10 | < | 2,5 MB | Kritisk | Sev1 | Linux | 
+| Disk medel s/disk läsning | 5 | 25 | > | 0,05 s | Kritisk | Sev1 | Linux | 
+| Disk medel s/disk överföring | 5 | 25 | > | 0,05 s | Kritisk | Sev1 | Linux | 
+| Disk medel s/disk skrivning | 5 | 25 | > | 0,05 s | Kritisk | Sev1 | Linux | 
+| Disk status | 5 | 25 | <> | 1 (sant) | Kritisk | Sev1 | Linux | 
+| Total processor tid i procent för operativ system | 5 | 10 | >= | 95% | Kritisk | Sev1 | Linux | 
+| Total processor användning i procent | 5 | 10 | >= | 95% | Kritisk | Sev1 | Windows | 
+| Fel eller fel i fil systemet | 60 | 60 | <> | 4 | Kritisk | Sev1 | Windows | 
 | Genomsnittligt antal sekunder per läsning för logiska diskar | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
 | Genomsnittligt antal sekunder per överföring för logiska diskar | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
 | Genomsnittligt antal sekunder per skrivning (logisk disk) för logiska diskar | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
 | Aktuell diskkölängd (logisk disk) | 5 | 60 | >= | 32 | Varning | Sev2 | Windows | 
-| Ledigt utrymme på logisk disk (MB) | 15 | 60 | > | varning om 500 MB<br> 300 MB kritiskt | Kritiskt | Sev1<br> Sev2 | Windows | 
-| Ledigt utrymme på logisk disk (%) | 15 | 60 | > | 10% varning<br> 5% kritiskt | Kritiskt | Sev1<br> Sev2 | Windows |
+| Ledigt utrymme på logisk disk (MB) | 15 | 60 | > | varning om 500 MB<br> 300 MB kritiskt | Kritisk | Sev1<br> Sev2 | Windows | 
+| Ledigt utrymme på logisk disk (%) | 15 | 60 | > | 10% varning<br> 5% kritiskt | Kritisk | Sev1<br> Sev2 | Windows |
 | Ledig tid i procent för logisk disk | 15 | 360 | <= | 20 % | Varning | Sev2 | Windows | 
 | Procent läst Använd bandbredd | 5 | 60 | >= | 60 % | Varning | Sev2 | Windows | 
 | Total mängd bandbredd som används | 5 | 60 | >= | 75% | Varning | Sev2 | Windows | 
 | Procent Använd bandbredds skrivning | 5 | 60 | >= | 60 % | Varning | Sev2 | Windows | 
-| DHCP-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
-| DNS-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
-| Windows händelse logg Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
-| Service Health för Windows-brandväggen | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
-| RPC-Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
-| Server Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
-| Windows Remote Management-Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
-| Tillgängligt minne i MB | 5 | 10 | < | 100 MB | Kritiskt | Sev1 | Windows | 
-| Kostnads fria system sid tabell poster | 5 | 10 | <= | 5000 | Kritiskt | Sev1 | Windows | 
+| DHCP-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritisk | Sev1 | Windows | 
+| DNS-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritisk | Sev1 | Windows | 
+| Windows händelse logg Service Health | 5 | 12 | <> | 4 (körs) | Kritisk | Sev1 | Windows | 
+| Service Health för Windows-brandväggen | 5 | 12 | <> | 4 (körs) | Kritisk | Sev1 | Windows | 
+| RPC-Service Health | 5 | 12 | <> | 4 (körs) | Kritisk | Sev1 | Windows | 
+| Server Service Health | 5 | 12 | <> | 4 (körs) | Kritisk | Sev1 | Windows | 
+| Windows Remote Management-Service Health | 5 | 12 | <> | 4 (körs) | Kritisk | Sev1 | Windows | 
+| Tillgängligt minne i MB | 5 | 10 | < | 100 MB | Kritisk | Sev1 | Windows | 
+| Kostnads fria system sid tabell poster | 5 | 10 | <= | 5000 | Kritisk | Sev1 | Windows | 
 | Minnes sidor per sekund | 5 | 10 | >= | 5000/s | Varning | Sev1 | Windows | 
-| Procent andelen allokerat minne som används | 5 | 10 | > | 80 % | Kritiskt | Sev1 | Windows | 
+| Procent andelen allokerat minne som används | 5 | 10 | > | 80 % | Kritisk | Sev1 | Windows | 
 | Genomsnittligt antal sekunder per överföring | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
 | Genomsnittligt antal sekunder per skrivning | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
 | Aktuell diskkölängd | 5 | 60 | >= | 32 | Varning | Sev2 | Windows | 
@@ -75,7 +79,7 @@ Det här avsnittet beskriver standard hälso villkoren för att övervaka virtue
 >Lookback varaktighet anger hur ofta fönstret gå tillbaka kontrollerar värdena, till exempel under de senaste fem minuterna.  
 
 >[!NOTE]
->Frekvensen anger hur ofta mått aviseringen ska kontrol lera om villkoren är uppfyllda, till exempel en gång i minuten.  Det är den hastighet som hälso kriteriet körs, och lookback är den tid under vilken hälso kriteriet utvärderas. Till exempel utvärderas hälso kriteriet om **processor användningen** i villkoret är större än 95 procent med en frekvens på 5 minuter och förblir större än 95% i 15 minuter (3 efterföljande utvärderings cykler), så uppdateras tillståndet till kritiskt allvarlighets grad om den inte redan fanns.
+>Frekvensen anger hur ofta mått aviseringen ska kontrol lera om villkoren är uppfyllda, till exempel en gång i minuten.  Det är den hastighet som hälso kriteriet körs, och lookback är den tid under vilken hälso kriteriet utvärderas. Hälso kriteriet kan till exempel utvärderas om villkoret **CPU-användning** är större än 95 procent med en frekvens på 5 minuter och förblir större än 95% i 15 minuter (3 av varandra följande utvärderings serier), så uppdateras tillståndet till kritisk allvarlighets grad om det inte redan var det.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -99,10 +103,10 @@ Om du väljer tillståndet bredvid komponenten öppnas hälso Diagnoss upplevels
 
 De hälso tillstånd som definierats för en virtuell dator beskrivs i följande tabell:
 
-|Icon |Hälso tillstånd |Betydelse |
+|Ikon |Hälso tillstånd |Betydelse |
 |-----|-------------|---------------|
 | |Felfri |Den virtuella datorn ligger inom de definierade hälso villkoren. Det här läget anger att inga problem har identifierats och att den virtuella datorn fungerar normalt. Med en överordnad sammanslagnings Övervakare samlar hälso tillståndet upp och återspeglar det bästa fallet eller det värsta fallet för det underordnade.|
-| |Kritiskt |Tillståndet ligger inte inom det definierade hälso tillståndet, vilket tyder på att ett eller flera kritiska problem har identifierats. De här problemen måste åtgärdas för att återställa normala funktioner. Med en överordnad sammanslagnings Övervakare samlar hälso tillståndet upp och återspeglar det bästa fallet eller sämsta fall tillståndet för det underordnade.|
+| |Kritisk |Tillståndet ligger inte inom det definierade hälso tillståndet, vilket tyder på att ett eller flera kritiska problem har identifierats. De här problemen måste åtgärdas för att återställa normala funktioner. Med en överordnad sammanslagnings Övervakare samlar hälso tillståndet upp och återspeglar det bästa fallet eller sämsta fall tillståndet för det underordnade.|
 | |Varning |Tillståndet är mellan två tröskelvärden för det definierade hälso tillståndet, där en indikerar ett varnings tillstånd och det andra indikerar ett kritiskt tillstånd (tre hälso tillstånds trösklar kan konfigureras) eller när ett icke-kritiskt problem kan orsaka allvarliga problem om olösta. Om en eller flera underordnade är i ett varnings tillstånd med en överordnad sammanslagnings övervakare, visas ett varnings tillstånd i den överordnade. Om ett underordnat objekt är i kritiskt tillstånd och ett annat underordnat objekt i varnings tillstånd visas hälso tillståndet som kritisk i den överordnade sammanslagningen.|
 | |Okänt |Det går inte att beräkna tillstånd av flera orsaker. Följande avsnitt innehåller ytterligare information och möjliga lösningar. |
 
@@ -302,7 +306,7 @@ Du kan filtrera den här vyn genom att välja värden i de nedrullningsbara meny
 |Resursgrupp |Välj en enskild resurs grupp. Endast aviseringar med mål i den valda resurs gruppen ingår i vyn. |
 |Resurstyp |Välj en eller flera resurs typer. Som standard är endast aviseringar för **virtuella mål datorer** markerade och ingår i den här vyn. Den här kolumnen är bara tillgänglig efter att en resurs grupp har angetts. |
 |Resurs |Välj en resurs. Endast aviseringar med den resursen som mål ingår i vyn. Den här kolumnen är bara tillgänglig efter att en resurs typ har angetts. |
-|Allvarsgrad |Välj en allvarlighets grad för aviseringar eller Välj **alla** om du vill inkludera aviseringar för alla allvarlighets grader. |
+|Severity |Välj en allvarlighets grad för aviseringar eller Välj **alla** om du vill inkludera aviseringar för alla allvarlighets grader. |
 |Övervaknings villkor |Välj ett övervaknings villkor för att filtrera aviseringar om de har Aktiver ATS eller lösts av systemet om villkoret inte längre är aktivt. Eller Välj **alla** om du vill inkludera varningar om alla villkor. |
 |Aviserings tillstånd |Välj ett aviserings tillstånd, **nytt**, **Bekräfta**, **stängt**eller **alla** för att inkludera aviseringar för alla tillstånd. |
 |Övervaka tjänst |Välj en tjänst eller Välj **alla** om du vill inkludera alla tjänster. Endast aviseringar från VM Insights stöds för den här funktionen.|
@@ -321,7 +325,7 @@ Mer information om hur du hanterar aviseringar finns i [skapa, Visa och hantera 
 Du kan ändra ett aviserings tillstånd för en eller flera aviseringar genom att markera dem och sedan välja **ändra tillstånd** på sidan **alla aviseringar** i det övre vänstra hörnet. Välj ett av tillstånden i fönstret **ändra aviserings tillstånd** , Lägg till en beskrivning av ändringen i fältet **kommentar** och välj sedan **OK** för att spara ändringarna. När informationen har verifierats och ändringarna tillämpas spårar du förloppet under **meddelanden** på menyn.
 
 ### <a name="configure-alerts"></a>Konfigurera varningar
-Du kan inte hantera vissa aviserings hanterings uppgifter från Azure Portal. De här uppgifterna måste utföras med hjälp av [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Närmare bestämt:
+Du kan inte hantera vissa aviserings hanterings uppgifter från Azure Portal. De här uppgifterna måste utföras med hjälp av [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Mer specifikt:
 
 - Aktivera eller inaktivera en avisering för hälso villkor
 - Konfigurera aviseringar för aviseringar om hälso villkor

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2019
+ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 97ea1c5260d1082619d59a2b8614a0ba7e9181a8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902908"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145180"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
 
@@ -41,6 +41,10 @@ MSAL tillhandahåller flera nivåer av loggnings information:
 ## <a name="personal-and-organizational-data"></a>Personliga och organisatoriska data
 
 Som standard fångar MSAL-loggaren inte upp mycket känsliga personliga eller organisatoriska data. Biblioteket ger möjlighet att aktivera loggning av personliga och organisatoriska data om du bestämmer dig för detta.
+
+Om du vill ha mer information om MSAL-loggning på ett visst språk väljer du fliken som matchar ditt språk:
+
+## <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 ## <a name="logging-in-msalnet"></a>Logga in MSAL.NET
 
@@ -80,6 +84,8 @@ class Program
   }
  }
  ```
+
+## <a name="androidtabandroid"></a>[Android](#tab/android)
 
 ## <a name="logging-in-msal-for-android-using-java"></a>Logga in MSAL för Android med Java
 
@@ -123,7 +129,7 @@ Som standard är loggning till logcat inaktive rad. För att aktivera:
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
-## <a name="logging-in-msaljs"></a>Logga in MSAL. js
+## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
  Aktivera loggning i MSAL. js (Java Script) genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication` instans. Detta loggnings objekt har följande egenskaper:
 
@@ -155,7 +161,9 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="logging-in-msal-for-ios-and-macos"></a>Logga in MSAL för iOS och macOS
+## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+
+## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL för iOS och macOS-loggning – ObjC
 
 Ange ett återanrop för att avbilda MSAL-loggning och införliva den i ditt eget programs loggning. Signaturen för återanropet ser ut så här:
 
@@ -176,7 +184,6 @@ typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL cont
 
 Exempel:
 
-Objective-C
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
     {
@@ -190,7 +197,71 @@ Objective-C
     }];
 ```
 
-Swift
+### <a name="personal-data"></a>Person uppgifter
+
+Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled`, tar appen ansvar för säker hantering av mycket känsliga data och följande regler.
+
+```objc
+// By default, the `MSALLogger` doesn't capture any PII
+
+// PII will be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = YES;
+
+// PII will NOT be logged
+MSALGlobalConfig.loggerConfig.piiEnabled = NO;
+```
+
+### <a name="logging-levels"></a>Loggnings nivåer
+
+Använd något av följande värden om du vill ange loggnings nivå när du loggar med MSAL för iOS och macOS:
+
+|Nivå  |Beskrivning |
+|---------|---------|
+| `MSALLogLevelNothing`| Inaktivera all loggning |
+| `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
+| `MSALLogLevelWarning` | Varna |
+| `MSALLogLevelInfo` |  Biblioteks start punkter, med parametrar och olika nyckel rings åtgärder |
+|`MSALLogLevelVerbose`     |  API-spårning |
+
+Exempel:
+
+```objc
+MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
+ ```
+
+ ### <a name="log-message-format"></a>Logg meddelande format
+
+Meddelande delen av MSAL logg meddelanden har formatet `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+
+Exempel:
+
+`TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
+
+Att tillhandahålla korrelations-ID: n och tidsstämplar är användbara för att spåra problem. Information om tidsstämpel-och korrelations-ID finns i logg meddelandet. Den enda tillförlitliga platsen för att hämta dem är från MSAL loggnings meddelanden.
+
+## <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+## <a name="msal-for-ios-and-macos-logging-swift"></a>MSAL för iOS och macOS-loggning – Swift
+
+Ange ett återanrop för att avbilda MSAL-loggning och införliva den i ditt eget programs loggning. Signaturen (representeras i mål-C) för återanropet ser ut så här:
+
+```objc
+/*!
+    The LogCallback block for the MSAL logger
+ 
+    @param  level           The level of the log message
+    @param  message         The message being logged
+    @param  containsPII     If the message might contain Personally Identifiable Information (PII)
+                            this will be true. Log messages possibly containing PII will not be
+                            sent to the callback unless PIllLoggingEnabled is set to YES on the
+                            logger.
+
+ */
+typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
+```
+
+Exempel:
+
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
     if let message = message, !containsPII
@@ -207,18 +278,6 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 Som standard samlar MSAL inte in eller loggar personliga data (PII). Med biblioteket kan utvecklare aktivera detta genom en egenskap i MSALLogger-klassen. Genom att aktivera `pii.Enabled`, tar appen ansvar för säker hantering av mycket känsliga data och följande regler.
 
-Objective-C
-```objc
-// By default, the `MSALLogger` doesn't capture any PII
-
-// PII will be logged
-MSALGlobalConfig.loggerConfig.piiEnabled = YES;
-
-// PII will NOT be logged
-MSALGlobalConfig.loggerConfig.piiEnabled = NO;
-```
-
-Swift
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
 
@@ -243,12 +302,6 @@ Använd något av följande värden om du vill ange loggnings nivå när du logg
 
 Exempel:
 
-Objective-C
-```objc
-MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
- ```
- 
- Swift
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
  ```
@@ -263,9 +316,11 @@ Exempel:
 
 Att tillhandahålla korrelations-ID: n och tidsstämplar är användbara för att spåra problem. Information om tidsstämpel-och korrelations-ID finns i logg meddelandet. Den enda tillförlitliga platsen för att hämta dem är från MSAL loggnings meddelanden.
 
-## <a name="logging-in-msal-for-java"></a>Logga in MSAL för Java
+## <a name="javatabjava"></a>[Java](#tab/java)
 
-Med MSAL för Java (MSAL4J) kan du använda det loggnings bibliotek som du redan använder med din app, så länge det är kompatibelt med SLF4J. MSAL4j använder [fasad för enkel loggning för Java](http://www.slf4j.org/) (SLF4J) som en enkel fasad eller abstraktion för olika loggnings ramverk, till exempel [Java. util. logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [logback](http://logback.qos.ch/) och [log4j](https://logging.apache.org/log4j/2.x/). SLF4J gör det möjligt för slutanvändaren att ansluta till det önskade loggnings ramverket vid distributions tillfället.
+## <a name="msal-for-java-logging"></a>MSAL för Java-loggning
+
+Med MSAL för Java (MSAL4J) kan du använda det loggnings bibliotek som du redan använder med din app, så länge det är kompatibelt med SLF4J. MSAL4j använder [fasad för enkel loggning för Java](http://www.slf4j.org/) (SLF4J) som en enkel fasad eller abstraktion för olika loggnings ramverk, till exempel [Java. util. logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [logback](http://logback.qos.ch/) och [log4j](https://logging.apache.org/log4j/2.x/). SLF4J gör att användaren kan ansluta till det önskade loggnings ramverket vid distributions tillfället.
 
 Om du till exempel vill använda logback som loggnings ramverk i ditt program lägger du till logback-beroendet till maven Pom-filen för ditt program:
 
@@ -310,3 +365,35 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .logPii(true)
         .build();
 ```
+
+## <a name="pythontabpython"></a>[Python](#tab/python)
+
+## <a name="msal-for-python-logging"></a>MSAL för python-loggning
+
+Loggning i MSAL python använder standard funktionen python-loggning, till exempel `logging.info("msg")` du kan konfigurera MSAL-loggning på följande sätt (och se hur det fungerar i [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+
+### <a name="enable-debug-logging-for-all-modules"></a>Aktivera fel söknings loggning för alla moduler
+
+Som standard är loggningen i valfritt Python-skript inaktive rad. Om du vill aktivera fel söknings loggning för alla moduler i hela python-skriptet använder du:
+
+```python
+logging.basicConfig(level=logging.DEBUG)
+```
+
+### <a name="silence-only-msal-logging"></a>Enbart tystnads MSAL loggning
+
+Om du bara vill göra en MSAL-biblioteks loggning, samtidigt som du aktiverar fel söknings loggning i alla andra moduler i python-skriptet, inaktiverar du den loggning som används av MSAL python:
+
+```Python
+logging.getLogger("msal").setLevel(logging.WARN)
+```
+
+### <a name="personal-and-organizational-data-in-python"></a>Personliga och organisatoriska data i python
+
+MSAL for python loggar inte personliga data eller organisations data. Det finns ingen egenskap för att aktivera eller inaktivera personlig eller organisations data inloggning.
+
+Du kan använda standard-python-loggning för att logga vad du vill, men du är ansvarig för att säkert hantera känsliga data och följa regel krav.
+
+Mer information om hur du loggar in python finns i python- [loggning howto](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+
+---

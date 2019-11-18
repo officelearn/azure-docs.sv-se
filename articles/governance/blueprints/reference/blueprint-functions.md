@@ -1,14 +1,14 @@
 ---
 title: Azure-ritningar fungerar
-description: Beskriver de funktioner som används med definitioner och tilldelningar av Azure-ritningar.
+description: Beskriver de funktioner som är tillgängliga för användning med skiss artefakter i definitioner och tilldelningar av Azure-modeller.
 ms.date: 04/15/2019
 ms.topic: reference
-ms.openlocfilehash: 5f4948b55b8889094570574647b7a35ce08f5c12
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960315"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128767"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure-ritningar
 

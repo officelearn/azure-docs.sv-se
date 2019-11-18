@@ -32,10 +32,16 @@
           href: tutorial-migrate-hyper-v.md
     - name: Utvärdera och migrera fysiska servrar
       items:
-        - name: Förbereda fysiska servrar för migrering
+        - name: Förbereda fysiska servrar för utvärdering och migrering
           href: tutorial-prepare-physical.md
+        - name: Utvärdera fysiska servrar
+          href: tutorial-assess-physical.md
         - name: Migrera fysiska servrar
           href: tutorial-migrate-physical-virtual-machines.md
+    - name: Utvärdera importerade servrar för migrering
+      items:
+        - name: Utvärdera importerade servrar för migrering
+          href: tutorial-assess-import.md
 - name: Begrepp
   items:
     - name: Vanliga frågor
@@ -74,6 +80,8 @@
       href: how-to-set-up-appliance-hyper-v.md
     - name: Distribuera en fysisk server
       href: how-to-set-up-appliance-physical.md
+    - name: Identifiera program/roller/funktioner
+      href: how-to-discover-applications.md
     - name: Lägga till ett verktyg för första gången
       href: how-to-add-tool-first-time.md
     - name: Lägga till utvärderingsverktyg
@@ -82,6 +90,8 @@
       href: how-to-create-a-group.md
     - name: Gruppera datorer med hjälp av beroendevisualisering
       href: how-to-create-group-machine-dependencies.md
+    - name: Gruppera datorer med hjälp av agentlös beroendevisualisering
+      href: how-to-create-group-machine-dependencies-agentless.md
     - name: Skapa en utvärdering
       href: how-to-create-assessment.md
     - name: Utvärdera en SQL Server-databas

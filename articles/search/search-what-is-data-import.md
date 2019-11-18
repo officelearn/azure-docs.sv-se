@@ -1,5 +1,5 @@
 ---
-title: Data import för data inmatning i ett Sök index
+title: Import och data inmatning i Sök index
 titleSuffix: Azure Cognitive Search
 description: Fylla i och ladda upp data till ett index i Azure Kognitiv sökning från externa data källor.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a05291012bcf44b1a07d9b451eef1302862b2fce
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794147"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113774"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Översikt över data import – Azure Kognitiv sökning
 
@@ -93,7 +93,7 @@ Ett snabbt sätt att utföra en preliminär kontroll av dokument överföringen 
 > [!TIP]
 > Många [exempel på Azure kognitiv sökning-kod](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) är inbäddade eller lättillgängliga data uppsättningar, vilket ger ett enkelt sätt att komma igång. Portalen innehåller också en exempelindexerare och datakälla som består av en liten datauppsättning med fastighetsinformation (med namnet ”realestate-us-sample”). När du kör den förkonfigurerade indexeraren i exempel data källan skapas ett index som läses in med dokument som sedan kan frågas i Sök Utforskaren eller efter kod som du skriver.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Översikt över indexeraren](search-indexer-overview.md)
 + [Steg-för-steg-beskrivning av portalen: skapa, läsa in och avfråga ett index](search-get-started-portal.md)

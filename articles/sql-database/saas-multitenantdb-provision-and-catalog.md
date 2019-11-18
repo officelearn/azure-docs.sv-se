@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817930"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133143"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Etablera och katalogisera nya klienter i ett SaaS-program med en shardade-Azure SQL-databas med flera innehavare
 
@@ -63,11 +63,11 @@ Katalogen kan också indikera om en klient organisation är offline för underh�
 - Tjänst nivån eller versionen av en databas.
 - Databas schemats version.
 - Klient organisationens namn och service avtal (service avtal).
-- Information för att aktivera program hantering, kund support eller DevOps processer.  
+- Information för att aktivera program hantering, kund support eller DevOps processer.
 
-Katalogen kan också användas för att aktivera rapportering av flera innehavare, schema hantering och data utdrag i analys syfte. 
+Katalogen kan också användas för att aktivera rapportering av flera innehavare, schema hantering och data utdrag i analys syfte.
 
-### <a name="elastic-database-client-library"></a>Klientbibliotek för Elastic Database 
+### <a name="elastic-database-client-library"></a>Klientbibliotek för Elastic Database
 
 I Wingtip implementeras katalogen i *tenantcatalog* -databasen. *Tenantcatalog* skapas med Shard-hanterings funktionerna i [Elastic Database klient biblioteket (EDCL)](sql-database-elastic-database-client-library.md). Biblioteket gör det möjligt för ett program att skapa, hantera och använda en *Shard-karta* som lagras i en databas. En Shard-karta kors referenser till klient nyckeln med dess Shard, vilket innebär dess shardade-databas.
 
@@ -108,13 +108,13 @@ Klient etablerings skripten i den här självstudien har stöd för båda följa
 - Etablering av en klient organisation i en befintlig databas som delas med andra klienter.
 - Etablering av en klient organisation i en egen databas.
 
-Klient data initieras sedan och registreras i katalogen Shard-kartan. I exempel appen ges databaser som innehåller flera klienter ett generiskt namn, till exempel *tenants1* eller *tenants2*. Databaser som innehåller en enda klient tilldelas klientens namn. De angivna namngivnings konventionerna som används i exemplet är inte en kritisk del av mönstret, eftersom användningen av en katalog tillåter att alla namn tilldelas till databasen.  
+Klient data initieras sedan och registreras i katalogen Shard-kartan. I exempel appen ges databaser som innehåller flera klienter ett generiskt namn, till exempel *tenants1* eller *tenants2*. Databaser som innehåller en enda klient tilldelas klientens namn. De angivna namngivnings konventionerna som används i exemplet är inte en kritisk del av mönstret, eftersom användningen av en katalog tillåter att alla namn tilldelas till databasen.
 
 <a name="goto_1_tutorial"/>
 
 ## <a name="tutorial-begins"></a>Självstudie börjar
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Etablera en klient organisation i en databas för flera innehavare
@@ -122,9 +122,9 @@ I den här guiden får du lära dig att:
 > * Etablera en batch med klienter i både flera klienter och databaser med en enda klient organisation
 > * Registrera en databas och klient mappning i en katalog
 
-#### <a name="prerequisites"></a>Nödvändiga komponenter
+#### <a name="prerequisites"></a>Krav
 
-Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
+Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 - Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
@@ -132,7 +132,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 - Hämta Wingtip-skript och Källkod:
     - Wingtip-biljetterna SaaS-skript för flera klient organisationer och program käll kod är tillgängliga i [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub lagrings platsen.
-    - Se den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera Wingtip-skript. 
+    - Se den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera Wingtip-skript.
 
 ## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>Etablera en klient i en databas som *delas* med andra klienter
 
@@ -144,8 +144,8 @@ Följande är viktiga element i det etablerings arbets flöde som du steg för s
 
 - **Beräkna den nya klient nyckeln**: en hash-funktion används för att skapa klient nyckeln från klient namnet.
 - **Kontrol lera att klient nyckeln redan finns**: katalogen kontrol leras för att se till att nyckeln inte redan har registrerats.
-- **Initiera klienten i standard klient databasen**: klient databasen uppdateras för att lägga till den nya klient informationen.  
-- **Registrera klient i katalogen**: mappningen mellan den nya klient nyckeln och den befintliga tenants1-databasen läggs till i katalogen. 
+- **Initiera klienten i standard klient databasen**: klient databasen uppdateras för att lägga till den nya klient informationen.
+- **Registrera klient i katalogen**: mappningen mellan den nya klient nyckeln och den befintliga tenants1-databasen läggs till i katalogen.
 - **Lägg till klientens namn i en katalog tilläggs tabell**: plats namnet läggs till i tabellen innehavare i katalogen.  Det här tillägget visar hur katalog databasen kan utökas för att stödja ytterligare programspecifika data.
 - **Öppna sidan händelser för den nya klienten**: sidan *Bushwillow blåa* händelser öppnas i webbläsaren.
 
@@ -172,7 +172,7 @@ För att förstå hur Wingtip-appen implementerar ny klient etablering i en dela
 
 5. Spåra skript körningen med hjälp av meny alternativen för **fel sökning** , **F10** och **F11**, för att gå över eller till anropade funktioner.
 
-Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Etablera en klient i en *egen* databas
 
@@ -184,7 +184,7 @@ Följande är viktiga element i arbets flödet som du går igenom när du spåra
 - **Kontrol lera att klient nyckeln redan finns**: katalogen kontrol leras för att se till att nyckeln inte redan har registrerats.
 - **Skapa en ny klient databas**: databasen skapas genom att du kopierar *basetenantdb* -databasen med hjälp av en Resource Manager-mall.  Det nya databas namnet baseras på klientens namn.
 - **Lägg till databas i katalog**: den nya klient organisations databasen registreras som en Shard i katalogen.
-- **Initiera klienten i standard klient databasen**: klient databasen uppdateras för att lägga till den nya klient informationen.  
+- **Initiera klienten i standard klient databasen**: klient databasen uppdateras för att lägga till den nya klient informationen.
 - **Registrera klient organisation i katalogen**: mappningen mellan den nya klient nyckeln och *sequoiasoccer* -databasen läggs till i katalogen.
 - **Klient organisationens namn läggs till i katalogen**: plats namnet läggs till i tilläggs tabellen innehavare i katalogen.
 - **Öppna sidan händelser för den nya klienten**: sidan *Sequoia fotboll* Events öppnas i webbläsaren.
@@ -217,7 +217,7 @@ Den här övningen etablerar en batch med 17 klienter. Vi rekommenderar att du e
 
 2. Tryck på **F5** och kör skriptet.
 
-### <a name="verify-the-deployed-set-of-tenants"></a>Verifiera den distribuerade uppsättningen innehavare 
+### <a name="verify-the-deployed-set-of-tenants"></a>Verifiera den distribuerade uppsättningen innehavare
 
 I det här skedet har du en blandning av klienter som distribueras i en delad databas och klienter som distribueras till sina egna databaser. Azure Portal kan användas för att kontrol lera de databaser som skapats. I [Azure Portal](https://portal.azure.com)öppnar du **tenants1-MT-\<User\>** -servern genom att bläddra till listan över SQL-servrar.  Listan **SQL-databaser** bör innehålla den delade **tenants1** -databasen och databaserna för de klienter som finns i en egen databas:
 
@@ -227,7 +227,7 @@ När Azure Portal visar klient databaserna kan du inte se klienterna *i* den del
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>Använda sidan Wingtip Ticket Events Hub
 
-Öppna sidan Events Hub i webbläsaren (http: events. Wingtip-MT.\<USER\>. trafficmanager.net)  
+Öppna sidan Events Hub i webbläsaren (http: events. Wingtip-MT.\<USER\>. trafficmanager.net)
 
 #### <a name="using-catalog-database"></a>Använda katalog databasen
 
@@ -245,7 +245,7 @@ En fullständig lista över klienter och motsvarande databas för var och en fin
 3. Högerklicka på vyn *TenantsExtended* och välj **välj de översta 1000 raderna**. Observera mappningen mellan klient organisations namn och databas för de olika klient organisationerna.
 
     ![ExtendedTenants-vy i SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
-      
+
 ## <a name="other-provisioning-patterns"></a>Andra etableringsmönster
 
 I det här avsnittet beskrivs andra intressanta etablerings mönster.
@@ -264,7 +264,7 @@ Den här typen av automatiserad tjänst kan vara enkel eller komplex. Automation
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md)
-- [Felsök skript i Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Felsök skript i Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Nästa steg

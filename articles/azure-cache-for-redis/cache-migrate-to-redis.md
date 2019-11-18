@@ -1,25 +1,17 @@
 ---
-title: Migrera Managed Cache Service program till Redis – Azure | Microsoft Docs
+title: Migrera Managed Cache Service program till Redis – Azure
 description: Lär dig hur du migrerar Managed Cache Service och Cachelagring i rollinstanser program till Azure cache för Redis
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315954"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122680"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrera från Managed Cache Service till Azure cache för Redis
 Migrering av program som använder Azure Managed Cache Service till Azure cache för Redis kan utföras med minimala ändringar i programmet, beroende på vilka Managed Cache Service funktioner som används i ditt caching-program. Även om API: erna inte är exakt samma som de är lika, och mycket av din befintliga kod som använder Managed Cache Service för att komma åt en cache kan återanvändas med minimala ändringar. Den här artikeln visar hur du gör nödvändiga konfigurations-och program ändringar för att migrera dina Managed Cache Service-program till att använda Azure cache för Redis och visar hur vissa av funktionerna i Azure cache för Redis kan användas för att implementera funktionerna i en Managed Cache Service cache.
@@ -49,9 +41,9 @@ Azure Managed Cache Service och Azure cache för Redis är likartade men impleme
 | --- | --- | --- |
 | Namngivna cacheminnen |En standardcache har kon figurer ATS och i erbjudandena för standard-och Premium-cache kan upp till nio ytterligare namngivna cacheminnen konfigureras om det behövs. |Azure cache för Redis har ett konfigurerbart antal databaser (standard 16) som kan användas för att implementera en liknande funktion i namngivna cacheminnen. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server). |
 | Hög tillgänglighet |Ger hög tillgänglighet för objekt i cachen i standard-och Premium cache-erbjudandena. Om objekten förloras på grund av ett problem är säkerhets kopior av objekten i cachen fortfarande tillgängliga. Skrivningar till den sekundära cachen görs synkront. |Hög tillgänglighet är tillgängligt i cacheminnet för standard-och Premium-cache, som har en primär-/replik konfiguration med två noder (varje Shard i en Premium-cache har ett primärt/replik par). Skrivningar till repliken görs asynkront. Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/). |
-| Aviseringar |Tillåter att klienter tar emot asynkrona meddelanden när en rad olika cache-åtgärder sker i ett namngivet cacheminne. |Klient program kan använda Redis i pub/sub eller nyckel [utrymme](cache-configure.md#keyspace-notifications-advanced-settings) för att få liknande funktioner som aviseringar. |
+| Meddelanden |Tillåter att klienter tar emot asynkrona meddelanden när en rad olika cache-åtgärder sker i ett namngivet cacheminne. |Klient program kan använda Redis i pub/sub eller nyckel [utrymme](cache-configure.md#keyspace-notifications-advanced-settings) för att få liknande funktioner som aviseringar. |
 | Lokal cache |Lagrar en kopia av cachelagrade objekt lokalt på klienten för extra snabb åtkomst. |Klient program måste implementera den här funktionen med hjälp av en ord lista eller liknande data struktur. |
-| Princip för borttagning |Ingen eller LRU. Standard principen är LRU. |Azure cache för Redis har stöd för följande avlägsna principer: volatile-LRU, allkeys-LRU, volatile-slumpmässig, allkeys-Random, flyktig-TTL, noavlägsning. Standard principen är volatile-LRU. Mer information finns i [standard konfigurationen för Redis-servern](cache-configure.md#default-redis-server-configuration). |
+| Borttagnings princip |Ingen eller LRU. Standard principen är LRU. |Azure cache för Redis har stöd för följande avlägsna principer: volatile-LRU, allkeys-LRU, volatile-slumpmässig, allkeys-Random, flyktig-TTL, noavlägsning. Standard principen är volatile-LRU. Mer information finns i [standard konfigurationen för Redis-servern](cache-configure.md#default-redis-server-configuration). |
 | Princip för förfallo datum |Standard principen för förfallo datum är absolut och standard intervallet för förfallo tid är 10 minuter. Principer för glidande och aldrig är också tillgängliga. |Som standard upphör objekt i cachen inte att gälla, men ett förfallo datum kan konfigureras per skrivning med hjälp av cache set Overloads. |
 | Regioner och taggning |Regioner är under grupper för cachelagrade objekt. Regioner stöder även anteckningen av cachelagrade objekt med ytterligare beskrivande strängar som kallas taggar. Regioner stöder möjligheten att utföra Sök åtgärder på alla taggade objekt i den regionen. Alla objekt inom en region finns i en enda nod i cache klustret. |en Azure-cache för Redis består av en enda nod (om inte Redis-kluster är aktiverat) så att begreppet Managed Cache Service regioner inte gäller. Redis stöder sökning och jokertecken vid hämtning av nycklar så att beskrivande taggar kan bäddas in i nyckel namnen och användas för att hämta objekten senare. Ett exempel på hur du implementerar en taggad lösning med hjälp av Redis finns i [implementera cache-taggning med Redis](https://stackify.com/implementing-cache-tagging-redis/). |
 | Serialisering |Hanterad cache stöder NetDataContractSerializer, BinaryFormatter och användning av anpassade serialiserare. Standardvärdet är NetDataContractSerializer. |Det är klient Programets ansvar att serialisera .NET-objekt innan de placeras i cachen, med valet av serialiserare till klient program utvecklaren. Mer information och exempel kod finns i [arbeta med .net-objekt i cacheminnet](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
@@ -86,7 +78,7 @@ Om du vill avinstallera Managed Cache Service NuGet-paketet högerklickar du på
 
 Om du avinstallerar Managed Cache Service NuGet-paketet tas Managed Cache Service sammansättningar och Managed Cache Services poster i appen. config eller Web. config i klient programmet. Eftersom vissa anpassade inställningar inte kan tas bort när du avinstallerar NuGet-paketet öppnar du Web. config eller app. config och kontrollerar att följande element tas bort.
 
-Se till att `dataCacheClients` posten tas bort `configSections` från elementet. Ta inte bort hela `configSections` elementet. `dataCacheClients` ta bara bort posten om det finns.
+Se till att `dataCacheClients` posten tas bort från `configSections`-elementet. Ta inte bort hela `configSections`-elementet. Ta bara bort `dataCacheClients` posten om den finns.
 
 ```xml
 <configSections>
@@ -95,7 +87,7 @@ Se till att `dataCacheClients` posten tas bort `configSections` från elementet.
 </configSections>
 ```
 
-Kontrol lera att `dataCacheClients` avsnittet har tagits bort. `dataCacheClients` Avsnittet ser ut ungefär som i följande exempel.
+Se till att avsnittet `dataCacheClients` har tagits bort. Avsnittet `dataCacheClients` ser ut ungefär som i följande exempel.
 
 ```xml
 <dataCacheClients>
@@ -122,7 +114,7 @@ När Managed Cache Service-konfigurationen har tagits bort kan du konfigurera ca
 API: et för StackExchange. Azure-cache för Redis-klienten liknar Managed Cache Service. Det här avsnittet innehåller en översikt över skillnaderna.
 
 ### <a name="connect-to-the-cache-using-the-connectionmultiplexer-class"></a>Ansluta till cachen med klassen ConnectionMultiplexer
-I Managed Cache service hanterades anslutningar till cachen av `DataCacheFactory` klasserna och. `DataCache` I Azure cache för Redis hanteras dessa anslutningar av `ConnectionMultiplexer` klassen.
+I Managed Cache Service hanterades anslutningar till cachen av `DataCacheFactory` och `DataCache` klasser. I Azure cache för Redis hanteras dessa anslutningar av klassen `ConnectionMultiplexer`.
 
 Lägg till följande using-uttryck högst upp i en fil som du vill ha åtkomst till i cacheminnet.
 
@@ -130,14 +122,14 @@ Lägg till följande using-uttryck högst upp i en fil som du vill ha åtkomst t
 using StackExchange.Redis
 ```
 
-Om det inte går att matcha namn området kontrollerar du att du har lagt till NuGet-paketet stackexchange. Redis [enligt beskrivningen i snabb start: Använd Azure cache för Redis med ett .NET-](cache-dotnet-how-to-use-azure-redis-cache.md)program.
+Om det här namn området inte matchar kontrollerar du att du har lagt till StackExchange. Redis NuGet-paketet enligt beskrivningen i [snabb start: Använd Azure cache för Redis med ett .NET-program](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Observera att StackExchange. Redis-klienten kräver .NET Framework 4 eller senare.
 > 
 > 
 
-Om du vill ansluta till en Azure-cache för Redis-instansen anropar du den statiska `ConnectionMultiplexer.Connect` metoden och skickar den till slut punkten och nyckeln. En metod för att dela en `ConnectionMultiplexer`-instans i ditt program är att ha en statisk egenskap som returnerar en ansluten instans, ungefär som i följande exempel. Den här metoden ger ett tråd säkert sätt att initiera en enda ansluten `ConnectionMultiplexer` instans. I det här `abortConnect` exemplet är inställt på false, vilket innebär att anropet lyckas även om det inte upprättas någon anslutning till cacheminnet. En viktig egenskap i `ConnectionMultiplexer` är att anslutningen återställs automatiskt till cachen när nätverksproblemet eller andra fel är lösta.
+Om du vill ansluta till en Azure-cache för Redis-instansen anropar du den statiska `ConnectionMultiplexer.Connect`-metoden och skickar den till slut punkten och nyckeln. En metod för att dela en `ConnectionMultiplexer`-instans i ditt program är att ha en statisk egenskap som returnerar en ansluten instans, ungefär som i följande exempel. Den här metoden är ett tråd säkert sätt att initiera en enskild ansluten `ConnectionMultiplexer` instans. I det här exemplet `abortConnect` har angetts till false, vilket innebär att anropet lyckas även om det inte upprättas någon anslutning till cacheminnet. En viktig egenskap i `ConnectionMultiplexer` är att anslutningen återställs automatiskt till cachen när nätverksproblemet eller andra fel är lösta.
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -156,7 +148,7 @@ public static ConnectionMultiplexer Connection
 
 Cache-slutpunkt, nycklar och portar kan hämtas från **Azure-cachen för Redis** -bladet för din cache-instans. Mer information finns i [Azure cache för Redis-egenskaper](cache-configure.md#properties).
 
-När anslutningen har upprättats returnerar du en referens till Azure cache för Redis-databasen genom att `ConnectionMultiplexer.GetDatabase` anropa metoden. Det objekt som returneras från `GetDatabase`-metoden är ett förenklat genomströmningsobjekt som inte behöver lagras.
+När anslutningen har upprättats returnerar du en referens till Azure cache för Redis-databasen genom att anropa metoden `ConnectionMultiplexer.GetDatabase`. Det objekt som returneras från `GetDatabase`-metoden är ett förenklat genomströmningsobjekt som inte behöver lagras.
 
 ```csharp
 IDatabase cache = Connection.GetDatabase();
@@ -171,11 +163,11 @@ string key1 = cache.StringGet("key1");
 int key2 = (int)cache.StringGet("key2");
 ```
 
-StackExchange. Redis-klienten använder `RedisKey` typerna och `RedisValue` för att komma åt och lagra objekt i cacheminnet. Dessa typer mappar till de flesta primitiva språk typer, inklusive sträng, och används ofta inte direkt. Redis-strängar är de mest grundläggande typerna av Redis-värde och kan innehålla flera typer av data, inklusive serialiserade binära data strömmar och även om du inte kan använda typen direkt, använder du metoder som `String` innehåller i namnet. För de flesta primitiva data typer lagrar och hämtar du objekt från cachen med `StringSet` hjälp `StringGet` av-och-metoderna, om du inte lagrar samlingar eller andra Redis-datatyper i cacheminnet. 
+StackExchange. Redis-klienten använder `RedisKey`-och `RedisValue`s typer för att komma åt och lagra objekt i cacheminnet. Dessa typer mappar till de flesta primitiva språk typer, inklusive sträng, och används ofta inte direkt. Redis-strängar är de mest grundläggande typerna av Redis-värde och kan innehålla flera typer av data, inklusive serialiserade binära data strömmar och även om du inte kan använda typen direkt, använder du metoder som innehåller `String` i namnet. För de flesta primitiva data typer lagrar och hämtar du objekt från cachen med hjälp av `StringSet` och `StringGet` metoder, om du inte lagrar samlingar eller andra Redis-datatyper i cacheminnet. 
 
-`StringSet`och `StringGet` liknar Managed Cache service `Put` och `Get` metoder, med en större skillnad innan du ställer in och hämtar ett .net-objekt i cachen måste du först serialisera det. 
+`StringSet` och `StringGet` liknar Managed Cache Service `Put` och `Get` metoder, med en större skillnad innan du ställer in och hämtar ett .NET-objekt i cachen måste du först serialisera det. 
 
-Vid anrop `StringGet`returneras det om objektet finns, och om det inte, returneras null. I så fall kan du hämta värdet från önskad data källa och lagra det i cacheminnet för senare användning. Det här mönstret kallas för cache-undan-mönstret.
+När du anropar `StringGet`, om objektet finns, returneras, och om det inte, returneras null. I så fall kan du hämta värdet från önskad data källa och lagra det i cacheminnet för senare användning. Det här mönstret kallas för cache-undan-mönstret.
 
 Ange förfallodatum för ett objekt i cacheminnet med hjälp av `TimeSpan`-parametern för `StringSet`.
 

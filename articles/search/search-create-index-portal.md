@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Kognitiv sökning-index i Azure Portal
+title: Skapa ett Sök index i Azure Portal
 titleSuffix: Azure Cognitive Search
 description: Lär dig hur du skapar ett index för Azure Kognitiv sökning med hjälp av en inbyggd Portal index design.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f2e875c625431867e6e83cfd1e0b2c6d7a2781f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792446"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112842"
 ---
 # <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Skapa ett Azure Kognitiv sökning-index i portalen
 
@@ -80,7 +80,7 @@ När du har skapat ett Azure Kognitiv sökning-index kan du gå vidare till näs
 
 Alternativt kan du också ta en [djupare titt på index](search-what-is-an-index.md). Förutom samlingen Fält anges i index även analysverktyg, förslagsställare, bedömningsprofiler och CORS-inställningar. Portalen innehåller fliksidor för att definiera de vanligaste elementen: fält, analysverktyg och förslagsställare. Om du vill skapa eller ändra andra element kan du använda REST-API:et eller .NET SDK.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [Så här fungerar fulltextsökning](search-lucene-query-architecture.md)  
  [REST-API för söktjänst](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

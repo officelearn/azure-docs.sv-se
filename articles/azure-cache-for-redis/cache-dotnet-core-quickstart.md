@@ -1,26 +1,19 @@
 ---
-title: Snabbstart som lär dig att använda Azure Cache for Redis med .NET Core-appar | Microsoft Docs
+title: Snabb start för att lära dig hur du använder Azure cache för Redis med .NET Core-appar
 description: I den här snabbstarten lär du dig att få tillgång till Azure Cache for Redis i dina .NET Core-appar
-services: cache,app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: deef63c07dedbff0ae914b09558a2771adba19ff
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ce50ecac9a7b676386ce893a19391a63ffeed108
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755468"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122447"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Snabb start: Använd Azure cache för Redis med en .NET Core-app
 
@@ -202,7 +195,7 @@ I *Program.cs*, lägger du till följande kod för `Main`-proceduren i `Program`
 
 Spara *Program.cs*.
 
-Azure Cache for Redis har ett konfigurerbart antal databaser (16 är standard) som kan användas för att logiskt separera data i ett Azure Cache for Redis. Koden ansluter till standarddatabasen DB 0. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server).
+Azure Cache for Redis har ett konfigurerbart antal databaser (16 är standard) som kan användas för att logiskt separera data inom ett Azure Cache for Redis. Koden ansluter till standarddatabasen DB 0. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server).
 
 Cacheobjekt kan lagras i och hämtas med hjälp av `StringSet`- och `StringGet`-metoderna.
 
@@ -220,7 +213,7 @@ Kör sedan appen med följande kommando:
 dotnet run
 ```
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
 ![Partiell konsolapp](./media/cache-dotnet-core-quickstart/cache-console-app-partial.png)
 
@@ -261,7 +254,7 @@ Lägg till följande `Employee`-klassdefinition i *Program.cs*:
         }
 ```
 
-Längst ned i `Main()`-proceduren i *Program.cs* och innan anropet till `Dispose()`, lägger du till följande kodrader i cachen och hämtar ett serialiserat .NET-objekt:
+Längst ned i `Main()`-procedur i *Program.cs*, och innan anropet till `Dispose()`, lägger du till följande rader med kod i cachen och hämtar ett serialiserat .NET-objekt:
 
 ```csharp
             // Store .NET object to cache
@@ -299,12 +292,12 @@ Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du 
 Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
 Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
 ![Ta bort](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Virtuell Azure SQL-dator-anslutning för Sök indexering
+title: VIRTUELL Azure SQL-anslutning för Sök indexering
 titleSuffix: Azure Cognitive Search
 description: Aktivera krypterade anslutningar och konfigurera brand väggen för att tillåta anslutningar till SQL Server på en virtuell Azure-dator från en indexerare på Azure Kognitiv sökning.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792152"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111887"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL Server på en virtuell Azure-dator
 
-Som du antecknade i [att ansluta Azure SQL Database till azure kognitiv sökning med indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)kan du skapa indexerare mot **SQL Server på virtuella Azure-datorer** (eller **SQL Azure virtuella datorer** för kort) stöds av Azure kognitiv sökning, men det finns några säkerhetsrelaterade krav för att först vara noga med att börja med. 
+Som du antecknade i [att ansluta Azure SQL Database till azure kognitiv sökning med hjälp av indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), kan du skapa indexerare mot **SQL Server på virtuella Azure-datorer** (eller **SQL Azure virtuella datorer** för kort) stöds av Azure kognitiv sökning, men det finns några säkerhetsrelaterade krav som du kan ta hand om först. 
 
 Anslutningar från Azure Kognitiv sökning till SQL Server på en virtuell dator är en offentlig Internet anslutning. Alla säkerhets åtgärder som du normalt följer för dessa anslutningar gäller även följande:
 

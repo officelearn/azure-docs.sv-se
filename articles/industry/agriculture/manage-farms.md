@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c83ac8a42a91c9db06726e917ed142e20995b987
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 929672dceabc7d9b591f05ef3f4f716f2117e09c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797977"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128669"
 ---
-# <a name="manage-farms"></a>Hantera Server grupper
+# <a name="manage-farms"></a>Hantera lantbruk
 
 Du kan hantera dina Server grupper i Azure FarmBeats. Den här artikeln innehåller information om hur du skapar grupper, installerar enheter, sensorer och drönare som hjälper dig att hantera dina grupper.
 
@@ -58,7 +58,7 @@ Sidan Server grupp lista visar en lista över skapade Server grupper. Välj en g
 Sidan **grupper** visar en lista över skapade Server grupper.
 
 1.  Välj en Server grupp för att visa och redigera Server gruppen.
-2.  Välj **Redigera server** grupp för att redigera Server grupps informationen. I fönstret **Server grupps information** kan du redigera fält för **namn**, **grödor**, **adress**och **Server grupp** .
+2.  Välj **Redigera server** grupp för att redigera Server grupps informationen. I fönstret **Server grupps information** kan du redigera fält för **namn**, **grödor**, **adress**och definiera **Server grupps gränser** .
 
     ![Taktslag i projekt grupp](./media/create-farms/edit-farm-1.png)
 

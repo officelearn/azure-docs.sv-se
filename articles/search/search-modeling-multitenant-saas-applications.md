@@ -1,5 +1,5 @@
 ---
-title: Modellering av flera innehavare för innehålls isolering i en tjänst
+title: Flera innehavare och innehålls isolering
 titleSuffix: Azure Cognitive Search
 description: Lär dig om vanliga design mönster för SaaS-program med flera innehavare när du använder Azure Kognitiv sökning.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0332443997fbc58781f99e3b4e6d9776dd23926b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793517"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113269"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Design mönster för SaaS-program med flera innehavare och Azure Kognitiv sökning
 Ett program för flera innehavare är ett program som tillhandahåller samma tjänster och funktioner för alla klienter som inte kan se eller dela data för någon annan klient organisation. I det här dokumentet beskrivs strategier för klient isolering för program med flera klienter som skapats med Azure Kognitiv sökning.
@@ -42,8 +42,8 @@ Det finns några olika [pris nivåer](https://azure.microsoft.com/pricing/detail
 | Maximalt antal repliker per tjänst |3 |12 |12 |12 |12 |
 | Maximalt antal partitioner per tjänst |1 |12 |12 |12 |3 |
 | Maximalt antal Sök enheter (repliker * partitioner) per tjänst |3 |36 |36 |36 |36 (max 3 partitioner) |
-| Maximalt lagrings utrymme per tjänst |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
-| Maximalt lagrings utrymme per partition |2 GB |25 GB |100 GB |200 GB |200 GB |
+| Maximalt lagrings utrymme per tjänst |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
+| Maximalt lagrings utrymme per partition |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Maximalt antal index per tjänst |5 |50 |200 |200 |3000 (max 1000-index/partition) |
 
 #### <a name="s3-high-density"></a>S3 hög densitet
@@ -125,7 +125,7 @@ Den här metoden kan användas för att uppnå funktioner i separata användar k
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Azure Kognitiv sökning är ett övertygande val för många program. När du utvärderar de olika design mönstren för program med flera klienter bör du överväga de [olika pris nivåerna](https://azure.microsoft.com/pricing/details/search/) och respektive [tjänst begränsningar](search-limits-quotas-capacity.md) för att skräddarsy Azure-kognitiv sökning så att den passar program arbets belastningar och arkitekturer i alla storlekar .
+Azure Kognitiv sökning är ett övertygande val för många program. När du utvärderar de olika design mönstren för program med flera klienter bör du överväga de [olika pris nivåerna](https://azure.microsoft.com/pricing/details/search/) och respektive [tjänst begränsningar](search-limits-quotas-capacity.md) för att skräddarsy Azure-kognitiv sökning så att den passar program arbets belastningar och arkitekturer i alla storlekar.
 
 Eventuella frågor om Azure Kognitiv sökning och scenarier med flera innehavare kan dirigeras till azuresearch_contact@microsoft.com.
 

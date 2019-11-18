@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: bc8b834e0dd128457910c46cc1a62382bbc28ee1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721564"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133249"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -28,7 +28,7 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 >[!Note]
 > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) .
@@ -56,14 +56,16 @@ az extension add --name spring-cloud
 
 1. Öppna [den här länken till Azure våren Cloud i den Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)i en webbläsare.
 
-1. Välj **Azure våren Cloud** för att gå till översikts sidan. Välj knappen **skapa** för att komma igång.
-
-1. Fyll i formuläret, med beaktande av följande rikt linjer:
+1. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
     - Tjänst namn: Ange namnet på din tjänst instans.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
     - Prenumeration: Välj den prenumeration som du vill fakturera för den här resursen.  Se till att den här prenumerationen har lagts till i vår lista över tillåtna för Azure våren-molnet.
     - Resurs grupp: skapa nya resurs grupper för nya resurser är en bra metod.
     - Plats: Välj platsen för din tjänst instans. De platser som stöds för närvarande är USA, västra USA 2, Västeuropa och Sydostasien.
-    
+
+1. Klicka på **Granska och skapa**.
+
+1. Kontrol lera dina specifikationer och klicka på **skapa**.
+
 Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distribuerats visas **översikts** sidan för tjänst instansen.
 
 ## <a name="set-up-your-configuration-server"></a>Konfigurera konfigurations servern
@@ -72,7 +74,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. I avsnittet **standard databas** ställer du in **URI** till "https\://GitHub.com/Azure-samples/piggymetrics", anger **etikett** till "config" och väljer **tillämpa** för att spara ändringarna.
 
-    ![Skärm bild av ASC-portalen](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Utveckla och distribuera program för mikrotjänster
 
@@ -111,14 +113,14 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Skapa programmet `gateway` och distribuera JAR-filen.
+1. Skapa `gateway`-programmet och distribuera JAR-filen.
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-1. Med samma mönster skapar du `account-service`-och `auth-service`-program och distribuerar deras JAR-filer.
+1. När du har använt samma mönster skapar du `account-service` och `auth-service` program och distribuerar deras JAR-filer.
 
     ```azurecli
     az spring-cloud app create -n account-service

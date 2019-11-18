@@ -8,27 +8,24 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c4669809f1efa1f69081da17bf5ccbeddc39a716
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077138"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112837"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
 
 Syftet med ändrings flödet är att tillhandahålla transaktions loggar för alla ändringar som sker i blobbar och blob-metadata i ditt lagrings konto. Ändrings flödet ger **beställd**, **garanterad**, **varaktig**, **oföränderlig**, **skrivskyddad** logg över dessa ändringar. Klient program kan läsa dessa loggar när som helst, antingen i strömning eller i batchläge. Med ändrings flödet kan du bygga effektiva och skalbara lösningar som bearbetar ändrings händelser som inträffar i ditt Blob Storage konto till en låg kostnad.
 
-> [!NOTE]
-> Ändrings flödet finns i en offentlig för hands version och är tillgängligt i regionerna **westcentralus** och **westus2** . Se avsnittet [villkor](#conditions) i den här artikeln. Information om hur du registrerar i för hands versionen finns i avsnittet [Registrera prenumerationen](#register) i den här artikeln.
-
 Ändrings flödet lagras som [blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) i en särskild behållare i ditt lagrings konto med standard [priset för BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) . Du kan styra Retentions perioden för de här filerna utifrån dina krav (se [villkoren](#conditions) i den aktuella versionen). Ändrings händelser läggs till i ändrings flödet som poster i [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specifikation: ett kompakt, fast binärformat som ger omfattande data strukturer med infogat schema. Det här formatet används ofta i Hadoop-ekosystemet, Stream Analytics och Azure Data Factory.
 
-Du kan bearbeta loggarna asynkront, stegvis eller helt och hållet. Valfritt antal klient program kan samtidigt läsa ändrings flödet, parallellt och i sin egen takt. Analys program som [Apache-granskning](https://drill.apache.org/docs/querying-avro-files/) eller [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) kan använda loggar direkt som Avro-filer som gör att du kan bearbeta dem till en låg kostnad, med hög bandbredd och utan att behöva skriva ett anpassat program.
+Du kan bearbeta loggarna asynkront, stegvis eller helt och hållet. Valfritt antal klient program kan samtidigt läsa ändrings flödet, parallellt och i sin egen takt. Analys program som [Apache-granskning](https://drill.apache.org/docs/querying-avro-files/) eller [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) kan använda loggar direkt som Avro-filer, vilket gör att du kan bearbeta dem till en låg kostnad, med hög bandbredd och utan att behöva skriva ett anpassat program.
 
 Stöd för ändring av feed passar bra för scenarier som bearbetar data baserat på objekt som har ändrats. Till exempel kan program:
 
-  - Uppdatera ett sekundärt index, synkronisera med en cache, sökmotorer eller andra scenarier för innehålls hantering.
+  - Uppdatera ett sekundärt index, synkronisera med en cache, en sökmotor eller andra scenarier för innehålls hantering.
   
   - Extrahera affärs analys insikter och mått baserat på ändringar som sker i dina objekt, antingen i ett direkt uppspelnings sätt eller i ett batch-läge.
   
@@ -36,7 +33,7 @@ Stöd för ändring av feed passar bra för scenarier som bearbetar data baserat
 
   - Bygg lösningar för att säkerhetskopiera, spegla eller replikera objekt tillstånd i ditt konto för haveri hantering eller efterlevnad.
 
-  - Skapa anslutna program pipelines som reagerar på att ändra händelser eller schema körningar baserat på skapade eller ändrade objekt.
+  - Skapa anslutna program pipelines som reagerar på ändrings händelser eller schema körningar baserat på skapade eller ändrade objekt.
 
 > [!NOTE]
 > [Blob Storage-händelser](storage-blob-event-overview.md) tillhandahåller engångs händelser i real tid som gör det möjligt för dina Azure Functions eller program att reagera på ändringar som görs i en blob. Ändrings flödet tillhandahåller en hållbar, ordnad logg modell av ändringarna. Ändringar i din ändrings flöde görs tillgängliga i ändrings flödet i en ordning med några minuter av ändringen. Om ditt program måste reagera på händelser mycket snabbare än så kan du överväga att använda [Blob Storage händelser](storage-blob-event-overview.md) i stället. Blob Storage händelser gör det möjligt för dina Azure Functions eller program att reagera på enskilda händelser i real tid.
@@ -55,7 +52,10 @@ Här är några saker att tänka på när du aktiverar ändrings flödet.
 
 - Endast GPv2-och Blob Storage-konton kan aktivera ändrings flöde. GPv1 lagrings konton, Premium BlockBlobStorage-konton och hierarkiska namn områdes aktiverade konton stöds inte för närvarande.
 
-### <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+> [!IMPORTANT]
+> Ändrings flödet finns i en offentlig för hands version och är tillgängligt i regionerna **westcentralus** och **westus2** . Se avsnittet [villkor](#conditions) i den här artikeln. Information om hur du registrerar i för hands versionen finns i avsnittet [Registrera prenumerationen](#register) i den här artikeln. Du måste registrera din prenumeration innan du kan aktivera ändra feed på dina lagrings konton.
+
+### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Distribuera mallen med hjälp av Azure Portal:
 
@@ -302,7 +302,16 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella offentli
 - Logg filens `url` egenskap är alltid tom.
 - Egenskapen `LastConsumable` för segment. JSON-filen listar inte det allra första segmentet som ändrings flödet Slutför. Det här problemet uppstår först när det första segmentet har slutförts. Alla efterföljande segment efter den första timmen registreras korrekt i `LastConsumable`-egenskapen.
 
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
+### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Vad är skillnaden mellan ändrings flöde och Lagringsanalys loggning?
+Ändrings flödet är optimerat för program utveckling eftersom endast lyckade BLOB-skapande, ändring och borttagnings händelser registreras i ändrings flödes loggen. Analytics-loggning registrerar alla lyckade och misslyckade förfrågningar för alla åtgärder, inklusive Läs-och list åtgärder. Genom att använda ändrings flöden behöver du inte bekymra dig om att filtrera bort logg bruset på en transaktion med ett tungt konto och bara fokusera på BLOB Change-händelser.
+
+### <a name="should-i-use-change-feed-or-storage-events"></a>Ska jag använda ändra feed eller lagrings händelser?
+Du kan använda båda funktionerna som ändrings-och [Blob Storage-händelser](storage-blob-event-overview.md) på samma sätt, med den största skillnaden är svars tid, beställning och lagring av händelse poster. Ändra feed skriver poster till byte-loggen i bulk med några minuters mellanrum samtidigt som du garanterar ordningen på BLOB-ändringar. Lagrings händelser överförs i real tid och kanske inte beställs. Ändra flödes händelser lagras varaktigt i ditt lagrings konto medan lagrings händelser är tillfälliga och används av händelse hanteraren, om du inte uttryckligen lagrar dem.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Se ett exempel på hur du läser ändrings flödet med hjälp av ett .NET-klient program. Se [processen ändra flödes loggar i Azure Blob Storage](storage-blob-change-feed-how-to.md).
 - Lär dig mer om hur du reagerar på händelser i real tid. Se [reagera på att Blob Storage händelser](storage-blob-event-overview.md)
+- Läs mer om detaljerad loggnings information för både lyckade och misslyckade åtgärder för alla begär Anden. Se [Azure Storage Analytics-loggning](../common/storage-analytics-logging.md)

@@ -4,24 +4,24 @@ description: Gör om dina blobbar från Arkiv lag ring så att du kan komma åt 
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 2e7d56a1461dfd89a7309288aadb0ba245d0f885
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d6370509b49ae464b53525e7320676b04912bd12
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958218"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113720"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
 
 När en BLOB finns i Arkiv åtkomst nivån anses den vara offline och kan inte läsas eller ändras. BLOB-metadata är online och tillgängliga, så att du kan lista bloben och dess egenskaper. Läsning och ändring av BLOB-data är bara tillgängligt med online-nivåer som frekvent eller låg frekvent. Det finns två alternativ för att hämta och komma åt data som lagras i Arkiv åtkomst nivån.
 
-1. [Dehydratiserar en arkiverad blob till en online-nivå](#rehydrate-an-archived-blob-to-an-online-tier) – reserverar en arkiverad blob till frekvent eller låg frekvent genom att ändra dess nivå med hjälp av åtgärden [Ange BLOB-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) .
-2. [Kopiera en arkiverad blob till en online-nivå](#copy-an-archived-blob-to-an-online-tier) – skapa en ny kopia av en arkiverad BLOB med hjälp av åtgärden [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Ange ett annat BLOB-namn och en mål nivå för frekvent eller låg frekvent.
+1. [Dehydratiserar en arkiverad blob till en online-nivå](#rehydrate-an-archived-blob-to-an-online-tier) – reserverar en Arkiv-blob till frekvent eller låg frekvent genom att ändra dess nivå med hjälp av åtgärden [Ange BLOB-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) .
+2. [Kopiera en arkiverad blob till en online-nivå](#copy-an-archived-blob-to-an-online-tier) – skapa en ny kopia av en Arkiv-BLOB med hjälp av åtgärden [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Ange ett annat BLOB-namn och en mål nivå för frekvent eller låg frekvent.
 
  Mer information om nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md)lag rings nivåer.
 
@@ -31,17 +31,17 @@ När en BLOB finns i Arkiv åtkomst nivån anses den vara offline och kan inte l
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Kopiera en arkiverad blob till en onlinenivå
 
-Om du inte vill omtorka en BLOB kan du välja en [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) -åtgärd. Den ursprungliga blobben förblir oförändrad i arkivet medan du arbetar med den nya blobben på frekvent eller låg frekvent nivå. Du kan ange den valfria egenskapen *x-MS-rehydratiserat-Priority* till standard eller hög (för hands version) när du använder kopierings processen.
+Om du inte vill skapa en nytorkad Arkiv-BLOB kan du välja att göra en [kopierings-BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) -åtgärd. Den ursprungliga blobben förblir oförändrad i arkivet medan en ny BLOB skapas på låg frekvent eller låg frekvent nivå så att du kan arbeta med. I åtgärden Kopiera BLOB kan du också ange den valfria egenskapen *x-MS-rehydratiserat-Priority* till standard eller hög (för hands version) för att ange den prioritet som du vill att din BLOB-kopia ska skapas i.
 
-Arkiv-blobbar kan bara kopieras till mål nivåerna online. Det finns inte stöd för att kopiera en Arkiv-blob till en annan Arkiv-blob.
+Arkiv-blobbar kan bara kopieras till mål nivåerna online inom samma lagrings konto. Det finns inte stöd för att kopiera en Arkiv-blob till en annan Archive-blob.
 
-Det tar tid att kopiera en BLOB från arkivet. Med den **kopierade BLOB** -åtgärden rehydratiseras tillfälligt bloben för Arkiv källan för att skapa en ny online-BLOB på mål nivån. Den här nya blobben är inte tillgänglig förrän den temporära ÅTERUPPVÄCKNING från arkivet är klar och data skrivs till den nya blobben.
+Det kan ta flera timmar att kopiera en BLOB från arkivet, beroende på vilken rehydratiserad prioritet som har valts. I bakgrunden läser **kopierings-BLOB** -åtgärden din Arkiv käll-BLOB för att skapa en ny online-BLOB på den valda mål nivån. Den nya blobben kan vara synlig när du listar blobbar, men data är inte tillgängliga förrän läsningen från källans Arkiv-BLOB har slutförts och data skrivs till den nya online-målcachen. Den nya blobben är som en oberoende kopia och eventuella ändringar eller borttagningar av den påverkar inte källans Arkiv-blob.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
-Återuppväcks blobs från arkivet till frekventa eller låg frekventa nivåer debiteras som Läs åtgärder och data hämtning. Användning av hög prioritet (för hands version) har högre kostnader för drift och data hämtning jämfört med standard prioritet. ÅTERUPPVÄCKNING med hög prioritet visas som ett separat rad objekt på fakturan. Om en hög prioritets förfrågan om att returnera en Arkiv-blob av några få gigabyte tar över 5 timmar debiteras du inte den höga prioriteten för hämtning. Standard avgifterna för hämtningen gäller dock fortfarande.
+Återuppväcks blobs från arkivet till frekventa eller låg frekventa nivåer debiteras som Läs åtgärder och data hämtning. Användning av hög prioritet (för hands version) har högre kostnader för drift och data hämtning jämfört med standard prioritet. Hög prioritet ÅTERUPPVÄCKNING visas som ett separat rad objekt på fakturan. Om en begäran om hög prioritet för att returnera en Arkiv-blob av några få gigabyte tar över 5 timmar debiteras du inte den hög prioritets hämtnings takten. Dock gäller standard avgifter för hämtning fortfarande när ÅTERUPPVÄCKNING prioriteras för andra förfrågningar.
 
-Att kopiera blobbar från arkivet till frekventa eller låg frekventa nivåer debiteras som Läs åtgärder och data hämtning. En Skriv åtgärd debiteras för att skapa den nya kopian. Avgifter för tidig borttagning gäller inte när du kopierar till en online-BLOB eftersom käll-bloben förblir oförändrad på Arkiv nivån. Avgifter med hög prioritet gäller.
+Att kopiera blobbar från arkivet till frekventa eller låg frekventa nivåer debiteras som Läs åtgärder och data hämtning. En Skriv åtgärd debiteras för att skapa den nya BLOB-kopian. Avgifter för tidig borttagning gäller inte när du kopierar till en online-BLOB eftersom käll-bloben förblir oförändrad på Arkiv nivån. Högprioriterade hämtnings avgifter gäller om de valts.
 
 Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller återuppväcks arkiverade blobbar innan 180 dagar påförs avgifter för tidig borttagning.
 

@@ -1,17 +1,14 @@
 ---
-title: Distribuera resurser med Azure CLI och mall | Microsoft Docs
+title: Distribuera resurser med Azure CLI och mall
 description: Använd Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c31a139e40953bf3b652af2172cd5c51578c45cc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834482"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149742"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 

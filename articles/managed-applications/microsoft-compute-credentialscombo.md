@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c1b4791f2ec80eba25a00e22cb4298b4c97da4de
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742113"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151080"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. CredentialsCombo
+
 En grupp med kontroller med inbyggd verifiering för Windows-och Linux-lösenord och offentliga SSH-nycklar.
 
 ## <a name="ui-sample"></a>UI-exempel
@@ -38,6 +39,7 @@ För Linux med offentlig SSH-nyckel vald ser användarna:
 ![Microsoft. Compute. CredentialsCombo Linux-nyckel](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Schema
+
 För Windows använder du följande schema:
 
 ```json
@@ -95,15 +97,9 @@ För **Linux**använder du följande schema:
 }
 ```
 
-## <a name="remarks"></a>Kommentarer
-- `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
-- Om `constraints.required` är inställt på **Sant**måste text rutorna lösen ord eller SSH-offentlig nyckel ha värden för att kunna verifiera. Standardvärdet är **True**.
-- Om `options.hideConfirmation` är inställt på **Sant**döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **FALSKT**.
-- Om `options.hidePassword` är inställt på **Sant**är alternativet för att använda lösenordsautentisering dolt. Den kan endast användas när `osPlatform` är **Linux**. Standardvärdet är **FALSKT**.
-- Ytterligare begränsningar för tillåtna lösen ord kan implementeras med hjälp `customPasswordRegex` av egenskapen. Strängen i `customValidationMessage` visas när ett lösen ord Miss lyckas med anpassad verifiering. Standardvärdet för båda egenskaperna är **Null**.
-
 ## <a name="sample-output"></a>Exempel på utdata
-Om `osPlatform` är **Windows**, eller `osPlatform` är **Linux** och användaren har angett ett lösen ord i stället för en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
+
+Om `osPlatform` är **Windows**, eller om `osPlatform` är **Linux** och användaren har angett ett lösen ord i stället för en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -121,6 +117,15 @@ Om `osPlatform` är **Linux** och användaren tillhandahöll en offentlig SSH-ny
 }
 ```
 
+## <a name="remarks"></a>Kommentarer
+
+- `osPlatform` måste anges och kan vara antingen **Windows** eller **Linux**.
+- Om `constraints.required` är inställt på **Sant**måste text rutorna lösen ord eller SSH-offentlig nyckel ha värden för att kunna verifiera. Standardvärdet är **True**.
+- Om `options.hideConfirmation` är inställt på **Sant**döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **FALSKT**.
+- Om `options.hidePassword` har värdet **True**är alternativet för att använda lösenordsautentisering dolt. Den kan endast användas när `osPlatform` är **Linux**. Standardvärdet är **FALSKT**.
+- Ytterligare begränsningar för tillåtna lösen ord kan implementeras med hjälp av egenskapen `customPasswordRegex`. Strängen i `customValidationMessage` visas när ett lösen ord Miss lyckas med en anpassad verifiering. Standardvärdet för båda egenskaperna är **Null**.
+
 ## <a name="next-steps"></a>Nästa steg
+
 * En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
 * En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

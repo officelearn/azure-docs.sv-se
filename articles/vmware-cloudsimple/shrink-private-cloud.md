@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825691"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108588"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Krymp ett privat CloudSimple-moln
 
@@ -24,7 +24,8 @@ CloudSimple ger flexibiliteten att dynamiskt minska ett privat moln.  Ett privat
 Följande villkor måste vara uppfyllda för krympning av ett privat moln.  Hanterings kluster (det första klustret) som skapades när ett privat moln skapades går inte att ta bort.
 
 * Ett vSphere-kluster måste ha tre noder.  Det går inte att krympa ett kluster med tre noder.
-* Den totala förbrukade lagringen bör inte överskrida den totala kapaciteten efter krympning av klustret. 
+* Den totala förbrukade lagringen bör inte överskrida den totala kapaciteten efter krympning av klustret.
+* Kontrol lera om några DRS-regler (Distributed Resource Scheduler) förhindrar vMotion av en virtuell dator.  Om det finns regler inaktiverar eller tar du bort reglerna.  DRS-regler inkluderar virtuell dator som värd tillhörighets regler.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -55,7 +56,8 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 Krympningen av det privata molnet startar.  Du kan övervaka förloppet i aktiviteterna.  Krympnings processen kan ta några timmar beroende på vilka data som behöver synkroniseras om på virtuellt San.
 
 > [!NOTE]
-> Om du krymper ett privat moln genom att ta bort det sista eller det enda klustret i data centret tas data centret inte bort.  
+> 1. Om du krymper ett privat moln genom att ta bort det sista eller det enda klustret i data centret tas data centret inte bort.
+> 2. Om någon DRS regel överträdelse uppstår tas noden inte bort från klustret och uppgifts beskrivningen visar att borttagning av en nod bryter mot DRS-regler i klustret.    
 
 
 ## <a name="next-steps"></a>Nästa steg

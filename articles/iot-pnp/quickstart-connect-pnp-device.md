@@ -8,69 +8,38 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 2dd5d197851b0090ac1af7bbde5a1ad1b951c785
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0d89be9da55c97a5b49157251896d3a513c2c6db
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569901"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152063"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub"></a>Snabb start: ansluta ett exempel på IoT Plug and Play för hands versions program som körs på Windows till IoT Hub
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>Snabb start: ansluta ett exempel på IoT Plug and Play för hands versions program som körs på Windows till IoT Hub (C-fönster)
 
-Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet skrivs i C och ingår i Azure IoT-enhetens SDK för C. En lösnings utvecklare kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
+Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet skrivs i C och ingår i Azure IoT Hub Device C SDK. En lösnings utvecklare kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten måste du installera följande program vara på den lokala datorn:
 
-* [Bygg verktyg för Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) med  **C++ build-verktyg** och **NuGet Package Manager-komponentens** arbets belastningar. Eller om du redan har [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 eller 2015 med samma arbets belastningar installerade.
+* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **NuGet Package Manager** -komponenten och **Skriv bords utveckling med C++**  arbets belastning när du installerar Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [Cmake](https://cmake.org/download/).
 
 ### <a name="install-the-azure-iot-explorer"></a>Installera Azure IoT Explorer
 
-Hämta och installera verktyget Azure IoT Explorer från den [senaste versions](https://github.com/Azure/azure-iot-explorer/releases) sidan.
+Hämta och installera den senaste versionen av **Azure IoT Explorer** från verktygets [databas](https://github.com/Azure/azure-iot-explorer/releases) sida genom att välja. msi-filen under "till gångar" för den senaste uppdateringen.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prepare-an-iot-hub"></a>Förbered en IoT-hubb
-
-Du behöver också en Azure IoT-hubb i din Azure-prenumeration för att slutföra den här snabb starten. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-> [!NOTE]
-> Under den offentliga för hands versionen är IoT Plug and Play-funktioner bara tillgängliga på IoT-hubbar som skapats i regionerna **Central USA**, **Nord Europa**och **Östra Japan** .
-
-Lägg till Microsoft Azure IoT-tillägg för Azure CLI:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Kör följande kommando för att skapa enhets identiteten i din IoT-hubb. Ersätt plats hållarna **YourIoTHubName** och **YourDevice** med dina faktiska namn. Om du inte har något IoT Hub, följer du [dessa anvisningar för att skapa ett](../iot-hub/iot-hub-create-using-cli.md):
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
-
-Kör följande kommandon för att hämta _enhets anslutnings strängen_ för enheten som du nyss registrerade:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
-```
-
-Kör följande kommandon för att hämta _anslutnings strängen för IoT Hub_ för hubben:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>Hämta Azure IoT-enhetens SDK för C
+I den här snabb starten förbereder du en utvecklings miljö som du kan använda för att klona och bygga Azure IoT Hub Device C SDK.
 
-I den här snabb starten förbereder du en utvecklings miljö som du kan använda för att klona och skapa Azure IoT C-enhetens SDK.
-
-Öppna en kommandotolk. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
+Öppna en kommando tolk i valfri katalog. Kör följande kommando för att klona [Azure IoT C SDK: er och bibliotek](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen på den här platsen:
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
@@ -80,7 +49,7 @@ Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
 ## <a name="build-the-code"></a>Skapa koden
 
-Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
+Du kan använda enhets-SDK: n för att bygga den inkluderade exempel koden. Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
 
 1. Skapa en `cmake` under katalog i rotmappen för enhetens SDK och navigera till mappen:
 
@@ -102,31 +71,31 @@ Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Prog
 
 ## <a name="run-the-device-sample"></a>Kör enhets exemplet
 
-Kör programmet genom att skicka IoT Hub-enhetens anslutnings sträng som parameter.
+Kör ett exempel program i SDK för att simulera en IoT Plug and Play-enhet som skickar telemetri till IoT Hub. Kör exempel programmet genom att använda dessa kommandon och skicka _enhets anslutnings strängen_ som en parameter.
 
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release
 copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "[IoT Hub device connection string]"
+digitaltwin_sample_device.exe "<YourDeviceConnectionString>"
 ```
 
-Enhets programmet börjar skicka data till IoT Hub.
+Enheten är nu redo att ta emot kommandon och egenskaps uppdateringar och har börjat skicka telemetridata till hubben. Se till att exemplet körs när du slutför nästa steg.
 
 ## <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>Använd Azure IoT Explorer för att verifiera koden
 
-1. Öppna Azure IoT Explorer, du ser sidan **AppData** .
+1. Öppna Azure IoT Explorer. Du ser sidan **app-konfigurationer** .
 
-1. Ange din IoT Hub anslutnings sträng och klicka på **Anslut**.
+1. Ange din _IoT Hub anslutnings sträng_ och välj **Anslut**.
 
-1. När du har anslutit visas sidan enhets översikt.
+1. När du har anslutit visas sidan **enhets** översikt.
 
-1. Om du vill lägga till företags databasen väljer du **Inställningar**, sedan **+ ny**och sedan **på den anslutna enheten**.
+1. Om du vill se till att verktyget kan läsa definitionerna för gränssnitts modellen från enheten väljer du **Inställningar**. På menyn Inställningar kan det hända att **den anslutna enheten** redan visas i Plug and Play konfigurationer. om den inte gör det väljer du **+ Lägg till modulens definitions källa** och sedan **på den anslutna enheten** för att lägga till den.
 
-1. På sidan enhets översikt letar du reda på enhets identiteten som du skapade tidigare och väljer den för att visa mer information.
+1. På sidan **enhets** Översikt hittar du enhets identiteten som du skapade tidigare. När enhets programmet fortfarande körs i kommando tolken kontrollerar du att enhetens **anslutnings status** i Azure IoT Explorer rapporterar som _ansluten_ (om inte klickar du på **Uppdatera** tills den är). Välj enheten om du vill visa mer information.
 
-1. Expandera gränssnittet med ID **urn: YOUR_COMPANY_NAME_HERE: EnvironmentalSensor: 1** om du vill se IoT plug and Play primitiver – egenskaper, kommandon och telemetri.
+1. Expandera gränssnittet med ID **urn: YOUR_COMPANY_NAME_HERE: EnvironmentalSensor: 1** om du vill visa gränssnittet och IoT plug and Play-primitiver – egenskaper, kommandon och telemetri.
 
-1. Välj sidan **telemetri** för att visa de telemetridata som enheten skickar.
+1. Välj sidan **telemetri** och tryck på _börja_ för att visa de telemetridata som enheten skickar.
 
 1. Välj sidan **egenskaper (inte skrivbar)** om du vill visa de icke skrivbara egenskaper som rapporteras av enheten.
 
@@ -134,13 +103,15 @@ Enhets programmet börjar skicka data till IoT Hub.
 
 1. Expandera egenskaps **namn**, uppdatera med ett nytt namn och välj **Uppdatera skrivbar egenskap**. 
 
-1. Om du vill se det nya namnet visas i kolumnen **rapporterad egenskap** klickar du på knappen **Uppdatera** överst på sidan.
+1. Om du vill se det nya namnet som visas i kolumnen **rapporterad egenskap** väljer du knappen **Uppdatera** överst på sidan.
 
-1. Välj **kommando** sidan för att visa alla kommandon som enheten stöder.
+1. Välj sidan **kommandon** om du vill visa alla kommandon som enheten stöder.
 
 1. Expandera kommandot **blinkar** och ange ett nytt intervall för blinknings tid. Välj **kommandot Skicka** för att anropa kommandot på enheten.
 
-1. Gå till den simulerade enheten för att kontrol lera att kommandot körs som förväntat.
+1. Gå till kommando tolken simulerad enhet och Läs igenom de utskrivna bekräftelse meddelandena för att kontrol lera att kommandona har körts som förväntat.
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

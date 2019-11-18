@@ -1,19 +1,19 @@
 ---
-title: Så här implementerar du en fasett-navigering i en kategorihierarki
+title: Lägg till en hierarki för en hierarki med en navigerings kategori
 titleSuffix: Azure Cognitive Search
-description: Lägg till aspekt navigering till program som integreras med Azure Kognitiv sökning en moln värds Sök tjänst på Microsoft Azure.
+description: Lägg till fasett navigering för självriktad filtrering i Sök program som integreras med Azure Kognitiv sökning.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d10a049f7a4c7da7a75054acd442269adc74b948
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 927f57ae3ca90f5701791022b68c4bf0d91d4e7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496517"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112076"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasettisk navigering i Azure Kognitiv sökning
 
@@ -243,7 +243,7 @@ if (businessTitleFacet != "")
 
 <a name="tips"></a> 
 
-## <a name="tips-and-best-practices"></a>Tips och metod tips
+## <a name="tips-and-best-practices"></a>Tips och regelverk
 
 ### <a name="indexing-tips"></a>Indexerings tips
 **Förbättra index effektiviteten om du inte använder en sökruta**
@@ -379,7 +379,7 @@ När du arbetar med Sök resultat kan du titta på URL: en för ändringar i fr�
 
 1. Om du vill använda kart funktionen i demonstrations appen hämtar du en Bing Maps-nyckel från [Bing Maps dev Center](https://www.bingmapsportal.com/). Klistra in den över den befintliga nyckeln på sidan `index.cshtml`. Inställningen `BingApiKey` i `Web.config`-filen används inte. 
 
-2. Kör appen. Ta den valfria rund turen eller Stäng dialog rutan.
+2. Kör programmet. Ta den valfria rund turen eller Stäng dialog rutan.
    
 3. Ange en sökterm, till exempel "analytikert" och klicka på Sök ikonen. Frågan körs snabbt.
    

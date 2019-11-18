@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: QnA Maker klient bibliotek för Node. js'
+title: 'Snabb start: QnA Maker klient bibliotek för Node. js'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med QnA Maker klient biblioteket för Node. js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab3fa02f7285fdbde918f9e365d1ee96ba5e71a1
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 7650dce9a3ef494815b8d7a326eb07e1e25f2da2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802997"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123086"
 ---
-# <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Snabbstart: QnA Maker klient bibliotek för Node. js
+# <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Snabb start: QnA Maker klient bibliotek för Node. js
 
 Kom igång med QnA Maker klient biblioteket för Node. js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. 
 
@@ -27,11 +27,11 @@ Använd QnA Maker klient bibliotek för Node. js för att:
 * Hantera en kunskaps bas
 * Publicera en kunskapsbas
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Library Source Code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org).
@@ -42,7 +42,7 @@ Använd QnA Maker klient bibliotek för Node. js för att:
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för QnA Maker med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. 
 
-När du har hämtat en nyckel från resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för resursen, med `QNAMAKER_SUBSCRIPTION_KEY` namnet `QNAMAKER_HOST`och. Använd de nyckel-och slut punkts värden som finns i resursens **nycklar** och **översikts** sidor i Azure Portal.
+När du har fått en nyckel från resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för resursen, med namnet `QNAMAKER_SUBSCRIPTION_KEY` och `QNAMAKER_HOST`. Använd de nyckel-och slut punkts värden som finns i resursens **nycklar** och **översikts** sidor i Azure Portal.
 
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
@@ -52,7 +52,7 @@ I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny 
 mkdir myapp && cd myapp
 ```
 
-Kör kommandot för att skapa ett Node-program med `package.json` en fil. `npm init -y` 
+Kör kommandot `npm init -y` för att skapa ett Node-program med en `package.json`-fil. 
 
 ```console
 npm init -y
@@ -60,7 +60,7 @@ npm init -y
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-`ms-rest-azure` Installera och `azure-cognitiveservices-qnamaker` NPM-paketen:
+Installera `ms-rest-azure` och `azure-cognitiveservices-qnamaker` NPM-paket:
 
 ```console
 npm install azure-cognitiveservices--qnamaker ms-rest-azure --save
@@ -123,7 +123,7 @@ Anropa metoden [create](https://docs.microsoft.com/javascript/api/@azure/cogniti
 
 [!code-javascript[Create a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=createkb&highlight=15)]
 
-Se till att inkludera [`wait_for_operation`](#get-status-of-an-operation) funktionen, som refereras till i ovanstående kod, för att kunna skapa en kunskaps bas. 
+Se till att inkludera funktionen [`wait_for_operation`](#get-status-of-an-operation) , som refereras till i ovanstående kod, för att kunna skapa en kunskaps bas. 
 
 ## <a name="update-a-knowledge-base"></a>Uppdatera en kunskapsbas
 
@@ -131,7 +131,7 @@ Du kan uppdatera en kunskaps bas genom att skicka i kunskaps bas-ID: t och en [U
 
 [!code-javascript[Update a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=updatekb&highlight=19)]
 
-Se till att inkludera [`wait_for_operation`](#get-status-of-an-operation) funktionen, som refereras till i ovanstående kod, för att kunna uppdatera en kunskaps bas. 
+Se till att inkludera funktionen [`wait_for_operation`](#get-status-of-an-operation) , som refereras till i ovanstående kod, för att kunna uppdatera en kunskaps bas. 
 
 ## <a name="publish-a-knowledge-base"></a>Publicera en kunskapsbas
 
@@ -155,7 +155,7 @@ _SetTimeout_ -anropet i följande kod block används för att simulera asynkron 
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Kör programmet med `node index.js` kommandot från program katalogen.
+Kör programmet med kommandot `node index.js` från program katalogen.
 
 
 Alla kodfragment i den här artikeln är [tillgängliga](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js) och kan köras som en enda fil.
@@ -174,7 +174,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Självstudier: Skapa och svara på en KB](../tutorials/create-publish-query-in-portal.md)
+>[Självstudie: skapa och svara på en KB](../tutorials/create-publish-query-in-portal.md)
 
 * [Vad är API för QnA Maker?](../Overview/overview.md)
 * [Redigera en kunskapsbas](../how-to/edit-knowledge-base.md)

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 788ffd9e7036996f6ac1bc7fcbc33137aca40ee2
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927784"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132017"
 ---
 # <a name="imagery-partner-integration"></a>Bildpartnerintegration
 
@@ -34,7 +34,7 @@ Du måste använda följande autentiseringsuppgifter i drönare-partner program 
 - API-slutpunkt
 - Klient-ID:t
 - Klientorganisations-ID
-- Klient hemlighet
+- Klienthemlighet
 
 ## <a name="api-development"></a>API-utveckling
 
@@ -42,14 +42,14 @@ API: erna innehåller Swagger teknisk dokumentation. Granska [Swagger](https://a
 
 ## <a name="authentication"></a>Autentisering
 
-FarmBeats utnyttjar Microsoft Azure [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)). Autentisering Azure App Service tillhandahåller inbyggt stöd för autentisering och auktorisering. 
+FarmBeats utnyttjar Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization). Azure App Service tillhandahåller stöd för inbyggd autentisering och auktorisering. 
 
 Mer information om finns i [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
 FarmBeats-datahubben använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
 
 - Klientorganisations-ID
-- Klient hemlighet
+- Klienthemlighet
 - Klient-ID:t
 
 Med hjälp av ovanstående autentiseringsuppgifter kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i rubrik avsnittet enligt följande:
@@ -86,7 +86,7 @@ Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-a
 --- | ---
 Content-Type  | Formatet för begäran (Content-Type: Application/<format>) för API: t för FarmBeats data Hub är JSON. Innehålls typ: Application/JSON
 Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare < åtkomst-token >
-godkänt  | Svars formatet. För FarmBeats-API: er är formatet JSON accept: Application/JSON
+Godkänt  | Svars formatet. För FarmBeats-API: er är formatet JSON accept: Application/JSON
 
 
 ## <a name="api-requests"></a>API-begäranden

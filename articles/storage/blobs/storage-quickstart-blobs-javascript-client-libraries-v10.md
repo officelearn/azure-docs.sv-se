@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 018a0405215d084962f6c107a607c8f82fae2500
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686683"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132013"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -22,7 +22,7 @@ ms.locfileid: "73686683"
 
 I den här snabb starten lär du dig att [Azure Storage använda v10 SDK-för Java Script-BLOB-](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) bibliotek för att hantera blobbar från JavaScript-kod som körs helt i webbläsaren. Den metod som används här visar hur du tillämpar de säkerhetsåtgärder som krävs för att garantera säker åtkomst till bloblagringskontot.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -254,7 +254,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-Den här koden anropar funktionen ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) och [Delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) utan att använda en [avbrotts](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instans. För att det ska vara enkelt för den här snabb starten förutsätter den här koden att ditt lagrings konto har skapats och är aktiverat. I produktions kod använder du en avbrotts instans för att lägga till timeout-funktioner.
+Den här koden anropar funktionen ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) och [Delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) utan att använda en [avbrotts](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instans. För att det ska vara enkelt för den här snabb starten förutsätter den här koden att ditt lagrings konto har skapats och är aktiverat. I produktions kod använder du en avbrotts instans för att lägga till timeout-funktioner.
 
 ### <a name="list-blobs"></a>Lista blobar
 
@@ -290,7 +290,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Den här koden anropar funktionen [ContainerURL. listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) i en slinga för att säkerställa att alla segment hämtas. För varje segment loopar det över listan över BLOB-objekt som den innehåller och uppdaterar listan **filer** .
+Den här koden anropar funktionen [ContainerURL. listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) i en slinga för att säkerställa att alla segment hämtas. För varje segment loopar det över listan över BLOB-objekt som den innehåller och uppdaterar listan **filer** .
 
 ### <a name="upload-blobs"></a>Ladda upp blobbar
 
@@ -318,7 +318,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Den här koden ansluter knappen **Välj och ladda upp filer** till det dolda `file-input`-elementet. På det här sättet utlöser knappen `click` händelsen fil indata `click` händelsen och visar fil väljaren. När du har valt filer och stängt dialog rutan inträffar `input` händelsen och funktionen `uploadFiles` anropas. Den här funktionen anropar den webbläsarbaserade [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) -funktionen för varje fil som du har valt. Varje anrop returnerar ett löfte, som läggs till i en lista så att alla kan vänta samtidigt, vilket gör att filerna överförs parallellt.
+Den här koden ansluter knappen **Välj och ladda upp filer** till det dolda `file-input`-elementet. På det här sättet utlöser knappen `click` händelsen fil indata `click` händelsen och visar fil väljaren. När du har valt filer och stängt dialog rutan inträffar `input` händelsen och funktionen `uploadFiles` anropas. Den här funktionen anropar den webbläsarbaserade [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) -funktionen för varje fil som du har valt. Varje anrop returnerar ett löfte, som läggs till i en lista så att alla kan vänta samtidigt, vilket gör att filerna överförs parallellt.
 
 ### <a name="delete-blobs"></a>Ta bort blobbar
 

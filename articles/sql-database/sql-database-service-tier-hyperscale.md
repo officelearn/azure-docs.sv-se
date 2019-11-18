@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821103"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123698"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -78,7 +78,7 @@ Mer information om priser för storskalig prissättning finns [Azure SQL Databas
 
 ## <a name="distributed-functions-architecture"></a>Arkitektur för distribuerade funktioner
 
-Till skillnad från traditionella databas motorer som har centraliserat alla data hanterings funktioner på en plats/process (även kallade distribuerade databaser i produktion idag har flera kopior av en monolitisk data motor), separeras en storskalig databas motorn för bearbetning av förfrågningar, där semantiken för olika data motorer avviker från de komponenter som tillhandahåller långsiktig lagring och hållbarhet för data. På det här sättet kan lagrings kapaciteten på ett smidigt sätt skalas ut så mycket som behövs (det inledande målet är 100 TB). Skrivskyddade repliker delar samma lagrings komponenter så att ingen data kopiering krävs för att skapa en ny läsbar replik. 
+Till skillnad från traditionella databas motorer som har centraliserat alla data hanterings funktioner på en plats/process (även kallade distribuerade databaser i produktion idag har flera kopior av en monolitisk-datamotor), separerar en storskalig databas motorn för frågekörning, där semantiken för olika data motorer avviker från de komponenter som tillhandahåller långsiktig lagring och hållbarhets tid för data. På det här sättet kan lagrings kapaciteten på ett smidigt sätt skalas ut så mycket som behövs (det inledande målet är 100 TB). Skrivskyddade repliker delar samma lagrings komponenter så att ingen data kopiering krävs för att skapa en ny läsbar replik. 
 
 Följande diagram illustrerar de olika typerna av noder i en storskalig databas:
 
@@ -98,7 +98,7 @@ Sid servrar är system som representerar en utskalad lagrings motor.  Varje sid 
 
 Logg tjänsten accepterar logg poster från den primära beräknings repliken, behåller dem i en hållbar cache och vidarebefordrar logg posterna till resten av beräknings replikerna (så att de kan uppdatera deras cacheminnen) samt de relevanta sid servrarna så att data kan uppdateras föreligg. På så sätt sprids alla data ändringar från den primära beräknings repliken genom logg tjänsten till alla sekundära beräknings repliker och sid servrar. Slutligen flyttas logg posterna ut till långsiktig lagring i Azure Storage, vilket är ett stort antal lagrings lager. Den här mekanismen tar bort behovet av frekvent logg trunkering. Logg tjänsten har också lokal cache för att påskynda åtkomsten till logg poster.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure-lagring
 
 Azure Storage innehåller alla datafiler i en databas. Sid servrar behåller datafilerna i Azure Storage aktuella. Den här lagringen används för säkerhets kopierings syfte och för replikering mellan Azure-regioner. Säkerhets kopieringar implementeras med lagrings ögonblicks bilder av datafiler. Återställnings åtgärder med hjälp av ögonblicks bilder är snabba oavsett data storlek. Data kan återställas till vilken tidpunkt som helst inom lagrings perioden för säkerhets kopiorna av databasen.
 
@@ -114,7 +114,7 @@ Med möjligheten att snabbt kunna sätta upp eller ned ytterligare skrivskyddade
 
 En storskalig databas kan skapas med hjälp av [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Storskaliga databaser är bara tillgängliga med den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md).
 
-Följande T-SQL-kommando skapar en storskalig databas. Du måste ange både versions-och tjänst målet i `CREATE DATABASE`-instruktionen. Se [resurs gränserna](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute) för en lista över giltiga tjänst mål.
+Följande T-SQL-kommando skapar en storskalig databas. Du måste ange både versions-och tjänst målet i `CREATE DATABASE`-instruktionen. Se [resurs gränserna](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5) för en lista över giltiga tjänst mål.
 
 ```sql
 -- Create a HyperScale Database
@@ -137,7 +137,7 @@ GO
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Ansluta till en storskalig replik av en storskalig databas
 
-I storskaliga databaser anger argumentet `ApplicationIntent` i anslutnings strängen som klienten tillhandahåller om anslutningen dirigeras till Skriv repliken eller till en skrivskyddad sekundär replik. Om `ApplicationIntent` har angetts till `READONLY` och databasen inte har någon sekundär replik dirigeras anslutningen till den primära repliken och standardvärdet för `ReadWrite` beteendet.
+I storskaliga databaser, anger argumentet `ApplicationIntent` i anslutnings strängen som anges av klienten om anslutningen dirigeras till Skriv repliken eller till en skrivskyddad sekundär replik. Om `ApplicationIntent` har angetts till `READONLY` och databasen inte har någon sekundär replik dirigeras anslutningen till den primära repliken och standardvärdet för `ReadWrite` beteendet.
 
 ```cmd
 -- Connection string with application intent
@@ -167,7 +167,7 @@ Om du behöver återställa en Azure SQL Database storskalig databas till en ann
 Den Azure SQL Database nivån på den storskaliga nivån är för närvarande tillgänglig i följande regioner:
 
 - Östra Australien
-- Sydöstra Australien
+- Australien, sydöstra
 - Södra Brasilien
 - Centrala Kanada
 - Centrala USA
@@ -181,14 +181,14 @@ Den Azure SQL Database nivån på den storskaliga nivån är för närvarande ti
 - Västra Japan
 - Sydkorea, centrala
 - Sydkorea, södra
-- Norra centrala USA
-- Norra Europa
+- USA, norra centrala
+- Europa, norra
 - Sydafrika, norra
 - Södra centrala USA
 - Sydostasien
 - Storbritannien, södra
 - Storbritannien, västra
-- Västra Europa
+- Europa, västra
 - Västra USA
 - Västra USA 2
 

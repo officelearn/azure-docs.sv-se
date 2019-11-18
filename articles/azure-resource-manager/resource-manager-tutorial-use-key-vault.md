@@ -1,25 +1,17 @@
 ---
-title: Använda Azure Key Vault i Resource Manager-mall
+title: Använda Azure Key Vault i mallar
 description: Lär dig att använda Azure Key Vault för att skicka säkra parametrar under malldistributionen av Resource Manager
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 5dfc186e5d047de76e16ec145f5f0afe94b8d2f4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 86625132e4ac4aa3ed2c42f1e94babcfbbf63a51
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533609"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149282"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Självstudie: integrera Azure Key Vault i distribution av Resource Manager-mallar
 
@@ -126,7 +118,7 @@ Azure-snabbstartsmallar är lagringsplatser för Resource Manager-mallar. I stä
 
    Det är praktiskt att ha lite grundläggande förståelse för mallen innan du anpassar den.
 
-1. Välj **fil**  > **Spara som**och spara sedan en kopia av filen på din lokala dator med namnet *azuredeploy. JSON*.
+1. Välj **fil** > **Spara som**och spara sedan en kopia av filen på din lokala dator med namnet *azuredeploy. JSON*.
 
 1. Upprepa steg 1-3 för att öppna följande URL och spara sedan filen som *azuredeploy. Parameters. JSON*.
 
@@ -189,7 +181,7 @@ När du har distribuerat den virtuella datorn testar du inloggnings uppgifterna 
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 
-1. Välj **resurs grupper**  >  **\<*YourResourceGroupName* >**  > **simpleWinVM**.
+1. Välj **resurs grupper** >  **\<*YourResourceGroupName*>**  > **simpleWinVM**.
 1. Välj **Anslut** högst upp.
 1. Välj **Ladda ned RDP-fil**och följ sedan anvisningarna för att logga in på den virtuella datorn med hjälp av lösen ordet som lagras i nyckel valvet.
 

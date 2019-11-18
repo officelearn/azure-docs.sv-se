@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 1b6b3f4e4be9d056bc53fac2eb2f1f3fcd768085
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514997"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108756"
 ---
 # <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>Använda SQL Database DAC-paket och Stream Analyticss jobb med SQL Database Edge
 
@@ -37,7 +37,7 @@ Azure SQL Database Edge exponerar två valfria parametrar via *modulens dubbla �
 |Fält | Beskrivning |
 |------|-------------|
 | SQLPackage | Azure Blob Storage URI för *. zip-filen som innehåller DAC-paketet SQL Database.
-| ASAJobInfo | Azure Blob Storage URI för jobbet ASA Edge. Om du vill ha mer information om hur du publicerar jobbet ASA Edge, se [publicera ett ASA Edge-jobb för SQL Database Edge]().
+| ASAJobInfo | Azure Blob Storage URI för jobbet ASA Edge. Om du vill ha mer information om hur du publicerar jobbet ASA Edge, se [publicera ett ASA Edge-jobb för SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Använda SQL Database DAC-paket med SQL Database Edge
 
@@ -75,7 +75,7 @@ Om du vill använda ett SQL Database DAC-paket (*. dacpac) med SQL Database Edge
             }
         ```
 
-    7. Klicka på **Spara**.
+    7. Klicka på **Save** (Spara).
 
     8. Klicka på *Nästa*på sidan **Ange moduler** .
 
@@ -166,7 +166,7 @@ Om du vill distribuera strömnings jobbet till SQL Database Edge-modulen uppdate
         }
     ```
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 8. Klicka på *Nästa*på sidan **Ange moduler** .
 

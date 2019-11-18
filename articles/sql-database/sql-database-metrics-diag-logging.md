@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 05/21/2019
-ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/15/2019
+ms.openlocfilehash: ab3667d79827e9548338b5beda00c9992f100deb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821778"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132416"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -64,6 +64,7 @@ Du kan konfigurera Azure SQL-databaser och instans databaser för att samla in f
 | Övervaka telemetri för databaser | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :------------------- | ----- | ----- |
 | [Grundläggande mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Nej |
+| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): innehåller information om frågans körnings statistik, till exempel processor användning och statistik över fråge varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): innehåller information om frågan vänta i statistik (vad dina frågor väntar på), t. ex. CPU, logg och låsning. | Ja | Ja |
 | [Fel](#errors-dataset): innehåller information om SQL-fel på en databas. | Ja | Ja |
@@ -214,7 +215,7 @@ Följ dessa steg om du vill aktivera strömning av telemetri för instans databa
 
 Du kan aktivera mått och diagnostikloggning genom att använda PowerShell.
 
-- Om du vill aktivera lagring av diagnostikloggar i ett lagrings konto använder du följande kommando:
+- Använd följande kommando om du vill aktivera lagring av diagnostikloggar i ett lagringskonto:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -222,31 +223,31 @@ Du kan aktivera mått och diagnostikloggning genom att använda PowerShell.
 
    Lagrings kontots ID är resurs-ID för mål lagrings kontot.
 
-- Använd följande kommando för att aktivera strömning av diagnostikloggar till en Event Hub:
+- Om du vill aktivera strömning av diagnostikloggar till en händelsehubb, Använd följande kommando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
-   Azure Service Bus regelns ID är en sträng med det här formatet:
+   Regel-ID för Azure Service Bus är en sträng med det här formatet:
 
    ```powershell
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Om du vill aktivera sändning av diagnostikloggar till en Log Analytics arbets yta använder du följande kommando:
+- Använd följande kommando om du vill aktivera skicka diagnostikloggar till en Log Analytics-arbetsyta:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- Du kan hämta resurs-ID: t för din Log Analytics-arbetsyta med hjälp av följande kommando:
+- Du kan hämta resurs-ID för Log Analytics-arbetsytan med hjälp av följande kommando:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
-Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata.
+Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Konfigurera flera Azure-resurser
 
@@ -296,7 +297,7 @@ Du kan aktivera mått och diagnostikloggning genom att använda Azure CLI.
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
-Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata.
+Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
 ### <a name="rest-api"></a>REST-API
 
@@ -310,7 +311,7 @@ Läs om hur du [aktiverar diagnostikinställningar när du skapar en resurs med 
 
 Azure SQL-analys är en moln lösning som övervakar prestanda för Azure SQL-databaser, elastiska pooler och hanterade instanser i stor skala och över flera prenumerationer. Det kan hjälpa dig att samla in och visualisera Azure SQL Database prestanda mått och har inbyggd intelligens för fel sökning av prestanda.
 
-![Översikt över Azure SQL-analys](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
+![Översikt över Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 SQL Database mått och diagnostikloggar kan strömmas till Azure SQL-analys med hjälp av det inbyggda alternativet **Skicka till Log Analytics** på fliken diagnostikinställningar i portalen. Du kan också aktivera Log Analytics genom att använda en diagnostisk inställning via PowerShell-cmdletar, Azure CLI eller Azure Monitor REST API.
 
@@ -428,6 +429,16 @@ Se följande tabeller för information om grundläggande mått per resurs.
 |**Resurs**|**Mått**|
 |---|---|
 |Azure SQL-databas|DTU-procent, använt DTU, DTU-gräns, CPU-procent, fysisk data läsnings procent, logg skrivnings procent, slutförd/misslyckad/blockerad av brand Väggs anslutningar, sessioner procent, procent för arbetare, lagring, lagrings procent, XTP lagrings procent och låsningar |
+
+## <a name="advanced-metrics"></a>Avancerade mått
+
+I följande tabell finns mer information om avancerade mått.
+
+|**Mått**|**Mått visnings namn**|**Beskrivning**|
+|---|---|---|
+|tempdb_data_size| Data fil storlek i tempdb i KB |Data fil storlek för tempdb i KB. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
+|tempdb_log_size| TempDB-logg fils storlek kilobyte |TempDB-logg fils storlek kilobyte. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
+|tempdb_log_used_percent| Procent använt tempdb-logg |TempDB procent logg används. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
 
 ## <a name="basic-logs"></a>Basic-loggar
 

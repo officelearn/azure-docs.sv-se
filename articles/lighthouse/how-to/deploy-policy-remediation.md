@@ -1,26 +1,22 @@
 ---
 title: Distribuera en princip som kan åtgärdas
 description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 10/11/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 3bc85d202b9ba230130716aad34ce233037a3346
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 662daeb305856fb36bfb84f98e80bedf48b22756
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301977"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132483"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuera en princip som kan åtgärdas inom en delegerad prenumeration
 
-Med Azure-Lighthouse kan tjänst leverantörer skapa och redigera princip definitioner i en delegerad prenumeration. Men om du vill distribuera principer som använder en [reparations uppgift](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (det vill säga principer med [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) eller [ändra](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) -effekter) måste du skapa en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) i kund klienten. Den här hanterade identiteten kan användas av Azure Policy för att distribuera mallen i principen. Det finns åtgärder som krävs för att aktivera det här scenariot, både när du registrerar kunden för Azure-delegerad resurs hantering och när du distribuerar själva principen.
+Med [Azure-Lighthouse](../overview.md) kan tjänst leverantörer skapa och redigera princip definitioner i en delegerad prenumeration. Men om du vill distribuera principer som använder en [reparations uppgift](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (det vill säga principer med [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) eller [ändra](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) -effekter) måste du skapa en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) i kund klienten. Den här hanterade identiteten kan användas av Azure Policy för att distribuera mallen i principen. Det finns åtgärder som krävs för att aktivera det här scenariot, både när du registrerar kunden för Azure-delegerad resurs hantering och när du distribuerar själva principen.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Skapa en användare som kan tilldela roller till en hanterad identitet i kund klienten
 
-När du registrerar en kund för Azure-delegerad resurs hantering, använder du en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) tillsammans med en parameter fil som definierar användare, användar grupper och tjänstens huvud namn i den hanterande klienten som ska kunna komma åt delegerade resurser i kund klienten. I parameter filen tilldelas var och en av dessa användare (**principalId**) en [inbyggd roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) som definierar åtkomst nivån.
+När du registrerar en kund för Azure-delegerad resurs hantering, använder du en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) tillsammans med en parameter fil som definierar användare, användar grupper och tjänstens huvud namn i den hanterande klienten som kommer att kunna komma åt de delegerade resurserna i kund klienten. I parameter filen tilldelas var och en av dessa användare (**principalId**) en [inbyggd roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) som definierar åtkomst nivån.
 
 Om du vill tillåta en **principalId** att skapa en hanterad identitet i kundens klient organisation måste du ange dess **RoleDefinitionId** till **användar åtkomst administratör**. Även om den här rollen inte stöds i allmänhet, kan den användas i det här scenariot, så att användare med den här behörigheten kan tilldela en eller flera angivna inbyggda roller till hanterade identiteter. De här rollerna definieras i egenskapen **delegatedRoleDefinitionIds** . Du kan inkludera valfri inbyggd roll här, förutom administratör för användar åtkomst eller ägare.
 

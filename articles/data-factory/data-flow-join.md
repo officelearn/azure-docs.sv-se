@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961844"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122919"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
@@ -68,7 +68,7 @@ Om du själv vill ansluta en data ström med sig själv kan du ange ett alias f�
 
 När du testar kopplings Transformationerna med data förhands granskning i fel söknings läge, använder du en liten uppsättning kända data. När du samplar rader från en stor data uppsättning kan du inte förutsäga vilka rader och nycklar som ska läsas för testning. Resultatet är icke-deterministiskt, vilket innebär att dina kopplings villkor inte kan returnera några träffar.
 
-## <a name="data-flow-script"></a>Skript för data flöde
+## <a name="data-flow-script"></a>Dataflödesskript
 
 ### <a name="syntax"></a>Syntax
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>Exempel på kors koppling
 
-Exemplet nedan är en JOIN-omvandling med namnet `CartesianProduct` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`. Den här omvandlingen tar i två strömmar och returnerar en kartesiska-produkt av sina rader. Kopplings villkoret är `true()` eftersom en fullständig kartesiska-produkt matas ut. `joinType` i `cross`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
+Exemplet nedan är en JOIN-omvandling med namnet `CartesianProduct` som tar vänster ström `TripData` och direkt uppspelnings `TripFare`. Den här omvandlingen tar i två strömmar och returnerar en kartesiska-produkt av sina rader. Kopplings villkoret är `true()` eftersom en fullständig kartesiska-produkt matas ut. `joinType` är `cross`. Vi aktiverar sändning i endast den vänstra strömmen så `broadcast` har ett värde `'left'`.
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

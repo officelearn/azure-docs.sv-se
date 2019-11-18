@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 3af9c5e728bd119ce6c5546c8dc6556967cd1eda
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 83dc18424bc8606eff9a735b76cdaa09e381d588
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606108"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129351"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
 
 I den här snabb starten använder du en Azure Resource Manager-mall för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från en kostnads fri/betald användning baserat på demografiska.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com). 
+Logga in på [Azure-portalen](https://portal.azure.com). 
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -81,7 +81,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
 
    Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
-Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](/azure/databricks/user-guide/clusters/create).
+Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](/azure/databricks/clusters/create).
 
 ## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
 
@@ -126,7 +126,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
      Anvisningar om hur du hämtar nyckeln för lagringskontot finns i [Hantera dina lagringsåtkomstnycklar](../storage/common/storage-account-manage.md#access-keys).
 
    > [!NOTE]
-   > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html).
+   > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).
 
 4. Kör en SQL-instruktion för att skapa en temporär tabell med data från exempel-JSON-datafilen **small_radio_json.json**. I följande kodfragment ersätter du platshållarens värden med din containers namn och namnet på ditt lagringskonto. Klistra in följande kodfragment i en kodcell och tryck sedan på SKIFT+RETUR. I kodfragmentet anger `path` platsen för exempel-JSON-filen som du laddade upp till ditt Azure Storage-konto.
 
@@ -170,7 +170,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
    * Ställ in **Värden** på **nivå**.
    * Ställ in **Sammansättning** på **COUNT** (Antal).
 
-   Klicka på **Verkställ**.
+   Klicka på **Använd**.
 
 9. Utdata visar den visuella representationen som visas i följande skärmbild:
 
@@ -178,7 +178,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
@@ -186,7 +186,7 @@ Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förut
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med data i Azure Storage. Du kan också titta på [Spark-datakällor](/azure/databricks/data/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Du kan också använda Resource Manager-mallen för att [Skapa en Azure Databricks-arbetsyta med anpassad VNET-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Information om den JSON-syntax och de JSON-egenskaper som du använder i en mall finns i mallreferensen i [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
+I den här artikeln skapade du ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med data i Azure Storage. Du kan också titta på [Spark-datakällor](/azure/databricks/data/data-sources/index) för att lära dig att importera data från andra datakällor till Azure Databricks. Du kan också använda Resource Manager-mallen för att [Skapa en Azure Databricks-arbetsyta med anpassad VNET-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Information om den JSON-syntax och de JSON-egenskaper som du använder i en mall finns i mallreferensen i [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
 
 Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
 

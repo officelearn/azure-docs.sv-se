@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 826fe1195a142bd0826d6311eab5eb208bbc7e35
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fde8829da3e523ced44143db0dee6b93cf9152bd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007424"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147769"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto (för hands version)
 
@@ -185,7 +185,7 @@ foreach ($IPConfiguration in $networkInterface.IpConfigurations)
 
 ## <a name="create-a-private-endpoint-by-using-a-resource-manager-template"></a>Skapa en privat slut punkt med hjälp av en Resource Manager-mall
 
-Du kan konfigurera en privat länk genom att skapa en privat slut punkt i ett undernät för virtuellt nätverk. Du uppnår detta genom att använda en Azure Resource Manager mall. 
+Du kan konfigurera en privat länk genom att skapa en privat slut punkt i ett undernät för virtuellt nätverk. Du uppnår detta genom att använda en Azure Resource Manager mall.
 
 Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateEndpoint_template. JSON". Den här mallen skapar en privat slut punkt för ett befintligt Azure Cosmos SQL API-konto i ett befintligt virtuellt nätverk.
 
@@ -246,7 +246,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
 }
 ```
 
-### <a name="define-the-parameters-file-for-the-template"></a>Definiera parameter filen för mallen
+**Definiera parameter filen för mallen**
 
 Skapa en parameter fil för mallen och ge den namnet "PrivateEndpoint_parameters. JSON". Lägg till följande kod i parameter filen:
 
@@ -271,7 +271,7 @@ Skapa en parameter fil för mallen och ge den namnet "PrivateEndpoint_parameters
 }
 ```
 
-### <a name="deploy-the-template-by-using-a-powershell-script"></a>Distribuera mallen med hjälp av ett PowerShell-skript
+**Distribuera mallen med hjälp av ett PowerShell-skript**
 
 Skapa ett PowerShell-skript med hjälp av följande kod. Innan du kör skriptet ersätter du prenumerations-ID, resurs gruppens namn och andra variabel värden med informationen för din miljö.
 
@@ -334,6 +334,201 @@ När mallen har distribuerats kan du se utdata som liknar det som visas i följa
 ![Distributions utdata för Resource Manager-mallen](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
 
 När mallen har distribuerats reserveras de privata IP-adresserna i under nätet. Brand Väggs regeln för Azure Cosmos-kontot har kon figurer ATS för att endast godkänna anslutningar från den privata slut punkten.
+
+### <a name="integrate-the-private-endpoint-with-a-private-dns-zone"></a>Integrera den privata slut punkten med en Privat DNS zon
+
+Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateZone_template. JSON". Den här mallen skapar en privat DNS-zon för ett befintligt Azure Cosmos SQL API-konto i ett befintligt virtuellt nätverk.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "privateZoneName": {
+            "type": "string"
+        },
+        "VNetId": {
+            "type": "string"
+        }       
+    },
+    "resources": [
+        {
+            "name": "[parameters('privateZoneName')]",
+            "type": "Microsoft.Network/privateDnsZones",
+            "apiVersion": "2018-09-01",
+            "location": "global",
+            "properties": {                
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+            "apiVersion": "2018-09-01",
+            "name": "[concat(parameters('privateZoneName'), '/myvnetlink')]",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateZoneName'))]"
+            ],
+            "properties": {
+                "registrationEnabled": false,
+                "virtualNetwork": {
+                    "id": "[parameters('VNetId')]"
+                }
+            }
+        }       
+    ]
+}
+```
+
+Använd följande kod för att skapa en Resource Manager-mall med namnet "PrivateZoneRecords_template. JSON".
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "DNSRecordName": {
+            "type": "string"
+        },
+        "IPAddress": {
+            "type":"string"
+        }       
+    },
+    "resources": [
+         {
+            "type": "Microsoft.Network/privateDnsZones/A",
+            "apiVersion": "2018-09-01",
+            "name": "[parameters('DNSRecordName')]",
+            "properties": {
+                "ttl": 300,
+                "aRecords": [
+                    {
+                        "ipv4Address": "[parameters('IPAddress')]"
+                    }
+                ]
+            }
+        }   
+    ]
+}
+```
+
+**Definiera parameter filen för mallen**
+
+Skapa följande två parameter fil för mallen. Skapa PrivateZone_parameters. JSON. med följande kod:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "privateZoneName": {
+            "value": ""
+        },
+        "VNetId": {
+            "value": ""
+        }
+    }
+}
+```
+
+Skapa PrivateZoneRecords_parameters. JSON. med följande kod:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "DNSRecordName": {
+            "value": ""
+        },
+        "IPAddress": {
+            "type":"object"
+        }
+    }
+}
+```
+
+**Distribuera mallen med hjälp av ett PowerShell-skript**
+
+Skapa ett PowerShell-skript med hjälp av följande kod. Innan du kör skriptet ersätter du prenumerations-ID, resurs gruppens namn och andra variabel värden med informationen för din miljö.
+
+```azurepowershell-interactive
+### This script:
+### - creates a private zone
+### - creates a private endpoint for an existing Cosmos DB account in an existing VNet
+### - maps the private endpoint to the private zone
+
+## Step 1: Fill in these details. Replace the variable values with the details for your environment.
+$SubscriptionId = "<your Azure subscription ID>"
+# Resource group where the Azure Cosmos account and virtual network resources are located
+$ResourceGroupName = "myResourceGroup"
+# Name of the Azure Cosmos account
+$CosmosDbAccountName = "mycosmosaccount"
+# API type of the Azure Cosmos account. It can be one of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table"
+$CosmosDbApiType = "Sql"
+# Name of the existing virtual network
+$VNetName = "myVnet"
+# Name of the target subnet in the virtual network
+$SubnetName = "mySubnet"
+# Name of the private zone to create
+$PrivateZoneName = "myPrivateZone.documents.azure.com"
+# Name of the private endpoint to create
+$PrivateEndpointName = "myPrivateEndpoint"
+
+$cosmosDbResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.DocumentDB/databaseAccounts/$($CosmosDbAccountName)"
+$VNetResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($VNetName)"
+$SubnetResourceId = "$($VNetResourceId)/subnets/$($SubnetName)"
+$PrivateZoneTemplateFilePath = "PrivateZone_template.json"
+$PrivateZoneParametersFilePath = "PrivateZone_parameters.json"
+$PrivateZoneRecordsTemplateFilePath = "PrivateZoneRecords_template.json"
+$PrivateZoneRecordsParametersFilePath = "PrivateZoneRecords_parameters.json"
+$PrivateEndpointTemplateFilePath = "PrivateEndpoint_template.json"
+$PrivateEndpointParametersFilePath = "PrivateEndpoint_parameters.json"
+
+## Step 2: Login your Azure account and select the target subscription
+Login-AzAccount 
+Select-AzSubscription -SubscriptionId $subscriptionId
+
+## Step 3: Make sure private endpoint network policies are disabled in the subnet
+$VirtualNetwork= Get-AzVirtualNetwork -Name "$VNetName" -ResourceGroupName "$ResourceGroupName"
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq "$SubnetName"} ).PrivateEndpointNetworkPolicies = "Disabled"
+$virtualNetwork | Set-AzVirtualNetwork
+
+## Step 4: Create the private zone
+New-AzResourceGroupDeployment -Name "PrivateZoneDeployment" `
+    -ResourceGroupName $ResourceGroupName `
+    -TemplateFile $PrivateZoneTemplateFilePath `
+    -TemplateParameterFile $PrivateZoneParametersFilePath `
+    -PrivateZoneName $PrivateZoneName `
+    -VNetId $VNetResourceId
+
+## Step 5: Create the private endpoint
+Write-Output "Deploying private endpoint on $($resourceGroupName)"
+$deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpointDeployment" `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $PrivateEndpointTemplateFilePath `
+    -TemplateParameterFile $PrivateEndpointParametersFilePath `
+    -SubnetId $SubnetResourceId `
+    -ResourceId $CosmosDbResourceId `
+    -GroupId $CosmosDbApiType `
+    -PrivateEndpointName $PrivateEndpointName
+$deploymentOutput
+
+## Step 6: Map the private endpoint to the private zone
+$networkInterface = Get-AzResource -ResourceId $deploymentOutput.Outputs.privateEndpointNetworkInterface.Value -ApiVersion "2019-04-01"
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
+    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
+        $recordName = $fqdn.split('.',2)[0]
+        $dnsZone = $fqdn.split('.',2)[1]
+        Write-Output "Deploying PrivateEndpoint DNS Record $($PrivateZoneName)/$($recordName) Template on $($resourceGroupName)"
+        New-AzResourceGroupDeployment -Name "PrivateEndpointDNSDeployment" `
+            -ResourceGroupName $ResourceGroupName `
+            -TemplateFile $PrivateZoneRecordsTemplateFilePath `
+            -TemplateParameterFile $PrivateZoneRecordsParametersFilePath `
+            -DNSRecordName "$($PrivateZoneName)/$($RecordName)" `
+            -IPAddress $ipconfig.properties.privateIPAddress
+    }
+}
+```
 
 ## <a name="configure-custom-dns"></a>Konfigurera anpassad DNS
 

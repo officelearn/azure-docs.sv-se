@@ -11,26 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: cd5b45093be6d7cc8745013f18c897251f89f454
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822196"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132101"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrerar dem i katalogen
 
 I den här självstudien får du lära dig hur du etablerar och katalogiserar SaaS mönster. Du får också lära dig hur de implementeras i Wingtip Ticket SaaS Database-användarspecifika program. Du skapar och initierar nya klient databaser och registrerar dem i programmets klient katalog. Katalogen är en databas som upprätthåller mappningen mellan SaaS-programmets många klienter och deras data. Katalogen spelar en viktig roll för att dirigera program-och hanterings begär anden till rätt databas.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> 
+>
 > * Etablera en enda ny klient.
 > * Etablera en batch med ytterligare klienter.
 
 
-Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
+Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 * Wingtip-biljetterna SaaS Database-per-klient-app distribueras. Information om hur du distribuerar den på mindre än fem minuter finns i [distribuera och utforska Wingtip Ticket SaaS Database-användarspecifika program](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
@@ -39,17 +39,17 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 I ett SaaS program med en databas som har stöd för flera innehavare är det viktigt att veta var informationen för varje klient är lagrad. I SaaS Catalog-mönstret används en katalog databas för att lagra mappningen mellan varje klient organisation och databasen där deras data lagras. Det här mönstret gäller när klient data distribueras över flera databaser.
 
-Varje klient identifieras av en nyckel i katalogen som mappas till platsen för databasen. I Wingtip biljetter-appen skapas nyckeln från en hash av klientens namn. Det här schemat tillåter att appen skapar nyckeln från klient namnet som ingår i programmets URL. Andra klient nyckel scheman kan användas.  
+Varje klient identifieras av en nyckel i katalogen som mappas till platsen för databasen. I Wingtip biljetter-appen skapas nyckeln från en hash av klientens namn. Det här schemat tillåter att appen skapar nyckeln från klient namnet som ingår i programmets URL. Andra klient nyckel scheman kan användas.
 
 Katalogen gör det möjligt att ändra namnet eller platsen för databasen med minimal påverkan på programmet. I en databas modell med flera innehavare kan den här funktionen också flytta en klient mellan-databaser. Katalogen kan också användas för att ange om en klient eller databas är offline för underhåll eller andra åtgärder. Den här funktionen finns i [själv studie kursen för att återställa en enda klient](saas-dbpertenant-restore-single-tenant.md).
 
-Katalogen kan också lagra ytterligare klient-eller databas-metadata, till exempel schema version, service plan eller service avtal som erbjuds till klienter. Katalogen kan lagra annan information som möjliggör program hantering, kund support eller DevOps. 
+Katalogen kan också lagra ytterligare klient-eller databas-metadata, till exempel schema version, service plan eller service avtal som erbjuds till klienter. Katalogen kan lagra annan information som möjliggör program hantering, kund support eller DevOps.
 
-Katalogen kan aktivera databas verktyg utanför SaaS-programmet. I Wingtip Ticket SaaS-databas per klient exempel används katalogen för att aktivera frågor över flera klienter, som visas i [självstudien om ad hoc-rapportering](saas-tenancy-cross-tenant-reporting.md). Jobb hantering i flera databaser utforskas i självstudierna [schema hantering](saas-tenancy-schema-management.md) och [klient analys](saas-tenancy-tenant-analytics.md) . 
+Katalogen kan aktivera databas verktyg utanför SaaS-programmet. I Wingtip Ticket SaaS-databas per klient exempel används katalogen för att aktivera frågor över flera klienter, som visas i [självstudien om ad hoc-rapportering](saas-tenancy-cross-tenant-reporting.md). Jobb hantering i flera databaser utforskas i självstudierna [schema hantering](saas-tenancy-schema-management.md) och [klient analys](saas-tenancy-tenant-analytics.md) .
 
-I Wingtip Ticket SaaS-exempel implementeras katalogen med hjälp av Shard hanterings funktioner i [Elastic Database klient bibliotek (EDCL)](sql-database-elastic-database-client-library.md). EDCL är tillgänglig i Java och .NET Framework. EDCL gör det möjligt för ett program att skapa, hantera och använda en Shard-karta för databas. 
+I Wingtip Ticket SaaS-exempel implementeras katalogen med hjälp av Shard hanterings funktioner i [Elastic Database klient bibliotek (EDCL)](sql-database-elastic-database-client-library.md). EDCL är tillgänglig i Java och .NET Framework. EDCL gör det möjligt för ett program att skapa, hantera och använda en Shard-karta för databas.
 
-En Shard-karta innehåller en lista över Shards (databaser) och mappningen mellan nycklar (klienter) och Shards. EDCL-funktioner används vid klient etablering för att skapa poster i Shard-kartan. De används vid körnings tillfället av program för att ansluta till rätt databas. EDCL cachelagrar anslutnings information för att minimera trafik till katalog databasen och påskynda programmet. 
+En Shard-karta innehåller en lista över Shards (databaser) och mappningen mellan nycklar (klienter) och Shards. EDCL-funktioner används vid klient etablering för att skapa poster i Shard-kartan. De används vid körnings tillfället av program för att ansluta till rätt databas. EDCL cachelagrar anslutnings information för att minimera trafik till katalog databasen och påskynda programmet.
 
 > [!IMPORTANT]
 > Mappnings data är tillgängliga i katalog databasen, men *du kan inte redigera den*. Redigera mappnings data genom att endast använda Elastic Database klient biblioteks-API: er. Direkt manipulering av mappnings data risker som skadar katalogen och stöds inte.
@@ -57,15 +57,15 @@ En Shard-karta innehåller en lista över Shards (databaser) och mappningen mell
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introduktion till SaaS-etablerings mönster
 
-När du lägger till en ny klient i ett SaaS-program som använder en databas modell med en enda klient måste du etablera en ny klient databas. Databasen måste skapas på rätt plats och på tjänst nivå. Det måste också initieras med lämpligt schema-och referens data. Och måste registreras i katalogen under lämplig klient nyckel. 
+När du lägger till en ny klient i ett SaaS-program som använder en databas modell med en enda klient måste du etablera en ny klient databas. Databasen måste skapas på rätt plats och på tjänst nivå. Det måste också initieras med lämpligt schema-och referens data. Och måste registreras i katalogen under lämplig klient nyckel.
 
-Olika metoder för databas etablering kan användas. Du kan köra SQL-skript, distribuera en BACPAC eller kopiera en mall-databas. 
+Olika metoder för databas etablering kan användas. Du kan köra SQL-skript, distribuera en BACPAC eller kopiera en mall-databas.
 
-Databas etableringen måste ingå i din strategi för schema hantering. Du måste se till att nya databaser är etablerade med det senaste schemat. Det här kravet har upptäckts i [självstudien om schema hantering](saas-tenancy-schema-management.md). 
+Databas etableringen måste ingå i din strategi för schema hantering. Du måste se till att nya databaser är etablerade med det senaste schemat. Det här kravet har upptäckts i [självstudien om schema hantering](saas-tenancy-schema-management.md).
 
-Programmet Wingtip ticks databas-per-klient etablerar nya klienter genom att kopiera en mall-databas med namnet _basetenantdb_, som distribueras på katalog servern. Etableringen kan integreras i programmet som en del av registrerings upplevelsen. Det kan också stödjas offline med hjälp av skript. I den här självstudien utforskas etablering med hjälp av PowerShell. 
+Programmet Wingtip ticks databas-per-klient etablerar nya klienter genom att kopiera en mall-databas med namnet _basetenantdb_, som distribueras på katalog servern. Etableringen kan integreras i programmet som en del av registrerings upplevelsen. Det kan också stödjas offline med hjälp av skript. I den här självstudien utforskas etablering med hjälp av PowerShell.
 
-Med etablerings skript kopieras _basetenantdb_ -databasen för att skapa en ny klient databas i en elastisk pool. Klient databasen skapas i klient servern som är mappad till _newtenant_ DNS-alias. Det här aliaset innehåller en referens till den server som används för att etablera nya klienter och uppdateras för att peka på en återställnings klient server i självstudierna om haveri beredskap ([Dr med hjälp av omåterställ](saas-dbpertenant-dr-geo-restore.md), [Dr med hjälp av replikering](saas-dbpertenant-dr-geo-replication.md)). Skripten initierar sedan databasen med klient information och registrerar den i katalogen Shard Map. Klient databaser får namn baserat på klient organisationens namn. Detta namngivnings schema är inte en kritisk del av mönstret. Katalogen mappar klient nyckeln till databas namnet, så att alla namngivnings konventioner kan användas. 
+Med etablerings skript kopieras _basetenantdb_ -databasen för att skapa en ny klient databas i en elastisk pool. Klient databasen skapas i klient servern som är mappad till _newtenant_ DNS-alias. Det här aliaset innehåller en referens till den server som används för att etablera nya klienter och uppdateras för att peka på en återställnings klient server i självstudierna om haveri beredskap ([Dr med hjälp av omåterställ](saas-dbpertenant-dr-geo-restore.md), [Dr med hjälp av replikering](saas-dbpertenant-dr-geo-replication.md)). Skripten initierar sedan databasen med klient information och registrerar den i katalogen Shard Map. Klient databaser får namn baserat på klient organisationens namn. Detta namngivnings schema är inte en kritisk del av mönstret. Katalogen mappar klient nyckeln till databas namnet, så att alla namngivnings konventioner kan användas.
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip-biljetterna SaaS Database-användarspecifika program skript
@@ -95,7 +95,7 @@ Om du vill förstå hur Wingtip biljetter-programmet implementerar ny klient eta
 
 
 
-Spåra skript körningen med hjälp av meny alternativen för **fel sökning** . Tryck på F10 och F11 för att gå över eller till de anropade funktionerna. Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Spåra skript körningen med hjälp av meny alternativen för **fel sökning** . Tryck på F10 och F11 för att gå över eller till de anropade funktionerna. Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
 Du behöver inte uttryckligen följa det här arbets flödet. Den förklarar hur du felsöker skriptet.
@@ -156,7 +156,7 @@ Andra etablerings mönster som inte ingår i den här självstudien:
 
 **För etablering av databaser**: för för etablerings mönster utnyttjar faktum att databaser i en elastisk pool inte lägger till extra kostnad. Faktureringen är för den elastiska poolen, inte databaserna. Inaktiva databaser förbrukar inga resurser. Genom att förkonfigurera databaser i en pool och tilldela dem vid behov kan du minska tiden för att lägga till klienter. Antalet företablerade databaser kan justeras efter behov för att behålla en buffert som är lämplig för den förväntade etablerings hastigheten.
 
-**Automatisk etablering**: i det automatiska etablerings mönstret etablerar en etablerings tjänst servrar, pooler och databaser automatiskt efter behov. Om du vill kan du inkludera för etablering av databaser i elastiska pooler. Om databaserna tas ur bruk och tas bort kan luckor i elastiska pooler fyllas av etablerings tjänsten. En sådan tjänst kan vara enkel eller komplex, till exempel hanterings etablering över flera geografiska områden och konfigurera geo-replikering för haveri beredskap. 
+**Automatisk etablering**: i det automatiska etablerings mönstret etablerar en etablerings tjänst servrar, pooler och databaser automatiskt efter behov. Om du vill kan du inkludera för etablering av databaser i elastiska pooler. Om databaserna tas ur bruk och tas bort kan luckor i elastiska pooler fyllas av etablerings tjänsten. En sådan tjänst kan vara enkel eller komplex, till exempel hanterings etablering över flera geografiska områden och konfigurera geo-replikering för haveri beredskap.
 
 Med det automatiska etablerings mönstret skickar ett klient program eller-skript en etablerings förfrågan till en kö som ska bearbetas av etablerings tjänsten. Tjänsten avsöker sedan tjänsten för att fastställa slut för ande. Om för etablering används, hanteras förfrågningar snabbt. Tjänsten etablerar en ersättnings databas i bakgrunden.
 
@@ -166,7 +166,7 @@ Med det automatiska etablerings mönstret skickar ett klient program eller-skrip
 I den här guiden lärde du dig hur man:
 
 > [!div class="checklist"]
-> 
+>
 > * Etablera en enda ny klient.
 > * Etablera en batch med ytterligare klienter.
 > * Stega in i informationen om att etablering av klienter och registrera dem i katalogen.
@@ -177,4 +177,4 @@ Prova [själv studie kursen om prestanda övervakning](saas-dbpertenant-performa
 
 * Ytterligare [självstudier som bygger på Wingtip-biljetter SaaS-program för databas per klient](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md)
-* [Felsöka skript i Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Felsöka skript i Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

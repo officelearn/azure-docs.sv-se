@@ -1,19 +1,16 @@
 ---
-title: Självstudie – Lägg till taggar till resurser i en Azure Resource Manager mall
+title: Självstudie – Lägg till taggar till resurser i mallen
 description: Lägg till taggar till resurser som du distribuerar i din Azure Resource Manager-mall. Med taggar kan du logiskt organisera resurser.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 663de1e341815eac039c49cee63f8a492b0cb7a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177571"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150183"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Självstudie: Lägg till taggar i din Resource Manager-mall
 

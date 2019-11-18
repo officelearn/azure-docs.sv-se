@@ -6,32 +6,31 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 24ce4dee04e4daf3eaee4144f8dc56de5867bbca
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: cd1573a3d896f3d2d5cb53130d8fac86be43beb6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607213"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152086"
 ---
-# <a name="how-to-set-up-a-staging-environment"></a>Så här konfigurerar du en mellanlagringsmiljö
+# <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurera en utvecklings miljö i Azure våren Cloud
 
-Den här artikeln visar hur du utnyttjar en mellanlagrings distribution med hjälp av ett blått-grönt distributions mönster i Azure våren Cloud. Du får också se hur du kan använda mellanlagrings distributionen i produktion utan att ändra produktions distributionen direkt.
+Den här artikeln beskriver hur du konfigurerar en mellanlagrings distribution med hjälp av ett blått-grönt distributions mönster i Azure våren Cloud. Det visar också hur du kan använda mellanlagrings distributionen i produktion utan att ändra produktions distributionen direkt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Den här artikeln förutsätter att du redan har distribuerat PiggyMetrics-programmet från vår [självstudie om att starta ett program](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics består av tre program: "Gateway", "Account-service" och "auth-service".  
+Den här artikeln förutsätter att du redan har distribuerat PiggyMetrics-programmet från vår [själv studie kurs om hur du startar ett Azure våren Cloud-program](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics består av tre program: "Gateway", "Account-service" och "auth-service".  
 
-Om du har ett annat program som du vill använda för det här exemplet måste du göra en enkel ändring i en offentlig riktad del av programmet.  Den här ändringen särskiljer mellanlagrings distributionen från produktionen.
+Om du vill använda ett annat program för det här exemplet måste du göra en enkel ändring i en offentlig del av programmet.  Den här ändringen särskiljer mellanlagrings distributionen från produktionen.
 
 >[!TIP]
-> Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
+> Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt som du kan använda för att köra instruktionerna i den här artikeln.  Den har vanliga, förinstallerade Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com).  Mer information finns i [Översikt över Azure Cloud Shell](../cloud-shell/overview.md).
 
-För att slutföra den här artikeln:
-
+Följ anvisningarna i nästa avsnitt om du vill konfigurera en utvecklings miljö i Azure våren Cloud.
 
 ## <a name="install-the-azure-cli-extension"></a>Installera Azure CLI-tillägget
 
-Installera Azure våren Cloud-tillägget för Azure CLI med hjälp av följande kommando
+Installera Azure våren Cloud-tillägget för Azure CLI med hjälp av följande kommando:
 
 ```azurecli
 az extension add --name spring-cloud
@@ -39,65 +38,66 @@ az extension add --name spring-cloud
     
 ## <a name="view-all-deployments"></a>Visa alla distributioner
 
-Gå till tjänst instansen i Azure Portal och välj **distributions hantering** för att visa alla distributioner. Du kan välja varje distribution för mer information.
+Gå till tjänst instansen i Azure Portal och välj **Deployment Management** för att visa alla distributioner. Om du vill visa mer information kan du välja varje distribution.
 
 ## <a name="create-a-staging-deployment"></a>Skapa en mellanlagrings distribution
 
-1. I din lokala utvecklings miljö gör du en liten ändring i Piggy-måttets Gateway-program. Ändra till exempel färgen i `gateway/src/main/resources/static/css/launch.css`. På så sätt kan du enkelt särskilja de två distributionerna. Kör följande kommando för att skapa jar-paketet: 
+1. I din lokala utvecklings miljö gör du en liten ändring i PiggyMetrics Gateway-programmet. Du kan till exempel ändra färgen i filen *Gateway/src/main/Resources/static/CSS/start. CSS* . På så sätt kan du enkelt särskilja de två distributionerna. Skapa jar-paketet genom att köra följande kommando: 
 
     ```azurecli
     mvn clean package
     ```
 
-1. Skapa en ny distribution med Azure CLI och ge den namnet "grön" för mellanlagrings distributionen.
+1. Skapa en ny distribution i Azure CLI och ge den namnet "grön" för mellanlagrings distributionen.
 
     ```azurecli
     az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. När distributionen har slutförts går du till sidan Gateway från **program instrument panelen** och ser alla instanser på fliken **app instances** till vänster.
+1. När distributionen har slutförts går du till sidan Gateway från **program instrument panelen**och visar alla dina instanser på fliken **program instanser** till vänster.
   
 > [!NOTE]
-> Identifierings statusen är "OUT_OF_SERVICE" så att trafiken inte dirigeras till distributionen innan verifieringen är klar.
+> Identifierings statusen är *OUT_OF_SERVICE* så att trafiken inte dirigeras till den här distributionen innan verifieringen är klar.
 
 ## <a name="verify-the-staging-deployment"></a>Verifiera mellanlagrings distributionen
 
-1. gå tillbaka till sidan **distributions hantering** och välj den nya distributionen. Distributions statusen **bör visas.** Knappen "Tilldela/ta bort tilldelnings domän" kommer att inaktive ras eftersom den är en fristående miljö.
+1. Gå tillbaka till sidan **distributions hantering** och välj den nya distributionen. Distributions statusen *bör visas.* Knappen **tilldela/ta bort tilldelnings domän** ska vara nedtonad, eftersom miljön är en mellanlagrings miljö.
 
-1. På sidan **Översikt** bör du se en **test slut punkt**. Kopiera och klistra in den på en ny webb sida så visas sidan nya Piggy mått.
+1. I **översikts** fönstret bör du se en **test slut punkt**. Kopiera och klistra in den i ett nytt webbläsarfönster och den nya PiggyMetrics-sidan ska visas.
 
 >[!TIP]
-> * Bekräfta att test slut punkten slutar med "/" för att säkerställa att CSS-inläsningen är korrekt.  
-> * Om din webbläsare kräver att du anger inloggnings uppgifter för att visa sidan använder du [URL-avkodning](https://www.urldecoder.org/) för att avkoda test slut punkten. URL-avkodning returnerar en URL i formatet "https://\<användar namn >:\<lösen ord > @\<kluster namn >. test. azureapps. io/Gateway/grönt".  Använd detta för att få åtkomst till din slut punkt.
+> * Bekräfta att test slut punkten slutar med ett snedstreck (/) för att säkerställa att CSS-filen läses in på rätt sätt.  
+> * Om din webbläsare kräver att du anger inloggnings uppgifter för att visa sidan använder du [URL-avkodning](https://www.urldecoder.org/) för att avkoda test slut punkten. URL-avkodning returnerar en URL i formatet "https://\<användar namn >:\<lösen ord > @\<kluster namn >. test. azureapps. io/Gateway/grönt".  Använd det här formuläret för att få åtkomst till din slut punkt.
 
 >[!NOTE]    
-> Konfigurations Server inställningarna gäller för din utvecklings miljö samt produktion. Om du till exempel ställer in kontext Sök vägen (`server.servlet.context-path`) för din app-gateway i config server som *somepath*, ändras sökvägen till din gröna distribution: "https://\<användar namn >:\<lösen ord > @\<Cluster-Name >. test.azureapps.io/gateway/green/somepath/... "
+> Konfigurations Server inställningarna gäller både för din mellanlagrings miljö och produktion. Om du till exempel anger kontext Sök vägen (`server.servlet.context-path`) för din app-gateway i config server som *somepath*ändras sökvägen till din gröna distribution till "https://\<username >:\<lösen ord > @\<kluster namn >. test. azureapps. io/Gateway/grönt/somepath/...".
  
- Om du besöker din publika app gateway bör du se den gamla sidan utan din nya ändring.
+ Om du besöker den offentliga app-gatewayen bör du se den gamla sidan utan din nya ändring.
     
-## <a name="set-the-green-as-production-deployment"></a>Ställ in grön som produktions distribution
+## <a name="set-the-green-deployment-as-the-production-environment"></a>Ange den gröna distributionen som produktions miljö
 
-1. Om du har verifierat din ändring i din mellanlagrings miljö kan du skicka den till produktion. Gå tillbaka till **distributions hantering** och markera kryss rutan före "Gateway"-programmet.
-2. Välj "Ange distribution".
-3. Välj "grönt" från menyn "produktions distribution" och välj **Använd**
-4. Gå till **översikts** sidan för gateway-program. Om du redan har tilldelat en domän för ditt Gateway-program visas URL: en på sidan **Översikt** . Besök URL: en så visas sidan för ändrade Piggy-mått.
+1. När du har verifierat din ändring i din mellanlagrings miljö kan du skicka den till produktion. Gå tillbaka till **distributions hantering**och markera kryss rutan **Gateway** -program.
+
+2. Välj **Ange distribution**.
+3. I listan **produktions distribution** väljer du **grönt**och väljer sedan **Använd**.
+4. Gå till **översikts** sidan för gateway-program. Om du redan har tilldelat en domän för ditt Gateway-program visas URL: en i fönstret **Översikt** . Om du vill visa den ändrade PiggyMetrics-sidan väljer du webb adressen och går till webbplatsen.
 
 >[!NOTE]
-> När den gröna distributionen har angetts till produktions miljön blir den tidigare distributionen den mellanlagrings distributionen.
+> När du har angett den gröna distributionen som produktions miljö blir den tidigare distributionen den mellanlagrings distributionen.
 
 ## <a name="modify-the-staging-deployment"></a>Ändra mellanlagrings distributionen
 
-Om du inte är nöjd med ändringen kan du ändra program koden, bygga ett nytt jar-paket och överföra det till din gröna distribution med hjälp av Azure CLI.
+Om du inte är nöjd med ändringen kan du ändra program koden, bygga ett nytt jar-paket och ladda upp det till din gröna distribution med hjälp av Azure CLI.
 
 ```azurecli
 az spring-cloud app deploy  -g <resource-group-name> -s <service-instance-name> -n gateway -d green --jar-path gateway.jar
 ```
 
-## <a name="delete-a-staging-deployment"></a>Ta bort en mellanlagrings distribution
+## <a name="delete-the-staging-deployment"></a>Ta bort mellanlagrings distributionen
 
-Ta bort din mellanlagrings distribution från Azure-porten genom att gå till sidan för mellanlagrings distribution och välja knappen **ta bort** .
+Om du vill ta bort din mellanlagrings distribution från Azure-porten går du till sidan för mellanlagrings distribution och väljer sedan knappen **ta bort** .
 
-Du kan också ta bort mellanlagrings distributionen från Azure CLI med följande kommando:
+Du kan också ta bort mellanlagrings distributionen från Azure CLI genom att köra följande kommando:
 
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway

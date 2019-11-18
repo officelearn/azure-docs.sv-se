@@ -1,109 +1,96 @@
 ---
-title: 'Snabb start: Lär dig kognitiv search AI-anrikning i Azure Portal-Azure Search'
-description: Data extrahering, naturliga språk och bild bearbetnings kunskaper i en Azure Search indexerings Portal med hjälp av Azure Portal-och exempel data.
+title: 'Snabb start: skapa en färdigheter i Azure Portal'
+titleSuffix: Azure Cognitive Search
+description: Använd guiden Importera data för att lägga till kognitiva kunskaper i en indexerings pipeline. Kognitiva kunskaper är OCR (optisk tecken läsning) och bearbetning av naturligt språk.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: 28d813e2f137ecf721165e9ea5af2e36efee872a
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053487"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113363"
 ---
-# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Snabb start: skapa en AI-pipeline med kognitiva kunskaper i Azure Search
+# <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Snabb start: skapa en färdigheter för Azure Kognitiv sökning kognitivt i Azure Portal
 
-Azure Search integreras med [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), lägga till extrahering av innehåll, NLP (Natural Language Processing) och bild bearbetning (bild taggning, objekt identifiering, OCR) för en Azure Search indexerings pipeline, vilket gör att det inte går att söka eller ostrukturerat innehåll mer sökbart. 
+En färdigheter är en AI-funktion som extraherar information och struktur från stora, ej differentierade text-eller bildfiler och gör det lätt att indexera och söka efter fullständiga texts öknings frågor i Azure Kognitiv sökning. 
 
-Många Cognitive Services resurser – t. ex. [Bildtaggning](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-tagging-images), [objekt identifiering](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-object-detection), [OCR](cognitive-search-skill-ocr.md), [språk identifiering](cognitive-search-skill-language-detection.md), [enhets igenkänning](cognitive-search-skill-entity-recognition.md) för att namnge ett fåtal-kan bifogas till en indexerings process. AI-algoritmer för Cognitive Services används för att hitta mönster, funktioner och egenskaper i källdata, returnera strukturer och textinnehåll som kan användas för textsökningslösningar som bygger på Azure Search.
-
-I den här snabbstarten skapar du din första berikningspipeline i [Azure Portal](https://portal.azure.com) utan att skriva en enda rad med kod:
-
-> [!div class="checklist"]
-> * Börja med exempeldata i Azure Blob Storage
-> * Konfigurera guiden [**Importera data**](search-import-data-portal.md) för kognitiv indexering och berikning 
-> * Kör guiden (en entitetskunskap upptäcker personer, platser och organisationer)
-> * Använd [**Sökutforskaren**](search-explorer.md) för att köra frågor mot berikade data
-
-Den här snabb starten körs på den kostnads fria tjänsten, men antalet kostnads fria transaktioner är begränsat till 20 dokument per dag. Om du vill köra den här snabb starten mer än en gång per dag kan du använda en mindre fil uppsättning så att du får plats i fler körningar.
-
-> [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
->
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+I den här snabb starten ska du kombinera tjänster och data i Azure-molnet för att skapa färdigheter. När allt är på plats kör du guiden **Importera data** i portalen för att hämta den tillsammans. Slut resultatet är ett sökbart index som är ifyllt med data som skapats av AI-bearbetning som du kan fråga i portalen ([Sök Utforskaren](search-explorer.md)).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="create-services-and-load-data"></a>Skapa tjänster och läsa in data
 
-[Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
+I den här snabb starten används Azure Kognitiv sökning Azure Blob Storage och [azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. 
 
-[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) innehåller AI. Den här snabb starten innehåller steg för att lägga till dessa resurser i rad när du anger pipelinen. Du behöver inte konfigurera konton i förväg.
+Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner dagligen när de anropas från Azure Kognitiv sökning. Så länge du använder de exempel data som vi tillhandahåller kan du hoppa över att skapa eller bifoga en Cognitive Services-resurs.
 
-Azure-tjänster krävs för att tillhandahålla indata till indexerings pipelinen. Du kan använda vilken data källa som helst som stöds av [Azure Search indexerare](search-indexer-overview.md). I den här snabb starten används [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) som en behållare för källfiler för data. 
+1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. Zippa upp filerna.
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Konfigurera Azure Blob Service och läsa in exempeldata
+1. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under din aktuella prenumeration. 
 
-1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. 
+   Välj samma region som Azure Kognitiv sökning. Välj konto typen StorageV2 (General Purpose v2) om du vill testa kunskaps lagrings funktionen senare i en annan genom gång. Annars väljer du vilken typ som helst.
 
-1. [Registrera dig för Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), skapa ett lagrings konto, öppna BLOB Services-sidorna och skapa en behållare.  Skapa lagrings kontot i samma region som Azure Search.
+1. Öppna BLOB Services-sidorna och skapa en behållare. Du kan använda standard nivån för offentlig åtkomst. 
 
-1. I den container du skapade klickar du på **Ladda upp** för att ladda upp de exempelfiler som du laddade ned i ett tidigare steg.
+1. I behållare klickar du på **överför** för att ladda upp exempelfilerna som du laddade ned i det första steget. Observera att du har ett brett utbud av innehålls typer, inklusive bilder och programfiler som inte är full text sökbar i deras egna format.
 
    ![Källfiler i Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-## <a name="create-the-enrichment-pipeline"></a>Skapa berikningspipelinen
+1. [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under samma prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
 
-Gå tillbaka till instrumentpanelsidan i Azure Search och klicka på **Importera data** i kommandofältet för att konfigurera kognitiv berikning i fyra steg.
+<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. In many tutorials, especially those that use the REST API, you will need a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+
+Nu kan du gå vidare till guiden Importera data.
+
+## <a name="run-the-import-data-wizard"></a>Kör guiden Importera data
+
+På översikts sidan för Search-tjänsten klickar du på **Importera data** i kommando fältet för att ställa in kognitiv berikning i fyra steg.
 
   ![Kommandot Importera data](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
 
-I **Anslut till dina data** väljer du **Azure Blob Storage** och väljer kontot och containern som du skapade. Namnge datakällan och lämna standardvärdena för resten av inställningarna. 
+1. I **Anslut till dina data**väljer du **Azure Blob Storage**, väljer det lagrings konto och den behållare som du skapade. Namnge datakällan och lämna standardvärdena för resten av inställningarna. 
 
-  ![Konfiguration av Azure-blob](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Konfiguration av Azure-blob](./media/cognitive-search-quickstart-blob/blob-datasource.png)
 
-Fortsätt till nästa sida.
-
-  ![Knappen Nästa sida för kognitiv sökning](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
+1. Fortsätt till nästa sida.
 
 ### <a name="step-2-add-cognitive-skills"></a>Steg 2: Lägga till kognitiva kunskaper
 
-Nu ska du lägga till berikningssteg till indexeringspipelinen. Om du inte har en resurs för Cognitive Services kan du registrera dig för en kostnadsfri version som ger dig 20 transaktioner per dag. Exempeldata består av 14 filer, så din dagliga allokering kommer främst att användas när du kör den här guiden.
+Lägg sedan till kognitiva kunskaper för att anropa naturlig språk bearbetning. Exempel data består av 12 filer, så den kostnads fria tilldelningen av 20 transaktioner på Cognitive Services räcker för den här snabb starten. Eftersom vi inte använder OCR, kommer endast icke-bildfiler att räknas, knäckas och användas i den här processen.
 
-1. Expandera **Bifoga Cognitive Services** för att visa alternativ för resursindelning av API:er för Cognitive Services. För den här självstudiekursen kan du använda den **kostnadsfria** resursen.
+1. I den här snabb starten använder vi den **kostnads fria** Cognitive Services resursen.
 
    ![Bifoga Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
-2. Expandera **Lägg till berikanden** och välj färdigheter som utför bearbetning av naturligt språk. I den här snabbstarten väljer du entitetsigenkänning för personer, organisationer och platser.
+1. Utöka **Lägg till kunskaper** och välj kunskaper som utför bearbetning av naturligt språk. I den här snabbstarten väljer du entitetsigenkänning för personer, organisationer och platser.
 
    ![Bifoga Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
 
-   Portalen ger inbyggda kunskaper för OCR-bearbetning och textanalys. På portalen körs en kunskapsuppsättning mot ett enda källfält. Det kan verka som ett litet mål, men för Azure-blobar innehåller fältet `content` merparten av blobdokumentet (till exempel ett Word-dokument eller en PowerPoint-presentation). Därför är det här fältet idealiskt, eftersom allt innehåll i en blob finns där.
+1. Godkänn standard käll fältet: `content`. Detta kan verka som ett litet mål, men för Azure-blobbar innehåller `content` fältet de flesta av BLOB-dokumenten (till exempel ett Word-dokument eller en PowerPoint-kortlek), vilket gör det till en bra kandidat.
 
-3. Fortsätt till nästa sida.
-
-   ![Nästa sida – anpassa index](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
+1. Fortsätt till nästa sida.
 
 > [!NOTE]
 > Kunskaper för bearbetning av naturligt språk körs på textinnehåll i exempeldatamängden. Eftersom vi inte valde OCR-alternativet bearbetas inte JPEG- och PNG-filerna som finns i exempeldatauppsättningen i den här snabbstarten. 
 
 ### <a name="step-3-configure-the-index"></a>Steg 3: Konfigurera indexet
 
-Guiden kan vanligtvis härleda ett standardindex. I det här steget kan du visa det skapade indexets schema och ändra inställningar om det behövs. Nedan hittar du det skapade standardindexet för demo-Blob-datauppsättningen.
+I Azure Kognitiv sökning, innehåller ett index ditt sökbara innehåll och guiden **Importera data** kan vanligt vis skapa schemat åt dig genom att sampla data källan. I det här steget ska du granska det genererade schemat och eventuellt ändra inställningarna. Nedan visas standardschemat som skapas för demo-BLOB-datauppsättningen.
 
 I den här snabbstarten passar guidens standardinställningar bra: 
 
 + Standardnamnet är *azureblob-index* baserat på datakällans typ. 
 
-+ Standardfält baseras på det ursprungliga källdatafältet (`content`), plus utdatafälten (`people`, `organizations` och `locations`) som skapas av den kognitiva pipelinen. Standarddatatyperna härleds från metadata och datasampling.
++ Standard fält baseras på det ursprungliga käll data fältet (`content`) plus de utdatakolumner (`people`, `organizations`och `locations`) som skapats av kognitiva färdigheter. Standarddatatyperna härleds från metadata och datasampling.
 
-+ Standardnyckeln är *metadata_storage_path* (det här fältet innehåller unika värden).
++ Standard dokument nyckeln är *metadata_storage_path* (markerad eftersom fältet innehåller unika värden).
 
 + Standardattributen är **Hämtningsbart** och **Sökbart** i dessa fält. **Sökbar** anger att det går att söka i ett fält. **Hämtbar** betyder att det kan returneras i resultat. Guiden förutsätter att du vill att dessa fält ska vara hämtningsbara och sökbara, eftersom du har skapat dem via en kompetensuppsättning.
 
@@ -115,27 +102,27 @@ Att ett fält markeras som **Hämtningsbart** innebär inte att fältet *måste*
   
 Fortsätt till nästa sida.
 
-  ![Nästa sida – skapa indexerare](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
-
 ### <a name="step-4-configure-the-indexer"></a>Steg 4: Konfigurera indexeraren
 
-Indexeraren är en övergripande resurs som styr indexeringen. Indexeraren definierar datakällans namn, ett målindex och körningsfrekvensen. Slutresultatet av guiden **Importera data** är alltid en indexerare som du kan köra flera gånger.
+Indexeraren är en övergripande resurs som styr indexeringen. Indexeraren definierar datakällans namn, ett målindex och körningsfrekvensen. Guiden **Importera data** skapar flera objekt, och av dem är det alltid en indexerare som du kan köra upprepade gånger.
 
-På sidan **indexerare** kan du acceptera standardnamnet och använda schemaalternativet **Kör en gång** för att köra det direkt. 
+1. På sidan **indexerare** kan du acceptera standard namnet och klicka på schema alternativet **när** du vill köra det direkt. 
 
-  ![Definition av indexerare](media/cognitive-search-quickstart-blob/indexer-def.png)
+   ![Definition av indexerare](media/cognitive-search-quickstart-blob/indexer-def.png)
 
-Klicka på **Skicka** för att skapa och köra indexeraren samtidigt.
+1. Klicka på **Skicka** för att skapa och köra indexeraren samtidigt.
 
-## <a name="monitor-indexing"></a>Övervaka indexering
+## <a name="monitor-status"></a>Övervaka status
 
-Berikande steg tar längre tid än en typisk textbaserad indexering. Guiden ska öppna listan med indexerare på översiktssidan så att du kan följa förloppet. För självnavigering går du till översikten över sidan och klickar på **indexerare**.
+Indexering av kognitiva kunskaper tar längre tid än vanlig text baserad indexering. Du övervakar förloppet genom att gå till sidan Översikt och klicka på **indexerare** mitt på sidan.
 
-Varningen beror på att JPG- och PNG-filer är bildfiler, och vi utelämnade OCR-kunskaper från denna pipeline. Du hittar också trunkering av meddelanden. Azure Search begränsar extrahering till 32 000 tecken på den kostnadsfria nivån.
+Varningen beror på att JPG-och PNG-bildfilerna finns i data källan och att vi utelämnade OCR-kunskaper från denna pipeline. Du hittar också trunkering av meddelanden. Extraktionen är begränsad till 32 000 tecken på den kostnads fria nivån.
 
-  ![Azure Search-meddelande](./media/cognitive-search-quickstart-blob/indexer-notification.png)
+  ![Meddelande om Azure-Kognitiv sökning](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
 Eftersom indexeringen och berikningen kan ta tid rekommenderar vi att du börjar med mindre datamängder. 
+
+I Azure Portal kan du också övervaka aktivitets loggen för meddelanden som länkar till en klicknings bara **Azure kognitiv sökning meddelande** status. Det kan ta flera minuter att slutföra körningen.
 
 ## <a name="query-in-search-explorer"></a>Fråga i Sökutforskaren
 
@@ -155,15 +142,15 @@ Du kan också använda CTRL-F för att se hur många dokument det finns i en vis
 
 ## <a name="takeaways"></a>Lärdomar
 
-Nu har du slutfört din första övning i kognitiv berikad indexering. Syftet med den här snabbstarten var att introducera viktiga begrepp och att vägleda dig genom guiden så att du snabbt kan börja skapa lösningar för kognitiv sökning med dina egna data.
+Nu har du skapat din första färdigheter och lärt dig viktiga koncept som är användbara för prototyp av en omfattande Sök lösning med hjälp av dina egna data.
 
-Bland de viktigaste lärdomarna som vi hoppas att du tar med dig är beroendet av Azure-datakällor. Berikad kognitiv sökning är bundet till indexerare, och indexerare är Azure- och källspecifika. I den här snabbstarten används Azure Blob Storage, men det går att använda andra Azure-datakällor. Mer information finns i [Indexerare i Azure Search](search-indexer-overview.md).
+Bland de viktigaste lärdomarna som vi hoppas att du tar med dig är beroendet av Azure-datakällor. En färdigheter är kopplad till en indexerare och indexerarna är Azure och projektspecifika. I den här snabbstarten används Azure Blob Storage, men det går att använda andra Azure-datakällor. Mer information finns i [indexerare i Azure kognitiv sökning](search-indexer-overview.md).
 
 En annan viktig aspekt är att kunskaper körs på indatafält. På portalen måste du välja ett enda fält för alla kunskaper. I koden kan indata vara andra fält, eller utdata från en överordnad kunskap.
 
- Indata för en kunskap mappas till ett utdatafält i ett index. Internt konfigurerar portalen [anteckningar](cognitive-search-concept-annotations-syntax.md) och definierar en [kunskapsuppsättning](cognitive-search-defining-skillset.md), som definierar ordningen på åtgärder och det allmänna flödet. Dessa steg är dolda på portalen, men när du börjar skriva kod blir dessa begrepp viktiga.
+Utdata dirigeras till ett sökindex och det finns en mappning mellan namn-värdepar som skapas vid indexering och enskilda fält i indexet. Internt konfigurerar portalen [anteckningar](cognitive-search-concept-annotations-syntax.md) och definierar en [kunskapsuppsättning](cognitive-search-defining-skillset.md), som definierar ordningen på åtgärder och det allmänna flödet. Dessa steg är dolda på portalen, men när du börjar skriva kod blir dessa begrepp viktiga.
 
-Slutligen lärde du dig hur du visar resultat genom att fråga indexet. Vad Azure Search erbjuder är i grunden ett sökbart index, som du kan fråga med [enkel](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) eller [utökad frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Ett index som innehåller berikade fält är precis som andra fält. Om du vill använda standardanalysverktyg eller [anpassade analysverktyg](search-analyzers.md), [bedömningsprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonymer](search-synonyms.md), [fasetterade filter](search-filters-facets.md), geo-sökning eller andra Azure Search-funktioner kan du självklart göra det.
+Slutligen har du lärt dig att kunna verifiera innehållet genom att fråga indexet. I slutet av den här artikeln är Azure Kognitiv sökning ett sökbart index, som du kan fråga med antingen den [enkla](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) eller [helt utökade frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Ett index som innehåller berikade fält är precis som andra fält. Om du vill lägga till standard-eller [Anpassade analyser](search-analyzers.md), kan du göra det genom att använda [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonymer](search-synonyms.md), [fasettiska filter](search-filters-facets.md), geo-sökning eller någon annan Azure kognitiv sökning-funktion.
 
 ## <a name="clean-up"></a>Rensa
 
@@ -175,13 +162,10 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Beroende på hur du har etablerat resursen Cognitive Services, kan du experimentera med indexering och berikning genom att köra guiden igen med olika kunskaper och källdatafält. Om du vill upprepa stegen tar du bort indexet och indexeraren och återskapar sedan indexeraren med en ny kombination av val.
-
-+ Markera det index som du skapade i **Översikt** > **Index** och klicka sedan på **Ta bort**.
-
-+ Dubbelklicka på panelen **Indexerare** i **Översikt**. Leta upp indexeraren som du skapade och ta bort den.
-
-Alternativt kan du återanvända de exempeldata och tjänster som du skapat och lära dig hur du utför samma åtgärder via programmering i nästa självstudiekurs. 
+Du kan skapa färdighetsuppsättningar med hjälp av portalen, .NET SDK eller REST API. Om du vill veta mer om din kunskap kan du prova REST API med Postman och fler exempel data.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lär dig mer om REST API:er för kognitiv sökning](cognitive-search-tutorial-blob.md)
+> [Självstudie: Lägg till struktur i "ostrukturerat innehåll" med AI-anrikning](cognitive-search-tutorial-blob.md)
+
+> [!Tip]
+> Ta bort indexeraren i portalen om du vill upprepa den här övningen eller testa en annan AI-anrikning. Om du tar bort indexeraren återställs den kostnads fria dagliga transaktions räknaren tillbaka till noll för Cognitive Services bearbetning.

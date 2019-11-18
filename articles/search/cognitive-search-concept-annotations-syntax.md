@@ -1,5 +1,5 @@
 ---
-title: Referens indata och utdata i en pipeline för AI-anrikning
+title: Referens indata och utdata i färdighetsuppsättningar
 titleSuffix: Azure Cognitive Search
 description: Förklarar anteckningens syntax och hur du refererar till en anteckning i indata och utdata för en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787778"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113866"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Så här refererar du till anteckningar i ett Azure Kognitiv sökning-färdigheter
 
@@ -120,7 +120,7 @@ Observera att `"/document/people/*/lastname"`ens kardinalitet är större än do
 
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 + [Så här integrerar du en anpassad färdighet i en anriknings pipeline](cognitive-search-custom-skill-interface.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

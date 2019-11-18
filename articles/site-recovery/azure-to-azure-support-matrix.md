@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961513"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123844"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -31,7 +31,7 @@ Den här artikeln sammanfattar support och krav för haveri beredskap för virtu
 
 ## <a name="resource-support"></a>Resursstöd
 
-**Resurs åtgärd** | **Detaljer**
+**Resurs åtgärd** | **Information**
 --- | --- 
 **Flytta valv över resurs grupper** | Stöds inte
 **Flytta beräknings-/lagrings-/nätverks resurser över resurs grupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhör ande komponenter, till exempel lagring/nätverk när den virtuella datorn har repliker ATS, måste du inaktivera och sedan återaktivera replikering för den virtuella datorn.
@@ -69,11 +69,11 @@ Begränsade regioner som är reserverade för haveri beredskap i landet |Tysklan
 
 I den här tabellen sammanfattas stödet för cache Storage-kontot som används av Site Recovery under replikeringen.
 
-**Inställning** | **Support** | **Detaljer**
+**Inställning** | **Support** | **Information**
 --- | --- | ---
 Generell användning v2-lagrings konton (frekvent och låg frekvent nivå) | Stöds | Användning av GPv2 rekommenderas inte eftersom transaktionskostnader för v2 är betydligt högre än v1-lagrings konton.
 Premium Storage | Stöds inte | Standard lagrings konton används för cachelagring för att hjälpa till att optimera kostnaderna.
-Azure Storage brand väggar för virtuella nätverk  | Stöds | Om du använder en brand vägg som är aktive rad för cache-lagring eller mål lagrings konto, se till att du [tillåter betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Azure Storage brand väggar för virtuella nätverk  | Stöds | Om du använder en brand vägg som är aktive rad för cache-lagring eller mål lagrings konto, se till att du [tillåter betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll nätverket.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Replikerade dator operativ system
@@ -83,7 +83,7 @@ Site Recovery stöder replikering av virtuella Azure-datorer som kör operativ s
 ### <a name="windows"></a>Windows
 
 
-**Operativsystem** | **Detaljer**
+**Operativsystem** | **Information**
 --- | ---
 Windows Server 2019 | Stöds för Server Core, server med Skriv bords miljö.
 Windows Server 2016  | Server Core som stöds, server med Skriv bords miljö.
@@ -100,7 +100,7 @@ Windows 7 (x64) med SP1 och senare | Från version 9.30. x (förväntad version 
 
 #### <a name="linux"></a>Linux
 
-**Operativsystem** | **Detaljer**
+**Operativsystem** | **Information**
 --- | ---
 Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
@@ -162,13 +162,13 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,25 | SP1 3.12.49-11-sta
 
 ## <a name="replicated-machines---compute-settings"></a>Replikerade datorer – beräknings inställningar
 
-**Inställning** | **Support** | **Detaljer**
+**Inställning** | **Support** | **Information**
 --- | --- | ---
 Storlek | Valfri storlek på virtuella Azure-datorer med minst 2 processor kärnor och 1 GB RAM | Verifiera [storleken på virtuella Azure-datorer](../virtual-machines/windows/sizes.md).
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standard alternativen skapas en tillgänglighets uppsättning automatiskt, baserat på käll regions inställningarna. Du kan ändra de här inställningarna.
 Tillgänglighetszoner | Stöds |
 Hybrid användnings förmånen (hubb) | Stöds | Om den virtuella käll datorn har en nav-licens aktive rad, används även HUB-licensen i en redundanstest eller redundansväxling av den virtuella datorn.
-Skalningsuppsättningar för virtuella datorer | Stöds inte |
+VM-skalningsuppsättningar | Stöds inte |
 Azure Gallery-bilder – Microsoft publicerat | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Azure Gallery-avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Anpassade avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
@@ -178,7 +178,7 @@ Tillägg | Stöds inte | Tillägg replikeras inte till den virtuella redundansv�
 
 ## <a name="replicated-machines---disk-actions"></a>Replikerade datorer – disk åtgärder
 
-**Åtgärd** | **Detaljer**
+**Åtgärd** | **Information**
 -- | ---
 Ändra storlek på disk på replikerad virtuell dator | Stöds
 Lägga till en disk till en replikerad virtuell dator | Stöds
@@ -191,7 +191,7 @@ Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data
 - Om du distribuerar med standardinställningarna skapar Site Recovery automatiskt diskar och lagrings konton baserat på käll inställningarna.
 - Om du anpassar, se till att du följer rikt linjerna.
 
-**Komponent** | **Support** | **Detaljer**
+**Komponent** | **Support** | **Information**
 --- | --- | ---
 Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/windows/managed-disks-overview.md) om VM-diskar.
 Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från replikering.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/managed-disks-overview.md).
@@ -246,7 +246,7 @@ Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per disk
 
 ## <a name="replicated-machines---networking"></a>Replikerade datorer – nätverk
-**Inställning** | **Support** | **Detaljer**
+**Inställning** | **Support** | **Information**
 --- | --- | ---
 NIC | Maximalt antal som stöds för en angiven storlek på virtuell Azure-dator | Nätverkskort skapas när den virtuella datorn skapas under redundansväxling.<br/><br/> Antalet nätverkskort på den virtuella redundansväxlingen är beroende av antalet nätverkskort på den virtuella käll datorn när replikering har Aktiver ATS. Om du lägger till eller tar bort ett nätverkskort efter att ha aktiverat replikering, påverkar det inte antalet nätverkskort på den replikerade virtuella datorn efter redundansväxlingen. Observera också att ordningen på nätverkskort efter redundansväxlingen inte garanterat är densamma som den ursprungliga ordningen.
 Internet-lastbalanserare | Stöds | Koppla den förkonfigurerade belastningsutjämnaren med hjälp av ett Azure Automation-skript i en återställnings plan.

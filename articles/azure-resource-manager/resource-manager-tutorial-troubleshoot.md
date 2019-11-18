@@ -1,24 +1,16 @@
 ---
-title: Felsöka Resource Manager-distributioner | Microsoft Docs
+title: Felsöka distributioner
 description: Lär dig hur du övervakar och felsöker distributioner av Azure Resource Manager mallar. Visar aktivitets loggar och distributions historik.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: be390b35a69f44aae38bec100deb2d3c07ad6355
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390217"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149327"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Självstudie: Felsöka distributioner av Resource Manager-mallar
 

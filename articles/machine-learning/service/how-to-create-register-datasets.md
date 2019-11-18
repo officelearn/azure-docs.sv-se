@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 50728363ffd02e189b4bc0dacebd684a7f13091e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b4439df5ced1f76b4cb69feadf862638ab223d56
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030719"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123318"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning data uppsättningar
 
@@ -87,7 +87,7 @@ Skapa data uppsättningar från ett [Azure-datalager](how-to-access-data.md) med
 
 Du kan skapa TabularDatasets via SDK eller med hjälp av Azure Machine Learning Studio. Du kan ange en tidstämpel från en kolumn i data eller från Sök vägs mönstret som data lagras i för att aktivera en tids serie egenskap. Den här specifikationen möjliggör enkel och effektiv filtrering med tiden.
 
-Använd [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) -metoden i `TabularDatasetFactory`-klassen för att läsa filer i CSV-eller TSV-format och för att skapa en oregistrerad TabularDataset. Om du läser från flera filer aggregeras resultaten i en tabell representation.
+Använd [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) -metoden i `TabularDatasetFactory`-klassen för att läsa filer i CSV-eller TSV-format och för att skapa en oregistrerad TabularDataset. Om du läser från flera filer aggregeras resultaten i en tabell representation.
 
 ```Python
 # create a TabularDataset from multiple paths in datastore

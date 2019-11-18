@@ -1,5 +1,5 @@
 ---
-title: Indexera en Azure Cosmos DB data Källa
+title: Sök i Azure Cosmos DB data
 titleSuffix: Azure Cognitive Search
 description: Crawla en Azure Cosmos DB data källa och mata in data i ett fullständigt text sökbart index i Azure Kognitiv sökning. Indexerare automatiserar data inmatning för valda data källor som Azure Cosmos DB.
 author: mgottein
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0657d3d5aec414b867e85b627fcf77174c8ce789
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889895"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112749"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB data med hjälp av en indexerare i Azure Kognitiv sökning 
 
@@ -172,7 +172,7 @@ Bröd texten i begäran innehåller definitionen av data källan, som ska inneh�
 
 | Fält   | Beskrivning |
 |---------|-------------|
-| **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
+| **name** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**typ**| Krävs. Måste vara `cosmosdb`. |
 |**klientautentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB anslutnings sträng.<br/>För SQL-samlingar är anslutnings strängar i följande format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i anslutnings strängen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av Gremlin-diagram och Cassandra-tabeller för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
 | **fönster** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
@@ -251,12 +251,12 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Kognitiv sökning data typer
 | Data typen JSON | Kompatibla fält typer för mål index |
 | --- | --- |
-| Booleska |EDM. Boolean, EDM. String |
-| Siffror som ser ut som heltal |EDM. Int32, EDM. Int64, EDM. String |
-| Siffror som ser ut som svävande punkter |EDM. Double, EDM. String |
+| Bool |Edm.Boolean, Edm.String |
+| Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
+| Siffror som ser ut som svävande punkter |Edm.Double, Edm.String |
 | Sträng |Edm.String |
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
-| Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
+| Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
 | Andra JSON-objekt |Saknas |
 
@@ -285,10 +285,10 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt tillgängliga REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
 
@@ -361,7 +361,7 @@ I följande exempel skapas en data källa med en princip för mjuk borttagning:
 
 ## <a name="NextSteps"></a>Nästa steg
 
-Grattis! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Kognitiv sökning med hjälp av en indexerare.
+Gratulerar! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Kognitiv sökning med hjälp av en indexerare.
 
 * Mer information om Azure Cosmos DB finns på sidan för [Azure Cosmos DB tjänsten](https://azure.microsoft.com/services/cosmos-db/).
 * Mer information om Azure Kognitiv sökning finns på [sidan Sök tjänst](https://azure.microsoft.com/services/search/).

@@ -1,5 +1,6 @@
 ---
-title: 'Konfigurera IPsec/IKE-princip för S2S VPN-anslutningar och VNet-till-VNet-anslutningar: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: IPsec/IKE-princip för S2S VPN & VNet-till-VNet-anslutningar
+titleSuffix: Azure VPN Gateway
 description: Konfigurera IPsec/IKE-princip för S2S-eller VNet-till-VNet-anslutningar med Azure VPN-gatewayer med hjälp av Azure Resource Manager och PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: a4a0431a8d40f7905805e0a7d902988b7eb26208
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0dabf0ee3370abab3d0f9d6f1bf26dd622862cf
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035041"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151775"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec/IKE-princip för S2S VPN-anslutningar och VNet-till-VNet-anslutningar
 
@@ -93,7 +94,7 @@ I följande tabell visas de kryptografiska algoritmer som stöds och viktiga fö
 >    * DH-grupp anger Diffie-Hellmen-gruppen som används i huvud läge eller fas 1
 >    * PFS-gruppen angav Diffie-Hellmen-gruppen som används i snabb läge eller fas 2
 > 4. IKEv2 Main Mode SA har en livslängd på högst 28 800 sekunder på Azure VPN-gatewayer
-> 5. Om du anger "UsePolicyBasedTrafficSelectors" till $True på en anslutning konfigureras Azure VPN-gatewayen för att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att VPN-enheten har de matchande trafik väljare som definierats med alla kombinationer av ditt lokala nätverk (lokal nätverksgateway) prefix till/från de virtuella Azure-nätverks prefixen i stället för valfritt. Om ditt prefix för det lokala nätverket är 10.1.0.0/16 och 10.2.0.0/16 och ditt prefix för det virtuella nätverket är 192.168.0.0/16 och 172.16.0.0/16, måste du ange följande trafik väljare:
+> 5. Om du anger "UsePolicyBasedTrafficSelectors" till $True på en anslutning konfigureras Azure VPN-gatewayen för att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att VPN-enheten har de matchande trafik väljare som definierats med alla kombinationer av ditt lokala nätverk (lokal nätverksgateway) prefix till/från de virtuella Azure-nätverks prefixen i stället för alla-till-alla. Om ditt prefix för det lokala nätverket är 10.1.0.0/16 och 10.2.0.0/16 och ditt prefix för det virtuella nätverket är 192.168.0.0/16 och 172.16.0.0/16, måste du ange följande trafik väljare:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
 >    * 10.1.0.0/16 <====> 172.16.0.0/16
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
@@ -129,7 +130,7 @@ Se [skapa en S2S VPN-anslutning](vpn-gateway-create-site-to-site-rm-powershell.m
 
 ### <a name="createvnet1"></a>Steg 1 – skapa det virtuella nätverket, VPN-gatewayen och den lokala Nätverksgatewayen
 
-#### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
+#### <a name="1-declare-your-variables"></a>1. deklarera dina variabler
 
 I den här övningen börjar vi med att deklarera våra variabler. Se till att ersätta värdena med dina egna när du konfigurerar för produktion.
 
@@ -170,7 +171,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Skapa det virtuella nätverket, VPN-gatewayen och den lokala Nätverksgatewayen
+#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. skapa det virtuella nätverket, VPN-gatewayen och den lokala Nätverksgatewayen
 
 I följande exempel skapas det virtuella nätverket, TestVNet1, med tre undernät och VPN-gatewayen. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen.
 
@@ -193,12 +194,12 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 
 ### <a name="s2sconnection"></a>Steg 2 – Skapa en S2S VPN-anslutning med en IPsec/IKE-princip
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Skapa en IPsec/IKE-princip
+#### <a name="1-create-an-ipsecike-policy"></a>1. skapa en IPsec/IKE-princip
 
 Följande exempel skript skapar en IPsec/IKE-princip med följande algoritmer och parametrar:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS ingen, SA-livstid 14400 sekunder & 102400000KB
+* IPsec: AES256, SHA256, PFS none, SA-livstid 14400 sekunder & 102400000KB
 
 ```powershell
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -206,7 +207,7 @@ $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -Dh
 
 Om du använder GCMAES för IPsec måste du använda samma GCMAES-algoritm och nyckel längd för både IPsec-kryptering och integritet. Till exempel ovan blir motsvarande parametrar "-IpsecEncryption GCMAES256-IpsecIntegrity GCMAES256" när du använder GCMAES256.
 
-#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Skapa en S2S VPN-anslutning med IPsec/IKE-principen
+#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. skapa S2S VPN-anslutningen med IPsec/IKE-principen
 
 Skapa en S2S VPN-anslutning och tillämpa IPsec/IKE-principen som skapades tidigare.
 
@@ -233,7 +234,7 @@ Mer detaljerad information om hur du skapar en VNet-till-VNet-anslutning finns i
 
 ### <a name="createvnet2"></a>Steg 1 – skapa det andra virtuella nätverket och VPN-gatewayen
 
-#### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
+#### <a name="1-declare-your-variables"></a>1. deklarera dina variabler
 
 Ersätt värdena med de som du vill använda för din konfiguration.
 
@@ -257,7 +258,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. Skapa det andra virtuella nätverket och VPN-gatewayen i den nya resurs gruppen
+#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. skapa det andra virtuella nätverket och VPN-gatewayen i den nya resurs gruppen
 
 ```powershell
 New-AzResourceGroup -Name $RG2 -Location $Location2
@@ -280,17 +281,17 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 
 Precis som VPN-anslutningen för S2S, skapar du en IPsec/IKE-princip och tillämpar sedan på principen för den nya anslutningen.
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Skapa en IPsec/IKE-princip
+#### <a name="1-create-an-ipsecike-policy"></a>1. skapa en IPsec/IKE-princip
 
 Följande exempelskript skapar en annan IPsec/IKE-princip med följande algoritmer och parametrar:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, SA livstid 14400 sekunder & 102400000KB
+* IPsec: GCMAES128, GCMAES128, PFS14, SA-livstid 14400 sekunder & 102400000KB
 
 ```powershell
 $ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. Skapa VNet-till-VNet-anslutningar med IPsec/IKE-principen
+#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. skapa VNet-till-VNet-anslutningar med IPsec/IKE-principen
 
 Skapa en VNet-till-VNet-anslutning och tillämpa den IPsec/IKE-princip som du skapade. I det här exemplet finns båda gatewayerna i samma prenumeration. Därför är det möjligt att skapa och konfigurera båda anslutningarna med samma IPsec/IKE-princip i samma PowerShell-session.
 
@@ -350,7 +351,7 @@ PfsGroup            : PFS24
 
 Om ingen IPsec/IKE-princip har kon figurer ATS får kommandot (PS > $connection 6. policy) en tom RETUR. Det innebär inte att IPsec/IKE inte har kon figurer ATS för anslutningen, men att det inte finns någon anpassad IPsec/IKE-princip. Den faktiska anslutningen använder standard principen som förhandlas mellan den lokala VPN-enheten och Azure VPN-gatewayen.
 
-#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Lägga till eller uppdatera en IPsec/IKE-princip för en anslutning
+#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Lägg till eller uppdatera en IPsec/IKE-princip för en anslutning
 
 Stegen för att lägga till en ny princip eller uppdatera en befintlig princip på en anslutning är samma: skapa en ny princip och tillämpa den nya principen på anslutningen.
 
@@ -390,7 +391,7 @@ DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 
-#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Ta bort en IPsec/IKE-princip från en anslutning
+#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. ta bort en IPsec/IKE-princip från en anslutning
 
 När du tar bort den anpassade principen från en anslutning återgår Azure VPN-gatewayen tillbaka till [standard listan med IPSec/IKE-förslag](vpn-gateway-about-vpn-devices.md) och omförhandlar igen med din lokala VPN-enhet.
 

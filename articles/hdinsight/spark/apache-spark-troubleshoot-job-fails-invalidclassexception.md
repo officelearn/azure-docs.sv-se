@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: ad9ec8e97827fb6158476165a610c9d69b12a528
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 124d5586180258589c5db17454b8fbf1e465fc24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241172"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106480"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark jobbet Miss lyckas med InvalidClassException, klassen stämmer inte överens i Azure HDInsight
 
@@ -34,9 +34,12 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>Orsak
 
-Felet kan bero på att du lägger till en ytterligare jar till `spark.yarn.jars` config, som är en "skuggad" jar-version som innehåller en annan version av `commons-lang3`-paketet och som introducerar en klass matchning. Som standard använder Spark 2.1/2/3 version 3,5 av `commons-lang3`.
+Det här felet kan orsakas av att lägga till en ytterligare jar till `spark.yarn.jars` config, särskilt en skuggad jar-version som innehåller en annan version av `commons-lang3`-paketet och som introducerar en klass matchning. Som standard använder Spark 2.1/2/3 version 3,5 av `commons-lang3`.
 
-## <a name="resolution"></a>Upplösning
+> [!TIP]
+> För att skugga ett bibliotek är att flytta innehållet till en egen jar-fil och ändra dess paket. Det skiljer sig från paketeringen av biblioteket, vilket innebär att biblioteket placeras i din egen jar-post utan ompackning.
+
+## <a name="resolution"></a>Lösning
 
 Ta antingen bort burken eller kompilera om den anpassade jar-filen (AzureLogAppender) och Använd [maven-Shader-plugin](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) för att flytta om klasser.
 
@@ -48,4 +51,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns i [”Skapa en supportförfrågan för Azure”](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Tillgång till support för prenumerationshantering och fakturering ingår i din Microsoft Azure-prenumeration och teknisk support ges via ett [supportavtal för Azure](https://azure.microsoft.com/support/plans/).

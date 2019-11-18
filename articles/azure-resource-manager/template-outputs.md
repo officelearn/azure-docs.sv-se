@@ -1,17 +1,14 @@
 ---
-title: Utdata i Azure Resource Manager mall
+title: Utdata i mallar
 description: Beskriver hur du definierar utdata i en Azure Resource Manager-mall.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0ff1e3cb71bd1bf5ee947eb5204839d48103628b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827930"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149182"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Utdata i Azure Resource Manager mall
 

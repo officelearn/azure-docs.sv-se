@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)'
+title: 'Snabb start: skapa ett anpassat kommando med parametrar (för hands version) – tal tjänst'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln lägger du till parametrar i ett program med anpassade kommandon.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 010a9331bb4533bc84957261f312993c4cc7ffe8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: caa1959ec64bb3a123c60763750267b107685b82
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507521"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111249"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)
 
@@ -59,7 +59,7 @@ I den här artikeln kommer vi att utöka det här programmet med parametrar så 
 
 ## <a name="add-sample-sentences"></a>Lägg till exempel meningar
 
-Med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Till exempel:
+Med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Exempel:
 
 1. Fullständig parameter information – `"turn {OnOff} the {SubjectDevice}"`
 1. Del parameter information – `"turn it {OnOff}"`

@@ -1,19 +1,16 @@
 ---
-title: Självstudie – exportera Azure Resource Manager mall från Azure Portal
+title: Självstudie – exportera mall från Azure Portal
 description: Lär dig hur du använder en exporterad mall för att slutföra din mall utveckling.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6dae5d494ac71ace41586e89de5aab745962cc90
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243211"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147919"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
 

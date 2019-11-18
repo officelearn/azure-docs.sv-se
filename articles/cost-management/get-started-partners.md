@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7ae388488de32bb106ae29f975302953cfcb2e9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072341"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123021"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
-Azure Cost Management är internt tillgängligt för partner som har publicerat sina kunder på ett Microsoft-kundavtal och har köpt en Azure-prenumeration. I den här artikeln förklaras hur partners använder [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) -funktioner. Det beskriver också hur partners ger Cost Management åtkomst till sina kunder. Kunder kan använda Cost Management funktioner när de aktive ras av sin CSP-partner.
+Azure Cost Management är internt tillgängligt för partner som har publicerat sina kunder på ett Microsoft-kundavtal och har [köpt en Azure-prenumeration](/partner-center/purchase-azure-plan). Den här artikeln förklarar hur partners använder [Azure Cost Management](index.yml) -funktioner för att Visa kostnader för prenumerationer i Azure-planen. Det beskriver också hur partners ger Cost Management åtkomst till sina kunder. Kunder kan använda Cost Management funktioner när de aktive ras av sin CSP-partner.
 
 CSP-partner använder Cost Management för att:
 
@@ -147,25 +147,81 @@ Amortera vyer och faktiska kostnader för reserverade instanser i RBAC-omfången
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analysera kostnader i kostnads analys
 
-Partner kan utforska och analysera kostnader i kostnads analys över kunder för en specifik kund eller för en faktura.
+Partner kan utforska och analysera kostnader i kostnads analys över kunder för en specifik kund eller för en faktura. I vyn [kostnads analys](quick-acm-cost-analysis.md) kan du också [Spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till CSV- [och PNG-filer](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
-Följande fält finns i användnings detalj filen och Cost Management API: er. Du kan använda filtrera och gruppera efter funktioner i kostnads analys för att analysera kostnader med flera fält. Om du vill visa en fullständig lista över fält, se [Cost Management data fält](understand-cost-mgt-data.md#cost-management-data-fields).
+Du kan använda filtrera och gruppera efter funktioner i kostnads analys för att analysera kostnader med flera fält. Partner-/regionsspecifika fält visas i nästa avsnitt.
 
-| Fältnamn | Beskrivning |
-| --- | --- |
-| CustomerTenantID | Identifierare för den Azure Active Directory klienten för kunden&#39;s prenumeration. |
-| CustomerName | Namnet på Azure Active Directory klient organisation för kund&#39;s-prenumerationen. |
-| CustomerTenantDomainName | Domän namn för Azure Active Directory klient organisation för kund&#39;s-prenumerationen. |
-| PartnerTenantID | Identifierare för partner&#39;s Azure Active Directory klient. |
-| PartnerName | Namnet på partner Azure Active Directory klient organisationen. |
-| ResellerMPNID | MPNID för den åter försäljare som är associerad med prenumerationen. |
-| costinUSD | Beräknad ExtendedCost eller blandade kostnader före skatt i USD. |
-| paygCostInBillingCurrency | Visar kostnader om priserna är i detaljhandelspriser. Visar priser enligt principen betala per användning i fakturerings valutan. Endast tillgängligt i RBAC-scope. |
-| paygCostInUSD | Visar kostnader om priserna är i detaljhandelspriser. Visar priserna för betala per användning i USD. Endast tillgängligt i RBAC-scope. |
-| partnerEarnedCreditRate | Rabatt som används om det finns en partner som har fått partner administratörs åtkomst. |
-| partnerEarnedCreditApplied | Anger om den partner som har intjänad kredit har tillämpats. |
+## <a name="data-fields"></a>Data fält
 
-I vyn [kostnads analys](quick-acm-cost-analysis.md) kan du också [Spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till CSV- [och PNG-filer](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Följande data fält finns i användnings detalj filen och Cost Management API: er. Om det är tillgängligt visas information om Partner Center motsvarande. I följande fetstilta fält kan partner använda filter och gruppering efter funktioner i kostnads analys för att analysera kostnader med flera fält. Fetstilta fält gäller endast för Microsofts kund avtal som stöds av partner.
+
+| **Fält namn** | **Beskrivning** | **Partner Center-motsvarighet** |
+| --- | --- | --- |
+| invoiceId | Faktura-ID visas på fakturan för den aktuella transaktionen. | Faktura nummer där transaktionen visas. |
+| previousInvoiceID | Referens till en ursprunglig faktura det finns en åter betalning (negativ kostnad). Fylls bara i när det finns en åter betalning. | Saknas |
+| billingAccountName | Namnet på det fakturerings konto som representerar partnern. Det påförs alla kostnader i de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rätt inköp som SaaS, Azure Marketplace och reservationer. | Saknas |
+| billingAccountID | Identifierare för det fakturerings konto som representerar partnern. | Rot-ID för MCAPI-partner Commerce. Används i en begäran, men ingår inte i något svar.|
+| billingProfileID | Identifierare för den fakturerings profil som grupperar kostnader över fakturor i en enda fakturerings valuta för de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rättighets köp som SaaS, Azure Marketplace och reservera. | MCAPI partner fakturerings grupp-ID. Används i en begäran, men ingår inte i något svar. |
+| billingProfileName | Namnet på den fakturerings profil som grupperar kostnader över fakturor i en enda fakturerings valuta för de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rätt inköp som SaaS, Azure Marketplace och reservera. | Saknas |
+| invoiceSectionName | Namnet på projektet som debiteras på fakturan. Ej tillämpligt för Microsofts kund avtal som har registrerats av partner. | Saknas |
+| invoiceSectionID | Identifierare för projektet som debiteras på fakturan. Ej tillämpligt för Microsofts kund avtal som har registrerats av partner. | Saknas |
+| **CustomerTenantID** | Identifierare för den Azure Active Directory klienten för kundens prenumeration. | Kundens organisations-ID – kundens organisations Azure Active Directory TenantID. |
+| **CustomerName** | Namnet på Azure Active Directory klienten för kundens prenumeration. | Kundens organisations namn, som visas i Partner Center. Viktigt för att stämma av fakturan med din system information. |
+| **CustomerTenantDomainName** | Domän namn för den Azure Active Directory klienten för kundens prenumeration. | Kund Azure Active Directory klient domän. |
+| **PartnerTenantID** | Identifierare för partnerns Azure Active Directory klient. | Partner Azure Active Directory klient-ID som kallas partner-ID i GUID-format. |
+| **PartnerName** | Namnet på partner Azure Active Directory klient organisationen. | Partner namn. |
+| **ResellerMPNID** | MPNID för den åter försäljare som är associerad med prenumerationen. | MPN-ID för åter försäljarens post för prenumerationen. Inte tillgängligt för den aktuella aktiviteten. |
+| costCenter | Kostnads ställe som är associerat med prenumerationen. | Saknas |
+| billingPeriodStartDate | Fakturerings periodens start datum, som du ser på fakturan. | Saknas |
+| billingPeriodEndDate | Fakturerings periodens slutdatum, som det visas på fakturan. | Saknas |
+| servicePeriodStartDate | Start datum för klassificerings perioden när tjänste användningen har bedömts för avgifter. Priserna för Azure-tjänster bestäms för klassificerings perioden. | ChargeStartDate i Partner Center. Start datum för fakturerings cykel, förutom när du presenterar datum för tidigare avlastade latens användnings data från en tidigare fakturerings period. Tiden är alltid början på dagen, 0:00. |
+| servicePeriodEndDate | Slutdatum för den period då tjänste användningen har bedömts för avgifter. Priserna för Azure-tjänster bestäms utifrån klassificerings perioden. | Saknas |
+| datum | För Azures förbruknings data visas användnings datum som klassificerat. För reserverad instans visas inköps datum. För återkommande kostnader och engångs kostnader, till exempel Marketplace och support, visas inköps datumet. | Saknas |
+| productID | Identifierare för den produkt som har upplupna kostnader per förbrukning eller inköp. Det är den sammansatta nyckeln productID och SKuID, som visas i Partner Center. | Produktens ID. |
+| produkt | Namnet på den produkt som har upplupna kostnader per förbrukning eller inköp, som du ser på fakturan. | Produkt namnet i katalogen. |
+| serviceFamily | Visar tjänst familjen för köpta eller debiterade produkter. Till exempel lagring eller beräkning. | Saknas |
+| productOrderID | Identifieraren för det till gångs-eller Azure-Plans namn som prenumerationen tillhör. Till exempel Azure-plan. | Saknas |
+| productOrderName | Namnet på den Azure-plan som prenumerationen tillhör. Till exempel Azure-plan. | Saknas|
+| consumedService | Förbrukad tjänst (äldre taxonomi) som används i tidigare EA-användnings information. | Tjänsten visas i Partner Center. Till exempel Microsoft. Storage, Microsoft. Compute och Microsoft. operationalinsights. |
+| meterID | Mätnings identifierare för uppmätt förbrukning. | ID för den använda mätaren. |
+| meterName | Identifierar namnet på mätaren för uppmätt förbrukning. | Namnet på den förbrukade mätaren. |
+| meterCategory | Identifierar den översta tjänsten för användning. | Tjänsten på den översta nivån för användning. |
+| meterSubCategory | Definierar vilken typ eller under kategori av Azure-tjänst som kan påverka priset. | Den typ av Azure-tjänst som kan påverka priset.|
+| meterRegion | Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger. | Den regionala platsen för ett Data Center för tjänster, där det är tillämpligt och ifyllt. |
+| subscription ID | Unikt Microsoft-genererad identifierare för Azure-prenumerationen. | Saknas |
+| subscriptionName | Namnet på Azure-prenumerationen. | Saknas |
+| Period | Visar giltighetstiden för erbjudandet. Reserverade instanser visar till exempel 12 månader av en årlig period på den reserverade instansen. Vid Engångs köp eller återkommande inköp visar termen en månad för SaaS, Azure Marketplace och support. Gäller inte för Azure-förbrukning. | Saknas |
+| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Typ av utgivare som identifierar utgivaren som första part, åter försäljare av tredje part eller från tredje parts myndighet. | Saknas |
+| partNumber | Del nummer för den oanvända reserverade instansen och Azure Marketplace-tjänster. | Saknas |
+| publisherName | Namnet på utgivaren av tjänsten, inklusive Microsoft eller tredje parts utgivare. | Namnet på produktens utgivare.|
+| reservationId | Identifierare för köpet av den reserverade instansen. | Saknas |
+| reservationName | Namnet på den reserverade instansen. | Saknas |
+| reservationOrderId | Ordernr för den reserverade instansen. | Saknas |
+| frequency | Betalnings frekvens för en reserverad instans. | Saknas |
+| resourceGroup | Namnet på den Azure-resurs grupp som används för livs cykel resurs hantering. | Namnet på resurs gruppen. |
+| instanceID (eller) ResourceID | Identifierare för resurs instansen. | Visas som en ResourceURI som innehåller fullständiga resurs egenskaper. |
+| resourceLocation | Namnet på resurs platsen. | Resursens plats. |
+| Plats | Normaliserad plats för resursen. | Saknas |
+| effectivePrice | Det effektiva enhets priset för tjänsten i pris valutan. Unikt för en produkt, tjänst familj, mätare och erbjudande. Används med priser i pris dokumentet för fakturerings kontot. När det finns ett pris på nivå eller en inkluderad kvantitet visas det blandade priset för förbrukning. | Enhets priset efter det att justeringarna har gjorts. |
+| Kvantitet | Uppmätt kvantitet köpt eller förbrukad. Den Mät mängd som används under fakturerings perioden. | Antal enheter. Se till att den matchar informationen i fakturerings systemet under avstämningen. |
+| unitOfMeasure | Identifierar enheten som tjänsten debiteras i. Till exempel GB och timmar. | Identifierar enheten som tjänsten debiteras i. Till exempel GB, timmar och 10, tal. |
+| pricingCurrency | Den valuta som definierar enhets priset. | Valutan i pricelist.|
+| billingCurrency | Den valuta som definierar den fakturerade kostnaden. | Valutan för kundens geografiska region. |
+| chargeType | Definierar den typ av kostnad som kostnaden representerar i Azure Cost Management som inköp och åter betalning. | Typ av kostnad eller justering. Inte tillgängligt för den aktuella aktiviteten. |
+| costinBillingCurrency | ExtendedCost eller blandade kostnader före skatt i den fakturerade valutan. | Saknas |
+| costinPricingCurrency | ExtendedCost eller blandade kostnader före skatt i prissättnings valutan som motsvarar priserna. | Saknas |
+| **costinUSD** | Beräknad ExtendedCost eller blandade kostnader före skatt i USD. | Saknas |
+| **paygCostInBillingCurrency** | Visar kostnader om priserna är i detaljhandelspriser. Visar priser enligt principen betala per användning i fakturerings valutan. Endast tillgängligt i RBAC-scope. | Saknas |
+| **paygCostInUSD** | Visar kostnader om priserna är i detaljhandelspriser. Visar priserna för betala per användning i USD. Endast tillgängligt i RBAC-scope. | Saknas |
+| exchangeRate | Växelkurs som används för att konvertera från pris valutan till fakturerings valutan. | Kallas PCToBCExchangeRate i Partner Center. Pris valutan till fakturerings valutakursen.|
+| exchangeRateDate | Datum för den växelkurs som används för att konvertera från pris valutan till fakturerings valutan. | Kallas PCToBCExchangeRateDat i Partner Center. Pris valutan till fakturerings valutans växelkurs datum.|
+| isAzureCreditEligible | Anger om kostnaden är berättigad till betalning av Azure-krediter. | Saknas |
+| serviceInfo1 | Äldre fält som fångar valfria tjänstspecifika metadata. | Interna Azure-tjänstemetadata. |
+| serviceInfo2 | Äldre fält som fångar valfria tjänstspecifika metadata. | Tjänst information. Till exempel en avbildnings typ för en virtuell dator och ett ISP-namn för ExpressRoute.|
+| additionalInfo | Tjänstspecifika metadata. Det kan till exempel vara en avbildningstyp för en virtuell dator. | Eventuell ytterligare information som inte omfattas i andra kolumner. Tjänstspecifika metadata. Det kan till exempel vara en avbildningstyp för en virtuell dator.|
+| taggar | Tagg som du tilldelar mätaren. Använd taggar för att gruppera fakturerings poster. Du kan till exempel använda taggar för att distribuera kostnader på den avdelning som använder mätaren. | Taggar som lagts till av kunden.|
+| **partnerEarnedCreditRate** | Rabatt som används om det finns en partner som har fått partner administratörs åtkomst. | Kostnaden för intjänad kredit för partner (PEC). Till exempel 0% eller 15%. |
+| **partnerEarnedCreditApplied** | Anger om den partner som har intjänad kredit har tillämpats. | Saknas |
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>Visa resurs kostnader för partner intjänade kredit (PEC)
 

@@ -1,24 +1,14 @@
 ---
-title: Azure SKU-fel som inte är tillgängliga | Microsoft Docs
+title: SKU är inte tillgängliga, fel
 description: Beskriver hur du felsöker fel meddelandet SKU är inte tillgängligt när du distribuerar resurser med Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2018
-ms.author: tomfitz
-ms.openlocfilehash: fca028412052a9a1520e1178f5d182a9987a9a85
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 56afca6b6a59ca08f3fd59c4d9b3ebf12bda415a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390223"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150488"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Lösa fel för SKU: n är inte tillgänglig
 
@@ -60,7 +50,7 @@ virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      M
 
 ## <a name="solution-2---azure-cli"></a>Lösning 2 – Azure CLI
 
-Använd kommandot `az vm list-skus` för att avgöra vilka SKU: er som är tillgängliga i en region. Använd parametern `--location` för att filtrera utdata till den plats som du använder. Använd parametern `--size` om du vill söka efter ett namn för en partiell storlek.
+Använd kommandot `az vm list-skus` för att avgöra vilka SKU: er som är tillgängliga i en region. Använd parametern `--location` för att filtrera utdata till den plats som du använder. Använd parametern `--size` för att söka efter ett namn för en partiell storlek.
 
 ```azurecli-interactive
 az vm list-skus --location southcentralus --size Standard_F --output table
@@ -78,7 +68,7 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ```
 
 
-## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure Portal
+## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure-portalen
 
 Använd [portalen](https://portal.azure.com)för att avgöra vilka SKU: er som är tillgängliga i en region. Logga in på portalen och Lägg till en resurs via gränssnittet. När du anger värden visas tillgängliga SKU: er för resursen. Du behöver inte slutföra distributionen.
 

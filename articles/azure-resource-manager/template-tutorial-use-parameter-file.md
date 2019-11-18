@@ -1,19 +1,16 @@
 ---
-title: Självstudie – Använd parameter fil för att distribuera en Azure Resource Manager-mall
+title: Självstudie – Använd parameter fil för att distribuera mallen
 description: Använd parameterstyrda filer som innehåller de värden som ska användas för att distribuera din Azure Resource Manager-mall.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 7ebf8a3eed81c8f5233f7212df7e245a27f7fd16
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177558"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149157"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Självstudie: använda parameter-filer för att distribuera Resource Manager-mallen
 

@@ -1,18 +1,18 @@
 ---
-title: WebSocket-stöd i Azure Application Gateway | Microsoft Docs
-description: Den här sidan innehåller en översikt över Application Gateway WebSocket-stöd.
+title: WebSocket-stöd i Azure Application Gateway
+description: Application Gateway har inbyggt stöd för WebSocket i alla gatewaystorlekar. Det finns inga användar konfigurerbara inställningar.
 author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
+services: application-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 03/18/2019
-ms.openlocfilehash: a48f1b6e4410820d40ba6563d431c690ab791ff0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 11/16/2019
+ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097249"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130327"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Översikt över WebSocket-stöd i Application Gateway
 

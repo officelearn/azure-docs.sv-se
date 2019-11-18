@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 16de2054864a42d978d149353a89d65e8de7d155
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 004557ab3eb73f3f793b0514913260a414645d40
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605676"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129365"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
 I den här snabb starten använder du Azure Portal för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från säkerhets data i Boston.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -41,7 +41,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     ![Databricks på Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
-2. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
+2. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
 
     ![Skapa en Azure Databricks-arbetsyta](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en Azure Databricks-arbetsyta")
 
@@ -152,11 +152,11 @@ Utför följande uppgifter för att skapa en antecknings bok i Databricks, konfi
    * Ställ in **Sammansättning** på **COUNT** (Antal).
    * Ange **visnings typ** till **cirkel diagram**.
 
-     Klicka på **Verkställ**.
+     Klicka på **Använd**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
@@ -164,7 +164,7 @@ Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förut
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data från Azure Open-datauppsättningar. Du kan också titta på [Spark-datakällor](/azure/databricks/data/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
+I den här artikeln har du skapat ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data från Azure Open-datauppsättningar. Du kan också titta på [Spark-datakällor](/azure/databricks/data/data-sources/index) för att lära dig att importera data från andra datakällor till Azure Databricks. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extrahera, transformera och läsa in data med Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

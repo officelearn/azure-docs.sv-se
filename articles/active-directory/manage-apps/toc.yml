@@ -70,10 +70,10 @@
               href: end-user-experiences.md
     - name: Programetablering (SCIM)
       items:
-        - name: Automatisk etablering för SCIM-aktiverade appar
-          href: use-scim-to-provision-users-and-groups.md
         - name: Planera en distribution med automatisk användaretablering
           href: plan-auto-user-provisioning.md
+        - name: Manuell jämfört med automatisk etablering
+          href: application-provisioning-config-how-to.md
     - name: Programproxy för lokala appar
       items:
         - name: Programproxy
@@ -227,28 +227,40 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Programetablering (SCIM)
       items:
-        - name: Konfigurera användarförsörjning
+        - name: Konfigurera appetablering
           items:
-            - name: Manuell jämfört med automatisk etablering
-              href: application-provisioning-config-how-to.md
             - name: Konfigurera automatisk användaretablering
               href: configure-automatic-user-provisioning-portal.md
+            - name: Använda SCIM för automatisk etablering
+              href: use-scim-to-provision-users-and-groups.md
             - name: Anpassa attributmappningar
               href: Customize-application-attributes.md
+            - name: Skriva uttryck för attributmappningar
+              href: functions-for-customizing-application-data.md
             - name: Hitta användare och grupper som ska etableras
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Hoppa över borttagning av användare utanför omfattningen
               href: skip-out-of-scope-deletions.md
             - name: Övervaka etableringsstatus och prestanda
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Rapportera om automatisk användaretablering
+            - name: Rapportera vid appetablering
               href: check-status-user-account-provisioning.md
             - name: Exportera och importera konfigurationen
               href: export-import-provisioning-configuration.md
+            - name: Automatisera konfiguration med MS Graph
+              href: application-provisioning-configure-api.md
         - name: Felsöka användaretablering
           items:
-            - name: Felsöka användaretablering
+            - name: Felsöka appetablering
               href: application-provisioning-config-problem.md
+            - name: Karantänstatus
+              href: application-provisioning-quarantine-status.md
+            - name: Etableringsloggar
+              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: Synkronisera ett attribut för mappning – galleriappen
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: Tar flera timmar – galleriapp
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Auktoriseringsproblem (kunde inte spara autentiseringsuppgifter för administratör)
               href: application-provisioning-config-problem-storage-limit.md
             - name: Användare har inte etablerats

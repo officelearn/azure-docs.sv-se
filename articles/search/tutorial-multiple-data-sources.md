@@ -1,19 +1,19 @@
 ---
 title: 'C#Självstudie: indexera flera data källor'
 titleSuffix: Azure Cognitive Search
-description: Lär dig hur du importerar data från flera data källor till ett enda Azure Kognitiv sökning-index.
+description: Lär dig hur du importerar data från flera data källor till ett enda Azure Kognitiv sökning-index med hjälp av indexerare. Den här självstudien och exempel C#koden finns i.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 69b18cdd4d0bb8e3d13bbacd5d21764004308786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: fbe3b9ada556f26bd559f040bf2ba5b22367abd0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795646"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112221"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C#Självstudie: kombinera data från flera data källor i ett Azure Kognitiv sökning-index
 
@@ -30,7 +30,7 @@ I den här C#självstudien använder vi .NET SDK för Azure Kognitiv sökning oc
 > * Indexera hotell data från Azure Cosmos DB
 > * Slå samman hotell rums data från Blob Storage
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande tjänster, verktyg och data används i den här snabb starten. 
 

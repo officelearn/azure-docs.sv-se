@@ -1,18 +1,15 @@
 ---
-title: Ta bort resursgruppen och resurser – Azure Resource Manager
+title: Ta bort resurs grupp och resurser
 description: Beskriver hur du tar bort resurs grupper och resurser. Det beskriver hur Azure Resource Manager beställer borttagningen av resurser när en resurs grupp tas bort. Beskriver svarskoder samt hur Resource Manager hanterar dem för att fastställa om borttagningen lyckades.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 30a394fd33ed5d928175fc27e003661c2b53de9a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c84dcf64555f40f45dbdaeedb05d4cc461f2cbb7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275076"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150807"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager resurs grupp och borttagning av resurs
 

@@ -1,32 +1,25 @@
 ---
-title: Snabbstart som lär dig hur du använder Azure Cache for Redis med .NET-appar | Microsoft Docs
+title: Snabb start för att lära dig hur du använder Azure cache för Redis med .NET-appar
 description: I den här snabbstarten lär du dig hur du får tillgång till Azure Cache for Redis från dina .NET-appar
-services: cache,app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 2738805043b701d9e116d962f88225a6c6ae3e9b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324434"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122802"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Snabbstart: Använda Azure cache för Redis med ett .NET Framework-program
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Snabb start: använda Azure cache för Redis med ett .NET Framework-program
 
 I den här snabb starten införlivar du Azure cache för Redis i en .NET Framework-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure. Du använder särskilt [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) -klienten med C# kod i en .net-konsol app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
@@ -52,7 +45,7 @@ Ersätt `<cache-name>` med din cachens värdnamn.
 Ersätt `<access-key>` med primärnyckeln för cachen.
 
 
-## <a name="create-a-console-app"></a>Skapa en konsolapp
+## <a name="create-a-console-app"></a>Skapa en konsolklient
 
 I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
 
@@ -71,7 +64,7 @@ Du kan installera det genom att köra följande kommando i pakethanterarkonsolen
 Install-Package StackExchange.Redis
 ```
 
-När installationen är klar är *StackExchange.Redis*-cacheklienten tillgänglig för användning med ditt projekt.
+När installationen är klar är *StackExchange.Redis*-klienten redo för användning med ditt projekt.
 
 
 ## <a name="connect-to-the-cache"></a>Ansluta till cachen
@@ -167,15 +160,15 @@ Lägg till följande kod för procedur `Main` för klass `Program` för ditt kon
         }
 ```
 
-Azure Cache for Redis har ett konfigurerbart antal databaser (16 är standard) som kan användas för att logiskt separera data i ett Azure Cache for Redis. Koden ansluter till standarddatabasen DB 0. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server).
+Azure Cache for Redis har ett konfigurerbart antal databaser (16 är standard) som kan användas för att logiskt separera data inom ett Azure Cache for Redis. Koden ansluter till standarddatabasen DB 0. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server).
 
-Cacheobjekt kan lagras och hämtas med hjälp av metoderna `StringSet` och `StringGet`.
+Cacheobjekt kan lagras i och hämtas med hjälp av `StringSet`- och `StringGet`-metoderna.
 
 Redis lagrar de flesta data som Redis-strängar, men dessa strängar kan innehålla flera typer av data, inklusive serialiserade binära data som kan användas när .NET-objekt lagras i cacheminnet.
 
 Tryck på **Ctrl+F5** för att skapa och köra konsolprogrammet.
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
 ![Partiell konsolapp](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
 

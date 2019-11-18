@@ -1,18 +1,14 @@
 ---
 title: Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som registrerar kunder till Azure-delegerad resurs hantering.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 11/11/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: ee8f0f88f1e60c6e8b5da34a165757694f52dcbb
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 29f17e6227d3c50a4d9fe13f7525ac71f7550632
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005396"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131286"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
@@ -140,6 +136,8 @@ När du har lagt till den här informationen väljer du **Spara.**
 ## <a name="publish-your-offer"></a>Publicera ditt erbjudande
 
 När du har slutfört alla avsnitt är nästa steg att publicera erbjudandet på Azure Marketplace. Välj knappen **publicera** för att påbörja processen med att göra erbjudandet Live. Mer information om den här processen finns i [publicera Azure Marketplace-och AppSource-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+
+Du kan när som helst [publicera en uppdaterad version av erbjudandet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer) . Du kanske till exempel vill lägga till en ny roll definition till ett tidigare publicerat erbjudande. När du gör det, kommer kunder som redan har lagt till erbjudandet att se en ikon på sidan [**tjänst leverantörer**](view-manage-service-providers.md) i Azure Portal som gör att de kan se att en uppdatering är tillgänglig. Varje kund kan [granska ändringarna](view-manage-service-providers.md#update-service-provider-offers) och bestämma om de vill uppdatera till den nya versionen. 
 
 ## <a name="the-customer-onboarding-process"></a>Kundens onboarding-process
 

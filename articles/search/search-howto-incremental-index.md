@@ -1,5 +1,5 @@
 ---
-title: Konfigurera stegvis indexering (för hands version) av fördefinierad innehålls baserad ändrings spårning
+title: Lägg till stegvis indexering (förhands granskning)
 titleSuffix: Azure Cognitive Search
 description: Aktivera ändrings spårning och bevara tillstånd för berikat innehåll för kontrollerad bearbetning i en kognitiv färdigheter. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 author: vkurpad
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719934"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112574"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Så här konfigurerar du stegvis indexering av berikade dokument i Azure Kognitiv sökning
 

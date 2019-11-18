@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 74a33edb358f9b9bf9322c652c0696ef87182725
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521584"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151704"
 ---
 # <a name="workflow-automation-preview"></a>Automatisering av arbets flöde (för hands version)
 
@@ -76,7 +76,7 @@ Den här artikeln beskriver arbets flödets automatiserings funktion (för hands
 
     ![Uppdatera](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Välj din Logic app och spara Automation.
+1. Välj din Logic app och spara Automation. Observera att List rutan Logic app endast visar Logic Apps med stöd för Security Center kopplingar som nämns ovan.
 
 
 ## <a name="manually-trigger-a-logic-app"></a>Aktivera en Logic-app manuellt

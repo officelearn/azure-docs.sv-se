@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa ett Sök index C# i med .NET SDK'
+title: 'Snabb start: skapa ett Sök index C# i med .net'
 titleSuffix: Azure Cognitive Search
 description: Förklarar hur du skapar ett index, läser in data och kör frågor med C# hjälp av och Azure KOGNITIV sökning .NET SDK.
 manager: nitinme
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 45d24286a511ff60db33e149627932b0768c543b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792827"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112036"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Snabb start: skapa ett Azure Kognitiv sökning- C# index i med .NET SDK
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
-> * [Portalen](search-get-started-portal.md)
+> * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
@@ -48,7 +48,7 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
@@ -87,7 +87,7 @@ För det här projektet använder du version 9 av `Microsoft.Azure.Search` NuGet
 
 1. Lägg till filen i utmatnings katalogen. Högerklicka på appSettings. JSON och välj **Egenskaper**. I **Kopiera till utdata-katalogen väljer du** **Kopiera om nyare**.
 
-1. Kopiera följande JSON till din nya JSON-fil. Ersätt Sök tjänst namnet (ditt-SEARCH-SERVICE-NAME) och Admin API-nyckeln (din-ADMIN-API-nyckel) med giltiga värden. Om tjänstens slut punkt är `https://mydemo.search.windows.net` blir tjänst namnet "demonstration".
+1. Kopiera följande JSON till din nya JSON-fil. Ersätt Sök tjänst namnet (ditt-SEARCH-SERVICE-NAME) och Admin API-nyckeln (din-ADMIN-API-nyckel) med giltiga värden. Om tjänstens slut punkt är `https://mydemo.search.windows.net`skulle tjänst namnet vara "demonstration".
 
 ```json
 {
@@ -533,7 +533,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
     }
     ```
 
-    Det finns två [sätt att matcha termer i en fråga](search-query-overview.md#types-of-queries): full texts ökning och filter. En fullständig text Sök fråga söker efter en eller flera termer i `IsSearchable`-fält i ditt index. Ett filter är ett booleskt uttryck som utvärderas över `IsFilterable`-fält i ett index. Du kan använda full texts ökning och filter tillsammans eller separat.
+    Det finns två [sätt att matcha termer i en fråga](search-query-overview.md#types-of-queries): full texts ökning och filter. En fullständig text Sök fråga söker efter en eller flera termer i `IsSearchable` fält i ditt index. Ett filter är ett booleskt uttryck som utvärderas över `IsFilterable` fält i ett index. Du kan använda full texts ökning och filter tillsammans eller separat.
 
     Både sökningar och filtreringar utförs med hjälp av metoden `Documents.Search`. En sökfråga kan skickas i parametern `searchText`, medan ett filteruttryck kan skickas i `Filter`-egenskapen för klassen `SearchParameters`. Om du vill filtrera utan sökning skickar du bara `"*"` för `searchText`-parametern. Om du vill söka utan filtrering lämnar du bara `Filter`-egenskapen odefinierad eller väljer att inte skicka den i en `SearchParameters`-instans över huvud taget.
 

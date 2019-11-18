@@ -1,5 +1,5 @@
 ---
-title: Återskapa ett Azure Kognitiv sökning-index
+title: Återskapa ett Sök index
 titleSuffix: Azure Cognitive Search
 description: Lägg till nya element, uppdatera befintliga element eller dokument eller ta bort föråldrade dokument i en fullständig återskapning eller delvis stegvis indexering för att uppdatera ett Azure Kognitiv sökning-index.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466440"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112967"
 ---
-# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Återskapa ett Azure Kognitiv sökning-index
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Återskapa ett index i Azure Kognitiv sökning
 
 I den här artikeln förklaras hur du återaktiverar ett Azure Kognitiv sökning-index, under vilka omständigheter som återuppbyggnadar krävs och rekommendationer för att minimera effekten av återuppbyggnad av pågående fråge förfrågningar.
 

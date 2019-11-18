@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473697"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106607"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er
 
@@ -37,13 +37,13 @@ Dessutom, innan en klient kan komma åt ett webb-API som görs tillgängligt av 
 
 I den här snabbstarten visas hur du konfigurerar din app för att:
 
-* [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
+* [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
 * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
 * [Ändra konto typer som stöds](#modify-supported-account-types)
 * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
 * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -61,7 +61,7 @@ Innan du kan konfigurera appen gör du följande:
 1. I den vänstra rutan väljer du **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er:
-    * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
+    * [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
     * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
     * [Ändra konto typer som stöds](#modify-supported-account-types)
     * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
@@ -171,7 +171,7 @@ Så här lägger du till en autentiseringsuppgift för webbappen:
 Så lägger du till behörigheter för att komma åt resurs-API:er från klienten:
 
 1. På appens **översiktssida** väljer du **API-behörigheter**.
-1. Välj knappen **Lägg till en behörighet**.
+1. Under avsnittet **konfigurerade behörigheter** väljer du knappen **Lägg till en behörighet** .
 1. Som standard kan du i vyn välja mellan **Microsoft-API:er**. Välj det avsnitt med API:er du är intresserad av:
     * **Microsoft-API:er** – Du kan välja behörigheter för Microsoft-API:er som Microsoft Graph.
     * **API:er som min organisation använder** – Du kan välja behörigheter för API:er som har exponerats av din organisation, eller API som din organisation har integrerats med.
@@ -179,12 +179,39 @@ Så lägger du till behörigheter för att komma åt resurs-API:er från kliente
 1. När du har valt API:er visas sidan **Begär API-behörigheter**. Om API:et exponerar både delegerade programbehörigheter. Välj vilken typ av behörighet som appen behöver.
 1. Välj **Lägg till behörigheter** när du är klar. Du återgår till sidan **API-behörigheter**, där behörigheterna har sparats och lagts till i tabellen.
 
+## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Förstå API-behörigheter och gränssnitt för administratörs medgivande
+
+### <a name="configured-permissions"></a>Konfigurerade behörigheter
+
+I det här avsnittet visas de behörigheter som uttryckligen har kon figurer ATS för programobjektet (\the-behörigheter som ingår i appens obligatoriska resurs åtkomst lista). Du kan lägga till eller ta bort behörigheter från den här tabellen. Som administratör kan du också bevilja/återkalla administratörs medgivande för en uppsättning behörigheter för API: er eller enskilda behörigheter i det här avsnittet.
+
+### <a name="other-permissions-granted"></a>Andra behörigheter som har beviljats
+
+Om ditt program är registrerat i en klient kan du se ytterligare ett avsnitt med rubriken **andra behörigheter som har beviljats för klient organisationen**. I det här avsnittet visas behörigheter som har beviljats för klienten, men som inte uttryckligen har kon figurer ATS för programobjektet (t. ex. behörigheter som har begärts dynamiskt och godkänts). Det här avsnittet visas bara om det finns minst en behörighet som gäller.
+
+Du kan lägga till en uppsättning behörigheter för API: er eller enskilda behörigheter som visas i det här avsnittet i avsnittet **konfigurerade behörigheter** . Som administratör kan du också återkalla administratörs medgivande för enskilda API: er eller behörigheter i det här avsnittet.
+
+### <a name="admin-consent-button"></a>Knappen administratörs medgivande
+
+Om ditt program är registrerat i en klient organisation visas knappen **tilldela administratörs medgivande för innehavare** . Den kommer att inaktive ras om du inte är administratör eller om inga behörigheter har kon figurer ATS för programmet.
+Med den här knappen kan en administratör enkelt bevilja administrativt medgivande till de behörigheter som har kon figurer ATS för programmet. När du klickar på knappen administratörs medgivande startas ett nytt fönster med en uppstarts-prompt som visar alla konfigurerade behörigheter.
+
+> [!NOTE]
+> Det finns en fördröjning mellan behörigheter som konfigureras för programmet och de visas i frågan om medgivande. Om du inte ser alla konfigurerade behörigheter i medgivande meddelandet stänger du den och startar den igen.
+
+Om du har behörighet som har beviljats men inte har kon figurer ATS, uppmanas du att välja hur du ska hantera dessa behörigheter när du klickar på knappen administratörs medgivande. Du kan lägga till dem i konfigurerade behörigheter, eller så kan du ta bort dem.
+
+Medgivande meddelandet ger möjlighet att **godkänna** eller **avbryta**. Om du väljer **Godkänn**beviljas administratörs medgivande. Om du väljer **Avbryt**beviljas inte administratörs medgivande och du får ett fel meddelande om att medgivande har avböjts.
+
+> [!NOTE]
+> Det uppstår en fördröjning mellan att bevilja administratörs tillåtelse (att välja **acceptera** i medgivande meddelandet) och statusen för administratörs medgivande visas i användar gränssnittet.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
 * [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
-* [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
+* [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)
 

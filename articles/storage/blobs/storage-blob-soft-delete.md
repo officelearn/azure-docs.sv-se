@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f53bf023346c4f494de5ab50e8beb185d9f97c91
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882660"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113724"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage blobbar
 
@@ -23,7 +23,7 @@ Azure Storage erbjuder nu mjuk borttagning för BLOB-objekt så att du enkelt ka
 
 När du aktiverar mjuk borttagning kan du spara och återställa data när blobbar eller BLOB-ögonblicksbilder tas bort. Det här skyddet utökar till BLOB-data som raderas som ett resultat av en överskrivning.
 
-När data tas bort övergår de till ett mjukt borttaget tillstånd i stället för att raderas permanent. När mjuk borttagning är aktiverat och du skriver över data, genereras en mjuk borttagen ögonblicks bild för att spara statusen för de överskrivna data. Mjuka borttagna objekt är osynliga om de inte uttryckligen anges. Du kan konfigurera hur lång tid det tar för mjuka borttagna data att återställas innan det går ut permanent.
+När data tas bort övergår de till ett mjukt borttaget tillstånd i stället för att raderas permanent. När mjuk borttagning är aktiverat och du skriver över data, genereras en mjuk borttagen ögonblicks bild för att spara statusen för de överskrivna data. Mjuka borttagna objekt är osynliga om de inte uttryckligen anges. Du kan ange hur länge mjukt borttagna data ska kunna återställas innan de tas bort permanent.
 
 Mjuk borttagning är bakåtkompatibelt, så du behöver inte göra några ändringar i dina program för att dra nytta av de skydd som den här funktionen erbjuder. Men [Data återställning](#recovery) introducerar en ny **Undelete-BLOB** -API.
 
@@ -41,7 +41,7 @@ Du kan när som helst ändra lagrings perioden för mjuk borttagning. En uppdate
 
 Mjuk borttagning bevarar dina data i många fall där blobbar eller BLOB-ögonblicksbilder tas bort eller skrivs över.
 
-När en BLOB skrivs över med hjälp av kommandot **reblob**, list **block**, **list block** eller **copy BLOB** skapas en ögonblicks bild av blobens tillstånd innan Skriv åtgärden genereras automatiskt. Den här ögonblicks bilden är en mjuk borttagen ögonblicks bild. Det är osynligt om inte mjuka borttagna objekt anges explicit. I [återställnings](#recovery) avsnittet finns information om hur du visar mjuka borttagna objekt.
+När en BLOB skrivs över med hjälp av kommandot **reblob**, list **block**, **list block**eller **copy BLOB** skapas en ögonblicks bild av blobens tillstånd innan Skriv åtgärden genereras automatiskt. Den här ögonblicks bilden är en mjuk borttagen ögonblicks bild. Det är osynligt om inte mjuka borttagna objekt anges explicit. I [återställnings](#recovery) avsnittet finns information om hur du visar mjuka borttagna objekt.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
@@ -146,11 +146,11 @@ Mer information om priser för Azure Blob Storage i allmänhet finns på [sidan 
 
 När du först aktiverar mjuk borttagning rekommenderar vi att du använder en liten kvarhållningsperiod för att bättre förstå hur funktionen kommer att påverka din faktura.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Följande steg visar hur du kommer igång med mjuk borttagning.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Om du vill aktivera mjuk borttagning navigerar du till alternativet **mjuk borttagning** under **BLOB service**. Klicka sedan på **aktive rad** och ange antalet dagar som du vill behålla mjuka borttagna data.
 
@@ -293,11 +293,11 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Finns det några särskilda överväganden för att använda mjuk borttagning?
+## <a name="special-considerations"></a>Att tänka på
 
-Om det finns en chans att dina data ändras eller tas bort av misstag av ett program eller en annan lagrings konto användare rekommenderas du att aktivera mjuk borttagning. Om du aktiverar mjuk borttagning för ofta överskrivna data kan det leda till ökade kapacitets kostnader för lagring och ökad fördröjning vid registrering av blobbar. Du kan minska den här ytterligare kostnaden genom att lagra ofta skrivna data i ett separat lagrings konto där mjuk borttagning har inaktiverats. 
+Om det finns en chans att dina data ändras eller tas bort av misstag av ett program eller en annan lagrings konto användare rekommenderas du att aktivera mjuk borttagning. Om du aktiverar mjuk borttagning för ofta överskrivna data kan det leda till ökade kapacitets kostnader för lagring och ökad fördröjning vid registrering av blobbar. Du kan minimera denna ytterligare kostnad och svars tid genom att lagra ofta skrivna data i ett separat lagrings konto där mjuk borttagning har inaktiverats. 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>För vilka lagrings tjänster kan jag använda mjuk borttagning?
 

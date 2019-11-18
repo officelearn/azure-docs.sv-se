@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578389"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132624"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare
 
@@ -35,15 +35,15 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande krav gäller innan du använder tal behållare:
 
 | Krävs | Syfte |
 |--|--|
-| Docker-motor | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
+| Docker-motor | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker`-kommandon. |
-| Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på **översikts** Sidan |
+| Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt** |
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
@@ -69,7 +69,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 > [!WARNING]
 > Värddatorn *krävs* för att stödja AVX2. Containern fungerar *inte* korrekt utan AVX2-stöd.
 
-### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
+### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
 I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje tal behållare.
 
@@ -112,25 +112,25 @@ Behållar avbildningar för tal finns i följande Container Registry.
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-| Container | Lagrings platsen |
+| Container | Lagringsplats |
 |-----------|------------|
 | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
 
-| Container | Lagrings platsen |
+| Container | Lagringsplats |
 |-----------|------------|
 | Custom Speech till text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-| Container | Lagrings platsen |
+| Container | Lagringsplats |
 |-----------|------------|
 | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 # <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
 
-| Container | Lagrings platsen |
+| Container | Lagringsplats |
 |-----------|------------|
 | Anpassad text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
@@ -151,7 +151,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> Taggen `latest` hämtar `en-US` språk och `jessarus` röst. För ytterligare språk, se [tal-till-text-språk](#speech-to-text-locales).
+> Taggen `latest` hämtar det `en-US` språket. För ytterligare språk, se [tal-till-text-språk](#speech-to-text-locales).
 
 #### <a name="speech-to-text-locales"></a>Tal till text-språk
 
@@ -167,7 +167,7 @@ Följande tagg är ett exempel på formatet:
 2.0.0-amd64-en-us-preview
 ```
 
-För alla språk som stöds i 2.0.0-versionen av " **tal-till-text"-** behållaren, se **container support** -kolumnen i stöd tabellen för [tal-till-text-språk](language-support.md#speech-to-text) .
+För alla språk som stöds av **tal-till-text-** behållaren, se [taggar till text-Taggar](../containers/container-image-tags.md#speech-to-text).
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
 
@@ -209,7 +209,7 @@ Följande tagg är ett exempel på formatet:
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-För alla språk som stöds och motsvarande röster i 1.3.0-versionen av **text till tal-** behållaren, se kolumnen **container support** i [standard språk support](language-support.md#standard-voices) tabellen.
+För alla språk som stöds och motsvarande röster för **text till tal** -behållaren, se [taggar för text till tal-bilder](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
 > När du konstruerar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett `voice`-element med ett `name`-attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Till exempel skulle taggen `latest` ha röst namnet `en-US-JessaRUS`.
@@ -367,7 +367,7 @@ Det här kommandot:
 ***
 
 > [!IMPORTANT]
-> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
@@ -410,7 +410,7 @@ Tal behållarna skickar fakturerings information till Azure med hjälp av en *ta
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om dessa alternativ finns i [Configure containers](speech-container-configuration.md).
+Mer information om alternativen finns i [konfigurera behållare](speech-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -426,12 +426,12 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ne
   * *Text till tal*
   * *Anpassad text till tal*
 * Behållar avbildningar hämtas från behållar registret i Azure.
-* Behållar avbildningar körs i Docker.
+* Behållaravbildningar som körs i Docker.
 * Du kan använda antingen REST API eller SDK för att anropa åtgärder i tal behållare genom att ange behållarens värd-URI.
 * Du måste ange fakturerings information när du instansierar en behållare.
 
 > [!IMPORTANT]
->  Cognitive Services behållare är inte licensierade att köras utan att vara anslutna till Azure för mätning. Kunderna behöver göra det möjligt för behållarna att kommunicera fakturerings information med mät tjänsten hela tiden. Cognitive Services behållare skickar inte kund information (t. ex. den bild eller text som analyseras) till Microsoft.
+>  Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

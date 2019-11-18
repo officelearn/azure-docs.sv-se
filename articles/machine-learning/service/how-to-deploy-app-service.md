@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: b0d7286d96d2fbfa35eb7ce9079413dfd186288c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 52c65bced1d78a4fdad1fbfd59c7a8d6d99d0c4a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496970"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123275"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,10 +36,10 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 > [!IMPORTANT]
 > Om du behöver kunna logga de bedömnings data som används med din distribuerade modell, eller resultatet av en bedömning, bör du istället distribuera till Azure Kubernetes-tjänsten. Mer information finns i [samla in data på dina produktions modeller](how-to-enable-data-collection.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
     > [!IMPORTANT]
@@ -97,7 +97,7 @@ Mer information om konfiguration av konfiguration finns i [Distribuera modeller 
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
+Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
 > Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
@@ -270,4 +270,4 @@ print(response.json())
 * Lär dig mer om skalning i [Kom igång med automatisk skalning i Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Använd ett SSL-certifikat i Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Konfigurera App Service-appen så att den använder Azure Active Directory inloggning](/azure/app-service/configure-authentication-provider-aad).
-* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
+* [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)

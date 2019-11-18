@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa ett anpassat kommando (förhands granskning)'
+title: 'Snabb start: skapa ett anpassat kommando (för hands version) – tal tjänst'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln skapar och testar du ett program med en värd för anpassade kommandon.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: bfe871ce6f7cd2fbd6ada4b825e41ebdf5ac3f12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507565"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111363"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Snabb start: skapa ett anpassat kommando (förhands granskning)
 
 I den här artikeln får du lära dig hur du skapar och testar ett program med en värd för anpassade kommandon.
 Programmet kommer att identifiera en uttryck som "slå på TV" och svara med ett enkelt meddelande "OK, som aktiverar TV".
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En tal prenumeration. [Prova röst tjänsten kostnads fritt](~/articles/cognitive-services/speech-service/get-started.md).
 

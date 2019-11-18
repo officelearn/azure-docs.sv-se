@@ -361,8 +361,8 @@
               href: hyper-v-azure-failback.md
         - name: Hantera
           items:
-            - name: Utfasning av DR mellan kundägda webbplatser
-              href: site-to-site-deprecation.md
+            - name: Utfasning av Site Recovery-datakryptering
+              href: encryption-feature-deprecation.md
             - name: Uppgradera Windows-servrar som konfigurerats med Site Recovery
               href: upgrade-2012R2-to-2016.md
             - name: Ta bort servrar och inaktivera skydd

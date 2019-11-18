@@ -1,21 +1,21 @@
 ---
-title: C#Självstudie för att anropa API:er för Cognitive Services i en pipeline för AI-anrikning
+title: 'Självstudie: skapa en färdigheter i C# med .net'
 titleSuffix: Azure Cognitive Search
-description: Stega genom ett exempel på data extrahering, naturligt språk och bild-AI-bearbetning i Azure Kognitiv sökning anriknings indexerings pipeline.
+description: Steg till exempel kod som visar data extrahering, naturligt språk och bild-AI-bearbetning i en Azure Kognitiv sökning anriknings indexerings pipeline.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790233"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111748"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>C#Självstudie: anropa API:er för Cognitive Services i en Azure Kognitiv sökning indexerings pipeline
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Självstudie: skapa en pipeline för AI-anrikning med hjälp C# av och .NET SDK
 
 I den här självstudien får du lära dig Mechanics programmerings data i Azure Kognitiv sökning med *kognitiva kunskaper*. Färdigheter backas upp av NLP (Natural Language Processing) och bild analys funktioner i Cognitive Services. Genom färdigheter komposition och konfiguration kan du extrahera text-och text representationer av en bild eller skannad dokument fil. Du kan också identifiera språk, entiteter, nyckel fraser och mycket annat. Slut resultatet är omfattande ytterligare innehåll i ett sökindex som skapats av en AI-baserad indexerings pipeline.
 
@@ -57,7 +57,7 @@ Om du vill interagera med din Azure Kognitiv sökning-tjänst behöver du tjäns
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
@@ -91,7 +91,7 @@ Börja med att öppna Visual Studio och skapa ett nytt konsol program som kan k�
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-[Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk) består av ett par klient bibliotek som gör att du kan hantera dina index, data källor, indexerare och färdighetsuppsättningar, samt överföra och hantera dokument och köra frågor, allt utan att behöva hantera informationen om HTTP och JSON. Dessa klient bibliotek är alla distribuerade som NuGet-paket.
+[Azure kognitiv sökning .NET SDK](https://aka.ms/search-sdk) består av ett par klient bibliotek som gör att du kan hantera dina index, data källor, indexerare och färdighetsuppsättningar, samt överföra och hantera dokument och köra frågor, allt utan att du behöver hantera informationen om http och JSON. Dessa klient bibliotek är alla distribuerade som NuGet-paket.
 
 För det här projektet måste du installera version 9 av `Microsoft.Azure.Search` NuGet-paketet och det senaste `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
 
@@ -222,7 +222,7 @@ Mer information om grunderna i kunskapsuppsättningar finns i [Definiera en kuns
 
 ### <a name="ocr-skill"></a>OCR-kunskaper
 
-**OCR** -kompetensen extraherar text från bilder. Den här kunskapen förutsätter att ett normalized_images-fält finns. Om du vill generera det här fältet senare i självstudien ställer vi in ```"imageAction"``` konfigurationen i indexerings definitionen på ```"generateNormalizedImages"```.
+**OCR** -kompetensen extraherar text från bilder. Den här kunskapen förutsätter att det finns ett normalized_images fält. Om du vill generera det här fältet senare i självstudien ställer vi in ```"imageAction"``` konfigurationen i indexerings definitionen på ```"generateNormalizedImages"```.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();

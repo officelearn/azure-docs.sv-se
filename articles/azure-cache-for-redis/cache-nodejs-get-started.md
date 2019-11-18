@@ -1,26 +1,19 @@
 ---
 title: 'Snabb start: Använd Azure cache för Redis med Node. js'
 description: I den här snabbstarten lär du dig att använda Azure Cache for Redis med Node.js och node_redis.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: v-lincan
-ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: bd31cf066b7844eeae02c24cb39ece686630b5ff
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e0458fd257942a455daef911a303437fea03b11b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329817"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122004"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Snabb start: Använd Azure cache för Redis med Node. js
 
@@ -111,7 +104,7 @@ Kör skriptet med Node.js.
 node redistest.js
 ```
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
 ![Redis Cache app har slutförts](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
@@ -122,7 +115,7 @@ Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du 
 Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
 Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389979"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108735"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -20,7 +20,7 @@ Azure Application Gateway består av flera komponenter som du kan konfigurera p�
 
 ![Flödes diagram för Application Gateway-komponenter](./media/configuration-overview/configuration-overview1.png)
 
-Den här bilden illustrerar ett program som har tre lyssnare. De första två är lyssnare för flera platser för `http://acme.com/*` och `http://fabrikam.com/*`. Båda lyssnar på port 80. Det tredje är en grundläggande lyssnare som har slut punkt till slut punkt Secure Sockets Layer (SSL) avslutas.
+Den här bilden illustrerar ett program som har tre lyssnare. De första två är lyssnare för flera platser för `http://acme.com/*` respektive `http://fabrikam.com/*`. Båda lyssnar på port 80. Det tredje är en grundläggande lyssnare som har slut punkt till slut punkt Secure Sockets Layer (SSL) avslutas.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -32,7 +32,7 @@ Den här bilden illustrerar ett program som har tre lyssnare. De första två ä
 En Application Gateway är en dedikerad distribution i det virtuella nätverket. I det virtuella nätverket krävs ett dedikerat undernät för Application Gateway. Du kan ha flera instanser av en specifik Programgateway-distribution i ett undernät. Du kan också distribuera andra programgatewayer i under nätet. Men du kan inte distribuera någon annan resurs i Application Gateway-undernätet.
 
 > [!NOTE]
-> Du kan inte blanda Standard_v2 och standard Azure Application Gateway i samma undernät.
+> Du kan inte mixa Standard_v2 och standard Azure Application Gateway i samma undernät.
 
 #### <a name="size-of-the-subnet"></a>Storlek på under nätet
 
@@ -42,7 +42,7 @@ Azure reserverar också 5 IP-adresser i varje undernät för internt bruk: de f�
 
 Överväg ett undernät som har 27 Application Gateway-instanser och en IP-adress för en privat klient dels-IP. I det här fallet behöver du 33 IP-adresser: 27 för Application Gateway-instanser, 1 för den privata klient delen och 5 för intern användning. Så du behöver en/26-nätmask eller större.
 
-Vi rekommenderar att du använder en under näts storlek på minst/28. Den här storleken ger dig 11 användbara IP-adresser. Om program belastningen kräver fler än 10 IP-adresser, bör du överväga att ha en/27-eller/26-nätmask.
+Vi rekommenderar att du använder en under näts storlek på minst/28. Den här storleken ger dig 11 användbara IP-adresser. Om program belastningen kräver fler än 10 Application Gateway-instanser bör du överväga att ha en/27-eller/26-nätmask.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Nätverks säkerhets grupper på Application Gateway under nätet
 
@@ -61,7 +61,7 @@ Nätverks säkerhets grupper (NSG: er) stöds på Application Gateway. Men det f
 
 I det här scenariot använder du NSG: er i under nätet Application Gateway. Lägg till följande begränsningar i under nätet i prioritetsordning:
 
-1. Tillåt inkommande trafik från ett käll-IP/IP-adressintervall och antingen hela Application Gateway under nätet eller till den särskilda konfigurerade privata frontend-IP-adressen. NSG fungerar inte på en offentlig IP-adress.
+1. Tillåt inkommande trafik från en käll-IP-adress eller ett IP-adressintervall och målet som antingen hela Application Gateway under nätet eller till den särskilda konfigurerade privata frontend-IP-adressen. NSG fungerar inte på en offentlig IP-adress.
 2. Tillåt inkommande begär Anden från alla källor till portarna 65503-65534 för Application Gateway v1 SKU och portarna 65200-65535 för v2-SKU: n för [hälso kommunikation på Server sidan](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av Azure-certifikat. Externa entiteter kan inte initiera ändringar på dessa slut punkter utan lämpliga certifikat på plats.
 3. Tillåt inkommande Azure Load Balancer-avsökningar (*AzureLoadBalancer* -tagg) och inkommande virtuell nätverks trafik (*VirtualNetwork* -tagg) i [nätverks säkerhets gruppen](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Blockera all annan inkommande trafik med hjälp av en regel för neka-alla.
@@ -83,13 +83,13 @@ För v2-SKU: n stöds inte UDR i Application Gateway-undernätet. Mer informatio
 
 Du kan konfigurera programgatewayen att ha en offentlig IP-adress, en privat IP-adress eller både och. En offentlig IP-adress krävs när du är värd för en server del som klienterna måste komma åt via Internet via en virtuell IP-adress (VIP). 
 
-Det krävs ingen offentlig IP-adress för en intern slut punkt som inte är exponerad för Internet. Det kallas för en intern ILB-slutpunkt ( *Load-Balancer* ). En Application Gateway-ILB är användbar för interna branschspecifika program som inte är utsatta för Internet. Det är också användbart för tjänster och nivåer i ett program med flera nivåer inom en säkerhets gränser som inte exponeras för Internet men som kräver belastnings fördelning för resursallokering, varaktighet eller SSL-avslutning.
+Det krävs ingen offentlig IP-adress för en intern slut punkt som inte är exponerad för Internet. Det kallas för en *intern belastningsutjämnare* (ILB) eller privat klient dels-IP. En Application Gateway-ILB är användbar för interna branschspecifika program som inte är utsatta för Internet. Det är också användbart för tjänster och nivåer i ett program med flera nivåer inom en säkerhets gränser som inte exponeras för Internet men som kräver belastnings fördelning för resursallokering, varaktighet eller SSL-avslutning.
 
 Endast en offentlig IP-adress eller en privat IP-adress stöds. Du väljer klient delens IP-adress när du skapar programgatewayen.
 
-- För en offentlig IP-adress kan du skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP-adress på samma plats som Application Gateway. Om du skapar en ny offentlig IP-adress kan du inte ändra den IP-adress typ som du väljer (statisk eller dynamisk) senare. Mer information finns i [statisk eller dynamisk offentlig IP-adress](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
+- För en offentlig IP-adress kan du skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP-adress på samma plats som Application Gateway. Mer information finns i [statisk eller dynamisk offentlig IP-adress](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
-- För en privat IP-adress kan du ange en privat IP-adress från det undernät där programgatewayen skapas. Om du inte anger något väljs en godtycklig IP-adress automatiskt från under nätet. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+- För en privat IP-adress kan du ange en privat IP-adress från det undernät där programgatewayen skapas. Om du inte anger något väljs en godtycklig IP-adress automatiskt från under nätet. Den IP-adress typ som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
 En IP-adress på klient sidan är kopplad till en *lyssnare*som söker efter inkommande begär Anden på klient delens IP.
 
@@ -97,19 +97,19 @@ En IP-adress på klient sidan är kopplad till en *lyssnare*som söker efter ink
 
 En lyssnare är en logisk entitet som söker efter inkommande anslutnings begär Anden med hjälp av port, protokoll, värd och IP-adress. När du konfigurerar lyssnaren måste du ange värden för de som matchar motsvarande värden i den inkommande begäran på gatewayen.
 
-När du skapar en Programgateway med hjälp av Azure Portal skapar du också en standard lyssnare genom att välja protokoll och port för lyssnaren. Du kan välja om du vill aktivera HTTP2-stöd för lyssnaren. När du har skapat programgatewayen kan du redigera inställningarna för den standard-lyssnare (*appGatewayHttpListener*/*appGatewayHttpsListener*) eller skapa nya lyssnare.
+När du skapar en Programgateway med hjälp av Azure Portal skapar du också en standard lyssnare genom att välja protokoll och port för lyssnaren. Du kan välja om du vill aktivera HTTP2-stöd för lyssnaren. När du har skapat programgatewayen kan du redigera inställningarna för den standard-lyssnare (*appGatewayHttpListener*) eller skapa nya lyssnare.
 
 ### <a name="listener-type"></a>Typ av lyssnare
 
 När du skapar en ny lyssnare väljer du mellan [ *grundläggande* och *flera platser*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners).
 
-- Om du är värd för en enda plats bakom en Programgateway väljer du Basic. Lär dig [hur du skapar en Programgateway med en grundläggande lyssnare](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Om du vill att alla dina förfrågningar (för alla domäner) ska accepteras och vidarebefordras till backend-pooler väljer du grundläggande. Lär dig [hur du skapar en Programgateway med en grundläggande lyssnare](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Om du konfigurerar mer än ett webb program eller flera under domäner av samma överordnade domän på samma Application Gateway-instans väljer du flera platser. För en lyssnare med flera platser måste du också ange ett värdnamn. Detta beror på att Application Gateway förlitar sig på HTTP 1,1-värdhuvuden för att vara värd för fler än en webbplats på samma offentliga IP-adress och port.
+- Om du vill vidarebefordra begär anden till olika Server dels pooler baserat på *värd* rubriken eller värd namnet väljer du fler lyssnare för flera platser där du även måste ange ett värdnamn som matchar den inkommande begäran. Detta beror på att Application Gateway förlitar sig på HTTP 1,1-värdhuvuden för att vara värd för fler än en webbplats på samma offentliga IP-adress och port.
 
 #### <a name="order-of-processing-listeners"></a>Bearbetnings ordning för lyssnare
 
-För v1 SKU bearbetas lyssnarna i den ordning som de visas. Om en grundläggande lyssnare matchar en inkommande begäran, bearbetar lyssnaren den begär ande först. Därför bör du konfigurera lyssnare för flera platser före grundläggande lyssnare för att se till att trafiken dirigeras till rätt server del.
+För v1 SKU: n matchas begär Anden enligt ordningen för reglerna och typen av lyssnare. Om en regel med Basic-lyssnare hamnar först i ordern bearbetas den först och accepterar alla förfrågningar om denna port och IP-kombination. Undvik detta genom att konfigurera reglerna med lyssnare för flera platser först och skicka regeln med den grundläggande lyssnaren till den sista i listan.
 
 För v2-SKU bearbetas flera plats lyssnare före grundläggande lyssnare.
 
@@ -165,7 +165,7 @@ Information om hur du konfigurerar en global anpassad felsida finns i [Azure Pow
 
 Du kan centralisera SSL-certifikat hantering och minska belastningen på krypterings-dekryptering för en Server grupp på Server sidan. Med centraliserad SSL-hantering kan du också ange en central SSL-princip som passar dina säkerhets krav. Du kan välja *standard*, *fördefinierad*eller *anpassad* SSL-princip.
 
-Du konfigurerar SSL-principen för att kontrol lera SSL-protokoll versioner. Du kan konfigurera en Programgateway för att neka TLS 1.0, TLS 1.1 och TLS 1.2. Som standard är SSL 2,0 och 3,0 inaktiverade och kan inte konfigureras. Mer information finns i [Översikt över Application Gateway SSL-princip](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Du konfigurerar SSL-principen för att kontrol lera SSL-protokoll versioner. Du kan konfigurera en Programgateway att använda en minsta skärmupplösningen-protokollversion för TLS-handskakning från TLS 1.0, TLS 1.1 och TLS 1.2. Som standard är SSL 2,0 och 3,0 inaktiverade och kan inte konfigureras. Mer information finns i [Översikt över Application Gateway SSL-princip](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 När du har skapat en lyssnare associerar du den med en regel för begäran-routning. Regeln bestämmer hur förfrågningar som tas emot på lyssnaren dirigeras till Server delen.
 
@@ -199,10 +199,6 @@ Koppla till regeln till den backend-pool som innehåller backend-målen som hant
  - För en sökväg-baserad regel lägger du till flera Server dels pooler som motsvarar varje URL-sökväg. De begär Anden som matchar URL-sökvägen som anges vidarebefordras till motsvarande backend-pool. Lägg också till en standardpool för Server delen. Begär Anden som inte matchar någon URL-sökväg i regeln vidarebefordras till poolen.
 
 ### <a name="associated-back-end-http-setting"></a>Associerad HTTP-inställning på Server Sidan
-
-Lägg till en HTTP-inställning på Server sidan för varje regel. Begär Anden dirigeras från programgatewayen till backend-målen genom att använda port nummer, protokoll och annan information som anges i den här inställningen.
-
-För en grundläggande regel tillåts bara en HTTP-inställning på Server sidan. Alla begär Anden på den associerade lyssnaren vidarebefordras till motsvarande backend-mål genom att använda den här HTTP-inställningen.
 
 Lägg till en HTTP-inställning på Server sidan för varje regel. Begär Anden dirigeras från programgatewayen till backend-målen genom att använda port nummer, protokoll och annan information som anges i den här inställningen.
 
@@ -245,10 +241,10 @@ Mer information om omdirigering finns i:
 
 #### <a name="rewrite-the-http-header-setting"></a>Skriv om inställningen för HTTP-huvud
 
-Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Du kan bara konfigurera den här funktionen via PowerShell. Stöd för Azure Portal och CLI är inte tillgängligt än. Mer information finns här:
+Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Mer information finns här:
 
  - [Översikt över Skriv över HTTP-rubriker](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Konfigurera omskrivning av HTTP-huvud](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
+ - [Konfigurera omskrivning av HTTP-huvud](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 
 ## <a name="http-settings"></a>HTTP-inställningar
 
@@ -260,7 +256,7 @@ Den här funktionen är användbar när du vill behålla en användarsession på
 
 ### <a name="connection-draining"></a>Anslutningstömning
 
-Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla inregistreringar av instanser av en backend-pool inte tar emot några nya begär Anden. Under tiden kan befintliga begär Anden slutföras inom en konfigurerad tids gräns. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen med ett API-anrop. Den gäller även för Server dels instanser som rapporteras *som ohälsosama av hälso* avsökningarna.
+Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla inregistreringar av instanser av en backend-pool inte tar emot några nya begär Anden. Under tiden kan befintliga begär Anden slutföras inom en konfigurerad tids gräns. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
 
 ### <a name="protocol"></a>Protokoll
 
@@ -274,7 +270,7 @@ Den här inställningen anger den port där backend-servrarna lyssnar på trafik
 
 ### <a name="request-timeout"></a>Timeout för begäran
 
-Den här inställningen är antalet sekunder som programgatewayen väntar på att ta emot ett svar från backend-poolen innan det returnerar fel meddelandet "tids gräns för anslutningen uppnåddes".
+Den här inställningen är antalet sekunder som Application Gateway väntar på att få svar från backend-servern.
 
 ### <a name="override-back-end-path"></a>Åsidosätt backend-sökväg
 
@@ -301,7 +297,7 @@ Med den här inställningen kan du konfigurera en valfri anpassad vidarebefordri
 
 ### <a name="use-for-app-service"></a>Använd för App Service
 
-Det här är en UI-genväg som väljer de två inställningar som krävs för Azure App Service server delen. Det aktiverar **Välj värd namnet från backend-adressen**och skapar en ny anpassad avsökning. (Mer information finns i avsnittet [Välj värdnamn från backend-adress](#pick) i den här artikeln.) En ny avsökning skapas och avsöknings huvudet plockas från Server delens medlem adress.
+Det här är endast ett användar gränssnitt som väljer de två nödvändiga inställningarna för Azure App Service server del. Det aktiverar **Välj värd namnet från backend-adressen**och skapar en ny anpassad avsökning om du inte redan har en. (Mer information finns i avsnittet [Välj värdnamn från backend-adress](#pick) i den här artikeln.) En ny avsökning skapas och avsöknings huvudet plockas från Server delens medlem adress.
 
 ### <a name="use-custom-probe"></a>Använd anpassad avsökning
 
@@ -310,26 +306,26 @@ Den här inställningen associerar en [anpassad avsökning](https://docs.microso
 > [!NOTE]
 > Den anpassade avsökningen övervakar inte Server delens hälso tillstånd om inte den motsvarande HTTP-inställningen uttryckligen är associerad med en lyssnare.
 
-### <a id="pick"/> @ no__t-1Pick-värdnamn från backend-adressen
+### <a id="pick"/></a>Välj värd namnet från backend-adressen
 
 Den här funktionen ställer dynamiskt in *värd* rubriken i begäran till värd namnet för backend-poolen. Den använder en IP-adress eller ett fullständigt domän namn.
 
-Den här funktionen hjälper när Server dels domän namnet skiljer sig från DNS-namnet på programgatewayen, och Server delen förlitar sig på ett särskilt värd huvud eller Servernamnindikator (SNI)-tillägg för att matcha rätt slut punkt.
+Den här funktionen hjälper när Server dels domän namnet skiljer sig från DNS-namnet på programgatewayen och Server delen förlitar sig på en specifik värd rubrik för att matcha rätt slut punkt.
 
 Ett exempel är ett exempel på flera klient tjänster som server delen. En app service är en tjänst för flera innehavare som använder ett delat utrymme med en enda IP-adress. Därför kan en app service bara nås via de värdnamn som kon figurer ATS i inställningarna för den anpassade domänen.
 
-Som standard är det anpassade domän namnet *exempel. azurewebsites.<i> </i> NET*. För att få åtkomst till din app service genom att använda en Programgateway via ett värdnamn som inte uttryckligen registreras i App Service eller via programgatewayens FQDN, åsidosätter du värd namnet i den ursprungliga begäran till App Service-värdnamnet. Det gör du genom att aktivera inställningen **Välj värd namn från Server dels adress** .
+Som standard är det anpassade domän namnet *example.azurewebsites.net*. För att få åtkomst till din app service genom att använda en Programgateway via ett värdnamn som inte uttryckligen registreras i App Service eller via programgatewayens FQDN, åsidosätter du värd namnet i den ursprungliga begäran till App Service-värdnamnet. Det gör du genom att aktivera inställningen **Välj värd namn från Server dels adress** .
 
 För en anpassad domän vars befintliga anpassade DNS-namn mappas till App Service behöver du inte aktivera den här inställningen.
 
 > [!NOTE]
-> Den här inställningen krävs inte för App Service-miljön för PowerApps, som är en dedikerad distribution.
+> Den här inställningen krävs inte för App Service-miljön, som är en dedikerad distribution.
 
 ### <a name="host-name-override"></a>Åsidosätt värdnamn
 
 Den här funktionen ersätter *värd* rubriken i den inkommande begäran på programgatewayen med det värdnamn som du anger.
 
-Om till exempel *<i></i>www. contoso. com* anges i inställningen **värd namn** , ändras den ursprungliga begäran *https:/<i></i>/appgw.eastus.cloudapp.net/path1* till *https:/<i></i>/www.contoso.com/path1* när begäran vidarebefordras till backend-servern.
+Om *www.contoso.com* till exempel anges i inställningen **värd namn** , ändras den ursprungliga begäran * https://appgw.eastus.cloudapp.azure.com/path1 till * https://www.contoso.com/path1 när begäran vidarebefordras till backend-servern.
 
 ## <a name="back-end-pool"></a>Serverdelspool
 
@@ -342,7 +338,7 @@ När du har skapat en backend-pool måste du associera den med en eller flera re
 En Programgateway övervakar hälsan för alla resurser i Server delen som standard. Men vi rekommenderar starkt att du skapar en anpassad avsökning för varje server dels-HTTP-inställning för att få bättre kontroll över hälso övervakningen. Information om hur du konfigurerar en anpassad avsökning finns i [Inställningar för anpassade hälso avsökningar](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
 
 > [!NOTE]
-> När du har skapat en anpassad hälso avsökning måste du koppla den till en HTTP-inställning på Server sidan. En anpassad avsökning övervakar inte hälsan för backend-poolen om inte motsvarande HTTP-inställning uttryckligen är associerad med en lyssnare.
+> När du har skapat en anpassad hälso avsökning måste du koppla den till en HTTP-inställning på Server sidan. En anpassad avsökning övervakar inte hälsan för backend-poolen om inte den motsvarande HTTP-inställningen uttryckligen är associerad med en lyssnare med hjälp av en regel.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,23 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ef40d0df630fc369705a1365aa8d95317aa54cb3
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 20ad503582a35c1b47e90ca1c8c53af2c10fc6f8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904707"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151935"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Snabb start: Konfigurera IoT Hub Device Provisioning Service med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI för att skapa en IoT-hubb och en IoT Hub-enhetsetableringstjänst och hur du kopplar ihop de två tjänsterna. 
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten beskriver hur du använder Azure CLI för att skapa en IoT-hubb och en IoT Hub Device Provisioning Service och för att länka samman de två tjänsterna. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!IMPORTANT]
-> Både IoT-hubben och etableringstjänsten som du skapar i den här snabbstarten kommer att vara offentligt identifierbara som DNS-slutpunkter. Undvik känslig information om du vill ändra de namn som används för dessa resurser.
+> Både IoT-hubben och etablerings tjänsten som du skapar i den här snabb starten kommer att vara offentligt identifierade som DNS-slutpunkter. Undvik känslig information om du vill ändra de namn som används för dessa resurser.
 >
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -49,17 +48,17 @@ az group create --name my-sample-resource-group --location westus
 
 Skapa en IoT-hubb med kommandot [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 
-I följande exempel skapas en IoT-hubb med namnet *my-sample-hub* på platsen *usavästra*.  
+I följande exempel skapas en IoT-hubb med namnet *my-sample-hub* på platsen *usavästra*. Ett IoT Hub-namn måste vara globalt unikt i Azure, så du kanske vill lägga till ett unikt prefix eller suffix till exempel namnet, eller välja ett nytt namn helt och hållet. Kontrol lera att namnet följer rätt namngivnings konventioner för en IoT-hubb: det ska vara 3-50 tecken långt och får bara innehålla alfanumeriska tecken i versaler eller gemener (-). 
 
 ```azurecli-interactive 
 az iot hub create --name my-sample-hub --resource-group my-sample-resource-group --location westus
 ```
 
-## <a name="create-a-provisioning-service"></a>Skapa en etableringstjänst
+## <a name="create-a-device-provisioning-service"></a>Skapa en enhets etablerings tjänst
 
-Skapa en etableringstjänst med kommandot [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). 
+Skapa en enhets etablerings tjänst med kommandot [AZ IoT DPS Create](/cli/azure/iot/dps#az-iot-dps-create) . 
 
-I följande exempel skapas en etableringstjänst med namnet *my-sample-dps* på platsen *usavästra*.  
+I följande exempel skapas en etablerings tjänst med namnet *My-Sample-DPS* på platsen för *västra* USA. Du måste också välja ett globalt unikt namn för etablerings tjänsten. Se till att det följer rätt namngivnings konventioner för en IoT Hub Device Provisioning Service: det ska vara 3-64 tecken långt och får bara innehålla alfanumeriska tecken eller bindestreck ("-") med versaler eller gemener.
 
 ```azurecli-interactive 
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
@@ -69,12 +68,11 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 > I exemplet skapas en etableringstjänst på platsen USA, västra. Du kan se en lista med tillgängliga platser genom att köra kommandot `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table`, eller genom att gå till sidan [Azure-status](https://azure.microsoft.com/status/) och söka efter ”enhetsetableringstjänst”. I kommandon kan platser anges antingen i ett ord eller med flera ord. exempel: väst, västra USA, västra USA osv. Värdet är inte Skift läges känsligt. Om du använder flera ord för att ange platsen skriver du värdet inom citattecken; till exempel `-- location "West US"`.
 >
 
-
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 Du behöver IoT-hubbens anslutningssträng för att kunna länka den till enhetsetableringstjänsten. Använd kommandot [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) för att hämta anslutningssträngen. Använd sedan dess utdata för att ställa in en variabel som ska användas när du länkar de två resurserna. 
 
-I följande exempel anges variabeln *hubConnectionString* till värdet för anslutningssträngen för den primära nyckeln i hubbens *iothubowner*-princip. Du kan ange en annan princip med parametern `--policy-name`. Kommandot använder Azure CLI-[frågan](/cli/azure/query-azure-cli) och [utdata](/cli/azure/format-output-azure-cli#tsv-output-format)alternativ till att extrahera anslutningssträngen från kommandots utdata.
+I följande exempel anges *hubConnectionString* -variabeln till värdet för anslutnings strängen för den primära nyckeln i hubbens *iothubowner* -princip (parametern `--policy-name` kan användas för att ange en annan princip). Ta del av *mitt-sampel-hubb* för det unika IoT Hub-namnet som du valde tidigare. Kommandot använder Azure CLI-[frågan](/cli/azure/query-azure-cli) och [utdata](/cli/azure/format-output-azure-cli#tsv-output-format)alternativ till att extrahera anslutningssträngen från kommandots utdata.
 
 ```azurecli-interactive 
 hubConnectionString=$(az iot hub show-connection-string --name my-sample-hub --key primary --query connectionString -o tsv)
@@ -94,25 +92,30 @@ echo $hubConnectionString
 
 Länka IoT-hubben och etableringstjänsten med kommandot [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
-I följande exempel länkas en IoT-hubb med namnet *my-sample-hub* på platsen *westus* och en enhetsetableringstjänst med namnet *my-sample-dps*. Den använder anslutningssträngen för *my-sample-hub* som lagrades i variabeln *hubConnectionString* i föregående steg.
+I följande exempel länkas en IoT-hubb med namnet *My-Sample-Hub* på platsen för *västkusten* och en enhets etablerings tjänst med namnet *My-Sample-DPS*. Ta reda på dessa namn för de unika IoT Hub-och Device Provisioning-tjänstens namn som du valde tidigare. Kommandot använder anslutnings strängen för din IoT-hubb som lagrades i *hubConnectionString* -variabeln i föregående steg.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus
 ```
 
+Det kan ta några minuter att slutföra kommandot.
+
 ## <a name="verify-the-provisioning-service"></a>Kontrollera etableringstjänsten
 
 Hämta information om etableringstjänsten med kommandot [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show).
 
-I följande exempel hämtas information om en etableringstjänst med namnet *my-sample-dps*. Den länkade IoT-hubben visas i samlingen *properties.iotHubs*.
+I följande exempel hämtas information om en etableringstjänst med namnet *my-sample-dps*. Ta reda på det här namnet för din egen enhets etablerings tjänst namn.
 
 ```azurecli-interactive
 az iot dps show --name my-sample-dps
 ```
+Den länkade IoT-hubben visas i samlingen *properties.iotHubs*.
+
+![Verifiera etablerings tjänsten](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du vill fortsätta med efterföljande snabbstarter eller självstudier låter du bli att rensa resurserna som du har skapat i den här snabbstarten. Om du inte tänker fortsätta kan du använda följande kommandon för att ta bort etableringstjänsten, IoT-hubben eller resursgruppen och alla dess resurser.
+De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. Om du inte tänker fortsätta kan du använda följande kommandon för att ta bort etableringstjänsten, IoT-hubben eller resursgruppen och alla dess resurser. Ersätt namnen på resurserna som skrivits nedan med namnen på dina egna resurser.
 
 Ta bort etableringstjänsten genom att köra kommandot [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete):
 
@@ -133,7 +136,7 @@ az group delete --name my-sample-resource-group
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en IoT-hubb och en instans av Device Provisioning-tjänsten och länkat de två resurserna. Om du vill lära dig hur du använder den här konfigurationen för att etablera en simulerad enhet fortsätter du till Snabbstart för att skapa en simulerad enhet.
+I den här snabb starten har du distribuerat en IoT-hubb och en enhets etablerings tjänst instans och länkat de två resurserna. Om du vill lära dig hur du använder den här installationen för att etablera en simulerad enhet fortsätter du till snabb starten för att skapa en simulerad enhet.
 
 > [!div class="nextstepaction"]
-> [Snabbstart för att skapa en simulerad enhet](./quick-create-simulated-device.md)
+> [Snabb start för att skapa en simulerad enhet](./quick-create-simulated-device.md)

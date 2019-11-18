@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 177d8e6e9d4393df785f2caf55bf6cbe895bc640
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6209d899131a91754c200da831b3739833ade22c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667916"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132224"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -41,6 +41,7 @@ const appInsights = new ApplicationInsights({ config: {
   /* ...Other Configuration Options... */
 } });
 appInsights.loadAppInsights();
+appInsights.trackPageView(); // Manually call trackPageView to establish the current user/session/pageview
 ```
 
 ### <a name="snippet-based-setup"></a>Kodfragment-baserad installation
@@ -59,7 +60,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Skicka telemetri till Azure Portal
 
-Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Exempel på dessa är:
+Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Dessa är:
 
 - Ej **fångade undantag** i appen, inklusive information om
     - Stack spårning
@@ -98,8 +99,8 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 
 | Namn | Standard | Beskrivning |
 |------|---------|-------------|
-| instrumentationKey | Ha | **Kunna**<br>Instrumentation-nyckel som du fick från Azure Portal. |
-| accountId | Ha | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
+| instrumentationKey | ha | **Kunna**<br>Instrumentation-nyckel som du fick från Azure Portal. |
+| accountId | ha | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
 | sessionRenewalMs | 1800000 | En session loggas om användaren är inaktiv under den här tiden i millisekunder. Standardvärdet är 30 minuter |
 | sessionExpirationMs | 86400000 | En session loggas om den fortsätter under den här tiden i millisekunder. Standardvärdet är 24 timmar |
 | maxBatchSizeInBytes | 10000 | Max storlek för telemetri batch. Om en batch överskrider den här gränsen skickas den omedelbart och en ny batch startas |
@@ -123,20 +124,20 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | disableFlushOnBeforeUnload | false | Standard falskt. Om värdet är true anropas inte Flush-metoden när onBeforeUnload event triggers |
 | enableSessionStorageBuffer | true | Default True. Om värdet är true lagras bufferten med all telemetri som inte har skickats i session Storage. Bufferten återställs vid sid inläsning |
 | isCookieUseDisabled | false | Standard falskt. Om värdet är true kommer SDK inte att lagra eller läsa data från cookies.|
-| cookieDomain | Ha | Anpassad cookie-domän. Detta är användbart om du vill dela Application Insights cookies över under domäner. |
+| cookieDomain | ha | Anpassad cookie-domän. Detta är användbart om du vill dela Application Insights cookies över under domäner. |
 | isRetryDisabled | false | Standard falskt. Om det här värdet är falskt försöker du igen på 206 (delvis utfört), 408 (timeout), 429 (för många begär Anden), 500 (internt Server fel), 503 (tjänsten är inte tillgänglig) och 0 (offline, endast om det har identifierats) |
 | isStorageUseDisabled | false | Om värdet är true kommer SDK inte att lagra eller läsa data från lokal lagring och sessionstoken. Standardvärdet är false. |
 | isBeaconApiDisabled | true | Om det här värdet är falskt skickar SDK all telemetri med hjälp av [Beacon-API: et](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Standard falskt. När fliken är stängd skickar SDK all återstående telemetri med hjälp av Beacon- [API: et](https://www.w3.org/TR/beacon) |
-| sdkExtension | Ha | Anger namnet på SDK-tillägget. Endast alfabetiska tecken tillåts. Tilläggs namnet läggs till som ett prefix till taggen AI. Internal. sdkVersion (till exempel ext_javascript: 2.0.0). Standardvärdet är null. |
+| sdkExtension | ha | Anger namnet på SDK-tillägget. Endast alfabetiska tecken tillåts. Tilläggs namnet läggs till som ett prefix till taggen AI. Internal. sdkVersion (till exempel ext_javascript: 2.0.0). Standardvärdet är null. |
 | isBrowserLinkTrackingEnabled | false | Standardvärdet är false. Om värdet är true, kommer SDK att spåra alla förfrågningar om [webb läsar länkar](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
-| appId | Ha | AppId används för korrelationen mellan AJAX-beroenden på klient sidan med begär Anden på Server sidan. När Beacon-API är aktiverat kan det inte användas automatiskt, men det kan ställas in manuellt i konfigurationen. Standardvärdet är null |
+| appId | ha | AppId används för korrelationen mellan AJAX-beroenden på klient sidan med begär Anden på Server sidan. När Beacon-API är aktiverat kan det inte användas automatiskt, men det kan ställas in manuellt i konfigurationen. Standardvärdet är null |
 | enableCorsCorrelation | false | Om värdet är true, kommer SDK att lägga till två huvuden ("Request-ID" och "Request-context") till alla CORS-begäranden för att korrelera utgående AJAX-beroenden med motsvarande begär Anden på Server sidan. Standardvärdet är false |
 | namePrefix | Odefinierad | Ett valfritt värde som ska användas som namn postfix för localStorage och cookie-namn.
 | enableAutoRouteTracking | false | Spåra automatiskt väg ändringar i en enskild sida (SPA). Om värdet är true skickar varje väg ändring en ny sid visningar till Application Insights. Ändringar av hash-vägar (`example.com/foo#bar`) registreras också som nya sid visningar.
 | enableRequestHeaderTracking | false | Om värdet är true, kommer AJAX-& Hämta begärandehuvuden att spåras, standardvärdet är false.
 | enableResponseHeaderTracking | false | Om värdet är true spåras svars rubriker för AJAX-& Hämta. standard är falskt.
-| distributedTracingMode | `DistributedTracingModes.AI` | Ställer in läget för distribuerad spårning. Om AI_AND_W3C-läget eller W3C-läget har angetts genereras W3C trace context-rubriker (traceparent/tracestate) och tas med i alla utgående begär Anden. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster.
+| distributedTracingMode | `DistributedTracingModes.AI` | Ställer in läget för distribuerad spårning. Om AI_AND_W3C läge eller W3C-läge är inställt, genereras W3C trace context-rubriker (traceparent/tracestate) och tas med i alla utgående begär Anden. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster.
 
 ## <a name="single-page-applications"></a>Program med en sida
 

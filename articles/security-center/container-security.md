@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 41332a76c3c4e8228e6827e1553d73da3a85fc09
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522143"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123963"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -59,7 +59,7 @@ Information om Security Centers rekommendationer finns i [säkerhet för virtuel
 
 Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina behållare.
 
-Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-container-service-).
+Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="to-view-the-security-posture-of-your-container-related-resources"></a>Så här visar du säkerhets position för dina behållar resurser

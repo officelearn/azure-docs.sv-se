@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cijothomas
 ms.author: cithomas
 ms.date: 09/15/2019
-ms.openlocfilehash: a599a7cbb1ceff165d7bde77ba4bf797d66b5026
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048237"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131885"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -406,7 +406,7 @@ Telemetri-initierare finns som standard. Om du vill ta bort alla eller vissa tel
 
 ### <a name="adding-telemetry-processors"></a>Lägga till telemetri-processorer
 
-Du kan lägga till anpassade telemetri-processorer till `TelemetryConfiguration` med hjälp av tilläggs metoden `AddApplicationInsightsTelemetryProcessor` på `IServiceCollection`. Du kan använda telemetri-processorer i [avancerade filtrerings scenarier](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) för att få mer direkt kontroll över vad som ingår eller exkluderas från Telemetrin som du skickar till den Application Insights tjänsten. Använd följande exempel.
+Du kan lägga till anpassade telemetri-processorer till `TelemetryConfiguration` med hjälp av tilläggs metoden `AddApplicationInsightsTelemetryProcessor` på `IServiceCollection`. Du kan använda telemetri-processorer i [avancerade filtrerings scenarier](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer) för att få mer direkt kontroll över vad som ingår eller exkluderas från Telemetrin som du skickar till den Application Insights tjänsten. Använd följande exempel.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)

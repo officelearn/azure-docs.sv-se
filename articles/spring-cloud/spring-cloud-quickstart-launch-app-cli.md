@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9751435636519100ea13fd850508c99faeb87a92
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721604"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133323"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Snabb start: starta ett Java våren-program med Azure CLI
 
@@ -28,7 +28,7 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 >[!Note]
 > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) .
@@ -146,7 +146,16 @@ Till sist kan du fråga **Gateway** -appen efter dess offentliga IP-adress så a
 az spring-cloud app show --name gateway | grep url
 ```
 
-Gå till URL: en som tillhandahålls av föregående kommando för att se PiggyMetrics-programmet som körs.
+Gå till URL: en som tillhandahålls av föregående kommando för att köra PiggyMetrics-programmet.
+    ![skärm bild av PiggyMetrics som kör](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+Du kan också navigera Azure Portal för att hitta URL: en. 
+1. Navigera till tjänsten
+1. Välj **appar**
+1. Välj **Gateway**
+
+    ![Skärm bild av PiggyMetrics som körs](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. Hitta URL: en på sidan **Gateway-översikt** ![skärm bild av PiggyMetrics som kör](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

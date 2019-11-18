@@ -1,19 +1,16 @@
 ---
-title: Använda Azure Deployment Manager med Resource Manager-mallar | Microsoft Docs
+title: Använda Azure Deployment Manager med mallar
 description: Använda Resource Manager-mallar med Azure Deployment Manager för att distribuera Azure-resurser.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285680"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149891"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudie: använda hälso kontroll i Azure Deployment Manager (offentlig för hands version)
 
@@ -268,7 +265,7 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment` är ett asynkront anrop. Meddelandet lyckades innebär att distributionen har startats. Verifiera distributionen genom att använda `Get-AZDeploymentManagerRollout`.  Se nästa procedur.
+> `New-AzResourceGroupDeployment` är ett asynkront anrop. Meddelandet lyckades innebär att distributionen har startats. Använd `Get-AZDeploymentManagerRollout`för att verifiera distributionen.  Se nästa procedur.
 
 För att kontrol lera installations förloppet med följande PowerShell-skript:
 
@@ -362,7 +359,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Använd fältet **Filtrera efter namn** för att visa resursgrupperna som skapats i den här självstudien. De bör vara 3–4:
 
-    * **&lt;projectName > RG**: innehåller Deployment Manager-resurserna.
+    * **&lt;projectName > RG**: innehåller Deployment Manager-resurser.
     * **&lt;projectName > ServiceWUSrg**: innehåller de resurser som definierats av ServiceWUS.
     * **&lt;projectName > ServiceEUSrg**: innehåller de resurser som definierats av ServiceEUS.
     * Resursgruppen för den användardefinierade hanterade identiteten.

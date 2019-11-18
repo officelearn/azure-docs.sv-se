@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)'
+title: 'Snabb start: ansluta till en app med anpassade kommandon med tal SDK – tal service'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln ska du skapa ett program för tal-SDK-klient med anpassade kommandon.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5f395d37e0133a081a6fcb2e03821a97e4012316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507499"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111169"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)
 
@@ -26,7 +26,7 @@ I den här artikeln får du:
 - Publicera ett program för anpassade kommandon och hämta ett program-ID (app-ID)
 - Skapa ett klient program med hjälp av tal-SDK så att du kan prata med dina anpassade kommandon i programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det krävs ett program med anpassade kommandon för att kunna slutföra den här artikeln. Om du inte har skapat ett program för anpassade kommandon än kan du göra det i dessa tidigare snabb starter:
 
@@ -46,7 +46,7 @@ I den här snabb starten beskrivs steg för steg hur du gör ett klient program 
 
 1. Öppna dina [tidigare skapade program för anpassade kommandon](./quickstart-custom-speech-commands-create-new.md) och välj **publicera**
 
-   > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"] 
    > ![publicera program](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Kopiera app-ID: t från publicerings meddelandet för senare användning
@@ -320,7 +320,7 @@ Lägg till koden bakom källan enligt följande:
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -377,7 +377,7 @@ Lägg till koden bakom källan enligt följande:
 1. Lägg till följande kodfragment i bröd texten i `ListenButton_ButtonClicked`-metoden i `MainPage`-klassen
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -415,7 +415,7 @@ Lägg till koden bakom källan enligt följande:
 1. Välj **prata**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"]
 > Gör så [här: utföra kommandon på klienten med Speech SDK (för hands version)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [så här gör du: Lägg till valideringar i anpassade kommando parametrar (för hands version)](./how-to-custom-speech-commands-validations.md)
-

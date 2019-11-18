@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 25aaad02cf8c90c67e87d49553a02cacf033281f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a9e2a2c20a8de4bed3876f431566b293cbfa4ef5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819480"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109656"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra klustret från certifikatets tumavtryck till eget namn
 Inga två certifikat kan ha samma tumavtryck, vilket gör det svårt att förnya kluster certifikat eller hantering. Flera certifikat kan dock ha samma egna namn eller ämne.  Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare. I den här artikeln beskrivs hur du uppdaterar ett kör Service Fabric-kluster för att använda certifikatets egna namn i stället för certifikatets tumavtryck.
@@ -189,7 +189,7 @@ Ladda ned mall-och parameter-JSON-filer till den lokala datorn.
         ...
     ```
 
-Mer information finns i [Ändra kluster från certifikatets tumavtryck till eget namn.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)
+Mer information finns i [distribuera ett Service Fabric kluster som använder certifikatets egna namn i stället för tumavtryck.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
 
 ## <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
 Distribuera om den uppdaterade mallen när du har gjort ändringarna.

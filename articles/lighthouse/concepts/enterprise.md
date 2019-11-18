@@ -1,22 +1,18 @@
 ---
-title: Azure-Lighthouse i företags scenarier
+title: Azure Lighthouse i företagsscenarier
 description: Funktionerna i Azure Lighthouse kan användas för att förenkla hanteringen av flera innehavare i ett företag som använder flera Azure AD-klienter.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/25/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: fbd87cc801824729025feb7aefa411ac38048949
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266729"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132495"
 ---
-# <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure-Lighthouse i företags scenarier
+# <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse i företagsscenarier
 
-Det vanligaste scenariot för Azure Lighthouse är en tjänst leverantör som hanterar resurser i sina kunders Azure Active Directory (Azure AD)-klient organisationer. Funktionerna i Azure Lighthouse kan dock också användas för att förenkla hanteringen av flera innehavare i ett företag som använder flera Azure AD-klienter.
+Det vanligaste scenariot för [Azure Lighthouse](../overview.md) är en tjänst leverantör som hanterar resurser i sina kunders Azure Active Directory (Azure AD)-klient organisationer. Funktionerna i Azure Lighthouse kan dock också användas för att förenkla hanteringen av flera innehavare i ett företag som använder flera Azure AD-klienter.
 
 ## <a name="single-vs-multiple-tenants"></a>En eller flera klienter
 

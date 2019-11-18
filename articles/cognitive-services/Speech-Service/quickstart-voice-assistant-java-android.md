@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1de9283e1ad609a1f81d7e8a6d8171cc8052e3ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504076"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111789"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Snabb start: skapa en röst assistent i Java på Android med hjälp av talet SDK
 
@@ -28,11 +28,11 @@ Det här programmet har skapats med tal SDK maven-paketet och Android Studio 3,3
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
-* En tidigare skapad robot som kon figurer ATS med den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v 3.3 eller senare
+- En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
+- En tidigare skapad robot som kon figurer ATS med den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Android Studio](https://developer.android.com/studio/) v 3.3 eller senare
 
     > [!NOTE]
     > Se [listan över regioner som stöds för röst assistenter](regions.md#voice-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
@@ -96,9 +96,9 @@ Ersätt sedan innehållet i `activity_main.xml` med följande kod:
 
 I den här XML-koden definieras ett enkelt gränssnitt för att interagera med din robot.
 
-* `button`-elementet initierar en interaktion och anropar `onBotButtonClicked`-metoden när du klickar på den.
-* `recoText`-elementet visar tal-till-text-resultatet när du pratar med din robot.
-* `activityText`-elementet visar JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
+- `button`-elementet initierar en interaktion och anropar `onBotButtonClicked`-metoden när du klickar på den.
+- `recoText`-elementet visar tal-till-text-resultatet när du pratar med din robot.
+- `activityText`-elementet visar JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
 
 Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här:
 

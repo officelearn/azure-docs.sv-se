@@ -1,24 +1,20 @@
 ---
 title: Att tänka på med Cloud Solution Provider-programmet
 description: För CSP-partner hjälper Azure delegerad resurs hantering att förbättra säkerheten och kontrollen genom att aktivera detaljerade behörigheter.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 10/23/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: cf9b834d79fa36bbe327a72089388b3f1a1a0c14
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3ea32418cdf6808ad311d343d28ba2778740dbe4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901838"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132525"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure-Lighthouse och Cloud Solution Provider-programmet
 
 Om du är en [CSP-partner (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) kan du redan komma åt de Azure-prenumerationer som har skapats för dina kunder via CSP-programmet med hjälp av [administrate-funktionen (administrera på uppdrag av)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) . Med den här åtkomsten kan du direkt stödja, konfigurera och hantera dina kunders prenumerationer.
 
-Med Azure Lighthouse kan du använda Azure-delegerad resurs hantering tillsammans med ADMINISTRATE. Detta bidrar till att förbättra säkerheten och minskar onödig åtkomst genom att aktivera mer detaljerade behörigheter för dina användare. Det ger också ökad effektivitet och skalbarhet, eftersom dina användare kan arbeta över flera kund prenumerationer med hjälp av en enda inloggning i din klient organisation.
+Med [Azure Lighthouse](../overview.md)kan du använda Azure-delegerad resurs hantering tillsammans med administrate. Detta bidrar till att förbättra säkerheten och minskar onödig åtkomst genom att aktivera mer detaljerade behörigheter för dina användare. Det ger också ökad effektivitet och skalbarhet, eftersom dina användare kan arbeta över flera kund prenumerationer med hjälp av en enda inloggning i din klient organisation.
 
 > [!TIP]
 > Du kan skydda kund resurser genom att granska och följa våra [rekommenderade säkerhets metoder](recommended-security-practices.md) tillsammans med [partner säkerhets kraven](https://docs.microsoft.com/partner-center/partner-security-requirements).
@@ -38,7 +34,7 @@ När du registrerar en prenumeration som du har skapat via CSP-programmet följe
 ![Hantering av innehavare med ADMINISTRATE och Azure delegerad resurs hantering](../media/csp-2.jpg)
 
 > [!NOTE]
-> Sidan [ **Mina kunder** i Azure Portal](../how-to/view-manage-customers.md) innehåller nu en **moln lösnings leverantör (förhands granskning)** , som visar fakturerings information och resurser för CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och är under Azure-prenumerationen. Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](https://docs.microsoft.com/azure/billing/mpa-overview).
+> Sidan [ **Mina kunder** i Azure Portal](../how-to/view-manage-customers.md) innehåller nu en **moln lösnings leverantör (förhands granskning)** , som visar fakturerings information och resurser för CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och som ingår i Azure-prenumerationen. Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](https://docs.microsoft.com/azure/billing/mpa-overview).
 >
 > CSP-kunder kan visas i det här avsnittet oavsett om de har publicerats för Azure-delegerad resurs hantering. Om de har det visas de också i avsnittet **kunder** , enligt beskrivningen i [Visa och hantera kunder och delegerade resurser](../how-to/view-manage-customers.md).
 

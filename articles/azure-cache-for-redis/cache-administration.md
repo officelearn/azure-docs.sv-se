@@ -1,43 +1,35 @@
 ---
-title: Så här administrerar du Azure cache för Redis | Microsoft Docs
+title: Så här administrerar du Azure cache för Redis
 description: Lär dig hur du utför administrations åtgärder som att starta om och schemalägga uppdateringar för Azure cache för Redis
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756620"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122533"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Så här administrerar du Azure cache för Redis
 I det här avsnittet beskrivs hur du utför administrations åtgärder som att [Starta](#reboot) om och [schemalägga uppdateringar](#schedule-updates) för Azure cache för Redis-instanser.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reboot"></a>Omstart
+## <a name="reboot"></a>Starta om
 På bladet **starta om** kan du starta om en eller flera noder i cacheminnet. Med den här omstarts funktionen kan du testa ditt program för återhämtning om det uppstår ett problem med en cache-nod.
 
-![Omstart](./media/cache-administration/redis-cache-administration-reboot.png)
+![Starta om](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Välj de noder som ska startas om och klicka på **starta om**.
 
-![Omstart](./media/cache-administration/redis-cache-reboot.png)
+![Starta om](./media/cache-administration/redis-cache-reboot.png)
 
 Om du har en Premium-cache med aktive rad kluster kan du välja vilken Shards som ska startas om.
 
-![Omstart](./media/cache-administration/redis-cache-reboot-cluster.png)
+![Starta om](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 Om du vill starta om en eller flera noder i cacheminnet väljer du önskade noder och klickar på **starta om**. Om du har en Premium-cache med klustrad aktive rad väljer du önskad Shards för omstart och klickar sedan på **starta om**. Efter ett par minuter startar om de valda noderna och är online igen några minuter senare.
 
@@ -84,7 +76,7 @@ På bladet **schema uppdateringar** kan du ange ett underhålls fönster för di
 
 Om du vill ange en underhålls period kontrollerar du önskade dagar och anger start timme för underhålls perioden för varje dag och klickar på **OK**. Observera att tiden för underhålls perioden är UTC. 
 
-Standard-och minimi underhålls perioden för uppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure Portal, men du kan konfigurera det i PowerShell med parametern `MaintenanceWindow` för cmdleten [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) . Mer information finns i kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanterings verktyg?
+Standard-och minimi underhålls perioden för uppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure Portal, men du kan konfigurera det i PowerShell med hjälp av parametern `MaintenanceWindow` för cmdleten [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) . Mer information finns i kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanterings verktyg?
 
 ## <a name="schedule-updates-faq"></a>Vanliga frågor och svar om schemalagda uppdateringar
 * [När sker uppdateringar om jag inte använder funktionen schemalagda uppdateringar?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

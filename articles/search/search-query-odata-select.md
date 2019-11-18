@@ -1,7 +1,7 @@
 ---
 title: OData Select-referens
 titleSuffix: Azure Cognitive Search
-description: OData språk referens för Select-syntax i Azure Kognitiv sökning-frågor.
+description: Syntax och språk referens för explicit val av fält att returnera i Sök resultatet av Azure Kognitiv sökning-frågor.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793250"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113095"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select-syntax i Azure Kognitiv sökning
 

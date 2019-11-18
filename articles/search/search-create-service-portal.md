@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen'
+title: 'Snabb start: skapa en Sök tjänst i portalen'
 titleSuffix: Azure Cognitive Search
 description: Etablera en AzureCognitive Sök resurs i Azure Portal. Välj resursgrupper, regioner, samt SKU eller prisnivå.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5acfb60395f39d17e640e389ae2a28e220ccfae6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884282"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112113"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen
 
@@ -33,7 +33,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="find-azure-cognitive-search"></a>Hitta Azure-Kognitiv sökning
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
 3. Använd Sök fältet för att hitta "Azure Kognitiv sökning" eller navigera till resursen via **webb** > Azure- **kognitiv sökning**.
 

@@ -1,5 +1,5 @@
 ---
-title: Tal enheter SDK mikrofon mat ris rekommendationer – tal tjänst
+title: Tal enheter SDK mikrofon mat ris rekommendationer
 titleSuffix: Azure Cognitive Services
 description: Tal enheter SDK mikrofon mat ris rekommendationer. Dessa array-Geometries rekommenderas för användning med Microsoft Audio-stacken.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 0a0bbbb59d09d35d0153f56f65b2ee1d9438e49d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e39056d6ed1ced85e3f953bcbd7f04dd6311942c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072404"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111656"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon mat ris rekommendationer
 
@@ -41,16 +41,16 @@ Mikrofon komponenter bör väljas för att korrekt återge en signal utan brus o
 
 De rekommenderade egenskaperna vid val av mikrofoner är:
 
-| Parameter                     | Rekommenderas                                         |
-| ----------------------------- | --------------------------------------------------- |
-| SNR                           | \>= 65 dB (1 kHz Signal 94 dBSPL, A-viktat brus) |
-| Amplitud matchning            | ± 1 dB @ 1 kHz                                      |
-| Fas matchning                | ± 2° @ 1 kHz                                        |
-| Plats för akustisk överlagring (AOP) | \>= 120 dBSPL (THD = 10%)                           |
-| Bit hastighet                      | Minst 24-bitars                                      |
-| Samplingsfrekvens                 | Minst 16 kHz\*                                    |
-| Frekvens svar            | ± 3 dB, 200-8000 Hz flytande mask\*                 |
-| Tillförlitlighet                   | Lagrings temperatur intervall – 40 ° c till 70 ° c<br />Drift temperatur intervall – 20 ° c till 55 ° c |
+| Parameter | Rekommenderas |
+| --------- | ----------- |
+| SNR | \>= 65 dB (1 kHz Signal 94 dBSPL, A-viktat brus) |
+| Amplitud matchning | ± 1 dB @ 1 kHz |
+| Fas matchning | ± 2° @ 1 kHz |
+| Plats för akustisk överlagring (AOP) | \>= 120 dBSPL (THD = 10%) |
+| Bit hastighet | Minst 24-bitars |
+| Samplingsfrekvens | Minst 16 kHz\* |
+| Frekvens svar | ± 3 dB, 200-8000 Hz flytande mask\* |
+| Tillförlitlighet | Lagrings temperatur intervall – 40 ° c till 70 ° c<br />Drift temperatur intervall – 20 ° c till 55 ° c |
 
 \*_högre samplings frekvenser eller "bredare" frekvens intervall kan krävas för VoIP-program (High-Quality Communications)_
 
@@ -68,7 +68,7 @@ Mikrofonens prestanda när den är integrerad i en enhet skiljer sig från kompo
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, femte ordningen             |
 | Frekvens svar | ± 6 dB, 200-8000 Hz flytande mask\*\*              |
 
-\*_en högtalare med låg förvrängning krävs för att mäta THD (t. ex. Neumann KH120)_
+\*\*_en högtalare med låg förvrängning krävs för att mäta THD (t. ex. Neumann KH120)_
 
 \*\*_bredare frekvens intervall kan behövas för VoIP-program (High-Quality Communications)_
 

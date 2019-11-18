@@ -1,25 +1,17 @@
 ---
-title: Så här skalar du Azure cache för Redis | Microsoft Docs
+title: Så här skalar du Azure cache för Redis
 description: Lär dig hur du skalar Azure cache för Redis-instanser
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 21c93cac8b4126a46e4c3dc396db9857f6b62de9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0fe4092a93e34d6e6b4bb4c4441609f696518b86
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755438"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122118"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner. När en cache har skapats kan du skala storlek och pris nivå för cachen om kraven för ditt program ändras. Den här artikeln visar hur du skalar cacheminnet med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
@@ -72,7 +64,7 @@ Förutom att skala dina cache-instanser i Azure Portal kan du skala med hjälp a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan skala Azure-cachen för Redis-instanser med PowerShell genom att använda cmdleten [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) när egenskaperna `Size`, `Sku` eller `ShardCount` ändras. I följande exempel visas hur du skalar en cache med namnet `myCache` till en 2,5 GB-cache. 
+Du kan skala Azure-cachen för Redis-instanser med PowerShell genom att använda cmdleten [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) när egenskaperna `Size`, `Sku`eller `ShardCount` ändras. I följande exempel visas hur du skalar en cache med namnet `myCache` till en 2,5 GB-cache. 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -134,7 +126,7 @@ Nej, ditt cache-namn och nycklar är oförändrade under en skalnings åtgärd.
 ### <a name="how-does-scaling-work"></a>Hur fungerar skalningen?
 * När en **grundläggande** cache skalas till en annan storlek, stängs den av och en ny cache tillhandahålls med den nya storleken. Under den här tiden är cachen otillgänglig och alla data i cachen går förlorade.
 * När en **grundläggande** **cache skalas till en** standardcache, allokeras en replik-cache och data kopieras från den primära cachen till replik-cachen. Cachen är fortfarande tillgänglig under skalnings processen.
-* När en **standardcache** skalas till en annan storlek eller till en **Premium** -cache, stängs en av replikerna ned och etableras om till den nya storleken och de data som överförs, och den andra repliken utför en redundansväxling innan den reserveras, liknar den process som inträffar under ett fel i en av cache-noderna.
+* När en **standardcache** skalas till en annan storlek eller till en **Premium** -cache, stängs en av replikerna ned och etableras om till den nya storleken och de data som överförs, och sedan utför den andra repliken en redundansväxling innan den reserveras, liknande den process som inträffar under ett fel i en av cache-noderna.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Kommer jag att förlora data från mitt cacheminne under skalning?
 * När en **grundläggande** cache skalas till en ny storlek förloras alla data och cachen är inte tillgänglig under skalnings åtgärden.

@@ -1,25 +1,17 @@
 ---
-title: Felsöka Azure cache för Redis-timeout | Microsoft Docs
+title: Felsöka Azure cache för Redis-timeout
 description: Lär dig hur du löser vanliga timeout-problem med Azure cache för Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826338"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121377"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka Azure cache för Redis-timeout
 
@@ -47,11 +39,11 @@ Det här fel meddelandet innehåller mått som kan hjälpa dig att peka på orsa
 | Mått för fel meddelande | Information |
 | --- | --- |
 | Inst |I det senaste tillfället, sektorn: 0 kommandon har utfärdats |
-| hanterare |Socket Manager gör `socket.select`, vilket innebär att den ber operativ systemet att ange en socket som har något att göra. Läsaren läser inte aktivt från nätverket eftersom det inte tycker att det finns något att göra |
+| mgr |Socket Manager gör `socket.select`, vilket innebär att den ber operativ systemet att ange en socket som har något att göra. Läsaren läser inte aktivt från nätverket eftersom det inte tycker att det finns något att göra |
 | kö |Det finns 73 totala pågående åtgärder |
 | qu |6 av pågående åtgärder finns i den ej skickade kön och har ännu inte skrivits till det utgående nätverket |
 | qs |67 av pågående åtgärder har skickats till servern, men ett svar är ännu inte tillgängligt. Svaret kan vara `Not yet sent by the server` eller `sent by the server but not yet processed by the client.` |
-| KS |0 av pågående åtgärder har läst svar men har ännu inte marker ATS som slutförda eftersom de väntar på slut för ande av slut för ande |
+| qc |0 av pågående åtgärder har läst svar men har ännu inte marker ATS som slutförda eftersom de väntar på slut för ande av slut för ande |
 | WR |Det finns en aktiv skrivare (vilket innebär att 6 ej skickade förfrågningar inte ignoreras) byte/activewriters |
 | För |Det finns inga aktiva läsare och inga byte som är tillgängliga för läsning på NÄTVERKSKORTets byte/activereaders |
 

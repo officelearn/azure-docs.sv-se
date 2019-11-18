@@ -1,5 +1,5 @@
 ---
-title: Skala upp partitioner och repliker för att lägga till kapacitet för frågor och index-arbetsbelastningar
+title: Skalnings kapacitet för frågor och index-arbetsbelastningar
 titleSuffix: Azure Cognitive Search
 description: Justera partitions-och replik dator resurser i Azure Kognitiv sökning, där varje resurs priss ätts i de fakturerbara Sök enheterna.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792506"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112129"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Skala upp partitioner och repliker för att lägga till kapacitet för frågor och index-arbetsbelastningar i Azure Kognitiv sökning
 
@@ -89,10 +89,10 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Gäller inte |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Gäller inte |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Gäller inte |
-| **12 repliker** |12 SU |24 SU |36 SU |Gäller inte |Gäller inte |Gäller inte |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Saknas |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Saknas |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Saknas |
+| **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).
 

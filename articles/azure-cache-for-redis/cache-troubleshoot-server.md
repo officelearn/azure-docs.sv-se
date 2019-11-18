@@ -1,25 +1,17 @@
 ---
-title: Felsöka Azure cache för Redis-problem på Server Sidan | Microsoft Docs
+title: Felsöka Azure cache för Redis-problem på Server Sidan
 description: Lär dig hur du löser vanliga problem på Server sidan med Azure cache för Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 4310c31f2a59ae30b7317d043dc6d92b93fee050
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819614"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122574"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Felsöka Azure cache för Redis-problem på Server Sidan
 

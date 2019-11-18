@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Kognitiv sökning från ett .NET-program
+title: Använda Azure Kognitiv sökning i .NET
 titleSuffix: Azure Cognitive Search
 description: Lär dig hur du använder Azure Kognitiv sökning i ett .NET- C# program med och .NET SDK. Kodbaserade uppgifter är att ansluta till tjänsten, indexera innehållet och fråga ett index.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e1903b3b33e1dde5178fadbc37feee191a2eaacd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792121"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112593"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Använda Azure Kognitiv sökning från ett .NET-program
 
@@ -33,8 +33,8 @@ De andra NuGet-paketen i SDK: n är:
 
 De olika klient biblioteken definierar klasser som `Index`, `Field`och `Document`, samt åtgärder som `Indexes.Create` och `Documents.Search` i `SearchServiceClient`-och `SearchIndexClient`-klasserna. Dessa klasser är indelade i följande namn rymder:
 
-* [Microsoft. Azure. search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
-* [Microsoft. Azure. search. Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
+* [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
+* [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 Om du vill ge feedback om en kommande uppdatering av SDK: n, se vår [feedback-sida](https://feedback.azure.com/forums/263029-azure-search/) eller skapa ett problem på [GitHub](https://github.com/azure/azure-sdk-for-net/issues) och nämna "Azure kognitiv sökning" i ärende titeln.
 

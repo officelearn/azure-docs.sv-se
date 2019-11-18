@@ -1,48 +1,56 @@
 ---
-title: Metodtips för Developer - resurshantering i Azure Kubernetes Services (AKS)
-description: Läs application developer metodtipsen för resurshantering i Azure Kubernetes Service (AKS)
+title: Metod tips för utvecklare – resurs hantering i Azure Kubernetes Services (AKS)
+description: Lär dig metod tips för programutvecklare för resurs hantering i Azure Kubernetes service (AKS)
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfce7d77f214762a69857e74f0bb533ad1ce0f1b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073954"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107652"
 ---
-# <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Metodtips för programutvecklare att hantera resurser i Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Metod tips för programutvecklare för att hantera resurser i Azure Kubernetes service (AKS)
 
-När du utvecklar och kör program i Azure Kubernetes Service (AKS), finns det några viktiga områden att tänka på. Hur du hanterar din distribution av program kan ge försämrade slutanvändarens upplevelse av tjänster som du anger. För att hjälpa dig att lyckas, Tänk på några av metodtipsen du kan följa när du utvecklar och kör program i AKS.
+När du utvecklar och kör program i Azure Kubernetes service (AKS) finns det några viktiga områden att tänka på. Hur du hanterar dina program distributioner kan påverka slutanvändarens upplevelse av tjänster som du tillhandahåller. För att hjälpa dig att lyckas bör du tänka på några metod tips som du kan följa när du utvecklar och kör program i AKS.
 
-Den här bästa praxis-artikeln fokuserar på hur du kör ditt kluster och arbetsbelastningar från en utvecklares perspektiv för programmet. Information om administrativa metodtips finns i [kluster operatorn Metodtips för isolering och resurshantering i Azure Kubernetes Service (AKS)][operator-best-practices-isolation]. I den här artikeln lär du dig:
+I den här artikeln fokuserar vi på hur du kör ditt kluster och dina arbets belastningar från ett program utvecklings perspektiv. Information om rekommenderade metoder finns i [kluster operatörer metod tips för isolering och resurs hantering i Azure Kubernetes service (AKS)][operator-best-practices-isolation]. I den här artikeln lär du dig:
 
 > [!div class="checklist"]
-> * Vad är pod resursbegäranden och gränser
-> * Sätt att utveckla och distribuera program med utveckling blanksteg och Visual Studio Code
-> * Hur du använder den `kube-advisor` verktyg för att söka efter problem med distributioner
+> * Vad är resurs begär Anden och begränsningar för Pod
+> * Sätt att utveckla och distribuera program med dev Spaces och Visual Studio Code
+> * Använda `kube-advisor`-verktyget för att söka efter problem med distributioner
 
-## <a name="define-pod-resource-requests-and-limits"></a>Definiera pod resursbegäranden och begränsningar
+## <a name="define-pod-resource-requests-and-limits"></a>Definiera resurs begär Anden och begränsningar för Pod
 
-**Bästa praxis riktlinjer** – Ställ in pod begäranden och gränser för alla poddar i YAML-manifest. Om AKS-kluster använder *resurskvoter*, din distribution kan avvisas om du inte definierar dessa värden.
+**Vägledning för bästa praxis** – ange Pod-begäranden och begränsningar för alla poddar i dina yaml-manifest. Om AKS-klustret använder *resurs kvoter*kan distributionen avvisas om du inte definierar dessa värden.
 
-En primär sätt att hantera beräkningsresurser i ett AKS-kluster är att använda pod-begäranden och begränsningar. Dessa begäranden och begränsningar kan Kubernetes scheduler vet vad beräkningsresurser som en pod ska tilldelas.
+Ett primärt sätt att hantera beräknings resurserna i ett AKS-kluster är att använda Pod-begäranden och-gränser. Dessa förfrågningar och gränser gör att Kubernetes Scheduler vet vilka beräknings resurser som en POD ska tilldelas.
 
-* **Pod begäranden** definiera en viss mängd CPU och minne som krävs för din pod. Dessa begäranden ska vara mycket av beräkningsresurser som en pod som behövs för att tillhandahålla en godtagbar nivå av prestanda.
-    * När scheduler Kubernetes försöker placera en pod på en nod, används pod-begäranden till att avgöra vilken nod har tillräckligt med resurser som är tillgängliga.
-    * Övervaka prestanda för programmet och justera dessa begäranden för att se till att du inte definierar färre resurser som krävs för att upprätthålla en godtagbar nivå av prestanda.
-* **Pod gränser** är längsta CPU och minne som en pod kan använda. Dessa gränser förhindra att en eller två skenande poddar tar för mycket Processortid och minnesresurser från noden. Det här scenariot skulle minska prestandan för noden och andra poddar som körs på den.
-    * Om du inte ange en pod-gräns som är högre än vad som har stöd för noderna. Varje nod i AKS reserverar en viss mängd CPU och minne för Kubernetes kärnkomponenter. Ditt program kan prova att använda för många resurser på noden för andra poddarna för att köra.
-    * Igen, övervaka prestanda för ditt program vid olika tidpunkter under dagens eller veckans lopp. Avgöra när behovstoppen är och justera pod-gränser för de resurser som krävs för att uppfylla programmets behov.
+* **Pod för processor/minne** definierar en mängd processor och minne som Pod behöver regelbundet.
+    * När Kubernetes Scheduler försöker placera en POD på en nod, används Pod-begäranden för att avgöra vilken nod som har tillräckligt med resurser tillgängliga för schemaläggning.
+    * Om du inte anger en POD-begäran används den definierade gränsen som standard.
+    * Det är mycket viktigt att övervaka programmets prestanda för att justera dessa förfrågningar. Om det inte finns tillräckligt med begär Anden kan programmet få försämrade prestanda på grund av att en nod har schemalagts över. Om begär Anden är överskattat kan ditt program ha fått bättre svårigheter att komma åt schemat.
+* **Pod CPU/minnes gränser** är den maximala mängd processor och minne som en POD kan använda. Dessa gränser hjälper dig att definiera vilka poddar som ska stoppas i händelse av instabilitet på noden på grund av otillräckliga resurser. Utan rätt gränser kommer poddar att avlivas tills resurs trycket lyfts upp.
+    * Pod-gränser hjälper dig att definiera när en pod har förlorat kontrollen över resursförbrukning. När en gräns överskrids prioriteras Pod för avlivning för att upprätthålla nodens hälsa och minimera påverkan på poddar delning av noden.
+    * Om du inte anger en POD begränsas den till det högsta tillgängliga värdet på en specifik nod.
+    * Ange inte en POD-gräns som är högre än vad dina noder har stöd för. Varje AKS-nod reserverar en angiven mängd processor och minne för kärn komponenterna i Kubernetes. Ditt program kan försöka förbruka för många resurser på noden för att andra poddar ska kunna köras.
+    * Återigen är det viktigt att övervaka programmets prestanda vid olika tidpunkter under dagen eller i veckan. Fastställ när den högsta efter frågan är och justera Pod-gränserna till de resurser som krävs för att uppfylla programmets Max krav.
 
-I din pod-specifikationer är det bäst att definiera dessa begäranden och begränsningar. Om du inte anger dessa värden, Förstå Kubernetes scheduler inte vilka resurser som krävs. Scheduler kan schemalägga pod på en nod utan tillräckligt med resurser för att ge acceptabel prestanda. Klusteradministratören kan ställa *resurskvoter* för ett namnområde som du måste ange resursbegäranden och begränsningar. Mer information finns i [resurskvoter på AKS-kluster][resource-quotas].
+I dina Pod-specifikationer är det **bästa praxis och mycket viktigt** att definiera dessa förfrågningar och gränser baserat på ovanstående information. Om du inte tar med dessa värden kan Kubernetes Scheduler inte ta hänsyn till de resurser som dina program behöver för att få hjälp med att schemalägga beslut.
 
-När du definierar en CPU-begäran eller begränsa mäts värdet i CPU-enheter. *1.0* CPU motsvarar en underliggande virtuella processorkärna på noden. Samma måttet används för GPU: er. Du kan också definiera en bråkdelar begäran eller en gräns, vanligtvis i millicpu. Till exempel *100 miljoner* är *0.1* av en underliggande virtuella CPU-kärna.
+Om Scheduler placerar en POD på en nod med otillräckliga resurser kommer program prestanda försämras. Det rekommenderas starkt för kluster administratörer att ställa in *resurs kvoter* i ett namn område som kräver att du anger resurs begär Anden och begränsningar. Mer information finns i [resurs kvoter på AKS-kluster][resource-quotas].
 
-I följande grundläggande exempel för en enda NGINX-pod poden begär *100 miljoner* processortid och *128Mi* minne. Resursgränser för poden är inställda på *250 miljoner* CPU och *256Mi* minne:
+När du definierar en processor förfrågan eller en gräns mäts värdet i CPU-enheter. 
+* *1,0* CPU motsvarar en underliggande virtuell CPU-kärna på noden. 
+* Samma mått används för GPU: er.
+* Du kan definiera bråktal som mäts i millicores. Till exempel är *100 miljoner* *0,1* av en underliggande vCPU-kärna.
+
+I följande grundläggande exempel för en enda NGINX-Pod begär Pod *100 miljoner* CPU-tid och *128Mi* av minne. Resurs gränserna för pod är inställda på *250m* CPU-och *256Mi* -minne:
 
 ```yaml
 kind: Pod
@@ -62,46 +70,46 @@ spec:
         memory: 256Mi
 ```
 
-Läs mer om resource mätning av faktisk användning och tilldelningar [hantera beräkningsresurser för behållare][k8s-resource-limits].
+Mer information om resurs mått och tilldelningar finns i [hantera beräknings resurser för behållare][k8s-resource-limits].
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Utveckla och felsöka program mot ett AKS-kluster
 
-**Bästa praxis riktlinjer** -utvecklingsteam ska distribuera och felsöka mot ett AKS-kluster med utveckling blanksteg. Den här modellen utveckling ser till att rollbaserade åtkomstkontroller, nätverk eller lagringsbehov implementeras innan appen har distribuerats till produktion.
+**Vägledning för bästa praxis** – utvecklings team bör distribuera och felsöka mot ett AKS-kluster med hjälp av dev Spaces. Den här utvecklings modellen ser till att rollbaserade åtkomst kontroller, nätverk eller lagrings behov implementeras innan appen distribueras till produktion.
 
-Med Azure Dev blanksteg, utveckla, felsöka och testa program direkt mot ett AKS-kluster. Utvecklare i ett team arbetar tillsammans för att skapa och testa under hela programmets livscykel. Du kan fortsätta att använda befintliga verktyg som Visual Studio eller Visual Studio Code. Ett tillägg har installerats för Dev blanksteg som ger ett alternativ för att köra och felsöka programmet i ett AKS-kluster:
+Med Azure dev Spaces kan du utveckla, felsöka och testa program direkt mot ett AKS-kluster. Utvecklare i en grupp arbetar tillsammans för att bygga och testa under hela programmets livs cykel. Du kan fortsätta att använda befintliga verktyg som Visual Studio eller Visual Studio Code. Ett tillägg installeras för dev Spaces som ger ett alternativ för att köra och felsöka programmet i ett AKS-kluster:
 
-![Felsök program i ett AKS-kluster med utveckling blanksteg](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+![Felsöka program i ett AKS-kluster med dev Spaces](media/developer-best-practices-resource-management/dev-spaces-debug.png)
 
-Integrerad utvecklings- och processen Dev blanksteg minskar behovet av lokala testmiljöer, till exempel [minikube][minikube]. Däremot du utvecklar och testar mot ett AKS-kluster. Det här klustret kan skyddas och isolerade som anges i föregående avsnitt om användning av namnområden logiskt isolera ett kluster. När dina appar är redo att distribuera till produktion, kan du tryggt distribuera som din utveckling har utförts mot ett verkligt AKS-kluster.
+Den här integrerade utvecklings-och test processen med dev-utrymmen minskar behovet av lokala test miljöer, till exempel [minikube][minikube]. I stället kan du utveckla och testa mot ett AKS-kluster. Klustret kan skyddas och isoleras enligt föregående avsnitt om användningen av namn områden för att logiskt isolera ett kluster. När dina appar är klara att distribueras till produktion kan du på ett säkert sätt distribuera allt eftersom din utveckling genomfördes mot ett verkligt AKS-kluster.
 
-Azure Dev blanksteg är avsedd att användas med program som körs på Linux-poddar och noder.
+Azure dev Spaces är avsett att användas med program som körs på Linux-poddar och noder.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Använd Visual Studio Code-tillägget för Kubernetes
 
-**Bästa praxis riktlinjer** – installera och använda VS Code-tillägg för Kubernetes när du skriver YAML manifest. Du kan också använda tillägget för integrerad distributionslösning och kan bidra programägare som sällan interagerar med AKS-klustret.
+**Vägledning för bästa praxis** – installera och Använd vs Code-tillägget för Kubernetes när du skriver yaml-manifest. Du kan också använda tillägget för integrerad distributions lösning, vilket kan hjälpa program ägare som sällan interagerar med AKS-klustret.
 
-Den [Visual Studio Code-tillägg för Kubernetes] [ vscode-kubernetes] hjälper dig att utveckla och distribuera program till AKS. Tillägget visar intellisense för Kubernetes-resurser och Helm-diagram och mallar. Du kan också bläddra, distribuera och redigera Kubernetes-resurser från VS Code. Tillägget också innehåller en kontroll av intellisense för resursbegäranden eller begränsar anges i pod-specifikationer:
+[Visual Studio Code-tillägget för Kubernetes][vscode-kubernetes] hjälper dig att utveckla och distribuera program till AKS. Tillägget innehåller IntelliSense för Kubernetes-resurser och Helm-diagram och mallar. Du kan också bläddra i, distribuera och redigera Kubernetes-resurser från VS Code. Tillägget innehåller också en IntelliSense-kontroll för resurs begär Anden eller gränser som anges i pod-specifikationerna:
 
-![VS Code-tillägg för Kubernetes varning om saknade minnesbegränsningar](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
+![VS Code-tillägg för Kubernetes varning om saknade minnes gränser](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
 
-## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Regelbundet söka efter problem med kube-advisor
+## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Sök regelbundet efter program problem med Kube-Advisor
 
-**Bästa praxis riktlinjer** -regelbundet kör den senaste versionen av `kube-advisor` verktyg med öppen källkod att identifiera problem i klustret. Om du använder resurskvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har resursbegäranden och gränser som definierats.
+**Vägledning för bästa praxis** – kör regelbundet den senaste versionen av `kube-advisor` verktyg för öppen källkod för att identifiera problem i klustret. Om du använder resurs kvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har några resurs begär Anden och gränser definierade.
 
-Den [kube-advisor] [ kube-advisor] verktyget är ett projekt med associerade AKS öppen källkod som genomsöker ett Kubernetes-kluster och rapporter på problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
+Verktyget [Kube-Advisor][kube-advisor] är ett associerat AKS-projekt med öppen källkod som söker igenom ett Kubernetes-kluster och rapporterar om problem som hittas. En bra kontroll är att identifiera poddar som inte har resurs begär Anden och begränsningar på plats.
 
-Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare] [ k8s-node-selector] i en pod-konfiguration.
+Kube-verktyget kan rapportera om resurs begär Anden och gränser som saknas i PodSpecs för Windows-program och Linux-program, men Kube-Advisor-verktyget måste vara schemalagt för en Linux-pod. Du kan schemalägga en POD så att den körs på en adresspool med ett särskilt operativ system med hjälp av en [Node-selektor][k8s-node-selector] i pod-konfigurationen.
 
-I ett AKS-kluster som är värd för många utvecklingsteam och program, kan det vara svårt att spåra poddar utan dessa resurs-begäranden och begränsar uppsättningen. Som bästa praxis, regelbundet kör `kube-advisor` på AKS-kluster.
+I ett AKS-kluster som är värd för många utvecklings team och program, kan det vara svårt att spåra poddar utan dessa resurs begär Anden och begränsningar. Vi rekommenderar att du regelbundet kör `kube-advisor` på dina AKS-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här bästa praxis-artikeln fokuserar på hur du kör ditt kluster och arbetsbelastningar från ett kluster operatorn perspektiv. Information om administrativa metodtips finns i [kluster operatorn Metodtips för isolering och resurshantering i Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
+Den här tips artikeln fokuserar på hur du kör ditt kluster och dina arbets belastningar från ett kluster operatörs perspektiv. Information om rekommenderade metoder finns i [kluster operatörer metod tips för isolering och resurs hantering i Azure Kubernetes service (AKS)][operator-best-practices-isolation].
 
-Om du vill implementera vissa av dessa metodtips, finns i följande artiklar:
+Information om hur du implementerar några av dessa metod tips finns i följande artiklar:
 
-* [Utveckla med utveckling blanksteg][dev-spaces]
-* [Om problem med kube-advisor][aks-kubeadvisor]
+* [Utveckla med dev Spaces][dev-spaces]
+* [Sök efter problem med Kube-Advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
 [k8s-resource-limits]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/

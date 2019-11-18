@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f73dcfe3e0e2827083feba906e2efcd0265305
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 03eff6afb22ea3306bf7f8191f4eca3ccad39938
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331700"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151560"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elementet Microsoft. Common. FileUpload UI
+
 En kontroll som låter en användare ange en eller flera filer som ska överföras.
 
 ## <a name="ui-sample"></a>UI-exempel
-![Microsoft. Common. FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
+
+![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
 ## <a name="schema"></a>Schema
+
 ```json
 {
   "name": "element1",
@@ -47,16 +50,8 @@ En kontroll som låter en användare ange en eller flera filer som ska överför
 }
 ```
 
-## <a name="remarks"></a>Kommentarer
-- `constraints.accept` anger de typer av filer som visas i webbläsarens fil dialog ruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **Null**.
-- Om `options.multiple` har angetts till **True**tillåts användaren att välja fler än en fil i webbläsarens fil dialog ruta. Standardvärdet är **false**.
-- Det här elementet stöder överföring av filer i två lägen baserat på värdet för `options.uploadMode`. Om **filen** har angetts innehåller utdata innehållet i filen som en blob. Om **URL** anges överförs filen till en tillfällig plats och utdata har URL: en för blobben. Tillfälliga blobbar rensas efter 24 timmar. Standardvärdet är **File**.
-- En uppladdad fil är skyddad. URL: en för utdata innehåller en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att komma åt filen under distributionen.
-- Värdet för `options.openMode` bestämmer hur filen läses. Om filen förväntas vara oformaterad text anger du **text**. Annars anger du **Binary**. Standardvärdet är **text**.
-- Om `options.uploadMode` är inställt på **fil** och `options.openMode` är inställt på **binär**, är resultatet Base64-kodat.
-- `options.encoding` anger den kodning som ska användas för att läsa filen. Standardvärdet är **UTF-8**och används bara när `options.openMode` är inställt på **text**.
-
 ## <a name="sample-output"></a>Exempel på utdata
+
 Om alternativen. Multiple är false och Options. uploadMode är File, innehåller utdata innehållet i filen som en JSON-sträng:
 
 ```json
@@ -91,7 +86,17 @@ Om alternativen. Multiple är true och Options. uploadMode är URL, innehåller 
 
 När du testar en CreateUiDefinition trunkerar vissa webbläsare (som Google Chrome) webb adresser som genererats av elementet Microsoft. Common. FileUpload i webb läsar konsolen. Du kan behöva Högerklicka på enskilda Länkar för att kopiera de fullständiga URL: erna.
 
+## <a name="remarks"></a>Kommentarer
+
+- `constraints.accept` anger de typer av filer som visas i webbläsarens fil dialog ruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **Null**.
+- Om `options.multiple` är inställt på **Sant**tillåts användaren att välja fler än en fil i webbläsarens fil dialog ruta. Standardvärdet är **FALSKT**.
+- Det här elementet stöder överföring av filer i två lägen baserat på värdet för `options.uploadMode`. Om **filen** har angetts innehåller utdata innehållet i filen som en blob. Om **URL** anges överförs filen till en tillfällig plats och utdata har URL: en för blobben. Tillfälliga blobbar rensas efter 24 timmar. Standardvärdet är **File**.
+- En uppladdad fil är skyddad. URL: en för utdata innehåller en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att komma åt filen under distributionen.
+- Värdet för `options.openMode` avgör hur filen läses. Om filen förväntas vara oformaterad text anger du **text**. Annars anger du **Binary**. Standardvärdet är **text**.
+- Om `options.uploadMode` är inställt på **fil** och `options.openMode` är inställt på **binär**, är utdata Base64-kodad.
+- `options.encoding` anger den kodning som ska användas vid läsning av filen. Standardvärdet är **UTF-8**och används bara när `options.openMode` har värdet **text**.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
 * En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

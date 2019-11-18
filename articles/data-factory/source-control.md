@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f497bd06868d586f8378cb81e870a750b8a1670
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684041"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122895"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 
@@ -78,7 +78,7 @@ I konfigurations fönstret visas följande inställningar för Azure databaser C
 | **Azure databaser-organisation** | Ditt Azure databaser-organisations namn. Du kan hitta ditt Azure databaser-organisations namn på `https://{organization name}.visualstudio.com`. Du kan [Logga in på din Azure databaser-organisation](https://www.visualstudio.com/team-services/git/) för att få åtkomst till din Visual Studio-profil och se dina databaser och projekt. | `<your organization name>` |
 | **ProjectName** | Ditt Azure databaser-projekt namn. Du kan hitta ditt Azure databaser-projekt namn på `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Ditt namn på din Azure databaser Code-lagringsplats. Azure databaser-projekt innehåller git-lagringsplatser för att hantera din käll kod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt projekt. | `<your Azure Repos code repository name>` |
-| **Samarbets gren** | Din Azure databaser Collaboration-gren som används för publicering. Som standard `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch name>` |
+| **Samarbets gren** | Din Azure databaser Collaboration-gren som används för publicering. Som standard är det `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch name>` |
 | **Rotmapp** | Rotmappen i din Azure databaser-samarbets gren. | `<your root folder name>` |
 | **Importera befintliga Data Factory resurser till lagrings platsen** | Anger om befintliga data Factory-resurser ska importeras från UX **redigerings arbets ytan** till en Azure databaser git-lagringsplats. Markera rutan om du vill importera data Factory-resurser till den tillhör ande git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och data uppsättningar exporteras till separata JSON-data). När den här rutan inte är markerad importeras inte de befintliga resurserna. | Vald (standard) |
 | **Gren att importera resurs till** | Anger i vilken gren Data Factory-resurserna (pipelines, data uppsättningar, länkade tjänster osv.) importeras. Du kan importera resurser till någon av följande grenar: a. Samarbete b. Skapa nytt c. Använd befintlig |  |
@@ -186,7 +186,7 @@ När du är redo att sammanfoga ändringarna från din funktions gren till samar
 
 ### <a name="configure-publishing-settings"></a>Konfigurera publicerings inställningar
 
-För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – Lägg till en `publish_config.json`-fil till rotmappen i samarbets grenen. Data Factory läser filen, letar efter fältet `publishBranch`och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Till exempel:
+För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – Lägg till en `publish_config.json`-fil till rotmappen i samarbets grenen. Data Factory läser filen, letar efter fältet `publishBranch`och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Exempel:
 
 ```json
 {
@@ -194,7 +194,7 @@ För att konfigurera publicerings grenen – det vill säga grenen där Resource
 }
 ```
 
-När du anger en ny publicerings gren tar Data Factory inte bort den tidigare publicerings grenen. Om du vill fjärrans luta till den tidigare publicerings grenen tar du bort den manuellt.
+När du anger en ny publicerings gren tar Data Factory inte bort den tidigare publicerings grenen. Om du vill ta bort den tidigare publicerings grenen tar du bort den manuellt.
 
 > [!NOTE]
 > Data Factory läser bara `publish_config.json`-filen när den laddar fabriken. Om du redan har en fabrik som är inläst i portalen uppdaterar du webbläsaren för att ändringarna ska börja gälla.

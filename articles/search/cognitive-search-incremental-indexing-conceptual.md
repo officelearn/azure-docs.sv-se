@@ -1,5 +1,5 @@
 ---
-title: Introduktion till stegvis indexering (för hands version)
+title: Stegvis indexering (för hands version)
 titleSuffix: Azure Cognitive Search
 description: Konfigurera din AI-pipeline för att driva dina data till en eventuell konsekvens för att hantera eventuella uppdateringar av färdigheter, färdighetsuppsättningar, indexerare eller data källor. Den här funktionen är för närvarande en offentlig för hands version
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715431"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113598"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Vad är stegvis indexering i Azure Kognitiv sökning?
 
@@ -138,7 +138,7 @@ Vissa indexerare (via [data källor](https://docs.microsoft.com/rest/api/searchs
 
 Färdighetsuppsättningar har inte stöd för nya åtgärder, men har stöd för en ny QueryString-parameter: `disableCacheReprocessingChangeDetection` ska anges till `true` när du inte vill att befintliga dokument ska uppdateras baserat på den aktuella åtgärden.
 
-### <a name="datasources"></a>data källor
+### <a name="datasources"></a>Data källor
 
 Data källor har inte stöd för några nya åtgärder, men har stöd för en ny QueryString-parameter: `ignoreResetRequirement` ska vara inställt på `true` när uppdaterings åtgärden inte ska ogiltig förklara cachen.
 

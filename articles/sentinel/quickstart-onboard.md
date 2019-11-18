@@ -1,37 +1,42 @@
 ---
-title: Publicera i Azure Sentinel | Microsoft Docs
-description: Lär dig hur du samlar in data i Azure Sentinel.
+title: 'Snabb start: publicera i Azure Sentinel'
+description: Lär dig hur du samlar in data i Azure Sentinel genom att följa det här snabb starts dokumentet.
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
+ms.author: rkarlin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316815"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133094"
 ---
-# <a name="on-board-azure-sentinel"></a>Fordonsbaserad Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
-
-
-I den här snabb starten får du lära dig hur du kan använda Azure Sentinel på kort. 
+I den här snabb starten lär du dig att använda Azure Sentinel på kort sikt. 
 
 För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar, Microsoft 365 källor, inklusive Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
 
 När du har anslutit dina data källor väljer du från ett galleri med arbets böcker som skapats av experten som är baserade på dina data. Dessa arbets böcker kan enkelt anpassas efter dina behov.
 
+>[!NOTE] 
+> [Priserna för Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) baseras på mängden data som matas in i den associerade Azure Monitor Log Analytics-arbetsytan. En del av följande data kopplingar debiteras inte för inmatningen men det skulle finnas vissa kostnader som är kopplade till när du genererar någon typ av avisering med hjälp av inmatade data som lagras i Log Analytics arbets ytan och som kommer att debiteras enligt [Azure Monitor Log Analytics-priser](https://azure.microsoft.com/pricing/details/monitor/). 
+  > - Azure-aktivitet (aktivitets loggar för Azure-åtgärder)
+  > - Azure Active Directory Identity Protection (för klienter med AAD P2-licenser)
+  > - Azure Information Protection
+  > - Azure Advanced Threat Protection (aviseringar)
+  > - Azure Security Center (aviseringar)
+  > - Microsoft Cloud App Security (endast aviseringar)
+  > - Microsoft Defender Avancerat skydd (övervaknings agent aviseringar)
+  > - Office 365 (Exchange-och SharePoint-loggar)
+>
+> Azure AD/Office365 gransknings loggar är inte kostnads fria och erbjuds som en Premium nivå så att data inmatningen priss ätts per GB. 
+  
 
 ## <a name="global-prerequisites"></a>Globala krav
 
@@ -54,7 +59,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 1. Klicka på **+ Lägg till**.
 1. Välj den arbets yta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbets yta, men data isoleras till en enda arbets yta.
 
-   ![sök](./media/quickstart-onboard/choose-workspace.png)
+   ![Sök](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.

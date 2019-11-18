@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240306"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129851"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -50,11 +50,11 @@ Minimi kraven för en Linux-Hybrid Runbook Worker är:
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotek| 2.5-12 |
 |Openssl| OpenSSL-bibliotek | 1,0 (TLS 1,1 och TLS 1,2 stöds|
-|klammerparentes | webb klient för sväng | 7.15.5|
+|Klammerparentes | webb klient för sväng | 7.15.5|
 |Python – ctypes | Python 2. x krävs |
 |PAM | Pluggable Authentication Modules|
 | **Valfritt paket** | **Beskrivning** | **Lägsta version**|
-| PowerShell Core | För att köra PowerShell-Runbooks måste PowerShell installeras, se [Installera PowerShell Core på Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) för att lära dig hur du installerar det.  | 6.0.0 |
+| PowerShell Core | För att köra PowerShell-Runbooks måste PowerShell installeras, se [Installera PowerShell Core på Linux](/powershell/scripting/install/installing-powershell-core-on-linux) för att lära dig hur du installerar det.  | 6.0.0 |
 
 ### <a name="installation"></a>Installation
 
@@ -69,7 +69,7 @@ Notera Log Analytics arbets ytan som ditt Automation-konto är länkat till inna
          Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-1. Installera Log Analytics agent för Linux genom att köra följande kommando. Ersätt \<WorkspaceID\> och \<WorkspaceKeymedlämpligavärdenfråndinarbetsyta.\>
+1. Installera Log Analytics agent för Linux genom att köra följande kommando. Ersätt \<WorkspaceID\> och \<WorkspaceKey\> med lämpliga värden från din arbets yta.
 
    [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
@@ -86,7 +86,7 @@ Notera Log Analytics arbets ytan som ditt Automation-konto är länkat till inna
 1. När kommandot har slutförts visar sidan **hybrid Worker grupper** i Azure Portal den nya gruppen och antalet medlemmar. Om det här är en befintlig grupp ökar antalet medlemmar. Du kan välja gruppen i listan på sidan **hybrid Worker grupper** och sedan välja panelen **hybrid personal** . På sidan **hybrid Worker** visas varje medlem i gruppen i listan.
 
 > [!NOTE]
-> Om du använder tillägget Azure Monitor virtuell dator för Linux för en virtuell Azure-dator rekommenderar vi att `autoUpgradeMinorVersion` du anger till false som versioner av automatisk uppgradering kan orsaka problem som hybrid Runbook Worker. Information om hur du uppgraderar tillägget manuellt finns i [Azure CLI-distribution ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Om du använder tillägget Azure Monitor virtuell dator för Linux för en virtuell Azure-dator rekommenderar vi att du anger `autoUpgradeMinorVersion` till falskt eftersom automatiska uppgraderings versioner kan orsaka problem med Hybrid Runbook Worker. Information om hur du uppgraderar tillägget manuellt finns i [Azure CLI-distribution ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Inaktiverar verifiering av signatur
 
@@ -106,7 +106,7 @@ Följande Runbook-typer fungerar på en Linux-Hybrid Worker:
 * PowerShell
 
   > [!NOTE]
-  > PowerShell-Runbooks kräver att PowerShell Core installeras på Linux-datorn. Se [Installera PowerShell Core på Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) för att lära dig hur du installerar det.
+  > PowerShell-Runbooks kräver att PowerShell Core installeras på Linux-datorn. Se [Installera PowerShell Core på Linux](/powershell/scripting/install/installing-powershell-core-on-linux) för att lära dig hur du installerar det.
 
 Följande Runbook-typer fungerar inte på en Linux-Hybrid Worker:
 

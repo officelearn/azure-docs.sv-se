@@ -1,195 +1,187 @@
 ---
-title: Konfigurera Geo-replikering för Azure Cache för Redis | Microsoft Docs
-description: Lär dig mer om att replikera din Azure-Cache för Redis-instanser i olika geografiska regioner.
-services: cache
-documentationcenter: ''
+title: Så här konfigurerar du geo-replikering för Azure cache för Redis | Microsoft Docs
+description: Lär dig hur du replikerar Azure-cachen för Redis-instanser i olika geografiska regioner.
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 4254175955c3560c7bd0fdd08c6b60c318238b76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552389"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129425"
 ---
-# <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Konfigurera Geo-replikering för Azure Cache för Redis
+# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Så här konfigurerar du geo-replikering för Azure cache för Redis
 
-GEO-replikering är en mekanism för att länka två Premium-nivån Azure Cache för Redis-instanser. En cache är valt som den primära länkade cachen och andra som sekundär länkat cacheminne. Sekundär länkade cacheminnet blir skrivskyddade och data som skrivs till den primära cachen replikeras till det sekundära länkat cacheminnet. Den här funktionen kan användas för att replikera en cache i Azure-regioner. Den här artikeln beskrivs hur du konfigurerar Geo-replikering för din Premium-nivån Azure Cache för Redis-instanser.
+Geo-replikering är en mekanism för att länka två Premium-nivåer i Azure-cache för Redis-instanser. Ett cacheminne har valts som primärt länkat cache och den andra som sekundär länkad cache. Den sekundära länkade cachen blir skrivskyddad och data som skrivs till den primära cachen replikeras till den sekundära länkade cachen. Den här funktionen kan användas för att replikera en cache i Azure-regioner. Den här artikeln innehåller en guide för hur du konfigurerar geo-replikering för Azure-cache på Premium nivå för Redis-instanser.
 
-## <a name="geo-replication-prerequisites"></a>Krav för GEO-replikering
+## <a name="geo-replication-prerequisites"></a>Krav för geo-replikering
 
-Om du vill konfigurera Geo-replikering mellan två cacheminnen, måste följande krav uppfyllas:
+Om du vill konfigurera geo-replikering mellan två cacheminnen måste följande krav uppfyllas:
 
-- Båda cacheminnen är [premiumnivån](cache-premium-tier-intro.md) cachelagrar.
-- Båda cacheminnen är i samma Azure-prenumeration.
-- Sekundär länkat cacheminne är samma storlek eller större än den primära länkade cachen cache.
-- Båda cache-minnen skapas och körs.
+- Båda cacheminnena är cacheminnen på [Premium-nivå](cache-premium-tier-intro.md) .
+- Båda cacheminnena finns i samma Azure-prenumeration.
+- Den sekundära länkade cachen har antingen samma cachestorlek eller större cachestorlek än den primära länkade cachen.
+- Båda cacheminnena skapas och körs i ett körnings läge.
 
 Vissa funktioner stöds inte med geo-replikering:
 
 - Persistence stöds inte med geo-replikering.
-- Klustring stöds om båda cacheminnen har-klustring aktiverat och har samma antal shards.
-- Cacheminnen i samma virtuella nätverk stöds.
-- Cacheminnen i olika virtuella nätverk stöds med varningar. Se [kan jag använda Geo-replikering med min cacheminnen i ett virtuellt nätverk?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) för mer information.
+- Klustring stöds om båda cacheminnena har aktive rad kluster och har samma antal Shards.
+- Det finns stöd för cacheminnen i samma VNET.
+- Cacheminnen i olika virtuella nätverk stöds med varningar. I [kan jag använda geo-replikering med mina cacheminnen i ett VNet?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) för mer information.
 
-När Geo-replikering har konfigurerats kan gäller följande begränsningar för din länkade cache-par:
+När geo-replikering har kon figurer ATS gäller följande begränsningar för det länkade cache-paret:
 
-- Sekundär länkade cacheminnet är skrivskyddat. Du kan läsa från den, men du kan inte skriva data till den. 
-- Alla data som fanns i det sekundära länkat cacheminnet innan länken har lagts till tas bort. Om Geo-replikering är senare tas bort men replikerade data blir kvar i det sekundära länkat cacheminnet.
-- Det går inte att [skala](cache-how-to-scale.md) antingen cachen om cacheminnen är länkade.
-- Det går inte att [ändra antalet shards](cache-how-to-premium-clustering.md) om cacheminnet innehåller aktiverad klustring.
-- Du kan inte aktivera persistence på antingen cache.
-- Du kan [exportera](cache-how-to-import-export-data.md#export) från antingen cache.
-- Det går inte att [Import](cache-how-to-import-export-data.md#import) till sekundär länkade cachen.
-- Du kan inte ta bort länkat cacheminne eller resursgruppen som innehåller dem, tills du Avlänka cacheminnen. Mer information finns i [varför åtgärden misslyckas när jag försökte ta bort min länkade cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- Om cacheminnen finns i olika regioner, använder kostnader för nätverksegress för de data som flyttas mellan regioner. Mer information finns i [hur mycket kostar det för att replikera data mellan Azure-regioner?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Automatisk redundans inträffar inte mellan det primära och sekundära länkat cacheminnet. Mer information och information om hur du redundans ett klientprogram finns [hur fungerar växling till det sekundära länkat cacheminnet?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- Den sekundära länkade cachen är skrivskyddad. Du kan läsa från den, men du kan inte skriva några data till den. 
+- Alla data som fanns i den sekundära länkade cachen innan länken lades till tas bort. Om geo-replikeringen senare tas bort, förblir replikerade data i den sekundära länkade cachen.
+- Du kan inte [skala](cache-how-to-scale.md) antingen cache när cacheminnet är länkade.
+- Du kan inte [ändra antalet Shards](cache-how-to-premium-clustering.md) om cacheminnet har Aktiver ATS för klustret.
+- Du kan inte Aktivera persistence i båda cacheminnet.
+- Du kan [Exportera](cache-how-to-import-export-data.md#export) från något av cacheminnet.
+- Det går inte att [Importera](cache-how-to-import-export-data.md#import) till den sekundära länkade cachen.
+- Du kan inte ta bort antingen länkat cacheminne eller resurs gruppen som innehåller dem förrän du tar bort kopplingen mellan cacheminnena. Mer information finns i [Varför gick det inte att utföra åtgärden när jag försökte ta bort mitt länkade cacheminne?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- Om cacheminnena finns i olika regioner, gäller utgående kostnader för de data som flyttas mellan regioner. Mer information finns i [hur mycket kostar det att replikera mina data i Azure-regioner?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- Automatisk redundans sker inte mellan den primära och sekundära länkade cachen. Mer information och information om hur du aktiverar redundans för ett klient program finns i [Hur växlar sig över till det sekundära länkade cacheminnet?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-## <a name="add-a-geo-replication-link"></a>Lägg till en länk för Geo-replikering
+## <a name="add-a-geo-replication-link"></a>Lägg till en länk till geo-replikering
 
-1. Första gången klickar du på för att länka ihop två cacheminnen för geo-replikering, **Geo-replikering** från resurs-menyn på cacheminnet som du tänker vara primärt länkad cache. Klicka sedan på **Lägg till cachereplikeringslänk** från den **Geo-replikering** bladet.
+1. Om du vill länka två cacheminnen för geo-replikering, Fist klickar du på **geo-replikering** på resurs-menyn i cachen som du vill ska vara den primära länkade cachen. Klicka sedan på **länken Lägg till cache-replikering** på bladet **geo-replikering** .
 
     ![Lägg till länk](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Klicka på namnet på din avsedda Sekundär cache från den **kompatibla cacheminnen** lista. Om din Sekundär cache inte visas i listan kan du kontrollera att den [Geo-replikering krav](#geo-replication-prerequisites) för det sekundära cacheminnet är uppfyllda. Om du vill filtrera cacheminnen efter region, klickar du på den region på kartan för att visa endast dessa cacheminnen i den **kompatibla cacheminnen** lista.
+2. Klicka på namnet på den avsedda sekundära cachen från listan **kompatibla cacheminnen** . Om den sekundära cachen inte visas i listan kontrollerar du att [kraven för geo-replikering](#geo-replication-prerequisites) för den sekundära cachen är uppfyllda. Om du vill filtrera cacheminnena efter region klickar du på regionen på kartan för att endast visa de cacheminnen i listan **kompatibla cacheminnen** .
 
-    ![Kompatibla cacheminnen för GEO-replikering](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
+    ![Kompatibla cacheminnen för geo-replikering](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
-    Du kan också starta länkningen eller visa information om den sekundära cachen genom att använda snabbmenyn.
+    Du kan också starta länknings processen eller Visa information om den sekundära cachen med hjälp av snabb menyn.
 
-    ![Snabbmenyn för GEO-replikering](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
+    ![Snabb meny för geo-replikering](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Klicka på **länk** kopplar ihop de två cacheminnen och börja replikering.
+3. Klicka på **Länka** för att länka de två cacheminnena och påbörja replikeringen.
 
     ![Länka cacheminnen](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Du kan visa förloppet för replikeringen på den **Geo-replikering** bladet.
+4. Du kan visa förloppet för replikeringen på bladet **geo-replikering** .
 
-    ![Status för länkramverk](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
+    ![Länk status](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    Du kan också visa länkande status på den **översikt** bladet för både de primära och sekundära cacheminnen.
+    Du kan också Visa länk status på bladet **Översikt** för både den primära och sekundära cachen.
 
-    ![Status för cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Cache-status](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    När replikeringen är klar, den **länka status** ändras till **lyckades**.
+    När replikeringen har slutförts ändras **länkens status** till **slutförd**.
 
-    ![Status för cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
+    ![Cache-status](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
-    Den primära länkade cachen fortfarande är tillgängliga för användning under länkningen. Sekundär länkat cacheminne är inte tillgängligt förrän länkningen är klar.
+    Den primära länkade cachen är fortfarande tillgänglig för användning under länknings processen. Den sekundära länkade cachen är inte tillgänglig förrän länk processen har slutförts.
 
-## <a name="remove-a-geo-replication-link"></a>Ta bort en länk för Geo-replikering
+## <a name="remove-a-geo-replication-link"></a>Ta bort en länk till geo-replikering
 
-1. Om du vill ta bort länken mellan två cacheminnen och stoppa Geo-replikering, klickar du på **Avlänka cacheminnen** från den **Geo-replikering** bladet.
+1. Om du vill ta bort länken mellan två cacheminnen och stoppa geo-replikering klickar du på **ta bort länkning av cacheminnen** från bladet **geo-replikering** .
     
     ![Avlänka cacheminnen](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
-    När avlänkar processen är klar, är sekundär cache tillgänglig för både läsningar och skrivningar.
+    När avlänkningen är klar är den sekundära cachen tillgänglig för både läsning och skrivning.
 
 >[!NOTE]
->När Geo-replikeringslänken tas bort, förblir replikerade data från den primära länkade cachen i sekundär cache.
+>När länken geo-Replication tas bort finns replikerade data från den primära länkade cachen kvar i den sekundära cachen.
 >
 >
 
-## <a name="geo-replication-faq"></a>Vanliga frågor och svar GEO-replikering
+## <a name="geo-replication-faq"></a>Vanliga frågor och svar om geo-replikering
 
-- [Kan jag använda Geo-replikering med en Standard- eller Basic-nivån cache?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
-- [Är Mina cache tillgänglig för användning under länkande eller avlänkar?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
-- [Kan jag koppla fler än två cacheminnen tillsammans?](#can-i-link-more-than-two-caches-together)
-- [Kan jag koppla två cacheminnen från olika Azure-prenumerationer?](#can-i-link-two-caches-from-different-azure-subscriptions)
-- [Kan jag koppla två cacheminnen med olika storlekar?](#can-i-link-two-caches-with-different-sizes)
-- [Kan jag använda Geo-replikering med aktiverad klustring?](#can-i-use-geo-replication-with-clustering-enabled)
-- [Kan jag använda Geo-replikering med min cacheminnen i ett virtuellt nätverk?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
-- [Vad är replikeringsschemat för Redis geo-replikering?](#what-is-the-replication-schedule-for-redis-geo-replication)
-- [Hur lång tid tar geo-replikering replikering?](#how-long-does-geo-replication-replication-take)
-- [Garanteras återställningspunkt replikering?](#is-the-replication-recovery-point-guaranteed)
-- [Kan jag använda PowerShell eller Azure CLI för att hantera Geo-replikering?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
-- [Hur mycket kostar det för att replikera data i Azure-regioner?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- [Varför åtgärden misslyckas när jag försökte ta bort min länkade cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- [Vilken region ska jag använda för min sekundära länkat cacheminne?](#what-region-should-i-use-for-my-secondary-linked-cache)
-- [Hur fungerar växling till det sekundära länkat cacheminnet?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Kan jag använda geo-replikering med en standard-eller Basic-nivå i cacheminnet?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
+- [Är mitt cacheminne tillgängligt för användning under länkningen eller borttagningen av länken?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
+- [Kan jag länka fler än två cacheminnen tillsammans?](#can-i-link-more-than-two-caches-together)
+- [Kan jag länka två cacheminnen från olika Azure-prenumerationer?](#can-i-link-two-caches-from-different-azure-subscriptions)
+- [Kan jag länka två cacheminnen med olika storlekar?](#can-i-link-two-caches-with-different-sizes)
+- [Kan jag använda geo-replikering med klustring aktiverat?](#can-i-use-geo-replication-with-clustering-enabled)
+- [Kan jag använda geo-replikering med mina cacheminnen i ett virtuellt nätverk?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [Vad är replikeringsschema för Redis geo-replikering?](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [Hur länge tar geo-replikeringen att replikera?](#how-long-does-geo-replication-replication-take)
+- [Garanteras återställnings punkten för replikering?](#is-the-replication-recovery-point-guaranteed)
+- [Kan jag använda PowerShell eller Azure CLI för att hantera geo-replikering?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
+- [Hur mycket kostar det att replikera mina data i Azure-regioner?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [Varför misslyckades åtgärden när jag försökte ta bort mitt länkade cacheminne?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- [Vilken region ska jag använda för min sekundära länkade cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
+- [Hur fungerar växling vid fel i det sekundära länkade cacheminnet?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Kan jag använda Geo-replikering med en Standard- eller Basic-nivån cache?
+### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Kan jag använda geo-replikering med en standard-eller Basic-nivå i cacheminnet?
 
-Nej, Geo-replikering är bara tillgängligt för Premium-nivån cacheminnen.
+Nej, geo-replikering är bara tillgängligt för cacheminnen på Premium-nivån.
 
-### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>Är Mina cache tillgänglig för användning under länkande eller avlänkar?
+### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>Är mitt cacheminne tillgängligt för användning under länkningen eller borttagningen av länken?
 
-- När du länkar, är den primära länkade cachen fortfarande tillgängligt medan länkningen slutförs.
-- När du länkar, sekundära länkat cacheminne är inte tillgängligt förrän länkningen är klar.
-- När du tar bort länken, både cacheminnen fortfarande är tillgängliga medan avlänkar processen körs.
+- Vid länkning förblir det primära länkade cacheminnet tillgängligt när länkningen är klar.
+- Vid länkning är den sekundära länkade cachen inte tillgänglig förrän länkningen har slutförts.
+- När du tar bort länkar är båda cacheminnena tillgängliga medan borttagnings processen slutförs.
 
-### <a name="can-i-link-more-than-two-caches-together"></a>Kan jag koppla fler än två cacheminnen tillsammans?
+### <a name="can-i-link-more-than-two-caches-together"></a>Kan jag länka fler än två cacheminnen tillsammans?
 
-Nej, du kan bara koppla två cacheminnen tillsammans.
+Nej, du kan bara länka två cacheminnen tillsammans.
 
-### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>Kan jag koppla två cacheminnen från olika Azure-prenumerationer?
+### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>Kan jag länka två cacheminnen från olika Azure-prenumerationer?
 
-Nej, båda cacheminnen måste finnas i samma Azure-prenumeration.
+Nej, båda cacheminnena måste finnas i samma Azure-prenumeration.
 
-### <a name="can-i-link-two-caches-with-different-sizes"></a>Kan jag koppla två cacheminnen med olika storlekar?
+### <a name="can-i-link-two-caches-with-different-sizes"></a>Kan jag länka två cacheminnen med olika storlekar?
 
-Ja, så länge som det sekundära länkat cacheminnet är större än den primära länkade cachen.
+Ja, så länge den sekundära länkade cachen är större än det primära länkade cacheminnet.
 
-### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Kan jag använda Geo-replikering med aktiverad klustring?
+### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Kan jag använda geo-replikering med klustring aktiverat?
 
-Ja, så länge båda cacheminnen har samma antal shards.
+Ja, så länge båda cacheminnena har samma antal Shards.
 
-### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Kan jag använda Geo-replikering med min cacheminnen i ett virtuellt nätverk?
+### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Kan jag använda geo-replikering med mina cacheminnen i ett virtuellt nätverk?
 
-Ja, Geo-replikering av cacheminnen i virtuella nätverk kan användas med varningar:
+Ja, geo-replikering av cacheminnen i virtuella nätverk stöds med varningar:
 
-- GEO-replikering mellan cacheminnen i samma virtuella nätverk stöds.
-- GEO-replikering mellan cache i olika virtuella nätverk stöds också.
-  - Om de virtuella nätverken är i samma region kan du ansluta dem med hjälp av [VNET-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) eller en [VPN-Gateway VNET-till-VNET-anslutning](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Om de virtuella nätverken finns i olika regioner, geo-replikering med hjälp av VNET-peering stöds inte på grund av en begränsning med grundläggande interna belastningsutjämnare. Läs mer om VNET peering begränsningar [Vnet - Peering - krav och begränsningar](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Den rekommenderade lösningen är att använda en VPN-Gateway VNET-till-VNET-anslutning.
+- Geo-replikering mellan cacheminnen i samma VNET stöds.
+- Geo-replikering mellan cacheminnen i olika virtuella nätverk stöds också.
+  - Om virtuella nätverk finns i samma region kan du ansluta dem med [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) eller en [VPN gateway VNet-till-VNET-anslutning](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
+  - Om virtuella nätverk finns i olika regioner stöds inte geo-replikering med VNET-peering på grund av en begränsning med Basic Internal belastningsutjämnare. Mer information om begränsningar för VNET-peering finns i [Virtual Network-peering-krav och begränsningar](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Den rekommenderade lösningen är att använda en VPN Gateway VNET-till-VNET-anslutning.
 
-Med hjälp av [den här Azure-mall](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), kan du snabbt distribuera två geo-replikerade cacheminnen i ett virtuellt nätverk som är anslutna med en VPN-Gateway VNET-till-VNET-anslutning.
+Med hjälp av [den här Azure-mallen](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)kan du snabbt distribuera två geo-replikerade cacheminnen i ett VNet som är anslutet till en VPN gateway VNet-till-VNET-anslutning.
 
-### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Vad är replikeringsschemat för Redis geo-replikering?
+### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Vad är replikeringsschema för Redis geo-replikering?
 
-Replikeringen är kontinuerlig och asynkrona och sker inte på ett visst schema. Alla skrivningar till primärt klar replikeras omedelbart och asynkront på sekundärt.
+Replikeringen är kontinuerlig och asynkron och sker inte enligt ett särskilt schema. Alla skrivningar som görs till den primära replikeras omedelbart och replikeras asynkront på den sekundära.
 
-### <a name="how-long-does-geo-replication-replication-take"></a>Hur lång tid tar geo-replikering replikering?
+### <a name="how-long-does-geo-replication-replication-take"></a>Hur länge tar geo-replikeringen att replikera?
 
-Replikeringen är inkrementell, asynkrona och kontinuerlig och den tid det tar inte mycket skiljer sig från svarstiden i flera regioner. I vissa fall kanske det sekundära cacheminnet måste göra en fullständig synkronisering av data från primärt. Tid i det här fallet är beroende av flera faktorer som: belastningen på den primära cachen och tillgänglig nätverksbandbredd mellan regioner svarstid. Vi har hittat replikeringstid för ett 53 GB geo-replikerade par kan finnas var som helst mellan 5-10 minuter.
+Replikeringen är stegvis, asynkron och kontinuerlig och den tid som krävs skiljer sig inte mycket från svars tiden mellan regioner. Under vissa omständigheter kan det sekundära cacheminnet krävas för att utföra en fullständig synkronisering av data från den primära. Tiden för replikering i det här fallet är beroende av antalet faktorer som: Läs in på det primära cacheminnet, tillgänglig nätverks bandbredd och svars tid mellan regioner. Tiden för replikering har hittats för ett fullständigt 53 GB geo-replikerat par kan vara var som helst mellan 5 och 10 minuter.
 
-### <a name="is-the-replication-recovery-point-guaranteed"></a>Garanteras återställningspunkt replikering?
+### <a name="is-the-replication-recovery-point-guaranteed"></a>Garanteras återställnings punkten för replikering?
 
-För cacheminnen i ett läge för geo-replikerade har persistence inaktiverats. Om ett par med geo-replikerade olänkade, till exempel en redundansväxling initieras av kunden, behåller det sekundära länkat cacheminnet synkroniserade data upp till den tidpunkten. Ingen återställningspunkt garanteras i sådana situationer.
+Persistence är inaktiverat för cacheminnen i ett geo-replikerat läge. Om ett geo-replikerat par är olänkat, t. ex. När en kund initierad redundansväxling, behåller den sekundära länkade cachen dess synkroniserade data upp till den tidpunkten. Ingen återställnings punkt garanteras i sådana situationer.
 
-Att hämta en återställningspunkt [exportera](cache-how-to-import-export-data.md#export) från antingen cache. Du kan senare [Import](cache-how-to-import-export-data.md#import) till den primära länkade cachen.
+Om du vill hämta en återställnings punkt [exporterar](cache-how-to-import-export-data.md#export) du från något av cacheminnet. Du kan senare [Importera](cache-how-to-import-export-data.md#import) till den primära länkade cachen.
 
-### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Kan jag använda PowerShell eller Azure CLI för att hantera Geo-replikering?
+### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Kan jag använda PowerShell eller Azure CLI för att hantera geo-replikering?
 
-Ja, geo-replikering kan hanteras med Azure-portalen, PowerShell eller Azure CLI. Mer information finns i den [PowerShell-dokument](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) eller [Azure CLI-dokument](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Ja, geo-replikering kan hanteras med hjälp av Azure Portal, PowerShell eller Azure CLI. Mer information finns i PowerShell- [dokumenten](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) eller [Azure CLI-dokumenten](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
 
-### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Hur mycket kostar det för att replikera data i Azure-regioner?
+### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Hur mycket kostar det att replikera mina data i Azure-regioner?
 
-När du använder Geo-replikering replikeras data från den primära länkade cachen till det sekundära länkat cacheminnet. Det är kostnadsfritt för att överföra data om två länkade cacheminnen är i samma region. Om det finns två länkade cacheminnen i olika regioner, är dataöverföringsavgift nätverk utgående kostnaden för data som flyttas i antingen regioner. Mer information finns i [prisinformation för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
+När du använder geo-replikering replikeras data från den primära länkade cachen till den sekundära länkade cachen. Det kostar inget att överföra data om de två länkade cacheminnena finns i samma region. Om de två länkade cacheminnena finns i olika regioner, är data överförings avgiften nätverks utgångs kostnaden för data som flyttas över vilken region som än är. Mer information finns i [pris information om bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Varför åtgärden misslyckas när jag försökte ta bort min länkade cache?
+### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Varför misslyckades åtgärden när jag försökte ta bort mitt länkade cacheminne?
 
-GEO-replikerade cacheminnen och deras resursgrupper kan inte raderas medan länkad tills du tar bort länken geo-replikering. Om du försöker ta bort resursgruppen som innehåller en eller båda av de länkade cacheminnen, andra resurser i resursgruppen tas bort, men resursgruppen kvar i den `deleting` tillstånd och eventuella länkade cacheminnen i resursgruppen finns kvar i `running`tillstånd. Avlänka cacheminnen om du vill ta bort resursgruppen och de länkade cacheminnen i den, enligt beskrivningen i [ta bort en Geo-replikeringslänken](#remove-a-geo-replication-link).
+Geo-replikerade cacheminnen och deras resurs grupper kan inte tas bort när du har länkat tills du tar bort länken för geo-replikering. Om du försöker ta bort resurs gruppen som innehåller en eller båda av de länkade cacheminnen, tas de andra resurserna i resurs gruppen bort, men resurs gruppen stannar i `deleting`s tillstånd och eventuella länkade cacheminnen i resurs gruppen blir kvar i `running`s tillstånd. För att helt ta bort resurs gruppen och de länkade cacheminnena i den, tar du bort kopplingen mellan cacheminnena enligt beskrivningen i [ta bort en geo-replikeringslänk](#remove-a-geo-replication-link).
 
-### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Vilken region ska jag använda för min sekundära länkat cacheminne?
+### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Vilken region ska jag använda för min sekundära länkade cache?
 
-I allmänhet rekommenderas för cacheminnet finnas i samma Azure-region som det program som har åtkomst till den. För program med olika områden för primära och återställningsplats rekommenderas dina primära och sekundära cacheminnen finns i samma regioner. Mer information om länkade regioner finns i [metodtips – Azure länkade regioner](../best-practices-availability-paired-regions.md).
+I allmänhet rekommenderas det att ditt cacheminne finns i samma Azure-region som det program som har åtkomst till den. För program med separata primära och reserv regioner rekommenderar vi att dina primära och sekundära cacheminnen finns i samma regioner. Mer information om kopplade regioner finns i [metod tips – Azure-kopplade regioner](../best-practices-availability-paired-regions.md).
 
-### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Hur fungerar växling till det sekundära länkat cacheminnet?
+### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Hur fungerar växling vid fel i det sekundära länkade cacheminnet?
 
-Automatisk redundans i Azure-regioner stöds inte för geo-replikerade cacheminnen. I ett scenario med katastrofåterställning bör kunder ta fram hel programstack på ett samordnat sätt i deras säkerhetskopiering region. Att låta enskilt program komponenter bestämma när du vill växla till deras säkerhetskopior på egen hand kan påverka prestandan negativt. En av de främsta fördelarna med Redis är att det är en mycket låg latens butik. Om kundens huvudprogrammet finns i en annan region än dess cache, skulle den extra fram och åter tid ha en märkbar effekt på prestanda. Därför undvika växlar automatiskt på grund av problem med tillfälliga tillgänglighet.
+Automatisk redundans i Azure-regioner stöds inte för geo-replikerade cacheminnen. I ett haveri återställnings scenario bör kunderna ta upp hela program stacken på ett samordnat sätt i sin säkerhets kopierings region. Att låta enskilda program komponenter bestämma när de ska växla till sina egna säkerhets kopieringar kan påverka prestanda negativt. En av de främsta fördelarna med Redis är att det är en mycket låg latens lagring. Om kundens huvud program finns i en annan region än dess cacheminne skulle den extra tiden för fördröjningen ha en märkbar inverkan på prestanda. Av den anledningen undviker vi att det inte går att redundansväxla automatiskt på grund av tillfälliga tillgänglighets problem.
 
-Om du vill starta redundans initieras av kunden först Avlänka cacheminnen. Ändra Redis-klient för att använda Anslutningens slutpunkt för den sekundära cachen (tidigare länkade). När två cacheminnen är avlänkade, det sekundära cacheminnet blir en vanlig skrivskyddad cache igen och accepterar begäranden direkt från Redis-klienter.
+Om du vill starta en redundansväxling som initieras av en kund måste du först ta bort kopplingen till cacheminnet. Ändra sedan din Redis-klient så att den använder anslutnings slut punkten för den sekundära cachen (tidigare länkade). När de två cacheminnena är olänkade blir den sekundära cachen en vanlig read-write-cache igen och accepterar begär Anden direkt från Redis-klienter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om den [Azure Cache för Premium-nivån Redis](cache-premium-tier-intro.md).
+Läs mer om [Azure cache för Redis Premium-nivån](cache-premium-tier-intro.md).

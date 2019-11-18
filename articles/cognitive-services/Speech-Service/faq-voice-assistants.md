@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor om röst assistenter
+title: Vanliga frågor och svar om röst assistenter
 titleSuffix: Azure Cognitive Services
 description: Få svar på de vanligaste frågorna om röst assistenter med anpassade kommandon (förhands granskning) eller direkt linje tal kanalen.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579673"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110355"
 ---
-# <a name="voice-assistants-frequently-asked-questions"></a>Röst assistenter: vanliga frågor och svar
+# <a name="voice-assistants-frequently-asked-questions"></a>Vanliga frågor och svar om röst assistenter
 
 Om du inte kan hitta svar på dina frågor i det här dokumentet kan du titta närmare på [andra support alternativ](support.md).
 
@@ -35,9 +35,9 @@ S **:** [anpassade kommandon (förhands granskning)](custom-commands.md) är en 
 
 **A:** Det bästa sättet att börja med att skapa ett anpassat kommando (för hands version) eller ett Basic bot-program (Basic bot Framework).
 
-* [Skapa ett anpassat kommando (för hands version)](quickstart-custom-speech-commands-create-new.md)
-* [Skapa en grundläggande bot-robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [Anslut en robot till den direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Skapa ett anpassat kommando (för hands version)](quickstart-custom-speech-commands-create-new.md)
+- [Skapa en grundläggande bot-robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Anslut en robot till den direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Felsökning
 
@@ -47,14 +47,13 @@ S **:** [anpassade kommandon (förhands granskning)](custom-commands.md) är en 
 
 Den senaste versionen av direkt linje tal fören klar processen med att kontakta din robot från en enhet. På sidan kanal registrering associerar List rutan längst upp din direkta serie för tal kanal registrering med en tal resurs. När det är associerat innehåller v 1.8 tal-SDK en `BotFrameworkConfig::FromSubscription` fabriks metod som konfigurerar ett `DialogServiceConnector` för att kontakta den bot som du har associerat med din prenumeration.
 
-Om du fortfarande migrerar klient programmet från v 1.7 till v 1.8 kan `DialogServiceConfig::FromBotSecret` fortsätta att arbeta med ett värde som inte är tomt för den kanal hemliga parametern, t. ex. den tidigare hemlighet som du använde. Det kommer bara att ignoreras när du använder en tal prenumeration som är associerad med en nyare kanal registrering. Observera att värdet inte *får* vara null och icke-tomt, eftersom de är markerade för enheten innan associationen på tjänst sidan är relevant.
-
+Om du fortfarande migrerar klient programmet från v 1.7 till v 1.8 kan `DialogServiceConfig::FromBotSecret` fortsätta att arbeta med ett värde som inte är tomt för den kanal hemliga parametern, t. ex. den tidigare hemlighet som du använde. Det kommer bara att ignoreras när du använder en tal prenumeration som är associerad med en nyare kanal registrering. Observera att värdet inte _får_ vara null och icke-tomt, eftersom de är markerade för enheten innan associationen på tjänst sidan är relevant.
 
 En mer detaljerad guide finns i [avsnittet om självstudier](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) som går igenom kanal registreringen.
 
 **F: Jag får ett 401-fel när jag ansluter och ingenting fungerar. Jag vet att min röst prenumerations nyckel är giltig. Vad är det som händer?**
 
-**A:** När du hanterar din prenumeration på Azure Portal bör du kontrol lera att du använder **tal** resursen (Microsoft. CognitiveServicesSpeechServices, "Speech") och *inte* **Cognitive Services** resursen ( Microsoft. CognitiveServicesAllInOne, "alla Cognitive Services"). Kontrol lera också [Support för röst assistenten i tjänsten Speech service](regions.md#voice-assistants).
+**A:** När du hanterar din prenumeration på Azure Portal bör du kontrol lera att du använder **tal** resursen (Microsoft. CognitiveServicesSpeechServices, "Speech") och _inte_ **Cognitive Services** resursen ( Microsoft. CognitiveServicesAllInOne, "alla Cognitive Services"). Kontrol lera också [Support för röst assistenten i tjänsten Speech service](regions.md#voice-assistants).
 
 ![rätt prenumeration för direkt linje tal](media/voice-assistants/faq-supported-subscription.png "exempel på en kompatibel tal prenumeration")
 
@@ -62,8 +61,8 @@ En mer detaljerad guide finns i [avsnittet om självstudier](tutorial-voice-enab
 
 **A:** Det här felet indikerar ett kommunikations problem mellan din assistent och tjänsten röst assistent.
 
-* För anpassade kommandon (för hands version) ser du till att dina anpassade kommandon (för hands version) är publicerade
-* För direkt linje tal ser du till att du har [anslutit din robot till den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [lagt till stöd för strömnings protokoll](https://aka.ms/botframework/addstreamingprotocolsupport) i din robot (med relaterad WebSocket-support) och kontrollerar sedan att roboten svarar på inkommande begär Anden från kanalen.
+- För anpassade kommandon (för hands version) ser du till att dina anpassade kommandon (för hands version) är publicerade
+- För direkt linje tal ser du till att du har [anslutit din robot till den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [lagt till stöd för strömnings protokoll](https://aka.ms/botframework/addstreamingprotocolsupport) i din robot (med relaterad WebSocket-support) och kontrollerar sedan att roboten svarar på inkommande begär Anden från kanalen.
 
 **F: den här koden fungerar fortfarande inte och/eller jag får ett annat fel meddelande när du använder en `DialogServiceConnector`. Vad ska jag göra?**
 
@@ -71,5 +70,5 @@ En mer detaljerad guide finns i [avsnittet om självstudier](tutorial-voice-enab
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsökning](troubleshooting.md)
-* [Viktig information](releasenotes.md)
+- [Troubleshooting](troubleshooting.md) (Felsökning)
+- [Viktig information](releasenotes.md)

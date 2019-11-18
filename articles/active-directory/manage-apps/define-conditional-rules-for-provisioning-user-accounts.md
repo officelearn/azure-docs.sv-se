@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70812681"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120112"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -65,7 +65,7 @@ Enligt det här omfångs filtret måste användarna uppfylla följande kriterier
 Definitions områdes filter konfigureras som en del av mappningar av mappar för varje Azure AD-anslutning för användar etablering. Följande procedur förutsätter att du redan har konfigurerat automatisk etablering för [ett av de program som stöds](../saas-apps/tutorial-list.md) och lägger till ett omfångs filter till det.
 
 ### <a name="create-a-scoping-filter"></a>Skapa ett omfångs filter
-1. I [Azure Portal](https://portal.azure.com)går du till avsnittet **Azure Active Directory** > **företags program** > **alla program** .
+1. I [Azure Portal](https://portal.azure.com)går du till avsnittet **Azure Active Directory** > **Enterprise-program** > **alla program** .
 
 2. Välj det program som du har konfigurerat automatisk etablering för: till exempel "ServiceNow".
 
@@ -110,6 +110,14 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
 >[!IMPORTANT] 
 > Om du sparar ett nytt omfångs filter utlöses en ny fullständig synkronisering för programmet, där alla användare i käll systemet utvärderas igen mot det nya omfångs filtret. Om en användare i programmet tidigare fanns inom omfånget för etablering, men faller utanför omfattningen, så inaktive ras eller avetableras kontot i programmet. Om du vill åsidosätta det här standard beteendet går du till [hoppa över borttagning för användar konton som omfattas av omfånget](skip-out-of-scope-deletions.md).
 
+
+## <a name="common-scoping-filters"></a>Vanliga omfångs filter
+| Target-attribut| Operator | Värde | Beskrivning|
+|----|----|----|----|
+|userPrincipalName|REGEX-MATCHNING|.\*@domain.com |Alla användare med userPrincipal som har den domän som @domain.com behålls inom omfånget för etablering|
+|userPrincipalName|INGEN REGEX-MATCHNING|.\*@domain.com|Alla användare med userPrincipal som har domänen @domain.com omfattas inte av omfånget för etablering|
+|avdelning|ÄR lika med|försäljning|Alla användare från försäljnings avdelningen är inom omfånget för etablering|
+|workerID|REGEX-MATCHNING|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Alla anställda med workerIDs mellan 1000000 och 2000000 finns inom omfånget för etablering.|
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Automatisera användar etablering och avetablering för SaaS-program](user-provisioning.md)

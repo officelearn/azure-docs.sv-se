@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 5d8ed625e13d31e148ef1e54d8028fc7d13a6ede
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10216b52ded61328a73e5401549a59e6abc4667a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499601"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125625"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Programmeringsspråket [Node.js](https://nodejs.org/) 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-kod](https://code.visualstudio.com/)
 * Offentlig app-ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 ## <a name="get-luis-key"></a>Hämta LUIS-nyckel
@@ -153,4 +153,4 @@ När du är färdig med den här snabb starten tar du bort filen från fil syste
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägg till yttranden och träna](../luis-get-started-node-add-utterance.md)
+> [Lägg till yttranden och träna](../get-started-get-model-rest-apis.md)

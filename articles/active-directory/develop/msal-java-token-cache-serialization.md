@@ -18,16 +18,16 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bd8cb07d30aa5223cf3d78d636f0d593fefbecf
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7274a1b6b5ebf5b55c2cad4b52dfe4c997e26314
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905503"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145903"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-java-msal4j"></a>Anpassad token cache-serialisering i MSAL för Java (MSAL4J)
 
-Om du vill ha ett program med beständig token cache måste du anpassa serialiseringen. Java-klasser och gränssnitt som ingår i cachelagring av token är följande:
+Om du vill bevara token-cachen mellan instanser av ditt program måste du anpassa serialiseringen. Java-klasser och gränssnitt som ingår i cachelagring av token är följande:
 
 - [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html): gränssnitt som representerar cache för säkerhetstoken.
 - [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): gränssnitt som representerar körning av kod före och efter åtkomst. Du skulle @Override *beforeCacheAccess* och *afterCacheAccess* med den logik som ansvarar för serialisering och deserialisering av cacheminnet.

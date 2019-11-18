@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0a28292ac95dca7b46d9f82c32b9881c18d74b87
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582897"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123541"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Övervaknings Azure Machine Learning
 
@@ -38,7 +38,7 @@ För att förstå kostnader som är kopplade till Azure Monitor, se [användning
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Övervaknings data från Azure Machine Learning
 
-Azure Machine Learning samlar in samma typer av övervaknings data som andra Azure-resurser, som beskrivs i [övervaka data från Azure-resurser](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). Se [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Machine Learning.
+Azure Machine Learning samlar in samma typer av övervaknings data som andra Azure-resurser, som beskrivs i [övervaka data från Azure-resurser](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Se [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Machine Learning.
 
 ## <a name="analyzing-metric-data"></a>Analysera mått data
 
@@ -62,7 +62,7 @@ Du kan få åtkomst till aviseringar för Azure Machine Learning genom att öppn
 
 I följande tabell visas vanliga och rekommenderade mått för varnings regler för Azure Machine Learning:
 
-| Aviserings typ | Tillstånd | Beskrivning |
+| Aviseringstyp | Tillstånd | Beskrivning |
 |:---|:---|:---|
 | Modelldistribution misslyckades | Sammansättnings typ: Total, operator: större än, tröskelvärde: 0 | När en eller flera modell distributioner har misslyckats |
 | Kvot användning i procent | Sammansättnings typ: genomsnitt, operator: större än, tröskelvärde: 90| När kvot användnings procenten är större än 90% |
@@ -111,7 +111,7 @@ Data i Azure Monitor loggar lagras i tabeller, där varje tabell har en egen upp
 
 En detaljerad referens för loggar och mått finns i [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md).
 
-### <a name="sample-queries"></a>Exempel frågor
+### <a name="sample-queries"></a>Exempelfrågor
 
 Följande är frågor som du kan använda för att övervaka dina Azure Machine Learning-resurser: 
 
@@ -131,7 +131,7 @@ Följande är frågor som du kan använda för att övervaka dina Azure Machine 
     | project  TimeGenerated , ClusterId , EventType , ExecutionState , ToolType
     ```
 
-+ Hämta kluster händelser under de senaste fem dagarna för kluster där VM-storleken är Standard_D1_V2:
++ Hämta kluster händelser under de senaste fem dagarna för kluster där storleken på den virtuella datorn är Standard_D1_V2:
 
     ```Kusto
     AmlComputeClusterEvent

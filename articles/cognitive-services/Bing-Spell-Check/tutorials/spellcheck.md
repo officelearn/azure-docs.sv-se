@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Hämta resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
+title: 'Självstudie: Hämta resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Visar hur du använder stavningskontroll i Bing.
+description: I den här självstudien skapar vi en webb sida som gör det möjligt för användarna att fråga API för stavningskontroll i Bing och Visa resultat.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 73466b80915d5eb7228eef397d5aad68d27faa15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996839"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111447"
 ---
-# <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudier: Skapa en klient för en webbsida med stavningskontroll
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
 
 I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -25,9 +25,9 @@ I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > - Skicka en enkel fråga till API:et för stavningskontroll i Bing
-> - Visa frågeresultat
+> - Visa frågeresultatet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa med i självstudiekursen behöver du en prenumerationsnyckel för API:et för stavningskontroll i Bing. Om du inte har redan har en kan du registrera dig för [en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

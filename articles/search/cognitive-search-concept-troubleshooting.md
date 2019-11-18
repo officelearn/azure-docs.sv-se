@@ -1,5 +1,5 @@
 ---
-title: Fel söknings tips för AI-anrikning
+title: Tips för AI-anriknings design
 titleSuffix: Azure Cognitive Search
 description: Tips och fel sökning för att ställa in AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787707"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113839"
 ---
-# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Fel söknings tips för AI-anrikning i Azure Kognitiv sökning
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Tips för AI-anrikning i Azure Kognitiv sökning
 
 Den här artikeln innehåller en lista med tips och knep för att hålla dig igång med AI-anrikning i Azure Kognitiv sökning. 
 
@@ -103,7 +103,7 @@ För portalbaserade indexeringar (enligt beskrivningen i snabb starten) väljer 
 För [parallell indexering](search-howto-large-index.md)ska du placera dina data i flera behållare eller flera virtuella mappar i samma behållare. Skapa sedan flera DataSource-och Indexer-par. Alla indexerare kan använda samma färdigheter och skriva till samma mål Sök index, så din Sökapp behöver inte vara medveten om denna partitionering.
 Mer information finns i [Indexera stora data uppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 + [Snabb start: skapa en AI-pipeline i portalen](cognitive-search-quickstart-blob.md)
 + [Självstudie: Lär dig AI-anrikning REST API: er](cognitive-search-tutorial-blob.md)
 + [Ange autentiseringsuppgifter för data Källa](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

@@ -1,5 +1,5 @@
 ---
-title: Koppla en Cognitive Services resurs till en färdigheter
+title: Bifoga Cognitive Services till en färdigheter
 titleSuffix: Azure Cognitive Search
 description: Instruktioner för att bifoga en Cognitive Services allt-i-ett-prenumeration till en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788030"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113942"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Bifoga en Cognitive Services resurs till en färdigheter i Azure Kognitiv sökning 
 
-AI-algoritmer driver de [pipeliniska pipelinen](cognitive-search-concept-intro.md) som används för omvandling av innehåll i Azure kognitiv sökning. Algoritmerna baseras på Azure Cognitive Services resurser, inklusive [visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bild analys och optisk tecken IGENKÄNNING (OCR) och [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för enhets igenkänning, extrahering av nyckel fraser och andra anrikninger . Som används av Azure Kognitiv sökning för dokument anrikning, omsluts algoritmerna inuti en *färdighet*, placeras i en *färdigheter*och refereras till av en *indexerare* under indexeringen.
+AI-algoritmer driver de [pipeliniska pipelinen](cognitive-search-concept-intro.md) som används för omvandling av innehåll i Azure kognitiv sökning. Algoritmerna baseras på Azure Cognitive Services resurser, inklusive [visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bild analys och optisk tecken IGENKÄNNING (OCR) och [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för enhets igenkänning, extrahering av nyckel fraser och andra anrikninger. Som används av Azure Kognitiv sökning för dokument anrikning, omsluts algoritmerna inuti en *färdighet*, placeras i en *färdigheter*och refereras till av en *indexerare* under indexeringen.
 
 Du kan utöka ett begränsat antal dokument kostnads fritt. Eller så kan du koppla en fakturerbar Cognitive Services resurs till en *färdigheter* för större och mer frekventa arbets belastningar. I den här artikeln får du lära dig hur du lägger till en fakturerbar Cognitive Services-resurs för att utöka dokument under Azure Kognitiv sökning [indexering](search-what-is-an-index.md).
 
@@ -99,7 +99,7 @@ Om du har en befintlig färdigheter kan du koppla den till en ny eller annan Cog
 
 ## <a name="attach-cognitive-services-programmatically"></a>Bifoga Cognitive Services program mässigt
 
-När du definierar färdigheter program mässigt lägger du till ett `cognitiveServices`-avsnitt i färdigheter. I avsnittet inkluderar du nyckeln för den Cognitive Services resurs som du vill associera med färdigheter. Kom ihåg att resursen måste finnas i samma region som din Azure Kognitiv sökning-resurs. Ta även med `@odata.type` och ange det som `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+När du definierar färdigheter program mässigt lägger du till ett `cognitiveServices`-avsnitt i färdigheter. I avsnittet inkluderar du nyckeln för den Cognitive Services resurs som du vill associera med färdigheter. Kom ihåg att resursen måste finnas i samma region som din Azure Kognitiv sökning-resurs. Ta även med `@odata.type`och ange det som `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
 I följande exempel visas det här mönstret. Lägg märke till avsnittet `cognitiveServices` i slutet av definitionen.
 

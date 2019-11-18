@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager Template Functions-numeric | Microsoft Docs
+title: Template Functions-numeric
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med siffror.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: tomfitz
-ms.openlocfilehash: 3ec5477ca6ea1731f18b09d6393bdde6261e0c32
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b663f27d48e3ee4e7ee2a96794015555417b3608
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194330"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149630"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager mallar
 
@@ -32,7 +29,7 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>lägg till
+## <a name="add"></a>add
 `add(operand1, operand2)`
 
 Returnerar summan av de två angivna heltalen.
@@ -85,7 +82,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -202,7 +199,7 @@ Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -220,7 +217,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="float" />
 
-## <a name="float"></a>float
+## <a name="float"></a>flyt
 `float(arg1)`
 
 Konverterar värdet till ett flytt ALS nummer. Du använder bara den här funktionen när du skickar anpassade parametrar till ett program, till exempel en Logic app.
@@ -296,7 +293,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -359,7 +356,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -378,7 +375,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min
+## <a name="min"></a>min.
 `min (arg1)`
 
 Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsad lista med heltal.
@@ -423,7 +420,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -494,7 +491,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -565,7 +562,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -635,7 +632,7 @@ I följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | under resultat | Int | 4 |
 

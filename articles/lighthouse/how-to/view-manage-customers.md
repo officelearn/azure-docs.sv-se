@@ -1,18 +1,14 @@
 ---
 title: Visa och hantera kunder och delegerade resurser
 description: Som en tjänst leverantör som använder Azure-delegerad resurs hantering kan du Visa alla dina delegerade kund resurser och prenumerationer genom att gå till mina kunder i Azure Portal.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 10/23/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: d68ac0a1b6a66482a85f7ab79840099a34c731c2
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ed1f2e5044fe5058acc4f8b155b346dd46c51b28
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615543"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131235"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
 

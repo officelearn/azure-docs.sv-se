@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e8205497262c2c7a500769f32a473d628974220c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832589"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151795"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program
 
@@ -102,7 +102,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 > Multi-SID-klustring av SAP ASCS/ERS med SUSE Linux som gäst operativ system i virtuella Azure-datorer **stöds inte**. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster
 
 
-### <a name="ascs"></a>En SCS
+### <a name="ascs"></a>(A)SCS
 
 * Konfiguration av klient del
   * IP-10.1.1.20
@@ -172,11 +172,10 @@ I det här exemplet använde vi Azure NetApp Files för alla fil system i SAP Ne
 
 Tänk på följande viktiga överväganden när du överväger Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgänglighets arkitektur:
 
-- Den minsta kapacitets poolen är 4 TiB. Storleken på kapacitetsutnyttjandet måste vara i multipler av 4 TiB.
+- Den minsta kapacitets poolen är 4 TiB. Kapacitets bassängens storlek kan ökas i steg om 1 TiB.
 - Den minsta volymen är 100 GiB
 - Azure NetApp Files och alla virtuella datorer, där Azure NetApp Files volymer ska monteras, måste finnas i samma Azure-Virtual Network eller i [peer-anslutna virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region. Azure NetApp Files åtkomst över VNET-peering i samma region stöds nu. Azure NetApp-åtkomst över global peering stöds inte ännu.
 - Det valda virtuella nätverket måste ha ett undernät, delegerat till Azure NetApp Files.
-- Azure NetApp Files stöder för närvarande endast NFSv3 
 - Azure NetApp Files erbjuder [export princip](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan kontrol lera tillåtna klienter, åtkomst typ (Läs & Skriv, skrivskyddad, osv.). 
 - Azure NetApp Files funktionen är inte en zon medveten än. För närvarande är Azure NetApp Files funktionen inte distribuerad i alla tillgänglighets zoner i en Azure-region. Var medveten om potentiella fördröjnings konsekvenser i vissa Azure-regioner. 
 
@@ -297,7 +296,7 @@ Följ stegen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](
 
 ### <a name="installation"></a>Installation
 
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
+Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
 1. **[A]** installera SUSE Connector
 
@@ -346,15 +345,15 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-3. **[A]** namn matchning för värdnamn
+3. **[A]**  Konfigurera matcha värdnamn
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö   
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö   
 
    <pre><code>
    # IP address of cluster node 1
@@ -403,7 +402,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    </code></pre>
    
    > [!NOTE]
-   > För närvarande har Azure NetApp Files endast stöd för NFSv3. Utelämna inte växeln nfsvers = 3.
+   > Se till att matcha NFS-Protokollversionen för Azure NetApp Files volymer när du monterar volymerna. I det här exemplet har Azure NetApp Files volymer skapats som NFSv3-volymer.  
    
    Starta om `autofs` för att montera de nya resurserna
     <pre><code>
@@ -704,9 +703,9 @@ Stegen nedan förutsätter att du installerar program servern på en annan serve
 Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas och AAS, **[P]** – endast tillämpligt på Pas eller **[s]** – endast tillämpligt på AAS.
 
 
-1. **[A]** konfigurera operativ system
+1. **[A]**  Konfigurera operativsystem
 
-   Minska storleken på den ändrade cachen. Mer information finns i [låga skriv prestanda på SLES 11/12-servrar med stort RAM-minne](https://www.suse.com/support/kb/doc/?id=7010287).
+   Minska storleken på den informationen i cachen. Mer information finns i [låg skrivprestanda på SLES 11/12 servrar med stora RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>
    sudo vi /etc/sysctl.conf
@@ -715,16 +714,16 @@ Följande objekt föregås av antingen **[A]** – tillämpligt på både Pas oc
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]**  Konfigurera matcha värdnamn
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
    ```bash
    sudo vi /etc/hosts
    ```
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
 
    <pre><code>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS

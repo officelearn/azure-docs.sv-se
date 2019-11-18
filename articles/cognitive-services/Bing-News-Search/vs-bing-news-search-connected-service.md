@@ -1,7 +1,7 @@
 ---
 title: Ansluta till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio och C#
 titleSuffix: Azure Cognitive Services
-description: Ansluta till Nyhetssökning i Bing från en ASP.NET Core-webbapp.
+description: Du kan aktivera appar och tjänster för att dra nytta av en annonsfri sökmotor som omfattar webben.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: ghogen
-ms.openlocfilehash: 85afae087b1b1e572759943142412743744ee806
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203424"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111510"
 ---
-# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Självstudie: Ansluta till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio och C#
+# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Självstudie: Anslut till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio ochC#
 
 Du kan aktivera appar och tjänster för att dra nytta av en annonsfri sökmotor som omfattar webben. Nyhetssökning i Bing är en av de söktjänster som är tillgängliga med Cognitive Services.
 
 Den här artikeln innehåller information om att använda Visual Studio-funktionen för ansluten tjänst för nyhetssökning i Bing. Funktionen är tillgänglig i Visual Studio 2017 15.7 eller senare, med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2019, med arbetsbelastningen webbutveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 med arbets belastningen webb utveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -54,7 +54,7 @@ Den här artikeln innehåller information om att använda Visual Studio-funktion
    Om du vill veta mer om prisnivåerna väljer du **Review pricing** (Se prissättning).
 
 1. Välj **Lägg till** om du vill lägga till sådana stöd för den anslutna tjänsten.
-   Visual Studio ändrar ditt projekt för att lägga till NuGet-paketen, konfigurationsfilsposter och andra ändringar till stöd för en anslutning till API för nyhetssökning i Bing. Utdata innehåller en logg över vad som händer i projektet. Du bör se något som liknar följande:
+   Visual Studio ändrar ditt projekt för att lägga till NuGet-paketen, konfigurationsfilsposter och andra ändringar till stöd för en anslutning till API för nyhetssökning i Bing. Utdata innehåller en logg över vad som händer i projektet. Det ser ut ungefär så här:
 
    ```output
    [5/4/2018 12:41:21.084 PM] Adding Intelligent Search to the project.
@@ -87,7 +87,7 @@ Den här artikeln innehåller information om att använda Visual Studio-funktion
 
 Nu när du har lagt till stöd för API för nyhetssökning i Bing i projektet ser du här hur du använder API:et för att lägga till intelligenta sökfunktioner till en webbsida.
 
-1. I `ConfigureServices`-metoden i *Startup.cs* lägger du till ett anrop till `IServiceCollection.AddSingleton`. På så sätt blir konfigurationsobjektet som innehåller de viktiga inställningarna tillgängligt för koden i projektet.
+1. I *-metoden i* Startup.cs`ConfigureServices` lägger du till ett anrop till `IServiceCollection.AddSingleton`. På så sätt blir konfigurationsobjektet som innehåller de viktiga inställningarna tillgängligt för koden i projektet.
  
    ```csharp
        public void ConfigureServices(IServiceCollection services)

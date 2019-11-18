@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740992"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120488"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Lagrings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -33,7 +33,7 @@ Program behöver ofta kunna lagra och hämta data. Eftersom Kubernetes vanligt v
 
 Traditionella volymer för lagring och hämtning av data skapas som Kubernetes-resurser som backas upp av Azure Storage. Du kan manuellt skapa dessa data volymer som ska tilldelas poddar direkt eller låta Kubernetes skapa dem automatiskt. Dessa data volymer kan använda Azure-diskar eller Azure Files:
 
-- *Azure-diskar* kan användas för att skapa en Kubernetes *DataDisk* -resurs. Diskar kan använda Azure Premium Storage, som backas upp av högpresterande SSD eller Azure standard Storage, som backas upp av vanliga hård diskar. Använd Premium Storage för de flesta arbets belastningar för produktion och utveckling. Azure-diskar monteras som *ReadWriteOnce*, så de är bara tillgängliga för en enda nod. För lagrings volymer som kan nås av flera noder samtidigt använder du Azure Files.
+- *Azure-diskar* kan användas för att skapa en Kubernetes *DataDisk* -resurs. Diskar kan använda Azure Premium Storage, som backas upp av högpresterande SSD eller Azure standard Storage, som backas upp av vanliga hård diskar. Använd Premium Storage för de flesta arbets belastningar för produktion och utveckling. Azure-diskar monteras som *ReadWriteOnce*, så de är bara tillgängliga för en enda pod. För lagrings volymer som kan nås av flera poddar samtidigt använder du Azure Files.
 - *Azure Files* kan användas för att montera en SMB 3,0-resurs som backas upp av ett Azure Storage konto till poddar. Med filer kan du dela data över flera noder och poddar. Filer kan använda Azure standard Storage som backas upp av vanliga hård diskar, eller Azure Premium-lagring, som backas upp av SSD med höga prestanda.
 > [!NOTE] 
 > Azure Files stöd för Premium Storage i AKS-kluster som kör Kubernetes 1,13 eller högre.
@@ -63,7 +63,7 @@ I AKS skapas två inledande StorageClasses:
 - *standard* – använder Azure standard Storage för att skapa en hanterad disk. Anspråks principen anger att den underliggande Azure-disken tas bort när Pod som användes i den tas bort.
 - *Managed-Premium* – använder Azure Premium Storage för att skapa en hanterad disk. Reclaim-principen igen anger att den underliggande Azure-disken tas bort när Pod som användes i den tas bort.
 
-Om ingen StorageClass har angetts för en beständig volym används standard-StorageClass. Var försiktig när du begär beständiga volymer så att de använder rätt lagrings utrymme som du behöver. Du kan skapa en StorageClass för ytterligare behov med `kubectl`hjälp av. I följande exempel används Premium-Managed Disks och anger att den underliggande Azure-disken ska behållas när Pod tas bort:
+Om ingen StorageClass har angetts för en beständig volym används standard-StorageClass. Var försiktig när du begär beständiga volymer så att de använder rätt lagrings utrymme som du behöver. Du kan skapa en StorageClass för ytterligare behov med hjälp av `kubectl`. I följande exempel används Premium-Managed Disks och anger att den underliggande Azure-disken ska *behållas* när Pod tas bort:
 
 ```yaml
 kind: StorageClass

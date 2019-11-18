@@ -1,19 +1,16 @@
 ---
 title: Använda Azure Deployment Manager med Resource Manager-mallar | Microsoft Docs
 description: Använda Resource Manager-mallar med Azure Deployment Manager för att distribuera Azure-resurser.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.date: 10/10/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 6a05e45c5dc60cf26b2fb4f50cb4699c0fde142a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285904"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147413"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig förhandsversion)
 
@@ -67,7 +64,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 Mallen för tjänsttopologin beskriver de Azure-resurser som utgör din tjänst och var de ska distribueras. Definitionen av tjänsttopologin har följande hierarki:
 
 * Tjänsttopologi
-  * Services
+  * Tjänster
     * Tjänstenheter
 
 Följande diagram visar tjänsttopologin som används i den här självstudien:
@@ -453,7 +450,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Använd fältet **Filtrera efter namn** för att visa resursgrupperna som skapats i den här självstudien. De bör vara 3–4:
 
-    * **&lt;projectName > RG**: innehåller Deployment Manager-resurserna.
+    * **&lt;projectName > RG**: innehåller Deployment Manager-resurser.
     * **&lt;projectName > ServiceWUSrg**: innehåller de resurser som definierats av ServiceWUS.
     * **&lt;projectName > ServiceEUSrg**: innehåller de resurser som definierats av ServiceEUS.
     * Resursgruppen för den användardefinierade hanterade identiteten.

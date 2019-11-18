@@ -171,6 +171,8 @@
           displayName: 'roles, import'
         - name: Använd fördefinierade modeller
           href: howto-add-prebuilt-models.md
+        - name: Etikettentitet i uttryck
+          href: label-entity-example-utterance.md
         - name: 'Med REST API:er'
           items:
             - name: Skapa en app programmässigt med Node.js
@@ -188,8 +190,8 @@
         - name: Använd instrumentpanelen
           displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
           href: luis-how-to-use-dashboard.md
-        - name: Lägg till fraslista
-          displayName: 'synonym, interchange'
+        - name: Lägg till beskrivning
+          displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
         - name: Granska slutpunktsyttranden
           displayName: active learning

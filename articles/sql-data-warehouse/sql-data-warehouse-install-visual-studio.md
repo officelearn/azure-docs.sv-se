@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 11/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 96d66e6190732d88ba9a33094b6c27bbadfd4aae
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 758c9b323e78e7e86312555f5fabdcc9c4c28330
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747801"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123731"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>Komma igång med Visual Studio 2019 för SQL Data Warehouse
 Visual Studio **2019** SQL Server Data Tools (SSDT) är ett enda verktyg som gör att du kan göra följande:
@@ -32,7 +32,22 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) är ett enda verktyg som gö
 ## <a name="install-visual-studio-2019"></a>Installera Visual Studio 2019
 Se [Hämta Visual Studio 2019][] för att ladda ned och installera visual Studio **16,3 och senare**. Under installationen väljer du arbets belastningen lagring och bearbetning av data. Installation av fristående SSDT krävs inte längre i Visual Studio 2019.
 
+## <a name="unsupported-features-in-ssdt"></a>Funktioner som inte stöds i SSDT
+
+Det finns tillfällen när funktions versioner för SQL Data Warehouse kanske inte innehåller stöd för SSDT. Följande funktioner stöds för närvarande inte:
+
+- [Materialiserade vyer](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (pågår)
+- [Beställda grupperade columnstore-index](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (pågår)
+- [Kopierings instruktion](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (pågår)
+- [Arbets](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-management) belastnings hantering-arbets belastnings grupper och klassificerare (pågår)
+- [Säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
+  - Skicka in ett support ärende eller rösta [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) för att få den funktion som stöds.
+- [Dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
+  - Skicka in ett support ärende eller rösta [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) för att få den funktion som stöds. 
+- [Förutsägelse](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) funktion 
+
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har den senaste versionen av SSDT är du redo att [ansluta][connect] till din SQL Data Warehouse.
 
 <!--Anchors-->

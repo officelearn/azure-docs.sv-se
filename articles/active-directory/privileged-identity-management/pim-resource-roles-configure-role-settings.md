@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022941"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144283"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure-resurs roll i Privileged Identity Management
 
@@ -48,11 +48,19 @@ Följ dessa steg för att öppna inställningarna för en Azure-resurs roll.
 
     ![Sidan information om roll inställning visar flera tilldelnings-och aktiverings inställningar](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Välj **Redigera** för att öppna fönstret roll inställningar.
+1. Välj **Redigera** för att öppna fönstret **roll inställningar** . På den första fliken kan du uppdatera konfigurationen för roll aktivering i Privileged Identity Management.
 
-    ![Sidan Redigera roll inställningar med alternativ för att uppdatera tilldelnings-och aktiverings inställningar](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Sidan Redigera roll inställningar med fliken aktivering öppen](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    I fönstret roll inställning för varje roll finns det flera inställningar som du kan konfigurera.
+1. Välj fliken **tilldelning** eller **Nästa: tilldelnings** knapp längst ned på sidan för att öppna fliken tilldelnings inställning. De här inställningarna kontrollerar roll tilldelningarna som görs i Privileged Identity Management-gränssnittet.
+
+    ![Fliken roll tilldelning på sidan roll inställningar](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. Använd fliken **meddelande** eller **Nästa: aktiverings** knappen längst ned på sidan för att komma till fliken meddelande inställning för den här rollen. De här inställningarna styr alla e-postaviseringar relaterade till den här rollen.
+
+    ![Fliken roll meddelanden på sidan roll inställningar](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. Välj knappen **Uppdatera** när som helst när du vill uppdatera roll inställningarna.
 
 ## <a name="assignment-duration"></a>Varaktighet för tilldelning
 

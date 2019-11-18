@@ -1,24 +1,16 @@
 ---
-title: Skapa länkade Azure Resource Manager-mallar | Microsoft Docs
+title: Skapa länkade mallar
 description: Lär dig att skapa länkade Azure Resource Manager-mallar för att skapa virtuella datorer
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 869e59aea9b78c44b1a920e58ecefab5e0ca4920
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 7caae8f749cf89832740f9b5f71f6a8931a835c9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169414"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149309"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 

@@ -1,7 +1,7 @@
 ---
 title: Slutpunkt för nyhetssökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Översikt över slut punkten för API för nyhets sökning.
+description: Den här artikeln innehåller en sammanfattning av API-slutpunkterna för nyhets sökning. Nyheter, populära nyheter och trender.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 82e37e8fa47b467e7c2fe98f801482675809a266
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: dc7d16fe809e3e324f384b0d9e088dd7e6ab261c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423778"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111481"
 ---
 # <a name="bing-news-search-api-endpoints"></a>API för nyhetssökning i Bing slut punkter
 
-**Nyhetssökning-API: n** returnerar nyhets artiklar, webb sidor, bilder, [](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)videor och entiteter. Entiteter innehåller sammanfattnings information om en person, plats eller ämne.
+**Nyhetssökning-API: n** returnerar nyhets artiklar, webb sidor, bilder, videor och [entiteter](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteter innehåller sammanfattnings information om en person, plats eller ämne.
 
 ## <a name="endpoints"></a>Slutpunkter
 
-Om du vill få nyhets Sök resultat med API för nyhetssökning i Bing skickar `GET` du en begäran till någon av följande slut punkter. Rubrik-och URL-parametrarna definierar ytterligare specifikationer.
+Om du vill få nyhets Sök resultat med API för nyhetssökning i Bing skickar du en `GET` begäran till någon av följande slut punkter. Rubrik-och URL-parametrarna definierar ytterligare specifikationer.
 
 ### <a name="news-items-by-search-query"></a>Nyhets objekt efter Sök fråga
 
@@ -31,7 +31,7 @@ Om du vill få nyhets Sök resultat med API för nyhetssökning i Bing skickar `
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-Returnerar nyhets objekt baserat på en Sök fråga. Om Sök frågan är tom, returnerar API: n de främsta nyhets artiklarna från olika kategorier. Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den`q=""` i parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-search-endpoint).
+Returnerar nyhets objekt baserat på en Sök fråga. Om Sök frågan är tom, returnerar API: n de främsta nyhets artiklarna från olika kategorier. Skicka en fråga med URL: en och koda Sök termen och Lägg till den i`q=""`-parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-search-endpoint).
 
 ### <a name="top-news-items-by-category"></a>Främsta nyhets objekt efter kategori
 
@@ -39,7 +39,7 @@ Returnerar nyhets objekt baserat på en Sök fråga. Om Sök frågan är tom, re
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställa de översta affärs-, idrotts-och underhållnings `category=business`artiklarna `category=sports`med hjälp `category=entertainment`av, eller.  Parametern kan bara användas `/news` med URL: en. `category` Det finns vissa formella krav för att ange kategorier. Läs mer i dokumentationen om [Frågeparametern.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) `category` Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den`q=""` i parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
+Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställa de översta affärs-, idrotts-och underhållnings artiklarna med `category=business`, `category=sports`eller `category=entertainment`.  Parametern `category` kan bara användas med `/news`-URL: en. Det finns vissa formella krav för att ange kategorier. Se `category` i dokumentationen för [Frågeparametern](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) . Skicka en fråga med URL: en och koda Sök termen och Lägg till den i`q=""`-parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Trender i nyhets ämnen 
 
@@ -47,7 +47,7 @@ Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställ
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Returnerar nyhets ämnen som för närvarande är trender i sociala nätverk. När alternativet är inkluderat, ignorerar Bing search flera andra parametrar, `freshness` till exempel och `?q=""`. `/trendingtopics` För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-trending-endpoint).
+Returnerar nyhets ämnen som för närvarande är trender i sociala nätverk. När alternativet `/trendingtopics` ingår ignorerar Bing search flera andra parametrar, till exempel `freshness` och `?q=""`. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,17 +1,14 @@
 ---
-title: Skapa & distribuera Visual Studio Azure resurs grupps projekt
+title: Skapa & distribuera resurs grupps projekt i Visual Studio
 description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt och distribuera resurserna till Azure.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 10/16/2019
-ms.author: tomfitz
-ms.openlocfilehash: ae7ff9370bd289dfdec578e6daeb471bbd53a072
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 39ee16ac81ee1b163a4ed4c80152a063f7ee619c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597715"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149256"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
@@ -23,7 +20,7 @@ Den här artikeln visar hur du använder [Visual Studio 2019 eller senare med ar
 
 I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för **webbappar** .
 
-1. I Visual Studio väljer du **arkiv** >**nytt** >**projekt**.
+1. I Visual Studio väljer du **arkiv**>**nytt**>**projekt**.
 1. Välj projekt mal len för **Azure-resurs gruppen** och klicka **sedan på nästa**.
 
     ![Skapa projekt](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
@@ -47,8 +44,8 @@ I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för 
    | Filnamn | Beskrivning |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Ett PowerShell-skript som kör PowerShell-kommandon för distribution till Azure Resource Manager. Visual Studio använder PowerShell-skriptet för att distribuera mallen. |
-   | Webbplats. JSON |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
-   | Webbplats. Parameters. JSON |En parameterfil med värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
+   | WebSite.json |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
+   | WebSite.parameters.json |En parameterfil med värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
 
     Alla distributionsprojekt för resursgrupper innehåller dessa grundläggande filer. Andra projekt kan innehålla ytterligare filer som ger stöd för andra funktioner.
 
@@ -72,7 +69,7 @@ Du kan anpassa ett distributions projekt genom att ändra Resource Manager-malle
 
 1. Välj **lagrings konto** och ge det ett namn. Ange ett namn som innehåller fler än 11 tecken och endast siffror och små bokstäver.
 
-   ![Lägg till lagring](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
+   ![Lägg till lagringsutrymme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
 1. Observera att inte bara resursen lades till, utan även en parameter för typen av lagringskonto och en variabel för namnet på lagringskontot.
 
@@ -93,7 +90,7 @@ Du kan anpassa ett distributions projekt genom att ändra Resource Manager-malle
    }
    ```
 
-1. Visual Studio tillhandahåller även IntelliSense som gör det lättare för dig att förstå vilka egenskaper som är tillgängliga när du redigerar mallen. Om du till exempel vill redigera egenskaperna för din App Service plan går du till resursen **HostingPlan** och lägger till ett värde för **properties**. Observera att IntelliSense visar de tillgängliga värdena och en beskrivning av det aktuella värdet.
+1. Visual Studio tillhandahåller även IntelliSense som gör det lättare för dig att förstå vilka egenskaper som är tillgängliga när du redigerar mallen. Om du till exempel vill redigera egenskaperna för din App Service-plan går du till resursen **HostingPlan** och lägger till ett värde för **properties**. Observera att IntelliSense visar de tillgängliga värdena och en beskrivning av det aktuella värdet.
 
    ![Visa IntelliSense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
@@ -160,7 +157,7 @@ För AzureRM-modulens skript använder du Visual Studio:
 
 Nu ska vi kontrol lera resultaten.
 
-1. Öppna [Azure Portal](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
+1. Öppna [Azure-portalen](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
 
 1. Du ser alla distribuerade resurser. Observera att namnet på lagringskontot inte stämmer exakt med namnet du angav när du lade till resursen. Lagringskontot måste vara unikt. Mallen lägger automatiskt till en sträng med tecken till det namn som du angav för att skapa ett unikt namn.
 
@@ -206,7 +203,7 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk
 
     ![Lägg till resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. Denna gång väljer du **Webbdistribution för Web Apps**.
+1. Denna gång väljer du **Webbdistribution för webbappar**.
 
     ![Lägg till webb distribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 

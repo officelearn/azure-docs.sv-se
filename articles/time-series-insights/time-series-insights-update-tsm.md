@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: a550643640afeefeb4cf79e35265f13557b6ffb0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5c045a4b5ccda47b786d86f1c004e9da4c8d85f3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014696"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112308"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
 
@@ -100,10 +100,10 @@ Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**,
 | --- | ---|
 | timeSeriesId | UUID för tids serien som instansen är associerad med. |
 | ID | UUID för tids serie modell typen som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
-| namn | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#preview-well) |
+| namn | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
 | description | En text Beskrivning av instansen. |
 | hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
-| instanceFields | **instanceFields** är egenskaper för en instans och alla statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
+| instanceFields | Egenskaperna för en instans och eventuella statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
 
 > [!NOTE]
 > Hierarkier skapas med hjälp av instans fält. Ytterligare **instanceFields** kan läggas till för definitioner av instans egenskaper.

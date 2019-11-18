@@ -1,5 +1,5 @@
 ---
-title: Indexera JSON-blobbar från Azure Blob-indexeraren för full texts ökning
+title: Sök över JSON-blobbar
 titleSuffix: Azure Cognitive Search
 description: Crawla Azure JSON-blobbar för text innehåll med hjälp av Azure Kognitiv sökning BLOB-indexeraren. Indexerare automatiserar data inmatning för valda data källor som Azure Blob Storage.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889885"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112725"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Så här indexerar du JSON-blobbar med en BLOB-indexerare i Azure Kognitiv sökning
 
@@ -110,7 +110,7 @@ Du kan granska [resten exempel kod](#rest-example) i slutet av det här avsnitte
 
 För kodbaserade JSON-indexering använder du [Postman](search-get-started-postman.md) och REST API för att skapa dessa objekt:
 
-+ [Tabbindex](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [data Källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
@@ -271,10 +271,10 @@ Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den kör
 
 .NET SDK har fullständig paritet med REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="parsing-modes"></a>
 

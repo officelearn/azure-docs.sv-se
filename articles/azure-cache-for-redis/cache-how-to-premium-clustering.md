@@ -1,25 +1,17 @@
 ---
-title: Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis | Microsoft Docs
+title: Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
 description: Lär dig hur du skapar och hanterar Redis-kluster för din Premium-nivå i Azure-cache för Redis-instanser
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: d81647e8d09d8f10827e8eb6038363db73395c1e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596908"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122155"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en Premium Azure-cache för Redis-instansen.
@@ -38,20 +30,20 @@ Klustring ökar inte antalet anslutningar som är tillgängliga för en klustrad
 
 I Azure erbjuds Redis-kluster som en primär modell där varje Shard har ett primärt/replik par med replikering där replikeringen hanteras av Azure cache för Redis-tjänsten. 
 
-## <a name="clustering"></a>Redundanskluster
+## <a name="clustering"></a>Klustring
 Klustring är aktiverat på bladet **ny Azure-cache för Redis** under skapandet av cache. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Klustring har kon figurer ATS på bladet **Redis kluster** .
 
-![Redundanskluster][redis-cache-clustering]
+![Klustring][redis-cache-clustering]
 
 Du kan ha upp till 10 Shards i klustret. Klicka på **aktive rad** och dra skjutreglaget eller Skriv ett tal mellan 1 och 10 för **Shard antal** och klicka på **OK**.
 
 Varje Shard är ett primärt/replik-cache-par som hanteras av Azure och den totala storleken på cachen beräknas genom att antalet Shards multipliceras med den cachestorlek som valts på pris nivån. 
 
-![Redundanskluster][redis-cache-clustering-selected]
+![Klustring][redis-cache-clustering-selected]
 
 När cachen har skapats ansluter du till den och använder den precis som en icke-klustrad cache, och Redis distribuerar data i cache-Shards. Om diagnostik är [aktiverat](cache-how-to-monitor.md#enable-cache-diagnostics)samlas måtten separat för varje Shard och kan [visas](cache-how-to-monitor.md) i bladet Azure cache för Redis. 
 
@@ -111,7 +103,7 @@ Följande lista innehåller svar på vanliga frågor om Azure cache för Redis-k
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>Hur distribueras nycklar i ett kluster?
 Enligt dokumentationen för Redis- [distributions modell](https://redis.io/topics/cluster-spec#keys-distribution-model) : nyckel utrymmet delas in på 16384 fack. Varje nyckel är hashad och tilldelas till någon av dessa platser, som distribueras mellan noderna i klustret. Du kan konfigurera vilken del av nyckeln som ska hashas för att säkerställa att flera nycklar finns i samma Shard med hash-taggar.
 
-* Nycklar med en hash-tagg – om någon del av nyckeln är innesluten i `{` och `}`, hashas bara den delen av nyckeln för att fastställa en nyckels hash-plats. Till exempel finns följande tre nycklar i samma Shard: `{key}1`, `{key}2` och `{key}3` eftersom endast `key` delen av namnet är hash-kodad. En fullständig lista över nycklar för hash-koder finns i [nycklar hash-Taggar](https://redis.io/topics/cluster-spec#keys-hash-tags).
+* Nycklar med en hash-tagg – om någon del av nyckeln är innesluten i `{` och `}`, hashas bara den delen av nyckeln för att fastställa en nyckels hash-plats. Till exempel finns följande tre nycklar i samma Shard: `{key}1`, `{key}2`och `{key}3` eftersom endast `key` delen av namnet är hash-kodad. En fullständig lista över nycklar för hash-koder finns i [nycklar hash-Taggar](https://redis.io/topics/cluster-spec#keys-hash-tags).
 * Nycklar utan hash-tagg – hela nyckel namnet används för hashing. Detta resulterar i en statistiskt jämn fördelning över Shards i cacheminnet.
 
 Vi rekommenderar att du distribuerar nycklarna jämnt för bästa prestanda och data flöde. Om du använder nycklar med en hash-tagg är programmets ansvar för att säkerställa att nycklarna fördelas jämnt.
@@ -147,7 +139,7 @@ Använd följande kommandon för icke-SSL.
     ...
     Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
 
-Ersätt `1300N` med `1500N` för SSL.
+Ersätt `1300N` med `1500N`för SSL.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Kan jag konfigurera kluster för en tidigare skapad cache?
 Ja. Se först till att cachen är Premium, genom att skala om inte är det. Sedan bör du kunna se kluster konfigurations alternativen, inklusive ett alternativ för att aktivera clsuter. Du kan ändra kluster storleken när cachen har skapats, eller när du har aktiverat kluster för första gången.

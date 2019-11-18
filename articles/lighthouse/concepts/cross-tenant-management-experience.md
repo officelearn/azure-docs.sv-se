@@ -1,18 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 11/7/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d04a7a77a3f92cffb185ff829f0d678dac2a9ff
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825823"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131929"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -120,7 +116,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Få åtkomst till virtuella datorer med serie konsolen i kund klienter
 - Observera att du inte kan använda Azure Active Directory för fjärrinloggning till en virtuell dator och du kan inte integrera en virtuell dator med en Key Vault för lösen ord, hemligheter eller kryptografiska nycklar för disk kryptering
 
-[Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
+[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
 
 - Distribuera och hantera virtuella nätverk och virtuella nätverks gränssnitts kort (virtuella nätverkskort) i kund klienter
 

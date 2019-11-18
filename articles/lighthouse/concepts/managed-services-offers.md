@@ -1,18 +1,14 @@
 ---
 title: Erbjudanden om hanterade tjänster på Azure Marketplace
 description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/19/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a6371a1020182650d83d5e7ec9bb2378b44b557
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0f1ba749a5477f0c006e6666b841e82f4eeb193f
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155259"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131874"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Erbjudanden om hanterade tjänster på Azure Marketplace
 
@@ -30,7 +26,7 @@ Varje hanterings tjänst erbjudande innehåller en eller flera planer. Dessa pla
 
 Om du vill begränsa ditt erbjudande till vissa kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de aktuella] prenumerations-ID: n som du anger. Mer information finns i [privata erbjudanden](https://docs.microsoft.com/azure/marketplace/private-offers).
 
-Med offentliga planer kan du marknadsföra dina tjänster till nya kunder. Dessa är vanligt vis mer lämpliga när du bara behöver begränsad åtkomst till kundens klient organisation. När du har upprättat en relation med en kund kan du, om de bestämmer dig för att ge organisationen ytterligare åtkomst, göra detta antingen genom att publicera en ny privat plan för den kunden, eller genom [att publicera dem för ytterligare åtkomst med hjälp av Azure Resource Manager-mallar](../how-to/onboard-customer.md).
+Med offentliga planer kan du marknadsföra dina tjänster till nya kunder. Dessa är vanligt vis mer lämpliga när du bara behöver begränsad åtkomst till kundens klient organisation. När du har upprättat en relation med en kund kan du, om de bestämmer dig för att ge organisationen ytterligare åtkomst, göra detta genom att publicera en ny privat plan för den kunden eller genom [att registrera dem för ytterligare åtkomst med hjälp av Azure Resource Manager mallar](../how-to/onboard-customer.md).
 
 Tänk på att när en plan har publicerats som offentlig kan du inte ändra den till privat. Dessutom kan du inte begränsa en offentlig Plans tillgänglighet till vissa kunder eller till och med ett visst antal kunder, även om du kan sluta sälja planen helt om du väljer att göra det.
 

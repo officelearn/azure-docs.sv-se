@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: e25d6ff0bf0c27926040fcfe190724a666713a05
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 84c4d466a820616b8f8dfa69cfa149cb86006f49
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031752"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132863"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurera ExpressRoute och plats-till-plats-anslutningar för samexistens mellan med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Stegen för att konfigurera båda scenarierna beskrivs i den här artikeln. Den 
 ## <a name="limits-and-limitations"></a>Gränser och begränsningar
 * **Transit-routing stöds inte.** Du kan inte routa (via Azure) mellan ditt lokala nätverk som ansluter via plats-till-plats-VPN och ditt lokala nätverk som ansluter via ExpressRoute.
 * **Basic-SKU-gatewayen stöds inte.** Du måste använda en icke-Basic SKU-gateway för både [ExpressRoute-gatewayen](expressroute-about-virtual-network-gateways.md) och [VPN-gatewayen](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* **Enbart routebaserad VPN-gateway stöds.** Du måste använda en routebaserad [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* **Enbart routebaserad VPN-gateway stöds.** Du måste använda en Route-baserad [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Du kan också använda en Route-baserad VPN-gateway med en VPN-anslutning som kon figurer ATS för "principbaserade trafik väljare" enligt beskrivningen i [Anslut till flera principbaserade VPN-enheter](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **Statiska vägar ska konfigureras för din VPN-gateway.** Om ditt lokala nätverk är anslutet både till ExpressRoute och en plats-till-plats-VPN så måste du ha konfigurerat en statisk väg i ditt lokala nätverk för att routa plats-till-plats-VPN-anslutningen till det offentliga Internet.
 * **VPN Gateway som standard i ASN 65515 om inget värde anges.** Azure VPN Gateway stöder BGP-routningsprotokollet. Du kan ange ASN (AS Number) för ett virtuellt nätverk genom att lägga till-ASN-växeln. Om du inte anger den här parametern är standardvärdet som antal 65515. Du kan använda valfritt ASN för konfigurationen, men om du väljer något annat än 65515 måste du återställa gatewayen för att inställningen ska börja gälla.
 

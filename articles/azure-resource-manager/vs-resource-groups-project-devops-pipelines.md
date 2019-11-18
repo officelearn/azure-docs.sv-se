@@ -1,17 +1,14 @@
 ---
-title: CI/CD med Azure-pipelines och Resource Manager-mallar
+title: CI/CD med Azure-pipeline och-mallar
 description: Beskriver hur du konfigurerar en kontinuerlig integrering i Azure-pipeline med hjälp av distributions projekt i Azure Resource Group i Visual Studio för att distribuera Resource Manager-mallar.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 51122e314ebd0a97647fc4026b1f49619950c351
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597505"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143766"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrera Resource Manager-mallar med Azure-pipeline
 
@@ -89,7 +86,7 @@ inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-För `scriptPath` anger du den relativa sökvägen från pipeline-filen till skriptet. Du kan titta på lagrings platsen för att se sökvägen.
+För `scriptPath`anger du den relativa sökvägen från pipeline-filen till skriptet. Du kan titta på lagrings platsen för att se sökvägen.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -157,7 +154,7 @@ Följande YAML visar [Azure File Copy-aktiviteten](/azure/devops/pipelines/tasks
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Det finns flera delar av den här uppgiften att ändra för din miljö. @No__t_0 anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som var namnet på projektet.
+Det finns flera delar av den här uppgiften att ändra för din miljö. `SourcePath` anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som var namnet på projektet.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'

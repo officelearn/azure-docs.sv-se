@@ -1,7 +1,7 @@
 ---
 title: Förstå OData-samlings filter
 titleSuffix: Azure Cognitive Search
-description: Förstå hur OData Collection-filter fungerar i Azure Kognitiv sökning-frågor.
+description: Lär dig hur OData-Mechanics fungerar i Azure Kognitiv sökning-frågor, inklusive begränsningar och beteenden som är unika för samlingar.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794400"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113064"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Förstå OData Collection-filter i Azure Kognitiv sökning
 
@@ -86,7 +86,7 @@ Hur `Rooms/Type` lagras för full texts ökning:
 
 | Term i `Rooms/Type` | Dokument-ID |
 | --- | --- |
-| modell | 1, 2 |
+| deluxe | 1, 2 |
 | standard | 1 |
 
 Hur `Rooms/Description` lagras för full texts ökning:
@@ -103,7 +103,7 @@ Hur `Rooms/Description` lagras för full texts ökning:
 | uppsättning | 1 |
 | vy | 1 |
 
-Till skillnad från filtret ovan, vilket i princip betyder att "matcha dokument där ett rum har `Type` lika med" Deluxe-rummet "och **att samma rum** har `BaseRate` mindre än 100", säger Sök frågan "matcha dokument där `Rooms/Type` har termen" Deluxe "och `Rooms/Description` har frasen "stads vy". Det finns inget begrepp för enskilda rum vars fält kan korreleras i det senare fallet.
+Så till skillnad från filtret ovan, som i princip står "matcha dokument där ett rum har `Type` lika med" Deluxe-rummet "och **samma rum** har `BaseRate` mindre än 100", säger Sök frågan "matcha dokument där `Rooms/Type` har termen" Deluxe "och `Rooms/Description` innehåller frasen" City ". Det finns inget begrepp för enskilda rum vars fält kan korreleras i det senare fallet.
 
 > [!NOTE]
 > Om du vill se stöd för korrelerad sökning som lagts till i Azure Kognitiv sökning, rösten för [det här röst alternativet för användare](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
@@ -151,7 +151,7 @@ Skapa upp från likhet. härnäst ska vi titta på hur det är möjligt att komb
 
     seasons/any(s: s eq 'winter' or s eq 'fall')
 
-motsvarar:
+motsvarar att:
 
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
 
@@ -159,7 +159,7 @@ och var och en av de två `any` under uttryck kan köras effektivt med det inver
 
     seasons/all(s: s ne 'winter' and s ne 'fall')
 
-motsvarar:
+motsvarar att:
 
     not seasons/any(s: s eq 'winter' or s eq 'fall')
 

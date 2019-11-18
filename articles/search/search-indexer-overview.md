@@ -1,5 +1,5 @@
 ---
-title: Indexerare för crawlning av data källor under indexering
+title: Indexerare för crawlning av data under import
 titleSuffix: Azure Cognitive Search
 description: Crawla Azure SQL Database, Azure Cosmos DB eller Azure Storage för att extrahera sökbara data och fylla ett Azure Kognitiv sökning-index.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5e5d43909dc0e65c12c053515ba534ce5cfa121f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1fd667e14501355f2567712d13b10dd7fbc7ee19
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793667"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112687"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexerare i Azure Kognitiv sökning
 

@@ -1,7 +1,7 @@
 ---
 title: Felsöka OData-samlings filter
 titleSuffix: Azure Cognitive Search
-description: Felsöka OData Collection filter-fel i Azure Kognitiv sökning-frågor.
+description: Lär dig mer om metoder för att lösa OData Collection filter-fel i Azure Kognitiv sökning-frågor.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793178"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113089"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Felsöka OData Collection filter i Azure Kognitiv sökning
 
@@ -64,7 +64,7 @@ Reglerna för att skriva giltiga samlings filter skiljer sig åt för varje data
 I lambda-uttryck för sträng samlingar är de enda jämförelse operatorer som kan användas `eq` och `ne`.
 
 > [!NOTE]
-> Azure Kognitiv sökning stöder inte `lt`/`le`/`gt`/-operatörer för strängar, vare sig inom eller utanför ett lambda-uttryck.
+> Azure Kognitiv sökning stöder inte `lt`/`le`/`gt`/-operatörer för strängar, vare sig inom eller utanför ett lambda-uttryck.`ge`
 
 Bröd texten i en `any` kan bara testa för likheter medan bröd texten i en `all` bara kan testa för olikheter.
 

@@ -1,25 +1,17 @@
 ---
-title: Vanliga frågor och svar om Azure cache för Redis | Microsoft Docs
+title: Vanliga frågor och svar om Azure Cache for Redis
 description: Lär dig mer om svar på vanliga frågor, mönster och metod tips för Azure cache för Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 5ccbfb75edc7fa0eabf5e647169ed2d3771326d8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e497a5c54a80dbed2ea94f8251d198c1c8bc5043
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785842"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122793"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
@@ -133,22 +125,22 @@ I den här tabellen kan vi Rita följande slut satser:
 * Med Redis-klustring ökar data flödet linjärt när du ökar antalet Shards (noder) i klustret. Om du till exempel skapar ett P4-kluster på 10 Shards är det tillgängliga data flödet 400 000 * 10 = 4 000 000 RPS.
 * Data flödet för större nyckel storlekar är högre på Premium-nivån jämfört med standard nivån.
 
-| Prisnivå | Storlek | CPU-kärnor | Tillgänglig bandbredd | värde storlek 1 KB | värde storlek 1 KB |
+| Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | värde storlek 1 KB | värde storlek 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standardcache-storlekar** | | |**Megabit per sekund (MB/s)/megabyte per sekund (MB/s)** |**Begär Anden per sekund (RPS) icke-SSL** |**Begär Anden per sekund (RPS) SSL** |
-| C0 | 250 MB | Delad | 100/12,5  |  15 000 |   7 500 |
-| C1 |   1 GB | 1      | 500/62,5  |  38 000 |  20 720 |
-| C2 | 2,5 GB | 2      | 500/62,5  |  41 000 |  37 000 |
-| C3 |   6 GB | 4      | 1000/125  | 100 000 |  90 000 |
-| C4 |  13 GB | 2      | 500/62,5  |  60 000 |  55 000 |
-| C5 |  26 GB | 4      | 1 000/125 | 102 000 |  93 000 |
-| C6 |  53 GB | 8      | 2 000/250 | 126 000 | 120 000 |
+| C0 | 250 MB | Delad | 100 / 12.5  |  15 000 |   7 500 |
+| C1 |   1 GB | 1      | 500 / 62.5  |  38 000 |  20 720 |
+| C2 | 2,5 GB | 2      | 500 / 62.5  |  41 000 |  37 000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100 000 |  90,000 |
+| C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55 000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102 000 |  93 000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126 000 | 120,000 |
 | **Storlek på Premium-cache** | |**PROCESSOR kärnor per Shard** | **Megabit per sekund (MB/s)/megabyte per sekund (MB/s)** |**Begär Anden per sekund (RPS) som inte är SSL, per Shard** |**Begär Anden per sekund (RPS) SSL, per Shard** |
-| P1 |   6 GB |  2 | 1 500/187,5 | 180 000 | 172 000 |
-| P2 |  13 GB |  4 | 3 000/375   | 350 000 | 341 000 |
-| P3 |  26 GB |  4 | 3 000/375   | 350 000 | 341 000 |
-| P4 |  53 GB |  8 | 6 000/750   | 400,000 | 373 000 |
-| P5 | 120 GB | 20 | 6 000/750   | 400,000 | 373 000 |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172 000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350 000 | 341 000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350 000 | 341 000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373 000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373 000 |
 
 Anvisningar om hur du konfigurerar stunnelserver eller laddar ned Redis-verktyg som `redis-benchmark.exe`finns i avsnittet [Hur kan jag köra Redis-kommandon?](#cache-commands) .
 
@@ -167,10 +159,10 @@ Ja, Azure cache för Redis finns i Azure Government Cloud, Azure Kina 21Vianet-m
 
 | I molnet   | DNS-suffix för Redis            |
 |---------|---------------------------------|
-| Offentligt  | *. redis.cache.windows.net       |
-| USA-förvaltad region  | *. redis.cache.usgovcloudapi.net |
-| Tyskland | *. redis.cache.cloudapi.de       |
-| Kina   | *. redis.cache.chinacloudapi.cn  |
+| Offentligt  | *.redis.cache.windows.net       |
+| USA-förvaltad region  | *.redis.cache.usgovcloudapi.net |
+| Tyskland | *.redis.cache.cloudapi.de       |
+| Kina   | *.redis.cache.chinacloudapi.cn  |
 
 Mer information om att tänka på när du använder Azure cache för Redis med andra moln finns i följande länkar.
 
@@ -297,7 +289,7 @@ Redis-servern stöder inte SSL, men Azure cache för Redis gör det. Om du anslu
 >
 >
 
-Redis-verktyg som `redis-cli` fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` för att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i avsnittet [presentera ASP.net för Redis för hands versions](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogg efter.
+Redis-verktyg som `redis-cli` fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` för att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i avsnittet [presentera ASP.net för Redis för för hands version](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) .
 
 Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag köra Redis-kommandon?](#cache-commands) .
 
@@ -333,7 +325,7 @@ Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag
 
 * Undvik att använda vissa redis-kommandon som tar lång tid att slutföra, om du inte helt förstår effekten av dessa kommandon. Kör till exempel inte kommandot [nycklar](https://redis.io/commands/keys) i produktion. Beroende på antalet nycklar kan det ta lång tid att returnera. Redis är en enkel tråds Server och bearbetar kommandon en i taget. Om du har andra kommandon som utfärdas efter nycklar bearbetas de inte förrän Redis bearbetar kommandot nycklar. [Redis.io-webbplatsen](https://redis.io/commands/) innehåller information kring tids komplexiteten för varje åtgärd som stöds. Klicka på varje kommando för att se komplexiteten för varje åtgärd.
 * Nyckel storlekar – ska jag använda små nycklar/värden eller stora nycklar/värden? Det beror på scenariot. Om ditt scenario kräver större nycklar kan du justera ConnectionTimeout och sedan försöka igen och justera din logik för återförsök. Från ett redis server-perspektiv ger mindre värden bättre prestanda.
-* Dessa överväganden innebär inte att du inte kan lagra större värden i Redis; Du måste vara medveten om följande överväganden. Fördröjningen är högre. Om du har en uppsättning data som är större och en som är mindre, kan du använda flera ConnectionMultiplexer-instanser, var och en som kon figurer ATS med en annan uppsättning tids gräns och nya försök, enligt beskrivningen i föregående [vad gör stackexchange. Redis-konfigurationen avsnittet alternativ](#cache-configuration) .
+* Dessa överväganden innebär inte att du inte kan lagra större värden i Redis; Du måste vara medveten om följande överväganden. Fördröjningen är högre. Om du har en uppsättning data som är större och en som är mindre, kan du använda flera ConnectionMultiplexer-instanser, var och en som kon figurer ATS med en annan uppsättning tids gräns och nya försök, enligt beskrivningen i föregående [vad gör avsnittet stackexchange. Redis konfigurations alternativ](#cache-configuration) .
 
 <a name="cache-benchmarking"></a>
 

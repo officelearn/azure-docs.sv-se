@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: skapa en anpassad kognitiv kompetens med API för entitetsökning i Bing'
+title: Anpassat kunskaps exempel som använder API för entitetsökning i Bing
 titleSuffix: Azure Cognitive Search
 description: Visar hur du använder tjänsten Entitetssökning i Bing i en anpassad färdighet som är mappad till en AI-fördefinierad indexerings pipeline i Azure Kognitiv sökning.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466810"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113812"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: skapa en anpassad kunskap med hjälp av API för entitetsökning i Bing
 
 I det här exemplet lär du dig hur du skapar en anpassad webb-API-färdighet. Den här kunskapen tar emot platser, offentliga uppgifter och organisationer och returnerar beskrivningar för dem. I exemplet används en [Azure-funktion](https://azure.microsoft.com/services/functions/) för att omsluta [API för entitetsökning i Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) så att den implementerar det anpassade kunskaps gränssnittet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs om det [anpassade kunskaps gränssnitts](cognitive-search-custom-skill-interface.md) artikel om du inte är bekant med gränssnittet för indata/utdata som en anpassad färdighet ska implementera.
 
@@ -476,7 +476,7 @@ Här är vi inräknat på den inbyggda [enhets igenkännings kompetensen](cognit
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Grattis! Du har skapat din första anpassade färdighet. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. Klicka på följande länkar om du vill veta mer.
+Gratulerar! Du har skapat din första anpassade färdighet. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. Klicka på följande länkar om du vill veta mer.
 
 + [Energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Lägg till en anpassad färdighet till en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)

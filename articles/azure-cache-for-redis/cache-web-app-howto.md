@@ -1,32 +1,24 @@
 ---
-title: Skapa en ASP.NET-webbapp med Azure Cache for Redis | Microsoft Docs
+title: Skapa en ASP.NET-webbapp med Azure cache för Redis
 description: I den här snabbstarten lär du dig hur du skapar en ASP.NET-webbapp med Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326502"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122578"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Snabbstart: Använda Azure cache för Redis med en ASP.NET-webbapp 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Snabb start: Använd Azure cache för Redis med en ASP.NET-webbapp 
 
 I den här snabb starten använder du Visual Studio 2019 för att skapa ett ASP.NET-webbprogram som ansluter till Azure cache för Redis för att lagra och hämta data från cachen. Sedan distribuerar du appen till Azure App Service.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningarna **ASP.net och webb utveckling** och **Azure-utveckling** .
@@ -67,7 +59,7 @@ Nu ska skapa du cachen för appen.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Redigera filen *CacheSecrets.config*
 
-1. Skapa en fil med namnet *CacheSecrets.config* på datorn. Placera den på en plats där den inte checkas in med källkoden för exempelprogrammet. För den här snabbstarten finns filen *CacheSecrets.config* i *C:\AppSecrets\CacheSecrets.config*.
+1. Skapa en fil på din dator med namnet *CacheSecrets. config*. Lägg till den på en plats där den inte checkas in med käll koden för ditt exempel program. För den här snabbstarten finns filen *CacheSecrets.config* i *C:\AppSecrets\CacheSecrets.config*.
 
 1. Redigera filen *CacheSecrets.config*. Lägg sedan till följande innehåll:
 
@@ -106,10 +98,10 @@ Eftersom *CacheSecrets.config* inte har distribuerats till Azure med din app anv
 
     ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
 
-2. Leta reda på elementet `<appSetting>` i filen *web.config*. Lägg sedan till följande `file`-attribut. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
+2. Leta reda på elementet *i filen*web.config`<appSetting>`. Lägg sedan till följande `file`-attribut. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
 
 * Innan: `<appSettings>`
-* När`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Efter: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeringen i `<appSettings>`-elementet. Vid körningen ignoreras filattributet om det inte går att hitta den angivna filen. Din hemliga information (anslutningssträngen till cachen) ingår inte i källkoden för programmet. När du distribuerar din webbapp till Azure så distribueras inte filen *CacheSecrets.config*.
 

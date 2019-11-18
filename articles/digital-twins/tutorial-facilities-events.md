@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3cb5d8a6cb605d2150be1e34a9f4b0ac7955aed6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107688"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129228"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
@@ -38,7 +38,7 @@ Den här självstudien förutsätter att du har [konfigurerat](tutorial-faciliti
 - En instans av Digital Twins som körs.
 - [Digital Twins C#-exemplen](https://github.com/Azure-Samples/digital-twins-samples-csharp) nedladdade och extraherade på din arbetsdator.
 - [.NET Core SDK version 2.1.403 eller senare](https://www.microsoft.com/net/download) på utvecklingsdatorn för att köra exemplet. Kör `dotnet --version` för att kontrollera att rätt version är installerad.
-- Ett Office 365-konto för att skicka e-postmeddelanden.
+- Ett [Office 365](https://products.office.com/home) -konto för att skicka e-postaviseringar.
 
 > [!TIP]
 > Använd ett unikt digitalt namn på en delad instans om du skapar en ny instans.
@@ -63,7 +63,7 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
 
 1. Gå till Event Grid-ämnet från resursgruppen, välj **Översikt** och kopiera värdet för **Ämnesslutpunkt** till en temporär fil. Du behöver webbadressen i nästa avsnitt. 
 
-1. Välj **Åtkomstnycklar** och kopiera **YOUR_KEY_1** och **YOUR_KEY_2** (nyckel 1 och nyckel 2) till en temporär fil. Du behöver dessa värden för att skapa slutpunkten i nästa avsnitt.
+1. Välj **Åtkomstnycklar** och kopiera **Key 1** och **Key 2** (nyckel 1 och nyckel 2) till en temporär fil. Du behöver dessa värden för att skapa slutpunkten i nästa avsnitt.
 
     [![Event Grid nycklar](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -85,9 +85,9 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Ersätt platshållaren `<Primary connection string for your Event Grid>` med värdet för **YOUR_KEY_1**.
+1. Ersätt plats hållaren `<Primary connection string for your Event Grid>` med värdet för **nyckel 1**.
 
-1. Ersätt platshållaren `<Secondary connection string for your Event Grid>` med värdet för **YOUR_KEY_2**.
+1. Ersätt plats hållaren `<Secondary connection string for your Event Grid>` med värdet för **nyckel 2**.
 
 1. Ersätt plats hållaren för **sökväg** med sökvägen till Event Grid-ämnet. Hämta den här sökvägen genom att ta bort den **https://** och avslutande resurssökvägar från **Ämnesslutpunkt**-URL: en. Det bör se ut ungefär som det här formatet: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
@@ -178,7 +178,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    a. Markera **Lägg till en åtgärd** och väljer **Office 365 Outlook**.
 
-   b. I listan med **Åtgärder** väljer du **Skicka ett e-postmeddelande**. Välj **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Välj **Tillåt åtkomst** om du uppmanas till detta.
+   b. I listan **åtgärder** väljer du **Skicka ett e-postmeddelande (v2)** . Välj **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Välj **Tillåt åtkomst** om du uppmanas till detta.
 
    c. I rutan **Till** anger du ditt e-post-ID för att få meddelanden. I **Ämne** anger du texten **Digital Twins notification for poor air quality in space** (Digital Twins-meddelande för dålig luftkvalitet i utrymmet). Välj sedan **TopologyObjectId** på listan **Dynamiskt innehåll** för **Parsa JSON**.
 

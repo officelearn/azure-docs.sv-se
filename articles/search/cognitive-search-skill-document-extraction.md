@@ -1,5 +1,5 @@
 ---
-title: Dokument extrahering kognitiv Sök kunskaper (för hands version)
+title: Dokument extrahering kognitiv kunskap (för hands version)
 titleSuffix: Azure Cognitive Search
 description: Extraherar innehåll från en fil inom en pipeline för anrikning. Den här kunskapen är för närvarande en offentlig för hands version.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a79b0476fccbd2e2b9d3cf47ecfdc99c17c2862d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720119"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113332"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Inlärnings kunskap för dokument extrahering
 
@@ -53,7 +53,7 @@ Parametrar är Skift läges känsliga.
 |--------------------|-------------|
 | file_data | Filen som innehållet ska extraheras från. |
 
-Inmatade "file_data" måste vara ett objekt som definieras enligt följande:
+Inmatade file_data måste vara ett objekt som definieras enligt följande:
 
 ```json
 {
@@ -75,7 +75,7 @@ Detta fil referens objekt kan genereras av tre sätt:
 | Namn på utdata    | Beskrivning |
 |--------------|-------------|
 | innehåll | Dokumentets text innehåll. |
-| normalized_images | Om `imageAction` har angetts till ett annat värde än `none`, kommer fältet New *normalized_images* att innehålla en matris med bilder. I [dokumentationen för avbildnings extrahering](cognitive-search-concept-image-scenarios.md) finns mer information om utdataformatet för varje bild. |
+| normalized_images | Om `imageAction` har angetts till ett annat värde än `none`, innehåller fältet ny *normalized_images* en matris med bilder. I [dokumentationen för avbildnings extrahering](cognitive-search-concept-image-scenarios.md) finns mer information om utdataformatet för varje bild. |
 
 ##  <a name="sample-definition"></a>Exempel definition
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: c4859554f361b262366bc2442d3819e2a029aa85
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 02682a18f14e7ecbf5b42783ab84a1b55a4bb77b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822096"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133124"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Etablera och katalogisera nya klienter med hjälp av mönstret program per klient SaaS
 
@@ -28,11 +28,11 @@ Den här artikeln innehåller två huvud delar:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Mönster för fristående program per klient organisation
 
-Det fristående programmet per klient mönster är ett av flera mönster för SaaS-program för flera innehavare.  I det här mönstret tillhandahålls en fristående app för varje klient. Programmet omfattar komponenter på program nivå och en SQL-databas.  Varje klient program kan distribueras i leverantörens prenumeration.  Azure erbjuder också ett [program för hanterade program](https://docs.microsoft.com/azure/managed-applications/overview) där en app kan distribueras i en klients prenumeration och hanteras av leverantören på klient organisationens vägnar. 
+Det fristående programmet per klient mönster är ett av flera mönster för SaaS-program för flera innehavare.  I det här mönstret tillhandahålls en fristående app för varje klient. Programmet omfattar komponenter på program nivå och en SQL-databas.  Varje klient program kan distribueras i leverantörens prenumeration.  Azure erbjuder också ett [program för hanterade program](https://docs.microsoft.com/azure/managed-applications/overview) där en app kan distribueras i en klients prenumeration och hanteras av leverantören på klient organisationens vägnar.
 
    ![app-per-klient mönster](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
-När du distribuerar ett program för en klient, tillhandahålls appen och databasen i en ny resurs grupp som skapats för klienten.  Genom att använda separata resurs grupper isoleras varje klients program resurser och kan hanteras separat. I varje resurs grupp är varje program instans konfigurerad för att få åtkomst till motsvarande databas direkt.  Den här anslutnings modellen skiljer sig från andra mönster som använder en katalog för att hantera anslutningar mellan appen och databasen.  Och eftersom det inte finns någon resurs delning måste varje klient databas tillhandahållas med tillräckligt med resurser för att hantera den högsta belastningen. Det här mönstret används ofta för SaaS-program med färre klienter, där det finns en stark tonvikt på klient isoleringen och mindre tonvikt på resurs kostnader.  
+När du distribuerar ett program för en klient, tillhandahålls appen och databasen i en ny resurs grupp som skapats för klienten.  Genom att använda separata resurs grupper isoleras varje klients program resurser och kan hanteras separat. I varje resurs grupp är varje program instans konfigurerad för att få åtkomst till motsvarande databas direkt.  Den här anslutnings modellen skiljer sig från andra mönster som använder en katalog för att hantera anslutningar mellan appen och databasen.  Och eftersom det inte finns någon resurs delning måste varje klient databas tillhandahållas med tillräckligt med resurser för att hantera den högsta belastningen. Det här mönstret används ofta för SaaS-program med färre klienter, där det finns en stark tonvikt på klient isoleringen och mindre tonvikt på resurs kostnader.
 
 ## <a name="using-a-tenant-catalog-with-the-application-per-tenant-pattern"></a>Använda en klient katalog med ett program per klient mönster
 
@@ -46,18 +46,18 @@ Klient katalogen innehåller en mappning mellan en klient-ID och en klient datab
 
 I Wingtip-exempelprogrammet implementeras katalogen av Shard-hanterings funktionerna i [Elastic Database klient bibliotek](sql-database-elastic-database-client-library.md) (EDCL).  Biblioteket gör det möjligt för ett program att skapa, hantera och använda en Shard-karta som lagras i en databas. I exempel på Wingtip-biljetter lagras katalogen i *klient katalog* databasen.  Shard mappar en klient nyckel till Shard (databasen) där klientens data lagras.  EDCL Functions hanterar en *Global Shard-mappning* som lagras i tabeller i *klient katalog* databasen och en *lokal Shard-mappning* som lagras i varje Shard.
 
-EDCL-funktioner kan anropas från program eller PowerShell-skript för att skapa och hantera posterna i Shard-kartan. Andra EDCL-funktioner kan användas för att hämta en uppsättning Shards eller ansluta till rätt databas för den angivna klient nyckeln. 
+EDCL-funktioner kan anropas från program eller PowerShell-skript för att skapa och hantera posterna i Shard-kartan. Andra EDCL-funktioner kan användas för att hämta en uppsättning Shards eller ansluta till rätt databas för den angivna klient nyckeln.
 
 > [!IMPORTANT]
 > Redigera inte data i katalog databasen eller den lokala Shard-kartan i klient databaserna direkt. Direkta uppdateringar stöds inte på grund av hög risk för skadade data. Redigera i stället mappnings data med EDCL-API: er.
 
-## <a name="tenant-provisioning"></a>Etablering av klient organisation 
+## <a name="tenant-provisioning"></a>Etablering av klient organisation
 
 Varje klient kräver en ny Azure-resurs grupp som måste skapas innan resurser kan tillhandahållas i den. När resurs gruppen finns kan du använda en Azure Resource Management-mall för att distribuera program komponenterna och-databasen och sedan konfigurera databas anslutningen. För att initiera databasschemat kan mallen importera en BACPAC-fil.  Du kan också skapa databasen som en kopia av en mall-databas.  Databasen uppdateras sedan ytterligare med inledande plats data och registreras i katalogen.
 
 ## <a name="tutorial"></a>Självstudier
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 * Etablera en katalog
 * Registrera de exempel på klient databaser som du distribuerade tidigare i katalogen
@@ -67,33 +67,33 @@ En Azure Resource Manager mall används för att distribuera och konfigurera pro
 
 I slutet av den här självstudien har du en uppsättning fristående klient program, där varje databas är registrerad i katalogen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Följande krav måste uppfyllas för att kunna köra den här självstudiekursen: 
+Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 * Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * De tre exempel klient programmen distribueras. Om du vill distribuera dessa appar på mindre än fem minuter kan du läsa [distribuera och utforska Wingtip Ticket SaaS fristående program mönster](saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Etablera katalogen
 
-I den här uppgiften får du lära dig hur du etablerar katalogen som används för att registrera alla klient databaser. Du kommer att: 
+I den här uppgiften får du lära dig hur du etablerar katalogen som används för att registrera alla klient databaser. Du kommer att:
 
-* **Etablera katalog databasen** med en Azure-resurs hanterings mall. Databasen initieras genom att importera en BACPAC-fil.  
+* **Etablera katalog databasen** med en Azure-resurs hanterings mall. Databasen initieras genom att importera en BACPAC-fil.
 * **Registrera de exempel på klient program** som du distribuerade tidigare.  Varje klient har registrerats med hjälp av en nyckel som skapats från en hash av klientens namn.  Klient namnet lagras också i en tilläggs tabell i katalogen.
 
-1. Öppna *. ..\Learning Modules\UserConfig.PSM* i PowerShell ISE och uppdatera **\<User\>** -värdet till det värde som du använde när du distribuerade de tre exempel programmen.  **Spara filen**.  
+1. Öppna *. ..\Learning Modules\UserConfig.PSM* i PowerShell ISE och uppdatera **\<User\>** -värdet till det värde som du använde när du distribuerade de tre exempel programmen.  **Spara filen**.
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* och anger **$Scenario = 1**. Distribuera klient katalogen och registrera de fördefinierade klient organisationerna.
 
 1. Lägg till en Bryt punkt genom att placera markören var som helst på den rad som står `& $PSScriptRoot\New-Catalog.ps1`och tryck sedan på **F9**.
 
     ![Ange en Bryt punkt för spårning](media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
-1. Kör skriptet genom att trycka på **F5**. 
+1. Kör skriptet genom att trycka på **F5**.
 1.  När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i skriptet New-Catalog. ps1.
 1.  Spåra skript körningen med hjälp av meny alternativen för fel sökning, F10 och F11, för att gå över eller till anropade funktioner.
-    *   Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *   Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
-När skriptet har slutförts kommer katalogen att finnas och alla exempel klienter kommer att registreras. 
+När skriptet har slutförts kommer katalogen att finnas och alla exempel klienter kommer att registreras.
 
 Titta nu på de resurser som du har skapat.
 
@@ -101,31 +101,31 @@ Titta nu på de resurser som du har skapat.
 1. Öppna databasen i portalen och välj *Data Explorer* på menyn till vänster.  Klicka på inloggnings kommandot och ange sedan lösen ordet = **P\@ssword1**.
 
 
-1. Utforska schemat för *tenantcatalog* -databasen.  
+1. Utforska schemat för *tenantcatalog* -databasen.
    * De objekt som finns i `__ShardManagement`-schemat anges i Elastic Database klient biblioteket.
    * `Tenants` tabellen och `TenantsExtended` vyn är tillägg som läggs till i exemplet som visar hur du kan utöka katalogen för att ge ytterligare värde.
-1. Kör frågan `SELECT * FROM dbo.TenantsExtended`.          
+1. Kör frågan `SELECT * FROM dbo.TenantsExtended`.
 
    ![data Utforskaren](media/saas-standaloneapp-provision-and-catalog/data-explorer-tenantsextended.png)
 
-    Som ett alternativ till att använda Datautforskaren kan du ansluta till databasen från SQL Server Management Studio. Det gör du genom att ansluta till servern Wingtip- 
+    Som ett alternativ till att använda Datautforskaren kan du ansluta till databasen från SQL Server Management Studio. Det gör du genom att ansluta till servern Wingtip-
 
-    
-    Observera att du inte bör redigera data direkt i katalogen – Använd alltid Shard Management-API: er. 
+
+    Observera att du inte bör redigera data direkt i katalogen – Använd alltid Shard Management-API: er.
 
 ## <a name="provision-a-new-tenant-application"></a>Etablera ett nytt klient program
 
-I den här uppgiften får du lära dig hur du etablerar ett enda klient program. Du kommer att:  
+I den här uppgiften får du lära dig hur du etablerar ett enda klient program. Du kommer att:
 
-* **Skapa en ny resurs grupp** för klient organisationen. 
-* **Etablera programmet och databasen** i den nya resurs gruppen med hjälp av en Azure-mall för resurs hantering.  Den här åtgärden inkluderar att initiera databasen med vanliga schema-och referens data genom att importera en BACPAC-fil. 
-* **Initiera databasen med grundläggande klient information**. Den här åtgärden inkluderar att ange platstyp, som avgör vilket fotografi som används som bakgrund på dess händelse webbplats. 
-* **Registrera databasen i katalog databasen**. 
+* **Skapa en ny resurs grupp** för klient organisationen.
+* **Etablera programmet och databasen** i den nya resurs gruppen med hjälp av en Azure-mall för resurs hantering.  Den här åtgärden inkluderar att initiera databasen med vanliga schema-och referens data genom att importera en BACPAC-fil.
+* **Initiera databasen med grundläggande klient information**. Den här åtgärden inkluderar att ange platstyp, som avgör vilket fotografi som används som bakgrund på dess händelse webbplats.
+* **Registrera databasen i katalog databasen**.
 
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* och anger **$Scenario = 2**. Distribuera klient katalogen och registrera de fördefinierade klient organisationerna
 
 1. Lägg till en Bryt punkt i skriptet genom att placera markören var som helst på rad 49 som står `& $PSScriptRoot\New-TenantApp.ps1`och tryck sedan på **F9**.
-1. Kör skriptet genom att trycka på **F5**. 
+1. Kör skriptet genom att trycka på **F5**.
 1.  När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i skriptet New-Catalog. ps1.
 1.  Spåra skript körningen med hjälp av meny alternativen för fel sökning, F10 och F11, för att gå över eller till anropade funktioner.
 
@@ -133,7 +133,7 @@ När klienten har etablerats öppnas den nya klientens händelse webbplats.
 
    ![röd och en tävling](media/saas-standaloneapp-provision-and-catalog/redmapleracing.png)
 
-Du kan sedan granska de nya resurserna som skapats i Azure Portal. 
+Du kan sedan granska de nya resurserna som skapats i Azure Portal.
 
    ![röda, tävlings resurser](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
 
@@ -155,4 +155,4 @@ I den här guiden har du lärt dig:
 > * Om de servrar och databaser som utgör appen.
 > * Så här tar du bort exempel resurser för att stoppa relaterad fakturering.
 
-Du kan utforska hur katalogen används för att stödja olika scenarier för flera innehavare med hjälp av en databas per klient version av [Wingtip Ticket SaaS-program](saas-dbpertenant-wingtip-app-overview.md).  
+Du kan utforska hur katalogen används för att stödja olika scenarier för flera innehavare med hjälp av en databas per klient version av [Wingtip Ticket SaaS-program](saas-dbpertenant-wingtip-app-overview.md).

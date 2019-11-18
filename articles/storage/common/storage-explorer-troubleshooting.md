@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694704"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124019"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
 
@@ -29,7 +29,7 @@ Rollbaserad åtkomst kontroll [RBAC](https://docs.microsoft.com/azure/role-based
 
 Om du har problem med att komma åt lagrings resurser via RBAC kanske du inte har tilldelats lämpliga roller. I följande avsnitt beskrivs de behörigheter som Storage Explorer för närvarande kräver åtkomst till dina lagrings resurser. Kontakta administratören för Azure-kontot om du inte är säker på att du har lämpliga roller eller behörigheter.
 
-#### <a name="read-listget-storage-accounts-permissions-issue"></a>Läs Lista/Hämta lagrings kontona behörighets problem
+#### <a name="read-listget-storage-accounts-permissions-issue"></a>Problem med behörigheten läsa: lista/Hämta lagrings konto (er)
 
 Du måste ha behörighet att lista lagrings konton. För att få den här behörigheten måste du tilldelas rollen _läsare_ .
 
@@ -58,9 +58,9 @@ Om du inte har en roll som beviljar behörigheter för hanterings lager kan Stor
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Vad händer om jag inte kan hämta de behörigheter för hanterings skikt jag behöver från min administratör?
 
-Vi har för närvarande ingen RBAC-relaterad lösning för det här problemet. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+Vi har för närvarande ingen RBAC-relaterad lösning för det här problemet. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: Självsignerat certifikat i certifikat kedjan (och liknande fel)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: självsignerat certifikat i certifikat kedjan (och liknande fel)
 
 Certifikat fel inträffar vanligt vis i någon av följande situationer:
 
@@ -70,24 +70,24 @@ Certifikat fel inträffar vanligt vis i någon av följande situationer:
 När Storage Explorer ser ett självsignerat eller ej betrott certifikat, vet det inte längre om det mottagna HTTPS-meddelandet har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Storage Explorer att lita på det genom att följa dessa steg:
 
 1. Hämta en kopia av certifikatet med bas-64-kodad X. 509 (. cer).
-2. Gå till **Redigera** > **SSL-certifikat** > **Importera certifikat**och Använd sedan fil väljaren för att söka efter, välja och öppna. CER-filen.
+2. Gå till **redigera** > **SSL-certifikat** > **Importera certifikat**och Använd sedan fil väljaren för att söka efter, välja och öppna. CER-filen.
 
 Det här problemet kan även uppstå om det finns flera certifikat (rot och mellanliggande). För att åtgärda det här felet måste båda certifikaten läggas till.
 
 Om du är osäker på var certifikatet kommer från följer du de här stegen för att hitta det:
 
 1. Installera OpenSSL.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Alla ljusa versioner bör vara tillräckliga.
-    * Mac och Linux: Ska inkluderas i ditt operativ system.
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): vilken som helst av de ljusa versionerna bör vara tillräckliga.
+    * Mac och Linux: bör ingå i operativ systemet.
 2. Kör OpenSSL.
-    * Windows: Öppna installations katalogen, Välj **/bin/** och dubbelklicka sedan på **openssl. exe**.
-    * Mac och Linux: Kör `openssl` från en Terminal.
+    * Windows: öppna installations katalogen, Välj **/bin/** och dubbelklicka sedan på **openssl. exe**.
+    * Mac och Linux: kör `openssl` från en Terminal.
 3. Kör `s_client -showcerts -connect microsoft.com:443`.
-4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade måste du anteckna var `("s:")` och en av dem och `("i:")` utfärdaren.
-5. När du hittar självsignerade certifikat för var och en, kopierar och klistrar du in allt från ( `-----BEGIN CERTIFICATE-----` och `-----END CERTIFICATE-----` inkluderar) till en ny. cer-fil.
-6. Öppna Storage Explorer och gå till **Redigera** > **SSL-certifikat** > **Importera certifikat**. Använd sedan fil väljaren för att söka efter, välja och öppna CER-filerna som du skapade.
+4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade noterar du var och en av ämnes `("s:")` och utfärdaren `("i:")` är desamma.
+5. När du hittar självsignerade certifikat, för var och en, kopierar och klistrar du in allt från (och inklusive) `-----BEGIN CERTIFICATE-----` via `-----END CERTIFICATE-----` till en ny. cer-fil.
+6. Öppna Storage Explorer och gå till **redigera** > **SSL-certifikat** > **Importera certifikat**. Använd sedan fil väljaren för att söka efter, välja och öppna CER-filerna som du skapade.
 
-Om du inte hittar några självsignerade certifikat genom att följa dessa steg kan du kontakta oss via feedback-verktyget. Du kan också öppna Storage Explorer från kommando raden med hjälp `--ignore-certificate-errors` av flaggan. Vid öppning med den här flaggan ignorerar Storage Explorer certifikat fel.
+Om du inte hittar några självsignerade certifikat genom att följa dessa steg kan du kontakta oss via feedback-verktyget. Du kan också öppna Storage Explorer från kommando raden med hjälp av `--ignore-certificate-errors`-flaggan. Vid öppning med den här flaggan ignorerar Storage Explorer certifikat fel.
 
 ## <a name="sign-in-issues"></a>Inloggningsproblem
 
@@ -95,7 +95,7 @@ Om du inte hittar några självsignerade certifikat genom att följa dessa steg 
 
 Tomma inloggnings dialog rutor inträffar oftast när Active Directory Federation Services (AD FS) (AD FS) begär Storage Explorer att utföra en omdirigering, vilket inte stöds av Electron. För att undvika det här problemet kan du försöka använda enhets kod flödet för inloggning. Det gör du genom att följa dessa steg:
 
-1. På menyn går du till **förhands granskning** > **Använd enhets kod inloggning**.
+1. På menyn går du till **förhands granskning** > **använder enhets kod inloggning**.
 2. Öppna dialog rutan **Anslut** (antingen via plugin-ikonen på vänster lodrätt fält eller genom att välja **Lägg till konto** på konto panelen).
 3. Välj den miljö som du vill logga in på.
 4. Välj **Logga**in.
@@ -114,7 +114,7 @@ Följ dessa steg om du befinner dig i en loop för autentisering eller har ändr
 2. Ta bort. IdentityService-mappen från din dator. I Windows finns mappen på `C:\users\<username>\AppData\Local`. För Mac och Linux kan du hitta mappen i roten i din användar katalog.
 3. Om du kör Mac eller Linux måste du också ta bort posten Microsoft. Developer. IdentityService från operativ systemets nyckel lager. I Mac är nyckel lagringen *gnome nyckel rings* program. I Linux kallas programmet vanligt vis för _nyckel_ring, men namnet kan variera beroende på din distribution.
 
-### <a name="conditional-access"></a>Villkorad åtkomst
+### <a name="conditional-access"></a>Villkorlig åtkomst
 
 På grund av en begränsning i Azure AD-biblioteket som används av Storage Explorer, stöds inte villkorlig åtkomst när Storage Explorer används på Windows 10, Linux eller macOS.
 
@@ -165,7 +165,7 @@ Om du inte kan ta bort ett kopplat konto eller en lagrings resurs via användar 
 > Stäng Storage Explorer innan du tar bort mapparna.
 
 > [!NOTE]
-> Om du någonsin har importerat några SSL-certifikat säkerhetskopierar du innehållet `certs` i katalogen. Senare kan du använda säkerhets kopieringen för att importera SSL-certifikat igen.
+> Om du någonsin har importerat några SSL-certifikat säkerhetskopierar du innehållet i `certs`s katalogen. Senare kan du använda säkerhets kopieringen för att importera SSL-certifikat igen.
 
 ## <a name="proxy-issues"></a>Problem med proxy
 
@@ -193,7 +193,7 @@ Om du har nätverks verktyg, till exempel Fiddler för Windows, kan du diagnosti
 
 * Om du måste arbeta via proxyservern kan du behöva konfigurera nätverks verktyget för att ansluta via proxyservern.
 * Kontrol lera port numret som används av nätverks verktyget.
-* Ange den lokala värd-URL: en och nätverks verktygets port nummer som proxyinställningar i Storage Explorer. När du gör detta korrekt startar nätverks verktyget loggning av nätverks begär Anden som görs av Storage Explorer till hanterings-och tjänst slut punkter. Ange `https://cawablobgrs.blob.core.windows.net/` till exempel för din BLOB-slutpunkt i en webbläsare och du får ett svar som liknar följande:
+* Ange den lokala värd-URL: en och nätverks verktygets port nummer som proxyinställningar i Storage Explorer. När du gör detta korrekt startar nätverks verktyget loggning av nätverks begär Anden som görs av Storage Explorer till hanterings-och tjänst slut punkter. Ange till exempel `https://cawablobgrs.blob.core.windows.net/` för din BLOB-slutpunkt i en webbläsare och du får ett svar som liknar följande:
 
   ![Kodexempel](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -216,11 +216,11 @@ Om du får det här fel meddelandet är det möjligt att du inte har de behörig
 
 Om du ser konto nycklarna kan du ange ett problem i GitHub så att vi kan hjälpa dig att lösa problemet.
 
-## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Ett fel uppstod när en ny anslutning lades till: TypeError: Det går inte att läsa egenskap ' version ' av odefinierad
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Ett fel uppstod när ny anslutning lades till: TypeError: det går inte att läsa egenskapen version för undefined
 
 Om du får det här fel meddelandet när du försöker lägga till en anpassad anslutning kan de anslutnings data som lagras i den lokala Autentiseringshanteraren vara skadade. Undvik det här problemet genom att försöka ta bort dina skadade lokala anslutningar och sedan lägga till dem på nytt:
 
-1. Starta Storage Explorer. I menyn går du till **Hjälp** > att**Växla utvecklarverktyg**.
+1. Starta Storage Explorer. Gå till **hjälp** > **Växla utvecklarverktyg**på menyn.
 2. I det öppnade fönstret, på fliken **program** , går du till **lokal lagring** (vänster sida) > **File://** .
 3. Beroende på vilken typ av anslutning du har problem med, letar du efter nyckeln och kopierar dess värde till en text redigerare. Värdet är en matris med dina anpassade anslutnings namn, som följande:
     * Lagringskonton
@@ -234,7 +234,7 @@ Om du får det här fel meddelandet när du försöker lägga till en anpassad a
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabeller
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. När du har sparat dina aktuella anslutnings namn ställer du in värdet i Utvecklarverktyg `[]`till.
+4. När du har sparat dina aktuella anslutnings namn ställer du in värdet i Utvecklarverktyg `[]`.
 
 Om du vill bevara de anslutningar som inte är skadade kan du använda följande steg för att hitta de skadade anslutningarna. Om du inte gör något med att förlora alla befintliga anslutningar kan du hoppa över de här stegen och följa de plattformsspecifika instruktionerna för att rensa dina anslutnings data.
 
@@ -248,13 +248,13 @@ När du har gått igenom alla dina anslutningar, för alla anslutnings namn som 
 
 1. På **Start** -menyn söker du efter **Autentiseringshanteraren** och öppnar den.
 2. Gå till **Windows-autentiseringsuppgifter**.
-3. Under **allmänna autentiseringsuppgifter**söker du `<connection_type_key>/<corrupted_connection_name>` efter poster som har nyckeln `StorageExplorer_CustomConnections_Accounts_v1/account1`(till exempel).
+3. Under **allmänna autentiseringsuppgifter**söker du efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckel (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macOS)
 
 1. Öppna Spotlight (kommando + blank steg) och Sök efter **nyckel rings åtkomst**.
-2. Leta efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln ( `StorageExplorer_CustomConnections_Accounts_v1/account1`till exempel).
+2. Sök efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckel (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/Linux)
@@ -262,7 +262,7 @@ När du har gått igenom alla dina anslutningar, för alla anslutnings namn som 
 Hantering av lokala autentiseringsuppgifter varierar beroende på Linux-distributionen. Om din Linux-distribution inte tillhandahåller ett inbyggt GUI-verktyg för lokal hantering av autentiseringsuppgifter, kan du installera ett verktyg från tredje part för att hantera dina lokala autentiseringsuppgifter. Du kan till exempel använda [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), ett gui-verktyg med öppen källkod för att hantera lokala autentiseringsuppgifter för Linux.
 
 1. Öppna det lokala hanterings verktyget för autentiseringsuppgifter och hitta dina sparade autentiseringsuppgifter.
-2. Leta efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln ( `StorageExplorer_CustomConnections_Accounts_v1/account1`till exempel).
+2. Sök efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckel (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 ---
 
@@ -280,7 +280,7 @@ Om du av misstag har kopplat med en ogiltig SAS-URL och inte kan koppla från, f
 
 1. När du kör Storage Explorer trycker du på F12 för att öppna fönstret Utvecklarverktyg.
 2. På fliken **program** väljer du **lokal lagring** > **File://** i trädet till vänster.
-3. Hitta nyckeln som är associerad med tjänst typen för den problematiska SAS-URI: n. Om t. ex. den felaktiga SAS-URI: n är för en BLOB-behållare, `StorageExplorer_AddStorageServiceSAS_v1_blob`letar du efter nyckeln med namnet.
+3. Hitta nyckeln som är associerad med tjänst typen för den problematiska SAS-URI: n. Om t. ex. den felaktiga SAS-URI: n är för en BLOB-behållare, letar du efter nyckeln med namnet `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4. Värdet för nyckeln ska vara en JSON-matris. Hitta objektet som är associerat med den felaktiga URI: n och ta sedan bort det.
 5. Tryck på CTRL + R för att läsa in Storage Explorer igen.
 
@@ -351,7 +351,7 @@ Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
 För Storage Explorer 1.7.0 eller tidigare kan du behöva korrigera den version av .NET Core som används av Storage Explorer:
 
 1. Hämta version 1.5.43 av StreamJsonRpc [från NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Leta upp länken "Ladda ned paket" på höger sida av sidan.
-2. När du har laddat ned paketet ändrar du dess fil `.nupkg` namns tillägg från till `.zip`.
+2. När du har hämtat paketet ändrar du fil namns tillägget från `.nupkg` till `.zip`.
 3. Packa upp paketet.
 4. Öppna mappen `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Kopiera `StreamJsonRpc.dll` till följande platser i mappen Storage Explorer:

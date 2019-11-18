@@ -3,17 +3,17 @@ title: Använda anpassade principer för allokering med Azure-IoT Hub Device Pro
 description: Använda anpassade principer för allokering med Azure-IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 11872f8efcebf39edef2f97cd30c225edbe74bb4
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 8f9cc48384e6e1e85a92b3f23c3a362db0df98e0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903574"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108278"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Använda anpassade principer för allokering
 
@@ -42,125 +42,141 @@ Du utför följande steg i den här artikeln:
 
 ## <a name="prerequisites"></a>Krav
 
-* [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med arbets belastningen ["Skriv C++bords utveckling med"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-two-divisional-iot-hubs"></a>Skapa två IoT-hubbar för avdelning
+## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Skapa etablerings tjänsten och två avdelnings IoT-hubbar
 
-I det här avsnittet ska du använda Azure Cloud Shell för att skapa två nya IoT-hubbar som representerar **Contosos popups-Division** och **contoso värme pumpar-Division**.
+I det här avsnittet använder du Azure Cloud Shell för att skapa en etablerings tjänst och två IoT-hubbar som representerar **contoso-popup** -indelningen och **contoso värme pumpar-indelningen**.
+
+> [!TIP]
+> Kommandona som används i den här artikeln skapar etablerings tjänsten och andra resurser på platsen USA, västra. Vi rekommenderar att du skapar dina resurser i den region som är närmast dig som har stöd för enhets etablerings tjänsten. Du kan se en lista med tillgängliga platser genom att köra kommandot `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table`, eller genom att gå till sidan [Azure-status](https://azure.microsoft.com/status/) och söka efter ”enhetsetableringstjänst”. I kommandon kan platser anges antingen i ett ord eller med flera ord. exempel: väst, västra USA, västra USA osv. Värdet är inte Skift läges känsligt. Om du använder flera ord för att ange platsen skriver du värdet inom citattecken; till exempel `-- location "West US"`.
+>
 
 1. Använd Azure Cloud Shell för att skapa en resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) . En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-    I följande exempel skapas en resurs grupp med namnet *contoso-US-Resource-Group* i regionen *östra* . Vi rekommenderar att du använder den här gruppen för alla resurser som skapats i den här artikeln. Den här metoden blir tydligare när du är klar.
+    I följande exempel skapas en resurs grupp med namnet *contoso-US-Resource-Group* i regionen *västra* USA. Vi rekommenderar att du använder den här gruppen för alla resurser som skapats i den här artikeln. Den här metoden blir tydligare när du är klar.
 
     ```azurecli-interactive 
-    az group create --name contoso-us-resource-group --location eastus
+    az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Använd Azure Cloud Shell för att skapa **Contosos indelning** IoT Hub med kommandot [AZ IoT Hub Create](/cli/azure/iot/hub#az-iot-hub-create) . IoT Hub kommer att läggas till i *contoso-US-Resource-Group*.
+2. Använd Azure Cloud Shell för att skapa en enhets etablerings tjänst med kommandot [AZ IoT DPS Create](/cli/azure/iot/dps#az-iot-dps-create) . Etablerings tjänsten kommer att läggas till i *contoso-US-Resource-Group*.
 
-    I följande exempel skapas en IoT-hubb med namnet *contoso--popups – Hub-1098* på den *östra* platsen. Du måste använda ett unikt namn på hubben. Skapa ditt eget suffix i hubben i stället för **1098**. Exempel koden för den anpassade allokeringsregeln måste `-toasters-` i hubbens namn.
+    I följande exempel skapas en etablerings tjänst med namnet *contoso-Provisioning-service-1098* på platsen för *västkusten* . Du måste använda ett unikt tjänst namn. Skapa ditt eget suffix i tjänst namnet i stället för **1098**.
 
     ```azurecli-interactive 
-    az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
+    az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
     ```
 
     Det kan ta några minuter att slutföra kommandot.
 
-3. Använd Azure Cloud Shell för att skapa **Contosos** IoT Hub-hubb med [AZ IoT Hub](/cli/azure/iot/hub#az-iot-hub-create) . Den här IoT-hubben läggs också till i *contoso-US-Resource-Group*.
+3. Använd Azure Cloud Shell för att skapa **Contosos indelning** IoT Hub med kommandot [AZ IoT Hub Create](/cli/azure/iot/hub#az-iot-hub-create) . IoT Hub kommer att läggas till i *contoso-US-Resource-Group*.
 
-    I följande exempel skapas en IoT-hubb med namnet *contoso-heatpumps-Hub-1098* på den *östra* platsen. Du måste använda ett unikt namn på hubben. Skapa ditt eget suffix i hubben i stället för **1098**. Exempel koden för den anpassade allokeringsregeln måste `-heatpumps-` i hubbens namn.
+    I följande exempel skapas en IoT-hubb med namnet *contoso-popups – Hub-1098* på platsen för *väst* . Du måste använda ett unikt namn på hubben. Skapa ditt eget suffix i hubben i stället för **1098**. Exempel koden för den anpassade allokeringsregeln måste `-toasters-` i hubbens namn.
 
     ```azurecli-interactive 
-    az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
+    az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
-    Det kan också ta några minuter att slutföra kommandot.
+    Det kan ta några minuter att slutföra kommandot.
 
-## <a name="create-the-enrollment"></a>Skapa registreringen
+4. Använd Azure Cloud Shell för att skapa **Contosos** IoT Hub-hubb med [AZ IoT Hub](/cli/azure/iot/hub#az-iot-hub-create) . Den här IoT-hubben läggs också till i *contoso-US-Resource-Group*.
 
-I det här avsnittet ska du skapa en ny registrerings grupp som använder den anpassade allokeringsregeln. För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-security.md#x509-certificates) med en förtroende kedja.
+    I följande exempel skapas en IoT-hubb med namnet *contoso-heatpumps-Hub-1098* på platsen för *västkusten* . Du måste använda ett unikt namn på hubben. Skapa ditt eget suffix i hubben i stället för **1098**. Exempel koden för den anpassade allokeringsregeln måste `-heatpumps-` i hubbens namn.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din enhets etablerings tjänst instans.
+    ```azurecli-interactive 
+    az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
+    ```
 
-2. Välj fliken **Hantera registreringar** och klicka sedan på knappen **Lägg till registrerings grupp** överst på sidan. 
+    Det kan ta några minuter att slutföra kommandot.
 
-3. I **Lägg till registrerings grupp**anger du följande information och klickar på knappen **Spara** .
+## <a name="create-the-custom-allocation-function"></a>Skapa en anpassad tilldelnings funktion
 
-    **Grupp namn**: ange **contoso-Custom-allokerade – enheter**.
+I det här avsnittet skapar du en Azure-funktion som implementerar din anpassade resursallokeringsprincip. Den här funktionen bestämmer vilken avdelnings IoT-hubb en enhet ska registreras på baserat på om dess registrerings-ID innehåller strängen **-contoso-tstrsd-007** eller **-contoso-hpsd-088**. Den anger också den ursprungliga statusen för enheten, baserat på om enheten är en toaster eller en värme pump.
 
-    **Attesterings typ**: Välj **symmetrisk nyckel**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Från start sidan väljer du **+ skapa en resurs**.
 
-    **Generera nycklar automatiskt**: den här kryss rutan ska redan vara markerad.
+2. Skriv "Funktionsapp" i Sök rutan *Sök i Marketplace* . Välj **Funktionsapp**i list rutan och välj sedan **skapa**.
 
-    **Välj hur du vill tilldela enheter till hubbar**: Välj **Anpassad (Använd Azure Function)** .
+3. På sidan för **Funktionsapp** skapa, under fliken **grundläggande** , anger du följande inställningar för den nya Function-appen och väljer **Granska + skapa**:
 
-    ![Lägg till anpassad grupp registrerings grupp för symmetrisk nyckel attestering](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
+    **Resurs grupp**: Välj **contoso-US-Resource-Group** för att hålla alla resurser som skapats i den här artikeln tillsammans.
 
-4. I **Lägg till registrerings grupp**klickar du på **Länka en ny IoT-hubb** för att länka båda dina nya avdelnings IoT-hubbar. 
+    **Funktionsapp namn**: Ange ett unikt namn för Function-appen. I det här exemplet används **contoso-Function-app-1098**.
 
-    Kör det här steget för båda dina avdelnings IoT-hubbar.
+    **Publicera**: kontrol lera att **koden** är markerad.
 
-    **Prenumeration**: om du har flera prenumerationer väljer du den prenumeration där du skapade avdelningens IoT-hubbar.
+    **Körnings stack**: Välj **.net Core** i list rutan.
 
-    **IoT Hub**: Välj ett av de divisions nav som du har skapat.
+    **Region**: Välj samma region som din resurs grupp. I det här exemplet används **västra USA**.
 
-    **Åtkomst princip**: Välj **iothubowner**.
+    > [!NOTE]
+    > Som standard är Application Insights aktive rad. Application Insights krävs inte för den här artikeln, men det kan hjälpa dig att förstå och undersöka eventuella problem med den anpassade allokeringen. Om du vill kan du inaktivera Application Insights genom att välja fliken **övervakning** och sedan välja **nej** för **Aktivera Application Insights**.
 
-    ![Länka avdelningens IoT-hubbar med etablerings tjänsten](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
+    ![Skapa en Azure-Funktionsapp som värd för den anpassade tilldelnings funktionen](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-5. När båda avdelnings IoT-hubbarna har länkats i **Lägg till registrerings grupp**måste du välja dem som IoT Hub grupp för registrerings gruppen enligt nedan:
+4. På sidan **Sammanfattning** väljer du **skapa** för att skapa Function-appen. Distributionen kan ta flera minuter. När den är klar väljer **du gå till resurs**.
 
-    ![Skapa delnings nav gruppen för registreringen](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
+5. I det vänstra fönstret på **översikts** sidan funktionens app väljer du **+** bredvid **funktioner** för att lägga till en ny funktion.
 
-6. Rulla ned till avsnittet **Välj Azure Function** i **Lägg till registrerings grupp**och klicka på **skapa en ny function-app**.
+    ![Lägg till en funktion i Funktionsapp](./media/how-to-use-custom-allocation-policies/create-function.png)
 
-7. På **Funktionsapp** skapa sida som öppnas anger du följande inställningar för den nya funktionen och klickar på **skapa**:
+6. På sidan **Azure Functions för .net-komma igång** går du till steget **Välj en distributions miljö** , väljer panelen **i portalen** och väljer **Fortsätt**.
 
-    **Namn på App**: Ange ett unikt namn för Function-appen. **contoso-Function-app-1098** visas som ett exempel.
+    ![Välj portal utvecklings miljö](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
-    **Resurs grupp**: Välj **Använd befintlig** och **Contoso-USA-resurs grupp** för att hålla alla resurser som skapats i den här artikeln tillsammans.
+7. På nästa sida, för steget **skapa en funktion** , väljer du panel för **webhook + API** och väljer sedan **skapa**. En funktion med namnet **HttpTrigger1** skapas och portalen visar innehållet i filen **Run. CSX** .
 
-    **Application Insights**: för den här övningen kan du stänga av detta.
+8. Referens krävs NuGet-paket. För att skapa den första enheten, använder funktionen för anpassad allokering klasser som är definierade i två NuGet-paket som måste läsas in i värd miljön. Med Azure Functions refereras NuGet-paket med hjälp av en *Function. Host* -fil. I det här steget sparar och överför du en *funktion. Host* -fil.
 
-    ![Skapa funktionsappen](./media/how-to-use-custom-allocation-policies/function-app-create.png)
+    1. Kopiera följande rader till din favorit redigerare och spara filen på datorn som *funktion. Host*.
 
-8. Gå tillbaka till sidan **Lägg till registrerings grupp** och kontrol lera att din nya Function-app är markerad. Du kanske måste välja prenumerationen igen för att uppdatera appens funktions programs lista.
+        ```xml
+        <Project Sdk="Microsoft.NET.Sdk">  
+            <PropertyGroup>  
+                <TargetFramework>netstandard2.0</TargetFramework>  
+            </PropertyGroup>  
+            <ItemGroup>  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+            </ItemGroup>  
+        </Project>
+        ```
 
-    När din nya Function-app har valts klickar du på **skapa en ny funktion**.
+    2. I **HttpTrigger1** -funktionen expanderar du fliken **Visa filer** till höger i fönstret.
 
-    ![Skapa funktionsappen](./media/how-to-use-custom-allocation-policies/click-create-new-function.png)
+        ![Öppna Visa filer](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
 
-    din nya Function-app öppnas.
+    3. Välj **överför**, bläddra till filen **Function. proj** och välj **Öppna** för att ladda upp filen.
 
-9. I din Function-app klickar du på **+** för att skapa en ny funktion
+        ![Välj Ladda upp fil](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
 
-    ![Skapa funktionsappen](./media/how-to-use-custom-allocation-policies/new-function.png)
-
-    För den nya funktionen använder du standardinställningarna för att skapa en ny **webhook + API** med hjälp av **csharp** -språket. Klicka på **skapa den här funktionen**.
-
-    Detta skapar en ny C# funktion med namnet **HttpTriggerCSharp1**.
-
-10. Ersätt koden för den nya C# funktionen med följande kod och klicka på **Spara**:
+9. Ersätt koden för **HttpTrigger1** -funktionen med följande kod och välj **Spara**:
 
     ```csharp
     #r "Newtonsoft.Json"
+
     using System.Net;
-    using System.Text;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
 
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    using Microsoft.Azure.Devices.Shared;               // For TwinCollection
+    using Microsoft.Azure.Devices.Provisioning.Service; // For TwinState
+
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        // Just some diagnostic logging
-        log.Info("C# HTTP trigger function processed a request.");
-        log.Info("Request.Content:...");
-        log.Info(req.Content.ReadAsStringAsync().Result);
+        log.LogInformation("C# HTTP trigger function processed a request.");
 
         // Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+        log.LogInformation("Request.Body:...");
+        log.LogInformation(requestBody);
 
         // Get registration ID of the device
         string regId = data?.deviceRuntimeContext?.registrationId;
@@ -172,7 +188,7 @@ I det här avsnittet ska du skapa en ny registrerings grupp som använder den an
         if (regId == null)
         {
             message = "Registration ID not provided for the device.";
-            log.Info("Registration ID : NULL");
+            log.LogInformation("Registration ID : NULL");
             fail = true;
         }
         else
@@ -183,7 +199,7 @@ I det här avsnittet ska du skapa en ny registrerings grupp som använder den an
             if (hubs == null)
             {
                 message = "No hub group defined for the enrollment.";
-                log.Info("linkedHubs : NULL");
+                log.LogInformation("linkedHubs : NULL");
                 fail = true;
             }
             else
@@ -201,8 +217,23 @@ I det här avsnittet ska du skapa en ny registrerings grupp som använder den an
                     if (obj.iotHubHostName == null)
                     {
                         message = "No toasters hub found for the enrollment.";
-                        log.Info(message);
+                        log.LogInformation(message);
                         fail = true;
+                    }
+                    else
+                    {
+                        // Specify the initial tags for the device.
+                        TwinCollection tags = new TwinCollection();
+                        tags["deviceType"] = "toaster";
+
+                        // Specify the initial desired properties for the device.
+                        TwinCollection properties = new TwinCollection();
+                        properties["state"] = "ready";
+                        properties["darknessSetting"] = "medium";
+
+                        // Add the initial twin state to the response.
+                        TwinState twinState = new TwinState(tags, properties);
+                        obj.initialTwin = twinState;
                     }
                 }
                 // This is a Contoso Heat pump Model 008
@@ -218,8 +249,23 @@ I det här avsnittet ska du skapa en ny registrerings grupp som använder den an
                     if (obj.iotHubHostName == null)
                     {
                         message = "No heat pumps hub found for the enrollment.";
-                        log.Info(message);
+                        log.LogInformation(message);
                         fail = true;
+                    }
+                    else
+                    {
+                        // Specify the initial tags for the device.
+                        TwinCollection tags = new TwinCollection();
+                        tags["deviceType"] = "heatpump";
+
+                        // Specify the initial desired properties for the device.
+                        TwinCollection properties = new TwinCollection();
+                        properties["state"] = "on";
+                        properties["temperatureSetting"] = "65";
+
+                        // Add the initial twin state to the response.
+                        TwinState twinState = new TwinState(tags, properties);
+                        obj.initialTwin = twinState;
                     }
                 }
                 // Unrecognized device.
@@ -227,41 +273,67 @@ I det här avsnittet ska du skapa en ny registrerings grupp som använder den an
                 {
                     fail = true;
                     message = "Unrecognized device registration.";
-                    log.Info("Unknown device registration");
+                    log.LogInformation("Unknown device registration");
                 }
             }
         }
 
-        return (fail)
-            ? req.CreateResponse(HttpStatusCode.BadRequest, message)
-            : new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(obj, Formatting.Indented), Encoding.UTF8, "application/json")
-            };
-    }
+        log.LogInformation("\nResponse");
+        log.LogInformation((obj.iotHubHostName != null) ? JsonConvert.SerializeObject(obj) : message);
 
-    public class DeviceTwinObj
-    {
-        public string deviceId {get; set;}
+        return (fail)
+            ? new BadRequestObjectResult(message) 
+            : (ActionResult)new OkObjectResult(obj);
     }
 
     public class ResponseObj
     {
         public string iotHubHostName {get; set;}
-        public string IoTHub {get; set;}
-        public DeviceTwinObj initialTwin {get; set;}
-        public string[] linkedHubs {get; set;}
-        public string enrollment {get; set;}
+        public TwinState initialTwin {get; set;}
     }
     ```
 
-11. Gå tillbaka till sidan **Lägg till registrerings grupp** och kontrol lera att den nya funktionen är markerad. Du kanske måste välja appen funktion igen för att uppdatera funktions listan.
+## <a name="create-the-enrollment"></a>Skapa registreringen
 
-    När du har valt den nya funktionen klickar du på **Spara** för att spara registrerings gruppen.
+I det här avsnittet ska du skapa en ny registrerings grupp som använder den anpassade allokeringsregeln. För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-security.md#x509-certificates) med en förtroende kedja.
 
-    ![Spara slutligen registrerings gruppen](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
+1. Öppna etablerings tjänsten fortfarande på [Azure Portal](https://portal.azure.com).
 
-12. När du har sparat registreringen kan du öppna den igen och anteckna den **primära nyckeln**. Du måste spara registreringen innan du genererar nycklarna. Den här nyckeln kommer att användas för att generera unika enhets nycklar för simulerade enheter senare.
+2. Välj **Hantera registreringar** i den vänstra rutan och välj sedan knappen **Lägg till registrerings grupp** överst på sidan.
+
+3. Ange följande information i **Lägg till registrerings grupp**och välj knappen **Spara** .
+
+    **Grupp namn**: ange **contoso-Custom-allokerade – enheter**.
+
+    **Attesterings typ**: Välj **symmetrisk nyckel**.
+
+    **Generera nycklar automatiskt**: den här kryss rutan ska redan vara markerad.
+
+    **Välj hur du vill tilldela enheter till hubbar**: Välj **Anpassad (Använd Azure Function)** .
+
+    ![Lägg till anpassad grupp registrerings grupp för symmetrisk nyckel attestering](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
+
+4. I **Lägg till registrerings grupp**väljer du **Länka en ny IoT-hubb** för att länka båda dina nya avdelnings IoT-hubbar.
+
+    Kör det här steget för båda dina avdelnings IoT-hubbar.
+
+    **Prenumeration**: om du har flera prenumerationer väljer du den prenumeration där du skapade avdelningens IoT-hubbar.
+
+    **IoT Hub**: Välj ett av de divisions nav som du har skapat.
+
+    **Åtkomst princip**: Välj **iothubowner**.
+
+    ![Länka avdelningens IoT-hubbar med etablerings tjänsten](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
+
+5. När båda avdelnings IoT-hubbarna har länkats i **Lägg till registrerings grupp**måste du välja dem som IoT Hub grupp för registrerings gruppen enligt nedan:
+
+    ![Skapa delnings nav gruppen för registreringen](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
+
+6. I **Lägg till registrerings grupp**bläddrar du ned till avsnittet **Välj Azure-funktion** , väljer den Function-app som du skapade i föregående avsnitt. Välj sedan den funktion som du skapade och välj Spara för att spara registrerings gruppen.
+
+    ![Välj funktionen och spara registrerings gruppen](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
+
+7. När du har sparat registreringen kan du öppna den igen och anteckna den **primära nyckeln**. Du måste spara registreringen innan du genererar nycklarna. Den här nyckeln kommer att användas för att generera unika enhets nycklar för simulerade enheter senare.
 
 ## <a name="derive-unique-device-keys"></a>Härled unika enhets nycklar
 
@@ -271,8 +343,8 @@ Om du vill generera enhets nyckeln använder du den **primära nyckeln** som du 
 
 I exemplet i den här artikeln använder du följande två enhets registrerings-ID: n och beräknar en enhets nyckel för båda enheterna. Båda registrerings-ID: n har ett giltigt suffix för att fungera med exempel koden för den anpassade allokeringsregeln:
 
-* **breakroom499 – contoso-tstrsd-007**
-* **mainbuilding167 – contoso-hpsd-088**
+* **breakroom499-contoso-tstrsd-007**
+* **mainbuilding167-contoso-hpsd-088**
 
 ### <a name="linux-workstations"></a>Linux-arbetsstationer
 
@@ -390,7 +462,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 2. Öppna lösnings filen **azure_iot_sdks. SLN** som genererades genom att köra cmake tidigare i Visual Studio. Lösningsfilen bör vara på följande plats:
 
     ```
-    \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
+    azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
 3. I fönstret *Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Exempel**. Expandera exempelprojektet som heter **prov\_dev\_client\_sample**. Expandera **Källfiler** och öppna **prov\_dev\_client\_sample.c**.
@@ -410,7 +482,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
+6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt).
 
 ### <a name="simulate-the-contoso-toaster-device"></a>Simulera contoso toaster-enheten
 
@@ -430,12 +502,12 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
     Spara filen.
 
-2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
+2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja**för att återskapa projektet innan det körs.
 
     Följande utdata är ett exempel på den simulerade toaster-enheten som har startats och anslutits till etablerings tjänst instansen som ska tilldelas till popups IoT Hub med den anpassade allokeringsregeln:
 
     ```cmd
-    Provisioning API Version: 1.2.9
+    Provisioning API Version: 1.3.6
 
     Registering Device
 
@@ -459,12 +531,12 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
     Spara filen.
 
-2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I prompten för att återskapa projektet klickar du på **Ja** för att återskapa projektet innan du kör.
+2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja** för att återskapa projektet innan det körs.
 
     Följande utdata är ett exempel på den simulerade värme pump enheten som har startats och anslutits till etablerings tjänst instansen som ska tilldelas contoso värme pumpar IoT Hub med den anpassade allokeringsregeln:
 
     ```cmd
-    Provisioning API Version: 1.2.9
+    Provisioning API Version: 1.3.6
 
     Registering Device
 
@@ -502,13 +574,13 @@ Stegen här förutsätter att du har skapat alla resurser i den här artikeln en
 
 Så här tar du bort resurs gruppen efter namn:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 
 2. I text rutan **Filtrera efter namn...** skriver du namnet på den resurs grupp som innehåller dina resurser, **contoso-US-Resource-Group**. 
 
-3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+3. Till höger om resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
 
-4. Du uppmanas att bekräfta borttagningen av resurs gruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+4. Du uppmanas att bekräfta borttagningen av resurs gruppen. Skriv namnet på resurs gruppen igen för att bekräfta och välj sedan **ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

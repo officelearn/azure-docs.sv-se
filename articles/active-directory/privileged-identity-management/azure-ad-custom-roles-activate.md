@@ -15,12 +15,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ac8acf2193442de5c85e0a1134d46330821c77b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 92ea116414e12cb231fdbaa5ec9ad375d2c0eea9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756447"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144992"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Aktivera en anpassad Azure AD-roll i Privileged Identity Management
 
@@ -33,12 +33,15 @@ Privileged Identity Management i Azure Active Directory (Azure AD) har nu stöd 
 
 När du behöver aktivera en anpassad Azure AD-roll kan du begära aktivering genom att välja navigerings alternativet mina roller i Privileged Identity Management.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Öppna Azure AD- [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
 
 1. Välj **Azure AD-anpassade roller** för att se en lista över dina berättigade Azure AD-anpassade roll tilldelningar.
 
    ![Se listan över berättigade Azure AD-anpassade roll tilldelningar](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
+
+> [!Note] 
+>  Innan du tilldelar en roll måste du skapa/konfigurera en roll. Mer information om hur du konfigurerar AAD-anpassade roller finns [här] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
 
 1. På sidan **anpassade Azure AD-roller (för hands version)** hittar du den tilldelning du behöver.
 1. Välj **aktivera din roll** för att öppna sidan **Aktivera** .

@@ -1,7 +1,7 @@
 ---
-title: Indexera en BLOB i många Sök index dokument från Azure Blob-indexeraren för full texts ökning
+title: Indexera blobbar som innehåller flera dokument
 titleSuffix: Azure Cognitive Search
-description: Crawla Azure-blobbar för text innehåll med hjälp av Azure congitive search BLOB-indexeraren. Varje Blob kan ge ett eller flera Sök index dokument.
+description: Crawla Azure-blobbar för text innehåll med hjälp av Azure congitive search BLOB-indexeraren, där varje BLOB kan ge ett eller flera Sök index dokument.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818547"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112263"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexera blobbar för att skapa flera Sök dokument
 Som standard behandlar en BLOB-indexeraren innehållet i en blob som ett enda Sök dokument. Vissa **parsingMode** -värden stöder scenarier där en enskild BLOB kan resultera i flera Sök dokument. De olika typerna av **parsingMode** som gör det möjligt för en indexerare att extrahera fler än ett Sök dokument från en BLOB är:
@@ -40,12 +40,12 @@ Anta att du har en index definition med följande fält:
 
 Och blob-behållaren har blobbar med följande struktur:
 
-_Blob1. JSON_
+_Blob1.json_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2. JSON_
+_Blob2.json_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
@@ -71,13 +71,13 @@ Den här installationen leder till Azure Kognitiv sökning-indexet som innehåll
 
 Om du antar samma index definition som i föregående exempel, säger du att BLOB-behållaren har blobbar med följande struktur:
 
-_Blob1. JSON_
+_Blob1.json_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2. JSON_
+_Blob2.json_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 

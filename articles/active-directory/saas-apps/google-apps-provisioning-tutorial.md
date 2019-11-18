@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802199"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120316"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användar etablering
 
@@ -195,10 +195,16 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på G Suite.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 > [!NOTE]
 > Ett annat användbart alternativ för att automatisera användar etablering till G Suite är att använda [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). Det här alternativet tillhandahåller dina lokala Active Directory identiteter för G Suite.
+
+## <a name="common-issues"></a>Vanliga problem
+* G Suite kräver att alla etablerade användare kommer från verifierade domäner. Se till att alla användare som du vill etablera har ett UPN från en verifierad domän i G Suite. Om en användare från en o-verifierad domän är inom omfånget för etablering, visas ett fel i [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , till exempel "GoogleAppsInvalidDomain". Du kan förhindra dessa fel och se till att användare från overifierade domäner är utanför definitions området med ett [omfångs filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+    * Målattribut: userPrincipalName
+    * Operator: REGEX-matchning eller inte REGEX-matchning
+    * Värde:. *@domain.com
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

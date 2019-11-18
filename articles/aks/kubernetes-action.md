@@ -7,22 +7,22 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: c82cbb8d7406c8d6f4063f52590e050438283ace
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cc2d6df952b2e0aa9b9f4d4e1dcb4859a5bb3790
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693389"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130525"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub-åtgärder för att distribuera till Kubernetes-tjänsten
 
-[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att bygga ett arbets flöde för automatiserad livs cykel för program utveckling. Kubernetes-åtgärden [azure/aks-set-context@v1]((https://github.com/Azure/aks-set-context)) underlättar distributioner till Azure Kubernetes service-kluster. Åtgärden ställer in mål AKS kluster kontext, som kan användas av andra åtgärder, t. ex. [Azure/K8s-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8s-Create-Secret](https://github.com/Azure/k8s-create-secret/tree/master) osv. eller kör eventuella kubectl-kommandon.
+[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att bygga ett arbets flöde för automatiserad livs cykel för program utveckling. Kubernetes-åtgärden [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) underlättar distributioner till Azure Kubernetes service-kluster. Åtgärden ställer in mål AKS kluster kontext, som kan användas av andra åtgärder, t. ex. [Azure/K8s-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8s-Create-Secret](https://github.com/Azure/k8s-create-secret/tree/master) osv. eller kör eventuella kubectl-kommandon.
 
 > [!IMPORTANT]
 > GitHub-åtgärder är för närvarande Beta versioner. Du måste först [Registrera dig för att kunna ansluta till förhands granskningen](https://github.com/features/actions) med ditt GitHub-konto.
 > 
 
-Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/`-sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 
 För ett arbets flöde som riktar sig till AKS har filen tre delar:
 
@@ -78,7 +78,7 @@ Följ stegen för att konfigurera hemligheterna:
 
 Skapande och push för behållar avbildningar görs med `Azure/docker-login@v1` åtgärd. Om du vill distribuera en behållar avbildning till AKS måste du använda åtgärden `Azure/k8s-deploy@v1`. Den här åtgärden har fem parametrar:
 
-| **ProfileServiceApplicationProxy**  | **Förklaring**  |
+| **Parametern**  | **Förklaring**  |
 |---------|---------|
 | **namn område** | Valfritt Välj mål namn området Kubernetes. Om namn området inte anges körs kommandona i standard namn området | 
 | **manifest** |  Kunna Sökväg till manifest-filerna som ska användas för distribution |

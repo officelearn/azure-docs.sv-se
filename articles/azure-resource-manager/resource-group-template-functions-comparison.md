@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager Template Functions-jämförelse | Microsoft Docs
+title: Mall-funktioner – jämförelse
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att jämföra värden.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: tomfitz
-ms.openlocfilehash: 05e51af62be974f925fefc46ad63c489f27fd163
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c6d58332c9f4a4b811b395999130e56666452851
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194831"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150724"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Jämförelse funktioner för Azure Resource Manager mallar
 
@@ -43,7 +40,7 @@ Returnerar **Sant** om värdena är lika. annars **false**.
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen Equals används ofta tillsammans med `condition` elementet för att testa om en resurs har distribuerats.
+Funktionen Equals används ofta med `condition`-elementet för att testa om en resurs har distribuerats.
 
 ```json
 {
@@ -127,12 +124,12 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Sant |
-| checkStrings | Bool | Sant |
-| checkArrays | Bool | Sant |
-| checkObjects | Bool | Sant |
+| Incheckningar | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -165,9 +162,9 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel är:
 
-| Name | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Sant |
+| checkNotEquals | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -240,10 +237,10 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | Incheckningar | Bool | False |
-| checkStrings | Bool | Sant |
+| checkStrings | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -316,10 +313,10 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | Incheckningar | Bool | False |
-| checkStrings | Bool | Sant |
+| checkStrings | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -333,7 +330,7 @@ Om du vill distribuera den här exempelmall med PowerShell använder du:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
-## <a name="less"></a>mindre
+## <a name="less"></a>minskad
 `less(arg1, arg2)`
 
 Kontrollerar om det första värdet är mindre än det andra värdet.
@@ -392,9 +389,9 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Sant |
+| Incheckningar | Bool | True |
 | checkStrings | Bool | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
@@ -468,9 +465,9 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Sant |
+| Incheckningar | Bool | True |
 | checkStrings | Bool | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:

@@ -1,17 +1,14 @@
 ---
-title: Resurs plats för Azure Resource Manager mall
+title: Mallens resurs plats
 description: Beskriver hur du anger resurs plats i en Azure Resource Manager mall.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 6af5d82766533ef7bbacab04381db9a37502923e
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1e711b2cfeb42c33dbfa68b1fbdabd42cbd46d10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294209"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150632"
 ---
 # <a name="set-resource-location-in-resource-manager-template"></a>Ange resurs plats i Resource Manager-mall
 

@@ -1,24 +1,16 @@
 ---
-title: Kontinuerlig integrering med Azure-pipelines | Microsoft Docs
+title: Kontinuerlig integrering med Azure Pipelines
 description: Lär dig hur du kontinuerligt skapar, testar och distribuerar Azure Resource Manager mallar.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 73ab01b5e4ea923b990932986a938f8c1fb25629
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052212"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149300"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
 
@@ -126,7 +118,7 @@ Azuredeploy. JSON har lagts till i den lokala lagrings platsen. Sedan laddar du 
     ```
 
     Du kan få en varning om LF. Du kan ignorera varningen. **Master** är huvud grenen.  Du skapar vanligt vis en gren för varje uppdatering. För att förenkla självstudien använder du huvud grenen direkt.
-1. Bläddra till GitHub-lagringsplatsen från en webbläsare.  URL: en är **https://github.com/ [YourAccountName]/[YourGitHubRepository]** . Du ska se mappen **CreateAzureStorage** och **Azuredeploy. JSON** i mappen.
+1. Bläddra till GitHub-lagringsplatsen från en webbläsare.  URL: en är **https://github.com/[YourAccountName]/[YourGitHubRepository]** . Du ska se mappen **CreateAzureStorage** och **Azuredeploy. JSON** i mappen.
 
 Hittills har du skapat en GitHub-lagringsplats och laddat upp en mall till lagrings platsen.
 
@@ -202,7 +194,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
     Gör följande ändringar:
 
-    * **deloymentScope**: Välj distributions område från alternativen: `Management Group` `Subscription` och `Resource Group`. Använd **resurs grupp** i den här självstudien. Mer information om omfattningarna finns i [distributions omfång](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **deloymentScope**: Välj distributions område från alternativen: `Management Group``Subscription` och `Resource Group`. Använd **resurs grupp** i den här självstudien. Mer information om omfattningarna finns i [distributions omfång](./resource-group-template-deploy-rest.md#deployment-scope).
     * **ConnectedServiceName**: Ange namnet på tjänst anslutningen som du skapade tidigare.
     * **SubscriptionName**: Ange PRENUMERATIONS-ID för mål.
     * **åtgärd**: åtgärden **skapa eller uppdatera resurs grupp** utför 2 åtgärder-1. skapa en resurs grupp om ett nytt resurs grupps namn har angetts. 11.2. distribuera den angivna mallen.

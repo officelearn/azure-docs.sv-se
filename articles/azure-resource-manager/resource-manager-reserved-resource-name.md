@@ -1,32 +1,22 @@
 ---
-title: Reserverade Azure-resurs namngivningsfel | Microsoft Docs
-description: Beskriver hur du löser fel när du anger ett resursnamn som innehåller ett reserverat ord.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Reserverat resurs namn fel
+description: Beskriver hur du löser fel när du tillhandahåller ett resurs namn som innehåller ett reserverat ord.
 ms.topic: troubleshooting
 ms.date: 11/08/2017
-ms.author: tomfitz
-ms.openlocfilehash: 922389b7c6c1bb7ad1d9b8f6ec35ccc1c5656723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683943"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150459"
 ---
-# <a name="resolve-reserved-resource-name-errors"></a>Lösa reserverade resursfel namn
+# <a name="resolve-reserved-resource-name-errors"></a>Lös fel med reserverat resurs namn
 
-Den här artikeln beskriver de fel som uppstår när du distribuerar en resurs som innehåller ett reserverat ord i namnet.
+I den här artikeln beskrivs ett fel som uppstår när du distribuerar en resurs som innehåller ett reserverat ord i sitt namn.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-När du distribuerar en resurs som är tillgänglig via en offentlig slutpunkt kan felmeddelande följande visas:
+När du distribuerar en resurs som är tillgänglig via en offentlig slut punkt kan du få följande fel meddelande:
 
 ```
 Code=ReservedResourceName;
@@ -35,21 +25,21 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## <a name="cause"></a>Orsak
 
-Resurser som har en offentlig slutpunkt kan inte använda reserverade ord eller varumärken i namnet.
+Resurser som har en offentlig slut punkt kan inte använda reserverade ord eller varumärken i namnet.
 
-Följande är reserverade:
+Följande ord är reserverade:
 
-* ÅTKOMST
+* FJÄRRÅTKOMSTSERVRAR
 * AZURE
-* BING
+* Bestäm
 * BIZSPARK
-* BIZTALK
+* INKÖPSOFFERTFÖRFRÅGAN
 * CORTANA
 * DIRECTX
 * DOTNET
 * DYNAMICS
 * EXCEL
-* EXCHANGE
+* UTVÄXLA
 * FOREFRONT
 * GROOVE
 * HOLOLENS
@@ -61,19 +51,19 @@ Följande är reserverade:
 * OFFICE
 * OFFICE365
 * ONEDRIVE
-* ONENOTE
+* ANTECKNINGAR
 * OUTLOOK
-* POWERPOINT
-* SHAREPOINT
-* SKYPE
-* VISIO
+* LERA
+* TEAM
+* VIA
+* VISION
 * VISUALSTUDIO
 
-Följande kan inte användas som hela ord eller en understräng i namnet:
+Följande ord kan inte användas som antingen ett helt ord eller en under sträng i namnet:
 
-* LOGGA IN
+* GÄST
 * MICROSOFT
-* WINDOWS
+* AKTIVITETS
 * XBOX
 
 ## <a name="solution"></a>Lösning

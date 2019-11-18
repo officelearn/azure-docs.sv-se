@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a54d01aa78ad77c9328f79f31d21da570e7f5676
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6cb970a59118a93c7a9023cc7c0448019dc77362
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503824"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125622"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
+>
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Skapa ett LUIS-program och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=dotnet)
@@ -42,16 +43,16 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Obser
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder din LUIS Endpoing-nyckel och region. Infoga den här koden i metoden `RecognizeIntentAsync()`.
+Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder din LUIS-slutpunkt nyckel och region. Infoga den här koden i metoden `RecognizeIntentAsync()`.
 
 I det här exemplet används metoden `FromSubscription()` för att bygga `SpeechConfig`. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
 > [!NOTE]
-> Det är viktigt att använda slut punkts nyckeln LUIS och inte start-eller Authroing-nycklarna eftersom endast slut punkts nyckeln är giltig för tal till avsikts igenkänning. Mer information om hur du hämtar rätt nyckel finns i [skapa ett Luis-program och hämta en slut punkts nyckel](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) .
+> Det är viktigt att använda slut punkts nyckeln LUIS och inte start-eller redigerings nycklarna eftersom endast slut punkts nyckeln är giltig för tal till avsikts igenkänning. Mer information om hur du hämtar rätt nyckel finns i [skapa ett Luis-program och hämta en slut punkts nyckel](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) .
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-## <a name="initialize-a-intentrecognizer"></a>Initiera en IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Initiera en IntentRecognizer
 
 Nu ska vi skapa en `IntentRecognizer`. Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i metoden `RecognizeIntentAsync()`, direkt under din tal konfiguration.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
@@ -63,7 +64,7 @@ Nu måste du associera ett `LanguageUnderstandingModel` med avsikts igenkänning
 
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
-Från `IntentRecognizer`-objektet kommer du att anropa metoden `RecognizeOnceAsync()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att stoppa reconizing tal.
+Från `IntentRecognizer`-objektet kommer du att anropa metoden `RecognizeOnceAsync()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
 I using-instruktionen lägger du till följande kod: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
@@ -75,7 +76,8 @@ Lägg till följande kod i using-instruktionen nedan `RecognizeOnceAsync()`: [!c
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-I det här läget bör din kod se ut så här: (vi har lagt till några kommentarer till den här versionen) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
+Nu bör din kod se ut så här:  
+(Vi har lagt till några kommentarer till den här versionen) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

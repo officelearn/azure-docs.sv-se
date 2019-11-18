@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 8a87335dba237e8088275706f7dcc2eb7f34831a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8f39556fcffea5f254e5362dbb1b55762f60c9b3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887566"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131934"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -34,7 +34,7 @@ Exemplet som vi ska använda här är en [MVC-app](https://docs.microsoft.com/as
 > [!NOTE]
 > Om du använder ASP.NET Core 3,0 tillsammans med Application Insights använder du [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) -versionen eller senare. Det här är den enda version som stöder ASP.NET Core 3,0.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Ett fungerande ASP.NET Core program. Om du behöver skapa ett ASP.NET Core program följer du den här [ASP.net Core själv studie kursen](https://docs.microsoft.com/aspnet/core/getting-started/).
 - En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
@@ -107,7 +107,7 @@ Exemplet som vi ska använda här är en [MVC-app](https://docs.microsoft.com/as
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Till exempel:
+    Exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -249,7 +249,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="adding-telemetry-processors"></a>Lägga till telemetri-processorer
 
-Du kan lägga till anpassade telemetri-processorer till `TelemetryConfiguration` med hjälp av tilläggs metoden `AddApplicationInsightsTelemetryProcessor` på `IServiceCollection`. Du använder telemetri-processorer i [avancerade filtrerings scenarier](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor). Använd följande exempel.
+Du kan lägga till anpassade telemetri-processorer till `TelemetryConfiguration` med hjälp av tilläggs metoden `AddApplicationInsightsTelemetryProcessor` på `IServiceCollection`. Du använder telemetri-processorer i [avancerade filtrerings scenarier](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer). Använd följande exempel.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

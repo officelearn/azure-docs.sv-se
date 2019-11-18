@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687032"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129695"
 ---
 # <a name="what-is-azure-app-configuration"></a>Vad är Azure App konfiguration?
 
@@ -30,7 +30,7 @@ App-konfigurationen är för närvarande en offentlig för hands version. Det ä
 
 Molnbaserade program körs ofta på flera virtuella datorer eller containrar i flera regioner och använder flera externa tjänster. Att skapa ett sådant distribuerat program som är robust och skalbart är en utmaning.
 
-Olika programmerings metoder hjälper utvecklare att hantera den ökande komplexiteten med att skapa program. 12-Factor-appen beskriver till exempel många välbeprövade arkitektur mönster och bästa praxis för användning med moln program. En viktig rekommendation från den här guiden är att avgränsa konfigurationen från koden. I det här fallet ska ett programs konfigurations inställningar lagras utanför den körbara filen och läsas in från körnings miljön eller en extern källa.
+Olika programmerings metoder hjälper utvecklare att hantera den ökande komplexiteten med att skapa program. Till exempel beskriver den [12-Factor appen](https://12factor.net/) många välbeprövade arkitektur mönster och metod tips för användning med moln program. En viktig rekommendation från den här guiden är att avgränsa konfigurationen från koden. I det här fallet ska ett programs konfigurations inställningar lagras utanför den körbara filen och läsas in från körnings miljön eller en extern källa.
 
 Även om ett program kan använda appens konfiguration, är följande exempel de typer av program som drar nytta av att använda det:
 
@@ -65,7 +65,7 @@ Det enklaste sättet att lägga till ett appkonfigurationsarkiv för ditt progra
 | .NET Core och ASP.NET Core | App Configuration Provider för .NET Core |
 | .NET och ASP.NET | Konfigurations verktyg för app för .NET |
 | Java Spring | App Configuration-klient för våren Cloud |
-| Övrigt | App-konfiguration REST API |
+| Andra | App-konfiguration REST API |
 
 ## <a name="next-steps"></a>Nästa steg
 

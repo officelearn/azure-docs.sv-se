@@ -1,5 +1,5 @@
 ---
-title: 'Gör så här: Ange käll språk för tal till text-tal-tjänsten'
+title: Ange käll språk för tal till text
 titleSuffix: Azure Cognitive Services
 description: Med tal-SDK kan du ange käll språket när du konverterar tal till text. Den här artikeln beskriver hur du använder metoderna FromConfig och SourceLanguageConfig för att låta röst tjänsten känna till käll språket och tillhandahålla ett anpassat modell mål.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 3c2503d2f341b4cdf90f7f7690fed897412a9614
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506905"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109950"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Ange käll språk för tal till text
 

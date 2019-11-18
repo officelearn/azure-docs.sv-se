@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039738"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132937"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Köra en DR-granskning för virtuella Hyper-V-datorer till en sekundär plats
 
@@ -20,10 +20,6 @@ ms.locfileid: "74039738"
 Den här artikeln beskriver hur du gör en katastrof återställning (DR) för virtuella Hyper-V-datorer som hanteras i System Center Virtual Machine Manager V-moln (MM) till en sekundär lokal plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 Du kan köra ett redundanstest för att verifiera din strategi för replikering och utföra en katastrof granskning utan data förlust eller avbrott. En redundanstest har ingen påverkan på den pågående replikeringen eller i produktions miljön. 
-
-> [!WARNING]
-> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](site-to-site-deprecation.md) informationen innan du fortsätter.
-
 
 ## <a name="how-do-test-failovers-work"></a>Hur fungerar redundanstest?
 
@@ -47,7 +43,7 @@ Du kör ett redundanstest från den primära platsen till den sekundära platsen
 
 När du kör ett redundanstest uppmanas du att välja nätverks inställningar för test replik datorer, som sammanfattas i tabellen.
 
-| **Alternativ** | **Detaljer** | |
+| **Alternativ** | **Information** | |
 | --- | --- | --- |
 | **Alternativet** | Den virtuella test datorn skapas på den värd där den virtuella replik datorn finns. Den har inte lagts till i molnet och är inte ansluten till något nätverk.<br/><br/> Du kan ansluta datorn till ett virtuellt dator nätverk när det har skapats.| |
 | **Använd befintlig** | Den virtuella test datorn skapas på den värd där den virtuella replik datorn finns. Den har inte lagts till i molnet.<br/><br/>Skapa ett virtuellt dator nätverk som är isolerat från produktions nätverket.<br/><br/>Om du använder ett VLAN-baserat nätverk rekommenderar vi att du skapar ett separat logiskt nätverk (som inte används i produktion) i VMM för detta ändamål. Det här logiska nätverket används för att skapa virtuella dator nätverk för redundanstest.<br/><br/>Det logiska nätverket måste vara kopplat till minst ett av nätverkskorten för alla Hyper-V-servrar som är värdar för virtuella datorer.<br/><br/>För logiska VLAN-nätverk ska de nätverks platser som du lägger till i det logiska nätverket isoleras.<br/><br/>Om du använder ett logiskt nätverk för Windows-nätverksvirtualisering skapas automatiskt isolerade virtuella dator nätverk i Azure Site Recovery. | |

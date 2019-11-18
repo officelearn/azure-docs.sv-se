@@ -1,5 +1,5 @@
 ---
-title: Lägg till bedömnings profiler för att öka relevanta dokument i Sök resultaten
+title: Öka Sök rankningen med hjälp av bedömnings profiler
 titleSuffix: Azure Cognitive Search
 description: Höj Sök ranknings poängen för Azure Kognitiv sökning resultat genom att lägga till bedömnings profiler.
 manager: nitinme
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2b92f8031a0d35696447f8ab796d24c504d57457
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790128"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113616"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Lägga till bedömnings profiler i ett Azure Kognitiv sökning-index
 
@@ -243,16 +243,16 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 |`Fieldname`|Krävs för poängsättnings funktioner. En poängsättnings funktion kan endast användas för fält som ingår i indexets fält samling och som kan filtreras. Dessutom introducerar varje funktions typ ytterligare begränsningar (färskhet används med DATETIME-fält, storlek med heltal eller dubbla fält och avstånd med plats fält). Du kan bara ange ett enskilt fält per funktions definition. Om du till exempel vill använda två gånger i samma profil måste du inkludera två definitions storlek, en för varje fält.|  
 |`Interpolation`|Krävs för poängsättnings funktioner. Definierar lutningen för vilken poängen ökar från början av intervallet till slutet av intervallet. Giltiga värden är linjär (standard), konstant, kvadratisk och logaritmisk. Mer information finns i [Ange interpolation](#bkmk_interpolation) .|  
 |`magnitude`|Funktionen poängsättnings funktion används för att ändra rangordningar baserat på värde intervallet för ett numeriskt fält. Några av de vanligaste användnings exemplen för detta är:<br /><br /> -   **stjärn klassificeringar:** ändra poängen baserat på värdet i fältet "stjärn klassificering". När två objekt är relevanta kommer objektet med den högre klassificeringen att visas först.<br />-   **marginal:** när två dokument är relevanta kan en åter försäljare vilja öka dokument som har högre marginaler först.<br />-   **Klicka på antal:** för program som spårar Klicka genom åtgärder till produkter eller sidor kan du använda storlek för att öka antalet objekt som tenderar att få ut mesta möjliga trafik.<br />-   **hämtnings antal:** för program som spårar hämtningar kan du använda funktionen omfattning för att öka objekt som har flest hämtningar.|  
-|`magnitude` &#124;`boostingRangeStart`|Anger startvärdet för intervallet, vars storlek är resultatet. Värdet måste vara ett heltals värde eller ett flyttal. För stjärn klassificeringar mellan 1 och 4 blir det 1. För marginaler över 50% är detta 50.|  
-|`magnitude` &#124;`boostingRangeEnd`|Anger slutvärdet för intervallet, vars storlek är resultatet. Värdet måste vara ett heltals värde eller ett flyttal. För stjärn klassificeringar mellan 1 och 4 är detta 4.|  
-|`magnitude` &#124;`constantBoostBeyondRange`|Giltiga värden är true eller false (standard). När värdet är true fortsätter den fullständiga höjningen att gälla för dokument som har ett värde för fältet mål som är högre än det övre slutet av intervallet. Om värdet är false används inte ökningen av den här funktionen för dokument som har ett värde för det målfält som ligger utanför intervallet.|  
+|`magnitude` &#124; `boostingRangeStart`|Anger startvärdet för intervallet, vars storlek är resultatet. Värdet måste vara ett heltals värde eller ett flyttal. För stjärn klassificeringar mellan 1 och 4 blir det 1. För marginaler över 50% är detta 50.|  
+|`magnitude` &#124; `boostingRangeEnd`|Anger slutvärdet för intervallet, vars storlek är resultatet. Värdet måste vara ett heltals värde eller ett flyttal. För stjärn klassificeringar mellan 1 och 4 är detta 4.|  
+|`magnitude` &#124; `constantBoostBeyondRange`|Giltiga värden är true eller false (standard). När värdet är true fortsätter den fullständiga höjningen att gälla för dokument som har ett värde för fältet mål som är högre än det övre slutet av intervallet. Om värdet är false används inte ökningen av den här funktionen för dokument som har ett värde för det målfält som ligger utanför intervallet.|  
 |`freshness`|Funktionen för uppdaterings funktionen används för att ändra rangordnings poängen för objekt baserat på värden i `DateTimeOffset` fält. Till exempel kan ett objekt med ett senare datum rangordnas högre än äldre objekt.<br /><br /> Det är också möjligt att rangordna objekt som Kalender händelser med framtida datum, så att objekt som är närmare för närvarande kan rangordnas högre än objekten längre fram i framtiden.<br /><br /> I den aktuella Service Release-versionen kommer en ände av intervallet att åtgärdas till den aktuella tiden. Den andra parten är en tid i det förflutna baserat på `boostingDuration`. Använd ett negativt `boostingDuration`om du vill öka ett antal gånger i framtiden.<br /><br /> Den hastighet med vilken de ökade ändringarna från ett högsta och lägsta intervall bestäms av den interpolering som tillämpas på bedömnings profilen (se bilden nedan). Om du vill ändra förstärknings faktorn väljer du en förstärknings faktor på mindre än 1.|  
-|`freshness` &#124;`boostingDuration`|Anger en förfallo period efter vilken förstärkning kommer att stoppas för ett visst dokument. Se [set boostingDuration](#bkmk_boostdur) i följande avsnitt för syntax och exempel.|  
+|`freshness` &#124; `boostingDuration`|Anger en förfallo period efter vilken förstärkning kommer att stoppas för ett visst dokument. Se [set boostingDuration](#bkmk_boostdur) i följande avsnitt för syntax och exempel.|  
 |`distance`|Funktionen för avstånds resultat används för att påverka poängen för dokument baserat på hur nära eller hur långt de är i förhållande till en referens geografisk plats. Referens platsen anges som en del av frågan i en parameter (med alternativet `scoringParameterquery` sträng) som ett Lon, lat-argument.|  
-|`distance` &#124;`referencePointParameter`|En parameter som ska skickas i frågor som ska användas som referens plats. `scoringParameter` är en frågeparameter. Se [Sök i &#40;dokument Azure kognitiv sökning&#41; REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för beskrivningar av frågeparametrar.|  
-|`distance` &#124;`boostingDistance`|Ett tal som anger avståndet i kilo meter från referens platsen där förstärknings intervallet slutar.|  
+|`distance` &#124; `referencePointParameter`|En parameter som ska skickas i frågor som ska användas som referens plats. `scoringParameter` är en frågeparameter. Se [Sök i &#40;dokument Azure kognitiv sökning&#41; REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för beskrivningar av frågeparametrar.|  
+|`distance` &#124; `boostingDistance`|Ett tal som anger avståndet i kilo meter från referens platsen där förstärknings intervallet slutar.|  
 |`tag`|Funktionen för att räkna poängen används för att påverka poängen för dokument baserat på taggar i dokument och Sök frågor. Dokument som har taggar i gemensamma med Sök frågan kommer att öka. Taggarna för Sök frågan anges som en bedömnings parameter i varje sökbegäran (med alternativet `scoringParameterquery` sträng).|  
-|`tag` &#124;`tagsParameter`|En parameter som ska skickas i frågor för att ange taggar för en viss begäran. `scoringParameter` är en frågeparameter. Se [Sök i &#40;dokument Azure kognitiv sökning&#41; REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för beskrivningar av frågeparametrar.|  
+|`tag` &#124; `tagsParameter`|En parameter som ska skickas i frågor för att ange taggar för en viss begäran. `scoringParameter` är en frågeparameter. Se [Sök i &#40;dokument Azure kognitiv sökning&#41; REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för beskrivningar av frågeparametrar.|  
 |`functionAggregation`|Valfri. Gäller endast när funktioner anges. Giltiga värden är: sum (standard), genomsnitt, lägsta, högsta och firstMatching. En Sök Poäng är ett enskilt värde som beräknas från flera variabler, inklusive flera funktioner. Det här attributet anger hur förstärkningarna av alla funktioner kombineras till en enda sammanställd ökning som sedan tillämpas på grund dokument poängen. Bas poängen baseras på det [TF-IDF-](http://www.tfidf.com/) värde som beräknas från dokumentet och Sök frågan.|  
 |`defaultScoringProfile`|Om ingen bedömnings profil anges när du kör en Sök förfrågan används standard bedömnings processen (endast[TF-IDF](http://www.tfidf.com/) ).<br /><br /> Du kan ställa in ett standard bedömnings profil namn här, vilket gör att Azure Kognitiv sökning använda profilen när ingen specifik profil anges i Sök förfrågan.|  
 
@@ -275,16 +275,16 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
  Följande tabell innehåller flera exempel.  
 
-|Längd|boostingDuration|  
+|Varaktighet|boostingDuration|  
 |--------------|----------------------|  
 |1 dag|"P1D"|  
 |2 dagar och 12 timmar|"P2DT12H"|  
 |15 minuter|"PT15M"|  
-|30 dagar, 5 timmar, 10 minuter och 6,334 sekunder|"P30DT5H10M 6.334 S"|  
+|30 dagar, 5 timmar, 10 minuter och 6,334 sekunder|"P30DT5H10M6.334S"|  
 
  Fler exempel finns i [XML-schema: data typer (w3.org webbplats)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Se också  
+## <a name="see-also"></a>Se även  
    för [Azure KOGNITIV sökning rest](https://docs.microsoft.com/rest/api/searchservice/)  
  [Skapa index &#40;Azure kognitiv sökning REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure Kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

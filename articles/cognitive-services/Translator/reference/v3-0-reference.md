@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: c07673e7b170170de4723a1232d2e7281feaaf99
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888080"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123065"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v 3.0
 
@@ -56,9 +56,9 @@ Det finns tre huvuden som du kan använda för att autentisera din prenumeration
 
 |Rubriker|Beskrivning|
 |:----|:----|
-|OCP-APIM-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+|OCP-Apim-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
 |Auktorisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>`.|
-|OCP-APIM-Subscription-region|*Använd med Cognitive Services multi-service-prenumeration om du skickar en hemlig nyckel för flera tjänster.*<br/>Värdet är regionen för multi-service-prenumerationen. Det här värdet är valfritt när du inte använder en prenumeration med flera tjänster.|
+|Ocp-Apim-Subscription-Region|*Använd med Cognitive Services multi-service-prenumeration om du skickar en hemlig nyckel för flera tjänster.*<br/>Värdet är regionen för multi-service-prenumerationen. Det här värdet är valfritt när du inte använder en prenumeration med flera tjänster.|
 
 ###  <a name="secret-key"></a>Hemlig nyckel
 Det första alternativet är att autentisera med hjälp av `Ocp-Apim-Subscription-Key`-huvudet. Lägg till `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` sidhuvudet i din begäran.
@@ -124,7 +124,7 @@ Till exempel skulle en kund med en kostnads fri utvärderings prenumeration få 
 ```
 Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga fel koder är:
 
-| Kod | Beskrivning |
+| Programmera | Beskrivning |
 |:----|:-----|
 | 400000| En av begärda indata är inte giltiga.|
 | 400001| Parametern "scope" är ogiltig.|
@@ -163,5 +163,23 @@ Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden 
 | 415000| Content-Type-huvudet saknas eller är ogiltigt.|
 | 429000, 429001, 429002| Servern avvisade begäran på grund av att klienten har överskridit gränsen för begäran.|
 | 500000| Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med datum/tid för felet, begärande-ID från svars huvudet X-RequestId och klient-ID: n från begär ande huvudet X-ClientTraceId.|
-| 503000| Tjänsten är inte tillgänglig för tillfället. Försök igen. Om felet kvarstår rapporterar du det med datum/tid för felet, begärande-ID från svars huvudet X-RequestId och klient-ID: n från begär ande huvudet X-ClientTraceId.|
+| 503000| Tjänsten är otillgänglig. Försök igen. Om felet kvarstår rapporterar du det med datum/tid för felet, begärande-ID från svars huvudet X-RequestId och klient-ID: n från begär ande huvudet X-ClientTraceId.|
 
+## <a name="metrics"></a>Mått 
+Med mått kan du Visa information om användning och tillgänglighet för översättare i Azure Portal under mått avsnittet som visas i skärm bilden nedan. Mer information finns i [data-och plattforms mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+![Translator-mått](../media/translatormetrics.png)
+
+I den här tabellen listas tillgängliga mått med en beskrivning av hur de används för att övervaka API-anrop för översättning.
+
+| Mått | Beskrivning |
+|:----|:-----|
+| TotalCalls| Totalt antal API-anrop.|
+| TotalTokenCalls| Totalt antal API-anrop via token service med autentiseringstoken.|
+| SuccessfulCalls| Antal lyckade anrop.|
+| TotalErrors| Antal anrop med fel svar.|
+| BlockedCalls| Antal anrop som har överskridit frekvensen eller kvot gränsen.|
+| ServerErrors| Antal anrop med internt Server fel (5XX).|
+| ClientErrors| Antal anrop med fel på klient sidan (4XX).|
+| Svarstid| Varaktighet för att slutföra begäran i millisekunder.|
+| CharactersTranslated| Totalt antal tecken i begäran om inkommande text.|

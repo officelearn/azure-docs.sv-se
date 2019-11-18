@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/07/2019
-ms.openlocfilehash: e6c9bd18a6ea5975269b96653e47eaf1da462676
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/13/2019
+ms.openlocfilehash: a5632f4b7ca264f6fdeb88dc7f7cf843c73ddf54
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935454"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123398"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
 
@@ -22,7 +22,7 @@ Lär dig mer om komponenter och versioner av [Apache Hadoop](https://hadoop.apac
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Apache Hadoops komponenter som är tillgängliga med olika HDInsight-versioner
 
-Azure HDInsight stöder flera Hadoop-kluster som kan distribueras när som helst. Varje versions val skapar en speciell version av HDP-distributionen och en uppsättning komponenter som ingår i distributionen. Från och med den 4 april 2017 är standard kluster versionen som används av Azure HDInsight 3,6 och baseras på HDP 2,6.
+Azure HDInsight stöder flera Hadoop-kluster som kan distribueras när som helst. Från och med den 4 april 2017 är standard kluster versionen som används av Azure HDInsight 3,6.
 
 Komponent versioner som är associerade med HDInsight-kluster versioner visas i följande tabell: 
 
@@ -42,10 +42,10 @@ Komponent versioner som är associerade med HDInsight-kluster versioner visas i 
 | Apache Oozie | 4.3.1 | 4.2.0 | 4.2.0 | 4.2.0 | 4.2.0 | 4.1.0 |
 | Apache Zookeeper | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 |
 | Apache Storm | - | 1.1.0 | 1.0.1 | 0.10.0 | 0.10.0 | 0.9.3 |
-| Apache Mahout | - | 0.9.0 + | 0.9.0 + | 0.9.0 + | 0.9.0 + | 0.9.0 |
+| Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
 | Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
 | Apache Spark | 2.3.1, 2,4 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2,0 | 1.6.0 | 1.5.2 | 1.3.1 (endast Windows) |
-| Apache livy | 0,5 | 0,4, 0,4, 0,3 | 0,3 | 0,3 | 0,2 | - |
+| Apache Livy | 0,5 | 0,4, 0,4, 0,3 | 0,3 | 0,3 | 0.2 | - |
 | Apache Kafka | 1.1.1, 2,1 | 1,1, 1,0 * (se anmärkning nedan) | 0.10.0 | 0.9.0 | - | - |
 | Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
 | Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
@@ -64,16 +64,16 @@ Mer information om de senaste versionerna av HDInsight finns i avsnittet om [ver
 
 ## <a name="supported-hdinsight-versions"></a>HDInsight-versioner som stöds
 
-I följande tabeller visas versioner av HDInsight. De HDP-versioner som motsvarar varje HDInsight-version visas tillsammans med produkt lanserings datum. Datumen för support och upphör ande anges också när de är kända.
+I följande tabeller visas versioner av HDInsight. Datumen för support och upphör ande anges också när de är kända.
 
 ### <a name="available-versions"></a>Tillgängliga versioner
 
 I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure Portal samt andra distributions metoder som PowerShell och .NET SDK.
 
-| HDInsight-version | HDP-version | VM-OPERATIVSYSTEM | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet på Azure Portal | 
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |HDP 3,0 |Ubuntu 16.0.4-LTS |24 september 2018 | | |Ja |Ja |
-| HDInsight 3,6 |HDP 2,6 |Ubuntu 16.0.4-LTS |4 april 2017 | 30 juni 2020 |31 december 2020 |Ja |Ja |
+| HDInsight-version | VM-OPERATIVSYSTEM | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet i Azure Portal | 
+| --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 4.0 |Ubuntu 16.0.4-LTS |24 september 2018 | | |Ja |Ja |
+| HDInsight 3,6 |Ubuntu 16.0.4-LTS |4 april 2017 | 30 juni 2020 |31 december 2020 |Ja |Ja |
 
 
 > [!NOTE]  
@@ -86,15 +86,15 @@ I följande tabell visas de versioner av HDInsight som **inte** är tillgänglig
 
 | HDInsight-version | HDP-version | VM-OPERATIVSYSTEM | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet på Azure Portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
-| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4-LTS |29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Nej |
-| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
-| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
-| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |Den 1 april 2017 |Ja |Nej |
-| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |30 juni 2016 |Ja |Nej |
-| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nej |
+| HDInsight 3,5 |HDP 2.5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
+| HDInsight 3,4 |HDP 2.4 |Ubuntu 14.0.4-LTS |Den 29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2.3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
+| HDInsight 3,2 |HDP 2.2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |Den 1 april 2017 |Ja |Nej |
+| HDInsight 3,1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |Den 30 juni 2016 |Ja |Nej |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nej |
 | HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 oktober 2013 |12 maj 2014 |31 maj 2015 |Ja |Nej |
-| HDInsight 1,6 |HDP 1,1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Nej |Nej |
+| HDInsight 1,6 |HDP 1.1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Nej |Nej |
 
 > [!NOTE]  
 > Kluster med hög tillgänglighet med två head-noder distribueras som standard för HDInsight version 2,1 och senare. De är inte tillgängliga för HDInsight version 1,6-kluster.

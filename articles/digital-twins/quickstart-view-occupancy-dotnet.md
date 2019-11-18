@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-ms.openlocfilehash: d9a88a40a85ce4be9222f45d3bce53e91346040b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039379"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123189"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -76,7 +76,7 @@ En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://git
 1. Kör `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >Azure CLI-verktyget Inloggning på enhet används för att autentisera användaren för Azure AD. Användaren måste ange en viss kod för att autentisera med hjälp av [Microsofts inloggningssida](https://microsoft.com/devicelogin). När koden anges följer du stegen för att autentisera. Användaren måste autentiseras när verktyget körs.
+    >Azure CLI-verktyget Inloggning på enhet används för att autentisera användaren för Azure AD. Användaren måste ange en viss kod för att autentisera med hjälp av [Microsofts inloggningssida](https://microsoft.com/devicelogin). När du har angett koden följer du stegen för att autentisera. Användaren måste autentiseras när verktyget körs.
 
     >[!TIP]
     > När du kör det här steget kontrollerar du att variablerna har kopierats om följande felmeddelande visas: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`

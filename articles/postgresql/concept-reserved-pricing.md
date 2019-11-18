@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 795ca6f1ee45f11fe44f9c14efda1d3463dc9e7c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 753d962cbefd38ec991fb9e63805760fe07a8f2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076816"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123885"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Förskotts betalning för Azure Database for PostgreSQL beräknings resurser med reserverad kapacitet
 
@@ -20,7 +20,7 @@ Azure Database for PostgreSQL nu kan du spara pengar genom att betala för berä
 Du behöver inte tilldela reservationen till vissa Azure Database for PostgreSQL-servrar. Om du redan kör Azure Database for PostgreSQL eller som nyligen har distribuerats får du automatiskt fördelarna med reserverad prissättning. Genom att köpa en reservation är du förbetald för beräknings kostnaderna under en period på ett år. Så snart du köper en reservation debiteras inte längre Azure Database for PostgreSQL-beräknings avgifter som matchar reservations attributen enligt priserna för betala per användning. En reservation omfattar inte program vara, nätverk eller lagrings kostnader som är kopplade till PostgreSQL-databas servrarna. I slutet av reservations perioden upphör fakturerings förmånen och Azure Database for PostgreSQL debiteras enligt priset betala per användning. Reservationer förnyas inte automatiskt. För pris information, se [Azure Database for PostgreSQL reserverat kapacitets erbjudande](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> Priset för reserverad kapacitet är bara tillgängligt för den Azure Database for PostgreSQL distribution av [enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) och inte för distribution med [storskalig citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus-preview) .
+> Priset för reserverad kapacitet är bara tillgängligt för den Azure Database for PostgreSQL distribution av [enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) och inte för distribution med [storskalig citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) .
 
 Du kan köpa Azure Database for PostgreSQL reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Så här köper du den reserverade kapaciteten:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882501"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111752"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -51,9 +51,9 @@ tar -xf azcopy.tar.gz
 
 För enkelhetens skull bör du överväga att lägga till katalog platsen för den körbara AzCopy i din system Sök väg för enkel användning. På så sätt kan du skriva `azcopy` från valfri katalog i systemet.
 
-Om du väljer att inte lägga till katalogen AzCopy i sökvägen måste du ändra katalogerna till platsen för din AzCopy-körbara fil och skriva `azcopy` eller `.\azcopy` i Windows PowerShell-Kommandotolken.
+Om du väljer att inte lägga till katalogen AzCopy i sökvägen måste du ändra katalogerna till platsen för din AzCopy-körbara fil och skriva `azcopy` eller `.\azcopy` i kommando tolken i Windows PowerShell.
 
-Om du vill se en lista över kommandon, skriver du `azcopy -h` och trycker sedan på RETUR-tangenten.
+Om du vill se en lista över kommandon skriver du `azcopy -h` och trycker sedan på RETUR-tangenten.
 
 Om du vill veta mer om ett speciellt kommando inkluderar du bara namnet på kommandot (till exempel: `azcopy list -h`).
 
@@ -124,7 +124,7 @@ Om du tillhör fler än en organisation inkluderar du klient-ID för den organis
 azcopy login --tenant-id=<tenant-id>
 ```
 
-Ersätt plats hållaren `<tenant-id>` med klient organisations-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal.
+Ersätt `<tenant-id>` plats hållaren med klient-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal.
 
 Det här kommandot returnerar en autentiseringsnyckel och URL: en för en webbplats. Öppna webbplatsen, ange koden och välj sedan knappen **Nästa** .
 
@@ -168,7 +168,7 @@ Skriv sedan följande kommando och tryck sedan på RETUR-tangenten.
 azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
 ```
 
-Ersätt plats hållaren `<application-id>` med program-ID: t för tjänstens huvud namns registrerings program registrering. Ersätt plats hållaren `<tenant-id>` med klient organisations-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal. 
+Ersätt `<application-id>` plats hållaren med program-ID: t för tjänstens huvud namn för appens registrering. Ersätt `<tenant-id>` plats hållaren med klient-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal. 
 
 ##### <a name="using-a-certificate"></a>Använda ett certifikat
 
@@ -193,7 +193,7 @@ Skriv sedan följande kommando och tryck sedan på RETUR-tangenten.
 azcopy login --service-principal --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-Ersätt plats hållaren `<path-to-certificate-file>` med den relativa eller fullständigt kvalificerade sökvägen till certifikat filen. AzCopy sparar sökvägen till det här certifikatet, men det sparar inte en kopia av certifikatet, så se till att hålla certifikatet på plats. Ersätt plats hållaren `<tenant-id>` med klient organisations-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal.
+Ersätt den `<path-to-certificate-file>` plats hållaren med den relativa eller fullständigt kvalificerade sökvägen till certifikat filen. AzCopy sparar sökvägen till det här certifikatet, men det sparar inte en kopia av certifikatet, så se till att hålla certifikatet på plats. Ersätt `<tenant-id>` plats hållaren med klient-ID: t för den organisation som lagrings kontot tillhör. Om du vill hitta klient-ID: t väljer du **Azure Active Directory > egenskaper > katalog-ID** i Azure Portal.
 
 > [!NOTE]
 > Överväg att använda en prompt som du ser i det här exemplet. På så sätt visas inte lösen ordet i konsolens kommando historik. 
@@ -228,19 +228,19 @@ Skriv sedan något av följande kommandon i kommando konsolen och tryck sedan p�
 azcopy login --identity --identity-client-id "<client-id>"
 ```
 
-Ersätt plats hållaren `<client-id>` med klient-ID: t för den användarspecifika hanterade identiteten.
+Ersätt `<client-id>` plats hållaren med klient-ID: t för den användarspecifika hanterade identiteten.
 
 ```azcopy
 azcopy login --identity --identity-object-id "<object-id>"
 ```
 
-Ersätt plats hållaren `<object-id>` med objekt-ID: t för den användarspecifika hanterade identiteten.
+Ersätt `<object-id>` plats hållaren med objekt-ID: t för den användare som tilldelats den hanterade identiteten.
 
 ```azcopy
 azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
-Ersätt plats hållaren `<resource-id>` med resurs-ID för den användare som tilldelats den hanterade identiteten.
+Ersätt `<resource-id>` plats hållaren med resurs-ID för den användare som tilldelats den hanterade identiteten.
 
 ### <a name="option-2-use-a-sas-token"></a>Alternativ 2: Använd en SAS-token
 
@@ -284,7 +284,7 @@ Hämta länken genom att köra det här kommandot:
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
 
 > [!NOTE]
-> För Linux, `--strip-components=1` på kommandot `tar` tar bort mappen på den översta nivån som innehåller versions namnet, och extraherar i stället binärfilen direkt till den aktuella mappen. Detta gör att skriptet kan uppdateras med en ny version av `azcopy` genom att endast uppdatera `wget`-URL: en.
+> För Linux, `--strip-components=1` i `tar` kommandot tar bort mappen på den översta nivån som innehåller versions namnet, och extraherar i stället binärfilen direkt till den aktuella mappen. Detta gör att skriptet kan uppdateras med en ny version av `azcopy` genom att endast uppdatera `wget`-URL: en.
 
 URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp av den URL: en.
 
@@ -305,16 +305,9 @@ Om du planerar att använda [Jenkins](https://jenkins.io/) för att köra skript
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-storage-explorer"></a>Använd AzCopy i Storage Explorer
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Använd AzCopy i Azure Storage Explorer
 
-Om du vill utnyttja prestanda fördelarna med AzCopy, men vill använda Storage Explorer i stället för kommando raden för att interagera med dina filer, aktiverar du AzCopy i Storage Explorer.
-
-I Storage Explorer väljer du för **hands version**->**Använd AzCopy för att förbättra BLOB-uppladdning och hämta**.
-
-![Aktivera AzCopy som överförings motor i Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> Du behöver inte aktivera den här inställningen om du har aktiverat ett hierarkiskt namn område på ditt lagrings konto. Det beror på att Storage Explorer automatiskt använder AzCopy på lagrings konton som har ett hierarkiskt namn område.  
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) använder AzCopy för att utföra alla data överförings åtgärder. Du kan använda [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om du vill dra nytta av prestanda fördelarna med AZCopy, men du föredrar att använda ett grafiskt användar gränssnitt i stället för kommando raden för att interagera med dina filer.
 
 Storage Explorer använder din konto nyckel för att utföra åtgärder, så när du har loggat in på Storage Explorer behöver du inte ange ytterligare autentiseringsuppgifter för auktorisering.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 567110b2e0429930720abf6af5f2727e4ad9d3bb
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048279"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131970"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
@@ -196,7 +196,7 @@ I instrument panelen för resurs gruppen söker du efter lagrings kontot (datahu
     > [!NOTE]
     > Välj den Accelerator-resurs grupp som angavs vid tidpunkten för FarmBeats-distributionen.
 
-3.  I instrument panelen för resurs gruppen söker du efter lagring.... Lagrings konto. Till exempel storagedop4k
+3.  I instrument panelen för resurs gruppen söker du efter lagring.... lagrings konto. Till exempel storagedop4k
 4.  Välj lagrings kontot i kolumnen **namn** om du vill visa instrument panelen för lagrings kontot.
 5.  På sidan (lagring...) väljer du **Öppna i Utforskaren** för att visa öppna Azure Storage Explorer program.
 6.  I den vänstra panelen < lagring...), BLOB- **behållare**, Välj **jobb-loggar**.
@@ -251,7 +251,7 @@ I instrument panelen för resurs gruppen söker du efter lagrings kontot (datahu
 
 **Betydelse**: Azure AD App Registration-konfigurationen har inte skett korrekt.  
 
-**Korrigerande åtgärd**: be IT-administratören (som har Läs behörighet för klient organisationen) att använda vårt [skript](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) för att skapa en Azure AD-App-registrering. Det här skriptet tar automatiskt hand om konfigurations stegen.
+**Korrigerande åtgärd**: be IT-administratören (som har Läs behörighet för klient organisationen) att använda vårt [skript](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) för att skapa Azure AD-appens registrering. Det här skriptet tar automatiskt hand om konfigurations stegen.
 
 **Fel**: det gick inte att skapa det nya Active Directory programmet "dummyname" i den här klienten: det finns redan ett annat objekt med samma värde för URI: er för egenskaps identifierare
 

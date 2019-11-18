@@ -1,7 +1,7 @@
 ---
 title: Skicka Sök frågor till API för visuell sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om de REST API parametrar som används i API för visuell sökning i Bing.
+description: I den här artikeln beskrivs parametrarna och attributen för begär Anden som skickas till API för visuell sökning i Bing, samt objektet Response.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: 1c5c9b3af42dfa655c61af5a3aadbb47e0774b01
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2a87bee4769111e01dc49e8fce14569233dfaef3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835679"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111628"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka Sök frågor till API för visuell sökning i Bing
 
@@ -401,7 +401,7 @@ Om avbildningen innehåller en erkänd entitet, till exempel en kulturellt välk
     }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Vad är API för visuell sökning i Bing?](../overview.md)
 - [Självstudie: skapa en Visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: dfbf416c93c78e6ba5e23819084d69e57c47edc8
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fbd595c7de0bde4e8ba8b7aaa9a65aa5880c1165
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273658"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151914"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -19,13 +19,13 @@ Azure Database for MySQL skapar automatiskt Server säkerhets kopior och lagrar 
 
 ## <a name="backups"></a>Säkerhetskopior
 
-Azure Database for MySQL tar fullständiga, differentiella och transaktions logg säkerhets kopior. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan [också konfigurera det](howto-restore-server-portal.md#set-backup-configuration) upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
+Azure Database for MySQL säkerhetskopierar datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständig och differentiell säkerhets kopiering (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan [också konfigurera det](howto-restore-server-portal.md#set-backup-configuration) upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
 ### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
-Normalt sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag och säkerhets kopieringar av transaktions loggar sker var femte minut. Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en server har skapats. Den första säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar.
+I allmänhet sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag för servrar med en högsta lagring på 4 TB som stöds. Ögonblicks bild säkerhets kopieringar sker minst en gång per dag för servrar som har stöd för upp till 16 TB lagrings utrymme. Säkerhets kopiering av transaktions loggar i båda fallen sker var femte minut. Den första ögonblicks bilden av fullständig säkerhets kopiering schemaläggs direkt efter att en server har skapats. Den första fullständiga säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar. När ögonblicks bilder är instantanious kan servrar med stöd för upp till 16 TB lagrings utrymme återställas till skapande tiden igen.
 
-### <a name="backup-redundancy-options"></a>Redundansalternativ för säkerhetskopiering
+### <a name="backup-redundancy-options"></a>Alternativ för redundans för säkerhets kopiering
 
 Azure Database for MySQL ger flexibiliteten att välja mellan lokalt redundant eller Geo-redundant lagring av säkerhets kopior i Generell användning och minnesoptimerade nivåer. När säkerhets kopiorna lagras i Geo-redundant lagring av säkerhets kopior lagras de inte bara i den region där servern finns, men replikeras också till ett [parat Data Center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Detta ger bättre skydd och möjlighet att återställa servern i en annan region i händelse av en katastrof. Basic-nivån erbjuder endast lokalt redundant säkerhets kopierings lagring.
 
@@ -62,7 +62,9 @@ Du kan behöva vänta tills nästa säkerhets kopiering av transaktions loggen t
 
 ### <a name="geo-restore"></a>Geo-återställning
 
-Du kan återställa en server till en annan Azure-region där tjänsten är tillgänglig om du har konfigurerat servern för geo-redundanta säkerhets kopieringar. Geo-återställning är standard alternativet för återställning när servern inte är tillgänglig på grund av en incident i den region där-servern finns. Om en storskalig incident i en region resulterar i att databas programmet inte är tillgängligt, kan du återställa en server från de geo-redundanta säkerhets kopieringarna till en server i någon annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den replikeras till en annan region. Den här fördröjningen kan vara upp till en timme, så om en katastrof inträffar kan det vara upp till en timmes data förlust.
+Du kan återställa en server till en annan Azure-region där tjänsten är tillgänglig om du har konfigurerat servern för geo-redundanta säkerhets kopieringar. För servrar som har stöd för upp till 16 TB lagrings utrymme kan geo-säkerhetskopiering bara återställas i regioner som har stöd för 16 TB-servrar. Granska [Azure Database for MySQL pris nivåer](concepts-pricing-tiers.md) för listan över regioner som stöds. 
+
+Geo-återställning är standard alternativet för återställning när servern inte är tillgänglig på grund av en incident i den region där-servern finns. Om en storskalig incident i en region resulterar i att databas programmet inte är tillgängligt, kan du återställa en server från de geo-redundanta säkerhets kopieringarna till en server i någon annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den replikeras till en annan region. Den här fördröjningen kan vara upp till en timme, så om en katastrof inträffar kan det vara upp till en timmes data förlust.
 
 Vid geo-återställning kan de serverkonfigurationer som kan ändras omfatta beräknings generering, vCore, bevarande period för säkerhets kopior och alternativ för säkerhets kopiering. Det finns inte stöd för att ändra pris nivå (Basic, Generell användning eller Minnesoptimerade) eller lagrings storlek under geo-återställning.
 

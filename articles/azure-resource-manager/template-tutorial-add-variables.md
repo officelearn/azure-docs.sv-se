@@ -1,25 +1,22 @@
 ---
-title: Självstudie – Lägg till variabel till Azure Resource Manager mall
+title: Självstudie – Lägg till variabel till mall
 description: Lägg till variabler i Azure Resource Manager-mallen för att förenkla syntaxen.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 9af6b9028dbc5b01c3d0ec9dc41f145e37c31b0e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001464"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147974"
 ---
-# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Självstudier: Lägg till variabler i Resource Manager-mallen
+# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Självstudie: Lägg till variabler i Resource Manager-mallen
 
 I den här självstudien får du lära dig hur du lägger till en variabel i mallen. Variabler fören klar dina mallar genom att göra det möjligt att skriva ett uttryck en gång och återanvända det i hela mallen. Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om functions](template-tutorial-add-functions.md), men det är inte obligatoriskt.
 
@@ -86,7 +83,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Du ser att en lagrings konto resurs har distribuerats. Namnet på lagrings kontot är **lagrat** plus en sträng med slumpmässiga tecken.

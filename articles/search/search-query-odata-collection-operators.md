@@ -1,7 +1,7 @@
 ---
 title: Referens för OData Collection-operator
 titleSuffix: Azure Cognitive Search
-description: OData Collection-operatorer, any-och alla-och lambda-uttryck i Azure Kognitiv sökning-frågor.
+description: När du skapar filter uttryck i Azure Kognitiv sökning-frågor använder du operatorerna "any" och "alla" i lambda-uttryck när filtret är i en samling eller ett komplext samlings fält.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fdb250a844b70cef4f6941debbb1fa7450874932
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793407"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113229"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>OData Collection-operatörer i Azure Kognitiv sökning-`any` och `all`
 

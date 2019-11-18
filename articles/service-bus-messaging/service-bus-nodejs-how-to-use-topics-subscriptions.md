@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c82edde98242ffe130c2022c428c86de80e3b034
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719203"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111776"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node. js och Azure-SB-paketet
 > [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node. js-paket"]
@@ -40,8 +40,8 @@ De scenarier som beskrivs här är:
 
 Mer information om ämnen och prenumerationer finns i avsnittet [Nästa steg](#next-steps) .
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Krav
+- En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här vägledningen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**.
 
     > [!NOTE]
@@ -150,7 +150,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 > [!NOTE]
 > Som standard är prenumerationerna beständiga tills de eller de avsnitt som de är kopplade till tas bort. Om programmet innehåller logik för att skapa en prenumeration bör du först kontrol lera om prenumerationen finns med hjälp av metoden `getSubscription`.
 >
-> Du kan ta bort prenumerationerna automatiskt genom att ange [egenskapen AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> Du kan ta bort prenumerationerna automatiskt genom att ange [egenskapen AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
 **MatchAll** -filtret är det standard filter som används när en prenumeration skapas. När du använder **MatchAll**-filtret kommer alla meddelanden som publiceras till ämnet att placeras i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet AllMessages som använder standard filtret för **MatchAll** .
@@ -314,7 +314,7 @@ Det finns också en tids gräns som är kopplad till ett meddelande som är lås
 I händelse av att programmet kraschar när meddelandet har bearbetats men innan `deleteMessage`-metoden anropas, kommer meddelandet att skickas vidare till programmet när det startas om. Det här beteendet kallas ofta *minst en gång*. Det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör du lägga till logik till ditt program för att hantera duplicerad meddelande leverans. Du kan använda meddelandets **messageid** -egenskap, som är konstant över leverans försök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
-Ämnen och prenumerationer är permanenta om inte [autoDeleteOnIdle-egenskapen](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) har angetts och måste uttryckligen tas bort antingen via [Azure Portal][Azure portal] eller program mässigt.
+Ämnen och prenumerationer är permanenta om inte [autoDeleteOnIdle-egenskapen](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) har angetts och måste uttryckligen tas bort antingen via [Azure Portal][Azure portal] eller program mässigt.
 Följande exempel visar hur du tar bort ämnet med namnet `MyTopic`:
 
 ```javascript

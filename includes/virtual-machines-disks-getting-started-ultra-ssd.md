@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 63045bf1b836215b00b9b7c1b46dd208152fa772
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5751ed33673ca859ba1aed54cfc7c2e7ecc8e495
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74101535"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124067"
 ---
 Azure Ultra disks erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer (VM). Det nya erbjudandet ger överst i linje prestanda på samma tillgänglighets nivå som våra befintliga diskar. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina virtuella datorer. Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar.
 
@@ -67,6 +67,75 @@ Om du tänker använda din egen mall kontrollerar du att **API version** för `M
 Ange disk-SKU: n till **UltraSSD_LRS**, ange disk kapacitet, IOPS, tillgänglighets zon och data flöde i Mbit/s för att skapa en Ultra-disk.
 
 När den virtuella datorn har allokerats kan du partitionera och formatera data diskarna och konfigurera dem för dina arbets belastningar.
+
+
+## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Distribuera en Ultra disk med hjälp av Azure Portal
+
+Det här avsnittet beskriver hur du distribuerar en virtuell dator som är utrustad med en Ultra disk som en data disk. Det förutsätter att du har erfarenhet av att distribuera en virtuell dator, om du inte gör det, se vår [snabb start: skapa en virtuell Windows-dator i Azure Portal](../articles/virtual-machines/windows/quick-create-portal.md).
+
+- Logga in på [Azure Portal](https://portal.azure.com/) och navigera för att distribuera en virtuell dator (VM).
+- Se till att välja en [VM-storlek och-region som stöds](#ga-scope-and-limitations).
+- Välj **tillgänglighets zon** i **tillgänglighets alternativ**.
+- Fyll i de återstående posterna med val som du väljer.
+- Välj **diskar**.
+
+![Create-Ultra-disk-Enabled-VM. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+
+- På bladet diskar väljer du **Ja** för **att aktivera Ultra disk Compatibility**.
+- Välj **skapa och Anslut en ny disk** för att ansluta en Ultra disk nu.
+
+![Enable-and-Attach-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+
+- På bladet **skapa en ny disk** anger du ett namn och väljer sedan **ändra storlek**.
+- Ändra **konto typen** till **Ultra disk**.
+- Ändra värdena för **anpassad disk storlek (GIB)** , **disk-IOPS**och **disk data flöde** som du väljer själv.
+- Välj **OK** på båda bladen.
+- Fortsätt med distributionen av virtuella datorer. det är detsamma som du distribuerar andra virtuella datorer.
+
+![Create-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+
+## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>Ansluta en Ultra disk med hjälp av Azure Portal
+
+Alternativt, om din befintliga virtuella dator finns i en region/tillgänglighets zon som kan använda Ultra disks, kan du använda Ultra disks utan att behöva skapa en ny virtuell dator. Aktivera Ultra disks på den befintliga virtuella datorn genom att ansluta dem som data diskar.
+
+- Gå till den virtuella datorn och välj **diskar**.
+- Välj **Redigera**.
+
+![Options-Selector-Ultra-disks. png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+
+- Välj **Ja** om du vill **Aktivera Ultra disk Compatibility**.
+
+![Ultra-Options-Yes-enable. png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+
+- Välj **Spara**.
+- Välj **Lägg till datadisk** och välj sedan **skapa disk**i list rutan för **namn** .
+
+![Create-and-Attach-New-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+
+- Fyll i ett namn för din nya disk och välj sedan **ändra storlek**.
+- Ändra **konto typen** till **Ultra disk**.
+- Ändra värdena för **anpassad disk storlek (GIB)** , **disk-IOPS**och **disk data flöde** som du väljer själv.
+- Välj **OK** och välj sedan **skapa**.
+
+![making-a-New-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
+
+- När du har kommit tillbaka till din disks blad väljer du **Spara**.
+
+![Saving-and-attaching-New-Ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+
+### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>Justera prestanda för en Ultra disk med hjälp av Azure Portal
+
+Ultra disks erbjuder en unik funktion som gör att du kan justera prestandan. Du kan göra dessa justeringar från Azure Portal på själva diskarna.
+
+- Gå till den virtuella datorn och välj **diskar**.
+- Välj den Ultra disk som du vill ändra prestanda för.
+
+![selecting-Ultra-disk-to-Modify. png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+
+- Välj **konfiguration** och gör dina ändringar.
+- Välj **Spara**.
+
+![Configuring-Ultra-disk-Performance-and-size. png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>Distribuera en Ultra disk med CLI
 

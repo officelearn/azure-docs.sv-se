@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 7574e80101784961448ff3c3b5a49d9e2c2f9807
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720225"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123503"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Server utvärdering
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du kan utvärdera lokala fysiska servrar med hjälp 
 
 [Azure Migrate](migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera fysiska servrar.
@@ -38,12 +38,12 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - [Slutför](tutorial-prepare-physical.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
     - [Konfigurera Azure-behörigheter](tutorial-prepare-physical.md#prepare-azure) för Azure Migrate.
-    - [Förbered fysiska servrar](tutorial-prepare-physical.md#prepare-azure) för utvärdering. Installations kraven bör kontrol leras. Du bör också ha ett konto som har kon figurer ATS för fysisk server identifiering. De portar som krävs bör vara tillgängliga och du bör vara medveten om de URL: er som behövs för åtkomst till Azure.
+    - [Förbered fysiska servrar](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) för utvärdering. Installations kraven bör kontrol leras. Du bör också ha ett konto som har kon figurer ATS för fysisk server identifiering. De portar som krävs bör vara tillgängliga och du bör vara medveten om de URL: er som behövs för åtkomst till Azure.
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
@@ -105,9 +105,10 @@ Ladda ned den zippade filen för enheten.
 Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
-2. Kör följande kommando för att generera hashen för den virtuella hård disken
+2. Kör följande kommando för att generera hashen för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Exempel på användning: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
+
 3.  För version 1.19.05.10 ska den genererade hashen matcha de här inställningarna.
 
   **Algoritm** | **Hash-värde**
@@ -115,7 +116,8 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
   SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
-= Installations skriptet gör följande:
+
+Installations skriptet gör följande:
 
 - Installerar agenter och ett webb program för identifiering och utvärdering av fysiska servrar.
 - Installera Windows-roller, inklusive Windows Activation Service, IIS och PowerShell ISE.
@@ -130,12 +132,16 @@ Kör skriptet på följande sätt:
 1. Extrahera den zippade filen till en mapp på den server som ska vara värd för-enheten.
 2. Starta PowerShell på servern med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp där innehållet har extraherats från den hämtade zippade filen.
-4. Kör skriptet genom att köra följande kommando:
+4. Kör skriptet med namnet **AzureMigrateInstaller. ps1** genom att köra följande kommando:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-Skriptet startar webb programmet för installationen när det har slutförts.
+Skriptet startar webb programmet för installationen när det har slutförts. 
 
+Om det uppstår några problem kan du komma åt skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log för fel sökning.
+
+> [!NOTE]
+> Kör inte Azure Migrate Installer-skriptet på en befintlig Azure Migrate-installation.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
 
@@ -183,7 +189,7 @@ Du kan lägga till en uppsättning autentiseringsuppgifter var för Windows-och 
     - Om du vill ta bort en server väljer du > **ta bort**.
 4. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.
 
-Detta startar identifieringen. Det tar cirka 15 minuter innan metadata för identifierade servrar visas i Azure Portal. 
+Detta startar identifieringen. Det tar cirka 1,5 minuter per server för metadata om identifierad server som visas i Azure Portal. 
 
 ### <a name="verify-servers-in-the-portal"></a>Verifiera servrar i portalen
 
@@ -294,7 +300,7 @@ Tillförlitlighets klassificeringar för en utvärdering är följande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen för du göra följande:
+I den här kursen har du:
 
 > [!div class="checklist"]
 > * Konfigurera en Azure Migrate-apparat

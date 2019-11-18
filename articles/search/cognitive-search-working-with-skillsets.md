@@ -1,5 +1,5 @@
 ---
-title: Arbeta med färdighetsuppsättningar
+title: Färdigheter-koncept och arbets flöde
 titleSuffix: Azure Cognitive Search
 description: Färdighetsuppsättningar är där du skapar en pipeline för AI-anrikning i Azure Kognitiv sökning. Lär dig viktiga begrepp och information om färdigheter-kompositionen.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890150"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113641"
 ---
-# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Arbeta med färdighetsuppsättningar i Azure Kognitiv sökning
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Färdigheter-koncept och-sammansättning i Azure Kognitiv sökning
 
 Den här artikeln är för utvecklare som behöver en djupare förståelse för hur anriknings pipelinen fungerar och förutsätter att du har en konceptuell förståelse för AI-anrikningen. Om du har nytt det här konceptet börjar du med:
 + [AI-anrikning i Azure Kognitiv sökning](cognitive-search-concept-intro.md)
@@ -43,9 +43,9 @@ När ett dokument har berikats pipelinen visas det som ett träd med innehåll o
 
 |Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
 |---|---|---|
-|Blob Storage|/document/content<br>/Document/normalized_images/*<br>...|/document/{key1}<br>/document/{key2}<br>...|
-|SQL|/document/{column1}<br>/document/{column2}<br>...|Saknas |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>...|Saknas|
+|Blob Storage|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|Saknas |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|Saknas|
 
  När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
 

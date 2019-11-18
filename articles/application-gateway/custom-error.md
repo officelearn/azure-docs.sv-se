@@ -1,65 +1,65 @@
 ---
-title: Skapa anpassade felsidor för Azure Application Gateway
-description: Den här artikeln visar hur du skapar anpassade felsidor för Application Gateway.
+title: Skapa Azure Application Gateway anpassade felsidor
+description: Den här artikeln visar hur du skapar Application Gateway anpassade felsidor. Du kan använda din egen varumärkesanpassning och layout med hjälp av en anpassad felsida.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff11f686287498fe12b31d15a630178bb12035ad
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832055"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129864"
 ---
-# <a name="create-application-gateway-custom-error-pages"></a>Skapa anpassade felsidor för Application Gateway
+# <a name="create-application-gateway-custom-error-pages"></a>Skapa Application Gateway anpassade fel sidor
 
 Med Application Gateway kan du skapa anpassade felsidor i stället för att visa standardmässiga felsidor. Du kan använda din egen varumärkesanpassning och layout med hjälp av en anpassad felsida.
 
-Du kan till exempel definiera egna underhållssidan om ditt webbprogram inte går att nå. Du kan också skapa en sida för obehörig åtkomst om en obehörig begäran har skickats till ett webbprogram.
+Du kan till exempel definiera en egen underhålls sida om ditt webb program inte går att komma åt. Du kan också skapa en obehörig åtkomst sida om en skadlig begäran skickas till ett webb program.
 
-Anpassade felsidor har stöd för följande två scenarier:
+Anpassade felsidor stöds i följande två scenarier:
 
-- **Underhållssidan** – den här anpassade felsidan skickas i stället för en 502 Felaktig gateway-sida. Den visas när Application Gateway har inga serverdelen för att dirigera trafik till. Till exempel när det har schemalagt underhåll eller när ett oförutsedda problem påverkar backend-pool-åtkomst.
-- **Obehörig åtkomst till sidan** – den här anpassade felsidan skickas i stället för en sida 403 för obehörig åtkomst. Den visas när Application Gateway WAF identifierar skadlig trafik och blockerar den.
+- **Sidan underhåll** – den här anpassade felsidan skickas i stället för en 502-Felaktig gateway-sida. Den visas när Application Gateway saknar Server del för att dirigera trafik till. Till exempel när det schemalagda underhållet är schemalagt eller om ett oförutsett problem påverkar backend-poolens åtkomst.
+- **Sidan obehörig åtkomst** – den här anpassade felsidan skickas i stället för en otillåten åtkomst sida på 403. Den visas när Application Gateway WAF identifierar skadlig trafik och blockerar den.
 
-Om ett fel kommer från backend-servrarna, sedan skickas det vidare oförändrade tillbaka till anroparen. En anpassad felsida visas inte. Application gateway kan visa en anpassad felsida när en begäran inte kan nå serverdelen.
+Om ett fel härstammar från backend-servrarna skickas det vidare tillbaka till anroparen. Sidan anpassad fel visas inte. Application Gateway kan visa en anpassad felsida när en begäran inte kan komma åt Server delen.
 
-Anpassade felsidor kan definieras på global nivå och den lyssnare:
+Anpassade felsidor kan definieras på global nivå och på lyssnar nivån:
 
-- **Global nivå** -felsidan gäller för trafik för alla webbprogram som distribueras på den application gatewayen.
-- **Lyssnaren nivå** -felsidan gäller för trafik som tas emot på den lyssnaren.
-- **Båda** -den anpassade felsidan som definierats på nivån lyssnare åsidosätter en uppsättning på global nivå.
+- **Global nivå** – sidan fel gäller för trafik för alla webb program som distribueras på programgatewayen.
+- **Lyssnar nivå** -fel sidan används för trafik som tas emot på den lyssnaren.
+- **Båda** – den anpassade felsidan som definierats på lyssnar nivån åsidosätter den uppsättning på global nivå.
 
-Om du vill skapa en anpassad felsida, måste du ha:
+Om du vill skapa en anpassad felsida måste du ha:
 
-- en HTTP-statuskod i svaret.
-- motsvarande plats för felsidan. 
-- en offentligt tillgänglig Azure storage-blob för platsen.
-- en *.htm eller *.html utökningstyp. 
+- en status kod för HTTP-svar.
+- motsvarande plats för fel sidan. 
+- en offentligt tillgänglig Azure Storage-BLOB för platsen.
+- en fil av typen *. htm eller *. html. 
 
-Storleken på felsidan måste vara mindre än 1 MB. Om det finns bilder som är länkade i felsidan, måste de vara offentligt tillgänglig absoluta URL: er eller base64-kodad infogade för bilden i den anpassade felsidan. Relativa länkar med bilder i samma blobbplats stöds inte för närvarande. 
+Fel sidans storlek måste vara mindre än 1 MB. Om det finns bilder som är länkade till felsidan, måste de vara antingen offentligt tillgängliga absoluta URL: er eller Base64-kodad bild infogad på sidan med anpassade fel. Relativa länkar med avbildningar på samma BLOB-plats stöds inte för närvarande. 
 
-När du har angett en felsida application gateway hämtar den från lagringsplatsen för blob och sparar det på det lokala gatewayen cacheminnet. Sedan hämtas felsidan direkt från application gateway. Om du vill ändra en befintlig anpassad felsida, måste du peka till en annan blob-plats i application gateway-konfigurationen. Application gateway kontrollerar inte regelbundet blobbplats för att hämta nya versioner.
+När du har angett en felsida laddar programgatewayen ned den från lagrings-BLOB-platsen och sparar den i den lokala Programgateway-cachen. Sedan betjänas sidan fel direkt från programgatewayen. Om du vill ändra en befintlig sida med anpassade fel måste du peka på en annan BLOB-plats i konfigurationen för programgatewayen. Programgatewayen kontrollerar inte regelbundet BLOB-platsen för att hämta nya versioner.
 
-## <a name="portal-configuration"></a>Portalkonfiguration
+## <a name="portal-configuration"></a>Portal konfiguration
 
-1. Gå till Application Gateway i portalen och välj en application gateway.
+1. Navigera till Application Gateway i portalen och välj en Programgateway.
 
     ![AG-översikt](media/custom-error/ag-overview.png)
 2. Klicka på **lyssnare** och navigera till en viss lyssnare där du vill ange en felsida.
 
-    ![Application Gateway-lyssnare](media/custom-error/ag-listener.png)
-3. Konfigurera en anpassad felsida för ett 403 WAF-fel eller en 502 underhållssidan på nivån lyssnare.
+    ![Application Gateway lyssnare](media/custom-error/ag-listener.png)
+3. Konfigurera en anpassad felsida för ett 403 WAF-fel eller en 502 underhålls sida på lyssnar nivån.
 
     > [!NOTE]
-    > Skapa anpassade felsidor för global nivå från Azure portal stöds för närvarande inte.
+    > Det finns för närvarande inte stöd för att skapa anpassade fel sidor på global nivå från Azure Portal.
 
-4. Ange en offentligt tillgänglig blob-URL för en viss felkod status och klicka på **spara**. Application Gateway har konfigurerats med den anpassade felsidan.
+4. Ange en offentligt tillgänglig BLOB-URL för en viss fel status kod och klicka på **Spara**. Application Gateway har nu kon figurer ATS med sidan för anpassade fel.
 
-   ![Felkoder för Application Gateway](media/custom-error/ag-error-codes.png)
+   ![Application Gateway felkoder](media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Azure PowerShell-konfiguration
 
@@ -67,12 +67,12 @@ Du kan använda Azure PowerShell för att konfigurera en anpassad felsida. Till 
 
 `$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
 
-Eller en lyssnare på felsidan:
+Eller på fel sidan på lyssnar nivån:
 
 `$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
 
-Mer information finns i [Lägg till AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) och [Lägg till AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+Mer information finns i [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) och [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur Application Gateway-diagnostik [backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
+Information om Application Gateway diagnostik finns i [backend-hälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).

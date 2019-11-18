@@ -1,5 +1,5 @@
 ---
-title: Ange RBAC-roller för administrativ åtkomst i Azure i portalen
+title: Ange RBAC-roller för administrativ åtkomst i Azure
 titleSuffix: Azure Cognitive Search
 description: Rollbaserad administrativ kontroll (RBAC) i Azure Portal för att kontrol lera och delegera administrativa uppgifter för hantering av Azure-Kognitiv sökning.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 321aabb26d5929f7587dd61e7d4059701f7ad526
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794326"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112552"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Ange RBAC-roller för administrativ åtkomst till Azure Kognitiv sökning
 
@@ -35,7 +35,7 @@ För Azure Kognitiv sökning associeras roller med behörighets nivåer som stö
 
 Roller beviljar inte åtkomst behörighet till tjänstens slut punkt. Sök tjänst åtgärder, till exempel index hantering, index ifyllning och frågor om Sök data, kontrol leras via API-nycklar, inte roller. Mer information finns i [Hantera API-nycklar](search-security-api-keys.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Hantera med PowerShell](search-manage-powershell.md) 
 + [Prestanda och optimering i Azure Kognitiv sökning](search-performance-optimization.md)

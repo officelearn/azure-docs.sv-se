@@ -11,28 +11,28 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3589310ff93aca3cec735d6b2f1609ee3d1d2e68
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825788"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132291"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Allmänna rikt linjer för att arbeta med Wingtip ticks-exempel SaaS-appar
 
-Den här artikeln innehåller allmän vägledning för att köra Wingtip ticks-SaaS program som använder Azure SQL Database. 
+Den här artikeln innehåller allmän vägledning för att köra Wingtip ticks-SaaS program som använder Azure SQL Database.
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Hämta och avblockera Wingtip Ticket SaaS-skript
 
 Körbart innehåll (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. När du extraherar skripten från en zip-fil **följer du stegen nedan för att avblockera zip-filen innan du extraherar**. Detta säkerställer att skripten kan köras.
 
-1. Bläddra till Wingtip Ticket SaaS GitHub-lagrings platsen för databasens hyres mönster som du vill utforska: 
+1. Bläddra till Wingtip Ticket SaaS GitHub-lagrings platsen för databasens hyres mönster som du vill utforska:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Klicka på **klona eller hämta**.
 3. Klicka på **Hämta zip** och spara filen.
-4. Högerklicka på zip-filen och välj **Egenskaper**. Zip-filnamn motsvarar namnet på lagrings platsen. priset. _WingtipTicketsSaaS-DbPerTenant-Master. zip_)
+4. Högerklicka på zip-filen och välj **Egenskaper**. Zip-filnamn motsvarar namnet på lagrings platsen. priset. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. På fliken **Allmänt** väljer du **avblockera**.
 6. Klicka på **OK**.
 7. Extrahera filerna.
@@ -42,13 +42,13 @@ Skript finns i mappen *..\\Learning modules* .
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Arbeta med ett Wingtip-biljetter PowerShell-skript
 
-För att få ut det mesta av exemplet måste du komma in i de medföljande skripten. Använd Bryt punkter och gå igenom skripten när de körs och kontrol lera hur de olika SaaS-mönstren implementeras. För att enkelt gå igenom de tillhandahållna skripten och modulerna för bästa förståelse rekommenderar vi att du använder [POWERSHELL ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+För att få ut det mesta av exemplet måste du komma in i de medföljande skripten. Använd Bryt punkter och gå igenom skripten när de körs och kontrol lera hur de olika SaaS-mönstren implementeras. För att enkelt gå igenom de tillhandahållna skripten och modulerna för bästa förståelse rekommenderar vi att du använder [POWERSHELL ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
 
 ### <a name="update-the-configuration-file-for-your-deployment"></a>Uppdatera konfigurations filen för distributionen
 
 Redigera filen **userconfig. psm1** med den resurs grupp och det användar värde som du angav under distributionen:
 
-1. Öppna *POWERSHELL ISE* och Läs in...\\Learning-moduler\\*userconfig. psm1* 
+1. Öppna *POWERSHELL ISE* och Läs in...\\Learning-moduler\\*userconfig. psm1*
 2. Uppdatera *ResourceGroupName* och *namn* med de angivna värdena för din distribution (endast på raderna 10 och 11).
 3. Spara ändringarna!
 
@@ -76,7 +76,7 @@ Tips för att utforska och stega igenom PowerShell-skript:
 
 Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta och bläddra bland program servrar och databaser.
 
-Distributionen har inlednings vis klient organisationer och katalog SQL Database servrar som ska anslutas till. Namngivningen av servrarna beror på databasens hyres mönster (se nedan för mer information). 
+Distributionen har inlednings vis klient organisationer och katalog SQL Database servrar som ska anslutas till. Namngivningen av servrarna beror på databasens hyres mönster (se nedan för mer information).
 
    - **Fristående program:** servrar för varje klient (t. ex. *contosoconcerthall-&lt;användare&gt;* -Server) och *katalog-sa-&lt;användare&gt;*
    - **Databas per klient:** *tenants1-DPT-&lt;User&gt;* och *Catalog-DPT-&lt;användare&gt;* -servrar
@@ -86,19 +86,19 @@ För att säkerställa en lyckad demo anslutning har alla servrar en [brand Väg
 
 
 1. Öppna *SSMS* och Anslut till klienterna. Server namnet beror på databasens hyres mönster som du har valt (se nedan för information):
-    - **Fristående program:** servrar för enskilda klienter (t. ex. *contosoconcerthall-&lt;User&gt;. Database.Windows.net*) 
+    - **Fristående program:** servrar för enskilda klienter (t. ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*)
     - **Databas per klient:** *tenants1-DPT-&lt;User&gt;. Database.Windows.net*
-    - **Databas för flera klient organisationer:** *tenants1-MT-&lt;User&gt;. Database.Windows.net* 
+    - **Databas för flera klient organisationer:** *tenants1-MT-&lt;User&gt;. Database.Windows.net*
 2. Klicka på **anslut** > **databasmotor...** :
 
    ![katalogserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
 3. Autentiseringsuppgifterna för demon är: login = *Developer*, Password = *P\@ssword1*
 
-    Bilden nedan visar inloggningen för *databasen per klient* mönster. 
+    Bilden nedan visar inloggningen för *databasen per klient* mönster.
     ![anslutning](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
-    
-   
+
+
 
 4. Upprepa steg 2-3 och Anslut till katalog servern (se nedan för angivna Server namn baserat på databasens hyres mönster har valts)
     - **Fristående program:** *katalog-sa-&lt;User&gt;. Database.Windows.net*

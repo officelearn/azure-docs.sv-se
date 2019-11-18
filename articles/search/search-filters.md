@@ -1,5 +1,5 @@
 ---
-title: Filter för omfattnings Sök resultat i ett index
+title: Filtrera efter Sök Resultat
 titleSuffix: Azure Cognitive Search
 description: Filtrera efter användarens säkerhets identitet, språk, Geo-Location eller numeriska värden för att minska Sök resultaten för frågor i Azure Kognitiv sökning, en värdbaserad Sök tjänst i molnet på Microsoft Azure.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7dd289005e91323010cfa2a0298c351b3e757d1d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 960f6f0de94c6bb4fc6b03c31740b63270cf9e14
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792865"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132924"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filter i Azure Kognitiv sökning 
 
 Ett *filter* innehåller kriterier för att välja dokument som används i en Azure kognitiv sökning-fråga. Ofiltrerad sökning innehåller alla dokument i indexet. Ett filter omfångerar en Sök fråga till en delmängd av dokumenten. Ett filter kan till exempel begränsa full texts ökningen till enbart de produkter som har ett specifikt märke eller en viss färg, vid pris punkter över ett visst tröskelvärde.
 
-Vissa Sök upplevelser har filter krav som en del av implementeringen, men du kan använda filter när du vill begränsa sökningen med hjälp av *värdebaserade* villkor (omfattnings sökning till produkt typ "böcker" för kategorin "icke-fiktion" Publicerad av " Simon & Schuster ").
+Vissa Sök upplevelser har filter krav som en del av implementeringen, men du kan använda filter när som helst när du vill begränsa sökningen med hjälp av *värdebaserade* villkor (omfattnings sökning till produkt typ "böcker" för kategorin "icke-fiktion" Publicerad av "Simon & Schuster").
 
 Om målet i stället är riktad sökning efter specifika data *strukturer* (omfattnings sökning i ett kund gransknings fält) finns det alternativa metoder, som beskrivs nedan.
 
@@ -157,7 +157,7 @@ Text strängar är Skift läges känsliga. Det finns inget gement versaler på b
 
 ### <a name="approaches-for-filtering-on-text"></a>Metoder för filtrering av text
 
-| Form | Beskrivning | Används till att |
+| Metoden | Beskrivning | Används till att |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhets filter](search-security-trimming-for-azure-search.md) och för alla filter där många rå text värden måste matchas med ett sträng fält. **Search.in** -funktionen är utformad för snabbhet och är mycket snabbare än att explicit jämföra fältet mot varje sträng med hjälp av `eq` och `or`. | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | En funktion som gör att du kan blanda full texts öknings åtgärder med strikta booleska filter åtgärder i samma filter uttryck. | Använd **search. ismatch** (eller dess bedömnings motsvarighet, **search. ismatchscoring**) när du vill ha flera Sök filter kombinationer i en begäran. Du kan också använda det för a *innehåller* filter för att filtrera på en delvis sträng inom en större sträng. |
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Mer information om hur du arbetar med fler exempel finns i [syntax för OData filter Expression > exempel](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Hur full texts ökning fungerar i Azure Kognitiv sökning](search-lucene-query-architecture.md)
 + [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

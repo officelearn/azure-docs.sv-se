@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472894"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120613"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
 När program utvecklingen flyttas till en container-baserad metod är behovet av att dirigera och hantera resurser viktigt. Kubernetes är den ledande plattformen som ger möjlighet att tillhandahålla tillförlitlig schemaläggning av feltoleranta program arbets belastningar. Azure Kubernetes service (AKS) är ett hanterat Kubernetes-erbjudande som ytterligare fören klar distribution och hantering av container-baserade program.
 
-I den här artikeln beskrivs de grundläggande Kubernetes-infrastruktur komponenterna, till exempel *klusterets huvud*-, *noder*-och *Node-pooler*. Arbets belastnings resurser som *poddar*, *distributioner*och *uppsättningar* introduceras också, tillsammans med hur du grupperar resurser till *namn områden*.
+Den här artikeln beskriver kärn Kubernetes infrastruktur komponenter som *kontroll plan*, *noder*och *nodkonfigurationer*. Arbets belastnings resurser som *poddar*, *distributioner*och *uppsättningar* introduceras också, tillsammans med hur du grupperar resurser till *namn områden*.
 
 ## <a name="what-is-kubernetes"></a>Vad är Kubernetes?
 
@@ -28,33 +28,33 @@ Du kan skapa och köra moderna, bärbara och mikrotjänster-baserade program som
 
 Som en öppen plattform kan du med Kubernetes skapa dina program med önskat programmeringsspråk, OS, bibliotek eller meddelande buss. Befintliga verktyg för kontinuerlig integrering och verktyg för kontinuerlig leverans (CI/CD) kan integreras med Kubernetes för att schemalägga och distribuera versioner.
 
-Azure Kubernetes service (AKS) tillhandahåller en hanterad Kubernetes-tjänst som minskar komplexiteten för distributions-och kärn hanterings aktiviteter, inklusive samordning av uppgraderingar. AKS kluster hanterare hanteras av Azure-plattformen och du betalar bara för de AKS-noder som kör dina program. AKS bygger på[AKS-motorn][aks-engine]med öppen källkod i Azure Kubernetes.
+Azure Kubernetes service (AKS) tillhandahåller en hanterad Kubernetes-tjänst som minskar komplexiteten för distributions-och kärn hanterings aktiviteter, inklusive samordning av uppgraderingar. AKS-kontroll planet hanteras av Azure-plattformen och du betalar bara för de AKS-noder som kör dina program. AKS bygger på[AKS-motorn][aks-engine]med öppen källkod i Azure Kubernetes.
 
 ## <a name="kubernetes-cluster-architecture"></a>Arkitektur för Kubernetes-kluster
 
 Ett Kubernetes-kluster är uppdelat i två komponenter:
 
-- *Kluster* -huvudnoder tillhandahåller de viktigaste Kubernetes-tjänsterna och dirigeringen av program arbets belastningar.
+- *Control plan* -noder tillhandahåller de viktigaste Kubernetes-tjänsterna och dirigeringen av program arbets belastningar.
 - *Noderna* kör dina program arbets belastningar.
 
-![Kubernetes kluster huvud-och nod-komponenter](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
+![Kubernetes kontroll plan och nod komponenter](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="cluster-master"></a>Kluster huvud
+## <a name="control-plane"></a>Kontroll plan
 
-När du skapar ett AKS-kluster skapas och konfigureras en kluster hanterare automatiskt. Den här kluster administratören anges som en hanterad Azure-resurs som är abstrakt från användaren. Det kostar inget att hantera klustret, bara de noder som ingår i AKS-klustret.
+När du skapar ett AKS-kluster skapas och konfigureras ett kontroll plan automatiskt. Det här kontroll planet tillhandahålls som en hanterad Azure-resurs som är abstrakt från användaren. Det finns ingen kostnad för kontroll planet, bara de noder som ingår i AKS-klustret.
 
-Kluster administratören innehåller följande kärn Kubernetes-komponenter:
+Kontroll planet innehåller följande kärn Kubernetes-komponenter:
 
 - *Kube-apiserver* – API-servern är hur de underliggande Kubernetes-API: erna exponeras. Den här komponenten ger interaktion för hanterings verktyg, till exempel `kubectl` eller Kubernetes-instrumentpanelen.
 - *etcd* – för att underhålla status för ditt Kubernetes-kluster och-konfiguration är hög tillgänglig *etcd* ett nyckel värdes lager inom Kubernetes.
 - *Kube-Scheduler* – när du skapar eller skalar program bestämmer Scheduler vilka noder som kan köra arbets belastningen och startar dem.
 - *Kube-Controller-Manager* – Controller Manager ser över ett antal mindre styrenheter som utför åtgärder som att replikera poddar och hantera Node-åtgärder.
 
-AKS tillhandahåller en kluster hanterare för en enda klient, med en dedikerad API-Server, Scheduler, osv. Du definierar antalet och storleken på noderna, och Azure-plattformen konfigurerar säker kommunikation mellan klustrets huvud och noder. Interaktion med kluster administratören sker via Kubernetes-API: er, till exempel `kubectl` eller Kubernetes-instrumentpanelen.
+AKS tillhandahåller ett kontroll plan för en enskild klient, med en dedikerad API-Server, Scheduler, osv. Du definierar antalet och storleken på noderna, och Azure-plattformen konfigurerar den säkra kommunikationen mellan kontroll planet och noderna. Interaktion med kontroll planet sker via Kubernetes-API: er, till exempel `kubectl` eller Kubernetes-instrumentpanelen.
 
-Detta hanterade kluster innebär att du inte behöver konfigurera komponenter som en hög tillgänglig *etcd* -butik, men det innebär också att du inte kan komma åt kluster administratören direkt. Uppgraderingar av Kubernetes dirigeras via Azure CLI eller Azure Portal, som uppgraderar kluster repliken och noderna. Om du vill felsöka möjliga problem kan du granska klustrets huvud loggar via Azure Monitor loggar.
+Det här hanterade kontroll planet innebär att du inte behöver konfigurera komponenter som en hög tillgänglig *etcd* -butik, men det innebär också att du inte kan komma åt kontroll planet direkt. Uppgraderingar av Kubernetes dirigeras via Azure CLI eller Azure Portal, som uppgraderar kontroll planet och noderna. Om du vill felsöka eventuella problem kan du granska kontroll Plans loggarna via Azure Monitor loggar.
 
-Om du behöver konfigurera kluster administratören på ett visst sätt eller behöver direkt åtkomst till dem kan du distribuera ditt eget Kubernetes-kluster med [AKS-Engine][aks-engine].
+Om du behöver konfigurera kontroll planet på ett visst sätt eller behöver direkt åtkomst till det kan du distribuera ditt eget Kubernetes-kluster med [AKS-Engine][aks-engine].
 
 För associerade metod tips, se [metod tips för kluster säkerhet och uppgraderingar i AKS][operator-best-practices-cluster-security].
 
@@ -62,7 +62,7 @@ För associerade metod tips, se [metod tips för kluster säkerhet och uppgrader
 
 Om du vill köra program och stöd tjänster behöver du en Kubernetes- *nod*. Ett AKS-kluster har en eller flera noder, som är en virtuell Azure-dator (VM) som kör Kubernetes-nodens komponenter och behållar körningen:
 
-- `kubelet` är Kubernetes-agenten som bearbetar Orchestration-begärandena från kluster hanteraren och schemaläggning av att köra de begärda behållarna.
+- `kubelet` är Kubernetes-agenten som bearbetar Orchestration-begärandena från kontroll planet och schemaläggning av att köra de begärda behållarna.
 - Virtuella nätverk hanteras av *Kube-proxy* på varje nod. Proxyservern dirigerar nätverks trafik och hanterar IP-adresser för tjänster och poddar.
 - *Container runtime* är den komponent som gör det möjligt för program i behållare att köra och interagera med ytterligare resurser, till exempel det virtuella nätverket och lagringen. I AKS används Moby som container Runtime.
 
@@ -87,7 +87,7 @@ kubectl describe node [NODE_NAME]
 För att upprätthålla prestanda och funktioner för noden reserveras resurser på varje nod av AKS. När en nod växer större i resurser växer resurs reservationen på grund av en högre mängd användar distribuerade poddar som behöver hanteras.
 
 >[!NOTE]
-> Att använda tillägg som OMS använder ytterligare resurs resurser.
+> Användning av AKS-tillägg som container Insights (OMS) kommer att använda ytterligare resurs resurser.
 
 - **CPU** -reserverad CPU är beroende av nodtypen och kluster konfigurationen vilket kan orsaka mindre allocatable CPU på grund av att ytterligare funktioner körs
 
@@ -95,16 +95,24 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
 |---|---|---|---|---|---|---|---|
 |Kube-reserverade (millicores)|60|100|140|180|260|420|740|
 
-- **Minne** – reservation av minne följer en progressiv hastighet
-  - 25% av de första 4 GB minne
-  - 20% av nästa 4 GB minne (upp till 8 GB)
-  - 10% av nästa 8 GB minne (upp till 16 GB)
-  - 6% av nästa 112 GB minne (upp till 128 GB)
-  - 2% av ett minne över 128 GB
+- **Minne** -reserverat minne innehåller summan av två värden
 
-Dessa reservationer innebär att mängden tillgängligt CPU och minne för dina program kan verka mindre än själva noden innehåller. Om det finns resurs begränsningar på grund av antalet program som du kör, garanterar dessa reservationer att CPU och minne är tillgängligt för kärn Kubernetes-komponenterna. Resurs reservationerna kan inte ändras.
+1. Daemon för kubelet har installerats på alla Kubernetes-agent-noder för att hantera skapande och avslutning av behållare. Som standard har daemonen följande borttagnings regel i AKS: minne. Available < 750Mi, vilket innebär att en nod alltid måste ha minst 750 mi allocatable.  När en värd unders tiger den tröskeln för tillgängligt minne, kommer kubelet att avsluta en av de poddar som körs för att frigöra minne på värddatorn och skydda den.
 
-Den underliggande noden kräver också viss mängd processor-och minnes resurser för att slutföra sina egna kärn funktioner.
+2. Det andra värdet är en progressiv mängd minne som reserver ATS för kubelet daemon för att fungera korrekt (Kube).
+    - 25% av de första 4 GB minne
+    - 20% av nästa 4 GB minne (upp till 8 GB)
+    - 10% av nästa 8 GB minne (upp till 16 GB)
+    - 6% av nästa 112 GB minne (upp till 128 GB)
+    - 2% av ett minne över 128 GB
+
+Som ett resultat av dessa två definierade regler för att hålla Kubernetes-och agent-noderna felfria, kommer mängden allocatable CPU och minne att visas som mindre än själva noden kan erbjuda. De resurs reservationer som anges ovan kan inte ändras.
+
+Om en nod till exempel erbjuder 7 GB, kommer den att rapportera 34% av minnet som inte allocatable:
+
+`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+
+Förutom reservationer för Kubernetes reserverar den underliggande noden också en mängd processor-och minnes resurser för att underhålla OS-funktioner.
 
 För associerade metod tips, se [metod tips för grundläggande funktioner i Schemaläggaren i AKS][operator-best-practices-scheduler].
 
@@ -140,7 +148,7 @@ spec:
 
 Mer information om hur du styr var poddar schemaläggs finns i [metod tips för avancerade Scheduler-funktioner i AKS][operator-best-practices-advanced-scheduler].
 
-## <a name="pods"></a>poddar
+## <a name="pods"></a>Poddar
 
 Kubernetes använder *poddar* för att köra en instans av programmet. En POD representerar en enda instans av ditt program. Poddar har vanligt vis en 1:1-mappning med en behållare, även om det finns avancerade scenarier där en POD kan innehålla flera behållare. Dessa poddar för flera behållare schemaläggs tillsammans på samma nod och tillåter att behållare delar relaterade resurser.
 

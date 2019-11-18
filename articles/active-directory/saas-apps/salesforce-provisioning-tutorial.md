@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f095c962f08ab0207ffc51d1c898570d9be7ea9a
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047243"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120547"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 
@@ -55,7 +55,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 
 ## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användar etablering
 
-Det här avsnittet vägleder dig genom att ansluta Azure AD till Salesforces etablerings-API för användar konton och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Salesforce baserat på användare och grupp tilldelning i Azure AD.
+Det här avsnittet vägleder dig genom att ansluta Azure AD till [Salesforces etablerings-API-V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm)och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Salesforce baserat på användar-och grupp tilldelning i Azure AD.
 
 > [!Tip]
 > Du kan också välja att aktivera SAML-baserad enkel inloggning för Salesforce genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
@@ -120,7 +120,16 @@ Detta startar den inledande synkroniseringen av alla användare och/eller gruppe
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="common-issues"></a>Vanliga problem
-* Mappningen av standardattributet för etablering till Salesforce innehåller SingleAppRoleAssignments-uttrycket för att etablera användar roller i Salesforce. Se till att användarna inte har flera roller tilldelade till sig i programmet eftersom mappningen av attribut endast stöder etablering av en roll. 
+* Om du har problem med att auktorisera åtkomst till Salesforce ser du till att följande:
+    * De autentiseringsuppgifter som används har administratörs åtkomst till Salesforce.
+    * Den version av Salesforce som du använder stöder webb åtkomst (t. ex. Developer, Enterprise, Sandbox och obegränsade versioner av Salesforce.)
+    * Webb-API-åtkomst har Aktiver ATS för användaren.
+* Azure AD Provisioning-tjänsten har stöd för etablering av språk, språk och tidszon för en användare. Attributen finns i standardattributen mappningar men har inte något standardattribut. Se till att du väljer standardattributet källa och att källattributet är i det format som förväntas av SalesForce. Till exempel är localeSidKey för engelska (USA) en_US. Läs de rikt linjer som finns [här](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) för att fastställa rätt localeSidKey-format. Du hittar languageLocaleKey-formaten [här](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Förutom att se till att formatet är korrekt kan du behöva se till att språket är aktiverat för dina användare enligt beskrivningen [här](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
+* **SalesforceLicenseLimitExceeded:** Det gick inte att skapa användaren i mål programmet eftersom det inte finns några tillgängliga licenser för den här användaren. Du kan antingen köpa ytterligare licenser för mål programmet eller granska användar tilldelningarna och mappnings konfigurationen för attribut för att säkerställa att rätt användare tilldelas rätt attribut.
+* **SalesforceDuplicateUserName:** Det går inte att tillhandahålla användaren eftersom den har ett Salesforce.com-användarnamn som är duplicerat i en annan Salesforce.com-klient.  I Salesforce.com måste värdena för attributet username vara unika för alla Salesforce.com-klienter.  Som standard blir användarens userPrincipalName i Azure Active Directory sitt "username" i Salesforce.com.   Du har två alternativ.  Ett alternativ är att söka efter och byta namn på användaren med dubbletten UserName i den andra Salesforce.com-klienten, om du administrerar den andra klienten också.  Det andra alternativet är att ta bort åtkomst från Azure Active Directory användare till den Salesforce.com-klient som katalogen är integrerad med. Vi kommer att försöka utföra åtgärden på nytt vid nästa synkroniseringsförsök. 
+* **SalesforceRequiredFieldMissing:** Salesforce kräver att vissa attribut finns på användaren för att det ska gå att skapa eller uppdatera användaren. Användaren saknar ett av de attribut som krävs. Se till att attributen, till exempel e-post och alias, är ifyllda för alla användare som du vill ska vara etablerade i Salesforce. Du kan begränsa användare som inte har dessa attribut genom att använda [attributbaserade definitions filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Mappningen av standardattributet för etablering till Salesforce innehåller SingleAppRoleAssignments-uttrycket för att mappa appRoleAssignments i Azure AD till PROFILENAME i Salesforce. Se till att användarna inte har flera roll tilldelningar i Azure AD eftersom attributet mappning bara stöder etablering av en roll. 
+
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

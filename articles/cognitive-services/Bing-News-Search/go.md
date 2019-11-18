@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Få nyheter med Bing News Search REST API och Go'
+title: 'Snabb start: Hämta nyheter med hjälp av Nyhetssökning i Bing REST API och gå'
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om att få Nyhetsresultat från den nyhetssökning i Bing.
+description: 'I den här snabb starten används språket Go för att anropa API för nyhetssökning i Bing. Resultaten innehåller namn och URL: er för nyhets källor som identifieras av frågesträngen.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/21/2019
 ms.author: aahi
-ms.openlocfilehash: 79e93e3ba0bbf9ac71a01bad0502b84dfee85297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c3d18852086e202d9f818f2cac2c90fa4f464211
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798507"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110802"
 ---
-# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Snabbstart: Få Nyhetsresultat med hjälp av REST-API för Bing News Search och Go
+# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Snabb start: Hämta nyhets resultat med hjälp av Nyhetssökning i Bing REST API och gå
 
-Den här snabbstarten använder språket Go för att anropa den nyhetssökning i Bing. Resultatet är namn och URL: er för nyhetskällor som identifieras av frågesträngen.
+I den här snabb starten används språket Go för att anropa API för nyhetssökning i Bing. Resultaten innehåller namn och URL: er för nyhets källor som identifieras av frågesträngen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-* Installera den [gå binärfiler](https://golang.org/dl/)
-* Installera go-spew-biblioteket för den Fin skrivare om du vill visa resultat
-    * Installera den här libarary: `$ go get -u https://github.com/davecgh/go-spew`
+## <a name="prerequisites"></a>Krav
+* Installera [Go-binärfilerna](https://golang.org/dl/)
+* Installera go-spew-biblioteket för IT-skrivare för att visa resultaten
+    * Installera den här Libarary: `$ go get -u https://github.com/davecgh/go-spew`
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>Skapa ett projekt och importera bibliotek
 
-Skapa ett nytt Go-projekt i din IDE eller redigerare. Importera `net/http` för förfrågningar om `ioutil` att läsa svaret, och `encoding/json` att hantera JSON-texten i resultaten. Bibliotek för go-spew behövs för att parsa JSON. 
+Skapa ett nytt go-projekt i din IDE eller redigeraren. Sedan kan du importera `net/http` för begär Anden, `ioutil` för att läsa svaret och `encoding/json` för att hantera JSON-texten för resultat. Go-spew-biblioteket krävs för att parsa JSON. 
 
 ```
 package main
@@ -45,9 +45,9 @@ import (
 
 ```
 
-## <a name="create-a-struct-to-format-the-news-search-results"></a>Skapa en struct om du vill formatera nyhetssökningsresultat
+## <a name="create-a-struct-to-format-the-news-search-results"></a>Skapa en STRUCT för att formatera nyhets Sök resultatet
 
-Structen `NewsAnswer` formaterar de data som anges i svaret. Svaret JSON är flera nivåer och ganska komplext.  Följande implementering täcker de viktigaste stegen.
+Structen `NewsAnswer` formaterar de data som anges i svaret. Svars-JSON är på flera nivåer och är ganska komplex.  Följande implementering täcker grunderna.
 
 ```
 // This struct formats the answer provided by the Bing News Search API.
@@ -87,7 +87,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Deklarera main-funktionen och definiera variabler  
 
-Följande kod deklarerar huvudfunktionen och tilldelar krävs variabler. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto.
+Följande kod deklarerar huvud funktionen och tilldelar obligatoriska variabler. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto.
 
 ```
 func main() {
@@ -106,9 +106,9 @@ func main() {
 }
 ```
 
-## <a name="query-and-header"></a>Fråga och huvud
+## <a name="query-and-header"></a>Fråga och rubrik
 
-Lägg till fråga sträng- och åtkomsthantering viktiga rubriken
+Lägg till frågesträngen och åtkomst nyckel rubriken
 
 ```
 // Add the query to the request.  
@@ -121,9 +121,9 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## <a name="get-request"></a>Hämtning av begäran
+## <a name="get-request"></a>Hämta begäran
 
-Skapa klienten och skicka begäran om att hämta. 
+Skapa klienten och skicka GET-begäran. 
 
 ```
 // Instantiate a client.  
@@ -139,7 +139,7 @@ if err != nil {
 
 ## <a name="send-the-request"></a>Skicka begäran
 
-Skicka begäran och läsa resultat med hjälp av `ioutil`.
+Skicka begäran och Läs resultaten med hjälp av `ioutil`.
 
 ```
 resp, err := client.Do(req)
@@ -160,7 +160,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-Den `Unmarshall` funktionen hämtar information från JSON-texten som returneras av nyheter Sök-API.  Sedan kan du visa noder från resultatet med hjälp av den `go-spew` Fin skrivare.
+Funktionen `Unmarshall` extraherar information från JSON-texten som returneras av Nyhetssökning-API: et.  Sedan kan du Visa noder från resultaten med hjälp av `go-spew` Pretty-skrivaren.
 
 ```
 // Create a new answer object 
@@ -181,7 +181,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>Resultat
 
-Resultaten innehåller namn och Webbadress för varje resultat.
+Resultaten innehåller namn och URL för varje resultat.
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"
@@ -206,4 +206,4 @@ Resultaten innehåller namn och Webbadress för varje resultat.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Vad är nyhetssökning i Bing](search-the-web.md)
+> [Vad är Nyhetssökning i Bing](search-the-web.md)

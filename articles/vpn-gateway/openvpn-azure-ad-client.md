@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera en VPN-klient för OpenVPN-protokoll P2S anslutningar: Azure AD-autentisering | Microsoft Docs'
+title: 'VPN Gateway: VPN-klienten för OpenVPN-protokoll P2S anslutningar: Azure AD-autentisering'
 description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
 services: vpn-gateway
 author: anzaman
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: alzam
-ms.openlocfilehash: 714cabc204c9ec9a0c3bbc93be287957c91d1936
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2836a89f491d731a11e6bc6fc56e0d049f01ac9a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932338"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151415"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering (för hands version)
 
@@ -112,19 +112,19 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
 1. På Start sidan för VPN-klienten väljer du **VPN-inställningar**.
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
 2. Välj **Ja** i dialog rutan Växla appar.
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
 3. Kontrol lera att den anslutning som du vill ange inte redan är ansluten, markera sedan profilen och markera kryss rutan **Anslut automatiskt** .
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Välj **Anslut** för att initiera VPN-anslutningen.
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
 ## <a name="diagnose"></a>Diagnostisera anslutnings problem
 

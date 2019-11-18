@@ -1,5 +1,5 @@
 ---
-title: Stream codec Compressed Audio med talet SDK på Android-tal-tjänsten
+title: Stream codec Compressed Audio med talet SDK på Android
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du direktuppspelar komprimerat ljud till Azure Speech Services med talet SDK på Android.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 2e741e8a8df2cebff167a381cef41351ead4c6cf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464366"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109897"
 ---
-# <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Använda codec-komprimerad ljud inspelning med talet SDK på Android
+# <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Gör så här: Använd codec-komprimerad ljud inspelning med talet SDK på Android
 
 Talet SDK: s **komprimerade ljud inspelnings** -API ger ett sätt att strömma komprimerat ljud till tal tjänsten med hjälp av PullStream eller PushStream.
 
@@ -25,9 +25,9 @@ Talet SDK: s **komprimerade ljud inspelnings** -API ger ett sätt att strömma k
 > Strömmande komprimerade indata-ljud stöds för närvarande för [ C++, C#och Java på Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). Det finns också stöd för java i Android och [mål-C på iOS-](how-to-use-codec-compressed-audio-input-streams-ios.md) plattformen.
 > Tal SDK-version 1.7.0 eller högre krävs.
 
-För WAV/PCM ser du Mainline tal-dokumentationen.  Utanför WAV/PCM stöds följande codec-komprimerade indataformat:
+För WAV/PCM ser du Mainline tal-dokumentationen. Utanför WAV/PCM stöds följande codec-komprimerade indataformat:
 
-- MP3
+- MP3-FILEN
 - OPUS/OGG
 - FLAC
 - ALAW i WAV-behållare
@@ -35,7 +35,7 @@ För WAV/PCM ser du Mainline tal-dokumentationen.  Utanför WAV/PCM stöds följ
 
 ## <a name="prerequisites-to-using-codec-compressed-audio-input-on-android"></a>Krav för att använda codec-komprimerad ljud inspelning på Android
 
-Codec-komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). Av licens skäl kompileras inte gstreamer-binärfiler med SDK. Du måste använda färdiga binärfiler för Android. Information om hur du hämtar färdiga bibliotek finns i [Installera för Android-utveckling](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
+Codec-komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). Av licens skäl kompileras inte gstreamer-binärfiler med SDK. Du måste använda färdiga binärfiler för Android. Information om hur du hämtar färdiga bibliotek finns i [Installera för Android-utveckling](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
 `libgstreamer_android.so` krävs. Kontrol lera att dina GStreamer-plugin-program är länkade i `libgstreamer_android.so`.
 
@@ -129,7 +129,7 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-När det delade objektet (libgstreamer_android. so) är skapat måste Application Developer placera det delade objektet i Android-appen, så att det kan läsas in med tal-SDK.
+När det delade objektet (libgstreamer_android. so) är skapat måste programutvecklaren placera det delade objektet i Android-appen, så att det kan läsas in med tal-SDK.
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Exempel kod med codec komprimerad ljud inspelning
 
@@ -160,4 +160,4 @@ String text = result.getText();
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Se identifiera tal i Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [Se identifiera tal i Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

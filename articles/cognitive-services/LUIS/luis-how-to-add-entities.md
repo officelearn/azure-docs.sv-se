@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: ed100c27d482065e244bb3dc2cca3b66dfc11986
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7de1a1e24c2863b90fe5f1f3ff19124318912cff
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013393"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132690"
 ---
 # <a name="add-entities-to-extract-data"></a>Lägga till entiteter för att extrahera data 
 
@@ -26,15 +26,26 @@ Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. E
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="creating-an-entity-is-different-from-labeling-an-entity"></a>Att skapa en entitet skiljer sig från att märka en entitet
+## <a name="plan-entities-then-create-and-label"></a>Planera entiteter, sedan skapa och etiketter
 
-Du måste först skapa en entitet innan du kan märka entiteten i exemplet uttryck. 
+Enhets inlärda entiteter kan skapas från exemplet yttranden eller skapas från sidan **entiteter** . 
+
+I allmänhet är det en bra idé att ägna tid åt att planera entiteter innan du skapar en enhet som har lärts i portalen. Skapa sedan den enhets identifierade entiteten från exemplet uttryck med så mycket information som möjligt i del komponenterna och beskrivarna och begränsningarna som du vet vid tidpunkten. [Självstudien om desammansättnings bara entiteter](tutorial-machine-learned-entity.md) visar hur du använder den här metoden. 
+
+Som en del av planeringen av entiteterna kanske du behöver text matchnings bara entiteter (till exempel färdiga entiteter, reguljära uttrycks enheter eller List enheter). Du kan skapa dessa från sidan **entiteter** innan de märks i exemplet yttranden. 
+
+När du markerar etiketter kan du antingen etikettera enskilda entiteter och sedan bygga upp till en överordnad enhet som har lärts upp. Eller så kan du starta med en överordnad enhet som har lärts in och dela upp underordnade entiteter. 
+
+> [!TIP] 
+>Märk alla ord som kan indikera en entitet, även om orden inte används när de extraheras i klient programmet. 
+
+## <a name="creating-an-entity-before-or-with-labeling"></a>Skapa en entitet före eller med etiketter
 
 Använd följande tabell för att lära dig vilka entiteter som du kan använda för att skapa eller lägga till varje entitet i appen. 
 
 |Entitetstyp|Var du ska skapa entiteten i LUIS-portalen|
 |--|--|
-|Enhet som har registrerats av enheten|Information om entiteter eller avsikter|
+|Maskininlärd enhet|Information om entiteter eller avsikter|
 |Lista entitet|Information om entiteter eller avsikter|
 |Entitet för reguljära uttryck|Entiteter|
 |Entiteten Pattern.any|Entiteter|

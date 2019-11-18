@@ -1,5 +1,5 @@
 ---
-title: Skapa en färdigheter i en anriknings pipeline
+title: Skapa en kunskapsuppsättning
 titleSuffix: Azure Cognitive Search
 description: Definiera data extrahering, naturlig språk bearbetning eller bild analys steg för att utöka och extrahera strukturerad information från dina data för användning i Azure Kognitiv sökning.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787470"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114547"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Så här skapar du en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning 
 
@@ -36,9 +36,9 @@ Ett rekommenderat inledande steg är att bestämma vilka data som ska extraheras
 
 Anta att du är intresse rad av att bearbeta en uppsättning ekonomiska analytikers kommentarer. För varje fil vill du extrahera företags namn och de allmänna sentiment i kommentarerna. Du kanske också vill skriva en anpassad berikare som använder Entitetssökning i Bings tjänsten för att hitta ytterligare information om företaget, till exempel vilken typ av verksamhet som företaget är förbrukat i. I princip vill du extrahera information som följande, som indexeras för varje dokument:
 
-| post-text | tillverkare | sentiment | företags beskrivningar |
+| record-text | tillverkare | sentiment | företags beskrivningar |
 |--------|-----|-----|-----|
-|exempel post| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation är ett amerikanskt multinationellt teknik företag...", "LinkedIn är ett verksamhets-och arbetsorienteradt socialt nätverk..."]
+|sample-record| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation är ett amerikanskt multinationellt teknik företag...", "LinkedIn är ett verksamhets-och arbetsorienteradt socialt nätverk..."]
 
 Följande diagram illustrerar en hypotetisk anriknings pipeline:
 
@@ -163,7 +163,7 @@ Nu ska vi titta på den första kunskapen, som är den inbyggda [kunskapen om en
     }
 ```
 
-* Alla inbyggda kunskaper har `odata.type`, `input` och `output` egenskaper. Kunskapsbaserade egenskaper ger ytterligare information som är tillämplig för den kunskapen. För entitets igenkänning är `categories` en entitet mellan en fast uppsättning entitetstyper som den förtränade modellen kan identifiera.
+* Alla inbyggda kunskaper har `odata.type`, `input`och `output` egenskaper. Kunskapsbaserade egenskaper ger ytterligare information som är tillämplig för den kunskapen. För entitets igenkänning är `categories` en entitet mellan en fast uppsättning entitetstyper som den förtränade modellen kan identifiera.
 
 * Varje färdighet bör ha en ```"context"```. Kontexten representerar den nivå där åtgärder sker. I ovanstående kunskaper är kontexten hela dokumentet, vilket innebär att enhets igenkänningens färdighet anropas en gång per dokument. Utdata skapas också på den nivån. Mer specifikt skapas ```"organizations"``` som medlem i ```"/document"```. I underordnade kunskaper kan du referera till den nyligen skapade informationen som ```"/document/organizations"```.  Om ```"context"``` fältet inte uttryckligen anges, är standard kontexten dokumentet.
 

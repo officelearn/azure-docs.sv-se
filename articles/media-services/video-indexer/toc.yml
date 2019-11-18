@@ -15,10 +15,6 @@
   items:
     - name: Använda Video Indexer-API
       href: video-indexer-use-apis.md
-- name: Exempel
-  items:
-    - name: Analys för liveuppspelning
-      href: live-stream-analysis.md
 - name: Begrepp
   items:
     - name: Översikt
@@ -29,6 +25,8 @@
       href: manage-multiple-tenants.md
     - name: Språkidentifieringsmodell
       href: language-identification-model.md
+    - name: Analys för liveuppspelning
+      href: live-stream-analysis.md
     - name: Anpassa innehållsmodeller
       items:
         - name: Översikt

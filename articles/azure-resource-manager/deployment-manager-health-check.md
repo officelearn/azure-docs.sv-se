@@ -1,19 +1,16 @@
 ---
 title: Distribution av hälso integrering – Azure Deployment Manager
-description: Beskriver hur du distribuerar en tjänst i flera regioner med Azure Deployment Manager. Den visar en säker distributions metod för att kontrol lera stabiliteten för din distribution innan den distribueras till alla regioner.
-services: azure-resource-manager
-documentationcenter: na
+description: Beskriver hur du distribuerar en tjänst via många regioner med Azure Deployment Manager. Den visar säker distribution metoder för att kontrollera stabiliteten för distributionen innan du distribuerar till alla regioner.
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
-ms.openlocfilehash: 72ddc900a892e6391d6b54046ac6f3a42358526f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 6cc21837ff08822a9eae6ae7c326142ca873df74
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528560"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149958"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducera distribution av hälso integration till Azure Deployment Manager (offentlig för hands version)
 
@@ -157,7 +154,7 @@ I det här läget vet Azure Deployment Manager att du kan fråga efter hälso ti
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du integrerar hälso övervakning i Azure Deployment Manager. Fortsätt till nästa artikel om du vill lära dig hur du distribuerar med Deployment Manager.
+I den här artikeln har du lärt dig hur du integrerar hälso övervakning i Azure Deployment Manager. Gå vidare till nästa artikel om du vill lära dig hur du distribuerar med Deployment Manager.
 
 > [!div class="nextstepaction"]
 > [Självstudie: integrera hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)

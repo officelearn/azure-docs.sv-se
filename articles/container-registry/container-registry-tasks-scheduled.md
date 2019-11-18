@@ -1,6 +1,6 @@
 ---
 title: Schemalägg Azure Container Registry uppgifter
-description: Lär dig hur du kör en Azure Container Registry aktivitet enligt ett definierat schema genom att ange en eller flera timer-utlösare
+description: I den här självstudien får du lära dig hur du kör en Azure Container Registry aktivitet enligt ett definierat schema genom att ange en eller flera timer-utlösare
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ae36b8d67d02f8cae0007b7b06485932db851af5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931456"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148637"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Kör en ACR-uppgift enligt ett definierat schema
 
-Den här artikeln visar hur du kör en [ACR-aktivitet](container-registry-tasks-overview.md) enligt ett schema. Schemalägg en aktivitet genom att ställa in en eller flera *timer-utlösare*.
+Den här självstudien visar hur du kör en [ACR-aktivitet](container-registry-tasks-overview.md) enligt ett schema. Schemalägg en aktivitet genom att ställa in en eller flera *timer-utlösare*. Timer-utlösare kan användas separat eller i kombination med andra aktivitets utlösare.
+
+I den här självstudien får du lära dig om schemaläggning av aktiviteter och:
+
+> [!div class="checklist"]
+> * Skapa en uppgift med en timer-utlösare
+> * Hantera timer-utlösare
 
 Att schemalägga en aktivitet är användbart för scenarier som följande:
 
@@ -199,9 +205,11 @@ Varje fält kan ha en av följande typer av värden:
 
 ## <a name="next-steps"></a>Nästa steg
 
+I den här självstudien har du lärt dig hur du skapar Azure Container Registry uppgifter som automatiskt utlöses av en timer. 
+
 Ett exempel på hur du använder en schemalagd aktivitet för att rensa databaser i ett register finns i [Rensa avbildningar automatiskt från ett Azure Container Registry](container-registry-auto-purge.md).
 
-Exempel på uppgifter som utlöses av käll kods skrivningar eller bas avbildnings uppdateringar finns i [själv studie serien med ACR tasks](container-registry-tutorial-quick-task.md).
+Exempel på uppgifter som utlöses av käll kods skrivningar eller bas avbildnings uppdateringar finns i andra artiklar i [själv studie serien för ACR uppgifter](container-registry-tutorial-quick-task.md).
 
 
 

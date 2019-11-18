@@ -1,19 +1,15 @@
 ---
-title: Felsök vanliga problem med Azure-distribution | Microsoft Docs
+title: Felsök vanliga distributionsfel
 description: Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med hjälp av Azure Resource Manager.
 tags: top-support-issue
-author: tfitzmac
-keywords: distributions fel, Azure-distribution, distribuera till Azure
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 27f3b9db40e00ea0a00e50333fe86248906d8560
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263039"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150643"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsök vanliga problem med Azure-distribution med Azure Resource Manager
 
@@ -33,7 +29,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvud namn har inte tillräcklig åtkomst för att slutföra distributionen. Kontrol lera vilken roll ditt konto tillhör och dess åtkomst till distributions omfånget.<br><br>Du kan få det här felet när en resurs leverantör som krävs inte är registrerad. | [Rollbaserad Access Control i Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Lös registrering](resource-manager-register-provider-errors.md) |
 | BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-location.md) |
-| Uppstod | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
+| uppstod | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
 | DeploymentActiveAndUneditable | Vänta tills en samtidig distribution till den här resurs gruppen har slutförts. | |
 | DeploymentFailedCleanUp | När du distribuerar i fullständigt läge tas alla resurser som inte finns i mallen bort. Du får det här felet när du inte har tillräcklig behörighet för att ta bort alla resurser som inte finns i mallen. Undvik felet genom att ändra distributions läget till stegvist. | [Azure Resource Manager distributions lägen](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | Distributions namnet får bara innehålla bokstäver, siffror, "-", "." eller "_". | |
@@ -132,7 +128,7 @@ Du ser felmeddelandet och felkoderna. Observera att det finns två felkoder. Den
 
 ![fel information](./media/resource-manager-common-deployment-errors/error-details.png)
 
-## <a name="enable-debug-logging"></a>Aktivera fel söknings loggning
+## <a name="enable-debug-logging"></a>Aktivera felsökningsloggning
 
 Ibland behöver du mer information om begäran och svar för att lära dig vad som gått fel. Under distributionen kan du begära att ytterligare information loggas under en distribution.
 

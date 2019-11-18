@@ -1,25 +1,22 @@
 ---
-title: Självstudie – lägga till parametrar till Azure Resource Manager mall
+title: Självstudie – lägga till parametrar till mallen
 description: Lägg till parametrar till din Azure Resource Manager-mall så att den kan användas igen.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 7a4d8db57167bc82d13b4d46be1abc3518c340e4
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001495"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150232"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Självstudier: Lägg till parametrar i Resource Manager-mallen
+# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Självstudie: lägga till parametrar i Resource Manager-mallen
 
 I den [föregående själv studie kursen](template-tutorial-add-resource.md)har du lärt dig hur du lägger till ett lagrings konto i mallen och distribuerar det. I den här självstudien får du lära dig hur du kan förbättra mallen genom att lägga till parametrar. Den här självstudien tar cirka **14 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om resurser](template-tutorial-add-resource.md), men det är inget krav.
 
@@ -89,7 +86,7 @@ Den tidigare mallen har alltid distribuerat ett Standard_LRS lagrings konto. Du 
 
 ## <a name="redeploy-the-template"></a>Distribuera om mallen
 
-Du är redo att distribuera igen. Eftersom standard-SKU: n är inställt på **Standard_LRS**behöver du inte ange ett värde för den parametern.
+Du är redo att distribuera igen. Eftersom standard-SKU: n är inställt på **Standard_LRS**, behöver du inte ange ett värde för den parametern.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

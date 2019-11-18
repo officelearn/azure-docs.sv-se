@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5c20c280fdc9097692f98c83dcb3d310e9914ecf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082200"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133374"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -208,7 +208,7 @@ Gäst/Server – exkludera disk | Ja
 Multisökväg för gäst/Server (MPIO) | Nej
 GPT-partitioner för gäst/Server | Det finns stöd för fem partitioner från samlad [uppdatering 37](https://support.microsoft.com/help/4508614/) (version 9,25 av mobilitets tjänsten) och senare. Tidigare fanns stöd för fyra.
 ReFS | Elastiskt fil system stöds med mobilitets tjänst version 9,23 eller senare
-Gäst/Server-EFI/UEFI-start | – Stöds för Windows Server 2012 eller senare, SLES SP4 och RHEL 8,0 <br/> -Start typen för säker UEFI stöds inte. 
+Gäst/Server-EFI/UEFI-start | – Stöds för Windows Server 2012 eller senare, SLES 12 SP4 och RHEL 8,0 med Mobility agent version 9,30 och senare<br/> -Start typen för säker UEFI stöds inte. 
 
 ## <a name="replication-channels"></a>Kanaler för replikering
 
@@ -242,7 +242,7 @@ Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (
 Tillgänglighetsuppsättningar | Ja
 Tillgänglighetszoner | Nej
 ) | Ja
-Managed Disks | Ja
+Hanterade diskar | Ja
 
 ## <a name="azure-vm-requirements"></a>Krav för virtuell Azure-dator
 

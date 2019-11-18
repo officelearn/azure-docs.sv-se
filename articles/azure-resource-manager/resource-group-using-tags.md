@@ -1,17 +1,14 @@
 ---
-title: Tagga Azure-resurser för logisk organisation | Microsoft Docs
+title: Tagga resurser för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: tomfitz
-ms.openlocfilehash: e7763889ecf69231b7a4daf31e6899b33f3e2b36
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b332ae86e714d4b642f921d217d80e802fa60572
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199139"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149583"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -21,7 +18,7 @@ Om du vill använda taggar för resurser måste användaren ha Skriv behörighet
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="policies"></a>Policy
+## <a name="policies"></a>Principer
 
 Du kan använda [Azure policy](../governance/policy/overview.md) för att tillämpa taggnings regler och konventioner. Genom att skapa en princip undviker du syftet med resurser som distribueras till din prenumeration som inte följer de förväntade taggarna för din organisation. I stället för att manuellt tillämpa taggar eller söka efter resurser som inte är kompatibla, kan du skapa en princip som automatiskt tillämpar de taggar som krävs under distributionen. Taggar kan nu också tillämpas på befintliga resurser med den nya [ändra](../governance/policy/concepts/effects.md#modify) -effekt och en [reparations uppgift](../governance/policy/how-to/remediate-resources.md). I följande avsnitt visas exempel principer för taggar.
 
@@ -393,7 +390,7 @@ Använd funktionen [resourceGroup](resource-group-template-functions-resource.md
 }
 ```
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>Portal
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 

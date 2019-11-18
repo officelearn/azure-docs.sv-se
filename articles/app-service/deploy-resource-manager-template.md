@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070463"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130604"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning om hur du distribuerar webbappar med hjälp av Azure Resource Manager-mallar
 
@@ -46,7 +46,7 @@ Du distribuerar resurser i följande ordning:
 **Nivå 3**
 * Käll kontroll--är beroende av webbappen.
 * MSDeploy webbplats tillägg – är beroende av webbappen.
-* Application Insights instans som är riktad mot Server gruppen – är beroende av webbappen.
+* Azure Application Insights-instans som är riktad mot webbappen – är beroende av webbappen.
 
 **Nivå 4**
 * App Service certifikat – är beroende av käll kontroll eller MSDeploy om det finns något. Annars beror det på webbappen.
@@ -87,7 +87,7 @@ I följande exempel visas en del av en mall. Värdet för konfigurationen av ans
 }
 ```
 
-Ett klart att köra-exempel som använder koden ovan finns i [mall: Bygg en enkel Umbraco-webbapp](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Ett klart att köra-exempel som använder koden ovan finns i [mall: skapa en enkel Umbraco-webbapp](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Hitta information om MSDeploy-fel
 
@@ -130,7 +130,7 @@ I Azure Government har App Service tjänstens huvud namn ID: t för **6a02c803-d
 
 I Key Vault väljer du **certifikat** och **genererar/importera** för att ladda upp certifikatet.
 
-![Importera certifikatet](media/web-sites-rm-template-guidance/import-certificate.png)
+![Importera certifikat](media/web-sites-rm-template-guidance/import-certificate.png)
 
 Ange namnet på certifikatet för `keyVaultSecretName`i mallen.
 

@@ -1,17 +1,14 @@
 ---
-title: Ogiltiga fel i Azure-mallar | Microsoft Docs
+title: Ogiltiga mal linne fel
 description: Beskriver hur du löser ogiltiga fel i mallar när du distribuerar Azure Resource Manager-mallar.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.author: tomfitz
-ms.openlocfilehash: bdf1d66ab345cc0d86206413db6617e9568b4d22
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7b9b8021ad34a7ec7f879ce9413f4ae5d44e2720
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390330"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150582"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Lös fel för Ogiltig mall
 
@@ -153,8 +150,8 @@ Att ta bort värden från **dependsOn** -egenskapen kan orsaka fel när du distr
 
 Om den metoden inte löser det cirkulära beroendet bör du överväga att flytta en del av distributions logiken till underordnade resurser (till exempel tillägg eller konfigurations inställningar). Konfigurera de underordnade resurserna som ska distribueras efter de resurser som ingår i det cirkulära beroendet. Anta till exempel att du distribuerar två virtuella datorer, men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
 
-1. VM1
-2. VM2
+1. vm1
+2. vm2
 3. Tillägget på VM1 är beroende av VM1 och VM2. Tillägget anger värden för VM1 som hämtas från VM2.
 4. Tillägget på VM2 är beroende av VM1 och VM2. Tillägget anger värden för VM2 som hämtas från VM1.
 

@@ -1,24 +1,15 @@
 ---
-title: Distribuera Azure Resource Manager-mall – IntelliJ idé
+title: Distribuera mall – IntelliJ idé
 description: Lär dig hur du skapar din första Azure Resource Manager-mall med hjälp av IntelliJ-idén och hur du distribuerar den.
-services: azure-resource-manager
-documentationcenter: ''
-author: yucwan
-manager: ''
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
-ms.author: yucwan
-ms.openlocfilehash: 137a87ad0314fad08f9af0eb567e1d31032ddcb9
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 62ea27236eec1a63b2a07dcb532f91cea7ead70b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533656"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149478"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Snabb start: skapa och Distribuera Azure Resource Manager mallar med hjälp av IntelliJ-idén
 
@@ -42,13 +33,13 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 I stället för att skapa en mall från början öppnar du en mall från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/). Azure-snabbstartsmallar är lagringsplatser för Resource Manager-mallar. Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Skapa ett standardlagringskonto). Den definierar en Azure Storage konto resurs.
 
-1. Högerklicka och spara [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) och [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) på den lokala datorn.
+1. Högerklicka på och spara [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) och [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) till din lokala dator.
 
 1. Om ditt Azure-verktyg är korrekt installerat och inloggat bör du se Azure Explorer i din IntelliJ-IDÉs marginal List. Högerklicka på **resurs hantering** och välj **skapa distribution**.
 
     ![Resource Manager-mall Högerklicka för att skapa distribution](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp**och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG`. Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** som `azuredeploy.parameters.json` som du har laddat ned.
+1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp**och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG`. Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** som `azuredeploy.parameters.json` du har laddat ned.
 
     ![Resource Manager-mall Välj filer för att skapa distribution](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 
@@ -76,7 +67,7 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
     ![Redigera distribution av Resource Manager-mall](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
-1. När uppdaterings distributionen har slutförts kan du kontrol lera att det skapade lagrings kontot har ändrats till `Standard_GRS` på portalen.
+1. När uppdaterings distributionen har slutförts kan du kontrol lera att det skapade lagrings kontot har ändrats till `Standard_GRS`på portalen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

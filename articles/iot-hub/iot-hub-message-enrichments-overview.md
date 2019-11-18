@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005832"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144873"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelande anrikning för IoT Hub från enhet till molnet
 
@@ -54,11 +54,21 @@ Meddelandena kan komma från alla data källor som stöds av [IoT Hub](iot-hub-d
 
 Du kan lägga till anrikninger i meddelanden som kommer till den inbyggda slut punkten för en IoT Hub eller meddelanden som dirigeras till anpassade slut punkter som Azure Blob Storage, en Service Bus kö eller ett Service Bus ämne.
 
-Du kan också lägga till anrikninger i meddelanden som publiceras till Event Grid genom att välja slut punkten som Event Grid. Mer information finns i [IoT Hub och event Grid](iot-hub-event-grid.md).
+Du kan lägga till anrikninger i meddelanden som publiceras till Event Grid genom att välja slut punkten som Event Grid. Vi skapar en standard väg i IoT Hub till telemetri för enheten, baserat på din Event Grid prenumeration. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Du kan konfigurera anrikninger för Event Grid-pekaren [Point efter att du har skapat Event Grid-prenumerationen för telemetri av enhet. Mer information finns i [IoT Hub och event Grid](iot-hub-event-grid.md).
 
 Anrikninger tillämpas per slut punkt. Om du anger att fem berikningar ska stämplas för en speciell slut punkt, stämplas alla meddelanden som skickas till den slut punkten med samma fem-berikare.
 
-Information om hur du provar meddelande förvarningar finns i [själv studie kursen om meddelande förhands rik](tutorial-message-enrichments.md) information
+Anrikninger kan konfigureras med hjälp av följande metoder:
+
+| **Metod** | **Kommando** |
+| ----- | -----| 
+| Portal | [Azure Portal](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
+| Azure CLI   | [AZ IoT Hub-meddelande – anrikning](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+
+Om du lägger till meddelanden kan du inte lägga till svars tid i meddelanderoutning.
+
+Information om hur du provar meddelanden finns i [själv studie kursen om meddelande förhands rik](tutorial-message-enrichments.md) information
 
 ## <a name="limitations"></a>Begränsningar
 

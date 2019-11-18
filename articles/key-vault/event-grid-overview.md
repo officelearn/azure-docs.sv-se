@@ -1,21 +1,21 @@
 ---
-title: Övervaka Key Vault med Azure Event Grid
-description: Använda Azure Event Grid för att prenumerera på Key Vault händelser
+title: 'Självstudie: övervaka Key Vault med Azure Event Grid'
+description: 'Självstudie: använda Azure Event Grid för att prenumerera på Key Vault händelser'
 services: media-services
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: article
-ms.date: 10/25/2019
+ms.topic: tutorial
+ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1fa554e03188c4d8d6227a6d2c0a560c3080b0fe
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033503"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133345"
 ---
-# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Övervaka Key Vault med Azure Event Grid (förhands granskning)
+# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>Självstudie: övervaka Key Vault med Azure Event Grid (förhands granskning)
 
 Key Vault integration med Event Grid är för närvarande en för hands version. Det gör det möjligt för användare att meddelas när statusen för en hemlighet som lagras i Key Vault har ändrats. En status ändring definieras som en hemlighet som håller på att gå ut (inom 30 dagar efter förfallo datum), en hemlighet som har upphört att gälla eller en hemlighet med en ny version som är tillgänglig. Aviseringar för alla tre hemliga typer (nyckel, certifikat och hemlighet) stöds.
 
@@ -45,6 +45,7 @@ Program som hanterar Key Vault händelser bör följa några rekommenderade meto
 
 - [Översikt över Azure Key Vault](key-vault-overview.md)
 - [Översikt över Azure Event Grid](../event-grid/overview.md)
-- Gör [så här: dirigera Key Vault händelser till Automation Runbook (för hands version)](event-grid-tutorial.md).
+- Gör så här: [dirigera Key Vault händelser till Automation Runbook (för hands version)](event-grid-tutorial.md).
+- Gör så här: [ta emot e-post när hemliga nyckel valv ändringar](event-grid-logicapps.md)
 - [Azure Event Grid händelse schema för Azure Key Vault (förhands granskning)](../event-grid/event-schema-key-vault.md)
 - [Översikt över Azure Automation](../automation/index.yml)

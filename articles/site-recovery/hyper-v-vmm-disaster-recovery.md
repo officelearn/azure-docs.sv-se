@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 559f29624ef0946374c3e87a26f0983f202a20d7
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082638"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132986"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -29,8 +29,6 @@ Den här artikeln visar hur du konfigurerar haveriberedskap till en sekundär pl
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en virtuell dator
 
-> [!WARNING]
-> Observera att ASR-stödet för att använda SCVMM-konfiguration i kontot kommer snart att bli inaktuell och vi rekommenderar därför att du läser [utfasnings](site-to-site-deprecation.md) informationen innan du fortsätter.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -41,7 +39,7 @@ För att slutföra den här kursen gör du följande:
 - Kontrollera att de virtuella datorer som du vill replikera uppfyller [stöd för replikerad dator](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Förbereda VMM-servrar för nätverksmappning.
 
-### <a name="prepare-for-network-mapping"></a>Förbered för nätverksmappning
+### <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
 
 [Nätverksmappning](hyper-v-vmm-network-mapping.md) mappar mellan lokala VMM-VM-nätverk i käll- och målmoln. Mappning utför följande:
 

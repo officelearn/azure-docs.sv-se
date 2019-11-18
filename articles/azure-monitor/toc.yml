@@ -806,10 +806,10 @@
                   href: insights/container-insights-hybrid-setup.md
                 - name: Regionsmappningar
                   href: insights/container-insights-region-mapping.md
-            - name: Analysera
+            - name: Övervaka prestanda
               href: insights/container-insights-analyze.md
-            - name: Inaktivera övervakning
-              href: insights/container-insights-optout.md
+            - name: Övervaka hälsa
+              href: insights/container-insights-health.md
             - name: Visa livedata
               items:
                 - name: Livedataöversikt (förhandsversion)
@@ -832,6 +832,10 @@
               href: insights/container-insights-agent-config.md
             - name: Uppdatera för att aktivera mått
               href: insights/container-insights-update-metrics.md
+            - name: Konfiguration av hälsoövervakning
+              href: insights/container-insights-health-monitors-config.md
+            - name: Inaktivera övervakning
+              href: insights/container-insights-optout.md
             - name: Felsökning
               href: insights/container-insights-troubleshoot.md
         - name: Övervakning av Docker- och Windows-containrar
@@ -1167,7 +1171,7 @@
               href: platform/autoscale-overview.md
             - name: Genomgång
               href: platform/autoscale-get-started.md
-            - name: Inställningar
+            - name: Konfigurationsinställningar
               href: platform/autoscale-understanding-settings.md
             - name: Bästa praxis
               href: platform/autoscale-best-practices.md
@@ -1183,6 +1187,10 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Använda webhook-konfigurationer och e-postaviseringar
               href: platform/autoscale-webhook-email.md
+            - name: Felsökning
+              href: platform/autoscale-troubleshoot.md
+            - name: Scheman för resursloggar
+              href: platform/autoscale-resource-log-schema.md
         - name: PowerShell
           items:
             - name: Hantera med PowerShell

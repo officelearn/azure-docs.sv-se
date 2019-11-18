@@ -11,46 +11,69 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2ce1ce7a754868a1adc2e78b4c0a83fc84f071
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1f661aa67f04de23c7b4871e78d3628c639e7567
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641457"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144540"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory
+# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för program med Azure Active Directory
 
-Azure Active Directory (Azure AD) gör att du kan automatisera skapandet, underhåll och borttagning av användar identiteter i Cloud SaaS-program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)och mycket annat. Detta kallas automatisk användar etablering för SaaS-appar.
+I Azure Active Directory (Azure AD), avser termen **app-etablering** att automatiskt skapa användar identiteter och roller i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)och mycket annat.
 
-> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
+![Översikts diagram för etablering](media/user-provisioning/provisioning-overview.png)
 
 Med den här funktionen kan du:
 
-- Skapa automatiskt nya konton i rätt system för nya personer när de ansluter till ditt team eller din organisation.
-- Inaktivera konton automatiskt i rätt system när personer lämnar teamet eller organisationen.
-- Se till att identiteterna i dina appar och system hålls uppdaterade baserat på ändringar i katalogen eller i personal systemet.
-- Etablera andra objekt än användar objekt, till exempel grupper, för program som stöder dem.
+- **Automatisera etablering**: skapa automatiskt nya konton i rätt system för nya personer när de ansluter till ditt team eller din organisation.
+- **Automatisera avetablering:** Inaktivera konton automatiskt i rätt system när personer lämnar teamet eller organisationen.
+- **Synkronisera data mellan system:** Se till att identiteterna i dina appar och system hålls uppdaterade baserat på ändringar i katalogen eller personal systemet.
+- **Etablerings grupper:** Etablera grupper för program som stöder dem.
+- **Styr åtkomst:** Övervaka och granska som har etablerats till dina program.
+- **Distribuera sömlöst i bruna fält scenarier:** Matcha befintliga identiteter mellan system och möjliggör enkel integrering, även när användare redan finns i mål systemet.
+- **Använd omfattande anpassning:** Dra nytta av anpassningsbara mappningar av attribut som definierar vilka användar data som ska flöda från käll systemet till mål systemet.
+- **Hämta aviseringar för kritiska händelser:** Etablerings tjänsten tillhandahåller varningar för kritiska händelser och möjliggör Log Analytics-integrering där du kan definiera anpassade aviseringar för dina affärs behov.
 
-Automatisk användar etablering innehåller även den här funktionen:
+## <a name="benefits-of-automatic-provisioning"></a>Fördelar med automatisk etablering
 
-- Möjlighet att matcha befintliga identiteter mellan käll-och mål system.
-- Anpassningsbara mappningar av attribut som definierar vilka användar data som ska flöda från käll systemet till mål systemet.
-- Valfria e-postaviseringar för etablering av fel.
-- Rapporterings-och aktivitets loggar som hjälper dig med övervakning och fel sökning.
+Antalet program som används i moderna organisationer fortsätter att växa, men IT-administratörerna kan använda åtkomst hantering i stor skala. Standarder, till exempel SAML (Security Assertion Markup Language) eller Open ID Connect (OIDC) gör det möjligt för administratörer att snabbt konfigurera enkel inloggning (SSO), men åtkomst kräver också att användare tillhandahålls till appen. För många administratörer innebär etableringen att manuellt skapa varje användar konto eller att ladda upp CSV-filer varje vecka, men dessa processer är tids krävande, kostsamma och fel känsliga. Lösningar som till exempel SAML just-in-Time (JIT) har vidtagits för att automatisera etableringen, men företag behöver också en lösning för att avetablera användare när de lämnar organisationen eller inte längre behöver åtkomst till vissa appar baserat på roll ändringar.
 
-## <a name="why-use-automated-provisioning"></a>Varför ska jag använda automatisk etablering?
+Några vanliga orsaker till att använda automatisk etablering är:
 
-Några vanliga orsaker till att använda den här funktionen är:
-
-- Undvika kostnader, ineffektivitet och mänskligt fel som är kopplat till manuella etablerings processer.
-- Undvik kostnader som är kopplade till värd tjänster och underhåll av anpassade och utvecklade etablerings lösningar och skript.
+- Maximera effektiviteten och noggrannheten vid etablering av processer.
+- Spara pengar på kostnader som är kopplade till värd tjänster och underhåll av anpassade och utvecklade etablerings lösningar och skript.
 - Att skydda din organisation genom att genast ta bort användarnas identiteter från viktiga SaaS-appar när de lämnar organisationen.
 - Du kan enkelt importera ett stort antal användare till ett visst SaaS-program eller system.
 - Med en enda uppsättning principer kan du bestämma vem som är etablerad och vem som kan logga in på en app.
+
+Användar etablering i Azure AD kan hjälpa dig att lösa dessa utmaningar. Om du vill veta mer om hur kunder har använt Azure AD-etableringen kan du läsa [fallstudien för Asos](https://aka.ms/asoscasestudy). Videon nedan innehåller en översikt över användar etablering i Azure AD:
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
+
+## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Vilka program och system kan jag använda med automatisk användar etablering i Azure AD?
+
+Azure AD innehåller Förintegrerad support för många populära SaaS-appar och personal system, och allmänt stöd för appar som implementerar vissa delar av [SCIM 2,0-standarden](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
+
+* **Förintegrerade program (Galleri SaaS-appar)** . Du kan hitta alla program för vilka Azure AD har stöd för en förintegrerad etablerings koppling i [listan över program självstudier för användar etablering](../saas-apps/tutorial-list.md). De förintegrerade programmen som listas i galleriet använder vanligt vis SCIM 2,0-baserade användar hanterings-API: er för etablering. 
+
+   ![Salesforce-logotyp](media/user-provisioning/gallery-app-logos.png)
+
+   Om du vill begära ett nytt program för etablering kan du [begära att ditt program är integrerat med vårt app-Galleri](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). För en användar etablerings förfrågan kräver vi att programmet har en SCIM-kompatibel slut punkt. Be program leverantören att följa SCIM-standarden så att vi kan publicera appen på vår plattform snabbt.
+
+* **Program som stöder SCIM 2,0**. Information om hur du kan ansluta program som implementerar SCIM 2,0-baserade API: er för användar hantering finns i [använda scim för att automatiskt etablera användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md).
+
+## <a name="what-is-scim"></a>Vad är SCIM?
+
+För att automatisera etablering och avetablering kan appar exponera egna användar-och grupp-API: er. Men alla som försöker hantera användare i mer än en app meddelar dig att varje app försöker utföra samma enkla åtgärder, till exempel att skapa eller uppdatera användare, lägga till användare i grupper eller avetablera användare. Alla dessa enkla åtgärder implementeras bara lite annorlunda, med olika slut punkts sökvägar, olika metoder för att ange användar information och ett annat schema som representerar varje informations element.
+
+För att lösa dessa utmaningar tillhandahåller SCIM-specifikationen ett gemensamt användar schema som hjälper användarna att förflytta sig till, ut och runt appar. SCIM håller på att bli den facto standard för etablering och, om det används tillsammans med Federations standarder som SAML eller OpenID Connect, ger administratörer en heltäckande lösning för åtkomst hantering från slut punkt till slut punkt.
+
+Detaljerad information om hur du använder SCIM för att automatisera etableringen och avetablering av användare och grupper i ett program finns i [scim User Provisioning with Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
 ## <a name="how-does-automatic-provisioning-work"></a>Hur fungerar automatisk etablering?
 
@@ -65,54 +88,13 @@ Några vanliga orsaker till att använda den här funktionen är:
 ![arbets flöde för inkommande användar etablering](./media/user-provisioning/provisioning2.PNG)
 *bild 3: "inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
 
-## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Vilka program och system kan jag använda med automatisk användar etablering i Azure AD?
-
-Azure AD innehåller Förintegrerad support för många populära SaaS-appar och personal system, och allmänt stöd för appar som implementerar vissa delar av [SCIM 2,0-standarden](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
-
-### <a name="pre-integrated-applications"></a>Förintegrerade program
-
-En lista över alla program för vilka Azure AD stöder en förintegrerad etablerings koppling finns i [listan över program självstudier för användar etablering](../saas-apps/tutorial-list.md).
-
-Kontakta Azure AD Engineering-teamet för att begära etablerings stöd för ytterligare program, skicka ett meddelande via [Azure Active Directory feedback-forumet](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
-
-> [!NOTE]
-> För att ett program ska kunna stödja automatisk användar etablering måste det först tillhandahålla nödvändiga API: er för användar hantering som gör det möjligt för externa program att automatisera skapande, underhåll och borttagning av användare. Därför är inte alla SaaS-appar kompatibla med den här funktionen. För appar som har stöd för API: er för användar hantering kan Azure AD Engineering-teamet sedan skapa en etablerings anslutning till dessa appar och det här arbetet prioriteras av behoven hos aktuella och potentiella kunder.
-
-### <a name="connecting-applications-that-support-scim-20"></a>Ansluta program som stöder SCIM 2,0
-
-Information om hur du kan ansluta program som implementerar SCIM 2,0-baserade API: er för användar hantering finns i [använda scim för att automatiskt etablera användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md).
-
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Hur gör jag för att konfigurera automatisk etablering till ett program?
+
+För förintegrerade program som listas i galleriet finns steg-för-steg-anvisningar om hur du konfigurerar automatisk etablering. Se [listan med självstudier för integrerade Gallery-appar](https://docs.microsoft.com/azure/active-directory/saas-apps/). Följande videoklipp visar hur du konfigurerar automatisk användar etablering för SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
-Använd Azure Active Directory Portal för att konfigurera Azure AD Provisioning-tjänsten för ett valt program.
-
-1. Öppna **[Azure Active Directory-portalen](https://aad.portal.azure.com)** .
-1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas.
-1. Välj **+ nytt program** för att lägga till ett program. 
-1. Ange information och välj **Lägg till**. Den nya appen läggs till i listan över företags program och öppnas på program hanterings skärmen.
-1. Välj **etablering** för att hantera inställningar för etablering av användar konto för appen.
-
-   ![Visar skärmen Inställningar för etablering](./media/user-provisioning/provisioning_settings0.PNG)
-
-1. Välj det automatiska alternativet för **etablerings läget** för att ange inställningar för administratörs behörighet, mappningar, starta och stoppa och synkronisering.
-
-   - Expandera **administratörsautentiseringsuppgifter** för att ange de autentiseringsuppgifter som krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. I det här avsnittet kan du också aktivera e-postaviseringar om autentiseringsuppgifterna inte fungerar eller om etablerings jobbet placeras i [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
-   - Expandera **mappningar** för att visa och redigera användarattribut som flödar mellan Azure AD och mål programmet när användar konton har skapats eller uppdaterats. Om mål programmet stöder det kan du med hjälp av det här avsnittet Konfigurera etablering av grupper och användar konton. Välj en mappning i tabellen för att öppna mappnings redigeraren till höger, där du kan visa och anpassa användarattribut.
-
-     **Omfångs filter** talar om för etablerings tjänsten vilka användare och grupper i käll systemet som ska etableras eller avetableras till mål systemet. I fönstret **attributmappning** väljer du **käll objekt omfång** för att filtrera efter vissa attributvärden. Du kan till exempel ange att endast användare med attributet ”Avdelning” för ”Försäljning” ska ingå i omfånget för etablering. Mer information finns i [Använda omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
-
-     Mer information finns i [Anpassa mappningar av attribut](customize-application-attributes.md).
-
-   - **Inställningar** styr driften av etablerings tjänsten för ett program, inklusive om den körs för närvarande. På menyn **omfång** kan du ange om endast tilldelade användare och grupper ska vara inom omfånget för etablering, eller om alla användare i Azure AD-katalogen ska tillhandahållas. Information om hur du ”tilldelar” användare och grupper finns i [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](assign-user-or-group-access-portal.md).
-
-På skärmen hantering av appar väljer du **etablerings loggar (för hands version)** för att visa poster för varje åtgärd som körs av Azure AD Provisioning-tjänsten. Mer information finns i [etablerings guide för rapportering](check-status-user-account-provisioning.md).
-
-![Exempel – etablering av loggar skärm för en app](./media/user-provisioning/audit_logs.PNG)
-
-> [!NOTE]
-> Azure AD-tjänsten för användar etablering kan också konfigureras och hanteras med hjälp av [Microsoft Graph-API: et](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+För andra program som stöder SCIM 2,0 följer du stegen i artikeln [scim användar etablering med Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
 ## <a name="what-happens-during-provisioning"></a>Vad händer under etableringen?
 

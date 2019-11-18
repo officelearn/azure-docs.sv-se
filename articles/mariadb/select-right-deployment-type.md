@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 819b8551650f2e0b484021638ab5554cb557a750
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/15/2019
+ms.openlocfilehash: 59064c71d19f81a5edc322bc4c8158773a104b5d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330042"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151979"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Välj rätt MariaDB Server-alternativ i Azure
 
@@ -38,7 +38,7 @@ De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 | MariaDB korrigering     | Automatisk  | Hanteras av kunder |
 | Hög tillgänglighet | Modellen med hög tillgänglighet (HA) baseras på inbyggda funktioner för redundansväxling för när ett avbrott på nod-nivå sker. I sådana fall skapar tjänsten automatiskt en ny instans och kopplar lagring till den här instansen. | Kunders arkitekt, implementera, testa och underhålla hög tillgänglighet. Funktioner kan omfatta Always on-redundanskluster, Always on-gruppreplikering, logg överföring eller transaktionell replikering.|
 | Zon redundans | Stöds inte för närvarande | Virtuella Azure-datorer kan konfigureras för att köras i olika tillgänglighets zoner. För en lokal lösning måste kunderna skapa, hantera och underhålla ett eget sekundärt Data Center.|
-| Hybrid scenarier | Med [datareplikering](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)kan du synkronisera data från en extern MariaDB-server till tjänsten Azure Database for MariaDB. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) kan du replikera data från en Azure Database for MariaDB huvud server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.<br/><br/>Läs replikering mellan regioner är för närvarande en offentlig för hands version.| Hanteras av kunder
+| Hybrid scenarier | Med [datareplikering](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)kan du synkronisera data från en extern MariaDB-server till tjänsten Azure Database for MariaDB. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) kan du replikera data från en Azure Database for MariaDB huvud server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.<br/><br/>Läs replikering mellan regioner är för närvarande en offentlig för hands version.| Hanteras av kunder
 | Säkerhets kopiering och återställning | Skapar automatiskt [Server säkerhets kopior](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) och lagrar dem i användar konfigurations lagring som antingen är lokalt redundant eller Geo-redundant. Tjänsten tar full, differentiell och transaktions logg säkerhets kopior | Hanteras av kunder |
 | Övervaka databas åtgärder | Ger kunderna möjlighet att [ställa in aviseringar](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) för databas åtgärden och vidta åtgärder för att nå tröskelvärden. | Hanteras av kunder |
 | Advanced Threat Protection | Tillhandahåller [Avancerat skydd](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Det här skyddet identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.<br/><br/>Avancerat skydd är för närvarande en offentlig för hands version.| Kunderna måste bygga det här skyddet för sig själva.

@@ -1,17 +1,14 @@
 ---
-title: Felsöka flytt fel – Azure Resource Manager
-description: Använd Azure Resource Manager för att flytta resurser till en ny resurs grupp eller prenumeration.
-author: tfitzmac
-ms.service: azure-resource-manager
+title: Felsöka flyttnings fel
+description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 383098ab227013119bca668b42035c93334c8464
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 46fedeb8b50b19a0adc34b2099e7e76b888821f6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533352"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149104"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration
 
@@ -21,10 +18,10 @@ Den här artikeln innehåller förslag på hur du kan lösa problem när du flyt
 
 Om du faktiskt vill uppgradera din Azure-prenumeration (t. ex. genom att byta från kostnads fritt till betala per användning) måste du konvertera din prenumeration.
 
-* Om du vill uppgradera en kostnads fri utvärderings version läser du [uppgradera din kostnads fria utvärderings version eller Microsoft Imagine Azure-prenumeration för att betala per](../billing/billing-upgrade-azure-subscription.md)användning.
-* Om du vill ändra ett konto där du betalar per användning kan du läsa mer i [ändra din Azure-prenumeration med betala per användning till ett annat erbjudande](../billing/billing-how-to-switch-azure-offer.md).
+* Om du vill uppgradera en kostnadsfri utvärderingsversion, [uppgradera din kostnadsfria utvärderingsversion eller en Microsoft Imagine Azure-prenumeration till betala per användning](../billing/billing-upgrade-azure-subscription.md).
+* Om du vill ändra en betala per användning-konto, se [ändra din betala per användning för Azure-prenumeration till ett annat erbjudande](../billing/billing-how-to-switch-azure-offer.md).
 
-Om du inte kan konvertera prenumerationen [skapar du en support förfrågan för Azure](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerations hantering** för typ av problem.
+Om du inte kan konvertera prenumerationen, [skapa en Azure-supportbegäran](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
 
 ## <a name="service-limitations"></a>Tjänst begränsningar
 
@@ -39,7 +36,7 @@ Vissa tjänster kräver ytterligare överväganden när du flyttar resurser. Om 
 
 ## <a name="large-requests"></a>Stora begär Anden
 
-När det är möjligt flyttas stora steg till separata flytt åtgärder. Resource Manager returnerar omedelbart ett fel när det finns fler än 800 resurser i en enda åtgärd. Men att flytta mindre än 800 resurser kan också Miss lyckas genom timeout.
+När det är möjligt, flyttar break stora till separata flyttåtgärder. Resource Manager returnerar omedelbart ett fel när det finns fler än 800 resurser i en enda åtgärd. Men kan flyttar resurser som är mindre än 800 också misslyckas av tiden går ut.
 
 ## <a name="resource-not-in-succeeded-state"></a>Resursen har inte statusen slutförd
 

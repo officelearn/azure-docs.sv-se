@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 333bc12c475cedbd98480e3b596bcc7ad4e30ecc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ba8dc3080f3b584ae3a60576e4cc670dc60c28a0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824919"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151824"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program
 
@@ -100,7 +100,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 > [!IMPORTANT]
 > Multi-SID-klustring av SAP ASCS/ERS med Red Hat Linux som gäst operativ system i virtuella Azure-datorer **stöds inte**. Multi-SID-klustring beskriver installationen av flera SAP ASCS/ERS-instanser med olika sid i ett pacemaker-kluster.
 
-### <a name="ascs"></a>En SCS
+### <a name="ascs"></a>(A)SCS
 
 * Konfiguration av klient del
   * IP-192.168.14.9
@@ -166,11 +166,10 @@ I det här exemplet använde vi Azure NetApp Files för alla fil system i SAP Ne
 
 Tänk på följande viktiga överväganden när du överväger Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgänglighets arkitektur:
 
-- Den minsta kapacitets poolen är 4 TiB. Storleken på kapacitetsutnyttjandet måste vara i multipler av 4 TiB.
+- Den minsta kapacitets poolen är 4 TiB. Kapacitets bassängens storlek kan ökas i steg om 1 TiB.
 - Den minsta volymen är 100 GiB
 - Azure NetApp Files och alla virtuella datorer, där Azure NetApp Files volymer ska monteras, måste finnas i samma Azure-Virtual Network eller i [peer-anslutna virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region. Azure NetApp Files åtkomst över VNET-peering i samma region stöds nu. Azure NetApp-åtkomst över global peering stöds inte ännu.
 - Det valda virtuella nätverket måste ha ett undernät, delegerat till Azure NetApp Files.
-- Azure NetApp Files stöder för närvarande endast NFSv3 
 - Azure NetApp Files erbjuder [export princip](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan kontrol lera tillåtna klienter, åtkomst typ (Läs & Skriv, skrivskyddad, osv.). 
 - Azure NetApp Files funktionen är inte en zon medveten än. För närvarande är Azure NetApp Files funktionen inte distribuerad i alla tillgänglighets zoner i en Azure-region. Var medveten om potentiella fördröjnings konsekvenser i vissa Azure-regioner. 
 
@@ -268,18 +267,18 @@ Följ stegen i [Konfigurera pacemaker på Red Hat Enterprise Linux i Azure](high
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Förbered för SAP NetWeaver-installation
 
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
+Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]**  Konfigurera matcha värdnamn
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
     ```
     sudo vi /etc/hosts
     ```
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
 
     ```
     # IP address of cluster node 1
@@ -370,6 +369,9 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
     192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=3
     192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
    ```
+
+   > [!NOTE]
+   > Se till att matcha NFS-Protokollversionen för Azure NetApp Files volymer när du monterar volymerna. I det här exemplet har Azure NetApp Files volymer skapats som NFSv3-volymer.  
 
    Montera de nya resurserna
 
@@ -692,7 +694,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo vi /etc/hosts
    ```
 
-   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö.
+   Infoga följande rader till/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö.
 
    ```
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889657"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128844"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -35,7 +35,7 @@ När du har startat strömningen av sensor data kan du starta processen med att 
  - API-slutpunkt  
  - Klient-ID:t  
  - Klientorganisations-ID  
- - Klient hemlighet  
+ - Klienthemlighet  
  - EventHub-anslutningssträng
 
 Ovanstående information tillhandahålls av system integreraren. Kontakta system integreraren om du har problem med att aktivera enhets integrering.
@@ -72,7 +72,7 @@ Besök enhets partner portalen för att länka FarmBeats med den uppsättning au
  - API-slutpunkt  
  - EventHub-anslutningssträng  
  - Klientorganisations-ID  
- - Klient hemlighet  
+ - Klienthemlighet  
  - Klient-ID:t  
 
  Enhets leverantören bekräftar en lyckad integrering. Vid bekräftelse kan du Visa alla enheter och sensorer på Azure FarmBeats.
@@ -86,7 +86,7 @@ Använd följande avsnitt om du vill visa enheter och sensorer i Server gruppen.
 För närvarande stöder FarmBeats följande enheter:
 
 - **Nod**: en enhet som en eller flera sensorer är kopplade till.
-- **Gateway**: en enhet som en eller flera sensorer är kopplade till.
+- **Gateway**: en enhet som en eller flera noder är kopplade till.
 
 Använd följande steg:
 

@@ -1,6 +1,6 @@
 ---
-title: Azure StorageAccountSelector UI-element | Microsoft Docs
-description: Beskriver Microsoft.Storage.StorageAccountSelector UI-element för Azure-portalen.
+title: Användar gränssnitts element för Azure StorageAccountSelector | Microsoft Docs
+description: Beskriver elementet Microsoft. Storage. StorageAccountSelector UI för Azure Portal.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: c6d4ef50645902aecd57ceb9fc48b7d99bf22d53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1f96b42e58bcb09cfc2836c993626a889669fc0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104881"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151452"
 ---
-# <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI-element
-En kontroll för att välja ett nytt eller befintligt lagringskonto.
+# <a name="microsoftstoragestorageaccountselector-ui-element"></a>GRÄNSSNITTs element för Microsoft. Storage. StorageAccountSelector
+
+En kontroll för att välja ett nytt eller befintligt lagrings konto.
 
 ## <a name="ui-sample"></a>UI-exempel
 
@@ -29,9 +30,9 @@ Kontrollen visar standardvärdet.
 
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
-Kontrollen kan användaren skapa ett nytt lagringskonto eller välj ett befintligt lagringskonto.
+Kontrollen gör det möjligt för användaren att skapa ett nytt lagrings konto eller välja ett befintligt lagrings konto.
 
-![Microsoft.Storage.StorageAccountSelector new](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+![Microsoft. Storage. StorageAccountSelector New](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
 
 ## <a name="schema"></a>Schema
 
@@ -56,12 +57,6 @@ Kontrollen kan användaren skapa ett nytt lagringskonto eller välj ett befintli
 }
 ```
 
-## <a name="remarks"></a>Kommentarer
-- Om anges `defaultValue.name` godkänns automatiskt för unikhet. Om namnet inte är unikt, måste användaren ange ett annat namn eller välj ett befintligt lagringskonto.
-- Standardvärdet för `defaultValue.type` är **Premium_LRS**.
-- Alla typer som inte har angetts i `constraints.allowedTypes` är dold, och alla typer som inte har angetts i `constraints.excludedTypes` visas. `constraints.allowedTypes` och `constraints.excludedTypes` båda är valfria, men kan inte användas samtidigt.
-- Om `options.hideExisting` är **SANT**, användaren kan inte välja ett befintligt lagringskonto. Standardvärdet är **FALSKT**.
-
 ## <a name="sample-output"></a>Exempel på utdata
 
 ```json
@@ -73,6 +68,13 @@ Kontrollen kan användaren skapa ett nytt lagringskonto eller välj ett befintli
 }
 ```
 
+## <a name="remarks"></a>Kommentarer
+
+- Om det här värdet anges verifieras `defaultValue.name` automatiskt för unikhet. Om lagrings konto namnet inte är unikt måste användaren ange ett annat namn eller välja ett befintligt lagrings konto.
+- Standardvärdet för `defaultValue.type` är **Premium_LRS**.
+- Alla typer som inte anges i `constraints.allowedTypes` är dolda och alla typer som inte anges i `constraints.excludedTypes` visas. `constraints.allowedTypes` och `constraints.excludedTypes` är båda valfria, men kan inte användas samtidigt.
+- Om `options.hideExisting` är **Sant**kan användaren inte välja ett befintligt lagrings konto. Standardvärdet är **FALSKT**.
+
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

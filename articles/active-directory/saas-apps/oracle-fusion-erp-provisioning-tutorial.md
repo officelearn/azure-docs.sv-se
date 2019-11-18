@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Oracle Fusion ERP för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Oracle Fusion ERP för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Oracle Fusion ERP.
 services: active-directory
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 4ecb0189736ca2787f0725fb471ef8a22252185c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.author: Zhchia
+ms.openlocfilehash: 73991efa2e98ff033987f1ce172d24fe3ecddb96
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642051"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144566"
 ---
-# <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Oracle Fusion ERP för automatisk användar etablering
+# <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Oracle Fusion ERP för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i Oracle Fusion ERP och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Oracle Fusion ERP.
 
@@ -31,12 +31,12 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här kopplingen är för närvarande en för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) hands versioner
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klient
-* [En Oracle Fusion ERP-klient](https://www.oracle.com/applications/erp/).
+* En [Oracle Fusion ERP-klient](https://www.oracle.com/applications/erp/).
 * Ett användar konto i Oracle Fusion ERP med administratörs behörigheter.
 
 ## <a name="assign-users-to-oracle-fusion-erp"></a>Tilldela användare till Oracle Fusion ERP 
@@ -52,7 +52,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 * När du tilldelar en användare till Oracle Fusion ERP måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med standard åtkomst rollen undantas från etablering.
 
-## <a name="setup-oracle-fusion-erp-for-provisioning"></a>Konfigurera Oracle Fusion ERP för etablering
+## <a name="set-up-oracle-fusion-erp-for-provisioning"></a>Konfigurera Oracle Fusion ERP för etablering
 
 Innan du konfigurerar Oracle Fusion ERP för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på Oracle Fusion ERP.
 
@@ -80,7 +80,7 @@ Om du vill konfigurera Oracle Fusion ERP för automatisk användar etablering me
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -95,11 +95,14 @@ Om du vill konfigurera Oracle Fusion ERP för automatisk användar etablering me
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Oracle Fusion ERP baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Oracle Fusion ERP genom att följa anvisningarna i självstudien för [Oracle Fusion ERP enkel inloggning](oracle-fusion-erp-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Oracle Fusion ERP genom att följa anvisningarna i [självstudien för Oracle Fusion ERP enkel inloggning](oracle-fusion-erp-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
+
+> [!NOTE]
+> Mer information om SCIM-slutpunkten för Oracle Fusion ERP finns i [REST API för vanliga funktioner i molnet för Oracle-program](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html).
 
 ### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Konfigurera automatisk användar etablering för Fuze i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -115,41 +118,55 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` i klient- **URL**. Ange administratörens användar namn och lösen ord som hämtades tidigare till fälten **admin-användarnamn** och **lösen ord** . Klicka på **Testa anslutning** mellan Azure AD och Oracle Fusion ERP. 
+5. Under avsnittet **admin credentials** , in`https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` i **klient-URL**. Ange administratörens användar namn och lösen ord som hämtades tidigare till fälten **admin-användarnamn** och **lösen ord** . Klicka på **Testa anslutning** mellan Azure AD och Oracle Fusion ERP. 
 
     ![Oracle Fusion ERP-Lägg till SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Oracle Fusion ERP**.
 
     ![Oracle Fusion ERP-Lägg till SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
-    
+
 9. Granska de användarattribut som synkroniseras från Azure AD till Oracle Fusion ERP i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Oracle Fusion ERP för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
     ![Oracle Fusion ERP-Lägg till SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
 
-10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Oracle Fusion ERP**.
 
-11. Om du vill aktivera Azure AD Provisioning-tjänsten för Oracle Fusion ERP ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+    ![Mappningar för Oracle Fusion ERP-grupp](media/oracle-fusion-erp-provisioning-tutorial/groupmappings.png)
+
+11. Granska gruppattributen som synkroniseras från Azure AD till Oracle Fusion ERP i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Oracle Fusion ERP för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+
+    ![Attribut för Oracle Fusion ERP-grupp](media/oracle-fusion-erp-provisioning-tutorial/groupattributes.png)
+
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för Oracle Fusion ERP ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
     ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-12. Definiera de användare och/eller grupper som du vill etablera till Oracle Fusion ERP genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+14. Definiera de användare och/eller grupper som du vill etablera till Oracle Fusion ERP genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
     ![Etablerings omfång](common/provisioning-scope.png)
 
-13. När du är redo att etablera klickar du på **Spara**.
+15. När du är redo att etablera klickar du på **Spara**.
 
     ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
     Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Oracle Fusion ERP.
 
-    Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md)
+    Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Kopplings begränsningar
+
+* Oracle Fusion ERP stöder endast grundläggande autentisering för deras SCIM-slutpunkt.
+* Oracle Fusion ERP stöder inte grupp etablering.
+* Roller i Oracle Fusion ERP mappas till grupper i Azure AD. Om du vill tilldela roller till användare i Oracle Fusion ERP från Azure AD måste du tilldela användare till önskade Azure AD-grupper som har namngetts efter roller i Oracle Fusion ERP.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

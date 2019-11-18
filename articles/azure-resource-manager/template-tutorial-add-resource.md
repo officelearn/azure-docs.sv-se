@@ -1,24 +1,22 @@
 ---
-title: Självstudie – Lägg till en resurs i Azure Resource Manager mall
+title: Självstudie – Lägg till resurs till mall
 description: Beskriver stegen för att skapa din första Azure Resource Manager-mall. Du lär dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6b8bd73a1248168ff8f434afa0a9317a8fe0c618
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963907"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148190"
 ---
-# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Självstudier: Lägg till en resurs i Resource Manager-mallen
+# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Självstudie: Lägg till en resurs i Resource Manager-mallen
 
 I den [föregående själv studie kursen](template-tutorial-create-first-template.md)har du lärt dig hur du skapar en tom mall och distribuerar den. Nu är du redo att distribuera en faktisk resurs. I den här självstudien lägger du till ett lagrings konto. Det tar ungefär **9 minuter** att slutföra den här kursen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [introduktions kursen om mallar](template-tutorial-create-first-template.md), men det är inte obligatoriskt.
 
@@ -34,15 +32,15 @@ Ersätt **{ge-Unique-Name}** med ett unikt lagrings konto namn. Namnet på lagri
 
 Att gissa ett unikt namn för ett lagrings konto är inte enkelt och fungerar inte bra för att automatisera stora distributioner. Senare i den här själv studie serien använder du mallar som gör det enklare att skapa ett unikt namn.
 
-## <a name="resource-properties"></a>Resursegenskaper
+## <a name="resource-properties"></a>Resurs egenskaper
 
 Du kanske undrar hur du hittar de egenskaper som ska användas för varje resurs typ. Du kan använda [Resource Manager-mal len referens](/azure/templates/) för att hitta de resurs typer som du vill distribuera.
 
 Varje resurs som du distribuerar har minst följande tre egenskaper:
 
-- **typ**: Typ av resurs. Det här värdet är en kombination av resurs leverantörens namn område och resurs typ (till exempel Microsoft. Storage/storageAccounts).
-- **API version**: Den version av REST API som ska användas för att skapa resursen. Varje resurs leverantör har publicerat sina egna API-versioner, så det här värdet är specifika för typen.
-- **name**: Namnet på resursen.
+- **typ**: resursens typ. Det här värdet är en kombination av resurs leverantörens namn område och resurs typ (till exempel Microsoft. Storage/storageAccounts).
+- **API version**: den Version av REST API som ska användas för att skapa resursen. Varje resurs leverantör har publicerat sina egna API-versioner, så det här värdet är specifika för typen.
+- **namn**: resursens namn.
 
 De flesta resurser har också egenskapen **location** , som anger den region där resursen distribueras.
 
@@ -82,11 +80,11 @@ az group deployment create \
 
 Två möjliga distributions problem som kan uppstå:
 
-- Fel: Code = AccountNameInvalid; Meddelande = {ange-Unique-Name} är inte ett giltigt lagrings konto namn. Lagrings kontots namn måste vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemena bokstäver.
+- Fel: kod = AccountNameInvalid; Meddelande = {ange-Unique-Name} är inte ett giltigt lagrings konto namn. Lagrings kontots namn måste vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemena bokstäver.
 
     Ersätt **{ge-Unique-Name}** i mallen med ett unikt lagrings konto namn.  Se [Lägg till resurs](#add-resource).
 
-- Fel: Code = StorageAccountAlreadyTaken; Meddelande = det lagrings konto som heter store1abc09092019 är redan upptaget.
+- Fel: kod = StorageAccountAlreadyTaken; Meddelande = det lagrings konto som heter store1abc09092019 är redan upptaget.
 
     Försök med ett annat lagrings konto namn i mallen.
 
@@ -96,11 +94,11 @@ Distributionen tar längre tid än distributionen av tomma mallar eftersom lagri
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Du ser att ett lagrings konto har distribuerats.
-1. Observera att distributions etiketten nu säger: **Deployments: 2 lyckades @ no__t-0.
+1. Observera att distributions etiketten nu säger: **distributioner: 2 lyckades**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -6,22 +6,22 @@ manager: nitinme
 description: Två tabeller som representerar behållar register, databaser och avbildnings namn för alla kognitiva tjänst erbjudanden.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: ae11fe785237a02652af1f16aaba1f1bac5ecd62
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2058dd6e52ddb417e24368b27384df9a222c378e
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961923"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74142221"
 ---
 ### <a name="container-repositories-and-images"></a>Behållar databaser och avbildningar
 
-Tabellerna nedan innehåller en omfattande lista över tillgängliga behållar avbildningar som erbjuds av Azure Cognitive Services.
+Tabellerna nedan innehåller en lista över tillgängliga behållar avbildningar som erbjuds av Azure Cognitive Services. En fullständig lista över alla tillgängliga behållar avbildnings namn och deras tillgängliga taggar finns i [Cognitive Services behållar avbildnings Taggar](../container-image-tags.md).
 
 #### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Offentlig "icke-grind" (container Registry: `mcr.microsoft.com`)
 
-Microsoft Container Registry är värd för alla allmänt tillgängliga "ej grindade" behållare för Cognitive Services.
+Microsoft Container Registry (MCR) syndikerar alla allmänt tillgängliga "ej" "ej" "icke-" icke-Cognitive Services "icke-" icke-"icke- De är också tillgängliga direkt från [Docker-hubben](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Tjänst | Container | Container Registry/namn på lagrings plats/avbildning |
 |--|--|--|

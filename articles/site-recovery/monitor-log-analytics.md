@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936080"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133410"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
@@ -28,7 +28,7 @@ För Site Recovery kan du Azure Monitor loggar som hjälper dig att göra följa
 Användning av Azure Monitor-loggar med Site Recovery stöds för **Azure till Azure** -replikering och **VMware VM/fysisk server till Azure** -replikering.
 
 > [!NOTE]
-> Loggarna omsättnings data loggar och överförings hastighet är bara tillgängliga för virtuella Azure-datorer som replikeras till en sekundär Azure-region.
+> För att hämta omsättnings data loggar och överförings takt loggar för VMware och fysiska datorer måste du installera en Microsoft Monitoring Agent på processervern. Den här agenten skickar loggarna för de replikerande datorerna till arbets ytan. Den här funktionen är endast tillgänglig för 9,30-versionen av mobilitets agenten.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -54,6 +54,24 @@ Vi rekommenderar att du läser igenom [vanliga övervaknings frågor](monitoring
     ![Välj arbetsyta](./media/monitoring-log-analytics/select-workspace.png)
 
 Site Recovery loggar börjar mata in i en tabell (**AzureDiagnostics**) i den valda arbets ytan.
+
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Konfigurera Microsoft Monitoring Agent på processervern för sändning av omsättnings-och överförings takt loggar
+
+Du kan samla in information om data omsättnings taxa och information om överförings hastighet för dina VMware/fysiska datorer lokalt. För att aktivera detta måste en Microsoft Monitoring Agent installeras på processervern.
+
+1. Gå till arbets ytan Log Analytics och klicka på **Avancerade inställningar**.
+2. Klicka på sidan **anslutna källor** och välj ytterligare **Windows-servrar**.
+3. Hämta Windows-agenten (64-bitars) på processervern. 
+4. [Hämta arbetsyte-ID och nyckel](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+5. [Konfigurera agenten att använda TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Slutför Agent installationen](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) genom att ange ID och nyckel för den hämtade arbets ytan.
+7. När installationen är klar går du till Log Analytics arbets yta och klickar på **Avancerade inställningar**. Gå till sidan **data** och klicka på Windows- **prestandaräknare**. 
+8. Klicka på **+** om du vill lägga till följande två räknare med exempel intervallet 300 sekunder:
+
+        ASRAnalytics(*)\SourceVmChurnRate 
+        ASRAnalytics(*)\SourceVmThrpRate 
+
+Data omsättningen och överföringshastigheten börjar mata in på arbets ytan.
 
 
 ## <a name="query-the-logs---examples"></a>Skicka frågor till loggarna – exempel
@@ -174,12 +192,9 @@ AzureDiagnostics  
 ```
 ![Fråga datorns återställnings punkt](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-for-a-vm"></a>Fråga om data ändrings takt (omsättning) för en virtuell dator
+### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Fråga om data ändrings takt (omsättning) och uppladdnings takt för en virtuell Azure-dator
 
-> [!NOTE] 
-> Omsättnings informationen är bara tillgänglig för virtuella Azure-datorer som replikeras till en sekundär Azure-region.
-
-Den här frågan ritar ett trend diagram för en viss virtuell Azure-dator (ContosoVM123) som spårar data ändrings takten (skrivna byte per sekund) och data överförings takten. 
+Den här frågan ritar ett trend diagram för en viss virtuell Azure-dator (ContosoVM123) som representerar data ändrings takten (skrivna byte per sekund) och data överförings takten. 
 
 ```
 AzureDiagnostics   
@@ -193,6 +208,23 @@ Category contains "Upload", "UploadRate", "none") 
 | render timechart  
 ```
 ![Fråga efter data ändring](./media/monitoring-log-analytics/example3.png)
+
+### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Fråga om data ändrings frekvens (omsättning) och uppladdnings takt för en VMware-eller fysisk dator
+
+> [!Note]
+> Se till att konfigurera övervaknings agenten på processervern för att hämta dessa loggar. Se [steg för att konfigurera övervaknings agenten](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
+
+Den här frågan ritar ett trend diagram för en viss disk **disk0** av ett replikerat objekt **Win-9r7sfh9qlru**, som representerar data ändrings takten (skrivna byte per sekund) och data överförings takt. Du kan hitta disk namnet på **disk** bladet för det replikerade objektet i Recovery Services-valvet. Instans namnet som ska användas i frågan är DNS-namnet på datorn följt av _ och disk namnet som i det här exemplet.
+
+```
+Perf
+| where ObjectName == "ASRAnalytics"
+| where InstanceName contains "win-9r7sfh9qlru_disk0"
+| where TimeGenerated >= ago(4h) 
+| project TimeGenerated ,CounterName, Churn_MBps = todouble(CounterValue)/5242880 
+| render timechart
+```
+Processervern pushrar dessa data var 5: e minut till arbets ytan Log Analytics. Dessa data punkter representerar det genomsnitt som beräknas i 5 minuter.
 
 ### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Sammanfattning av förfrågningar om haveri beredskap (Azure till Azure)
 

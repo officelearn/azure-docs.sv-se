@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b0c3487bb77f32483d6d65cd0a4b1f637267eabf
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012950"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144350"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklares konton genom att använda Azure Active Directory i Azure API Management
 
@@ -81,12 +81,16 @@ När ändringarna har sparats kan användare i den angivna Azure AD-instansen lo
 
 ## <a name="add-an-external-azure-ad-group"></a>Lägg till en extern Azure AD-grupp
 
-När du har aktiverat åtkomst för användare i en Azure AD-instans kan du lägga till Azure AD-grupper i API Management. Sedan kan du enklare hantera associationen för utvecklarna i gruppen med önskade produkter.
+När du har aktiverat åtkomst för användare i en Azure AD-klient kan du lägga till Azure AD-grupper i API Management. Det innebär att du kan kontrol lera produkt synlighet med hjälp av Azure AD-grupper.
 
- > [!IMPORTANT]
- > Om du vill lägga till en extern Azure AD-grupp måste du först konfigurera Azure AD-instansen på fliken **identiteter** genom att följa anvisningarna i föregående avsnitt. Dessutom måste programmet beviljas åtkomst till Azure AD-Graph API med `Directory.Read.All` behörighet. 
+Om du vill lägga till en extern Azure AD-grupp i APIM måste du först slutföra det föregående avsnittet. Dessutom måste det program som du har registrerat beviljas åtkomst till Azure Active Directory Graph API med `Directory.ReadAll` behörighet genom att följa stegen nedan: 
 
-Du lägger till externa Azure AD-grupper från fliken **grupper** i API Management-instansen.
+1. Gå tillbaka till din app-registrering som skapades i föregående avsnitt
+2. Klicka på fliken **API-behörigheter** och klicka sedan på **+ Lägg till en behörighet** -knapp 
+3. I rutan **begär API-behörigheter** väljer du fliken **Microsoft API: er** och bläddrar längst ned för att hitta **Azure Active Directory graf** -panelen i avsnittet stödda äldre API: er och klickar på den. Klicka sedan på knappen **program behörigheter** och välj **Directory. ReadAll** -behörighet och Lägg sedan till behörigheten med knappen längst ned. 
+4. Klicka på knappen **bevilja administratörs medgivande för {tenantname}** så att du beviljar åtkomst för alla användare i den här katalogen. 
+
+Nu kan du lägga till externa Azure AD-grupper från fliken **grupper** i API Management-instansen.
 
 1. Välj fliken **Grupper**.
 2. Välj knappen **Lägg till AAD-grupp** .

@@ -1,35 +1,37 @@
 ---
-title: Så här binder du Azure Database for MySQL till ditt Azure våren Cloud-program | Microsoft Docs
-description: I den här artikeln visas hur du binder Azure MySQL till ditt Azure våren Cloud-program
+title: Så här binder du en Azure Database for MySQL-instans till ditt Azure våren Cloud-program | Microsoft Docs
+description: I den här artikeln visas hur du binder en Azure Database for MySQL-instans till ditt Azure våren Cloud-program
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: b6de5bb3b25c111d1b7775ea9570a4ae2cf45042
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 6c5cd4ac384affaedbd813f9395f997f92eb69c4
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607593"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151118"
 ---
-# <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-database-for-mysql"></a>Självstudie: bind Azure-tjänster till ditt Azure våren Cloud-program: Azure Database for MySQL
+# <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Självstudie: bind en Azure Database for MySQL-instans till ditt Azure våren Cloud-program 
 
-Med Azure våren Cloud kan du binda utvalda Azure-tjänster till dina program automatiskt, i stället för att manuellt konfigurera ditt våren Boot-program. I den här självstudien visas hur du binder ditt program till Azure MySQL.
+Med Azure våren Cloud kan du binda utvalda Azure-tjänster till dina program automatiskt, i stället för att behöva konfigurera ditt våren Boot-program manuellt. Den här självstudien visar hur du binder ditt program till din Azure Database for MySQL-instans.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En distribuerad Azure våren Cloud-instans
 * Ett Azure Database for MySQL konto
 * Azure CLI
 
-Om du inte har en distribuerad Azure våren-moln instans följer du stegen i den här [snabb](spring-cloud-quickstart-launch-app-portal.md) starten för att distribuera din första våren Cloud-App.
+Om du inte har en distribuerad Azure våren-moln instans följer du anvisningarna i [snabb start: starta ett Azure våren Cloud-program genom att använda Azure Portal](spring-cloud-quickstart-launch-app-portal.md) för att distribuera din första våren Cloud-App.
 
-## <a name="bind-azure-database-for-mysql"></a>Bind Azure Database for MySQL
+## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Bind din app till din Azure Database for MySQL-instans
 
-1. Anteckna administratörens användar namn och lösen ord för ditt Azure MySQL-konto. Anslut till servern och skapa en databas med namnet `testdb` från en MySQL-klient. Skapa ett nytt konto som inte är administratör.
+1. Anteckna administratörens användar namn och lösen ord för ditt Azure Database for MySQL konto. 
 
-1. Lägg till följande beroende i projektets `pom.xml`
+1. Anslut till servern, skapa en databas med namnet **testdb** från en MySQL-klient och skapa sedan ett nytt konto som inte är administratör.
+
+1. Lägg till följande beroende i projektets *Pom. XML-* fil:
 
     ```xml
     <dependency>
@@ -37,15 +39,19 @@ Om du inte har en distribuerad Azure våren-moln instans följer du stegen i den
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     ```
-1. Ta bort `spring.datasource.*`-egenskaper, om det finns, i filen `application.properties`.
+1. I filen *Application. Properties* tar du bort alla `spring.datasource.*` egenskaper.
 
-1. Uppdatera den aktuella distributionen med `az spring-cloud app update` eller skapa en ny distribution för den här ändringen med `az spring-cloud app deployment create`.  Dessa kommandon antingen uppdaterar eller skapar programmet med det nya beroendet.
+1. Uppdatera den aktuella distributionen genom att köra `az spring-cloud app update`eller skapa en ny distribution för den här ändringen genom att köra `az spring-cloud app deployment create`.  Dessa kommandon antingen uppdaterar eller skapar programmet med det nya beroendet.
 
-1. Gå till sidan Azure våren Cloud service i Azure Portal. Hitta **program instrument panelen** och välj det program som ska bindas till Azure MySQL.  Det här är samma program som du uppdaterade eller distribuerade i föregående steg. Välj sedan `Service binding` och välj knappen `Create service binding`. Fyll i formuläret, se till att välja **bindnings typ** `Azure MySQL`, samma databas namn som du använde tidigare och samma användar namn och lösen ord som du antecknade i det första steget.
+1. På sidan Azure Portal på sidan **Azure våren Cloud** Service letar du reda på **program instrument panelen**och väljer sedan det program som du vill binda till Azure Database for MySQL instansen.  Detta är samma program som du uppdaterade eller distribuerade i föregående steg. 
+
+1. Välj **tjänst bindning**och välj sedan knappen **skapa bindning för tjänst** . 
+
+1. Fyll i formuläret, Välj **Azure MySQL** som **bindnings typ**, med samma databas namn som du använde tidigare och Använd samma användar namn och lösen ord som du antecknade i det första steget.
 
 1. Starta om appen så fungerar den här bindningen nu.
 
-1. För att säkerställa att tjänst bindningen är korrekt väljer du bindnings namnet och kontrollerar dess information. Fältet `property` bör se ut så här:
+1. För att säkerställa att tjänst bindningen är korrekt väljer du bindnings namnet och kontrollerar sedan dess information. Fältet `property` bör se ut så här:
     ```
     spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     spring.datasource.username=admin@some-server
@@ -55,8 +61,8 @@ Om du inte har en distribuerad Azure våren-moln instans följer du stegen i den
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig att binda ditt Azure våren Cloud-program till en MySQL-databas.  Mer information om hur du hanterar din Azure våren Cloud-tjänst finns i om du vill veta mer om tjänst identifiering och registrering.
+I den här självstudien har du lärt dig hur du binder ditt Azure våren Cloud-program till en Azure Database for MySQL-instans.  Mer information om hur du hanterar Azure våren Cloud service finns i artikeln om tjänst identifiering och registrering.
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du aktiverar tjänst identifiering och-registreringar med hjälp av vår moln tjänst register](spring-cloud-service-registration.md).
+> [Aktivera tjänst identifiering och registrering genom att använda våren Cloud Service-registret](spring-cloud-service-registration.md)
 

@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: f01758c70e52f96fcd22a94e9b83f910cbf200c9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b5a037eaf310aa28c76d831dc9fe56eefaddbe56
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035876"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123465"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Ge åtkomst till Azure Event Hubs
 Varje gång du publicerar eller använder händelser/data från en händelsehubben försöker klienten få åtkomst till Event Hubs resurser. Varje begäran till en säker resurs måste auktoriseras så att tjänsten kan se till att klienten har de behörigheter som krävs för att publicera/använda data. 
@@ -28,7 +28,7 @@ Mer information om hur du autentiserar med Azure AD finns i följande artiklar:
 - [Autentisera begär anden till Azure-Event Hubs med Azure Active Directory](authenticate-application.md)
 - [Ge åtkomst till Event Hubs resurser med Azure Active Directory](authorize-access-azure-active-directory.md).
 
-## <a name="share-access-signatures"></a>Dela Access-signaturer 
+## <a name="shared-access-signatures"></a>Signaturer för delad åtkomst 
 Signaturer för delad åtkomst (SAS) för Event Hubs resurser ger begränsad delegerad åtkomst till Event Hubs resurser. Att lägga till begränsningar i tidsintervall för vilka signaturen är giltig eller för behörigheter som den ger ger flexibilitet vid hantering av resurser. Mer information finns i [autentisera med signaturer för delad åtkomst (SAS)](authenticate-shared-access-signature.md). 
 
 Auktorisering av användare eller program med hjälp av en OAuth 2,0-token som returnerades av Azure AD ger överlägsen säkerhet och enkel användning över signaturer för delad åtkomst (SAS). Med Azure AD behöver du inte lagra åtkomsttoken med din kod och potentiella säkerhets risker. Även om du kan fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerade åtkomst till Event Hubs-resurser, erbjuder Azure AD liknande funktioner utan att behöva hantera SAS-tokens eller bekymra dig om att återkalla en komprometterad SAS. 

@@ -8,75 +8,68 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: f09de6fee4c9de39d98ec66714686ab1e805c4cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 17ba808ebfabb68765cf35bbf0799d117bc6383b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014887"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133431"
 ---
-# <a name="visualize-data-in-the-explorer-preview"></a>Visualisera data i utforskaren (förhandsversion)
+# <a name="azure-time-series-insights-preview-explorer"></a>Azure Time Series Insights för hands versions Utforskaren
 
-I det här dokumentet beskrivs funktionerna i användar gränssnittet och användar upplevelsen och gränssnittet i Azure Time Series Insights [demonstration-webbappen](https://insights.timeseries.azure.com/preview/demo)för för hands versionen. Mer specifikt diskuterar den layout för det värdbaserade exemplet, gränssnitts anpassnings alternativ och navigering genom den tillhandahållna demon.
+I den här artikeln beskrivs de olika funktioner och alternativ som är tillgängliga i Azure Time Series Insights [demonstrations webb program](https://insights.timeseries.azure.com/preview/demo)för för hands versionen.
 
 ## <a name="prerequisites"></a>Krav
 
 För att komma igång med Azure Time Series Insights Preview Explorer måste du:
 
-* Har en Time Series Insights-miljö ställer in. Om du vill veta mer om hur du konfigurerar en instans kan du prova med självstudien [Azure Time Series Insights för hands version](./time-series-insights-update-create-environment.md) .
+* Ha en Time Series Insightss miljö etablerad. Läs mer om hur du konfigurerar en instans genom att läsa guiden [Azure Time Series Insights för hands version](./time-series-insights-update-create-environment.md) .
 * [Ge data åtkomst](./time-series-insights-data-access.md) till den Time Series Insightss miljö som du har skapat för kontot. Du kan ge åtkomst till andra samt för att själv.
 * Lägg till en händelse källa i Time Series Insightss miljön för att skicka data till miljön:
-  * Lär dig [hur du ansluter till en Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
-  * Lär dig [hur du ansluter till en IoT-hubb](./time-series-insights-how-to-add-an-event-source-iothub.md).
+  * Lär dig [hur du ansluter till en Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) 
+  * Lär dig [hur du ansluter till en IoT-hubb](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## <a name="learn-about-the-preview-explorer"></a>Lär dig mer om Preview Explorer
+## <a name="explore-the-time-series-insights-preview-explorer"></a>Utforska Time Series Insights Preview Explorer
 
-Förhandsversion av Azure Time Series Insights explorer består av följande element:
+Azure Time Series Insights Preview Explorer består av följande sju element:
 
-[![Utforskarvyn](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
+[Översikt över ![Time Series Insights Preview Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
-- <a href="#environment-drop-down-list">Miljö panel</a>: visar Azure Time Series Insights miljöer.
-- <a href="#navigation-menu">Navigerings meny</a>: Använd den för att växla mellan sidorna **analysera** och **modeller** .
-- <a href="#hierarchy-tree">Hierarkiträd</a>: Använd det för att välja en speciell modell och data element som ska visas i diagrammet.
-- <a href="#preview-well">Tids serie källa</a>: visar de data element som är markerade i tabell format med färg kodning.
-- <a href="#preview-chart">Diagrammet panelen</a>: Visar aktuella fungerande diagrammet.
-- <a href="#time-editor-panel">Tids linje</a>: Använd den för att ändra din arbets tids period.
-- <a href="#navigation-panel">App-fältet</a>: innehåller alternativ för användar hantering, till exempel aktuell klient. Du kan använda den för att ändra tema-och språk inställningar.
+1. [Miljö panel](#1-environment-panel): visar alla dina Azure Time Series Insights miljöer.
+1. [Navigerings fält](#2-navigation-bar): låter dig växla mellan sidorna **analysera** och **modeller** .
+1. [Hierarkiträdet och Sök panelen](#3-hierarchy-tree-and-search-panel): låter dig välja och söka efter vissa data element som ska visas i diagrammet.
+1. [Tids serie källa](#4-time-series-well): visar alla dina markerade data element.
+1. [Diagrammet panelen](#5-chart-panel): Visar aktuella fungerande diagrammet.
+1. [Tidslinje](#6-time-editor-panel): kan du ändra din fungerande tidsintervall.
+1. [App-fältet](#7-app-bar): innehåller alternativ för användar hantering (till exempel aktuell klient) och gör att du kan ändra dem och språk inställningar.
 
-## <a name="environment-drop-down-list"></a>List rutan miljö
 
-I list rutan miljö visas alla Time Series Insights-miljöer som du har åtkomst till. Listan innehåller miljöer där du betalar per användning, till exempel för hands versionen Time Series Insights. Listan innehåller även S1/S2-miljöer, som är allmänt tillgängliga.
+## <a name="1-environment-panel"></a>1. miljö panel
+
+Miljö-panelen visar alla Time Series Insights-miljöer som du har åtkomst till. Listan innehåller miljöer för att betala per användning (för hands version) samt S1/S2-miljöer (allmän tillgänglighet). Klicka bara på den Time Series Insights miljö som du vill använda för att omedelbart ta där.
 
 1. Välj den nedrullningsbara pilen bredvid den miljö som visas.
 
-   [![kontroll panelen](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [panelen ![miljö](media/v2-update-explorer/environment-panel.png)](media/v2-update-explorer/environment-panel.png#lightbox)
 
 1. Välj sedan den miljö som du vill använda.
 
-## <a name="navigation-menu"></a>Navigeringsmeny
+## <a name="2-navigation-bar"></a>2. navigerings fält
 
-  [![navigerings menyn](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
+  [![navigerings fältet](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
 
-Använd navigerings menyn för att välja mellan två vyer:
+Använd navigerings fältet för att välja mellan två vyer:
 
 * **Analysera**: Använd det för att rita och utföra omfattande analyser på dina modellerade eller avmodellerade tids serie data.
 * **Modell**: Använd den för att skicka nya Time Series Insights förhands gransknings typer, hierarkier och instanser till din Time Series Insightss modell.
 
-## <a name="hierarchy-tree"></a>Hierarkiträd
-
-Hierarkiträdet visar markerade data element som innehåller modeller, vissa enheter och sensorer på dina enheter.
-
-### <a name="model-search-panel"></a>Panelen modell sökning
-
-Du kan använda modell Sök panelen för att enkelt söka efter och navigera i tids serie modellens hierarki för att hitta de tids serie instanser som du vill visa i diagrammet. När du har valt dina instanser läggs de till i både det aktuella diagrammet och data källan.
-
-  [![modell Sök panelen](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
-
 ### <a name="model-authoring"></a>Modell redigering
 
 Azure Time Series Insights för hands versionen stöder åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) i din tids serie modell.
+
+[![modell Sök panelen](media/v2-update-explorer/model-search-panel.png)](media/v2-update-explorer/model-search-panel.png#lightbox)
 
 * **Tids serie modell typ**: du kan använda Time Series Insights typer för att definiera variabler eller formler för att utföra beräkningar. De är kopplade till en specifik Time Series Insights-instans. En typ kan ha en eller flera variabler.
 * **Time Series-modell hierarkin**: hierarkier är systematisk organisationer i dina data. Hierarkier visas relationerna mellan olika enheter i din Time Series Insights-data.
@@ -84,60 +77,83 @@ Azure Time Series Insights för hands versionen stöder åtgärder för att skap
 
 Läs mer om Time Series-modell i [gånger serien modeller](./time-series-insights-update-tsm.md).
 
-## <a name="preview-well"></a>Bra för hands version
+## <a name="3-hierarchy-tree-and-search-panel"></a>3. hierarkiträdet och Sök panelen
 
-Visar instans fälten och andra metadata som är associerade med valda Time Series Insights instanser. Genom att markera kryss rutorna på höger sida kan du dölja eller visa vissa instanser från det aktuella diagrammet. Du kan också ta bort vissa data element från dina aktuella data genom att välja den röda **borttagningen** (pappers korgen) på vänster sida av elementet.
+I hierarkiträdet och Sök panelen kan du enkelt söka efter och navigera i [tids serie modellens](./time-series-insights-update-tsm.md) hierarki för att hitta de tids serie instanser som du vill visa i diagrammet. När du väljer dina instanser, läggs de inte bara till i det aktuella diagrammet, men de läggs också till i data källan. 
 
-  [![för hands versions källa](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
+[![hierarkiträdet och Sök panelen](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
 
-Om du vill konfigurera om layouten för sidan **analysera** diagram väljer du ikonen med punkter i det övre högra hörnet:
+I rutan Sök resultat kan du också visa resultaten i en hierarkisk vy eller en listvy som gör det enkelt att hitta de instanser som du vill visa.
+ 
+## <a name="4-time-series-well"></a>4. tids serie källa
 
-  [layout alternativ för ![telemetri](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
+Visar instans fälten och andra metadata som är associerade med valda Time Series Insights instanser. Genom att markera kryss rutorna på höger sida kan du dölja eller visa vissa instanser från det aktuella diagrammet. 
+
+  [![för hands versions källa](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
+
+Du kan ta bort vissa data element från dina aktuella data på ett bra sätt genom att välja den röda **borttagningen** (pappers korgen) på vänster sida av elementet. Med det här alternativet kan du också styra hur varje element visas i diagrammet. Du kan välja att lägga till min/högsta skuggor, data punkter, flytta elementet i tid och visualisera instansen på ett stegat sätt. 
+
+Dessutom kan du med utforsknings kontrollen skapa tids Skift och punkt diagram enkelt.  
+
+  [alternativ för ![bra layout](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
 > Om du ser följande meddelande har instansen inga data under den valda tids perioden. Du löser problemet genom att öka tidsintervallet eller bekräfta att instansen skickar data.
 >
-> ![Ingen data avisering](media/v2-update-explorer/explorer-seven.png)
+> ![Ingen data avisering](media/v2-update-explorer/no-data-warning.png)
 
-## <a name="preview-chart"></a>Förhandsgranska diagram
+## <a name="5-chart-panel"></a>5. diagram panel
 
-Med diagrammet kan du Visa Time Series Insights förekomster som rader. Du kan minimera kontroll panelen för miljö panelen, data modellen och tids rymden genom att välja webb kontrollerna för att göra diagrammet större.
+I diagrammet kan du Visa Time Series-instanser som rader. Du kan dölja miljö panelen, datamodellen och time span på Kontrollpanelen genom att klicka på webbkontroller att större. 
 
-  [Översikt över ![för hands versions diagram](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
+  [Översikt över ![för hands versions diagram](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
 
-- **Valt datum intervall**: styr vilka data element som är tillgängliga för visualisering.
+1. **Diagram typ**: styr vilka data element som är tillgängliga för visualisering.
 
-- **Skjutreglaget för inre datum intervall**: Använd de två slut punkts kontrollerna genom att dra dem under den tidsrymd du vill ha.
+1. **Intervall storlek**: med skjutreglaget för intervall storlek kan du zooma in och ut ur intervall över samma tids period. Detta ger en mer exakt kontroll av rörelsen mellan stora sektorer av tiden som visar jämna trender nedåt till sektorer som är så små som i millisekunden, så att du kan se detaljerade och högupplösta klipp av dina data. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val. matchning av matchning, frågans hastighet och granularitet.
 
-- **Time span Dölj kontrollen**: komprimerar och expanderar time span panelen redigeraren.
+1. **Zooma och panorera**: Klicka på den här kontrollen för att zooma och panorera diagrammet.
 
-- **Kontroll av y-axelns format**: växlar mellan tillgängliga visnings alternativ för y-axeln:
+1. **Kontroll av y-axel**: växlar mellan tillgängliga visnings alternativ för y-axeln:
 
-    * `Default`: varje rad har en enskild y-axel.
-    * `Stacked`: Använd den för att stapla flera rader på samma y-axel, med data för y-axeln, baserat på den valda linjen.
-    * `Shared`: alla y-axelns data visas tillsammans.
+    * `Stacked`: Varje rad har en enskild y-axeln.
+    * `Overlap`: Använd den för att stapla flera rader på samma Y-axel, med data för Y-axeln, baserat på den valda linjen.
+    * `Shared`: Alla y-axeln data som visas tillsammans.
 
-- **Aktuella dataelement**: dataelementet för valda och dess tillhörande information.
+1. **Markör element**: det data element som är markerat och dess associerade information.
 
-Om du vill öka detalj nivån till en viss data sektor, vänsterklickar du på en data punkt i den aktuella grafen och drar sedan det valda fältet till önskad slut punkt. Högerklicka på det grå markerade fältet och välj **Zooma**, som du ser i följande bild:
+Du kan öka detalj nivån i en viss data sektor genom **att vänsterklicka** på en data punkt i det aktuella diagrammet och hålla ned musen och sedan dra det valda fältet till den önskade slut punkten. **Högerklicka på** det grå, markerade fältet och klicka på **Zooma** enligt bilden nedan. Du kan också visa och hämta telemetri-händelserna i det valda tidsintervallet.
 
-  [Zooma ![för hands versions diagram](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
+  [Zooma ![för hands versions diagram](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-När du har utfört **zoomnings** åtgärden visas den valda data uppsättningen. Välj format kontrollen y-axel för att gå igenom de tre y-axelns representationer av dina Time Series Insights data.
+När du har utfört **zoomnings** åtgärden visas den valda data uppsättningen. Välj format kontrollen för att gå igenom de tre y-axelns representationer av dina Time Series Insights data.
 
-  [![för hands version i diagrammet y-axel](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![för hands version i diagrammet y-axel](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
 
-Här kan du se ett exempel på delade Y-axlar:
+Här kan du se ett exempel på ett **överlappande diagram**:
 
-  [![förhandsgranska delade Y-axlar](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [![överlappande diagram alternativ](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
 
-## <a name="time-editor-panel"></a>Tids redigerings panel
+Knappen **fler åtgärder** expanderas för att visa **hämtning som CSV** och **export till Power BI** alternativ.
 
-När du arbetar med Time Series Insights Preview måste välja du först ett tidsintervall. Det valda tidsintervallet styr den data uppsättning som är tillgänglig för manipulering med Time Series Insights Preview-widgetar. Följande webb kontroller är tillgängliga i Time Series Insights för hands version för att välja arbets tids intervall:
+  [![fler åtgärder-alternativ](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-  [panel för ![val av tid](media/v2-update-explorer/explorer-twelve.png)](media/v2-update-explorer/explorer-twelve.png#lightbox)
+Läs om den [Time Series Insights interna Power BI-anslutningen](concepts-power-bi.md).
 
-1. **Skjutreglaget för inre datum intervall**: Använd de två slut punkts kontrollerna genom att dra dem under den tidsrymd du vill ha. Det här interna datum intervallet begränsas av skjutreglaget för yttre datum intervall.
+## <a name="6-time-editor-panel"></a>6. tids redigerings panel
+
+När du arbetar med Time Series Insights väljer du först ett tidsintervall. Det valda tidsintervallet styr den data uppsättning som är tillgänglig för manipulering med Time Series Insights uppdatera widgetar.
+
+  [panel för ![val av tid](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
+
+> [!TIP]
+> En del av tids linjen är markerad i en gul eller orange färg för att visa vilken mängd data som är tillgängliga i varmt lager.
+
+Följande webb kontroller är tillgängliga i Time Series Insights uppdateringen för att välja din arbets tids period. 
+
+  [kontroll av ![undersökning](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
+
+1. **Skjutreglage för ursprungligt datum intervall**: Använd de två slut punkts kontrollerna genom att dra dem under den tids period som du vill ha. Det här interna datum intervallet begränsas av skjutreglaget för yttre datum intervall.
 
 1. **Öka och minska datum intervallet knappar**: öka eller minska din tid sträcker sig över genom att välja någon av knapparna för intervallet.
 
@@ -145,29 +161,25 @@ När du arbetar med Time Series Insights Preview måste välja du först ett tid
 
 1. **Skjutreglage för yttre datum intervall**: Använd slut punkts kontrollerna för att välja det yttre datum intervallet, som är tillgängligt för den interna datum intervalls kontrollen.
 
-1. **Snabb tid för datum intervall**: Använd den för att snabbt växla mellan förinställda tids markeringar, till exempel de senaste **30 minuterna**, de **senaste 12 timmarna**eller ett **anpassat intervall**. Ändra det här värdet ändras också de tillgängliga intervall intervall som beskrivs i verktyget intervallstorlek skjutreglaget.
+1. **Skjutreglage för tidsintervall**: Använd den för att snabbt växla mellan förinställda tids markeringar, till exempel de senaste **30 minuterna**, de **senaste 12 timmarna**eller ett **anpassat intervall**. Ändra det här värdet ändras också de tillgängliga intervall intervall som beskrivs i verktyget intervallstorlek skjutreglaget.
 
-1. **Skjutreglaget för intervall storlek**: Använd det för att zooma in och ut ur intervall över samma tidsintervall. Den här åtgärden ger mer exakt kontroll av flytt mellan stora sektorer tid. Den visar jämna trender nedåt till sektorer som små i millisekunder. Du kan använda den för att se detaljerade och högupplösta klipp med dina data. Skjutreglagets standard startpunkt har angetts som den mest optimala vy av data från ditt val som balanserar upplösning, fråga hastighet och granularitet.
+   [![till och från markerings panelen](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
-1. **Datum intervall till-och-från webb kontroll**: med den här webb kontrollen kan du enkelt välja de datum-och tidsintervall som du vill använda. Du kan också använda kontrollen för att växla mellan olika tidszoner. När du har gjort ändringarna som ska gälla för din aktuella arbets yta väljer du **Spara**.
-
-   [![till och från markerings panelen](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
-
-## <a name="navigation-panel"></a>Navigerings panel
+## <a name="7-app-bar"></a>7. app-fältet
 
 Navigerings panelen för Time Series Insights för hands version visas överst i din Time Series Insights-app. Det innehåller följande funktioner:
 
 ### <a name="current-session-share-link-control"></a>Aktuella dela länken sessionskontroll
 
-  [![delnings ikon](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [![delnings ikon](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
 
 Välj den nya **delnings** ikonen för att dela en URL-länk med ditt team.
 
-  [![dela din instans-URL](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+  [![dela din instans-URL](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
 
 ### <a name="tenant-section"></a>Klient-avsnitt
 
-  [![klient val](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
+  [![klient val](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
 
 * Visar din aktuella Time Series Insights inloggnings konto information.
 * Använd den för att växla mellan tillgängliga Time Series Insights teman.
@@ -187,7 +199,7 @@ Azure Time Series Insights Preview stöder två teman:
 * **Ljust tema**: standard temat visas i det här dokumentet.
 * **Mörkt tema**: återger Utforskaren så som visas här:
 
-  [![valt mörkt tema](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [![valt mörkt tema](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 Miljökontroller
 
@@ -197,7 +209,7 @@ Det här avsnittet gäller enbart för befintliga S1/S2-miljöer som försöker 
 
 I stället för hierarkin ser du panelen Time Series Insights villkor, där du definierar frågor i din miljö. Använd den för att filtrera dina data baserat på ett predikat.
 
-  [![där panelen fråga](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
+  [![där panelen fråga](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
 Time Series Insights Preview redigeraren termpanelen använder följande parametrar:
 
@@ -210,24 +222,26 @@ Time Series Insights Preview redigeraren termpanelen använder följande paramet
 | `IN` | Sträng, Bool, Double, DateTime, TimeSpan, NULL | Alla operander bör vara av samma typ eller vara konstanten NULL. |
 | `HAS` | Sträng | Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och NULL är inte tillåtet. |
 
-Mer information om frågor och data typer som stöds finns i [tids serie uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
+Mer information om frågor och data typer som stöds finns i [tids serie uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exempel på WHERE-satser
 
-  [![WHERE-sats exempel](media/v2-update-explorer/explorer-nineteen.png)](media/v2-update-explorer/explorer-nineteen.png#lightbox)
+  [![WHERE-sats exempel](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
 
 **Mått**: en nedrullningsbar lista som visar alla numeriska kolumner (**dubbla**) som du kan använda som element för det aktuella diagrammet.
 
 **Dela efter**: den här List rutan visar alla tillgängliga kategoriska-kolumner (strängar) i din modell som du kan gruppera dina data efter. Du kan lägga till upp till fem villkor för att visa på samma x-axel. Ange de parametrar som du vill använda och välj sedan **Lägg** till för att lägga till en ny term.
 
-  [![frågad och filtrerad vy en](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
+  [![frågad och filtrerad vy en](media/v2-update-explorer/s1-s2-preview-filtered-view.png)](media/v2-update-explorer/s1-s2-preview-filtered-view.png#lightbox)
 
 Du kan visa och dölja element i diagram panelen genom att välja ikonen synlig, som du ser i följande bild. Om du vill ta bort frågor helt väljer du det röda **krysset**.
 
-  [![frågad och filtrerad vy två](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
+  [![avbryta en frågad och filtrerad alternativ](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png)](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [lagring och ingress](./time-series-insights-update-storage-ingress.md) i Azure Time Series Insights för hands versionen.
+
 - Läs Time Series Insights för hands versions dokument för [data modellering](./time-series-insights-update-tsm.md).
+
 - Lär dig [att diagnostisera och felsöka](./time-series-insights-update-how-to-troubleshoot.md) Time Series Insights-instansen.

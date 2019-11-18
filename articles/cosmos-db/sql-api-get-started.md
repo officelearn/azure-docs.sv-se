@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 25846bb7a19d29a3a72146d4046b5205183a247e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720860"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132565"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Självstudie: Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -44,9 +44,9 @@ Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](http
 
 Nu sätter vi igång!
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -152,7 +152,7 @@ Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Ett slutfört 
 
     Konsolen visar meddelandet: **slut på demo, tryck på valfri tangent för att avsluta.** Det här meddelandet bekräftar att programmet har skapat en anslutning till Azure Cosmos DB. Därefter kan du stänga konsolfönstret.
 
-Grattis! Du har anslutit till ett Azure Cosmos DB-konto.
+Gratulerar! Du har anslutit till ett Azure Cosmos DB-konto.
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
 
@@ -258,7 +258,17 @@ En databas är en logisk container med objekt som är partitionerade över conta
 
 1. Välj F5 för att köra programmet.
 
-Grattis! Du har skapat en Azure Cosmos-databas.  
+   > [!NOTE]
+   > Om du får ett undantaget "503-tjänst ej tillgängligt" är det möjligt att de [portar](performance-tips.md#networking) som krävs för direkt läge blockeras av en brand vägg. Du kan åtgärda det här problemet genom att antingen öppna de [portar](performance-tips.md#networking) som krävs eller försöka använda Gateway-läget som visas nedan.
+   ```csharp
+     // Create a new instance of the Cosmos Client in Gateway mode
+     this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
+            {
+                ConnectionMode = ConnectionMode.Gateway
+            });
+   ```
+
+Gratulerar! Du har skapat en Azure Cosmos-databas.  
 
 ## <a id="CreateColl"></a>Steg 5: Skapa en container
 
@@ -289,7 +299,7 @@ En behållare kan skapas med hjälp av antingen [**CreateContainerIfNotExistsAsy
 
 1. Välj F5 för att köra programmet.
 
-Grattis! Du har skapat en Azure Cosmos-behållare.  
+Gratulerar! Du har skapat en Azure Cosmos-behållare.  
 
 ## <a id="CreateDoc"></a>Steg 6: Lägg till objekt i behållaren
 
@@ -328,7 +338,7 @@ Först ska vi skapa en `Family`-klass som representerar objekt som lagras i Azur
 
 1. Välj F5 för att köra programmet.
 
-Grattis! Du har skapat två Azure Cosmos-objekt.  
+Gratulerar! Du har skapat två Azure Cosmos-objekt.  
 
 ## <a id="Query"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
 
@@ -356,7 +366,7 @@ Azure Cosmos DB stöder komplexa frågor mot JSON-dokument som lagras i varje co
 
 1. Välj F5 för att köra programmet.
 
-Grattis! Du har efterfrågat en Azure Cosmos-behållare.
+Gratulerar! Du har efterfrågat en Azure Cosmos-behållare.
 
 ## <a id="ReplaceItem"></a>Steg 8: Ersätta ett JSON-objekt
 
@@ -385,7 +395,7 @@ Nu ska vi uppdatera ett objekt i Azure Cosmos DB. Vi ändrar `IsRegistered` egen
 
 1. Välj F5 för att köra programmet.
 
-Grattis! Du har ersatt ett Azure Cosmos-objekt.
+Gratulerar! Du har ersatt ett Azure Cosmos-objekt.
 
 ## <a id="DeleteDocument"></a>Steg 9: ta bort objekt
 
@@ -415,7 +425,7 @@ Nu ska vi ta bort ett objekt i Azure Cosmos DB.
 
 1. Välj F5 för att köra programmet.
 
-Grattis! Du har tagit bort ett Azure Cosmos-objekt.
+Gratulerar! Du har tagit bort ett Azure Cosmos-objekt.
 
 ## <a id="DeleteDatabase"></a>Steg 10: Ta bort databasen
 
@@ -431,7 +441,7 @@ Nu ska vi ta bort vår databas. Om du tar bort den skapade databasen tas både d
 
 1. Välj F5 för att köra programmet.
 
-Grattis! Du har tagit bort en Azure Cosmos-databas.
+Gratulerar! Du har tagit bort en Azure Cosmos-databas.
 
 ## <a id="Run"></a>Steg 11: Kör C#-konsolappen i sin helhet!
 
@@ -464,7 +474,7 @@ Deleted Database: FamilyDatabase
 End of demo, press any key to exit.
 ```
 
-Grattis! Du har slutfört självstudiekursen och har ett fungerande C#-konsolprogram!
+Gratulerar! Du har slutfört självstudiekursen och har ett fungerande C#-konsolprogram!
 
 ## <a id="GetSolution"></a>Hämta den fullständiga lösningen för självstudiekursen
 
@@ -472,7 +482,7 @@ Om du inte har tid att slutföra stegen i den här självstudien eller bara vill
 
 För att bygga `GetStarted`-lösningen behöver du följande förutsättningar:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 * Ett [Azure Cosmos DB konto][cosmos-db-create-account].
 * [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-getting-started)-lösningen som finns på GitHub.
 

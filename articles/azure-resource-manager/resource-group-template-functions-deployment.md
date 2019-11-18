@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager Template Functions-Deployment | Microsoft Docs
+title: Mall funktioner – distribution
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta distributions information.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 17caf78fb77e330685bb45ab03aaeed611900ba0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983980"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149637"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributions funktioner för Azure Resource Manager mallar 
 
@@ -25,7 +22,7 @@ För att hämta värden från resurser, resurs grupper eller prenumerationer, se
 
 <a id="deployment" />
 
-## <a name="deployment"></a>deployment
+## <a name="deployment"></a>distribution
 `deployment()`
 
 Returnerar information om den aktuella distributions åtgärden.
@@ -78,7 +75,7 @@ När objektet skickas som en länk, till exempel när du använder parametern **
 }
 ```
 
-När du [distribuerar till en Azure-prenumeration](deploy-to-subscription.md), i stället för en resurs grupp, innehåller retur- `location` objektet en egenskap. Egenskapen Location ingår när du distribuerar antingen en lokal mall eller en extern mall.
+När du [distribuerar till en Azure-prenumeration](deploy-to-subscription.md), i stället för en resurs grupp, innehåller retur-objektet en `location`-egenskap. Egenskapen Location ingår när du distribuerar antingen en lokal mall eller en extern mall.
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -90,7 +87,7 @@ Du kan använda Deployment () för att länka till en annan mall baserat på den
 }
 ```  
 
-Om du distribuerar om en mall från distributions historiken i portalen distribueras mallen som en lokal fil. `templateLink` Egenskapen returneras inte i distributions funktionen. Om mallen är beroende av `templateLink` att skapa en länk till en annan mall ska du inte använda portalen för att distribuera om den. Använd i stället de kommandon som du använde för att distribuera mallen från början.
+Om du distribuerar om en mall från distributions historiken i portalen distribueras mallen som en lokal fil. Egenskapen `templateLink` returneras inte i distributions funktionen. Om mallen använder `templateLink` för att skapa en länk till en annan mall ska du inte använda portalen för att distribuera om den. Använd i stället de kommandon som du använde för att distribuera mallen från början.
 
 ### <a name="example"></a>Exempel
 
@@ -134,7 +131,7 @@ Föregående exempel returnerar följande objekt:
 }
 ```
 
-En mall för en prenumerations nivå som använder distributions funktionen finns i [funktionen för prenumerations distribution](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Den distribueras med antingen `az deployment create` eller `New-AzDeployment` -kommandona.
+En mall för en prenumerations nivå som använder distributions funktionen finns i [funktionen för prenumerations distribution](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Den distribueras med antingen `az deployment create`-eller `New-AzDeployment` kommandon.
 
 <a id="parameters" />
 
@@ -232,12 +229,12 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringOutput | Sträng | Alternativ 1 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"One": "a", "två": "b"} |
-| arrayOutput | Array | [1, 2, 3] |
+| objectOutput | Objekt | {"One": "a", "två": "b"} |
+| arrayOutput | Matris | [1, 2, 3] |
 | crossOutput | Sträng | Alternativ 1 |
 
 Mer information om hur du använder parametrar finns [i parametrar i Azure Resource Manager mall](template-parameters.md).
@@ -325,12 +322,12 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Value |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | exampleOutput1 | Sträng | Variabel |
-| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput2 | Matris | [1, 2, 3, 4] |
 | exampleOutput3 | Sträng | Variabel |
-| exampleOutput4 |  Object | {"Egenskap1": "värde1", "Egenskap2": "värde2"} |
+| exampleOutput4 |  Objekt | {"Egenskap1": "värde1", "Egenskap2": "värde2"} |
 
 Mer information om hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).
 

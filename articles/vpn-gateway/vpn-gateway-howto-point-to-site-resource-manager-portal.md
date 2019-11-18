@@ -1,5 +1,6 @@
 ---
-title: 'Ansluta till ett virtuellt Azure-nätverk från en dator med hjälp av punkt-till-plats-VPN och intern Azure-certifikatautentisering: Azure Portal | Microsoft Docs'
+title: 'Ansluta till ett virtuellt nätverk med P2S VPN-& certifikatautentisering: Portal'
+titleSuffix: Azure VPN Gateway
 description: Anslut Windows-, Mac OS X-och Linux-klienter på ett säkert sätt till ett virtuellt Azure-nätverk med P2S och självsignerade eller CA-utfärdade certifikat. Den här artikeln använder Azure Portal.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7d6941c347f1121654084c8d71ba7c0a293bf558
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c1435a2295804a0ad43f640d7317a6e1d3f56aea
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72333240"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150092"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-VPN-anslutning till ett VNet med intern Azure-certifikatautentisering: Azure Portal
 
@@ -144,7 +145,7 @@ VPN-klientkonfigurationsfilerna innehåller inställningar för att konfigurera 
 >
 >
 
-1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Klicka på **Anslut**. Ett popup-meddelande med information om certifikatanvändningen kanske visas. Klicka på **Fortsätt** för att använda utökade privilegier.
+1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Klicka på **anslut**. Ett popup-meddelande med information om certifikatanvändningen kanske visas. Klicka på **Fortsätt** för att använda utökade privilegier.
 
 2. På statussidan **Anslutning** klickar du på **Anslut** för att initiera anslutningen. Om du ser skärmen **Välj certifikat** kontrollerar du att klientcertifikatet som visas är det som du vill använda för att ansluta. Om det inte är det använder du pilen i listrutan för att välja rätt certifikat. Klicka sedan på **OK**.
 
@@ -205,7 +206,7 @@ Du kan lägga till upp till 20 betrodda CER-filer för rotcertifikat i Azure. Me
 2. I avsnittet **Rotcertifikat** letar du upp det certifikat som du vill ta bort.
 3. Klicka på ellipsen bredvid certifikatet och klicka sedan på Ta bort.
 
-## <a name="revokeclient"></a>Återkalla ett klientcertifikat
+## <a name="revokeclient"></a>Så här återkallar du ett klientcertifikat
 
 Du kan återkalla certifikat. Du kan använda listan över återkallade certifikat för att selektivt neka punkt-till-plats-anslutningar baserat på enskilda klientcertifikat. Det här skiljer sig från att ta bort ett betrott rotcertifikat. Om du tar bort CER-filen för ett betrott rotcertifikat i Azure återkallas åtkomsten för alla klientcertifikat som genererats/signerats med det återkallade rotcertifikatet. När du återkallar ett klientcertifikat, snarare än rotcertifikatet, så kan de andra certifikat som har genererats från rotcertifikatet fortfarande användas för autentisering.
 

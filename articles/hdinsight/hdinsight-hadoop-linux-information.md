@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 11/14/2019
+ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834093"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150049"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
 Azure HDInsight-kluster ger Apache Hadoop på en välbekant Linux-miljö, som körs i Azure-molnet. För de flesta saker bör det fungera exakt som vilken annan Hadoop-on-Linux-installation som helst. Det här dokumentet anropar vissa skillnader som du bör vara medveten om.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras i systemet.
 
@@ -63,7 +63,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och häm
     >
     > Om du vill använda alla funktioner i Ambari-webbgränssnittet använder du en SSH-tunnel för att dirigera webb trafik till klustrets huvud nod. Se [använda SSH-tunnlar för att komma åt Apache Ambari Web UI, ResourceManager, JobHistory, NameNode, Oozie och andra webb-UIS](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (rest)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Autentisera med hjälp av kluster administratörs användare och lösen ord.
@@ -88,8 +88,8 @@ Mer information finns i [portarna som används av Apache Hadoop Services i HDIns
 
 Hadoop-relaterade filer hittar du på klusternoderna på `/usr/hdp`. Den här katalogen innehåller följande under kataloger:
 
-* **2.6.5.3006-29**: Katalog namnet är den version av Hadoop-plattformen som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
-* **aktuell**: den här katalogen innehåller länkar till under kataloger i **2.6.5.3006-29-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
+* **2.6.5.3009 – 43**: Katalog namnet är den version av Hadoop-plattformen som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
+* **aktuell**: den här katalogen innehåller länkar till under kataloger i **2.6.5.3009-43-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
 
 Du hittar exempel data och JAR-filer på Hadoop Distributed File System på `/example` och `/HdiSamples`.
 
@@ -105,7 +105,7 @@ När du använder HDInsight lagras datafilerna på ett skalbart och flexibelt s�
 
 Mer information finns i [förstå blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Följande kommando listar till exempel filer i mappen `/example/data` oavsett om de lagras på Azure Storage eller Data Lake Storage:
+När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Följande kommando visar till exempel filer i mappen `/example/data` oavsett om de lagras på Azure Storage eller Data Lake Storage:
 
     hdfs dfs -ls /example/data
 
@@ -203,7 +203,7 @@ Om du använder __Azure Data Lake Storage__, se följande länkar för hur du ka
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
-* [Data Lake verktyg för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
+* [Data Lake Tools för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
@@ -249,7 +249,7 @@ För detaljerad information om skalning av HDInsight-klustret, se:
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hur gör jag för att installera nyans (eller en annan Hadoop-komponent)?
 
-HDInsight är en hanterad tjänst. Om Azure identifierar ett problem med klustret kan det ta bort noden som Miss lyckas och skapa en nod för att ersätta den. Om du installerar saker manuellt i klustret, sparas de inte när den här åtgärden utförs. Använd i stället [HDInsight-skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md). En skript åtgärd kan användas för att göra följande ändringar:
+HDInsight är en hanterad tjänst. Om Azure identifierar ett problem med klustret kan det ta bort noden som Miss lyckas och skapa en nod för att ersätta den. Om du installerar saker manuellt i klustret är de inte kvar när den här åtgärden utförs. Använd i stället [HDInsight-skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md). En skript åtgärd kan användas för att göra följande ändringar:
 
 * Installera och konfigurera en tjänst eller webbplats.
 * Installera och konfigurera en komponent som kräver konfigurations ändringar på flera noder i klustret.
@@ -284,5 +284,4 @@ Om du vill använda en annan version av en komponent laddar du upp den version d
 
 * [Hantera HDInsight-kluster med hjälp av Apache Ambari REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Apache gris med HDInsight](hadoop/hdinsight-use-pig.md)
 * [Använda MapReduce-jobb med HDInsight](hadoop/hdinsight-use-mapreduce.md)

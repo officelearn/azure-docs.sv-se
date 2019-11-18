@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub och Event Grid | Microsoft Docs
 description: Använd Azure Event Grid för att utlösa processer baserat på åtgärder som inträffar i IoT Hub.
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.author: robinsh
+ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906772"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151306"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
@@ -31,13 +31,13 @@ Event Grid-integrering är tillgänglig för IoT-hubbar som finns i regionerna d
 
 IoT Hub publicerar följande händelse typer:
 
-| Händelse typ | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
-| Microsoft. devices. DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
-| Microsoft. devices. DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. |
-| Microsoft. devices. DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
+| Microsoft.Devices.DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
+| Microsoft.Devices.DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. |
+| Microsoft.Devices.DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
 | Microsoft. devices. DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. |
-| Microsoft. devices. DeviceTelemetry | Publicerad när ett meddelande om telemetri skickas till en IoT-hubb |
+| Microsoft.Devices.DeviceTelemetry | Publicerad när ett meddelande om telemetri skickas till en IoT-hubb |
 
 Använd antingen Azure Portal eller Azure CLI för att konfigurera vilka händelser som ska publiceras från varje IoT-hubb. För ett exempel kan du prova självstudien [skicka e-postaviseringar om Azure IoT Hub händelser med Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
@@ -176,13 +176,21 @@ devices/{deviceId}
 
 Event Grid kan också filtrera efter attribut för varje händelse, inklusive data innehållet. På så sätt kan du välja vilka händelser som levereras baserat innehåll i telemetri-meddelandet. Se [avancerad filtrering](../event-grid/event-filtering.md#advanced-filtering) för att visa exempel. För filtrering i meddelande texten för telemetri måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties). Båda dessa egenskaper är Skift läges känsliga.
 
-För icke-telemetri-händelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted, kan Event Grid filtrering användas när du skapar prenumerationen. För telemetri-händelser kan användare förutom filtreringen i Event Grid även filtrera på enhets-och meddelande egenskaper och brödtext via meddelande cirkulations frågan. Vi skapar en standard [väg](iot-hub-devguide-messages-d2c.md) i IoT Hub baserat på din event Grid-prenumeration på telemetri för enheter. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din [cirkulations fråga](iot-hub-devguide-routing-query-syntax.md). Observera att cirkulations frågan bara kan användas i meddelande texten om texten är JSON. Du måste också ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
+För icke-telemetri-händelser som DeviceConnected, DeviceDisconnected, DeviceCreated och DeviceDeleted, kan Event Grid filtrering användas när du skapar prenumerationen. För telemetri-händelser kan användare förutom filtreringen i Event Grid även filtrera på enhets-och meddelande egenskaper och brödtext via meddelande cirkulations frågan. 
+
+När du prenumererar på telemetri-händelser via Event Grid skapar IoT Hub en standard meddelande väg för att skicka data käll typen enhets meddelanden till Event Grid. Mer information om meddelanderoutning finns i [IoT Hub](iot-hub-devguide-messages-d2c.md)meddelanderoutning. Den här vägen visas i portalen under IoT Hub > meddelanderoutning. Endast en väg till Event Grid skapas oavsett hur många tex-prenumerationer som skapats för telemetri-händelser. Så om du behöver flera prenumerationer med olika filter kan du använda operatorn OR i dessa frågor på samma väg. Skapandet och borttagningen av vägen styrs genom prenumerationen av telemetri-händelser via Event Grid. Du kan inte skapa eller ta bort en väg för att Event Grid att använda IoT Hub meddelanderoutning.
+
+Om du vill filtrera meddelanden innan telemetridata skickas kan du uppdatera din [cirkulations fråga](iot-hub-devguide-routing-query-syntax.md). Observera att cirkulations frågan bara kan användas i meddelande texten om texten är JSON. Du måste också ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enhet ansluten och avkopplade enhets händelser
 
 Om du vill ta emot enhet anslutna och frånkopplade händelser måste du öppna D2C-länken eller C2D-länken för enheten. Om enheten använder MQTT-protokoll kommer IoT Hub att låta C2D-länken vara öppen. För AMQP kan du öppna länken C2D genom att anropa det [asynkrona API: et för mottagning](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
 
-D2C-länken är öppen om du skickar telemetri. Om enhets anslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, kommer vi inte att skicka varje enskilt anslutnings tillstånd, men kommer att publicera anslutnings status för vilken en ögonblicks bild tas varje minut. Om ett IoT Hubt avbrott kommer vi att publicera enhetens anslutnings tillstånd så snart som avbrottet är över. Om enheten kopplas från under det här avbrottet publiceras enheten frånkopplad av enheten inom 10 minuter.
+D2C-länken är öppen om du skickar telemetri. 
+
+Om enhets anslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, kommer vi inte att skicka varje enskilt anslutnings tillstånd, men kommer att publicera det *senaste* anslutnings läget, vilket är konsekvent. Om enheten till exempel har varit i anslutet tillstånd inlednings vis, kan du ansluta snärtningar för några sekunder och sedan tillbaka i anslutet tillstånd. Inga nya status händelser för enhets anslutning kommer att publiceras sedan det första anslutnings läget. 
+
+Om ett IoT Hubt avbrott kommer vi att publicera enhetens anslutnings tillstånd så snart som avbrottet är över. Om enheten kopplas från under det här avbrottet publiceras enheten frånkopplad av enheten inom 10 minuter.
 
 ## <a name="tips-for-consuming-events"></a>Tips för att konsumera händelser
 

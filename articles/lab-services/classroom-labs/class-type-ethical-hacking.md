@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330672"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133172"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurera ett labb för att lära dig etiska hackning-klassen 
 Den här artikeln visar hur du konfigurerar en klass som fokuserar på data utredning sida av etiska hackning. Testning av inträngning, en övning som används av den etiska hackning-communityn, inträffar när någon försöker få åtkomst till systemet eller nätverket för att Visa sårbarheter som en skadlig angripare kan utnyttja. 
 
-I en etisk hackning-klass kan studenter lära sig moderna tekniker för att försvara mot sårbarheter. Varje elev får en virtuell Windows Server-värd dator som har två kapslade virtuella datorer – en virtuell dator med **Metaspoiltable** -avbildning och en annan dator med [Kali Linux](https://www.kali.org/) -avbildning. Den virtuella Metasploitable-datorn används för att utnyttja och Kali virtuell dator ger till gång till de verktyg som behövs för att köra kriminal tekniska-uppgifter.
+I en etisk hackning-klass kan studenter lära sig moderna tekniker för att försvara mot sårbarheter. Varje elev får en virtuell Windows Server-värd dator som har två kapslade virtuella datorer – en virtuell dator med [Metasploitable3](https://github.com/rapid7/metasploitable3) -avbildning och en annan dator med [Kali Linux](https://www.kali.org/) -avbildning. Den virtuella Metasploitable-datorn används för att utnyttja och Kali virtuell dator ger till gång till de verktyg som behövs för att köra kriminal tekniska-uppgifter.
 
 Den här artikeln innehåller två huvud avsnitt. Det första avsnittet beskriver hur du skapar klass rummets labb. I det andra avsnittet beskrivs hur du skapar en mall med kapslad virtualisering aktive rad och de verktyg och bilder som behövs. I det här fallet en Metasploitable avbildning och en Kali Linux-avbildning på en dator som har Hyper-V aktiverat som värd för avbildningarna.
 
@@ -34,7 +34,7 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 
 | Storlek på virtuell dator | Bild |
 | -------------------- | ----- | 
-| Medium (kapslad virtualisering) | Windows Server 2019 Data Center |
+| Medium (kapslad virtualisering) | Windows Server 2019 Datacenter |
 
 ## <a name="template-machine"></a>Mall dator 
 
@@ -44,15 +44,17 @@ När du har skapat mallen startar du datorn och ansluter till den för att slutf
 2. Konfigurera [Kali](https://www.kali.org/) Linux-avbildningen. Kali är en Linux-distribution som innehåller verktyg för inträngande testning och säkerhets granskning.
 3. Konfigurera Metasploitable-avbildningen. I det här exemplet används [Metasploitable3](https://github.com/rapid7/metasploitable3) -avbildningen. Den här avbildningen skapas för att syftet ska kunna innehålla säkerhets risker.
 
+Ett skript som automatiserar de uppgifter som beskrivs ovan är tillgängligt i [etiska hackning-skript för labb tjänster](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking).
+
 ### <a name="prepare-template-machine-for-nested-virtualization"></a>Förbered mall för kapslad virtualisering
 Följ anvisningarna i [den här artikeln](how-to-enable-nested-virtualization-template-vm.md) för att förbereda din virtuella mall för en kapslad virtualisering. 
 
 ### <a name="set-up-a-nested-virtual-machine-with-kali-linux-image"></a>Konfigurera en kapslad virtuell dator med Kali Linux-avbildning
 Kali är en Linux-distribution som innehåller verktyg för inträngande testning och säkerhets granskning.
 
-1. Ladda ned bild från [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/).  
+1. Hämta bild från [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/).  
     1. Ladda ned **Kali Linux Hyper-V 64-biten** för Hyper-v.
-    1. Extrahera. 7z-filen.  Om du inte redan har 7 zip laddar du ned det från [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html). Kom ihåg platsen för den extraherade mappen eftersom du behöver den senare.
+    1. Extrahera. 7z-filen.  Om du inte redan har 7 zip kan du ladda ned det från [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html). Kom ihåg platsen för den extraherade mappen eftersom du behöver den senare.
 2. Öppna **Hyper-V Manager** från administrations verktyg.
 1. Välj **åtgärd**och välj sedan **Importera virtuell dator**. 
 1. På sidan **hitta mapp** i guiden **Importera virtuell dator** väljer du platsen för den extraherade mappen som innehåller Kali Linux-avbildningen.

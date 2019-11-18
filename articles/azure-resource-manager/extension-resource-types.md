@@ -1,23 +1,20 @@
 ---
-title: Resurs typer för Azure-tillägg
+title: Filnamnstillägg för resurstyper
 description: Visar en lista över Azures resurs typer som används för att utöka funktionerna i andra resurs typer.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 00e8efaaa81ec0ce189d8cfe8a78285ded445c68
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 16dcd4cccea4445b6839ac639094d18e29ed49a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901929"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147031"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Resurs typer som utökar funktioner i andra resurser
 
 En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. Resurs låsning är till exempel en tilläggs resurs. Du kan använda ett resurs lås på en annan resurs för att förhindra att den tas bort eller ändras. Det är inte klokt att skapa ett resurs lås av sig självt. En tilläggs resurs används alltid på en annan resurs.
 
-## <a name="extension-resource-types"></a>Resurs typer för tillägg
+## <a name="extension-resource-types"></a>Filnamnstillägg för resurstyper
 
 - Microsoft. Advisor/konfigurationer
 - Microsoft. Advisor/rekommendationer
@@ -110,7 +107,7 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. PolicyInsights/policyEvents
 - Microsoft. PolicyInsights/policyStates
 - Microsoft. PolicyInsights/policyTrackedResources
-- Microsoft. PolicyInsights/-reparationer
+- Microsoft.PolicyInsights/remediations
 - Microsoft. RecoveryServices/backupProtectedItems
 - Microsoft. ResourceHealth/availabilityStatuses
 - Microsoft. ResourceHealth/childAvailabilityStatuses

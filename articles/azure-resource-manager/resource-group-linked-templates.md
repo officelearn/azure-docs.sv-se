@@ -1,17 +1,14 @@
 ---
-title: Länka mallar för Azure-distribution | Microsoft Docs
+title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager-mall för att skapa en modulbaserad mall-lösning. Visar hur du skickar parametrar värden, anger du en parameterfil och dynamiskt skapade URL: er.'
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: tomfitz
-ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 985520963ba9fab1a7f71e1af76bba4390c751ad
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827337"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149704"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -90,7 +87,7 @@ Om du vill kapsla mallen inom den huvudsakliga mallen använder den **mall** ege
 > ],
 > ```
 >
-> Du kan inte använda `reference` funktionen i avsnittet utdata i en kapslad mall för en resurs som du har distribuerat i den kapslade mallen. Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
+> Du kan inte använda funktionen `reference` i avsnittet utdata i en kapslad mall för en resurs som du har distribuerat i den kapslade mallen. Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
 
 Den kapslade mallen kräver den [samma egenskaper](resource-group-authoring-templates.md) som en standardmall.
 

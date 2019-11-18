@@ -1,5 +1,5 @@
 ---
-title: VPN Gateway-inställningar för Azure-anslutningar mellan platser | Microsoft Docs
+title: 'Azure-VPN Gateway: konfigurations inställningar'
 description: Lär dig mer om VPN Gateway inställningar för virtuella Azure-nätverksgateway.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c72b85bc978191744c55afb73973caa6d3b45db6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495730"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150956"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurations inställningar för VPN Gateway
 
@@ -172,7 +172,7 @@ För ytterligare tekniska resurser och särskilda syntax krav för att använda 
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST-API](https://msdn.microsoft.com/library/jj154113) |[REST-API](/rest/api/network/virtualnetworkgateways) |
 | Stöds inte | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Nästa steg

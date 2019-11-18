@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: afa2dc950efe4c03b41afbd6090d9bf29ac5a798
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cac3ee99598f8bcb29bd15c60063159b51f71923
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499628"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125623"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) eller din favorit-IDE
@@ -183,4 +183,4 @@ När du är färdig med den här snabb starten tar du bort filen från fil syste
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägg till yttranden och träna med Java](../luis-get-started-java-add-utterance.md)
+> [Lägg till yttranden och träna med Java](../get-started-get-model-rest-apis.md)

@@ -1,23 +1,20 @@
 ---
-title: Metod tips för Azure Resource Manager mallar
+title: Metodtips för mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: tomfitz
-ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983833"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150311"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Metod tips för Azure Resource Manager mall
 
 Den här artikeln innehåller rekommendationer om hur du skapar en Resource Manager-mall. Dessa rekommendationer hjälper dig att undvika vanliga problem när du använder en mall för att distribuera en lösning.
 
-Rekommendationer om hur du styr dina Azure-prenumerationer finns [i Azure Enterprise Autogenerera: Handskriven prenumerations](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)styrning.
+Rekommendationer om hur du styr dina Azure-prenumerationer finns i [Azure Enterprise Autogenerera: preskripte-styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Rekommendationer om hur du skapar mallar som fungerar i alla moln miljöer i Azure finns i [utveckla Azure Resource Manager mallar för moln konsekvens](templates-cloud-consistency.md).
 
@@ -35,7 +32,7 @@ Du är också begränsad till:
 
 Du kan överskrida vissa begränsningar för mallar genom att använda en kapslad mall. Mer information finns i [använda länkade mallar när du distribuerar Azure-resurser](resource-group-linked-templates.md). Om du vill minska antalet parametrar, variabler eller utdata kan du kombinera flera värden i ett objekt. Mer information finns i [objekt som parametrar](resource-manager-objects-as-parameters.md).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Resursgrupp
 
 När du distribuerar resurser till en resurs grupp lagrar resurs gruppen metadata om resurserna. Metadata lagras i resurs gruppens plats.
 
@@ -96,7 +93,7 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
 
 * Använd inte en parameter för API-versionen för en resurs typ. Resurs egenskaper och värden kan variera efter versions nummer. IntelliSense i en kod redigerare kan inte fastställa rätt schema när API-versionen har angetts till en parameter. Hårdkoda i stället API-versionen i mallen.
 
-* Använd `allowedValues` sparsamhet. Använd bara det när du måste se till att vissa värden inte ingår i de tillåtna alternativen. Om du använder `allowedValues` för det kan du blockera giltiga distributioner genom att inte hålla din lista uppdaterad.
+* Använd `allowedValues` sparsamt. Använd bara det när du måste se till att vissa värden inte ingår i de tillåtna alternativen. Om du använder `allowedValues` för stort kan du blockera giltiga distributioner genom att inte hålla din lista uppdaterad.
 
 * När ett parameter namn i mallen matchar en parameter i PowerShell-distributions kommandot, löser Resource Manager denna namngivnings konflikt genom att lägga till postfix- **FromTemplate** till Template-parametern. Om du till exempel inkluderar en parameter med namnet **ResourceGroupName** i din mall, står den i konflikt med parametern **ResourceGroupName** i cmdleten [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Under distributionen uppmanas du att ange ett värde för **ResourceGroupNameFromTemplate**.
 
@@ -104,7 +101,7 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
 
 * Använd alltid parametrar för användar namn och lösen ord (eller hemligheter).
 
-* Använd `securestring` för alla lösen ord och hemligheter. Om du skickar känsliga data i ett JSON-objekt använder `secureObject` du typen. Det går inte att läsa mallparametrar med säker sträng eller säkra objekt typer efter resurs distributionen. 
+* Använd `securestring` för alla lösen ord och hemligheter. Om du skickar känsliga data i ett JSON-objekt använder du `secureObject` typen. Det går inte att läsa mallparametrar med säker sträng eller säkra objekt typer efter resurs distributionen. 
    
    ```json
    "parameters": {
@@ -117,7 +114,7 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
    }
    ```
 
-* Ange inte standardvärden för användar namn, lösen ord eller något värde som kräver `secureString` en typ.
+* Ange inte standardvärden för användar namn, lösen ord eller något värde som kräver en `secureString` typ.
 
 * Ange inte standardvärden för egenskaper som ökar programmets angrepps yta.
 
@@ -137,7 +134,7 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
    },
    ```
 
-* Ange `allowedValues` inte för parametern location. De platser som du anger kanske inte är tillgängliga i alla moln.
+* Ange inte `allowedValues` för plats parametern. De platser som du anger kanske inte är tillgängliga i alla moln.
 
 * Använd värdet för parametern location för resurser som troligen är på samma plats. Den här metoden minimerar antalet gånger som användarna uppmanas att ange plats information.
 
@@ -165,9 +162,9 @@ Följande information kan vara till hjälp när du arbetar med [variabler](templ
 
 ## <a name="resource-dependencies"></a>Resursberoenden
 
-När du bestämmer [](resource-group-define-dependencies.md) vilka beroenden som ska anges använder du följande rikt linjer:
+När du bestämmer vilka [beroenden](resource-group-define-dependencies.md) som ska anges använder du följande rikt linjer:
 
-* Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett `dependsOn` explicit element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
+* Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett explicit `dependsOn`-element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
 
 * Ange en underordnad resurs som beroende av dess överordnade resurs.
 
@@ -280,7 +277,7 @@ Följande information kan vara till hjälp när du arbetar med [resurser](resour
    > 
    > 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Utdata
 
 Om du använder en mall för att skapa offentliga IP-adresser inkluderar du [avsnittet utdata](template-outputs.md) som returnerar information om IP-adressen och det fullständigt kvalificerade domän namnet (FQDN). Du kan använda utdatavärden för att enkelt hämta information om offentliga IP-adresser och FQDN efter distributionen.
 

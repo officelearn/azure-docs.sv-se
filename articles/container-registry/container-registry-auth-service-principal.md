@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 853b9bdb771fb08185670e13ec85a45028f9a145
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681835"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150139"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry autentisering med tjänstens huvud namn
 
@@ -33,7 +33,7 @@ Du kan till exempel konfigurera ditt webb program så att det använder ett huvu
 
 ## <a name="when-to-use-a-service-principal"></a>När du ska använda ett huvud namn för tjänsten
 
-Du bör använda ett huvud namn för tjänsten för att ge register åtkomst i **konsolbaserade scenarier**. Det vill säga alla program, tjänster eller skript som måste push-överföra eller hämta behållar avbildningar på ett automatiserat eller på annat sätt obevakat sätt. Till exempel:
+Du bör använda ett huvud namn för tjänsten för att ge register åtkomst i **konsolbaserade scenarier**. Det vill säga alla program, tjänster eller skript som måste push-överföra eller hämta behållar avbildningar på ett automatiserat eller på annat sätt obevakat sätt. Exempel:
 
   * *Hämta*: Distribuera behållare från ett register till Orchestration-system, inklusive KUBERNETES, DC/OS och Docker Swarm. Du kan också hämta från behållar register till relaterade Azure-tjänster som [Azure Kubernetes service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)och andra.
 
@@ -113,4 +113,4 @@ CLI använder den token som skapades när du körde `az login` för att autentis
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810173"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151432"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda
 
@@ -66,6 +66,17 @@ En praktisk översikt över hur du använder Intelligent Insights med Azure SQL-
 
 Intelligent Insights Skins vid identifiering och fel sökning SQL Database prestanda problem. För att kunna använda Intelligent Insights för att felsöka prestanda problem med SQL Database och hanterade instans databaser, se [felsök Azure SQL Database prestanda problem med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
+## <a name="intelligent-insights-options"></a>Intelligent Insights alternativ
+
+Intelligent Insights alternativ som är tillgängliga i Azure SQL Database:
+
+| Intelligent Insights alternativ | Stöd för enkel databas och poolad databas | Stöd för instans databas |
+| :----------------------------- | ----- | ----- |
+| **Konfigurera intelligent Insights** -konfigurera intelligent Insights analys för dina databaser. | Ja | Ja | 
+| **Strömma insikter till Azure SQL-analys** – strömma insikter till Azure SQL-analys övervaknings lösning för Azure SQL Database. | Ja | Ja | 
+| **Strömma insikter till Event Hub** – Stream Insights för att Event Hubs för ytterligare anpassade integreringar. | Ja | Ja | 
+| **Strömma insikter till Azure Storage** strömmarnas insikter för att Azure Storage för ytterligare analys och långsiktig arkivering. | Ja | Ja |
+
 ## <a name="configure-intelligent-insights"></a>Konfigurera Intelligent Insights
 
 Utdata från Intelligent Insights är en diagnostisk logg för prestanda. Den här loggen kan användas på flera sätt – genom att strömma den till Azure SQL-analys, Azure Event Hubs och Azure Storage eller en produkt från tredje part.
@@ -92,7 +103,7 @@ Om du vill använda Intelligent Insights med Azure SQL-analys konfigurerar du In
 
 I följande exempel visas en Intelligent Insights som visas via Azure SQL-analys:
 
-![Intelligent Insights rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
+![Intelligent Insights-rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 ### <a name="set-up-with-event-hubs"></a>Konfigurera med Event Hubs
 
@@ -112,7 +123,7 @@ Om du vill använda Intelligent Insights med verktyg från tredje part, eller om
 
 Mått som används för identifierings modeller som genererar Intelligent Insights baseras på övervakning:
 
-- Frågans varaktighet
+- Frågevaraktighet
 - Timeout-begäranden
 - Lång vänte tid
 - Misslyckade förfrågningar
@@ -127,7 +138,7 @@ Alla mät värden beaktas tillsammans i olika relationer via en vetenskapligt h�
 - En rotor Saks analys av problemet upptäcktes.
 - Rekommendationer för hur du kan förbättra prestandan hos den övervakade SQL-databasen, där det är möjligt.
 
-## <a name="query-duration"></a>Frågans varaktighet
+## <a name="query-duration"></a>Frågevaraktighet
 
 Modellen för frågans varaktighets försämring analyserar enskilda frågor och upptäcker ökningen under den tid det tar att kompilera och köra en fråga jämfört med prestanda bas linjen.
 

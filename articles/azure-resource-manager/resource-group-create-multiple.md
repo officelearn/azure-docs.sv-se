@@ -1,22 +1,18 @@
 ---
-title: Distribuera flera instanser av Azure-resurser | Microsoft Docs
+title: Distribuera flera instanser av resurser
 description: Använd kopierings åtgärd och matriser i en Azure Resource Manager-mall för att iterera flera gånger när du distribuerar resurser.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3ee4b47dd6cb9043a4100d114c483d1feadbde38
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675090"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150800"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resurs, egenskap eller variabel iteration i Azure Resource Manager mallar
 
-Den här artikeln visar hur du skapar fler än en instans av en resurs, variabel eller egenskap i din Azure Resource Manager-mall. Om du vill skapa flera instanser lägger du till objektet `copy` i mallen.
+Den här artikeln visar hur du skapar fler än en instans av en resurs, variabel eller egenskap i din Azure Resource Manager-mall. Om du vill skapa flera instanser lägger du till `copy`-objektet i mallen.
 
 När det används med en resurs, har objektet Copy följande format:
 
@@ -180,7 +176,7 @@ Information om hur du använder kopiera med kapslade mallar finns i [använda ko
 
 ## <a name="property-iteration"></a>Egenskaps upprepning
 
-Om du vill skapa mer än ett värde för en egenskap i en resurs lägger du till en `copy`-matris i egenskaper-elementet. Den här matrisen innehåller objekt, och varje objekt har följande egenskaper:
+Om du vill skapa fler än ett värde för en egenskap för en resurs lägger du till en `copy` matris i egenskaperna Properties. Den här matrisen innehåller objekt, och varje objekt har följande egenskaper:
 
 * Namn – namnet på egenskapen för att skapa flera värden för
 * Count – antalet värden som ska skapas.
@@ -209,7 +205,7 @@ I följande exempel visas hur du tillämpar `copy` på data disks-egenskapen på
 
 Observera att när du använder `copyIndex` inuti en egenskap iteration måste du ange namnet på iterationen. Du behöver inte ange namnet när det används med resurs upprepning.
 
-Resource Manager expanderar `copy`-matrisen under distributionen. Namnet på matrisen blir namnet på egenskapen. De angivna värdena blir objekt egenskaperna. Den distribuerade mallen blir:
+Resource Manager expanderar `copy` matris under distributionen. Namnet på matrisen blir namnet på egenskapen. De angivna värdena blir objekt egenskaperna. Den distribuerade mallen blir:
 
 ```json
 {
@@ -302,7 +298,7 @@ Du kan använda en iteration av resurs och egenskap tillsammans. Referera till e
 
 ## <a name="variable-iteration"></a>Variabel iteration
 
-Om du vill skapa flera instanser av en variabel använder du egenskapen `copy` i avsnittet Variables. Du skapar en matris med element som skapats från värdet i egenskapen `input`. Du kan använda egenskapen `copy` i en variabel eller på den översta nivån i avsnittet Variables. När du använder `copyIndex` inuti en variabel iteration måste du ange namnet på iterationen.
+Om du vill skapa flera instanser av en variabel använder du egenskapen `copy` i avsnittet Variables. Du skapar en matris med element som skapats från värdet i egenskapen `input`. Du kan använda egenskapen `copy` i en variabel eller på den översta nivån i avsnittet variabler. När du använder `copyIndex` inuti en variabel iteration måste du ange namnet på iterationen.
 
 Ett enkelt exempel på hur du skapar en matris med sträng värden finns i [Kopiera array-mall](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 
@@ -426,7 +422,7 @@ Och returnerar variabeln med namnet **toppnivå sträng mat ris** :
 
 ## <a name="depend-on-resources-in-a-loop"></a>Är beroende av resurser i en slinga
 
-Du anger att en resurs distribueras efter en annan resurs med hjälp av elementet `dependsOn`. Om du vill distribuera en resurs som är beroende av resurs samlingen i en slinga, anger du namnet på kopierings slingan i dependsOn-elementet. I följande exempel visas hur du distribuerar tre lagrings konton innan du distribuerar den virtuella datorn. Den fullständiga definitionen av virtuell dator visas inte. Observera att kopierings elementet har ett namn angivet till `storagecopy` och dependsOn-elementet för Virtual Machines också är inställt på `storagecopy`.
+Du anger att en resurs distribueras efter en annan resurs med hjälp av `dependsOn`-elementet. Om du vill distribuera en resurs som är beroende av resurs samlingen i en slinga, anger du namnet på kopierings slingan i dependsOn-elementet. I följande exempel visas hur du distribuerar tre lagrings konton innan du distribuerar den virtuella datorn. Den fullständiga definitionen av virtuell dator visas inte. Observera att kopierings elementet har namnet inställt på `storagecopy` och dependsOn-elementet för Virtual Machines också är inställt på `storagecopy`.
 
 ```json
 {
@@ -486,7 +482,7 @@ Anta till exempel att du vanligt vis definierar en data uppsättning som en unde
   ]
 ```
 
-Om du vill skapa mer än en data uppsättning flyttar du den utanför data fabriken. Data uppsättningen måste vara på samma nivå som data fabriken, men den är fortfarande en underordnad resurs till data fabriken. Du bevarar relationen mellan data uppsättningen och data fabriken genom egenskaperna typ och namn. Eftersom typen inte längre kan härledas från dess position i mallen måste du ange den fullständigt kvalificerade typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Om du vill skapa mer än en data uppsättning flyttar du den utanför data fabriken. Data uppsättningen måste vara på samma nivå som data fabriken, men den är fortfarande en underordnad resurs till data fabriken. Du bevarar relationen mellan data uppsättningen och data fabriken genom egenskaperna typ och namn. Eftersom typen inte längre kan härledas från positionen i mallen måste du ange den fullständigt kvalificerade typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Om du vill upprätta en överordnad/underordnad relation med en instans av data fabriken anger du ett namn för den data uppsättning som innehåller namnet på den överordnade resursen. Använd formatet: `{parent-resource-name}/{child-resource-name}`.
 

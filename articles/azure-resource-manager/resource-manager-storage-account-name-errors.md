@@ -1,32 +1,22 @@
 ---
-title: Azure storage-konto namngivningsfel | Microsoft Docs
-description: Beskriver de fel som kan uppstå när du anger namnet på ett lagringskonto.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Namn fel för lagrings konto
+description: Beskriver de fel som kan uppstå när du anger ett lagrings konto namn.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.author: tomfitz
-ms.openlocfilehash: c3d4d764b1076c8705cfa64d6c0b38e3b8c1a801
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af75470ebab61a1eaf7afd0bf946564c5300611
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716386"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149420"
 ---
-# <a name="resolve-errors-for-storage-account-names"></a>Åtgärda fel för lagringskontonamn
+# <a name="resolve-errors-for-storage-account-names"></a>Lös fel för lagrings konto namn
 
-Den här artikeln beskriver namngivning fel som kan uppstå när du distribuerar ett lagringskonto.
+I den här artikeln beskrivs namngivnings fel som kan uppstå när du distribuerar ett lagrings konto.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-Om namnet på ditt lagringskonto innehåller otillåtna tecken, får du ett felmeddelande som:
+Om ditt lagrings konto namn innehåller otillåtna tecken får du ett fel meddelande som:
 
 ```
 Code=AccountNameInvalid
@@ -34,29 +24,29 @@ Message=S!torageckrexph7isnoc is not a valid storage account name. Storage accou
 between 3 and 24 characters in length and use numbers and lower-case letters only.
 ```
 
-Du måste ange ett namn för den resurs som är unikt i Azure för storage-konton. Om du inte anger ett unikt namn, visas ett fel som:
+För lagrings konton måste du ange ett namn för den resurs som är unik i Azure. Om du inte anger ett unikt namn visas ett felmeddelande likt följande:
 
 ```
 Code=StorageAccountAlreadyTaken
 Message=The storage account named mystorage is already taken.
 ```
 
-Om du distribuerar ett lagringskonto med samma namn som ett befintligt lagringskonto i din prenumeration, men ange en annan plats, får du ett felmeddelande om att lagringskontot finns redan i en annan plats. Antingen ta bort det befintliga lagringskontot eller ange samma plats som det befintliga lagringskontot.
+Om du distribuerar ett lagrings konto med samma namn som ett befintligt lagrings konto i din prenumeration, men anger en annan plats, får du ett fel meddelande som anger att lagrings kontot redan finns på en annan plats. Ta antingen bort det befintliga lagrings kontot eller ange samma plats som det befintliga lagrings kontot.
 
 ## <a name="cause"></a>Orsak
 
-Lagringskontonamn måste vara mellan 3 och 24 tecken och siffror och gemener. Namnet måste vara unikt.
+Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får inte innehålla siffror och gemener. Namnet måste vara unikt.
 
 ## <a name="solution"></a>Lösning
 
-Kontrollera att namnet är unikt. Du kan skapa ett unikt namn genom att sammanfoga din namngivningskonvention med resultatet från den [uniqueString](resource-group-template-functions-string.md#uniquestring) funktion.
+Kontrol lera att lagrings kontots namn är unikt. Du kan skapa ett unikt namn genom att kombinera din namn konvention med resultatet av funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring) .
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
 
-Kontrollera att namnet på ditt lagringskonto inte överstiger 24 tecken. Den [uniqueString](resource-group-template-functions-string.md#uniquestring) funktionen returnerar 13 tecken. Om du sammanfoga ett prefix eller postfixet till den **uniqueString** resultera, ange ett värde som är 11 tecken eller mindre.
+Kontrol lera att namnet på ditt lagrings konto inte överstiger 24 tecken. Funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring) returnerar 13 tecken. Om du sammanfogar ett prefix eller postfix till **uniqueString** -resultatet anger du ett värde som är 11 tecken eller mindre.
 
 ```json
 "parameters": {
@@ -71,4 +61,4 @@ Kontrollera att namnet på ditt lagringskonto inte överstiger 24 tecken. Den [u
 }
 ```
 
-Kontrollera att namnet på ditt lagringskonto inte innehåller några versaler eller specialtecken.
+Kontrol lera att namnet på ditt lagrings konto inte innehåller versaler eller specialtecken.

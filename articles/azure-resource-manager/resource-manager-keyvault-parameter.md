@@ -1,17 +1,14 @@
 ---
-title: Key Vault hemlighet med Azure Resource Manager-mall | Microsoft Docs
+title: Key Vault hemlighet med mall
 description: Visar hur du skickar en hemlighet från ett nyckel valv som en parameter under distributionen.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 489b09d2523393ae67668ed13c651c9b7b0217b4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 37d21e295eca2b40e91f92d65d6e927ee6857d0e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998896"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149485"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använd Azure Key Vault för att skicka ett säkert parameter värde under distributionen
 
@@ -19,7 +16,7 @@ I stället för att ange ett säkert värde (till exempel ett lösen ord) direkt
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Distribuera nyckel valv och hemligheter
 
-Om du vill få åtkomst till ett nyckel valv under `enabledForTemplateDeployment` mal Lav distributionen anger du `true`nyckel valvet till.
+Om du vill få åtkomst till ett nyckel valv under mallen, ställer du in `enabledForTemplateDeployment` på nyckel valvet för att `true`.
 
 Följande exempel på Azure CLI och Azure PowerShell visar hur du skapar nyckel valvet och lägger till en hemlighet.
 
@@ -124,7 +121,7 @@ Med den här metoden refererar du till nyckel valvet i parameter filen, inte mal
 
 ![Statiskt ID-diagram för Key Vault-integrering i Resource Manager](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Självstudier: Integrera Azure Key Vault i Resource Manager malldistribution](./resource-manager-tutorial-use-key-vault.md) använder den här metoden.
+[Självstudie: integrera Azure Key Vault i Resource Manager malldistribution](./resource-manager-tutorial-use-key-vault.md) använder den här metoden.
 
 Följande mall distribuerar en SQL-Server som innehåller ett administratörs lösen ord. Lösen ords parametern är inställd på en säker sträng. Men mallen anger inte var värdet kommer från.
 
@@ -189,7 +186,7 @@ I följande parameter fil måste nyckel valvets hemlighet redan finnas och du an
 }
 ```
 
-Om du behöver använda en annan version av hemligheten än den aktuella versionen använder `secretVersion` du egenskapen.
+Om du behöver använda en annan version av hemligheten än den aktuella versionen använder du egenskapen `secretVersion`.
 
 ```json
 "secretName": "ExamplePassword",

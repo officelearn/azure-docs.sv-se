@@ -1,5 +1,6 @@
 ---
-title: 'Skapa och installera P2S VPN-klientens konfigurationsfiler för Azure-certifikatautentisering: Azure'
+title: 'Skapa & installera P2S VPN-klient konfigurationsfiler: certifikatautentisering'
+titleSuffix: Azure VPN Gateway
 description: Skapa och installera Windows, Linux, Linux (strongSwan) och Mac OS VPN-klientens konfigurationsfiler för P2S-certifikatautentisering.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063122"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143793"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -27,7 +28,7 @@ Klientens konfigurationsfiler är speciella för VPN-konfigurationen för VNet. 
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="generate"></a>Generera VPN-klientens konfigurationsfiler
+## <a name="generate"></a>Generera konfigurationsfiler för VPN-klienten
 
 Innan du börjar ska du kontrol lera att alla anslutna användare har ett giltigt certifikat installerat på användarens enhet. Mer information om hur du installerar ett klient certifikat finns i [Installera ett klient certifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
@@ -56,7 +57,7 @@ Du kan generera konfigurationsfiler för klienter med hjälp av PowerShell, elle
    ```
 2. Kopiera URL: en till webbläsaren för att ladda ned ZIP-filen och packa sedan upp filen för att visa mapparna.
 
-## <a name="installwin"></a>Aktivitets
+## <a name="installwin"></a>Windows
 
 Du kan använda samma konfigurations paket för VPN-klienten på varje Windows-klientdator, förutsatt att versionen överensstämmer med arkitekturen för-klienten. En lista över klient operativ system som stöds finns i avsnittet punkt-till-plats i [vanliga frågor och svar om VPN gateway](vpn-gateway-vpn-faq.md#P2S).
 
@@ -94,7 +95,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 
    **Gränssnittets** värde är "VPN" och värdet för **VPN-typ** är IKEv2. Ange ett namn för profilen i fältet **tjänst namn** och klicka sedan på **skapa** för att skapa anslutnings profilen för VPN-klienten.
 
-   ![Nätverks](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![nätverks](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. I den **allmänna** mappen, i filen **VpnSettings. XML** , kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -106,7 +107,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
    ![certifikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **Välj en identitet** visar en lista över certifikat som du kan välja bland. Välj rätt certifikat och klicka sedan på **Fortsätt**.
 
-   ![identitet](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. I fältet **lokalt ID** anger du namnet på certifikatet (från steg 6). I det här exemplet är det "ikev2Client.com". Klicka sedan på knappen **tillämpa** för att spara ändringarna.
 
    ![använt](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)

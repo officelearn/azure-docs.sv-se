@@ -10,24 +10,24 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 6590b6c3ecf1efc43822a4fefab79cdc7f624dcd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d2f4dbcaf593cb52cb4b101e0c087179d3fd48b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496988"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123564"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuera en modell till Azure Container Instances
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Container Instances (ACI). Använd Azure Container Instances om något av följande villkor är uppfyllt:
 
-- Du måste snabbt distribuera och validera din modell. Du behöver inte skapa ACI-behållare i förväg. De skapas som en del av distributions processen.
+- Du behöver att snabbt distribuera och verifiera din modell. Du behöver inte skapa ACI-behållare i förväg. De skapas som en del av distributions processen.
 - Du testar en modell som är under utveckling. 
 
 Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och regions tillgänglighet för Azure Container instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) artikel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -63,8 +63,8 @@ print(service.state)
 
 Mer information om klasser, metoder och parametrar som används i det här exemplet finns i följande referens dokument:
 
-* [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-)
-* [Modell. Deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)
+* [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-)
+* [Modell. Deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [WebService. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>Använda CLI
@@ -86,7 +86,7 @@ Se [Distribuera modeller med vs Code](how-to-vscode-tools.md#deploy-and-manage-m
 > [!IMPORTANT]
 > Du behöver inte skapa en ACI-behållare för att testa i förväg. ACI-behållare skapas vid behov.
 
-## <a name="update-the-web-service"></a>Uppdatera webb tjänsten
+## <a name="update-the-web-service"></a>Uppdatera webbtjänsten
 
 [!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
@@ -94,7 +94,7 @@ Se [Distribuera modeller med vs Code](how-to-vscode-tools.md#deploy-and-manage-m
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
-* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
+* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

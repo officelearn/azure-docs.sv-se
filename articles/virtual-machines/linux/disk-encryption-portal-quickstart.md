@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479603"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151249"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Snabb start: skapa och kryptera en virtuell dator med Azure Portal
 
@@ -23,36 +23,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
-
-1. Välj alternativet **Skapa en resurs** uppe till vänster i Azure Portal
-1. Skriv **Key Vault** i sökrutan.
-1. I listan resultat väljer du **Key Vault**.
-1. I avsnittet Key Vault väljer du **skapa**.
-1. På skärmen **skapa nyckel valv** väljer du ett unikt namn för ditt nya nyckel valv.
-
-    > [!Important]
-    > Varje Key Vault måste ha ett unikt namn. I följande exempel skapas en Key Vault med namnet *myADEKV*, men du måste namnge något annat.
-
-1. Välj en **prenumeration**.
-1.  Under **resurs grupp**väljer du **Skapa ny**. I popup-fönstret skriver du *myResourceGroup* för namnet på resursgruppen och väljer sedan **OK**. 
-
-    ![Skärmen skapa resurs grupp](./media/disk-encryption/portal-qs-keyvaultcreation.png)
-
-1. I list rutan **plats** väljer du **östra USA**.
-1. Lämna standardvärdena för de andra alternativen.
-1. Välj "åtkomst principer", som kommer att ta dig till en ny skärm.
-1. Markera kryss rutan bredvid "Aktivera åtkomst till Azure Disk Encryption för volym kryptering.
-
-    ![Skärmen skapa ResourceGroup](./media/disk-encryption/portal-qs-keyvault-enable-encryption.png)
-
-1. Klicka på granska + skapa längst ned på skärmen åtkomst principer.
-1. När du har granskat klickar du på "skapa".
-
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
-
 1. På sidan ny under populär väljer du **Ubuntu Server 18,04 LTS**.
 1. På fliken **grundläggande** , under **projekt information**, se till att rätt prenumeration är markerad.
 1. För **resurs grupp**väljer du den resurs grupp som du skapade när du gjorde ditt nyckel valv ovan (t. ex. **myResourceGroup**).
@@ -73,15 +46,24 @@ Det tar några minuter för den virtuella datorn att distribueras. När distribu
 1. På den vänstra sid panelen väljer du **diskar**.
 1. På skärmen diskar väljer du **kryptering**. 
 
-    ![Val av diskar och kryptering](./media/disk-encryption/portal-qs-disks-to-encryption.png)
+    ![Val av diskar och kryptering](../media/disk-encryption/portal-qs-disks-to-encryption.png)
 
 1. Välj **operativ system och data diskar**under **diskar som ska krypteras**på sidan kryptering.
-1. Klicka på Välj ett nyckel valv och nyckel för kryptering under **krypterings inställningar**.
-1. I den högra sid panelen väljer du namnet på nyckel valvet som du skapade tidigare som värde för **Key Vault**och klickar på **Välj**.
+1. Under **krypterings inställningar**väljer du **Välj ett nyckel valv och nyckel för kryptering**.
+1. På skärmen **Välj nyckel från Azure Key Vault** väljer du **Skapa ny**.
 
-    ![Val av diskar och kryptering](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
-1. Klicka på "Spara" överst på krypterings skärmen. En popup varnar dig om att den virtuella datorn startas om. Klicka på **Ja**.
+    ![Val av diskar och kryptering](../media/disk-encryption/portal-qs-keyvault-create.png)
 
+1. På skärmen **skapa nyckel valv** kontrollerar du att resurs gruppen är samma som den som du använde för att skapa den virtuella datorn.
+1. Ge ditt nyckel valv ett namn.  Varje nyckel valv i Azure måste ha ett unikt namn.
+1. På fliken **åtkomst principer** markerar du rutan **Azure Disk Encryption för volym kryptering** .
+
+    ![Val av diskar och kryptering](../media/disk-encryption/portal-qs-keyvault-enable.png)
+
+1. Välj **Granska + skapa**.  
+1. När nyckel valvet har klarat valideringen väljer du **skapa**. Du kommer tillbaka till skärmen **Välj nyckel från Azure Key Vault** .
+1. Lämna fältet **nyckel** tomt och välj **Välj**.
+1. Klicka på **Spara**överst på krypterings skärmen. En popup varnar dig om att den virtuella datorn startas om. Klicka på **Ja**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

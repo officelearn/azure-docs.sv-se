@@ -1,25 +1,18 @@
 ---
-title: Översikt över SSL-princip för Azure Application Gateway | Microsoft Docs
-description: Lär dig mer om hur Azure Application Gateway låter dig konfigurera SSL-princip
+title: Översikt över SSL-princip för Azure Application Gateway
+description: Lär dig hur du konfigurerar SSL-princip för Azure Application Gateway och minskar belastningen på kryptering och dekryptering från en Server grupp på Server sidan.
 services: application gateway
-documentationcenter: na
 author: amsriva
-manager: ''
-editor: ''
-tags: azure resource manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure services
-ms.date: 08/03/2017
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1710635f145136e564a2bad48d539f242c9bc228
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6b3d52f1f6bd0390ab6ccafa80b2979cb0e498fd
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359907"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130403"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Översikt över Application Gateway SSL-policy
 
@@ -33,7 +26,7 @@ Application Gateway har tre fördefinierade säkerhets principer. Du kan konfigu
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|Egenskap  |Value  |
+|Egenskap  |Värde  |
 |---|---|
 |Namn     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
@@ -42,7 +35,7 @@ Application Gateway har tre fördefinierade säkerhets principer. Du kan konfigu
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|Egenskap  |Value  |
+|Egenskap  |Värde  |
 |   ---      |  ---       |
 |Namn     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
@@ -51,7 +44,7 @@ Application Gateway har tre fördefinierade säkerhets principer. Du kan konfigu
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|Egenskap  |Value  |
+|Egenskap  |Värde  |
 |---|---|
 |Namn     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
@@ -66,7 +59,7 @@ Om en fördefinierad SSL-princip måste konfigureras för dina krav måste du de
 
 * SSL 2,0 och 3,0 är inaktiverat som standard för alla programgatewayer. Dessa protokoll versioner kan inte konfigureras.
 * En anpassad SSL-princip ger dig möjlighet att välja något av följande tre protokoll som lägsta SSL-protokoll version för din Gateway: TLSv1_0, TLSv1_1 och TLSv1_2.
-* Om ingen SSL-princip har definierats är alla tre protokoll (TLSv1_0, TLSv1_1 och TLSv1_2) aktiverade.
+* Om ingen SSL-princip har definierats är alla tre protokollen (TLSv1_0, TLSv1_1 och TLSv1_2) aktiverade.
 
 ### <a name="cipher-suites"></a>Chiffersviter
 

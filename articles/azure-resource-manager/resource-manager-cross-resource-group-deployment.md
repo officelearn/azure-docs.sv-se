@@ -1,17 +1,14 @@
 ---
-title: Distribuera Azure-resurser kors prenumeration & resurs grupp
+title: Distribuera resurser mellan prenumerationer & resurs grupp
 description: Visar hur du riktar in mer än en Azure-prenumeration och resurs grupp under distributionen.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: c90096043f54eb8db5834fbe83ed1d6ae710d371
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 99c534e1c51dcdf32c2b3a3b779c01d71b8d0c24
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528323"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149551"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp
 

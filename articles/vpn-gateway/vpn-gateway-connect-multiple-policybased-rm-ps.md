@@ -1,5 +1,5 @@
 ---
-title: 'Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Azure VPN Gateway: ansluta gatewayer till flera lokala principbaserade VPN-enheter'
 description: Konfigurera en Azure Route-baserad VPN-gateway till flera principbaserade VPN-enheter med hjälp av Azure Resource Manager och PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495667"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146715"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
 
@@ -41,7 +41,7 @@ För närvarande stöder Azure båda lägena för VPN-gatewayer: routning-basera
 
 |                          | **Principbaserad VPN Gateway** | **Routningsbaserad VPN Gateway**       |**Routningsbaserad VPN Gateway**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **Azure Gateway-SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **Azure Gateway SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
 | **IKE-version**          | IKEv1                       | IKEv2                            | IKEv1 och IKEv2                                    |
 | **Bekräftat. S2S-anslutningar** | **1**                       | 10                               |Standard: 10<br> Andra SKU: er: 30                     |
 |                          |                             |                                  |                                                    |

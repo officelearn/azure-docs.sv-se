@@ -1,50 +1,47 @@
 ---
-title: Azure Resource Manager Template Functions-String | Microsoft Docs
+title: Template Functions-String
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med strängar.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: tomfitz
-ms.openlocfilehash: d5c95e964740978af0db8db233c65adb7eb074f0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: af972bac39890402cf75e83d10806e9a830c1d4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834330"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149604"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Sträng funktioner för Azure Resource Manager mallar
 
 Resource Manager innehåller följande funktioner för att arbeta med strängar:
 
-* [Base64](#base64)
+* [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [ingår](#contains)
+* [contains](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [saknas](#empty)
+* [empty](#empty)
 * [endsWith](#endswith)
-* [förstagångskörningen](#first)
-* [formatering](#format)
-* [LED](#guid)
+* [first](#first)
+* [format](#format)
+* [guid](#guid)
 * [indexOf](#indexof)
-* [pågå](#last)
+* [last](#last)
 * [lastIndexOf](#lastindexof)
-* [krävande](#length)
+* [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
-* [bytt](#replace)
-* [Ignorera](#skip)
+* [replace](#replace)
+* [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [nollängd](#string)
-* [under sträng](#substring)
-* [gå](#take)
+* [string](#string)
+* [substring](#substring)
+* [take](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [reducera](#trim)
+* [trim](#trim)
 * [uniqueString](#uniquestring)
 * [URI](#uri)
 * [uriComponent](#uricomponent)
@@ -63,7 +60,7 @@ Returnerar den base64-representation av Indatasträngen.
 |:--- |:--- |:--- |:--- |
 | inputString |Ja |sträng |Värdet som ska returneras som en Base64-representation. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng som innehåller base64-representation.
 
@@ -128,7 +125,7 @@ Konverterar en Base64-representation till ett JSON-objekt.
 |:--- |:--- |:--- |:--- |
 | base64Value |Ja |sträng |Den base64-representation som ska konverteras till ett JSON-objekt. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Ett JSON-objekt.
 
@@ -193,7 +190,7 @@ Konverterar en Base64-representation till en sträng.
 |:--- |:--- |:--- |:--- |
 | base64Value |Ja |sträng |Den base64-representation som ska konverteras till en sträng. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng med det konverterade base64-värdet.
 
@@ -259,7 +256,7 @@ Kombinerar flera sträng värden och returnerar den sammanfogade strängen, elle
 | arg1 |Ja |sträng eller matris |Det första värdet för sammanfogning. |
 | ytterligare argument |Nej |sträng |Ytterligare värden i sekventiell ordning för sammanfogning. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 En sträng eller matris med sammanfogade värden.
 
 ### <a name="examples"></a>Exempel
@@ -290,7 +287,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| concatOutput | Sträng | prefix – 5yj4yjf5mbg72 |
+| concatOutput | Sträng | prefix-5yj4yjf5mbg72 |
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visas hur du kombinerar två matriser.
 
@@ -333,7 +330,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | returrelaterade | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>ingår
+## <a name="contains"></a>innehåller
 
 `contains (container, itemToFind)`
 
@@ -346,7 +343,7 @@ Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyck
 | container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
 | itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 **Sant** om objektet hittas; annars **false**.
 
@@ -407,12 +404,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringTrue | Booleska | True |
-| stringFalse | Booleska | False |
-| objectTrue | Booleska | True |
-| objectFalse | Booleska | False |
-| arrayTrue | Booleska | True |
-| arrayFalse | Booleska | False |
+| stringTrue | Bool | True |
+| stringFalse | Bool | False |
+| objectTrue | Bool | True |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
 
@@ -426,7 +423,7 @@ Konverterar ett värde till en data-URI.
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Ja |sträng |Det värde som ska konverteras till en data-URI. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng formaterad som en data-URI.
 
@@ -466,7 +463,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | Sträng | data: text/plain, charset = utf8; base64, SGVsbG8 = |
+| dataUriOutput | Sträng | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Sträng | Hello World! |
 
 ## <a name="datauritostring"></a>dataUriToString
@@ -481,7 +478,7 @@ Konverterar ett data-URI-formaterat värde till en sträng.
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Ja |sträng |Data-URI-värdet som ska konverteras. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng som innehåller det konverterade värdet.
 
@@ -521,7 +518,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | Sträng | data: text/plain, charset = utf8; base64, SGVsbG8 = |
+| dataUriOutput | Sträng | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | Sträng | Hello World! |
 
 ## <a name="empty"></a>saknas
@@ -536,7 +533,7 @@ Anger om en matris, ett objekt eller en sträng är tom.
 |:--- |:--- |:--- |:--- |
 | itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Returnerar **Sant** om värdet är tomt. annars **false**.
 
@@ -585,11 +582,11 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayEmpty | Booleska | True |
-| objectEmpty | Booleska | True |
-| stringEmpty | Booleska | True |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
-## <a name="endswith"></a>EndsWith
+## <a name="endswith"></a>endsWith
 
 `endsWith(stringToSearch, stringToFind)`
 
@@ -602,7 +599,7 @@ Anger om en sträng slutar med ett värde. Jämförelsen är inte Skift läges k
 | stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
 | stringToFind |Ja |sträng |Det värde som ska hittas. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 **Sant** om det sista tecknet eller tecknen i strängen matchar värdet; annars **false**.
 
@@ -648,12 +645,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| startsTrue | Booleska | True |
-| startsCapTrue | Booleska | True |
-| startsFalse | Booleska | False |
-| endsTrue | Booleska | True |
-| endsCapTrue | Booleska | True |
-| endsFalse | Booleska | False |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 ## <a name="first"></a>förstagångskörningen
 
@@ -667,7 +664,7 @@ Returnerar det första tecken strängen eller det första elementet i matrisen.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng med det första tecken eller typen (sträng, heltal, matris eller objekt) för det första elementet i en matris.
 
@@ -707,7 +704,7 @@ Utdata från föregående exempel med standardvärdena är:
 | arrayOutput | Sträng | en |
 | stringOutput | Sträng | O |
 
-## <a name="format"></a>formatering
+## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -803,7 +800,7 @@ Unikt scope till distribution för en resurs grupp
 "[guid(resourceGroup().id, deployment().name)]"
 ```
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng som innehåller 36 tecken i formatet för en globalt unik identifierare.
 
@@ -848,7 +845,7 @@ Returnerar den första positionen för ett värde i en sträng. Jämförelsen ä
 | stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
 | stringToFind |Ja |sträng |Det värde som ska hittas. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Ett heltal som representerar positionen för det objekt som ska hittas. Värdet är noll-baserat. Om objektet inte hittas, returneras-1.
 
@@ -908,7 +905,7 @@ Returnerar det sista tecken strängen eller det sista elementet i matrisen.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng med det sista tecken eller typen (sträng, heltal, matris eller objekt) för det sista elementet i en matris.
 
@@ -946,7 +943,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | tre |
-| stringOutput | Sträng | ö |
+| stringOutput | Sträng | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -961,7 +958,7 @@ Returnerar den sista positionen för ett värde i en sträng. Jämförelsen är 
 | stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
 | stringToFind |Ja |sträng |Det värde som ska hittas. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Ett heltal som representerar den sista positionen för objektet som ska hittas. Värdet är noll-baserat. Om objektet inte hittas, returneras-1.
 
@@ -1009,7 +1006,7 @@ Utdata från föregående exempel med standardvärdena är:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
-## <a name="length"></a>krävande
+## <a name="length"></a>length
 
 `length(string)`
 
@@ -1021,7 +1018,7 @@ Returnerar antalet tecken i en sträng, element i en matris eller på rot nivå 
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En int. 
 
@@ -1103,7 +1100,7 @@ I en test miljö kan du behöva distribuera resurser flera gånger under en kort
 
 Var noga med att distribuera om en mall som förlitar sig på newGuid-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern utvärderas funktionen om. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, måste du skicka värdet i parametervärdet från den tidigare distributionen.
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng som innehåller 36 tecken i formatet för en globalt unik identifierare.
 
@@ -1198,7 +1195,7 @@ Returnerar en högerjusterad sträng genom att lägga till tecken till vänster 
 
 Om den ursprungliga strängen är längre än antalet tecken som ska padas läggs inga tecken till.
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng med minst antalet angivna tecken.
 
@@ -1246,7 +1243,7 @@ Returnerar en ny sträng med alla instanser av en sträng ersatt av en annan str
 | oldString |Ja |sträng |Strängen som ska tas bort från den ursprungliga strängen. |
 | newString |Ja |sträng |Strängen som ska läggas till i stället för den borttagna strängen. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng med de ersatta tecknen.
 
@@ -1298,7 +1295,7 @@ Returnerar en sträng med alla tecken efter det angivna antalet tecken, eller en
 | Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
 | numberToSkip |Ja |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En matris eller sträng.
 
@@ -1366,7 +1363,7 @@ Returnerar en matris med strängar som innehåller under strängarna i Indatastr
 | inputString |Ja |sträng |Strängen som ska delas. |
 | avgränsare |Ja |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng mat ris.
 
@@ -1425,7 +1422,7 @@ Anger om en sträng börjar med ett värde. Jämförelsen är inte Skift läges 
 | stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
 | stringToFind |Ja |sträng |Det värde som ska hittas. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 **Sant** om det första tecknet eller tecknen i strängen matchar värdet; annars **false**.
 
@@ -1471,12 +1468,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| startsTrue | Booleska | True |
-| startsCapTrue | Booleska | True |
-| startsFalse | Booleska | False |
-| endsTrue | Booleska | True |
-| endsCapTrue | Booleska | True |
-| endsFalse | Booleska | False |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 ## <a name="string"></a>sträng
 
@@ -1490,7 +1487,7 @@ Konverterar det angivna värdet till en sträng.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Ja | Alla |Värdet som ska konverteras till sträng. Alla typer av värden kan konverteras, inklusive objekt och matriser. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng med det konverterade värdet.
 
@@ -1546,10 +1543,10 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | objectOutput | Sträng | {"värdea": 10, "Värdeb": "exempel text"} |
-| arrayOutput | Sträng | ["a", "b", "c"] |
+| arrayOutput | Sträng | ["a","b","c"] |
 | intOutput | Sträng | 5 |
 
-## <a name="substring"></a>under sträng
+## <a name="substring"></a>substring
 
 `substring(stringToParse, startIndex, length)`
 
@@ -1560,16 +1557,16 @@ Returnerar en under sträng som börjar vid den angivna tecken positionen och so
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |sträng |Den ursprungliga sträng som under strängen extraheras från. |
-| Start |Nej |int |Den nollbaserade start tecken positionen för under strängen. |
-| krävande |Nej |int |Antalet tecken för under strängen. Måste referera till en plats inom strängen. Måste vara noll eller större. |
+| startIndex |Nej |int |Den nollbaserade start tecken positionen för under strängen. |
+| length |Nej |int |Antalet tecken för under strängen. Måste referera till en plats inom strängen. Måste vara noll eller större. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Under strängen. Eller en tom sträng om längden är noll.
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen Miss lyckas när del strängen sträcker sig utanför slutet av strängen eller när längden är mindre än noll. Följande exempel Miss lyckas med felet "index-och längd parametrarna måste referera till en plats inom strängen. Index parametern: 0, längd parameter: ' 11 ', längden på sträng parametern: ' 10 '.
+Funktionen Miss lyckas när del strängen sträcker sig utanför slutet av strängen eller när längden är mindre än noll. Följande exempel Miss lyckas med felet "index-och längd parametrarna måste referera till en plats inom strängen. Indexparametern: '0', Längdparametern: ‘11’, längden på strängparametern: '10'.".
 
 ```json
 "parameters": {
@@ -1610,7 +1607,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | substringOutput | Sträng | två |
 
-## <a name="take"></a>Gå
+## <a name="take"></a>take
 
 `take(originalValue, numberToTake)`
 
@@ -1623,7 +1620,7 @@ Returnerar en sträng med det angivna antalet tecken från början av strängen,
 | Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
 | numberToTake |Ja |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En matris eller sträng.
 
@@ -1676,7 +1673,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["One", "två"] |
-| stringOutput | Sträng | för |
+| stringOutput | Sträng | på |
 
 ## <a name="tolower"></a>toLower
 
@@ -1690,7 +1687,7 @@ Konverterar den angivna strängen till gemener.
 |:--- |:--- |:--- |:--- |
 | stringToChange |Ja |sträng |Värdet som ska konverteras till gemener. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Strängen konverterad till gemener.
 
@@ -1741,7 +1738,7 @@ Konverterar den angivna strängen till versaler.
 |:--- |:--- |:--- |:--- |
 | stringToChange |Ja |sträng |Värdet som ska konverteras till versaler. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Strängen konverterad till versaler.
 
@@ -1780,7 +1777,7 @@ Utdata från föregående exempel med standardvärdena är:
 | toLowerOutput | Sträng | Ett två tre |
 | toUpperOutput | Sträng | Ett två tre |
 
-## <a name="trim"></a>Reducera
+## <a name="trim"></a>reducera
 
 `trim (stringToTrim)`
 
@@ -1792,7 +1789,7 @@ Tar bort alla inledande och avslutande blank stegs tecken från den angivna str�
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Ja |sträng |Det värde som ska trimmas. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Strängen utan inledande och avslutande blank stegs tecken.
 
@@ -1878,7 +1875,7 @@ I följande exempel visas hur du skapar ett unikt namn för ett lagrings konto b
 
 Om du behöver skapa ett nytt unikt namn varje gången du distribuerar en mall och inte vill uppdatera resursen, kan du använda funktionen [utcNow](#utcnow) med uniqueString. Du kan använda den här metoden i en test miljö. Ett exempel finns i [utcNow](#utcnow).
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng som innehåller 13 tecken.
 
@@ -1935,7 +1932,7 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 ```
 För fullständig information löses de **baseUri** -och **relativeUri** -parametrarna som anges i [RFC 3986, avsnitt 5](https://tools.ietf.org/html/rfc3986#section-5).
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng som representerar den absoluta URI: n för bas-och relativa värden.
 
@@ -1996,7 +1993,7 @@ Kodar en URI.
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Ja |sträng |Det värde som ska kodas. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En sträng med det URI-kodade värdet.
 
@@ -2051,7 +2048,7 @@ Returnerar en sträng med ett URI-kodat värde.
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Ja |sträng |Det URI-kodade värdet som ska konverteras till en sträng. |
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 En avkodad sträng med URI-kodat värde.
 
@@ -2104,7 +2101,7 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| formatering |Nej |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Nej |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -2114,7 +2111,7 @@ Om du använder [alternativet för att distribuera om en tidigare lyckad distrib
 
 Var noga med att distribuera om en mall som förlitar sig på utcNow-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern utvärderas funktionen om. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, måste du skicka värdet i parametervärdet från den tidigare distributionen.
 
-### <a name="return-value"></a>Retur värde
+### <a name="return-value"></a>Returvärde
 
 Aktuellt UTC-slutdatum värde.
 
@@ -2204,8 +2201,8 @@ I nästa exempel visas hur du använder ett värde från funktionen när du ange
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](resource-group-authoring-templates.md).
-* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
-* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](resource-group-template-deploy.md).
+* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+* Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
+* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
+* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
 

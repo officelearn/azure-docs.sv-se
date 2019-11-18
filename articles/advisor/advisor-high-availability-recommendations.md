@@ -1,114 +1,114 @@
 ---
 title: Förbättra tillgängligheten för ditt program med Azure Advisor | Microsoft Docs
-description: Använda Azure Advisor för att förbättra tillgängligheten för dina Azure-distributioner.
+description: Använd Azure Advisor för att förbättra hög tillgänglighet för dina Azure-distributioner.
 services: advisor
 documentationcenter: NA
-author: kasparks
-ms.author: kasparks
+author: saket-ms
+ms.author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dd1b898adf4c4cdff45e05427757d90d5f80bf25
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446778"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145343"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Förbättra tillgängligheten för ditt program med Azure Advisor
 
-Azure Advisor hjälper dig att kontrollera och förbättra affärskontinuitet för dina verksamhetskritiska program. Du kan få rekommendationer för hög tillgänglighet av Advisor från den **hög tillgänglighet** fliken Advisor-instrumentpanelen.
+Azure Advisor hjälper dig att säkerställa och förbättra kontinuiteten i verksamhets kritiska program. Du kan få rekommendationer med hög tillgänglighet från Advisor från fliken **hög tillgänglighet** på instrument panelens instrument panel.
 
-## <a name="ensure-virtual-machine-fault-tolerance"></a>Att skapa feltolerans för virtuell dator
+## <a name="ensure-virtual-machine-fault-tolerance"></a>Se till att fel tolerans för virtuell dator
 
-För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar virtuella datorer som inte är en del av en tillgänglighetsuppsättning och rekommenderar att flytta dem till en tillgänglighetsuppsättning. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse är tillgänglig och uppfyller serviceavtalet för Azure-dator. Du kan välja att skapa en tillgänglighetsuppsättning för den virtuella datorn eller lägga till den virtuella datorn till en befintlig tillgänglighetsuppsättning.
+För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar virtuella datorer som inte ingår i en tillgänglighets uppsättning och rekommenderar att du flyttar dem till en tillgänglighets uppsättning. Den här konfigurationen garanterar att minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse och uppfyller service avtalet för virtuell Azure-dator. Du kan välja att skapa en tillgänglighets uppsättning för den virtuella datorn eller lägga till den virtuella datorn i en befintlig tillgänglighets uppsättning.
 
 > [!NOTE]
-> Om du vill skapa en tillgänglighetsuppsättning måste du lägga till minst en virtuell dator till den. Vi rekommenderar att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning som angetts för att se till att minst en dator är tillgänglig under ett avbrott.
+> Om du väljer att skapa en tillgänglighets uppsättning måste du lägga till minst en virtuell dator i den. Vi rekommenderar att du grupperar två eller flera virtuella datorer i en tillgänglighets uppsättning för att säkerställa att minst en dator är tillgänglig under ett avbrott.
 
-## <a name="ensure-availability-set-fault-tolerance"></a>Se till att tillgänglighetsuppsättningen feltolerans
+## <a name="ensure-availability-set-fault-tolerance"></a>Se till att fel tolerans för tillgänglighets uppsättning
 
-För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar tillgänglighetsuppsättningar som innehåller en enda virtuell dator och att du lägger till en eller flera virtuella datorer till den. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse är tillgänglig och uppfyller serviceavtalet för Azure-dator. Du kan välja att skapa en virtuell dator eller lägga till en befintlig virtuell dator i tillgänglighetsuppsättningen.  
+För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar tillgänglighets uppsättningar som innehåller en enda virtuell dator och rekommenderar att du lägger till en eller flera virtuella datorer i den. Den här konfigurationen garanterar att minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse och uppfyller service avtalet för virtuell Azure-dator. Du kan välja att skapa en virtuell dator eller lägga till en befintlig virtuell dator i tillgänglighets uppsättningen.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Använd Managed Disks för ökad datatillförlitlighet
 
-Virtuella datorer som finns i en tillgänglighetsuppsättning med diskar som delar antingen lagringskonton eller lagringsskalningsenheter kan inte återhämta sig till enkel lagringsskalningsenhetsfel under avbrott. Advisor ska identifiera dessa tillgänglighetsuppsättningar och rekommenderar att du migrerar till Azure Managed Disks. Se till att diskar på olika virtuella datorer i tillgänglighetsuppsättningen är tillräckligt isolerade för att undvika en enskild felpunkt. 
+Virtuella datorer som finns i en tillgänglighets uppsättning med diskar som delar antingen lagrings konton eller lagrings skalnings enheter är inte elastiska till enskilda lagrings enhets enheter vid avbrott. Advisor identifierar dessa tillgänglighets uppsättningar och rekommenderar att du migrerar till Azure Managed Disks. På så sätt ser du till att diskarna för de olika virtuella datorerna i tillgänglighets uppsättningen är tillräckligt isolerade för att undvika en enskild felpunkt. 
 
-## <a name="ensure-application-gateway-fault-tolerance"></a>Att skapa feltolerans för application gateway
+## <a name="ensure-application-gateway-fault-tolerance"></a>Säkerställ fel tolerans för Application Gateway
 
-Denna rekommendation ger kontinuitet för verksamhetskritiska program som drivs av programgatewayer. Advisor identifierar application gateway-instanser som inte är konfigurerade för feltolerans och den föreslår åtgärder som du kan vidta. Advisor identifierar medelstora eller stora enkelinstansprogram gatewayer och den rekommenderar att lägga till minst en mer instans. Den identifierar en eller flera instance små programgatewayer och rekommenderar att du migrerar till medelstora eller stora SKU: er. Advisor rekommenderar dessa åtgärder för att kontrollera att din application gateway-instanser är konfigurerade för att uppfylla de aktuella SLA-krav för dessa resurser.
+Den här rekommendationen säkerställer affärs kontinuiteten för verksamhets kritiska program som drivs av programgatewayer. Advisor identifierar de Application Gateway-instanser som inte har kon figurer ATS för fel tolerans och det föreslår åtgärds åtgärder som du kan vidta. Advisor identifierar medelhög eller stor Programgateway med en instans och rekommenderar att du lägger till minst en instans. Den identifierar också små programgatewayer med enkel eller flera instanser och rekommenderar att du migrerar till medel stora eller stora SKU: er. Advisor rekommenderar dessa åtgärder för att se till att dina Application Gateway-instanser är konfigurerade för att uppfylla de aktuella SLA-kraven för dessa resurser.
 
-## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Skydda dina data för virtuella datorer tas bort av misstag
+## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Skydda dina virtuella dator data från oavsiktlig borttagning
 
-Konfigurera säkerhetskopiering av virtuella datorer garanterar tillgängligheten för dina verksamhetskritiska data och ger skydd mot oavsiktlig borttagning eller skadade data. Advisor identifierar virtuella datorer där säkerhetskopiering inte är aktiverat, och den rekommenderar att aktivera säkerhetskopiering. 
+Att ställa in säkerhets kopiering av virtuella datorer garanterar att dina affärs kritiska data är tillgängliga och skyddar mot oavsiktlig borttagning eller skada. Advisor identifierar virtuella datorer där säkerhets kopiering inte är aktiverat och rekommenderar att du aktiverar säkerhets kopiering. 
 
-## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Kontrollera att du har åtkomst till Azure-molnexperter när du behöver det.
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Se till att du har åtkomst till Azure Cloud-experter när du behöver det
 
-När du kör en verksamhetskritiska arbetsbelastning, är det viktigt att ha tillgång till teknisk support när det behövs. Advisor identifierar potentiella affärskritisk prenumerationer som inte har teknisk support ingår i deras supportavtal och rekommenderar att du uppgraderar till en alternativ som omfattar teknisk support.
+När du kör en verksamhets kritisk arbets belastning är det viktigt att ha till gång till teknisk support vid behov. Advisor identifierar potentiella affärs kritiska prenumerationer som inte har teknisk support som ingår i support avtalet och rekommenderar att du uppgraderar till ett alternativ som omfattar teknisk support.
 
-## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-issues-affect-you"></a>Skapa Azure Service Health-aviseringar som ska meddelas när Azure problem påverkar dig
+## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-issues-affect-you"></a>Skapa Azure Service Health aviseringar för att bli informerad när Azure-problem påverkar dig
 
-Vi rekommenderar att du konfigurerar Azure Service Health-aviseringar kan meddelas när du påverkas av problem i Azure-tjänsten. [Azure Service Health](https://azure.microsoft.com/features/service-health/) är en kostnadsfri tjänst som ger anpassad vägledning och support när du påverkas av ett problem med Azure-tjänsten. Advisor identifierar prenumerationer som inte har aviseringar har konfigurerats och rekommenderar att skapa en.
+Vi rekommenderar att du konfigurerar Azure Service Health aviseringar för att bli informerad när problem med Azure-tjänsten påverkar dig. [Azure Service Health](https://azure.microsoft.com/features/service-health/) är en kostnads fri tjänst som ger personlig vägledning och support när du påverkas av ett problem med en Azure-tjänst. Advisor identifierar prenumerationer som inte har konfigurerade varningar och rekommenderar att du skapar en.
 
-## <a name="configure-traffic-manager-endpoints-for-resiliency"></a>Konfigurera Traffic Manager-slutpunkter för återhämtning
+## <a name="configure-traffic-manager-endpoints-for-resiliency"></a>Konfigurera Traffic Manager slut punkter för återhämtning
 
-Traffic Manager-profiler med mer än en slutpunkt uppleva högre tillgänglighet om alla angivna slutpunkten misslyckas. Placera slutpunkter i olika regioner ytterligare förbättrar tjänstpålitligheten. Advisor identifierar Traffic Manager-profiler där det finns endast en slutpunkt och rekommenderar att lägga till minst en mer slutpunkt i en annan region.
+Traffic Manager profiler med mer än en slut punkts upplevelse högre tillgänglighet om någon av de två slut punkterna Miss lyckas. Att placera slut punkter i olika regioner förbättrar tillförlitligheten i tjänsten. Advisor identifierar Traffic Manager-profiler där det bara finns en slut punkt och rekommenderar att du lägger till minst en slut punkt i en annan region.
 
-Om alla slutpunkter i en Traffic Manager-profil som är konfigurerad för närhet routning finns i samma region, avbrott användare från andra regioner i anslutningen. Att lägga till eller flytta en slutpunkt till en annan region förbättra prestandan och få bättre tillgänglighet om inte alla slutpunkter i en region. Advisor identifierar Traffic Manager-profiler som konfigurerats för närhet routning där alla slutpunkterna är i samma region. Den rekommenderar att lägga till eller flytta en slutpunkt till en annan Azure-region.
+Om alla slut punkter i en Traffic Manager profil som har kon figurer ATS för närhets dirigering finns i samma region kan användare från andra regioner uppleva anslutnings fördröjningar. Genom att lägga till eller flytta en slut punkt till en annan region får du bättre prestanda och ger bättre tillgänglighet om alla slut punkter i en region kraschar. Advisor identifierar Traffic Manager profiler som kon figurer ATS för närhet av routning där alla slut punkter finns i samma region. Du bör lägga till eller flytta en slut punkt till en annan Azure-region.
 
-Om en Traffic Manager-profil har konfigurerats för geografisk routning för dirigeras trafiken till slutpunkterna baserat på definierade regioner. Om det inte går att en region, finns det inga fördefinierade redundans. Med en slutpunkt där Regional gruppering konfigureras att ”alla (världen)” undvika trafik som förloras och förbättra tjänstens tillgänglighet. Advisor identifierar Traffic Manager-profiler som konfigurerats för geografisk routning för där det finns ingen slutpunkt som konfigurerats för att ha Regional gruppering som ”alla (världen)”. Den rekommenderar att du ändrar konfigurationen för att göra en slutpunkt ”alla (världen).
+Om en Traffic Manager profil har kon figurer ATS för geografisk routning dirigeras trafiken till slut punkter som baseras på definierade regioner. Om en region Miss lyckas finns det ingen fördefinierad redundans. Om du har en slut punkt där regional gruppering har kon figurer ATS till "alla (värld)" undviker du att trafiken släpps och att tjänstens tillgänglighet ökar. Advisor identifierar Traffic Manager profiler som kon figurer ATS för geografisk routning där det inte finns någon slut punkt konfigurerad att ha den regionala grupperingen "alla (värld)". Vi rekommenderar att du ändrar konfigurationen för att göra en slut punkt "alla (värld).
 
-## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Använd mjuk borttagning på ditt Azure Storage-konto för att spara och återställa data efter oavsiktlig överskrivning eller tas bort
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Använd mjuk borttagning på ditt Azure Storage konto för att spara och återställa data efter oavsiktlig överskrivning eller borttagning
 
-Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) på ditt lagringskonto så att ta bort blobbar övergången till ett ej permanent Borttaget tillstånd i stället för att permanent ta bort. När data skrivs över skapas en mjukt borttagen ögonblicksbild för att spara läget för den överskrivna informationen. Använda mjuk borttagning kan du återställa om det finns oavsiktliga borttagningar eller skriver över. Advisor identifierar Azure Storage-konton som inte har aktivera mjuk borttagning och föreslår att du aktiverar den.
+Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) på ditt lagrings konto så att borttagna blobar övergår till ett mjukt borttaget tillstånd i stället för att tas bort permanent. När data skrivs över skapas en mjukt borttagen ögonblicksbild för att spara läget för den överskrivna informationen. Med hjälp av mjuk borttagning kan du återställa om det sker oavsiktliga borttagningar eller Skriv över. Advisor identifierar Azure Storage konton som inte har mjuk borttagning aktiverat och föreslår att du aktiverar det.
 
-## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Konfigurera din VPN-gateway till aktiv-aktiv för anslutningsåterhämtning
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Konfigurera din VPN-gateway till aktiv-aktiv för anslutnings återhämtning
 
-I aktiv-aktiv konfiguration, kommer båda instanserna av en VPN-gateway upprätta S2S VPN-tunnlar till din lokala VPN-enhet. När ett planerat underhåll eller en oplanerad händelse inträffar för en gatewayinstans växlar trafiken till den andra aktiva IPsec-tunneln automatiskt. Azure Advisor ska identifiera VPN-gatewayer som inte har konfigurerats som aktiv-aktiv och föreslår att du konfigurerar dem för hög tillgänglighet.
+I en aktiv-aktiv konfiguration kommer båda instanserna av en VPN-gateway att upprätta S2S VPN-tunnlar till din lokala VPN-enhet. När en händelse för ett planerat underhåll eller oplanerad händelse inträffar till en gateway-instans kommer trafiken att växlas över till den andra aktiva IPsec-tunneln automatiskt. Azure Advisor identifierar VPN-gatewayer som inte är konfigurerade som aktiva – aktiva och föreslår att du konfigurerar dem för hög tillgänglighet.
 
-## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Använd produktion VPN-gatewayer för att köra dina produktionsarbetsbelastningar
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Använd VPN-gatewayer för produktion för att köra produktions arbets belastningar
 
-Azure Advisor söker efter alla VPN-gatewayer som är en grundläggande SKU och rekommenderar att du använder en produktion SKU i stället. Grundläggande SKU: N är utformat för utveckling och testning. Produktion-SKU: er erbjuder ett högre antal tunnlar, BGP-stöd, aktiv-aktiv konfigurationsalternativ, anpassade Ipsec/IKE-principer och högre stabilitet och tillgänglighet.
+Azure Advisor kommer att kontrol lera om det finns några VPN-gatewayer som är en grundläggande SKU och rekommenderar att du använder en produktions-SKU i stället. Bas-SKU: n är utformad för utveckling och testning. Produktions-SKU: er erbjuder ett högre antal tunnlar, BGP-stöd, aktiva-aktiva konfigurations alternativ, anpassad IPsec/IKE-princip och högre stabilitet och tillgänglighet.
 
-## <a name="repair-invalid-log-alert-rules"></a>Reparera ogiltig loggaviseringsregler
+## <a name="repair-invalid-log-alert-rules"></a>Reparera ogiltiga logg aviserings regler
 
-Azure Advisor identifierar Varningsregler som har ogiltiga frågor som anges i deras villkoret-avsnitt. Loggaviseringsregler skapas i Azure Monitor och används för att köra analysfrågor enligt angivna intervall. Frågans resultat avgör sedan om en avisering måste utlösas eller inte. Analysfrågorna kan bli ogiltiga med tiden om något ändras i de resurser, tabeller eller kommandon som det hänvisas till. Advisor rekommenderar att du korrigera frågan i varningsregeln att förhindra att den hämtar automatiskt inaktiv och säkerställa att övervakning täckning för dina resurser i Azure. [Läs mer om hur du felsöker Varningsregler](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor identifierar aviserings regler som har ogiltiga frågor angivna i villkors avsnittet. Loggaviseringsregler skapas i Azure Monitor och används för att köra analysfrågor enligt angivna intervall. Frågans resultat avgör sedan om en avisering måste utlösas eller inte. Analysfrågorna kan bli ogiltiga med tiden om något ändras i de resurser, tabeller eller kommandon som det hänvisas till. Advisor rekommenderar att du korrigerar frågan i aviserings regeln för att förhindra att den automatiskt inaktive ras och att övervaknings täckningen för dina resurser i Azure används. [Läs mer om fel sökning av aviserings regler](https://aka.ms/aa_logalerts_queryrepair)
 
-## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Konfigurera konsekvent indexering läge på din Cosmos DB-samling
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Konfigurera konsekvent indexerings läge på din Cosmos DB-samling
 
-Azure Cosmos DB-behållare som konfigurerats med Lazy indexering läge kan påverka färskhet i frågeresultaten. Advisor identifierar behållare konfigureras på det här sättet och rekommenderar att du växlar till enhetligt läge. [Mer information om indexeringsprinciper i Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+Azure Cosmos DB behållare som kon figurer ATS med Lazy Indexing-läge kan påverka uppdaterings resultatet av frågeresultatet. Advisor identifierar behållare som kon figurer ATS på det här sättet och rekommenderar att du växlar till konsekvent läge. [Läs mer om indexerings principer i Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Ställ in Azure Cosmos DB-containrarna med en partitionsnyckel
 
-Azure Advisor identifierar Azure Cosmos DB partitionerade samlingar som närmar sig sin kvot allokerat lagringsutrymme. Blir du rekommenderad migrera dessa samlingar till nya samlingar med en definition av en partition så att de automatiskt kan skaländras ut av tjänsten. [Läs mer om hur du väljer en partitionsnyckel](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor identifierar Azure Cosmos DB icke-partitionerade samlingar som närmar sig sin etablerade lagrings kvot. Det rekommenderar att du migrerar de här samlingarna till nya samlingar med en partitionsnyckel så att de automatiskt kan skalas ut av tjänsten. [Läs mer om hur du väljer en partitionsnyckel](https://aka.ms/cosmosdb/choose-partitionkey)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Uppgradera Azure Cosmos DB .NET-SDK till den senaste versionen från Nuget
 
-Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner av .NET SDK och rekommenderar att du uppgraderar till den senaste versionen från Nuget för de senaste korrigeringarna, prestandaförbättringar och nya funktioner. [Mer information om Cosmos DB .NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av .NET SDK och rekommenderar att du uppgraderar till den senaste versionen från NuGet för de senaste korrigeringarna, prestanda förbättringar och nya funktioner. [Läs mer om Cosmos DB .NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Uppgradera Azure Cosmos DB Java-SDK till den senaste versionen från Maven
 
-Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner av Java SDK och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestandaförbättringar och nya funktioner. [Mer information om Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av Java SDK och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringar och nya funktioner. [Läs mer om Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uppgradera Azure Cosmos DB Spark-anslutningsprogrammet till den senaste versionen från Maven
 
-Azure Advisor identifierar Azure Cosmos DB-konton som använder äldre versioner av Cosmos DB Spark-anslutningsappen och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestandaförbättringar och nya funktioner. [Mer information om Cosmos DB Spark connector](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor identifierar Azure Cosmos DB konton som använder tidigare versioner av Cosmos DB Spark-anslutningsprogrammet och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringar och nya funktioner. [Läs mer om Cosmos DB Spark-anslutning](https://aka.ms/cosmosdb/spark-connector)
 
 ## <a name="enable-virtual-machine-replication"></a>Aktivera replikering av virtuell dator
-Virtuella datorer som inte har replikering aktiverad till en annan region är inte motståndskraftig mot regionala avbrott. Replikera virtuella datorer minskar någon negativ inverkan på under tiden av driftstörningar i Azure-region. Advisor identifierar virtuella datorer som inte har replikering aktiverad och rekommenderar att du aktiverar replikering så att vid ett eventuellt strömavbrott, du kan snabbt ta fram dina virtuella datorer i en fjärransluten Azure-region. [Mer information om replikeringen av den virtuella datorn](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Virtuella datorer som inte har replikering aktive rad till en annan region är inte elastiska till regionala avbrott. Replikering av virtuella datorer minskar eventuell negativ inverkan på verksamheten under tiden för ett avbrott i Azure-regionen. Advisor identifierar virtuella datorer som inte har någon aktive rad replikering och rekommenderar att du aktiverar replikering, så om ett avbrott inträffar kan du snabbt ta fram dina virtuella datorer i en fjärran sluten Azure-region. [Läs mer om replikering av virtuella datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
-## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
+## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Få åtkomst till rekommendationer för hög tillgänglighet i Advisor
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  På Advisor-instrumentpanelen klickar du på den **hög tillgänglighet** fliken.
+2.  På Advisor-instrumentpanelen klickar du på fliken **hög tillgänglighet** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Advisor-rekommendationer finns:
+Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Azure Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Advisor kostnadsrekommendationer](advisor-cost-recommendations.md)
-* [Advisor-rekommendationer](advisor-performance-recommendations.md)
-* [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md)
-
+* [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+* [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
+* [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
+* [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)

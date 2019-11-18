@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9c0ed5a28f865d5dd53b01f22eb69c7d1b332ecf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030099"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133026"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -23,14 +23,14 @@ Den här artikeln sammanfattar de komponenter och inställningar som stöds för
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-**Scenario** | **Detaljer**
+**Scenario** | **Information**
 --- | ---
-Hyper-V med Virtual Machine Manager <br> **Det här scenariot är i sökvägen till utfasningen.** <br>| Du kan utföra haveri beredskap till Azure för virtuella datorer som körs på Hyper-V-värdar som hanteras i System Center Virtual Machine Manager-infrastrukturen.<br/><br/> Du kan distribuera det här scenariot i Azure Portal eller med hjälp av PowerShell.<br/><br/> När Hyper-V-värdar hanteras av Virtual Machine Manager kan du också utföra haveri beredskap på en sekundär lokal plats. Läs mer om det här scenariot i [den här självstudien](hyper-v-vmm-disaster-recovery.md).
+Hyper-V med Virtual Machine Manager <br> <br>| Du kan utföra haveri beredskap till Azure för virtuella datorer som körs på Hyper-V-värdar som hanteras i System Center Virtual Machine Manager-infrastrukturen.<br/><br/> Du kan distribuera det här scenariot i Azure Portal eller med hjälp av PowerShell.<br/><br/> När Hyper-V-värdar hanteras av Virtual Machine Manager kan du också utföra haveri beredskap på en sekundär lokal plats. Läs mer om det här scenariot i [den här självstudien](hyper-v-vmm-disaster-recovery.md).
 Hyper-V utan Virtual Machine Manager | Du kan utföra haveri beredskap till Azure för virtuella datorer som körs på Hyper-V-värdar som inte hanteras av Virtual Machine Manager.<br/><br/> Du kan distribuera det här scenariot i Azure Portal eller med hjälp av PowerShell.
 
 ## <a name="on-premises-servers"></a>Lokala servrar
 
-**Server** | **Krav** | **Detaljer**
+**Server** | **Krav** | **Information**
 --- | --- | ---
 Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inklusive Server Core-installation), Windows Server 2012 R2 med senaste uppdateringar | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md) 
 Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/>
@@ -41,7 +41,7 @@ Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virt
 
 I följande tabell sammanfattas stödet för virtuella datorer. Site Recovery stöder alla arbets belastningar som körs på ett operativ system som stöds.
 
- **Komponent** | **Detaljer**
+ **Komponent** | **Information**
 --- | ---
 Konfiguration av virtuell dator | Virtuella datorer som replikeras till Azure måste uppfylla [kraven för Azure](#azure-vm-requirements).
 Gäst operativ system | Alla gäst operativ system [som stöds för Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server stöds inte.
@@ -49,7 +49,7 @@ Gäst operativ system | Alla gäst operativ system [som stöds för Azure](https
 
 ## <a name="vmdisk-management"></a>Hantering av virtuell dator/disk
 
-**Åtgärd** | **Detaljer**
+**Åtgärd** | **Information**
 --- | ---
 Ändra storlek på disk på replikerad virtuell Hyper-V-dator | Stöds ej. Inaktivera replikering, gör ändringen och återaktivera replikering för den virtuella datorn.
 Lägg till disk på replikerad virtuell Hyper-V-dator | Stöds ej. Inaktivera replikering, gör ändringen och återaktivera replikering för den virtuella datorn.
@@ -149,7 +149,7 @@ Hanterade diskar | Ja, för redundans.<br/><br/> Det finns inte stöd för åter
 
 Lokala virtuella datorer som du replikerar till Azure måste uppfylla de krav på Azure VM som sammanfattas i den här tabellen.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 Gäst operativ system | Site Recovery stöder alla operativ system som [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Krav kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 32-bitars (Windows Server 2008)/64-bit | Krav kontrollen Miss lyckas om den inte stöds.
@@ -180,7 +180,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper<br/><br/>
 
 Se till att du kör de senaste leverantörs-och agent versionerna för att se till att distributionen är kompatibel med inställningarna i den här artikeln.
 
-**Namn** | **Beskrivning** | **Detaljer**
+**Namn** | **Beskrivning** | **Information**
 --- | --- | --- 
 Azure Site Recovery Provider | Koordinera kommunikation mellan lokala servrar och Azure <br/><br/> Hyper-V med Virtual Machine Manager: installerad på Virtual Machine Manager-servrar<br/><br/> Hyper-V utan Virtual Machine Manager: installerat på Hyper-V-värdar| Senaste version: 5.1.2700.1 (tillgänglig från Azure Portal)<br/><br/> [Senaste funktioner och korrigeringar](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services agent | Samordnar replikering mellan virtuella Hyper-V-datorer och Azure<br/><br/> Installerat på lokala Hyper-V-servrar (med eller utan Virtual Machine Manager) | Senaste agent som är tillgänglig från portalen

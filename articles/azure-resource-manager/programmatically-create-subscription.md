@@ -1,18 +1,16 @@
 ---
-title: Skapa Azure-prenumerationer program mässigt | Microsoft Docs
+title: Skapa Azure-prenumerationer program mässigt
 description: Lär dig hur du skapar ytterligare Azure-prenumerationer program mässigt.
-services: azure-resource-manager
 author: amberb
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
-ms.openlocfilehash: 5d977fd6ce74f9cabedd0553c5815fd64d4d09a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7eb698fa22aee2cddb67a7eed44d48acddaa8905
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376016"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150993"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Skapa Azure-prenumerationer program mässigt (för hands version)
 
@@ -72,7 +70,7 @@ API-svaret visar alla registrerings konton som du har åtkomst till:
 }
 ```
 
-Använd egenskapen `principalName` för att identifiera det konto som du vill att prenumerationer ska faktureras på. Kopiera `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com-registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Den här identifieraren är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId`.
+Använd egenskapen `principalName` för att identifiera det konto som du vill debitera prenumerationer på. Kopiera `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Den här identifieraren är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId`.
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -91,7 +89,7 @@ ObjectId                               | PrincipalName
 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
-Använd egenskapen `principalName` för att identifiera det konto som du vill att prenumerationer ska faktureras på. Kopiera `ObjectId` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com-registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Klistra in detta objekt-ID någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId`.
+Använd egenskapen `principalName` för att identifiera det konto som du vill debitera prenumerationer på. Kopiera `ObjectId` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Klistra in detta objekt-ID någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId`.
 
 ### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -120,7 +118,7 @@ Azure svarar med en lista med registrerings konton som du har åtkomst till:
 ]
 ```
 
-Använd egenskapen `principalName` för att identifiera det konto som du vill att prenumerationer ska faktureras på. Kopiera `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com-registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Den här identifieraren är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId`.
+Använd egenskapen `principalName` för att identifiera det konto som du vill debitera prenumerationer på. Kopiera `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Den här identifieraren är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId`.
 
 ---
 
@@ -130,7 +128,7 @@ I följande exempel skapas en prenumeration med namnet *dev team-prenumeration* 
 
 ### <a name="resttabrest"></a>[REST](#tab/rest)
 
-Gör följande begäran och ersätt `<enrollmentAccountObjectId>` med `name` som kopierats från det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
+Kör följande förfrågan och ersätt `<enrollmentAccountObjectId>` med värdet för `name` som du kopierade i första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
 
 ```json
 POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
@@ -161,7 +159,7 @@ I svaret får du tillbaka ett `subscriptionOperation`-objekt för övervakning. 
 
 Installera först den här förhands gransknings modulen genom att köra `Install-Module Az.Subscription -AllowPrerelease`. För att se till att `-AllowPrerelease` fungerar installerar du en ny version av PowerShellGet från [Hämta PowerShellGet-modulen](/powershell/gallery/installing-psget).
 
-Kör kommandot [New-AzSubscription](/powershell/module/az.subscription) nedan och ersätt `<enrollmentAccountObjectId>` med `ObjectId` som samlats in i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
+Kör kommandot [New-AzSubscription](/powershell/module/az.subscription) nedan och ersätt `<enrollmentAccountObjectId>` med `ObjectId` som samlas in i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurepowershell-interactive
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
@@ -180,7 +178,7 @@ Om du vill se en fullständig lista över alla parametrar, se [New-AzSubscriptio
 
 ### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Installera först detta för hands versions tillägg genom att köra `az extension add --name subscription`.
+Installera först detta förhands gransknings tillägg genom att köra `az extension add --name subscription`.
 
 Kör kommandot [AZ Account Create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) nedan och ersätt `<enrollmentAccountObjectId>` med `name` som du kopierade i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
 
@@ -215,7 +213,7 @@ Om du vill se en fullständig lista över alla parametrar, se [AZ Account Create
 
 Du måste ha rollen ägare, deltagare eller Azure-prenumerations skapare i avsnittet faktura eller ägare eller deltagare i en fakturerings profil eller ett fakturerings konto för att skapa prenumerationer. Mer information finns i [Roller och uppgifter för prenumerationsfakturering](../billing/billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-I exemplet nedan används REST-API: er. För närvarande stöds inte PowerShell och Azure CLI.
+I exemplet nedan används REST-API: er. PowerShell och Azure CLI stöds inte för närvarande.
 
 ### <a name="find-billing-accounts-that-you-have-access-to"></a>Sök efter fakturerings konton som du har åtkomst till 
 
@@ -261,13 +259,13 @@ API-svaret visar de fakturerings konton som du har åtkomst till.
 }
 
 ```
-Använd egenskapen `displayName` för att identifiera det fakturerings konto som du vill skapa prenumerationer för. Se till att agreeementType för kontot är *MicrosoftCustomerAgreement*. Kopiera `name` för kontot.  Om du till exempel vill skapa en prenumeration för `Contoso`-fakturerings kontot kopierar du `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
+Använd egenskapen `displayName` för att identifiera det fakturerings konto som du vill skapa prenumerationer för. Se till att agreeementType för kontot är *MicrosoftCustomerAgreement*. Kopiera `name` för kontot.  Om du till exempel vill skapa en prenumeration för `Contoso` fakturerings kontot kopierar du `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
 
 ### <a name="find-invoice-sections-to-create-subscriptions"></a>Hitta faktura avsnitt för att skapa prenumerationer
 
 Avgifterna för din prenumeration visas i ett avsnitt i fakturerings profilens faktura. Använd följande API för att hämta listan över faktura avsnitt och fakturerings profiler som du har behörighet att skapa Azure-prenumerationer på.
 
-Gör följande begäran och ersätt `<billingAccountName>` med `name` som kopierats från det första steget (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```).
+Kör följande förfrågan och ersätt `<billingAccountName>` med värdet för `name` som du kopierade i första steget (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```).
 
 ```json
 POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/listInvoiceSectionsWithCreateSubscriptionPermission?api-version=2019-10-01-preview
@@ -309,13 +307,13 @@ API-svaret visar alla faktura avsnitt och de fakturerings profiler som du har å
     
 ```
 
-Använd egenskapen `invoiceSectionDisplayName` för att identifiera faktura avsnittet som du vill skapa prenumerationer för. Kopiera `invoiceSectionId`, `billingProfileId` och något av `skuId` för faktura avsnittet. Om du till exempel vill skapa en prenumeration av typen `Microsoft Azure plan` för avsnittet `Development` kopierar du `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX`, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-xxxx-xxx-xxx` och `0001`. Klistra in dessa värden någonstans så att du kan använda dem i nästa steg.
+Använd egenskapen `invoiceSectionDisplayName` för att identifiera faktura avsnittet som du vill skapa prenumerationer för. Kopiera `invoiceSectionId``billingProfileId` och ett av `skuId` för avsnittet faktura. Om du till exempel vill skapa en prenumeration av typen `Microsoft Azure plan` för `Development` faktura kopierar du `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX`, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-xxxx-xxx-xxx` och `0001`. Klistra in dessa värden någonstans så att du kan använda dem i nästa steg.
 
 ### <a name="create-a-subscription-for-an-invoice-section"></a>Avsnittet Skapa en prenumeration för en faktura
 
 I följande exempel skapas en prenumeration med namnet *dev team-prenumeration* av typen *Microsoft Azure plan* för avsnittet *utvecklings* faktura. Prenumerationen debiteras för *Contosos ekonomi* fakturerings profil och visas i *utvecklings* avsnittet för fakturan. 
 
-Gör följande begäran och ersätt `<invoiceSectionId>` med `invoiceSectionId` som kopierats från det andra steget (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```). Du måste skicka `billingProfileId`-och `skuId`-kopian från det andra steget i parametrarna för begäran i API: et. Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
+Gör följande begäran och ersätt `<invoiceSectionId>` med `invoiceSectionId` som kopieras från det andra steget (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```). Du måste skicka `billingProfileId` och `skuId` kopieras från det andra steget i parametrarna för begäran i API: et. Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
 
 ```json
 POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview
@@ -356,7 +354,7 @@ I svaret får du tillbaka ett `subscriptionCreationResult`-objekt för övervakn
 
 Du måste ha en rollen global administratör eller administratör i din organisations konto för moln lösnings leverantör för att skapa en prenumeration för ditt fakturerings konto. Mer information finns i [partner Center – tilldela användare roller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview).
 
-I exemplet nedan används REST-API: er. För närvarande stöds inte PowerShell och Azure CLI.
+I exemplet nedan används REST-API: er. PowerShell och Azure CLI stöds inte för närvarande.
 
 ### <a name="find-the-billing-accounts-that-you-have-access-to"></a>Hitta de fakturerings konton som du har åtkomst till 
 
@@ -402,11 +400,11 @@ API-svar listar fakturerings kontona.
 }
 
 ```
-Använd egenskapen `displayName` för att identifiera det fakturerings konto som du vill skapa prenumerationer för. Se till att agreeementType för kontot är *MicrosoftPartnerAgreement*. Kopiera `name` för kontot. Om du till exempel vill skapa en prenumeration för `Contoso`-fakturerings kontot kopierar du `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
+Använd egenskapen `displayName` för att identifiera det fakturerings konto som du vill skapa prenumerationer för. Se till att agreeementType för kontot är *MicrosoftPartnerAgreement*. Kopiera `name` för kontot. Om du till exempel vill skapa en prenumeration för `Contoso` fakturerings kontot kopierar du `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
 
 ### <a name="find-customers-that-have-azure-plans"></a>Hitta kunder som har Azure-planer
 
-Gör följande begäran och ersätt `<billingAccountName>` med `name` som kopierats från det första steget (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) för att lista alla kunder på det fakturerings konto som du kan använda för att skapa Azure-prenumerationer. 
+Gör följande begäran och ersätt `<billingAccountName>` med `name` kopieras från det första steget (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) för att visa en lista över alla kunder i fakturerings kontot som du kan skapa Azure-prenumerationer för. 
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/customers?api-version=2019-10-01-preview
@@ -440,13 +438,13 @@ API-svaret visar en lista över kunder i fakturerings kontot med Azure-planer. D
     
 ```
 
-Använd egenskapen `displayName` för att identifiera den kund som du vill skapa prenumerationer för. Kopiera `id` för kunden. Om du till exempel vill skapa en prenumeration för `Fabrikam toys` kopierar du `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Klistra in det här värdet någonstans för att använda det i följande steg.
+Använd egenskapen `displayName` för att identifiera den kund som du vill skapa prenumerationer för. Kopiera `id` för kunden. Om du till exempel vill skapa en prenumeration för `Fabrikam toys`kopierar du `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Klistra in det här värdet någonstans för att använda det i följande steg.
 
 ### <a name="optional-for-indirect-providers-get-the-resellers-for-a-customer"></a>Valfritt för indirekta leverantörer: få åter försäljarna för en kund
 
 Om du är en indirekt leverantör i CSP-modellen på två nivåer kan du ange en åter försäljare när du skapar prenumerationer för kunder. 
 
-Gör följande begäran och ersätt `<customerId>` med `id` som kopierats från det andra steget (@no__t 2) för att lista alla åter försäljare som är tillgängliga för en kund.
+Gör följande begäran och ersätt `<customerId>` med `id` kopieras från det andra steget (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) för att visa en lista över alla åter försäljare som är tillgängliga för en kund.
 
 ```json
 GET https://management.azure.com<customerId>?$expand=resellers&api-version=2019-10-01-preview
@@ -485,13 +483,13 @@ API-svaret visar åter försäljarna för kunden:
 }]
 }
 ```
-Använd egenskapen `description` för att identifiera den åter försäljare som ska associeras med prenumerationen. Kopiera `resellerId` för åter försäljaren. Om du till exempel vill associera `Wingtip` kopierar du `3xxxxx`. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
+Använd egenskapen `description` för att identifiera den åter försäljare som ska associeras med prenumerationen. Kopiera `resellerId` för åter försäljaren. Om du till exempel vill associera `Wingtip`kopierar du `3xxxxx`. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
 
 ### <a name="create-a-subscription-for-a-customer"></a>Skapa en prenumeration för en kund
 
 I följande exempel skapas en prenumeration med namnet *dev team-prenumeration* för *Fabrikam Toys* och associerar *Wingtip* -återförsäljare till prenumerationen. T
 
-Gör följande begäran och ersätt `<customerId>` med `id` som kopierats från det första steget (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Skicka de valfria *resellerId* som kopierats från det andra steget i parametrarna för begäran i API: et. 
+Kör följande förfrågan och ersätt `<customerId>` med värdet för `id` som du kopierade i första steget (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Skicka de valfria *resellerId* som kopierats från det andra steget i parametrarna för begäran i API: et. 
 
 ```json
 POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview

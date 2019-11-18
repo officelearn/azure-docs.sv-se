@@ -1,22 +1,18 @@
 ---
 title: Distribuera Azure Policy till delegerade prenumerationer i stor skala
 description: Lär dig hur Azure delegerad resurs hantering gör det möjligt att distribuera en princip definition och princip tilldelning över flera klienter.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 11/8/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 537802358af4dbca4f9e24699fc8455c1c6ef01b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fd335e77feb26241d573db48c2e96c725f70d031
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893769"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131284"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuera Azure Policy till delegerade prenumerationer i stor skala
 
-Som tjänst leverantör kan du ha registrerat flera kund innehavare för Azure-delegerad resurs hantering. Med Azure Lighthouse kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
+Som tjänst leverantör kan du ha registrerat flera kund innehavare för Azure-delegerad resurs hantering. Med [Azure Lighthouse](../overview.md) kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
 
 Det här avsnittet visar hur du använder [Azure policy](https://docs.microsoft.com/azure/governance/policy/) för att distribuera en princip definition och princip tilldelning över flera klienter med PowerShell-kommandon. I det här exemplet säkerställer princip definitionen att lagrings konton skyddas genom att endast tillåta HTTPS-trafik.
 

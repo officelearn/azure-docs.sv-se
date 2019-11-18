@@ -1,21 +1,21 @@
 ---
-title: Containerinstansloggning med Azure Monitor-loggar
-description: Lär dig hur du skickar loggar från Azure Container instances till Azure Monitor loggar.
+title: Resurs loggar för behållar grupper – Azure Container Instances
+description: Lär dig hur du skickar resurs loggar och händelse data från behållar grupper i Azure Container Instances till Azure Monitor loggar
 services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: c9b986376884bf1536567d7b5211d93191ec7cc0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258481"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150175"
 ---
-# <a name="container-instance-logging-with-azure-monitor-logs"></a>Containerinstansloggning med Azure Monitor-loggar
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
 
 Log Analytics-arbetsytor är en central plats för att lagra och skicka frågor till loggdata från inte bara Azure-resurser, utan även lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka loggar och händelse data till Azure Monitor loggar.
 
@@ -26,7 +26,7 @@ Om du vill skicka logg-och händelse data för container gruppen till Azure Moni
 > [!NOTE]
 > För närvarande kan du bara skicka händelse data från Linux container instances till Log Analytics.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 
@@ -50,11 +50,11 @@ Gör följande för att hämta ID och den primära nyckeln för Log Analytics-ar
 
 Nu när du har Log Analytics-arbetsytans ID och primärnyckel är du redo att skapa en grupp för loggningsaktiverad containergrupp.
 
-Följande exempel visar två sätt att skapa en behållar grupp med en enda, [flytande][fluentd] behållare: Azure CLI och Azure CLI med en YAML-mall. Fluentd-containern skapar flera rader utdata i sin standardkonfiguration. Eftersom dessa utdata skickas till din Log Analytics-arbetsyta fungerar det bra för att demonstrera visning och frågning av loggar.
+Följande exempel visar två sätt att skapa en behållar grupp med en enda, [flytande][fluentd] behållare: Azure CLI och Azure CLI med en yaml-mall. Fluentd-containern skapar flera rader utdata i sin standardkonfiguration. Eftersom dessa utdata skickas till din Log Analytics-arbetsyta fungerar det bra för att demonstrera visning och frågning av loggar.
 
 ### <a name="deploy-with-azure-cli"></a>Distribuera med Azure CLI
 
-Om du vill distribuera med Azure CLI anger du `--log-analytics-workspace` parametrarna `--log-analytics-workspace-key` och i kommandot [AZ container Create][az-container-create] . Ersätt de två arbetsytevärdena med de värden du hämtade i föregående steg (och uppdatera resursgruppens namn) innan du kör följande kommando.
+Om du vill distribuera med Azure CLI anger du `--log-analytics-workspace` och `--log-analytics-workspace-key` parametrar i kommandot [AZ container Create][az-container-create] . Ersätt de två arbetsytevärdena med de värden du hämtade i föregående steg (och uppdatera resursgruppens namn) innan du kör följande kommando.
 
 ```azurecli-interactive
 az container create \
@@ -104,11 +104,11 @@ Du bör få ett svar från Azure som innehåller distributionsinformation strax 
 
 ## <a name="view-logs"></a>Visa loggar
 
-När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Så här visar du behållar gruppens `ContainerInstanceLog_CL` loggar i tabellen:
+När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Så här visar du behållar gruppens loggar i `ContainerInstanceLog_CL`s tabellen:
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Allmänt**väljer du **loggar**  
-1. Skriv följande fråga:`ContainerInstanceLog_CL | limit 50`
+1. Skriv följande fråga: `ContainerInstanceLog_CL | limit 50`
 1. Välj **Kör**
 
 Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i första hand väntar du några minuter och väljer sedan **Kör** -knappen för att köra frågan igen. Som standard visas logg poster i **tabell** format. Du kan därefter expandera en rad för att visa innehållet i en enskild loggpost.
@@ -117,11 +117,11 @@ Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i
 
 ## <a name="view-events"></a>Visa händelser
 
-Du kan också visa händelser för behållar instanser i Azure Portal. Händelser inkluderar tiden då instansen skapas och när den startas. Så här visar du händelse data i `ContainerEvent_CL` tabellen:
+Du kan också visa händelser för behållar instanser i Azure Portal. Händelser inkluderar tiden då instansen skapas och när den startas. Så här visar du händelse data i tabellen `ContainerEvent_CL`:
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Allmänt**väljer du **loggar**  
-1. Skriv följande fråga:`ContainerEvent_CL | limit 50`
+1. Skriv följande fråga: `ContainerEvent_CL | limit 50`
 1. Välj **Kör**
 
 Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i första hand väntar du några minuter och väljer sedan **Kör** -knappen för att köra frågan igen. Poster visas som standard i **tabell** format. Sedan kan du expandera en rad för att se innehållet i en enskild post.
@@ -132,7 +132,7 @@ Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i
 
 Azure Monitor loggar innehåller ett omfattande [frågespråk][query_lang] för att hämta information från potentiellt tusentals rader med logg data.
 
-Den grundläggande strukturen i en fråga är käll tabellen (i den här artikeln, `ContainerInstanceLog_CL` eller `ContainerEvent_CL`) följt av en serie operatorer avgränsade med pipe-`|`tecknet (). Du kan länka flera operatorer för att förfina resultatet och utför avancerade funktioner.
+Den grundläggande strukturen i en fråga är käll tabellen (i den här artikeln, `ContainerInstanceLog_CL` eller `ContainerEvent_CL`) följt av en serie operatorer, avgränsade med pipe-tecknet (`|`). Du kan länka flera operatorer för att förfina resultatet och utför avancerade funktioner.
 
 Om du vill se resultatet av frågan klistrar du in följande fråga i text rutan fråga och väljer **Kör** -knappen för att köra frågan. Den här frågan visar alla loggposter vars Meddelande-fält innehåller ordet varning:
 

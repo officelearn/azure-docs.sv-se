@@ -9,43 +9,46 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: cbd8ad73ff4a03790dd6b22d5ce33acf09a2b125
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 39b56c5e73c8ce85a020402dafb622b90c536a1e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491361"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143844"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Så här lägger du till mönster för att förbättra förutsägelse noggrannhet
 När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis-concept-patterns.md) för att förbättra förutsägelse noggrannheten för yttranden som visar ett mönster i Word-ordning och Word-val. Mönster använder en speciell [syntax](luis-concept-patterns.md#pattern-syntax) för att ange platsen för: [entiteter](luis-concept-entity-types.md), entitets [roller](luis-concept-roles.md)och valfri text.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall uttryck för att skapa mönster
-1. Öppna appen genom att välja namnet på sidan **Mina appar** och välj sedan **mönster** i den vänstra panelen under **förbättra appens prestanda**.
+## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall-uttryck för att skapa mönstret
 
-    ![Skärm bild av mönster lista](./media/luis-how-to-model-intent-pattern/patterns-1.png)
+1. Öppna din app genom att välja dess namn på **Mina appar** och välj sedan **mönster** i den vänstra panelen under **förbättra apprestanda**.
 
-2. Välj rätt avsikt för mönstret. 
+    > [!div class="mx-imgBorder"]
+    > ![skärm bild av mönster listan](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-    ![Välj avsikt](./media/luis-how-to-model-intent-pattern/patterns-2.png)
+1. Välj rätt avsikten för mönstret. 
 
-3. I text rutan mall skriver du mallen uttryck och väljer RETUR. När du vill ange entitetsnamnet använder du rätt syntax för mönster enhet. Starta entitetens syntax med `{`. Listan med entiteter visas. Välj rätt entitet och välj sedan Retur. 
+1. Ange mall-uttryck i textrutan mallen och välj RETUR. Använda rätt mönstret entitet syntax när du vill ange enhetens namn. Börja med entiteten syntax för `{`. Lista över entiteter visas. Välj rätt entitet. 
 
-    ![Skärm bild av entiteten för mönster](./media/luis-how-to-model-intent-pattern/patterns-3.png)
+    > [!div class="mx-imgBorder"]
+    > ![skärm bild av en entitet för mönster](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Om entiteten innehåller en [roll](luis-concept-roles.md), anger du rollen med ett enda kolon `:`efter entitetsnamnet, till exempel `{Location:Origin}`. Listan över roller för entiteterna visas i en lista. Välj rollen och välj sedan Retur. 
+    Om entiteten innehåller en [roll](luis-concept-roles.md), anger du rollen med ett enda kolon `:`efter entitetsnamnet, till exempel `{Location:Origin}`. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR. 
 
-    ![Skärm bild av entitet med roll](./media/luis-how-to-model-intent-pattern/patterns-4.png)
+    > [!div class="mx-imgBorder"]
+    > ![skärm bild av entiteten med roll](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
-    När du har valt rätt entitet, slutför Ange mönstret och välj sedan Retur. När du är klar med att ange mönster [tränar](luis-how-to-train.md) du din app.
+    När du har valt rätt entiteten har angett mönstret och tryck sedan på RETUR. När du är klar att ange mönster [träna](luis-how-to-train.md) din app.
 
-    ![Skärm bild av det angivna mönstret med båda typerna av entiteter](./media/luis-how-to-model-intent-pattern/patterns-5.png)
+    > [!div class="mx-imgBorder"]
+    > ![skärm bild av det angivna mönstret med båda typerna av entiteter](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
-## <a name="train-your-app-after-changing-model-with-patterns"></a>Träna din app när du har ändrat modellen med mönster
-När du har lagt till, redigerat, tagit bort eller omtilldelat ett mönster, [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app för dina ändringar för att påverka slut punkts frågor. 
+## <a name="train-your-app-after-changing-model-with-patterns"></a>Träna din app när du har ändrat modell med mönster
+När du lägger till, redigera, ta bort eller omtilldela ett mönster [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app för ändringarna att påverka endpoint frågor. 
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>
@@ -64,16 +67,16 @@ I kontext verktygsfältet ovanför mönster listan kan du göra följande:
 
 * Sök efter mönster
 * Redigera ett mönster
-* Tilldela om enskilda mönster till olika avsikter
-* Tilldela om flera mönster till olika avsikter
+* Omtilldela enskilda mönstret till olika avsikt
+* Tilldela flera mönster till olika avsikt
 * Ta bort ett enstaka mönster
 * Ta bort flera mönster
-* Filtrera mönster lista efter entitet
+* Filtrera enheter efter entitet
 * Filter-mönster-lista-för-avsikt
-* Ta bort enhets-eller bevarande filter
-* Lägg till mönster från befintlig uttryck på avsikts-eller entitet-Sidan
+* Ta bort entitet eller avsiktlig filter
+* Lägg till mönster från befintliga uttryck på avsikten eller entitet
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [skapar ett mönster](luis-tutorial-pattern.md) med ett mönster. alla och roller med en själv studie kurs.
-* Lär dig hur du [tränar](luis-how-to-train.md) din app.
+* Lär dig hur du [träna](luis-how-to-train.md) din app.

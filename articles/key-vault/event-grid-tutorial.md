@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 480c4c65f1bc0abe81114a2b898696e6d6b153fe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039635"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133331"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Ta emot och svara på meddelanden om nyckel valv med Azure Event Grid (för hands version)
 
@@ -194,8 +194,10 @@ Om du har använt ett avsöknings system för att söka efter status ändringar 
 
 Läs mer:
 
+
+- Översikt: [övervaka Key Vault med Azure Event Grid (förhands granskning)](event-grid-overview.md)
+- Gör så här: [ta emot e-post när hemliga nyckel valv ändringar](event-grid-logicapps.md)
+- [Azure Event Grid händelse schema för Azure Key Vault (förhands granskning)](../event-grid/event-schema-key-vault.md)
 - [Översikt över Azure Key Vault](key-vault-overview.md)
 - [Översikt över Azure Event Grid](../event-grid/overview.md)
-- [Övervaka Key Vault med Azure Event Grid (förhands granskning)](event-grid-overview.md)
-- [Azure Event Grid händelse schema för Azure Key Vault (förhands granskning)](../event-grid/event-schema-key-vault.md)
 - [Översikt över Azure Automation](../automation/index.yml)

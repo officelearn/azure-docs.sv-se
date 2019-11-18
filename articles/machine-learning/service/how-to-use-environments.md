@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b9b58c9b5f32d6ca714ac3ac940b91643fa8020c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73957848"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123561"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Återanvänd miljöer för utbildning & distribution med Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -333,7 +333,7 @@ run = experiment.submit(sk_est)
 
 Du kan använda miljöer när du distribuerar din modell som en webb tjänst. Detta gör det möjligt att skapa ett reproducerat arbets flöde där du kan träna, testa och distribuera din modell med exakt samma bibliotek i både din utbildning och dina härlednings beräkningar.
 
-Om du vill distribuera en webb tjänst kombinerar du miljö, bedömnings beräkning, bedömnings skript och registrerad modell i ditt distributions objekt, [distribuerar ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Lär dig mer om att [distribuera webb tjänster](how-to-deploy-and-where.md).
+Om du vill distribuera en webb tjänst kombinerar du miljö, bedömnings beräkning, bedömnings skript och registrerad modell i ditt distributions objekt, [distribuerar ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Lär dig mer om att [distribuera webb tjänster](how-to-deploy-and-where.md).
 
 I det här exemplet förutsätter vi att du har slutfört en tränings körning och vill distribuera den modellen till en Azure Container Instance (ACI). När du skapar webb tjänsten monteras modell-och poängsättnings filerna på avbildningen och den Azure Machine Learning-härlednings stacken läggs till i avbildningen.
 

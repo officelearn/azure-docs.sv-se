@@ -1,27 +1,24 @@
 ---
-title: Flytta Azure-resurser till en ny prenumeration eller resurs grupp | Microsoft Docs
+title: Flytta resurser till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: tomfitz
-ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 11/08/2019
+ms.openlocfilehash: f106de7fd35bdbe91033af173b1f338dd251f4e8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035557"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149683"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resurs grupp eller prenumeration
 
-Den här artikeln visar hur du flyttar Azure-resurser till antingen en annan Azure-prenumeration eller en annan resurs grupp under samma prenumeration. Du kan använda Azure Portal, Azure PowerShell, Azure CLI eller REST API för att flytta resurser.
+Den här artikeln visar hur du flyttar Azure-resurser till antingen en annan Azure-prenumeration eller en annan resurs grupp under samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST-API:et för att flytta resurser.
 
-Både käll gruppen och mål gruppen är låsta under flytt åtgärden. Skriva och ta bort blockeras på resursgrupper tills flyttningen är klar. Låset innebär att du kan inte lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna som är låsta. Om du flyttar en SQL Server och dess databas till en ny resursgrupp, inträffar ett program som använder databasen utan avbrott. Det kan fortfarande läsa och skriva till databasen.
+Både käll gruppen och mål gruppen är låsta under flytt åtgärden. Skriv- och borttagningsåtgärder blockeras för resursgrupperna tills flytten är klar. Det här låset innebär att du inte kan lägga till, uppdatera eller ta bort resurser i resurs grupperna. Det innebär inte att resurserna är låsta. Om du till exempel flyttar en SQL Server och dess databas till en ny resursgrupp sker inga avbrott för programmet som använder databasen. Det kan fortfarande läsa och skriva till databasen. Låset kan sista i högst fyra timmar, men de flesta flyttningar slutförs på mycket kortare tid.
 
-Om du flyttar en resurs flyttas den bara till en ny resurs grupp eller prenumeration. Platsen för resursen ändras inte.
+Om du flyttar en resurs flyttas den bara till en ny resursgrupp eller prenumeration. Resursens plats ändras inte.
 
-## <a name="checklist-before-moving-resources"></a>Checklistan innan du flyttar resurser
+## <a name="checklist-before-moving-resources"></a>Checklista för att flytta resurser
 
 Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel genom att verifiera dessa villkor.
 
@@ -108,9 +105,9 @@ Att flytta resurser från en prenumeration till en annan är en process i tre st
 
 I illustrations syfte har vi bara en beroende resurs.
 
-* Steg 1: Om beroende resurser fördelas över olika resurs grupper måste du först flytta dem till en resurs grupp.
-* Steg 2: Flytta resurs-och beroende resurser tillsammans från käll prenumerationen till mål prenumerationen.
-* Steg 3: Alternativt kan du distribuera om de beroende resurserna till olika resurs grupper inom mål prenumerationen. 
+* Steg 1: om beroende resurser fördelas mellan olika resurs grupper måste du först flytta dem till en resurs grupp.
+* Steg 2: flytta resurs-och beroende resurser tillsammans från käll prenumerationen till mål prenumerationen.
+* Steg 3: du kan också distribuera om de beroende resurserna till olika resurs grupper inom mål prenumerationen. 
 
 ## <a name="validate-move"></a>Verifiera flytt
 
@@ -233,6 +230,51 @@ I begärandetexten anger du målresursgruppen och resurser för att flytta.
 ```
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
+
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+**Fråga: min resurs flytt åtgärd, som vanligt vis tar några minuter, har körts i nästan en timme. Finns det något fel?**
+
+Att flytta en resurs är en komplex åtgärd som har olika faser. Den kan omfatta mer än bara resurs leverantören av resursen som du försöker flytta. På grund av beroenden mellan resurs leverantörerna kan Azure Resource Manager utföra 4 timmar för att åtgärden ska slutföras. Den här tids perioden ger resurs leverantörer en chans att återställa från tillfälliga problem. Om din flyttnings förfrågan ligger inom fyra timmars period fortsätter åtgärden att utföras och kan ändå lyckas. Käll-och mål resurs grupperna är låsta under den här tiden för att undvika konsekvens problem.
+
+**Fråga: Varför är min resurs grupp låst i 4 timmar när resursen flyttas?**
+
+Fönstret med fyra timmar är den längsta tid som tillåts för resurs flytt. För att förhindra ändringar av de resurser som flyttas, är både käll-och mål resurs grupperna låsta under hela resurs flytten.
+
+Det finns två faser i en flyttnings förfrågan. I den första fasen flyttas resursen. I den andra fasen skickas meddelanden till andra resurs leverantörer som är beroende av den resurs som flyttas. En resurs grupp kan låsas i hela det fyra timmars fönstret när en resurs leverantör Miss lyckas med någon av de två faserna. Under den tillåtna tiden försöker Resource Manager att försöka utföra åtgärden igen.
+
+Om en resurs inte kan flyttas inom 4-timmarsformat, låser Resource Manager båda resurs grupperna. Resurser som har flyttats är i mål resurs gruppen. Resurser som inte gick att flytta finns kvar i käll resurs gruppen.
+
+**Fråga: vilka konsekvenser för käll-och mål resurs grupper som låses när resursen flyttas?**
+
+Låset förhindrar att du tar bort någon av resurs grupperna, skapar en ny resurs i antingen resurs gruppen eller tar bort någon av de resurser som ingår i flytten.
+
+Följande bild visar ett fel meddelande från Azure Portal när en användare försöker ta bort en resurs grupp som är en del av en pågående flytt.
+
+![Flytta fel meddelande som försöker ta bort](./media/resource-group-move-resources/move-error-delete.png)
+
+**Fråga: Vad betyder felkoden "MissingMoveDependentResources"?**
+
+När du flyttar en resurs måste dess beroende resurser antingen finnas i mål resurs gruppen eller prenumerationen, eller inkluderas i flyttnings förfrågan. Du får MissingMoveDependentResources-felkoden när en beroende resurs inte uppfyller det här kravet. Fel meddelandet innehåller information om den beroende resurs som måste tas med i flyttnings förfrågan.
+
+Om du till exempel flyttar en virtuell dator kan du behöva flytta sju resurs typer till tre olika resurs leverantörer. Dessa resurs leverantörer och typer är:
+
+* Microsoft.Compute
+   * virtualMachines
+   * disk
+* Microsoft.Network
+  * networkInterfaces
+  * publicIPAddresses
+  * networkSecurityGroups
+  * virtualNetworks
+* Microsoft.Storage
+  * storageAccounts
+
+Ett annat vanligt exempel är att flytta ett virtuellt nätverk. Du kan behöva flytta flera andra resurser som är kopplade till det virtuella nätverket. Move-begäran kan behöva flytta offentliga IP-adresser, väg tabeller, virtuella nätverks-gatewayer, nätverks säkerhets grupper och andra.
+
+**Fråga: Varför kan jag inte flytta vissa resurser i Azure?**
+
+För närvarande går det inte att flytta alla resurser i Azure-supporten. En lista över resurser som stöder flytta finns i avsnittet [Flytta åtgärds stöd för resurser](move-support-resources.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

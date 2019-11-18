@@ -2,18 +2,18 @@
 title: Apache Ambari för optimering av klusterkonfigurationer – Azure HDInsight
 description: Använd webbgränssnittet Apache Ambari för att konfigurera och optimera Azure HDInsight-kluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492503"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150111"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använd Apache Ambari för att optimera HDInsight-klusterkonfigurationer
 
@@ -123,7 +123,7 @@ Parametern `hive.exec.reducers.bytes.per.reducer` anger antalet byte som bearbet
 
 En Hive-fråga körs i en eller flera steg. Om de oberoende faserna kan köras parallellt ökar frågans prestanda.
 
-1. Om du vill aktivera parallell frågekörningen går du till fliken Hive- **konfiguration** och söker efter egenskapen `hive.exec.parallel`. Standardvärdet är false. Ändra värdet till sant och spara värdet genom att trycka på **RETUR** .
+1. Om du vill aktivera parallell frågekörningen går du till fliken Hive- **konfiguration** och söker efter egenskapen `hive.exec.parallel`. Standardvärdet är FALSKT. Ändra värdet till sant och spara värdet genom att trycka på **RETUR** .
 
 1. Om du vill begränsa antalet jobb som ska köras parallellt ändrar du egenskapen `hive.exec.parallel.thread.number`. Standardvärdet är 8.
 
@@ -135,7 +135,7 @@ Hive bearbetar data rad för rad. Vectorization dirigerar Hive för att bearbeta
 
 1. Om du vill aktivera en Vector-frågekörningen går du till fliken Hive- **konfiguration** och söker efter parametern `hive.vectorized.execution.enabled`. Standardvärdet är true för Hive 0.13.0 eller senare.
 
-1. Om du vill aktivera vektorbaserad körning för frågans minsknings sida ställer du in parametern `hive.vectorized.execution.reduce.enabled` på True. Standardvärdet är false.
+1. Om du vill aktivera vektorbaserad körning för frågans minsknings sida ställer du in parametern `hive.vectorized.execution.reduce.enabled` på True. Standardvärdet är FALSKT.
 
     ![Apache Hive vektorbaserad körning](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -143,7 +143,7 @@ Hive bearbetar data rad för rad. Vectorization dirigerar Hive för att bearbeta
 
 Som standard följer Hive en uppsättning regler för att hitta en optimal plan för frågekörningen. Kostnads baserad optimering (CBO) utvärderar flera planer på att köra en fråga och tilldelar en kostnad till varje plan och bestämmer sedan billigaste-planen för att köra en fråga.
 
-Om du vill aktivera CBO navigerar du till fliken Hive- **konfiguration** och söker efter `parameter hive.cbo.enable`och byter sedan växlings knappen till **på**.
+Om du vill aktivera CBO navigerar du till **Hive** - > **config** > **Inställningar** och letar reda på **Aktivera kostnads baserad optimering**och byter sedan växlings knappen till **på**.
 
 ![Kostnads baserad, HDInsight-baserad optimering](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
@@ -177,14 +177,14 @@ De tillgängliga komprimerings typerna är:
 
 | Format | Verktyg | Integritetsalgoritm | Fil namns tillägg | Delbara? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | . gz | Nej |
+| Gzip | Gzip | DEFLATE | .gz | Nej |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
 | LZO | Lzop | LZO | .lzo | Ja, om det är indexerat |
-| Snappy | Gäller inte | Snappy | Snappy | Nej |
+| Snappy | Saknas | Snappy | Snappy | Nej |
 
 Som en allmän regel är det viktigt att det går att dela upp komprimerings metoden, annars skapas mycket få mappningar. Om indata är text är `bzip2` det bästa alternativet. För ORC-format är fästfunktionen det snabbaste komprimerings alternativet.
 
-1. Om du vill aktivera mellanliggande komprimering navigerar du till fliken Hive- **konfigurationer** och anger sedan parametern `hive.exec.compress.intermediate` till true. Standardvärdet är false.
+1. Om du vill aktivera mellanliggande komprimering navigerar du till fliken Hive- **konfigurationer** och anger sedan parametern `hive.exec.compress.intermediate` till true. Standardvärdet är FALSKT.
 
     ![Hive exec komprimera mellanliggande](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
@@ -195,15 +195,13 @@ Som en allmän regel är det viktigt att det går att dela upp komprimerings met
 
 1. Så här lägger du till en anpassad inställning:
 
-    a. Gå till fliken Hive- **konfiguration** och välj fliken **Avancerat** .
+    a. Navigera till **Hive** - > **config** > **Avancerad** > **anpassad Hive-plats**.
 
-    b. Leta upp och expandera fönstret **anpassad Hive-plats** under fliken **Avancerat** .
+    b. Välj **Lägg till egenskap...** längst ned i fönstret för den anpassade Hive-platsen.
 
-    c. Klicka på **egenskapen Länka Lägg till** längst ned i fönstret för den anpassade Hive-platsen.
+    c. I fönstret Lägg till egenskap anger du `mapred.map.output.compression.codec` som nyckel och `org.apache.hadoop.io.compress.SnappyCodec` som värde.
 
-    d. I fönstret Lägg till egenskap anger du `mapred.map.output.compression.codec` som nyckel och `org.apache.hadoop.io.compress.SnappyCodec` som värde.
-
-    e. Klicka på **Lägg till**.
+    d. Välj **Lägg till**.
 
     ![Apache Hive anpassad egenskap Lägg till](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -216,7 +214,7 @@ Som en allmän regel är det viktigt att det går att dela upp komprimerings met
 
 Den slutliga Hive-utdata kan också komprimeras.
 
-1. Om du vill komprimera den slutliga Hive-utdata navigerar du till fliken Hive- **konfiguration** och anger sedan parametern `hive.exec.compress.output` till sant. Standardvärdet är false.
+1. Om du vill komprimera den slutliga Hive-utdata navigerar du till fliken Hive- **konfiguration** och anger sedan parametern `hive.exec.compress.output` till sant. Standardvärdet är FALSKT.
 
 1. Om du vill välja komprimerings-codecen för utdata lägger du till egenskapen `mapred.output.compression.codec` anpassad i fönstret anpassad Hive-plats, enligt beskrivningen i föregående avsnitt: steg 3.
 
@@ -224,11 +222,11 @@ Den slutliga Hive-utdata kan också komprimeras.
 
 ### <a name="enable-speculative-execution"></a>Aktivera spekulativ körning
 
-Spekulativ körning startar ett visst antal dubbla aktiviteter för att identifiera och svartlista den långsamma aktivitetens Spårare, samtidigt som den övergripande jobb körningen optimeras genom att de enskilda uppgifts resultaten optimeras.
+Spekulativ körning startar ett visst antal duplicerade åtgärder för att identifiera och blockeringslista den långsamma uppgiftsspåraren och samtidigt förbättra den övergripande jobbkörningen genom att optimera enskilda resultat.
 
 Spekulativ körning bör inte aktive ras för långvariga MapReduce-uppgifter med stora mängder ingångar.
 
-* Om du vill aktivera spekulativ körning navigerar du till fliken Hive- **konfiguration** och anger sedan parametern `hive.mapred.reduce.tasks.speculative.execution` till true. Standardvärdet är false.
+* Om du vill aktivera spekulativ körning navigerar du till fliken Hive- **konfiguration** och anger sedan parametern `hive.mapred.reduce.tasks.speculative.execution` till true. Standardvärdet är FALSKT.
 
     ![Hive-mapred minskar spekulativ körning](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -282,9 +280,9 @@ Ytterligare rekommendationer för att optimera Hive-körnings motorn:
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | Sant = säkrare, långsammare; falskt = snabbare | false |
 | `tez.am.resource.memory.mb` | 4 GB övre gränser för de flesta | Automatiskt justerad |
-| `tez.session.am.dag.submit.timeout.secs` | 300 och | 300 |
-| `tez.am.container.idle.release-timeout-min.millis` | 20000 + | 10000 |
-| `tez.am.container.idle.release-timeout-max.millis` | 40000 + | 20000 |
+| `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
+| `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
+| `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
 ## <a name="apache-pig-optimization"></a>Apache gris-optimering
 
@@ -313,7 +311,7 @@ Det finns två körnings motorer tillgängliga för att köra gris-skript: MapRe
 
 På samma sätt som Hive, används lokalt läge för att påskynda jobb med relativt mindre mängd data.
 
-1. Aktivera lokalt läge genom att ange `pig.auto.local.enabled` till **True**. Standardvärdet är false.
+1. Aktivera lokalt läge genom att ange `pig.auto.local.enabled` till **True**. Standardvärdet är FALSKT.
 
 1. Jobb som har en indatatyp som är mindre än `pig.auto.local.input.maxbytes` egenskap svärdet anses vara små jobb. Standardvärdet är 1 GB.
 
@@ -337,13 +335,13 @@ Följande minnes inställningar kan hjälpa till att optimera skript prestanda f
 
 Gris genererar temporära filer under jobb körningen. Komprimering av de temporära filerna resulterar i ökad prestanda när filer läses eller skrivs till disk. Följande inställningar kan användas för att komprimera temporära filer.
 
-* `pig.tmpfilecompression`: om värdet är true aktive ras temporär fil komprimering. Standardvärdet är false.
+* `pig.tmpfilecompression`: om värdet är true aktive ras temporär fil komprimering. Standardvärdet är FALSKT.
 
 * `pig.tmpfilecompression.codec`: den komprimerings-codec som ska användas för att komprimera de temporära filerna. De rekommenderade komprimerings-codecarna är [LZO](https://www.oberhumer.com/opensource/lzo/) och fästfunktionen för lägre processor användning.
 
 ### <a name="enable-split-combining"></a>Aktivera delnings kombination
 
-När den är aktive rad kombineras små filer för färre kart aktiviteter. Detta förbättrar effektiviteten hos jobb med många små filer. Ange `pig.noSplitCombination` till sant för att aktivera. Standardvärdet är false.
+När den är aktive rad kombineras små filer för färre kart aktiviteter. Detta förbättrar effektiviteten hos jobb med många små filer. Ange `pig.noSplitCombination` till sant för att aktivera. Standardvärdet är FALSKT.
 
 ### <a name="tune-mappers"></a>Finjustera mappningar
 
@@ -430,9 +428,9 @@ Memstores-storlek definieras av parametrarna `hbase.regionserver.global.memstore
 
 ### <a name="set-memstore-local-allocation-buffer"></a>Ange Memstores Local Allocation buffer
 
-Memstores för lokal allokering bestäms av egenskapen `hbase.hregion.memstore.mslab.enabled`. När aktive rad (true) förhindrar detta att heap-fragmentering under tung Skriv åtgärd. Standardvärdet är true.
+Memstores för lokal allokering bestäms av egenskapen `hbase.hregion.memstore.mslab.enabled`. När aktive rad (true) förhindrar detta att heap-fragmentering under tung Skriv åtgärd. Standardvärdet är sant.
 
-![HBase. hregion. memstores. mslab. Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

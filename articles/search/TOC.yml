@@ -223,8 +223,6 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Övervaka indexerare
           href: search-howto-monitor-indexers.md
-        - name: Felsök vanliga problem
-          href: search-indexer-troubleshooting.md
     - name: Berika med AI
       items:
         - name: Bifoga en resurs för Cognitive Services
@@ -249,7 +247,7 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: Exempel – Containrar
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
-        - name: Felsökningstips
+        - name: Designtips
           href: cognitive-search-concept-troubleshooting.md
         - name: Dokumentationslänkar
           href: cognitive-search-resources-documentation.md
@@ -261,8 +259,6 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Anslut med Power BI
               href: knowledge-store-connect-power-bi.md
-        - name: Felsöka problem med berikning
-          href: cognitive-search-common-errors-warnings.md
     - name: Köra frågor mot dokument
       items:
         - name: Frågetyper och sammansättning
@@ -307,6 +303,12 @@
           href: search-manage-powershell.md
         - name: Övervaka aktivitet och loggning
           href: search-monitor-usage.md
+    - name: Felsöka
+      items:
+        - name: Indexeringsproblem
+          href: search-indexer-troubleshooting.md
+        - name: Indexeringsfel och -varningar
+          href: cognitive-search-common-errors-warnings.md
 - name: Referens
   items:
     - name: Azure CLI

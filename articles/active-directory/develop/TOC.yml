@@ -241,7 +241,9 @@
                   href: migrate-android-adal-msal.md
                 - name: Migrera till MSAL.iOS och MacOS
                   href: migrate-objc-adal-msal.md
-                - name: Migrera till MSAL Java
+                - name: Migrera till MSAL Python
+                  href: migrate-python-adal-msal.md
+                - name: Migrera till MSAL för Java
                   href: migrate-adal-msal-java.md
                 - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer från ADAL.NET till MSAL.NET
                   href: msal-net-migration-ios-broker.md
@@ -452,7 +454,11 @@
                   href: request-custom-claims.md
                 - name: Konfiguration av omdirigerings-URI
                   href: redirect-uris-ios.md
-            - name: MSAL Java
+            - name: MSAL för Python
+              items:
+                - name: Serialisering för tokencache
+                  href: msal-python-token-cache-serialization.md
+            - name: MSAL för Java
               items:
                 - name: Serialisering för tokencache
                   href: msal-java-token-cache-serialization.md

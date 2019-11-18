@@ -1,23 +1,17 @@
 ---
-title: Återanvända mallar i molnet – Azure Resource Manager
+title: Återanvänd mallar över moln
 description: Utveckla Azure Resource Manager-mallar som arbetar konsekvent för olika molnmiljöer. Skapa en ny eller uppdatera befintliga mallar för Azure Stack.
-services: azure-resource-manager
-documentationcenter: na
 author: marcvaneijk
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2964bb4365a2c153e7bc82c3292545ad4de985eb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164768"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143770"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Utveckla Azure Resource Manager-mallar för att få konsekvens i molnet
 

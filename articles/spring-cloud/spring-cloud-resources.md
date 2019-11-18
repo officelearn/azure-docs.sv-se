@@ -6,24 +6,22 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 0d3eb2bc526633f139c09620ae4bc1b53c6e31ad
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1c78f71c2ad607ed09b784f6ecbaf495d56617ce
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607149"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151154"
 ---
-# <a name="resources"></a>Resurser
+# <a name="azure-spring-cloud-developer-resources"></a>Azure våren Cloud Developer-resurser
 
-Nedan visas en lista över resurser som kan vara användbara för Azure våren Cloud-utvecklare.
+Som utvecklare kan du ha nytta av följande moln resurser i Azure våren:
 
-| Namn                  | Länk                 |
-| :------------------- | -------------------: |
-| Azure-översikt | https://azure.microsoft.com/updates/ |
-| Vanliga frågor och svar| [Länka till dokument](spring-cloud-faq.md)|
-| Felsökningsguide| [Länka till dokument](spring-cloud-troubleshoot.md) |
-| MSDN-forum| https://social.msdn.microsoft.com/Forums/home |
-| Webbplatsen java våren Cloud| https://spring.io/ |
-| Våren-ramverk| https://cloud.spring.io/spring-cloud-azure/ |
-| Våren på Azure| https://docs.microsoft.com/azure/java/spring-framework/?view=azure-java-stable |
-| Vår arkitektur för vår moln mikrotjänster genom pivotering| https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html |
+* [Azure-översikt](https://azure.microsoft.com/updates)
+* [Vanliga frågor och svar](spring-cloud-faq.md)
+* [Felsökningsguide](spring-cloud-troubleshoot.md)
+* [MSDN-forum](https://social.msdn.microsoft.com/Forums/home)
+* [Webbplatsen java våren Cloud](https://spring.io/)
+* [Våren-ramverk](https://cloud.spring.io/spring-cloud-azure/)
+* [Spring på Azure](https://docs.microsoft.com/azure/java/spring-framework/?view=azure-java-stable)
+* [Vår arkitektur för vår moln mikrotjänster genom pivotering](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)

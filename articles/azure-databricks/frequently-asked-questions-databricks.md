@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601808"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129316"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor om Azure Databricks
 
@@ -34,7 +34,7 @@ Följ de här stegen:
 1. Tilldela de nödvändiga behörigheterna till tjänstens huvud namn i Data Lake Storage.
 1. Om du vill komma åt en fil i Data Lake Storage använder du autentiseringsuppgifterna för tjänstens huvud namn i antecknings boken.
 
-Mer information finns i [använda Azure Data Lake Storage med Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html).
+Mer information finns i [använda Azure Data Lake Storage med Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## <a name="fix-common-problems"></a>Åtgärda vanliga problem
 

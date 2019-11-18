@@ -1,14 +1,14 @@
 ---
 title: Använda parametrar för att skapa dynamiska modeller
-description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa dynamiska modeller.
+description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa säkra och dynamiska ritningar.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: da0670bdc880c47c3b715dc8344896a6c695924c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960515"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128929"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 

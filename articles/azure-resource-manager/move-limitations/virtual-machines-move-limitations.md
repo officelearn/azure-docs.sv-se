@@ -1,17 +1,14 @@
 ---
 title: Flytta virtuella Azure-datorer till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta virtuella datorer till en ny resurs grupp eller prenumeration.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: tomfitz
-ms.openlocfilehash: faeba1c0d7342a4c00f19d4cee8d67b8dbde8e6a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: b03e9618e621216f74cb02828183df7ee6b502ea
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528421"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150935"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Flytta vägledning för virtuella datorer
 
@@ -23,7 +20,7 @@ Följande scenarier stöds inte än:
 
 * Det går inte att flytta Managed Disks i Tillgänglighetszoner till en annan prenumeration.
 * Virtual Machine Scale Sets med standard-SKU Load Balancer eller offentlig IP-adress för standard-SKU: n kan inte flyttas.
-* Virtuella datorer som skapats från Marketplace-resurser med anslutna planer kan inte flyttas över resurs grupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
+* Virtuella datorer som skapats från Marketplace-resurser med anslutna-planer kan inte flyttas mellan resursgrupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 * Det går inte att flytta virtuella datorer i ett befintligt virtuellt nätverk till en ny prenumeration när du inte flyttar alla resurser i det virtuella nätverket.
 * Det går inte att flytta virtuella datorer med låg prioritet och den virtuella datorns skalnings uppsättningar med låg prioritet flyttas över resurs grupper eller prenumerationer.
 * Det går inte att flytta virtuella datorer i en tillgänglighets uppsättning individuellt.
@@ -34,9 +31,9 @@ Om du vill flytta virtuella datorer som kon figurer ATS med Azure Backup använd
 
 * Hitta platsen för den virtuella datorn.
 * Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` till exempel AzureBackupRG_westus2_1
-* Om i Azure Portal, kontrol lera "Visa dolda typer"
-* Använd `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`-cmdleten i PowerShell
-* Använd `az resource list -g AzureBackupRG_<location of your VM>_1` för i CLI
+* Azure-portalen och sedan kontrollera om ”Visa dolda typer”
+* Om du är i PowerShell, använder de `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* Om du är i CLI, använder den `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Hitta resursen med typen `Microsoft.Compute/restorePointCollections` som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.
 * När borttagningen är klar kan du flytta valvet och den virtuella datorn till mål prenumerationen. Efter flytten kan du fortsätta att säkerhetskopiera utan att data går förlorade.

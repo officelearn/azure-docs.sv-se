@@ -1,25 +1,22 @@
 ---
-title: Självstudie – Lägg till utdata i Azure Resource Manager mall
+title: Självstudie – Lägg till utdata i mallen
 description: Lägg till utdata i Azure Resource Manager-mallen för att förenkla syntaxen.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 0d89c1651e6b897da7538432d183a8ac003a51ac
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001534"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148267"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Självstudier: Lägga till utdata i Resource Manager-mallen
+# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Självstudie: lägga till utdata i Resource Manager-mallen
 
 I den här självstudien får du lära dig hur du returnerar ett värde från mallen. Du använder utdata när du behöver ett värde från en distribuerad resurs. Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om variabler](template-tutorial-add-variables.md), men det är inte obligatoriskt.
 
@@ -97,7 +94,7 @@ Du har gjort en stor del av de senaste sex självstudierna. Vi tar en stund att 
 
 Nu ska vi titta på resurs gruppen och distributions historiken.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Beroende på vilka steg du gjorde bör du ha minst ett och kanske flera lagrings konton i resurs gruppen.

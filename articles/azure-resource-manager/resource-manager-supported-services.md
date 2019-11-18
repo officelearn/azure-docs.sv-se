@@ -1,23 +1,14 @@
 ---
-title: Azure-resurs-providers och resurs typer | Microsoft Docs
+title: Resurs leverantörer och resurs typer
 description: Beskriver de resurs leverantörer som stöder Resource Manager, deras scheman och tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
-services: azure-resource-manager
-documentationcenter: na
-author: tfitzmac
-ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/29/2019
-ms.author: tomfitz
-ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 01550adbce51e3498f1167f6a4ebfd846ec316f3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164809"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149397"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure-resurs leverantörer och-typer
 
@@ -42,11 +33,11 @@ En lista som mappar resurs leverantörer till Azure-tjänster finns i [Resource 
 
 Så här visar du alla resurs leverantörer och registrerings status för din prenumeration:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster**.
 
     ![Välj prenumerationer](./media/resource-manager-supported-services/select-subscriptions.png)
-3. I rutan **alla tjänster** anger du **prenumeration**och väljer sedan prenumerationer.
+3. I rutan **alla tjänster** anger du **prenumeration**och väljer sedan **prenumerationer**.
 4. Välj den prenumeration i listan prenumeration som du vill visa.
 5. Välj **resurs leverantörer** och Visa listan över tillgängliga resurs leverantörer.
 
@@ -58,7 +49,7 @@ Så här visar du alla resurs leverantörer och registrerings status för din pr
 
 Så här visar du information om en viss resurs leverantör:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster**.
 
     ![Välj alla tjänster](./media/resource-manager-supported-services/more-services.png)

@@ -2,18 +2,18 @@
 title: Begränsa åtkomst med signaturer för delad åtkomst – Azure HDInsight
 description: Lär dig hur du använder signaturer för delad åtkomst för att begränsa åtkomsten till HDInsight till data som lagras i Azure Storage-blobbar.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 031498119eb4f9feb92046d7d7a86cfd77f8f368
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/13/2019
+ms.openlocfilehash: 725bdfd4efe3be600c993e568f1a5c7edccc6952
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498120"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148234"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd Azure Storage signaturer för delad åtkomst för att begränsa åtkomsten till data i HDInsight
 
@@ -25,7 +25,7 @@ HDInsight har fullständig åtkomst till data i Azure Storage konton som är kop
 > [!WARNING]  
 > HDInsight måste ha fullständig åtkomst till standard lagrings utrymmet för klustret.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration.
 
@@ -234,7 +234,6 @@ Om du vill använda en signatur för delad åtkomst för att begränsa åtkomste
 Ersätt `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`och `TOKEN` med lämpliga värden. Ange PowerShell-kommandon:
 
 ```powershell
-
 $clusterName = 'CLUSTERNAME'
 $resourceGroupName = 'RESOURCEGROUP'
 
@@ -285,11 +284,10 @@ $defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
 
-
 # Create a blob container. This holds the default data store for the cluster.
 New-AzStorageContainer `
     -Name $clusterName `
-    -Context $defaultStorageContext 
+    -Context $defaultStorageContext
 
 # Cluster login is used to secure HTTPS services hosted on the cluster
 $httpCredential = Get-Credential `
@@ -302,9 +300,9 @@ $sshCredential = Get-Credential `
     -UserName "sshuser"
 
 # Create the configuration for the cluster
-$config = New-AzHDInsightClusterConfig 
+$config = New-AzHDInsightClusterConfig
 
-$config = $config | Add-AzHDInsightConfigValues `
+$config = $config | Add-AzHDInsightConfigValue `
     -Spark2Defaults @{} `
     -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
 
@@ -358,29 +356,29 @@ Om du har ett befintligt kluster kan du lägga till SAS i **Core-site-** konfigu
 
 1. Öppna Ambari-webbgränssnittet för klustret. Adressen till den här sidan är `https://YOURCLUSTERNAME.azurehdinsight.net`. När du uppmanas till detta ska du autentisera till klustret med administratörs namnet (admin) och lösen ordet som du använde när du skapade klustret.
 
-2. Från vänster sida av Ambari-webbgränssnittet väljer du **HDFS** och väljer sedan fliken **konfigurationer** i mitten av sidan.
+1. Navigera till **HDFS** > **config** > **Advanced** > **anpassad Core-site**.
 
-3. Välj fliken **Avancerat** och bläddra tills du hittar avsnittet **anpassad Core-site** .
+1. Expandera avsnittet **anpassad Core-site** , bläddra till slutet och välj sedan **Lägg till egenskap...** . Använd följande värden för **nyckel** och **värde**:
 
-4. Expandera avsnittet **anpassad Core-site** och bläddra till slutet och välj länken **Lägg till egenskap...** . Använd följande värden för fälten **nyckel** och **värde** :
+    * **Nyckel**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Värde**: den SAS som returnerades av en av metoderna som kördes tidigare.
 
-   * **Nyckel**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-   * **Värde**: den SAS som returnerades av en av metoderna som kördes tidigare.
+    Ersätt `CONTAINERNAME` med namnet på behållaren som du använde med C# eller SAS-programmet. Ersätt `STORAGEACCOUNTNAME` med det lagrings konto namn som du använde.
 
-     Ersätt `CONTAINERNAME` med namnet på behållaren som du använde med C# eller SAS-programmet. Ersätt `STORAGEACCOUNTNAME` med det lagrings konto namn som du använde.
+    Välj **Lägg till** för att spara den här nyckeln och värdet
 
-5. Klicka på knappen **Lägg** till för att spara den här nyckeln och värdet och klicka sedan på knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det, lägger du till en beskrivning av ändringen ("lägga till SAS-lagringsenhet" till exempel) och klickar sedan på **Spara**.
+1. Välj knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det lägger du till en beskrivning av ändringen ("lägga till SAS-åtkomstkontroll" till exempel) och väljer sedan **Spara**.
 
-    Klicka på **OK** när ändringarna har slutförts.
+    Välj **OK** när ändringarna har slutförts.
 
    > [!IMPORTANT]  
    > Du måste starta om flera tjänster innan ändringen börjar gälla.
 
-6. I Ambari-webbgränssnittet väljer du **HDFS** i listan till vänster och väljer sedan **starta om alla som påverkas** från List rutan **service åtgärder** till höger. När du uppmanas väljer du __Bekräfta omstart av alla__.
+1. List rutan **starta om** visas. Välj **starta om alla som påverkas** från List rutan och bekräfta sedan __starta om alla__.
 
-    Upprepa den här processen för MapReduce2 och garn.
+    Upprepa den här processen för **MapReduce2** och **garn**.
 
-7. När tjänsterna har startats om väljer du var och en och inaktiverar underhålls läget från List rutan **service åtgärder** .
+1. När tjänsterna har startats om väljer du var och en och inaktiverar underhålls läget från List rutan **service åtgärder** .
 
 ## <a name="test-restricted-access"></a>Testa begränsad åtkomst
 
@@ -405,7 +403,7 @@ Använd följande steg för att kontrol lera att du bara kan läsa och lista obj
 3. Använd följande kommando för att kontrol lera att du kan läsa innehållet i filen. Ersätt `SASCONTAINER` och `SASACCOUNTNAME` som i föregående steg. Ersätt `sample.log` med namnet på filen som visas i föregående kommando:
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
+    hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     Det här kommandot visar filens innehåll.
@@ -441,6 +439,4 @@ Använd följande steg för att kontrol lera att du bara kan läsa och lista obj
 Nu när du har lärt dig hur du lägger till lagring med begränsad åtkomst till ditt HDInsight-kluster kan du lära dig andra sätt att arbeta med data i klustret:
 
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Apache gris med HDInsight](hadoop/hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
-

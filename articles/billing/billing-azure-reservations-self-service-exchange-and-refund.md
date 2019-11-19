@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69543016"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052163"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Byten och återbetalning för Azure-reservationer via självbetjäning
 
@@ -44,7 +44,7 @@ Först avbryter Microsoft den befintliga reservationen och återbetalar det prop
 
 ### <a name="enterprise-agreement-customers"></a>Enterprise-avtalskunder
 
-Pengar läggs till i det ekonomiska åtagandet för byten och återbetalningar om det ursprungliga köpet gjordes med ett sådant. Eventuella överförbrukningsfakturor sedan de ursprungliga inköpen öppnas på nytt och omklassificeras för att se till att det ekonomiska åtagandet används. Om den period för ekonomiskt åtagande som använder den köpta reservationen inte längre är aktiv läggs krediten till i din aktuella period för ekonomiskt åtagande med Enterprise-avtal.
+Pengar läggs till i det ekonomiska åtagandet för byten och återbetalningar om det ursprungliga köpet gjordes med ett sådant. Eventuella överförbrukningsfakturor sedan de ursprungliga inköpen öppnas på nytt och omklassificeras för att se till att det ekonomiska åtagandet används. Om den period för ekonomiskt åtagande som använder den köpta reservationen inte längre är aktiv läggs krediten till i din aktuella period för ekonomiskt åtagande med Enterprise-avtal. Krediten är giltig i 90 dagar från och med återbetalningsdagen. Oanvänd kredit upphör att gälla efter 90 dagar.
 
 Om det ursprungliga köpet gjordes som överförbrukning utfärdar Microsoft en kreditnota.
 

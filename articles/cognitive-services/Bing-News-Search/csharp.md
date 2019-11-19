@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Utföra en nyhetssökning med C# – REST-API:et för nyhetssökning i Bing'
+title: 'Snabb start: utföra en nyhets C# sökning med-nyhetssökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 10/28/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c6b050a9637046a8703dd7aaf1d5ac7f1ad1a5da
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 427cf87a8907482ae5346372c2997ce6e01084d0
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423793"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027102"
 ---
-# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Snabbstart: Söka efter nyheter med hjälp av C# och REST-API:et för nyhetssökning i Bing
+# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Snabb start: Sök efter nyheter C# med hjälp av och nyhetssökning i Bing REST API
 
 Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och visa JSON-svaret. Det här enkla C#-programmet skickar en nyhetssökfråga till API:et och visar svaret. Den fullständiga koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
@@ -32,7 +32,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Se även [Priser för Cognitive Services –{_> <_}API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
@@ -46,7 +46,7 @@ Se även [Priser för Cognitive Services – API för Bing-sökning](https://azu
     using System.Collections.Generic;
     ```
 
-2. Skapa variabler för API-slutpunkten, din prenumerationsnyckel och sökvillkor.
+2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor.
 
     ```csharp
     const string accessKey = "enter key here";
@@ -85,25 +85,6 @@ Skapa en metod med namnet `BingNewsSearch` för att utföra anrop till API:et oc
     request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-    ```
-
-3. Skapa sökresultatsobjektet och extrahera Bing-HTTP-rubriker. Returnera seda `searchResult`.
-
-    ```csharp
-    // Create the result object for return
-    var searchResult = new SearchResult()
-    {
-        jsonResult = json,
-        relevantHeaders = new Dictionary<String, String>()
-    };
-
-    // Extract Bing HTTP headers
-    foreach (String header in response.Headers)
-    {
-        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-            searchResult.relevantHeaders[header] = response.Headers[header];
-    }
-    return searchResult;
     ```
 
 3. Skapa sökresultatsobjektet och extrahera Bing-HTTP-rubriker. Returnera seda `searchResult`.

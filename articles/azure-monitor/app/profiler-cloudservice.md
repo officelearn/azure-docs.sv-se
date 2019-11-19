@@ -1,23 +1,19 @@
 ---
 title: Profilera Live Azure-Cloud Services med Application Insights | Microsoft Docs
 description: Aktivera Application Insights Profiler för Azure Cloud Services.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737216"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820495"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera Live Azure-Cloud Services med Application Insights
 
@@ -29,7 +25,7 @@ Du kan också distribuera Application Insights Profiler på dessa tjänster:
 Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du behöver bara konfigurera Azure-diagnostik för att installera profiler och skicka profiler till din Application Insights-resurs.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Aktivera profiler för Azure Cloud Services
-1. Kontrol lera att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Om du använder OS-familjen 4 måste du installera .NET Framework 4.6.1 eller senare med en [Start aktivitet](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet). OS-familjen 5 innehåller en kompatibel version av .NET Framework som standard. 
+1. Kontrol lera att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Om du använder OS-familjen 4 måste du installera .NET Framework 4.6.1 eller senare med en [Start aktivitet](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). OS-familjen 5 innehåller en kompatibel version av .NET Framework som standard. 
 
 1. Lägg till [Application Insights SDK i Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
@@ -49,7 +45,7 @@ Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du be
 
       Om du inte hittar filen går du [till Konfigurera diagnostik för Azure Cloud Services och Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
-    b. Lägg till följande `SinksConfig` avsnitt som underordnat element `WadCfg`till:  
+    b. Lägg till följande `SinksConfig` avsnitt som underordnat element i `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -69,7 +65,7 @@ Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du be
     > * Nyckeln som används av ApplicationInsights-mottagaren. 
     > * Nyckeln som används av ApplicationInsightsProfiler-mottagaren. 
     >
-    > Du kan hitta faktiska instrumentation nyckelvärdet som används av den `ApplicationInsights` mottagare den *ServiceConfiguration.\*.cscfg* filer. 
+    > Du kan hitta det faktiska Instrumentation-nyckelvärdet som används av `ApplicationInsights`-mottagaren i *ServiceConfiguration.\*. cscfg* -filerna. 
     > Efter versionen av Visual Studio 15,5 Azure SDK måste bara de Instrumentation-nycklar som används av programmet och ApplicationInsightsProfiler-mottagare matcha varandra.
 
 1. Distribuera tjänsten med den nya konfigurationen av diagnostik och Application Insights Profiler konfigureras för att köras på din tjänst.
@@ -78,4 +74,4 @@ Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du be
 
 * Generera trafik till ditt program (till exempel starta ett [tillgänglighets test](monitor-web-app-availability.md)). Vänta sedan 10 till 15 minuter så att spårningar börjar skickas till Application Insights-instansen.
 * Se [profilerade spår](profiler-overview.md?toc=/azure/azure-monitor/toc.json) i Azure Portal.
-* Information om fel sökning av profilerings problem finns i [fel sökning av](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)profileraren.
+* Information om fel sökning av profilerings problem finns i [fel sökning av profileraren](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

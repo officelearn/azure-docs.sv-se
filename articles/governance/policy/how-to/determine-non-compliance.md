@@ -111,7 +111,7 @@ För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera i
 
 Du kanske inte har behörighet att logga in på den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn är _icke-kompatibel_.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Börja med att följa samma steg i avsnittet ovan för att visa information om efterlevnad av policy.
 

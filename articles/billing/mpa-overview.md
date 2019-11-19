@@ -8,20 +8,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 9c6c28ef296f3b1346fd82641d8c557a500273d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 6bb0f3ea1b4e3bf17ed3bf26b838da8f2a694673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376696"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898554"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Kom igång med faktureringskontot för ditt Microsoft-partneravtal
 
 När du registrerar dig för att använda Azure skapas ett faktureringskonto. Du använder faktureringskontot till att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Du kan även ha åtkomst till Azure via organisationens Enterprise-avtal, Microsoft-kundavtal eller Microsoft-partneravtal. I den här situationen skulle du ha två separata faktureringskonton.
 
-Den här artikeln gäller faktureringskonton för Microsoft-partneravtal. Dessa konton skapas för att molnlösningsleverantörer (CSP:er) ska kunna hantera faktureringen för sina kunder i den nya e-handelsmiljön. Den nya miljön är bara tillgänglig för partner som har minst en kund som har accepterat ett Microsoft-kundavtal (MCA) och har ett Azure-prenumerationsavtal. [Kontrollera om du har åtkomst till ett Microsoft-partneravtal](#check-access-to-a-microsoft-partner-agreement).
+Den här artikeln gäller faktureringskonton för Microsoft-partneravtal. Dessa konton skapas för att molnlösningsleverantörer (CSP:er) ska kunna hantera faktureringen för sina kunder i den nya e-handelsmiljön. Den nya miljön är bara tillgänglig för partner som har minst en kund som har accepterat ett Microsoft-kundavtal och har ett Azure-prenumerationsavtal. [Kontrollera om du har åtkomst till ett Microsoft-partneravtal](#check-access-to-a-microsoft-partner-agreement). Med en [Azure-plan](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) får kunderna tillgång till Azure-tjänster till betala per användning-priser enligt ett Microsoft-kundavtal.
 
 ## <a name="your-billing-account"></a>Ditt faktureringskonto
 
@@ -35,7 +35,7 @@ Användare med roll som **global administratör** och **administratörsrepresent
 
 ## <a name="billing-profiles"></a>Faktureringsprofiler
 
-Använd en faktureringsprofil till att hantera dina fakturor i en valuta. I början av månaden skapas en månadsfaktura för varje faktureringsprofil på ditt konto. Fakturan innehåller kostnader i fakturaprofilens valuta för alla Azure-prenumerationer och andra inköp från föregående månad. 
+Använd en faktureringsprofil till att hantera dina fakturor i en valuta. I början av månaden skapas en månadsfaktura för varje faktureringsprofil på ditt konto. Fakturan innehåller kostnader i fakturaprofilens valuta för alla Azure-prenumerationer och andra inköp från föregående månad.
 
 Du kan visa fakturan och ladda ned relaterade dokument som användningsfilen och prisdokumentet från Azure-portalen. Du kan läsa mer i [Ladda ned fakturor för ett Microsoft-partneravtal](billing-download-azure-invoice.md).
 
@@ -45,11 +45,11 @@ Du kan visa fakturan och ladda ned relaterade dokument som användningsfilen och
 
 ## <a name="customers"></a>Kunder
 
-Du kan visa och hantera kunder som har godkänt ett Microsofts-kundavtal och har ett Azure-prenumerationsavtal i Azure-portalen. Du kan visa kostnader och transaktioner samt skapa och hantera Azure-prenumerationsavtal för dessa kunder. 
+Du kan visa och hantera kunder som har godkänt ett Microsofts-kundavtal och har ett Azure-prenumerationsavtal i Azure-portalen. Du kan visa kostnader och transaktioner samt skapa och hantera Azure-prenumerationsavtal för dessa kunder.
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Aktivera policyn för att ge insyn i kostnaderna
 
-Använd policyn för att kontrollera om användare i kundorganisationen kan visa och analysera kostnader enligt taxan Betala per användning för sin Azure-förbrukning. Policyn är inaktiv som standard och användarna kan inte se kostnaden. När den är aktiverad kan de användare som har tillräcklig [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)-åtkomst till en prenumeration visa och analysera kostnaden för prenumerationen. 
+Använd policyn för att kontrollera om användare i kundorganisationen kan visa och analysera kostnader enligt taxan Betala per användning för sin Azure-förbrukning. Policyn är inaktiv som standard och användarna kan inte se kostnaden. När den är aktiverad kan de användare som har tillräcklig [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)-åtkomst till en prenumeration visa och analysera kostnaden för prenumerationen.
 
 Så här aktiverar du policyn:
 
@@ -60,7 +60,7 @@ Så här aktiverar du policyn:
    ![Skärmbild som visar en sökning i Azure-portalen](./media/mpa-overview/search-cmb.png)
 
 1. Välj **Kunder** till vänster och sedan en kund i listan.
-   
+
    ![Skärmbild som visar val av kunder](./media/mpa-overview/mpa-customers.png)
 
 1. Välj **Policyer** till vänster.

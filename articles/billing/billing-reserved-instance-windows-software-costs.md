@@ -1,25 +1,22 @@
 ---
-title: Programvarukostnader för reservationer för Azure | Microsoft Docs
+title: Programvarukostnader för reservationer för Azure
 description: Lär dig vilka programvarumätare som inte ingår i kostnader för Azure Reserved VM Instances.
-services: billing
-documentationcenter: ''
 author: yashar
 manager: yashar
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 11/14/2019
 ms.author: banders
-ms.openlocfilehash: e74765ec09fb9cd2d219ceb3d784b4030c83e028
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 82a3dfa9534d58d425b15a433a69a224235e027f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719645"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111529"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Programvarukostnader som inte ingår med Azure Reserved VM Instances
 
@@ -64,7 +61,7 @@ Rabatter för reserverad VM-instans och reserverad SQL-kapacitet tillämpas enda
 |dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Cloud Services 64 vCPU License|
 |7a803026-244c-4659-834c-11e6b2d6b76f|Cloud Services 80 vCPU License|
 
-## <a name="rates-for-azure-meters"></a>Priser för Azure-mätare
+## <a name="get-rates-for-azure-meters"></a>Få priser för Azure-mätare
 
 Du kan hämta kostnaden för var och en av dessa mätare via Azure RateCard-API:et. Information om hur du hämtar priserna för en Azure-mätare finns i avsnittet om att [hämta information om pris och metadata för resurser som används i en Azure-prenumeration](/previous-versions/azure/reference/mt219004(v=azure.100)).
 

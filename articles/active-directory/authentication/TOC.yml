@@ -100,7 +100,7 @@
             - name: Avancerad konfiguration för NPS-tillägg
               href: howto-mfa-nps-extension-advanced.md
             - name: Azure VPN och Azure MFA
-              href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+              href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Gateway för fjärrskrivbord
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN

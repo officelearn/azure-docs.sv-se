@@ -1,18 +1,14 @@
 ---
-title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup | Microsoft Docs
+title: Säkerhetskopiera en SAP HANA-databas till Azure
 description: I den här självstudien beskrivs hur du säkerhetskopierar en SAP HANA-databas till Azure med tjänsten Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 519e47c6b6793c638e64c4e4bcc4fafdb678c9fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931806"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172731"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Säkerhetskopiera en SAP HANA-databas till Azure
 
@@ -23,9 +19,9 @@ ms.locfileid: "72931806"
 
 ## <a name="scenario-support"></a>Scenariostöd
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
-**Geografiska områden som stöds** | Sydöstra Australien, östra Australien <br> Brasilien, södra <br> Kanada, centrala, Östra Kanada <br> Asien, sydöstra Asien, östra <br> Östra USA, östra USA 2, västra centrala USA, västra USA, västra USA 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala, södra Indien <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Nordeuropa, Västeuropa <br> Storbritannien, södra Storbritannien, västra
+**Geografiska områden som stöds** | Sydöstra Australien, östra Australien <br> Södra Brasilien <br> Kanada, centrala, Östra Kanada <br> Asien, sydöstra Asien, östra <br> Östra USA, östra USA 2, västra centrala USA, västra USA, västra USA 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala, södra Indien <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Nordeuropa, Västeuropa <br> Storbritannien, södra Storbritannien, västra
 **Virtuella dator operativ system som stöds** | SLES 12 med SP2, SP3 eller SP4.
 **HANA-versioner som stöds** | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 43
 
@@ -40,7 +36,7 @@ ms.locfileid: "72931806"
 - Du kan säkerhetskopiera databas loggar var 15: e minut. Logg säkerhets kopior börjar bara att flyta efter en lyckad fullständig säkerhets kopiering för databasen har slutförts.
 - Du kan göra fullständiga och differentiella säkerhets kopieringar. Stegvis säkerhets kopiering stöds inte för närvarande.
 - Du kan inte ändra säkerhets kopierings principen när du har tillämpat den för SAP HANA säkerhets kopieringar. Om du vill säkerhetskopiera med olika inställningar skapar du en ny princip eller tilldelar en annan princip.
-  - Om du vill skapa en ny princip går du till valvet och klickar på **principer** > **säkerhets kopierings principer** >  **+ Lägg till** > -**SAP HANA i Azure VM**och anger princip inställningar.
+  - Om du vill skapa en ny princip går du till valvet och klickar på **principer** > **säkerhets kopierings principer** >  **+ Lägg till** > **SAP HANA i virtuell Azure-dator**och anger princip inställningar.
   - Om du vill tilldela en annan princip klickar du på det aktuella princip namnet i egenskaperna för den virtuella datorn som kör-databasen. På sidan **säkerhets kopierings policy** kan du sedan välja en annan princip som ska användas för säkerhets kopieringen.
 
 ## <a name="prerequisites"></a>Krav
@@ -104,7 +100,7 @@ Aktivera nu säkerhets kopiering.
 
 1. I steg 2 klickar du på **Konfigurera säkerhets kopiering**.
 2. I **Välj objekt att säkerhetskopiera**väljer du alla databaser som du vill skydda > **OK**.
-3. I **säkerhets kopierings princip** > **Välj säkerhets kopierings princip**, skapa en ny säkerhets kopierings princip för databaserna enligt anvisningarna nedan.
+3. I **säkerhets kopierings policy** > **väljer du säkerhets kopierings princip**, skapar en ny säkerhets kopierings princip för databaserna enligt anvisningarna nedan.
 4. När du har skapat principen klickar du på **Aktivera säkerhets kopiering**på menyn **säkerhets kopiering** .
 5. Spåra förloppet för säkerhets kopierings konfigurationen i området **meddelanden** i portalen.
 
@@ -170,14 +166,14 @@ Om du vill ta en lokal säkerhets kopia (med HANA Studio) av en databas som säk
 
 1. Vänta tills alla säkerhets kopieringar eller loggar för databasen har slutförts. Kontrol lera statusen i SAP HANA Studio.
 2. Inaktivera logg säkerhets kopior och ange säkerhets kopierings katalogen till fil systemet för relevant databas.
-3. Det gör du genom att dubbelklicka på **systemdb** > **konfiguration** > **Välj databas** > **filter (logg)** .
+3. Det gör du genom att dubbelklicka på **systemdb** > **konfiguration** > **välja databas** > **filter (logg)** .
 4. Ange **enable_auto_log_backup** till **Nej**.
 5. Ange **log_backup_using_backint** till **false**.
 6. Ta en ad hoc fullständig säkerhets kopiering av databasen.
 7. Vänta tills den fullständiga säkerhets kopieringen och katalog säkerhets kopieringen har slutförts.
 8. Återställ tidigare inställningar tillbaka till dem för Azure:
     - Ange **enable_auto_log_backup** till **Ja**.
-    - Ange **log_backup_using_backint** till **True**.
+    - Ange **log_backup_using_backint** till **Sant**.
 
 
 ## <a name="upgrading-protected-10-dbs-to-20"></a>Uppgradera skyddad 1,0 databaser till 2,0

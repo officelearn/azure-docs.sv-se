@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/26/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 31a5ad92942b40e42b66e404df2d09cd8158f7a2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606489"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171229"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Skapa brand Väggs principer för webb program för Application Gateway
 
@@ -64,13 +64,13 @@ När du skapar en WAF-princip är den i *identifierings* läge som standard. I i
 
 Azure-hanterade OWASP-regler är aktiverade som standard. Om du vill inaktivera en enskild regel i en regel grupp expanderar du reglerna inom den regel gruppen, markerar kryss rutan framför regel numret och väljer **inaktivera** på fliken ovan.
 
-![Hanterade regler](../media/create-waf-policy-ag/managed-rules.png)
+[![hanterade regler](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>Anpassade regler
 
 Om du vill skapa en anpassad regel väljer du **Lägg till anpassad regel** under fliken **anpassade regler** . Då öppnas sidan anpassad regel konfiguration. Följande skärm bild visar ett exempel på en anpassad regel som kon figurer ATS för att blockera en begäran om frågesträngen innehåller texten *blockme*.
 
-![Redigera anpassad regel](../media/create-waf-policy-ag/edit-custom-rule.png)
+[![Redigera anpassad regel](../media/create-waf-policy-ag/edit-custom-rule.png)](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate"></a>Migrera WAF-konfigurationen till en WAF-princip
 
@@ -82,7 +82,7 @@ Om du har en befintlig WAF kan du ha lagt märke till några ändringar i portal
 
 Du kan se vilket tillstånd din WAF finns i genom att titta på den i portalen. Om WAF-inställningarna är synliga och kan ändras från den Application Gateway visar din WAF i läge 1.
 
-![WAF-konfiguration](../media/create-waf-policy-ag/waf-configure.png)
+[![WAF-konfiguration](../media/create-waf-policy-ag/waf-configure.png)](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 Om du väljer **brand vägg för webbaserade program** och visar en associerad princip, är WAF i läge 2 eller State 3. När du har navigerat till principen, om den **bara** visar anpassade regler och associerade programgatewayer, är det bara en princip för anpassad regel.
 
@@ -98,9 +98,9 @@ Om du bara har en princip för WAF för anpassade regler kan du vilja flytta til
 
 Ändringar av WAF-principen för anpassade regler är inaktiverade. Om du vill redigera inställningar för WAF, till exempel inaktivera regler, lägga till undantag osv. du måste migrera till en ny brand Väggs princip resurs på högsta nivån.
 
-Det gör du genom att skapa en *brand Väggs princip för webb program* och koppla den till dina Application gateways och lyssnare (er). Den här nya principen **måste** vara exakt samma som den aktuella WAF-konfigurationen, vilket innebär att varje anpassad regel, exkludering, inaktive rad regel osv. måste kopieras till den nya principen som du skapar. När du har en princip som är associerad med din Application Gateway kan du fortsätta att göra ändringar i dina WAF-regler och-inställningar. 
+Det gör du genom att skapa en *brand Väggs princip för webb program* och koppla den till dina Application gateways och lyssnare (er). Den här nya principen **måste** vara exakt samma som den aktuella WAF-konfigurationen, vilket innebär att varje anpassad regel, exkludering, inaktive rad regel osv. måste kopieras till den nya principen som du skapar. När du har en princip som är associerad med din Application Gateway kan du fortsätta att göra ändringar i dina WAF-regler och-inställningar. Du kan också göra detta med Azure PowerShell. Mer information finns i [associera en WAF-princip med en befintlig Application Gateway](associate-waf-policy-existing-gateway.md).
 
-Du kan också göra detta med Azure PowerShell. Mer information finns i [associera en WAF-princip med en befintlig Application Gateway](associate-waf-policy-existing-gateway.md).
+Du kan också använda ett migreringsjobb för att migrera till en WAF-princip. Mer information finns i [migrera brand Väggs principer för webb program med hjälp av Azure PowerShell](migrate-policy.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

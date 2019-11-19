@@ -10,20 +10,26 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/14/2019
+ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: e369067a3ff61ffefe1758f6fa8b4acdce4bb2e2
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134442"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173639"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå Kubernetes-kluster hälsa med Azure Monitor för behållare
 
 Med Azure Monitor för behållare övervakas och rapporteras hälso status för de hanterade infrastruktur komponenterna och alla noder som körs på ett Kubernetes-kluster som stöds av Azure Monitor for containers. Den här upplevelsen överskrider kluster hälso statusen som beräknas och rapporteras i [vyn multi-Cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), där nu kan du förstå om en eller flera noder i klustret är begränsade eller om en nod eller Pod inte är tillgänglig som kan påverka ett program som körs i klustret baserat på granskade mått. 
 
 Information om hur du aktiverar Azure Monitor för behållare finns i [Onboard Azure Monitor for containers](container-insights-onboard.md).
+
+>[!NOTE]
+>Om du vill ha stöd för AKS-motor kluster kontrollerar du att det uppfyller följande:
+>- Den använder den senaste versionen av Helm- [klienten](https://helm.sh/docs/using_helm/).
+>- Agent versionen för behållare är *Microsoft/OMS: ciprod11012019*. Information om hur du uppgraderar agenten finns i [Uppgradera agent på Kubernetes-kluster](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>
 
 ## <a name="overview"></a>Översikt
 

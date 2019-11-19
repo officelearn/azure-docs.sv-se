@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 27530b143e46acad4152e8333836cbe9c79fab17
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032879"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168091"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera Felaktiga lösen ord i din organisation
 
@@ -39,7 +39,7 @@ När ett nytt lösen ord ändras eller återställs för en användare i en klie
 > [!NOTE]
 > Cyberhot-cyberbrottslingarna använder också liknande strategier i deras attacker. Därför publicerar Microsoft inte innehållet i den här listan offentligt.
 
-## <a name="custom-banned-password-list"></a>Lista över anpassade förbjudna lösenord
+## <a name="custom-banned-password-list"></a>Lista med anpassade förbjudna lösen ord
 
 Vissa organisationer kanske vill förbättra säkerheten ytterligare genom att lägga till egna anpassningar ovanpå den globala listan över förbjudna lösen ord i vad Microsoft anropar den anpassade listan över blockerade lösen ord. Microsoft rekommenderar att termer som läggs till i listan främst fokuserar på organisatoriska villkor som:
 
@@ -98,7 +98,7 @@ När en användare ändrar eller återställer sitt lösen ord, kontrol leras de
 
 Även om användarens lösen ord innehåller ett blockerat lösen ord, kan lösen ordet fortfarande accepteras om det övergripande lösen ordet är tillräckligt starkt. Ett nyligen konfigurerat lösen ord går igenom följande steg för att bedöma den övergripande styrkan för att avgöra om det ska godkännas eller avvisas.
 
-### <a name="step-1-normalization"></a>Steg 1: Normaliserings
+### <a name="step-1-normalization"></a>Steg 1: normalisering
 
 Ett nytt lösen ord går först igenom normaliserings processen. Den här tekniken gör det möjligt för en liten uppsättning blockerade lösen ord att mappas till en mycket större uppsättning potentiellt svaga lösen ord.
 
@@ -113,7 +113,7 @@ Normalisering har två delar.  För det första ändras alla versaler till gemen
 
 Exempel: Antag att lösen ordet "Tom" är förbjudet och att en användare försöker ändra sitt lösen ord till "Bl@nK". Även om "Bl@nk" inte är särskilt blockerad konverterar normaliserings processen detta lösen ord till "tomt", vilket är ett blockerat lösen ord.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>Steg 2: Kontrol lera om lösen ordet anses vara förbjudet
+### <a name="step-2-check-if-password-is-considered-banned"></a>Steg 2: kontrol lera om lösen ordet anses vara förbjudet
 
 #### <a name="fuzzy-matching-behavior"></a>Partiell matchnings beteende
 
@@ -133,7 +133,7 @@ Exempel: Antag att vi har en användare, pol, som vill återställa sina lösen 
 
 #### <a name="score-calculation"></a>Poäng beräkning
 
-Nästa steg är att identifiera alla instanser av förbjudna lösen ord i användarens normaliserade nya lösen ord. Dra
+Nästa steg är att identifiera alla instanser av förbjudna lösen ord i användarens normaliserade nya lösen ord. Sedan:
 
 1. Varje blockerat lösen ord som finns i en användares lösen ord får en punkt.
 2. Varje återstående unikt tecken får en punkt.
@@ -147,7 +147,7 @@ Efter normalisering blir det här lösen ordet "contosoblank12". Matchnings proc
 
 [contoso] + [blank] + [1] + [2] = 4 punkter eftersom det här lösen ordet är under fem (5) punkter kommer det att avvisas.
 
-Exempel: en användare ändrar sitt lösen ord tillContoS0Bl@nkf9"!".
+Exempel: en användare ändrar sitt lösen ord till "ContoS0Bl@nkf9!".
 
 Efter normalisering blir det här lösen ordet "contosoblankf9!". Matchnings processen upptäcker att det här lösen ordet innehåller två förbjudna lösen ord: Contoso och tomt. Det här lösen ordet tilldelas sedan en poäng:
 
@@ -164,7 +164,7 @@ Efter normalisering blir det här lösen ordet "contosoblankf9!". Matchnings pro
 | Användare som synkroniseras från lokala Windows Server-Active Directory | Azure AD Premium P1 eller P2 | Azure AD Premium P1 eller P2 |
 
 > [!NOTE]
-> Lokala Windows Server Active Directory användare som inte har synkroniserats till Azure Active Directory också utnyttja fördelarna med Azure AD Password Protection baserat på befintliga licenser för synkroniserade användare.
+> Lokala Windows Server-Active Directory användare som inte är synkroniserade till Azure Active Directory också fördelar med Azure AD Password Protection baserat på befintliga licenser för synkroniserade användare.
 
 Ytterligare licens information, inklusive kostnader, finns på [Azure Active Directory prissättnings webbplats](https://azure.microsoft.com/pricing/details/active-directory/).
 

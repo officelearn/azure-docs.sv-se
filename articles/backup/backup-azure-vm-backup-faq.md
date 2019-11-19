@@ -1,19 +1,15 @@
 ---
-title: Vanliga frågor och svar om hur du säkerhetskopierar virtuella Azure-datorer med Azure Backup
+title: Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar virtuella Azure-datorer med tjänsten Azure Backup.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: ad5e715de2f3467d4530759cbb2acec0358e5597
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747277"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172568"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -33,15 +29,15 @@ Nej. Kostnaderna för säkerhets kopiering skiljer sig från en VM-kostnad. Läs
 
 Om du är en VM-deltagare kan du aktivera säkerhets kopiering på den virtuella datorn. Om du använder en anpassad roll behöver du följande behörigheter för att aktivera säkerhets kopiering på den virtuella datorn:
 
-- Microsoft. RecoveryServices/valv/skriva
-- Microsoft. RecoveryServices/valv/läsa
-- Microsoft. RecoveryServices/locations/*
-- Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/*/Read
-- Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Read
-- Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Write
-- Microsoft. RecoveryServices/valv/backupFabrics/backupProtectionIntent/Write
-- Microsoft. RecoveryServices/valv/backupPolicies/läsa
-- Microsoft. RecoveryServices/valv/backupPolicies/Write
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
 
 Om Recovery Services valvet och den virtuella datorn har olika resurs grupper kontrollerar du att du har Skriv behörighet i resurs gruppen för Recovery Servicess valvet.  
 

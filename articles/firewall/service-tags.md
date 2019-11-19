@@ -1,29 +1,29 @@
 ---
-title: Översikt över brandväggen för Azure-tjänsttaggar
-description: Den här artikeln är en översikt av de Azure-brandvägg.
+title: Översikt över Azure Firewall service-Taggar
+description: En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att minska komplexiteten vid skapande av säkerhetsregler.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 6/27/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d0ac36e415c056dffc9c75d00968ff74c2156e63
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ec9fb3c9b27d21ac65888379f59d51ecc8042eb0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450173"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168690"
 ---
-# <a name="azure-firewall-service-tags"></a>Azure-tjänsttaggar för brandvägg
+# <a name="azure-firewall-service-tags"></a>Azure Firewall service-Taggar
 
 En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att minska komplexiteten vid skapande av säkerhetsregler. Du kan inte skapa egna tjänsttaggar, och du kan inte heller ange vilka IP-adresser som ska finnas i en tagg. Microsoft hanterar adressprefix som omfattas av tjänsttaggen och uppdaterar automatiskt tjänsttaggen när adresserna ändras.
 
-Azure-tjänsttaggar för brandväggen kan användas i fältet mål nätverk. Du kan använda dem i stället för specifika IP-adresser.
+Azure Firewall service-taggar kan användas i nätverks reglernas mål fält. Du kan använda dem i stället för vissa IP-adresser.
 
-## <a name="supported-service-tags"></a>Tjänsttaggar som stöds
+## <a name="supported-service-tags"></a>Service märken som stöds
 
-Se [säkerhetsgrupper](../virtual-network/security-overview.md#service-tags) en lista över tjänsttaggar som är tillgängliga för användning i Azure network brandväggsregler.
+Se [säkerhets grupper](../virtual-network/security-overview.md#service-tags) för en lista över service märken som är tillgängliga för användning i Azure Firewall Network rules.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure-brandväggsregler i [Azure brandväggsregel bearbetningslogiken](rule-processing.md).
+Mer information om Azure Firewall-regler finns i [regel bearbetnings logik för Azure-brandvägg](rule-processing.md).

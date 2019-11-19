@@ -1,18 +1,14 @@
 ---
 title: Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 description: I den här artikeln lär du dig hur du använder Azure Backup Server för att säkerhetskopiera virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: dacurwin
-ms.openlocfilehash: df41907ee10b54ab3bfaeb548e085617f7d79084
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903234"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173362"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -135,23 +131,23 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 **6.5/6.0** | **5,5**
 --- | ---
 Data lager. AllocateSpace | Data lager. AllocateSpace
-Global. ManageCustomFields | Global. ManageCustomFields
-Global. SetCustomField |
-Host. local. CreateVM | Nätverk. tilldela
+Global.ManageCustomFields | Global.ManageCustomFields
+Global.SetCustomField |
+Host.Local.CreateVM | Nätverk. tilldela
 Nätverk. tilldela |
-Resurs. AssignVMToPool |
-VirtualMachine. config. AddNewDisk  | VirtualMachine. config. AddNewDisk
-VirtualMachine. config. AdvancedConfig| VirtualMachine. config. AdvancedConfig
-VirtualMachine. config. ChangeTracking| VirtualMachine. config. ChangeTracking
-VirtualMachine. config. HostUSBDevice |
-VirtualMachine. config. QueryUnownedFiles |
-VirtualMachine. config. SwapPlacement| VirtualMachine. config. SwapPlacement
-VirtualMachine. interagera. avstängnings läge| VirtualMachine. interagera. avstängnings läge
-VirtualMachine. Inventory. Create| VirtualMachine. Inventory. Create
-VirtualMachine. Provisioning. DiskRandomAccess |
-VirtualMachine. Provisioning. DiskRandomRead | VirtualMachine. Provisioning. DiskRandomRead
-VirtualMachine. State. CreateSnapshot | VirtualMachine. State. CreateSnapshot
-VirtualMachine. State. RemoveSnapshot | VirtualMachine. State. RemoveSnapshot
+Resource.AssignVMToPool |
+VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
+VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
+VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
+VirtualMachine.Config.HostUSBDevice |
+VirtualMachine.Config.QueryUnownedFiles |
+VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
+VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
+VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create
+VirtualMachine.Provisioning.DiskRandomAccess |
+VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
+VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
+VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 ## <a name="create-a-vmware-account"></a>Skapa ett VMware-konto
 

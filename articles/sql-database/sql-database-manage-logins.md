@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: a33c653199ae21b551acadfb4503eae029ddc5e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9934f868fb62f9b1a19ef408dab69ab8a2c0e29
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822833"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159143"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Styra och bevilja databas åtkomst till SQL Database och SQL Data Warehouse
 
@@ -54,6 +54,9 @@ Administratörs kontona för **Server administratören** och **Azure AD** har f�
 - Kan skapa, ändra och släppa databaser, inloggningar, användare i huvud servrar och IP-brandvägg på server nivå.
 - Kan lägga till och ta bort medlemmar i `dbmanager` och `loginmanager` roller.
 - Kan visa `sys.sql_logins` system tabell.
+- Det går inte att byta namn på den.
+- Om du vill ändra administratörs kontot för Azure AD använder du portalen eller Azure CLI.
+- Server administratörs kontot kan inte ändras efteråt.
 
 ### <a name="configuring-the-firewall"></a>Konfigurering av brandväggen
 

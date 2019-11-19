@@ -1,19 +1,15 @@
 ---
-title: Azure Backup-offline-säkerhetskopiering för DPM och Azure Backup Server
+title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
 description: Med Azure Backup kan du skicka data från nätverket med tjänsten Azure import/export. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server (MABS).
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074293"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173237"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server
 
@@ -108,7 +104,7 @@ Informationen i det här avsnittet hjälper dig att slutföra arbets flödet fö
 
 Verktyget *AzureOfflineBackupDiskPrep* används för att förbereda SATA-enheter som skickas till närmaste Azure-datacenter. Det här verktyget finns i installations katalogen för Recovery Services agenten på följande sökväg:
 
-*\\Microsoft Azure Recovery Services agent\\utils\\*
+    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. Gå till katalogen och kopiera **AzureOfflineBackupDiskPrep** -katalogen till en kopierings dator där de SATA-enheter som ska förberedas är anslutna. Se till att kopiera datorn med avseende på följande:
 

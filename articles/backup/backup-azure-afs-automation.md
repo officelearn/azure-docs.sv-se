@@ -1,25 +1,20 @@
 ---
-title: Säkerhetskopiera och återställa Azure Files med Azure Backup och PowerShell
+title: Säkerhetskopiera och återställa Azure Files med PowerShell
 description: I den här artikeln får du lära dig hur du säkerhetskopierar och återställer Azure Files med hjälp av Azure Backup-tjänsten och PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
-ms.reviewer: pullabhk
-ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 18c7340d1cb782ba41c472156259170f37139a74
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903613"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173486"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
 Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhetskopiera och återställa en Azure Files fil resurs med hjälp av ett [Azure Backup](backup-overview.md) Recovery Services-valv.
 
-I den här självstudien beskrivs hur du:
+Den här artikeln förklarar hur du:
 
 > [!div class="checklist"]
 >

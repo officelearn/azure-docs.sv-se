@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332841"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167425"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -106,13 +106,13 @@ Så här konfigurerar du de rekommenderade prestanda räknarna manuellt:
 1. Öppna din webbläsare och logga in på [Azure Portal](https://portal.azure.com/) med ditt administratörs konto.
 2. Gå sedan till **Log Analytics arbets ytor** för att granska de konfigurerade Windows-prestandaräknare.
 3. I avsnittet **Inställningar** väljer du **Avancerade inställningar**.
-4. Efter det navigerar du till **Data** > **prestanda räknare för Windows** och lägger till följande räknare:
+4. Efter det navigerar du till **Data** > **Windows** -prestandaräknare och lägger till följande räknare:
 
-    -   Logisk disk (\*) \%Free utrymme
-    -   Logisk disk (C:) \\Avg. diskkölängd
-    -   Minne (\*) \\Available MB
-    -   Processor information (\*) \\Processor tid
-    -   Fördröjning av användarindata per session (\*) \\Max-indata fördröjning
+    -   Logisk disk (\*)\\ledigt utrymme i procent
+    -   Logisk disk (C:)\\Gnm. diskkölängd
+    -   Minne (\*)\\tillgängliga megabyte
+    -   Processor information (\*)\\processor tid
+    -   Fördröjning av användarindata per session (\*)\\maximal fördröjning för indata
 
 Läs mer om prestanda räknare [i prestanda data källor för Windows och Linux i Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -139,14 +139,14 @@ För att se till att din Log Analytics arbets yta har de förkonfigurerade Windo
 
 1. Gå till **Log Analytics arbets ytor** i [Azure Portal](https://portal.azure.com/)och granska de konfigurerade Windows-prestandaräknare.
 2. Under **Inställningar**väljer du **Avancerade inställningar**.
-3. Därefter går du till **Data** > **prestanda räknare för Windows**.
+3. Därefter går du till **Data** > **Windows-prestandaräknare**.
 4. Kontrol lera att följande räknare är förkonfigurerade:
 
-   - Logisk disk (\*) \%Free utrymme: visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
-   - Logisk disk (C:) \\Avg. diskkölängd: längden på disk överförings förfrågan för enheten C. Värdet får inte överstiga 2 under en kort tids period.
-   - Minne (\*) \\Available MB: tillgängligt minne för systemet i megabyte.
-   - Processor information (\*) \\Processor tid: procent andelen förfluten tid som processorn ägnat åt att köra en icke-inaktiv tråd.
-   - Fördröjning av användarindata per session (\*) \\Max-indata fördröjning
+   - Logisk disk (\*)\\% ledigt utrymme: visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
+   - Logisk disk (C:)\\Gnm. diskkölängd: längden på disk överförings förfrågan för din C-enhet. Värdet får inte överstiga 2 under en kort tids period.
+   - Minne (\*)\\tillgängliga megabyte: tillgängligt minne för systemet i megabyte.
+   - Processor information (\*)\\processor tid: den procent andel av tiden som processorn ägnat åt att köra en icke-inaktiv tråd.
+   - Fördröjning av användarindata per session (\*)\\maximal fördröjning för indata
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Ansluta till virtuella datorer i din Log Analytics-arbetsyta
 
@@ -234,25 +234,25 @@ Du kan också interagera med användare på värd för sessionen:
 
 ### <a name="windows-performance-counter-thresholds"></a>Tröskelvärden för Windows prestanda räknare
 
-- Logisk disk (\*) \|% ledigt utrymme:
+- Logisk disk (\*)\\% ledigt utrymme:
 
     - Visar procent andelen av det totala användbara utrymmet på den logiska disken som är kostnads fri.
     - Tröskelvärde: mindre än 20% har marker ATS som ohälsosamt.
 
-- Logisk disk (C:) \\Avg. diskkölängd:
+- Logisk disk (C:)\\Gnm. diskkölängd:
 
     - Representerar lagrings systemets villkor.
     - Tröskelvärde: högre än 5 har marker ATS som ohälsosamt.
 
-- Minne (\*) \\Available MB:
+- Minne (\*)\\tillgängliga megabyte:
 
     - Systemets tillgängliga minne.
     - Tröskelvärde: mindre än 500 megabyte har marker ATS som ohälsosamt.
 
-- Processor information (\*) \\Processor tid:
+- Processor information (\*)\\processor tid:
 
     - Tröskel: högre än 80% har marker ATS som ohälsosam.
 
-- [Fördröjning av användarindata per session (\*) \\Max för data fördröjning](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Fördröjning av användarindata per session (\*)\\maximal fördröjning för indata](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Tröskel: högre än 2000 MS har marker ATS som ohälsosam.

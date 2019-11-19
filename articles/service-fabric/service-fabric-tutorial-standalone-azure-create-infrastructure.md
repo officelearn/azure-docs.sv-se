@@ -3,7 +3,7 @@ title: Självstudie som skapar infrastrukturen för ett Service Fabric kluster p
 description: I den här självstudien får du lära dig hur du konfigurerar Azure VM-infrastrukturen för att köra ett Service Fabric kluster.
 services: service-fabric
 documentationcenter: .net
-author: v-vasuke
+author: jpconnock
 manager: jpconnock
 editor: ''
 ms.assetid: ''
@@ -13,22 +13,22 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177722"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166271"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: skapa en Azure VM-infrastruktur som värd för ett Service Fabric kluster
 
-Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
+Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
 
-Den här självstudien är del ett i en serie. I den här artikeln skapar du de Azure VM-resurser som krävs för att vara värd för ditt fristående kluster med Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
+Den här självstudien ingår i en serie. I den här artikeln skapar du de Azure VM-resurser som krävs för att vara värd för ditt fristående kluster med Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
 
-I del ett i den här serien lärde du dig att:
+I en del av serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Skapa en uppsättning AzureVM-instanser
@@ -90,12 +90,18 @@ Starta ytterligare två **Virtual Machines**, se till att behålla samma instäl
  
 4. Öppna RDP-filen och ange användar namn och lösen ord som du angav i VM-installationen när du uppmanas att göra det.
 
-5. När du är ansluten till en instans måste du verifiera att fjärrregistret kördes och öppna de nödvändiga portarna.
+5. När du är ansluten till en instans måste du verifiera att fjärrregistret kördes, Aktivera SMB och öppna de nödvändiga portarna för SMB och fjär registret.
+
+   Detta är PowerShell-kommandot för att aktivera SMB:
+
+   ```powershell
+   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+   ```
 
 6. Om du vill öppna portarna i brandväggen använder du följande PowerShell-kommando:
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
 7. Upprepa den här processen för andra instanser och notera de privata IP-adresserna.
@@ -111,6 +117,15 @@ Starta ytterligare två **Virtual Machines**, se till att behålla samma instäl
    ```
 
    Om dina utdata ser ut så här `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` upprepade fyra gånger, fungerar anslutningen mellan instanserna.
+
+3. Nu ska du kontrollera att din SMB-delning fungerar med följande kommando:
+
+   ```
+   net use * \\172.31.20.163\c$
+   ```
+
+   `Drive Z: is now connected to \\172.31.20.163\c$.` ska returneras som utdata.
+
 
    Nu är dina instanser korrekt för beredda för Service Fabric.
 

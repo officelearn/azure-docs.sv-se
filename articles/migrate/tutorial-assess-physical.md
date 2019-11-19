@@ -5,20 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7f840a99ab76548c16389955cf49791036cc63a2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123503"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158357"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Server utvärdering
-
-> [!NOTE]
-> Om du inte ser den här funktionen än i Azure Migrate-portalen låser du dig. Den kommer att visas under nästa vecka eller så.
- 
 
 Den här artikeln visar hur du kan utvärdera lokala fysiska servrar med hjälp av verktyget Azure Migrate: Server bedömning.
 
@@ -113,7 +109,8 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
   **Algoritm** | **Hash-värde**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 5b98cf68dad495696c789bdad8f0d91b
+  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
 
@@ -136,7 +133,7 @@ Kör skriptet på följande sätt:
     ```
     PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-Skriptet startar webb programmet för installationen när det har slutförts. 
+Skriptet startar webb programmet för installationen när det har slutförts.
 
 Om det uppstår några problem kan du komma åt skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log för fel sökning.
 
@@ -167,7 +164,7 @@ Konfigurera enheten för första gången.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrera enheten med Azure Migrate
 
 1. Klicka på **Logga**in. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
-2. På fliken nytt loggar du in med dina Azure-autentiseringsuppgifter. 
+2. På fliken nytt loggar du in med dina Azure-autentiseringsuppgifter.
     - Logga in med ditt användar namn och lösen ord.
     - Inloggning med en PIN-kod stöds inte.
 3. När du har loggat in går du tillbaka till webbappen.
@@ -189,7 +186,7 @@ Du kan lägga till en uppsättning autentiseringsuppgifter var för Windows-och 
     - Om du vill ta bort en server väljer du > **ta bort**.
 4. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.
 
-Detta startar identifieringen. Det tar cirka 1,5 minuter per server för metadata om identifierad server som visas i Azure Portal. 
+Detta startar identifieringen. Det tar cirka 1,5 minuter per server för metadata om identifierad server som visas i Azure Portal.
 
 ### <a name="verify-servers-in-the-portal"></a>Verifiera servrar i portalen
 

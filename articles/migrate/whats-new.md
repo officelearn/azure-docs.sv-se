@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.openlocfilehash: 9eb70d74752b3db5fcbc185f596d518100992672
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715389"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158570"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
@@ -22,12 +22,7 @@ ms.locfileid: "73715389"
 
 ## <a name="update-november-2019"></a>Uppdatering (november 2019)
 
-
-
 Ett antal nya funktioner har lagts till i Azure Migrate:
-
-> [!NOTE]
-> Om du ännu inte ser några av de här funktionerna i Azure Migrate-portalen låser du dig. De kommer att visas under nästa vecka eller så.
 
 - **Utvärdering av fysisk server**. Utvärdering av lokala fysiska servrar stöds nu, utöver migrering av fysiska servrar som redan stöds.
 - **Importera-baserad utvärdering**. Utvärdering av datorer som använder metadata-och prestanda data från en CSV-fil stöds nu.
@@ -45,9 +40,9 @@ Nya verktyg för utvärdering och migrering har lagts till i Azure Migrate:
 
 ## <a name="release-version-july-2019"></a>Versions version (2019 juli)
 
-Den aktuella versionen av Azure Migrate släpptes i juli 2019. 
+Den aktuella versionen av Azure Migrate släpptes i juli 2019.
 
-- **Aktuell version**: Använd den här versionen för att skapa Azure Migrate projekt, identifiera lokala datorer och dirigera utvärderingar och migreringar. 
+- **Aktuell version**: Använd den här versionen för att skapa Azure Migrate projekt, identifiera lokala datorer och dirigera utvärderingar och migreringar.
 - **Tidigare version**: för kund som använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöddes) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte längre skapa nya Azure Migrate projekt eller utföra nya identifieringar. Du kan fortfarande komma åt befintliga projekt. Om du vill göra detta i Azure Portal > **alla tjänster**söker du efter **Azure Migrate**. I Azure Migrate-meddelanden finns det en länk för att komma åt gamla Azure Migrate-projekt.
 
 
@@ -65,7 +60,7 @@ Den aktuella versionen av Azure Migrate innehåller ett antal nya funktioner:
     - Installations programmet identifierar kontinuerligt serverns metadata och prestanda data, i syfte att utvärdera och migrera.  
 - **VMware VM-migrering**: Azure Migrate Server-migrering innehåller flera metoder för att migrera lokala virtuella VMware-datorer till Azure.  En agent lös migrering med hjälp av Azure Migrate-installationen och en agent-baserad migrering som använder en replikeringsprincip och distribuerar en agent på varje virtuell dator som du vill migrera. [Läs mer](server-migrate-overview.md)
  - **Databas utvärdering och migrering**: från Azure Migrate kan du utvärdera lokala databaser för migrering till Azure med hjälp av azure Database Migration Assistant. Du kan migrera databaser med hjälp av Azure Database Migration Service.
-- **Migrering**av webbappar: du kan utvärdera webbappar med hjälp av en offentlig slut punkts-URL med Azure App Service. För migrering av interna .NET-appar kan du hämta och köra App Service Migration Assistant. 
+- **Migrering**av webbappar: du kan utvärdera webbappar med hjälp av en offentlig slut punkts-URL med Azure App Service. För migrering av interna .NET-appar kan du hämta och köra App Service Migration Assistant.
 - **Data Box-enhet**: importera stora mängder offline-data till Azure med Azure Data Box i Azure Migrate.
 
 

@@ -3,17 +3,13 @@ title: Självstudie – konfigurera dynamiska lager för dina Azure-resurser med
 description: Lär dig hur du använder Ansible för att hantera dina dynamiska Azure-lager
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/23/2019
-ms.openlocfilehash: 6d520518e7180f69ee7293523dd40c8158dcfb99
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990678"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156171"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Självstudie: Konfigurera dynamiska lager för dina Azure-resurser med Ansible
 
@@ -67,7 +63,7 @@ Ansible kan användas för att hämta lagerinformation från olika källor (där
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-## <a name="tag-a-vm"></a>Tagga en VM
+## <a name="tag-a-vm"></a>Tagga en virtuell dator
 
 Du kan [använda taggar för att organisera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) efter användardefinierade kategorier. 
 
@@ -303,9 +299,9 @@ Det här avsnittet illustrerar en metod för att testa att Nginx är installerat
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. Klicka på tangentkombinationen `<Ctrl>D` för att koppla från SSH-sessionen.
+1. Klicka på tangentkombinationen `<Ctrl>D` tangent bord för att koppla från SSH-sessionen.
 
-1. När du utför föregående steg för den virtuella datorn med `ansible-inventory-test-vm2` får du ett informations meddelande som anger var du kan hämta nginx (vilket innebär att du inte har den installerad nu):
+1. Genom att utföra föregående steg för `ansible-inventory-test-vm2` virtuella datorn får du ett informations meddelande som anger var du kan hämta nginx (vilket innebär att du inte har det installerat i den här punkten):
 
     ```Output
     tom@ansible-inventory-test-vm2:~$ nginx -v

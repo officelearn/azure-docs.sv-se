@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: skapa säkerhets kopierings principer med REST API'
+title: Skapa säkerhets kopierings principer med REST API
 description: I den här artikeln får du lära dig hur du skapar och hanterar säkerhets kopierings principer (schema och kvarhållning) med hjälp av REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM-säkerhetskopiering; Återställning av Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747602"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173423"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa principer för Azure Recovery Services säkerhets kopiering med REST API
 
@@ -53,7 +47,7 @@ Om du till exempel vill skapa en princip för säkerhets kopiering av virtuella 
 |Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Egenskaper för ProtectionPolicyResource        |
-|tagg     |         | Objekt        |  Resurstaggar       |
+|taggar     |         | Objekt        |  Resurstaggar       |
 
 En fullständig lista över definitioner i begär ande texten finns i [säkerhets kopierings policyn REST API-dokument](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
 
@@ -152,7 +146,7 @@ Principen säger:
 > [!IMPORTANT]
 > Tids formaten för schema och kvarhållning stöder endast DateTime. De har inte stöd för själva tids formatet.
 
-## <a name="responses"></a>Svar
+## <a name="responses"></a>Responses
 
 Skapande/uppdatering av säkerhets kopierings policy är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 

@@ -3,17 +3,13 @@ title: Självstudie – konfigurera databaser i Azure Database for MySQL med Ans
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Database for MySQL-server
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1b6c9a9aa3abbda7ffd72db0ecb137b3c9da1a6c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d8c8fd361f37a9cb961012807fe40b905c10c047
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241832"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156525"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Självstudie: konfigurera databaser i Azure Database for MySQL med Ansible
 
@@ -58,7 +54,7 @@ Spara följande spelbok som `rg.yml`:
 Se följande anmärkningar innan du kör Spelbok:
 
 * En resurs grupp med namnet `myResourceGroup` skapas.
-* Resurs gruppen skapas på platsen för `eastus`:
+* Resurs gruppen skapas på `eastus` plats:
 
 Kör Spelbok med kommandot `ansible-playbook`:
 
@@ -119,7 +115,7 @@ ansible-playbook mysql_create.yml
 
 En brand Väggs regel på server nivå gör att en extern app kan ansluta till servern via Azure MySQL-tjänstens brand vägg. Exempel på externa appar är kommando rads verktyget `mysql` och MySQL Workbench.
 
-Spelbok-koden i det här avsnittet skapar en brand Väggs regel med namnet `extenalaccess` som tillåter anslutningar från vilken extern IP-adress som helst. 
+Spelbok-koden i det här avsnittet skapar en brand Väggs regel med namnet `extenalaccess` som tillåter anslutningar från valfri extern IP-adress. 
 
 Spara följande spelbok som `mysql_firewall.yml`:
 
@@ -149,7 +145,7 @@ Se följande anmärkningar innan du kör Spelbok:
 
 * I avsnittet kopplingsvariabler ersätter du `startIpAddress` och `endIpAddress`. Använd intervallet av IP-adresser som motsvarar intervallet som du ska ansluta till.
 * Anslutningar till Azure Database för MySQL kommunicerar via port 3306. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 3306 inte tillåts. I så fall kan du inte ansluta till servern såvida inte IT-avdelningen öppnar port 3306.
-* Spelbok använder modulen `azure_rm_resource`, som tillåter direkt användning av REST API.
+* Spelbok använder `azure_rm_resource`-modulen, som tillåter direkt användning av REST API.
 
 Kör Spelbok med kommandot `ansible-playbook`:
 

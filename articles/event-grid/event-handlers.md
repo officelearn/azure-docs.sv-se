@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a66b7389df64a776cdecb45c41de56d7d258e4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606364"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169307"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelse hanterare i Azure Event Grid
 
@@ -36,12 +36,13 @@ När du använder Azure Functions som hanterare kan du använda Event Grid-utlö
 
 |Rubrik  |Beskrivning  |
 |---------|---------|
+| [Snabb start: hantera händelser med funktion](custom-event-to-function.md) | Skickar en anpassad händelse till en funktion för bearbetning. |
 | [Event Grid utlösare för Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Översikt över hur du använder Event Grid-utlösaren i functions. |
 | [Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid](resize-images-on-storage-blob-upload-event.md) | Användare laddar upp bilder via webbapp till lagrings kontot. När en lagrings-BLOB skapas skickar Event Grid en händelse till Function-appen, som ändrar storlek på den överförda avbildningen. |
 | [Självstudie: strömma Big data till ett informations lager](event-grid-event-hubs-integration.md) | När Event Hubs skapar en Infångnings fil, Event Grid skickar en händelse till en Function-app. Appen hämtar insamlings filen och migrerar data till ett data lager. |
 | [Självstudie: Azure Service Bus till Azure Event Grid integrations exempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus ämne till att fungera som app-och Logic-appen. |
 
-## <a name="event-hubs"></a>Händelsehubbar
+## <a name="event-hubs"></a>Event Hubs
 
 Använd Event Hubs när din lösning hämtar händelser snabbare än den kan bearbeta händelserna. Programmet bearbetar händelserna från Event Hubs enligt schemat. Du kan skala händelse bearbetningen för att hantera inkommande händelser.
 
@@ -72,10 +73,15 @@ Använd Logic Apps för att automatisera affärs processer för att svara på h�
 | [Självstudie: skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En Logic App skickar ett e-postmeddelande varje gång en enhet läggs till i IoT Hub. |
 | [Självstudie: Azure Service Bus till Azure Event Grid integrations exempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus ämne till att fungera som app-och Logic-appen. |
 
-## <a name="service-bus-queue"></a>Service Bus-kö 
+## <a name="service-bus"></a>Service Bus
+
+### <a name="service-bus-queues"></a>Service Bus-köer
+
 Du kan dirigera händelser i Event Grid direkt till Service Bus köer för användning i buffert-eller kommando & kontroll scenarier i företags program.
 
-### <a name="using-cli-to-add-a-service-bus-handler"></a>Använda CLI för att lägga till en Service Bus hanterare
+När du skapar en händelse prenumeration i Azure Portal väljer du Service Bus kö som typ av slut punkt och klickar sedan på Välj och slut punkt för att välja en Service Bus kö.
+
+#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Använda CLI för att lägga till en Service Bus Queue-hanterare
 
 I följande exempel prenumererar och ansluter ett event Grid-ämne till en Service Bus kö för Azure CLI:
 
@@ -89,6 +95,28 @@ az eventgrid event-subscription create \
     --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
     --endpoint-type servicebusqueue \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
+### <a name="service-bus-topics"></a>Service Bus-ämnen
+
+Du kan dirigera händelser i Event Grid direkt till Service Bus ämnen för att hantera Azure system Events med Service Bus ämnen, eller för kommando & kontroll meddelande scenarier.
+
+När du skapar en händelse prenumeration i Azure Portal väljer du "Service Bus ämne" som typ av slut punkt och klickar sedan på Välj och slut punkt för att välja ett Service Bus ämne.
+
+#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Använda CLI för att lägga till en Service Bus ämnes hanterare
+
+I följande exempel prenumererar och ansluter ett event Grid-ämne till en Service Bus kö för Azure CLI:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebustopic \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
 ## <a name="queue-storage"></a>Queue Storage
@@ -113,4 +141,4 @@ Använd Webhooks för anpassningsbara slut punkter som svarar på händelser.
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

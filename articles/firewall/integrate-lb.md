@@ -1,64 +1,64 @@
 ---
-title: Integrera Azure-brandväggen med Azure Standard Load Balancer
-description: Lär dig hur du integrerar Azure-brandvägg med Azure Standard Load Balancer
+title: Integrera Azure Firewall med Azure Standard Load Balancer
+description: Du kan integrera en Azure-brandvägg i ett virtuellt nätverk med en Azure-Standard Load Balancer (antingen offentlig eller intern).
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/1/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193789"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167072"
 ---
-# <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure-brandväggen med Azure Standard Load Balancer
+# <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure Firewall med Azure Standard Load Balancer
 
-Du kan integrera en Azure-brandvägg i ett virtuellt nätverk med en Azure Standard Load Balancer (offentlig eller intern). 
+Du kan integrera en Azure-brandvägg i ett virtuellt nätverk med en Azure-Standard Load Balancer (antingen offentlig eller intern). 
 
-Den föredragna designen är att integrera en intern belastningsutjämnare med din Azure-brandväggen, eftersom det här är en mycket enklare design. Du kan använda en offentlig belastningsutjämnare om du redan har ett distribuerat och du vill att förvara den på plats. Men behöver du känna till asymmetrisk routning problem som kan dela funktioner med den offentliga belastningsutjämningsscenario.
+Den föredragna designen är att integrera en intern belastningsutjämnare med din Azure-brandvägg, eftersom det här är en mycket enklare design. Du kan använda en offentlig belastningsutjämnare om du redan har en distribution och vill hålla den på plats. Du måste dock vara medveten om ett problem med asymmetrisk routning som kan bryta funktioner med det offentliga scenariot för belastnings utjämning.
 
-Läs mer om Azure Load Balancer [vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
+Mer information om Azure Load Balancer finns i [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
 ## <a name="public-load-balancer"></a>Offentlig belastningsutjämnare
 
-Belastningsutjämnaren har distribuerats med en offentlig klientdels-IP-adress med en offentlig belastningsutjämnare.
+Med en offentlig belastningsutjämnare distribueras belastningsutjämnaren med en offentlig IP-adress för klient delen.
 
 ### <a name="asymmetric-routing"></a>Asymmetrisk routning
 
-Asymmetrisk routning är där ett paket tar en väg till målet och tar en annan sökväg när tillbaka till källan. Det här problemet inträffar när ett undernät har en standardväg ska i brandväggen privata IP-adressen och du använder en offentlig belastningsutjämnare. I det här fallet den inkommande trafiken för load balancer tas emot via dess offentliga IP-adress, men den returnera sökvägen går igenom i brandväggen privat IP-adress. Eftersom brandväggen inte är tillståndskänsliga utelämnar det returnerade paketet eftersom brandväggen inte är medveten om en upprättad session.
+Asymmetrisk routning är den plats där ett paket tar en väg till målet och tar en annan sökväg när den återgår till källan. Det här problemet uppstår när ett undernät har en standard väg som går till brand väggens privata IP-adress och du använder en offentlig belastningsutjämnare. I det här fallet tas den inkommande belastnings Utjämnings trafiken emot via dess offentliga IP-adress, men retur vägen går genom brand väggens privata IP-adress. Eftersom brand väggen är tillstånds känslig, släpps det returnerade paketet eftersom brand väggen inte är medveten om en sådan etablerad session.
 
-### <a name="fix-the-routing-issue"></a>Åtgärda problemet Routning
+### <a name="fix-the-routing-issue"></a>Åtgärda problemet med routningen
 
-När du distribuerar en Azure-brandvägg i ett undernät är ett steg att skapa en standardväg för undernätet dirigera paket via i brandväggen privata IP-adressen finns på AzureFirewallSubnet. Mer information finns i [Självstudie: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](tutorial-firewall-deploy-portal.md#create-a-default-route).
+När du distribuerar en Azure-brandvägg i ett undernät är ett steg att skapa en standard väg för det undernät som dirigerar paket genom brand väggens privata IP-adress som finns på AzureFirewallSubnet. Mer information finns i [Självstudier: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure Portal](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
-När du introducera brandväggen i din belastningsutjämningsscenario vill Internet-trafiken att komma via din brandvägg offentlig IP-adress. Därifrån kan gäller brandväggen dess brandväggsregler och NAT paketen till din belastningsutjämnarens offentliga IP-adress. Det här är där problemet uppstår. Paket som tas emot på i brandväggen offentlig IP-adress, men återgå till brandväggen via privata IP-adress (med standardvägen).
-Undvik problemet genom att skapa en ytterligare värdrutt för i brandväggen offentlig IP-adress. Paketen i brandväggen offentlig IP-adress ska dirigeras via Internet. Detta förhindrar tar standardväg till i brandväggen privat IP-adress.
+När du introducerar brand väggen i ditt scenario för belastningsutjämnare vill du att din Internet trafik ska komma genom brand väggens offentliga IP-adress. Därifrån tillämpar brand väggen sina brand Väggs regler och överför paketen till den offentliga IP-adressen för belastningsutjämnaren. Det är där problemet uppstår. Paket kommer in i brand väggens offentliga IP-adress, men återgår till brand väggen via den privata IP-adressen (med standard vägen).
+Undvik det här problemet genom att skapa ytterligare en värd väg för brand väggens offentliga IP-adress. Paket som går till brand väggens offentliga IP-adress dirigeras via Internet. Detta förhindrar standard vägen till brand väggens privata IP-adress.
 
 ![Asymmetrisk routning](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-Till exempel är följande vägar för en brandvägg i offentliga IP-adressen 13.86.122.41 och privata IP-adressen 10.3.1.4.
+Följande vägar är till exempel för en brand vägg på offentlig IP-13.86.122.41 och privat IP-10.3.1.4.
 
 ![Routningstabell](media/integrate-lb/route-table.png)
 
 ## <a name="internal-load-balancer"></a>Intern lastbalanserare
 
-Belastningsutjämnaren har distribuerats med en privat klientdels-IP-adress med en intern belastningsutjämnare.
+Med en intern belastningsutjämnare distribueras belastningsutjämnaren med en privat klient dels-IP-adress.
 
-Det finns inga asymmetriska routningsproblemet med det här scenariot. Inkommande paket når i brandväggen offentlig IP-adress, hämta översätts till belastningsutjämnarens privata IP-adressen och återgår sedan till i brandväggen privata IP-adressen med hjälp av samma returnerade sökvägen.
+Det finns inget problem med asymmetrisk routning i det här scenariot. Inkommande paket kommer till brand väggens offentliga IP-adress, översätts till belastningsutjämnarens privata IP-adress och återgår sedan till brand väggens privata IP-adress med samma retur Sök väg.
 
-Därför kan du distribuera det här scenariot som liknar den offentliga belastningsutjämningsscenario, men utan att behöva brandväggen offentliga IP-adressen värdrutt.
+Så du kan distribuera det här scenariot på liknande sätt som i det offentliga scenariot för belastnings utjämning, men utan att behöva använda den offentliga brand väggens värd väg för IP-adresser.
 
 ## <a name="additional-security"></a>Ytterligare säkerhet
 
-Om du vill förbättra säkerheten för ditt scenario för Utjämning av nätverksbelastning, kan du använda nätverkssäkerhetsgrupper (NSG).
+Om du vill förbättra säkerheten i ditt belastningsutjämnade scenario kan du använda nätverks säkerhets grupper (NSG: er).
 
-Du kan till exempel skapa en NSG på backend-undernät där de virtuella datorerna Utjämning av nätverksbelastning finns. Tillåt inkommande trafik från brandväggen IP-adress och port.
+Du kan till exempel skapa en NSG i backend-undernätet där de belastningsutjämnade virtuella datorerna finns. Tillåt inkommande trafik från brand väggens IP-adress/port.
 
-Mer information om Nätverkssäkerhetsgrupper finns i [säkerhetsgrupper](../virtual-network/security-overview.md).
+Mer information om NSG: er finns i [säkerhets grupper](../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [distribuera och konfigurera en brandvägg för Azure](tutorial-firewall-deploy-portal.md).
+- Lär dig hur du [distribuerar och konfigurerar en Azure-brandvägg](tutorial-firewall-deploy-portal.md).

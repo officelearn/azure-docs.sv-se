@@ -1,18 +1,14 @@
 ---
 title: Felsöka säkerhetskopiering av Azure-filresurser
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
-ms.service: backup
-author: dcurwin
-ms.author: dacurwin
 ms.date: 08/20/2019
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: c589cba1386433e13318dabbd2873f789ee42df3
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.topic: conceptual
+ms.openlocfilehash: 62a4f83c93230c150a7c406d0614dbee3d125e9c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091497"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171772"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
 
@@ -37,7 +33,7 @@ Följande tabell används för att konfigurera säkerhetskopieringen:
 
 | Felmeddelanden | Lösningstips |
 | ------------------ | ----------------------------- |
-| Jag kunde inte hitta mitt lagringskonto när jag skulle konfigurera säkerhetskopiering för en Azure-filresurs | <ul><li>Vänta tills identifieringen har slutförts. <li>Kontrollera om någon filresurs i lagringskontot redan skyddas med ett annat Recovery Services-valv. **Obs!** Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. <li>Kontrollera att filresursen inte finns i något av de lagringskonton som inte stöds.|
+| Jag kunde inte hitta mitt lagringskonto när jag skulle konfigurera säkerhetskopiering för en Azure-filresurs | <ul><li>Vänta tills identifieringen har slutförts. <li>Kontrollera om någon filresurs i lagringskontot redan skyddas med ett annat Recovery Services-valv. **Obs!** Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. <li>Kontrollera att filresursen inte finns i något av de lagringskonton som inte stöds.<li> Kontrol lera att kryss rutan **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** är markerad i lagrings kontot. [Läs mer.](../storage/common/storage-network-security.md)|
 | Fel i Portal anger att identifieringen av lagringskonton misslyckades. | Om din prenumeration är CSP-aktiverad (partner) kan du ignorera felet. Kontakta support om prenumerationen inte är CSP-aktiverad och dina lagringskonton inte kan identifieras.|
 | Vald lagringskontoverifiering eller registrering misslyckades.| Försök utföra åtgärden på nytt. Kontakta support om problemet kvarstår.|
 | Det gick inte att visa eller hitta filresurserna i det valda lagringskontot. | <ul><li> Kontrollera att lagringskontot finns i resursgruppen (och inte har tagits bort eller flyttats efter den senaste verifieringen/registreringen i valvet).<li>Kontrollera att filresursen du vill skydda inte har tagits bort. <li>Kontrollera att ditt lagringskonto är ett lagringskonto som stöder säkerhetskopiering av filresurser.<li>Kontrollera om filresursen redan skyddas i samma Recovery Services-valv.|

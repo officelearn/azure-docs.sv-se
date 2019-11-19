@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c92baf5c97597a0161f402cc458e90bb3e637d6c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120012"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170668"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -91,7 +91,7 @@ Anslutning till lokala data källor från en Azure Analysis Services server krä
 
 ## <a name="specifying-a-different-provider"></a>Ange en annan provider
 
-Data modeller i Azure Analysis Services kan kräva olika data leverantörer vid anslutning till vissa data källor. I vissa fall kan tabell modeller som ansluter till data källor med inbyggda leverantörer som SQL Server Native Client (SQLNCLI11) returnera ett fel. Om du använder andra inbyggda providers än SQLOLEDB kan du se fel meddelandet: **providern ' SQLNCLI 11.1 ' är inte registrerad**. Eller, om du har en DirectQuery-modell som ansluter till lokala data källor och använder inbyggda providers, kan du se fel meddelandet: det **gick inte att skapa OLE DB rad uppsättning. Felaktig syntax nära LIMIT**.
+Data modeller i Azure Analysis Services kan kräva olika data leverantörer vid anslutning till vissa data källor. I vissa fall kan tabell modeller som ansluter till data källor med inbyggda leverantörer som SQL Server Native Client (SQLNCLI11) returnera ett fel. Om du använder andra inbyggda providers än MSOLEDBSQL, kan du se fel meddelandet: **providern ' SQLNCLI 11.1 ' är inte registrerad**. Eller, om du har en DirectQuery-modell som ansluter till lokala data källor och använder inbyggda providers, kan du se fel meddelandet: det **gick inte att skapa OLE DB rad uppsättning. Felaktig syntax nära LIMIT**.
 
 När du migrerar en lokal SQL Server Analysis Services tabell modell till Azure Analysis Services kan du behöva ändra providern.
 

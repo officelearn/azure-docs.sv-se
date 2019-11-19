@@ -1,18 +1,14 @@
 ---
 title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533142"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172072"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -30,7 +26,7 @@ Azure Backup använder Recovery Services valv för att dirigera och hantera säk
 
 I följande tabell beskrivs funktionerna i Recovery Services-valv:
 
-**Funktion** | **Detaljer**
+**Funktion** | **Information**
 --- | ---
 **Valv i prenumerationen** | Upp till 500 Recovery Services-valv i en enstaka prenumeration.
 **Datorer i ett valv** | Upp till 1 000 virtuella Azure-datorer i ett enda valv.<br/><br/> Upp till 50 MABS-servrar kan registreras i ett enda valv.
@@ -56,7 +52,7 @@ Här är what's som stöds om du vill säkerhetskopiera lokala datorer:
 
 ### <a name="azure-vm-limits"></a>Begränsningar för virtuella Azure-datorer
 
-**Gräns** | **Detaljer**
+**Gräns** | **Information**
 --- | ---
 **Data diskar för virtuella Azure-datorer** | Gräns på 16
 **Data disk storlek för virtuell Azure-dator** | Enskild disk storlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
@@ -139,7 +135,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 **Inställning** | **Begränsningar**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
-**Maximal förfallo tid för en återställnings punkt** | Obegränsat
+**Maximal förfallo tid för en återställnings punkt** | Obegränsad
 **Maximal säkerhets kopierings frekvens till DPM/MABS** | Varje kvart för SQL Server<br/><br/> En gång i timmen för andra arbets belastningar
 **Maximal säkerhets kopierings frekvens till valv** | **Lokala Windows-datorer eller virtuella Azure-datorer som kör mars:** Tre per dag<br/><br/> **DPM/Mabs:** Två per dag<br/><br/> **Azure VM-säkerhetskopiering:** En per dag
 **Kvarhållning av återställnings punkt** | Varje dag, varje vecka, varje månad, varje år

@@ -1,19 +1,19 @@
 ---
 title: Skriptexempel för Azure PowerShell – Skapa en testmiljö för Azure Firewall
-description: Skriptexempel för Azure PowerShell – Skapa en testmiljö för Azure Firewall.
+description: Det här Skriptexemplet skapar en brandvägg och en testmiljö för nätverket. Nätverket har ett VNet, med tre undernät.
 services: virtual-network
 author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 8/13/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 79fce47c02decffa8132ed4b093992d2db2c937f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839265"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166914"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Skapa en testmiljö för Azure Firewall
 
@@ -57,7 +57,7 @@ Remove-AzResourceGroup -Name AzfwSampleScriptEastUS -Force
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
+I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|

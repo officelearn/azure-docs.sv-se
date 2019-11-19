@@ -1,18 +1,14 @@
 ---
 title: Säkerhetskopiera och återställa Azure-filresurser
 description: Den här artikeln beskriver hur du säkerhetskopierar och återställer Azure-filresurser och förklarar hanteringsuppgifterna.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.topic: conceptual
+ms.openlocfilehash: 59dd46c42cdf94f06709d95f68cfb8d8693b9cce
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091096"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173084"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Säkerhetskopiera och återställa Azure-filresurser
 
@@ -47,7 +43,7 @@ Säkerhetskopiering för Azure-filresurser är i förhandsversion. Azure-filresu
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Konfigurera säkerhetskopiering för en Azure-filresurs
 
-Den här självstudien förutsätter att du redan har skapat en filresurs i Azure. Säkerhetskopiera Azure-filresurser:
+Den här artikeln förutsätter att du redan har upprättat en Azure-filresurs. Säkerhetskopiera Azure-filresurser:
 
 1. Skapa ett Recovery Services-valv i samma region som din filresurs. Om du redan har ett valv öppnar du valvets översiktssida och klickar på **Backup**.
 

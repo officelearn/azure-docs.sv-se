@@ -1,27 +1,21 @@
 ---
-title: SQL-databas i Azure VM backup & Restore via PowerShell – Azure Backup
+title: SQL-databas i Azure VM backup & Restore via PowerShell
 description: Säkerhetskopiera och Återställ SQL-databaser på virtuella Azure-datorer med hjälp av Azure Backup och PowerShell.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure Backup; SQL
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 115eef3619f76f83f63c5e69e86393c032e0844e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090935"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172626"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
 Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhetskopiera och återställa en SQL-databas i en virtuell Azure-dator med [Azure Backup](backup-overview.md) Recovery Services-valvet.
 
-I den här självstudien beskrivs hur du:
+Den här artikeln förklarar hur du:
 
 > [!div class="checklist"]
 >

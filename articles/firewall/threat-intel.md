@@ -1,18 +1,18 @@
 ---
 title: Filtrering baserad på Azure Firewall Threat Intelligence
-description: Lär dig mer om filtrering av Azure Firewall Threat Intelligence
+description: Hotinformationsbaserad filtrering kan aktiveras för brandväggen för att avisera och avvisa trafik från/till kända skadliga IP-adresser och domäner.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f6a60d7c29fc7e482e32233aa86d65a801e3f55c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c291dbe9c1eb37e68174a2353e296a376c7d0896
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582255"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168669"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Azure Firewall Threat Intelligence-baserad filtrering
 

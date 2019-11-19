@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 96238da73a0bf6816635a71d13ea2ae6762d1955
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107676"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170309"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Självstudie: visualisera och analysera händelser från Azure Digitals dubbla med hjälp av Time Series Insights
 
@@ -54,6 +54,8 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Sök efter och välj **Event Hubs**. Välj **Skapa**.
 
+    [![skapa ett Event Hubs-namnområde](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. Ange ett **namn** för Event Hubs-namnområdet. Välj **Standard** som **Prisnivå**, din **prenumeration**, **resursgruppen** du använde för din Digital Twins-instans och **platsen**. Välj **Skapa**.
 
 1. I Event Hubs namn områdes distribution väljer du **översikts** fönstret och väljer sedan **gå till resurs**.
@@ -77,7 +79,10 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
     [anslutnings strängar för ![Event Hub](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. Öppna principen ManageSend som du har skapat och kopiera värdena för **Anslutningssträng – primär nyckel** och **Anslutningssträng – sekundär nyckel** till en temporär fil. Du behöver dessa värden för att skapa en slutpunkt för händelsehubben i nästa avsnitt.
+    > [!TIP]
+    > Kontrol lera att du skapar en SAS-princip för Event Hub-instansen i stället för ditt namn område.
+
+1. Öppna principen **ManageSend** som du har skapat och kopiera värdena för **Anslutningssträng – primär nyckel** och **Anslutningssträng – sekundär nyckel** till en temporär fil. Du behöver dessa värden för att skapa en slutpunkt för händelsehubben i nästa avsnitt.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Skapa en slutpunkt för händelsehubb
 
@@ -105,13 +110,13 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Ersätt platshållarna `Primary_connection_string_for_your_event_hub` med värdet för **Anslutningssträng – primär nyckel** för händelsehubben. Kontrollera att formatet för den här anslutningssträngen är följande:
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Ersätt platshållarna `Secondary_connection_string_for_your_event_hub` med värdet för **Anslutningssträng – sekundär nyckel** för händelsehubben. Kontrollera att formatet för den här anslutningssträngen är följande: 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 

@@ -1,18 +1,14 @@
 ---
 title: Självstudie – säkerhetskopiera SQL Server-databaser till Azure
 description: I den här självstudien lär du dig hur du säkerhetskopierar en SQL Server databas som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services-valv.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: dacurwin
-ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074664"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171891"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Säkerhetskopiera en SQL Server-databas på en virtuell Azure-dator
 

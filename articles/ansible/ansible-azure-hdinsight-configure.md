@@ -3,17 +3,13 @@ title: Självstudie – konfigurera ett kluster i Azure HDInsight med Ansible
 description: Lär dig hur du använder Ansible för att konfigurera, ändra storlek på och ta bort ett Azure HDInsight-kluster
 keywords: Ansible, Azure, DevOps, bash, Spelbok, Apache Hadoop, HDInsight
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ce4723a9dbe952f0112b7e24c3e361fd2f414374
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 2281c9683583e1def034b79809829a068ef9f3e6
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614408"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156665"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Självstudie: Konfigurera ett kluster i Azure HDInsight med Ansible
 
@@ -30,7 +26,7 @@ ms.locfileid: "73614408"
 > * Ändra storlek på ett kluster
 > * Ta bort ett kluster
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 

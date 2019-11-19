@@ -7,20 +7,17 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/17/2017
-ms.openlocfilehash: d6905b91c57bf3ea3227d995332fa6ae55ca867c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7083ecf01666deecccada9ab0c93e88af53d252b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899921"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173660"
 ---
 # <a name="sdk-release-notes---application-insights"></a>SDK viktig information, Application Insights
 Här är detaljerad information och instruktioner för uppdatering av våra SDK: er:
 
-* [ASP.NET-webbserverns SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
-* [.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
-* [.NET-loggnings kort](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
-* [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
+* [.NET-SDK: er (inklusive ASP.NET, ASP.Net Core och logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Andra plattformar](https://github.com/Microsoft/ApplicationInsights-Home)

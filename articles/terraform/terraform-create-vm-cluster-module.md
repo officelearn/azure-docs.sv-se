@@ -1,21 +1,18 @@
 ---
 title: Självstudie – Skapa ett Azure VM-kluster med terraform med hjälp av modulen register
 description: Lär dig hur du använder Terraform-moduler för att skapa ett kluster med virtuella Windows-datorer i Azure
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: ba99f9cdc20448398b339041aeab41fb75495e5d
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
-ms.translationtype: MT
+ms.openlocfilehash: 939c34eae63b89108102ed8f766a4260ce2f24bd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969484"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159062"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Självstudie: skapa ett Azure VM-kluster med terraform med hjälp av modulen register
 
-Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här guiden får du lära du dig hur man: 
+Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här guiden får du lära dig hur man: 
 
 > [!div class="checklist"]
 > * Konfigurera autentisering med Azure

@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70130122"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74175015"
 ---
-| Resource | Standard/högsta gräns | Obs! |
+| Resurs | Standard/högsta gräns | Obs! |
 | --- | --- | --- |
 | Azure Application Gateway |1 000 per prenumeration | |
 | IP-konfigurationer på klient Sidan |2 |1 offentlig och 1 privat |
@@ -28,12 +28,13 @@ ms.locfileid: "70130122"
 | Betrodda rot certifikat |100 | |
 | Lägsta timeout för begäran |1 sekund | |
 | Maximal timeout för begäran |24 timmar | |
-| Antal webbplatser |100<sup>1</sup> |1 per HTTP-lyssnare |
+| Antal platser |100<sup>1</sup> |1 per HTTP-lyssnare |
 | URL-kartor per lyssnare |1 | |
 | Maximalt antal Sök vägs baserade regler per URL-mappning|100||
 | Omdirigera konfigurationer |100<sup>1</sup>| |
 | Samtidiga WebSocket-anslutningar |20 000 för medium Gateway<br> Stora gatewayer 50 000| |
-| Maximal URL-längd|8,000||
+| Maximal URL-längd|32 KB| |
+| Maximal sidhuvud storlek för HTTP/2 |4KB| |
 | Maximal fil överförings storlek, standard |2 GB | |
 | Maximal storlek för fil överföring WAF |Medel WAF-gatewayer, 100 MB<br>Stora WAF-gatewayer, 500 MB| |
 | Storleks gräns för WAF-Body, utan filer|128 KB||

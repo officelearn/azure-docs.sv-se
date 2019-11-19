@@ -1,17 +1,17 @@
 ---
 title: Snabbstart – Azure SignalR Service REST API
-description: En snabbstart för att använda Azure SignalR Service REST API.
+description: Lär dig hur du använder REST API med Azure SignalR service i följande exempel. Hitta information om REST API specifikation.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 999d44e394d47e350187f9175389e04e68567d5e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724668"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157682"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
 
@@ -19,7 +19,7 @@ Azure SignalR Service har [REST API](https://github.com/Azure/azure-signalr/blob
 
 I den här snabbstarten får du lära dig hur du sänder meddelanden från en kommandoradsapp till anslutna klientappar i C#.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -139,7 +139,7 @@ Skicka till vissa användare | **&#x2713;** (inaktuellt) | `N / A`
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Sänd till alla
 
-Version | API HTTP-metod | URL för begäran | Begärandetext
+Version | API HTTP-metoden | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | Samma som ovan
@@ -147,7 +147,7 @@ Version | API HTTP-metod | URL för begäran | Begärandetext
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Sänd till en grupp
 
-Version | API HTTP-metod | URL för begäran | Begärandetext
+Version | API HTTP-metoden | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Samma som ovan
@@ -155,7 +155,7 @@ Version | API HTTP-metod | URL för begäran | Begärandetext
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>Skicka till specifika användare
 
-Version | API HTTP-metod | URL för begäran | Begärandetext
+Version | API HTTP-metoden | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` | Samma som ovan
@@ -163,14 +163,14 @@ Version | API HTTP-metod | URL för begäran | Begärandetext
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>Lägga till användare i en grupp
 
-Version | API HTTP-metod | URL för begäran
+Version | API HTTP-metoden | URL för begäran
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Ta bort en användare från en grupp
 
-Version | API HTTP-metod | URL för begäran
+Version | API HTTP-metoden | URL för begäran
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
@@ -178,7 +178,7 @@ Version | API HTTP-metod | URL för begäran
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du använder REST API för att skicka meddelande i realtid från SignalR Service till klienter. Därefter lär dig mer om hur du utvecklar och distribuerar Azure Functions med SignalR Service-bindningen, som bygger på REST API.
+I den här snabb starten har du lärt dig hur du använder REST API för att sända real tids meddelanden från SignalR-tjänsten till klienter. Nu ska du läsa mer om hur du utvecklar och distribuerar Azure Functions med en signal tjänst bindning, som är byggd ovanpå REST API.
 
 > [!div class="nextstepaction"]
-> [Utveckla Azure-funktioner med hjälp av Azure SignalR Service-bindningar](signalr-quickstart-azure-functions-csharp.md)
+> [Utveckla Azure Functions med hjälp av Azure SignalR service-bindningar](signalr-quickstart-azure-functions-csharp.md)

@@ -4,19 +4,19 @@ description: Vanliga frågor och svar om lösen ords skydd i Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 473fe43bb4cf18c61f30d9b7e057da888dc6da62
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71268655"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167899"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD Password Protection lokalt – vanliga frågor och svar
 
@@ -101,7 +101,7 @@ Nej. Eftersom proxyservern är tillstånds lös är det inte viktigt vilken spec
 
 Ja. Azure AD-proxyn för lösen ords skydd och Azure AD Connect bör aldrig stå i konflikt direkt med varandra.
 
-Tyvärr har en inkompatibilitet identifierats mellan versionen av Microsoft Azure AD Connect agent Updateer-tjänsten som installeras av Azure AD-proxyn för lösen ords skydd och den version av tjänsten som installeras av [Azure Active Program vara för Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Den här inkompatibiliteten kan resultera i att agent uppdaterings tjänsten inte kan kontakta Azure för program uppdateringar. Vi rekommenderar inte att du installerar Azure AD Password Protection proxy och Azure Active Directory-programproxy på samma dator.
+Tyvärr har en inkompatibilitet identifierats mellan versionen av Microsoft Azure AD Connect agent Updateer-tjänsten som installeras av proxy-programvaran för Azure AD-lösenordet och den version av tjänsten som installeras av [Azure Active Directory-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) -programvaran. Den här inkompatibiliteten kan resultera i att agent uppdaterings tjänsten inte kan kontakta Azure för program uppdateringar. Vi rekommenderar inte att du installerar Azure AD Password Protection proxy och Azure Active Directory-programproxy på samma dator.
 
 **F: i vilken ordning ska DC-agenter och-proxyservrar installeras och registreras?**
 
@@ -113,7 +113,7 @@ Tjänsten Azure AD Password Protection DC agent bör inte påverka domänkontrol
 
 För de flesta Active Directory distributioner är lösen ords ändrings åtgärder en liten del av den övergripande arbets belastningen på en viss domänkontrollant. Anta till exempel att en Active Directory domän med 10000 användar konton och en MaxPasswordAge-princip har angetts till 30 dagar. I genomsnitt visas 10 000/30 = ~ 333 lösen ords ändrings åtgärder varje dag, vilket är ett mindre antal åtgärder för även en enda domänkontrollant. Överväg ett potentiellt värsta fall scenario: Antag att dessa ~ 333-lösenords ändringar på en enda DOMÄNKONTROLLANT har utförts under en enda timme. Det här scenariot kan till exempel inträffa när många medarbetare kommer att arbeta på en måndag morgon. Även i detta fall tittar vi fortfarande på ~ 333/60 minuter = sex lösen ords ändringar per minut, vilket återigen inte är en betydande belastning.
 
-Om dina aktuella domänkontrollanter redan körs på prestanda nivå (till exempel överutnyttjade ut med avseende på CPU, disk utrymme, disk-I/O osv.), är det lämpligt att lägga till ytterligare domänkontrollanter eller utöka disk utrymmet innan distribuerar den här funktionen. Se även fråga ovan om användning av SYSVOL-disk utrymme ovan.
+Om dina aktuella domänkontrollanter redan körs på prestanda nivå (till exempel överutnyttjade ut med avseende på CPU, disk utrymme, disk-I/O osv.), är det lämpligt att lägga till ytterligare domänkontrollanter eller expandera tillgängligt disk utrymme innan du distribuerar den här funktionen. Se även fråga ovan om användning av SYSVOL-disk utrymme ovan.
 
 **F: Jag vill testa lösen ords skyddet i Azure AD på bara några domänkontrollanter i min domän. Är det möjligt att framtvinga ändringar av användar lösen ord för att använda dessa domänkontrollanter?**
 

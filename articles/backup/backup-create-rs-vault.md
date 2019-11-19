@@ -1,20 +1,15 @@
 ---
-title: 'Azure Backup: skapa Recovery Services-valv'
+title: Skapa Recovery Services-valv
 description: I den här artikeln lär du dig hur du skapar Recovery Services valv som lagrar säkerhets kopior och återställnings punkter.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-keywords: Recovery Services valv; Azure VM-säkerhetskopiering; Återställning av Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c678452cd65d0b03d923659e380c1dcef3540ce1
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074885"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172430"
 ---
 # <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 

@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: övervaka Azure Backup skyddade arbets belastningar'
+title: Övervaka Azure Backup skyddade arbets belastningar
 description: I den här artikeln får du lära dig mer om övervaknings-och aviserings funktionerna för Azure Backup arbets belastningar med hjälp av Azure Portal.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure Backup; Aviseringar
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: cd9e4e14771744b6275bb1dfe0a96bbef475a123
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090965"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172867"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
@@ -63,7 +57,7 @@ Det finns några undantag när en avisering inte utlöses vid ett fel:
 
 Ovanstående undantag är utformade från förståelsen av att resultatet av dessa åtgärder (främst användare som utlöses) visas direkt på Portal/PS/CLI-klienter. Därför är användaren omedelbart medveten och behöver ingen avisering.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aviseringar från följande Azure Backup lösningar visas här:
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aviseringar från följande Azure Backup lösningar visas här
 
 - Säkerhetskopior av virtuella Azure-datorer
 - Säkerhetskopior av Azure-fil

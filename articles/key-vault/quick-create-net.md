@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c789d48656173721432779aeaba0530950527fa1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b91554269ab7ddf15458545715e7a3a40cc1ceb6
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646930"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158701"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault klient bibliotek för .NET (SDK v4)
 
@@ -25,9 +25,9 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Förenkla och automatisera uppgifter för SSL/TLS-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
-[API Reference-dokumentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [paketet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[API Reference-dokumentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [paketet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 2,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core/2.1).
@@ -39,10 +39,7 @@ Den här snabb starten förutsätter att du kör `dotnet`, [Azure CLI](/cli/azur
 
 ### <a name="create-new-net-console-app"></a>Skapa ny .NET-konsol program
 
-Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE.
-
-I ett konsol fönster använder du kommandot `dotnet new` för att skapa en ny konsol-app med namnet `akv-dotnet`.
-
+I ett konsol fönster använder du kommandot `dotnet new` för att skapa en ny .NET-konsol-app med namnet `akv-dotnet`.
 
 ```console
 dotnet new console -n key-vault-console-app

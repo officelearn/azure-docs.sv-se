@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f1b2bdcecac0aade21c6c770b2495a1e15ba9bc5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882574"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74174003"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure Storage-kontot
 
@@ -30,6 +30,7 @@ Information om hur du skapar ett Azure Storage-konto finns i [skapa ett lagrings
 Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage funktionerna och inkluderar alla funktioner i generella v1-och Blob Storage-konton. Allmänna-Purpose v2-konton ger de lägsta priserna per Gigabyte för Azure Storage, samt priser för priser som är konkurrerande för branschen. Allmänna-Purpose v2-lagrings konton har stöd för dessa Azure Storage tjänster:
 
 - Blobbar (alla typer: blockera, Lägg till, sida)
+- Data Lake Gen2
 - Filer
 - Diskar
 - Köer

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 03cf8eb2036a9670dbc75e3efb55e52a70de5c54
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c79a6ba1a6b7b5582c6430c6de7a4a309bf4920
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607272"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169848"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -53,13 +53,13 @@ Fullständig information om funktionerna för varje hanterare samt relaterade ar
 * [Azure Functions](event-handlers.md#azure-functions)
 * [Event Hubs](event-handlers.md#event-hubs)
 * [Hybridanslutningar](event-handlers.md#hybrid-connections)
-* [Logikappar](event-handlers.md#logic-apps)
-* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Logic Apps](event-handlers.md#logic-apps)
+* [Automatisera energi (tidigare Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Queue Storage](event-handlers.md#queue-storage)
-* [Service Bus](event-handlers.md#service-bus-queue)
+* [Service Bus](event-handlers.md#service-bus)
 * [WebHooks](event-handlers.md#webhooks)
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 
 Det finns fem begrepp i Azure Event Grid som hjälper dig igång:
 

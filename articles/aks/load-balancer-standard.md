@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929141"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171393"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
-För att ge åtkomst till dina program i Azure Kubernetes service (AKS) kan du skapa och använda en Azure Load Balancer. En belastningsutjämnare som körs på AKS kan användas som en intern eller extern belastningsutjämnare. En intern belastningsutjämnare gör att en Kubernetes-tjänst endast är tillgänglig för program som körs i samma virtuella nätverk som AKS-klustret. En extern belastningsutjämnare tar emot en eller flera offentliga IP-adresser för ingress och gör en Kubernetes-tjänst tillgänglig externt med hjälp av offentliga IP-adresser.
+För att ge åtkomst till program via Kubernetes-tjänster av typen `LoadBalancer` i Azure Kubernetes service (AKS) kan du använda en Azure Load Balancer. En belastningsutjämnare som körs på AKS kan användas som en intern eller extern belastningsutjämnare. En intern belastningsutjämnare gör att en Kubernetes-tjänst endast är tillgänglig för program som körs i samma virtuella nätverk som AKS-klustret. En extern belastningsutjämnare tar emot en eller flera offentliga IP-adresser för ingress och gör en Kubernetes-tjänst tillgänglig externt med hjälp av offentliga IP-adresser.
 
-Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. *Standard* -SKU: n används som standard när du skapar ett AKS-kluster. Med en *standard* -SKU-belastningsutjämnare får du ytterligare funktioner och funktioner, till exempel större storlek på backend-pool och Tillgänglighetszoner. Det är viktigt att du förstår skillnaderna mellan *standard* -och *grundläggande* belastningsutjämnare innan du väljer vilken du vill använda. När du har skapat ett AKS-kluster kan du inte ändra SKU för belastnings utjämning för det klustret. Mer information om *Basic* -och *standard* -SKU: er finns i [jämförelse av Azure Load Balancer SKU][azure-lb-comparison].
+Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. *Standard* -SKU: n används som standard när du skapar ett AKS-kluster. Med en *standard* -SKU-belastningsutjämnare får du ytterligare funktioner och funktioner, till exempel en större storlek och Tillgänglighetszoner för Server delen. Det är viktigt att du förstår skillnaderna mellan *standard* -och *grundläggande* belastningsutjämnare innan du väljer vilken du vill använda. När du har skapat ett AKS-kluster kan du inte ändra SKU för belastnings utjämning för det klustret. Mer information om *Basic* -och *standard* -SKU: er finns i [jämförelse av Azure Load Balancer SKU][azure-lb-comparison].
 
 Den här artikeln förutsätter grundläggande kunskaper om Kubernetes och Azure Load Balancer koncept. Mer information finns i [Kubernetes Core Concepts for Azure Kubernetes service (AKS)][kubernetes-concepts] och [Vad är Azure Load Balancer?][azure-lb].
 
@@ -29,9 +29,18 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.74 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
 Den här artikeln förutsätter att du har ett AKS-kluster med *standard* -SKU-Azure Load Balancer. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
 AKS-kluster tjänstens huvud namn behöver också behörighet att hantera nätverks resurser om du använder ett befintligt undernät eller en befintlig resurs grupp. I allmänhet tilldelar du rollen *nätverks deltagare* till tjänstens huvud namn på de delegerade resurserna. Mer information om behörigheter finns i [delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
+
+### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Flytta från en Basic SKU-Load Balancer till standard-SKU: n
+
+Om du har ett befintligt kluster med Basic-SKU Load Balancer, finns det viktiga skillnader att tänka på när du migrerar till att använda ett kluster med standard-SKU: n Load Balancer.
+
+Om du till exempel gör blå/gröna distributioner för att migrera kluster, är en vanlig metod att `load-balancer-sku` typen för ett kluster endast kan definieras i klustrets skapande tid. *Basic SKU* -belastningsutjämnare använder dock *Basic SKU* IP-adresser som inte är kompatibla med *standardsku* : er för SKU: er, eftersom de kräver *standard-SKU* IP-adresser. När du migrerar kluster för att uppgradera Load Balancer SKU: er krävs en ny IP-adress med en kompatibel IP-SKU.
+
+Mer information om hur du migrerar kluster finns i [vår dokumentation om migrering](acs-aks-migration.md) för att se en lista över viktiga ämnen som du bör tänka på när du migrerar. Begränsningarna nedan är också viktiga skillnader när du antecknar när du använder standard-SKU: er i AKS.
 
 ### <a name="limitations"></a>Begränsningar
 
@@ -41,9 +50,10 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
     * Ange dina egna offentliga IP-adresser.
     * Ange egna offentliga IP-prefix.
     * Ange ett tal upp till 100 för att tillåta att AKS-klustret skapar att många *standard* -SKU offentliga IP-adresser i samma resurs grupp som skapats som AKS-kluster, som vanligt vis heter med *MC_* i början. AKS tilldelar den offentliga IP-adressen till *standard* -SKU-belastningsutjämnaren. Som standard skapas en offentlig IP-adress automatiskt i samma resurs grupp som AKS-klustret, om ingen offentlig IP, ett offentligt IP-prefix eller antal IP-adresser anges. Du måste också tillåta offentliga adresser och undvika att skapa Azure Policy som tillåter att IP skapas.
-* När du använder *standard* -SKU: n för en belastningsutjämnare måste du använda Kubernetes version 1,13 eller senare.
+* När du använder *standard* -SKU: n för en belastningsutjämnare måste du använda Kubernetes version *1,13 eller senare*.
 * Du kan bara definiera belastningsutjämnare-SKU: n när du skapar ett AKS-kluster. Du kan inte ändra SKU: n för belastningsutjämnaren efter att ett AKS-kluster har skapats.
-* Du kan bara använda en SKU för belastnings utjämning i ett enda kluster.
+* Du kan bara använda en typ av SKU för belastningsutjämnare (Basic eller standard) i ett enda kluster.
+* *Standard* SKU load Balances stöder endast IP-adresser för *standard* -SKU.
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Konfigurera belastningsutjämnaren så att den är intern
 

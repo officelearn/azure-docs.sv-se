@@ -1,20 +1,15 @@
 ---
-title: 'Azure Backup: programkonsekventa säkerhets kopieringar av virtuella Linux-datorer'
+title: Programkonsekventa säkerhets kopieringar av virtuella Linux-datorer
 description: Skapa programkonsekventa säkerhets kopieringar av dina virtuella Linux-datorer till Azure. Den här artikeln förklarar hur du konfigurerar skript ramverket för att säkerhetskopiera virtuella Linux-datorer som distribueras i Azure. Den här artikeln innehåller också felsöknings information.
 ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-keywords: programkonsekvent säkerhets kopiering; programkonsekvent Azure VM-säkerhetskopiering; Linux VM-säkerhetskopiering; Azure Backup
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: dacurwin
-ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375950"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173008"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer
 
@@ -72,7 +67,7 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
 
 6. Skript ramverket har nu kon figurer ATS. Om säkerhets kopieringen av den virtuella datorn redan har kon figurer ATS anropar nästa säkerhets kopiering skripten och utlöser programkonsekvent säkerhets kopiering. Om säkerhets kopian av den virtuella datorn inte har kon figurer ATS konfigurerar du den med hjälp av [säkerhetskopiera virtuella Azure-datorer till Recovery Services valv.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Se till att du lägger till lämplig loggning när du skriver ditt för skript och efter skript och granska skript loggarna för att åtgärda eventuella skript problem. Om du fortfarande har problem med att köra skript, se följande tabell för mer information.
 
@@ -84,9 +79,9 @@ Se till att du lägger till lämplig loggning när du skriver ditt för skript o
 | Efter ScriptNotFound |Det gick inte att hitta post script på den plats som anges i **VMSnapshotScriptPluginConfig. JSON** -konfigurationsfilen. |Se till att efter skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
 | IncorrectPluginhostFile |**Pluginvärdfilen** -filen som medföljer VmSnapshotLinux-tillägget är skadad, så det går inte att köra för skript och post-script och säkerhets kopieringen kommer inte att vara konsekvent.| Avinstallera **VmSnapshotLinux** -tillägget och ominstalleras automatiskt med nästa säkerhets kopiering för att åtgärda problemet. |
 | IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig. JSON** -filen är felaktig, så för skript och efter skript kan inte köras och säkerhets kopieringen kommer inte att vara konsekvent. | Ladda ned kopian från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) och konfigurera den igen. |
-| InsufficientPermissionforPre – skript | För att skript ska kunna köras måste rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
+| InsufficientPermissionforPre-Script | För att skript ska kunna köras måste rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
 | InsufficientPermissionforPost – skript | För att skript ska kunna köras bör rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
-| Före-ScriptTimeout | Tids gränsen nåddes för körning av programkonsekvent säkerhets kopiering för skript. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
+| Pre-ScriptTimeout | Tids gränsen nåddes för körning av programkonsekvent säkerhets kopiering för skript. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
 | Post-ScriptTimeout | Tids gränsen nåddes för körningen av programkonsekvent säkerhets kopierings post-skriptet. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
 
 ## <a name="next-steps"></a>Nästa steg

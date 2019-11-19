@@ -1,19 +1,14 @@
 ---
-title: Skydda system tillstånd & Bare Metal Restore-Azure Backup Server
+title: System tillstånd och Bare Metal Recovery-skydd
 description: Använd Azure Backup Server för att säkerhetskopiera system tillstånd och ge skydd mot Bare Metal Recovery (BMR).
-author: dcurwin
-manager: carmonm
-keywords: ''
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dacurwin
-ms.openlocfilehash: 50f534a5a682cd9e4f6aeb040b897e7aae48dddd
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969034"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172251"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Säkerhetskopiera system tillstånd och Återställ till Bare Metal med Azure Backup Server
 
@@ -42,7 +37,7 @@ I följande tabell sammanfattas vad du kan säkerhetskopiera och återställa. D
 |Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR/system tillstånd säkerhets kopiering av värd|Förlorad Hyper-V-värd (VM-intakt)|N|N|Y|
 |Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR/system tillstånd säkerhets kopiering av värd|Förlorad Hyper-V-värd (virtuella datorer förlorade)|N|N|Y<br /><br />BMR, följt av regelbunden Azure Backup Server återställning|
 |SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorade AppData|Y|N|N|
-|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorat eller skadat operativ system|N|Ja|Y|
+|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorat eller skadat operativ system|N|Y|Y|
 |SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorad Server (databas/transaktions loggar intakt)|N|N|Y|
 |SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorad Server (databas/transaktions loggar förlorade)|N|N|Y<br /><br />BMR-återställning, följt av regelbunden Azure Backup Server återställning|
 

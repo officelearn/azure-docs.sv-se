@@ -3,17 +3,13 @@ title: Självstudie – konfigurera Azure CNI Networking i Azure Kubernetes serv
 description: Lär dig hur du använder Ansible för att konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS)-kluster
 keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 04da0e8fb06d0a32c8e8bdc39d7722fc1c3fcdba
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e3667ad7a561f56d5fddaacad705c53d1de9ac36
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242038"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156909"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS) med hjälp av Ansible
 
@@ -108,10 +104,10 @@ Spara följande spelbok som `aks.yml`:
 
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Använd modulen `azure_rm_aks_version` för att hitta den version som stöds.
-- @No__t-0 är det undernät som skapades i föregående avsnitt.
+- Använd `azure_rm_aks_version`-modulen för att hitta den version som stöds.
+- `vnet_subnet_id` är det undernät som skapades i föregående avsnitt.
 - Spelbok läser in `ssh_key` från `~/.ssh/id_rsa.pub`. Om du ändrar det använder du det enkla formatet – från och med "SSH-RSA" (utan citationstecken).
-- Värdena `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
+- Värdena för `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -152,9 +148,9 @@ Spara följande spelbok som `aks-azure-cni.yml`:
 
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Ändra värdet `aksansibletest` till resurs gruppens namn.
-- Ändra värdet `aksansibletest` till ditt AKS-namn.
-- Ändra värdet `eastus` till resurs gruppens plats.
+- Ändra `aksansibletest` värde till resurs gruppens namn.
+- Ändra `aksansibletest` värde till ditt AKS-namn.
+- Ändra `eastus` värde till din resurs grupps plats.
 
 Kör Spelbok med kommandot Ansible-Spelbok:
 
@@ -271,7 +267,7 @@ Spara följande spelbok som `cleanup.yml`:
 
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Ersätt plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+- Ersätt `{{ resource_group_name }}` plats hållaren med namnet på din resurs grupp.
 - Alla resurser i den angivna resurs gruppen tas bort.
 
 Kör Spelbok med kommandot Ansible-Spelbok:

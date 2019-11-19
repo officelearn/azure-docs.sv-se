@@ -1,19 +1,15 @@
 ---
-title: Dirigera offline-säkerhetskopiering med Azure Backup import/export-tjänsten
+title: Dirigera offline-säkerhetskopiering med import/export-tjänsten
 description: Lär dig hur Azure Backup ger dig möjlighet att skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln förklaras dirigeringen av de första säkerhets kopierings data med hjälp av Azure import export-tjänsten.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968525"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173289"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 
@@ -40,7 +36,7 @@ Följande Azure Backup funktioner eller arbets belastningar har stöd för säke
 > * Säkerhets kopiering av filer och mappar med Microsoft Azure Recovery Services MARS-agenten (MARS), kallas även för Azure Backup agenten.
 > * Säkerhets kopiering av alla arbets belastningar och filer med System Center Data Protection Manager (SC DPM)
 > * Säkerhets kopiering av alla arbets belastningar och filer med Microsoft Azure Backup Server
-
+ 
    > [!NOTE]
    > Säkerhets kopiering offline stöds inte för säkerhets kopiering av system tillstånd som gjorts med Azure Backup-agenten.
 
@@ -109,7 +105,7 @@ I det här avsnittet beskrivs arbets flödet för offline-säkerhetskopiering s�
 
 *AzureOfflineBackupDiskPrep* -verktyget förbereder de SATA-enheter som skickas till närmaste Azure-datacenter. Det här verktyget är tillgängligt i installations katalogen för Azure Backup Agent (i följande sökväg):
 
-   *\Microsoft Azure Recovery Services Agent\Utils-\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Gå till katalogen och kopiera **AzureOfflineBackupDiskPrep** -katalogen till en annan dator där SATA-enheterna är anslutna. På datorn med de anslutna SATA-enheterna ser du till att:
 

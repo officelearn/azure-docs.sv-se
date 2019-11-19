@@ -1,19 +1,14 @@
 ---
-title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar till Azure
+title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar
 description: I den här artikeln lär du dig att förbereda för säkerhets kopiering av System Center Data Protection Manager (DPM) till Azure med hjälp av tjänsten Azure Backup.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5c89dc8b5c8ee420c94d61763770cd37e763f2df
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747507"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173137"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -56,7 +51,7 @@ Valv lagring | Det finns ingen gräns för mängden data som du kan säkerhetsko
 Azure ExpressRoute | Om Azure ExpressRoute har kon figurer ATS med privat eller Microsoft-peering kan den inte användas för att säkerhetskopiera data till Azure.<br/><br/> Om Azure ExpressRoute har kon figurer ATS med offentlig peering kan den användas för att säkerhetskopiera data till Azure.<br/><br/> **Obs:** Offentlig peering är föråldrad för nya kretsar.
 Azure Backup-agent | Om DPM körs i System Center 2012 SP1 installerar du Rollup 2 eller senare för DPM SP1. Detta krävs för agent installation.<br/><br/> Den här artikeln beskriver hur du distribuerar den senaste versionen av Azure Backup Agent, även kallat MARS-agenten (Microsoft Azure Recovery Service). Om du har en tidigare distribuerad version uppdaterar du till den senaste versionen för att se till att säkerhets kopieringen fungerar som förväntat.
 
-Innan du börjar behöver du ett Azure-konto med Azure Backup funktionen aktive rad. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Läs om [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+Innan du börjar behöver du ett Azure-konto med Azure Backup funktionen aktive rad. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Läs om [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -102,7 +97,7 @@ Hämta autentiseringsuppgifterna genom att ladda ned valvets autentiseringsuppgi
 
 Hämta valv filen med autentiseringsuppgifter till en lokal dator på följande sätt:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna det valv där du vill registrera DPM-servern.
 3. I **Inställningar**klickar du på **Egenskaper**.
 

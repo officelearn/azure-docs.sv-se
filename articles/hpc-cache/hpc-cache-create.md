@@ -4,14 +4,14 @@ description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/11/2019
 ms.author: rohogue
-ms.openlocfilehash: 1b9d2d3c46aab2096dd9208e0bea7f7776c0e429
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 07aba1b1536635e414fc5fab4ece148683909188
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582713"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168563"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -64,6 +64,7 @@ Det tar cirka 10 minuter att skapa cacheminnet. Du kan följa förloppet i Azure
 ![skärm bild av sidorna för att skapa "distribution pågår" och "Notifications" i portalen](media/hpc-cache-deploy-status.png)
 
 När en avisering har skapats visas ett meddelande med en länk till den nya Azure HPC cache-instansen och cachen visas i prenumerationens lista över **resurser** .
+<!-- double check on notification -->
 
 ![skärm bild av Azure HPC cache-instansen i Azure Portal](media/hpc-cache-new-overview.png)
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823326"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158291"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -95,7 +95,7 @@ Viktiga skillnader i `CREATE AUDIT` syntax för granskning till Azure Blob Stora
 - Det finns en ny syntax `TO URL` som du kan använda för att ange URL: en för Azure Blob storage-behållaren där `.xel`-filerna placeras.
 - Syntaxen `TO FILE` stöds inte eftersom en hanterad instans inte kan komma åt Windows-filresurser.
 
-Mer information finns i: 
+Mer information finns här: 
 
 - [SKAPA SERVER GRANSKNING](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -526,7 +526,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 - Antalet virtuella kärnor och typer av instanser som du kan distribuera i en region har vissa [begränsningar och begränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Det finns vissa [säkerhets regler som måste tillämpas på under nätet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-### <a name="vnet"></a>VNET
+### <a name="vnet"></a>Virtuellt nätverk
 - VNet kan distribueras med hjälp av resurs modellen – den klassiska modellen för VNet stöds inte.
 - När en hanterad instans har skapats går det inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resurs grupp eller prenumeration.
 - Vissa tjänster, till exempel App Service miljöer, Logic Apps och hanterade instanser (som används för geo-replikering, Transaktionsreplikering eller via länkade servrar) kan inte komma åt hanterade instanser i olika regioner om deras virtuella nätverk är anslutna med [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
@@ -564,16 +564,6 @@ SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som 
 Löpande `RESTORE`-instruktion, migrering av datamigrerings tjänsten och inbyggd tids återställning kommer att blockera uppdatering av tjänst nivån eller ändra storlek på den befintliga instansen och skapa nya instanser tills återställnings processen har slutförts. Med återställnings processen blockeras dessa åtgärder på hanterade instanser och instans-pooler i samma undernät där återställnings processen körs. Instanserna i instans pooler påverkas inte. Det går inte att skapa eller ändra åtgärder på tjänst nivå eller tids gräns – de fortsätter när återställnings processen har slutförts eller avbrutits.
 
 **Lösning**: vänta tills återställningen har slutförts, eller Avbryt återställnings processen om åtgärden för att skapa eller uppdatera tjänst nivå har högre prioritet.
-
-### <a name="missing-validations-in-restore-process"></a>Valideringar som saknas i återställnings processen
-
-**Datum:** Sep 2019
-
-`RESTORE`-instruktionen och inbyggd återställning av återställnings punkt utför inte några nessecary-kontroller på den återställda databasen:
-- **DBCC CHECKDB** - `RESTORE`-satsen fungerar inte `DBCC CHECKDB` på den återställda databasen. Om en ursprunglig databas är skadad eller om en säkerhets kopia skadas när den kopieras till Azure Blob Storage, kommer automatiska säkerhets kopieringar inte att vidtas och Azure-supporten kommer att kontakta kunden. 
-- Inbyggd återställnings process för tidpunkter kontrollerar inte att den automatiska säkerhets kopieringen från Affärskritisk instans innehåller [InMemory OLTP-objekt](sql-database-in-memory.md#in-memory-oltp). 
-
-**Lösning**: kontrol lera att du kör `DBCC CHECKDB` på käll databasen innan du tar en säkerhets kopia och använder `WITH CHECKSUM` alternativet i säkerhets kopiering för att undvika potentiella fel som kan återställas på den hanterade instansen. Kontrol lera att käll databasen inte innehåller [InMemory OLTP-objekt](sql-database-in-memory.md#in-memory-oltp) om du återställer den på generell användning nivå.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling
 

@@ -1,18 +1,14 @@
 ---
-title: Support mat ris för Microsoft Azure Recovery Services agent
+title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
-author: dcurwin
-ms.service: backup
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 6e37951dd00b999f59a1b3c08a6852cbc1929630
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090551"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172058"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -54,7 +50,7 @@ Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopie
 
 ## <a name="networking-and-access-support"></a>Nätverks-och åtkomst stöd
 
-### <a name="url-access"></a>URL-åtkomst
+### <a name="url-and-ip-access"></a>URL och IP-åtkomst
 
 MARS-agenten behöver åtkomst till följande URL: er:
 
@@ -63,6 +59,11 @@ MARS-agenten behöver åtkomst till följande URL: er:
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+Och till följande IP-adresser:
+
+- 20.190.128.0/18
+- 40.126.0.0/18
 
 ### <a name="throttling-support"></a>Stöd för begränsning
 
@@ -76,7 +77,12 @@ Nätverks begränsning | Inte tillgängligt för säkerhetskopierade datorer som
 >[!NOTE]
 > MARS-agenten stöder inte Windows Server Core SKU: er.
 
-Du kan använda MARS-agenten för att säkerhetskopiera direkt till Azure på vissa operativ system som körs på lokala datorer och virtuella Azure-datorer. Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdateringarna. I följande tabell sammanfattas dessa operativ system:
+Du kan använda MARS-agenten för att säkerhetskopiera direkt till Azure i de operativ system som anges nedan och som körs på:
+
+1. Lokala Windows-servrar
+2. Virtuella Azure-datorer som kör Windows
+
+Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdateringarna. I följande tabell sammanfattas dessa operativ system:
 
 **Operativsystem** | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**
 --- | --- | --- | ---
@@ -128,7 +134,7 @@ OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
 Skrivskyddade volymer| Stöds inte | VSS (Volume Copy Shadow service) fungerar bara om volymen är skrivbar.
 Offline-volymer| Stöds inte |VSS fungerar bara om volymen är online.
 Nätverks resurs| Stöds inte |Volymen måste vara lokal på servern.
-BitLocker-skyddade volymer| Stöds inte |Volymen måste låsas upp innan säkerhets kopieringen startar.
+BitLocker-låsta volymer| Stöds inte |Volymen måste låsas upp innan säkerhets kopieringen startar.
 Identifiering av fil system| Stöds inte |Endast NTFS stöds.
 Flyttbart medium| Stöds inte |Alla säkerhets kopierings objekt källor måste ha en *fast* status.
 Deduplicerade enheter | Stöds | Azure Backup konverterar deduplicerade data till normala data. Den optimerar, krypterar, lagrar och skickar data till valvet.

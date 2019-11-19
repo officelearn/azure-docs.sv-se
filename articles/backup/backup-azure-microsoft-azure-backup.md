@@ -1,19 +1,14 @@
 ---
-title: Använda Azure Backup Server för att säkerhetskopiera arbets belastningar till Azure
+title: Använda Azure Backup Server för att säkerhetskopiera arbets belastningar
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
-ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012918"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172995"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -335,8 +330,6 @@ Använd följande steg för att uppgradera MABS:
    > [!NOTE]
    >
    > Avsluta inte medan SQL-instansen håller på att uppgraderas, avinstallerar SQL repor ting-instansen och ett försök att uppgradera MABS kommer därför att Miss lyckas.
-
-
 
    > [!IMPORTANT]
    >

@@ -2,14 +2,14 @@
 author: paulbouwer
 ms.service: container-service
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 ms.author: pabouwer
-ms.openlocfilehash: abc8727c2a9ad7bb6621b8c8e019e14fb8cdec97
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: e2dd45f778bd5e596b5bcc91c63984742237ad4c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530412"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170861"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Hämta och installera Istio istioctl-klientens binärfil
 
@@ -17,12 +17,12 @@ I ett bash gränssnitt på Linux-eller [Windows-undersystem för Linux][install-
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
-ISTIO_VERSION=1.3.2
+ISTIO_VERSION=1.4.0
 
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
 ```
 
-@No__t_0-klientens binärfil körs på klient datorn och gör att du kan interagera med Istio-tjänstens nät. Använd följande kommandon för att installera Istio-`istioctl` klientens binärfil i ett bash-baserat gränssnitt på Linux-eller [Windows-undersystem för Linux][install-wsl]. Dessa kommandon kopierar `istioctl`-klientens binärfil till standard platsen för användar program i `PATH`.
+`istioctl`-klientens binärfil körs på klient datorn och gör att du kan interagera med Istio-tjänstens nät. Använd följande kommandon för att installera Istio-`istioctl` klientens binärfil i ett bash-baserat gränssnitt på Linux-eller [Windows-undersystem för Linux][install-wsl]. Dessa kommandon kopierar `istioctl`-klientens binärfil till standard platsen för användar program i `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION

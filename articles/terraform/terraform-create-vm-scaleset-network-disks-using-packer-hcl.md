@@ -1,17 +1,14 @@
 ---
 title: Självstudie – Skapa en skalnings uppsättning för virtuella Azure-datorer från en anpassad avbildning av en packare med hjälp av terraform
 description: Använd Terraform för att konfigurera och versionshantera en VM-skalningsuppsättning för Azure från en anpassad avbildning som skapats genom Packer (komplett med ett virtuellt nätverk och hanterade anslutna diskar).
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 7d2813a51e63d86b56712bb6d07efc2f65ec65a0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077819"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159283"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Självstudie: skapa en skalnings uppsättning för virtuella Azure-datorer från en anpassad avbildning av en packare med hjälp av terraform
 

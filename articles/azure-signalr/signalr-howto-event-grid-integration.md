@@ -5,14 +5,14 @@ services: signalr
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f89fcdd50d958269b5c79c41ebabd69331c905aa
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839293"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158212"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Så här skickar du händelser från Azure SignalR-tjänsten till Event Grid
 
@@ -26,7 +26,7 @@ Azure CLI-kommandona i den här artikeln är formaterade för **bash** -gränssn
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resurs grupp är en logisk behållare där du distribuerar och hanterar dina Azure-resurser. Följande [AZ Group Create][az-group-create] -kommando skapar en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ange `RESOURCE_GROUP_NAME` ett annat värde om du vill använda ett annat namn för resurs gruppen.
+En Azure-resurs grupp är en logisk behållare där du distribuerar och hanterar dina Azure-resurser. Följande [AZ Group Create][az-group-create] -kommando skapar en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Om du vill använda ett annat namn för resurs gruppen anger du `RESOURCE_GROUP_NAME` till ett annat värde.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -75,7 +75,7 @@ När signal tjänsten har skapats returnerar Azure CLI utdata som liknar följan
 
 I det här avsnittet använder du en Resource Manager-mall som finns på en GitHub-lagringsplats för att distribuera ett fördefinierat exempel webb program till Azure App Service. Senare prenumererar du på registrets Event Grid händelser och anger den här appen som den slut punkt som händelserna ska skickas till.
 
-Distribuera exempel appen genom att ange `SITE_NAME` ett unikt namn för din webbapp och köra följande kommandon. Plats namnet måste vara unikt inom Azure eftersom det ingår i det fullständigt kvalificerade domän namnet (FQDN) för webbappen. I ett senare avsnitt går du till appens FQDN i en webbläsare för att visa dina register händelser.
+Distribuera exempel appen genom att ange `SITE_NAME` till ett unikt namn för din webbapp och köra följande kommandon. Plats namnet måste vara unikt inom Azure eftersom det ingår i det fullständigt kvalificerade domän namnet (FQDN) för webbappen. I ett senare avsnitt går du till appens FQDN i en webbläsare för att visa dina register händelser.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -141,7 +141,7 @@ När prenumerationen är klar bör du se utdata som liknar följande:
 
 ## <a name="trigger-registry-events"></a>Utlös register händelser
 
-Växla till tjänst läget `Serverless Mode` och konfigurera en klient anslutning till signal tjänsten. Du kan ta [Server lös exempel](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) som referens.
+Växla till tjänst läget för att `Serverless Mode` och konfigurera en klient anslutning till signal tjänsten. Du kan ta [Server lös exempel](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) som referens.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +162,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Visa register händelser
 
-Nu har du anslutit en klient till signal tjänsten. Navigera till Event Grid Viewer-webbappen och se en `ClientConnectionConnected` händelse. Om du avbryter klienten visas även en `ClientConnectionDisconnected` händelse.
+Nu har du anslutit en klient till signal tjänsten. Navigera till din Event Grid Viewer-webbapp så bör du se en `ClientConnectionConnected`-händelse. Om du avbryter klienten visas också en `ClientConnectionDisconnected` händelse.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

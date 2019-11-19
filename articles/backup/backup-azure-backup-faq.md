@@ -1,18 +1,14 @@
 ---
-title: Svar på vanliga frågor om Azure Backup funktioner
+title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: efd2959547e13872bfa73a0a8e4b9fda62ea5728
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074323"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173234"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Vanliga frågor och svar om Azure Backup
 
@@ -79,7 +75,7 @@ Ja.
 
 Azure Backup stöder dessa operativ system för säkerhets kopiering av filer och mappar och appar som skyddas av Azure Backup Server och DPM.
 
-**OS** | **SKU** | **Detaljer**
+**OS** | **SKU** | **Information**
 --- | --- | ---
 Arbets Station | |
 Windows 10 64-bit | Enterprise, Pro, Home | Datorerna ska köra de senaste Service Pack och uppdateringar.
@@ -96,6 +92,8 @@ Windows Storage Server 2012 R2 64 bit | Standard, arbets grupp, viktigt | Med de
 Windows Storage Server 2012 64 bitar | Standard, Workgroup | Med de senaste Service Pack/-uppdateringarna.
 Windows Server 2008 R2 SP1 64 bitar | Standard, Enterprise, Datacenter, Foundation | Med de senaste uppdateringarna.
 Windows Server 2008 64-bitars | Standard, Enterprise, Datacenter | Med de senaste uppdateringarna.
+
+Azure Backup stöder inte 32-bitars operativ system.
 
 För Azure VM Linux-säkerhetskopieringar stöder Azure Backup [listan över distributioner som har godkänts av Azure](../virtual-machines/linux/endorsed-distros.md), förutom Core OS Linux och 32-bitars operativ system. Andra distributioner av en egen Linux-distribution kan fungera så länge VM-agenten är tillgänglig på den virtuella datorn och stöd för python finns.
 
@@ -115,7 +113,7 @@ Azure VM | 16 data diskar<br/><br/> Data disk upp till 4095 GB
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-**Data Källa** | **Detaljer**
+**Data Källa** | **Information**
 --- | ---
 Volym |Mängden data som säkerhets kopie ras från en virtuell volym som säkerhets kopie ras.
 SQL Server-databas |Storlek på den individuella SQL Database-storlek som säkerhets kopie ras.

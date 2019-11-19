@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 888d294634078d2fe7737426f6cf025ae9948b0a
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 2fe2d07b29b8799712d59cdf21aeb3ce989ca3b2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609351"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158474"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Använda Azure Machine Learning händelser (förhands granskning)
 
@@ -36,7 +36,7 @@ Mer information om händelse källor och händelse hanterare finns i [Vad är ev
 
 Azure Machine Learning innehåller händelser i olika punkter av Machine Learning-livscykel: 
 
-| Händelse typ | Beskrivning |
+| eventType | Beskrivning |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Utlöses när en körning av Machine Learning-experiment har slutförts |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Utlöses när en maskin inlärnings modell registreras i arbets ytan |
@@ -55,7 +55,7 @@ En händelse prenumeration kan ange en eller flera Azure Machine Learning hände
 ### <a name="filter-by-event-subject"></a>Filtrera efter händelse ämne
 Azure Event Grid stöder ämnes filter som baseras på __börjar med__ och __slutar med__ matchningar, så att händelser med ett matchande ämne levereras till prenumeranten. Olika Machine Learning-händelser har olika ämnes format.
 
-| Händelse typ | Ämnes format | Exempel ämne |
+| eventType | Ämnes format | Exempel ämne |
 | ---------- | ----------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` |
 | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
@@ -81,7 +81,7 @@ Mer information om hur du använder filter finns i [Filtrera händelser för Eve
 Program som hanterar Machine Learning händelser bör följa några rekommenderade metoder:
 
 > [!div class="checklist"]
-> * Eftersom flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, är det viktigt att inte anta att händelser kommer från en viss källa, men för att kontrol lera ämnet i meddelandet för att säkerställa att det kommer från det lagrings konto som du förväntar dig.
+> * Eftersom flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, är det viktigt att inte anta att händelser kommer från en viss källa, men för att kontrol lera ämnet i meddelandet för att se till att det kommer från Machine Learning-arbetsytan som du förväntar dig.
 > * På samma sätt kan du kontrol lera att eventType är att du är för beredd att bearbeta och inte förutsätter att alla händelser som du tar emot är de typer som du förväntar dig.
 > * När meddelanden kan komma in i rätt ordning och efter en viss fördröjning använder du etag-fälten för att förstå om din information om objekt fortfarande är uppdaterad.  Använd också sekvenserare-fälten för att förstå ordningen på händelser för ett visst objekt.
 > * Ignorera fält som du inte förstår. Den här övningen hjälper dig att hålla dig flexibel till nya funktioner som kan läggas till i framtiden.

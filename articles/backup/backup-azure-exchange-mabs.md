@@ -1,19 +1,15 @@
 ---
-title: Säkerhetskopiera Exchange Server till Azure Backup med Azure Backup Server
+title: Säkerhetskopiera Exchange Server med Azure Backup Server
 description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Backup med Azure Backup Server
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: dacurwin
-ms.openlocfilehash: ed88f069c110795c2c5561196c41d3d75640bd53
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 73dcc190446a71498dee3f12a5225a56c9f4ddc7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968471"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173129"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
 
@@ -51,7 +47,7 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 
    * Jag vill ha kortvarigt skydd med disk.
    * Jag vill ha onlineskydd.
-6. Klicka på **Next**.
+6. Klicka på **Nästa**.
 7. Markera alternativet **Kör Eseutil för att kontrol lera data integriteten** om du vill kontrol lera integriteten för Exchange Server-databaserna.
 
     När du har valt det här alternativet körs konsekvens kontroll av säkerhets kopiering på MABS för att undvika den I/O-trafik som genereras genom att köra **eseutil** -kommandot på Exchange-servern.
@@ -61,7 +57,7 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
    > ![eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Klicka på **Next**.
+8. Klicka på **Nästa**.
 9. Välj databasen för kopiering av **säkerhets kopia**och klicka sedan på **Nästa**.
 
    > [!NOTE]

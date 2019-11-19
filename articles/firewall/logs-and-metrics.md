@@ -1,20 +1,20 @@
 ---
 title: Översikt över Azure Firewall-loggar och-mått
-description: Den här artikeln är en översikt över Azure Firewall-diagnostikloggar och-mått.
+description: Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: fea00358fc21cf6f57673e14ebd0feafe532b620
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876564"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166999"
 ---
-# <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och-mått
+# <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och mått
 
 Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser.
 
@@ -75,9 +75,9 @@ Måtten är lätta att använda och kan ge stöd för scenarier i nästan real t
 
 Du har tre alternativ för att lagra dina loggar:
 
-* **Lagringskonto**: Lagrings konton används bäst för loggar när loggar lagras under en längre tid och granskas vid behov.
-* **Event Hub**: Event Hub är ett bra alternativ för att integrera med andra verktyg för säkerhets informations-och händelse hantering (SEIM) för att få aviseringar om dina resurser.
-* **Azure Monitor loggar**: Azure Monitor loggar används bäst för allmänt real tids övervakning av ditt program eller tittar på trender.
+* **Storage-konto**: Storage-konton passar bäst när loggarna ska lagras en längre tid och granskas vid behov.
+* **Händelsehubbar**: Händelsehubbar är ett bra alternativ vid integrering med andra verktyg för säkerhetsinformation och händelsehantering (SEIM), när du vill få aviseringar om dina resurser.
+* **Azure Monitor loggar**: Azure Monitor loggar används bäst för allmän övervakning i real tid av ditt program eller tittar på trender.
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
@@ -108,8 +108,8 @@ Följande mått är tillgängliga för Azure-brand väggen:
     Enhet: procent
 
    Det här måttet har två dimensioner:
-  - **Status**: Möjliga värden är *felfria*, degraderade, *felaktiga*.
-  - **Orsak**: Anger orsaken till brand väggens aktuella status. Det kan till exempel tyda på *SNAT-portar* om brand Väggs statusen är försämrad eller skadad.
+  - **Status**: möjliga värden är *felfria*, *degraderade*, *felaktiga*.
+  - **Orsak**: anger orsaken till brand väggens aktuella status. Det kan till exempel tyda på *SNAT-portar* om brand Väggs statusen är försämrad eller skadad.
 
 
 
@@ -124,6 +124,6 @@ Följande mått är tillgängliga för Azure-brand väggen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du övervakar Azure Firewall-loggar och-mått finns [i Självstudier: Övervaka Azure Firewall-](tutorial-diagnostics.md)loggar.
+- Information om hur du övervakar Azure Firewall-loggar och-mått finns i [självstudie: övervaka Azure Firewall-loggar](tutorial-diagnostics.md).
 
 - Mer information om mått i Azure Monitor finns i [mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

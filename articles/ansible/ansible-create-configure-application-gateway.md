@@ -3,23 +3,19 @@ title: Självstudie – hantera webb trafik med Azure Application Gateway med An
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Application Gateway för att hantera webbtrafik
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1dd547fb59a41a90de18d595a392b64ef518023a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 07f75e39b8c6f592ecd4c48697527493b1109bb9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241876"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156608"
 ---
 # <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Självstudie: hantera webb trafik med Azure Application Gateway med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[Azure Application Gateway](/azure/application-gateway/overview) är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar. Baserat på källans IP-adress och port dirigerar traditionella belastnings utjämning trafik till en mål-IP-adress och port. Application Gateway ger dig en bättre kontroll nivå där trafiken kan dirigeras utifrån URL: en. Du kan till exempel ange att om `images` är URL-sökväg dirigeras trafiken till en viss uppsättning servrar (kallas en pool) som kon figurer ATS för avbildningar.
+[Azure Application Gateway](/azure/application-gateway/overview) är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar. Baserat på källans IP-adress och port dirigerar traditionella belastnings utjämning trafik till en mål-IP-adress och port. Application Gateway ger dig en bättre kontroll nivå där trafiken kan dirigeras utifrån URL: en. Du kan till exempel definiera att om `images` är URL-sökväg dirigeras trafiken till en viss uppsättning servrar (kallas en pool) som kon figurer ATS för avbildningar.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -55,7 +51,7 @@ Spara följande spelbok som `rg.yml`:
 Se följande anmärkningar innan du kör Spelbok:
 
 - Resurs gruppens namn är `myResourceGroup`. Det här värdet används i hela självstudien.
-- Resurs gruppen skapas på platsen för `eastus`.
+- Resurs gruppen skapas på `eastus` plats.
 
 Kör Spelbok med kommandot `ansible-playbook`:
 
@@ -259,12 +255,12 @@ Spara följande spelbok som `appgw_create.yml`:
 
 Se följande anmärkningar innan du kör Spelbok:
 
-* `appGatewayIP` definieras i `gateway_ip_configurations`-blocket. Det krävs en undernätsreferens för gatewayens IP-konfiguration.
-* `appGatewayBackendPool` definieras i `backend_address_pools`-blocket. En programgateway måste ha minst en serverdelsadresspool.
-* `appGatewayBackendHttpSettings` definieras i `backend_http_settings_collection`-blocket. Den anger att port 80 och ett HTTP-protokoll används för kommunikation.
-* `appGatewayHttpListener` definieras i `backend_http_settings_collection`-blocket. Det är den standardlyssnare som är associerad med appGatewayBackendPool.
-* `appGatewayFrontendIP` definieras i `frontend_ip_configurations`-blocket. Det tilldelar myAGPublicIPAddress till appGatewayHttpListener.
-* `rule1` definieras i `request_routing_rules`-blocket. Det är den standardhanteringsregel som är associerad med appGatewayHttpListener.
+* `appGatewayIP` definieras i `gateway_ip_configurations` blocket. Det krävs en undernätsreferens för gatewayens IP-konfiguration.
+* `appGatewayBackendPool` definieras i `backend_address_pools` blocket. En programgateway måste ha minst en serverdelsadresspool.
+* `appGatewayBackendHttpSettings` definieras i `backend_http_settings_collection` blocket. Den anger att port 80 och ett HTTP-protokoll används för kommunikation.
+* `appGatewayHttpListener` definieras i `backend_http_settings_collection` blocket. Det är den standardlyssnare som är associerad med appGatewayBackendPool.
+* `appGatewayFrontendIP` definieras i `frontend_ip_configurations` blocket. Det tilldelar myAGPublicIPAddress till appGatewayHttpListener.
+* `rule1` definieras i `request_routing_rules` blocket. Det är den standardhanteringsregel som är associerad med appGatewayHttpListener.
 
 Kör Spelbok med kommandot `ansible-playbook`:
 

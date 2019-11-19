@@ -1,17 +1,17 @@
 ---
-title: Guide för att autentisera Azure SignalR Service-klienter
-description: Lär dig hur Azure SignalR Service-klienter autentiseras i den här guiden
+title: Guide för autentisering av Azure SignalR service-klienter
+description: Lär dig hur du implementerar din egen autentisering och integrerar den med Azure SignalR service genom att följa E2E-exemplet.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128325"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158275"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -25,13 +25,13 @@ Autentiseringen som användes initialt i snabbstartens chattrumsprogram är för
 
 Mer information om API:er för OAuth-autentisering som tillhandahålls via GitHub finns i [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/) (Grunderna om autentisering).
 
-Du kan använda alla kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
+Du kan använda valfritt kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
 
-Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub-lagringsplatsen AzureSignalR-samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
+Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub-lagringsplatsen för AzureSignalR-exempel](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
 ![OAuth finns i Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Registrera en ny OAuth-app med ditt GitHub-konto
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -48,7 +48,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
 * [Azure Cloud Shell konfigurerat](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* Ladda ned eller klona GitHub-lagringsplatsen [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
+* Ladda ned eller klona [GitHub-lagringsplatsen för AzureSignalR-exempel](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Skapa en OAuth-app
 
@@ -377,7 +377,7 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här avsnittet ska du använda kommandoradsgränssnittet (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
+I det här avsnittet ska du använda Azures kommando rads gränssnitt (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som är värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
 
 I stegen i det här avsnittet används tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr*-tillägget för Azure CLI:
 

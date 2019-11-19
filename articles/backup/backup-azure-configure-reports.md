@@ -1,19 +1,14 @@
 ---
-title: Konfigurera rapporter för Azure Backup
+title: Konfigurera Power BI-rapporter
 description: Konfigurera Power BI rapporter för Azure Backup med hjälp av ett Recovery Services-valv.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
-ms.openlocfilehash: 757e12f97f95ef856643820e47113521d840f10d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6e8482aea4f1d757550d4490e3a9972f664729c9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074980"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173194"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 

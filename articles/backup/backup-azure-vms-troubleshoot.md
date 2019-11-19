@@ -1,19 +1,15 @@
 ---
-title: Felsök säkerhets kopierings fel med Azure Virtual Machines
+title: Felsök säkerhets kopierings fel med virtuella Azure-datorer
 description: I den här artikeln får du lära dig hur du felsöker fel som påträffas med säkerhets kopiering och återställning av virtuella Azure-datorer.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 0be9973aed1aaf5074c3b61d6249b95e8fd45a64
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: e5ee0e06d444db809ce3e168f8883048eaf45e27
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090912"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172468"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 

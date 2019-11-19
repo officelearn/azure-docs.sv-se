@@ -3,17 +3,13 @@ title: Självstudie – konfigurera Azure Kubernetes service-kluster (AKS) i Azu
 description: Lär dig hur du använder Ansible för att skapa och hantera ett Azure Kubernetes Service-kluster i Azure
 keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 11/04/2019
-ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6672c3fac1c5d546a61622e3fd6df6c5397f87a2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614382"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156677"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Självstudie: Konfigurera Azure Kubernetes service-kluster (AKS) i Azure med hjälp av Ansible
 
@@ -30,7 +26,7 @@ AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/acti
 > * Skapa ett AKS-kluster
 > * Konfigurera ett AKS-kluster
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

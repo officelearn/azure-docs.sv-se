@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582156"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166463"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
@@ -48,7 +48,9 @@ Cachen behöver DNS för att få åtkomst till resurser utanför det virtuella n
 * För att få åtkomst till Azure Blob Storage-slutpunkter och andra interna resurser behöver du den Azure-baserade DNS-servern.
 * För att komma åt lokal lagring måste du konfigurera en anpassad DNS-server som kan matcha dina lagrings-värdnamn.
 
-Om du bara behöver åtkomst till Blob Storage kan du använda standard-Azure-standardservern för cacheminnet. Men om du behöver åtkomst till andra resurser bör du skapa en anpassad DNS-server och konfigurera den så att den vidarebefordrar alla Azure-speciella matchnings begär anden till Azure DNS-servern. (En enkel DNS-server kan också användas för att belastningsutjämna klient anslutningar mellan alla tillgängliga cache-nätplatser.)
+Om du bara behöver åtkomst till Blob Storage kan du använda standard-Azure-standardservern för cacheminnet. Men om du behöver åtkomst till andra resurser bör du skapa en anpassad DNS-server och konfigurera den så att den vidarebefordrar alla Azure-speciella matchnings begär anden till Azure DNS-servern.
+
+En enkel DNS-server kan också användas för att belastningsutjämna klient anslutningar bland alla tillgängliga cache-monterings punkter.
 
 Lär dig mer om Azure Virtual Networks och DNS-serverkonfigurationer i [namn matchning för resurser i virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
@@ -58,7 +60,9 @@ Kontrol lera de här behörighets kraven innan du börjar skapa din cache.
 
 * Cache-instansen måste kunna skapa virtuella nätverks gränssnitt (NIC). Den användare som skapar cachen måste ha tillräcklig behörighet i prenumerationen för att skapa nätverkskort.
 
-* Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till Blob Storage. Två roller krävs: lagrings konto deltagare och data deltagare i Storage blob. Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
+* Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Använd rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till blob-lagringen. Två roller krävs: lagrings konto deltagare och data deltagare i Storage blob.
+
+  Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
 
 ## <a name="storage-infrastructure"></a>Lagrings infrastruktur
 
@@ -88,7 +92,7 @@ Använd följande inställningar om du vill skapa ett kompatibelt lagrings konto
 Det är en bra idé att använda ett lagrings konto på samma plats som din cache.
 <!-- clarify location - same region or same resource group or same virtual network? -->
 
-Du måste också ge cache-programmet åtkomst till ditt Azure Storage-konto. Följ beskrivningen i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cachen åtkomst roller till lagrings konto deltagare och lagrings-BLOB-datadeltagare. Om du inte är lagrings kontots ägare kan du låta ägaren göra detta steg.
+Du måste också ge cache-programmet åtkomst till ditt Azure Storage-konto som anges i [behörigheter](#permissions)ovan. Följ proceduren i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cachen de nödvändiga åtkomst rollerna. Om du inte är lagrings kontots ägare kan du låta ägaren göra detta steg.
 
 ## <a name="next-steps"></a>Nästa steg
 

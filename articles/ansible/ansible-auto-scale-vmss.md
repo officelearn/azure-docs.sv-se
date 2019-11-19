@@ -3,17 +3,13 @@ title: Självstudie – skala skalnings uppsättningar för virtuella datorer i 
 description: Lär dig hur du använder Ansible för att skala skalnings uppsättningar för virtuella datorer med autoskalning i Azure
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 784cb532c11b16c820336ceeaf8d38f0225c832f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: fb8d2a4bfca32be4575ca8f11018e5cab17cd9a2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242097"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156826"
 ---
 # <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudie: skala skalnings uppsättningar för virtuella datorer i Azure med Ansible
 
@@ -27,7 +23,7 @@ Funktionen för automatisk justering av antalet virtuella dator instanser kallas
 
 > [!div class="checklist"]
 >
-> * Definiera en autoskalningsprofil
+> * Definiera en profil för automatisk skalning
 > * Autoskalning baserat på ett återkommande schema
 > * Autoskalning baserat på App-prestanda
 > * Hämta information om autoskalning-inställningar 
@@ -183,7 +179,7 @@ ansible-playbook vmss-auto-scale-metrics.yml
 
 ## <a name="get-autoscale-settings-information"></a>Hämta information om autoskalning-inställningar 
 
-Spelbok-koden i det här avsnittet använder modulen `azure_rm_autoscale_facts` för att hämta information om inställningen för autoskalning.
+Spelbok-koden i det här avsnittet använder `azure_rm_autoscale_facts`-modulen för att hämta information om inställningen för autoskalning.
 
 Spara följande spelbok som `vmss-auto-scale-get-settings.yml`:
 
@@ -211,7 +207,7 @@ ansible-playbook vmss-auto-scale-get-settings.yml
 
 ## <a name="disable-autoscale-settings"></a>Inaktivera inställningar för autoskalning
 
-Det finns två sätt att inaktivera inställningar för autoskalning. Ett sätt är att ändra `enabled`-nyckeln från `true` till `false`. Det andra sättet är att ta bort inställningen.
+Det finns två sätt att inaktivera inställningar för autoskalning. Ett sätt är att ändra `enabled` nyckeln från `true` till `false`. Det andra sättet är att ta bort inställningen.
 
 Spelbok-koden i det här avsnittet tar bort den automatiska skalnings inställningen. 
 

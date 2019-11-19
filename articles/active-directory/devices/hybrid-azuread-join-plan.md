@@ -1,6 +1,6 @@
 ---
 title: Planera hybrid Azure Active Directory Join-implementering i Azure Active Directory (Azure AD) | Microsoft Docs
-description: Lär dig att konfigurera Hybrid Azure Active Directory-anslutningsenheter.
+description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a188349e15c5e4c486d37daed9f8b611a325dcf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882820"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167324"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -30,7 +30,7 @@ När du börjar använda dina enheter med Azure Active Directory maximerar du an
 
 Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
 
@@ -93,7 +93,8 @@ Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview
 - Du kan förhindra att din domänanslutna enhet är registrerad i Azure AD genom att lägga till register nyckeln-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - Om du har konfigurerat Windows Hello för företag i Windows 10 1803 måste användaren konfigurera Windows Hello för företag igen när dubbelt tillstånd rensas. Det här problemet har åtgärd ATS med KB4512509
 
-
+> [!NOTE]
+> Den registrerade Azure AD-enheten tas inte bort automatiskt om den hanteras av Intune.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Granska kontrollerad validering av hybrid Azure AD-anslutning
 
@@ -145,7 +146,7 @@ Ibland kan dina lokala AD-UPN skilja sig från dina Azure AD-UPN. I sådana fall
 
 Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windows 10 hybrid Azure AD Join
 
-| Typ av lokalt AD-UPN | Domäntyp | Windows 10-version | Beskrivning |
+| Typ av lokalt AD-UPN | Domäntyp | Windows 10 version | Beskrivning |
 | ----- | ----- | ----- | ----- |
 | Dirigera | Externt | Från 1703-version | Allmänt tillgänglig |
 | Ej dirigerbart | Externt | Från 1803-version | Allmänt tillgänglig |

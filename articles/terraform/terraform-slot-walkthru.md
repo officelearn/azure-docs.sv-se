@@ -1,17 +1,14 @@
 ---
 title: Självstudie – etablera infrastruktur med Azures distributions fack med terraform
 description: Självstudier för hur du använder distributionsfack för Terraform med Azure-provider
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 0bfd10325f1a62e74f0d3573f052d114069491a3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 68c790b4fad442d94e6ac82d1a545b8554d2dd4f
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838062"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159178"
 ---
 # <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Självstudie: etablera infrastruktur med Azure-distributions platser med terraform
 
@@ -19,7 +16,7 @@ Du kan använda [distributionsfack för Terraform](/azure/app-service/deploy-sta
 
 I den här artikeln visas ett exempel på hur du kan använda distributionsfack genom att guida dig genom distributionen av två appar via GitHub och Azure. En app lagras på produktionsplatsen. Den andra appen lagras på en mellanlagringsplats. (Namnen "produktion" och "mellanlagring" är godtyckliga. De kan vara vad som passar bäst för ditt scenario.) När du har konfigurerat dina distributions platser använder du terraform för att växla mellan de två platserna vid behov.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 

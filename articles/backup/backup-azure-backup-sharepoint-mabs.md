@@ -1,19 +1,14 @@
 ---
-title: Använd Azure Backup Server för att säkerhetskopiera en SharePoint-grupp till Azure
+title: Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 description: Använd Azure Backup Server för att säkerhetskopiera och återställa dina SharePoint-data. Den här artikeln innehåller information om hur du konfigurerar SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disk eller från Azure.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: a7a1b088868add308f128c5a51d8cce4339c637c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: a48afd84f6c4e1ec80015696dc4b14beea8ebfa4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091726"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173213"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 

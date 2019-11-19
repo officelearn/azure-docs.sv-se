@@ -6,14 +6,14 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: rohogue
-ms.openlocfilehash: 757fbc166687110b9061ab95e96b0182e0ad3774
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622773"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168515"
 ---
-# <a name="edit-storage-targets"></a>Redigera lagrings mål
+# <a name="edit-storage-targets"></a>Redigera lagringsmål
 
 Du kan redigera lagrings mål för att ändra vissa av egenskaperna. Olika egenskaper kan redige ras för olika lagrings typer:
 
@@ -47,7 +47,7 @@ När du har gjort ändringarna klickar du på **OK** för att uppdatera lagrings
 
 ## <a name="update-an-azure-blob-storage-target"></a>Uppdatera ett Azure Blob Storage-mål
 
-På informations sidan för ett Blob Storage-mål kan du ändra sökvägen till den virtuella namn rymden. 
+På informations sidan för ett Blob Storage-mål kan du ändra sökvägen till den virtuella namn rymden.
 
 ![skärm bild av redigerings sidan för ett Blob Storage-mål](media/hpc-cache-edit-storage-blob.png)
 

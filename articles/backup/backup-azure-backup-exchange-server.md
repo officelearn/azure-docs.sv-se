@@ -1,19 +1,15 @@
 ---
-title: Säkerhetskopiera en Exchange-Server till Azure Backup via System Center DPM
+title: Säkerhetskopiera en Exchange-Server via System Center DPM
 description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Backup med System Center 2012 R2 DPM
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: dacurwin
-ms.openlocfilehash: 21f38105913e03adfbf400e82d3572e6e5084538
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b2231fcadc3e0cb591302ba47572627ae3a17e58
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968495"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173283"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 
@@ -66,7 +62,7 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
    * Jag vill ha kortvarigt skydd med disk.
    * Jag vill ha onlineskydd.
-6. Klicka på **Next**.
+6. Klicka på **Nästa**.
 7. Markera alternativet **Kör Eseutil för att kontrol lera data integriteten** om du vill kontrol lera integriteten för Exchange Server-databaserna.
 
     När du har valt det här alternativet körs konsekvens kontroll av säkerhets kopiering på DPM-servern för att undvika den I/O-trafik som genereras genom att köra **eseutil** -kommandot på Exchange-servern.
@@ -76,7 +72,7 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
    > ![eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Klicka på **Next**.
+8. Klicka på **Nästa**.
 9. Välj databasen för kopiering av **säkerhets kopia**och klicka sedan på **Nästa**.
 
    > [!NOTE]

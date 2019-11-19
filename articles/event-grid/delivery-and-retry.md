@@ -1,30 +1,41 @@
 ---
 title: Azure Event Grid leverans och försök igen
-description: Beskriver hur Azure Event Grid ger händelser och hur den hanterar inte har meddelanden.
+description: Beskriver hur Azure Event Grid levererar händelser och hur de hanterar meddelanden som inte levererats.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812911"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170058"
 ---
-# <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen
+# <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
-Den här artikeln beskriver hur Azure Event Grid hanterar händelser när leveransen inte är bekräftas.
+I den här artikeln beskrivs hur Azure Event Grid hanterar händelser när leverans inte har bekräftats.
 
-Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till den registrerade slutpunkten för varje prenumeration. Om en slutpunkt inte bekräfta mottagandet av en händelse, försöker Event Grid leverans av händelsen.
+Event Grid tillhandahåller varaktig leverans. Den levererar varje meddelande minst en gång för varje prenumeration. Händelser skickas till den registrerade slut punkten för varje prenumeration direkt. Om en slut punkt inte bekräftar mottagandet av en händelse Event Grid försök att leverera händelsen igen.
 
-För närvarande skickar Event Grid varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enda händelse.
+## <a name="batched-event-delivery"></a>Leverans av batch-händelser
 
-## <a name="retry-schedule-and-duration"></a>Försök testschemat
+Event Grid standard för att skicka varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enda händelse. Du kan konfigurera Event Grid att batch-händelser ska levereras för bättre HTTP-prestanda i scenarier med stora data flöden.
 
-Event Grid väntar 30 sekunder för ett svar efter att leverera meddelandet. Efter 30 sekunder om slutpunkten inte har svarat meddelandet är i kö för återförsök. Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Event Grid försöker leverans enligt följande schema efter bästa förmåga:
+Batch-leverans har två inställningar:
+
+* **Max antal händelser per batch** är det maximala antalet händelser som Event Grid skickas per batch. Det här antalet kommer aldrig att överskridas, men färre händelser kan levereras om inga andra händelser är tillgängliga vid tidpunkten för publiceringen. Event Grid fördröjer inte händelser för att skapa en batch om färre händelser är tillgängliga. Måste vara mellan 1 och 5 000.
+* **Önskad batchstorlek i kilobyte** är mål taket för batchstorlek i kilobyte. På samma sätt som för högsta antal händelser kan batchstorleken vara mindre om fler händelser inte är tillgängliga vid tidpunkten för publiceringen. Det är möjligt att en batch är större än den önskade batchstorleken *om* en enskild händelse är större än den önskade storleken. Om den önskade storleken till exempel är 4 KB och en 10 KB-händelse skickas till Event Grid, kommer 10 KB-händelsen fortfarande att levereras i sin egen batch i stället för att släppas.
+
+Batch-baserad leverans i som kon figurer ATS per händelse prenumeration via portalen, CLI, PowerShell eller SDK: er.
+
+![Inställningar för batch-leverans](./media/delivery-and-retry/batch-settings.png)
+
+## <a name="retry-schedule-and-duration"></a>Schema och varaktighet för omförsök
+
+Event Grid väntar 30 sekunder på ett svar när ett meddelande har levererats. Efter 30 sekunder, om slut punkten inte har svarat, placeras meddelandet i kö för att försöka igen. Event Grid använder en princip för en exponentiell backoff-återförsök för händelse leverans. Event Grid försöker leverera enligt följande schema på bästa möjliga sätt:
 
 - 10 sekunder
 - 30 sekunder
@@ -33,67 +44,67 @@ Event Grid väntar 30 sekunder för ett svar efter att leverera meddelandet. Eft
 - 10 minuter
 - 30 minuter
 - 1 timme
-- Per timme för upp till 24 timmar
+- Per timme i upp till 24 timmar
 
-Om slutpunkten som svarar inom 3 minuter, Event Grid försöker att ta bort händelsen från kön försök igen efter bästa förmåga men kan fortfarande att ta emot dubbletter.
+Om slut punkten svarar inom 3 minuter försöker Event Grid ta bort händelsen från kön för nya försök på bästa möjliga sätt, men dubbletter kan ändå tas emot.
 
-Event Grid lägger till en liten slumpmässig till alla åtgärder för återförsök och kan autentiseringsuuppsättningarna hoppa över vissa återförsök om en slutpunkt är konsekvent skadade, ned under en lång eller verkar vara överbelastas.
+Event Grid lägger till en liten slumpmässighet för alla återförsöks steg och kan autentiseringsuppsättningarna hoppa över vissa försök om en slut punkt är konsekvent med låg skada, under en längre period eller om den verkar vara överbelastad.
 
-För deterministisk beteende, ställer du in event time to live och max leverans försöker i den [prenumeration återförsöksprinciper](manage-event-delivery.md).
+För deterministiskt beteende ställer du in händelse tiden till Live och Max antalet leverans försök i [prenumerationens återförsöks principer](manage-event-delivery.md).
 
-Som standard Event Grid upphör att gälla alla händelser som inte levereras inom 24 timmar. Du kan [anpassa återförsöksprincipen](manage-event-delivery.md) när du skapar en händelseprenumeration. Ange det maximala antalet leveransförsök (standardvärdet är 30) och händelsen time to live (standardvärdet är 1 440 minuter).
+Som standard förfaller Event Grid alla händelser som inte levereras inom 24 timmar. Du kan [anpassa principen för att försöka igen](manage-event-delivery.md) när du skapar en händelse prenumeration. Du anger det maximala antalet leverans försök (Standardvärdet är 30) och händelsens tids till Live (Standardvärdet är 1440 minuter).
 
 ## <a name="delayed-delivery"></a>Fördröjd leverans
 
-Som en slutpunkt får levereras kan börjar Event Grid att fördröja leverans och nytt försök till händelser till denna slutpunkt. Till exempel om de första tio händelser som publicerats till en slutpunkt misslyckas kan Event Grid kommer förutsätter att slutpunkten har problem med att och fördröjs alla efterföljande försök *och nya* leveranser under en tid – i vissa fall upp till flera timmar .
+Som ett slut punkts problem med leverans fel börjar Event Grid fördröja leveransen och nya försök att utföra händelser till den slut punkten. Om till exempel de första 10 händelserna som publicerats till en slut punkt Miss fungerar, kommer Event Grid att anta att slut punkten har problem och kommer att fördröja alla efterföljande försök *och nya* leveranser under en viss tid, i vissa fall upp till flera timmar.
 
-Funktionella syftet med fördröjd leverans är att skydda feltillstånd slutpunkter samt Event Grid-system. Utan backoff och fördröjning på leverans till feltillstånd slutpunkter återförsöksprincipen för Event Grid och funktioner för volymen kan lätt bli överväldigande ett system.
+Det funktionella syftet med försenad leverans är att skydda Felaktiga slut punkter och Event Grid systemet. Utan avstängning och fördröjning av leverans till felaktiga slut punkter, kan Event Grids princip för återförsök och volym kapacitet lätt överbelasta ett system.
 
-## <a name="dead-letter-events"></a>Förlorade händelser
+## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
 
-När Event Grid inte kan skicka en händelse, kan den skicka händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Som standard Aktivera inte Event Grid dead-lettering. Du måste ange ett lagringskonto för att lagra felande händelser när du skapar händelseprenumerationen för att aktivera den. Du hämtar händelser från det här lagringskontot för att lösa leveranser.
+När Event Grid inte kan leverera en händelse kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för obeställbara meddelanden. Som standard aktiverar Event Grid inte obeställbara meddelanden. Om du vill aktivera det måste du ange ett lagrings konto som ska innehålla ej levererade händelser när händelse prenumerationen skapas. Du kan hämta händelser från det här lagrings kontot för att lösa leveranser.
 
-Event Grid skickar en händelse till förlorade plats när det har försökt alla dess nya försök. Om Event Grid tar emot en 400 (felaktig begäran) eller 413 (begär enhet är stor) svarskod, skickas händelsen direkt till slutpunkten för obeställbara meddelanden. Dessa svarskoder visar leverans av händelsen kommer aldrig att lyckas.
+Event Grid skickar en händelse till platsen för obeställbara meddelanden när den har provat alla nya försök. Om Event Grid får en 400 (felaktig begäran) eller 413 (den begärda entiteten för stor) svars kod skickar den omedelbart händelsen till slut punkten för obeställbara meddelanden. Dessa svars koder indikerar att händelsen levereras aldrig.
 
-Det finns en fördröjning på fem minuter mellan det senaste försöket att leverera en händelse och när de skickas till platsen för obeställbara meddelanden. Den här fördröjningen är avsedd att minska de antal åtgärderna som Blob storage. Om den förlorade platsen är inte tillgängligt i fyra timmar, har händelsen släppts.
+Det senaste försöket att leverera en händelse är en fördröjning på fem minuter mellan det senaste försöket att leverera en händelse och när den levereras till platsen för obeställbara meddelanden. Den här fördröjningen är avsedd att minska antalet Blob Storage-åtgärder. Om platsen för obeställbara meddelanden inte är tillgänglig i fyra timmar släpps händelsen.
 
-Innan du anger platsen för förlorade måste du ha ett lagringskonto med en behållare. Du kan ange slutpunkten för den här behållaren när du skapar händelseprenumerationen. Slutpunkten är i formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Innan du anger platsen för obeställbara meddelanden måste du ha ett lagrings konto med en behållare. Du anger slut punkten för den här behållaren när du skapar händelse prenumerationen. Slut punkten har formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Du kanske vill meddelas när en händelse har skickats till platsen för obeställbara meddelanden. Du använder Event Grid för att svara på händelser som inte har [skapa en händelseprenumeration](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) för förlorade blob-lagringen. Varje gång förlorade blobblagringen tar emot en felande händelse Event Grid meddelar din hanterare. Hanteraren svarar med åtgärder som du vill dra för att stämma av händelser som inte har levererats.
+Du kanske vill bli meddelad när en händelse har skickats till platsen för obeställbara meddelanden. Om du vill använda Event Grid för att svara på Ej levererade händelser [skapar du en händelse prenumeration](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) för blob-lagringen med obeställbara meddelanden. Varje gång en blob-lagring med obeställbara meddelanden tar emot en händelse som inte levererats meddelar Event Grid din hanterare. Hanteraren svarar med åtgärder som du vill vidta för att stämma av ej levererade händelser.
 
-Ett exempel på hur du konfigurerar en plats för obeställbara meddelanden, finns i [död enhetsbokstaven och återförsöksprinciper](manage-event-delivery.md).
+Ett exempel på hur du konfigurerar en plats för obeställbara meddelanden finns i [principer för obeställbara brev och återförsök](manage-event-delivery.md).
 
-## <a name="message-delivery-status"></a>Leveransstatus för meddelande
+## <a name="message-delivery-status"></a>Status för meddelande leverans
 
-Event Grid använder HTTP-svarskoder för att bekräfta mottagandet av händelser. 
+Event Grid använder HTTP-svars koder för att bekräfta mottagande av händelser. 
 
 ### <a name="success-codes"></a>Lyckade koder
 
-Event Grid tar hänsyn till **endast** följande HTTP-svarskoder som lyckade leveranser. Alla andra koder anses misslyckade leveranser och kommer att göras eller deadlettered efter behov. När tas emot statuskoden lyckas, anser Event Grid leverans som är klar.
+Event Grid betraktar **endast** följande HTTP-svarskod som lyckade leveranser. Alla andra status koder betraktas som misslyckade leveranser och kommer att göras om eller deadlettered efter behov. Vid mottagning av en lyckad status kod Event Grid anses leveransen vara klar.
 
 - 200 OK
-- 201 Skapad
-- 202-accepterad
-- 203 icke-auktoritär Information
+- 201 har skapats
+- 202 accepterad
+- 203 icke-auktoritativ information
 - 204 inget innehåll
 
 ### <a name="failure-codes"></a>Felkoder
 
-Alla andra koder inte i uppsättningen ovan (200 204) betraktas fel och kommer att göras. Vissa har specifika återförsöksprinciper som är knutna till dem som beskrivs nedan, alla andra följer standard exponentiell backoff-modellen. Det är viktigt att tänka på att funktionssätt för återförsök på grund av den parallelliserad natur Event Grid-arkitekturen, är icke-deterministisk. 
+Alla andra koder som inte finns i ovanstående uppsättning (200-204) betraktas som felaktiga och kommer att göras om. Vissa har specifika principer för återförsök som är knutna till dem som beskrivs nedan, och alla andra följer standard modellen för exponentiella säkerhets kopiering. Det är viktigt att komma ihåg att på grund av den mycket parallella typen av Event Grids arkitektur, är återförsöket icke-deterministiskt. 
 
-| Statuskod | Funktionssätt för återförsök |
+| Statuskod | Omprövnings beteende |
 | ------------|----------------|
-| 400 Felaktig förfrågan | Försök igen efter 5 minuter eller mer (obeställbara omedelbart om obeställbara installationen) |
-| 401 Ej behörig | Försök igen efter 5 minuter eller mer |
-| 403 Åtkomst nekas | Försök igen efter 5 minuter eller mer |
-| 404 Hittades inte | Försök igen efter 5 minuter eller mer |
-| 408 Timeout för begäran | Försök igen efter 2 minuter eller mer |
-| 413 begäran entiteten är för stor | Försök igen efter 10 sekunder eller mer (obeställbara omedelbart om obeställbara installationen) |
-| 503 Tjänsten är inte tillgänglig | Försök igen efter 30 sekunder eller mer |
-| Alla andra | Försök igen efter 10 sekunder eller mer |
+| 400 Felaktig begäran | Försök igen om 5 minuter eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
+| 401 obehörig | Försök igen om 5 minuter eller mer |
+| 403 förbud | Försök igen om 5 minuter eller mer |
+| 404 Hittades inte | Försök igen om 5 minuter eller mer |
+| 408 Timeout för begäran | Försök igen om 2 minuter eller mer |
+| 413 begär ande enheten är för stor | Försök igen om 10 sekunder eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
+| 503 Tjänsten är inte tillgänglig | Försök igen om 30 sekunder eller mer |
+| Alla andra | Försök igen om 10 sekunder eller mer |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill visa status för händelsen leveranser, se [övervaka Event Grid meddelandeleverans](monitor-event-delivery.md).
-* Om du vill anpassa Leveransalternativ för händelsen, se [död enhetsbokstaven och återförsöksprinciper](manage-event-delivery.md).
+* Information om hur du visar statusen för händelse leveranser finns i [övervaka Event Grid meddelande leverans](monitor-event-delivery.md).
+* Information om hur du anpassar alternativ för händelse leverans finns i [principer för obeställbara brev och återförsök](manage-event-delivery.md).

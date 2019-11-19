@@ -1,19 +1,15 @@
 ---
-title: DPM/Azure Backup Server skydd för en SharePoint-grupp till Azure
+title: Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 description: Den här artikeln innehåller en översikt över DPM/Azure Backup Server skydd för en SharePoint-grupp till Azure
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
-ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968546"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173326"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 
@@ -74,8 +70,8 @@ Du kan hitta **ConfigureSharePoint. exe** i mappen [DPM-installations Sök väg]
 1. Öppna en kommando tolk på WFE-servern och gå till [DPM-installations plats] \bin\
 2. Ange ConfigureSharePoint-EnableSharePointProtection.
 3. Ange administratörs behörighet för Server gruppen. Det här kontot ska vara medlem i den lokala administratörs gruppen på WFE-servern. Om Server grupps administratören inte är en lokal administratör ger du följande behörigheter på WFE-servern:
-   * Bevilja WSS_Admin_WPG-gruppen fullständig kontroll över DPM-mappen (% Program Files%\Microsoft Data Protection Manager\DPM).
-   * Bevilja WSS_Admin_WPG-gruppen Läs behörighet till register nyckeln för DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
+   * Bevilja WSS_Admin_WPG gruppen fullständig kontroll över DPM-mappen (% Program Files%\Microsoft Data Protection Manager\DPM).
+   * Bevilja WSS_Admin_WPG gruppen Läs behörighet till DPM-registernyckeln (HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
 > Du måste köra ConfigureSharePoint. exe på nytt när det finns en ändring i administratörs uppgifterna för SharePoint-servergruppen.
@@ -101,7 +97,7 @@ När du har konfigurerat DPM och SharePoint-gruppen enligt förklarat tidigare, 
    > När DPM-agenten är installerad kan du se servern i guiden. DPM visar också dess struktur. Eftersom du körde ConfigureSharePoint. exe kommunicerar DPM med SharePoint VSS Writer-tjänsten och dess motsvarande SQL Server-databaser och känner igen SharePoint-servergruppen, de associerade innehålls databaserna och alla motsvarande objekt.
    >
    >
-4. På sidan **Välj data skydds metod** anger du namnet på **skydds gruppen**och väljer önskade *skydds metoder*. Klicka på **Next**.
+4. På sidan **Välj data skydds metod** anger du namnet på **skydds gruppen**och väljer önskade *skydds metoder*. Klicka på **Nästa**.
 
     ![Välj data skydds metod](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
@@ -173,7 +169,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
 5. Du kan också bläddra igenom olika återställnings punkter och välja en databas eller ett objekt som ska återställas. Välj **datum > återställnings tid**och välj sedan rätt **databas > SharePoint-servergrupp > återställnings punkt > objekt**.
 
     ![DPM SharePoint-Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Högerklicka på objektet och välj sedan **Återställ** för att öppna **återställnings guiden**. Klicka på **Next**.
+6. Högerklicka på objektet och välj sedan **Återställ** för att öppna **återställnings guiden**. Klicka på **Nästa**.
 
     ![Granska val av återställning](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Välj den typ av återställning du vill utföra och klicka sedan på **Nästa**.
@@ -197,7 +193,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
     DPM kopplar innehålls databasen som är värd för SharePoint-objektet till den tillfälliga SQL Server-instansen. Från innehålls databasen återställer DPM-servern objektet och placerar det på den tillfälliga sökvägen på DPM-servern. Det återställda objektet som finns på mellanlagringsplatsen på DPM-servern måste nu exporteras till mellanlagringsplatsen i SharePoint-servergruppen.
 
     ![Location2 för mellanlagring](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Välj **Ange återställnings alternativ**och tillämpa säkerhets inställningar på SharePoint-servergruppen eller tillämpa säkerhets inställningarna för återställnings punkten. Klicka på **Next**.
+10. Välj **Ange återställnings alternativ**och tillämpa säkerhets inställningar på SharePoint-servergruppen eller tillämpa säkerhets inställningarna för återställnings punkten. Klicka på **Nästa**.
 
     ![Återställnings alternativ](./media/backup-azure-backup-sharepoint/recovery-options.png)
 

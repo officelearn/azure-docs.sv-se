@@ -1,18 +1,14 @@
 ---
-title: Azure Backup arkitektur
+title: Arkitektur översikt
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
-ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074353"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173509"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -56,7 +52,7 @@ Recovery Services-valv har följande funktioner:
 
 Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på vilken typ av dator som säkerhets kopie ras:
 
-**Agent** | **Detaljer**
+**Agent** | **Information**
 --- | ---
 **MARS-agent** | <ul><li>Körs på enskilda lokala Windows Server-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på virtuella Azure-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på DPM/MABS-servrar för att säkerhetskopiera den lokala lagrings disken för DPM/MABS till Azure.</li></ul>
 **Azure VM-tillägg** | Körs på virtuella Azure-datorer för att säkerhetskopiera dem till ett valv.
@@ -65,7 +61,7 @@ Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på 
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar och när de används:
 
-**Typ av säkerhets kopiering** | **Detaljer** | **Användning**
+**Typ av säkerhets kopiering** | **Information** | **Användning**
 --- | --- | ---
 **Fullständig** | En fullständig säkerhets kopiering innehåller hela data källan. Tar större nätverks bandbredd än differentiella eller stegvisa säkerhets kopieringar. | Används för den första säkerhets kopieringen.
 **Differentiell** |  En differentiell säkerhets kopia lagrar block som har ändrats sedan den första fullständiga säkerhets kopieringen. Använder en mindre mängd nätverks-och lagrings utrymme och skyddar inte redundanta kopior av data som inte har ändrats.<br/><br/> Ineffektiva eftersom data block som inte har ändrats mellan senare säkerhets kopieringar överförs och lagras. | Används inte av Azure Backup.
@@ -75,7 +71,7 @@ I följande tabell förklaras de olika typerna av säkerhets kopieringar och nä
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar som används för SQL Server databaser och hur ofta de används:
 
-**Typ av säkerhets kopiering** | **Detaljer** | **Användning**
+**Typ av säkerhets kopiering** | **Information** | **Användning**
 --- | --- | ---
 **Fullständig säkerhets kopiering** | En fullständig säkerhetskopia av databas säkerhetskopierar hela databasen. Den innehåller alla data i en speciell databas eller i en uppsättning fil grupper eller filer. En fullständig säkerhets kopiering innehåller också tillräckligt med loggar för att återställa dessa data. | Du kan endast utlösa en fullständig säkerhetskopiering per dag.<br/><br/> Du kan välja att göra en fullständig säkerhets kopia på ett dags-eller vecko intervall.
 **Differentiell säkerhets kopia** | En differentiell säkerhets kopia baseras på den senaste, tidigare fullständiga säkerhets kopieringen.<br/><br/> Den fångar bara in de data som har ändrats sedan den fullständiga säkerhets kopieringen. |  Du kan endast utlösa en differentiell säkerhetskopia per dag.<br/><br/> Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopia samma dag.
@@ -96,7 +92,7 @@ Lagrings förbrukning, återställnings tids mål (RTO) och nätverks förbrukni
 
 I följande tabell sammanfattas de funktioner som stöds för de olika typerna av säkerhets kopiering:
 
-**Funktion** | **Lokala Windows Server-datorer (direkt)** | **Virtuella Azure-datorer** | **Datorer eller appar med DPM/MABS**
+**Funktion** | **Direkt säkerhets kopiering av filer och mappar (med MARS-agenten)** | **VIRTUELL Azure-säkerhetskopiering** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green]
 Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green]
@@ -106,7 +102,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 
 ![Tabell nyckel](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Arkitektur: direkt säkerhets kopiering av virtuella Azure-datorer
+## <a name="architecture-built-in-azure-vm-backup"></a>Arkitektur: inbyggd virtuell Azure-säkerhetskopiering
 
 1. När du aktiverar säkerhets kopiering för en virtuell Azure-dator körs en säkerhets kopiering enligt det schema du anger.
 1. Under den första säkerhets kopieringen installeras ett säkerhets kopierings tillägg på den virtuella datorn om den virtuella datorn körs.

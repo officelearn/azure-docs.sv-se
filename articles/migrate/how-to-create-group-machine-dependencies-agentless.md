@@ -4,27 +4,25 @@ description: Beskriver hur du skapar grupper med hjälp av dator beroenden på e
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720263"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158434"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Konfigurera en agent utan beroende visualisering för utvärdering
-
-> [!NOTE]
-> Om du inte ser den här funktionen än i Azure Migrate-portalen låser du dig. Den kommer att visas under nästa vecka eller så.
 
 Den här artikeln beskriver hur du ställer in en agent lös beroende mappning i Azure Migrate: Server bedömning. Den här funktionen är för närvarande tillgänglig i för hands versionen för VMware-datorer som identifierats med en Azure Migrate-apparat. 
 
 > [!IMPORTANT]
 > Det finns för närvarande en för hands version av en beroende visualisering för virtuella Azure VMware-datorer som identifieras med en Azure Migrate-apparat.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="about-dependency-mapping"></a>Om beroende mappning 
+## <a name="about-dependency-mapping"></a>Om beroende mappning
 
 Beroende mappning hjälper dig att visualisera beroenden mellan datorer som du vill utvärdera och migrera. Du använder vanligt vis beroende mappning när du vill utvärdera datorer med högre Tillförlitlighets nivåer.
 
@@ -46,7 +44,7 @@ Visualisering av beroenden för agenter kräver inte att du installerar några a
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 - Visualisering av beroende för virtuella VMware-datorer är för närvarande endast tillgängligt för virtuella VMware-datorer.
-- Just nu kan du inte lägga till eller ta bort en server från en grupp i vyn beroende analys. 
+- Just nu kan du inte lägga till eller ta bort en server från en grupp i vyn beroende analys.
 - Beroende karta för en Server grupp är för närvarande inte tillgänglig.
 - Beroende data kan för närvarande inte hämtas i tabell format.
 
@@ -60,12 +58,12 @@ Visualisering av beroenden för agenter kräver inte att du installerar några a
 
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
- 
+
 Operativ system som stöds för visualiserings beroende visualisering är följande.
 
 **Typ** | **Operativsystem som stöds**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64-bitars) 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64-bitars)
 **Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14,04, 16,04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
@@ -84,7 +82,7 @@ Lägg till kontot enligt följande:
 
 1. Öppna appen för hantering av appar. Navigera till panelen **Tillhandahåll vCenter-information** .
 2. I avsnittet **identifiera program och beroenden för virtuella datorer** klickar du på **Lägg till autentiseringsuppgifter**
-3. Välj **operativ system**. 
+3. Välj **operativ system**.
 4. Ange ett eget namn för kontot.
 5. Ange **användar namn** och **lösen ord**
 6. Klicka på **Spara**.
@@ -113,8 +111,8 @@ Du kommer att kunna visualisera beroenden 6 timmar efter start av beroende ident
 2. Sök efter den dator som du vill visa beroende kartan för.
 3. Klicka på **Visa beroenden** i kolumnen **beroenden** .
 4. Ändra den tids period som du vill visa kartan med i list rutan **tids längd** .
-5. Expandera **klient** gruppen för att visa en lista över datorer som har ett beroende på den valda datorn. 
-6. Expandera **port** gruppen om du vill visa en lista med datorer som är beroende av den valda datorn. 
+5. Expandera **klient** gruppen för att visa en lista över datorer som har ett beroende på den valda datorn.
+6. Expandera **port** gruppen om du vill visa en lista med datorer som är beroende av den valda datorn.
 7. Om du vill navigera till vyn karta för någon av de beroende datorerna klickar du på dator namnet och klickar sedan på **Läs in Server karta**
 
     ![Expandera server port grupp och läsa in Server karta](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

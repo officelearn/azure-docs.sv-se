@@ -1,19 +1,15 @@
 ---
 title: Vad är Azure Backup?
 description: Ger en översikt över den Azure Backup tjänsten och hur den bidrar till din strategi för affärs kontinuitet och haveri beredskap (BCDR).
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: overview
 ms.date: 04/24/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 49ef90c874e920ef92dd5206447081a6aa4f7988
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035239"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172212"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Vad är tjänsten Azure Backup?
 
@@ -23,15 +19,15 @@ Med Azure Backup-tjänsten kan du säkerhetskopiera data till Microsoft Azure-mo
 
 Azure Backup ger följande viktiga fördelar:
 
-- **Avlasta lokal säkerhetskopiering**: Azure Backup är en enkel lösning för att säkerhetskopiera dina lokala resurser till molnet. Du får både kort- och långsiktig kvarhållning av säkerhetskopior utan att behöva distribuera komplexa lokala lösningar.
-- **Säkerhetskopiera virtuella Azure IaaS-datorer**: Med Azure Backup får du oberoende och isolerade säkerhetskopior, vilket skyddar originaldata från att förstöras oavsiktligt. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter. Konfiguration och skalbarhet är enkla, säkerhets kopieringar optimeras och du kan enkelt återställa efter behov.
+- **Avlastning av lokal säkerhets kopiering**: Azure Backup erbjuder en enkel lösning för att säkerhetskopiera lokala resurser till molnet. Du får både kort- och långsiktig kvarhållning av säkerhetskopior utan att behöva distribuera komplexa lokala lösningar.
+- **Säkerhetskopiera virtuella Azure IaaS-datorer**: Azure Backup tillhandahåller oberoende och isolerade säkerhets kopior för att skydda mot oavsiktlig destruktion av ursprungliga data. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter. Konfiguration och skalbarhet är enkla, säkerhets kopieringar optimeras och du kan enkelt återställa efter behov.
 - **Enkel skalning** – Azure Backup använder Azure-molnets underliggande kraft och obegränsade storlek för att tillhandahålla hög tillgänglighet – utan underhåll och omkostnad för övervakning.
 - **Få obegränsad data överföring**: Azure Backup begränsar inte mängden inkommande eller utgående data som du överför eller debiteras för de data som överförs.
   - Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
   - Om du utför en initial säkerhetskopiering offline med Azure Import/Export-tjänsten för att importera stora mängder data, finns det dock en kostnad som är kopplad till inkommande data.  [Läs mer](backup-azure-backup-import-export.md).
-- **Skydda data**: Azure Backup tillhandahåller lösningar för att skydda data under överföring och i vila.
-- **Programkonsekvent säkerhetskopiering**: Programkonsekvent säkerhetskopiering innebär att en återställningspunkt har alla data som krävs för att återställa säkerhetskopian. Azure Backup innehåller programkonsekventa säkerhetskopior vilket garanterar att inga ytterligare korrigeringar behövs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
-- **Behålla kort- och långsiktiga data**: Du kan använda Recovery Services-valv för kortsiktig och långsiktig datakvarhållning. Azure begränsar inte hur lång tid data behålls i ett Recovery Services-valv. Du kan förvara den så länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans.
+- Skydda **data**: Azure Backup tillhandahåller lösningar för att skydda data under överföring och i vila.
+- **Hämta programkonsekventa säkerhets kopieringar**: en programkonsekvent säkerhets kopiering innebär att en återställnings punkt har alla data som krävs för att återställa säkerhets kopian. Azure Backup innehåller programkonsekventa säkerhetskopior vilket garanterar att inga ytterligare korrigeringar behövs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
+- **Behåll korta och långsiktiga data**: du kan använda Recovery Services valv för kortsiktig och långsiktig data kvarhållning. Azure begränsar inte hur lång tid data behålls i ett Recovery Services-valv. Du kan förvara den så länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans.
 - **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup är det kostnadsfritt att använda lokala lagringsenheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Du betalar alltså bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.
 - **Flera lagringsalternativ** – Azure Backup erbjuder två typer av replikering för att din lagring och dina data ska ha hög tillgänglighet.
   - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
@@ -46,12 +42,12 @@ Både Azure Backup och Azure Site Recovery kan ingå i din strategi för affärs
 
 De här två tjänsterna innehåller kompletterande men också olika funktioner.
 
-- **Azure Site Recovery**: Site Recovery tillhandahåller en lösning för haveriberedskap för lokala datorer och virtuella Azure-datorer. Du kan replikera datorer från en primär till en sekundär plats. I händelse av en katastrof redundansväxlar du datorerna till den sekundära platsen och får åtkomst till dem därifrån. När allt fungerar som vanligt igen redundansväxlar du tillbaka datorerna till den primära platsen för återställning.
-- **Azure Backup**: Tjänsten Azure Backup säkerhetskopierar data från lokala datorer och virtuella Azure-datorer. Data kan säkerhetskopieras och återställas på detaljerad nivå, till exempel genom säkerhetskopiering av filer, mappar, datorsystemtillstånd och appmedvetna data. Azure Backup hanterar data på en mer detaljerad nivå än Site Recovery. Om till exempel en presentation på en bärbar dator skadas, använder du Azure Backup för att återställa presentationen. Om du vill skydda och ha tillgång till en virtuell dators konfiguration och data använder du Site Recovery.  
+- **Azure Site Recovery**: Site Recovery innehåller en katastrof återställnings lösning för lokala datorer och för virtuella Azure-datorer. Du kan replikera datorer från en primär till en sekundär plats. I händelse av en katastrof redundansväxlar du datorerna till den sekundära platsen och får åtkomst till dem därifrån. När allt fungerar som vanligt igen redundansväxlar du tillbaka datorerna till den primära platsen för återställning.
+- **Azure Backup**: Azure Backup tjänsten säkerhetskopierar data från lokala datorer och virtuella Azure-datorer. Data kan säkerhetskopieras och återställas på detaljerad nivå, till exempel genom säkerhetskopiering av filer, mappar, datorsystemtillstånd och appmedvetna data. Azure Backup hanterar data på en mer detaljerad nivå än Site Recovery. Om till exempel en presentation på en bärbar dator skadas, använder du Azure Backup för att återställa presentationen. Om du vill skydda och ha tillgång till en virtuell dators konfiguration och data använder du Site Recovery.  
 
 Bestäm dina behov för affärskontinuitet och haveriberedskap med hjälp av tabellen nedan.
 
-**Mål** | **Detaljer** | **Jämförelse**
+**Mål** | **Information** | **Jämförelse**
 --- | --- | ---
 **Säkerhetskopiera/bevara data** | Säkerhets kopierings data kan behållas och lagras i dagar, månader eller till och med år om det behövs från ett kompatibilitetstillstånd. | Med säkerhetskopieringslösningar som Azure Backup kan du välja vilka data som ska säkerhetskopieras och skräddarsy principer för säkerhetskopiering och kvarhållning.<br/><br/> Site Recovery tillåter inte samma fin justering.
 **Mål för återställningspunkt (RPO)** | Mängden godtagbar dataförlust om en återställning krävs. | Säkerhetskopieringar har större variation vad gäller mål för återställningspunkter.<br/><br/> Säkerhetskopieringar av virtuella datorer har vanligtvis ett återställningspunktmål på en dag, medan säkerhetskopieringar av databaser har återställningspunktmål på så lite som 15 minuter.<br/><br/> Site Recovery tillhandahåller låga återställningspunktmål eftersom replikeringen är kontinuerlig eller frekvent, vilket innebär att deltat mellan källa och replikering är litet.
@@ -114,7 +110,7 @@ Azure Backup har en gräns på 9 999 återställningspunkter (även kallade s�
 - En skyddad instans är en dator eller server (fysisk eller virtuell) eller en arbetsbelastning som konfigurerats för att säkerhetskopiera data till Azure. En instans är skyddad när en säkerhetskopia av data har sparats.
 - Säkerhetskopian av data är skyddet. Om datakällan går förlorad eller skadas kan den återställas med hjälp av säkerhetskopian.
 
-Följande tabell visar den högsta säkerhetskopieringsfrekvensen för varje komponent. Din konfiguration av säkerhetskopieringspolicyer avgör hur snabbt du förbrukar återställningspunkterna. Om du till exempel skapar en återställningspunkt om dagen kan du behålla återställningspunkter i 27 år innan de tar slut. Om du skapar en månatlig återställningspunkt kan du behålla återställningspunkter i 833 år innan de tar slut. Backup-tjänsten ställer inte in någon gräns för giltighetstiden för en återställningspunkt.
+Följande tabell visar den högsta säkerhetskopieringsfrekvensen för varje komponent. Din konfiguration av säkerhetskopieringspolicyer avgör hur snabbt du förbrukar återställningspunkterna. Om du till exempel skapar en återställnings punkt varje dag kan du behålla återställnings punkter i 27 år innan du tar slut. Om du tar en månatlig återställnings punkt kan du behålla återställnings punkter i 833 år innan du börjar. Säkerhets kopierings tjänsten anger ingen tids gräns för förfallo tid för en återställnings punkt.
 
 |  | Azure Backup-agent (MARS)| System Center DPM | Azure Backup Server | Säkerhetskopiering av virtuella IaaS-datorer i Azure |
 | --- | --- | --- | --- | --- |

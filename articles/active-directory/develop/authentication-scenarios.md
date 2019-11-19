@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 317efa17b294e859ef8a092451aca70b5b836fe7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927104"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167790"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -148,7 +148,7 @@ Det här attributet gör att ASP.NET söker efter en sessions-cookie som innehå
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Hur en webbapp delegerar inloggning till Azure AD och hämtar en token
 
 Användarautentisering sker via webbläsaren. OpenID-protokollet använder vanliga HTTP-protokoll meddelanden.
-- Webbappen skickar en HTTP 202 (Omdirigerad) till webbläsaren för att använda Azure AD.
+- Webbappen skickar en HTTP 302 (Omdirigerad) till webbläsaren för att använda Azure AD.
 - När användaren autentiseras skickar Azure AD token till webbappen med hjälp av en omdirigering via webbläsaren.
 - Omdirigeringen tillhandahålls av webb programmet i form av en omdirigerings-URI. Den här omdirigerings-URI: n har registrerats med objektet Azure AD-program. Det kan finnas flera omdirigerings-URI: er eftersom programmet kan distribueras på flera URL: er. Webbappen måste också ange den omdirigerings-URi som ska användas.
 - Azure AD kontrollerar att den omdirigerings-URI som skickas av webbappen är en av de registrerade omdirigerings-URI: erna för appen.
@@ -159,7 +159,7 @@ Flödet som beskrivs ovan gäller, med små skillnader, för Station ära och mo
 
 Skriv bords-och mobil program kan använda en inbäddad webb kontroll eller en system webbläsare för autentisering. Följande diagram visar hur en stationär eller mobilapp använder Microsoft Authentication Library (MSAL) för att hämta åtkomsttoken och anropa webb-API: er.
 
-![Desktop-appen hur det verkar vara](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![Desktop-appen hur det verkar vara](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL använder en webbläsare för att hämta tokens, och som med Web Apps, delegerar autentiseringen till Azure AD.
 

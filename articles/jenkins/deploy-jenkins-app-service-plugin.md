@@ -1,19 +1,15 @@
 ---
 title: Distribuera till Azure App Service med plugin-programmet Jenkins
 description: Lär dig använda plugin-programmet Jenkins i Azure App Service för att distribuera en Java-webbapp till Azure i Jenkins
-ms.service: jenkins
 keywords: jenkins, azure, devops, app service
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840427"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158510"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
@@ -21,7 +17,7 @@ Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [J
 * filuppladdning.
 * Docker för Web Apps på Linux.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera Jenkins för distribution av Web Apps via filuppladdning.
 > * Konfigurera Jenkins för distribution av Web App for Containers.
@@ -90,7 +86,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och
 ### <a name="set-up-the-jenkins-job"></a>Konfigurera Jenkins-jobbet
 
 1. Skapa ett nytt **freestyle**-projekt på Jenkins-instrumentpanelen.
-2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Exempel: http:\//GitHub.com/&lt;your_ID >/javawebappsample.
+2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Exempel: http:\//github.com/&lt;your_ID >/javawebappsample.
 3. Lägg till ett steg för att kompilera projektet med hjälp av Maven genom att lägga till kommandot **Execute shell**. I det här exemplet behöver vi ett extra kommando för att byta namn på \*.war-filen i målmappen till **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +139,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du ha en webbapp på Linux. Du b
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Konfigurera Jenkins-jobbet för Docker
 
 1. Skapa ett nytt **freestyle**-projekt på Jenkins-instrumentpanelen.
-2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Exempel: http:\//GitHub.com/&lt;your_ID >/javawebappsample.
+2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Exempel: http:\//github.com/&lt;your_ID >/javawebappsample.
 3. Lägg till ett steg för att kompilera projektet med hjälp av Maven genom att lägga till kommandot **Execute shell**. Inkludera följande rad i kommandot:
     ```bash
     mvn clean package
@@ -163,7 +159,7 @@ För värdet **URL för Docker-register** anger du webbadressen i formatet https
 
 10. Docker-avbildningens namn och taggvärde på fliken **Avancerat** är valfria. Som standard hämtas värdet för avbildningens namn från det avbildningsnamn som du konfigurerade i Azure-portalen i inställningen för **Docker Container**. Taggen genereras från $BUILD_NUMBER.
     > [!NOTE]
-    > Du måste ange avbildningens namn i Azure-portalen eller ange ett värde för **Docker-avbildning** på fliken **Avancerat**. I det här exemplet ställer du in värdet **Docker-avbildning** till &lt;ditt_Register>.azurecr.io/calculator och lämnar värdet **Docker Image Tab** (Docker-avbildningstagg) tomt.
+    > Se till att ange avbildnings namnet i Azure Portal eller ange ett värde för **Docker-avbildning** på fliken **Avancerat** . I det här exemplet anger du **Docker** -bildvärdet till &lt;your_Registry >. azurecr. io/kalkylator och lämna **Docker-bildtagg** svärdet tomt.
 
 11. Det går inte att distribuera om du använder en inbyggd inställning för Docker-avbildning. Ändra Docker-konfigurationen om du vill använda en anpassad avbildning i inställningen **Docker Container** i Azure-portalen. För en inbyggd avbildning använder du filuppladdningsmetoden för distributionen.
 12. På liknande sätt som med filuppladdningsmetoden kan du välja ett annat namn för **Slot** (fack) än **produktion**.

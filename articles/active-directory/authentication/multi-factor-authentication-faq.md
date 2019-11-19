@@ -4,19 +4,19 @@ description: Vanliga frågor och svar om Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: troubleshooting
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae7390afead843fa0784454f7e0374bedf735ad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 37f375b6d4284b4728b2337dc5ab5186ce22772c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081535"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167763"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -142,13 +142,11 @@ Om din organisation inte har äldre klienter bör du inte tillåta att användar
 >
 > Applösenord krävs bara för appar som inte stöder modern autentisering. Office 2013-klienter stöder moderna autentiseringsprotokoll, men måste konfigureras. Nu är modern autentisering tillgänglig för alla kunder som kör uppdateringen från mars 2015 eller senare för Office 2013. Mer information finns i blogg inlägget [uppdaterat Office 365 modern Authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
-**F: mina användare säger att de ibland inte tar emot textmeddelandet, eller att de svarar på dubbelriktade textmeddelanden, men verifierings tiden går ut.**
+**F: mina användare säger att de ibland inte tar emot textmeddelandet eller att verifierings tiden är slut.**
 
-Leverans av SMS-meddelanden och mottagning av svar i dubbelriktat SMS är inte garanterat eftersom det finns okontrollerade faktorer som kan påverka tjänstens tillförlitlighet. Dessa faktorer inkluderar destinations land/-region, mobil telefon operatören och signal styrkan.
+Leverans av SMS-meddelanden är inte garanterat eftersom det finns okontrollerade faktorer som kan påverka tjänstens tillförlitlighet. Dessa faktorer inkluderar destinations land/-region, mobil telefon operatören och signal styrkan.
 
 Om användarna ofta har problem med att ta emot textmeddelanden på ett tillförlitligt sätt kan du be dem att använda mobilappen eller Telefonsamtals metoden i stället. Mobilappen kan ta emot meddelanden både via mobil nät och Wi-Fi-anslutningar. Dessutom kan mobilappen generera verifierings koder även om enheten inte har någon signal alls. Microsoft Authenticator-appen är tillgänglig för [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)och [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
-
-Om du måste använda SMS rekommenderar vi att du använder enkelriktat SMS i stället för dubbelriktat SMS när det är möjligt. Enkelriktat SMS är mer tillförlitligt och hindrar användare från att lämna ut globala SMS-avgifter från svar till ett SMS som har skickats från ett annat land/en annan region.
 
 **F: kan jag ändra hur lång tid som mina användare måste ange verifierings koden från ett SMS innan systemet nått tids gränsen?**
 
@@ -162,7 +160,7 @@ För enkelriktat SMS med Azure MFA server v 7.0 eller högre kan du konfigurera 
 >[!TIP] 
 >Om du har flera MFA-servrar vet bara den som bearbetade den ursprungliga autentiseringsbegäran den verifierings kod som skickades till användaren. När användaren anger koden måste autentiseringsbegäran som verifieras skickas till samma server. Om kod verifieringen skickas till en annan server nekas autentiseringen. 
 
-För dubbelriktat SMS med Azure MFA Server kan du konfigurera timeout-inställningen i MFA-Hanteringsportal. Om användarna inte svarar på SMS inom den angivna tids gränsen, nekas deras autentisering. 
+Om användarna inte svarar på SMS inom den angivna tids gränsen, nekas deras autentisering. 
 
 För enkelriktat SMS med Azure MFA i molnet (inklusive AD FS adapter eller nätverks princip Server tillägget) kan du inte konfigurera tids inställningen för timeout. Azure AD lagrar verifierings koden i 180 sekunder. 
 

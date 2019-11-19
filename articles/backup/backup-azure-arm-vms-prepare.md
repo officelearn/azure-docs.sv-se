@@ -1,19 +1,14 @@
 ---
-title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services-valv med Azure Backup
+title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968540"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173349"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -34,7 +29,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-* [Granska](backup-architecture.md#architecture-direct-backup-of-azure-vms) arkitekturen för säkerhets kopiering av virtuella Azure-datorer.
+* [Granska](backup-architecture.md#architecture-built-in-azure-vm-backup) arkitekturen för säkerhets kopiering av virtuella Azure-datorer.
 * [Läs mer om](backup-azure-vms-introduction.md) Säkerhets kopiering av virtuella Azure-datorer och tillägget för säkerhets kopiering.
 * [Granska support mat ris](backup-support-matrix-iaas.md) innan du konfigurerar säkerhets kopiering.
 
@@ -69,7 +64,7 @@ När valvet har skapats visas det i listan Recovery Services valv. Om du inte se
 ![Lista över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 > [!NOTE]
-> Azure Backup-tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för att lagra ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen kommer att behållas under den tid i dagar som anges i avsnittet *Behåll ögonblicks bild av ögonblicks bilder* i säkerhets kopierings principen för den virtuella Azure-datorn.  Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
+> Azure Backup tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för lagring av ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen kommer att behållas under den tid i dagar som anges i avsnittet *Behåll ögonblicks bild av ögonblicks bilder* i säkerhets kopierings principen för den virtuella Azure-datorn.  Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
 Den här resurs gruppen ska också undantas från eventuella namn-och märkes begränsningar som en begränsnings princip skulle blockera skapandet av resurs plats samlingar i den igen och orsaka säkerhets kopierings problem.
 
 ### <a name="modify-storage-replication"></a>Ändra Storage Replication
@@ -189,7 +184,7 @@ Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättn
 
 Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett tillägg till Azure VM-agenten som körs på datorn. Om den virtuella datorn skapades från en Azure Marketplace-avbildning installeras och körs agenten. Om du skapar en anpassad virtuell dator, eller om du migrerar en lokal dator, kan du behöva installera agenten manuellt, som sammanfattas i tabellen.
 
-**DATORN** | **Detaljer**
+**DATORN** | **Information**
 --- | ---
 **Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på **WaAppAgent. exe** > **Egenskaper**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
@@ -199,9 +194,9 @@ Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett
 Säkerhets kopierings tillägget som körs på den virtuella datorn behöver utgående åtkomst till offentliga Azure-IP-adresser.
 
 * Normalt behöver du inte uttryckligen tillåta utgående nätverks åtkomst för en virtuell Azure-dator för att kunna kommunicera med Azure Backup.
-* Om du stöter på problem med att ansluta virtuella datorer, eller om du ser felet **ExtensionSnapshotFailedNoNetwork** vid försök att ansluta, bör du uttryckligen tillåta åtkomst så att säkerhets kopierings tillägget kan kommunicera med offentliga Azure-IP-adresser för säkerhets kopiering aktiviteten. Åtkomst metoder sammanfattas i följande tabell.
+* Om du stöter på problem med att ansluta virtuella datorer, eller om du ser felet **ExtensionSnapshotFailedNoNetwork** vid försök att ansluta, bör du uttryckligen tillåta åtkomst så att säkerhets kopierings tillägget kan kommunicera med Azures offentliga IP-adresser för säkerhets kopierings trafik. Åtkomst metoder sammanfattas i följande tabell.
 
-**Alternativ** | **Åtgärd** | **Detaljer**
+**Alternativ** | **Åtgärd** | **Information**
 --- | --- | ---
 **Konfigurera NSG-regler** | Tillåt [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> I stället för att tillåta och hantera varje adress intervall kan du lägga till en regel som tillåter åtkomst till den Azure Backup tjänsten med hjälp av en [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Lär dig mer](../virtual-network/security-overview.md#service-tags) om service märken.<br/><br/> Services-Taggar fören klar åtkomst hanteringen och debiteras inte ytterligare kostnader.
 **Distribuera en proxy** | Distribuera en HTTP-proxyserver för routning av trafik. | Ger åtkomst till hela Azure och inte bara lagring.<br/><br/> Detaljerad kontroll över lagrings-URL: er tillåts.<br/><br/> Enskild punkt för Internet åtkomst för virtuella datorer.<br/><br/> Ytterligare kostnader för proxy.
@@ -227,7 +222,7 @@ Om en NSG hanterar VM-åtkomsten tillåter du utgående åtkomst för lagring av
 7. I **protokoll**väljer du **TCP**.
 8. I **prioritet**anger du ett prioritets värde som är mindre än reglerna för högre neka.
 
-   Om du har en regel som nekar åtkomst måste den nya regeln för Tillåt vara högre. Om du till exempel har en **Deny_All** regel uppsättning på prioritet 1000 måste den nya regeln vara lägre än 1000.
+   Om du har en regel som nekar åtkomst måste den nya regeln för Tillåt vara högre. Om du till exempel har en **Deny_All** regel inställd på prioritet 1000 måste den nya regeln vara lägre än 1000.
 9. Ange ett namn och en beskrivning för regeln och välj **OK**.
 
 Du kan tillämpa NSG-regeln på flera virtuella datorer för att tillåta utgående åtkomst. Den här videon vägleder dig genom processen.

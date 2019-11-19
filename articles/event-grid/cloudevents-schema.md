@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Event Grid med händelser i CloudEvents-schema
-description: Beskriver hur du ställer in CloudEvents-schema för händelser i Azure Event Grid.
+title: Använda Azure Event Grid med händelser i CloudEvents-schemat
+description: Beskriver hur du ställer in CloudEvents-schemat för händelser i Azure Event Grid.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,22 +8,22 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8925110511f6c63a42dd9b121429ac7264cd4aa4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61436625"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170236"
 ---
-# <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Använd CloudEvents v 1.0-schemat med Event Grid
 
-Utöver dess [standard Händelseschema](event-schema.md), Azure Event Grid har inbyggt stöd för händelser i den [CloudEvents JSON-schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](https://cloudevents.io/) är en [öppna specifikationen](https://github.com/cloudevents/spec/blob/master/spec.md) för att beskriva händelsedata.
+Förutom dess [standard händelse schema](event-schema.md)har Azure Event Grid inbyggt stöd för händelser i [JSON-implementeringen av CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) och [http-protokoll bindning](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) är en [öppen specifikation](https://github.com/cloudevents/spec/blob/v1.0/spec.md) för att beskriva händelse data.
 
-CloudEvents förenklar samverkan genom att tillhandahålla ett gemensamt Händelseschema för publicering och använder molnet baserat på händelser. Det här schemat kan enhetliga verktyg, standard sätt för Routning och hantera händelser och universal sätt att deserialisering av yttre händelseschemat. Du kan enkelt integrera arbete på plattformar med ett gemensamt schema.
+CloudEvents fören klar samverkan genom att tillhandahålla ett gemensamt händelse schema för publicering, och konsumera molnbaserade händelser. Det här schemat möjliggör enhetlig verktygs hantering, vanliga sätt att dirigera & hanterings händelser och Universal sätt att avserialisera det yttre händelse schemat. Med ett gemensamt schema kan du enklare integrera arbete på olika plattformar.
 
-CloudEvents håller på att skapas av ett flertal [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via den [Cloud interna databehandling Foundation](https://www.cncf.io/). Det finns för närvarande som version 0.1.
+CloudEvents skapas av flera [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via [Cloud Native Computing Foundation](https://www.cncf.io/). Den är för närvarande tillgänglig som version 1,0.
 
-Den här artikeln beskriver hur du använder CloudEvents-schema med Event Grid.
+Den här artikeln beskriver hur du använder CloudEvents-schemat med Event Grid.
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -31,71 +31,57 @@ Den här artikeln beskriver hur du använder CloudEvents-schema med Event Grid.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="cloudevent-schema"></a>CloudEvent schema
+## <a name="cloudevent-schema"></a>CloudEvent-schema
 
 Här är ett exempel på en Azure Blob Storage-händelse i CloudEvents-format:
 
 ``` JSON
 {
-    "cloudEventsVersion" : "0.1",
-    "eventType" : "Microsoft.Storage.BlobCreated",
-    "eventTypeVersion" : "",
-    "source" : "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}#blobServices/default/containers/{storage-container}/blobs/{new-file}",
-    "eventID" : "173d9985-401e-0075-2497-de268c06ff25",
-    "eventTime" : "2018-04-28T02:18:47.1281675Z",
-    "data" : {
-      "api": "PutBlockList",
-      "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-      "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-      "eTag": "0x8D4BCC2E4835CD0",
-      "contentType": "application/octet-stream",
-      "contentLength": 524288,
-      "blobType": "BlockBlob",
-      "url": "https://oc2d2817345i60006.blob.core.windows.net/oc2d2817345i200097container/oc2d2817345i20002296blob",
-      "sequencer": "00000000000004420000000000028963",
-      "storageDiagnostics": {
-        "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-      }
+    "specversion": "1.0",
+    "type": "Microsoft.Storage.BlobCreated",  
+    "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}",
+    "id": "9aeb0fdf-c01e-0131-0922-9eb54906e209",
+    "time": "2019-11-18T15:13:39.4589254Z",
+    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",
+    "dataschema": "#",
+    "data": {
+        "api": "PutBlockList",
+        "clientRequestId": "4c5dd7fb-2c48-4a27-bb30-5361b5de920a",
+        "requestId": "9aeb0fdf-c01e-0131-0922-9eb549000000",
+        "eTag": "0x8D76C39E4407333",
+        "contentType": "image/png",
+        "contentLength": 30699,
+        "blobType": "BlockBlob",
+        "url": "https://gridtesting.blob.core.windows.net/testcontainer/{new-file}",
+        "sequencer": "000000000000000000000000000099240000000000c41c18",
+        "storageDiagnostics": {
+            "batchId": "681fe319-3006-00a8-0022-9e7cde000000"
+        }
     }
 }
 ```
 
-CloudEvents v0.1 har följande egenskaper som är tillgängliga:
+En detaljerad beskrivning av tillgängliga fält, deras typer och definitioner i CloudEvents v 0,1 finns [här](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-| CloudEvents        | Typ     | Värdet för exempel-JSON             | Beskrivning                                                        | Event Grid-mappning
-|--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | String   | "com.example.someevent"          | Typ av händelse som inträffade                                   | eventType
-| eventTypeVersion   | String   | "1.0"                            | Versionen av händelsetyp (valfritt)                            | dataVersion
-| cloudEventsVersion | String   | "0.1"                            | Versionen av CloudEvents-specifikationen händelsen använder        | *skickas via*
-| source             | URI: N      | ”/ mycontext”                     | Beskriver producenten händelse                                       | avsnittet #subject
-| eventID            | String   | "1234-1234-1234"                 | ID för händelsen                                                    | id
-| eventTime          | Tidsstämpel| "2018-04-05T17:31:00Z"           | Tidsstämpel för när händelsen som inträffade (valfritt)                    | eventTime
-| schemaURL          | URI: N      | "https:\//myschema.com"           | En länk till det schema som dataattributet följer (valfritt) | *används inte*
-| contentType        | String   | "application/json"               | Beskriv data Kodningsformatet (valfritt)                       | *används inte*
-| Tillägg         | Karta      | { "extA": "vA", "extB", "vB" }  | Alla ytterligare metadata (valfritt)                                 | *används inte*
-| data               | Object   | { "objA": "vA", "objB", "vB" }  | Händelsenyttolast (valfritt)                                       | data
-
-Mer information finns i den [CloudEvents-specifikationen](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
-
-Värdena för händelser som levereras i CloudEvents-schema och Event Grid-schemat är samma undantag för `content-type`. Det huvud-värdet är för CloudEvents-schema `"content-type":"application/cloudevents+json; charset=utf-8"`. Det huvud-värdet är för Event Grid-schema, `"content-type":"application/json; charset=utf-8"`.
+Rubrik värden för händelser som levereras i CloudEvents-schemat och Event Grid schemat är desamma förutom för `content-type`. För CloudEvents-schema är detta huvud värde `"content-type":"application/cloudevents+json; charset=utf-8"`. För Event Grid schema är detta huvud värde `"content-type":"application/json; charset=utf-8"`.
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurera Event Grid för CloudEvents
 
-Du kan använda Event Grid för både indata och utdata av händelser i CloudEvents-schema. Du kan använda CloudEvents för systemhändelser som Blob Storage-händelser och IoT Hub-händelser och anpassade händelser. Det kan också omvandla dessa händelser på kabeln fram och tillbaka.
+Du kan använda Event Grid för både indata och utdata av händelser i CloudEvents-schemat. Du kan använda CloudEvents för system händelser, t. ex. Blob Storage händelser och IoT Hub händelser och anpassade händelser. Den kan också omvandla dessa händelser till den igen.
 
 
-| Inmatningsschemat       | Utdata-schemat
+| Schema för indatamängd       | Schema för utdata
 |--------------------|---------------------
 | CloudEvents-format | CloudEvents-format
-| Event Grid-format  | CloudEvents-format
-| CloudEvents-format | Event Grid-format
-| Event Grid-format  | Event Grid-format
+| Event Grid format  | CloudEvents-format
+| CloudEvents-format | Event Grid format
+| Event Grid format  | Event Grid format
 
-För alla Händelsescheman kräver Event Grid-verifiering vid publicering till en event grid-ämne och när du skapar en händelseprenumeration. Mer information finns i [Event Grid säkerhet och autentisering](security-authentication.md).
+För alla händelse scheman måste Event Grid verifiera vid publicering till ett event Grid-ämne och när en händelse prenumeration skapas. Mer information finns i [Event Grid säkerhet och autentisering](security-authentication.md).
 
-### <a name="input-schema"></a>Inmatningsschemat
+### <a name="input-schema"></a>Schema för indatamängd
 
-Du kan ange inmatningsschemat för ett anpassat ämne när du skapar det anpassade ämnet.
+Du ställer in schemat för ett anpassat ämne när du skapar det anpassade ämnet.
 
 Om du använder Azure CLI använder du:
 
@@ -125,11 +111,11 @@ New-AzureRmEventGridTopic `
   -InputSchema CloudEventV01Schema
 ```
 
-Den aktuella versionen av CloudEvents stöder inte batchbearbetning av händelser. Publicera varje händelse individuellt för att publicera händelser med CloudEvent schemat till ett ämne.
+Den aktuella versionen av CloudEvents stöder inte batching av händelser. Publicera händelser med CloudEvent-schema till ett ämne genom att publicera varje händelse individuellt.
 
-### <a name="output-schema"></a>Utdata-schemat
+### <a name="output-schema"></a>Schema för utdata
 
-Du kan ange utdata-schemat för när du skapar händelseprenumerationen.
+Du ställer in output-schemat när du skapar händelse prenumerationen.
 
 Om du använder Azure CLI använder du:
 
@@ -154,10 +140,10 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventV01Schema
 ```
 
-Den aktuella versionen av CloudEvents stöder inte batchbearbetning av händelser. En händelseprenumeration som är konfigurerad för CloudEvent schema får varje händelse individuellt. För närvarande kan använda du inte en Event Grid-utlösare för en Azure Functions-app när händelsen levereras i CloudEvents-schema. Använd en HTTP-utlösare. Exempel för att implementera en HTTP-utlösare som tar emot händelser i CloudEvents-schema finns [använder en HTTP-utlösare som en Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+ För närvarande kan du inte använda en Event Grid-utlösare för en Azure Functions-app när händelsen levereras i CloudEvents-schemat. Använd en HTTP-utlösare. Exempel på hur du implementerar en HTTP-utlösare som tar emot händelser i CloudEvents-schemat finns i [använda en HTTP-utlösare som en Event Grid trigger](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du övervakar händelse leveranser finns i [övervaka Event Grid meddelandeleverans](monitor-event-delivery.md).
-* Vi rekommenderar att du ska testa, kommentar, och [bidra](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) till CloudEvents.
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* Information om övervakning av händelse leveranser finns i [övervaka Event Grid meddelande leverans](monitor-event-delivery.md).
+* Vi rekommenderar att du testar, kommenterar och [bidrar](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) till CloudEvents.
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).

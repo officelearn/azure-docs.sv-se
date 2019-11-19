@@ -3,17 +3,13 @@ title: Självstudie – konfigurera skalnings uppsättningar för virtuella dato
 description: Lär dig hur du använder Ansible för att skapa och konfigurera skalnings uppsättningar för virtuella datorer i Azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1d9b8cd207596aefa01af852627f11cb9b4ce5dc
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e1cc40459988fb9bc38e3dbbcde563cebb531e3d
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241736"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156547"
 ---
 # <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudie: Konfigurera skalnings uppsättningar för virtuella datorer i Azure med Ansible
 
@@ -147,7 +143,7 @@ Det finns två sätt att hämta exempel Spelbok:
 
 Se följande anmärkningar innan du kör Spelbok:
 
-* I avsnittet `vars` ersätter du plats hållaren `{{ admin_password }}` med ditt eget lösen ord.
+* I avsnittet `vars` ersätter du plats hållaren för `{{ admin_password }}` med ditt eget lösen ord.
 
 Kör Spelbok med kommandot `ansible-playbook`:
 

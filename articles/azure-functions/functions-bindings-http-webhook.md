@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9203f54989d010b8f1f10a7f90f00cc82fa41238
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7cce1c9ee6ca5e01b91afd5284ca9abf84d0b56f
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574623"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158099"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -29,13 +29,13 @@ En HTTP-utlösare kan anpassas för att svara på [Webhooks](https://en.wikipedi
 
 Koden i den här artikeln används som standard för functions 2. x-syntax som använder .NET Core. Information om syntaxen för 1. x finns i [mallarna för 1. x-funktioner](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-## <a name="packages---functions-1x"></a>Paket-funktioner 1. x
+## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
 HTTP-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-paketet, version 1. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Paket-funktioner 2. x
+## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
 HTTP-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. http NuGet-](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) lagringsplatsen.
 
@@ -47,7 +47,7 @@ Med HTTP-utlösaren kan du anropa en funktion med en HTTP-begäran. Du kan anvä
 
 Som standard returnerar en HTTP-utlösare HTTP 200 OK med en tom brödtext i funktioner 1. x eller HTTP 204 inget innehåll med en tom brödtext i funktionerna 2. x. Konfigurera en [http-utgående bindning](#output)om du vill ändra svaret.
 
-## <a name="trigger---example"></a>Utlös – exempel
+## <a name="trigger---example"></a>Utlösare - exempel
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -77,7 +77,7 @@ public static async Task<IActionResult> Run(
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen söker efter en `name` parameter antingen i frågesträngen eller i bröd texten i HTTP-begäran.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -102,7 +102,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är C# skript koden som binder till `HttpRequest`:
 
@@ -153,7 +153,7 @@ public class Person {
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen söker efter en `name` parameter antingen i frågesträngen eller i bröd texten i HTTP-begäran.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -174,9 +174,9 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
-Här är JavaScript-koden:
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = function(context, req) {
@@ -202,7 +202,7 @@ module.exports = function(context, req) {
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen söker efter en `name` parameter antingen i frågesträngen eller i bröd texten i HTTP-begäran.
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -224,7 +224,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
+Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är python-koden:
 
@@ -263,7 +263,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 I följande exempel visas HTTP trigger-bindningen i en *Function. JSON* -fil och de respektive [Java-funktioner](functions-reference-java.md) som använder bindningen. 
 
-Här är *Function. JSON* -filen:
+Här är den *function.json* fil:
 
 ```json
 {
@@ -463,7 +463,7 @@ public HttpResponseMessage run(
 
 ---
 
-## <a name="trigger---attributes"></a>Utlös ande attribut
+## <a name="trigger---attributes"></a>Utlösare - attribut
 
 I [ C# klass bibliotek](functions-dotnet-class-library.md) och Java är `HttpTrigger` attributet tillgängligt för att konfigurera funktionen.
 
@@ -516,21 +516,21 @@ Ett fullständigt exempel finns i [utlösaren exempel](#trigger---example).
 
 ---
 
-## <a name="trigger---configuration"></a>Utlös konfiguration
+## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `HttpTrigger`-attributet.
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `HttpTrigger` attribut.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 | **typ** | Saknas| Required-måste anges till `httpTrigger`. |
 | **riktning** | Saknas| Required-måste anges till `in`. |
-| **Namn** | Saknas| Obligatoriskt – variabel namnet som används i funktions koden för begäran eller begär ande texten. |
+| **name** | Saknas| Obligatoriskt – variabel namnet som används i funktions koden för begäran eller begär ande texten. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Bestämmer vilka nycklar, om sådana, som måste finnas på begäran för att kunna anropa funktionen. Behörighets nivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;ingen API-nyckel krävs.</li><li><code>function</code>&mdash;en Function-Specific API-nyckel krävs. Detta är standardvärdet om inget anges.</li><li><code>admin</code>&mdash;huvud nyckeln måste anges.</li></ul> Mer information finns i avsnittet om [auktoriseringsregler](#authorization-keys). |
-| **indatametod** |**Indatametod** | En matris med de HTTP-metoder som funktionen svarar på. Om inget anges svarar funktionen på alla HTTP-metoder. Se [Anpassa http-slutpunkten](#customize-the-http-endpoint). |
-| **styra** | **Styra** | Definierar den vägfil som styr till vilka URL-adresser din funktion svarar. Standardvärdet om inget värde anges är `<functionname>`. Mer information finns i [Anpassa http-slutpunkten](#customize-the-http-endpoint). |
+| **methods** |**Methods** | En matris med de HTTP-metoder som funktionen svarar på. Om inget anges svarar funktionen på alla HTTP-metoder. Se [Anpassa http-slutpunkten](#customize-the-http-endpoint). |
+| **route** | **Route** | Definierar den vägfil som styr till vilka URL-adresser din funktion svarar. Standardvärdet om inget värde anges är `<functionname>`. Mer information finns i [Anpassa http-slutpunkten](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Stöds endast för version 1. x-körningsmiljön._<br/><br/>Konfigurerar HTTP-utlösaren så att den fungerar som en [webhook](https://en.wikipedia.org/wiki/Webhook) -mottagare för den angivna providern. Ange inte egenskapen `methods` om du anger den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;en allmän webhook-slutpunkt utan logik för en speciell Provider. Den här inställningen begränsar begär anden till endast de som använder HTTP POST och med innehålls typen `application/json`.</li><li><code>github</code>&mdash;funktionen svarar på GitHub- [webhookar](https://developer.github.com/webhooks/). Använd inte egenskapen _authLevel_ med GitHub-webhookar. Mer information finns i avsnittet GitHub Webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;funktionen svarar på slack- [webhookar](https://api.slack.com/outgoing-webhooks). Använd inte _authLevel_ -egenskapen med slack-webhookar. Mer information finns i avsnittet om slack-webhookar längre fram i den här artikeln.</li></ul>|
 
-## <a name="trigger---usage"></a>Utlös användning
+## <a name="trigger---usage"></a>Utlösare - användning
 
 Indatatypen trigger deklareras som antingen `HttpRequest` eller en anpassad typ. Om du väljer `HttpRequest`får du fullständig åtkomst till objektet Request. För en anpassad typ försöker körningen parsa JSON-begärantext för att ange objekt egenskaperna.
 
@@ -861,7 +861,7 @@ Om en funktion som använder HTTP-utlösaren inte slutförs inom cirka 2,5 minut
 
 Använd bindningen för HTTP-utdata för att svara på avsändaren av HTTP-begäran. Den här bindningen kräver en HTTP-utlösare och gör att du kan anpassa svaret som är kopplat till utlösarens begäran. Om en HTTP-utgående bindning inte anges returnerar en HTTP-utlösare HTTP 200 OK med en tom brödtext i funktionerna 1. x eller HTTP 204 inget innehåll med en tom brödtext i funktionerna 2. x.
 
-## <a name="output---configuration"></a>Utdata-konfiguration
+## <a name="output---configuration"></a>Utdata - konfiguration
 
 I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . För C# klass bibliotek finns det inga egenskaper för attribut som motsvarar dessa *funktioner. JSON* -egenskaper.
 
@@ -869,20 +869,20 @@ I följande tabell förklaras de egenskaper för bindnings konfigurationen som d
 |---------|---------|
 | **typ** |Måste anges till `http`. |
 | **riktning** | Måste anges till `out`. |
-| **Namn** | Variabel namnet som används i funktions koden för svaret, eller `$return` att använda returvärdet. |
+| **name** | Variabel namnet som används i funktions koden för svaret, eller `$return` att använda returvärdet. |
 
-## <a name="output---usage"></a>Utmatnings användning
+## <a name="output---usage"></a>Utdata - användning
 
 Om du vill skicka ett HTTP-svar använder du svars mönster för språk standard. I C# eller C# skript, gör du funktions retur typen `IActionResult` eller `Task<IActionResult>`. I C#, krävs inget attribut för retur värde.
 
 Till exempel svar, se [utlösaren exempel](#trigger---example).
 
-## <a name="hostjson-settings"></a>Host. JSON-inställningar
+## <a name="hostjson-settings"></a>Host.JSON-inställningar
 
-I det här avsnittet beskrivs globala konfigurations inställningar som är tillgängliga för den här bindningen i version 2. x. Exemplet Host. JSON-filen nedan innehåller bara version 2. x-inställningarna för den här bindningen. Mer information om globala konfigurations inställningar i version 2. x finns i [Host. JSON-referens för Azure Functions version 2. x](functions-host-json.md).
+Det här avsnittet beskrivs de globala konfigurationsinställningarna som är tillgängliga för den här bindningen i version 2.x. Host.json-exempelfilen nedan innehåller bara till version 2.x inställningarna för den här bindningen. Mer information om konfigurationsinställningar i version 2.x kan se [host.json-referens för Azure Functions version 2.x](functions-host-json.md).
 
 > [!NOTE]
-> En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md#http).
+> En referens för host.json i Functions 1.x, se [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md#http).
 
 ```json
 {
@@ -907,8 +907,8 @@ I det här avsnittet beskrivs globala konfigurations inställningar som är till
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 | customHeaders|ingen|Gör att du kan ange anpassade rubriker i HTTP-svaret. I föregående exempel läggs `X-Content-Type-Options`-rubriken till i svaret för att undvika innehålls typs avlyssning. |
-|dynamicThrottlesEnabled|Sant<sup>\*</sup>|När den här inställningen är aktive rad kommer pipeline för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som anslutningar/trådar/processer/minne/processor/osv. om någon av dessa räknare är över en inbyggd hög tröskel (80%), kommer begäran att avvisades med ett svar på 429 "upptagen" tills räknarna (erna) återgår till normala nivåer.<br/><sup>\*</sup> Standardvärdet i en förbruknings plan är `true`. Standardvärdet i en dedikerad plan är `false`.|
-|HSTS|inte aktiverat|När `isEnabled` är inställt på `true`tillämpas [HSTS-beteendet (http Strict Transport Security) för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [`HstsOptions`-klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Exemplet ovan ställer också in [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) -egenskapen på 10 dagar. |
+|dynamicThrottlesEnabled|Sant<sup>\*</sup>|När den här inställningen är aktive rad kommer pipelinen för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som anslutningar/trådar/processer/minne/processor/osv. om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med en 429 "upptagen"-svar tills räknarna återgår till normala nivåer.<br/><sup>\*</sup> Standardvärdet i en förbruknings plan är `true`. Standardvärdet i en dedikerad plan är `false`.|
+|HSTS|inte aktiverat|När `isEnabled` är inställt på `true`tillämpas [HSTS-beteendet (http Strict Transport Security) för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [`HstsOptions`-klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Exemplet ovan ställer också in [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) -egenskapen på 10 dagar. Följande egenskaper stöds för `hsts`: <table><tr><th>Egenskap</th><th>Beskrivning</th></tr><tr><td>excludedHosts</td><td>En sträng mat ris med värd namn som HSTS-huvudet inte har lagts till för.</td></tr><tr><td>includeSubDomains</td><td>Booleskt värde som anger om parametern includeSubDomain för rubriken Strict-Transport-Security är aktive rad.</td></tr><tr><td>maxAge</td><td>Sträng som definierar Max-ålders parametern för huvudet Strict-Transport-Security.</td></tr><tr><td>Läs</td><td>Booleskt värde som anger om preload-parametern för ett strikt-Transport-Security-huvud är aktive rad.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|Maximalt antal http-funktioner som körs parallellt. På så sätt kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en http-funktion som använder många system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning. <br/><sup>*</sup> Standardvärdet för en förbruknings plan är 100. Standardvärdet för en dedikerad plan är obundet (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|Det maximala antalet väntande begär Anden som innehas vid en specifik tidpunkt. Den här gränsen omfattar begär Anden som har placerats i kö, men som inte har börjat köras, samt alla pågående körningar. Inkommande begär anden över den här gränsen avvisas med ett svar på 429 "för upptagen". Det gör det möjligt för anropare att använda tidsbaserade återförsöks strategier och hjälper dig också att kontrol lera maximal fördröjning för begäran. Detta styr endast köer som inträffar inom skript värdens körnings Sök väg. Andra köer, t. ex. ASP.NET, kommer fortfarande att gälla och påverkas inte av den här inställningen. <br/><sup>\*</sup>\The standard för en förbruknings plan är 200. Standardvärdet för en dedikerad plan är obundet (`-1`).|
 |routePrefix|api|Det väg-prefix som gäller för alla vägar. Använd en tom sträng för att ta bort standardprefixet. |
@@ -916,4 +916,4 @@ I det här avsnittet beskrivs globala konfigurations inställningar som är till
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+[Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

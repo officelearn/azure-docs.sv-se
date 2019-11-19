@@ -3,17 +3,13 @@ title: Självstudie – Skapa en skalnings uppsättning för virtuella datorer e
 description: Lär dig hur du använder Ansible för att skapa en virtuell dator eller skal uppsättning för virtuella datorer baserat på en generaliserad avbildning i det delade avbildnings galleriet.
 keywords: Ansible, Azure, DevOps, bash, Spelbok, virtuell dator, skal uppsättning för virtuell dator, delad avbildnings Galleri
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 4b4190ddabe90af135ea64a8ba3d5905f23c457e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808956"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155837"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Självstudie: skapa en virtuell dator eller en skalnings uppsättning för virtuella datorer från Azures Galleri för delad avbildning med Ansible
 
@@ -173,7 +169,7 @@ Nu ser du ett nytt Galleri, `myGallery`, i din resurs grupp.
 
 ## <a name="create-a-shared-image-and-image-version"></a>Skapa en delad avbildning och avbildnings version
 
-Nästa Spelbok, `03a-create-shared-image-generalized.yml`, skapar en avbildnings definition och en avbildnings version.
+Nästa Spelbok skapar `03a-create-shared-image-generalized.yml` en avbildnings definition och en avbildnings version.
 
 Bild definitionerna omfattar avbildnings typen (Windows eller Linux), viktig information och lägsta och högsta minnes krav. Avbildnings versionen är avbildningens version. Galleri, bild definition och avbildnings version hjälper dig att ordna bilder i logiska grupper. 
 
@@ -235,7 +231,7 @@ Din resurs grupp har nu en bild definition och en avbildnings version för ditt 
 
 ## <a name="create-a-vm-based-on-the-generalized-image"></a>Skapa en virtuell dator baserat på den generaliserade avbildningen
 
-Kör slutligen `04a-create-vm-using-generalized-image.yml` om du vill skapa en virtuell dator baserat på den generaliserade avbildning som du skapade i föregående steg.
+Kör slutligen `04a-create-vm-using-generalized-image.yml` för att skapa en virtuell dator baserat på den generaliserade avbildning som du skapade i föregående steg.
 
 ```yml
 - hosts: localhost

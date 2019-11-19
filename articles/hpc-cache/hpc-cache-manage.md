@@ -4,14 +4,14 @@ description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582202"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166695"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Hantera din cache från Azure Portal
 
@@ -19,7 +19,7 @@ På sidan cache-översikt i Azure Portal visas projekt information, cache-status
 
 Öppna översikts sidan genom att välja din cache-resurs i Azure Portal. Läs till exempel sidan **alla resurser** och klicka på cache-namnet.
 
-![skärm bild av översikts sidan för Azure HPC-instansen](media/hpc-cache-overview.png) <!-- placeholder is identical to hpc-cache-new-overview.png; replace with better image (showing graphs, full sidebar) when available -->
+![skärm bild av översikts sidan för Azure HPC-instansen](media/hpc-cache-overview.png)
 
 Knapparna överst på sidan kan hjälpa dig att hantera cachen:
 
@@ -37,15 +37,17 @@ Knappen **Töm** på översikts sidan visar cacheminnet för att omedelbart skri
 > [!NOTE]
 > Under tömnings processen kan cachen inte hantera klient begär Anden. Cache-åtkomst är inaktive rad och återupptas när åtgärden har slutförts.
 
+![skärm bild av de översta knapparna med Flush markerat och ett popup-meddelande som beskriver tömnings åtgärden och där du ombeds att fortsätta? med Ja (standard) och inga knappar](media/hpc-cache-flush.png)
+
 När du startar rensningen av cachen slutar cachen att acceptera klient begär Anden och cache-statusen på översikts sidan ändras till **tömning**.
 
-Data i cacheminnet sparas till lämpliga lagrings mål. Processen kan ta några minuter, eller så kan den ta en timme eller mer, beroende på hur mycket data som har skrivits till cachen nyligen.
+Data i cacheminnet sparas till lämpliga lagrings mål. Beroende på hur mycket data som behöver tömmas kan processen ta några minuter eller mer än en timme.
 
 När alla data har sparats på lagrings målen börjar cachen automatiskt ta emot klient begär Anden. Cache-statusen återgår till **felfritt**.
 
 ## <a name="upgrade-cache-software"></a>Uppgradera cache-programvara
 
-Om det finns en ny program varu version blir **uppgraderings** knappen aktiv. Du kan också se ett meddelande längst upp på sidan om uppdatering av program vara.
+Om det finns en ny program varu version blir **uppgraderings** knappen aktiv. Du bör också se ett meddelande längst upp på sidan om uppdatering av program vara.
 
 ![skärm bild av den översta raden med knappar med uppgraderings knappen aktive rad](media/hpc-cache-upgrade-button.png)
 
@@ -53,7 +55,7 @@ Klient åtkomst avbryts inte under en program uppgradering, men cache-prestandan
 
 Program uppdateringen kan ta flera timmar. Cacheminnen som kon figurer ATS med högre genomflöde tar längre tid att uppgradera än cacheminnen med mindre högsta data flödes värden.
 
-När en program uppgradering är tillgänglig har du flera dagar att tillämpa den manuellt. Slutdatumet anges i uppgraderings meddelandet. Om du inte uppgraderar under den tiden tillämpar Azure automatiskt uppdateringen i cacheminnet. Det går inte att konfigurera tids inställningen för automatisk uppgradering. Om du är bekymrad om att påverka cache-prestanda bör du uppgradera program varan själv innan tids perioden går ut.
+När en program uppgradering är tillgänglig, kommer du att ha en vecka eller så tillämpar du den manuellt. Slutdatumet anges i uppgraderings meddelandet. Om du inte uppgraderar under den tiden tillämpar Azure automatiskt uppdateringen i cacheminnet. Det går inte att konfigurera tids inställningen för automatisk uppgradering. Om du är orolig över prestanda påverkan från cachen bör du uppgradera program varan själv innan tids perioden går ut.
 
 Klicka på **Uppgradera** om du vill starta program uppdateringen. Cachens status ändras till **uppgraderingen** tills åtgärden har slutförts.
 

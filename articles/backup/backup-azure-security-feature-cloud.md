@@ -1,18 +1,14 @@
 ---
-title: Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
+title: Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621984"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172722"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
@@ -95,7 +91,7 @@ Om du vill inaktivera mjuk borttagning kontrollerar du att kraven är uppfyllda 
 
 ## <a name="other-security-features"></a>Andra säkerhetsfunktioner
 
-### <a name="storage-side-encryption"></a>Kryptering på lagrings Sidan
+### <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
 
 Azure Storage krypterar dina data automatiskt när de behålls i molnet. Kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering, en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Azure Storage kryptering liknar BitLocker-kryptering på Windows. Azure Backup krypterar automatiskt data innan de lagras. Azure Storage dekrypterar data innan de hämtas.  
 

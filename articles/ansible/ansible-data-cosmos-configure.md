@@ -3,17 +3,13 @@ title: Självstudie – konfigurera Azure Cosmos DB konton med Ansible
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Cosmos DB
 keywords: Ansible, Azure, DevOps, bash, Spelbok, Cosmo DB, databas
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 82cb29cfe3aeb7b6ca43fceca4c900b2eeb148c2
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8c898e3cb0747a442d50b7241ebfcf401148817e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242075"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156483"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Självstudie: Konfigurera Azure Cosmos DB konton med Ansible
 
@@ -235,7 +231,7 @@ I det här avsnittet kör du Spelbok för att testa olika funktioner som visas i
 
 Innan du kör Spelbok gör du följande ändringar:
 - I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
-- Se till att "cosmosdbaccount_name" endast innehåller gemener och är globalt unik.
+- Se till att cosmosdbaccount_name bara innehåller gemener och är globalt unikt.
 
 Kör Spelbok med kommandot `ansible-playbook`:
 

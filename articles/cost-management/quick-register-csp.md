@@ -1,21 +1,21 @@
 ---
-title: Registrera dig för Cloudyn i Azure med CSP-partnerinformation | Microsoft Docs
+title: Registrera med hjälp av CSP-partner information med Cloudyn i Azure
 description: Den här snabbstarten beskriver registreringsprocessen som krävs för att skapa en utvärderingsprenumeration på Cloudyn och logga in på Cloudyn-portalen.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 11/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 17f4069e38b4e4f0ee7a4ef4acc4535198b62b02
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 28bce759d6bfe3faa08581bc2bc3ee5441b19974
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969195"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173876"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrera dig för CSP-partnerprogrammet och visa kostnadsdata
 
@@ -30,12 +30,14 @@ Som CSP-partner kan du registrera dig för Cloudyn. Registreringen ger dig åtko
 > Mer information finns i [Ansluta till Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
 >
 > Åtkomst till Cloudyn kan göras tillgänglig för CSP Indirect-återförsäljare när deras CSP Indirekt-leverantörer registreras i Cloudyn. Sedan kan CSP Indirect-återförsäljare ge Cloudyn-åtkomst till Azure-kunder och prenumerationer.
+>
+>Molnet är ett klagomål med Microsofts säkra program modell. Mer information finns i [Aktivera ramverket för säker program modell](/partner-center/develop/enable-secure-app-model).
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 - Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="register-with-cloudyn"></a>Registrera dig för Cloudyn
+## <a name="register-with-cloudyn"></a>Registrera med Cloudyn
 
 1. Klicka på **Kostnadshantering + fakturering** i listan med tjänster i Azure Portal.
 2. Klicka på **Cloudyn** under **Översikt**  
@@ -59,7 +61,7 @@ Som CSP-partner kan du registrera dig för Cloudyn. Registreringen ger dig åtko
 
 Som standard är Partner Center API endast tillgängligt för direkta CSP:er. En direkt CSP-provider kan dock konfigurera åtkomst för indirekta CSP-kunder eller partner med hjälp av entitetsgrupper i Cloudyn.
 
-Om du vill aktivera åtkomst för indirekta CSP-kunder eller partner följer du stegen i [registrera med Cloudyn](#register-with-cloudyn) att ställa in en utvärderingsregistrering. Sedan slutför du följande steg för att dela upp indirekta CSP-data med hjälp av entitetsgrupper i Cloudyn. Tilldela sedan lämpliga användarbehörigheter till entitetsgrupperna.
+Om du vill aktivera åtkomst för indirekta CSP-kunder eller-partner följer du stegen i [registrera med Cloudyn](#register-with-cloudyn) för att konfigurera en utvärderings registrering. Sedan slutför du följande steg för att dela upp indirekta CSP-data med hjälp av entitetsgrupper i Cloudyn. Tilldela sedan lämpliga användarbehörigheter till entitetsgrupperna.
 
 1. Skapa en entitetsgrupp med informationen i [Create entities](tutorial-user-access.md#create-and-manage-entities) (Skapa entiteter).
 2. Följ stegen i [Tilldela prenumerationer till kostnadsentiteter](https://www.youtube.com/watch?v=d9uTWSdoQYo) (Tilldela prenumerationer till kostnadsentiteter). Associera den indirekta CSP-kundens konto och Azure-prenumerationer till den entitet som du skapade tidigare.
@@ -72,7 +74,7 @@ Indirekta CSP-partner loggar in på Cloudyn-portalen med hjälp av de konton som
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du din CSP-information för att göra en registrering med Cloudyn. Du loggade också in på Cloudyn-portalen och började visa kostnadsdata. Om du vill veta mer om Cloudyn kan du fortsätta till självstudien för Cloudyn.
+I den här snabbstarten använde du din CSP-information för att göra en registrering med Cloudyn. Du har också loggat in på Cloudyn-portalen och börjat visa kostnadsdata. Om du vill veta mer om Cloudyn kan du fortsätta till självstudien för Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Granska användning och kostnader](./tutorial-review-usage.md)

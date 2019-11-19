@@ -1,17 +1,17 @@
 ---
-title: Så här skalar du med flera instanser för Azure SignalR service
+title: Skala med flera instanser – Azure SignalR-tjänsten
 description: I många skalnings scenarier behöver kunden ofta etablera flera instanser och konfigurera att använda dem tillsammans för att skapa en storskalig distribution. Horisontell partitionering kräver exempelvis stöd för flera instanser.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 1e31bc4133cced793d793c07d2e0ee3df29efddb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672336"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158153"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Hur skalar jag SignalR-tjänsten med flera instanser?
 Den senaste tjänsten för SignalR service SDK stöder flera slut punkter för signalerande tjänst instanser. Du kan använda den här funktionen för att skala samtidiga anslutningar eller använda den för meddelanden över flera regioner.

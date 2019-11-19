@@ -225,9 +225,9 @@
           items:
             - name: Nyheter i HDInsight 4.0
               href: ./hdinsight-version-release.md
-            - name: Fullständig versionsinformation för HDInsight 4.0
+            - name: Viktig information
               href: ./hdinsight-release-notes.md
-            - name: Fullständig versionsinformation för HDInsight 3.6
+            - name: Arkiverad viktig information om Azure HDInsight
               href: ./hdinsight-release-notes-archive.md
         - name: Vanliga frågor och svar (FAQ)
           href: ./hdinsight-faq.md
@@ -837,6 +837,8 @@
           href: ./hdinsight-plan-virtual-network-deployment.md
         - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar
           href: ./hdinsight-management-ip-addresses.md
+        - name: Tjänsttaggar för Azure-brandvägg
+          href: ./hdinsight-service-tags.md
     - name: Gör så här för att
       items:
         - name: Skapa ESP-kluster och synkronisera lokalt

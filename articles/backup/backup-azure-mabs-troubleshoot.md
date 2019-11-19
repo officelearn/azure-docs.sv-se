@@ -2,18 +2,14 @@
 title: Felsöka Azure Backup Server
 description: Felsöka installation, registrering av Azure Backup Server och säkerhets kopiering och återställning av program arbets belastningar.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: dacurwin
-ms.openlocfilehash: 82d06c9f5db0d709bec5b94ce107c6f6894dc191
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: eed90cd6b684891efe1996e22bbdd7c3ead2a83f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074189"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172955"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 

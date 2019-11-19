@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3be246402c4acd63aee3518f2333d50ec307e9c0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b8a6099bb4beb7a3c3b6b132584dcb397f69ead5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648225"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158689"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Snabb start: Azure Key Vault klient bibliotek för python
 
@@ -27,7 +27,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 
 [API-referens dokumentation](/python/api/overview/azure/key-vault?view=azure-python) | [bibliotekets käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [paket (python-paket index)](https://pypi.org/project/azure-keyvault/)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2,7, 3.5.3 eller senare
@@ -53,7 +53,7 @@ pip install azure.identity
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Skapa en resurs grupp och ett nyckel valv
 
-I den här snabb starten används ett i förväg skapade Azure Key Vault. Du kan skapa ett nyckel valv genom att följa stegen i snabb starten för [Azure CLI](quick-create-cli.md), [Azure PowerShell snabb start](quick-create-powershell.md)eller [Azure Portal snabb start](quick-create-portal.md). Alternativt kan du bara köra Azure CLI-kommandona nedan.
+I den här snabb starten används ett i förväg skapade Azure Key Vault. Du kan skapa ett nyckel valv genom att följa stegen i snabb starten för [Azure CLI](quick-create-cli.md), [Azure PowerShell snabb start](quick-create-powershell.md)eller [Azure Portal snabb start](quick-create-portal.md). Du kan också köra Azure CLI-kommandona nedan.
 
 > [!Important]
 > Varje nyckel valv måste ha ett unikt namn. Ersätt < ditt-unika-nyckel-valv > med namnet på nyckel valvet i följande exempel.
@@ -103,7 +103,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Ange miljövariabler
 
-DefaultAzureCredential-metoden i programmet är beroende av tre miljövariabler: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`och `AZURE_TENANT_ID`. Ange dessa variabler som clientId-, clientSecret-och tenantId-värden som du antecknade i steget [skapa ett huvud namn för tjänsten](#create-a-service-principal) med hjälp av `export VARNAME=VALUE`-formatet. (Detta anger bara variabler för ditt aktuella gränssnitt och processer som skapats från gränssnittet. om du vill lägga till dessa variabler permanent i miljön redigerar du `/etc/environment `-filen.) 
+DefaultAzureCredential-metoden i programmet är beroende av tre miljövariabler: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`och `AZURE_TENANT_ID`. Ange dessa variabler som clientId-, clientSecret-och tenantId-värden som du antecknade i steget [skapa ett huvud namn för tjänsten](#create-a-service-principal) med hjälp av `export VARNAME=VALUE`-formatet. (Den här metoden anger bara variablerna för ditt aktuella gränssnitt och processer som skapats från gränssnittet. om du vill lägga till dessa variabler permanent i miljön redigerar du `/etc/environment `-filen.) 
 
 Du måste också spara nyckel valvets namn som en miljö variabel som kallas `KEY_VAULT_NAME`.
 
@@ -147,7 +147,7 @@ client = SecretClient(vault_endpoint=KVUri, credential=credential)
 
 ### <a name="save-a-secret"></a>Spara en hemlighet
 
-Nu när ditt program är autentiserat kan du ställa in en hemlighet i ditt nyckel valv med hjälp av- [klienten. SetSecret-metod](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) detta kräver ett namn för hemligheten – vi använder "hemligheter" i det här exemplet.  
+Nu när ditt program är autentiserat kan du ställa in en hemlighet i ditt nyckel valv med hjälp av-klienten. SetSecret-metod] (/dotNet/API/Microsoft.Azure.keyvault.keyvaultclientextensions.setsecretasync) Detta kräver ett namn för hemligheten – vi använder "hemlig hemlighet" i det här exemplet.  
 
 ```python
 client.set_secret(secretName, secretValue);

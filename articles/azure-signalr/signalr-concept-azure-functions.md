@@ -1,17 +1,17 @@
 ---
-title: Bygg appar i real tid med Azure Functions och Azure SignalR-tjänsten
-description: En översikt över hur du använder Azure SignalR service i program utan server.
+title: Bygg real tids app-Azure Functions & Azure SignalR service
+description: Lär dig hur du utvecklar Server lös webb program i real tid med Azure SignalR service genom att följa exemplet.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 6a71647d452597c84e0df1beb6e9c6c3932d171b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639922"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157617"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Bygg appar i real tid med Azure Functions och Azure SignalR-tjänsten
 

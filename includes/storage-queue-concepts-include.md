@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 92f638666d9ac832ee5e6a7d4dccf9a9e669f908
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 24e755edbb18e85bcaa97435dee27418c1457221
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428007"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74175018"
 ---
 ## <a name="what-is-queue-storage"></a>Vad är Queue Storage?
 
@@ -31,5 +31,5 @@ Azure-Kötjänst innehåller följande komponenter:
 
 * **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/common/storage-scalability-targets.md) för information om kapacitet för lagringskonton.
 * **Kö:** en kö innehåller en uppsättning meddelanden. Alla meddelanden måste vara i en kö. Observera att könamnet måste vara helt i gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
-* **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Den maximala tid som ett meddelande kan finnas i kön är 7 dagar.
+* **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Den maximala tid som ett meddelande kan finnas i kön är 7 dagar. För version 2017-07-29 eller senare kan den maximala tiden till Live vara ett positivt tal eller-1 som anger att meddelandet inte upphör att gälla. Om den här parametern utelämnas, är standardvärdet för Time-to-Live sju dagar.
 

@@ -3,17 +3,13 @@ title: Självstudie – uppdatera den anpassade avbildningen av skalnings uppsä
 description: Lär dig hur du använder Ansible för att uppdatera skalnings uppsättningar för virtuella datorer i Azure med anpassad avbildning
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241335"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155846"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Självstudie: uppdatera den anpassade avbildningen av skalnings uppsättningar för virtuella Azure-datorer med Ansible
 
@@ -41,7 +37,7 @@ När en virtuell dator har distribuerats konfigurerar du den virtuella datorn me
 
 Spelbok-koden i det här avsnittet skapar två virtuella datorer med HTTPD installerade på båda. 
 
-Sidan `index.html` för varje virtuell dator visar en test sträng:
+På sidan `index.html` för varje virtuell dator visas en test sträng:
 
 * Första virtuella datorn visar värdet `Image A`
 * Den andra virtuella datorn visar värdet `Image B`
@@ -167,19 +163,19 @@ Det finns två sätt att hämta exempel Spelbok:
       msg: "Public IP Address B: {{ pip_output.results[1].state.ip_address }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med namnet på din resurs grupp:
 
 ```bash
 ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 ```
 
-På grund av `debug`-avsnitten i Spelbok kommer kommandot `ansible-playbook` skriva ut IP-adressen för varje virtuell dator. Kopiera de här IP-adresserna för senare användning.
+På grund av `debug` delar av Spelbok kommer kommandot `ansible-playbook` att skriva ut IP-adressen för varje virtuell dator. Kopiera de här IP-adresserna för senare användning.
 
 ![IP-adresser för virtuella datorer](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
 
 ## <a name="connect-to-the-two-vms"></a>Ansluta till de två virtuella datorerna
 
-I det här avsnittet ansluter du till varje virtuell dator. Som nämnts i föregående avsnitt är strängarna `Image A` och `Image B`-härmare med två olika virtuella datorer med olika konfigurationer.
+I det här avsnittet ansluter du till varje virtuell dator. Som nämnts i föregående avsnitt är strängarna `Image A` och `Image B` imitera två olika virtuella datorer med olika konfigurationer.
 
 Använd IP-adresserna från föregående avsnitt och Anslut till båda virtuella datorerna:
 
@@ -189,12 +185,12 @@ Använd IP-adresserna från föregående avsnitt och Anslut till båda virtuella
 
 ## <a name="create-images-from-each-vm"></a>Skapa avbildningar från varje virtuell dator
 
-Nu har du två virtuella datorer med något annorlunda konfigurationer (deras `index.html`-filer).
+I det här läget har du två virtuella datorer med något olika konfigurationer (deras `index.html`-filer).
 
 Spelbok-koden i det här avsnittet skapar en anpassad avbildning för varje virtuell dator:
 
-* `image_vmforimageA` – en anpassad avbildning som skapats för den virtuella datorn som visar `Image A` på Start sidan.
-* `image_vmforimageB` – en anpassad avbildning som skapats för den virtuella datorn som visar `Image B` på Start sidan.
+* `image_vmforimageA` anpassade avbildningar som skapats för den virtuella datorn som visar `Image A` på Start sidan.
+* `image_vmforimageB` anpassade avbildningar som skapats för den virtuella datorn som visar `Image B` på Start sidan.
 
 Det finns två sätt att hämta exempel Spelbok:
 
@@ -228,7 +224,7 @@ Det finns två sätt att hämta exempel Spelbok:
       - B
 ```
 
-Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med namnet på din resurs grupp:
 
 ```bash
 ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
@@ -239,7 +235,7 @@ ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 I det här avsnittet används en Spelbok för att konfigurera följande Azure-resurser:
 
 * Offentlig IP-adress
-* Load Balancer
+* Lastbalanserare
 * Skalnings uppsättning som refererar `image_vmforimageA`
 
 Det finns två sätt att hämta exempel Spelbok:
@@ -311,13 +307,13 @@ Det finns två sätt att hämta exempel Spelbok:
         msg: "Scale set public IP address: {{ pip_output.state.ip_address }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med namnet på din resurs grupp:
 
 ```bash
 ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 ```
 
-På grund av `debug`-avsnittet i Spelbok kommer kommandot `ansible-playbook` skriva ut IP-adressen för skalnings uppsättningen. Kopiera den här IP-adressen för senare användning.
+På grund av `debug` delen av Spelbok kommer kommandot `ansible-playbook` att skriva ut IP-adressen för skalnings uppsättningen. Kopiera den här IP-adressen för senare användning.
 
 ![Offentlig IP-adress](media/ansible-vmss-update-image/vmss-update-vmss-public-ip.png)
 
@@ -327,9 +323,9 @@ I det här avsnittet ansluter du till skalnings uppsättningen.
 
 Använd IP-adressen från föregående avsnitt och Anslut till skalnings uppsättningen.
 
-Som nämnts i föregående avsnitt är strängarna `Image A` och `Image B`-härmare med två olika virtuella datorer med olika konfigurationer.
+Som nämnts i föregående avsnitt är strängarna `Image A` och `Image B` imitera två olika virtuella datorer med olika konfigurationer.
 
-Skalnings uppsättningen refererar till den anpassade bilden med namnet `image_vmforimageA`. Anpassad avbildning `image_vmforimageA` skapades från den virtuella datorn vars start sida visar `Image A`.
+Skalnings uppsättningen refererar till den anpassade bilden som heter `image_vmforimageA`. Anpassad avbildning `image_vmforimageA` skapades från den virtuella datorn vars start sida visar `Image A`.
 
 Därför visas en start sida som visar `Image A`:
 
@@ -395,7 +391,7 @@ Det finns två sätt att hämta exempel Spelbok:
     with_items: "{{ instances.instances }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med namnet på din resurs grupp:
 
 ```bash
 ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"

@@ -8,22 +8,22 @@ manager: jeconnoc
 keywords: Azure Functions, functions, Event Processing, dynamisk beräkning, Server lös arkitektur, Kubernetes
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 8e07032f84ead4bb003176af84cb4c731819ffa4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0b77946b24bcc2e329a5c4480e9bd5ef055ef82b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900055"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173693"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
 
-Azure Functions runtime ger flexibilitet i värd och hur du vill.  [KEDA](https://github.com/kedacore/kore) (Kubernetes Event drived autoskalning) är sömlöst med Azure Functions Runtime och verktyg för att tillhandahålla händelse driven Scale i Kubernetes.
+Azure Functions runtime ger flexibilitet i värd och hur du vill.  [KEDA](https://keda.sh) (Kubernetes Event drived autoskalning) är sömlöst med Azure Functions Runtime och verktyg för att tillhandahålla händelse driven Scale i Kubernetes.
 
 ## <a name="how-kubernetes-based-functions-work"></a>Hur Kubernetes-baserade funktioner fungerar
 
-Azure Functionss tjänsten består av två viktiga komponenter: en körnings miljö och en skalnings styrenhet.  Functions-körningen körs och kör koden.  Körningen innehåller logik för att utlösa, logga och hantera funktions körningar.  Den andra komponenten är en skalnings styrenhet.  Skalnings styrenheten övervakar händelse frekvensen som är riktad mot din funktion och skalar i proaktivt antalet instanser som kör din app.  Läs mer i [Azure Functions skala och vara värd](functions-scale.md).
+Azure Functionss tjänsten består av två viktiga komponenter: en körnings miljö och en skalnings styrenhet.  Functions-körningen körs och kör koden.  Körningen innehåller logik för att utlösa, logga och hantera funktions körningar.  Azure Functions körningen kan köras *var som helst*.  Den andra komponenten är en skalnings styrenhet.  Skalnings styrenheten övervakar händelse frekvensen som är riktad mot din funktion och skalar i proaktivt antalet instanser som kör din app.  Läs mer i [Azure Functions skala och vara värd](functions-scale.md).
 
 Kubernetes-baserade funktioner tillhandahåller Functions-körning i en [Docker-behållare](functions-create-function-linux-custom-image.md) med händelse driven skalning via KEDA.  KEDA kan skala ned till 0 instanser (när inga händelser inträffar) och upp till *n* instanser. Detta sker genom att de anpassade måtten exponeras för Kubernetes autoskalning (horisontell Pod autoskalning).  Med hjälp av Functions-behållare med KEDA kan du replikera Server lös funktions funktioner i ett Kubernetes-kluster.  Dessa funktioner kan också distribueras med funktionen [virtuella AKS-noder (Azure Kubernetes Services)](../aks/virtual-nodes-cli.md) för Server lös infrastruktur.
 
@@ -86,12 +86,17 @@ func kubernetes remove --namespace keda
 
 ## <a name="supported-triggers-in-keda"></a>Utlösare som stöds i KEDA
 
-KEDA finns för närvarande i beta version med stöd för följande Azure Function-utlösare:
+KEDA har stöd för följande Azure Function-utlösare:
 
 * [Azure Storage köer](functions-bindings-storage-queue.md)
 * [Azure Service Bus köer](functions-bindings-service-bus.md)
-* [HTTP](functions-bindings-http-webhook.md)
+* [Azure Event/IoT-hubbar](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
+* [RabbitMQ-kö](https://github.com/azure/azure-functions-rabbitmq-extension)
+
+### <a name="http-trigger-support"></a>Stöd för HTTP-utlösare
+
+Du kan använda Azure Functions som exponerar HTTP-utlösare, men KEDA inte direkt hanterar dem.  Azure Functions Core Tools installerar ett relaterat projekt, Osiris, som möjliggör skalning av HTTP-slutpunkter från 0 till 1.  Skalning från 1 till *n* förlitar sig på traditionella skalnings principer för Kubernetes.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:

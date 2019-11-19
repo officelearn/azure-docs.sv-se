@@ -1,19 +1,15 @@
 ---
-title: Säkerhetskopiera flera virtuella Azure-datorer med PowerShell
+title: 'Självstudie: flera virtuella Azure-säkerhetskopieringar med PowerShell'
 description: Den här självstudien beskriver hur du säkerhetskopierar flera virtuella Azure-datorer till ett Recovery Services valv med Azure PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: c290e44d8bfecfbf57be8f8e1c596a294f077229
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 154238eae78ce44b9fc91058e58d9a11e254c0f9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074715"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171786"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Säkerhetskopiera virtuella Azure-datorer med PowerShell
 

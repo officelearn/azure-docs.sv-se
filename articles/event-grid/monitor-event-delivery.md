@@ -1,6 +1,6 @@
 ---
-title: Övervaka Azure Event Grid meddelandeleverans
-description: Beskriver hur du övervakar leverans av Azure Event Grid-meddelanden.
+title: Övervaka Azure Event Grid meddelande leverans
+description: Beskriver hur du övervakar leveransen av Azure Event Grid meddelanden.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -8,73 +8,79 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: spelluru
-ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1035046cc3c3b6cd7bde895e2e779d1c966abe0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824175"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170013"
 ---
-# <a name="monitor-event-grid-message-delivery"></a>Övervaka Event Grid meddelandeleverans 
+# <a name="monitor-event-grid-message-delivery"></a>Övervaka Event Grid meddelande leverans 
 
-Den här artikeln beskriver hur du använder portalen för att se status för händelsen leveranser.
+I den här artikeln beskrivs hur du använder portalen för att se statusen för händelse leveranser.
 
-Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken till varje prenumeration. Om en webhook inte bekräfta mottagandet av en händelse inom 60 sekunder det första försökets leverans, försöker Event Grid leverans av händelsen.
+Event Grid tillhandahåller varaktig leverans. Den levererar varje meddelande minst en gång för varje prenumeration. Händelser skickas till den registrerade webhooken för varje prenumeration direkt. Om en webhook inte bekräftar mottagandet av en händelse inom 60 sekunder från det första leverans försöket, Event Grid förnyar leveransen av händelsen.
 
 Information om händelseleverans och återförsök, [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
 
 ## <a name="delivery-metrics"></a>Leverans mått
 
-Portalen visar mått för status för att leverera händelsemeddelanden.
+Portalen visar mått för statusen för att leverera händelse meddelanden.
 
-Måtten är för ämnen:
+För ämnen är måtten:
 
-* **Publiceringen är klar**: Händelsen har skickats till ämnet och bearbetas med ett 2xx svar.
-* **Publiceringen misslyckades**: Händelse skickas till ämnet, men avvisas med en felkod.
-* **Oöverträffad**: Händelsen publicerats har till ämnet, men matchas inte mot en händelseprenumeration. Händelsen har tagits bort.
+* **Publiceringen lyckades**: händelsen har skickats till ämnet och bearbetats med ett 2xx-svar.
+* **Publiceringen misslyckades**: händelsen skickades till ämnet men avvisades med en felkod.
+* **Omatchad**: händelsen har publicerats till ämnet, men inte matchad med en händelse prenumeration. Händelsen släpptes.
 
-För prenumerationer finns följande mått:
+För prenumerationer är måtten:
 
-* **Leveransen är klar**: Händelsen har levereras till prenumerationens slutpunkt och fått svar 2xx.
-* **Överföringen misslyckades**: Händelse skickas till prenumerationens slutpunkt, men tog emot en 4xx eller 5xx-svar.
-* **Har upphört att gälla händelser**: Händelsen inte har levererats och alla omförsök har skickats. Händelsen har tagits bort.
-* **Matchade händelser**: Händelsen i avsnittet var matchas av händelseprenumerationen.
+* **Leveransen lyckades**: händelsen har levererats till prenumerationens slut punkt och ett 2xx-svar togs emot.
+* **Leveransen misslyckades**: händelsen som skickades till prenumerationens slut punkt, men tog emot ett 4xx-eller 5XX-svar.
+* **Utgångna händelser**: händelsen levererades inte och alla nya återförsök har skickats. Händelsen släpptes.
+* **Matchade händelser**: händelsen i ämnet matchades av händelse prenumerationen.
 
-## <a name="event-subscription-status"></a>Prenumerationsstatus för händelse
+## <a name="event-subscription-status"></a>Status för händelse prenumeration
 
-Om du vill visa mått för en händelseprenumeration, kan du antingen söka efter prenumerationstyp eller prenumerationer för en viss resurs.
+Om du vill se mått för en händelse prenumeration kan du antingen söka efter prenumerations typ eller prenumerationer för en speciell resurs.
 
-Om du vill söka efter händelsetyp för prenumeration, Välj **alla tjänster**.
+Om du vill söka efter händelse prenumerations typ väljer du **alla tjänster**.
 
 ![Välj alla tjänster](./media/monitor-event-delivery/all-services.png)
 
-Sök efter **händelserutnät** och välj **Event Grid-prenumerationer** bland de tillgängliga alternativen.
+Sök efter **Event Grid** och välj **Event Grid prenumerationer** från de tillgängliga alternativen.
 
-![Sök efter händelseprenumerationer](./media/monitor-event-delivery/search-and-select.png)
+![Sök efter händelse prenumerationer](./media/monitor-event-delivery/search-and-select.png)
 
-Filtrera efter typ av händelse, prenumeration och plats. Välj **mått** för prenumeration för att visa.
+Filtrera efter typ av händelse, prenumeration och plats. Välj **mått** för den prenumeration som du vill visa.
 
-![Filtrera prenumerationer på händelser](./media/monitor-event-delivery/filter-events.png)
+![Filtrera händelse prenumerationer](./media/monitor-event-delivery/filter-events.png)
 
-Visa mått för event ämne och prenumeration.
+Visa måtten för händelse ämnet och prenumerationen.
 
 ![Visa händelse mått](./media/monitor-event-delivery/subscription-metrics.png)
 
-För att hitta mått för en specifik resurs, markerar du den resursen. Välj **händelser**.
+Om du vill hitta måtten för en speciell resurs väljer du den resursen. Välj sedan **händelser**.
 
 ![Välj händelser för en resurs](./media/monitor-event-delivery/select-events.png)
 
-Du kan se mått för prenumerationer för den resursen.
+Du ser måtten för prenumerationer för resursen.
 
 ## <a name="custom-event-status"></a>Status för anpassad händelse
 
-Om du har publicerat ett anpassat ämne, kan du visa måtten för den. Välj resursgrupp för ämnet och välj ämnet.
+Om du har publicerat ett anpassat ämne kan du visa måtten för det. Välj resurs grupp för ämnet och välj ämnet.
 
 ![Välja anpassat ämne](./media/monitor-event-delivery/select-custom-topic.png)
 
-Visa mått för anpassad händelse ämnet.
+Visa måtten för avsnittet anpassad händelse.
 
 ![Visa händelse mått](./media/monitor-event-delivery/custom-topic-metrics.png)
+
+## <a name="set-alerts"></a>Ange aviseringar
+
+Du kan ställa in aviseringar för ämnes-och domän nivå mått för anpassade ämnen och händelse domäner. I översikts bladet för väljer du **aviseringar** från den vänstra resurs menyn för att visa, hantera och skapa aviserings regler. [Läs mer om Azure Monitor aviseringar](../azure-monitor/platform/alerts-overview.md)
+
+![Visa händelse mått](./media/monitor-event-delivery/select-alerts.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

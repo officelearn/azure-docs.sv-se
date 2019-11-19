@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298483"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173593"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -105,14 +105,7 @@ Azure NetApp Files tillhandahåller volym prestanda mått. Du kan också använd
 
 Om en NFS-volym ska monteras automatiskt vid start eller omstart av virtuella datorer lägger du till en post i `/etc/fstab`-filen på värden. 
 
-Exempel: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    IP-adressen för Azure NetApp Files volym som finns på bladet volym egenskaper
-- $FILEPATH  
-    Export Sök vägen för Azure NetApp Files volym
-- $MOUNTPOINT  
-    Katalogen som skapades på Linux-värden som används för att montera NFS-exporten
+Mer information finns i [montera eller demontera en volym för virtuella Windows-eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) .  
 
 ### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Varför visar DF-kommandot på NFS-klienten inte den etablerade volym storleken?
 
@@ -123,7 +116,7 @@ Volym storleken som rapporteras i DF är den maximala storlek som Azure NetApp F
 Azure NetApp Files stöder NFSv3 och NFSv 4.1. Du kan skapa en volym med hjälp av antingen NFS-versionen. 
 
 > [!IMPORTANT] 
-> Åtkomst till NFSv 4.1-funktionen kräver vit listning.  Skicka en begäran till <anffeedback@microsoft.com> om du vill begära vit listning. 
+> Åtkomst till NFSv 4.1-funktionen kräver vit listning.  Skicka en begäran till <anffeedback@microsoft.com>för att begära vit listning. 
 
 
 ### <a name="how-do-i-enable-root-squashing"></a>Hur gör jag för att aktivera rot-squashing?
@@ -144,7 +137,7 @@ Azure NetApp Files stöder för närvarande en Active Directory anslutning per p
 
 Både [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) och [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) stöds. Du kan använda befintliga Active Directory domänkontrollanter med Azure NetApp Files. Domänkontrollanter kan finnas i Azure som virtuella datorer eller lokalt via ExpressRoute eller S2S VPN. Azure NetApp Files stöder inte AD Join för [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) för tillfället.
 
-Om du använder Azure NetApp Files med Azure Active Directory Domain Services, är organisationsenhetens sökväg `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
+Om du använder Azure NetApp Files med Azure Active Directory Domain Services, är sökvägen till organisationsenheten `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Vilka versioner av Windows Server Active Directory stöds?
 

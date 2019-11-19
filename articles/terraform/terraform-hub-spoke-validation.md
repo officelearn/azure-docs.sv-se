@@ -1,17 +1,14 @@
 ---
 title: Självstudie – validera ett nav-och eker-nätverk i Azure med terraform
 description: Självstudie för att verifiera nätverk sto pol Ogin för nav och ekrar med alla virtuella nätverk som är anslutna till varandra.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 9ba4780c59e5e9da4999573abbc08ecd2738a2cd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969342"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159199"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Självstudie: validera ett nav-och eker-nätverk i Azure med terraform
 
@@ -100,7 +97,7 @@ Det här avsnittet visar hur du testar anslutningen från den simulerade lokala 
 
 1. Kopiera **SSH** -kommandot till Urklipp bredvid text **inloggningen med hjälp av lokalt konto för virtuell dator**.
 
-1. Kör `ssh` för att ansluta till den simulerade lokala miljön från en Linux-prompt. Använd lösen ordet som anges i `on-prem.tf` parameter filen.
+1. Från Kommandotolken i Linux, kör `ssh` att ansluta till den simulerade lokala miljön. Använd lösen ordet som anges i `on-prem.tf` parameter filen.
 
 1. Kör kommandot `ping` för att testa anslutningen till den virtuella hopp datorn i hubbens VNet:
 

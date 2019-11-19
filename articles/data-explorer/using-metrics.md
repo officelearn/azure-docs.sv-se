@@ -1,71 +1,72 @@
 ---
-title: Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer
-description: Lär dig hur du använder Azure Data Explorer mått för att övervaka klustrets prestanda, hälsa och användning.
+title: Övervaka Azure Datautforskaren prestanda, hälsa och användning med mått
+description: Lär dig hur du använder Azure Datautforskaren mått för att övervaka klustrets prestanda, hälsa och användning.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: cb59fa0fe9094943dfc942d1d6e664891996c9e3
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.openlocfilehash: f5b47a5ae9d13711233d0e4852ec487af7344622
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569287"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173796"
 ---
-# <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer
+# <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Övervaka Azure Datautforskaren prestanda, hälsa och användning med mått
 
-Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. Azure Data Explorer mätvärden är viktiga indikatorer om hälsotillstånd och prestanda för klusterresurserna. Använda mått som beskrivs i den här artikeln att övervaka Azure Data Explorer klusterhälsa och prestanda i ditt specifika scenario som fristående mått. Du kan också använda mått som grund för operativa [Azure-instrumentpaneler](/azure/azure-portal/azure-portal-dashboards) och [Azure Alerts](/azure/azure-monitor/platform/alerts-metric-overview).
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. Azure Datautforskaren-mått ger viktiga indikatorer för kluster resursernas hälso tillstånd och prestanda. Använd de mått som beskrivs i den här artikeln för att övervaka Azure Datautforskaren kluster hälsa och prestanda i ditt särskilda scenario som fristående mått. Du kan också använda Mät värden som grund för Azure- [instrumentpaneler](/azure/azure-portal/azure-portal-dashboards) och [Azure-aviseringar](/azure/azure-monitor/platform/alerts-metric-overview)med drift.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Skapa en [kluster och databas](create-cluster-database-portal.md).
+* Skapa ett [kluster och en databas](create-cluster-database-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="using-metrics"></a>Med hjälp av mätvärden
+## <a name="using-metrics"></a>Använda mått
 
-I Datautforskaren i Azure-kluster väljer **mått** att öppna fönstret mått och starta analys på ditt kluster.
+I ditt Azure Datautforskaren-kluster väljer du **mått** för att öppna fönstret mått och börjar analyser på klustret.
 
-![Välja mått](media/using-metrics/select-metrics.png)
+![Välj mått](media/using-metrics/select-metrics.png)
 
 I fönstret mått:
 
-![Mått-fönstret](media/using-metrics/metrics-pane.png)
+![Mått fönstret](media/using-metrics/metrics-pane.png)
 
-1. Om du vill skapa ett måttdiagram, Välj **mått** namn och relevanta **aggregering** per mått som beskrivs nedan. Den **Resource** och **mått Namespace** datumväljare är förvalda i Datautforskaren i Azure-klustret.
+1. Om du vill skapa ett mått diagram väljer du **måttets** namn och relevant **agg regering** per mått enligt beskrivningen nedan. **Resurs** -och **mått namn rymds** väljarna är i förväg valda för ditt Azure datautforskaren-kluster.
 
-    **Mått** | **Enhet** | **Aggregering** | **Metrisk beskrivning**
+    **Mått** | **Processor** | **Aggregering** | **Mått Beskrivning**
     |---|---|---|---|
-    | Cache-användning | Percent | AVG, Max, Min | Procentandel tilldelade cache-resurser som används av klustret. Cache refererar till storleken på SSD som allokerats för användaraktivitet enligt definierade cache-principen. En genomsnittlig cache-användning på 80% eller mindre är en hållbar status för ett kluster. Om den genomsnittliga cache-användningen är över 80%, klustret bör vara [skalas upp](manage-cluster-vertical-scaling.md) till en storage optimerat prisnivå eller [utskalad](manage-cluster-horizontal-scaling.md) till fler instanser. Du kan också anpassa princip (färre dagar i cacheminnet). Om cachen användningen är över 100%, storleken på data som ska cachelagras enligt principen för cachelagring är större som den totala storleken på cacheminnet på klustret. |
-    | Processor | Percent | AVG, Max, Min | Procentandel tilldelade beräkningsresurser som används av datorer i klustret. En Genomsnittlig CPU med 80% eller mindre är hållbar för ett kluster. Det högsta värdet för processor är 100%, vilket innebär att det finns inga fler beräkningsresurser för att bearbeta data. När ett kluster inte presterar bra, kontrollerar du det maximala värdet för processor och se om det finns specifika CPU: er som har blockerats. |
-    | Händelser som bearbetas (för Event Hubs) | Count | Max, Min, Sum | Totalt antal händelser läsa från event hubs och bearbetas av klustret. Händelserna är uppdelade i avvisade händelser och händelser som accepteras av kluster-motorn. |
-    | Datainmatningssvarstid | Sekunder | AVG, Max, Min | Svarstid för data som samlas in från den tidpunkt som data togs emot i klustret tills den är redo för frågan. Datainmatning svarstiden beror på inmatning-scenario. |
-    | Datainmatning resultat | Count | Count | Totalt antal åtgärder för inmatning som misslyckades och lyckades. Använd **gäller dela** att skapa buckets att lyckas och misslyckas resultat och analysera dimensioner (**värdet** > **Status**).|
-    | Datainmatning användning | Percent | AVG, Max, Min | Den procentandel av verkliga resurser som används för att mata in data från de totala resurserna som allokerats i principen kapacitet att utföra inmatning. Standardprincipen för kapacitet är längre än 512 samtidiga inmatning åtgärder eller 75% av klusterresurserna investerat i inmatning. Genomsnittlig inmatning användningen med 80% eller mindre är ett hållbar tillstånd för ett kluster. Högsta värdet för inmatning användning är 100%, vilket innebär att alla möjligheten för inmatning av klustret används och kan resultera i en kö för inmatning. |
-    | Datainmatning volymen (i MB) | Count | Max, Min, Sum | Den totala storleken på data som matas in i klustret (i MB) före komprimering. |
-    | Hålla igång | Count | genomsn. | Spårar svarstiden för klustret. Ett fullständigt dynamiska kluster returnerar värdet 1 och ett blockerade eller frånkopplat kluster returnerar 0. |
-    | Frågevaraktighet | Sekunder | Antal, genomsnitt, Min, Max, Sum | Total tid tills frågeresultat tas emot (omfattar inte Nätverksfördröjningen). |
+    | Användning av cache | Procent | Genomsn, Max, min | Procent andel allokerade cache-resurser som för närvarande används av klustret. Cache syftar på storleken på SSD som allokerats för användar aktivitet enligt den definierade cache-principen. En genomsnittlig cache-användning på 80% eller mindre är ett hållbart tillstånd för ett kluster. Om den genomsnittliga användningen av cacheminnet är över 80% ska klustret [skalas upp](manage-cluster-vertical-scaling.md) till en optimerad lagrings nivå eller [skala ut](manage-cluster-horizontal-scaling.md) till fler instanser. Du kan också anpassa cache-principen (färre dagar i cacheminnet). Om cache användningen är över 100% är storleken på data som ska cachelagras, enligt principen för cachelagring, större än den totala storleken på cachen i klustret. |
+    | Processor | Procent | Genomsn, Max, min | Procent andel allokerade beräknings resurser som för närvarande används av datorerna i klustret. En genomsnittlig CPU på 80% eller mindre är hållbart för ett kluster. Det maximala värdet för CPU är 100% vilket innebär att det inte finns några ytterligare beräknings resurser för att bearbeta data. När ett kluster inte fungerar bra kontrollerar du det maximala värdet för processorn för att avgöra om det finns några angivna processorer som är blockerade. |
+    | Bearbetade händelser (för Event Hubs) | Antal | Max, min, Summa | Totalt antal händelser som lästs från Event Hub och bearbetas av klustret. Händelserna delas upp i avvisade händelser och händelser som accepteras av kluster motorn. |
+    | Inmatnings svars tid | Sekunder | Genomsn, Max, min | Svars tiden för data som hämtas från den tidpunkt då data togs emot i klustret tills de är redo för fråga. Inmatnings svars tiden beror på inmatnings scenariot. |
+    | Inmatnings resultat | Antal | Antal | Totalt antal inmatnings åtgärder som misslyckats och slutförts. Använd **Använd uppdelning** för att skapa Bucket-lyckade och underkänna resultat och analysera dimensionerna (**värde** > **status**).|
+    | Förbruknings användning | Procent | Genomsn, Max, min | Procent andel faktiska resurser som används för att mata in data från den totala mängden allokerade resurser, i kapacitets principen, för att utföra inmatningen. Standard kapacitets principen är högst 512 samtidiga inmatnings åtgärder eller 75% av kluster resurserna som investerat i inmatningen. Genomsnittligt intag av användning på 80% eller mindre är ett hållbart tillstånd för ett kluster. Det maximala värdet för förbruknings användningen är 100%, vilket innebär att alla kluster inmatnings funktioner används och att en inmatnings kö kan resultera i detta. |
+    | Inmatnings volym (i MB) | Antal | Max, min, Summa | Den totala storleken på data som matas in i klustret (i MB) före komprimering. |
+    | Behåll Alive | Antal | Gmsn | Spårar klustrets svars tider. Ett fullständigt besvarat kluster returnerar värde 1 och ett blockerat eller frånkopplat kluster returnerar 0. |
+    | Frågevaraktighet | Sekunder | Count, AVG, min, Max, sum | Total tid tills frågeresultaten tas emot (omfattar inte nätverks svars tid). |
     | | | |
 
-    Ytterligare information angående [klustermått för Azure Data Explorer som stöds](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
+    Ytterligare information om [Azure datautforskaren-kluster mått som stöds](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
 
-2. Välj den **Lägg till mått** för att visa flera mått som ritas i samma diagram.
-3. Välj den **+ nytt diagram** för att visa flera diagram i en vy.
-4. Använd väljaren för tid för att ändra tidsintervallet (standard: senaste 24 timmarna).
-5. Använd [ **Lägg till filter** och **gäller dela** ](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting) för mått med dimensioner.
-6. Välj **fäst på instrumentpanelen** att lägga till din diagramkonfigurationen till instrumentpaneler så att du kan visa den igen.
-7. Ange **ny aviseringsregel** att visualisera dina mått baserat på set-villkor. Ny aviseringsregel tas din målresursen, mått, dela och filterdimensioner från ditt diagram. Ändra de här inställningarna i den [varningsregel skapa fönstret](/azure/azure-monitor/platform/metrics-charts#create-alert-rules).
+2. Välj knappen **Lägg till mått** om du vill se flera mått som är ritade i samma diagram.
+3. Välj knappen **+ ny diagram** om du vill se flera diagram i en vy.
+4. Använd tid väljaren för att ändra tidsintervallet (standard: senaste 24 timmarna).
+5. Använd [ **Lägg till filter** och **Använd delning** ](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting) för mått som har dimensioner.
+6. Välj **Fäst på instrument panelen** för att lägga till diagram konfigurationen till instrument panelerna så att du kan visa den igen.
+7. Ange **ny varnings regel** för att visualisera måtten med hjälp av Set-kriteriet. Den nya varnings regeln innehåller dina mål resurser, mått, delning och filter dimensioner från diagrammet. Ändra inställningarna i [fönstret Skapa aviserings regel](/azure/azure-monitor/platform/metrics-charts#create-alert-rules).
 
-Mer information om hur du använder den [Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started).
+Mer information om hur du använder [Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
+* [Självstudie: mata in och fråga övervaknings data i Azure Datautforskaren](/azure/data-explorer/ingest-data-no-code)
+* [Övervaka Azure Datautforskaren-inmatnings åtgärder med hjälp av diagnostikloggar](/azure/data-explorer/using-diagnostic-logs)
+* [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)

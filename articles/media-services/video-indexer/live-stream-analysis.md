@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0f34aad4a8590c71f926d12d201f9a614afaa127
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
+ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114934"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74153556"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Direkt uppspelnings analys med Video Indexer
 
-Azure Media Services Video Indexer är en Azure-tjänst som är utformad för att extrahera djupgående insikter från video-och ljudfiler offline. Detta är att analysera en specifik mediefil som redan har skapats i förväg. För vissa användnings fall är det dock viktigt att få ut medie insikter från en live-feed så snabbt som möjligt för att låsa upp drift och andra användnings fall som är intryckta i tid. Sådana avancerade metadata i en Live Stream kan till exempel användas av innehålls producenter för att automatisera TV-produktion. Till exempel, den prepresse [Skin-gruppen](https://customers.microsoft.com/story/esg-media-telecommunications-azure), där journalister av en Newsroom sökte live-feeds för att bygga meddelande tjänster baserat på innehållet.
+Azure Media Services Video Indexer är en Azure-tjänst som är utformad för att extrahera djupgående insikter från video-och ljudfiler offline. Detta är att analysera en specifik mediefil som redan har skapats i förväg. För vissa användnings fall är det dock viktigt att få ut medie insikter från en live-feed så snabbt som möjligt för att låsa upp drift och andra användnings fall som är intryckta i tid. Sådana avancerade metadata i en Live Stream kan till exempel användas av innehålls producenter för att automatisera TV-produktion.
 
 En lösning som beskrivs i den här artikeln gör det möjligt för kunder att använda Video Indexer i nära real tids lösningar på direktsända sändningar. Fördröjningen i indexeringen kan vara så låg som fyra minuter som använder den här lösningen, beroende på vilka data segment som indexeras, vilken typ av innehåll som används för den här processen.
 

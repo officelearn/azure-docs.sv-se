@@ -3,17 +3,13 @@ title: Självstudie – konfigurera appar i Azure App Service med Ansible
 description: Lär dig hur du skapar en app i Azure App Service med Java 8 och Tomcat container runtime
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 2891ff47b17900c4c1c8e1c21f22495b65108fd5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242054"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156568"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Självstudie: konfigurera appar i Azure App Service med Ansible
 

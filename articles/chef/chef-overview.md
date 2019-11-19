@@ -1,47 +1,43 @@
 ---
-title: Använda Chef med Azure
-description: Introduktion till att använda Chef för att konfigurera och testa Azure-infrastrukturen
-ms.service: virtual-machines-linux
-keywords: Azure, chef, devops, virtuella datorer, översikt, automatisera
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
+title: Använda chef med Azure
+description: Introduktion till att använda chef för att konfigurera och testa din Azure-infrastruktur
+keywords: Azure, chef, DevOps, virtuella datorer, översikt, automatisera
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 5c4e20177c1b334a34f7ce9328dfaa7bd8c66d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ad8b79b42c9d8d7942f391223c052f63579b11b
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656582"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158005"
 ---
-# <a name="using-chef-with-azure"></a>Använda Chef med Azure
-[Chef](https://www.chef.io) är en kraftfull automatisering plattform som omvandlar infrastruktur med virtuella datorer på Azure till koden. Chef automatiserar hur infrastrukturen konfigureras, distribueras och hanteras i nätverket, oavsett dess storlek.
+# <a name="using-chef-with-azure"></a>Använda chef med Azure
+[Chef](https://www.chef.io) är en kraftfull Automation-plattform som transformerar infrastrukturen för virtuella datorer på Azure till kod. Chef automatiserar hur infrastrukturen konfigureras, distribueras och hanteras i nätverket, oavsett storlek.
 
-Den här artikeln beskriver fördelarna med att använda Chef för att hantera Azure-infrastrukturen.
+I den här artikeln beskrivs fördelarna med att använda chef för att hantera Azure-infrastruktur.
 
-## <a name="chef-extension-on-azure"></a>Chef-tillägget på Azure
-Etablera en virtuell dator med Chef-klienten som körs som en bakgrundstjänst med den [Chef tillägget](https://docs.microsoft.com/azure/chef/chef-extension-portal) på Azure Portal. Dessa virtuella datorer är nu redo att hanteras av en Chef-server när etablerats.
+## <a name="chef-extension-on-azure"></a>Chefs tillägg på Azure
+Etablera en virtuell dator med chef-klienten som körs som en bakgrunds tjänst med [chefs tillägget](https://docs.microsoft.com/azure/chef/chef-extension-portal) på Azure-portalen. När de har allokerats är de här virtuella datorerna klara att hanteras av en chefs Server.
 
-## <a name="chef-cloud-shell"></a>Chef Cloud Shell
-Använd Chef arbetsstation direkt i Azure Cloudshell! Kör alla dina Chef verktyg och InSpec rätt från Cloud Shell. Du kan använda Chef-kommandon från:
+## <a name="chef-cloud-shell"></a>Chefs Cloud Shell
+Använd chefs arbets station direkt i Azure Cloud Shell! Kör alla chefs verktyg och INSPEC direkt från Cloud Shell. Du kan använda chefs kommandon från:
 
 * [chef](https://docs.chef.io/ctl_chef.html)
-* [kitchen](https://docs.chef.io/ctl_kitchen.html)
-* [inspec](https://www.inspec.io/docs/reference/cli/)
+* [artiklar](https://docs.chef.io/ctl_kitchen.html)
+* [INSPEC](https://www.inspec.io/docs/reference/cli/)
 * [kniv](https://docs.chef.io/knife.html)
 * [cookstyle](https://docs.chef.io/cookstyle.html)
 * [foodcritic](https://docs.chef.io/foodcritic.html)
 * [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
-Kombinera våra kommandoradsverktyg med andra verktyg som finns tillgängliga i Cloud Shell, till exempel `git`, `az-cli`, och `terraform`, och skriva din infrastruktur och efterlevnad automation från webbläsaren.
+Kombinera våra kommando verktyg med andra verktyg som är tillgängliga i Cloud Shell, till exempel `git`, `az-cli`och `terraform`, och skriv infrastrukturen och efterlevnaden av automatiseringen från webbläsaren.
 
-## <a name="automate-infrastructure-apps-and-compliance-with-one-platform"></a>Automatisera infrastruktur, appar och kompatibilitet med en plattform
-Företag kräver hastighet, hastighet och säkerhet att tävla i digital marketplace. Tillsammans Chef och Microsoft hjälper enskilda användare, grupper och företag att åstadkomma detta. Med en plattform, Chef Automate, kan du nu automatisera och kontinuerligt leverera infrastruktur, program och efterlevnad i Microsoft-egendom.
+## <a name="automate-infrastructure-apps-and-compliance-with-one-platform"></a>Automatisera infrastruktur, appar och efterlevnad med en plattform
+Företag kräver hastighet, hastighet och säkerhet för att konkurrera i den digitala Marketplace. Chef och Microsoft hjälper personer, grupper och företag att utföra alla dessa saker. Med en plattform kan kock automatiseras och du kan automatisera och ständigt leverera infrastruktur, program och efterlevnad på din Microsoft-egendom.
 
-## <a name="test-drive-chef-automate-on-azure"></a>Test Chef Automate på Azure
-Stöds av Chef, den [Chef automatisera Azure Marketplace-lösningen](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate) gör det möjligt att bygga, distribuera och hantera infrastruktur och program samarbeta. Ett enda klick kommer du direkt åtkomst till alla kommersiella funktioner som ingår i Chef Automate; få insyn för slutpunkt till slutpunkt över hela flottan, möjliggör kontinuerlig efterlevnad och hantera alla ändringar i ett enhetligt arbetsflöde.
+## <a name="test-drive-chef-automate-on-azure"></a>Testa enhets chef automatiserad på Azure
+Chef som stöds av chef kan du [Automatisera Azure Marketplace-lösningen](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate) för att bygga, distribuera och hantera din infrastruktur och dina program som är kollektivt. Med ett klick får du omedelbar till gång till alla kommersiella funktioner som ingår i chefs automatisering; få fullständig insyn i hela flottan, aktivera kontinuerlig kompatibilitet och hantera alla ändringar med ett enhetligt arbets flöde.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en virtuell Windows-dator på Azure med Chef](/azure/virtual-machines/windows/chef-automation)
+* [Skapa en virtuell Windows-dator på Azure med chef](/azure/virtual-machines/windows/chef-automation)

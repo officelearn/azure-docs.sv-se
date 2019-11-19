@@ -3,17 +3,13 @@ title: Snabb start – distribuera Ansible lösnings mal len för Azure till Cen
 description: I den här snabb starten lär du dig hur du distribuerar Ansible-lösningen på en virtuell CentOS-dator som finns på Azure, tillsammans med verktyg som kon figurer ATS för att fungera med Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 6aa721ee6cf6680518a28d050c22d8649f0f531f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ebd01411ff27b0e95be21ef147098a90b6f62742
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833159"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156328"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Snabb start: Distribuera Ansible lösnings mal len för Azure till CentOS
 
@@ -23,7 +19,7 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 - **Azure Command-Line Interface (CLI) 2.0** – [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) är en plattformsoberoende kommandoradsmiljö för hantering av Azure-resurser. 
 - **Hanterade identiteter för Azure-resurser** – Funktionen [Hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview) hjälper dig att skydda autentiseringsuppgifterna för molnprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 

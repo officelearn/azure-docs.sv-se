@@ -8,12 +8,12 @@ author: cijothomas
 ms.author: cithomas
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cb7b9047e1036a2ab4bfd94cca88589dcdcd0ca3
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cef8a06fb7e4cfb713d6531f23df9ae9c5836b68
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899550"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173612"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Telemetri kanaler i Application Insights
 
@@ -120,9 +120,9 @@ Som standard kan högst 10 `Transmission` instanser skickas parallellt. Om telem
 
 En fullständig lista över konfigurerbara inställningar för varje kanal finns i:
 
-* [InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
+* [InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
 
-* [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
+* [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
 
 Här följer de vanligaste inställningarna för `ServerTelemetryChannel`:
 
@@ -138,7 +138,7 @@ Här följer de vanligaste inställningarna för `ServerTelemetryChannel`:
 
 Om du behöver göra en synkron tömning rekommenderar vi att du använder `InMemoryChannel`.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Garanterar Application Insights-kanalen för telemetri? I så fall, vilka scenarier kan telemetri gå förlorade?
 

@@ -1,18 +1,14 @@
 ---
-title: Microsoft Azure Backup Server & System Center DPM support Matrix
-description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
-author: dcurwin
-ms.service: backup
+title: MABS & System Center DPM support Matrix
+description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: d9c55773772b4f331de95bd98b1973225357c0cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2bec2818eaabaa2d2d74ab7181db0eabcba092ec
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012796"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172033"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -62,7 +58,7 @@ Mer information:
 
 DPM/MABS kan distribueras som sammanfattas i följande tabell.
 
-**Distribution** | **Support** | **Detaljer**
+**Distribution** | **Support** | **Information**
 --- | --- | ---
 **Distribuerad lokalt** | Fysisk server<br/><br/>Virtuell Hyper-V-dator<br/><br/> Virtuell VMware-dator | Om DPM/MABS installeras som en virtuell VMware-dator, säkerhetskopierar den bara virtuella VMware-datorer och arbets belastningar som körs på dessa virtuella datorer.
 **Distribuerad som en Azure Stack VM** | Endast MABS | DPM kan inte användas för att säkerhetskopiera Azure Stack virtuella datorer.
@@ -81,7 +77,7 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 ## <a name="management-support"></a>Hanterings support
 
-**Ge** | **Detaljer**
+**Ge** | **Information**
 --- | ---
 **Installation** | Installera DPM/MABS på en dator med ett enda syfte.<br/><br/> Installera inte DPM/MABS på en domänkontrollant på en dator med rollen som program server roll på en dator som kör Microsoft Exchange Server eller System Center Operations Manager eller på en klusternod.<br/><br/> [Granska alla system krav för DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
 **Domän** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
@@ -93,7 +89,7 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 Du kan distribuera MABS på en Azure Stack VM så att du kan hantera säkerhets kopiering av Azure Stack virtuella datorer och arbets belastningar från en enda plats.
 
-**Komponent** | **Detaljer**
+**Komponent** | **Information**
 --- | ---
 **MABS på Azure Stack VM** | Minst storlek a2. Vi rekommenderar att du börjar med en Windows Server 2012 R2-eller Windows Server 2016-avbildning från Azure Marketplace.<br/><br/> Installera inte något annat på den virtuella datorn MABS.
 **MABS-lagring** | Använd ett separat lagrings konto för den virtuella MABS-datorn. MARS-agenten som körs på MABS behöver tillfällig lagring för en cache-plats och för att lagra data som återställs från molnet.
@@ -135,7 +131,7 @@ Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhe
 
 Data som säkerhets kopie ras till DPM/MABS lagras på den lokala disk lagringen.
 
-**Lagring** | **Detaljer**
+**Lagring** | **Information**
 --- | ---
 **MBS** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-lagring på virtuell Azure-dator** | Data lagras på Azure-diskar som är anslutna till den virtuella DPM-MABS och som hanteras i DPM/MABS. Antalet diskar som kan användas för DPM/MABS-lagringspoolen begränsas av storleken på den virtuella datorn.<br/><br/> A2 VM: 4 diskar; A3 VM: 8 diskar; A4 VM: 16 diskar, med en maximal storlek på 1 TB för varje disk. Detta avgör den totala tillgängliga lagringspoolen för säkerhets kopiering.<br/><br/> Mängden data som du kan säkerhetskopiera beror på antalet och storleken på de anslutna diskarna.
@@ -154,7 +150,7 @@ Från DPM 2016/MABS v2 (som körs på Windows Server 2016) och senare kan du dra
 
 I följande tabell sammanfattas vad som kan säkerhets kopie ras till MABS från lokala datorer och virtuella Azure-datorer.
 
-**Säkerhetskopiering** | **Versioner** | **MABS** | **Detaljer** |
+**Säkerhetskopiering** | **Versioner** | **MABS** | **Information** |
 --- | --- | --- | --- |
 **Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bitars) | MABS v3, v2 | Lokalt. | Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds.<br/><br/> Volymerna måste vara minst 1 GB och NTFS. |
 **Windows Server 2016 (Data Center, standard, ej nano)**<br/><br/> 64/32-bitars | MABS v3, v2 | Lokalt/virtuell Azure-dator.| Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> Deduplicerade volymer stöds. |
@@ -176,7 +172,7 @@ I följande tabell sammanfattas vad som kan säkerhets kopie ras till MABS från
 
 I följande tabell sammanfattas vad som kan säkerhets kopie ras till DPM från lokala datorer och virtuella Azure-datorer.
 
-**Säkerhetskopiering** | **DPM** | **Detaljer**
+**Säkerhetskopiering** | **DPM** | **Information**
 --- | --- | ---
 **Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bitars) | Endast lokalt.<br/><br/> För att säkerhetskopiera Windows 10 med DPM 2012 R2 rekommenderar vi att du installerar [uppdatering 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager). | Volym/resurs/mapp/fil.<br/><br/> Deduplicerade volymer stöds.<br/><br/> Volymerna måste vara minst 1 GB och NTFS.
 **Windows Server 2016 (Data Center, standard, ej nano)**<br/><br/> 64/32-bitars | Lokalt/virtuell Azure-dator.<br/><br/> Endast DPM 2016.| Volym/resurs/mapp/fil; system tillstånd/Bare Metal.<br/><br/> Deduplicerade volymer stöds.

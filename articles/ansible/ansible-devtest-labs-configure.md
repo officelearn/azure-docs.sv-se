@@ -1,19 +1,15 @@
 ---
 title: Självstudie – konfigurera labb i Azure DevTest Labs med Ansible
 description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs att använda Ansible
-ms.service: ansible
 keywords: Ansible, Azure, DevOps, bash, Spelbok, DevTest Labs
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d035c76a811df45af5ed8183b86e14a2ee6218b7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b6981ee94c4d82997c574db037befb9782465d08
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241664"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156276"
 ---
 # <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Självstudie: Konfigurera labb i Azure DevTest Labs med Ansible
 
@@ -74,13 +70,13 @@ Nästa uppgift skapar exempel labbet.
 Du kan ställa in inställningar för labb principer. Följande värden kan anges:
 
 - `user_owned_lab_vm_count` är antalet virtuella datorer som en användare kan äga
-- `user_owned_lab_premium_vm_count` är antalet Premium-datorer som en användare kan äga
+- `user_owned_lab_premium_vm_count` är antalet virtuella Premium-datorer som en användare kan äga
 - `lab_vm_count` är det maximala antalet virtuella labb datorer
-- `lab_premium_vm_count` är det maximala antalet virtuella labb datorer för labb Premium
-- `lab_vm_size` är de tillåtna virtuella datorernas storlek (s)
+- `lab_premium_vm_count` är det högsta antalet virtuella labb Premium-datorer
+- `lab_vm_size` är tillåtna virtuella dator storlekar för labb
 - `gallery_image` är tillåtna Galleri avbildningar
 - `user_owned_lab_vm_count_in_subnet` är det maximala antalet användares virtuella datorer i ett undernät
-- `lab_target_cost` är testets mål kostnad
+- `lab_target_cost` är mål kostnaden för labbet
 
 ```yml
 - name: Set the lab policies
@@ -97,7 +93,7 @@ Du kan ställa in inställningar för labb principer. Följande värden kan ange
 
 Exempel aktiviteten i det här avsnittet konfigurerar labb schemat. 
 
-I följande kodfragment används värdet `lab_vms_startup` för att ange start tiden för den virtuella datorn. På samma sätt fastställer värdet för `lab_vms_shutdown` det virtuella Labbets avstängnings tid för labb.
+I följande kodfragment används `lab_vms_startup`-värdet för att ange start tiden för den virtuella datorn. På samma sätt fastställer `lab_vms_shutdown`-värdet den virtuella labb stängnings tiden.
 
 ```yml
 - name: Set the lab schedule

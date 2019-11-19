@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 4cd3bc7e4f95869d3efd2d92a7cdf1addc7ce5b2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953101"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173589"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
@@ -32,11 +32,17 @@ Du kan montera eller demontera en volym för virtuella Windows-eller Linux-dator
 
     ![Monterings instruktioner SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-Om du använder NFSv 4.1 använder du följande kommando för att montera fil systemet:  
+    Om du använder NFSv 4.1 använder du följande kommando för att montera fil systemet: `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+3. Om du vill att en NFS-volym ska monteras automatiskt när en virtuell Azure-dator startas eller startas om, lägger du till en post i `/etc/fstab`-filen på värden. 
+
+    Exempel: `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
+
+    * `$ANFIP` är IP-adressen för den Azure NetApp Files volym som finns på volym egenskaper-bladet.
+    * `$FILEPATH` är Azure NetApp Files volymens export Sök väg.
+    * `$MOUNTPOINT` är katalogen som skapats på Linux-värden som används för att montera NFS-exporten.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera NFSv 4.1 standard domän för Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* Se [vanliga frågor om NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs) om hur en NFS-volym monteras automatiskt när en virtuell Azure-dator startas eller startas om.
+* [Vanliga frågor och svar om NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)

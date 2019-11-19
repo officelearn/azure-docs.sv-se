@@ -1,18 +1,14 @@
 ---
-title: Använd Azure Backup för att återställa SQL Server-databaser på en virtuell Azure-dator
+title: Återställa SQL Server-databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: dacurwin
-ms.openlocfilehash: 878658135bdb8844c5c86bc207db580ccd7ff63f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903601"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171905"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
 
@@ -41,7 +37,7 @@ Observera följande innan du återställer en databas:
 - Stäng alla program som kan försöka ansluta till någon av dessa databaser.
 - Om du har flera instanser som körs på en server, bör alla instanser vara igång och köra på annat sätt, så visas inte servern i listan över mål servrar som du kan återställa databasen till.
 
-## <a name="restore-a-database"></a>Återställ en databas
+## <a name="restore-a-database"></a>Återställa en databas
 
 För att återställa måste du ha följande behörigheter:
 

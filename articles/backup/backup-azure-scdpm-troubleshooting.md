@@ -1,19 +1,14 @@
 ---
-title: Felsöka System Center-Data Protection Manager – Azure Backup
+title: Felsöka System Center Data Protection Manager
 description: I den här artikeln hittar du lösningar på problem som kan uppstå när du använder System Center Data Protection Manager.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1ff6db463821780975f855488c51663c6a75f83a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 8ecd2f469c8fcaea9761a1a3033fa0c44a255ae7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747321"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172702"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Felsöka System Center Data Protection Manager
 

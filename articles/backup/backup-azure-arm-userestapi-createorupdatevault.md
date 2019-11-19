@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: skapa Recovery Services-valv med REST API'
+title: Skapa Recovery Services-valv med REST API
 description: I den här artikeln lär du dig att hantera säkerhets kopierings-och återställnings åtgärder för Azure VM backup med REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM-säkerhetskopiering; Återställning av Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747561"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173422"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services Vault med REST API
 
@@ -50,7 +44,7 @@ Följande vanliga definitioner används för att bygga en begär ande text:
 |location     |  true       |Sträng         |   Resurs plats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifierar det unika system-ID: t för varje Azure-resurs     |
-|tagg     |         | Objekt        |     Resurstaggar    |
+|taggar     |         | Objekt        |     Resurstaggar    |
 
 Observera att valv namnet och resurs gruppens namn anges i PLACERINGs-URI: n. I begär ande texten definieras platsen.
 
@@ -68,7 +62,7 @@ Följande exempel text används för att skapa ett valv i "västra USA". Ange pl
 }
 ```
 
-## <a name="responses"></a>Svar
+## <a name="responses"></a>Responses
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera ett Recovery Services-valv:
 

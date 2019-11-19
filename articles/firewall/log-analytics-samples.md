@@ -1,18 +1,18 @@
 ---
 title: Exempel för Log Analytics i Azure Firewall
-description: Exempel för Log Analytics i Azure Firewall
+description: Azure Monitor loggar kan användas för att analysera din Azure-brandvägg. En exempel fil skapas i View Designer i Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033987"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168889"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Exempel för Log Analytics i Azure Firewall
 
@@ -40,7 +40,7 @@ Och för data för nätverks regel loggen:
 
 ![Data för nätverks regel logg]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure-brandväggen loggar data nedan AzureDiagnostics med kategori som antingen **AzureFirewallApplicationRule** eller **AzureFirewallNetworkRule**. Data som innehåller informationen lagras i fältet msg_s. Med hjälp av [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) -operatorn kan vi extrahera de olika intressanta egenskaperna från fältet msg_s. Frågorna nedan extraherar informationen för båda kategorierna.
+Azure-brandväggen loggar data nedan AzureDiagnostics med kategori som antingen **AzureFirewallApplicationRule** eller **AzureFirewallNetworkRule**. Data som innehåller informationen lagras i fältet msg_s. Med hjälp av [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) -operatorn kan vi extrahera de olika intressanta egenskaperna från msg_s fältet. Frågorna nedan extraherar informationen för båda kategorierna.
 
 ## <a name="application-rules-log-data-query"></a>Data fråga för program regel logg
 
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övervakning och diagnostik i Azure-brandväggen [finns i Självstudier: Övervaka Azure Firewall-loggar och-](tutorial-diagnostics.md)mått.
+Mer information om övervakning och diagnostik i Azure-brandväggen finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](tutorial-diagnostics.md).

@@ -3,17 +3,13 @@ title: Självstudie – konfigurera köer i Azure Service Bus med Ansible
 description: Lär dig hur du använder Ansible för att skapa en Azure Service Bus kö
 keywords: Ansible, Azure, DevOps, bash, Spelbok, Service Bus, Queue
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: a48796c2177a8b5b818553bf8aa0ff36f712d4e0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9903419a52be61cd7ec74214858bce81df7e727e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241382"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155821"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Självstudie: konfigurera köer i Azure Service Bus med Ansible
 
@@ -107,7 +103,7 @@ Spara följande spelbok som `servicebus_queue_policy.yml`:
 ```
 
 Se följande anmärkningar innan du kör Spelbok:
-- Värdet `rights` representerar den behörighet som en användare har i kön. Ange något av följande värden: `manage`, `listen`, `send` eller `listen_send`.
+- Värdet `rights` representerar den behörighet som en användare har i kön. Ange något av följande värden: `manage`, `listen`, `send`eller `listen_send`.
 
 Kör Spelbok med kommandot `ansible-playbook`:
 

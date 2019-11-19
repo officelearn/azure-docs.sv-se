@@ -1,18 +1,14 @@
 ---
-title: Azure Backup support mat ris för virtuell Azure-säkerhetskopiering
+title: Support mat ris för säkerhets kopiering av virtuella Azure-datorer
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f699315855dc27fd70fdb60574414ef87037671f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 8f84d7fefd2affc3a3c47227ab6f2a2d0b325f4e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953253"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172096"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Support mat ris för säkerhets kopiering av virtuella Azure-datorer
 
@@ -66,6 +62,8 @@ Säkerhetskopiera med tillägget Azure VM agent | – Windows 10-klient (endast 
 Säkerhetskopiera med MARS-agenten | Operativ system som [stöds](backup-support-matrix-mars-agent.md#support-for-direct-backups) .
 Säkerhetskopiera med DPM/MABS | Operativ system som stöds för säkerhets kopiering med [Mabs](backup-mabs-protection-matrix.md) och [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
+Azure Backup stöder inte 32-bitars operativ system.
+
 ## <a name="support-for-linux-backup"></a>Stöd för Linux-säkerhetskopiering
 
 Det här är vad som stöds om du vill säkerhetskopiera Linux-datorer.
@@ -100,7 +98,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="supported-restore-methods"></a>Återställnings metoder som stöds
 
-**Restore-metod** | **Detaljer**
+**Restore-metod** | **Information**
 --- | ---
 Skapa en ny virtuell dator | Du kan skapa en virtuell dator under återställnings processen. <br/><br/> Med det här alternativet får du en grundläggande virtuell dator som körs. Du kan ange namnet på den virtuella datorn, resurs gruppen, det virtuella nätverket, under nätet och lagringen.  
 Återställa en disk | Du kan återställa en disk och använda den för att skapa en virtuell dator.<br/><br/> När du väljer det här alternativet, Azure Backup kopierar data från valvet till ett lagrings konto som du väljer. Återställnings jobbet genererar en mall. Du kan hämta den här mallen, använda den för att ange anpassade VM-inställningar och skapa en virtuell dator.<br/><br/> Med det här alternativet kan du ange fler inställningar som det tidigare alternativet för att skapa en virtuell dator.<br/><br/>

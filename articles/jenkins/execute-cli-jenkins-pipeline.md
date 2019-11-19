@@ -1,19 +1,15 @@
 ---
 title: Köra Azure CLI med Jenkins
 description: Lär dig hur du använder Azure CLI för att distribuera en Java-webbapp till Azure i Jenkins Pipeline
-ms.service: jenkins
 keywords: jenkins, azure, devops, app service, cli
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: bd9192974f6860d08d84a9028702ce2203f562e7
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882124"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158830"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuera till Azure App Service med Jenkins och Azure CLI
 För distribution av en Java-webbapp till Azure kan du använda Azure CLI i [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). I den här självstudien skapar du en CI/CD-pipeline på en virtuell Azure-dator och lär dig att:
@@ -147,7 +143,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ## <a name="create-jenkins-pipeline"></a>Skapa en Jenkins-pipeline
 Öppna Jenkins i en webbläsare och klicka på **Nytt objekt**. 
 
-* Ange ett namn för jobbet och välj **Pipeline**. Klicka på **OK**
+* Ange ett namn för jobbet och välj **Pipeline**. Klicka på **OK**.
 * Klicka på fliken **Pipeline**. 
 * För **Definition** väljer du **Pipeline-skript från SCM**.
 * För **SCM** väljer du **Git**.

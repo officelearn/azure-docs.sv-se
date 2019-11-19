@@ -1,67 +1,79 @@
 ---
-title: Använd HTTPS med Azure CDN Standard regel motor | Microsoft Docs
-description: Med standard regel motorn kan du anpassa hur HTTP-begäranden hanteras av Azure CDN från Microsoft, till exempel blockera leverans av vissa typer av innehåll, definiera en princip för cachelagring och ändra HTTP-huvuden.
+title: Använd en regel motor för att använda HTTPS i standard Azure CDN | Microsoft Docs
+description: Använd regel motorn för Microsoft standard Azure-Content Delivery Network (Azure CDN) för att anpassa hur Azure CDN hanterar HTTP-begäranden, inklusive att blockera leverans av vissa typer av innehåll, definiera en princip för cachelagring och ändra HTTP-huvuden. I den här artikeln lär du dig hur du skapar en regel för att omdirigera användare till HTTPS.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: b24c4a04e0c02258a918ee075066d90c22ea0c75
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 724861305d7a25db409072200ac2bc3bd83f0682
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615928"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171577"
 ---
-# <a name="azure-cdn-standard-rules-engine"></a>Azure CDN Standard regel motor
+# <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Konfigurera standard regel motorn för Azure CDN
+
+Den här artikeln beskriver hur du konfigurerar och använder standard regel motorn för Azure Content Delivery Network (Azure CDN).
+
+## <a name="standard-rules-engine"></a>Standard regel motor
+
+Du kan använda standard regel motorn för Azure CDN för att anpassa hur HTTP-begäranden hanteras. Du kan till exempel använda regel motorn för att genomdriva innehålls leverans för att använda vissa protokoll, för att definiera en princip för cachelagring eller ändra ett HTTP-huvud. Den här artikeln visar hur du skapar en regel som omdirigerar användare till HTTPS automatiskt. 
 
 > [!NOTE]
-> Standard regel motor är endast tillgänglig för Azure CDN från Microsoft. 
+> Regel motorn som beskrivs i den här artikeln är endast tillgänglig för standard Azure CDN från Microsoft. 
 
-Med den Azure CDN Standard regel motorn kan du anpassa hur HTTP-begäranden hanteras. Du kan till exempel framtvinga innehålls leverans över vissa protokoll, definiera en princip för cachelagring eller ändra ett HTTP-huvud. I den här självstudien visas hur du skapar en regel som automatiskt omdirigerar dina användare till HTTPS. 
+## <a name="redirect-users-to-https"></a>Omdirigera användare till HTTPS
 
+1. I dina Microsoft-profiler går du till Azure Content Delivery Network.
 
-## <a name="tutorial"></a>Självstudier
-
-1. På sidan **CDN-profil** på Azure CDN från Microsoft-profiler väljer du den slut punkt som du vill konfigurera regler för.
+1. På sidan **CDN-profil** väljer du den slut punkt som du vill skapa regler för.
   
-2. Välj fliken **regel motor** till vänster.
+1. Välj fliken **regel motor** .
    
-    Bladet regel motor visas med den globala regeln. 
+    Fönstret **regel motor** öppnas och visar en lista över tillgängliga globala regler. 
    
-    [Sidan nya regler för ![CDN](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
+    [Sidan ![Azure CDN nya regler](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
    
    > [!IMPORTANT]
-   > Ordningen för hur flera regler visas påverkar hur de hanteras. En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel.
+   > Ordningen i vilken flera regler visas påverkar hur regler hanteras. De åtgärder som anges i en regel kan skrivas över av en efterföljande regel.
    >
 
-3. Klicka på knappen **Lägg till regel** och ange ett regel namn. Regel namn måste börja med en bokstav och får bara innehålla siffror och bokstäver.
+1. Välj **Lägg till regel** och ange ett regel namn. Regel namn måste börja med en bokstav och får bara innehålla siffror och bokstäver.
 
-4. Identifiera vilken typ av förfrågningar som regeln gäller för. Använd List rutan för att välja matchnings villkor för **begäran protokoll** och Använd värdet **är lika med** **http**.
+1. Om du vill identifiera vilken typ av förfrågningar som regeln gäller för skapar du ett matchnings villkor:
+    1. Välj **Lägg till villkor**och välj sedan villkoret för matchning av **begäran protokoll** .
+    1. Välj **lika med**för **operatorn**.
+    1. För **värde**väljer du **http**.
    
-   [villkor för att matcha ![CDN-regel](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
+   [regel matchnings villkor för ![Azure CDN](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
    
    > [!NOTE]
-   > Det finns flera matchnings villkor i list rutan. En detaljerad lista över matchnings villkor finns i [regel motor matchnings villkor](cdn-standard-rules-engine-match-conditions.md).
+   > Du kan välja mellan flera matchnings villkor i list rutan **Lägg till villkor** . En detaljerad lista över matchnings villkor finns [i matchnings villkor i standard regel motorn](cdn-standard-rules-engine-match-conditions.md).
    
-5. Välj den åtgärd som ska tillämpas på de identifierade begär Anden. Använd List rutan för att välja åtgärden för **URL-omdirigering** och Använd det **påträffade värdet (302)** för typ och **https** för protokoll. Lämna alla andra fält tomma för att använda de inkommande värdena.
+1. Välj den åtgärd som ska tillämpas på de begär Anden som uppfyller matchnings villkoret:
+   1. Välj **Lägg till åtgärd**och välj sedan **URL-omdirigering**.
+   1. I **typ**väljer du **found (302)** .
+   1. För **Protokoll** väljer du **HTTPS**.
+   1. Lämna alla andra fält tomma om du vill använda inkommande värden.
    
-   [åtgärd för ![CDN-regel](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
+   [åtgärd för ![Azure CDN regel](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
    
    > [!NOTE]
-   > Flera åtgärder är tillgängliga i list rutan. En detaljerad lista över åtgärder finns i [regel motor åtgärder](cdn-standard-rules-engine-actions.md).
+   > Du kan välja mellan flera åtgärder i list rutan **Lägg till åtgärd** . En detaljerad lista över åtgärder finns i [åtgärder i standard regel motorn](cdn-standard-rules-engine-actions.md).
 
-6. Välj **Spara** för att spara den nya regeln.  Den nya regeln kommer nu att distribueras.
+6. Välj **Spara** för att spara den nya regeln. Regeln är nu tillgänglig för användning.
    
    > [!IMPORTANT]
    > Regel ändringar kan ta upp till 15 minuter innan de sprids via Azure CDN.
    >
    
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure CDN](cdn-overview.md)
 - [Motor referens för standard regler](cdn-standard-rules-engine-reference.md)
-- [Standard regel motor matchnings villkor](cdn-standard-rules-engine-match-conditions.md)
-- [Motor åtgärder för standard regler](cdn-standard-rules-engine-actions.md)
+- [Matchnings villkor i standard regel motorn](cdn-standard-rules-engine-match-conditions.md)
+- [Åtgärder i standard regel motorn](cdn-standard-rules-engine-actions.md)

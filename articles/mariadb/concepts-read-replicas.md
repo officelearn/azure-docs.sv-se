@@ -1,21 +1,21 @@
 ---
-title: Läs repliker i Azure Database for MariaDB
+title: Skrivskyddad replik i Azure Database for MariaDB
 description: 'Lär dig mer om att läsa repliker i Azure Database for MariaDB: välja regioner, skapa repliker, ansluta till repliker, övervaka replikering och stoppa replikering.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 29725c302887448689f4aafd86f1f834d81c23ed
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: f761cb1c4e895cd0960a0a07033e609acf9ef601
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973582"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158422"
 ---
-# <a name="read-replicas-in-azure-database-for-mariadb"></a>Läs repliker i Azure Database for MariaDB
+# <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
-Med funktionen Läs replik kan du replikera data från en Azure Database for MariaDB-server till en skrivskyddad Server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med MariaDB-motorns binära logg (BinLog)-baserad teknik för replikering med globalt transaktions-ID (GTID). Mer information om BinLog-replikering finns i [Översikt över BinLog-replikering](https://mariadb.com/kb/en/library/replication-overview/).
+Med funktionen för skrivskyddade repliker kan du replikera data från en Azure Database for MariaDB-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med MariaDB-motorns binära logg (BinLog)-baserad teknik för replikering med globalt transaktions-ID (GTID). Mer information om BinLog-replikering finns i [Översikt över BinLog-replikering](https://mariadb.com/kb/en/library/replication-overview/).
 
 Repliker är nya servrar som du hanterar precis som vanliga Azure Database for MariaDB-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
@@ -40,7 +40,7 @@ Du kan skapa en Läs replik i en annan region än huvud servern. Replikering mel
 
 Du kan ha en huvud server i valfri [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  En huvud server kan ha en replik i dess kopplade region eller Universal Replica-regioner. I bilden nedan visas vilka replik regioner som är tillgängliga beroende på din huvud region.
 
-[![Read replik regioner](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![Läs replik regioner](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. De Universal Replica-regioner som stöds är:
@@ -55,9 +55,9 @@ Om du använder repliker över flera regioner för att planera haveri beredskap 
 
 Det finns dock begränsningar att tänka på: 
 
-* Regional tillgänglighet: Azure Database for MariaDB är tillgängligt i USA, västra 2, Frankrike, centrala, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
+* Regional tillgänglighet: Azure Database for MariaDB är tillgänglig i USA, västra 2, Frankrike, centrala, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
     
-* Enkelriktade par: Vissa Azure-regioner är bara kopplade i en riktning. I dessa regioner ingår västra Indien, södra Brasilien och US Gov, Virginia. 
+* Enkelriktade par: vissa Azure-regioner är bara kopplade till en riktning. I dessa regioner ingår västra Indien, södra Brasilien och US Gov, Virginia. 
    Det innebär att en huvud server i västra Indien kan skapa en replik i södra Indien. En huvud server i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är inte västra Indien.
 
 
@@ -74,7 +74,7 @@ Lär dig hur du [skapar en Läs replik i Azure Portal](howto-read-replicas-porta
 
 ## <a name="connect-to-a-replica"></a>Anslut till en replik
 
-När du skapar en replik ärver den inte brand Väggs reglerna eller slut punkten för VNet-tjänsten på huvud servern. Dessa regler måste konfigureras separat för repliken.
+Vid skapandet ärver en replik brand Väggs regler eller en slut punkt för VNet-tjänsten för huvud servern. Därefter är dessa regler oberoende av huvud servern.
 
 Repliken ärver administratörs kontot från huvud servern. Alla användar konton på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på huvud servern.
 
@@ -90,7 +90,7 @@ Ange lösen ordet för användar kontot vid prompten.
 
 Azure Database for MariaDB anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker.
 
-Det här måttet beräknas med `seconds_behind_master`-mått som är tillgängligt i MariaDB `SHOW SLAVE STATUS`-kommando.
+Det här måttet beräknas med `seconds_behind_master` måttet som är tillgängligt i MariaDB `SHOW SLAVE STATUS` kommandot.
 
 Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
@@ -127,6 +127,8 @@ En replik skapas med samma server konfiguration som huvud servern. När en repli
 > [!IMPORTANT]
 > Uppdatera replikkonfigurationen till samma eller högre värden innan en huvudserverkonfiguration uppdateras till nya värden. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.
 
+Brand Väggs regler, regler för virtuella nätverk och parameter inställningar ärvs från huvud servern till repliken när repliken skapas. Därefter är replikens regler oberoende av varandra.
+
 ### <a name="stopped-replicas"></a>Stoppade repliker
 
 Om du stoppar replikeringen mellan en huvud server och en Läs replik blir den stoppade repliken en fristående server som accepterar både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
@@ -139,7 +141,7 @@ När en huvud server tas bort, stoppas replikeringen till alla Läs repliker. De
 
 Användare på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på huvud servern.
 
-### <a name="server-parameters"></a>Serverparametrar
+### <a name="server-parameters"></a>Server parametrar
 
 I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker.
 

@@ -7,19 +7,16 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715507"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158649"
 ---
 # <a name="assess-servers-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
 
-> [!NOTE]
-> Om du inte ser den här funktionen än i Azure Migrate-portalen låser du dig. Den kommer att visas under nästa vecka eller så.
-
-Den här artikeln förklarar hur du bedömer lokala servrar med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)genom att importera serverns metadata med hjälp av CSV. Med den här bedömnings metoden behöver du inte konfigurera Azure Migrate-enheten för att skapa en utvärdering. Detta är användbart om: 
+Den här artikeln förklarar hur du bedömer lokala servrar med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)genom att importera serverns metadata med hjälp av CSV. Med den här bedömnings metoden behöver du inte konfigurera Azure Migrate-enheten för att skapa en utvärdering. Detta är användbart om:
 
 - Du vill skapa en snabb första utvärdering innan du distribuerar enheten.
 - Du kan inte Distribuera Azure Migrate-enheten i din organisation.
@@ -36,7 +33,7 @@ Tänk på följande:
 - Du kan ladda upp Server information med CSV flera gånger för att Azure Migrate Server utvärderingen.
 - Även om det är användbart att samla in programinformation när du utvärderar din lokala miljö för migrering, utför Azure Migrate Server utvärderingen för närvarande inte program nivå utvärdering och tar inte med program i beaktande när skapar en utvärdering.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Fyll i en CSV-fil med Server information.
@@ -49,7 +46,7 @@ I den här guiden får du lära dig att:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>Ange Azure-behörigheter för Azure Migrate 
+## <a name="set-azure-permissions-for-azure-migrate"></a>Ange Azure-behörigheter för Azure Migrate
 
 Ditt Azure-konto måste ha behörighet att skapa ett Azure Migrate-projekt.
 
@@ -117,7 +114,7 @@ I följande tabell sammanfattas de fil fält som ska fyllas i.
 
 **Fält namn** | **Erforderlig** | **Information**
 --- | --- | ---
-**Servernamn** | Ja | Vi rekommenderar att du anger FQDN. 
+**Servernamn** | Ja | Vi rekommenderar att du anger FQDN.
 **IP-adress** | Nej | Server adress.
 **Antal kärnor** | Ja | Antalet processor kärnor som har allokerats till servern.
 **Minnesoptimerade** | Ja | Totalt RAM-minne (MB) som allokerats till servern.
@@ -145,7 +142,7 @@ I följande tabell sammanfattas de fil fält som ska fyllas i.
 **Virtual Machine Manager-ID** | Nej | Detta är **InstanceUUid** för VMware vCenter. Krävs inte för Hyper-V.
 **MAC-adress**| Nej | Serverns MAC-adress.
 **BIOS-ID** | Nej | Serverns BIOS-ID.
-**ID för anpassad server**| Nej | Lokala unika Server-ID: n lokalt. <br/> Användbart för att spåra den importerade servern med hjälp av lokalt ID. 
+**ID för anpassad server**| Nej | Lokala unika Server-ID: n lokalt. <br/> Användbart för att spåra den importerade servern med hjälp av lokalt ID.
 **Namn på program 1** | Nej | Namn på arbets belastningar som körs på servern.<br/> Du kan lägga till information för fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
 **Program 1-typ** | Nej | Typ av arbets belastning som körs på servern
 **Program 1-version** | Nej | Den version av arbets belastningen som körs på servern.
@@ -163,7 +160,7 @@ Utvärderingen identifierar olika operativ system namn. Alla operativ system nam
 
 ### <a name="add-multiple-disks"></a>Lägg till flera diskar
 
-Mallen innehåller standard fält för den första disken.  Du kan lägga till likartade kolumner för upp till 8 diskar. 
+Mallen innehåller standard fält för den första disken.  Du kan lägga till likartade kolumner för upp till 8 diskar.
 
 Om du till exempel vill ange alla fält för en annan disk lägger du till kolumnerna:
 
@@ -193,10 +190,10 @@ När du har lagt till information i CSV-mallen importerar du servrarna till Azur
 
 1. Bläddra till den ifyllda mallen i Azure Migrate > **identifiera datorer**.
 2. Klicka på **Importera**.
-3. Import status visas. 
+3. Import status visas.
     - Om varningar visas i statusen kan du antingen åtgärda dem eller fortsätta utan att behöva adressera dem.
     - Att förbättra Server informationen som föreslås i varningar förbättrar utvärderings precisionen.
-    - Om du vill visa och åtgärda varningar klickar du på **Hämta varnings information. CSV**. Detta laddar ned CSV-filen med varningar tillagda. Du kan granska varningarna och åtgärda problem vid behov. 
+    - Om du vill visa och åtgärda varningar klickar du på **Hämta varnings information. CSV**. Detta laddar ned CSV-filen med varningar tillagda. Du kan granska varningarna och åtgärda problem vid behov.
     Om fel visas i statusen (import status är **misslyckad**) måste du åtgärda dessa innan du kan fortsätta med importen. Det gör du genom att hämta CSV-filen som nu har lagt till fel information. Granska och åtgärda felen efter behov. Ladda sedan upp den ändrade filen igen.
 4. När import statusen är **klar**importeras Server informationen.
 
@@ -206,7 +203,7 @@ När du har lagt till information i CSV-mallen importerar du servrarna till Azur
 
 ## <a name="updating-server-information"></a>Uppdaterar Server information
 
-Du kan uppdatera en server information genom att överföra data för servern igen med samma **Server namn**. Du kan inte ändra fältet **Server namn** . 
+Du kan uppdatera en server information genom att överföra data för servern igen med samma **Server namn**. Du kan inte ändra fältet **Server namn** .
 
 Det finns för närvarande inte stöd för att ta bort servrar.
 
@@ -301,25 +298,25 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
 
 Namn | Namn
 --- | ---
-**A – H** | 
+**A – H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | Core-Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I-R** | 
+CentOS<br/>CentOS 4/5 | Core-Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I-R** |
 IBM OS/2 | Initieringsfiler |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat-Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat-Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UNIX-7 | Serenity system eComStation 1<br/>Serenity system eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Tröskelvärde för Windows Server<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-    
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen för du göra följande:
+I den här kursen har du:
 
 > [!div class="checklist"]
 > * Importerade servrar till Azure Migrate: Server utvärdering med hjälp av CSV.

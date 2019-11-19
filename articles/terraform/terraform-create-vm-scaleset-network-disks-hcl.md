@@ -1,17 +1,14 @@
 ---
 title: Självstudie – Skapa en skalnings uppsättning för virtuella Azure-datorer med terraform
 description: Lär dig att använda terraform för att konfigurera och version av en skalnings uppsättning för virtuella Azure-datorer.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: e2b7d816a02eaf47ef50bfd2d814f7b26a813446
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838393"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159073"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Självstudie: skapa en skalnings uppsättning för virtuella Azure-datorer med terraform
 
@@ -29,7 +26,7 @@ I den här självstudien får du lära dig hur du använder [Azure Cloud Shell](
 > [!NOTE]
 > Den senaste versionen av Terraform-konfigurationsfilerna som används i den här artikeln finns på [lagringsplatsen Awesome Terraform på GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 

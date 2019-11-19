@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4932089b7315f2756f3760b252c7257868f640fa
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 26744791dd3abe732f56f69ca05dd7c781755e9b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066040"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167969"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure-Multi-Factor Authentication
 
@@ -371,7 +371,7 @@ När dina användare registrerar sina konton för Azure Multi-Factor Authenticat
 | Metod | Beskrivning |
 |:--- |:--- |
 | Ring till telefon |Placerar ett automatiskt röst samtal. Användaren svarar på anropet och trycker på # i telefon tangent bordet för att autentisera. Telefonnumret är inte synkroniserat med lokala Active Directory. |
-| Textmeddelande till telefon |Skickar ett textmeddelande som innehåller en verifierings kod. Användaren uppmanas att ange verifierings koden i inloggnings gränssnittet. Den här processen kallas ett enkelriktat SMS. Dubbelriktat SMS innebär att användaren måste använda text för att återställa en viss kod. Dubbelriktat SMS är föråldrat och stöds inte efter 14 november 2018. Användare som har kon figurer ATS för dubbelriktat SMS växlas automatiskt till att _ringa till telefon_ verifieringen vid den tidpunkten.|
+| Textmeddelande till telefon |Skickar ett textmeddelande som innehåller en verifierings kod. Användaren uppmanas att ange verifierings koden i inloggnings gränssnittet. Den här processen kallas ett enkelriktat SMS. Dubbelriktat SMS innebär att användaren måste använda text för att återställa en viss kod. Dubbelriktat SMS är föråldrat och stöds inte efter 14 november 2018. Administratörer bör aktivera en annan metod för användare som tidigare har använt dubbelriktat SMS.|
 | Meddelande via mobilapp |Skickar ett push-meddelande till din telefon eller registrerade enhet. Användaren visar meddelandet och väljer **Verifiera** för att slutföra verifieringen. Microsoft Authenticator-appen är tillgänglig för [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verifierings kod från mobilapp eller maskinvaru-token |Microsoft Authenticator-appen genererar en ny OATH-verifierings kod var 30: e sekund. Användaren anger verifierings koden i inloggnings gränssnittet. Microsoft Authenticator-appen är tillgänglig för [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
@@ -382,7 +382,7 @@ När dina användare registrerar sina konton för Azure Multi-Factor Authenticat
 3. Välj **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
 5. På sidan **tjänst inställningar** under **verifierings alternativ**väljer/avmarkerar du de metoder som du vill använda för dina användare.
-6. Klicka på **Save** (Spara).
+6. Klicka på **Spara**.
 
 Ytterligare information om användningen av autentiseringsmetoder finns i artikeln [Vad är autentiseringsmetoder](concept-authentication-methods.md).
 

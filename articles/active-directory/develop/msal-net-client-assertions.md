@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 11/18/2019
 ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 66ff02e4c95594f0155ab31e3c99a0eb269626d9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802845"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168125"
 ---
 # <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
+
 För att bevisa sin identitet utbyter konfidentiella klient program en hemlighet med Azure AD. Hemligheten kan vara:
 - En klient hemlighet (program lösen ord).
 - Ett certifikat som används för att bygga en signerad försäkran som innehåller standard anspråk.
@@ -37,6 +38,9 @@ MSAL.NET har fyra metoder för att ange autentiseringsuppgifter eller intyg för
 - `.WithCertificate()`
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
+
+> [!NOTE]
+> Även om det är möjligt att använda `WithClientAssertion()` API för att hämta tokens för den konfidentiella klienten rekommenderar vi inte att du använder den som standard eftersom den är mer avancerad och har utformats för att hantera mycket olika scenarier som inte är vanliga. Med hjälp av `.WithCertificate()`-API: et kan MSAL.NET hantera detta åt dig. Med det här API: et kan du anpassa din autentiseringsbegäran om det behövs, men standard kontrollen som skapas av `.WithCertificate()` räcker för de flesta autentiserings scenarier. Detta API kan också användas som en lösning i vissa scenarier där MSAL.NET inte kan utföra signerings åtgärden internt.
 
 ### <a name="signed-assertions"></a>Signerade kontroller
 
@@ -54,10 +58,10 @@ De anspråk som förväntas av Azure AD är:
 Anspråks typ | Värde | Beskrivning
 ---------- | ---------- | ----------
 AUD | https://login.microsoftonline.com/{tenantId}/v2.0 | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, section 4.1.3]
-EXP | Tor Jun 27 2019 15:04:17 GMT + 0200 (romantik, sommar tid) | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4]
+exp | Tor Jun 27 2019 15:04:17 GMT + 0200 (romantik, sommar tid) | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4]
 ISS | ClientID | Anspråket "ISS" (utfärdare) identifierar det huvud konto som utfärdade JWT. Bearbetningen av detta påstående är programspecifik. Värdet "ISS" är en Skift läges känslig sträng som innehåller ett StringOrURI-värde. [RFC 7519, avsnitt 4.1.1]
 jti | (ett GUID) | Anspråket "JTI" (JWT ID) tillhandahåller en unik identifierare för JWT. Identifier-värdet måste tilldelas på ett sätt som garanterar att det är en försumbar sannolikhet att samma värde har tilldelats av misstag till ett annat data objekt. om programmet använder flera utfärdare, måste kollisioner förhindras mellan värden som skapas av olika utfärdare. JTI-anspråket kan användas för att förhindra att JWT spelas upp. Värdet "JTI" är en Skift läges känslig sträng. [RFC 7519, section 4.1.7]
-NBF | Tor Jun 27 2019 14:54:17 GMT + 0200 (romantik, sommar tid) | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5]
+nbf | Tor Jun 27 2019 14:54:17 GMT + 0200 (romantik, sommar tid) | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5]
 Build | ClientID | Anspråket "sub" (subject) identifierar ämnet för JWT. Anspråken i en JWT-sats är normalt uttryck för ämnet. Subject-värdet måste antingen vara lokalt unikt i kontexten för utfärdaren eller vara globalt unikt. Se [RFC 7519, avsnitt 4.1.2]
 
 Här är ett exempel på hur du kan hantverka dessa anspråk:
@@ -66,9 +70,9 @@ Här är ett exempel på hur du kan hantverka dessa anspråk:
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
-      string aud = "https://login.microsoftonline.com/72f988bf-86f1-41af-hd4m-2d7cd011db47/v2.0";
+      string aud = $"https://login.microsoftonline.com/{tenantId}/v2.0";
 
-      string ConfidentialClientID = "61dab2ba-145d-4b1b-8569-bf4b9aed5dhb" //client id
+      string ConfidentialClientID = "00000000-0000-0000-0000-000000000000" //client id
       const uint JwtToAadLifetimeInSeconds = 60 * 10; // Ten minutes
       DateTime validFrom = DateTime.UtcNow;
       var nbf = ConvertToTimeT(validFrom);
@@ -105,11 +109,11 @@ string Encode(byte[] arg)
     return s;
 }
 
-string GetAssertion()
+string GetSignedClientAssertion()
 {
     //Signing with SHA-256
     string rsaSha256Signature = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
-    X509Certificate2 certificate = ReadCertificate(config.CertificateName);
+     X509Certificate2 certificate = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
 
     //Create RSACryptoServiceProvider
     var x509Key = new X509AsymmetricSecurityKey(certificate);
@@ -129,9 +133,55 @@ string GetAssertion()
     string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims())));
 
     string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
-    string SignedAssertion = string.Concat(token, ".", signature);
-    return SignedAssertion;
+    string signedClientAssertion = string.Concat(token, ".", signature);
+    return signedClientAssertion;
 }
+```
+
+### <a name="alternative-method"></a>Alternativ metod
+
+Du kan också välja att använda [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) för att skapa en kontroll för dig. Koden får ett mer elegant som visas i exemplet nedan:
+
+```CSharp
+        string GetSignedClientAssertion()
+        {
+            var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
+
+            //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
+            string aud = $"https://login.microsoftonline.com/{tenantID}/v2.0";
+
+            // client_id
+            string confidentialClientID = "00000000-0000-0000-0000-000000000000";
+
+            // no need to add exp, nbf as JsonWebTokenHandler will add them by default.
+            var claims = new Dictionary<string, object>()
+            {
+                { "aud", aud },
+                { "iss", confidentialClientID },
+                { "jti", Guid.NewGuid().ToString() },
+                { "sub", confidentialClientID }
+            };
+
+            var securityTokenDescriptor = new SecurityTokenDescriptor
+            {
+                Claims = claims,
+                SigningCredentials = new X509SigningCredentials(cert)
+            };
+
+            var handler = new JsonWebTokenHandler();
+            var signedClientAssertion = handler.CreateToken(securityTokenDescriptor);
+        }
+```
+
+När du har en signerad klient kan du använda den med MSAL-API: erna som visas nedan.
+
+```CSharp
+            string signedClientAssertion = GetSignedClientAssertion();
+
+            var confidentialApp = ConfidentialClientApplicationBuilder
+                .Create(ConfidentialClientID)
+                .WithClientAssertion(signedClientAssertion)
+                .Build();
 ```
 
 ### <a name="withclientclaims"></a>WithClientClaims

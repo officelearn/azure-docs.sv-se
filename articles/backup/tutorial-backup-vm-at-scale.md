@@ -1,20 +1,15 @@
 ---
-title: Säkerhetskopiera virtuella Azure-datorer i skala
+title: Självstudie – säkerhetskopiera virtuella Azure-datorer i stor skala
 description: I den här självstudien får du lära dig hur du skapar ett Recovery Services valv, definierar en säkerhets kopierings princip och samtidigt säkerhetskopierar flera virtuella datorer.
-keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747010"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171856"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använda Azure Portal till att säkerhetskopiera flera virtuella datorer
 
@@ -23,13 +18,13 @@ När du säkerhetskopierar data i Azure lagrar du dessa data i en Azure-resurs s
 > [!div class="checklist"]
 >
 > * Skapa ett Recovery Services-valv
-> * definierar en säkerhetskopieringspolicy
+> * Definierar en säkerhetskopieringspolicy
 > * applicerar säkerhetskopieringspolicyn för att skydda flera virtuella datorer
-> * utlöser ett säkerhetskopieringsjobb på begäran för de skyddade virtuella datorerna
+> * Utlösa ett säkerhetskopieringsjobb på begäran för de skyddade virtuella datorerna
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
@@ -37,7 +32,7 @@ Recovery Services-valvet innehåller säkerhetsdata och säkerhetskopieringspoli
 
 1. Välj **Alla tjänster** på menyn till vänster och skriv *Recovery Services* i tjänstlistan. När du skriver filtreras listan med resurser. När du ser Recovery Services-valv i listan markerar du det för att öppna menyn Recovery Services-valv.
 
-    ![Öppna menyn Recovery Services-valv](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Öppna menyn Recovery Services-valv](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. På menyn **Recovery Services-valv** klickar du på **Lägg till** för att öppna menyn Recovery Services-valv.
 
@@ -46,7 +41,7 @@ Recovery Services-valvet innehåller säkerhetsdata och säkerhetskopieringspoli
 3. På menyn Recovery Services-valv
 
     * Skriv *myRecoveryServicesVault* i **Namn**.
-    * Det aktuella prenumerations-ID:t visas i **Prenumeration**. Om du har flera prenumerationer kan du välja en annan prenumeration för det nya valvet.
+    * Aktuellt prenumerations-ID visas i **Prenumeration**. Om du har flera prenumerationer kan du välja en annan prenumeration för det nya valvet.
     * För **Resursgrupp** väljer du **Använd befintlig** och sedan *myResourceGroup*. Om *myResourceGroup* inte finns väljer du **Skapa ny** och skriver *myResourceGroup*.
     * Från den nedrullningsbara menyn **Plats** väljer du *Europa, västra*.
     * Klicka på **Skapa** för att skapa ditt Recovery Services-valv.
@@ -73,7 +68,7 @@ När du har skapat Recovery Services-valvet är nästa steg att konfigurera valv
 
     ![Öppna menyn Scenario](./media/tutorial-backup-vm-at-scale/backup-goal.png)
 
-4. Om du vill skapa en ny policy går du till menyn Säkerhetskopieringspolicy och väljer **Skapa ny** i den nedrullningsbara menyn *Välj säkerhetskopieringspolicy*.
+4. Om du vill skapa en ny policy går du till menyn Säkerhetskopieringspolicy och väljer **Skapa ny** i den nedrullningsbara menyn *Välj säkerhetskopieringsprincip*.
 
     ![Välja arbetsbelastning](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 

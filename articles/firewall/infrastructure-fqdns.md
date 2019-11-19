@@ -1,18 +1,18 @@
 ---
 title: Infrastruktur-FQDN för Azure-brandvägg
-description: Lär dig mer om infrastruktur-FQDN i Azure Firewall
+description: Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 5b134058e1924bae030338411226a9a6aff46557
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130207"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168970"
 ---
 # <a name="infrastructure-fqdns"></a>Infrastruktur-FQDN
 

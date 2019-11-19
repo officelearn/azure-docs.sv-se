@@ -4,25 +4,22 @@ description: Beskriver hur du identifierar appar, roller och funktioner på loka
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/18/2019
 ms.author: snehaa
-ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 14ecc6454c3d0f167c671532dd8e659e767cda66
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715783"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158631"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn 
-
-> [!NOTE]
-> Om du inte ser den här funktionen än i Azure Migrate-portalen låser du dig. Den kommer att visas under nästa vecka eller så.
+# <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn
 
 I den här artikeln beskrivs hur du identifierar program, roller och funktioner på lokala servrar med hjälp av Azure Migrate: Server bedömning.
 
-Att identifiera inventeringen av appar, och roller/funktioner som körs på dina lokala datorer hjälper dig att identifiera och planera en migrerings Sök väg till Azure som är skräddarsydd för dina arbets belastningar. 
+Att identifiera inventeringen av appar, och roller/funktioner som körs på dina lokala datorer hjälper dig att identifiera och planera en migrerings Sök väg till Azure som är skräddarsydd för dina arbets belastningar.
 
-Identifiering av app med Azure Migrate: Server utvärderingen är agent lös. Inget måste installeras på datorer och virtuella datorer. Server utvärderingen använder Azure Migrate-installationen för att utföra identifiering tillsammans med autentiseringsuppgifter för dator gäst. Enheten fjärransluter till datorer med hjälp av WMI och SSH-samtal. 
+Identifiering av app med Azure Migrate: Server utvärderingen är agent lös. Inget måste installeras på datorer och virtuella datorer. Server utvärderingen använder Azure Migrate-installationen för att utföra identifiering tillsammans med autentiseringsuppgifter för dator gäst. Enheten fjärransluter till datorer med hjälp av WMI och SSH-samtal.
 
 > [!NOTE]
 > Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer och är begränsat till enbart identifiering. Vi erbjuder ännu inte app-baserad utvärdering.  För närvarande bedömer Server utvärderingen lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar på dator nivå för migrering av lyft och Shift.
@@ -50,7 +47,7 @@ När installationen har distribuerats och du har angett autentiseringsuppgifter,
 
 ## <a name="review-and-export-the-inventory"></a>Granska och exportera inventeringen
 
-Om du har angett autentiseringsuppgifter för identifiering av appar när identifieringen är klar kan du granska och exportera program inventeringen i Azure Portal. 
+Om du har angett autentiseringsuppgifter för identifiering av appar när identifieringen är klar kan du granska och exportera program inventeringen i Azure Portal.
 
 1. I **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering**klickar du på det visade antalet för att öppna sidan **identifierade servrar** .
 

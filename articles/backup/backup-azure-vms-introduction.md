@@ -1,18 +1,14 @@
 ---
 title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: I den här artikeln lär du dig hur tjänsten Azure Backup säkerhetskopierar virtuella Azure-datorer och hur du följer bästa praxis.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: e22c4c24e83be0f89b306eed0eb1d80bdd9387e1
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747213"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172478"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
@@ -47,7 +43,7 @@ Så här gör Azure Backup slutföra en säkerhets kopiering för virtuella Azur
 
 När du säkerhetskopierar virtuella Azure-datorer med Azure Backup krypteras de virtuella datorerna i rest med Kryptering för lagringstjänst (SSE). Azure Backup kan också säkerhetskopiera virtuella Azure-datorer som krypteras med hjälp av Azure Disk Encryption.
 
-**Kryptering** | **Detaljer** | **Support**
+**Kryptering** | **Information** | **Support**
 --- | --- | ---
 **Azure Disk Encryption** | Azure Disk Encryption krypterar både OS-och data diskar för virtuella Azure-datorer.<br/><br/> Azure Disk Encryption integreras med BitLocker-BEKs (-krypterings nycklar) som skyddas i ett nyckel valv som hemligheter. Azure Disk Encryption integreras också med Azure Key Vault Key Encryption Keys (KeyExchange). | Azure Backup stöder säkerhets kopiering av hanterade och ohanterade virtuella Azure-datorer med endast BEKs, eller med BEKs tillsammans med KeyExchange.<br/><br/> Både BEKs och KeyExchange säkerhets kopie ras och krypteras.<br/><br/> Eftersom KeyExchange och BEKs säkerhets kopie ras kan användare med de behörigheter som krävs återställa nycklar och hemligheter tillbaka till nyckel valvet om det behövs. Dessa användare kan också återställa den krypterade virtuella datorn.<br/><br/> Krypterade nycklar och hemligheter kan inte läsas av obehöriga användare eller av Azure.
 **SSE** | Med SSE ger Azure Storage kryptering i vila genom att automatiskt kryptera data innan de lagras. Azure Storage dekrypterar också data innan de hämtas. | Azure Backup använder SSE för at-rest-kryptering av virtuella Azure-datorer.
@@ -79,7 +75,7 @@ Azure Backup tar ögonblicks bilder enligt schema för säkerhets kopiering.
 
 I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 
-**Ögonblicks bild** | **Detaljer** | **Återställning** | **Övervägande**
+**Ögonblicks bild** | **Information** | **Återställning** | **Övervägande**
 --- | --- | --- | ---
 **Programkonsekvent** | Programkonsekventa säkerhets kopieringar fångar upp minnes innehåll och väntande I/O-åtgärder. I programkonsekventa ögonblicks bilder används en VSS-skrivare (eller pre/post-skript för Linux) för att säkerställa konsekvensen av AppData innan en säkerhets kopiering sker. | När du återställer en virtuell dator med en programkonsekvent ögonblicks bild startas den virtuella datorn. Det finns inga skadade data eller går förlorade. Apparna startar i ett konsekvent tillstånd. | Windows: alla VSS-skrivare har slutförts<br/><br/> Linux: pre/post-skript har kon figurer ATS och genomförts
 **Konsekvent fil system** | Konsekventa säkerhets kopieringar i fil systemet ger konsekvens genom att ta en ögonblicks bild av alla filer på samma gång.<br/><br/> | När du återställer en virtuell dator med en konsekvent fil system ögonblicks bild startas den virtuella datorn. Det finns inga skadade data eller går förlorade. Appar behöver implementera sin egen "Fix"-mekanism för att se till att återställda data är konsekventa. | Windows: vissa VSS-skrivare misslyckades <br/><br/> Linux: standard (om pre/post-skript inte har kon figurer ATS eller misslyckats)
@@ -87,9 +83,9 @@ I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 
 ## <a name="backup-and-restore-considerations"></a>Överväganden för säkerhets kopiering och återställning
 
-**Övervägande** | **Detaljer**
+**Övervägande** | **Information**
 --- | ---
-**Diskdefragmenter** | Säkerhets kopiering av virtuella dator diskar är parallell. Om till exempel en virtuell dator har fyra diskar, försöker säkerhets kopierings tjänsten säkerhetskopiera alla fyra diskarna parallellt. Backup är stegvis (endast ändrade data).
+**Disk** | Säkerhets kopiering av virtuella dator diskar är parallell. Om till exempel en virtuell dator har fyra diskar, försöker säkerhets kopierings tjänsten säkerhetskopiera alla fyra diskarna parallellt. Backup är stegvis (endast ändrade data).
 **Tids** |  Du kan minska säkerhets kopierings trafiken genom att säkerhetskopiera olika virtuella datorer vid olika tidpunkter på dagen och se till att tiderna inte överlappar varandra. När du säkerhetskopierar virtuella datorer samtidigt orsakar det att trafiken fastnar.
 **Förbereder säkerhets kopiering** | Tänk på den tid som krävs för att förbereda säkerhets kopieringen. Förberedelse tiden omfattar att installera eller uppdatera säkerhets kopierings tillägget och utlösa en ögonblicks bild enligt schemat för säkerhets kopieringen.
 **Dataöverföring** | Ta reda på hur lång tid det tar för Azure Backup att identifiera de stegvisa ändringarna från den tidigare säkerhets kopian.<br/><br/> I en stegvis säkerhets kopia bestämmer Azure Backup ändringarna genom att beräkna blockets kontroll summa. Om ett block ändras är det markerat för överföring till valvet. Tjänsten analyserar de identifierade blocken för att försöka ytterligare minimera mängden data som ska överföras. När du har utvärderat alla ändrade block överför Azure Backup ändringarna till valvet.<br/><br/> Det kan finnas en fördröjning mellan att ta ögonblicks bilden och kopiera den till valvet.<br/><br/> Vid hög belastnings tider kan det ta upp till åtta timmar innan säkerhets kopieringarna bearbetas. Säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för den dagliga säkerhets kopieringen.
@@ -130,12 +126,12 @@ På samma sätt baseras reserv lagrings fakturan på den mängd data som lagras 
 
 Ta till exempel en a2-standard virtuell dator som har två ytterligare data diskar med en maximal storlek på 4 TB. I följande tabell visas de faktiska data som lagras på var och en av dessa diskar:
 
-**Diskdefragmenter** | **Max storlek** | **Faktiska data finns**
+**Disk** | **Max storlek** | **Faktiska data finns**
 --- | --- | ---
-OS-disk | 4095 GB | 17 GB
+OS-disk | 4 095 GB | 17 GB
 Lokal/tillfällig disk | 135 GB | 5 GB (ingår inte i säkerhets kopian)
-Data disk 1 | 4095 GB | 30 GB
-Data disk 2 | 4095 GB | 0 GB
+Data disk 1 | 4 095 GB | 30 GB
+Data disk 2 | 4 095 GB | 0 GB
 
 Den faktiska storleken på den virtuella datorn i det här fallet är 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instans storleken (47 GB) utgör grunden för månads fakturan. När mängden data i den virtuella datorn växer ökar den skyddade instans storleken som används för fakturerings ändringar som ska matchas.
 

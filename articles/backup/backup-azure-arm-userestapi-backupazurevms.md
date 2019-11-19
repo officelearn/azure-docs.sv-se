@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: säkerhetskopiera virtuella Azure-datorer med REST API'
+title: Säkerhetskopiera virtuella Azure-datorer med REST API
 description: I den här artikeln får du lära dig hur du konfigurerar, initierar och hanterar säkerhets kopierings åtgärder för virtuella Azure-datorer med hjälp av REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM-säkerhetskopiering; Återställning av Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 6f64f45aca6948665c088279002d3d8054ef8d80
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c929f820862f5d041b4a63a1ca9c083abf1a1e4c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929175"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173450"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -41,7 +35,7 @@ POST-URI: n har `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}``{f
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Svar
+#### <a name="responses"></a>Responses
 
 Åtgärden Uppdatera är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -163,8 +157,8 @@ Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och var
 
 I exemplet översätts ovanstående värden till:
 
-- containerName = "iaasvmcontainer; iaasvmcontainerv2; testRG; testVM"
-- protectedItemName = "VM; iaasvmcontainerv2; testRG; testVM"
+- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Aktiverar skydd för den virtuella Azure-datorn
 
@@ -208,7 +202,7 @@ Följande begär ande text definierar egenskaper som krävs för att skapa ett s
 
 `{sourceResourceId}` är det `{virtualMachineId}` som anges ovan från [svar på lista objekt](#example-responses-1)som kan skyddas.
 
-#### <a name="responses"></a>Svar
+#### <a name="responses"></a>Responses
 
 Att skapa ett skyddat objekt är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -319,7 +313,7 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
 }
 ```
 
-### <a name="responses"></a>Svar
+### <a name="responses"></a>Responses
 
 Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -447,7 +441,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|204 noåll     |         |  Inget innehåll       |
+|204 noåll     |         |  NoContent       |
 |202 accepterad     |         |     Accept    |
 
 ## <a name="next-steps"></a>Nästa steg

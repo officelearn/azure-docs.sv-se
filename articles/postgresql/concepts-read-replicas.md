@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: e276340041e69101190645caad9dbf6de57abd95
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 11/17/2019
+ms.openlocfilehash: 5d3d752f549fe336f584fa3534b61cb5a009c3bd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996502"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158804"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -50,14 +50,14 @@ Om du använder repliker över flera regioner för att planera haveri beredskap 
 
 Det finns begränsningar att tänka på: 
 
-* Regional tillgänglighet: Azure Database for PostgreSQL är tillgängligt i USA, västra 2, Frankrike, centrala, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
+* Regional tillgänglighet: Azure Database for PostgreSQL är tillgänglig i USA, västra 2, Frankrike, centrala, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
     
-* Enkelriktade par: Vissa Azure-regioner är bara kopplade i en riktning. I dessa regioner ingår västra Indien, södra Brasilien. 
+* Enkelriktade par: vissa Azure-regioner är bara kopplade till en riktning. I dessa regioner ingår västra Indien, södra Brasilien. 
    Det innebär att en huvud server i västra Indien kan skapa en replik i södra Indien. En huvud server i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är inte västra Indien.
 
 
 ## <a name="create-a-replica"></a>Skapa en replik
-Huvud servern måste ha `azure.replication_support` parametern inställd på **replik**. När den här parametern ändras krävs en omstart av servern för att ändringen ska börja gälla. `azure.replication_support` (Parametern gäller endast för generell användning och minnesoptimerade nivåer).
+Huvud servern måste ha parametern `azure.replication_support` inställd på **replik**. När den här parametern ändras krävs en omstart av servern för att ändringen ska börja gälla. (Parametern `azure.replication_support` gäller endast för Generell användning och minnesoptimerade nivåer).
 
 När du startar arbets flödet skapa replik skapas en tom Azure Database for PostgreSQL-Server. Den nya servern fylls med de data som fanns på huvud servern. Skapande tiden beror på mängden data i huvud servern och tiden sedan den senaste veckovis fullständiga säkerhets kopieringen. Tiden kan vara från några minuter till flera timmar.
 
@@ -85,7 +85,7 @@ Azure Database for PostgreSQL tillhandahåller två mått för övervakning av r
 
 Måttet **Max fördröjning över repliker** visar fördröjningen i byte mellan huvud servern och den mest isolerings repliken. Detta mått är bara tillgängligt på huvud servern.
 
-Värdet för **replik fördröjningen** visar tiden sedan den senaste återspelade transaktionen. Om det inte finns några transaktioner på huvud servern, motsvarar måttet denna tids fördröjning. Det här måttet är endast tillgängligt för replik servrar. Replik fördröjningen beräknas från `pg_stat_wal_receiver` vyn:
+Värdet för **replik fördröjningen** visar tiden sedan den senaste återspelade transaktionen. Om det inte finns några transaktioner på huvud servern, motsvarar måttet denna tids fördröjning. Det här måttet är endast tillgängligt för replik servrar. Replik fördröjningen beräknas från `pg_stat_wal_receiver` vy:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -146,8 +146,8 @@ När ditt program har bearbetat läsningar och skrivningar har du slutfört redu
 
 I det här avsnittet sammanfattas överväganden om funktionen Läs replik.
 
-### <a name="prerequisites"></a>Förutsättningar
-Innan du skapar en Läs replik `azure.replication_support` måste parametern ställas in på **replik** på huvud servern. När den här parametern ändras krävs en omstart av servern för att ändringen ska börja gälla. `azure.replication_support` Parametern gäller endast för generell användning-och minnesoptimerade nivåer.
+### <a name="prerequisites"></a>Krav
+Innan du skapar en Läs replik måste parametern `azure.replication_support` anges till **replik** på huvud servern. När den här parametern ändras krävs en omstart av servern för att ändringen ska börja gälla. Parametern `azure.replication_support` gäller endast för Generell användning-och Minnesoptimerade nivåer.
 
 ### <a name="new-replicas"></a>Nya repliker
 En Läs replik skapas som en ny Azure Database for PostgreSQL Server. Det går inte att göra en befintlig server till en replik. Du kan inte skapa en replik av en annan Läs replik.
@@ -158,12 +158,14 @@ En replik skapas med samma beräknings-och lagrings inställningar som huvud ser
 > [!IMPORTANT]
 > Innan en huvud inställning uppdateras till ett nytt värde uppdaterar du replik konfigurationen till ett lika eller högre värde. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.
 
-PostgreSQL kräver att värdet för `max_connections` parametern på Läs repliken är större än eller lika med huvudets värde, annars startar inte repliken. I Azure Database for PostgreSQL `max_connections` baseras parametervärdet på SKU: n. Mer information finns i [gränser i Azure Database for PostgreSQL](concepts-limits.md). 
+PostgreSQL kräver att värdet för parametern `max_connections` på Läs repliken är större än eller lika med huvudets värde. annars startar inte repliken. I Azure Database for PostgreSQL baseras värdet på `max_connections`-parametern på SKU: n. Mer information finns i [gränser i Azure Database for PostgreSQL](concepts-limits.md). 
 
-Om du försöker uppdatera Server värden, men inte följer gränserna, visas ett fel meddelande.
+Om du försöker uppdatera de Server värden som beskrivs ovan, men inte följer gränserna, får du ett fel meddelande.
+
+Brand Väggs regler, regler för virtuella nätverk och parameter inställningar ärvs inte från huvud servern till repliken när repliken skapas eller efteråt.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[Postgresql kräver](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) att värdet för `max_prepared_transactions` parametern på Läs repliken är större än eller lika med huvudets värde, annars startar inte repliken. Om du vill ändra `max_prepared_transactions` i huvud repliken måste du först ändra den på replikerna.
+[Postgresql kräver](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) att värdet för parametern `max_prepared_transactions` på Läs repliken är större än eller lika med huvudets värde. annars startar inte repliken. Om du vill ändra `max_prepared_transactions` i huvud repliken måste du först ändra den på replikerna.
 
 ### <a name="stopped-replicas"></a>Stoppade repliker
 Om du stoppar replikeringen mellan en huvud server och en Läs replik, startar repliken om för att tillämpa ändringen. Den stoppade repliken blir en fristående server som accepterar både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.

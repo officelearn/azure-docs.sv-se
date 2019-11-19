@@ -133,11 +133,13 @@
             - name: Skapa och installera VPN-klientkonfigurationsfiler
               href: point-to-site-vpn-client-configuration-radius.md
             - name: Integrera P2S VPN RADIUS-autentisering med NPS-server
-              href: vpn-gateway-radiuis-mfa-nsp.md
+              href: vpn-gateway-radius-mfa-nsp.md
         - name: Azure AD-autentisering
           items:
             - name: Konfigurera en klientorganisation
               href: openvpn-azure-ad-tenant.md
+            - name: Konfigurera multifaktorautentisering (MFA)
+              href: openvpn-azure-ad-mfa.md
             - name: Konfigurera en VPN-klient
               href: openvpn-azure-ad-client.md
         - name: OpenVPN

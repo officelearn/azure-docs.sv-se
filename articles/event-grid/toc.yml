@@ -27,6 +27,8 @@
           href: custom-event-quickstart-powershell.md
         - name: Portalen
           href: custom-event-quickstart-portal.md
+    - name: Azure Functions som händelsehanterare
+      href: custom-event-to-function.md
     - name: Kölagring som händelsehanterare
       href: custom-event-to-queue-storage.md
     - name: Event Hubs som händelsehanterare
@@ -111,6 +113,8 @@
       href: post-to-custom-topic.md
     - name: Ta emot händelser vid HTTP-slutpunkt
       href: receive-events.md
+    - name: Säker WebHook med AAD
+      href: secure-webhook-delivery.md
     - name: Obeställbara meddelanden och nytt försök
       href: manage-event-delivery.md
     - name: Filtrera händelser

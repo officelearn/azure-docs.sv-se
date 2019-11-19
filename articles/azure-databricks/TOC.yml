@@ -573,10 +573,10 @@
             - name: Läsa in data
               href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
               maintainContext: true
-            - name: Sammanfoga (Delta Lake på Azure Databricks
+            - name: Sammanfoga (Delta Lake på Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
               maintainContext: true
-            - name: Optimera (Delta Lake på Azure Databricks
+            - name: Optimera (Delta Lake på Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
               maintainContext: true
             - name: Uppdatera tabell
@@ -714,9 +714,9 @@
             - name: Avancerat MLlib-exempel
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
-        - name: Automatisk ML
+        - name: AutoML
           items:
-            - name: Översikt över automatiserad ML
+            - name: Översikt över AutoML
               href: /azure/databricks/applications/machine-learning/automl/index
               maintainContext: true
             - name: Hyperopt
@@ -920,7 +920,7 @@
             - name: Tumor/normal pipeline
               href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
               maintainContext: true
-            - name: Varianter på anteckningar med Pipe Tansformer
+            - name: Varianter på anteckningar med Pipe Transformer
               href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
               maintainContext: true
             - name: Varianter på anteckningsmetoder
@@ -1367,7 +1367,7 @@
             - name: Automatiskt sparande av notebook-fil misslyckas på grund av filstorleksbegränsningar
               href: /azure/databricks/kb/notebooks/notebook-autosave
               maintainContext: true
-            - name: Det går inte att köra notebook-filen efter att direktuppspelningscellen har avbrutits
+            - name: Det går inte att köra notebook efter att direktuppspelningscell har avbrutits
               href: /azure/databricks/kb/notebooks/streaming-notebook-stuck
               maintainContext: true
             - name: Felsök kommandot för att avbryta
@@ -1609,6 +1609,12 @@
               items:
                 - name: Runtime-versioner som stöds
                   href: /azure/databricks/release-notes/runtime/supported
+                  maintainContext: true
+                - name: Databricks Runtime 6.2
+                  href: /azure/databricks/release-notes/runtime/6.2
+                  maintainContext: true
+                - name: Databricks Runtime 6.2 ML
+                  href: /azure/databricks/release-notes/runtime/6.2ml
                   maintainContext: true
                 - name: Databricks Runtime 6.1
                   href: /azure/databricks/release-notes/runtime/6.1

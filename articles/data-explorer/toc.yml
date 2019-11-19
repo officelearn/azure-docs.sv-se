@@ -21,7 +21,7 @@
           href: end-to-end-csharp.md
         - name: Python
           href: end-to-end-python.md
-    - name: Mata in data utan att använda kod
+    - name: Mata in och köra frågor mot övervakningsdata
       href: ingest-data-no-code.md
     - name: Visualisera data i Power BI
       href: visualize-power-bi.md

@@ -672,6 +672,8 @@
               href: mongodb-readpreference.md
             - name: TTL-värde – MongoDB
               href: mongodb-time-to-live.md
+            - name: Ändra dataströmmar
+              href: mongodb-change-streams.md
             - name: Hantera dataindexering
               href: mongodb-indexing.md
             - name: Lagra och hantera Spring Data

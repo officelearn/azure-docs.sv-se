@@ -331,6 +331,14 @@
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: Principdefinitioner
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - name: Azure SDK för Python
+      items:
+        - name: Princip
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+        - name: Principklient
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+        - name: Principinsikter
+          href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
         - name: Händelser

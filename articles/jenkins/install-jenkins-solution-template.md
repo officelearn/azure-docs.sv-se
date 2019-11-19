@@ -1,25 +1,21 @@
 ---
 title: Skapa en Jenkins-server i Azure
 description: Installera Jenkins på en virtuell Azure Linux-dator från Jenkins-lösningsmappen och skapa ett Java-exempelprogram.
-ms.service: jenkins
 keywords: jenkins, azure, devops, portal, virtuell dator, lösningsmall
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 531199303f7b00083bcd7139ac00ac36bde5c583
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ed2c94699df4a4cf4b6428f4e2e52d17144eb77c
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837524"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158837"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Skapa en Jenkins-server på en virtuell Azure Linux-dator från Azure Portal
 
 Den här snabbstarten visar hur du installerar [Jenkins](https://jenkins.io) på en virtuell Ubuntu Linux-dator med verktygen och plugin-programmen som är konfigurerade för att fungera med Azure. När du är klar körs en Jenkins-server i Azure och skapar en Java-exempelapp från [GitHub](https://github.com).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration
 * Åtkomst till SSH på datorns kommandorad (som Bash-gränssnitt eller [PuTTY](https://www.putty.org/))

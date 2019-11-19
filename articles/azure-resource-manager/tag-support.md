@@ -2,13 +2,13 @@
 title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: c0f36568bbbf824285cfaa3385d2225e0a989639
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/18/2019
+ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149222"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173552"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](resource-group-using-tags.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten.
@@ -1364,14 +1364,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Ja | Ja |
-> | netAppAccounts/backupPolicies | Ja | Ja |
-> | netAppAccounts/capacityPools | Ja | Ja |
-> | netAppAccounts/capacityPools/Volumes | Ja | Ja |
-> | netAppAccounts/capacityPools/Volumes/Backups | Nej | Nej |
-> | netAppAccounts/capacityPools/Volumes/mountTargets | Ja | Ja |
-> | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja | Ja |
-> | netAppAccounts/valv | Nej | Nej |
+> | netAppAccounts | Ja | Nej |
+> | netAppAccounts/capacityPools | Ja | Nej |
+> | netAppAccounts/capacityPools/Volumes | Ja | Nej |
+> | netAppAccounts/capacityPools/Volumes/mountTargets | Ja | Nej |
+> | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja | Nej |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]

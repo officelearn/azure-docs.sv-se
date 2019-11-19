@@ -1,17 +1,14 @@
 ---
 title: Snabb start – skapa en terraform-konfiguration för Azure
 description: Kom igång med Terraform på Azure genom att distribuera en Azure Cosmos DB och Azure Container Instances.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: quickstart
 ms.date: 10/26/2019
-ms.openlocfilehash: 07c1839afcc29c7089540c587a3a32eae14944ef
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 47eec1f238d3fdff99b75953bc6d7e92137cca2d
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969863"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159313"
 ---
 # <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Snabb start: skapa en terraform-konfiguration för Azure
 
@@ -26,7 +23,7 @@ I den här snabb starten skapar du Azure-resurser med hjälp av terraform. Stege
 
 I det här avsnittet skapar du konfigurationen för en Azure Cosmos DB-instans.
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Öppna Azure Cloud Shell.
 

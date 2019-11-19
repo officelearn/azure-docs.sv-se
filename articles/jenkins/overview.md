@@ -1,19 +1,15 @@
 ---
 title: Översikt över Jenkins och Azure
 description: Använd Azure som värd för en Jenkins-automationsserver för versions- och distributionshantering och använd Azures beräknings- och lagringsresurser för att utöka dina kontinuerliga pipelines för integration och distribution (CI/CD).
-ms.service: jenkins
 keywords: jenkins, azure, devops, översikt
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 9b4ceb144408e0ac1886aa3a7e0e0f48ac4baba3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: a7ac07af4d9f3c065ce033fac3982091a0b9c679
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881952"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158758"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
@@ -27,7 +23,7 @@ Med Azure som värd för dina Jenkins-servrar kan du centralisera versionsautoma
  
 - [Jenkins-lösningsmallen](install-jenkins-solution-template.md) på Azure Marketplace.
 - [Virtuella Azure-datorer](/azure/virtual-machines/linux/overview). Anvisningar som beskriver hur du skapar en Jenkins-instans på en virtuell dator finns i vår [självstudie](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd).
-- Läs vår [instruktionsartikel](/azure/container-service/kubernetes/container-service-kubernetes-jenkins) som beskriver ett Kubernetes-kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough).
+- Läs vår [instruktionsartikel](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) som beskriver ett Kubernetes-kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 Övervaka och hantera din Azure Jenkins-distribution med hjälp av [Azure Monitor loggar](/azure/log-analytics/log-analytics-overview) och [Azure CLI](/cli/azure).
 

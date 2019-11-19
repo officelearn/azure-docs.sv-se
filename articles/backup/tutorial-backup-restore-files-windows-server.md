@@ -1,23 +1,19 @@
 ---
-title: Återställa filer från Azure till Windows Server
+title: 'Självstudie: återställa objekt till Windows Server'
 description: I den här självstudien får du lära dig hur du använder MARS-agenten (Microsoft Azure Recovery Services agent) för att återställa objekt från Azure till en Windows-Server.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 02/14/2018
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: a0945c70b271d5213e8eb5b6adbd768ec390f40b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5958f6574f8c559bae8f500b1cb555e96e007d0e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73746928"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171809"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Återställa filer från Azure till Windows Server
 
-Med Azure Backup kan du återställa enskilda objekt från säkerhetskopior av Windows Server. Det är praktiskt att återställa enskilda filer om du snabbt måste återställa filer som du har råkat ta bort av misstag. I den här självstudien beskrivs hur du kan använda MARS-agenten (Microsoft Azure Recovery Services Agent) för att återställa objekt från säkerhetskopior som du redan har skapat i Azure. I den här självstudiekursen får du lära du dig att:
+Med Azure Backup kan du återställa enskilda objekt från säkerhetskopior av Windows Server. Det är praktiskt att återställa enskilda filer om du snabbt måste återställa filer som du har råkat ta bort av misstag. I den här självstudien beskrivs hur du kan använda MARS-agenten (Microsoft Azure Recovery Services Agent) för att återställa objekt från säkerhetskopior som du redan har skapat i Azure. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 >

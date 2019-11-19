@@ -3,17 +3,13 @@ title: Självstudie – konfigurera peering för virtuella Azure-nätverk med An
 description: Lär dig hur du använder Ansible för att ansluta virtuella nätverk med peering för virtuella nätverk.
 keywords: Ansible, Azure, DevOps, bash, Spelbok, nätverk, peering
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 78699a005d721b46a88a26452f5db68438793d34
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241237"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155725"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Självstudie: Konfigurera Azure Virtual Network-peering med Ansible
 
@@ -321,8 +317,8 @@ Spara följande spelbok som `cleanup.yml`:
 
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Ersätt plats hållaren `{{ resource_group_name-1 }}` med namnet på den första resurs gruppen som skapats.
-- Ersätt plats hållaren `{{ resource_group_name-2 }}` med namnet på den andra resurs gruppen som skapades.
+- Ersätt `{{ resource_group_name-1 }}` plats hållaren med namnet på den första resurs gruppen som skapas.
+- Ersätt `{{ resource_group_name-2 }}` plats hållaren med namnet på den andra resurs gruppen som skapades.
 - Alla resurser inom de två angivna resurs grupperna kommer att tas bort.
 
 Kör Spelbok med kommandot Ansible-Spelbok:

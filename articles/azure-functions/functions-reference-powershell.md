@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: glenga
-ms.openlocfilehash: 0d398e9848559e70883c07498057d1807651a867
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3b8294c7bd91bcd6a2e0e533f5903f44e8aaea
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515663"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173663"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
 Den här artikeln innehåller information om hur du skriver Azure Functions med hjälp av PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 En PowerShell-funktion (funktion) i Azure representeras som ett PowerShell-skript som körs när den utlöses. Varje funktions skript har en relaterad `function.json`-fil som definierar hur funktionen fungerar, till exempel hur den utlöses och dess indata-och utdataparametrar. Mer information finns i [artikeln utlösare och bindning](functions-triggers-bindings.md). 
 
@@ -81,11 +79,11 @@ $TriggerMetadata.sys
 
 | Egenskap   | Beskrivning                                     | Typ     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | När, i UTC, utlöstes funktionen        | DateTime |
+| utcNow     | När, i UTC, utlöstes funktionen        | DateTime |
 | MethodName | Namnet på den funktion som har utlösts     | sträng   |
 | RandGuid   | ett unikt GUID för den här körningen av funktionen | sträng   |
 
-Varje utlösnings typ har en annan uppsättning metadata. @No__t_0 för `QueueTrigger` innehåller till exempel `InsertionTime`, `Id`, `DequeueCount`, bland annat. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
+Varje utlösnings typ har en annan uppsättning metadata. `$TriggerMetadata` för `QueueTrigger` innehåller till exempel `InsertionTime`, `Id`, `DequeueCount`, bland annat. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
 
 ## <a name="bindings"></a>Bindningar
 
@@ -131,7 +129,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
-| Namn | Typ | Position | Beskrivning |
+| Namn | Typ | position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | Sträng | 1 | Namnet på den utgående bindning som du vill ange. |
 | **`-Value`** | Objekt | 2 | Värdet för den utgående bindning som du vill ange, som accepteras från pipelinen ByValue. |
@@ -170,7 +168,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 })
 ```
 
-För utdata som bara accepterar singleton-värden kan du använda parametern `-Clobber` för att åsidosätta det gamla värdet i stället för att försöka lägga till i en samling. I följande exempel förutsätter vi att du redan har lagt till ett värde. Genom att använda `-Clobber` åsidosätter svaret från följande exempel det befintliga värdet för att returnera värdet "utdata #3":
+För utdata som bara accepterar singleton-värden kan du använda parametern `-Clobber` för att åsidosätta det gamla värdet i stället för att försöka lägga till i en samling. I följande exempel förutsätter vi att du redan har lagt till ett värde. Genom att använda `-Clobber`åsidosätter svaret från följande exempel det befintliga värdet för att returnera värdet "utdata #3":
 
 ```powershell
 PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
@@ -218,7 +216,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding` innehåller också en parameter med namnet `-Name` som kan användas för att filtrera den returnerade bindningen, som i följande exempel:
+`Get-OutputBinding` innehåller också en parameter med namnet `-Name`som kan användas för att filtrera den returnerade bindningen, som i följande exempel:
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -241,7 +239,7 @@ Loggning i PowerShell-funktioner fungerar som vanlig PowerShell-loggning. Du kan
 | Fel | **`Write-Error`** |
 | Varning | **`Write-Warning`**  | 
 | Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Skriver till loggning på _informations_ nivå. |
-| Felsöka | **`Write-Debug`** |
+| Felsökning | **`Write-Debug`** |
 | Spårning | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Förutom dessa cmdlets omdirigeras allt som skrivs till pipelinen till `Information` loggnings nivå och visas med standardvärdet för PowerShell.
@@ -282,7 +280,7 @@ Alla utlösare och bindningar representeras i kod som några få verkliga data t
 
 * Hash
 * sträng
-* byte []
+* byte[]
 * int
 * double
 * HttpRequestContext
@@ -303,10 +301,10 @@ Objektet Request som skickas till skriptet är av typen `HttpRequestContext`, so
 | Egenskap  | Beskrivning                                                    | Typ                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Ett objekt som innehåller bröd texten i begäran. `Body` serialiseras till den bästa typen baserat på data. Om data till exempel är JSON, skickas de som en hash-tabell. Om datan är en sträng skickas den som en sträng. | objekt |
-| **`Headers`** | En ord lista som innehåller begärandehuvuden.                | Ord listans < sträng, String ><sup> *</sup> |
+| **`Headers`** | En ord lista som innehåller begärandehuvuden.                | Ord listans < sträng, String ><sup>*</sup> |
 | **`Method`** | HTTP-metoden för begäran.                                | sträng                    |
-| **`Params`**  | Ett objekt som innehåller Dirigerings parametrarna för begäran. | Ord listans < sträng, String ><sup> *</sup> |
-| **`Query`** | Ett objekt som innehåller frågeparametrarna.                  | Ord listans < sträng, String ><sup> *</sup> |
+| **`Params`**  | Ett objekt som innehåller Dirigerings parametrarna för begäran. | Ord listans < sträng, String ><sup>*</sup> |
+| **`Query`** | Ett objekt som innehåller frågeparametrarna.                  | Ord listans < sträng, String ><sup>*</sup> |
 | **`Url`** | URL för begäran.                                        | sträng                    |
 
 <sup>*</sup> Alla `Dictionary<string,string>` nycklar är Skift läges känsliga.
@@ -424,7 +422,7 @@ När du uppdaterar filen Requirements. psd1 installeras uppdaterade moduler efte
 > [!NOTE]
 > Hanterade beroenden kräver åtkomst till www.powershellgallery.com för att hämta moduler. När du kör lokalt kontrollerar du att körnings miljön har åtkomst till den här URL: en genom att lägga till eventuella nödvändiga brand Väggs regler. 
 
-Följande program inställningar kan användas för att ändra hur de hanterade beroendena hämtas och installeras. Din app-uppgradering startar inom `MDMaxBackgroundUpgradePeriod` och uppgraderings processen slutförs inom ungefär `MDNewSnapshotCheckPeriod`.
+Följande program inställningar kan användas för att ändra hur de hanterade beroendena hämtas och installeras. Din app-uppgradering startar inom `MDMaxBackgroundUpgradePeriod`och uppgraderings processen slutförs inom ungefär `MDNewSnapshotCheckPeriod`.
 
 | Funktionsapp inställning              | Standardvärde             | Beskrivning                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
@@ -434,7 +432,7 @@ Följande program inställningar kan användas för att ändra hur de hanterade 
 
 Att dra nytta av dina egna anpassade moduler är lite annorlunda än hur du gör det normalt.
 
-Modulen installeras i någon av de globalt tillgängliga mapparna i `$env:PSModulePath` på den lokala datorn. När du kör i Azure har du inte åtkomst till de moduler som är installerade på datorn. Det innebär att `$env:PSModulePath` för en PowerShell Function-app skiljer sig från `$env:PSModulePath` i ett vanligt PowerShell-skript.
+Modulen installeras i någon av de globalt tillgängliga mapparna i `$env:PSModulePath`på den lokala datorn. När du kör i Azure har du inte åtkomst till de moduler som är installerade på datorn. Det innebär att `$env:PSModulePath` för en PowerShell Function-app skiljer sig från `$env:PSModulePath` i ett vanligt PowerShell-skript.
 
 I functions `PSModulePath` innehåller två sökvägar:
 
@@ -473,13 +471,13 @@ PSFunctionApp
 
 När du startar en Function-app lägger PowerShell-språket till den här `Modules` mappen till `$env:PSModulePath` så att du kan förlita dig på att modulen laddas automatiskt upp precis som i ett vanligt PowerShell-skript.
 
-### <a name="language-worker-level-modules-folder"></a>@No__t_0 mapp för språk arbets nivå
+### <a name="language-worker-level-modules-folder"></a>`Modules` mapp för språk arbets nivå
 
 Flera moduler används ofta av PowerShell-språket. Dessa moduler definieras i den sista positionen för `PSModulePath`. 
 
 Den aktuella listan över moduler är följande:
 
-* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulen används för att arbeta med Arkiv, t. ex. `.zip`, `.nupkg` och andra.
+* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulen används för att arbeta med Arkiv, t. ex. `.zip`, `.nupkg`och andra.
 * **ThreadJob**: en tråd baserad implementering av PowerShell-jobbets API: er.
 
 Som standard använder funktionen den senaste versionen av dessa moduler. Om du vill använda en speciell version av en modul, ska du ange den här versionen i mappen `Modules` i din Function-app.

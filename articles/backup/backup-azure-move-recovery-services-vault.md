@@ -2,18 +2,14 @@
 title: Flytta Azure Backup Recovery Services valv
 description: Instruktioner om hur du flyttar Recovery Services-valvet över Azure-prenumerationer och resurs grupper.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: fb98ba8c393d28e7cdfb0b53cdd9ba11c171726f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7d0a6c47fa08774161d3a2b7507cdfecaf8c7197
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969141"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172892"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -132,7 +128,7 @@ Om du vill flytta ett Recovery Services valv till en annan resurs grupp använde
 az resource move --destination-group <destinationResourceGroupName> --ids <VaultResourceID>
 ```
 
-Om du vill flytta till en ny prenumeration anger du parametern `--destination-subscription-id`.
+Om du vill flytta till en ny prenumeration, ange den `--destination-subscription-id` parametern.
 
 ## <a name="post-migration"></a>Post-migrering
 

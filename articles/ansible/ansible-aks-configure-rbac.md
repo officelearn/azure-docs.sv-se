@@ -3,17 +3,13 @@ title: Självstudie – Konfigurera rollbaserad åtkomst kontroll (RBAC) roller 
 description: Lär dig hur du använder Ansible för att konfigurera RBAC i Azure Kubernetes service (AKS)-kluster
 keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes, Azure Active Directory, RBAC
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 36a6f5ade7a60a989d2e80f2405aaa2d1d50b756
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242342"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156869"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera rollbaserad åtkomst kontroll (RBAC) roller i Azure Kubernetes service (AKS) med hjälp av Ansible
 
@@ -35,7 +31,7 @@ AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/acti
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Installera RedHat OpenShift-biblioteket** -  @ no__t-2
+- **Installera RedHat OpenShift-biblioteket** - `pip install openshift`
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Konfigurera Azure AD för AKS-autentisering
 
@@ -57,7 +53,7 @@ I det här avsnittet skapar du en AKS med [Azure AD-programmet](#configure-azure
 Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
 - Spelbok läser in `ssh_key` från `~/.ssh/id_rsa.pub`. Om du ändrar det använder du det enkla formatet – från och med "SSH-RSA" (utan citationstecken).
-- Värdena `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
+- Värdena för `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -125,7 +121,7 @@ Om du vill skapa en RBAC-bindning måste du först hämta Azure AD-objekt-ID: t.
 
 1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Skriv `Azure Active Directory` i Sök fältet högst upp på sidan. 
+1. Ange `Azure Active Directory`i fältet Sök högst upp på sidan. 
 
 1. Klicka på `Enter`.
 
@@ -160,9 +156,9 @@ subjects:
   name: <your-aad-account>
 ```
 
-Ersätt plats hållaren `&lt;your-aad-account>` med ditt Azure AD [-klientens objekt-ID](#get-the-azure-ad-object-id).
+Ersätt `&lt;your-aad-account>` plats hållaren med ditt Azure AD [-klientens objekt-ID](#get-the-azure-ad-object-id).
 
-Spara följande Spelbok – som distribuerar den nya rollen till AKS-as `aks-kube-deploy.yml`:
+Spara följande Spelbok – som distribuerar den nya rollen till AKS-som `aks-kube-deploy.yml`:
 
 ```yml
 - name: Apply role to AKS
@@ -202,7 +198,7 @@ Spara följande spelbok som `aks-rbac.yml`:
        include_tasks: aks-kube-deploy.yml
 ```
 
-I avsnittet `vars` ersätter du följande plats hållare med din Azure AD-information:
+Ersätt följande plats hållare i avsnittet `vars` med din Azure AD-information:
 
 - `<client id>`
 - `<server id>`

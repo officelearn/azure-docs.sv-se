@@ -3326,8 +3326,8 @@ Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fi
 
 | Scenario | Värd i länkad tjänst definition | folderPath i data uppsättnings definition |
 | --- | --- | --- |
-| Lokal mapp på Data Management Gateway dator: <br/><br/>Exempel: D:\\\* eller D:\folder\subfolder\\* |D:\\\\ (för Data Management Gateway 2,0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2,0) |.\\\\ eller mapp\\\\undermapp (för Data Management Gateway 2,0 och senare versioner) <br/><br/>D:\\\\ eller D:\\\\mapp\\\\undermapp (för gateway-version under 2,0) |
-| Fjärran sluten delad mapp: <br/><br/>Exempel: \\\\Server\\resurs\\\* eller \\\\Server\\dela\\mapp\\\\* |\\\\\\\\Server\\\\dela |.\\\\ eller mapp\\\\undermappen |
+| Lokal mapp på Data Management Gateway dator: <br/><br/>Exempel: D:\\\* eller D:\folder\subfolder\\\* |D:\\\\ (för Data Management Gateway 2,0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2,0) |.\\\\ eller mapp\\\\undermapp (för Data Management Gateway 2,0 och senare versioner) <br/><br/>D:\\\\ eller D:\\\\mapp\\\\undermapp (för gateway-version under 2,0) |
+| Fjärran sluten delad mapp: <br/><br/>Exempel: \\\\Server\\resurs\\\* eller \\\\Server\\dela\\mapp\\\\\* |\\\\\\\\Server\\\\dela |.\\\\ eller mapp\\\\undermappen |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Exempel: använda användar namn och lösen ord i oformaterad text

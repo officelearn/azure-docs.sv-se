@@ -8,20 +8,16 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 075c60aed458be8a4bf45fafb2d06757862ff5ba
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091902"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158578"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
 Den här artikeln beskriver hur du förbereder för utvärdering av lokala fysiska servrar med [Azure Migrate](migrate-services-overview.md).
-
-
-> [!NOTE]
-> Om du ännu inte ser några av de här funktionerna i Azure Migrate-portalen låser du dig. De kommer att visas under nästa vecka eller så.
 
 [Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
 
@@ -45,7 +41,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du måste ange behörigheter för Azure Migrate distribution.
 
-- Behörigheter för ditt Azure-konto för att skapa ett Azure Migrate-projekt. 
+- Behörigheter för ditt Azure-konto för att skapa ett Azure Migrate-projekt.
 - Behörigheter för ditt konto för att registrera Azure Migrate-enheten. Enheten används för identifiering och migrering av Hyper-V. Under installationen av produkten skapar Azure Migrate två Azure Active Directory-appar (Azure AD) som unikt identifierar enheten:
     - Den första appen kommunicerar med Azure Migrate tjänst slut punkter.
     - Den andra appen får åtkomst till en Azure Key Vault som skapas under registreringen, för att lagra konfigurations inställningar för Azure AD-appen.
@@ -73,7 +69,7 @@ Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appar s
 Det är värt att notera att:
 
 - Apparna har inte någon annan åtkomst behörighet för prenumerationen förutom de som beskrivs ovan.
-- Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS. 
+- Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
 
 
 #### <a name="grant-account-permissions"></a>Bevilja konto behörigheter
@@ -88,7 +84,7 @@ Klient organisationen/den globala administratören kan bevilja behörigheter enl
 > [!NOTE]
 > Detta är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-#### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare 
+#### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare
 
 Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -124,12 +120,12 @@ Azure Migrate behöver behörighet att identifiera lokala servrar.
 ## <a name="next-steps"></a>Nästa steg
 
 I den här kursen har du:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Konfigurera behörigheter för Azure-kontot.
 > * För beredda fysiska servrar för utvärdering.
 
 Fortsätt till nästa självstudie för att skapa ett Azure Migrate projekt och utvärdera fysiska servrar för migrering till Azure
 
-> [!div class="nextstepaction"] 
-> [Utvärdera fysiska servrar](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [Utvärdera fysiska servrar](./tutorial-assess-physical.md)

@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 09/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2f45f70f1c131e1690997cda18a8d612d3af9dee
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 2a70472518b72052f8338d6f14ea64fed6c6d4f1
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010310"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158336"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
 Den här artikeln beskriver hur du förbereder för utvärdering och migrering av lokala virtuella Hyper-V-datorer till Azure med [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
+[Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella Hyper-V-datorer till Azure. I den här guiden får du lära dig att:
+Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella Hyper-V-datorer till Azure. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
@@ -42,7 +42,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du måste ange behörigheter för Azure Migrate distribution.
 
-- Behörigheter för ditt Azure-konto för att skapa ett Azure Migrate-projekt. 
+- Behörigheter för ditt Azure-konto för att skapa ett Azure Migrate-projekt.
 - Behörigheter för ditt konto för att registrera Azure Migrate-enheten. Enheten används för identifiering och migrering av Hyper-V. Under installationen av produkten skapar Azure Migrate två Azure Active Directory-appar (Azure AD) som unikt identifierar enheten:
     - Den första appen kommunicerar med Azure Migrate tjänst slut punkter.
     - Den andra appen får åtkomst till en Azure Key Vault som skapas under registreringen, för att lagra konfigurations inställningar för Azure AD-appen.
@@ -70,14 +70,14 @@ Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appar s
 Det är värt att notera att:
 
 - Apparna har inte någon annan åtkomst behörighet för prenumerationen förutom de som beskrivs ovan.
-- Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS. 
+- Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
 
 
 #### <a name="grant-account-permissions"></a>Bevilja konto behörigheter
 
 Klient organisationen/den globala administratören kan bevilja behörigheter enligt följande:
 
-1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory** > **användares** > **användar inställningar**.
+1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory** > **användare** > **användar inställningar**.
 2. Administratören bör ange **Appregistreringar** till **Ja**.
 
     ![Azure AD-behörigheter](./media/tutorial-prepare-hyper-v/aad.png)
@@ -87,7 +87,7 @@ Klient organisationen/den globala administratören kan bevilja behörigheter enl
 
 
 
-#### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare 
+#### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare
 
 Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -98,7 +98,7 @@ Gör så här för att förbereda för Hyper-V-utvärdering:
 
 1. Verifiera inställningarna för Hyper-V-värden.
 2. Konfigurera PowerShell-fjärrkommunikation på varje värd, så att Azure Migrate-installationen kan köra PowerShell-kommandon på värden via en WinRM-anslutning.
-3. Om VM-diskar finns i fjärr-SMB-lagring krävs delegering av autentiseringsuppgifter. 
+3. Om VM-diskar finns i fjärr-SMB-lagring krävs delegering av autentiseringsuppgifter.
     - Aktivera CredSSP-delegering så att Azure Migrate-installationen kan fungera som klienten och delegera autentiseringsuppgifter till en värd.
     - Du gör det möjligt för varje värd att fungera som ett ombud för enheten, enligt beskrivningen nedan.
     - När du senare konfigurerar installationen aktiverar du delegering på enheten.
@@ -122,7 +122,7 @@ Skriptet verifierar Hyper-V-värdar och konfigurerar de inställningar du behöv
 - Kontrollerar att värden kör en version av Hyper-V som stöds och Hyper-V-rollen.
 - Aktiverar WinRM-tjänsten och öppnar portarna 5985 (HTTP) och 5986 (HTTPS) på värden (krävs för metadata-insamling).
 - Aktiverar PowerShell-fjärrkommunikation på värden.
-- Kontrollerar att integrerings tjänsten för Hyper-V är aktive rad på alla virtuella datorer som hanteras av värden. 
+- Kontrollerar att integrerings tjänsten för Hyper-V är aktive rad på alla virtuella datorer som hanteras av värden.
 - Aktiverar CredSSP på värden vid behov.
 
 Kör skriptet på följande sätt:
@@ -133,7 +133,7 @@ Kör skriptet på följande sätt:
     ```
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
     ```
-    Exempel på användning: 
+    Exempel på användning:
     ```
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
     SHA256
@@ -215,7 +215,7 @@ Azure Migrate behöver behörighet för att identifiera lokala virtuella datorer
 
 Integrerings tjänsterna måste vara aktiverade på varje virtuell dator så att Azure Migrate kan avbilda information om operativ systemet på den virtuella datorn.
 
-På virtuella datorer som du vill identifiera och utvärdera aktiverar du [integrerings tjänster för Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) på varje virtuell dator. 
+På virtuella datorer som du vill identifiera och utvärdera aktiverar du [integrerings tjänster för Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) på varje virtuell dator.
 
 ## <a name="prepare-for-hyper-v-migration"></a>Förbered för Hyper-V-migrering
 
@@ -225,13 +225,13 @@ På virtuella datorer som du vill identifiera och utvärdera aktiverar du [integ
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen för du göra följande:
- 
-> [!div class="checklist"] 
+I den här kursen har du:
+
+> [!div class="checklist"]
 > * Konfigurera behörigheter för Azure-kontot.
 > * För beredda Hyper-V-värdar och virtuella datorer för utvärdering och migrering.
 
 Fortsätt till nästa självstudie för att skapa ett Azure Migrate-projekt och utvärdera virtuella Hyper-V-datorer för migrering till Azure
 
-> [!div class="nextstepaction"] 
-> [Utvärdera virtuella Hyper-V-datorer](./tutorial-assess-hyper-v.md) 
+> [!div class="nextstepaction"]
+> [Utvärdera virtuella Hyper-V-datorer](./tutorial-assess-hyper-v.md)

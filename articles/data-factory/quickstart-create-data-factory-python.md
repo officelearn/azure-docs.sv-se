@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: afe6ae001712db6d2a0dfa676daf847a2c4cf86e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e63892962802d38ac7337a99a9a33f3770785ad2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438680"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170275"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-using-python"></a>Snabb start: skapa en Azure Data Factory och en pipeline med python
 
@@ -34,12 +34,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Krav
 
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
-* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Observera följande värden som du kommer att använda i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln om att [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
+* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Notera följande värden som du använder i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
 
 ### <a name="create-and-upload-an-input-file"></a>Skapa och ladda upp en indatafil
 
-1. Öppna Anteckningar. Kopiera följande text och spara den som en **input.txt**-fil på din disk.
+1. Öppna Anteckningar. Kopiera följande text och spara den som **input.txt** på disken.
 
     ```text
     John|Doe
@@ -150,7 +150,7 @@ Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden. Om 
 
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
-Lägg till följande kod som skapar en **länkad Azure Storage-tjänst** till **Main**-metoden.
+Lägg till följande kod i **Main**-metoden som skapar en **länkad Azure Storage-tjänst**.
 
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten behöver du bara skapa en Azure Storage-länkad tjänst som både kopia på källa och mottagarlagring, med namnet "AzureStorageLinkedService" i exemplet. Byt ut `<storageaccountname>` och `<storageaccountkey>` mot namnet på och nyckeln för ditt Azure-lagringskonto.
 
@@ -224,7 +224,7 @@ Lägg till följande kod som skapar och **aktiverar en pipeline** till **Main**-
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
+Lägg till följande kod i **Main**-metoden som **utlöser en pipelinekörning**.
 
 ```python
     #Create a pipeline run.
@@ -351,7 +351,7 @@ def main():
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(ls_name)
+    ds_ls = LinkedServiceReference(reference_name=ls_name)
     blob_path = 'adfv2tutorial/input'
     blob_filename = 'input.txt'
     ds_azure_blob = AzureBlobDataset(

@@ -1,18 +1,14 @@
 ---
-title: Säkerhetskopiera och återställa virtuella Azure-datorer med hjälp av Azure Backup med PowerShell
+title: Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 description: Beskriver hur du säkerhetskopierar och återställer virtuella Azure-datorer med hjälp av Azure Backup med PowerShell
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 91e71e2ab4c028e44f667133237cefb2263ae49a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969067"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172550"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -21,6 +17,7 @@ Den här artikeln beskriver hur du säkerhetskopierar och återställer en virtu
 I den här artikeln lär du dig hur du:
 
 > [!div class="checklist"]
+>
 > * Skapa ett Recovery Services valv och ange valv kontexten.
 > * Definierar en säkerhetskopieringspolicy
 > * applicerar säkerhetskopieringspolicyn för att skydda flera virtuella datorer
@@ -29,7 +26,7 @@ I den här artikeln lär du dig hur du:
 ## <a name="before-you-start"></a>Innan du börjar
 
 * [Läs mer](backup-azure-recovery-services-vault-overview.md) om Recovery Services-valv.
-* [Granska](backup-architecture.md#architecture-direct-backup-of-azure-vms) arkitekturen för säkerhets kopiering av virtuella Azure-datorer, [Läs om](backup-azure-vms-introduction.md) säkerhets kopierings processen och [Granska](backup-support-matrix-iaas.md) support, begränsningar och krav.
+* [Granska](backup-architecture.md#architecture-built-in-azure-vm-backup) arkitekturen för säkerhets kopiering av virtuella Azure-datorer, [Läs om](backup-azure-vms-introduction.md) säkerhets kopierings processen och [Granska](backup-support-matrix-iaas.md) support, begränsningar och krav.
 * Granska PowerShell-objektcachen för Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Recovery Services objektets hierarki
@@ -44,7 +41,7 @@ Granska referens referensen för [cmdleten](https://docs.microsoft.com/powershel
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-För att börja:
+Så här börjar du:
 
 1. [Ladda ned den senaste versionen av PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
@@ -83,7 +80,7 @@ För att börja:
 
     I kommandoutdata ska **RegistrationState** ändras till **registrerad**. Om inte, kör du bara **[register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** -cmdleten igen.
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Ett Recovery Services-valv skiljer sig från ett säkerhets kopierings valv.
 
@@ -605,7 +602,7 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
      }
       ```
 
-   * **Icke-hanterade och krypterade virtuella datorer utan Azure AD (endast Bek)** – för icke-hanterade, krypterade virtuella datorer utan Azure AD (krypteras endast med Bek), om käll nyckel **valv/hemlighet inte är tillgängliga** återställa hemligheterna till Key Vault med hjälp av proceduren i [ Återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information för den återställda OS-blobben (det här steget krävs inte för data-BLOB). $Dekurl kan hämtas från det återställda nyckel valvet.<br>
+   * **Icke-hanterade och krypterade virtuella datorer utan Azure AD (endast Bek)** – för icke-hanterade, krypterade virtuella datorer utan Azure AD (krypteras endast med Bek), om det **inte går** att återställa källan till nyckel valvet med hjälp av proceduren i [återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information för den återställda OS-blobben (det här steget krävs inte för data-BLOB). $Dekurl kan hämtas från det återställda nyckel valvet.<br>
 
    Skriptet nedan måste köras endast när käll nyckel valvet/hemligheten inte är tillgänglig.
 
@@ -632,7 +629,7 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
       }
       ```
 
-   * **Icke-hanterade och krypterade virtuella datorer utan Azure AD (Bek och KEK)** – för icke-hanterade, krypterade virtuella datorer utan Azure AD (krypterad med Bek & KEK), om käll nyckel **valv/nyckel/hemlighet inte är tillgängliga** återställa nyckeln och hemligheterna till nyckel valvet med hjälp av procedur i [återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information för den återställda OS-blobben (det här steget krävs inte för data-BLOB). $Dekurl och $kekurl kan hämtas från det återställda nyckel valvet.
+   * **Icke-hanterade och krypterade virtuella datorer utan Azure AD (Bek och KEK)** – för icke-hanterade, krypterade virtuella datorer utan Azure AD (krypterade med Bek & KEK), om käll nyckel **valv/nyckel/hemlighet inte är tillgängliga** återställa nyckeln och hemligheterna till nyckel valvet med hjälp av proceduren i [återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information för den återställda OS-blobben (det här steget krävs inte för data-BLOB). $Dekurl och $kekurl kan hämtas från det återställda nyckel valvet.
 
    Skriptet nedan måste köras endast när käll nyckel valvet/nyckeln/hemligheten inte är tillgänglig.
 
@@ -666,7 +663,7 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
 
    * **Hanterade och krypterade virtuella datorer med Azure AD (Bek och KEK)** – för hanterade krypterade virtuella datorer med Azure AD (krypterad med Bek och KEK) kopplar du tillbaka de återställda hanterade diskarna. Detaljerad information finns i [koppla en datadisk till en virtuell Windows-dator med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Hanterade och krypterade virtuella datorer utan Azure AD (endast Bek)** – för hanterade, krypterade virtuella datorer utan Azure AD (krypteras endast med Bek), om det **inte** går att återställa källan till nyckel valvet med hjälp av proceduren i [återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information på den återställda OS-disken (det här steget krävs inte för data diskar). $Dekurl kan hämtas från det återställda nyckel valvet.
+   * **Hanterade och krypterade virtuella datorer utan Azure AD (endast Bek)** – för hanterade, krypterade virtuella datorer utan Azure AD (krypteras endast med Bek), om det **inte** går att återställa hemligheterna för nyckel valv med hjälp av proceduren i [återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information på den återställda OS-disken (det här steget krävs inte för data diskar). $Dekurl kan hämtas från det återställda nyckel valvet.
 
      Skriptet nedan måste köras endast när käll nyckel valvet/hemligheten inte är tillgänglig.  
 
@@ -680,7 +677,7 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
 
      När hemligheterna är tillgängliga och krypterings informationen har ställts in på operativ system disken, kan du se [koppla en datadisk till en virtuell Windows-dator med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Hanterade och krypterade virtuella datorer utan Azure AD (Bek och KEK)** – för hanterade, krypterade virtuella datorer utan Azure AD (krypterad med Bek & KEK), om käll nyckel **valv/nyckel/hemlighet inte är tillgängliga** återställa nyckeln och hemligheterna till nyckel valvet med hjälp av proceduren i [Återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information på den återställda OS-disken (det här steget krävs inte för data diskar). $Dekurl och $kekurl kan hämtas från det återställda nyckel valvet.
+   * **Hanterade och krypterade virtuella datorer utan Azure AD (Bek och KEK)** – för hanterade, krypterade virtuella datorer utan Azure AD (krypteras med hjälp av Bek & KEK), om det **inte finns några tillgängliga käll nyckel valv/nyckel/hemlighet** för att återställa nyckeln och hemligheterna med hjälp av proceduren i [återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information på den återställda OS-disken (det här steget krävs inte för data diskar). $Dekurl och $kekurl kan hämtas från det återställda nyckel valvet.
 
    Skriptet nedan måste köras endast när käll nyckel valvet/nyckeln/hemligheten inte är tillgänglig.
 

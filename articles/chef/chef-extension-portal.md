@@ -1,111 +1,107 @@
 ---
-title: Installera klienten Chef i Azure Portal
-description: Lär dig att distribuera och konfigurera din Chef-klient från Azure portal
-keywords: Azure, chef, devops, klient, installation, portal
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
+title: Installera chefs klienten från Azure Portal
+description: Lär dig hur du distribuerar och konfigurerar din chefs klient från Azure Portal
+keywords: Azure, chef, DevOps, klient, installation, Portal
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563891"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158270"
 ---
-# <a name="install-the-chef-client-from-the-azure-portal"></a>Installera klienten Chef i Azure Portal
-Du kan lägga till tillägget Chef klienten direkt på en Linux- eller Windows-dator från Azure-portalen. Den här artikeln vägleder dig genom processen med hjälp av en ny virtuell Linux-dator.
+# <a name="install-the-chef-client-from-the-azure-portal"></a>Installera chefs klienten från Azure Portal
+Du kan lägga till chefs klient tillägget direkt på en Linux-eller Windows-dator från Azure Portal. Den här artikeln vägleder dig genom processen med en ny virtuell Linux-dator.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-- **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Chef**: Om du inte har ett aktivt konto Chef kan registrera dig för en [kostnadsfri utvärderingsversion av värdbaserade Chef](https://manage.chef.io/signup). Om du vill följa anvisningarna i den här artikeln behöver du följande värden från din Chef-konto:
+- **Chef**: om du inte har ett aktivt chefs konto kan du registrera dig för en [kostnads fri utvärderings version av Host chef](https://manage.chef.io/signup). För att följa anvisningarna i den här artikeln behöver du följande värden från ditt chefs konto:
   - organization_validation nyckel
   - rb
   - run_list
 
-## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Installera tillägget Chef på en ny virtuell Linux-dator
-I det här avsnittet ska du först använda Azure-portalen för att skapa en Linux-dator. Under processen visas också hur du installerar tillägget Chef på den nya virtuella datorn.
+## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Installera chefs tillägget på en ny virtuell Linux-dator
+I det här avsnittet ska du först använda Azure Portal för att skapa en Linux-dator. Under processen ser du också hur du installerar chefs tillägget på den nya virtuella datorn.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
-1. På menyn till vänster, väljer den **virtuella datorer** alternativet. Om den **virtuella datorer** alternativet är inte tillgänglig, Välj **alla tjänster** och välj sedan **virtuella datorer**.
+1. I menyn till vänster väljer du alternativet **virtuella datorer** . Om alternativet **virtuella datorer** inte finns väljer du **alla tjänster** och väljer sedan **virtuella datorer**.
 
-1. På den **virtuella datorer** fliken **Lägg till**.
+1. På fliken **virtuella datorer** väljer du **Lägg till**.
 
-    ![Lägg till en ny virtuell dator i Azure portal](./media/chef-extension-portal/add-vm.png)
+    ![Lägg till en ny virtuell dator i Azure Portal](./media/chef-extension-portal/add-vm.png)
 
-1. På den **Compute** , Välj önskat operativsystem. Den här demonstrationen **Ubuntu Server** har valts.
+1. På fliken **Compute** väljer du önskat operativ system. **Ubuntu-servern** är markerad för den här demon.
 
-1. På den **Ubuntu Server** fliken **Ubuntu Server 16.04 LTS**.
+1. På fliken **Ubuntu Server** väljer du **Ubuntu Server 16,04 LTS**.
 
-    ![När du skapar en Ubuntu-dator, anger du den version som du behöver](./media/chef-extension-portal/ubuntu-server-version.png)
+    ![När du skapar en virtuell Ubuntu-dator anger du den version du behöver](./media/chef-extension-portal/ubuntu-server-version.png)
 
-1. På den **Ubuntu Server 16.04 LTS** fliken **skapa**.
+1. På fliken **Ubuntu Server 16,04 LTS** väljer du **skapa**.
 
-    ![Ubuntu tillhandahåller ytterligare information om sina produkter](./media/chef-extension-portal/create-vm.png)
+    ![Ubuntu innehåller ytterligare information om deras produkter](./media/chef-extension-portal/create-vm.png)
 
-1. På den **Skapa virtuell dator** fliken **grunderna**.
+1. På fliken **Skapa virtuell dator** väljer du **grunderna**.
 
-1. På den **grunderna** fliken, ange följande värden och därefter **OK**.
+1. På fliken **grundläggande** anger du följande värden och väljer sedan **OK**.
 
-   - **Namn på** -ange ett namn för den nya virtuella datorn.
-   - **Typ av virtuell datordisk** -ange antingen **SSD** eller **HDD** för storage-disktyp. Mer information om disktyper för virtuell dator på Azure finns i artikeln [Välj en disktyp av](../virtual-machines/windows/disks-types.md).
-   - **Användarnamn** -ange ett användarnamn som har beviljats administratörsbehörighet på den virtuella datorn.
-   - **Autentiseringstyp** – Välj **lösenord**. Du kan också välja **offentlig SSH-nyckel**, och ange en SSH-offentliga nyckelvärde. Gäller för den här demon (och i skärmbilderna) **lösenord** har valts.
-   - **Lösenordet** och **Bekräfta lösenord** -ange ett lösenord för användaren.
-   - **Logga in med Azure Active Directory** – Välj **inaktiverad**.
-   - **Prenumeration** – Välj den önskade Azure-prenumerationen om du har fler än en.
-   - **Resursgrupp** -ange ett namn för resursgruppen.
+   - **Namn** – ange ett namn för den nya virtuella datorn.
+   - **Typ av virtuell hård disk** – ange antingen **SSD** eller **HDD** för lagrings disk typen. Mer information om disk typer för virtuella datorer i Azure finns i artikeln [Välj typ av disk](../virtual-machines/windows/disks-types.md).
+   - **Användar namn** – ange ett användar namn som har behörighet för administratörs behörighet på den virtuella datorn.
+   - **Autentiseringstyp** – Välj **lösen ord**. Du kan också välja **Offentlig SSH-nyckel**och ange ett värde för en offentlig SSH-nyckel. För den här demonstrationen (och i skärm bilderna) är **lösen ordet** markerat.
+   - **Lösen** ord och **Bekräfta lösen ord** – ange ett lösen ord för användaren.
+   - **Logga in med Azure Active Directory** – Välj **inaktive rad**.
+   - **Prenumeration** – Välj önskad Azure-prenumeration om du har fler än en.
+   - **Resurs grupp** – ange ett namn för resurs gruppen.
    - **Plats** – Välj **USA, östra**.
 
-     ![Fliken grunderna för att skapa en virtuell dator](./media/chef-extension-portal/add-vm-basics.png)
+     ![Fliken grunder för att skapa en virtuell dator](./media/chef-extension-portal/add-vm-basics.png)
 
-1. På den **väljer du en storlek** fliken, välja storlek för den virtuella datorn och välj sedan **Välj**.
+1. På fliken **Välj en storlek** väljer du storleken på den virtuella datorn och väljer sedan **Välj**.
 
-1. På den **inställningar** fliken, de flesta av värdena som fylls i automatiskt baserat på de värden du valde på föregående flikar. Välj **Tillägg**.
+1. På fliken **Inställningar** fylls de flesta värdena i automatiskt baserat på de värden som du valde i föregående flikar. Välj **Tillägg**.
 
-     ![Tillägg har lagts till virtuella datorer via fliken Inställningar](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![Tillägg läggs till i virtuella datorer via fliken Inställningar](./media/chef-extension-portal/add-vm-select-extensions.png)
 
-1. På den **tillägg** fliken **lägga till tillägget**.
+1. På fliken **tillägg** väljer du **Lägg till tillägg**.
 
-     ![Välj Lägg till tillägg för att lägga till ett tillägg till en virtuell dator](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![Välj Lägg till tillägg om du vill lägga till ett tillägg i en virtuell dator](./media/chef-extension-portal/add-vm-add-extension.png)
 
-1. På den **ny resurs** fliken **Linux Chef-tillägget (1.2.3)** .
+1. På fliken **Ny resurs** väljer du **Linux chefs tillägg (1.2.3)** .
 
-     ![Chef har tillägg för Linux och Windows-datorer](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef har tillägg för virtuella Linux-och Windows-datorer](./media/chef-extension-portal/select-linux-chef-extension.png)
 
-1. På den **Linux Chef tillägget** fliken **skapa**.
+1. På fliken **Linux chef-tillägg** väljer du **skapa**.
 
-1. På den **installera tillägget** fliken, ange följande värden och därefter **OK**.
+1. På fliken **installations tillägg** anger du följande värden och väljer sedan **OK**.
 
-    - **Chef-Serveradress** – ange Webbadressen för Chef-Server som innehåller organisationsnamnet på, till exempel *https://api.chef.io/organization/mycompany* .
-    - **Chef nodnamnet** – ange namnet på Chef noden. Detta kan vara vilket värde som helst.
-    - **Kör listan** -ange Chef kör-lista som har lagts till datorn. Detta kan vara tomt.
-    - **Verifiering klientnamn** -ange namn för Chef verifiering klient. till exempel *tarcher verifieraren*.
-    - **Valideringsnyckel** -Välj en fil som innehåller valideringsnyckel som används vid start av dina datorer.
-    - **Klientkonfigurationsfilen** -Välj en konfigurationsfil för chef-klient. Detta kan vara tomt.
-    - **Chef-klientversionen** – ange vilken version av klienten chef att installera. Detta kan vara tomt. Ett tomt värde installerar den senaste versionen.
-    - **SSL-verifieringsläge** – Välj antingen **ingen** eller **Peer**. *Ingen* har valts för demon.
-    - **Chef miljö** – ange den här noden ska vara medlem i Chef miljön. Detta kan vara tomt.
-    - **Krypterad Databag hemlighet** -Välj en fil som innehåller hemligheten för den krypterade Databag den här datorn ska ha åtkomst till. Detta kan vara tomt.
-    - **Chef serverns SSL-certifikat** -Välj SSL-certifikat som har tilldelats till din Chef-Server. Detta kan vara tomt.
+    - **Chefs server-URL** – ange chefs serverns URL som innehåller organisations namnet, till exempel *https://api.chef.io/organization/mycompany* .
+    - **Chefens nodnamn** – ange namnet på chefens nod. Detta kan vara vilket värde som helst.
+    - **Kör lista** – ange chefs körnings listan som har lagts till i datorn. Detta kan lämnas tomt.
+    - **Verifierings klient namn** – ange klient namnet chefs verifiering. till exempel *Tarcher-validator*.
+    - **Validerings nyckel** – Välj en fil som innehåller den verifierings nyckel som används för att starta datorerna.
+    - **Klient konfigurations fil** – Välj en konfigurations fil för chef-klient. Detta kan lämnas tomt.
+    - **Chefs klient version** – ange den version av chefs klienten som ska installeras. Detta kan lämnas tomt. Ett tomt värde installerar den senaste versionen.
+    - **SSL-verifierings läge** – Välj antingen **ingen** eller **peer**. *Ingen* har valts för demonstrationen.
+    - **Chefs miljö** – ange chefs miljön som den här noden ska vara medlem i. Detta kan lämnas tomt.
+    - **Krypterad Databag-hemlighet** – Välj en fil som innehåller hemligheten för den krypterade Databag som datorn ska ha åtkomst till. Detta kan lämnas tomt.
+    - **Chefs Server SSL-certifikat** – Välj det SSL-certifikat som har tilldelats din chefs Server. Detta kan lämnas tomt.
 
-      ![Installera Chef-servern på en Linux-dator](./media/chef-extension-portal/install-extension.png)
+      ![Installera chefs servern på en virtuell Linux-dator](./media/chef-extension-portal/install-extension.png)
 
-1. När du tillbaka till den **tillägg** fliken **OK**.
+1. När du återvänder till fliken **tillägg** väljer du **OK**.
 
-1. När du tillbaka till den **inställningar** fliken **OK**.
+1. När du återvänder till fliken **Inställningar** väljer du **OK**.
 
-1. När tillbaka till den **skapa** fliken (detta representerar en sammanfattning av de alternativ du valt och skrivit), kontrollerar du informationen och **användningsvillkoren**, och välj **skapa**.
+1. När du återgår till fliken **skapa** (Detta representerar en sammanfattning av de alternativ som du har valt och angett) kontrollerar du informationen samt **användningsvillkor**och väljer **skapa**.
 
-När processen för att skapa och distribuera den virtuella datorn med Chef-tillägget är klar, visar ett meddelande har lyckats eller misslyckats för åtgärden. Resurssidan för den nya virtuella datorn öppnas dessutom automatiskt i Azure-portalen när det har skapats.
+När processen för att skapa och distribuera den virtuella datorn med chefs tillägget är klar visar ett meddelande om att åtgärden lyckades eller misslyckades. Dessutom öppnas resurs sidan för den nya virtuella datorn automatiskt i Azure Portal när den har skapats.
 
-![Installera Chef-servern på en Linux-dator](./media/chef-extension-portal/resource-created.png)
+![Installera chefs servern på en virtuell Linux-dator](./media/chef-extension-portal/resource-created.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en virtuell Windows-dator på Azure med Chef](/azure/virtual-machines/windows/chef-automation)
+- [Skapa en virtuell Windows-dator på Azure med chef](/azure/virtual-machines/windows/chef-automation)

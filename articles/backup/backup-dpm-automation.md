@@ -1,19 +1,14 @@
 ---
-title: Azure Backup – Använd PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
+title: Använda PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med PowerShell
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: dacurwin
-ms.openlocfilehash: ef20de40433542c1ed0780f198b10d6a1fb78789
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3a8b2ff95957b69bab4932ce8a7e5a1ab4bfa44
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162140"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172411"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 
@@ -46,7 +41,7 @@ Börja med att [Hämta den senaste Azure PowerShell](/powershell/azure/install-a
 
 Följande konfigurations-och registrerings uppgifter kan automatiseras med PowerShell:
 
-* skapar ett Recovery Services-valv
+* Skapa ett Recovery Services-valv
 * Installera Azure Backup Agent
 * Registrera med Azure Backup tjänsten
 * Nätverks inställningar
@@ -105,7 +100,6 @@ ResourceGroupName : Contoso-docs-rg
 SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
-
 
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Installera Azure Backup-agenten på en DPM-server
 
@@ -346,7 +340,7 @@ Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Ändra storleken på DPM-repliken & återställnings punkt volym
 
-Du kan också ändra storleken på DPM-replik volym och skugg kopie volym med cmdleten [set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) som i följande exempel: get-DatasourceDiskAllocation-DataSource $DS set-DatasourceDiskAllocation-DataSource $DS- ProtectionGroup $MPG-manual-ReplicaArea (2 GB)-ShadowCopyArea (2 GB)
+Du kan också ändra storleken på DPM-replik volym och skugg kopierings volym med cmdleten [set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) som i följande exempel: get-DatasourceDiskAllocation-DataSource $DS set-DatasourceDiskAllocation-DataSource $DS-ProtectionGroup $MPG-manual-ReplicaArea (2 GB)-ShadowCopyArea (2 GB)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Genomför ändringarna i skydds gruppen
 

@@ -3,12 +3,12 @@ title: Visa och hantera tjänstleverantörer
 description: Kunder kan använda sidan tjänst leverantörer i Azure Portal för att visa information om tjänst leverantörer, Service Provider-erbjudanden och delegerade resurser.
 ms.date: 11/15/2019
 ms.topic: overview
-ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 12ddafe1d1e425ed1c1f1188be1377a584e03936
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132175"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169646"
 ---
 # <a name="view-and-manage-service-providers"></a>Visa och hantera tjänstleverantörer
 
@@ -49,7 +49,9 @@ Om kunden vill ta bort ett Service Provider-erbjudande kan de välja pappers kor
 
 ## <a name="update-service-provider-offers"></a>Uppdatering av tjänst leverantören erbjuder
 
-När en kund har lagt till ett erbjudande kan en tjänste leverantör publicera en uppdaterad version av samma erbjudande på Azure Marketplace. De kan till exempel vilja lägga till en ny roll definition. Om en ny version av erbjudandet har publicerats visas en "uppdatering"-ikon i raden för det erbjudandet på sidan **Provider-erbjudanden** . Kunden kan välja den här ikonen för att se skillnaderna mellan den aktuella versionen av erbjudandet och den nya. 
+När en kund har lagt till ett erbjudande kan en tjänste leverantör publicera en uppdaterad version av samma erbjudande på Azure Marketplace. De kan till exempel vilja lägga till en ny roll definition. Om en ny version av erbjudandet har publicerats visas en "uppdatering"-ikon i raden för det erbjudandet på sidan **Provider-erbjudanden** . Kunden kan välja den här ikonen för att se skillnaderna mellan den aktuella versionen av erbjudandet och den nya.
+
+ ![Uppdatera erbjudande ikon](../media/update-offer.jpg)
 
 Efter att ha granskat ändringarna kan kunden välja att uppdatera till den nya versionen. När de gör det kommer de auktoriseringar och andra inställningar som anges i den nya versionen att gälla för alla prenumerationer och/eller resurs grupper som har delegerats för erbjudandet.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: MT
+ms.openlocfilehash: 1e67c36753239940b15e3cb47b5b75820ea43689
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907161"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158341"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
 
@@ -55,14 +55,15 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera hashen för den virtuella hård disken
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  För version 1.19.05.10 ska den genererade hashen matcha de här inställningarna.
+3.  För den senaste versionen av produkten ska den genererade hashen matcha de här inställningarna.
 
   **Algoritm** | **Hash-värde**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 5b98cf68dad495696c789bdad8f0d91b
+  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
 
 
-  
+
 ## <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
 = Installations skriptet gör följande:
 
@@ -110,7 +111,7 @@ Konfigurera enheten för första gången.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrera enheten med Azure Migrate
 
 1. Klicka på **Logga**in. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
-2. På fliken nytt loggar du in med dina Azure-autentiseringsuppgifter. 
+2. På fliken nytt loggar du in med dina Azure-autentiseringsuppgifter.
     - Logga in med ditt användar namn och lösen ord.
     - Inloggning med en PIN-kod stöds inte.
 3. När du har loggat in går du tillbaka till webbappen.
@@ -132,14 +133,14 @@ Du kan lägga till en uppsättning autentiseringsuppgifter var för Windows-och 
     - Om du vill ta bort en server väljer du > **ta bort**.
 4. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.
 
-Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för identifierade virtuella datorer som visas i Azure Portal. 
+Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för identifierade virtuella datorer som visas i Azure Portal.
 
 ## <a name="verify-servers-in-the-portal"></a>Verifiera servrar i portalen
 
 När identifieringen är klar kan du kontrol lera att servrarna visas i portalen.
 
 1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**. 
+2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 
 ## <a name="next-steps"></a>Nästa steg

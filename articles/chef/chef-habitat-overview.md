@@ -1,37 +1,33 @@
 ---
-title: Använda Habitat för att distribuera programmet till Azure
-description: Lär dig hur du konsekvent distribuera programmet till Azure-datorer och behållare
-keywords: Azure, chef, devops, virtuella datorer, översikt, automatisera, habitat
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
+title: Använda livs miljöer för att distribuera ditt program till Azure
+description: Lär dig hur du distribuerar ditt program konsekvent till Azure Virtual Machines och containers
+keywords: Azure, chef, DevOps, Virtual Machines, Overview, automatiserad, livs miljö
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: de444836c04d1d37a19a006ce4eafdcae867ca5a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388819"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158057"
 ---
-# <a name="use-habitat-to-deploy-your-application-to-azure"></a>Använda Habitat för att distribuera programmet till Azure
-[Habitat](https://www.habitat.sh/) är ett program paketering och runtime-system som paketerar programmet och dess automation tillsammans som måttenhet för distribution. Detta skapar ultimate portabilitet för programmet, så att den kan distribueras till behållare, virtuella datorer, utan operativsystem eller PaaS, utan en omarbetning eller ompaketering.
+# <a name="use-habitat-to-deploy-your-application-to-azure"></a>Använda livs miljöer för att distribuera ditt program till Azure
+[Livs miljöer](https://www.habitat.sh/) är ett program för paketering och körning av program som samlar in programmet och dess automatisering tillsammans med distributions enheten. Detta skapar ultimat portabilitet för programmet, vilket gör att det kan distribueras till behållare, virtuella datorer, Bare Metal eller PaaS, utan en omskrivning eller ompaketering.
 
-Den här artikeln beskriver de främsta fördelarna med att använda Habitat.
+Den här artikeln beskriver de största fördelarna med att använda livs miljöer.
 
 ## <a name="modernize-and-move-legacy-applications"></a>Modernisera och flytta äldre program
-Kostnadsfria äldre program från äldre operativsystem och mellanprogram genom att paketera dem med Habitat. Den resulterande artefakten som är portabelt och enkelt replatforms till en nyare infrastruktur som virtuella datorer eller behållare som körs i molnet.
+Frigör äldre program från äldre operativ system och mellanprogram genom att paketera om dem med livs miljöer. Den resulterande artefakten är portabel och återanvänds enkelt på nyare infrastruktur, t. ex. virtuella datorer eller behållare som körs i molnet.
 
-## <a name="accelerate-container-adoption"></a>Accelerera användningen av behållare
-Habitat löser kontinuerlig distribution av komplexa, mikrotjänstinriktade program genom att korrekt som representerar körningsberoenden. Flytta bortom enkel blå/grön distribution av enskilda komponenter och skapa sofistikerade distributionsbeteende utan att generera avancerad samordning för flöden.
+## <a name="accelerate-container-adoption"></a>Påskynda container införande
+Livs miljöer löser den kontinuerliga distributionen av komplexa, mikrotjänstbaserade program genom att korrekt representera körnings beroenden. Flytta mer än enkla blå/gröna distributioner av enskilda komponenter och skapa sofistikerade distributions beteenden utan att generera komplexa Dirigerings flöden.
 
-## <a name="run-any-application-anywhere"></a>Kör alla program överallt
-Program kan köras oförändrade i alla körningsmiljö med Habitat. Detta omfattar allt från datorer utan operativsystem och virtuella datorer till behållare (till exempel Docker), kluster-hanteringssystem (till exempel Mesosphere eller Kubernetes) och PaaS-system (till exempel Pivotal Cloud Foundry).
+## <a name="run-any-application-anywhere"></a>Kör alla program var som helst
+Med livs miljöer kan program köras oförändrade i alla körnings miljöer. Detta omfattar allt från Bare Metal och virtuella datorer till behållare (till exempel Docker), kluster hanterings system (t. ex. Mesosphere eller Kubernetes) och PaaS system (till exempel pivotal Cloud Foundry).
 
-## <a name="integrate-into-the-chef-devops-workflow"></a>Integrera Chef DevOps-arbetsflöde
-Habitat projektet är en av ett projekt med öppen källkod från Chef-programvara med en stark community support. Habitat utnyttjar chefs erfarenhet av automatisering av infrastruktur att använda automatiseringsfunktioner för oöverträffad för program. Chef erbjuder kommersiella stöd för Habitat och bygger en smidig integrering mellan Habitat och Chef Automate för att automatisera programmets version livscykel, från utveckling till distribution.
+## <a name="integrate-into-the-chef-devops-workflow"></a>Integrera i chefens DevOps-arbetsflöde
+Livs miljö projektet är ett av ett projekt med öppen källkod från chefs program vara, med en stark grupp support. Livs miljöer utnyttjar chefens djup upplevelse med infrastruktur automatisering för att få oöverträffade automatiserings funktioner för program. Chef erbjuder kommersiell support för livs miljöer och skapar en sömlös integrering mellan livs miljöer och chef som automatiserar program lanserings cykeln helt, från utveckling till distribution.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Försök Habitat](https://www.habitat.sh/learn/)
+* [Testa livs miljöer](https://www.habitat.sh/learn/)

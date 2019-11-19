@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821201"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166255"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -32,7 +32,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 |Ungefärligt antal distinkta|Mer information finns i [Ungefärlig Count DISTINCT](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch-läge på Rowstore (under kompatibilitetsnivå 150)|Mer information finns i [batch-läge på Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
 | Dataidentifiering och -klassificering  |Mer information finns i [Azure SQL Database och SQL Data Warehouse data identifiering & klassificering](sql-database-data-discovery-and-classification.md).|
-| Elastiska databasjobb | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md). |
+| Elastic Database-jobb | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md). |
 | Elastiska frågor | Mer information finns i [Översikt över elastiska frågor](sql-database-elastic-query-overview.md). |
 | Elastiska transaktioner | [Distribuerade transaktioner över moln databaser](sql-database-elastic-transactions-overview.md). |
 |Feedback om minnes tilldelning (rad läge) (under kompatibilitetsnivå 150)|Mer information finns i [minnes beviljande feedback (rad läge)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
@@ -79,6 +79,8 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 ## <a name="fixed-known-issues"></a>Fasta kända problem
 
 - **Aug 2019** -inneslutna databaser stöds fullt ut i den hanterade instansen.
+- **Okt 2019** – inbyggd databas återställning från affärskritisk nivå till generell användning nivå kommer inte att lyckas om käll databasen innehåller minnesbaserade OLTP-objekt.
+- **Nov 2019** – databas konsekvens verifieras med hjälp av `DBCC CHECKDB` när du har återställt databasen från Azure Blob Storage.
 
 ## <a name="updates"></a>Uppdateringar
 

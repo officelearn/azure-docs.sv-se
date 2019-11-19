@@ -1,18 +1,14 @@
 ---
-title: Säkerhetskopiera Azure Files fil resurser med tjänsten Azure Backup
+title: Självstudie – säkerhetskopiera Azure Files fil resurser
 description: I den här självstudien får du lära dig hur du använder Azure Portal för att konfigurera ett Recovery Services-valv och säkerhetskopiera Azure-filresurser.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: a8b08f87441f9b4c67f718dfe9f0c894d0730a5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747047"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171875"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Säkerhetskopiera Azure-filresurser i Azure Portal
 
@@ -24,7 +20,7 @@ I den här guiden får du lära du dig att:
 > * Konfigurera ett Recovery Services-valv till att säkerhetskopiera Azure Files
 > * Köra en säkerhetskopiering på begäran för att skapa en återställningspunkt
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den finns i någon av de [lagringskontotyper som stöds](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). När du har kontrollerat detta kan du skydda din filresurser.
 

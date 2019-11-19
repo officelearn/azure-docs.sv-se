@@ -1,19 +1,14 @@
 ---
-title: Azure Backup för SQL Server arbets belastningar med Azure Backup Server
+title: Säkerhetskopiera SQL Server med Azure Backup Server
 description: I den här artikeln lär du dig konfigurations stegen för säkerhets kopiering av SQL Server databaser med hjälp av Microsoft Azure Backup Server (MABS).
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: dacurwin
-ms.openlocfilehash: bd16cefff66c727ad9de6331a311796cf9521192
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d5e0c49e2cad77e42960fafec9311b31d4cf2601
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091052"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172665"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera SQL Server till Azure med Azure Backup Server
 

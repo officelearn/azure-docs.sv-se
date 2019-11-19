@@ -1,17 +1,14 @@
 ---
 title: Självstudie – Skapa en virtuell Linux-dator med en hanterad identitet från Azure Marketplace-avbildningen med terraform
 description: Skapa en virtuell terraform Linux-dator med en hanterad identitets-och fjärrhantering med hjälp av Azure Marketplace-avbildningen
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 233012d6caf1280914a6d2439ae856d69570fff7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6bc6bec2a13dcd5747823de739d1dd11c6027091
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838039"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158972"
 ---
 # <a name="tutorial-create-a-linux-vm-with-a-managed-identity-from-the-azure-marketplace-image-using-terraform"></a>Självstudie: skapa en virtuell Linux-dator med en hanterad identitet från Azure Marketplace-avbildningen med terraform
 
@@ -23,7 +20,7 @@ Det tillkommer inga programvaruavgifter för den Terraform VM-avbildningen. Du b
 
 Mer information om beräknings avgifterna finns på sidan med [pris](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)information för Linux-datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du kan skapa en virtuell Linux terraform-dator måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free/) om du inte redan har ett konto.  
 
 ## <a name="create-your-terraform-vm"></a>Skapa din virtuella terraform-dator 

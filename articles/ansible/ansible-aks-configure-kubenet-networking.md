@@ -3,17 +3,13 @@ title: Självstudie – konfigurera Kubernetes-nätverk i Azure Kubernetes servi
 description: Lär dig hur du använder Ansible för att konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS)-kluster
 keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/23/2019
-ms.openlocfilehash: 67b4eb9e9ee53613ec8b54b2bf8d3bbdb89778c7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: bfb19371ad651439c087cebd03023d48852ee2df
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881528"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156894"
 ---
 # <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS) med hjälp av Ansible
 
@@ -210,11 +206,11 @@ Spara följande spelbok som `aks-kubenet.yml`:
            var: output.aks[0]
 ```
 
-I avsnittet `vars` gör du följande ändringar:
+Gör följande ändringar i avsnittet `vars`:
 
 - Ändra `aksansibletest` värde till namnet på din resurs grupp för `resource_group` nyckeln.
-- Ändra värdet för `aksansibletest` till AKS-namnet för nyckeln `name`.
-- För `Location`-nyckeln ändrar du värdet för `eastus` till resurs gruppens plats.
+- Ändra `aksansibletest`-värdet till AKS-namnet för den `name` nyckeln.
+- Ändra `eastus` värde till din resurs grupps plats för `Location` nyckeln.
 
 Kör den fullständiga Spelbok med kommandot `ansible-playbook`:
 

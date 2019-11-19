@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: återställa virtuella Azure-datorer med REST API'
+title: Återställa virtuella Azure-datorer med REST API
 description: I den här artikeln lär du dig att hantera återställnings åtgärder för säkerhets kopiering av virtuella Azure-datorer med hjälp av REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM-säkerhetskopiering; Återställning av Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eecee01ffc78ec8cc0e60b517e9d5b4f0e6baa25
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929150"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173372"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -35,7 +29,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *Hämta* URI har alla nödvändiga parametrar. Det behövs ingen ytterligare brödtext för begäran
 
-### <a name="responses"></a>Svar
+### <a name="responses"></a>Responses
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|

@@ -4,14 +4,14 @@ description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621456"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166677"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -41,7 +41,7 @@ Ange den här informationen för att definiera en Azure Blob-behållare.
 
 * **Lagrings mål namn** – ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
 * **Måltyp** – Välj **BLOB**.
-* **Lagrings konto** – Välj det konto som ska referera till behållaren.
+* **Lagrings konto** – Välj kontot med den behållare som du vill använda.
 
   Du måste auktorisera cache-instansen för att komma åt lagrings kontot enligt beskrivningen i [Lägg till åtkomst roller](#add-the-access-control-roles-to-your-account).
 
@@ -53,13 +53,16 @@ Ange den här informationen för att definiera en Azure Blob-behållare.
 
 När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
+> [!NOTE]
+> Om ditt lagrings kontos brand vägg är inställt på begränsa åtkomsten till endast "valda nätverk" använder du den tillfälliga lösningen som dokumenteras i [brand Väggs inställningarna för Blob Storage-kontot](hpc-cache-blob-firewall-fix.md).
+
 ### <a name="add-the-access-control-roles-to-your-account"></a>Lägg till roller för åtkomst kontroll i ditt konto
 
-Azure HPC cache använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge cache-programmet åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
+Azure HPC cache använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge Cache-tjänsten åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
 
 Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "HPC-Provider för HPC-cache".
 
-Du kan göra detta i förväg eller genom att klicka på en länk på sidan där du lägger till ett Blob Storage-mål.
+Du kan göra detta i förväg eller genom att klicka på en länk på sidan där du lägger till ett Blob Storage-mål. Tänk på att det kan ta upp till fem minuter innan roll inställningarna sprids genom Azure-miljön, så du bör vänta några minuter efter att du har lagt till rollerna innan du skapar ett lagrings mål.
 
 Steg för att lägga till RBAC-roller:
 
@@ -76,7 +79,7 @@ Steg för att lägga till RBAC-roller:
    > [!NOTE]
    > Om en sökning efter "HPC" inte fungerar kan du prova att använda strängen "storagecache" i stället. Användare som har anslutit till hands versionerna (före GA) kan behöva använda det äldre namnet för tjänstens huvud namn.
 
-1. Klicka på knappen **Spara** för att lägga till roll tilldelningen i lagrings kontot.
+1. Klicka på knappen **Spara** längst ned.
 
 1. Upprepa den här processen för att tilldela rollen "Storage BLOB data Contributor".  
 
@@ -84,7 +87,7 @@ Steg för att lägga till RBAC-roller:
 
 ## <a name="add-a-new-nfs-storage-target"></a>Lägg till ett nytt NFS-lagrings mål
 
-Ett NFS-lagrings mål har vissa extra fält för att ange hur lagrings exporten ska nå och hur data ska cachelagras effektivt. Du kan också skapa flera namn områdes Sök vägar från en NFS-värd om den har fler än en export tillgänglig.
+Ett NFS-lagrings mål har fler fält än Blob Storage-målet. Dessa fält anger hur lagrings exporten ska uppnås och hur data ska cachelagras effektivt. Dessutom kan du med ett NFS-lagrings mål skapa flera namn områdes Sök vägar om NFS-värden har fler än en export tillgänglig.
 
 ![Skärm bild av sidan Lägg till lagrings mål med NFS-mål definierat](media/hpc-cache-add-nfs-target.png)
 
@@ -96,14 +99,15 @@ Ange den här informationen för ett NFS-baserat lagrings mål:
 
 * **Hostname** – ange IP-adressen eller det fullständiga domän namnet för NFS-lagrings systemet. (Använd bara ett domän namn om din cache har åtkomst till en DNS-server som kan matcha namnet.)
 
-* **Användnings modell** – Välj en av profilerna för Datacachen baserat på ditt arbets flöde, som beskrivs i [Välj en användnings modell nedan](#choose-a-usage-model).
+* **Användnings modell** – Välj en av profilerna för Datacachen baserat på ditt arbets flöde, som beskrivs i [Välj en användnings modell](#choose-a-usage-model)nedan.
 
 ### <a name="nfs-namespace-paths"></a>Sökväg till NFS-namnrymd
 
 Ett NFS-lagrings mål kan ha flera virtuella sökvägar, så länge varje sökväg representerar en annan export-eller under katalog på samma lagrings system.
 
 Skapa alla sökvägar från ett lagrings mål.
-<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Du kan när som helst [lägga till och redigera namn områdes Sök vägar](hpc-cache-edit-storage.md) på ett lagrings mål.
 
 Fyll i följande värden för varje namn områdes Sök väg:
 
@@ -122,11 +126,29 @@ När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 När du skapar ett lagrings mål som pekar på ett NFS-lagrings system måste du välja *användnings modellen* för det målet. Den här modellen avgör hur dina data cachelagras.
 
-* Läs mer tung – om du oftast använder cachen för att påskynda data Läs åtkomst väljer du det här alternativet.
+Det finns tre alternativ:
 
-* Läsa/skriva – om klienter använder cachen för att läsa och skriva väljer du det här alternativet.
+* **Läs tung, ovanliga skrivningar** – Använd det här alternativet om du vill påskynda Läs åtkomsten till filer som är statiska eller sällan ändrade.
 
-* Klienter kringgå cache – Välj det här alternativet om dina klienter skriver data direkt till lagrings systemet utan att först skriva till cachen.
+  Med det här alternativet cachelagras filer som klienter läser, men skickar omedelbart skrivningar till backend-lagringen. Filer som lagras i cacheminnet jämförs aldrig med filerna på NFS-lagrings volymen.
+
+  Använd inte det här alternativet om det finns en risk att en fil kan ändras direkt på lagrings systemet utan att först skriva den till cacheminnet. Om detta händer kommer den cachelagrade versionen av filen aldrig att uppdateras med ändringar från Server delen och data uppsättningen kan bli inkonsekvent.
+
+* **Större än 15% skrivningar** – det här alternativet påskyndar både Läs-och skriv prestanda. När du använder det här alternativet måste alla klienter komma åt filer via Azure HPC-cachen i stället för att montera Server dels lagringen direkt. De cachelagrade filerna kommer att ha nya ändringar som inte lagras på Server delen.
+
+  I den här användnings modellen kontrol leras inte filer i cacheminnet mot filerna på backend-lagringen. Den cachelagrade versionen av filen antas vara mer aktuell. En ändrad fil i cachen skrivs bara till backend-startsystemet när den har varit i cachen under en timme utan ytterligare ändringar.
+
+* **Klienter skriver till NFS-målet, vilket kringgår cachen** – Välj det här alternativet om några klienter i arbets flödet skriver data direkt till lagrings systemet utan att först skriva till cachen. Filer som klienten begär cachelagras, men eventuella ändringar av filerna från klienten skickas tillbaka till lagrings systemet på Server sidan omedelbart.
+
+  Med den här användnings modellen kontrol leras ofta filerna i cacheminnet mot backend-versionerna för uppdateringar. Den här verifieringen tillåter att filer ändras utanför cachen och samtidigt bibehåller sig data konsekvens.
+
+I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
+
+| Användnings modell | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
+| ---- | ---- | ---- | ---- |
+| Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Ingen |
+| Större än 15% skrivningar | Läs/skriv | Aldrig | 1 timme |
+| Klienterna kringgår cachen | Läsa | 30 sekunder | Ingen |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -135,4 +157,4 @@ När du har skapat lagrings mål bör du överväga något av följande:
 * [Montera Azure HPC-cachen](hpc-cache-mount.md)
 * [Flytta data till Azure Blob Storage](hpc-cache-ingest.md)
 
-Om du behöver ändra ett lagrings mål läser du [Redigera lagrings mål](hpc-cache-edit-storage.md) för att lära dig hur.
+Om du behöver uppdatera inställningarna kan du [Redigera ett lagrings mål](hpc-cache-edit-storage.md).

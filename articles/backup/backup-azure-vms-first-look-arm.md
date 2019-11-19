@@ -1,18 +1,14 @@
 ---
-title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna med Azure Backup
+title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 description: I den här artikeln lär du dig hur du säkerhetskopierar en valfri virtuell Azure-dator eller flera virtuella Azure-datorer med tjänsten Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747231"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172519"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 
@@ -35,7 +31,7 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 
 ## <a name="back-up-from-azure-vm-settings"></a>Säkerhetskopiera från inställningar för virtuella Azure-datorer
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **alla tjänster** och skriv **virtuella datorer**i filtret och klicka sedan på **virtuella datorer**.
 3. I listan över virtuella datorer väljer du den virtuella dator som du vill säkerhetskopiera.
 4. På menyn VM klickar du på **säkerhets kopiering**.
@@ -67,7 +63,7 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
     - Klicka på namnet på säkerhets kopierings principen för att se när nästa schemalagda säkerhets kopiering kommer att köras.
 
 > [!NOTE]
-> Azure Backup-tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för att lagra ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen bevaras under den tid i dagar som anges i avsnittet "Behåll ögonblicks bild för snabb återställning" i säkerhets kopierings principen för den virtuella Azure-datorn. Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
+> Azure Backup tjänsten skapar en separat resurs grupp (förutom resurs gruppen VM) för lagring av ögonblicks bilder, med namngivnings formatet **AzureBackupRG_geography_number** (exempel: AzureBackupRG_northeurope_1). Data i den här resurs gruppen bevaras under den tid i dagar som anges i avsnittet "Behåll ögonblicks bild för snabb återställning" i säkerhets kopierings principen för den virtuella Azure-datorn. Att använda ett lås till den här resurs gruppen kan orsaka säkerhets kopierings fel.<br>
 Den här resurs gruppen ska också undantas från eventuella namn-och märkes begränsningar som en begränsnings princip skulle blockera skapandet av resurs plats samlingar i den igen och orsaka säkerhets kopierings problem.
 
 ## <a name="run-a-backup-immediately"></a>Kör en säkerhets kopiering direkt

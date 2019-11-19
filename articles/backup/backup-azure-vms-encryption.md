@@ -1,19 +1,14 @@
 ---
-title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer med Azure Backup
+title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074934"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172527"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -21,7 +16,7 @@ Den här artikeln beskriver hur du säkerhetskopierar och återställer virtuell
 
 Om du vill veta mer om hur Azure Backup interagerar med virtuella Azure-datorer innan du börjar, granskar du följande resurser:
 
-- [Granska](backup-architecture.md#architecture-direct-backup-of-azure-vms) arkitekturen för säkerhets kopiering av virtuella Azure-datorer.
+- [Granska](backup-architecture.md#architecture-built-in-azure-vm-backup) arkitekturen för säkerhets kopiering av virtuella Azure-datorer.
 - [Läs mer om](backup-azure-vms-introduction.md) Azure VM-säkerhetskopiering och Azure Backup-tillägget.
 
 ## <a name="encryption-support"></a>Krypterings stöd

@@ -1,19 +1,14 @@
 ---
-title: Data modell för Azure Backup
+title: Power BI data modell
 description: Den här artikeln beskriver information om Power BI data modell för Azure Backup rapporter.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: dacurwin
-ms.openlocfilehash: f3db0e6a78eada52f2b5936f5194138d97ebcca6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a2f06da16280070448d7b42dc5e1dcfc46354cfa
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074892"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172808"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Datamodell för Azure Backup-rapporter
 
@@ -124,7 +119,7 @@ Den här tabellen innehåller grundläggande fält och agg regeringar för olika
 | MonthlyRetentionFormat |Text |Typ av konfiguration för månatlig kvarhållning. Till exempel varje dag för dag baserat, varje vecka i veckan baserat |
 | MonthlyRetentionTimes |Text |Datum och tid när månatlig kvarhållning har kon figurer ATS |
 | MonthlyRetentionWeeksOfTheMonth |Text |Veckor i månaden då månatlig kvarhållning har kon figurer ATS. Till exempel första, sista osv. |
-| policyName |Text |Namn på den princip som definierats |
+| PolicyName |Text |Namn på den princip som definierats |
 | PolicyUniqueId |Text |Unikt ID för att identifiera principen |
 | RetentionType |Text |Typ av bevarande princip. Till exempel varje dag, varje vecka, varje månad, varje år |
 | WeeklyRetentionDaysOfTheWeek |Text |Vecko dagar som valts för veckovis kvarhållning |

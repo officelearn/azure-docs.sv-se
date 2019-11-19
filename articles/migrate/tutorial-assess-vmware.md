@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7187cb41fa7ea499035c57e83e04038b1269b418
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521241"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158665"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med Azure Migrate: Server utvärdering
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du kan utvärdera lokala virtuella VMware-datorer me
 
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I den här guiden får du lära dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera de virtuella datorerna.
@@ -38,7 +38,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Slutför](tutorial-prepare-vmware.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -109,8 +109,8 @@ Kontrol lera att ägg filen är säker innan du distribuerar den.
 
   **Algoritm** | **Hash-värde**
   --- | ---
-  MD5 | 27230f3b012187860281b912ee661709
-  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ### <a name="create-the-appliance-vm"></a>Skapa VM-enheten
@@ -221,7 +221,7 @@ Om du vill ange omfånget måste du utföra följande steg:
 Det finns två metoder för att tilldela behörigheter för inventerings objekt i vCenter till vCenter-användarkontot med en tilldelad roll.
 - För Server utvärdering måste en **skrivskyddad** roll tillämpas på vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska identifieras finns. Alla överordnade objekt – värd, mapp med värdar, kluster, mapp med kluster i hierarkin upp till data centret ska inkluderas. Dessa behörigheter ska spridas till underordnade objekt i hierarkin.
 
-    På samma sätt som för Server migreringen, är en användardefinierad roll (kan ha namnet <em>Azure-_Migrate</em>) med de här [privilegierna](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) som tilldelats måste tillämpas på vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska migreras finns.
+    På samma sätt som för Server migrering, kan en användardefinierad roll (som heter <em>Azure _Migrate</em>) med dessa [privilegier](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) tilldelas till vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska migreras finns.
 
 ![Tilldela behörigheter](./media/tutorial-assess-vmware/assign-perms.png)
 
@@ -345,7 +345,7 @@ Tillförlitlighets klassificeringar för en utvärdering är följande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen för du göra följande:
+I den här kursen har du:
 
 > [!div class="checklist"]
 > * Konfigurera en Azure Migrate-apparat

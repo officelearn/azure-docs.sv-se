@@ -1,19 +1,14 @@
 ---
-title: Felsöka säkerhets kopierings fel i SAP HANA databaser – Azure Backup
+title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: cbffa7415f315fd396e57afa355d2415c4612eb5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968457"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172754"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -48,11 +43,11 @@ Vad för registrerings skriptet gör:
 
 När en databas har valts för säkerhets kopiering konfigurerar Azure Backups tjänsten backInt-parametrar på databas nivå:
 
-- [catalog_backup_using_backint: true]
-- [enable_accumulated_catalog_backup: false]
+- [catalog_backup_using_backint: sant]
+- [enable_accumulated_catalog_backup: falskt]
 - [parallel_data_backup_backint_channels: 1]
-- [log_backup_timeout_s: 900)]
-- [backint_response_timeout: 7200]
+- [log_backup_timeout_s:900)]
+- [backint_response_timeout:7200]
 
 > [!NOTE]
 > Se till att dessa parametrar *inte* finns på värdnivå. Parametrar på värdnivå åsidosätter dessa parametrar och kan orsaka oväntade beteenden.

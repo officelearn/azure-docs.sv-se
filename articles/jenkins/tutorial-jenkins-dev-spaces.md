@@ -1,18 +1,14 @@
 ---
 title: Använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubernetes-tjänsten
 description: Lär dig hur du använder plugin-programmet för Azure dev Spaces i en pipeline för kontinuerlig integrering.
-author: tomarchermsft
-ms.author: tarcher
-ms.service: jenkins
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 10/23/2019
-ms.openlocfilehash: 7bc2bb63f1382d1c7fd7e436dd5ddfa278262526
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 42d732cda26f0c34f0a54fffc0b1b9c54def94ad
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881884"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158747"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Självstudie: använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubernetes-tjänsten 
 
@@ -219,7 +215,7 @@ Exempel pipelinen använder Helm och kubectl för att distribuera till dev-ytan.
 
 2. Lägg till en *Microsoft Azure tjänstens* typ av autentiseringsuppgifter i Jenkins med hjälp av tjänstens huvud namns information från föregående steg. Namnen i skärm bilden nedan motsvarar utdata från `create-for-rbac`.
 
-    Fältet **ID** är namnet på Jenkins-autentiseringsuppgiften för tjänstens huvud namn. Exemplet använder värdet för `displayName` (i den här instansen `xxxxxxxjenkinssp`), men du kan använda vilken text du vill. Det här namnet på autentiseringsuppgifter är värdet för miljövariabeln AZURE_CRED_ID i nästa avsnitt.
+    Fältet **ID** är namnet på Jenkins-autentiseringsuppgiften för tjänstens huvud namn. Exemplet använder värdet för `displayName` (i den här instansen `xxxxxxxjenkinssp`), men du kan använda vilken text du vill. Det här namnet på autentiseringsuppgifter är värdet för variabeln AZURE_CRED_ID miljö i nästa avsnitt.
 
     ![Lägg till autentiseringsuppgifter för tjänstens huvud namn i Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
 
@@ -376,7 +372,7 @@ stage('create dev space') {
 
 `test_endpoint` är URL: en till den webfrontend-app som du tidigare har distribuerat med `azds up`i [distribuera exempel program till AKS-klustret, steg 7](#test_endpoint). Värdet för `$env.TEST_ENDPOINT` anges i pipeline-konfigurationen. 
 
-Följande kodfragment visar hur den underordnade dev Space-URL: en används i `smoketest`-fasen. Koden kontrollerar om den underordnade dev Space-TEST_ENDPOINT är tillgänglig, och i så fall hämtar hälsnings texten till stdout:
+Följande kodfragment visar hur den underordnade dev Space-URL: en används i `smoketest`-fasen. Koden kontrollerar om det underordnade dev-utrymmet TEST_ENDPOINT är tillgängligt, och i så fall laddar ned hälsnings texten till stdout:
 
 ```Groovy
 stage('smoketest') {

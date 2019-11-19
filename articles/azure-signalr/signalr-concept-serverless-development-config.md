@@ -1,17 +1,17 @@
 ---
-title: Utveckla och konfigurera Azure Functions SignalR service-program
+title: Utveckla & Konfigurera Azure Functions app – Azure-SignalR
 description: Information om hur du utvecklar och konfigurerar program utan server i real tid med hjälp av Azure Functions-och Azure SignalR-tjänsten
 author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882308"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157646"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions utveckling och konfiguration med Azure SignalR-tjänsten
 
@@ -38,9 +38,9 @@ Ett program som är utan server och som skapats med Azure Functions och Azure Si
 
 Ett klient program kräver en giltig åtkomsttoken för att ansluta till Azure SignalR-tjänsten. En åtkomsttoken kan vara anonym eller autentiserad för ett angivet användar-ID. Det krävs en HTTP-slutpunkt med namnet "förhandla" för att hämta en token och annan anslutnings information, till exempel URL: en för SignalR-tjänstens slut punkt.
 
-Använd en HTTP-utlöst Azure-funktion och *SignalRConnectionInfo* -indata-bindningen för att generera objektet anslutnings information. Funktionen måste ha en HTTP-väg som slutar med `/negotiate`.
+Använd en HTTP-utlöst Azure-funktion och *SignalRConnectionInfo* -indata-bindningen för att generera objektet anslutnings information. Funktionen måste ha en HTTP-väg som slutar i `/negotiate`.
 
-Mer information om hur du skapar Negotiate-funktionen finns i referens för [ *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)-indata-bindning.
+Mer information om hur du skapar Negotiate-funktionen finns i referens för [ *SignalRConnectionInfo* -indata-bindning](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding).
 
 Information om hur du skapar en autentiserad token finns i [använda App Service autentisering](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Använd *signal* flödets utgående bindning för att skicka meddelanden till kl
 
 Användare kan läggas till i en eller flera grupper. Du kan också använda *signal* flödets utgående bindning för att lägga till eller ta bort användare till/från grupper.
 
-Mer information finns i bindnings [ referens](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding)för SignalR-utdata.
+Mer information finns i [bindnings referens för *SignalR* -utdata](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
 
 ### <a name="signalr-hubs"></a>Signals Hub
 
@@ -64,10 +64,10 @@ Signaler klient program kan använda SignalR klient-SDK på ett av flera språk 
 
 För att ansluta till signal tjänsten måste en klient slutföra en lyckad anslutnings förhandling som består av följande steg:
 
-1. Gör en begäran till den förhandlande http-slutpunkt som beskrivs ovan för att få giltig anslutnings information
+1. Gör en begäran till den *förhandlande* http-slutpunkt som beskrivs ovan för att få giltig anslutnings information
 1. Ansluta till signal tjänsten med tjänstens slut punkts-URL och åtkomsttoken som hämtats från *Negotiate* -slutpunkten
 
-SignalR klient-SDK: er innehåller redan den logik som krävs för att utföra förhandlings hand skakningen. Överför URL: en för Negotiate-slutpunkten, minus `negotiate` segmentet, till `HubConnectionBuilder`SDK: n. Här är ett exempel i Java Script:
+SignalR klient-SDK: er innehåller redan den logik som krävs för att utföra förhandlings hand skakningen. Överför URL: en för Negotiate-slutpunkten, minus `negotiate` segment, till SDK: s `HubConnectionBuilder`. Här är ett exempel i Java Script:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -75,7 +75,7 @@ const connection = new signalR.HubConnectionBuilder()
   .build()
 ```
 
-Per konvention läggs `/negotiate` SDK automatiskt till i URL: en och använder den för att påbörja förhandlingen.
+I konvention lägger SDK automatiskt till `/negotiate` till URL: en och använder den för att påbörja förhandlingen.
 
 > [!NOTE]
 > Om du använder Java Script/TypeScript SDK i en webbläsare måste du [Aktivera resurs delning mellan ursprung (CORS)](#enabling-cors) på din Funktionsapp.
@@ -102,10 +102,10 @@ JavaScript/TypeScript-klienten gör HTTP-förfrågningar till Negotiate-funktion
 
 #### <a name="localhost"></a>Värd
 
-När du kör Function-appen på den lokala datorn kan du lägga till `Host` ett avsnitt i *Local. Settings. JSON* för att aktivera CORS. `Host` I avsnittet lägger du till två egenskaper:
+När du kör Function-appen på den lokala datorn kan du lägga till ett `Host`-avsnitt till *Local. Settings. JSON* för att aktivera CORS. I avsnittet `Host` lägger du till två egenskaper:
 
-* `CORS`-Ange bas-URL: en som är det ursprungliga klient programmet
-* `CORSCredentials`– Ställ in den `true` på för att tillåta "withCredentials"-begär Anden
+* `CORS` – ange bas-URL: en som är ursprungs-URL: en för klient programmet
+* `CORSCredentials` – Ställ in det på `true` för att tillåta "withCredentials"-begär Anden
 
 Exempel:
 
@@ -167,9 +167,9 @@ Azure Functions har inbyggd autentisering som stöder populära leverantörer so
 
 Öppna fönstret inställningar för *autentisering/auktorisering* i den Azure Portal på fliken *plattform funktioner* i Function-appen. Följ dokumentationen för [App Service-autentisering](../app-service/overview-authentication-authorization.md) för att konfigurera autentisering med en identitetsprovider som du själv väljer.
 
-När det har kon figurer ATS tas autentiserade `x-ms-client-principal-name` http `x-ms-client-principal-id` -förfrågningar med och rubriker som innehåller den autentiserade identitetens användar namn och användar-ID.
+När det har kon figurer ATS inkluderar autentiserade HTTP-begäranden `x-ms-client-principal-name` och `x-ms-client-principal-id` huvuden som innehåller den autentiserade identitetens användar namn och användar-ID.
 
-Du kan använda de här rubrikerna i din *SignalRConnectionInfo* -bindnings konfiguration för att skapa autentiserade anslutningar. Här är ett exempel C# på `x-ms-client-principal-id` en förhandlings funktion som använder-rubriken.
+Du kan använda de här rubrikerna i din *SignalRConnectionInfo* -bindnings konfiguration för att skapa autentiserade anslutningar. Här är ett exempel C# på en förhandlings funktion som använder `x-ms-client-principal-id`s huvudet.
 
 ```csharp
 [FunctionName("negotiate")]
@@ -184,7 +184,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-Du kan sedan skicka meddelanden till användaren genom att `UserId` ange egenskapen för ett signal meddelande.
+Du kan sedan skicka meddelanden till användaren genom att ange egenskapen `UserId` för ett signal meddelande.
 
 ```csharp
 [FunctionName("SendMessage")]
@@ -203,7 +203,7 @@ public static Task SendMessage(
 }
 ```
 
-Information om andra språk finns i bindningar för [Azure SignalR-tjänsten](../azure-functions/functions-bindings-signalr-service.md) för Azure Functions referens.
+Information om andra språk finns i [bindningar för Azure SignalR-tjänsten](../azure-functions/functions-bindings-signalr-service.md) för Azure Functions referens.
 
 ## <a name="next-steps"></a>Nästa steg
 

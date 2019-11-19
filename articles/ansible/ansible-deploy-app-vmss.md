@@ -3,17 +3,13 @@ title: Självstudie – distribuera appar till skalnings uppsättningar för vir
 description: Lär dig hur du använder Ansible för att konfigurera skalnings uppsättningar för virtuella Azure-datorer och distribuera program på skalnings uppsättningen
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7c54790a3d988341caa65bdf0ce33c240f0580fb
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241749"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156387"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudie: distribuera appar till skalnings uppsättningar för virtuella datorer i Azure med Ansible
 
@@ -167,22 +163,22 @@ Det finns två sätt att hämta exempel Spelbok:
 
 Se följande anmärkningar innan du kör Spelbok:
 
-* I avsnittet `vars` ersätter du plats hållaren `{{ admin_password }}` med ditt eget lösen ord.
+* I avsnittet `vars` ersätter du plats hållaren för `{{ admin_password }}` med ditt eget lösen ord.
 * Om du vill använda SSH-anslutnings typen med lösen ord installerar du sshpass-programmet:
 
-    Ubuntu
+    Ubuntu:
 
     ```bash
     apt-get install sshpass
     ```
 
-    CentOS
+    CentOS:
 
     ```bash
     yum install sshpass
     ```
 
-* I vissa miljöer kan du se ett fel meddelande om att använda ett SSH-lösenord i stället för en nyckel. Om du får ett fel meddelande kan du inaktivera värd nyckel kontrollen genom att lägga till följande rad i `/etc/ansible/ansible.cfg` eller `~/.ansible.cfg`:
+* I vissa miljöer kan du se ett fel meddelande om att använda ett SSH-lösenord i stället för en nyckel. Om du får ett fel meddelande kan du inaktivera värd nyckel kontrollen genom att lägga till följande rad för att `/etc/ansible/ansible.cfg` eller `~/.ansible.cfg`:
 
     ```bash
     [defaults]

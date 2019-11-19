@@ -1,17 +1,14 @@
 ---
 title: Självstudie – Skapa en terraform Base-mall i Azure med Yeoman
 description: Lär dig hur du skapar en grundläggande Terraform-mall i Azure med hjälp av Yeoman.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 2f8cbc495a4b46255e7eb31bc1ff8b04fffcad15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: ba81d0ee797fd879fdadc3a6b25ca8f310383f61
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969272"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159163"
 ---
 # <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Självstudie: skapa en terraform Base-mall i Azure med Yeoman
 
@@ -127,7 +124,7 @@ Den tomma katalogen måste placeras under $GOPATH/src. Mer information om den h�
 
 1. Från menyraden väljer du **Fil > Öppna mapp** och väljer mappen som du skapade.
 
-    ![Visual Studio-kod](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
+    ![Visual Studio-koden](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
 Följande filer skapades av generatorn för Yeoman-modulen. Mer information om dessa filer och deras användning finns i [Terratest i terraform-moduler.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster).
 

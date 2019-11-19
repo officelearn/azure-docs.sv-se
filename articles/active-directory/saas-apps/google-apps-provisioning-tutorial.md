@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120316"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167858"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användar etablering
 
@@ -32,7 +32,7 @@ Syftet med den här självstudien är att demonstrera de steg som utförs i G Su
 > [!NOTE]
 > G Suite Connector uppdaterades nyligen den 2019 oktober. Ändringar som görs i G Suite Connector inkluderar:
 - Stöd har lagts till för ytterligare användar-och Gruppattribut i G Suite. 
-- Uppdaterade G Suite-målattribut för att matcha vad som definieras [här](/azure/active-directory/manage-apps/customize-application-attributes).
+- Uppdaterade G Suite-målattribut för att matcha vad som definieras [här](https://developers.google.com/admin-sdk/directory).
 - Uppdaterade mappningar av standardattribut.
 
 ## <a name="prerequisites"></a>Krav
@@ -129,6 +129,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 > [!TIP]
 > Du kan också välja att aktivera SAML-baserad enkel inloggning för G Suite genom att följa anvisningarna i [självstudien g Suite enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
+> [!NOTE]
+> Om du vill veta mer om G Suites katalog-API-slutpunkt läser du [katalog-API](https://developers.google.com/admin-sdk/directory).
+
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Konfigurera automatisk användar etablering för G Suite i Azure AD:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
@@ -161,7 +164,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-8. Klicka på **Save** (Spara).
+8. Klicka på **Spara**.
 
 9. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till G Suite**.
 
@@ -196,15 +199,6 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på G Suite.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
-
-> [!NOTE]
-> Ett annat användbart alternativ för att automatisera användar etablering till G Suite är att använda [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). Det här alternativet tillhandahåller dina lokala Active Directory identiteter för G Suite.
-
-## <a name="common-issues"></a>Vanliga problem
-* G Suite kräver att alla etablerade användare kommer från verifierade domäner. Se till att alla användare som du vill etablera har ett UPN från en verifierad domän i G Suite. Om en användare från en o-verifierad domän är inom omfånget för etablering, visas ett fel i [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , till exempel "GoogleAppsInvalidDomain". Du kan förhindra dessa fel och se till att användare från overifierade domäner är utanför definitions området med ett [omfångs filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-    * Målattribut: userPrincipalName
-    * Operator: REGEX-matchning eller inte REGEX-matchning
-    * Värde:. *@domain.com
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,6 +1,6 @@
 ---
-title: Skydda App Services i Azure Security Center | Microsoft Docs
-description: Den här artikeln hjälper dig att komma igång med att skydda dina App Services i Azure Security Center.
+title: 'Skydda dina Azure App Service-webbappar och API: er'
+description: 'Den här artikeln hjälper dig att komma igång med att skydda dina Azure App Service-webbappar och API: er i Azure Security Center.'
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,57 +10,59 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 68f7c47f0a0f56085d632f1c1741318f440b41ee
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: be9331ccd548628bfc27172c4f6e625bdba1632c
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202475"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158918"
 ---
-# <a name="protect-app-service-with-azure-security-center"></a>Skydda App Service med Azure Security Center
-Den här artikeln hjälper dig att använda Azure Security Center för att övervaka och skydda dina program som körs ovanpå App Service.
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Skydda dina Azure App Service-webbappar och API: er
 
-Med App Service kan du bygga och vara värd för webb program i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. App Service erbjuder automatisk skalning och hög tillgänglighet, stöder både Windows och Linux, samt automatiserade distributioner från GitHub, Azure DevOps eller git-lagringsplatsen. 
+Azure App Service är en helt hanterad plattform för att bygga och vara värd för dina webbappar och API: er utan att behöva hantera infrastrukturen. Den ger hantering, övervakning och Operational Insights för att uppfylla prestanda-, säkerhets-och efterlevnads krav i företags klass. Mer information finns i [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-Sårbarheter i webb program utnyttjas ofta av angripare, eftersom de har ett gemensamt och dynamiskt gränssnitt för nästan alla organisationer på Internet. Förfrågningar till program som körs ovanpå App Service går igenom flera gatewayer som distribueras i Azure-datacenter runtom i världen och som ansvarar för att dirigera varje begäran till motsvarande program. 
+Om du vill aktivera avancerat skydd för din Azure App Service-plan måste du:
 
-Azure Security Center kan köra utvärderingar och rekommendationer för dina program som körs i App Service i sand boxen i din virtuella dator eller på begäran-instanser. Genom att dra nytta av den synlighet som Azure har som moln leverantör analyserar Security Center App Service interna loggar för att övervaka vanliga attacker för webb program som ofta körs över flera mål.
+* Prenumerera på Azure Security Center standard pris nivån
+* Aktivera App Service plan som visas nedan. Security Center är internt integrerat med App Service, vilket eliminerar behovet av distribution och onboarding – integreringen är transparent.
+* Ha en App Service plan som är associerad med dedikerade datorer. De planer som stöds är: Basic, standard, Premium, isolerat eller Linux. Security Center stöder inte de kostnads fria, delade eller konsumtions planerna. Mer information finns i [App Service-planer](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-Security Center utnyttjar molnets skala för att identifiera attacker på dina App Service program och fokuserar på nya attacker, medan angripare är på rekognosering-fasen och söker efter sårbarheter på flera webbplatser som finns på Azure. Security Center använder analyser och maskin inlärnings modeller för att hantera alla gränssnitt som gör det möjligt för kunder att interagera med sina program, oavsett om de är över HTTP eller via en hanterings metod. Som första parts service i Azure är Security Center också i en unik position för att erbjuda värdbaserade säkerhets analyser som täcker underliggande datornoder för den här PaaS, vilket gör att Security Center kan upptäcka attacker mot webb program som redan utnyttjat.
+När App Service plan aktive rad bedömer Security Center resurserna som omfattas av din App Service plan och genererar säkerhets rekommendationer baserat på dess resultat. Security Center skyddar den VM-instans där App Service körs och hanterings gränssnittet. Den övervakar också förfrågningar och svar som skickas till och från dina appar som körs i App Service.
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Du måste ha en App Service-plan associerad med dedikerade datorer för att övervaka och skydda din App Service. Dessa planer är: Basic, Standard, Premium, Isolerad eller Linux. Azure Security Center stöder inte planerna Kostnadsfri, Delad eller Förbrukning. Mer information finns i [App Service-planer](https://azure.microsoft.com/pricing/details/app-service/plans/).
-
-## <a name="security-center-protection"></a>Security Center skydd
-
-Azure Security Center skyddar den VM-instans där App Service körs och hanterings gränssnittet. Den övervakar också förfrågningar och svar som skickas till och från dina appar som körs i App Service.
-
-Security Center är internt integrerat med App Service, vilket eliminerar behovet av distribution och onboarding – integrationen är helt transparent.
-
+Security Center utnyttjar molnets skala och den synlighet som Azure har som moln leverantör, för att övervaka för vanliga attacker från webb program. Security Center kan identifiera attacker på dina program och identifiera nya attacker – även om angripare befinner sig i rekognosering-fasen för att identifiera sårbarheter i flera Azure-värdbaserade program. Som en Azure-Native-tjänst är Security Center också i en unik position för att erbjuda värdbaserade säkerhets analyser som täcker underliggande datornoder för den här PaaS, vilket gör att Security Center kan upptäcka attacker mot webb program som redan utnyttjats.
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Aktivera övervakning och skydd av App Service
 
-1. I Azure väljer du Security Center.
+1. I Azure Portal väljer du Security Center.
 2. Gå till **pris & inställningar** och välj en prenumeration.
 3. Under **pris nivå**, i den **App Service** -rad, växlar du planen till **aktive rad**.
 
-![Växla App Service](./media/security-center-app-services/app-services-toggle.png)
+    [![aktivera app Services i din prenumeration på standard nivån](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
+
 
 >[!NOTE]
-> Antalet instanser som anges för din resurs kvantitet representerar antalet relevanta instanser av app service som är aktiva när du öppnade bladet pris nivå. Eftersom det här antalet kan ändras baserat på de skalnings alternativ som du har valt så ändras antalet instanser som du debiteras för.
+> Antalet instanser som anges för din **resurs kvantitet** representerar det totala antalet beräknings instanser, i alla App Service planer i den här prenumerationen, som körs när du öppnade bladet pris nivå.
+>
+> Azure App Service erbjuder en rad olika planer. App Service plan definierar mängden beräknings resurser för en webbapp som ska köras. Dessa motsvarar Server grupper i konventionell webb värd. En eller flera appar kan konfigureras för att köras på samma dator resurser (eller i samma App Service plan).
+>
+>Om du vill validera antalet, head to App Service Planes i Azure-portalen, där du kan se antalet beräknings instanser som används av varje plan. 
+
+
+
+
+
 
 Om du vill inaktivera övervakning och rekommendationer för din App Service upprepar du den här processen och växlar **app Services** planen till **inaktive rad**.
 
 
 
-## <a name="see-also"></a>Se också
-I den här artikeln har du fått lära dig hur du använder övervakningsfunktionerna i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
+## <a name="see-also"></a>Se även
+I den här artikeln har du fått lära dig hur du använder övervakningsfunktionerna i Azure Security Center. Mer information om Azure Security Center finns i följande artiklar:
 
-* [Ställer in säkerhets principer i Azure Security Center](tutorial-security-policy.md): Lär dig hur du konfigurerar säkerhets inställningar i Azure Security Center.
-* [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Lär dig att hantera och åtgärda säkerhetsaviseringar.
-* [App Services](security-center-virtual-machine-protection.md#app-services):  Visa en lista över App Service-miljöer med hälso översikter.
-* [Övervaka partner lösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
-* [Azure Security Center vanliga frågor och svar](security-center-faq.md): Här finns vanliga frågor om att använda tjänsten.
-* [Azure-säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md): Här får du lära dig hur du ställer in säkerhetsprinciper i Azure Security Center.
+* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
+* [App Services](security-center-virtual-machine-protection.md#app-services): Visa en lista över App Service-miljöer med hälso översikter.
+* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
+* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här hittar du vanliga frågor och svar om tjänsten.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

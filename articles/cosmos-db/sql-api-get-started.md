@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 78b88f4e4e60d1f79263bfd9d7dfaf0cabc70de6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132565"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173913"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Självstudie: Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -259,7 +259,7 @@ En databas är en logisk container med objekt som är partitionerade över conta
 1. Välj F5 för att köra programmet.
 
    > [!NOTE]
-   > Om du får ett undantaget "503-tjänst ej tillgängligt" är det möjligt att de [portar](performance-tips.md#networking) som krävs för direkt läge blockeras av en brand vägg. Du kan åtgärda det här problemet genom att antingen öppna de [portar](performance-tips.md#networking) som krävs eller försöka använda Gateway-läget som visas nedan.
+   > Om du får fel meddelandet "503 Service Unavailable Exception" är det möjligt att de [portar](performance-tips.md#networking) som krävs för direkt anslutnings läge blockeras av en brand vägg. Du kan åtgärda det här problemet genom att antingen öppna de portar som krävs eller använda anslutnings tjänsten för gateway-läge som visas i följande kod:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

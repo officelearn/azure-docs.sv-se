@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 3e5937a036763fab57f9e37494ace33e8452b1f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582262"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168422"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Azure HPC cache-data inmatning – msrsync-metod
 
 Den här artikeln innehåller detaljerade anvisningar för hur du använder ``msrsync``-verktyget för att kopiera data till en Azure Blob Storage-behållare för användning med Azure HPC-cache.
 
-Läs mer om hur du flyttar data till Blob Storage för Azure HPC cache genom att läsa [Flytta data till Azure Blob Storage för Azure HPC cache](hpc-cache-ingest.md).
+Läs mer om hur du flyttar data till Blob Storage för Azure HPC cache genom [att läsa flytta data till Azure Blob Storage](hpc-cache-ingest.md).
 
 ``msrsync``-verktyget kan användas för att flytta data till ett Server dels lagrings mål för Azure HPC-cachen. Det här verktyget är utformat för att optimera bandbredds användningen genom att köra flera parallella ``rsync`` processer. Den är tillgänglig från GitHub på https://github.com/jbd/msrsync.
 

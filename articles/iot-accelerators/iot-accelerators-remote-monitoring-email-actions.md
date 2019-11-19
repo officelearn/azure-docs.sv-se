@@ -1,177 +1,177 @@
 ---
-title: E-åtgärd i fjärrövervakning – Azure | Microsoft Docs
-description: Den här guiden visar hur du lägger till en e poståtgärd på en ny eller befintlig regel.
-author: asdonald
+title: E-poståtgärd inom fjärr styrning – Azure | Microsoft Docs
+description: Den här instruktions guiden visar hur du lägger till en e-poståtgärd till en ny eller befintlig regel.
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466886"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168360"
 ---
-# <a name="add-an-email-action"></a>Lägg till en e poståtgärd
+# <a name="add-an-email-action"></a>Lägg till en e-poståtgärd
 
-E-post åtgärder att se att du aldrig missar aviseringar. Du kan lägga till en e poståtgärd till en befintlig regel eller när du skapar en ny regel.
+Med e-poståtgärder kan du se till att du aldrig saknar aviseringar. Du kan lägga till en e-poståtgärd till en befintlig regel eller när du skapar en ny regel.
 
-För att slutföra stegen i den här guiden måste behöver du en distribuerad instans av lösningsacceleratorn för fjärrövervakning i din Azure-prenumeration.
+För att slutföra stegen i den här instruktions guiden behöver du en distribuerad instans av lösningen för fjärrövervakning i din Azure-prenumeration.
 
-Om du vill skapa eller ändra en regel måste du vara en [ **administratör**, eller har rätt behörigheter](iot-accelerators-remote-monitoring-rbac.md).
+Om du vill skapa eller ändra en regel måste du vara [ **administratör**eller ha rätt behörighet](iot-accelerators-remote-monitoring-rbac.md).
 
 ## <a name="edit-an-existing-rule"></a>Redigera en befintlig regel
 
-Följ dessa steg om du vill lägga till en e poståtgärd i en befintlig regel:
+Följ dessa steg om du vill lägga till en e-poståtgärd i en befintlig regel:
 
-1. Gå till lösningen för fjärrövervakning.
+1. Navigera till din lösning för fjärrövervakning.
 
-1. Från den **instrumentpanelen**, navigera till den **regler** sidan:
+1. Från **instrument panelen**navigerar du till sidan **regler** :
 
-    ![Sidan principregler](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
+    ![Sidan regler](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
-1. Klicka på kryssrutan bredvid den befintliga regeln att ändra och klicka sedan på **redigera** högst upp. Ett redigerbart **regeln** visas panelen.
+1. Klicka på kryss rutan bredvid den befintliga regeln för att ändra och klicka sedan på **Redigera** överst. En redigerings bar **regel** panel visas.
 
-1. I den **åtgärd** avsnittet, växla **e-postaktiverade** till **på**.
+1. Växla **e-post aktive rad** till **på**i avsnittet **åtgärd** .
 
-1. Första gången du aktiverar en e poståtgärd i lösningsaccelerator, måste du [logga in på Outlook](#outlook).
+1. Första gången du aktiverar en e-poståtgärd i Solution Accelerator måste du [Logga in på Outlook](#outlook).
 
-1. Ange en e-postadress i rutan mottagare och tryck på den **RETUR** nyckel för varje e-postadress att lägga till:
+1. Ange en e-postadress i rutan mottagare och tryck på **RETUR** för varje e-postadress som ska läggas till:
 
-    ![Adresspost](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
+    ![Adress post](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Ange ett ämne för e-postmeddelandet.
 
-1. Ange ytterligare anteckningar för e-postmottagare som oformaterad text. Du kan använda HTML-formatering om du [redigera e-postmallen](#htmledit).
+1. Ange eventuella ytterligare kommentarer till e-postmottagare som oformaterad text. Du kan använda HTML-formatering om du [redigerar e-postmallen](#htmledit).
 
-1. Se till att den **Regelstatus** är inställd på **aktiverad**.
+1. Kontrol lera att **regel statusen** har angetts till **aktive rad**.
 
-1. Klicka på **Verkställ**.
+1. Klicka på **Använd**.
 
 ## <a name="create-a-new-rule"></a>Skapa en ny regel
 
-Följ dessa steg för att lägga till en e poståtgärd när du skapar en ny regel:
+Följ dessa steg om du vill lägga till en e-poståtgärd när du skapar en ny regel:
 
-1. Gå till lösningen för fjärrövervakning.
+1. Navigera till din lösning för fjärrövervakning.
 
-1. Från den **instrumentpanelen**, navigera till den **regler** sidan:
+1. Från **instrument panelen**navigerar du till sidan **regler** :
 
-    ![Sidan principregler](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
+    ![Sidan regler](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
-1. Följ stegen i den [skapa en regel del](iot-accelerators-remote-monitoring-automate.md#create-a-rule). Följ stegen i den [skapa en avancerad regel](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) avsnittet fram till den punkt där du anger en **allvarlighetsgrad**. Klicka inte på **tillämpa** ännu.
+1. Följ stegen i [avsnittet Skapa en regel](iot-accelerators-remote-monitoring-automate.md#create-a-rule). Följ stegen i avsnittet [skapa en avancerad regel](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) upp till den punkt där du ställer in en **allvarlighets**grad. Klicka inte på **Använd** ännu.
 
-1. I den **åtgärd** avsnittet, växla **e-postaktiverade** till **på**.
+1. Växla **e-post aktive rad** till **på**i avsnittet **åtgärd** .
 
-1. Första gången du aktiverar en e poståtgärd i lösningsaccelerator, måste du [logga in på Outlook](#outlook).
+1. Första gången du aktiverar en e-poståtgärd i Solution Accelerator måste du [Logga in på Outlook](#outlook).
 
-1. Ange en e-postadress i rutan mottagare och tryck på den **RETUR** nyckel för varje e-postadress att lägga till:
+1. Ange en e-postadress i rutan mottagare och tryck på **RETUR** för varje e-postadress som ska läggas till:
 
-    ![Adresspost](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
+    ![Adress post](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Ange ett ämne för e-postmeddelandet.
 
-1. Ange ytterligare anteckningar för e-postmottagare som oformaterad text. Du kan använda HTML-formatering om du [redigera e-postmallen](#htmledit).
+1. Ange eventuella ytterligare kommentarer till e-postmottagare som oformaterad text. Du kan använda HTML-formatering om du [redigerar e-postmallen](#htmledit).
 
-1. Se till att den **Regelstatus** är inställd på **aktiverad**.
+1. Kontrol lera att **regel statusen** har angetts till **aktive rad**.
 
-1. Klicka på **Verkställ**.
+1. Klicka på **Använd**.
 
-Nu har aktiverats för din regel med en e poståtgärd. Varje gång åtgärden utlöses skickas ett nytt e-postmeddelande till mottagarna.
+Regeln med en e-poståtgärd är nu aktive rad. Varje gången en åtgärd utlöses skickas ett nytt e-postmeddelande till mottagarna.
 
-## Logga in till Outlook <a name="outlook"></a>
+## Logga in på Outlook<a name="outlook"></a>
 
-Första gången du aktiverar en e poståtgärd i utvecklingsacceleratorn, du måste logga in på Outlook. Den här åtgärden ställer in e-postkonto som skickar ut e-postmeddelanden.
+Första gången du aktiverar en e-poståtgärd i Solution Accelerator måste du logga in på Outlook. Den här åtgärden konfigurerar e-postkontot som skickar ut e-postaviseringarna.
 
 > [!NOTE]
-> Du skapar ett specifikt Outlook-konto för solution accelerator meddelanden och använda det kontot när du aktiverar din första e poståtgärd.
+> Du bör endast skapa ett särskilt Outlook-konto för Solution Accelerator-aviseringar och använda det kontot när du aktiverar den första e-poståtgärden.
 
-### <a name="contributor-role-outlook-setup"></a>Installationen av deltagare roll för Outlook
+### <a name="contributor-role-outlook-setup"></a>Deltagar roll Outlook-konfiguration
 
-Om någon i den **deltagare** rollen i prenumerationen distribueras solution accelerator, programmet har inte tillräcklig behörighet för att konfigurera och verifiera e-poståtgärder via Webbgränssnittet.
+Om någon i rollen **deltagare** i prenumerationen har distribuerat Solution Accelerator har programmet inte tillräckliga behörigheter för att konfigurera och verifiera e-poståtgärder via webb gränssnittet.
 
-Innan du börjar måste du skapa ett Outlook-konto du använder för att skicka e-postmeddelanden från din lösningsaccelerator.
+Innan du börjar ska du skapa ett Outlook-konto som ska användas för att skicka e-postmeddelanden från Solution Accelerator.
 
-Följande steg visar hur du ställer in och kontrollera e-poståtgärder manuellt:
+Följande steg visar hur du konfigurerar och verifierar e-poståtgärder manuellt:
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
 
-1. Navigera till resursgruppen för utvecklingsacceleratorn.
+1. Navigera till resurs gruppen för din lösnings Accelerator.
 
-1. Klicka på den **Office 365-anslutningsappen**:
+1. Klicka på **Office365-Connector**:
 
     ![API-anslutning](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
-1. Klicka på banderollen för att påbörja auktoriseringsprocessen:
+1. Starta auktoriseringsprocessen genom att klicka på banderollen:
 
-    ![auktorisera](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
+    ![Ring](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
-1. Klicka på **auktorisera**. Du uppmanas att logga in. Det konto som används för att logga in bör vara den e-postadressen programmet använder för att skicka e-postmeddelanden:
+1. Klicka på **auktorisera**. Du uppmanas att logga in. Det konto som du använder för att logga in ska vara den e-postadress som programmet använder för att skicka e-postmeddelanden:
 
-    ![Auktorisera knappen](./media/iot-accelerators-remote-monitoring-email-actions/authorize.png)
+    ![Knappen auktorisera](./media/iot-accelerators-remote-monitoring-email-actions/authorize.png)
 
-1. Klicka på **spara** längst ned på sidan. Din behörighet kommer att lyckas om popup-meddelandet är borta.
+1. Klicka på **Spara** längst ned. Ditt godkännande kommer att lyckas om banderollen är borta.
 
-1. Så här ändrar du den e-postadress som meddelanden skickas från **redigera API-anslutningen**.
+1. Om du vill ändra e-postadressen som meddelandena skickas från klickar du på **Redigera API-anslutning**.
 
     ![ändra e-post](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
-### <a name="owner-role-outlook-setup"></a>Installationen av ägare roll för Outlook
+### <a name="owner-role-outlook-setup"></a>Konfiguration av ägar roll för Outlook
 
-Om någon i den **ägare** rollen i prenumerationen distribueras solution accelerator, programmet kan verifiera e-poståtgärder är korrekt inställda via Webbgränssnittet.
+Om någon i **ägar** rollen i prenumerationen har distribuerat Solution Accelerator kan programmet verifiera att e-poståtgärder har kon figurer ATS korrekt via webb gränssnittet.
 
-Innan du börjar måste du skapa ett Outlook-konto du använder för att skicka e-postmeddelanden från din lösningsaccelerator.
+Innan du börjar ska du skapa ett Outlook-konto som ska användas för att skicka e-postmeddelanden från Solution Accelerator.
 
-Följande steg hjälper dig att logga in och konfigurera e poståtgärder:
+Följande steg hjälper dig att logga in och konfigurera e-poståtgärder:
 
-1. Klicka för att logga in på Outlook. Kommer du till Azure-portalen:
+1. Klicka om du vill logga in på Outlook. Du kommer till Azure Portal:
 
-   ![Logga in till Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
+   ![Logga in på Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
-1. Klicka på **auktorisera**. Du uppmanas att logga in. Det konto som används för att logga in bör vara den e-postadressen programmet använder för att skicka e-postmeddelanden:
+1. Klicka på **auktorisera**. Du uppmanas att logga in. Det konto som du använder för att logga in ska vara den e-postadress som programmet använder för att skicka e-postmeddelanden:
 
-1. Klicka på **Spara**. Gå tillbaka till utvecklingsacceleratorn och uppdatera sidan.
+1. Klicka på **Spara**. Gå tillbaka till Solution Accelerator och uppdatera sidan.
 
-1. Om du har konfigurerat e-postmeddelandet, visas följande meddelande:
+1. Om du har konfigurerat e-postaviseringen visas följande meddelande:
 
-   ![Lyckad Outlook logga in](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
+   ![Outlook-inloggningen har slutförts](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## Anpassa e-post HTML <a name="htmledit"></a>
+## Anpassa e-postadressen<a name="htmledit"></a>
 
-Out-of the box, lösningsacceleratorn för fjärrövervakning innehåller en grundläggande HTML-mall för e-postmeddelanden för åtgärden. E-postmallen används värden från inställningarna för e-post-åtgärd. Här är ett exempel e-postmeddelande:
+Den färdiga lösningen för fjärrövervakning innehåller en grundläggande HTML-mall för e-poståtgärder. E-postmallen använder värden från inställningarna för e-poståtgärder. Här är ett exempel på ett e-postmeddelande:
 
-![e-exempel](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
+![e-postexempel](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 Följande steg visar hur du redigerar HTML-e-postmallen. Du kan till exempel ta med mer information eller lägga till anpassade avbildningar:
 
-1. Klona databasen för Java eller .NET Remote Monitoring-GitHub:
+1. Klona antingen Java-eller .NET-GitHub lagrings plats:
 
-1. Gå till platsen för e-mall:
+1. Navigera till platsen för e-postmallen:
   
     `Dotnet: device-telemetry\ActionsAgent\data\EmailTemplate.html`
   
     `Java device-telemetry/app/resources/data/EmailTemplate.html`
 
-1. Du kan lägga till eller ta bort eventuella parametrar i den här mallen för att anpassa meddelandet. Du kan också lägga till, ta bort eller Ersätt anrop efter behov:
+1. Du kan lägga till eller ta bort parametrar i den här mallen för att anpassa meddelandet. Du kan också lägga till, ta bort eller ersätta samtal efter behov:
 
-    Till exempel i .NET-kod:  `emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
+    Till exempel i .NET-koden: `emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
 
-    Till exempel i Java-kod:  `this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
+    I t. ex. java-koden: `this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
 
-1. Parametrar i mallen utgöras av `${...}`. Ta bort raden krävs för att ta bort en parameter. Om du vill lägga till en parameter, lägger du till en rad med värdet att infoga.
+1. Parametrar i mallen ska ha formen `${...}`. Ta bort en parameter genom att ta bort raden som krävs. Lägg till en parameter genom att lägga till en rad med det värde som ska infogas.
 
-1. Lägg till bilder eller anpassad text genom att uppdatera filen EmailTemplate.HTML direkt.
+1. Om du vill lägga till bilder eller anpassad text uppdaterar du filen EmailTemplate. HTML direkt.
 
 ## <a name="throttling"></a>Begränsning
 
-Lösningsacceleratorn för fjärrövervakning använder Outlook för att skicka e-postmeddelanden. Outlook begränsar antalet e-postmeddelanden som skickas till [30 e-postmeddelanden per 1 minut](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-postklienter som tar emot e-postmeddelanden kan också begränsa hur många e-postmeddelanden per minut. Kontakta din specifika e-postklient på begränsningar. När du ställer in e-postmeddelande för en regel ska regeln beräkna genomsnittsvärden under en period av minst en minut och inte använda omedelbara värden:
+Lösnings acceleratorn för fjärrövervakning använder Outlook för att skicka e-postaviseringar. Outlook begränsar antalet e-postmeddelanden som skickas till [30 e-postmeddelanden per 1 minut](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-postklienter som tar emot e-postmeddelandena kan också begränsa antalet e-postmeddelanden som tas emot per minut. Kontrol lera med din speciella e-postklient om begränsningarna. När du ställer in e-postaviseringar för en regel ska regeln beräkna genomsnitts värden under en period på minst en minut och inte använda direkta värden:
 
 ![Genomsnittlig beräkning](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här guiden visar dig hur du lägger till en e poståtgärd på en ny eller befintlig regel inom en lösning för fjärrövervakning. Guiden visade också du och hur du redigerar den HTML som definierar meddelandeformatet.
+Den här guiden visar hur du lägger till en e-poståtgärd till en ny eller befintlig regel i en lösning för fjärrövervakning. Guiden visade också dig och hur du redigerar HTML-koden som definierar meddelande formatet.
 
-Föreslagna nästa steg är att lära dig [hur du använder aviseringar och åtgärda enhetsproblem](iot-accelerators-remote-monitoring-maintain.md).
+Det föreslagna nästa steg är att lära dig [hur du använder aviseringar och löser enhets problem](iot-accelerators-remote-monitoring-maintain.md).

@@ -10,12 +10,12 @@ ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128690"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092081"
 ---
 ::: zone target="chromeless"
 
@@ -137,11 +137,25 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
     - Gå till **Översikt > Ladda ned adressetikett** och hämta en returetikett.
     - Fäst etiketten på enheten. Se till att etiketten syns tydligt.
 
-2. Så här begär du upphämtning:
-    - Ring journumret för **SingPost** på **6845 6485** under kontorstider (9–17, måndag till fredag).  
-    - Ange *Microsoft Azure pickup* och numret för tjänstbegäran (spårningsnummer på returetiketten) för att anordna en upphämtning. 
-    - Du får en muntlig bekräftelse för upphämtningsschemat. 
-    - Om fraktföretaget inte anländer för upphämtning ringer du **SingPost** på **6845 6485** för alternativa lösningar. 
+2. För att begära upphämtning skickar du e-post till SingPost-kundtjänsten med följande mall och spårningsnumret (spårningsnumret kan hittas på returetiketten som tillhandahålls i det levererade paketet).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a. Requestor name
+     b. Requestor contact number
+     c. Requestor collection address
+     d. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > För bokningsbegäranden som tas emot under en arbetsdag:
+   > - Före 15:00 sker upphämtningen nästa arbetsdag mellan 09:00 och 13:00.
+   > - Efter 15:00 sker upphämtningen nästa arbetsdag mellan 14:00 och 18:00.
+
+   Om du stöter på några problem kan du kontakta Data Box Operations Asia på adbo@microsoft.com. I ämnesrubriken anger du jobbnamnet och det problem som påträffats.
+
 3. Lämna över till fraktföretaget. 
 
 

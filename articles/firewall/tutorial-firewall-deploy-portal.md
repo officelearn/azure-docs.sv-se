@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal'
+title: 'Självstudie: Distribuera & Konfigurera Azure-brandväggen med hjälp av Azure Portal'
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure Portal.
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 124a87728a8d201c329b15d94ae7e61a225646ab
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468444"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195779"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -34,7 +34,7 @@ I den här självstudien skapar du ett förenklat virtuellt nätverk med tre und
 
 ![Självstudie om nätverksinfrastruktur](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > * skapa en standardväg
 > * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
-> * testa brandväggen.
+> * Testa brandväggen
 
 Om du vill kan du utföra den här självstudien med [Azure PowerShell](deploy-ps.md).
 
@@ -104,7 +104,7 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
 
    |Inställning  |Värde  |
    |---------|---------|
-   |Resursgrupp     |**Test-VB-RG**|
+   |Resursgrupp     |**Test-FW-RG**|
    |Namn på virtuell dator     |**SRV-hoppa**|
    |Region     |Samma som föregående|
    |Administratörens användar namn     |**azureuser**|
@@ -125,7 +125,7 @@ Använd informationen i följande tabell för att konfigurera en annan virtuell 
 
 |Inställning  |Värde  |
 |---------|---------|
-|Undernät|**Arbets belastning – SN**|
+|Undernät|**Workload-SN**|
 |Offentlig IP-adress|**Alternativet**|
 |Offentliga inkommande portar|**Alternativet**|
 
@@ -141,7 +141,7 @@ Distribuera brandväggen till det virtuella nätverket.
    |Inställning  |Värde  |
    |---------|---------|
    |Prenumeration     |\<din prenumeration\>|
-   |Resursgrupp     |**Test-VB-RG** |
+   |Resursgrupp     |**Test-FW-RG** |
    |Namn     |**Test-FW01**|
    |Plats     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|
@@ -230,7 +230,7 @@ I test syfte i den här självstudien konfigurerar du serverns primära och seku
 6. Välj **Spara**.
 7. Starta om den virtuella datorn **Srv-Work**.
 
-## <a name="test-the-firewall"></a>testa brandväggen.
+## <a name="test-the-firewall"></a>Testa brandväggen
 
 Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 

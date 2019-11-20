@@ -3,12 +3,12 @@ title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: MT
+ms.openlocfilehash: 2799784ad449304a7790ad5f83d8ed1c94dd3547
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173552"
+ms.locfileid: "74194986"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](resource-group-using-tags.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten.
@@ -1818,7 +1818,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Ja | Ja |
-> | managedInstances/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
+> | managedInstances/databaser | Nej | Nej |
 > | managedInstances/databases/backupShortTermRetentionPolicies | Nej | Nej |
 > | managedInstances/databaser/scheman/tabeller/kolumner/sensitivityLabels | Nej | Nej |
 > | managedInstances/databaser/vulnerabilityAssessments | Nej | Nej |

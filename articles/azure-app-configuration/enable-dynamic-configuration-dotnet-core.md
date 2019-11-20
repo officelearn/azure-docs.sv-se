@@ -13,16 +13,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: e56aba81b2e6b8e66aeb2c3e5284843055713826
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316078"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185198"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Självstudier: Använd dynamisk konfiguration i en .NET Core-app
+# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Självstudie: Använd dynamisk konfiguration i en .NET Core-app
 
-App Configuration .NET Core klient bibliotek stöder uppdatering av en uppsättning konfigurations inställningar på begäran utan att ett program startas om. Detta kan implementeras genom att först hämta en instans `IConfigurationRefresher` av från alternativen för konfigurationsprovidern och sedan anropa `Refresh` den instansen var som helst i din kod.
+App Configuration .NET Core klient bibliotek stöder uppdatering av en uppsättning konfigurations inställningar på begäran utan att ett program startas om. Detta kan implementeras genom att först hämta en instans av `IConfigurationRefresher` från alternativen för konfigurationsprovidern och sedan anropa `Refresh` på den instansen var som helst i din kod.
 
 För att hålla inställningarna uppdaterade och undvika för många anrop till konfigurations arkivet används ett cacheminne för varje inställning. Tills det cachelagrade värdet för en inställning har gått ut uppdateras inte värdet, även om värdet har ändrats i konfigurations arkivet. Standard förfallo tiden för varje begäran är 30 sekunder, men den kan åsidosättas om det behövs.
 
@@ -30,13 +30,13 @@ Den här självstudien visar hur du kan implementera dynamiska konfigurationsupp
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera ditt program för att uppdatera konfigurationen med ett konfigurations lager för appar på begäran.
-> * Mata in den senaste konfigurationen i dina programs kontrollanter.
+> * Konfigurera din .NET Core-app så att den uppdaterar konfigurationen som svar på ändringar i ett konfigurations lager för appar.
+> * Använd den senaste konfigurationen i ditt program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -44,7 +44,7 @@ Om du vill göra den här själv studie kursen installerar du [.net Core SDK](ht
 
 ## <a name="reload-data-from-app-configuration"></a>Läsa in data på nytt från App Configuration
 
-Öppna *program.cs* och uppdatera filen för att lägga till en referens till `System.Threading.Tasks` namn området, för att ange `AddAzureAppConfiguration` uppdaterings konfiguration i-metoden och aktivera manuell uppdatering med `Refresh` hjälp av-metoden.
+Öppna *program.cs* och uppdatera filen för att lägga till en referens till `System.Threading.Tasks` namn området, för att ange uppdaterings konfiguration i `AddAzureAppConfiguration`-metoden och aktivera manuell uppdatering med hjälp av `Refresh`-metoden.
 
 ```csharp
 using System;
@@ -90,10 +90,10 @@ class Program
 }
 ```
 
-`ConfigureRefresh` Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. En instans av `IConfigurationRefresher` kan hämtas genom att anropa `GetRefresher` metoden på de alternativ som ges `AddAzureAppConfiguration` `Refresh` till metoden och metoden på den här instansen kan användas för att utlösa en uppdatering var som helst i koden.
+Metoden `ConfigureRefresh` används för att ange inställningarna som används för att uppdatera konfigurations data med konfigurations arkivet för appar när en uppdatering aktive ras. En instans av `IConfigurationRefresher` kan hämtas genom att anropa `GetRefresher` metod på de alternativ som ges till `AddAzureAppConfiguration` metod, och `Refresh`-metoden på den här instansen kan användas för att utlösa en uppdatering var som helst i koden.
     
 > [!NOTE]
-> Standard-cachens förfallo tid för en konfigurations inställning är 30 sekunder, men kan åsidosättas genom att `SetCacheExpiration` anropa metoden på Options-initieraren som skickades som `ConfigureRefresh` ett argument till metoden.
+> Standard-cachens förfallo tid för en konfigurations inställning är 30 sekunder, men kan åsidosättas genom att anropa metoden `SetCacheExpiration` på Options-initieraren som skickas som ett argument till `ConfigureRefresh`-metoden.
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
@@ -119,11 +119,11 @@ class Program
 
     ![Snabbstart av lokal app](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 
@@ -132,7 +132,7 @@ class Program
     ![Snabbstart med uppdatering av lokal app](./media/quickstarts/dotnet-core-app-run-refresh.png)
     
     > [!NOTE]
-    > Eftersom cachens förfallo tid var 10 sekunder med `SetCacheExpiration` metoden när konfigurationen för uppdaterings åtgärden angavs, uppdateras värdet för konfigurations inställningen endast om minst 10 sekunder har förflutit sedan den senaste uppdateringen för den inställningen.
+    > Eftersom cachens förfallo tid var 10 sekunder med metoden `SetCacheExpiration` när du angav konfigurationen för uppdaterings åtgärden, uppdateras värdet för konfigurations inställningen endast om minst 10 sekunder har förflutit sedan den senaste uppdateringen för den inställningen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -140,7 +140,7 @@ class Program
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till en hanterad Azure-tjänstidentitet för att effektivisera åtkomsten till App Configuration och förbättra hanteringen av autentiseringsuppgifter för din app. Om du vill veta mer om hur du använder app-konfiguration kan du fortsätta till Azure CLI-exemplen.
+I den här självstudien har du aktiverat din .NET Core-app för dynamisk uppdatering av konfigurations inställningar från App-konfigurationen. Fortsätt till nästa självstudie om du vill lära dig hur du använder en Azure-hanterad identitet för att effektivisera åtkomsten till app-konfigurationen.
 
 > [!div class="nextstepaction"]
-> [CLI-exempel](./cli-samples.md)
+> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)

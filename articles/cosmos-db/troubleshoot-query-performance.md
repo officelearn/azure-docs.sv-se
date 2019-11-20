@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515811"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184719"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Felsöka prestanda för frågor för Azure Cosmos DB
 Den här artikeln beskriver hur du identifierar, diagnostiserar och felsöker Azure Cosmos DB problem med SQL-frågor. Följ fel söknings stegen nedan för att uppnå optimala prestanda för Azure Cosmos DB frågor. 
@@ -26,29 +26,29 @@ Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande
 
 ## <a name="log-the-executed-sql-query"></a>Logga den exekverade SQL-frågan 
 
-Du kan logga den exekverade SQL-frågan i ett lagrings konto eller tabellen Diagnostic Log. [SQL Query-loggar via diagnostikloggar](logging.md#turn-on-logging-in-the-azure-portal) gör att du kan logga fördunklade-frågan i valfritt lagrings konto. På så sätt kan du titta på loggarna och Sök frågan som använder högre ru: er. Du kan senare använda aktivitets-ID: t för att matcha den faktiska frågan i QueryRuntimeStatistics. Frågan är fördunklade för säkerhets syfte och parametrarna för Frågeparametern, och deras värden i WHERE-satser skiljer sig från faktiska namn och värden. Du kan använda loggning till lagrings kontot för att behålla den långsiktiga lagringen av de frågor som körs.  
+Du kan logga den exekverade SQL-frågan i ett lagrings konto eller tabellen Diagnostic Log. [SQL Query-loggar via diagnostikloggar](monitor-cosmos-db.md#diagnostic-settings) gör att du kan logga fördunklade-frågan i valfritt lagrings konto. På så sätt kan du titta på loggarna och Sök frågan som använder högre ru: er. Du kan senare använda aktivitets-ID: t för att matcha den faktiska frågan i QueryRuntimeStatistics. Frågan är fördunklade för säkerhets syfte och parametrarna för Frågeparametern, och deras värden i WHERE-satser skiljer sig från faktiska namn och värden. Du kan använda loggning till lagrings kontot för att behålla långsiktig kvarhållning av de exekverade frågorna.  
 
 ## <a name="log-query-metrics"></a>Logga frågornas mått
 
 Använd `QueryMetrics` för att felsöka långsamma eller dyra frågor. 
 
-  * `FeedOptions.PopulateQueryMetrics = true` Anges`QueryMetrics` som svar.
-  * `QueryMetrics`klassen har en överlagrad `.ToString()` funktion som kan anropas för att hämta sträng representationen `QueryMetrics`av. 
+  * Ange `FeedOptions.PopulateQueryMetrics = true` att `QueryMetrics` i svaret.
+  * `QueryMetrics`-klassen har en överlagrad `.ToString()`-funktion som kan anropas för att hämta sträng representationen av `QueryMetrics`. 
   * Måtten kan användas för att härleda följande insikter, bland annat: 
   
       * Om en enskild komponent i frågans pipeline tog onormalt lång tid att slutföra (i antal hundratals millisekunder eller mer). 
 
           * Titta på `TotalExecutionTime`.
-          * `TotalExecutionTime` Om frågan är mindre än slut punkt till slut punkt körs tiden på klient sidan eller nätverket. Kontrol lera att klienten och Azure-regionen är samordnad.
+          * Om `TotalExecutionTime` av frågan är mindre än slut tiden till slut punkts körningen, kommer tiden att läggas på klient sidan eller nätverket. Kontrol lera att klienten och Azure-regionen är samordnad.
       
       * Om det finns falska positiva identifieringar i dokumenten som analyseras (om antalet utdata är mycket mindre än antalet hämtade dokument).  
 
           * Titta på `Index Utilization`.
-          * `Index Utilization`= (Antal returnerade dokument/antal inlästa dokument)
+          * `Index Utilization` = (antal returnerade dokument/antal inlästa dokument)
           * Om antalet returnerade dokument är mycket mindre än det antal som läses in, analyseras falska positiva identifieringar.
           * Begränsa antalet dokument som hämtas med snävare filter.  
 
-      * Hur enskilda svar på resan (se `Partition Execution Timeline` från sträng åter givning av `QueryMetrics`). 
+      * Hur enskilda svar på resan (se `Partition Execution Timeline` från sträng representationen av `QueryMetrics`). 
       * Anger om frågan har förbrukat hög begär ande avgift. 
 
 Mer information finns i artikeln om [hur du hämtar SQL-frågor om körnings statistik](profile-sql-api-query.md) .
@@ -147,19 +147,19 @@ Kontrollera att den aktuella [indexeringsprincipen](index-policy.md) är optimal
 
 Mer information finns i artikeln [Hantera indexerings principer](how-to-manage-indexing-policy.md) .
 
-## <a name="spatial-data-check-ordering-of-points"></a>Spatialdata: Kontrol lera sortering av Points
+## <a name="spatial-data-check-ordering-of-points"></a>Spatialdata: kontrol lera sortering av punkter
 Punkter inom en Polygon måste anges i motsols ordning. En Polygon som angetts i medurs ordning representerar inversen till regionen i den.
 
 ## <a name="optimize-join-expressions"></a>Optimera KOPPLINGs uttryck
-`JOIN`uttryck kan utökas till stora kors produkter. När det är möjligt kan du fråga mot ett mindre Sök utrymme via ett mer smalt filter.
+`JOIN` uttryck kan utökas till stora kors produkter. När det är möjligt kan du fråga mot ett mindre Sök utrymme via ett mer smalt filter.
 
-Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors `WHERE` kopplingar i-satsen. Ett detaljerat exempel finns i artikeln [optimera kopplings uttryck](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) .
+Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i `WHERE`-satsen. Ett detaljerat exempel finns i artikeln [optimera kopplings uttryck](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) .
 
 ## <a name="optimize-order-by-expressions"></a>Optimera ORDER BY-uttryck 
-`ORDER BY`frågans prestanda kan bli lidande om fälten är null-optimerade eller inte ingår i index principen.
+`ORDER BY` frågans prestanda kan påverkas om fälten är null-optimerade eller inte ingår i index principen.
 
   * För sparse-fält som tid, minska Sök utrymmet så mycket som möjligt med filter. 
-  * Inkludera egenskap i `ORDER BY`index princip för enskild egenskap. 
+  * Inkludera egenskap i index princip för enskild egenskap `ORDER BY`. 
   * För flera egenskaps `ORDER BY` uttryck definierar du ett [sammansatt index](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) för fält som sorteras.  
 
 ## <a name="many-large-documents-being-loaded-and-processed"></a>Många stora dokument läses in och bearbetas

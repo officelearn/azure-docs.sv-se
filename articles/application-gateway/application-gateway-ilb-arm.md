@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e0dedb13bf7365e011eb3403fb7ec110a4290ec9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9fbde84c499ba5b086ce812de63602c626b416b0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012884"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179320"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Skapa en Programgateway med en intern belastningsutjämnare (ILB)
 
@@ -227,7 +227,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-När programgatewayen är i ett stoppat läge kan du använda cmdleten `Remove-AzApplicationGateway` för att ta bort tjänsten.
+När programgatewayen är i ett stoppat läge använder du cmdleten `Remove-AzApplicationGateway` för att ta bort tjänsten.
 
 ```powershell
 Remove-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
@@ -244,7 +244,7 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 > [!NOTE]
 > Du kan använda växeln **-force** om du inte vill att några bekräftelsemeddelanden ska visas.
 
-Du kan kontrollera att tjänsten har tagits bort genom att använda cmdleten `Get-AzApplicationGateway`. Det här steget är inte obligatoriskt.
+Kontrollera att tjänsten har tagits bort med hjälp av cmdleten `Get-AzApplicationGateway`. Det här steget är inte obligatoriskt.
 
 ```powershell
 Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
@@ -259,8 +259,6 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway för SSL-avlastning](application-gateway-ssl.md).
-
-Om du vill konfigurera en programgateway för användning med en intern lastbalanserare läser du [Skapa en programgateway med en intern lastbalanserare (ILB)](application-gateway-ilb.md).
 
 Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet läser du:
 

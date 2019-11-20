@@ -1,39 +1,39 @@
 ---
-title: Distribuera Azure-brandväggen med Availability Zones med Azure PowerShell
-description: I den här artikeln får du lära dig hur du distribuerar en Azure-brandvägg med Tillgänglighetszoner med Azure PowerShell.
+title: Distribuera Azure-brandväggen med Tillgänglighetszoner med PowerShell
+description: I den här artikeln får du lära dig hur du distribuerar en Azure-brandvägg med Tillgänglighetszoner med hjälp av Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 56958eedceeb4602589d65d5e0eb7b10e8a9ff2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33dcebf14f4d534962783a30ec94f7ff6529ae0d
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704003"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195913"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Distribuera en Azure-brandvägg med Tillgänglighetszoner med Azure PowerShell
 
-Azure-brandväggen kan konfigureras vid distribution till sträcker sig över flera Tillgänglighetszoner för ökad tillgänglighet.
+Azure-brandväggen kan konfigureras under distributionen för att omfatta flera Tillgänglighetszoner för ökad tillgänglighet.
 
-Den här funktionen gör det möjligt för följande scenarier:
+Den här funktionen möjliggör följande scenarier:
 
-- Du kan öka tillgängligheten för 99,99% garanterad drifttid. Mer information finns i Azure-brandväggen [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). 99,99% garanterad drifttid serviceavtal (SLA) erbjuds när två eller fler Tillgänglighetszoner har markerats.
-- Du kan även associera Azure-brandväggen till en viss zon för närhet orsaker, med hjälp av det tjänsten standard enligt serviceavtalet 99,95%.
+- Du kan öka tillgänglighet till 99,99% drift tid. Mer information finns i Azure Firewall [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). SLA för 99,99% drift tid erbjuds när två eller fler Tillgänglighetszoner har valts.
+- Du kan också associera Azure-brandväggen till en speciell zon, precis för närhets skäl, med service standard service avtalet för 99,95%.
 
-Läs mer om Tillgänglighetszoner i Azure-brandväggen, [vad är Azure-brandvägg?](overview.md)
+Mer information om Azure Firewall Tillgänglighetszoner finns i [Vad är Azure-brandvägg?](overview.md)
 
-I följande Azure PowerShell-exempel visas hur du kan distribuera en Azure-brandvägg med Tillgänglighetszoner.
+Följande Azure PowerShell exempel visar hur du kan distribuera en Azure-brandvägg med Tillgänglighetszoner.
 
-## <a name="create-a-firewall-with-availability-zones"></a>Skapa en brandväggsregel med Tillgänglighetszoner
+## <a name="create-a-firewall-with-availability-zones"></a>Skapa en brand vägg med Tillgänglighetszoner
 
-Det här exemplet skapar en brandvägg i zon 1, 2 och 3.
+I det här exemplet skapas en brand vägg i zon 1, 2 och 3.
 
-När den offentliga IP-adressen som standard skapas har ingen specifik zon angetts. Detta skapar en zonredundant IP-adress som standard. Offentliga IP-adresser kan konfigureras i alla zoner eller en enskild zon.
+När den offentliga standard-IP-adressen skapas, anges ingen specifik zon. Detta skapar en zon redundant IP-adress som standard. Offentliga standard IP-adresser kan konfigureras antingen i alla zoner eller i en enda zon.
 
-Det är viktigt att veta, eftersom du inte kan ha en brandvägg i zon 1 och en IP-adress i zon 2. Men du kan ha en brandvägg i zon 1 och IP-adressen i alla zoner eller en brandvägg och en IP-adress i samma enskild zon för närhet.
+Det är viktigt att du vet att du inte kan ha en brand vägg i zon 1 och en IP-adress i zon 2. Men du kan ha en brand vägg i zon 1 och IP-adress i alla zoner, eller en brand vägg och en IP-adress i samma zon för närhet.
 
 ```azurepowershell
 $rgName = "resourceGroupName"
@@ -60,4 +60,4 @@ New-AzFirewall `
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+- [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)

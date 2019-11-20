@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 11/18/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820e979c41ddc1c1cf14456ed77a4a55e353ab12
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 866f2e5e1ba9df9e8e63b77250d6c94635bbc009
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094281"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74194959"
 ---
 > [!NOTE] 
 > Användar kontona som beskrivs i den här artikeln skiljer sig från användar konton som används för Remote Desktop Protocol (RDP) eller Secure Shell (SSH) av säkerhets skäl. 
@@ -59,7 +59,7 @@ Mer information om hur du kommer åt filer och kataloger från en aktivitet finn
 
 Användar kontots höjnings nivå anger om en aktivitet körs med utökad åtkomst. Både ett automatiskt användar konto och ett namngivet användar konto kan köras med utökad åtkomst. De två alternativen för höjnings nivån är:
 
-- **NonAdmin** Aktiviteten körs som en standard användare utan utökad åtkomst. Standard höjnings nivån för ett batch-användarkonto är alltid inte **administratör**.
+- Inte **administratör:** Aktiviteten körs som en standard användare utan utökad åtkomst. Standard höjnings nivån för ett batch-användarkonto är alltid inte **administratör**.
 - **Administratör:** Aktiviteten körs som en användare med utökad åtkomst och fungerar med fullständiga administratörs behörigheter. 
 
 ## <a name="auto-user-accounts"></a>Konton för automatisk användare
@@ -94,7 +94,7 @@ Du kan konfigurera specifikationen för automatisk användare för administratö
 >
 >
 
-Följande kodfragment visar hur du konfigurerar den automatiska användar specifikationen. I exemplen anges höjnings nivån till `Admin` och omfånget `Task`till. Aktivitets omfånget är standardinställningen, men ingår här för till exempel.
+Följande kodfragment visar hur du konfigurerar den automatiska användar specifikationen. I exemplen anges höjnings nivån till `Admin` och omfånget som `Task`. Aktivitets omfånget är standardinställningen, men ingår här för till exempel.
 
 #### <a name="batch-net"></a>.NET för Batch
 
@@ -159,7 +159,7 @@ Ett namngivet användar konto är användbart när du vill köra alla aktivitete
 
 Du kan också använda ett namngivet användar konto om du vill köra en uppgift som anger behörigheter för externa resurser, till exempel fil resurser. Med ett namngivet användar konto styr du användar identiteten och kan använda den användar identiteten för att ange behörigheter.  
 
-Namngivna användar konton möjliggör lösen ords lös SSH mellan Linux-noder. Du kan använda ett namngivet användar konto med Linux-noder som behöver köra aktiviteter med flera instanser. Varje nod i poolen kan köra aktiviteter under ett användar konto som definierats i hela poolen. Mer information om aktiviteter med flera instanser finns i [använda aktiviteter med\-flera instanser för att köra MPI-program](batch-mpi.md).
+Namngivna användar konton möjliggör lösen ords lös SSH mellan Linux-noder. Du kan använda ett namngivet användar konto med Linux-noder som behöver köra aktiviteter med flera instanser. Varje nod i poolen kan köra aktiviteter under ett användar konto som definierats i hela poolen. Mer information om aktiviteter med flera instanser finns i [använda aktiviteter med flera\-instanser för att köra MPI-program](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Skapa namngivna användar konton
 
@@ -280,7 +280,7 @@ users = [
     batchmodels.UserAccount(
         name='pool-nonadmin',
         password='******',
-        elevation_level=batchmodels.ElevationLevel.nonadmin)
+        elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
     id=pool_id,
@@ -295,7 +295,7 @@ batch_client.pool.add(pool)
 
 ### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Kör en aktivitet under ett namngivet användar konto med utökad åtkomst
 
-Om du vill köra en aktivitet som en upphöjd användare anger du aktivitetens **UserIdentity** -egenskap till ett namngivet användar konto som skapades med egenskapen **ElevationLevel** inställd `Admin`på.
+Om du vill köra en aktivitet som en upphöjd användare anger du aktivitetens **UserIdentity** -egenskap till ett namngivet användar konto som skapades med egenskapen **ElevationLevel** inställd på `Admin`.
 
 Det här kodfragmentet anger att aktiviteten ska köras under ett namngivet användar konto. Det här namngivna användar kontot definierades i poolen när poolen skapades. I det här fallet skapades det namngivna användar kontot med administratörs behörighet:
 
@@ -314,7 +314,7 @@ Batch-tjänstens version 2017 01-01.4.0 inför en brytande ändring, och ersätt
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated`inte angivet | Ingen uppdatering krävs                                                                                               |
+| `CloudTask.RunElevated` har inte angetts | Ingen uppdatering krävs                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -322,15 +322,15 @@ Batch-tjänstens version 2017 01-01.4.0 inför en brytande ändring, och ersätt
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated`inte angivet | Ingen uppdatering krävs                                                                                                                     |
+| `CloudTask.withRunElevated` har inte angetts | Ingen uppdatering krävs                                                                                                                     |
 
 ### <a name="batch-python"></a>Python för Batch
 
 | Om koden använder...                      | Uppdatera det till...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
-| `run_elevated`inte angivet | Ingen uppdatering krävs                                                                                                                                  |
+| `run_elevated=False`                      | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
+| `run_elevated` har inte angetts | Ingen uppdatering krävs                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Nästa steg

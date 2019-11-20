@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med F5 | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med F5 | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och F5.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4167f5a8f4e29641a999c72f57b368190a34e0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 5eb5cedf14af9a013a5b6a1eba5df40d665cbad5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166095"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181737"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med F5
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
 I den här självstudien får du lära dig hur du integrerar F5 med Azure Active Directory (Azure AD). När du integrerar F5 med Azure AD kan du:
 
@@ -33,12 +33,60 @@ I den här självstudien får du lära dig hur du integrerar F5 med Azure Active
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+
 * F5-aktiverad prenumeration med enkel inloggning (SSO).
+
+* Distribution av den gemensamma lösningen kräver följande licens:
+
+    * F5 BIG-IP® bästa paket (eller) 
+
+    * F5-fristående licens för BIG-IP Access Policy Manager™ (APM) 
+
+    * F5-tilläggsprogram för BIG-IP Access Policy Manager™ (APM) för en befintlig BIG IP F5 BIG-IP® lokala Traffic Manager™ (LTM).
+
+    * Förutom ovanstående licens kan F5-systemet också vara licensierat med: 
+
+        * En URL-filtrerings prenumeration som använder URL-kategorins databas
+
+        * En F5-prenumeration för IP-information för att identifiera och blockera kända angripare och skadlig trafik
+     
+        * En nätverks-och maskin varu säkerhetsmodul (HSM) som skyddar och hanterar digitala nycklar för stark autentisering
+
+* F5 BIG-IP-system är etablerad med APM-moduler (LTM är valfritt)
+
+* Även om det är valfritt, rekommenderar vi starkt att du distribuerar F5-systemen i en [enhets grupp för synkronisering/redundans](https://techdocs.f5.com/content/techdocs/en-us/bigip-14-1-0/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), som innehåller det aktiva standby-paret med en flytande IP-adress för hög tillgänglighet (ha). Ytterligare gränssnitts redundans kan uppnås med hjälp av LACP (Link Aggregation Control Protocol). LACP hanterar de anslutna fysiska gränssnitten som ett enda virtuellt gränssnitt (samlings grupp) och identifierar eventuella gränssnitts problem i gruppen.
+
+* För Kerberos-program, ett lokalt AD-tjänstkontot för begränsad delegering.  Se [F5-dokumentationen](https://support.f5.com/csp/article/K43063049) för att skapa ett AD Delegerings konto.
+
+## <a name="access-guided-configuration"></a>Åtkomst till guidad konfiguration
+
+* Åtkomst till guidad konfiguration stöds på F5 TMOS version 13.1.0.8 och senare. Om ditt BIG-IP-system kör en version nedan 13.1.0.8, se avsnittet **Avancerad konfiguration** .
+
+* Åtkomst till interaktiv konfiguration visar en helt ny och strömlinjeformad användar upplevelse. Den här arbets flödes-baserade arkitekturen ger intuitiva konfigurations steg som är anpassade till den valda topologin.
+
+* Innan du fortsätter med konfigurationen ska du uppgradera den guidade konfigurationen genom att ladda ned det senaste användnings fall paketet från [downloads.F5.com](https://login.f5.com/resource/login.jsp?ctx=719748). Följ proceduren nedan om du vill uppgradera.
+
+    >[!NOTE]
+    >Skärm bilderna nedan är för den senaste utgivna versionen (BIG-IP 15,0 med AGC version 5,0). Konfigurations stegen nedan är giltiga för det här användnings fallet över från 13.1.0.8 till den senaste versionen av BIG-IP.
+
+1. I webb gränssnittet F5 BIG-IP klickar du på **åtkomst > > guide konfiguration**.
+
+1. På sidan **guidad konfiguration** klickar du på **Uppgradera guidad konfiguration** i det övre vänstra hörnet.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure14.png) 
+
+1. På popup-skärmen uppgraderings guide konfiguration väljer du **Välj fil** för att ladda upp det nedladdade användnings fallet och klickar på knappen **överför och installera** .
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure15.png) 
+
+1. När uppgraderingen är klar klickar du på knappen **Fortsätt** .
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure16.png)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -51,6 +99,20 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 - [Konfigurera enkel inloggning med F5 för Kerberos-program](kerbf5-tutorial.md)
 
 - [Konfigurera enkel inloggning med F5 för avancerat Kerberos-program](advance-kerbf5-tutorial.md)
+
+### <a name="key-authentication-scenarios"></a>Scenarier för nyckel autentisering
+
+* Förutom Azure Active Directory inbyggt integrerings stöd för moderna autentiseringsprotokoll som öppen ID Connect, SAML och WS-utfodras, F5 utökar säker åtkomst för äldre-baserade autentiseringscertifikat för både intern och extern åtkomst med Azure AD, vilket möjliggör moderna scenarier (t. ex. lösen ords lös åtkomst) till dessa program. Detta inkluderar:
+
+* Huvudbaserade autentiseringsmekanismer
+
+* Kerberos-autentisering av appar
+
+* Anonym autentisering eller inga inbyggta autentiseringscertifikat
+
+* NTLM-autentisering av appar (skydd med dubbla prompter för användaren)
+
+* Formulär baserat program (skydd med dubbla prompter för användaren)
 
 ## <a name="adding-f5-from-the-gallery"></a>Lägga till F5 från galleriet
 
@@ -71,7 +133,7 @@ Om du vill konfigurera och testa Azure AD SSO med F5 slutför du följande Bygg 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera F5 SSO](#configure-f5-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa F5 test användare](#create-f5-test-user)** – om du vill ha en motsvarighet till B. Simon i F5 som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -90,18 +152,18 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [F5-klientens support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [F5-klientens support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och **certifikat (base64)** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera F5** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -112,14 +174,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till F5.
 
@@ -127,7 +189,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **F5**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -136,6 +198,9 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. Klicka på **villkorlig åtkomst** .
+1. Klicka på **ny princip**.
+1. Nu kan du se din F5-app som en resurs för CA-principen och tillämpa villkorlig åtkomst inklusive multifaktorautentisering, enhet baserad åtkomst kontroll eller identitets skydds princip.
 
 ## <a name="configure-f5-sso"></a>Konfigurera F5 SSO
 
@@ -145,63 +210,251 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="configure-f5-single-sign-on-for-header-based-application"></a>Konfigurera F5 enkel inloggning för sidhuvud baserat program
 
+### <a name="guided-configuration"></a>Guidad konfiguration
+
 1. Öppna ett nytt webbläsarfönster och logga in på din "F5"-företags webbplats som administratör och utför följande steg:
 
-1. Du måste importera metadata-certifikatet till F5 (Rubrikbaserade) som ska användas senare i installations processen. Gå till **System > certifikat hantering > hantering av trafik certifikat > > lista över SSL-certifikat**. Klicka på **Importera** till höger hörn
+1. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. Ange ett **certifikat namn** (kommer att refereras till senare i konfigurationen). I **certifikat källan**väljer du överför fil ange det certifikat som hämtats från Azure när du konfigurerar SAML enkel inloggning. Klicka på **Importera**.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure12.png)
  
-1. Dessutom behöver du också ett **SSL-certifikat** för värd namnet`headerapp.superdemo.live`(), i det här exemplet användes certifikat med jokertecken.
+1. Dessutom krävs **SSL-certifikat för program värd namnet. Gå till system > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. **Import typen** är **PKCS 12 (IIS)** . Ange ett **nyckel namn** (kommer att refereras till senare i konfigurationen) och ange PFX-filen. Ange **lösen ordet** för PFX-filen. Klicka på **Importera**.
+
+    >[!NOTE]
+    >I exemplet är vårt app-namn `Headerapp.superdemo.live`, vi använder ett jokertecken med vårt namn `WildCard-SuperDemo.live`.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure13.png)
 
-1. Gå till – **F5 (sidhuvud baserat) Big-IP klicka på åtkomst > guidad konfiguration > Federation > SAML-** tjänstprovider.
+1. Vi kommer att använda den guidade upplevelsen för att konfigurera Azure AD Federation och program åtkomst. Gå till – F5 BIG-IP- **huvud** och välj **åtkomst > guidad konfiguration > Federation > SAML-tjänstprovider**. Klicka på **Nästa** och påbörja konfigurationen genom att klicka på **Nästa** .
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure01.png)
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure02.png)
  
-1. Ange **entitets-ID: t** (samma som det som du konfigurerade i Azure AD-programkonfigurationen)
+1. Ange ett **konfigurations namn**. Ange **entitets-ID: t** (samma som det som du konfigurerade i Azure AD-programkonfigurationen). Ange **värd namnet**. Lägg till en **Beskrivning** av referensen. Godkänn återstående standard poster och välj och klicka sedan på **spara & nästa**.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure03.png) 
 
-1. Skapa en ny virtuell server, ange **mål adress**, omdirigerings **port** är valfritt. Välj det **jokertecken** (eller det **certifikat** som du laddade upp för programmet) som vi laddade upp tidigare och den **tillhör ande privata nyckeln**.
+1. I det här exemplet skapar vi en ny virtuell server som 192.168.30.20 med port 443. Ange IP-adressen för den virtuella servern i **mål adressen**. Välj klienten **SSL-profil**, Välj Skapa ny. Ange tidigare överförda program certifikat (jokertecken i det här exemplet) och tillhör ande nyckel och klicka sedan på **spara & nästa**.
+
+    >[!NOTE]
+    >i det här exemplet körs vår interna webserver på port 888 och vi vill publicera den med 443.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure04.png) 
 
-1. Ladda upp konfigurations- **metadata** och ange ett nytt **namn för SAML IDP Connector** så måste du också ange det Federations certifikat som överfördes tidigare.
+1. Under **Välj metod för att konfigurera din IDP-anslutning**anger du metadata, klickar på Välj fil och överför metadata-XML-filen som hämtades tidigare från Azure AD. Ange ett unikt **namn** för SAML IDP Connector. Välj det **signerings certifikat för metadata** som överfördes tidigare. Klicka på **spara & nästa**.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure05.png)
  
-1. **Skapa ny** Backend-programpoolen anger du **IP-adressen** för Server dels program servrarna.
+1. Under **Välj en pool**anger du **Skapa ny** (du kan också välja en pool som den redan finns). Låt andra värde vara standard. Under pooler anger du IP-adressen under **IP-adress/nodnamn**. Ange **porten**. Klicka på **spara & nästa**.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure06.png)
 
-1. Under enkel inloggning väljer du **http-huvudbaserad**. Du kan lägga till andra rubriker baserat på ditt program. Se bilagan för listan med variabler för SAML-sessioner
+1. På skärmen Inställningar för enkel inloggning väljer du **aktivera enkel inloggning**. Under markerad typ av enkel inloggning väljer du **http-huvud-baserad**. Ersätt **session. SAML. senaste. identitet** med **session. SAML. Last. attr. Name. identitet** under användar namn källa (den här variabeln anges med anspråks mappning i Azure AD). Under SSO-rubriker.
+
+    * **Huvud: behörighet för autentisering**
+
+    * **Huvud värde:% {session. SAML. senaste. attr. Name. Identity}**
+
+    * Klicka på **spara & nästa**
+
+    Se bilaga för en fullständig lista över variabler och värden. Du kan lägga till fler rubriker efter behov.
+
+    >[!NOTE]
+    >Konto namn är F5-Delegerings kontot som skapats (se F5-dokumentation).
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure07.png) 
 
-1. Kontakta [F5 (rubrikbaserade) klient support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för information om **Egenskaper för slut punkts kontroll** .
+1. I den här vägledningen kommer vi att hoppa över slut punkts kontroller.  Mer information finns i F5-dokumentationen. Välj **spara & nästa**.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure08.png)
 
-1. Kontakta [F5 (rubrikbaserade) klient support grupp](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för information om **sessions hanterings egenskaper** .
+1. Acceptera standardinställningarna och klicka på **spara & nästa**. Mer information om inställningar för hantering av SAML-sessioner finns i F5-dokumentationen.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure09.png)
 
-1. **Granska Sammanfattning** och klicka på **distribuera**.
+1. Granska sammanfattnings skärmen och välj **distribuera** för att konfigurera Big-IP. Klicka på **Slutför**.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure10.png)
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure11.png)
 
+## <a name="advanced-configuration"></a>Avancerad konfiguration
+
+Det här avsnittet är avsett att användas om du inte kan använda den guidade konfigurationen eller om du vill lägga till eller ändra ytterligare parametrar. Du måste ha SSL-certifikat för program värd namnet.
+
+1. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. **Import typen** är **PKCS 12 (IIS)** . Ange ett **nyckel namn** (kommer att refereras till senare i konfigurationen) och ange PFX-filen. Ange **lösen ordet** för PFX-filen. Klicka på **Importera**.
+
+    >[!NOTE]
+    >I exemplet är vårt app-namn `Headerapp.superdemo.live`, vi använder ett jokertecken med vårt namn `WildCard-SuperDemo.live`.
+  
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure17.png)
+
+### <a name="adding-a-new-web-server-to-bigip-f5"></a>Lägga till en ny webb server i BigIP-F5
+
+1. Klicka på **Main > IApps > Programtjänster > program > skapa**.
+
+1. Ange **namnet** och under **mall** väljer du **F5. http**.
+ 
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure18.png)
+
+1. Vi kommer att publicera vår HeaderApp2 externt som HTTPS i detta fall, **hur ska Big-IP-systemet hantera SSL-trafik**? vi anger **att avsluta SSL från klienten, klartext till servrar (SSL-avlastning)** . Ange ditt certifikat och nyckel under vilket SSL-certifikat vill du använda? **vilken SSL-privata nyckel vill du använda?** . Ange IP-adressen för den virtuella servern under den **IP-adress som du vill använda för den virtuella servern?** . 
+
+    * **Ange övrig information**
+
+        * FQDN  
+
+        * Ange att den avslutar programpoolen eller skapa en ny.
+
+        * Om du skapar en ny app server anger du en **intern IP-adress** och **port nummer**.
+
+        ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure19.png) 
+
+1. Klicka på **klart**.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure20.png) 
+
+1. Se till att appens egenskaper kan ändras. Klicka på **Main > IApps > programtjänster: program > > HeaderApp2**. Avmarkera **strikta uppdateringar** (vi kommer att ändra vissa inställningar utanför det grafiska användar gränssnittet). Klicka på knappen **Uppdatera** .
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure21.png) 
+
+1. Nu bör du kunna bläddra i den virtuella servern.
+
+### <a name="configuring-f5-as-sp-and-azure-as-idp"></a>Konfigurera F5 som SP och Azure som IDP
+
+1.  Klicka på **åtkomst > Federation > SAML Service Provider > lokal SP-tjänst > Klicka på Skapa eller + signera**.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure22.png)
+
+1. Ange information om tjänst leverantörs tjänsten. Ange **namn** som representerar F5 SP-konfiguration. Ange **entitets-ID** (vanligt vis samma som program-URL).
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure23.png)
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure24.png)
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure25.png)
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure26.png)
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure27.png)
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure28.png)
+
+### <a name="create-idp-connector"></a>Skapa IDP-koppling
+
+1. Klicka på **BIND/Unbind IDP Connectors** , Välj **Skapa ny IDP-koppling** och välj från alternativet **metadata** och utför sedan följande steg:
+ 
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure29.png)
+
+    a. Bläddra till metadata. XML-fil som hämtats från Azure AD och ange ett namn på en **identitets leverantör**.
+
+    b. Klicka på **OK**.
+
+    c. Kopplingen skapas och certifikatet kan hämtas automatiskt från XML-filen med metadata.
+    
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure30.png)
+
+    d. Konfigurera F5BIG-IP för att skicka alla förfrågningar till Azure AD.
+
+    e. Klicka på **Lägg till ny rad**, Välj **AzureIDP** (som du skapade i föregående steg, ange 
+
+    f. **Matchande källa =% {session. Server. landinguri}** 
+
+    g. **Matchande värde =/** *
+
+    h. Klicka på **Uppdatera**
+
+    i. Klicka på **OK**
+
+    j. **SAML-IDP har installerats**
+    
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure31.png)
+
+### <a name="configure-f5-policy-to-redirect-users-to-azure-saml-idp"></a>Konfigurera F5-princip för att omdirigera användare till Azure SAML-IDP
+
+1. Utför följande steg för att konfigurera F5-principen för att omdirigera användare till Azure SAML-IDP:
+
+    a. Klicka på **Main > åtkomst > profil/principer > åtkomst profiler**.
+
+    b. Klicka på knappen **skapa** .
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure32.png)
+ 
+    c. Ange **namn** (HeaderAppAzureSAMLPolicy i exemplet).
+
+    d. Du kan anpassa andra inställningar mer information finns i F5-dokumentationen.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure33.png)
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure34.png) 
+
+    e. Klicka på **klart**.
+
+    f. När principen har skapats klickar du på principen och går till fliken **åtkomst princip** .
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure35.png)
+ 
+    g. Klicka på redigeraren för **visuella principer**, redigera **åtkomst princip för profil** länk.
+
+    h. Klicka på +-tecknet i redigeraren för visuella principer och välj **SAML-autentisering**.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure36.png)
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure37.png)
+ 
+    i. Klicka på **Lägg till objekt**.
+
+    j. Under **Egenskaper** anger **namn** och under **AAA server** väljer du den tidigare konfigurerade SP-filen klickar du på **Spara**.
+ 
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure38.png)
+
+    k. Den grundläggande principen är klar kan du anpassa principen för att lägga till ytterligare källor/attributarkiv.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure39.png)
+ 
+    l. Se till att du klickar på länken **tillämpa åtkomst princip** överst.
+
+### <a name="apply-access-profile-to-the-virtual-server"></a>Använd åtkomst profil på den virtuella servern
+
+1. Tilldela åtkomst profilen till den virtuella servern för att använda F5 BIG-IP APM för att tillämpa profil inställningarna på inkommande trafik och köra den tidigare definierade åtkomst principen.
+
+    a. Klicka på **huvud** > **lokal trafik** > **virtuella servrar**.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure40.png)
+ 
+    b. Klicka på den virtuella servern, bläddra till avsnittet **åtkomst princip** i list rutan **åtkomst profil** och välj den SAML-princip som skapades (i exemplet HeaderAppAzureSAMLPolicy)
+
+    c. Klicka på **Uppdatera**
+ 
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure41.png)
+
+    d. skapa en F5 BIG-IP-iRule® för att extrahera anpassade SAML-attribut från inkommande kontroll och skicka dem som HTTP-huvuden till Server dels test programmet. Klicka på **huvud > lokal trafik > iRules > IRule List > Klicka på Skapa**
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure42.png)
+ 
+    e. Klistra in texten F5 BIG-IP-iRule nedan i definitions fönstret.
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure43.png)
+ 
+    När RULE_INIT {set static::d ebug 0} när ACCESS_ACL_ALLOWED {
+
+    Ange AZUREAD_USERNAME [ACCESS:: session data get "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] om {$static::d ebug} {log local0. "AZUREAD_USERNAME = $AZUREAD _USERNAME"} om {! ( [HTTP:: header finns "AZUREAD_USERNAME"]) } {HTTP:: rubrik infoga AZUREAD_USERNAME $AZUREAD _USERNAME}
+
+    Ange AZUREAD_DISPLAYNAME [ACCESS:: session data get "session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/displayname"] om {$static::d ebug} {log local0. "AZUREAD_DISPLAYNAME = $AZUREAD _DISPLAYNAME"} om {! ( [HTTP:: header finns "AZUREAD_DISPLAYNAME"]) } {HTTP:: rubrik infoga AZUREAD_DISPLAYNAME $AZUREAD _DISPLAYNAME}
+
+    Ange AZUREAD_EMAILADDRESS [ACCESS:: session data get "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] om {$static::d ebug} {log local0. "AZUREAD_EMAILADDRESS = $AZUREAD _EMAILADDRESS"} om {! ( [HTTP:: header finns "AZUREAD_EMAILADDRESS"]) } {HTTP:: rubrik infoga AZUREAD_EMAILADDRESS $AZUREAD _EMAILADDRESS}}
+
+    **Exempel på utdata nedan**
+
+    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure44.png)
+ 
 ### <a name="create-f5-test-user"></a>Skapa F5-test användare
 
 I det här avsnittet skapar du en användare som heter B. Simon i F5. Arbeta med [F5-klient support teamet](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) för att lägga till användarna på F5-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt på F5 som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

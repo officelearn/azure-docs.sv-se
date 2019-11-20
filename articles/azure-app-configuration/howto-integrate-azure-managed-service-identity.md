@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035546"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185146"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integrera med Azure Managed Identities
+# <a name="integrate-with-azure-managed-identities"></a>Integrera med hanterade Azure-identiteter
 
-Azure Active Directory [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) bidrar till att förenkla hanteringen av hemligheter för ditt moln program. Med en hanterad identitet kan du konfigurera din kod för att använda tjänstens huvud namn som skapades för den Azure Compute-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng. 
+Azure Active Directory [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) bidrar till att förenkla hanteringen av hemligheter för ditt moln program. Med en hanterad identitet kan du konfigurera din kod för att använda tjänstens huvud namn som skapades för den Azure-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng. 
 
-Azure App konfiguration och dess .NET Core-, .NET-och Java våren-klient bibliotek har stöd för hanterad tjänst identitet (MSI) inbyggda i dem. Även om du inte behöver använda den, eliminerar MSI behovet av en åtkomsttoken som innehåller hemligheter. Din kod kan komma åt appens konfigurations Arkiv enbart med tjänstens slut punkt. Du kan bädda in den här URL: en i koden direkt utan att oroa dig för att exponera någon hemlighet.
+Azure App konfiguration och dess .NET Core-, .NET Framework-och Java våren-klient bibliotek levereras med det hanterade identitets stödet inbyggt i dem. Även om du inte behöver använda den, eliminerar den hanterade identiteten behovet av en åtkomsttoken som innehåller hemligheter. Din kod kan komma åt appens konfigurations Arkiv enbart med tjänstens slut punkt. Du kan bädda in den här URL: en i koden direkt utan att oroa dig för att exponera någon hemlighet.
 
-Den här självstudien visar hur du kan dra nytta av MSI för att komma åt App Configuration. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
+Den här självstudien visar hur du kan dra nytta av den hanterade identiteten för att komma åt appens konfiguration. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
 
-Dessutom visar den här själv studie kursen hur du kan använda MSI tillsammans med app-konfigurationens Key Vault referenser. På så sätt kan du sömlöst komma åt hemligheter som lagras i Key Vault och konfigurations värden i app-konfigurationen. Om du vill utforska den här funktionen kan du avsluta [använda Key Vault referenser med ASP.net Core](./use-key-vault-references-dotnet-core.md) först.
+Dessutom visar den här själv studie kursen hur du kan använda den hanterade identiteten tillsammans med app-konfigurationens Key Vault referenser. På så sätt kan du sömlöst komma åt hemligheter som lagras i Key Vault och konfigurations värden i app-konfigurationen. Om du vill utforska den här funktionen kan du avsluta [använda Key Vault referenser med ASP.net Core](./use-key-vault-references-dotnet-core.md) först.
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Bevilja en hanterad identitets åtkomst till app-konfigurationen.
 > * Konfigurera appen så att den använder en hanterad identitet när du ansluter till app-konfigurationen.
 > * Du kan också konfigurera appen så att den använder en hanterad identitet när du ansluter till Key Vault via en app-konfiguration Key Vault referens.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
@@ -66,7 +66,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **alla resurser** och väljer det konfigurations Arkiv för app som du skapade i snabb starten.
 
-1. Välj **åtkomstkontroll (IAM)** .
+1. Välj **Åtkomstkontroll (IAM)** .
 
 1. På fliken **kontrol lera åtkomst** väljer du **Lägg till** i användar gränssnittet **Lägg till Roll tilldelnings** kort.
 
@@ -78,7 +78,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
     ![Lägga till en hanterad identitet](./media/add-managed-identity.png)
 
-1. Valfritt: Om du vill ge åtkomst till Key Vault också följer du anvisningarna i [tillhandahålla Key Vault autentisering med en hanterad identitet](https://docs.microsoft.com/azure/key-vault/managed-identity).
+1. Valfritt: om du vill ge åtkomst till Key Vault också följer du anvisningarna i [tillhandahålla Key Vault autentisering med en hanterad identitet](https://docs.microsoft.com/azure/key-vault/managed-identity).
 
 ## <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 
@@ -106,7 +106,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
             .UseStartup<Startup>();
     ```
 
-1. Om du vill använda konfigurations värden för appar och Key Vault referenser öppnar du *program.cs*och uppdaterar `CreateWebHostBuilder`-metoden som visas nedan. Detta skapar en ny `KeyVaultClient` med en `AzureServiceTokenProvider` och skickar den här referensen till ett anrop till `UseAzureKeyVault`-metoden.
+1. Om du vill använda konfigurations värden för appar och Key Vault referenser öppnar du *program.cs*och uppdaterar `CreateWebHostBuilder`-metoden som visas nedan. Detta skapar en ny `KeyVaultClient` som använder en `AzureServiceTokenProvider` och skickar den här referensen till ett anrop till `UseAzureKeyVault`-metoden.
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -122,7 +122,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
                 .UseStartup<Startup>();
     ```
 
-    Du kan nu komma åt Key Vault referenser precis som andra konfigurations nycklar för appar. Config-providern använder `KeyVaultClient` som du konfigurerade för att autentisera till Key Vault och hämta värdet.
+    Du kan nu komma åt Key Vault referenser precis som andra konfigurations nycklar för appar. Konfigurations leverantören använder `KeyVaultClient` som du konfigurerade för att autentisera till Key Vault och hämta värdet.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -228,6 +228,7 @@ App Configuration-providrar för .NET Framework och Java Spring har också inbyg
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+I den här självstudien har du lagt till en Azure-hanterad identitet för att effektivisera åtkomst till app-konfigurationen och förbättra hantering av autentiseringsuppgifter för din app. Om du vill veta mer om hur du använder app-konfiguration kan du fortsätta till Azure CLI-exemplen.
 
 > [!div class="nextstepaction"]
 > [CLI-exempel](./cli-samples.md)

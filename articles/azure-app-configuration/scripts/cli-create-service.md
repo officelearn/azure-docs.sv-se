@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8a58b73f3f3acb8d7c6ced9e0086687b54fff734
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029807"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184909"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Skapa ett Azure App Configuration-arkiv
 
@@ -71,16 +71,16 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Du använ
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att skapa en ny resursgrupp och ett appkonfigurationsarkiv. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon för att skapa en ny resurs grupp och ett konfigurations Arkiv för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | Skapar en resurs för ett appkonfigurationsarkiv. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | Listar nycklarna som lagras i ett appkonfigurationsarkiv. |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Skapar en resurs för konfigurations Arkiv för appar. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lista de nycklar som lagras i ett konfigurations Arkiv för appar. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Fler App Configuration CLI-skriptexempel finns i [dokumentationen för Azure App Configuration](../cli-samples.md).
+Ytterligare skript exempel för programkonfigurations-CLI finns i [Azure App konfigurations-CLI-exempel](../cli-samples.md).

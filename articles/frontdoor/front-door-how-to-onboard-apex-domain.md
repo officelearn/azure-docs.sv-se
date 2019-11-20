@@ -1,79 +1,79 @@
 ---
-title: Publicera en rot- eller apex domän till en befintlig åtkomsten med hjälp av Azure portal
-description: Lär dig hur att publicera en rot- eller apex domän till en befintlig åtkomsten med hjälp av Azure portal.
+title: Publicera en rot-eller Apex-domän till en befintlig front dörr – Azure Portal
+description: Lär dig att publicera en rot-eller Apex-domän till en befintlig front dörr med hjälp av Azure Portal.
 services: front-door
 author: sharad4u
 ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605783"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184619"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Publicera en rot- eller apex domän på ytterdörren
-Azure ytterdörren använder CNAME-poster för att verifiera domänägarskap för onboarding av anpassade domäner. Dessutom ytterdörren exponera inte klientdelens IP-adress som är associerade med din ytterdörren profil och så du kan inte mappa din apex-domän till en IP-adress om avsikten är att publicera den till Azure ytterdörren.
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Publicera en rot-eller Apex-domän på din front dörr
+Azures front dörr använder CNAME-poster för att verifiera domän ägarskap för onboarding av anpassade domäner. Dessutom exponeras inte klient delens IP-adress som är kopplad till din profil för klient delen och du kan därför inte mappa din Apex-domän till en IP-adress, om avsikten är att publicera den till Azures front dörr.
 
-Tilldelningen av CNAME-poster i basdomänen förhindrar att DNS-protokollet. Exempel: om din domän är `contoso.com`; du kan skapa CNAME-poster för `somelabel.contoso.com`; men du kan inte skapa CNAME-post för `contoso.com` själva. Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom Azure ytterdörren. Eftersom du använder en profil för ytterdörren kräver skapandet av en CNAME-post, är det inte går att peka på profilen som ytterdörren från zonens apex.
+DNS-protokollet förhindrar att CNAME-poster tilldelas i zonens Apex. Om din domän till exempel är `contoso.com`; Du kan skapa CNAME-poster för `somelabel.contoso.com`. men du kan inte skapa CNAME för `contoso.com` sig själv. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Azures front dörr. Eftersom du måste skapa en CNAME-post när du använder en profil för en frontend-dörr är det inte möjligt att peka på profilen för den främre dörren från zonens Apex.
 
-Det här problemet kan lösas med hjälp av alias poster i Azure DNS. Till skillnad från CNAME-poster skapas alias poster i basdomänen och programägare kan använda den för att rikta sin zon apex-post till en ytterdörren-profil som har offentliga slutpunkter. Programägare peka på samma ytterdörren profil som används för andra domäner i sina DNS-zonen. Till exempel `contoso.com` och `www.contoso.com` kan peka på samma ytterdörren profil. 
+Det här problemet kan lösas med hjälp av Ali Aset-poster på Azure DNS. Till skillnad från CNAME-poster skapas Alian slut poster i zonens Apex och program ägare kan använda den för att peka sin zon spetsig-post till en profil för en front dörr som har offentliga slut punkter. Program ägare pekar på samma profil för front dörren som används för alla andra domäner i DNS-zonen. Till exempel kan `contoso.com` och `www.contoso.com` peka på samma profil för front dörren. 
 
-Mappa din apex eller rotcertifikatet domän till din ytterdörren profil i princip kräver CNAME plattar ut eller DNS-jaga, vilket är en mekanism där i DNS providern rekursivt löser CNAME-posten tills den når en IP-adress. Den här funktionen stöds av Azure DNS för ytterdörren slutpunkter. 
+Att mappa din Apex-eller root-domän till din profil för front dörren kräver i princip CNAME-förenkling eller DNS-jaga, vilket är en mekanism där i DNS-providern rekursivt löser CNAME-posten tills den har en IP-adress. Den här funktionen stöds av Azure DNS för slut punkter i front dörren. 
 
 > [!NOTE]
-> Det finns andra DNS-providers samt som har stöd för CNAME förenkla eller DNS jaga, men Azure ytterdörren rekommenderar att du använder Azure DNS för sina kunder som värd för deras domäner.
+> Det finns andra DNS-leverantörer som stöder CNAME-förenkling eller DNS-jaga, men Azures front dörr rekommenderar att du använder Azure DNS för sina kunder för att vara värd för sina domäner.
 
-Du kan använda Azure portal för att publicera en apex-domän på ytterdörren och aktivera HTTPS på den genom att associera den med ett certifikat för SSL-avslutning. Apex-domäner kallas även rot- eller utan www domäner.
+Du kan använda Azure Portal för att publicera en Apex-domän på din front dörr och Aktivera HTTPS på den genom att associera den med ett certifikat för SSL-avslutning. Apex-domäner kallas även rot-eller blott-domäner.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en aliaspost som pekar på din ytterdörren-profil
-> * Lägga till rotdomänen i åtkomsten
-> * Konfigurera HTTPS på rotdomänen
+> * Skapa en aliasresurspost som pekar på din profil för din front dörr
+> * Lägg till rot domänen i front dörren
+> * Konfigurera HTTPS på rot domänen
 
 > [!NOTE]
-> Den här självstudien krävs att du redan har en ytterdörren-profil som har skapats. Se andra självstudier som [Snabbstart: Skapa en ytterdörren](./quickstart-create-front-door.md) eller [skapa en ytterdörren med HTTP till HTTPS-omdirigering](./front-door-how-to-redirect-https.md) att komma igång.
+> I den här självstudien krävs att du redan har skapat en profil för en front dörr. Se andra själv studie kurser som [snabb start: skapa en frontend](./quickstart-create-front-door.md) -dörr eller [skapa en frontend-dörr med HTTP till https-omdirigering](./front-door-how-to-redirect-https.md) för att komma igång.
 
-## <a name="create-an-alias-record-for-zone-apex"></a>Skapa en aliaspost för zonens apex
+## <a name="create-an-alias-record-for-zone-apex"></a>Skapa en aliasresurspost för Zone Apex
 
-1. Öppna **Azure DNS** konfiguration för domänen som ska publiceras.
-2. Skapa eller redigera posten för zonens apex.
-3. Välj posten **typ** som _A_ spela in och välj sedan _Ja_ för **Alias postuppsättning**. **Aliastypen** ska vara inställd på _Azure-resurs_.
-4. Välj den Azure-prenumeration där din ytterdörren profil finns och välj sedan ytterdörren resursen från den **Azure-resurs** listrutan.
-5. Klicka på **OK** att skicka ändringarna.
+1. Öppna **Azure DNS** konfiguration för den domän som ska registreras.
+2. Skapa eller redigera posten för Zone Apex.
+3. Välj post **typen** som _en_ post och välj sedan _Ja_ för **post uppsättning för alias**. **Aliasuppsättningen** måste anges till _Azure Resource_.
+4. Välj den Azure-prenumeration där din profil för din klient organisation finns och välj sedan den främre dörren från List rutan **Azure-resurs** .
+5. Klicka på **OK** för att skicka ändringarna.
 
-    ![Aliaspost för zonens apex](./media/front-door-apex-domain/front-door-apex-alias-record.png)
+    ![Aliasresurspost för Zone Apex](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. Ovanstående steg skapas en post för apex av zonen som pekar på din ytterdörren resurs och en CNAME-Postmappning 'afdverify' (exempel – `afdverify.contosonews.com`) till `afdverify.<name>.azurefd.net` som kommer att vara används för onboarding av domänen på din ytterdörren-profil.
+6. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning "afdverify" (exempel-`afdverify.contosonews.com`) till `afdverify.<name>.azurefd.net` som används för att registrera domänen på din profil för din front dörr.
 
-## <a name="onboard-the-custom-domain-on-your-front-door"></a>Publicera den anpassade domänen på ytterdörren
+## <a name="onboard-the-custom-domain-on-your-front-door"></a>Publicera den anpassade domänen på din front dörr
 
-1. På fliken ytterdörren designer klickar du på ”+”-ikonen i Frontend-värdarna avsnittet för att lägga till en ny anpassad domän.
-2. Ange rot- eller apex domännamnet i namnfältet på anpassade värden exempel `contosonews.com`.
-3. När CNAME-mappningen från domänen till dörren har verifierats klickar du på **Lägg till** att lägga till den anpassade domänen.
-4. Klicka på **spara** att skicka ändringarna.
+1. På fliken front dörr designer klickar du på ikonen "+" i avsnittet klient dels värdar för att lägga till en ny anpassad domän.
+2. Ange rot-eller Apex-domän namnet i fältet namn på anpassad värd, exempel `contosonews.com`.
+3. När CNAME-mappningen från domänen till din front dörr har verifierats klickar du på **Lägg till** för att lägga till den anpassade domänen.
+4. Klicka på **Spara** för att skicka ändringarna.
 
 ![Meny för anpassad domän](./media/front-door-apex-domain/front-door-onboard-apex-domain.png)
 
-## <a name="enable-https-on-your-custom-domain"></a>Aktivera HTTPS på din domän
+## <a name="enable-https-on-your-custom-domain"></a>Aktivera HTTPS på din anpassade domän
 
-1. Klicka på den anpassade domänen som har lagts till och under avsnittet **HTTPS för anpassad domän**, ändrar du statusen till **aktiverad**.
-2. Välj den **certifikattyp management** till _”Använd mitt eget certifikat”_ .
-
-> [!WARNING]
-> Främre dörren hanteras certifikathanteringstyp stöds inte för närvarande för apex eller rotcertifikatet domäner. Det enda alternativet som är tillgängliga för att aktivera HTTPS på en domän för apex eller rotcertifikatet för ytterdörren använder egna anpassat SSL-certifikat finns i Azure Key Vault.
-
-3. Kontrollera att du har installationen rätt behörigheter för åtkomsten till din key Vault enligt vad som anges i Användargränssnittet för innan du fortsätter till nästa steg.
-4. Välj en **Key Vault-kontot** från din aktuella prenumeration och välj sedan lämplig **hemlighet** och **hemlig version** att mappa till rätt certifikat.
-5. Klicka på **uppdatering** spara markeringen och klicka sedan på **spara**.
-6. Klicka på **uppdatera** efter ett par minuter och sedan klicka på den anpassade domänen igen för att se förloppet för tilldelning av certifikat. 
+1. Klicka på den anpassade domänen som lades till och under avsnittet **anpassad https för domän**ändrar du status till **aktive rad**.
+2. Välj **certifikat hanterings typ** att _"Använd mitt eget certifikat"_ .
 
 > [!WARNING]
-> Se till att du har skapat lämpliga routningsregler för apex-domän eller lagt till domänen till befintliga regler för routning.
+> Hanterings typen för hanterade certifikat från Front dörren stöds för närvarande inte för spets-eller rot domäner. Det enda alternativ som är tillgängligt för att aktivera HTTPS på en Apex eller rotdomän för front dörr använder ditt eget anpassade SSL-certifikat som finns på Azure Key Vault.
+
+3. Se till att du har konfigurerat rätt behörigheter för front dörren för att få åtkomst till ditt nyckel valv som anges i användar gränssnittet, innan du fortsätter till nästa steg.
+4. Välj ett **Key Vault konto** från den aktuella prenumerationen och välj sedan rätt **hemlighet** och **hemlig version** som ska mappas till rätt certifikat.
+5. Klicka på **Uppdatera** för att spara valet och klicka sedan på **Spara**.
+6. Klicka på **Uppdatera** efter några minuter och klicka sedan på den anpassade domänen igen för att se förloppet för certifikat etableringen. 
+
+> [!WARNING]
+> Se till att du har skapat lämpliga routningsregler för din Apex-domän eller lagt till domänen i befintliga regler för routning.
 
 ## <a name="next-steps"></a>Nästa steg
 

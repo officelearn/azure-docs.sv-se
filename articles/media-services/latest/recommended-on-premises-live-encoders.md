@@ -6,15 +6,15 @@ keywords: Encoding; encoders; Media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300942"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186023"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade kodare för direkt uppspelning
 
@@ -49,6 +49,9 @@ Media Services rekommenderar att du använder någon av följande livekodare som
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hjälte 7 och hjälte 8
+- [Restream.io](https://restream.io/)
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Live-kodare som utdata fragmenterade MP4
 
@@ -60,9 +63,11 @@ Media Services rekommenderar att du använder någon av följande Live-kodare me
 - Envivio 4Caster C4 Gen III
 - Föreställ dig Selenio-MCP3
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Om du strömmar Live-händelser på flera språk (till exempel ett engelskt ljud spår och ett spanskt ljud spår) kan du göra detta med mediet för Live-kodare i media som kon figurer ATS för att skicka Live-flödet till en direkt sändnings händelse.
+
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Konfigurera lokala inställningar för Live-kodare
 
@@ -74,9 +79,9 @@ Om du vill spela upp innehåll måste både ljud-och video strömmar finnas. Det
 
 ### <a name="configuration-tips"></a>Konfigurations tips
 
-- Använd alltid en Hardwired Internet anslutning när det är möjligt.
+- När det är möjligt använda ett inbyggt internet-anslutning.
 - När du bestämmer bandbredds kraven kan du dubblera bit hastigheterna för strömmande data. Även om detta inte är obligatoriskt bidrar den här enkla regeln till att minimera påverkan av nätverks belastning.
-- När du använder programvarubaserade kodare, Stäng alla onödiga program.
+- När du använder programvarubaserad kodare kan du stänga alla onödiga program.
 - Om du ändrar konfigurationen för konfigurationen efter det att sändningen har startat, har det negativa effekter på evenemanget. Konfigurations ändringar kan orsaka att händelsen blir instabil. 
 - Se till att du ger dig tid att konfigurera evenemanget. För storskaliga händelser rekommenderar vi att du startar installationen en timme före evenemanget.
 
@@ -128,7 +133,7 @@ Följ samma steg som i direkt [sändnings händelse verifiering](#pass-through-l
 
 ### <a name="email-your-recorded-settings"></a>E-posta dina inspelade inställningar
 
-Skicka e-post till dina inspelade inställningar och Live Archive-parametrarna till Azure Media Services vid amshelp@microsoft.com som ett meddelande om att alla själv verifierings kontroller har slutförts. Ta även med din kontakt information för alla följare. Du kan kontakta Azure Media Servicess teamet och få frågor om den här processen.
+Skicka e-post till dina inspelade inställningar och Live Archive-parametrarna för att Azure Media Services vid amshelp@microsoft.com som ett meddelande om att alla själv verifierings kontroller har slutförts. Ta även med din kontakt information för alla följare. Du kan kontakta Azure Media Servicess teamet och få frågor om den här processen.
 
 ## <a name="next-steps"></a>Nästa steg
 

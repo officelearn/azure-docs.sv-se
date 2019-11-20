@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 11/12/2019
 ms.author: swmachan
-ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835787"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184794"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3,0: Översätt
 
@@ -33,21 +33,30 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
+### <a name="required-parameters"></a>Obligatoriska parametrar
+
 <table width="100%">
   <th width="20%">Frågeparameter</th>
   <th>Beskrivning</th>
   <tr>
-    <td>API-version</td>
+    <td>api-version</td>
     <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara <code>3.0</code>.</td>
-  </tr>
-  <tr>
-    <td>som</td>
-    <td><em>Valfri parameter</em>.<br/>Anger språket för inmatad text. Hitta vilka språk som kan översättas från genom att leta upp <a href="./v3-0-languages.md">språk som stöds</a> med hjälp av <code>translation</code>-omfånget. Om parametern <code>from</code> inte anges används automatisk språk identifiering för att fastställa käll språket. <br/><br/>Du måste använda <code>from</code> parameter i stället för automatisk identifiering när du använder funktionen för <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamiskt ord listor</a> .</td>
   </tr>
   <tr>
     <td>till</td>
     <td><em>Obligatorisk parameter</em>.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de <a href="./v3-0-languages.md">språk som stöds</a> som ingår i <code>translation</code>s omfånget. Använd till exempel <code>to=de</code> för att översätta till tyska.<br/>Det går att översätta till flera språk samtidigt genom att upprepa parametern i frågesträngen. Använd till exempel <code>to=de&to=it</code> för att översätta till tyska och italienska.</td>
   </tr>
+</table>
+
+### <a name="optional-parameters"></a>Valfria parametrar
+
+<table width="100%">
+  <th width="20%">Frågeparameter</th>
+  <th>Beskrivning</th>
+  <tr>
+    <td>from</td>
+    <td><em>Valfri parameter</em>.<br/>Anger språket för inmatad text. Hitta vilka språk som kan översättas från genom att leta upp <a href="./v3-0-languages.md">språk som stöds</a> med hjälp av <code>translation</code>-omfånget. Om parametern <code>from</code> inte anges används automatisk språk identifiering för att fastställa käll språket. <br/><br/>Du måste använda <code>from</code> parameter i stället för automatisk identifiering när du använder funktionen för <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamiskt ord listor</a> .</td>
+  </tr>  
   <tr>
     <td>textType</td>
     <td><em>Valfri parameter</em>.<br/>Definierar om texten som ska översättas är oformaterad text eller HTML-text. Alla HTML måste vara ett välformulerat, fullständigt element. Möjliga värden är: <code>plain</code> (standard) eller <code>html</code>.</td>
@@ -57,7 +66,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
     <td><em>Valfri parameter</em>.<br/>En sträng som anger en kategori (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med <a href="../customization.md">anpassad översättare</a>. Lägg till kategori-ID från din anpassad översättning <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">projekt information</a> till den här parametern för att använda det distribuerade anpassade systemet. Standardvärdet är: <code>general</code>.</td>
   </tr>
   <tr>
-    <td>ProfanityAction</td>
+    <td>profanityAction</td>
     <td><em>Valfri parameter</em>.<br/>Anger hur svordomar ska behandlas i översättningar. Möjliga värden är: <code>NoAction</code> (standard) <code>Marked</code> eller <code>Deleted</code>. Information om hur du hanterar svordomar finns i <a href="#handle-profanity">svordoms hantering</a>.</td>
   </tr>
   <tr>
@@ -155,7 +164,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     `transliteration`-objektet tas inte med om transkriberingsspråk inte sker.
 
-    * `alignment`: ett objekt med en enskild sträng egenskap med namnet `proj`, som mappar inmatad text till översatt text. Justerings informationen anges bara när parametern för begäran `includeAlignment` är `true`. Justeringen returneras som ett sträng värde av följande format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Kolonet separerar start-och slut index, strecket separerar språken och blank steg separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Se [Hämta justerings information](#obtain-alignment-information) för ett exempel och begränsningar.
+    * `alignment`: ett objekt med en enskild sträng egenskap med namnet `proj`, som mappar inmatad text till översatt text. Justerings informationen anges bara när parametern för begäran `includeAlignment` är `true`. Justeringen returneras som ett sträng värde av följande format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Kolonet separerar start-och slut index, strecket separerar språken och blank steg separerar orden. Ett ord som kan anpassas till noll, ett eller flera ord på andra språk och justerade orden kanske inte är sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Se [Hämta justerings information](#obtain-alignment-information) för ett exempel och begränsningar.
 
     * `sentLen`: ett objekt returnerar menings gränser i indata-och utmatnings texter.
 
@@ -179,7 +188,7 @@ Exempel på JSON-svar finns i avsnittet [exempel](#examples) .
     <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
   </tr>
   <tr>
-    <td>X-MT-system</td>
+    <td>X-MT-System</td>
     <td>Anger den system typ som användes för översättning för varje to-language som begärdes för översättning. Värdet är en kommaavgränsad lista med strängar. Varje sträng anger en typ:<br/><ul><li>Anpassad-begäran innehåller ett anpassat system och minst ett anpassat system användes under översättningen.</li><li>Team – alla andra begär Anden</li></td>
   </tr>
 </table> 
@@ -205,7 +214,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
   <tr>
     <td>403</td>
-    <td>Begäran är inte auktoriserad. Se fel meddelandet information. Detta indikerar ofta att alla kostnads fria översättningar som ingår i en utvärderings prenumeration har använts.</td>
+    <td>Begäran har inte behörighet. Se fel meddelandet information. Detta indikerar ofta att alla kostnads fria översättningar som ingår i en utvärderings prenumeration har använts.</td>
   </tr>
   <tr>
     <td>408</td>
@@ -353,11 +362,11 @@ Tjänsten Translator behåller normalt svordomar som finns i källan i översät
 Om du inte vill få några svordomar i översättningen, oavsett om det finns svordomar i käll texten, kan du använda filtrerings alternativet för svordomar. Med alternativet kan du välja om du vill se hur svordomar tas bort, om du vill markera svordomar med lämpliga taggar (vilket ger dig möjlighet att lägga till din egen efter bearbetning) eller om du inte vill ha någon åtgärd. De godkända värdena för `ProfanityAction` är `Deleted`, `Marked` och `NoAction` (standard).
 
 <table width="100%">
-  <th width="20%">ProfanityAction</th>
+  <th width="20%">profanityAction</th>
   <th>Åtgärd</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Detta är standard beteendet. Svordomar skickas från källa till mål.<br/><br/>
+    <td>Detta är standardbeteendet. Svordomar skickas från källa till mål.<br/><br/>
     <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
     <strong>Exempel översättning (engelska)</strong>: he är en Jackass.
     </td>
@@ -474,7 +483,7 @@ Observera följande begränsningar:
 
 * Justering är inte tillgängligt för text i HTML-format, dvs. textType = HTML
 * Justering returneras bara för en delmängd av språk paren:
-  - från engelska till ett annat språk.
+  - från engelska till andra språk.
   - från andra språk till engelska utom förenklad kinesiska, traditionell kinesiska och lettiska till engelska,
   - från japanska till koreanska eller från koreanska till japanska.
 * Du får ingen justering om meningen är en konserverad översättning. Exempel på en konserverad översättning är "det här är ett test", "Jag älskar dig" och andra meningar med hög frekvens.

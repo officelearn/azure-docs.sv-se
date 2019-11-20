@@ -1,5 +1,5 @@
 ---
-title: Azure-snabbstart – Skapa en Front Door-profil för hög tillgänglighet för program som använder Azure-portalen
+title: 'Snabb start: skapa en profil för front dörren för hög tillgänglighet för program'
 description: I den här snabbstartsartikeln beskrivs hur du skapar en Front Door för ditt globala webbprogram för hög tillgänglighet och höga prestanda.
 services: front-door
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461994"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184518"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en ytterdörren för en högtillgänglig globala webbprogram
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
 
 I den här snabbstartsartikeln beskrivs hur du skapar en Front Door-profil som ger hög tillgänglighet och höga prestanda för din globala webbapp. 
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Den här snabbstarten kräver att du har distribuerat två instanser av en webbapp som körs i olika Azure-regioner (*USA, östra* och *Europa, västra*). Båda webbprograminstanserna körs med aktiv/aktiv-läget. De innebär att båda två kan hantera trafik när som helst till skillnad från en konfiguration av typen aktiv eller vänteläge där den ena fungerar som en redundansväxling.
 
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Webb** > **Webbapp** > **Skapa**.
@@ -42,7 +42,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD1* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanEastUS* och väljer sedan **OK**. 
-     |      Location  |   Östra USA        |
+     |      Plats  |   Östra USA        |
     |||
 
 3. Välj **Skapa**.
@@ -54,7 +54,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD2* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanWestEurope* och väljer sedan **OK**. 
-     |      Location  |   Västra Europa      |
+     |      Plats  |   Västra Europa      |
     |||
 
 

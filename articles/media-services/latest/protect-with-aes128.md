@@ -1,6 +1,7 @@
 ---
-title: Använda Azure Media Services för att kryptera video med AES-128 | Microsoft Docs
-description: Leverera ditt innehåll som krypteras med AES 128-bitars krypteringsnycklar med hjälp av Microsoft Azure Media Services. Media Services tillhandahåller också nyckelleveranstjänst som levererar krypteringsnycklar till behöriga användare. Det här avsnittet visar hur du dynamiskt kryptera med AES-128 och använda nyckelleveranstjänst.
+title: Kryptera video med AES-128
+titleSuffix: Azure Media Services
+description: Lär dig hur du krypterar video med AES 128-bitars kryptering och hur du använder Key Delivery Service i Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: f7f68398cb473ca166d328ee15a92f3c848840f2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3b56747d9bc8c8ae5884d4fb654c20d49527fed5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273295"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186080"
 ---
-# <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Självstudier: Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst
+# <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Självstudie: kryptera video med AES-128 och Använd Key Delivery Service
 
 > [!NOTE]
-> Även om i självstudiekursen använder vi den [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exempel de allmänna stegen är desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), eller andra stöds [SDK: er](media-services-apis-overview.md#sdks) .
+> Även om självstudien använder [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exempel är de allmänna stegen desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
-Du kan använda Media Services för att leverera HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming som krypterats med AES med hjälp av 128-bitars krypteringsnycklar. Media Services tillhandahåller också nyckelleveranstjänst som levererar krypteringsnycklar till behöriga användare. Om du vill för Media Services för att kryptera dynamiskt videon måste du associera krypteringsnyckeln med Strömningspositionerare och även ange innehåll viktiga principen. När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med AES-128. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren är behörig för nyckeln utvärderas den innehållsnyckelprincip som du angav för nyckeln.
+Du kan använda Media Services för att leverera HTTP Live Streaming (HLS), MPEG-streck och Smooth Streaming krypterat med AES genom att använda 128-bitars krypterings nycklar. Media Services tillhandahåller också den nyckel leverans tjänst som levererar krypterings nycklar till behöriga användare. Om du vill att Media Services dynamiskt ska kryptera din video, associerar du krypterings nyckeln med en strömmande lokaliserare och konfigurerar även innehålls nyckel principen. När en data ström begärs av en spelare, använder Media Services den angivna nyckeln för att dynamiskt Kryptera ditt innehåll med AES-128. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren är behörig för nyckeln utvärderas den innehållsnyckelprincip som du angav för nyckeln.
 
 Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](content-protection-overview.md#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera. Se även [hur du skyddar med DRM](protect-with-drm.md).
 
-Utdata från exemplet i den här artikeln innehåller en URL till Azure Media Player manifest-URL och AES-token som behövs för att spela upp innehållet. Exemplet utgångsdatumet för JWT-token till 1 timme. Du kan öppna en webbläsare och klistra in URL som bildas för att starta Azure Media Player demo-sida med URL: en och token som används för att du redan i följande format: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
+Utdata från exemplet i den här artikeln innehåller en URL till Azure Media Player, manifest-URL och den AES-token som krävs för att spela upp innehållet. Exemplet anger förfallo datum för token för JSON Web Token (JWT) till 1 timme. Du kan öppna en webbläsare och klistra in den resulterande URL: en för att starta Azure Media Player demonstrations sidan med URL och token ifyllda för dig redan i följande format: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
-I den här självstudiekursen lär du dig att:    
+I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
-> * Ladda ned den [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) exemplet som beskrivs i artikeln
-> * Börja med att använda Media Services-API:er med .NET SDK
-> * Skapa en utdatatillgång
-> * Skapa en kodning transformering
-> * Skicka ett jobb
-> * Vänta tills jobbet är klart
-> * Skapa en princip som är viktiga för innehåll
-> * Konfigurera principen för att använda JWT-token begränsning 
-> * Skapa en positionerare för direktuppspelning
-> * Konfigurera Strömningspositionerare för att kryptera videon med AES (ClearKey)
-> * Hämta en testtoken
-> * Skapa en strömnings-URL
-> * Rensa resurser
+> * Hämta [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) -exemplet som beskrivs i artikeln.
+> * Börja använda Media Services API: er med .NET SDK.
+> * Skapa en utmatnings till gång.
+> * Skapa en transformation av kodning.
+> * Skicka ett jobb.
+> * Vänta tills jobbet har slutförts.
+> * Skapa en princip för innehålls nyckel
+> * Konfigurera principen för att använda begränsning av JWT-token.
+> * Skapa en strömmande positionerare.
+> * Konfigurera den strömmande lokaliseraren för att kryptera videon med AES (ClearKey).
+> * Hämta en testtoken.
+> * Bygg en strömmande URL.
+> * Rensa resurser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att kunna genomföra självstudien.
 
-* Granska den [Content protection översikt](content-protection-overview.md) artikel
-* Installera Visual Studio Code eller Visual Studio
-* [Skapa ett Media Services-konto](create-account-cli-quickstart.md)
-* Hämta autentiseringsuppgifter som krävs för att använda API:er för Media Services med hjälp av [åtkomst till API:er](access-api-cli-how-to.md)
+* Gå igenom artikeln med [översikten om innehållsskydd](content-protection-overview.md).
+* Installera Visual Studio Code eller Visual Studio.
+* [Skapa ett Media Services-konto](create-account-cli-quickstart.md).
+* Hämta autentiseringsuppgifter som krävs för att använda Media Services-API: er genom [att följa Access API: er](access-api-cli-how-to.md)
 
 ## <a name="download-code"></a>Ladda ned kod
 
@@ -66,15 +67,15 @@ Klona en GitHub-lagringsplats som innehåller hela det .NET-exempel som diskuter
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
- 
-Du hittar exemplet ”kryptera med AES-128” i den [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) mapp.
+
+Exemplet "Kryptera med AES-128" finns i mappen [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) .
 
 > [!NOTE]
-> Exemplet skapar unika resurser varje gång du kör programmet. Normalt återanvänder du befintliga resurser som transformeringar och policyer (om befintlig resurs har nödvändiga konfigurationer). 
+> Exemplet skapar unika resurser varje gång du kör appen. Normalt återanvänder du befintliga resurser som transformeringar och principer (om den befintliga resursen har obligatoriska konfigurationer).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Börja med att använda Media Services-API:er med .NET SDK
+## <a name="start-using-media-services-apis-with-net-sdk"></a>Börja använda API:er för Media Services med .NET SDK
 
-Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapade funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen. 
+Du börjar använda Media Services API: er med .NET genom att skapa ett **AzureMediaServicesClient** -objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapade funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
 
@@ -83,78 +84,78 @@ Om du vill börja använda API:er för Media Services med .NET, måste du skapa 
 [Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt kodningsjobb.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
- 
+
 ## <a name="get-or-create-an-encoding-transform"></a>Hämta eller skapa en kodtransformering
 
-När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är objektet **TransformOutput** som visas i koden nedan. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. Det exempel som beskrivs i artikeln använder en inbyggd förinställning som kallas **AdaptiveStreaming**. Förinställningen kodar indatavideon i en automatiskt genererad bithastighetsstege (par för bithastighetsupplösning) som baseras på indatans upplösning och bithastighet, samt producerar ISO MP4-filer med H.264-video och AAC-ljud som motsvarar varje par för bithastighetsupplösningen. 
+När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är objektet **TransformOutput** som visas i koden nedan. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. Det exempel som beskrivs i artikeln använder en inbyggd förinställning som kallas **AdaptiveStreaming**. För inställningen kodar indata till en steg-för-bit-uppräkning (bit hastighets upplösnings par) baserat på indata för upplösning och bit hastighet och genererar sedan ISO MP4-filer med H. 264 video och AAC-ljud som motsvarar varje bit hastighets upplösnings par.
 
-Innan du skapar en ny [transformering](https://docs.microsoft.com/rest/api/media/transforms) bör du först kontrollera om det redan finns en. Det gör du med metoden **Get** som visas i koden nedan.  I Media Services v3 returnerar **Get**-metoderna i entiteter **null** om entiteten inte finns (skiftlägesokänslig kontroll av namnet).
+Innan du skapar en ny [transformering](https://docs.microsoft.com/rest/api/media/transforms)måste du först kontrol lera om det redan finns en med **Get** -metoden, som du ser i koden som följer. I Media Services v3 returnerar **Get**-metoderna i entiteter **null** om entiteten inte finns (skiftlägesokänslig kontroll av namnet).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>Skicka jobb
 
-Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan.
+Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobbet** anger information som platsen för indata-videon och platsen för utdata.
 
-I den här självstudiekursen skapar vi jobbets indata baserat på en fil som matas direkt från en [HTTP-källwebbadress](job-input-from-http-how-to.md).
+I den här självstudien skapar vi jobbets indata baserat på en fil som matas in direkt från en [https-källans URL](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#SubmitJob)]
 
 ## <a name="wait-for-the-job-to-complete"></a>Vänta tills jobbet är klart
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Kodexemplet nedan visar hur du kontrollerar [jobbets](https://docs.microsoft.com/rest/api/media/jobs) status i tjänsten. Vi rekommenderar inte att utföra avsökning av produktionsprogram på grund av att svarstiden kan bli lång. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid. Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
+Det tar lite tid att slutföra jobbet. När du gör det, vill du bli meddelad. Kodexemplet nedan visar hur du kontrollerar [jobbets](https://docs.microsoft.com/rest/api/media/jobs) status i tjänsten. Avsökningen är inte en rekommenderad metod för produktion av appar på grund av potentiell latens. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid. Mer information finns i [dirigera händelser till en anpassad webb slut punkt](job-state-events-cli-how-to.md).
 
-**Jobbet** går vanligtvis igenom följande tillstånd: **Schemalagd**, **I kö**, **Bearbetar**, **Slutfört** (sluttillstånd). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+**Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har kommit över ett fel visas **fel** tillstånd. Om jobbet håller på att avbrytas **avbryts du och** **annulleras** när det är färdigt.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-content-key-policy"></a>Skapa en princip som är viktiga för innehåll
+## <a name="create-a-content-key-policy"></a>Skapa en princip för innehålls nyckel
 
-En innehållsnyckel ger säker åtkomst till dina tillgångar. Du måste skapa en **innehåll nyckel princip** som konfigurerar hur innehållsnyckeln levereras om du vill avsluta klienter. Innehållsnyckeln är associerad med **Strömningspositionerare**. Media Services tillhandahåller också nyckelleveranstjänst som levererar krypteringsnycklar till behöriga användare. 
+En innehållsnyckel ger säker åtkomst till dina tillgångar. Du måste skapa en **princip för innehålls nycklar** som konfigurerar hur innehålls nyckeln levereras till slut klienter. Innehålls nyckeln är associerad med **streaming Locator**. Media Services tillhandahåller också den nyckel leverans tjänst som levererar krypterings nycklar till behöriga användare.
 
-När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll (i det här fallet med hjälp av AES-kryptering.) Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren är behörig för nyckeln utvärderas den innehållsnyckelprincip som du angav för nyckeln.
+När en data ström begärs av en spelare, använder Media Services den angivna nyckeln för att dynamiskt Kryptera ditt innehåll (i det här fallet med AES-kryptering). För att dekryptera data strömmen begär spelaren nyckeln från Key Delivery Service. För att avgöra om användaren är behörig för nyckeln utvärderas den innehållsnyckelprincip som du angav för nyckeln.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
 ## <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
-När kodningen är klar och innehållsnyckelprincipen är inställd är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du kan göra det i två steg: 
+När kodningen är klar och innehållsnyckelprincipen är inställd är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du gör videon tillgänglig i två steg:
 
-1. Skapa en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators)
-2. Skapa webbadresserna för direktuppspelning som klienter kan använda. 
+1. Skapa en [strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators).
+2. Skapa webbadresserna för direktuppspelning som klienter kan använda.
 
-Processen för att skapa den **Strömningspositionerare** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
+Processen för att skapa **streaming Locator** kallas publicering. Som standard är **streaming Locator** giltig omedelbart efter att du har gjort API-anropen. Det varar tills det tas bort, om du inte konfigurerar de valfria start-och slut tiderna.
 
-När du skapar en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I den här självstudien använder vi en PredefinedStreamingPolicy som talar om för Azure Media Services hur innehåll för direktuppspelning ska publiceras. I det här exemplet används AES Envelope-kryptering (även kallat ClearKey kryptering eftersom nyckeln levereras till klienten uppspelning via HTTPS och inte en DRM-licens).
+När du skapar en [strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators)måste du ange önskad **StreamingPolicyName**. I den här självstudien använder vi en av PredefinedStreamingPolicies, som visar Azure Media Services hur du publicerar innehållet för strömning. I det här exemplet används AES-krypteringen (denna kryptering kallas även ClearKey-kryptering eftersom nyckeln levereras till uppspelnings klienten via HTTPS och inte en DRM-licens).
 
 > [!IMPORTANT]
-> När du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), bör du utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ för kryptering och protokoll som behövs. Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte att skapa en ny StreamingPolicy för varje Strömningspositionerare.
+> När du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)bör du utforma en begränsad uppsättning sådana principer för ditt Media Service-konto och sedan använda dem igen för dina strömmande positionerare när samma krypterings alternativ och protokoll behövs. Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte skapa en ny StreamingPolicy för varje strömmande positionerare.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
 
 ## <a name="get-a-test-token"></a>Hämta en testtoken
-        
-I den här självstudien anger vi att innehållsnyckelprincipen ska ha en tokenbegränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i formaten [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) och det är det vi anger i det här exemplet.
 
-ContentKeyIdentifierClaim används i den **innehåll nyckel princip**, vilket innebär att den token som presenteras för tjänsten nyckel måste ha innehållsnyckeln identifierare i den. I det här exemplet vi inte angav en innehåll viktiga när du skapar den Strömningspositionerare skapade systemet ett slumpmässigt för oss. För att generera testtoken måste vi få ContentKeyId och placera det i ContentKeyIdentifierClaim-anspråket.
+I den här självstudien anger vi att innehållsnyckelprincipen ska ha en tokenbegränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) -format och det är det vi konfigurerar i exemplet.
+
+ContentKeyIdentifierClaim används i **innehålls nyckel principen**, vilket innebär att den token som presenteras för Key Delivery Service måste ha identifieraren för innehålls nyckeln. I exemplet har vi inte angett någon innehålls nyckel när du skapade den strömmande lokaliseraren. systemet skapade ett slumpmässigt en för oss. För att generera testtoken måste vi få ContentKeyId att placera i ContentKeyIdentifierClaim-anspråket.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## <a name="build-a-dash-streaming-url"></a>Skapa en DASH-uppspelningsadress
 
-Nu när den [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du få strömmande URL: er. Om du vill skapa en URL, måste du sammanfoga den [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) värdnamn och **Strömningspositionerare** sökväg. I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
+Nu när du har skapat [streaming-adressen](https://docs.microsoft.com/rest/api/media/streaminglocators) kan du hämta de strömmande URL: erna. Om du vill bygga en URL måste du sammanfoga [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) -värdnamnet och sökvägen för **strömmande lokalisering** . I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 
-I allmänhet bör du rensa upp allt utom objekt som du tänker återanvända (normalt om du återanvänder transformeringar och du behålls positionerare för direktuppspelning, osv.). Om du vill att ditt konto ska vara rensat efter experimentet, bör du ta bort de resurser som du inte tänker återanvända.  Följande kod tar exempelvis bort Jobb.
+I allmänhet bör du rensa allt utom objekt som du planerar att återanvända (normalt återanvänder du transformeringar, omslags positioner för strömning och så vidare). Om du vill att ditt konto ska rensas efter experimentering tar du bort de resurser som du inte planerar att återanvända. Följande kod tar till exempel bort jobb:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare. 
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare.
 
 Kör följande CLI-kommando:
 
@@ -162,9 +163,9 @@ Kör följande CLI-kommando:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6b29eb31f5d425fc063c8c42e7911272e63167c8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2453167bbdabbb201f2463e1eec8206be6d4223
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331086"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186480"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric versioner som stöds
 
@@ -37,18 +37,18 @@ I följande tabell visas de versioner av Service Fabric och deras support slutda
 | Service Fabric körning i klustret | Kan uppgradera direkt från kluster version |Kompatibel SDK-eller NuGet-paket version | Slut på support |
 | --- | --- |--- | --- |
 | Alla kluster versioner före 5.3.121 | 5.1.158.* |Mindre än eller lika med version 2,3 |20 januari 2017 |
-| 5,3. * | 5.1.158.* |Mindre än eller lika med version 2,3 |24 februari 2017 |
-| 5,4. * | 5.1.158.* |Mindre än eller lika med version 2,4 |10 maj 2017       |
-| 5,5. * | 5.4.164.* |Mindre än eller lika med version 2,5 |10 augusti 2017    |
-| 5,6. * | 5.4.164.* |Mindre än eller lika med version 2,6 |13 oktober 2017   |
-| 5,7. * | 5.4.164.* |Mindre än eller lika med version 2,7 |15 december 2017  |
-| 6,0. * | 5.6.205.* |Mindre än eller lika med version 2,8 |30 mars 2018     |
+| 5.3.* | 5.1.158.* |Mindre än eller lika med version 2,3 |24 februari 2017 |
+| 5.4.* | 5.1.158.* |Mindre än eller lika med version 2,4 |10 maj 2017       |
+| 5.5.* | 5.4.164.* |Mindre än eller lika med version 2,5 |10 augusti 2017    |
+| 5.6.* | 5.4.164.* |Mindre än eller lika med version 2,6 |13 oktober 2017   |
+| 5.7.* | 5.4.164.* |Mindre än eller lika med version 2,7 |15 december 2017  |
+| 6.0.* | 5.6.205.* |Mindre än eller lika med version 2,8 |30 mars 2018     |
 | 6,1. * | 5.7.221.* |Mindre än eller lika med version 3,0 |15 juli 2018      |
 | 6,2. * | 6.0.232.* |Mindre än eller lika med version 3,1 |26 oktober 2018   |
 | 6,3. * | 6.1.480.* |Mindre än eller lika med version 3,2 |31 mars 2019  |
 | 6,4. * | 6.2.301.* |Mindre än eller lika med version 3,3 |15 september 2019 |
-| 6,5. * | 6.4.617.* |Mindre än eller lika med version 3,4 |Aktuell version, så inget slutdatum |
-
+| 6,5. * | 6.4.617.* |Mindre än eller lika med version 3,4 |Den 1 maj 2020 |
+| 7,0. * | 6.4.664. # |Mindre än eller lika med version 4,0 |Aktuell version, så inget slutdatum |
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 I följande tabell visas de operativ system som stöds för de Service Fabric-versioner som stöds.
@@ -110,3 +110,4 @@ I följande tabell visas versions namnen för Service Fabric och deras motsvaran
 | 6,5 CU2 | 6.5.658.9590 | 6.5.460.1 |
 | 6,5 CU3 | 6.5.664.9590 | 6.5.466.1 |
 | 6,5 CU5 | 6.5.676.9590 | 6.5.467.1 |
+| 7,0 RTO | 7.0.457.9590 | 7.0.457.1 |

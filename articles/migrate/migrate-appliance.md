@@ -1,17 +1,17 @@
 ---
-title: Arkitektur för Azure Migrates utrustning | Microsoft Docs
-description: Ger en översikt över Azure Migrates apparaten
+title: Arkitektur för Azure Migrates utrustning
+description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: bdc81820b1ac9867d45fd26e26d24c65e20641e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685089"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185820"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs Azure Migrate-utrustningen. Du distribuerar enheten
 
 De Azure Migrate utrustnings typerna och användningen är följande.
 
-**Distribuerad som** | **Används för** | **Detaljer**
+**Distribuerad som** | **Används för** | **Information**
 --- | --- |  ---
 Virtuell VMware-dator | VIRTUELL VMware-utvärdering med verktyget Azure Migrate bedömning.<br/><br/> VMware VM-migrering utan agent med Migreringsverktyg för Azure Migrate Server | Hämta en webbplatsmall-mall och importera till vCenter Server för att skapa den virtuella dator enheten.
 Virtuell Hyper-V-dator | Utvärdering av virtuella Hyper-V-datorer med verktyget Azure Migrate bedömning. | Hämta en komprimerad virtuell hård disk och importera till Hyper-V för att skapa den virtuella dator enheten.
@@ -40,7 +40,7 @@ Enheten levereras med en utvärderings licens för Windows Server 2016, som är 
 ## <a name="appliance-agents"></a>Utrustnings agenter
 De här agenterna är installerade på enheten.
 
-**Agent** | **Detaljer**
+**Agent** | **Information**
 --- | ---
 Identifierings agent | Samlar in konfigurations data för lokala virtuella datorer
 Utvärderingsagent | Profiler den lokala miljön för att samla in prestanda data för virtuella datorer.
@@ -60,14 +60,14 @@ Här är de prestanda data för VMware VM som enheten samlar in och skickar till
 
 **Data** | **Medelvärde** | **Utvärderings påverkan**
 --- | --- | ---
-PROCESSOR användning | processor. Usage. genomsnitt | Rekommenderad storlek/kostnad för virtuell dator
-Minnes användning | minnes användning. genomsnitt | Rekommenderad storlek/kostnad för virtuell dator
+CPU-användning | processor. Usage. genomsnitt | Rekommenderad storlek/kostnad för virtuell dator
+Minnes användning | mem.usage.average | Rekommenderad storlek/kostnad för virtuell dator
 Disk läsnings data flöde (MB per sekund) | virtualDisk. Read. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
 Disk skrivnings data flöde (MB per sekund) | virtualDisk. Write. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
 Disk läsnings åtgärder per sekund | virtualDisk. numberReadAveraged. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
-Disk skrivnings åtgärder per sekund | virtualDisk. numberWriteAveraged. Average  | Beräkning för disk storlek, lagrings kostnad, VM-storlek
-NIC-läst data flöde (MB per sekund) | net. Received. Average | Beräkning för VM-storlek
-NÄTVERKSKORT Skriv data flöde (MB per sekund) | net. överföring. genomsnitt  |Beräkning för VM-storlek
+Disk skrivnings åtgärder per sekund | virtualDisk.numberWriteAveraged.average  | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+NIC-läst data flöde (MB per sekund) | net.received.average | Beräkning för VM-storlek
+NÄTVERKSKORT Skriv data flöde (MB per sekund) | net.transmitted.average  |Beräkning för VM-storlek
 
 
 ## <a name="collected-metadata-vmware"></a>Insamlade metadata – VMware
@@ -80,44 +80,44 @@ Här är en fullständig lista över de virtuella VMware-metadata som enheten sa
 **Data** | **Medelvärde**
 --- | --- 
 **Dator information** | 
-VM-ID | datorn. Config. InstanceUuid 
-VM-namn | datorn. Config.Name
+ID FÖR VIRTUELL DATOR | vm.Config.InstanceUuid 
+VM-namn | vm.Config.Name
 vCenter Server-ID | VMwareClient.Instance.Uuid
-Beskrivning av virtuell dator | datorn. Summary. config. Annotation
-Licens produkt namn | datorn. Client. ServiceContent. about. LicenseProductName
+Beskrivning av virtuell dator | vm.Summary.Config.Annotation
+Licens produkt namn | vm.Client.ServiceContent.About.LicenseProductName
 Typ av operativ system | vm.SummaryConfig.GuestFullName
-Start typ | datorn. Config. firmware
-Antal kärnor | datorn. Config. Hardware. NumCPU
+Start typ | vm.Config.Firmware
+Antal kärnor | vm.Config.Hardware.NumCPU
 Minne (MB) | datorn. Config. Hardware. MemoryMB
 Antal diskar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk). Count
 Lista över disk storlekar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk)
 Lista med nätverkskort | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualEthernet). Count
-PROCESSOR användning | processor. Usage. genomsnitt
-Minnes användning |minnes användning. genomsnitt
+CPU-användning | processor. Usage. genomsnitt
+Minnes användning |mem.usage.average
 **Per disk information** | 
 Disk nyckel värde | diskdefragmenter. Knapp
 Dikunit-nummer | diskdefragmenter. UnitNumber
-Nyckel värde för disk styrenhet | diskdefragmenter. ControllerKey. Value
-Gigabyte etablerad | virtualDisk. DeviceInfo. Summary
+Nyckel värde för disk styrenhet | disk.ControllerKey.Value
+Gigabyte etablerad | virtualDisk.DeviceInfo.Summary
 Disk namn | Värde som genereras med disk. UnitNumber, disk. Nyckel, disk. ControllerKey. VAlue
 Läs åtgärder per sekund | virtualDisk. numberReadAveraged. Average
-Skriv åtgärder per sekund | virtualDisk. numberWriteAveraged. Average
+Skriv åtgärder per sekund | virtualDisk.numberWriteAveraged.average
 Läs data flöde (MB per sekund) | virtualDisk. Read. Average
 Skriv data flöde (MB per sekund) | virtualDisk. Write. Average
 **Per NIC-information** | 
 Nätverkskortets namn | NIC. Knapp
-MAC-adress | ((VirtualEthernetCard) NIC). MacAddress
-IPv4-adresser | datorn. Guest.Net
-IPv6-adresser | datorn. Guest.Net
-Läs data flöde (MB per sekund) | net. Received. Average
-Skriv data flöde (MB per sekund) | net. överföring. genomsnitt
+MAC-adress | ((VirtualEthernetCard)nic).MacAddress
+IPv4-adresser | vm.Guest.Net
+IPv6-adresser | vm.Guest.Net
+Läs data flöde (MB per sekund) | net.received.average
+Skriv data flöde (MB per sekund) | net.transmitted.average
 **Information om lager Sök väg** | 
-Namn | fönster. GetType (). Namn
+Namn | container.GetType().Name
 Typ av underordnat objekt | fönster. ChildType
-Referens information | fönster. MoRef
+Referens information | container.MoRef
 Överordnad information | Container. parent
 Information om mappar per virtuell dator | ((Mapp)-behållare). ChildEntity. Type
-Data Center information per virtuell dator | ((Data Center)-behållare). VmFolder
+Data Center information per virtuell dator | ((Datacenter)container).VmFolder
 Data Center information per värd-mapp | ((Data Center)-behållare). HostFolder
 Kluster information per värd | ((ClusterComputeResource) container). Värd
 Värd information per virtuell dator | ((HostSystem) container). DATORN
@@ -206,7 +206,7 @@ Installationen uppgraderas eftersom Azure Migrate agenter som körs på enheten 
 
 - Detta sker automatiskt eftersom den automatiska uppdateringen är aktive rad som standard.
 - Du kan ändra den här standardinställningen för att uppdatera agenterna manuellt.
-- Om du vill inaktivera den automatiska uppdateringen går du till Registereditorn > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance och anger register nyckeln "AutoUpdate" till 0 (DWORD).
+- Om du vill inaktivera den automatiska uppdateringen går du till Registereditorn > HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance och anger register nyckeln "AutoUpdate" till 0 (DWORD).
  
 ### <a name="set-agent-updates-to-manual"></a>Konfigurera agent uppdateringar till manuell
 

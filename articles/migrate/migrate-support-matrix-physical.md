@@ -1,25 +1,23 @@
 ---
-title: Azure Migrate support mat ris för fysisk server-utvärdering och migrering
-description: Sammanfattar inställningar och begränsningar för fysisk server-utvärdering och migrering med hjälp av tjänsten Azure Migrate.
+title: Stöd för fysisk server bedömning/migrering med Azure Migrate
+description: Sammanfattar stöd för fysisk server bedömning/migrering med Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091899"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196337"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av fysisk server
 
 Du kan använda [tjänsten Azure Migrate](migrate-overview.md) för att utvärdera och migrera datorer till Microsoft Azure molnet. Den här artikeln sammanfattar support inställningar och begränsningar för att utvärdera och migrera lokala fysiska servrar.
 
-> [!NOTE]
-> Om funktionerna nämns här som du ännu inte ser i Azure Migrate-portalen, låser du. De kommer att visas under nästa vecka eller så.
 
 
 ## <a name="physical-server-scenarios"></a>Scenarier för fysiska servrar
@@ -34,7 +32,7 @@ Tabellen sammanfattar scenarier som stöds för fysiska servrar.
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Azure-behörigheter** | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 **Fysiska servrar** | Utvärdera upp till 35 000 fysiska servrar i ett enda projekt. Du kan ha flera projekt i en Azure-prenumeration. Ett projekt kan omfatta fysiska servrar, virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
@@ -62,7 +60,7 @@ Tabellen sammanfattar scenarier som stöds för fysiska servrar.
 
 ## <a name="assessment-physical-server-requirements"></a>Bedömning-krav för fysisk server
 
-| **Support**                | **Detaljer**               
+| **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Distribution av fysisk server**       | Den fysiska servern kan vara fristående eller distribuerad i ett kluster. |
 | **Behörigheter**           | **Windows:** Konfigurera ett lokalt användar konto på alla Windows-servrar som du vill ska ingå i identifieringen. Användar kontot måste läggas till i dessa grupper – användare av fjärr skrivbord, prestanda övervaknings användare och användare av prestanda loggar. <br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. |
@@ -73,7 +71,7 @@ Tabellen sammanfattar scenarier som stöds för fysiska servrar.
 
 Vid utvärdering kör Azure Migrate en förenklad installation för att identifiera fysiska servrar och skicka Server-metadata och prestanda data till Azure Migrate. Installationen kan köras antingen på en fysisk server eller en virtuell dator och du ställer in den med ett PowerShell-skript som du hämtar från Azure Portal. I följande tabell sammanfattas kraven på installationen.
 
-| **Support**                | **Detaljer**               
+| **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Distribution av utrustning**   |  Du distribuerar enheten antingen på en fysisk server eller en virtuell dator.<br/>  Värd datorn måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 | **Azure Migrate projekt**  |  En apparat kan associeras med ett enda projekt.<br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 datorer i ett projekt.
@@ -91,7 +89,7 @@ För att utvärdera de virtuella datorerna behöver Azure Migrate-enheten Intern
 - Om du har en avlyssnings-proxy kan du behöva importera Server certifikatet från proxyservern till enheten.
 
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | ---
 *.portal.azure.com | Navigering till Azure Portal
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration

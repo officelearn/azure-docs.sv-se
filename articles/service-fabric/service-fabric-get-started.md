@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: atsenthi
-ms.openlocfilehash: cc77995e12d756c5878ee62ef6dd0f0229506d4c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1eb8e5893d93ef0261d68df4629b072876096711
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333078"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185666"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -69,11 +69,8 @@ Om du bara behöver SDK kan du installera det här paketet:
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
 
 De aktuella versionerna är:
-* Service Fabric SDK och verktyg 3.4.676
-* Service Fabric runtime-6.5.676
-* Service Fabric verktyg för Visual Studio 2015 2.5.20615.1
-* Visual Studio 2017 15,9 innehåller Service Fabric verktyg för Visual Studio-2.4.11024.1 
-* Visual Studio 2019 16,1 innehåller Service Fabric verktyg för Visual Studio-2.5.20423.3
+* Service Fabric SDK och verktyg 4.0.457
+* Service Fabric runtime-7.0.457
 
 En lista över versioner som stöds finns i [Service Fabric versioner](service-fabric-versions.md)
 
@@ -90,7 +87,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [Service Fabric är en behållar Orchestrator](service-fabric-containers-overview.md) för att distribuera mikrotjänster i ett kluster med datorer. Om du vill köra Windows-behållar program i ditt lokala utvecklings kluster måste du först installera Docker för Windows. Hämta [Docker CE för Windows (stabilt)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra appar.
+Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra program.
 
 * [Lär dig hur du skapar, distribuerar och hanterar program](service-fabric-tutorial-create-dotnet-app.md)
 * [Lär dig mer om programmeringsmodeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)

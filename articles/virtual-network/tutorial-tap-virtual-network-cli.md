@@ -1,6 +1,6 @@
 ---
-title: Skapa, ändra eller ta bort en virtuell nätverks-TAP - Azure CLI | Microsoft Docs
-description: Lär dig mer om att skapa, ändra eller ta bort en virtuell nätverks-TAP som använder Azure CLI.
+title: Skapa, ändra eller ta bort ett VNet-tryck – Azure CLI
+description: Lär dig hur du skapar, ändrar eller tar bort ett virtuellt nätverk genom att trycka på Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: karthikananth
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05ce45a52db2b8a47223023ce31b5591b2b97c37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743198"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185404"
 ---
-# <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Arbeta med en virtuell nätverks-TAP som använder Azure CLI
+# <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Arbeta med ett virtuellt nätverk genom att trycka på Azure CLI
 
-Azure-nätverk TRYCK (Terminal åtkomstpunkt) kan du kontinuerligt stream dina VM-nätverkstrafik till en insamlare eller analytics verktyg för nätverkspaket. Verktyget insamlare eller analytics tillhandahålls av en [virtuell nätverksinstallation](https://azure.microsoft.com/solutions/network-appliances/) partner. En lista över partnerlösningar som godkänts för att fungera med virtuella nätverks-TAP finns i [partnerlösningar](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
+Med hjälp av Azure Virtual Network-TRYCKNINGen (Terminal Access Point) kan du kontinuerligt strömma din virtuella dators nätverks trafik till en insamlare eller ett analys verktyg för nätverks paket. Insamlings-eller analys verktyget tillhandahålls av en [virtuell nätverks utrustnings](https://azure.microsoft.com/solutions/network-appliances/) partner. För en lista över partner lösningar som har verifierats för att fungera med Virtual Network-tryckning, se [partner lösningar](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
 
-## <a name="create-a-virtual-network-tap-resource"></a>Skapa ett virtuellt nätverk trycker du på resursen
+## <a name="create-a-virtual-network-tap-resource"></a>Skapa ett virtuellt nätverk tryck på resurs
 
-Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett virtuellt nätverk trycker du på resursen. Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra Azures kommandoradsgränssnitt (CLI) från datorn. Azure Cloud Shell är ett interaktivt gränssnitt, som inte kräver att du installerar Azure CLI på datorn. Du måste logga in på Azure med ett konto som har rätt [behörigheter](virtual-network-tap-overview.md#permissions). Den här artikeln kräver Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Det finns för närvarande virtuella nätverks-TAP som ett tillägg. Att installera tillägget måste du köra `az extension add -n virtual-network-tap`. Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
+Läs [nödvändiga komponenter](virtual-network-tap-overview.md#prerequisites) innan du skapar ett virtuellt nätverk tryck på resurs. Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra kommando rads gränssnittet för Azure (CLI) från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt, som inte kräver att Azure CLI installeras på datorn. Du måste logga in på Azure med ett konto som har rätt [behörigheter](virtual-network-tap-overview.md#permissions). Den här artikeln kräver Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Det virtuella nätverkets tryckning är för närvarande tillgängligt som ett tillägg. Om du vill installera tillägget måste du köra `az extension add -n virtual-network-tap`. Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
-1. Hämta ID för prenumerationen i en variabel som används i ett senare steg:
+1. Hämta ID för din prenumeration i en variabel som används i ett senare steg:
 
    ```azurecli-interactive
    subscriptionId=$(az account show \
@@ -38,21 +38,21 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
    --out tsv)
    ```
 
-2. Ange prenumerations-id som du använder för att skapa ett virtuellt nätverk trycker du på resursen.
+2. Ange det prenumerations-ID som du ska använda för att skapa ett virtuellt nätverk tryck på resurs.
 
    ```azurecli-interactive
    az account set --subscription $subscriptionId
    ```
 
-3. Omregistrera prenumerations-ID som du använder för att skapa ett virtuellt nätverk trycker du på resursen. Om du får felet registrering när du skapar en resurs för TRYCK, kör du följande kommando:
+3. Registrera det prenumerations-ID som du ska använda för att skapa ett virtuellt nätverk tryck på resurs. Om du får ett registrerings fel när du skapar en tryck resurs kör du följande kommando:
 
    ```azurecli-interactive
    az provider register --namespace Microsoft.Network --subscription $subscriptionId
    ```
 
-4. Om målet för det virtuella nätverket TRYCK är nätverksgränssnittet på den virtuella nätverksinstallationen för insamlare eller analysverktyg-
+4. Om målet för det virtuella nätverket trycker är nätverks gränssnittet på den virtuella nätverks enheten för insamlare eller analys verktyg-
 
-   - Hämta IP-konfigurationen för den virtuella nätverksinstallationens nätverksgränssnitt i en variabel som används i ett senare steg. ID: T är den slutpunkt som ska aggregera trycker du på trafiken. I följande exempel hämtar ID för den *ipconfig1* IP-konfiguration för ett nätverksgränssnitt med namnet *myNetworkInterface*, i en resursgrupp med namnet *myResourceGroup*:
+   - Hämta IP-konfigurationen för nätverks gränssnittet för den virtuella nätverks enheten i en variabel som används i ett senare steg. ID är den slut punkt som används för att aggregera kran trafiken. I följande exempel hämtas ID: t för *ipconfig1* IP-konfiguration för ett nätverks gränssnitt med namnet *myNetworkInterface*i en resurs grupp med namnet *myResourceGroup*:
 
       ```azurecli-interactive
        IpConfigId=$(az network nic ip-config show \
@@ -63,7 +63,7 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
        --out tsv)
       ```
 
-   - Skapa det virtuella nätverket-TAP i västra azure-region med ID: T för IP-konfiguration som mål och en valfri port-egenskap. Porten anger målporten på där trafiken TRYCK tas emot IP-konfiguration av nätverksgränssnitt:  
+   - Skapa det virtuella nätverket tryck på westcentralus Azure-region med ID: t för IP-konfigurationen som mål och en valfri port egenskap. Porten anger mål porten för nätverks gränssnittets IP-konfiguration där trafiken tas emot:  
 
       ```azurecli-interactive
        az network vnet tap create \
@@ -74,9 +74,9 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
        --location westcentralus
       ```
 
-5. Om målet för det virtuella nätverket TRYCK är en azure intern belastningsutjämnare:
+5. Om målet för det virtuella nätverket trycker på är en intern Azure Load Balancer:
   
-   - Hämta frontend IP-konfigurationen av Azures interna belastningsutjämnare i en variabel som används i ett senare steg. ID: T är den slutpunkt som ska aggregera trycker du på trafiken. I följande exempel hämtar ID för den *frontendipconfig1* frontend IP-konfiguration för en belastningsutjämnare med namnet *myInternalLoadBalancer*, i en resursgrupp med namnet  *myResourceGroup*:
+   - Hämta klient delens IP-konfiguration för den interna Azure-belastningsutjämnaren i en variabel som används i ett senare steg. ID är den slut punkt som används för att aggregera kran trafiken. I följande exempel hämtas ID: t för *frontendipconfig1* klient DELENS IP-konfiguration för en belastningsutjämnare med namnet *myInternalLoadBalancer*i en resurs grupp med namnet *myResourceGroup*:
 
       ```azurecli-interactive
       FrontendIpConfigId=$(az network lb frontend-ip show \
@@ -86,7 +86,7 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
       --query id \
       --out tsv)
       ```
-   - Skapa det virtuella nätverket TRYCK med ID: T för klientdelens IP-konfiguration som mål och en valfri port-egenskap. Porten anger målporten på klientdelen IP-konfiguration där trafiken TRYCK tas emot:  
+   - Skapa det virtuella nätverket genom att trycka på med ID: t för klient delens IP-konfiguration som mål och en valfri port egenskap. Porten anger mål porten på klient delens IP-konfiguration där kran trafiken tas emot:  
 
       ```azurecli-interactive
       az network vnet tap create \
@@ -97,7 +97,7 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
      --location westcentralus
      ```
 
-6. Bekräfta skapandet av det virtuella nätverket-TAP:
+6. Bekräfta skapandet av det virtuella nätverket tryck på:
 
    ```azurecli-interactive
    az network vnet tap show \
@@ -105,9 +105,9 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
    --name myTap
    ```
 
-## <a name="add-a-tap-configuration-to-a-network-interface"></a>Lägga till en TRYCK-konfiguration för ett nätverksgränssnitt
+## <a name="add-a-tap-configuration-to-a-network-interface"></a>Lägg till en tryck konfiguration i ett nätverks gränssnitt
 
-1. Hämta ID för ett befintligt virtuellt nätverk trycker du på resursen. I följande exempel hämtas ett virtuellt nätverk med namnet TRYCK *myTap* i en resursgrupp med namnet *myResourceGroup*:
+1. Hämta ID för ett befintligt virtuellt nätverk tryck på resurs. I följande exempel hämtas ett virtuellt nätverk med namnet *myTap* i en resurs grupp med namnet *myResourceGroup*:
 
    ```azurecli-interactive
    tapId=$(az network vnet tap show \
@@ -117,7 +117,7 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
    --out tsv)
    ```
 
-2. Skapa en TRYCK-konfiguration för gränssnitt på den övervakade virtuella datorn. I följande exempel skapas en TRYCK konfiguration för ett nätverksgränssnitt med namnet *myNetworkInterface*:
+2. Skapa en tryckning på konfigurationen av den övervakade virtuella datorns nätverks gränssnitt. I följande exempel skapas en tryck konfiguration för ett nätverks gränssnitt med namnet *myNetworkInterface*:
 
    ```azurecli-interactive
    az network nic vtap-config create \
@@ -128,7 +128,7 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
    --subscription subscriptionId
    ```
 
-3. Bekräfta skapandet av TRYCK konfigurationen:
+3. Bekräfta skapandet av kran-konfigurationen:
 
    ```azurecli-interactive
    az network nic vtap-config show \
@@ -138,7 +138,7 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
    --subscription subscriptionId
    ```
 
-## <a name="delete-the-tap-configuration-on-a-network-interface"></a>Ta bort konfigurationen av TRYCK på ett nätverksgränssnitt
+## <a name="delete-the-tap-configuration-on-a-network-interface"></a>Ta bort TRYCKNINGs konfigurationen i ett nätverks gränssnitt
 
    ```azure-cli-interactive
    az network nic vtap-config delete \
@@ -148,13 +148,13 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
    --subscription subscriptionId
    ```
 
-## <a name="list-virtual-network-taps-in-a-subscription"></a>Virtuellt nätverk i listan trycker i en prenumeration
+## <a name="list-virtual-network-taps-in-a-subscription"></a>Visa en lista över virtuella nätverks kranar i en prenumeration
 
    ```azurecli-interactive
    az network vnet tap list
    ```
 
-## <a name="delete-a-virtual-network-tap-in-a-resource-group"></a>Ta bort en virtuell nätverks-TAP i en resursgrupp
+## <a name="delete-a-virtual-network-tap-in-a-resource-group"></a>Ta bort ett virtuellt nätverk tryck i en resurs grupp
 
    ```azurecli-interactive
    az network vnet tap delete \

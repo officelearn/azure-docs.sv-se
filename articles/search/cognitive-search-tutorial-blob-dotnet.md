@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111748"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185697"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Självstudie: skapa en pipeline för AI-anrikning med hjälp C# av och .NET SDK
 
@@ -103,7 +103,7 @@ Om du vill installera `Microsoft.Extensions.Configuration.Json` NuGet-paketet i 
 
 För att du ska kunna ansluta till din Azure Kognitiv sökning-tjänst måste du lägga till Sök tjänst informationen i projektet. Högerklicka på projektet i Solution Explorer och välj **Lägg till** > **nytt objekt.** ... Ge filen namnet `appsettings.json` och välj **Lägg till**. 
 
-Den här filen måste inkluderas i din utmatnings katalog. Det gör du genom att högerklicka på `appsettings.json` och sedan välja **Egenskaper**. Ändra värdet för **Kopiera till utdatakatalogen** till **kopia av nyare**.
+Den här filen måste inkluderas i din utmatnings katalog. Det gör du genom att högerklicka på `appsettings.json` och sedan välja **Egenskaper**. Ändra värdet för **Kopiera till utdatakatalogen** för att **Kopiera om**det är nyare.
 
 Kopiera nedanstående JSON till din nya JSON-fil.
 

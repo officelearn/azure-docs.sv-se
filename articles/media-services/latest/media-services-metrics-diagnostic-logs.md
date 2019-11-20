@@ -1,6 +1,7 @@
 ---
-title: Övervaka Azure Media Servicess statistik och diagnostiska loggar via Azure Monitor | Microsoft Docs
-description: Den här artikeln ger en översikt över hur du övervakar Azure Media Services mått och diagnostikloggar via Azure Monitor.
+title: Övervaka mått och diagnostikloggar via Azure Monitor
+titleSuffix: Azure Media Services
+description: Lär dig hur du övervakar Azure Media Services mått och diagnostikloggar via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1c77cdf57978af81accc7802575d262b97d08fe2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 38fcda40a208da3f3f5aef5b13778ca38092d8f8
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261082"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186123"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Övervaka Media Servicess statistik och diagnostiska loggar
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Övervaka Media Services mått och diagnostikloggar via Azure Monitor
 
-Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program presterar. Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer, mått och loggar. Du kan övervaka Media Services diagnostikloggar och skapa aviseringar och aviseringar för insamlade mått och loggar. Du kan visualisera och analysera mått data med hjälp av [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). Du kan skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/)eller använda tjänster från tredje part.
+Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina appar presterar. Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer: mått och loggar. Du kan övervaka Media Services diagnostikloggar och skapa aviseringar och aviseringar för insamlade mått och loggar. Du kan visualisera och analysera mått data med hjälp av [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). Du kan skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/)eller använda tjänster från tredje part.
 
 En detaljerad översikt finns i [Azure Monitor mått](../../azure-monitor/platform/data-platform.md) och [Azure Monitor diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md).
 
@@ -35,13 +36,13 @@ Mätvärden samlas in med jämna mellanrum oavsett värdet ändras. Det är anv�
 Media Services stöder övervaknings mått för följande resurser:
 
 * Konto
-* Slutpunkt för direktuppspelning
- 
+* Slut punkt för direkt uppspelning
+
 ### <a name="account"></a>Konto
 
-Du kan övervaka följande konto mått. 
+Du kan övervaka följande konto mått.
 
-|Måttnamn|Visningsnamn|Beskrivning|
+|Mått namn|Visningsnamn|Beskrivning|
 |---|---|---|
 |AssetCount|Antal till gångar|Till gångar i ditt konto.|
 |AssetQuota|Till gångs kvot|Till gångs kvot i ditt konto.|
@@ -52,38 +53,38 @@ Du kan övervaka följande konto mått.
 |StreamingPolicyCount|Antal strömmande principer|Strömmande principer i ditt konto.|
 |StreamingPolicyQuota|Kvot för strömmande princip|Kvot för strömning av principer i ditt konto.|
 |StreamingPolicyQuotaUsedPercentage|Använd procent andel av princip för strömning|Procent andelen av den strömmande princip kvoten används redan.|
- 
+
 Du bör också granska [konto kvoter och begränsningar](limits-quotas-constraints.md).
 
-### <a name="streaming-endpoint"></a>Slutpunkt för direktuppspelning
+### <a name="streaming-endpoint"></a>Slut punkt för direkt uppspelning
 
 Följande Media Services [slut punkter för direkt uppspelnings](https://docs.microsoft.com/rest/api/media/streamingendpoints) mått stöds:
 
-|Måttnamn|Visningsnamn|Beskrivning|
+|Mått namn|Visningsnamn|Beskrivning|
 |---|---|---|
 |Begäranden|Begäranden|Visar det totala antalet HTTP-begäranden som hanteras av slut punkten för direkt uppspelning.|
-|Egress|Egress|Det totala antalet utgående byte. Till exempel, byte som strömmas av slut punkten för direkt uppspelning.|
+|Utgående|Utgående|Det totala antalet utgående byte. Till exempel, byte som strömmas av slut punkten för direkt uppspelning.|
 |SuccessE2ELatency|Slutför svars tid för slut punkt till slut punkt|Varaktighet från när strömnings slut punkten fick begäran till när den sista byten av svaret skickades.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Varför skulle jag vilja använda mått? 
+### <a name="why-would-i-want-to-use-metrics"></a>Varför skulle jag vilja använda mått?
 
-Här följer exempel på hur du kan använda övervaknings Media Services mått för att förstå hur dina program presterar. Några frågor som kan åtgärdas med Media Services mått är:
+Här följer exempel på hur du kan använda övervaknings Media Services mått för att förstå hur dina appar presterar. Några frågor som kan åtgärdas med Media Services mått är:
 
 * Vill du Hur gör jag för att övervaka min standard slut punkt för direkt uppspelning för att veta om jag har överskridit gränserna?
-* Hur gör jag för att vet du om det finns tillräckligt med skalnings enheter för slut punkter för direkt uppspelning? 
+* Hur gör jag för att vet du om det finns tillräckligt med skalnings enheter för slut punkter för direkt uppspelning?
 * Hur kan jag ange en avisering för att veta när de ska skala upp mina slut punkter för strömning?
 * Hur gör jag för att ange en avisering om du vill veta när det högsta utgående värdet som har kon figurer ATS på kontot uppnåddes?
 * Hur kan jag se en nedbrytning av begär Anden som Miss lyckas och vad som orsakar felet?
 * Hur kan jag se hur många HLS-eller BINDESTRECKs-begäranden som hämtas från Paketeraren?
-* Hur gör jag för att ange en avisering för att veta när tröskelvärdet för antal misslyckade misslyckade förfrågningar träffades? 
+* Hur gör jag för att ange en avisering för att veta när tröskelvärdet för antal misslyckade misslyckade förfrågningar träffades?
 
 ### <a name="example"></a>Exempel
 
-Se [övervaka Media Services mått](media-services-metrics-howto.md)
+Se [övervaka Media Services mått](media-services-metrics-howto.md).
 
 ## <a name="media-services-diagnostic-logs"></a>Media Services diagnostikloggar
 
-Diagnostikloggar ger omfattande, frekventa data om driften av en Azure-resurs. Mer information finns i [så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/resource-logs-overview.md).
+Diagnostikloggar ger omfattande och frekventa data om driften av en Azure-resurs. Mer information finns i [så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/resource-logs-overview.md).
 
 Media Services stöder följande diagnostikloggar:
 
@@ -91,26 +92,26 @@ Media Services stöder följande diagnostikloggar:
 
 ### <a name="key-delivery"></a>Nyckel leverans
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |Begäran om nyckel leverans tjänst|Loggar som visar information om viktiga leverans tjänst begär Anden. Mer information finns i [scheman](media-services-diagnostic-logs-schema.md).|
 
-### <a name="why-would-i-want-to-use-diagnostics-logs"></a>Varför skulle jag vilja använda diagnostikloggar? 
+### <a name="why-would-i-want-to-use-diagnostics-logs"></a>Varför skulle jag vilja använda diagnostikloggar?
 
 Några saker som du kan undersöka med nyckel leverans diagnostikloggar är:
 
-* Se antalet licenser som levererats av DRM-typ
-* Se antalet licenser som har levererats av en princip 
-* Se fel per DRM eller princip typ
-* Se antalet otillåtna licens begär Anden från klienter
+* Se antalet licenser som levererats av DRM-typ.
+* Se antalet licenser som har levererats av en princip.
+* Se fel efter DRM eller princip typ.
+* Se antalet otillåtna licens begär Anden från klienter.
 
 ### <a name="example"></a>Exempel
 
-Se [övervaka loggar för medie tjänst](media-services-diagnostic-logs-howto.md)
+Se [så här övervakar du loggar för media service-diagnostik](media-services-diagnostic-logs-howto.md).
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 * [Så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/resource-logs-overview.md)
-* [Skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [Skapa, visa och hantera måttaviseringar med Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
 * [Övervaka Media Services mått](media-services-metrics-howto.md)
 * [Övervaka loggar för media service-diagnostik](media-services-diagnostic-logs-howto.md)

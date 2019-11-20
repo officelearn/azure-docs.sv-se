@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager-mallexempel – Azure Front Door-tjänsten | Microsoft Docs
+title: Azure Resource Manager Template-exempel – Azure-tjänst för front dörr
 description: Azure Resource Manager-mallexempel för Azure Front Door-tjänsten
 services: frontdoor
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 7e40a847b6ea4daa640a7ae6bc69fd25daa86a5b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2684c9852cb3e946d8ec1840fc166053204dfae0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575797"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184597"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Azure Resource Manager-distributionsmodellmallar för Front Door
 
@@ -26,7 +26,7 @@ Följande tabell innehåller länkar till Azure Resource Manager-distributionsmo
 | [Skapa en grundläggande Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Skapar en grundläggande Front Door-konfiguration med en enda serverdel. |
 | [Skapa en Front Door med flera serverdelar och serverdelspooler och URL-baserad routning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Skapar en Front Door med lastbalansering konfigurerat för flera serverdelar i en serverdelspool och även över serverdelspooler baserade på en URL-sökväg. |
 | [Registrera en anpassad domän med HTTPS (Front Door-hanterat certifikat) med Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Lägg till en anpassad domän till din Front Door och aktivera HTTPS-trafik för den med ett Front Door-hanterat certifikat som skapats via DigiCert. |
-| [Skapa Front Door med geofiltrering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Skapa en ytterdörren som tillåter/blockerar trafik från vissa länder/regioner. |
+| [Skapa Front Door med geofiltrering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Skapa en frontend-dörr som tillåter/blockerar trafik från vissa länder/regioner. |
 | [Kontrollera hälsoavsökningar för dina serverdelar i Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes)| Uppdatera din Front Door för att ändra inställningarna för avsökning av hälsotillstånd genom att uppdatera sökvägen för avsökning och de intervall då avsökningar kommer att skickas. |
 | [Skapa Front Door med en serverdelskonfiguration i aktivt/vänteläge](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| Skapar en Front Door som visar prioritetsbaserad routning för programtopologin aktiv/vänteläge, det vill säga att som standard skicka all trafik till den primära (högsta prioritet)-serverdelen tills den inte är tillgänglig. |
 | [Skapa Front Door med cachelagring aktiverat för vissa vägar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching)| Skapar en Front Door med cachelagring aktiverat för den definierade routningskonfigurationen vilket cachelagrar statiska tillgångar för din arbetsbelastning. |

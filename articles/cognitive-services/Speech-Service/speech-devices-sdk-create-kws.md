@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a5b5de71ee290b39603968cf4309171689e22e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490947"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184834"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Skapa ett anpassat nyckelord med hjälp av tal tjänsten
 
@@ -27,26 +27,26 @@ I den här artikeln får du lära dig hur du skapar ett anpassat nyckelord för 
 
 Överväg följande rikt linjer när du väljer ett nyckelord:
 
-* Ditt nyckelord bör vara ett engelskt ord eller en fras. Det bör inte ta mer än två sekunder att säga.
+* Ditt nyckelord bör vara ett engelskt ord eller en fras. Det bör ta högst två sekunder för att säga.
 
-* Ord av 4 till 7 stavelser fungerar bäst. Till exempel "Hej, dator" är ett utmärkt nyckelord. Bara "Hej" är ett dåligt.
+* Ord av 4-7 stavelser fungerar bäst. Till exempel "Hej, dator" är ett utmärkt nyckelord. Bara ”Hey” är dålig.
 
 * Nyckelord bör följa vanliga intals regler för engelska uttal.
 
-* Ett unikt eller till och med ett upprättat ord som följer vanliga regler för engelska uttal kan minska antalet falska positiva identifieringar. Till exempel kan "computerama" vara ett utmärkt nyckelord.
+* Ett unikt eller ett sydda ord som följer den vanliga engelska uttal reglerna kan minska falska positiva identifieringar. Till exempel kan "computerama" vara ett utmärkt nyckelord.
 
-* Välj inget vanligt ord. Till exempel är "äta" och "go" ord som människor säger ofta i vanlig konversation. De kan vara falska utlösare för enheten.
+* Välj inte ett vanligt ord. Till exempel ”äta” och ”gå” är ord som personer säga ofta i vanlig konversationen. De kan vara falskt utlösare för din enhet.
 
-* Undvik att använda nyckelord som kan ha alternativa uttal. Användarna måste känna till "Right"-uttal för att få enheten att svara. "509" kan till exempel uttalas "5 0 9", "5 0 9" eller "509". "R.E.I." kan uttalas "r-e-i" eller "Ray". "Live" kan uttalas "/līv/" eller "/liv/".
+* Undvik att använda nyckelord som kan ha alternativa uttal. Användare behöver veta ”höger” uttal att få sin enhet för att svara. Till exempel ”509” förstärkas ”fem noll nio”, ”fem ojsan nio”, eller ”fem hundra och nio”. ”R.E.I.” förstärkas ”r-e-i” eller ”ray”. ”Live” förstärkas ”/līv/” eller ”/liv/”.
 
-* Använd inte specialtecken, symboler eller siffror. Till exempel "go #" och "20 + katter" skulle inte vara lämpliga nyckelord. Men "gå skarpa" eller "tjugo plus katter" kan fungera. Du kan fortfarande använda symbolerna i din anpassning och använda marknadsföring och dokumentation för att förstärka rätt uttal.
+* Använd inte specialtecken, symboler och siffror. Till exempel "go #" och "20 + katter" skulle inte vara lämpliga nyckelord. Dock ”gå sharp” eller ”tjugo plus katt” fungerar. Du kan fortfarande använda symbolerna i din företagsanpassning och använda marknadsföring och dokumentation för att säkerställa rätt uttal.
 
 > [!NOTE]
 > Om du väljer ett tilldelat ord som nyckelord måste du vara säker på att du äger detta varumärke eller att du har behörighet från varumärkes ägaren för att använda ordet. Microsoft ansvarar inte för några juridiska problem som kan uppstå från ditt val av nyckelord.
 
 ## <a name="create-your-keyword"></a>Skapa ditt nyckelord
 
-Innan du kan använda ett anpassat nyckelord med din enhet måste du skapa ett nyckelord med tjänsten Microsoft Custom Keyword generation. När du har angett ett nyckelord skapar tjänsten en fil som du distribuerar till ditt utvecklings paket för att aktivera nyckelordet på enheten.
+Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med hjälp av den [anpassade nyckelords](https://aka.ms/sdsdk-wakewordportal) sidan i [tal Studio](https://aka.ms/sdsdk-speechportal). När du har angett ett nyckelord genererar det en fil som du distribuerar till din enhet.
 
 1. Gå till [tal Studio](https://aka.ms/sdsdk-speechportal) och **Logga** in, eller Välj [**skapa en prenumeration**](https://go.microsoft.com/fwlink/?linkid=2086754)om du inte har en tal prenumeration än.
 
@@ -62,7 +62,7 @@ Innan du kan använda ett anpassat nyckelord med din enhet måste du skapa ett n
 
     ![Hämta ditt nyckelord](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. Spara zip-filen på din dator. Du kommer att behöva den här filen för att distribuera ditt anpassade nyckelord till Development Kit.
+1. Spara ZIP-filen till datorn. Du kommer att behöva den här filen för att distribuera ditt anpassade nyckelord till din enhet.
 
 ## <a name="next-steps"></a>Nästa steg
 

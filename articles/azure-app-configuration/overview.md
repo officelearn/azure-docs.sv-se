@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129695"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185073"
 ---
 # <a name="what-is-azure-app-configuration"></a>Vad är Azure App konfiguration?
 
@@ -58,12 +58,12 @@ Konfiguration av appar kompletterar [Azure Key Vault](https://azure.microsoft.co
 
 ## <a name="use-app-configuration"></a>Använd app-konfiguration
 
-Det enklaste sättet att lägga till ett appkonfigurationsarkiv för ditt program är via ett klientbibliotek som Microsoft tillhandahåller. Baserat på programmeringsspråk och ramverk är följande bästa metoder tillgängliga för dig.
+Det enklaste sättet att lägga till ett program konfigurations lager i ditt program är via ett klient bibliotek som Microsoft tillhandahåller. Baserat på programmeringsspråk och ramverk är följande bästa metoder tillgängliga för dig.
 
 | Programmeringsspråk och ramverk | Ansluta |
 |---|---|
 | .NET Core och ASP.NET Core | App Configuration Provider för .NET Core |
-| .NET och ASP.NET | Konfigurations verktyg för app för .NET |
+| .NET Framework och ASP.NET | Konfigurations verktyg för app för .NET |
 | Java Spring | App Configuration-klient för våren Cloud |
 | Andra | App-konfiguration REST API |
 
@@ -72,7 +72,7 @@ Det enklaste sättet att lägga till ett appkonfigurationsarkiv för ditt progra
 * [ASP.NET Core snabb start](./quickstart-aspnet-core-app.md)
 * [Snabb start för .NET Core](./quickstart-dotnet-core-app.md)
 * [.NET Framework snabb start](./quickstart-dotnet-app.md)
-* [Snabb start för Azure Function](./quickstart-azure-function-csharp.md)
+* [Azure Functions snabb start](./quickstart-azure-functions-csharp.md)
 * [Snabb start för Java våren](./quickstart-java-spring-app.md)
 * [Snabb start för ASP.NET Core funktions flagga](./quickstart-feature-flag-aspnet-core.md)
 * [Start funktions flagga snabb start](./quickstart-feature-flag-spring-boot.md)

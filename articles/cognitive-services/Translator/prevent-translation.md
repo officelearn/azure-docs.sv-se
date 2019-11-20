@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/18/2019
 ms.author: swmachan
-ms.openlocfilehash: f3bf784898f7f51beea890d8d2a8401af1403fbc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: dd3684cbd7c03851bfcc75293a9690f77b4652b2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888122"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184821"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Förhindra översättning av innehåll med Translator Text API
 
 Med Translator Text API kan du tagga innehåll så att det inte översätts. Till exempel kanske du vill tagga kod, ett varumärkes namn eller ett ord/en fras som inte är meningsfull när den lokaliseras.
 
 ## <a name="methods-for-preventing-translation"></a>Metoder för att förhindra Översättning
-1. Återvänd till en Twitter-tagg @somethingtopassthrough eller #somethingtopassthrough. Avescape efter översättning.
+1. Återvänd till en Twitter-tagg @somethingtopassthrough eller #somethingtopassthrough. Avescape efter översättning. Detta är det reguljära uttrycket för giltiga Twitter-Taggar: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. En tagg ska inledas med ett @-tecken följt av ett tecken och följt av ett eller flera tecken, siffror eller under streck. Vi rekommenderar att du håller taggarna korta och att den inledande taggen måste föregås av ett blank steg.
 
 2. Tagga ditt innehåll med `notranslate`.
 

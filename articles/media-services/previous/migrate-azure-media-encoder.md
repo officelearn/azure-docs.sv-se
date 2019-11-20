@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 645d40e51b69272f1883f5ad1fb73c425f7b4b8f
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d2ed1d5e0cf0e42c3f916ab33f860039b5d5f781
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019360"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196463"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrera från Azure Media Encoder till Media Encoder Standard
 
 Den här artikeln beskriver stegen för att migrera från det äldre medie processorn för Azure Media Encoder (amn), som tas ur bruk den 30 november 2019 till Media Encoder Standard medie processor.  
 
-När du kodar filer med amn använder kunderna vanligt vis en namngiven förinställd `H264 Adaptive Bitrate MP4 Set 1080p`sträng, till exempel. För att du ska kunna migrera måste koden uppdateras för att använda **Media Encoder Standard** medie processor i stället för amn och en av motsvarande [system för inställningar](media-services-mes-presets-overview.md) som `H264 Multiple Bitrate 1080p`. 
+När du kodar filer med amn använder kunderna vanligt vis en namngiven förinställd sträng, till exempel `H264 Adaptive Bitrate MP4 Set 1080p`. För att du ska kunna migrera måste koden uppdateras för att använda **Media Encoder Standard** medie processor i stället för amn, och en av motsvarande [system för inställningar](media-services-mes-presets-overview.md) som `H264 Multiple Bitrate 1080p`. 
 
 ## <a name="migrating-to-media-encoder-standard"></a>Migrera till Media Encoder Standard
 
@@ -58,19 +58,19 @@ IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standar
 // In this case " H264 Multiple Bitrate 1080p" preset is used. 
 ITask task = job.Tasks.AddNew("My encoding task", 
     processor, 
-    " H264 Multiple Bitrate 1080p", 
+    "H264 Multiple Bitrate 1080p", 
     TaskOptions.None); 
 ```
 
 ### <a name="advanced-scenarios"></a>Avancerade scenarier 
 
-Om du har skapat din egen kodnings för inställning för amn med dess schema, finns det ett [motsvarande schema för Media Encoder Standard](media-services-mes-schema.md). Om du har frågor om hur du mappar de äldre inställningarna till den nya kodaren kan du kontakta oss viamailto:amshelp@microsoft.com  
+Om du har skapat din egen kodnings för inställning för amn med dess schema, finns det ett [motsvarande schema för Media Encoder Standard](media-services-mes-schema.md). Om du har frågor om hur du mappar de äldre inställningarna till den nya kodaren kan du kontakta oss via mailto:amshelp@microsoft.com  
 ## <a name="known-differences"></a>Kända skillnader 
 
-Media Encoder Standard är stabilare, tillförlitlig, har bättre prestanda och ger bättre kvalitet på utdata än den äldre AMNs koden. Dessutom: 
+Media Encoder Standard är stabilare, tillförlitlig, har bättre prestanda och ger bättre kvalitet på utdata än den äldre AMNs koden. Följande gäller också: 
 
 * Media Encoder Standard producerar utdatafiler med en annan namngivnings konvention än amn.
-* Media Encoder Standard skapar artefakter, till exempel filer som [](media-services-input-metadata-schema.md) innehåller metadata för indatafilen och [metadata](media-services-output-metadata-schema.md)för utdatafilen.
+* Media Encoder Standard skapar artefakter, till exempel filer som innehåller metadata för [indatafilen](media-services-input-metadata-schema.md) och [metadata för utdatafilen](media-services-output-metadata-schema.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-exempel – Azure Appkonfiguration | Microsoft Docs
+title: Azure CLI-exempel – Azure App konfiguration | Microsoft Docs
 description: Innehåller information om tillgängliga exempelskript för Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,25 +14,25 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b9d4c6447b8030c2ae5f7dc22857f77b57f91ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741418"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185310"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
-I följande tabell innehåller länkar till bash-skript för Azure App-konfiguration med hjälp av Azure CLI.
+Följande tabell innehåller länkar till bash-skript för Azure App konfiguration med hjälp av Azure CLI.
 
 | | |
 |-|-|
 |**Skapa**||
-| [Skapa ett appkonfigurationsarkiv](./scripts/cli-create-service.md) | Skapar en resursgrupp och en instans av ett appkonfigurationsarkiv.  |
+| [Skapa ett konfigurations Arkiv för appen](./scripts/cli-create-service.md) | Skapar en resurs grupp och en instans av en app Configuration Store.  |
 |**Använd**||
-| [Arbeta med nyckelvärden](./scripts/cli-work-with-keys.md) | Skapar, vyer, uppdateringar, och tar bort nyckelvärden. |
-| [Importera nyckelvärden](./scripts/cli-import.md) | Importerar nyckelvärden från andra källor. |
-| [Exportera nyckelvärden](./scripts/cli-export.md) | Exporterar nyckelvärden till andra mål. |
+| [Arbeta med nyckel värden](./scripts/cli-work-with-keys.md) | Skapar, visar, uppdaterar och tar bort nyckel värden. |
+| [Importera nyckel värden](./scripts/cli-import.md) | Importerar nyckel värden från andra källor. |
+| [Exportera nyckel värden](./scripts/cli-export.md) | Exporterar nyckel värden till andra mål. |
 |**Ta bort**||
-| [Ta bort ett appkonfigurationsarkiv](./scripts/cli-delete-service.md) | Tar bort en instans av ett appkonfigurationsarkiv.  |
+| [Ta bort ett konfigurations Arkiv för appen](./scripts/cli-delete-service.md) | Tar bort en instans av konfigurations Arkiv för appar.  |
 | | |

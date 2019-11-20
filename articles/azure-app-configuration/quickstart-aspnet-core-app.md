@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 91712b3f730317e65cda7b48c8f5636b2fb9ab2c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299936"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185094"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
 
@@ -30,11 +30,11 @@ I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** >  **+ skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
     | Nyckel | Värde |
     |---|---|
@@ -116,7 +116,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-5. Uppdatera metoden `CreateWebHostBuilder` för att använda app-konfiguration genom att anropa metoden `config.AddAzureAppConfiguration()`.
+5. Uppdatera `CreateWebHostBuilder`-metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration()`-metoden.
     
     > [!IMPORTANT]
     > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .NET Core 3,0.  Välj rätt syntax baserat på din miljö.
@@ -216,7 +216,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en ASP.NET Core-webbapp via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar hur du konfigurerar din webbapp så att konfigurations inställningarna uppdateras dynamiskt.
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en ASP.NET Core-webbapp via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Fortsätt till nästa självstudie om du vill veta hur du konfigurerar din ASP.NET Core-app för att dynamiskt uppdatera konfigurations inställningar.
 
 > [!div class="nextstepaction"]
-> [Använd dynamisk konfiguration i en ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
+> [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-aspnet-core.md)

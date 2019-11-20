@@ -1,6 +1,6 @@
 ---
 title: Visualisera fjärrstyrda data med Power BI – Azure | Microsoft Docs
-description: I den här självstudien används Power BI Desktop och Cosmos DB för att integerate data från en fjärran sluten övervaknings lösning till en anpassad visualisering. På så sätt kan användarna bygga egna anpassade instrument paneler och dela ut dem till användare som inte är med i lösningen.
+description: I den här självstudien används Power BI Desktop och Cosmos DB för att integrera data från en fjärran sluten övervaknings lösning i en anpassad visualisering. På så sätt kan användarna bygga egna anpassade instrument paneler och dela ut dem till användare som inte är med i lösningen.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 13b10aa4f40b7c4b62b35e8580c2826c10e6683f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166291"
+ms.locfileid: "74184242"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualisera data för fjärrövervakning med Power BI
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du ansluter data från CosmosDB t
 
 ## <a name="information-needed-from-azure-portal"></a>Information som behövs från Azure Portal
 
-1. Gå till [Azure Portal](https://portal.azure.com) och logga in om det behövs
+1. Navigera till [Azure Portal](https://portal.azure.com) och logga in om det behövs
 
 2. Klicka på resurs grupper på den vänstra panelen
 

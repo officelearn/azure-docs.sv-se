@@ -1,18 +1,18 @@
 ---
-title: Migrera lokala virtuella VMware-datorer till Azure med agent lös Azure Migrate Server-migrering | Microsoft Docs
-description: Beskriver hur du utför och utan agent migrering av lokala virtuella VMware-datorer till Azure med hjälp av Azure Migrate.
+title: Migrera virtuella VMware-datorer utan agent Azure Migrate Server migrering
+description: Lär dig hur du kör en agent lös migrering av virtuella VMware-datorer med Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309383"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196405"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här guiden får du lära dig att:
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Förbered virtuella datorer för migrering.
@@ -44,16 +44,15 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 - [Lär dig hur](server-migrate-overview.md) en agent utan migrering fungerar och [Jämför metoder för migrering](server-migrate-overview.md#compare-migration-methods).
 - [Läs den här artikeln](tutorial-migrate-vmware-agent.md) om du vill använda den agentbaserade metoden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
-1. [Förstå](migrate-architecture.md) VMware-migreringens arkitektur.
-2. [Slutför den första självstudien](tutorial-prepare-vmware.md) i den här serien för att konfigurera Azure och VMware för migrering. I den här självstudien måste du särskilt:
+1. [Slutför den första självstudien](tutorial-prepare-vmware.md) i den här serien för att konfigurera Azure och VMware för migrering. I den här självstudien måste du särskilt:
     - [Förbered Azure](tutorial-prepare-vmware.md#prepare-azure) för migrering.
     - [Förbered den lokala miljön](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration) för migrering.
     
-3. Vi rekommenderar att du provar att utvärdera virtuella VMware-datorer med Azure Migrate Server-utvärdering innan du migrerar dem till Azure. Om du vill konfigurera utvärderingen [Slutför du den andra självstudien](tutorial-assess-vmware.md) i den här serien. Om du inte vill utvärdera de virtuella datorerna kan du hoppa över den här självstudien. Även om vi rekommenderar att du testar en utvärdering, men du inte behöver köra en utvärdering innan du försöker utföra en migrering.
+2. Vi rekommenderar att du provar att utvärdera virtuella VMware-datorer med Azure Migrate Server-utvärdering innan du migrerar dem till Azure. Om du vill konfigurera utvärderingen [Slutför du den andra självstudien](tutorial-assess-vmware.md) i den här serien. Om du inte vill utvärdera de virtuella datorerna kan du hoppa över den här självstudien. Även om vi rekommenderar att du testar en utvärdering, men du inte behöver köra en utvärdering innan du försöker utföra en migrering.
 
 
 
@@ -72,7 +71,7 @@ Om du följde den andra själv studie kursen och redan har ett Azure Migrate-pro
 
     ![Välj ett verktyg](./media/tutorial-migrate-vmware/select-migration-tool.png)
 
-4. I listan verktyg väljer **du Azure Migrate: Verktyget Migreringsverktyg**till**Server** > 
+4. I listan verktyg väljer du **Azure Migrate:** verktyget Migreringsverktyg > **Lägg till**
 
     ![Migreringsverktyg för Server](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
@@ -101,16 +100,16 @@ Azure Migrate kräver vissa VM-ändringar för att säkerställa att virtuella d
 
 ### <a name="prepare-windows-server-vms"></a>Förbereda virtuella Windows Server-datorer
 
-**Åtgärd** | **Detaljer** | **Problemlösning**
+**Åtgärd** | **Information** | **Problemlösning**
 --- | --- | ---
-Se till att Windows-volymer i Azure VM använder samma enhets beteckningar som den lokala virtuella datorn. | Konfigurera SAN-principen som online alla. | 1. Logga in på den virtuella datorn med ett administratörs konto och öppna ett kommando fönster.<br/> 2. Skriv **DiskPart** för att köra DiskPart-verktyget.<br/> 3. Typ **San-princip = OnlineAll**<br/> 4. Skriv exit för att lämna DiskPart och Stäng kommando tolken.
+Se till att Windows-volymer i Azure VM använder samma enhets beteckningar som den lokala virtuella datorn. | Konfigurera SAN-principen som online alla. | 1. Logga in på den virtuella datorn med ett administratörs konto och öppna ett kommando fönster.<br/> 2. Skriv DiskPart för att **köra DiskPart-** verktyget.<br/> 3. Ange **San-princip = OnlineAll**<br/> 4. Skriv exit för att lämna DiskPart och Stäng kommando tolken.
 Aktivera Azure Serial Access-konsolen för den virtuella Azure-datorn | Detta hjälper till med fel sökning. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen och motsvarar en omstart för den nya virtuella datorn. | Följ [dessa instruktioner](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console) för att aktivera.
 Installera Hyper-V-gäst integrering | Om du migrerar datorer som kör Windows Server 2003 installerar du Hyper-V-gäst integrerings tjänster på den virtuella datorns operativ system. | [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
 Fjärrskrivbord | Aktivera fjärr skrivbord på den virtuella datorn och kontrol lera att Windows-brandväggen inte blockerar åtkomst till fjärr skrivbord på någon nätverks profil. | [Läs mer](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 
 ### <a name="prepare-linux-vms"></a>Förbered virtuella Linux-datorer
 
-**Åtgärd** | **Detaljer** 
+**Åtgärd** | **Information** 
 --- | --- | ---
 Installera Hyper-V Linux Integration Services | De flesta nya versioner av Linux-distributioner har detta inkluderat som standard.
 Återskapa Linux init-avbildningen så att den innehåller de nödvändiga Hyper-V-drivrutinerna | Detta säkerställer att den virtuella datorn kommer att starta i Azure och krävs endast för vissa distributioner.
@@ -131,7 +130,7 @@ När identifieringen är klar kan du påbörja replikeringen av virtuella VMware
 > [!NOTE]
 > Du kan replikera upp till 10 datorer tillsammans. Om du behöver replikera mer replikerar du dem samtidigt i batchar med 10. För migrering utan agent kan du köra upp till 100 samtidiga replikeringar.
 
-1. I Azure Migrate-projektet > **Servrar**, **Azure Migrate: Servermigrering** klickar du på **Replikera**.
+1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering**klickar du på **Replikera**.
 
     ![Replikera virtuella datorer](./media/tutorial-migrate-vmware/select-replicate.png)
 
@@ -150,7 +149,7 @@ När identifieringen är klar kan du påbörja replikeringen av virtuella VMware
 
     ![Välj utvärdering](./media/tutorial-migrate-vmware/select-assessment.png)
 
-5. I **Virtuella datorer** söker du efter önskade datorer och markerar varje virtuell dator som du vill migrera. Klicka sedan på **Nästa: Målinställningar**.
+5. I **Virtuella datorer** söker du efter önskade datorer och markerar varje virtuell dator som du vill migrera. Klicka sedan på **Nästa: mål inställningar**.
 
     ![Välj virtuella datorer](./media/tutorial-migrate-vmware/select-vms.png)
 
@@ -160,13 +159,13 @@ När identifieringen är klar kan du påbörja replikeringen av virtuella VMware
     - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
     - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
 
-    ![Målinställningar](./media/tutorial-migrate-vmware/target-settings.png)
+    ![Mål inställningar](./media/tutorial-migrate-vmware/target-settings.png)
 
 8. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
-    - **Storlek på virtuell dator**: Om du använder utvärderingsrekommendationer kommer listrutan för den virtuella datorns storlek att innehålla den rekommenderade storleken. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
-    - **Operativsystemdisk**: Ange operativsystemets startdisk för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 
-    - **Tillgänglighetsuppsättning**: Om den virtuella datorn skulle finnas i en tillgänglighetsuppsättning i Azure efter migreringen anger du uppsättningen. Uppsättningen måste finnas i målets resursgrupp som du anger för migreringen.
+    - **VM-storlek**: om du använder utvärderings rekommendationer kommer List rutan VM-storlek att innehålla den rekommenderade storleken. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
+    - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 
+    - **Tillgänglighets uppsättning**: om den virtuella datorn ska finnas i en Azure-tillgänglighets uppsättning efter migreringen anger du uppsättningen. Uppsättningen måste finnas i målets resursgrupp som du anger för migreringen.
 
     ![Inställningar för VM-beräkning](./media/tutorial-migrate-vmware/compute-settings.png)
 
@@ -185,10 +184,10 @@ När identifieringen är klar kan du påbörja replikeringen av virtuella VMware
 
 Om det här är den första virtuella dator som du replikerar i Azure Migrate-projektet, etablerar Azure Migrate Server migrering automatiskt dessa resurser i samma resurs grupp som projektet.
 
-- **Service Bus**: Azure Migrate Server-migrering använder Service Bus för att skicka meddelanden om dirigering av replikering till enheten.
-- **Gateway-lagrings konto**: Server-migreringen använder Gateway Storage-kontot för att lagra tillståndsinformation om de virtuella datorer som replikeras.
+- **Service Bus**: Azure Migrate Server-migrering använder Service Bus för att skicka meddelanden om dirigering av replikering till-enheten.
+- **Gateway Storage-konto**: Server Migration använder Gateway Storage-kontot för att lagra statusinformation om de virtuella datorer som replikeras.
 - **Logg lagrings konto**: Azure Migrate-installationen överför replik loggar för virtuella datorer till ett logg lagrings konto. Azure Migrate tillämpar replikeringsinformation på de replik hanterade diskarna.
-- **Nyckel valv**: Azure Migrate-enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen. Du bör ha ställt in de behörigheter som nyckel valvet behöver för att komma åt lagrings kontot när du för beredde. [Granska dessa behörigheter](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Nyckel valv**: Azure Migrates enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen. Du bör ha ställt in de behörigheter som nyckel valvet behöver för att komma åt lagrings kontot när du för beredde. [Granska dessa behörigheter](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
 
 
 ## <a name="track-and-monitor"></a>Spåra och övervaka
@@ -201,8 +200,8 @@ Om det här är den första virtuella dator som du replikerar i Azure Migrate-pr
 
 Du kan spåra jobb status i Portal meddelanden.
 
-Du kan övervaka replikeringsstatus genom att klicka på **Replikera servrar** i **Azure Migrate: Server-** migrering.
-![Övervaka replikering](./media/tutorial-migrate-vmware/replicating-servers.png)
+Du kan övervaka replikeringsstatus genom att klicka på **Replikera servrar** i **Azure Migrate: Server-migrering**.
+![övervaka replikering](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 
 
@@ -219,7 +218,7 @@ När delta-replikering börjar kan du köra en testmigrering för de virtuella d
 Gör en testmigrering enligt följande:
 
 
-1. I **Serverför** >  **migreringsmål** >  **AzureMigrate: Servermigrering** klickar du på **Testmigrerade servrar**.
+1. I **mål för migrering** > **servrar** > **Azure Migrate: Server migrering**klickar du på **test migrerade servrar**.
 
      ![Testmigrerade servrar](./media/tutorial-migrate-vmware/test-migrated-servers.png)
 
@@ -239,7 +238,7 @@ Gör en testmigrering enligt följande:
 
 När du har kontrollerat att testmigreringen fungerar som förväntat kan du migrera de lokala datorerna.
 
-1. I Azure Migrate-projektet > **Servrar** > **Azure Migrate: Servermigrering** klickar du på **Replikera servrar**.
+1. I Azure Migrate Project >- **servrar** > **Azure Migrate: Server-migrering**klickar du på **Replikera servrar**.
 
     ![Servrarna replikeras](./media/tutorial-migrate-vmware/replicate-servers.png)
 

@@ -1,18 +1,18 @@
 ---
-title: Om Azure Migrate | Microsoft Docs
-description: Ger en översikt över tjänsten Azure Migrate.
+title: Om Azure Migrate
+description: Lär dig mer om Server utvärdering och migrering med tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8b1e716e482c49ceba0c600aaba30fe276bdb74d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a64e7366281f15c94d6551c1f7be27f461737634
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747999"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185796"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -57,7 +57,7 @@ Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-er
 
 Tabellen sammanfattar andra verktyg som är integrerade i Azure Migrate.
 
-**Verktyg** | **Detaljer**
+**Verktyg** | **Information**
 --- | ---
 Azure Migrate: Server utvärdering | Utvärdera servrar
 Azure Migrate: Server-migrering | Migrera servrar

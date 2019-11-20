@@ -14,20 +14,20 @@ ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.openlocfilehash: fe943913f9d33923438efb91630c5a85c4d1b748
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687187"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184954"
 ---
-# <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabbstart: Lägg till funktions flaggor i en våren Boot-app
+# <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
 I den här snabb starten inkluderar du Azure App konfiguration i en våren Boot-webbapp för att skapa en slut punkt till slutpunkt-implementering av funktions hantering. Du kan använda app Configuration service för att centralt lagra alla funktions flaggor och kontrol lera deras tillstånd.
 
 Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. De här biblioteken har **inget** beroende av eventuella Azure lib-återställre. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
@@ -39,7 +39,7 @@ Biblioteken våren Boot Feature Management utökar ramverket med omfattande stö
 
 6. Välj **funktions hanteraren** >  **+ skapa** för att lägga till följande funktions flaggor:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | Av |
 
@@ -62,7 +62,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
 1. När du har extraherat filerna i det lokala systemet är ditt vanliga start program redo för redigering. Leta upp filen *pom.xml* i appens rotkatalog.
 
-2. Öppna filen *Pom. XML* i en text redigerare och Lägg till våren Cloud Azure config starter och funktions hantering i listan med `<dependencies>`:
+2. Öppna filen *Pom. XML* i en text redigerare och Lägg till våren Cloud Azure config starter och funktions hantering i listan över `<dependencies>`:
 
     ```xml
     <dependency>
@@ -232,7 +232,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
 3. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | På |
 

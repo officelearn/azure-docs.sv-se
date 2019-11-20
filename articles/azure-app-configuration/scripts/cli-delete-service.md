@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3482cc14e73801af6d0db910ded84adf722bc6f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0983e7d68e7ad01683d588ef89827eaf79754d07
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234342"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184921"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Ta bort ett Azure App Configuration-arkiv
 
@@ -40,7 +40,7 @@ Du behöver installera Azure App Configuration CLI-tillägget först genom att k
 ```azurecli-interactive
 #/bin/bash
 
-# Delete an app configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
+# Delete an App Configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
 az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 ```
 
@@ -48,14 +48,14 @@ az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att ta bort ett appkonfigurationsarkiv. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon för att ta bort ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Tar bort en resurs för ett appkonfigurationsarkiv. |
+| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Tar bort en resurs för konfigurations Arkiv för appar. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Fler App Configuration CLI-skriptexempel finns i [dokumentationen för Azure App Configuration](../cli-samples.md).
+Ytterligare skript exempel för programkonfigurations-CLI finns i [Azure App konfigurations-CLI-exempel](../cli-samples.md).

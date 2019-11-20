@@ -1,11 +1,11 @@
 ---
-title: Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – CLI
+title: Distribuera IPv6-program med dubbla stackar – Standard Load Balancer-CLI
 titlesuffix: Azure Virtual Network
 description: Den här artikeln visar hur du distribuerar ett IPv6-program med dubbla stackar i Azure Virtual Network med Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: d0968ddedb36ab7fb4ee515ef1d20a177d4d59fe
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c2f6c331e1f769f3d24fde9ab2adbd820b704d3b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821000"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186336"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – CLI (för hands version)
 
@@ -113,7 +113,7 @@ I det här avsnittet konfigurerar du IP-adresser för dubbel klient del (IPv4 oc
 
 ### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa Standard Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **dsLB** som innehåller en frontend-pool med namnet **dsLbFrontEnd_v4**, en backend-pool med namnet **dsLbBackEndPool_v4** som är associerad med IPv4 offentlig IP-adress  **dsPublicIP_v4** som du skapade i föregående steg. 
+Skapa Standard Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **dsLB** som innehåller en frontend-pool med namnet **dsLbFrontEnd_v4**, en backend-pool med namnet **DsLbBackEndPool_v4** som är associerad med den offentliga IPv4-IP-adressen **dsPublicIP_v4** som du skapade i föregående steg. 
 
 ```azurecli
 az network lb create \
@@ -128,7 +128,7 @@ az network lb create \
 
 ### <a name="create-ipv6-frontend"></a>Skapa IPv6-frontend
 
-Skapa en IP-adress för IPV6-klient med [AZ Network lb frontend-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). I följande exempel skapas en IP-konfiguration för klient delen med namnet *dsLbFrontEnd_v6* och bifogas *dsPublicIP_v6* -adressen:
+Skapa en IP-adress för IPV6-klient med [AZ Network lb frontend-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). I följande exempel skapas en IP-konfiguration för klient delen med namnet *dsLbFrontEnd_v6* och den *dsPublicIP_v6* adressen bifogas:
 
 ```azurepowershell-interactive
 az network lb frontend-ip create \
@@ -141,7 +141,7 @@ az network lb frontend-ip create \
 
 ### <a name="configure-ipv6-back-end-address-pool"></a>Konfigurera IPv6-backend-adresspool
 
-Skapa en IPv6-backend-adresspool med [AZ Network lb Address-pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). I följande exempel skapas backend-adresspoolen med namnet *dsLbBackEndPool_v6* för att inkludera virtuella datorer med IPv6 NIC-konfigurationer:
+Skapa en IPv6-backend-adresspool med [AZ Network lb Address-pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). I följande exempel skapas backend-adresspoolen med namnet *dsLbBackEndPool_v6* att inkludera virtuella datorer med IPv6 NIC-konfigurationer:
 
 ```azurecli
 az network lb address-pool create \
@@ -154,7 +154,7 @@ az network lb address-pool create \
 
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. 
 
-Använd [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) för att skapa en regel för lastbalanseraren. I följande exempel skapas belastnings Utjämnings regler med namnet *dsLBrule_v4* och *dsLBrule_v6* och balanserar trafik på *TCP* -port *80* till IP-konfigurationer för IPv4 och IPv6-klient:
+Använd [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) för att skapa en regel för lastbalanseraren. I följande exempel skapas belastnings Utjämnings regler som heter *dsLBrule_v4* och *dsLBrule_v6* och balanserar trafik på *TCP* -port *80* till IP-konfigurationer för IPv4 och IPv6-klient:
 
 ```azurecli
 az network lb rule create \

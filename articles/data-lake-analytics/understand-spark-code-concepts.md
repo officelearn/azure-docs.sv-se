@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 4ed23beae6edb13efabf034c1e87b9cb76048f82
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 3d15afc26c876c6e4d2d7244e26f0b13ced59a58
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648472"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184744"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Förstå Apache Spark kod för U-SQL-utvecklare
 
@@ -128,7 +128,7 @@ Följande tabell innehåller motsvarande typer i Spark, Scala och PySpark för d
 |`SQL.MAP<K,V>`   |`MapType(keyType, valueType, valueContainsNull)` |`scala.collection.Map` | `MapType(keyType, valueType, valueContainsNull=True)`|
 |`SQL.ARRAY<T>`   |`ArrayType(elementType, containsNull)` |`scala.collection.Seq` | `ArrayType(elementType, containsNull=True)`|
 
-Mer information finns i:
+Mer information finns här:
 
 - [org. apache. Spark. SQL. types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
 - [Spark SQL-och DataFrames-typer](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
@@ -143,13 +143,13 @@ I Spark anger NULL att värdet är okänt. Ett Spark-NULL-värde skiljer sig fr�
 
 Det här beteendet skiljer sig från U-SQL, C# som följer semantik där `null` skiljer sig från ett värde som är lika med sig själv.  
 
-Därför returnerar en SparkSQL `SELECT`-instruktion som använder `WHERE column_name = NULL` noll rader även om det finns NULL-värden i `column_name`, men i U-SQL returnerar den raderna där `column_name` har angetts till `null`. På samma sätt returnerar ett Spark `SELECT`-uttryck som använder `WHERE column_name != NULL` noll rader även om det finns värden som inte är null i `column_name`, men i U-SQL returnerar den de rader som inte har värdet null. Om du vill ha semantiken U-SQL null-kontroll bör du använda [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)) respektive [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (eller deras DSL-motsvarighet).
+Därför returnerar en SparkSQL `SELECT`-instruktion som använder `WHERE column_name = NULL` noll rader även om det finns NULL-värden i `column_name`, men i U-SQL returnerar den raderna där `column_name` har angetts till `null`. På samma sätt returnerar ett Spark `SELECT`-uttryck som använder `WHERE column_name != NULL` noll rader även om det finns värden som inte är null i `column_name`, men i U-SQL returnerar den de rader som inte har värdet null. Om du vill ha semantiken U-SQL null-kontroll bör du använda [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) respektive [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (eller deras respektive DSL-motsvarighet).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Transformera U-SQL Catalog-objekt
 
 En stor skillnad är att U-SQL-skript kan använda sina katalog objekt, varav många har ingen direkt Spark-motsvarighet.
 
-Spark ger stöd för grundläggande meta Store-koncept, huvudsakligen databaser och tabeller, så att du kan mappa U-SQL-databaser och-scheman till Hive-databaser och U-SQL-tabeller till Spark-tabeller (se [Flytta data som lagras i U-SQL-tabeller](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), men inte har stöd för vyer, tabell värdes funktioner (TVFs), lagrade procedurer, U-SQL-sammansättningar, externa data källor osv.
+Spark ger stöd för Hive-koncept för metadata-lagring, huvudsakligen databaser och tabeller, så att du kan mappa U-SQL-databaser och-scheman till Hive-databaser och U-SQL-tabeller till Spark-tabeller (se [Flytta data som lagras i U-SQL-tabeller](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables), men det har inte stöd för vyer, tabell värdes funktioner (TVFs), lagrade procedurer, U-SQL-sammansättningar, externa data källor osv.
 
 U-SQL-kodfragment, till exempel vyer, TVFs, lagrade procedurer och sammansättningar, kan modelleras genom kod funktioner och bibliotek i Spark och refereras till med hjälp av värd språket funktion och proceduriska abstraktions mekanismer (till exempel genom att importera Python-moduler eller referenser till Scala-funktioner).
 

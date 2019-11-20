@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494578"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195838"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i HDInsight via VPN
 
@@ -27,15 +27,15 @@ Den här artikeln innehåller stegvisa instruktioner om hur du använder HDInsig
 1. Skapa ett Scala-program i IntelliJ-idén och konfigurera det för fjärrfelsökning.
 1. Kör och Felsök programmet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **en Azure-prenumeration**. Mer information finns i [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **En Azure-prenumeration**. Mer information finns i [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Ett Apache Spark kluster i HDInsight**. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Oracle Java Development Kit**. Du kan installera det från [Oracle-webbplatsen](https://aka.ms/azure-jdks).
 * **INTELLIJ idé**. Den här artikeln använder version 2017,1. Du kan installera det från [JetBrains-webbplatsen](https://www.jetbrains.com/idea/download/).
 * **HDInsight-verktyg i Azure Toolkit for IntelliJ**. HDInsight Tools för IntelliJ är tillgängliga som en del av Azure Toolkit for IntelliJ. Anvisningar om hur du installerar Azure Toolkit finns i [installera Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Logga in på din Azure-prenumeration från IntelliJ-idén**. Följ anvisningarna i [använda Azure Toolkit for IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md).
-* **Undantags lösning**. När du kör Spark Scala-programmet för fjärrfelsökning på en Windows-dator kan du få ett undantag. Detta undantag beskrivs i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) och inträffar på grund av en WinUtils. exe-fil som saknas i Windows. För att undvika det här felet måste du [Ladda ned den körbara filen](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats, till exempel **C:\WinUtils\bin**. Lägg till en **HADOOP_HOME** -miljö variabel och ange sedan värdet för variabeln till **C\WinUtils**.
+* **Undantags lösning**. När du kör Spark Scala-programmet för fjärrfelsökning på en Windows-dator kan du få ett undantag. Detta undantag beskrivs i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) och inträffar på grund av en WinUtils. exe-fil som saknas i Windows. För att undvika det här felet måste du [Ladda ned den körbara filen](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats, till exempel **C:\WinUtils\bin**. Lägg till en **HADOOP_HOME** miljö variabel och ange sedan värdet för variabeln till **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Steg 1: skapa ett virtuellt Azure-nätverk
 
@@ -59,7 +59,7 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     ![Välj värdar i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Du ser en lista över Head-noder, arbetsnoder och Zookeeper-noder. Huvudnoderna har ett **HN***-prefix. Välj den första Head-noden.
+1. Du ser en lista över Head-noder, arbetsnoder och Zookeeper-noder. Huvudnoderna har ett **HN**\*-prefix. Välj den första Head-noden.
 
     ![Hitta Head-noden i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
@@ -203,9 +203,9 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
                             "wasb:///HVACOut")
         }
     }
-        ```
+    ```
 
-1. Repeat steps 8 and 9 to add a new Scala object called `*SparkSample`. Add the following code to this class. This code reads the data from the HVAC.csv (available in all HDInsight Spark clusters). It retrieves the rows that only have one digit in the seventh column in the CSV file, and then writes the output to **/HVACOut** under the default storage container for the cluster.
+1. Upprepa steg 8 och 9 om du vill lägga till ett nytt Scala-objekt med namnet `*SparkSample`. Lägg till följande kod i den här klassen. Den här koden läser data från HVAC. csv (tillgänglig i alla HDInsight Spark-kluster). Den hämtar de rader som bara har en siffra i den sjunde kolumnen i CSV-filen och skriver sedan utdata till **/HVACOut** under standard lagrings behållaren för klustret.
 
     ```scala
     import org.apache.spark.SparkContext

@@ -1,14 +1,14 @@
 ---
 title: NIST SP 800-53 R4 skiss-kontroll mappning
 description: Kontroll mappning av NIST SP 800-53 R4 skiss-exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 06/24/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 1197c6153c0252d8b6738f0e4909e32ca2ddf94e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 94011cf5bbebf0278fa66d4c2ad97e3918679ca4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037844"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184492"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Kontroll mappning av NIST SP 800-53 R4 skiss exempel
 

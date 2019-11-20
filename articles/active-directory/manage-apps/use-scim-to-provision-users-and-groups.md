@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a24ebd8aca3cebab7898689b00e590298a8d1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d8bb9b507763c935ab244c42584120a279063954
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144762"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195453"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM användar etablering med Azure Active Directory (Azure AD)
 
@@ -68,7 +68,7 @@ Observera att du inte behöver stödja både användare och grupper eller alla a
 | jobTitle |title |
 | e-post |e-postmeddelanden [typ eq ”arbete pågår”] .value |
 | mailNickname |externalId |
-| ansvarig |ansvarig |
+| Manager |Manager |
 | mobila |phoneNumbers [typ eq ”mobil”] .value |
 | objekt-ID |ID |
 | Postnummer |adresser typ eq ”arbete pågår” .postalCode |
@@ -77,7 +77,7 @@ Observera att du inte behöver stödja både användare och grupper eller alla a
 | streetAddress |adresser typ eq ”arbete pågår” .streetAddress |
 | surname |name.familyName |
 | Telefonnummer |phoneNumbers [typ eq ”arbete pågår”] .value |
-| användaren huvudkontot |userName |
+| användaren huvudkontot |Användarnamn |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabell 2: Standard grupp attributmappning
 
@@ -627,7 +627,7 @@ Så fungerar här det:
 
 För att göra den här processen enklare, tillhandahålls [kod exempel](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) , som skapar en scim-webbtjänst-slutpunkt och demonstrerar automatisk etablering. Exemplet är en provider som upprätthåller en fil med rader som är kommaavgränsade värden som representerar användare och grupper.
 
-**Krav**
+**Förutsättningar**
 
 * Visual Studio 2013 eller senare
 * [Azure SDK för .NET](https://azure.microsoft.com/downloads/)
@@ -1306,6 +1306,24 @@ När den första cykeln har startats kan du välja **etablerings loggar** i den 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Steg 5: publicera ditt program i Azure AD-programgalleriet
 
 Om du skapar ett program som ska användas av fler än en klient kan du göra det tillgängligt i Azure AD-programgalleriet. Detta gör det enkelt för organisationer att identifiera programmet och konfigurera etablering. Det är enkelt att publicera din app i Azure AD-galleriet och göra etableringen tillgänglig för andra. Kolla in stegen [här](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). Microsoft kommer att samar beta med dig för att integrera ditt program i vårt galleri, testa din slut punkt och publicera onboarding- [dokumentation](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) för kunder att använda. 
+
+
+### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Auktorisering för etablering av anslutningar i program galleriet
+SCIM-specifikationen definierar inte ett SCIM schema för autentisering och auktorisering. Den förlitar sig på användningen av befintliga bransch standarder. Azure AD Provisioning-klienten har stöd för två autentiseringsmetoder för program i galleriet. 
+
+**Utfärdande flöde för OAuth-auktoriseringskod:** Etablerings tjänsten har stöd för [beviljande av auktoriseringskod](https://tools.ietf.org/html/rfc6749#page-24). När du har skickat din begäran om att publicera din app i galleriet, kommer vårt team att samar beta med dig för att samla in följande information:
+*  URL för auktorisering: en URL som klienten kan använda för att få behörighet från resurs ägaren via omdirigering av användar agent. Användaren omdirigeras till denna URL för att ge åtkomst. 
+*  URL för token Exchange: en URL till klienten som utbyter en auktorisering för en åtkomsttoken, vanligt vis med klientautentisering.
+*  Klient-ID: auktoriseringsservern utfärdar den registrerade klienten ett klient-ID, vilket är en unik sträng som representerar den registrerings information som tillhandahålls av klienten.  Klient-ID: n är inte en hemlighet. den exponeras för resurs ägaren och **får inte** användas separat för klientautentisering.  
+*  Klient hemlighet: klient hemligheten är en hemlighet som genereras av auktoriseringsservern. Det bör vara ett unikt värde som endast är känt för auktoriseringsservern. 
+
+Metod tips (rekommenderas men krävs inte):
+* Stöder flera omdirigerings-URL: er. Administratörer kan konfigurera etablering från både "portal.azure.com" och "aad.portal.azure.com". Genom att stödja flera omdirigerings-URL: er ser du till att användarna kan auktorisera åtkomst från portalen.
+* Stöd för flera hemligheter för att säkerställa en smidig hemlig förnyelse utan drift avbrott. 
+
+**Långa OAuth-token för OAuth-förlängd:** Om ditt program inte stöder OAuth-auktoriseringsvärdet för OAuth-auktoriseringskod kan du också generera en lång livs längd för OAuth Bearer-token som en administratör kan använda för att konfigurera etablerings integrationen. Token ska vara beständig, annars placeras etablerings jobbet i [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) när token upphör att gälla. Denna token måste vara lägre 1 KB i storlek.  
+
+Om du vill ha ytterligare metoder för autentisering och auktorisering kan du berätta för oss på [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Tillåt IP-adresser som används av Azure AD Provisioning-tjänsten för att göra SCIM-begäranden
 

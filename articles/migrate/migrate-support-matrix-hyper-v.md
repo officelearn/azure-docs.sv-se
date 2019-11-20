@@ -1,18 +1,18 @@
 ---
-title: Azure Migrate support mat ris för Hyper-V-utvärdering och migrering
-description: Sammanfattar inställningar och begränsningar för Hyper-V-utvärdering och migrering med hjälp av tjänsten Azure Migrate.
+title: Stöd för Hyper-V-utvärdering/migrering i Azure Migrate
+description: Läs mer om stöd för Hyper-V-utvärdering/migrering med Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6562d3f15d080a3bbc54a9985c12eae5908a9980
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498698"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186657"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -86,7 +86,7 @@ För att utvärdera de virtuella datorerna behöver Azure Migrate-enheten Intern
 --- | ---
 *.portal.azure.com | Navigering till Azure Portal
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration
-*.microsoftonline.com <br/> *. microsoftonline-p.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 management.azure.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 dc.services.visualstudio.com | Loggning och övervakning
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault när du kommunicerar mellan installations programmet och tjänsten.
@@ -131,7 +131,7 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 | **Krypterade diskar/volymer**    | Stöds inte för migrering. |
 | **RDM/passthrough-diskar**      | Stöds inte för migrering. |
 | **Delad disk** | Virtuella datorer som använder delade diskar stöds inte för migrering.
-| **MSNFS**                        | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte. |
+| **NFS**                        | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte. |
 | **-**                      | Virtuella datorer med iSCSI-mål stöds inte för migrering.
 | **Mål disk**                | Du kan bara migrera till virtuella Azure-datorer med Managed disks. |
 | **IPv6** | Stöds ej.

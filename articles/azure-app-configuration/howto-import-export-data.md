@@ -1,6 +1,6 @@
 ---
-title: Importera eller exportera data med Azure-Appkonfiguration | Microsoft Docs
-description: Lär dig att importera eller exportera data till eller från Azure-Appkonfiguration
+title: Importera eller exportera data med Azure App-konfiguration | Microsoft Docs
+description: Lär dig hur du importerar eller exporterar data till eller från Azure App konfiguration
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,62 +12,62 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9780dc34aa6b146fe62b11586cbab46825e60535
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393276"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185161"
 ---
 # <a name="import-or-export-configuration-data"></a>Importera eller exportera konfigurationsdata
 
-Azure App stöder konfigurationsdata importera och exportera åtgärder. Använda de här åtgärderna för att arbeta med konfigurationsdata i bulk och exchange-data mellan din app konfiguration av lagring och kod projekt. Du kan till exempel skapa en app konfigurationsarkiv för testning och ett annat för produktion. Du kan sedan kopiera programinställningar mellan dem via en fil så att du slipper ange data två gånger.
+Azure App konfiguration stöder åtgärder för import och export av data. Använd dessa åtgärder för att arbeta med konfigurations data i Mass-och Exchange-data mellan appens konfigurations lagring och kod projekt. Du kan till exempel konfigurera ett konfigurations lager för en app för testning och en annan för produktion. Du kan sedan kopiera program inställningarna mellan dem via en fil så att du inte behöver ange data två gånger.
 
-Den här artikeln innehåller en guide för import och export av data med Appkonfiguration.
+Den här artikeln innehåller en guide för att importera och exportera data med app-konfiguration.
 
 ## <a name="import-data"></a>Importera data
 
-Importera ger konfiguration till en Appkonfiguration datalager från en befintlig datakälla i stället för att ange den manuellt. Funktionen Importera används för att migrera data till en appbutik för konfiguration eller samla in data från flera källor. Konfiguration av stöder importera från en fil för JSON eller YAML egenskaper.
+Import hämtar konfigurations data till ett konfigurations lager för appar från en befintlig källa, i stället för att manuellt ange den. Använd funktionen Importera för att migrera data till ett konfigurations lager för appar eller samla in data från flera källor. Konfiguration av appar stöder import från en JSON-, YAML-eller egenskaps fil.
 
-Importera data genom att använda antingen den [Azure-portalen](https://portal.azure.com) eller [Azure CLI](./scripts/cli-import.md). Följ dessa steg från Azure-portalen:
+Importera data med hjälp av antingen [Azure Portal](https://portal.azure.com) eller [Azure CLI](./scripts/cli-import.md). Följ de här stegen i Azure Portal:
 
-1. Bläddra till din app konfiguration av lagring och markera **Import/Export**.
+1. Bläddra till appens konfigurations Arkiv och välj **Importera/exportera**.
 
-2. På den **Import** fliken **Source service** > **konfigurationsfilen**.
+2. På fliken **Importera** väljer du **käll tjänst** > **konfigurations fil**.
 
-3. Välj **för språket** > **filtypen**.
+3. Välj **för språk** > **filtyp**.
 
-4. Välj den **mappen** ikon, och bläddra till filen som ska importeras.
+4. Välj **mappikonen** och bläddra till den fil som ska importeras.
 
     ![Importera fil](./media/import-file.png)
 
-5. Välj en **avgränsare**, och du kan också ange en **prefixet** ska användas för importerade nyckelnamn.
+5. Välj en **avgränsare**och ange ett **prefix** som ska användas för importerade nyckel namn.
 
-6. Alternativt kan du välja en **etikett**.
+6. Du kan också välja en **etikett**.
 
-7. Välj **tillämpa** att slutföra importen.
+7. Välj **tillämpa** för att slutföra importen.
 
-    ![Importera fil klar](./media/import-file-complete.png)
+    ![Import filen är färdig](./media/import-file-complete.png)
 
 ## <a name="export-data"></a>Exportera data
 
-Export skriver till en annan plats som lagras i Appkonfiguration. Använda funktionen Exportera, till exempel att spara data i en appbutik konfiguration till en fil som är inbäddad med din programkod under distributionen.
+Exportera skriver konfigurations data som lagras i app-konfigurationen till ett annat mål. Använd funktionen export, till exempel för att spara data i ett konfigurations lager för appar till en fil som är inbäddad med program koden under distributionen.
 
-Exportera data genom att använda antingen den [Azure-portalen](https://portal.azure.com) eller [Azure CLI](./scripts/cli-export.md). Följ dessa steg från Azure-portalen:
+Exportera data med hjälp av antingen [Azure Portal](https://portal.azure.com) eller [Azure CLI](./scripts/cli-export.md). Följ de här stegen i Azure Portal:
 
-1. Bläddra till din app konfiguration av lagring och markera **Import/Export**.
+1. Bläddra till appens konfigurations Arkiv och välj **Importera/exportera**.
 
-2. På den **exportera** fliken **rikta service** > **konfigurationsfilen**.
+2. På fliken **Exportera** väljer du **konfigurations filen**för **mål tjänst** > .
 
-3. Du kan också ange en **prefixet** och välj en **etikett** och en punkt i tiden för nycklar som ska exporteras.
+3. Du kan också ange ett **prefix** och välja en **etikett** och en tidpunkt för nycklar som ska exporteras.
 
 4. Välj en **filtypen** > **avgränsare**.
 
-5. Välj **tillämpa** att slutföra exporten.
+5. Välj **tillämpa** för att slutföra exporten.
 
-    ![Exportfilen är klar](./media/export-file-complete.png)
+    ![Export filen är färdig](./media/export-file-complete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ASP.NET Core-webbapp](./quickstart-aspnet-core-app.md)  
+> [Skapa en ASP.NET Core webbapp](./quickstart-aspnet-core-app.md)  

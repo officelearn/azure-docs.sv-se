@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
-ms.openlocfilehash: b32eb7a7236871a06e1fbed5b9f1aac91675c6f3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: HT
+ms.openlocfilehash: fbfce1c107fcf4b6f7d0b5f590a8ddfa64e69190
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174738"
+ms.locfileid: "74184725"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DBs API för MongoDB
 
@@ -35,7 +35,7 @@ while (!cursor.isExhausted()) {
 }
 ```
 
-I följande exempel visas hur du kan få ändringar i objekten i en enskild Shard, till exempel Shard "a" som har objekt med värdet "1".
+I följande exempel visas hur du kan få ändringar i objekten i en enda Shard. I det här exemplet hämtas ändringar av objekt som har Shard-nyckeln lika med "a" och värdet för Shard-nyckeln som är lika med "1".
 
 ```javascript
 var cursor = db.coll.watch(

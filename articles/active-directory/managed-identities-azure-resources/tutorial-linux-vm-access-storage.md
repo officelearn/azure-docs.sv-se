@@ -1,5 +1,5 @@
 ---
-title: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage
+title: Självstudie`:` använda en hanterad identitet för att komma åt Azure Storage – Linux – Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 815e1a811d16e4c630e455e9c684c2b6b094a5d5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236164"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183412"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage 
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -32,12 +32,12 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 > * skapar ett lagringskonto
 > * Skapa en blobcontainer i ett lagringskonto
 > * Ge en hanterade identitet på en virtuell Linux-dator åtkomst till en Azure Storage-container
-> * Hämta en åtkomsttoken och använda den för att anropa Azure Storage
+> * Hämta en åtkomsttoken och anropa Azure Storage med den
 
 > [!NOTE]
 > Azure Active Directory-autentisering för Azure Storage finns i en allmänt tillgänglig förhandsversion.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -54,16 +54,16 @@ I det här avsnittet skapar du ett lagringskonto.
 2. Klicka på **Lagring** och sedan på **Lagringskonto – blob, fil, tabell, kö**.
 3. Under **Namn** anger du ett namn för lagringskontot.  
 4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)** . 
-5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
+5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.
 6. Klicka på **Skapa**.
 
     ![Skapa ett nytt lagringskonto](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Skapa en blobcontainer och ladda upp en fil till lagringskontot
 
-Eftersom filer behöver bloblagring måste du skapa en blobcontainer som du lagrar filen i. Sedan laddar du upp en fil till blobcontainern i det nya lagringskontot.
+Eftersom filer kräver bloblagring måste du skapa en blobcontainer som du lagrar filen i. Sedan laddar du upp en fil till blobcontainern i det nya lagringskontot.
 
-1. Gå tillbaka till det lagringskonto du nyss skapade.
+1. Gå tillbaka till det lagringskonto som du nyss skapade.
 2. Under **Blob Service** klickar du på **Containers**.
 3. Klicka på **+ Container** överst på sidan.
 4. Under **Ny container**anger du ett namn för containern och under **Offentlig åtkomstnivå** behåller du standardvärdet.
@@ -73,7 +73,7 @@ Eftersom filer behöver bloblagring måste du skapa en blobcontainer som du lagr
 5. Med hjälp av valfritt redigeringsprogram skapar du en fil som heter *hello world.txt* på den lokala datorn.  Öppna filen och lägg till följande text (utan citattecken): ”Hello world! :)”och spara den. 
 
 6. Ladda upp filen till containern du skapade genom att klicka på containernamnet och sedan på **Ladda upp**
-7. Under **Filer** i fönstret **Ladda upp blob** klickar du på mappikonen och bläddrar till filen **hello_world.txt** på din lokala dator. Välj sedan filen och klicka på **Ladda upp**.
+7. I fönstret **Ladda upp blob**, under **Filer**, klickar du på mappikonen och bläddrar till filen **hello_world.txt** på den lokala datorn. Välj sedan filen och klicka på **Ladda upp**.
 
     ![Ladda upp textfil](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
@@ -81,10 +81,10 @@ Eftersom filer behöver bloblagring måste du skapa en blobcontainer som du lagr
 
 Du kan använda den hanterade identiteten på den virtuella datorn till att hämta data i Azure Storage Blob.   
 
-1. Gå tillbaka till det lagringskonto du nyss skapade.  
-2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
+1. Gå tillbaka till det lagringskonto som du nyss skapade.  
+2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
 3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn.
-4. Under **rollen**, i listrutan Välj **Storage Blob Data-läsare**. 
+4. Under **roll**i list rutan väljer du **Storage BLOB data Reader**. 
 5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.  
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.  
 7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**.
@@ -93,9 +93,9 @@ Du kan använda den hanterade identiteten på den virtuella datorn till att häm
 
 ## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Hämta en åtkomsttoken och anropa Azure Storage med den
 
-Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av Azure Storages integrering med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
+Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av integreringen av Azure Storage med Azure Active Directory, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-För att kunna utföra följande steg måste du arbeta från den virtuella datorn som du skapade tidigare och du behöver en SSH-klient för att ansluta till den. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
+För att kunna utföra följande steg måste du arbeta från den virtuella datorn som du skapade tidigare och du behöver en SSH-klient för att ansluta till den. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Gå till **Virtuella datorer** i Azure-portalen och sedan till den virtuella Linux-datorn. På sidan **Överblick** klickar du på **Anslut**. Kopiera strängen för att ansluta till din virtuella dator.
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 

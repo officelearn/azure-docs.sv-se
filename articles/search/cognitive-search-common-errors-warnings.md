@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b51581b5a8f94419dba60eee72669a3e1261b24
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151573"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185706"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -29,6 +29,16 @@ Om du vill att indexerarna ska ignorera dessa fel (och hoppa över "misslyckade 
 Fel informationen i den här artikeln kan hjälpa dig att lösa fel som gör att indexeringen kan fortsätta.
 
 Varningar slutar inte att indexera, men de anger villkor som kan leda till oväntade resultat. Oavsett om du vidtar åtgärder eller inte beror på data och ditt scenario.
+
+Från och med API-versionen `2019-05-06`struktureras fel och varningar på objekt nivå för att ge ökad klarhet kring orsaker och nästa steg. De innehåller följande egenskaper:
+
+| Egenskap | Beskrivning | Exempel |
+| --- | --- | --- |
+| key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| namn | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName Projektion. KnowledgeStore. Table. myTableName |
+| meddelande | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
+| details | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1-källa, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.`... rest av stack spårning... |
+| documentationLink | En länk till relevant dokumentation med detaljerad information för att felsöka och lösa problemet. Den här länken pekar ofta på ett av nedanstående avsnitt på den här sidan. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
 
@@ -73,8 +83,6 @@ Indexeraren kunde inte köra en färdighet i färdigheter.
 
 | Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| Ett fält innehåller en term som är för stor | En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
-| Dokumentet är för stort för att indexeras | Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | [Så här indexerar du stora data mängder](search-howto-large-index.md)
 | Problem med tillfälliga anslutningar | Ett tillfälligt fel har uppstått. Försök igen senare. | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 | Potentiell produkt fel | Det uppstod ett oväntat fel. | Detta indikerar en okänd fel klass och det kan betyda att det finns en produkt bugg. Använd ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) för att få hjälp. |
 | Ett fel uppstod vid körningen av en färdighet | (Från slå samman färdighet) Ett eller flera förskjutnings värden var ogiltiga och kunde inte parsas. Objekt infogades i slutet av texten | Använd informationen i fel meddelandet för att åtgärda problemet. Den här typen av haveri kräver åtgärd för att lösa problemet. |
@@ -96,6 +104,8 @@ Det finns två fall där du kan stöta på det här fel meddelandet, som var och
 
 ### <a name="built-in-cognitive-service-skills"></a>Inbyggda kunskaper om kognitiva tjänster
 Många av de inbyggda kognitiva färdigheterna, till exempel språk identifiering, entitets igenkänning eller OCR, backas upp av en kognitiv tjänst-API-slutpunkt. Ibland finns det tillfälliga problem med dessa slut punkter och tids gränsen för en begäran upphör. För tillfälliga problem finns det ingen åtgärd förutom att vänta och försöka igen. Som en minskning bör du överväga att ställa in indexeraren att [köras enligt ett schema](search-howto-schedule-indexers.md). Schemalagd indexering hämtar var den slutade. Förutsatt att de tillfälliga problemen är lösta, bör indexerings-och kognitiva kompetens bearbetningen fortsätta vid nästa schemalagda körning.
+
+Om du fortsätter att se det här felet i samma dokument för en inbyggd kognitiv skicklighet, kan du skicka in ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) för att få hjälp, eftersom detta inte förväntas.
 
 ### <a name="custom-skills"></a>Anpassade färdigheter
 Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skapat, finns det några saker du kan prova. Börja med att granska din anpassade färdighet och se till att den inte fastnar i en oändlig slinga och att den returnerar ett resultat konsekvent. När du har bekräftat att är fallet ska du ta reda på hur körnings tiden för din färdighet är. Om du inte uttryckligen angav ett `timeout`-värde i din anpassade kunskaps definition är standard `timeout` 30 sekunder. Om 30 sekunder inte är tillräckligt lång för att din kunskap ska kunna köras, kan du ange ett högre `timeout` värde i din anpassade kunskaps definition. Här är ett exempel på en anpassad kunskaps definition där tids gränsen har angetts till 90 sekunder:
@@ -132,8 +142,8 @@ Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i
 
 | Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Ett fält innehåller en term som är för stor | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
-| Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | Dokumentet är för stort för att indexeras | [Så här indexerar du stora data mängder](search-howto-large-index.md)
+| Ett fält innehåller en term som är för stor | En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
+| Dokumentet är för stort för att indexeras | Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | [Så här indexerar du stora data mängder](search-howto-large-index.md)
 | Dokumentet innehåller för många objekt i samlingen | En samling i dokumentet överskrider [Max antalet element i alla komplexa samlings gränser](search-limits-quotas-capacity.md#index-limits) | Vi rekommenderar att du minskar storleken på den komplexa samlingen i dokumentet till under gränsen och undviker hög lagrings belastning.
 | Det går inte att ansluta till mål indexet (som kvarstår efter återförsök) eftersom tjänsten är under annan belastning, t. ex. frågor eller indexering. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är hårt belastad. | [Skala upp Sök tjänsten](search-capacity-planning.md)
 | Sök tjänsten korrigeras för tjänst uppdatering eller är i mitten av en omkonfiguration av topologin. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är för närvarande nere/Search-tjänsten genomgår en över gång. | Konfigurera tjänsten med minst tre repliker för 99,9% tillgänglighet per [SLA-dokumentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)

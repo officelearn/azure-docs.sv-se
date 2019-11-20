@@ -1,7 +1,7 @@
 ---
-title: 'Designer: klassificera, Förutsäg omsättning'
+title: 'Designer: förutse omsättnings exempel'
 titleSuffix: Azure Machine Learning
-description: Den här designerns (förhands granskning) exempel pipeline visar binär klassificerare för omsättning, en vanlig uppgift för kund Relations hantering (CRM).
+description: Följ det här klassificerings exemplet för att förutse omsättning med Azure Machine Learning designer & utökat besluts träd.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5cf61d3446f960b65eb85538be9ea020671cced2
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647179"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196046"
 ---
-# <a name="sample-5---classification-predict-churn"></a>Exempel 5 – klassificering: förutsägelse omsättning
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Använd utökat besluts träd för att förutse omsättning med Azure Machine Learning designer
+
+**Designer (för hands version), exempel 5**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Lär dig hur du skapar en komplex pipeline för maskin inlärning utan att skriva en enda rad kod med hjälp av designern (för hands version).
@@ -30,7 +33,7 @@ Här är det färdiga diagrammet för den här pipelinen:
 
 ![Pipeline-diagram](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

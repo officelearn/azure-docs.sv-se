@@ -1,5 +1,5 @@
 ---
-title: Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell
+title: Konfigurera hanterade identiteter på en virtuell Azure-dator med PowerShell – Azure AD
 description: Steg för steg-instruktioner för att konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ba8ce6fb8147736c8265148a9f3576390dcccc6
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6e17b4a3f71e67b99bfbd4c52edc00f98d549ef2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309766"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183699"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med PowerShell
 
@@ -32,7 +32,7 @@ I den här artikeln använder du PowerShell för att lära dig hur du utför fö
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
@@ -48,7 +48,7 @@ För att skapa en virtuell Azure-dator med den systemtilldelade hanterade identi
 
 1. Se något av följande snabb starter för Azure VM, som endast fyller i de nödvändiga avsnitten ("logga in på Azure", "skapa resurs grupp", "skapa nätverks grupp", "skapa den virtuella datorn").
     
-    När du kommer till avsnittet "skapa den virtuella datorn" gör du en mindre ändring av cmdlet [-syntaxen New-AzVMConfig](/powershell/module/az.compute/new-azvm) . Se till att lägga till `-AssignIdentity:$SystemAssigned` en parameter för att etablera den virtuella datorn med den systemtilldelade identiteten aktive rad, till exempel:
+    När du kommer till avsnittet "skapa den virtuella datorn" gör du en mindre ändring av cmdlet [-syntaxen New-AzVMConfig](/powershell/module/az.compute/new-azvm) . Se till att lägga till en `-AssignIdentity:$SystemAssigned` parameter för att etablera den virtuella datorn med den systemtilldelade identiteten aktive rad, till exempel:
       
     ```powershell
     $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
@@ -69,7 +69,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    Connect-AzAccount
    ```
 
-2. Hämta först egenskaperna för den virtuella datorn `Get-AzVM` med cmdleten. Om du vill aktivera en systemtilldelad hanterad identitet använder `-AssignIdentity` du växeln på cmdleten [Update-AzVM](/powershell/module/az.compute/update-azvm) :
+2. Hämta först egenskaperna för virtuella datorer med hjälp av `Get-AzVM`-cmdleten. Om du vill aktivera en systemtilldelad hanterad identitet använder du växeln `-AssignIdentity` på cmdleten [Update-AzVM](/powershell/module/az.compute/update-azvm) :
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -88,13 +88,13 @@ När du har aktiverat systemtilldelad identitet på en virtuell dator kan du lä
    Connect-AzAccount
    ```
 
-2. Hämta och anteckna `ObjectID` (enligt vad som anges `Id` i fältet för de returnerade värdena) för den virtuella datorns tjänst huvud namn:
+2. Hämta och anteckna `ObjectID` (som anges i fältet `Id` för de returnerade värdena) för den virtuella datorns tjänst huvud namn:
 
    ```powerhshell
    Get-AzADServicePrincipal -displayname "myVM"
    ```
 
-3. Hämta och anteckna `ObjectID` (enligt vad som anges `Id` i fältet i de returnerade värdena) för gruppen:
+3. Hämta och anteckna `ObjectID` (som anges i fältet `Id` för de returnerade värdena) för gruppen:
 
    ```powershell
    Get-AzADGroup -searchstring "myGroup"
@@ -118,7 +118,7 @@ Använd följande cmdlet om du har en virtuell dator som inte längre behöver d
    Connect-AzAccount
    ```
 
-2. Hämta de virtuella dator egenskaperna med `Get-AzVM` cmdleten och `-IdentityType` ange parametern till `UserAssigned`:
+2. Hämta egenskaperna för den virtuella datorn med hjälp av `Get-AzVM`-cmdlet och ange parametern `-IdentityType` till `UserAssigned`:
 
    ```powershell   
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
@@ -144,7 +144,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
 1. Se något av följande snabb starter för Azure VM, som endast fyller i de nödvändiga avsnitten ("logga in på Azure", "skapa resurs grupp", "skapa nätverks grupp", "skapa den virtuella datorn"). 
   
-    När du kommer till avsnittet "skapa den virtuella datorn" gör du en liten ändring [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) av cmdlet-syntaxen. Lägg till parametrarna `-IdentityID`ochför att etablera den virtuella datorn med en tilldelad identitet. `-IdentityType UserAssigned`  Ersätt `<VM NAME>`,`<SUBSCRIPTION ID>`, och`<USER ASSIGNED IDENTITY NAME>` med dina egna värden. `<RESROURCE GROUP>`  Exempel:
+    När du kommer till avsnittet "skapa den virtuella datorn" gör du en liten ändring i [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet-syntaxen. Lägg till parametrarna `-IdentityType UserAssigned` och `-IdentityID` för att etablera den virtuella datorn med en tilldelad identitet.  Ersätt `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden.  Exempel:
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
@@ -165,18 +165,18 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    Connect-AzAccount
    ```
 
-2. Skapa en användardefinierad hanterad identitet med hjälp av cmdleten [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) .  `Id` Observera i resultatet eftersom du kommer att behöva detta i nästa steg.
+2. Skapa en användardefinierad hanterad identitet med hjälp av cmdleten [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) .  Observera `Id` i utdata eftersom du kommer att behöva detta i nästa steg.
 
    > [!IMPORTANT]
-   > Att skapa användarspecifika hanterade identiteter stöder endast alfanumeriska tecken, under streck och bindestreck (0-9 eller a-z eller a- \_ z eller-). Dessutom bör namnet begränsas från 3 till 128 tecken längd för tilldelningen till VM/VMSS för att fungera korrekt. Mer information finns i [vanliga frågor och svar](known-issues.md)
+   > Skapa användarspecifika hanterade identiteter stöder endast alfanumeriska tecken, under streck och bindestreck (0-9-eller a-z-eller A-Z-, \_-eller-) tecken. Dessutom bör namnet begränsas från 3 till 128 tecken längd för tilldelningen till VM/VMSS för att fungera korrekt. Mer information finns i [vanliga frågor och svar](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
    ```
-3. Hämta egenskaperna för den virtuella datorn `Get-AzVM` med cmdleten. Om du sedan vill tilldela en användardefinierad hanterad identitet till den virtuella Azure-datorn `-IdentityType` använder `-IdentityID` du och-växeln på [Update-AzVM-](/powershell/module/az.compute/update-azvm) cmdlet: en.  Värdet för`-IdentityId` parametern är det `Id` du antecknade i föregående steg.  Ersätt `<VM NAME>` ,`<SUBSCRIPTION ID>`, och`<USER ASSIGNED IDENTITY NAME>` med dina egna värden. `<RESROURCE GROUP>`
+3. Hämta egenskaperna för den virtuella datorn med hjälp av `Get-AzVM`-cmdleten. Om du sedan vill tilldela en användardefinierad hanterad identitet till den virtuella Azure-datorn använder du växeln `-IdentityType` och `-IdentityID` på [Update-AzVM-](/powershell/module/az.compute/update-azvm) cmdlet: en.  Värdet för parametern`-IdentityId` är det `Id` som du antecknade i föregående steg.  Ersätt `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden.
 
    > [!WARNING]
-   > Om du vill behålla tidigare tilldelade hanterade identiteter som har tilldelats den virtuella datorn frågar `Identity` du egenskapen för VM-objektet ( `$vm.Identity`till exempel).  Om en användare som tilldelats hanterade identiteter returneras inkluderar du dem i följande kommando tillsammans med den nya användare som tilldelats den hanterade identitet som du vill tilldela till den virtuella datorn.
+   > Om du vill behålla tidigare tilldelade hanterade identiteter som har tilldelats den virtuella datorn, så fråga `Identity` egenskapen för VM-objektet (till exempel `$vm.Identity`).  Om en användare som tilldelats hanterade identiteter returneras inkluderar du dem i följande kommando tillsammans med den nya användare som tilldelats den hanterade identitet som du vill tilldela till den virtuella datorn.
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
@@ -189,7 +189,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
 För att ta bort en tilldelad identitet till en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .
 
-Om den virtuella datorn har flera användarspecifika hanterade identiteter kan du ta bort alla utom den sista med hjälp av följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. `<USER ASSIGNED IDENTITY NAME>` Är egenskapen namn för den användare som tilldelats den hanterade identitet som ska finnas kvar på den virtuella datorn. Den här informationen hittar du genom att skicka en `Identity` fråga till egenskapen för VM-objektet.  Till exempel `$vm.Identity`:
+Om den virtuella datorn har flera användarspecifika hanterade identiteter kan du ta bort alla utom den sista med hjälp av följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. `<USER ASSIGNED IDENTITY NAME>` är namnet på den användare som tilldelats den hanterade identiteten som ska finnas kvar på den virtuella datorn. Den här informationen kan du hitta genom att skicka en fråga till egenskapen `Identity` för objektet VM.  Till exempel `$vm.Identity`:
 
 ```powershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm

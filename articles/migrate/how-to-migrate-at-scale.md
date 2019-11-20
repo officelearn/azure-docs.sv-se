@@ -1,70 +1,72 @@
 ---
-title: Automatisera migreringen av stort antal virtuella datorer till Azure | Microsoft Docs
-description: Beskriver hur du migrerar ett stort antal virtuella datorer med Azure Site Recovery med hjälp av skript
+title: Automatisera migreringen av migreringen i Azure Migrate
+description: Beskriver hur du använder skript för att migrera ett stort antal datorer i Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: b45a158569b3be8250728293c1bf73c1a860a0f6
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808029"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196365"
 ---
-# <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Skala migrering av virtuella datorer med Azure Site Recovery
+# <a name="scale-migration-of-vms"></a>Skala migrering av virtuella datorer 
 
-Den här artikeln hjälper dig att använda skript för att migrera stort antal virtuella datorer med Azure Site Recovery. Dessa skript är din hämtas på [Azure PowerShell-exempel](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) lagringsplatsen på GitHub. Skripten kan användas för att migrera VMware, AWS, GCP virtuella datorer och fysiska servrar till managed disks i Azure. Du kan också använda dessa skript för att migrera Hyper-V-datorer om du migrerar de virtuella datorerna som fysiska servrar. De skript som utnyttjar Azure Site Recovery PowerShell dokumenteras [här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Den här artikeln hjälper dig att förstå hur du använder skript för att migrera ett stort antal virtuella datorer (VM). Om du vill skala migreringen använder du [Azure Site Recovery](../site-recovery/site-recovery-overview.md). 
 
-## <a name="current-limitations"></a>Aktuella begränsningar:
-- Stöd för att ange den statiska IP-adressen för det primära nätverkskortet för den Virtuella måldatorn
-- Skripten inte vidtar Azure Hybrid-förmånen relaterade indata, måste du manuellt uppdatera egenskaperna för den replikerade virtuella datorn i portalen
+Site Recovery skript är tillgängliga för nedladdning vid [Azure PowerShell exempel](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) lagrings platsen på GitHub. Skripten kan användas för att migrera VMware-, AWS-, GCP-VM: ar och fysiska servrar till hanterade diskar i Azure. Du kan också använda dessa skript för att migrera virtuella Hyper-V-datorer om du migrerar de virtuella datorerna som fysiska servrar. Skript som utnyttjar Azure Site Recovery PowerShell dokumenteras [här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+
+## <a name="current-limitations"></a>Aktuella begränsningar
+- Stöd för att ange den statiska IP-adressen för det primära NÄTVERKSKORTet på den virtuella mål datorn
+- Skripten tar inte Azure Hybrid-förmån relaterade indata. du måste uppdatera egenskaperna för den replikerade virtuella datorn manuellt i portalen
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-### <a name="prerequisites"></a>Förutsättningar
-Innan du börjar måste du göra följande:
-- Se till att Site Recovery-valvet har skapats i din Azure-prenumeration
-- Se till att konfigurationsservern och Processervern är installerade i källmiljön och valvet är inte identifiera miljön
-- Se till att en replikeringsprincip har skapats och associerats med konfigurationsservern
-- Se till att du har lagt till VM-administratörskonto till den config-server (som används för att replikera lokala virtuella datorer)
-- Kontrollera att mål-artefakter i Azure skapas
-    - Målresursgrupp
-    - Mål-Lagringskontot (och dess resursgrupp) – skapa ett premium storage-konto om du planerar att migrera till premium managed disks
-    - Cachelagringskontot (och dess resursgrupp) – skapa ett standardlagringskonto i samma region som valvet
-    - Rikta virtuellt nätverk för redundans (och dess resursgrupp)
-    - Målundernät
-    - Rikta virtuellt nätverk för redundanstest (och dess resursgrupp)
-    - Tillgänglighetsuppsättning (vid behov)
-    - Mål för Nätverkssäkerhetsgrupp och en resursgrupp
-- Se till att du har valt i egenskaperna för den Virtuella måldatorn
+### <a name="prerequisites"></a>Krav
+Innan du börjar måste du utföra följande steg:
+- Se till att Site Recoverys valvet har skapats i din Azure-prenumeration
+- Kontrol lera att konfigurations servern och processervern är installerade i käll miljön och att valvet kan identifiera miljön
+- Se till att en replikeringsprincip har skapats och associerats med konfigurations servern
+- Se till att du har lagt till administratörs kontot för den virtuella datorn på konfigurations servern (som ska användas för att replikera lokala virtuella datorer)
+- Se till att mål artefakterna i Azure skapas
+    - Mål resurs grupp
+    - Mål lagrings konto (och dess resurs grupp) – skapa ett Premium Storage-konto om du planerar att migrera till Premium-hanterade diskar
+    - Lagrings konto för cache (och dess resurs grupp) – skapa ett standard lagrings konto i samma region som valvet
+    - Mål Virtual Network för redundans (och dess resurs grupp)
+    - Mål under nät
+    - Mål Virtual Network för redundanstest (och dess resurs grupp)
+    - Tillgänglighets uppsättning (vid behov)
+    - Mål nätverks säkerhets grupp och dess resurs grupp
+- Kontrol lera att du har valt egenskaper för den virtuella mål datorn
     - Namn på virtuell måldator
-    - Storleken i Azure (kan göras med hjälp av Azure Migrate-utvärdering)
-    - Privata IP-adressen för det primära nätverkskortet på den virtuella datorn
-- Ladda ned skripten från [Azure PowerShell-exempel](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) lagringsplatsen på GitHub
+    - Storlek på virtuell måldator i Azure (kan bestämmas med hjälp av Azure Migrate bedömning)
+    - Den privata IP-adressen för det primära NÄTVERKSKORTet på den virtuella datorn
+- Ladda ned skripten från [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) lagrings platsen på GitHub
 
 ### <a name="csv-input-file"></a>CSV-indatafil
-När du har alla förutsättningar har slutförts kan behöva du skapa en CSV-fil som innehåller data för varje källdatorn som du vill migrera. Indata CSV måste ha en rubrikrad med de inkommande information och en rad med information för varje dator som ska migreras. Alla skript är utformade att fungera på samma CSV-filen. En exempelmall för CSV finns i skriptmappen som referens.
+När du har slutfört alla nödvändiga komponenter måste du skapa en CSV-fil som innehåller data för varje käll dator som du vill migrera. CSV-filen med indata måste ha en rubrik rad med information om indata och en rad med information för varje dator som behöver migreras. Alla skript är utformade för att fungera på samma CSV-fil. En exempel-CSV-mall är tillgänglig i mappen skript för din referens.
 
-### <a name="script-execution"></a>Körning av skript
-När CSV-filen är klar kan köra du följande steg för att utföra migreringen av lokala virtuella datorer:
+### <a name="script-execution"></a>Skript körning
+När CSV-filen är klar kan du utföra följande steg för att utföra migreringen av de lokala virtuella datorerna:
 
-**Steg #** | **Skriptets namn** | **Beskrivning**
+**Aktivitets #** | **Skript namn** | **Beskrivning**
 --- | --- | ---
-1 | asr_startmigration.ps1 | Aktivera replikering för alla virtuella datorer visas i CSV-filen, skriptet skapar en CSV-utdata med Jobbinformationen för varje virtuell dator
-2 | asr_replicationstatus.ps1 | Kontrollera status för replikering, skriptet skapar en CSV-fil med statusen för varje virtuell dator
-3 | asr_updateproperties.ps1 | När de virtuella datorerna är replikerade/den skyddade kan använda det här skriptet för att uppdatera målegenskaperna för den virtuella datorn (beräkning och nätverk-Egenskaper)
-4 | asr_propertiescheck.ps1 | Kontrollera om uppdatera egenskaperna på rätt sätt
-5 | asr_testmigration.ps1 |  Starta redundanstestningen för de virtuella datorerna i CSV-filen, skriptet skapar en CSV-utdata med Jobbinformationen för varje virtuell dator
-6 | asr_cleanuptestmigration.ps1 | När du manuellt verifiera de virtuella datorerna som testa över kan du använda det här skriptet för att rensa redundanstestningen virtuella datorer
-7 | asr_migration.ps1 | Utför en oplanerad redundansväxling för de virtuella datorerna i CSV-filen, skriptet skapar en CSV-utdata med Jobbinformationen för varje virtuell dator. Skriptet inte stängs av lokala virtuella datorer innan du utlöser redundansväxlingen för programkonsekvens, rekommenderar vi att du manuellt stänga av de virtuella datorerna innan du kör skriptet.
-8 | asr_completemigration.ps1 | Utföra commit-åtgärden på de virtuella datorerna och ta bort Azure Site Recovery-entiteter
-9 | asr_postmigration.ps1 | Du kan använda det här skriptet för att göra det om du tänker tilldela nätverkssäkerhetsgrupper till nätverkskort efter en redundansväxling. Det tilldelar en NSG till alla ett nätverkskort på den Virtuella måldatorn.
+1 | asr_startmigration.ps1 | Aktivera replikering för alla virtuella datorer som anges i CSV-skriptet skapar ett CSV-utdata med jobb informationen för varje virtuell dator
+2 | asr_replicationstatus.ps1 | Kontrol lera status för replikeringen. skriptet skapar en CSV med status för varje virtuell dator
+3 | asr_updateproperties.ps1 | När de virtuella datorerna replikeras/skyddas, använder du det här skriptet för att uppdatera mål egenskaperna för den virtuella datorn (beräknings-och nätverks egenskaper)
+4 | asr_propertiescheck.ps1 | Kontrol lera att egenskaperna har uppdaterats korrekt
+5 | asr_testmigration.ps1 |  Starta redundanstestningen av de virtuella datorerna som anges i CSV-skriptet skapar ett CSV-utdata med jobb informationen för varje virtuell dator
+6 | asr_cleanuptestmigration.ps1 | När du manuellt validerar de virtuella datorer som testet misslyckades, kan du använda det här skriptet för att rensa de virtuella datorerna för redundanstest
+7 | asr_migration.ps1 | Utföra en oplanerad redundansväxling för de virtuella datorer som anges i CSV-skriptet skapar skriptet en CSV-fil med jobb informationen för varje virtuell dator. Skriptet stänger inte av lokala virtuella datorer innan redundansväxlingen utlöses för program konsekvens, men du bör stänga av de virtuella datorerna manuellt innan du kör skriptet.
+8 | asr_completemigration.ps1 | Utför åtgärden genomför på de virtuella datorerna och ta bort Azure Site Recovery entiteter
+9 | asr_postmigration.ps1 | Om du planerar att tilldela nätverks säkerhets grupper till nätverkskortet efter redundansväxlingen kan du använda det här skriptet för att göra det. Det tilldelar ett NSG till ett nätverkskort i den virtuella mål datorn.
 
-## <a name="how-to-migrate-to-managed-disks"></a>Migrera till hanterade diskar?
-Skriptet migrerar som standard de virtuella datorerna till managed disks i Azure. Om mål-lagringskontot som angetts är ett premium storage-konto, premium-hanterade diskar skapas efter migreringen. Cachelagringskontot kan fortfarande vara ett standardkonto. Om mål-lagringskontot är ett standardlagringskonto, skapas standarddiskar efter migreringen. 
+## <a name="how-to-migrate-to-managed-disks"></a>Hur migrerar jag till Managed disks?
+Skriptet migrerar som standard de virtuella datorerna till Managed disks i Azure. Om det angivna mål lagrings kontot är ett Premium Storage-konto skapas Premium-hanterade diskar efter migreringen. Lagrings kontot för cachen kan fortfarande vara ett standard konto. Om mål lagrings kontot är ett standard lagrings konto skapas standard diskar efter migreringen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) om migrera servrar till Azure med Azure Site Recovery
+[Lär dig mer](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) om att migrera servrar till Azure med hjälp av Azure Site Recovery

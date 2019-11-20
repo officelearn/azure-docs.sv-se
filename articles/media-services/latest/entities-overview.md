@@ -1,6 +1,7 @@
 ---
-title: Filtrering, sortering och växling av Media Services entiteter – Azure | Microsoft Docs
-description: Den här artikeln beskriver filtrering, sortering och växling av Azure Media Services entiteter.
+title: Filtrering, sortering och sid indelning av Media Services entiteter
+titleSuffix: Azure Media Services
+description: Lär dig mer om filtrering, sortering och växling av Azure Media Services entiteter.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,12 +13,12 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693316"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186249"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
 
@@ -41,10 +42,10 @@ Intervall operatorer:
 
 - `gt`: testa om ett fält är *större än* ett konstant värde.
 - `lt`: testa om ett fält är *mindre än* ett konstant värde.
-- `ge`: testa om ett fält är *större än eller lika* med en konstant. värde
+- `ge`: testa om ett fält är *större än eller lika* med ett konstant värde.
 - `le`: testa om ett fält är *mindre än eller lika* med ett konstant värde.
 
-## <a name="filter"></a>Filtrera
+## <a name="filter"></a>Filter
 
 Använd `$filter` för att ange en OData filter-parameter för att bara hitta de objekt som du är intresse rad av.
 
@@ -59,11 +60,11 @@ Följande C# exempel filtrerar på till gångens skapade datum:
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## <a name="order-by"></a>Sortera efter
 
-Använd `$orderby` för att sortera de returnerade objekten med den angivna parametern. Exempel:    
+Använd `$orderby` för att sortera de returnerade objekten med den angivna parametern. Exempel:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -77,12 +78,12 @@ Om ett fråge svar innehåller många objekt returnerar tjänsten ett `$skiptoke
 
 I Media Services v3 kan du inte konfigurera sid storleken. Sid storleken varierar beroende på typ av entitet. Läs de enskilda avsnitten som följer efter information.
 
-Om entiteter skapas eller tas bort när du växlar genom samlingen visas ändringarna i de returnerade resultaten (om dessa ändringar finns i den del av samlingen som inte har hämtats). 
+Om entiteter skapas eller tas bort när du växlar genom samlingen visas ändringarna i de returnerade resultaten (om dessa ändringar finns i den del av samlingen som inte har hämtats).
 
 > [!TIP]
 > Du bör alltid använda `nextLink` för att räkna upp samlingen och inte är beroende av en viss sid storlek.
 >
-> @No__t_0-värdet är bara tillgängligt om det finns mer än en sida med entiteter.
+> `nextLink`-värdet är bara tillgängligt om det finns mer än en sida med entiteter.
 
 Överväg följande exempel där `$skiptoken` används. Se till att ersätta *amstestaccount* med ditt konto namn och ange värdet för *API-version* till den senaste versionen.
 
@@ -155,29 +156,29 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 Följande tabell visar hur du kan använda filtrerings-och sorterings alternativen för olika entiteter:
 
-|Entitetsnamn|Egenskapsnamn|Filtrera|Beställning|
+|Entitetsnamn|Egenskapsnamn|Filter|Beställa|
 |---|---|---|---|
 |[Tillgångar](https://docs.microsoft.com/rest/api/media/assets/)|namn|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
-||egenskaper. alternateId |`eq`||
-||egenskaper. assetId |`eq`||
-||egenskaper. skapad| `eq`, `gt`, `lt`| `asc` och `desc`|
+||properties.alternateId |`eq`||
+||properties.assetId |`eq`||
+||Properties.Created| `eq`, `gt`, `lt`| `asc` och `desc`|
 |[Principer för innehålls nyckel](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|namn|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper. Beskrivning    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
-||egenskaper. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper. policyId|`eq`, `ne`||
+||Properties.Created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||properties.policyId|`eq`, `ne`||
 |[Jobb](https://docs.microsoft.com/rest/api/media/jobs)| namn  | `eq`            | `asc` och `desc`|
 ||egenskaper. State        | `eq`, `ne`        |                         |
-||egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
-||egenskaper. lastModified | `gt`, `ge`, `lt`, `le` | `asc` och `desc`| 
+||Properties.Created      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` och `desc`| 
 |[Strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators)|namn|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||Properties.Created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. slut tid    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 |[Strömmande principer](https://docs.microsoft.com/rest/api/media/streamingpolicies)|namn|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||Properties.Created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 |[Omvandlar](https://docs.microsoft.com/rest/api/media/transforms)| namn | `eq`            | `asc` och `desc`|
-|| egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
-|| egenskaper. lastModified | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
+|| Properties.Created      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
 
 ## <a name="next-steps"></a>Nästa steg
 

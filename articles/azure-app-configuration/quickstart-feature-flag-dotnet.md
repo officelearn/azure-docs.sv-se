@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: cba0a9a003b53eeb102e14c00cb91f344ebbe3d6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 0aecf2284e448f879bc20391c8528f8efde42d94
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821734"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184978"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Snabb start: Lägg till funktions flaggor i en .NET Framework app
 
@@ -33,15 +33,15 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 
-1. Starta Visual Studio och välj **fil** > **nytt** > -**projekt**.
+1. Starta Visual Studio och välj **fil** > **nytt** > **projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Next**.
+1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Nästa**.
 
 1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4.7.1** eller högre. Klicka på **Skapa**.
 
@@ -91,7 +91,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Ange en miljövariabel som heter **ConnectionString** till anslutningssträngen för ditt appkonfigurationsarkiv. Om du använder kommando tolken i Windows kör du följande kommando:
+1. Ange en miljö variabel med namnet **ConnectionString** till anslutnings strängen för appens konfigurations lager. Om du använder kommando tolken i Windows kör du följande kommando:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

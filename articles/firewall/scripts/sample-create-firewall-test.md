@@ -1,5 +1,5 @@
 ---
-title: Skriptexempel för Azure PowerShell – Skapa en testmiljö för Azure Firewall
+title: Skapa en testmiljö för Azure Firewall
 description: Det här Skriptexemplet skapar en brandvägg och en testmiljö för nätverket. Nätverket har ett VNet, med tre undernät.
 services: virtual-network
 author: vhorne
@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 79fce47c02decffa8132ed4b093992d2db2c937f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6cb0eafce354ba54dd161fee52efe46677ad2765
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166914"
+ms.locfileid: "74195889"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Skapa en testmiljö för Azure Firewall
 

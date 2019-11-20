@@ -14,29 +14,29 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 149542965737b2703bc18e985bfaf4d90c8dab29
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 986bda4ab95985820e61c93bbe82431fb50c983b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709420"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185015"
 ---
-# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabbstart: Skapa en .NET Core-app med app-konfiguration
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabb start: skapa en .NET Core-app med app-konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-konsol för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -69,7 +69,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Uppdatera metoden för att använda app-konfiguration genom att `builder.AddAzureAppConfiguration()` anropa-metoden. `Main`
+4. Uppdatera `Main`-metoden för att använda app-konfiguration genom att anropa `builder.AddAzureAppConfiguration()`-metoden.
 
     ```csharp
     static void Main(string[] args)
@@ -110,7 +110,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en .NET Core-konsol-app via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar autentisering.
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en .NET Core-konsol-app via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Fortsätt till nästa självstudie om du vill lära dig hur du konfigurerar din .NET Core-app så att konfigurations inställningarna uppdateras dynamiskt.
 
 > [!div class="nextstepaction"]
-> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)
+> [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-dotnet-core.md)

@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839527"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184268"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Skapa ett Internet Analyzer-test med CLI (för hands version)
 
@@ -132,5 +132,6 @@ Internet Analyzer CLI exponerar följande typer av resurser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [vanliga frågor och svar om Internet Analyzer](internet-analyzer-faq.md)
+* Bläddra i [Internet Analyzer CLI-referensen](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) för en fullständig lista över kommandon och användnings exempel som stöds.
+* Läs [vanliga frågor och svar om Internet Analyzer](internet-analyzer-faq.md).
 * Lär dig mer om att bädda in [Internet Analyzer-klienten](internet-analyzer-embed-client.md) och skapa en [anpassad slut punkt](internet-analyzer-custom-endpoint.md). 

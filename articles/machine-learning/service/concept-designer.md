@@ -6,59 +6,69 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ee97322e58fe7ab3a1474f55c6294822b8ce90da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: peterlu
+author: peterclu
+ms.date: 11/12/2019
+ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517870"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196190"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning designer (för hands version)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Med designern för Azure Machine Learning kan du utveckla data, träna, testa, distribuera, hantera och spåra maskin inlärnings modeller utan att skriva kod.
+Med Azure Machine Learning Designer kan du visuellt ansluta [data uppsättningar](#datasets) och [moduler](#module) på en interaktiv arbets yta för att skapa maskin inlärnings modeller. Information om hur du kommer igång med design verktyget finns i [Självstudier: förutsäga Automobile-priset med designern](tutorial-designer-automobile-price-train-score.md)
 
-Det krävs ingen programmering, du ansluter visuellt [data uppsättningar](#datasets) och [moduler](#module) visuellt för att skapa din modell.
+![Exempel på Azure Machine Learning designer](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
-Designern använder din Azure Machine Learning [arbets yta](concept-workspace.md) för att:
+Designern använder din Azure Machine Learning- [arbetsyta](concept-workspace.md) för att organisera delade resurser, till exempel:
 
-+ Skapa, redigera och kör [pipeliner](#pipeline) i arbets ytan.
-+ Åtkomst till [data uppsättningar](#datasets).
-+ Använd [beräknings resurserna](#compute) i arbets ytan för att köra pipelinen. 
-+ Registrera [modeller](concept-azure-machine-learning-architecture.md#models).
-+ [Publicera](#publish) pipelines som rest-slutpunkter.
-+ [Distribuera](#deployment) modeller som pipeline-slutpunkter (för batch-härledning) eller slut punkter i real tid på beräknings resurser i arbets ytan.
++ [Pipelines](#pipeline)
++ [Datauppsättningar](#datasets)
++ [Beräknings resurser](#compute)
++ [Registrerade modeller](concept-azure-machine-learning-architecture.md#models)
++ [Publicerade pipelines](#publish)
++ [Real tids slut punkter](#deploy)
 
-![Översikt över designern](media/ui-concept-visual-interface/overview.png)
+## <a name="model-training-and-deployment"></a>Modell utbildning och distribution
 
-## <a name="workflow"></a>Arbetsflöde
+Designern ger dig en visuell arbets yta för att bygga, testa och distribuera maskin inlärnings modeller. Med designern kan du:
 
-Designern ger dig en interaktiv, visuell arbets yta för att snabbt bygga, testa och iterera på en modell. 
++ Dra och släpp [data uppsättningar](#datasets) och [moduler](#module) till arbets ytan.
++ Anslut modulerna tillsammans för att skapa ett [pipeline-utkast](#pipeline-draft).
++ Skicka en [pipeline-körning](#pipeline-run) med beräknings resurserna i Azure Machine Learning-arbetsytan.
++ Omvandla dina **utbildnings pipeliner** till **härlednings pipeliner**.
++ [Publicera](#publish) pipelines till en rest- **slutpunkt** för att skicka nya pipeline-körningar med olika parametrar och data uppsättningar.
+    + Publicera en **utbildnings pipeline** för att återanvända en enda pipeline för att träna flera modeller när du ändrar parametrar och data uppsättningar.
+    + Publicera en **pipeline för batch-härledning** för att göra förutsägelser för nya data med hjälp av en tidigare tränad modell.
++ [Distribuera](#deploy) en **pipeline för real tids härledning** till en slut punkt i real tid för att göra förutsägelser om nya data i real tid.
 
-+ Du drar och släpper [data uppsättningar](#datasets) och [moduler](#module) till arbets ytan.
-+ Anslut modulerna tillsammans för att skapa en [pipeline](#pipeline).
-+ Kör pipelinen med hjälp av beräknings resursen i arbets ytan för Machine Learnings tjänsten.
-+ Upprepa i modell designen genom att redigera pipelinen och köra den igen.
-+ När du är klar konverterar du din **utbildnings pipeline** till en **härlednings pipeline**.
-+ [Publicera](#publish) din pipeline som en REST-slutpunkt om du vill skicka den igen utan python-koden konstruerad.
-+ [Distribuera](#deployment) härlednings pipelinen som en pipeline-slutpunkt eller slut punkt i real tid så att din modell kan användas av andra.
+![Arbets flödes diagram för utbildning, batch-härledning och real tids härledning i designern](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-Skapa en ML- [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) från grunden eller Använd en befintlig exempel-pipeline som mall. Varje gången du kör en pipeline lagras artefakter i din arbets yta. Pipeline-körningar grupperas i [experiment](concept-azure-machine-learning-architecture.md#experiments).
+En [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) består av data uppsättningar och analys moduler som du ansluter tillsammans. Pipelines har många användnings områden: du kan skapa en pipeline som tågen en enskild modell eller en som har flera modeller. Du kan skapa en pipeline som gör förutsägelser i real tid eller i batch eller göra en pipeline som bara rensar data. Med pipelines kan du återanvända ditt arbete och organisera dina projekt.
 
-En pipeline består av data uppsättningar och analys moduler som du ansluter tillsammans för att skapa en modell. Mer specifikt har en giltig pipeline följande egenskaper:
+### <a name="pipeline-draft"></a>Pipeline-utkast
 
-* Data uppsättningar kan endast anslutas till moduler.
-* Moduler kan vara anslutna till antingen data uppsättningar eller andra moduler.
+När du redigerar en pipeline i designern sparas förloppet som ett **pipeline-utkast**. Du kan redigera ett pipeline-utkast när som helst genom att lägga till eller ta bort moduler, konfigurera beräknings mål, skapa parametrar och så vidare.
+
+En giltig pipeline har följande egenskaper:
+
+* Data uppsättningar kan bara ansluta till moduler.
+* Moduler kan bara ansluta till antingen data uppsättningar eller andra moduler.
 * Alla indataportar för moduler måste ha viss anslutning till data flödet.
 * Alla obligatoriska parametrar för varje modul måste anges.
 
+När du är redo att köra ditt pipeline-utkast skickar du en pipeline-körning.
 
-Information om hur du kommer igång med design verktyget finns i [Självstudier: förutsäga bil priser med designern](tutorial-designer-automobile-price-train-score.md).
+### <a name="pipeline-run"></a>Pipeline-körning
+
+Varje gången du kör en pipeline lagras konfigurationen av pipelinen och dess resultat i arbets ytan som en **pipeline-körning**. Du kan gå tillbaka till alla pipeline-körningar för att kontrol lera fel söknings-eller gransknings syfte. **Klona** en pipeline-körning för att skapa ett nytt pipeline-utkast som du kan redigera.
+
+Pipeline-körningar grupperas i [experiment](concept-azure-machine-learning-architecture.md#experiments) för att organisera körnings historik. Du kan ställa in experimentet för varje pipeline-körning. 
 
 ## <a name="datasets"></a>Datauppsättningar
 
@@ -68,7 +78,7 @@ En Machine Learning-datauppsättning gör det enkelt att komma åt och arbeta me
 
 En modul är en algoritm som du kan tillämpa på dina data. Designern har ett antal moduler som sträcker sig från data ingångs funktioner till inlärnings-, poängsättnings-och validerings processer.
 
-En modul kan ha en uppsättning parametrar som du kan använda för att konfigurera modulens interna algoritmer. När du väljer en modul på arbets ytan visas modulens parametrar i fönstret Egenskaper till höger om arbets ytan. Du kan ändra parametrarna i det här fönstret för att finjustera din modell.
+En modul kan ha en uppsättning parametrar som du kan använda för att konfigurera modulens interna algoritmer. När du väljer en modul på arbets ytan visas modulens parametrar i fönstret Egenskaper till höger om arbets ytan. Du kan ändra parametrarna i det här fönstret för att finjustera din modell. Du kan ställa in beräknings resurser för enskilda moduler i designern. 
 
 ![Egenskaper för modul](media/ui-concept-visual-interface/properties.png)
 
@@ -76,30 +86,33 @@ För viss hjälp att navigera genom biblioteket med Machine Learning-algoritmer 
 
 ## <a name="compute"></a>Beräknings resurser
 
-Använd beräknings resurser från din arbets yta för att köra din pipeline och vara värd för dina distribuerade modeller som real tids slut punkter eller pipelines slut punkter (för batch-härledning). De beräknings mål som stöds är:
+Använd beräknings resurser från din arbets yta för att köra din pipeline och vara värd för dina distribuerade modeller som real tids slut punkter eller pipelines slut punkter (för batch-härledning). Beräkningsmål som stöds är:
 
 | Beräkningsmål | Utbildning | Distribution |
 | ---- |:----:|:----:|
-| Azure Machine Learning Compute | ✓ | |
+| Azure Machine Learning-beräkning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Compute-målen är kopplade till din Machine Learning- [arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="publish"></a>Publicera
+## <a name="deploy"></a>Distribuera
 
-När du har en pipeline klar kan du publicera den som en REST-slutpunkt. En [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) kan skickas utan den python-kod som konstruerade den.
+För att utföra inferencing i real tid måste du distribuera en pipeline som en **slut punkt i real tid**. Slut punkten för Real tid skapar ett gränssnitt mellan ett externt program och din bedömnings modell. Ett anrop till en slut punkt i real tid returnerar förutsägelse resultat till programmet i real tid. För att anropa en slut punkt för Real tid skickar du den API-nyckel som skapades när du distribuerade slut punkten. Slut punkten baseras på REST, ett populärt arkitektur val för webb program projekt.
 
-Dessutom kan en PublishedPipeline användas för att skicka en pipeline igen med olika PipelineParameter-värden och indata.
-
-## <a name="deployment"></a>Distribution
-
-När din förutsägelse modell är klar kan du distribuera den som en pipeline-slutpunkt eller real tids slut punkt direkt från designern.
-
-Pipeline-slutpunkten är en PublishedPipeline, som du kan skicka en pipeline-körning med olika PipelineParameter-värden och indata för batch-härledning.
-
-Real tids slut punkten tillhandahåller ett gränssnitt mellan ett program och din bedömnings modell. Ett externt program kan kommunicera med bedömnings modellen i real tid. Ett anrop till en slut punkt i real tid returnerar förutsägelse resultat till ett externt program. För att anropa en slut punkt för Real tid skickar du en API-nyckel som skapades när du distribuerade slut punkten. Slut punkten baseras på REST, ett populärt arkitektur val för webb program projekt.
+Real tids slut punkter måste distribueras till ett Azure Kubernetes service-kluster.
 
 Information om hur du distribuerar din modell finns i [Självstudier: Distribuera en maskin inlärnings modell med designern](tutorial-designer-automobile-price-deploy.md).
+
+## <a name="publish"></a>Publicera
+
+Du kan också publicera en pipeline till en **pipeline-slutpunkt**. På samma sätt som en slut punkt i real tid kan du skicka nya pipeline-körningar från externa program med hjälp av REST-anrop för en pipeline-slutpunkt. Du kan dock inte skicka eller ta emot data i real tid med hjälp av en pipeline-slutpunkt.
+
+Publicerade pipelines är flexibla, de kan användas för att träna eller träna modeller, utföra batch-inferencing, bearbeta nya data och mycket mer. Du kan publicera flera pipelines till en enda pipeline-slutpunkt och ange vilken pipeline-version som ska köras.
+
+En publicerad pipeline körs på de beräknings resurser som du definierar i pipeline-utkastet för varje modul.
+
+Designern skapar samma [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) -objekt som SDK: n.
+
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Flytta från det visuella gränssnittet till designern
 
@@ -109,7 +122,7 @@ Som ett resultat av dessa uppdateringar har vissa begrepp och villkor för det v
 
 | Koncept i designern | Tidigare i det visuella gränssnittet |
 | ---- |:----:|
-| Pipeline-utkast | Olika |
+| Pipeline-utkast | Experiment |
 | Slut punkt i real tid | Webbtjänst |
 
 ### <a name="migrating-to-the-designer"></a>Migrera till designern

@@ -1,19 +1,19 @@
 ---
-title: Migrera lokala virtuella VMware-datorer till Azure med agent-baserad Azure Migrate Server-migrering | Microsoft Docs
-description: Den här artikeln beskriver hur du utför en agent-baserad migrering av lokala datorer till Azure med Azure Migrate Server-migrering
+title: Migrera virtuella VMware-datorer med agent-baserad Azure Migrate Server-migrering
+description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware-datorer med Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720171"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196287"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Konfigurera käll miljön och distribuera en Azure Migrate Replication-enhet för agent-baserad migrering.
 > * Konfigurera mål miljön för migrering.
@@ -61,7 +61,7 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -165,7 +165,7 @@ Mobilitetstjänsten måste vara installerad på datorer som du vill replikera.
 Förbered kontot enligt följande:
 
 1. Förbereda en domän eller ett lokalt konto med behörighet för att installera på den virtuella datorn.
-2. För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet i registret, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ Windows\CurrentVersion\Policies\System**
+2. För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet i registret, under **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**
 3. Förbered ett rot konto på käll-Linux-servern för virtuella Linux-datorer.
 
 

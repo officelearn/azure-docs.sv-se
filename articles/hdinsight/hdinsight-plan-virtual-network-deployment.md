@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 8d89031a3b27742149d450ab79c9febf0aaef1ff
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498167"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185628"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -221,7 +221,7 @@ Om du planerar att använda **nätverks säkerhets grupper** för att kontrol le
 
 1. Identifiera den Azure-region som du planerar att använda för HDInsight.
 
-2. Identifiera de IP-adresser som krävs av HDInsight. Mer information finns i avsnittet om [IP-adresser för HDInsight-hantering](hdinsight-management-ip-addresses.md).
+2. Identifiera de tjänst koder som krävs av HDInsight för din region. Mer information finns i [tjänst taggar för nätverks säkerhets grupper (NSG) för Azure HDInsight](hdinsight-service-tags.md).
 
 3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
 

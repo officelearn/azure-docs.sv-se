@@ -1,5 +1,5 @@
 ---
-title: Migrera ett virtuellt Azure-nätverk (klassiskt) från en tillhörighets grupp till en region | Microsoft Docs
+title: Migrera Azure Virtual Network (klassisk) från tillhörighets gruppen till regionen
 description: Lär dig hur du migrerar ett virtuellt nätverk (klassiskt) från en tillhörighets grupp till en region.
 services: virtual-network
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: d33d9ec4eadeaa3a082103f1ad699e2fc3010e3b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 57e6c551e1377425dab5509a886a0454b9410a32
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058399"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196702"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Migrera ett virtuellt nätverk (klassiskt) från en tillhörighets grupp till en region
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder distributions modellen för Resource Manager.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder distributions modellen för Resource Manager.
 
 Tillhörighets grupper säkerställer att resurser som skapats inom samma tillhörighets grupp fysiskt finns på servrar som är nära varandra och som gör att dessa resurser kan kommunicera snabbare. Tidigare var tillhörighets grupper ett krav för att skapa virtuella nätverk (klassisk). Vid detta tillfälle kunde nätverks hanterarens tjänst som hanterade virtuella nätverk (klassisk) bara fungera inom en uppsättning fysiska servrar eller skalnings enheter. Förbättringar av arkitekturen har ökat nätverks hanteringens omfattning till en region.
 
@@ -50,9 +50,9 @@ Vi rekommenderar att du inte använder tillhörighets grupper i allmänhet. För
    
     Redigera följande rader i nätverks konfigurations filen och ersätt värdena med dina egna: 
    
-    **Gammalt värde:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
+    **Gammalt värde:** \<VirtualNetworkSitename = "VNetUSWest" AffinityGroup = "VNetDemoAG"\> 
    
-    **Nytt värde:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **Nytt värde:** \<VirtualNetworkSitename = "VNetUSWest" location = "västra usa"\>
 3. Spara ändringarna och [Importera](virtual-networks-using-network-configuration-file.md#import) nätverks konfigurationen till Azure.
 
 > [!NOTE]

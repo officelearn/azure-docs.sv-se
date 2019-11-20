@@ -1,5 +1,5 @@
 ---
-title: Azure-tjänsten för front dörr – vanliga frågor och svar för front dörren | Microsoft Docs
+title: Azure-tjänsten för front dörr – vanliga frågor och svar
 description: Den här sidan innehåller svar på vanliga frågor om Azure-tjänsten för front dörr
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809733"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184643"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar om Azure-tjänsten för front dörr
 
@@ -213,5 +213,5 @@ Ja, Azure-tjänsten för front dörr stöder aviseringar. Aviseringar har kon fi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

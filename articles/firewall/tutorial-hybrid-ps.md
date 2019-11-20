@@ -1,5 +1,5 @@
 ---
-title: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
+title: Distribuera & Konfigurera Azure-brandväggen i hybrid nätverk med PowerShell
 description: I den här artikeln får du lära dig hur du distribuerar och konfigurerar Azure-brandväggen med hjälp av Azure PowerShell.
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a5a008a795b88dbcb72ed9fba869e5251fd93567
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163530"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195763"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -41,7 +41,7 @@ I den här artikeln kan du se hur du:
 > * Peera de virtuella hubb- och ekernätverken
 > * Skapa vägarna
 > * Skapa de virtuella datorerna
-> * testa brandväggen.
+> * Testa brandväggen
 
 Om du vill använda Azure Portal i stället för att slutföra den här kursen, se [Självstudier: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal](tutorial-hybrid-portal.md).
 
@@ -203,7 +203,7 @@ $AzfwPrivateIP
 
 ```
 
-### <a name="configure-network-rules"></a>konfigurera nätverksregler
+### <a name="configure-network-rules"></a>Konfigurera nätverksregler
 
 <!--- $Rule3 = New-AzFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
@@ -452,7 +452,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-## <a name="test-the-firewall"></a>testa brandväggen.
+## <a name="test-the-firewall"></a>Testa brandväggen
 
 Först hämtar du och sedan antecknar den privata IP-adressen för den virtuella datorn **VM-spoke-01**.
 

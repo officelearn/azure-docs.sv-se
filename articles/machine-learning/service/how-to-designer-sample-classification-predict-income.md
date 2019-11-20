@@ -1,7 +1,7 @@
 ---
-title: 'Designer: klassificera, förutse inkomst'
+title: 'Design: klassificera, förutse inkomst exempel'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skapar en dator inlärnings klassificerare utan att skriva en enda rad kod med hjälp av designern (för hands version).
+description: Följ det här exemplet för att bygga en icke-kodad klassificerare för att förutsäga intäkter med Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 527db89be85cc5b095d33ba89c776a077119f08a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647968"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196055"
 ---
-# <a name="sample-3---classification-with-feature-selection-income-prediction"></a>Exempel 3 – klassificering med funktions val: inkomst förutsägelse
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Bygg en klassificerare & använda funktions val för att förutse intäkter med Azure Machine Learning designer
+
+**Designer (för hands version), exempel 3**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Lär dig hur du skapar en dator inlärnings klassificerare utan att skriva en enda rad kod med hjälp av designern (för hands version). Det här exemplet tränar ett **besluts träd i två klasser** för att förutsäga den vuxen skatte inkomsten (> = 50 000 eller < = 50 000).
@@ -28,7 +31,7 @@ Här är den slutliga pipeline-grafen för det här exemplet:
 
 ![Diagram över pipelinen](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

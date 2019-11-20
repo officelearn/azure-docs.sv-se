@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016372"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186457"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Förbered käll datorn för push-installation av mobilitets agenten
 
@@ -24,7 +24,7 @@ Gör följande på varje Windows-dator som du vill skydda:
 1. Kontrol lera att det finns en nätverks anslutning mellan datorn och processervern. Om du inte har konfigurerat en separat processerver körs den som standard på konfigurations servern.
 1. Skapa ett konto som processervern kan använda för att komma åt datorn. Kontot måste ha administratörs behörighet, antingen lokal eller domän. Använd endast det här kontot för push-installation och för agent uppdateringar.
 2. Om du inte använder ett domän konto inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn på följande sätt:
-    - Lägg till ett nytt DWORD under register nyckeln HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System: **LocalAccountTokenFilterPolicy**. Ange värdet till **1**.
+    - Under HKEY_LOCAL_MACHINE register nyckel för \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System lägger du till ett nytt DWORD-värde: **LocalAccountTokenFilterPolicy**. Ange värdet till **1**.
     -  Kör följande kommando för att göra detta i en kommando tolk:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. I Windows-brandväggen på den dator som du vill skydda väljer du **Tillåt en app eller funktion genom brand väggen**. Aktivera **fil-och skrivar delning** och **Windows Management Instrumentation (WMI)** . För datorer som tillhör en domän kan du konfigurera brand Väggs inställningarna med hjälp av ett grupprincip objekt (GPO).
@@ -32,7 +32,7 @@ Gör följande på varje Windows-dator som du vill skydda:
    ![Brandväggsinställningar](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. Lägg till kontot som du skapat i CSPSConfigtool. Det gör du genom att logga in på konfigurations servern.
-5. Öppna **cspsconfigtool.exe**. Den är tillgänglig som en genväg på Skriv bordet och i mappen%ProgramData%\home\svsystems\bin.
+5. Öppna **cspsconfigtool.exe**. Den är tillgänglig som en genväg på Skriv bordet och i mappen%ProgramData%\ASR\home\svsystems\bin.
 6. På fliken **Hantera konton** väljer du **Lägg till konto**.
 7. Lägg till kontot som du skapade.
 8. Ange autentiseringsuppgifterna som du använder när du aktiverar replikering för en dator.

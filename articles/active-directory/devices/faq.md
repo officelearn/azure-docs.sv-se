@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: MT
+ms.openlocfilehash: f593d5ea621ad450eb82388416534e40df36e2d5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809249"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184182"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
 
@@ -69,7 +69,7 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 
 ---
 
-### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>F: Jag har inaktiverat eller tagit bort enheten i Azure Portal eller med hjälp av Windows PowerShell. Men det lokala läget på enheten säger att det fortfarande är registrerat. Vad gör jag?
+### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>F: Jag har inaktiverat eller tagit bort enheten i Azure Portal eller med hjälp av Windows PowerShell. Men det lokala läget på enheten säger att det fortfarande är registrerat. Vad ska jag göra?
 
 **A:** Den här åtgärden är avsiktligt. I det här fallet har enheten inte åtkomst till resurser i molnet. Administratörer kan utföra den här åtgärden för inaktuella, borttappade eller stulna enheter för att förhindra obehörig åtkomst. Om åtgärden utfördes oavsiktligt måste du återaktivera eller registrera om enheten enligt beskrivningen nedan
 
@@ -119,7 +119,7 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>F: har Windows 10-enhets registrering i Azure AD stöd för TPM i FIPS-läge?
 
-**A:** Nej, för närvarande enhets registrering på Windows 10 för alla enhets tillstånd – hybrid Azure AD-anslutning, Azure AD-anslutning och Azure AD-registrerat – stöder inte TPM i FIPS-läge. För att kunna ansluta eller registrera till Azure AD måste FIPS-läget stängas av för TPM: en på enheterna
+**A:** Registrering av Windows 10-enheter stöds bara för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med Azure AD Join eller hybrid Azure AD Join. Observera att Microsoft inte tillhandahåller några verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. 
 
 ---
 

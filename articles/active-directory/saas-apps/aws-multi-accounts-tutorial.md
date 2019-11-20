@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS) att ansluta flera konton | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure AD och flera konton för Amazon Web Services (AWS).
+title: 'Självstudie: Azure Active Directory integration med Amazon Web Services (AWS) för att ansluta flera konton | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure AD och flera konton med Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,41 +16,41 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb528d71b94449b282947a487e4fc79b343df778
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65738041"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195909"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Självstudier: Azure Active Directory-integrering med flera konton för Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Självstudie: Azure Active Directory integration med flera Amazon Web Services-konton (AWS)
 
-I den här självstudien får du lära dig hur du integrerar Azure Active Directory (Azure AD) med flera konton för Amazon Web Services (AWS).
+I den här självstudien får du lära dig att integrera Azure Active Directory (Azure AD) med flera konton av Amazon Web Services (AWS).
 
 Integreringen av Amazon Web Services (AWS) med Azure AD medför följande fördelar:
 
 - Du kan i Azure AD styra vem som har åtkomst till Amazon Web Services (AWS).
-- Du kan aktivera användarna att automatiskt få loggat in till Amazon Web Services (AWS) (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan låta dina användare automatiskt bli inloggade till Amazon Web Services (AWS) (enkel inloggning) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ![Amazon Web Services (AWS) i resultatlistan](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 >[!NOTE]
->Observera att ansluta ett AWS-app till din AWS-konton inte är den rekommenderade metoden. I stället rekommenderar vi att du använder [detta](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metod för att konfigurera flera instanser av AWS-konto till flera instanser av AWS-appar i Azure AD.
+>Tänk på att ansluta en AWS-app till alla dina AWS-konton är inte den rekommenderade metoden. I stället rekommenderar vi att du använder [den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden för att konfigurera flera instanser av AWS-kontot till flera instanser av AWS-appar i Azure AD.
 
-**Observera att vi inte rekommenderar för att använda den här metoden följande skäl:**
+**Observera att vi inte rekommenderar att du använder den här metoden på grund av följande:**
 
-* Du måste använda Graph-testaren-metoden för att korrigera alla roller för appen. Vi rekommenderar inte manifestfilen-metoden.
+* Du måste använda Graph Explorer-metoden för att uppdatera alla roller i appen. Vi rekommenderar inte att du använder manifest fil metoden.
 
-* Vi har sett kunder reporting att när du lägger till ~ 1200 roller för en enda AWS-app, igång en åtgärd på appen i fel relaterade till storlek. Det finns en hård gräns på storleken för programobjektet.
+* Vi har sett kunder som rapporterar att efter att ha lagt till ~ 1200-AppData för en enda AWS-app, och alla åtgärder i appen har börjat visa felen som är relaterade till storlek. Det finns en hård gräns för programobjektets storlek.
 
-* Du måste manuellt uppdatera rollen som rollerna läggs i någon av kontona som är en Ersätt metod och inte Append tyvärr. Även om dina konton växer sedan detta blir n x n-relation med konton och roller.
+* Du måste uppdatera rollen manuellt när rollerna läggs till i något av kontona, vilket är en ersättnings metod och inte heller tillägg. Även om dina konton växer blir detta n x n-relation med konton och roller.
 
-* AWS-konton kommer att använda samma Federation Metadata-XML-filen och vid tidpunkten för förnya certifikatet du genomför den här omfattande Övning för att uppdatera certifikatet på AWS-konton på samma gång
+* Alla AWS-konton kommer att använda samma XML-fil för federationsmetadata och vid tidpunkten för certifikat förnyelse måste du köra den här enorma övningen för att uppdatera certifikatet på alla AWS-konton på samma gång
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver du följande:
 
@@ -58,12 +58,12 @@ För att konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver
 * Amazon Web Services (AWS)-prenumeration med enkel inloggning aktiverat
 
 > [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Vi rekommenderar att du inte använder en produktionsmiljö för att testa stegen i den här självstudien.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -77,7 +77,7 @@ För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD må
 
 **Utför följande steg för att lägga till Amazon Web Services (AWS) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -85,7 +85,7 @@ För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD må
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -93,33 +93,33 @@ För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD må
 
      ![Amazon Web Services (AWS) i resultatlistan](common/search-new-app.png)
 
-5. När programmet har lagts till, går du till **egenskaper** sida och kopiera den **objekt-ID**.
+5. När du har lagt till programmet går du till sidan **Egenskaper** och kopierar **objekt-ID: t**.
 
     ![Amazon Web Services (AWS) i resultatlistan](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Amazon Web Services (AWS) baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Amazon Web Services (AWS) baserat på en test användare som kallas "Britta Simon".
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Amazon Web Services (AWS) till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Amazon Web Services (AWS) upprättas.
+För att enkel inloggning ska fungera måste Azure AD veta vad motsvarande användare i Amazon Web Services (AWS) är till en användare i Azure AD. Med andra ord måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Amazon Web Services (AWS).
 
-I Amazon Web Services (AWS), tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I Amazon Web Services (AWS) tilldelar du värdet för **användar namnet** i Azure AD som värdet för **användar** namnet för att upprätta länk relationen.
 
 För att konfigurera och testa enkel inloggning med Azure AD med Amazon Web Services (AWS) behöver du utföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+3. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Amazon Web Services (AWS).
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal och konfigurerar enkel inloggning i ditt Amazon Web Services (AWS)-program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Amazon Web Services (AWS):**
+**Utför följande steg för att konfigurera enkel inloggning för Azure AD med Amazon Web Services (AWS):**
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Amazon Web Services (AWS)** -programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -133,7 +133,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![image](common/preintegrated.png)
 
-5. Amazon Web Services (AWS)-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet om **användarattribut och anspråk** på sidan för programintegrering. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **användarattribut och anspråk** dialogrutan.
+5. Amazon Web Services (AWS)-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet om **användarattribut och anspråk** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialog rutan **användarattribut & anspråk** .
 
     ![image](common/edit-attribute.png)
 
@@ -163,9 +163,9 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     g. Klicka på **Spara**.
 
-7. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **Federation Metadata-XML**  och spara den på din dator.
+7. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på **Ladda ned** för att ladda ned **XML-metadata för federationen** och spara den på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 ### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Konfigurera enkel inloggning för Amazon Web Services (AWS)
 
@@ -189,7 +189,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     a. För **Providertyp** väljer du **SAML**.
 
-    b. I textrutan **Providernamn** skriver du ett providernamn (till exempel: *WAAD*).
+    b. I text rutan **Providernamn** anger du ett providernamn (till exempel: *WAAD*).
 
     c. För att ladda upp den nedladdade **metadatafilen** från Azure-portalen klickar du på **Välj fil**.
 
@@ -209,13 +209,13 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     a. Välj **SAML 2.0-federation** under **Select type of trusted entity** (Välj typ av betrodd entitet).
 
-    b. I avsnittet **Välj en SAML 2.0-provider** väljer du den **SAML-provider** som du skapade tidigare (till exempel: *WAAD*)
+    b. I **avsnittet Välj en saml 2,0-Provider**väljer du den **SAML-Provider** som du har skapat tidigare (till exempel: *WAAD*)
 
     c. Välj **Allow programmatic and AWS Management Console access** (Tillåt programmatisk åtkomst och AWS-hanteringskonsolåtkomst).
   
-    d. Klicka på **Nästa: Behörigheter**.
+    d. Klicka på **Nästa: behörigheter**.
 
-9. I dialogrutan **Attach Permissions Policies** (Koppla behörighetsprinciper) kopplar du lämplig princip enligt din organisation. Klicka på **Nästa: Granskning**.  
+9. I dialogrutan **Attach Permissions Policies** (Koppla behörighetsprinciper) kopplar du lämplig princip enligt din organisation. Klicka på **Nästa: granska**.  
 
     ![Konfigurera princip för enkel inloggning][33]
 
@@ -231,57 +231,57 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     d. Skapa så många roller som behövs och mappa dem till identitetsprovidern.
 
-11. Logga ut från aktuella AWS-konto och logga in med andra konto där du vill konfigurera enkel inloggning på med Azure AD.
+11. Logga ut från det aktuella AWS-kontot och logga in med ett annat konto där du vill konfigurera enkel inloggning med Azure AD.
 
-12. Utför steg-2-steg-10 för att skapa flera roller som du vill att installationsprogrammet för det här kontot. Om du har fler än två konton, utför samma steg för alla konton för att skapa roller för dessa.
+12. Utför steg-2 till steg-10 för att skapa flera roller som du vill konfigurera för det här kontot. Om du har fler än två konton utför du samma steg för alla konton för att skapa roller för dem.
 
-13. När alla roller har skapats i konton som de visas i den **roller** för dessa konton.
+13. När alla roller har skapats i kontona visas de i listan **roller** för dessa konton.
 
-    ![Installationen av roller](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
+    ![Roll konfiguration](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
 
-14. Vi behöver att avbilda alla rollen ARN och betrodda entiteter för alla roller för samtliga konton, vilket vi behöver för att mappa manuellt med Azure AD-program.
+14. Vi måste samla in alla roll ARN och betrodda entiteter för alla roller i alla konton, som vi behöver mappa manuellt med Azure AD-program.
 
-15. Klicka på rollerna som ska kopiera **rollen ARN** och **betrodda entiteter** värden. Du behöver dessa värden för alla roller som du behöver skapa i Azure AD.
+15. Klicka på rollerna för att kopiera **rollens ARN** och **betrodda entitets** värden. Du behöver dessa värden för alla roller som du behöver skapa i Azure AD.
 
-    ![Installationen av roller](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_role_summary.png)
+    ![Roll konfiguration](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_role_summary.png)
 
-16. Utför ovanstående steg för alla roller i alla konton och lagra dem alla i formatet **rollen ARN, betrodda entiteter** i anteckningar.
+16. Utför ovanstående steg för alla roller i alla konton och lagra dem i formatet **roll ARN, betrodda entiteter** i ett anteckningar.
 
-17. Öppna [Azure AD Graph-testaren](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
+17. Öppna [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
 
-    a. Logga in på webbplatsen Graph-testaren med autentiseringsuppgifterna som Global administratör/medadministratör för din klient.
+    a. Logga in på Graph Explorer-webbplatsen med hjälp av autentiseringsuppgifterna för global administratör/medadministratör för din klient organisation.
 
-    b. Du måste ha tillräcklig behörighet för att skapa roller. Klicka på **ändringsbehörigheter** att få behörigheterna som krävs.
+    b. Du måste ha tillräcklig behörighet för att skapa roller. Klicka på **ändra behörigheter** för att hämta de behörigheter som krävs.
 
-    ![Dialogrutan för Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![Dialog rutan Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. Välj följande behörigheter i listan (om du inte har dessa redan) och klicka på ”Ändra behörigheter” 
+    c. Välj följande behörigheter i listan (om du inte redan har dem) och klicka på Ändra behörigheter 
 
-    ![Dialogrutan för Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![Dialog rutan Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. Detta blir du ombedd att logga in igen och acceptera samtycke. Efter att du godkänt medgivande, är du inloggad på Grafutforskaren igen.
+    d. Då uppmanas du att logga in igen och godkänna medgivande. När du har accepterat godkännandet loggas du in i Graph Explorer igen.
 
-    e. Ändra version listrutan till **beta**. Om du vill hämta alla huvudnamn från din klient, använder du följande fråga:
+    e. Ändra List rutan version till **beta**. Om du vill hämta alla tjänst huvud namn från klienten använder du följande fråga:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Om du använder flera kataloger kan du använda följande mönster som har din primära domän `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Om du använder flera kataloger kan du använda följande mönster, som har din primära domän i den `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Dialogrutan för Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+    ![Dialog rutan Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. Från listan över tjänstens huvudnamn som hämtas, får du det du behöver ändra. Du kan också använda Ctrl + F för att söka efter programmet från alla listade ServicePrincipals. Du kan använda följande fråga med hjälp av den **objekt-id** som du har kopierat från Azure AD-egenskaper-sidan för att komma till respektive tjänstens huvudnamn.
+    f. Hämta den som du behöver ändra i listan över tjänstens huvud namn. Du kan också använda Ctrl + F för att söka i programmet från alla listade service princip ALS. Du kan använda följande fråga med hjälp av det **objekt-ID** som du har kopierat från sidan Azure AD-egenskaper för att komma till respektive tjänst huvud namn.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![Dialogrutan för Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![Dialog rutan Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    g. Extrahera egenskapen appRoles från det tjänstens huvudnamnsobjekt.
+    g. Extrahera egenskapen appRoles från objektet tjänstens huvud namn.
 
-    ![Dialogrutan för Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![Dialog rutan Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    h. Nu måste du generera nya roller för programmet. 
+    h. Du måste nu generera nya roller för ditt program. 
 
-    i. Är ett exempel på appRoles objekt nedan JSON. Skapa ett liknande objekt för att lägga till de roller som du vill använda för ditt program.
+    i. Under-JSON är ett exempel på appRoles-objekt. Skapa ett liknande objekt för att lägga till de roller som du vill använda för ditt program.
 
     ```
     {
@@ -323,47 +323,48 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     ```
 
     > [!Note]
-    > Du kan bara lägga till nya roller efter den **msiam_access** för patch-åtgärden utfördes. Dessutom kan du lägga till så många roller som du vill ha per behovet av din organisation. Azure AD skickar den **värdet** av dessa roller som anspråksvärdet i SAML-svar.
+    > Du kan bara lägga till nya roller efter **msiam_access** för korrigerings åtgärden. Du kan också lägga till så många roller du vill per organisationens behov. Azure AD skickar **värdet** för dessa roller som anspråks värde i SAML-svar.
 
-    j. Gå tillbaka till Graph-testaren och ändra metod från **hämta** till **KORRIGERA**. Korrigera Service Principal-objekt om du vill ha önskad roller genom att uppdatera appRoles egenskapen liknar det ovan i det här exemplet. Klicka på **Kör fråga** att köra patch-åtgärden utfördes. Ett meddelande bekräftar att skapa rollen för Amazon Web Services-program.
+    j. Gå tillbaka till Graph Explorer och ändra-metoden från **Hämta** till **patch**. Uppdatera tjänstens huvud namns objekt till att ha önskade roller genom att uppdatera appRoles-egenskapen som liknar den som visas ovan i exemplet. Kör korrigerings åtgärden genom att klicka på **Kör fråga** . Ett meddelande om att rollen har skapats bekräftar att rollen för ditt Amazon Web Services-program är klar.
 
-    ![Dialogrutan för Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Dialog rutan Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-18. När tjänstens huvudnamn är uppdaterad med flera roller, kan du tilldela olika roller användare/grupper. Detta kan göras genom att gå till portalen och gå till Amazon Web Services-programmet. Klicka på den **användare och grupper** fliken längst upp.
+18. När tjänstens huvud namn har uppdaterats med fler roller kan du tilldela användare/grupper till respektive roller. Detta kan göras genom att gå till portalen och navigera till Amazon Web Services programmet. Klicka på fliken **användare och grupper** överst.
 
-19. Vi rekommenderar att du kan skapa nya grupper för varje roll i AWS så att du kan tilldela specifika rollen i gruppen. Observera att detta är en-till-en-mappning för en grupp till en roll. Du kan sedan lägga till de medlemmar som tillhör denna grupp.
+19. Vi rekommenderar att du skapar nya grupper för varje AWS-roll så att du kan tilldela den specifika rollen i gruppen. Observera att detta är en till en mappning för en grupp till en roll. Du kan sedan lägga till medlemmar som tillhör den gruppen.
 
-20. När gruppen har skapats, Välj gruppen och tilldela till programmet.
+20. När grupperna har skapats väljer du gruppen och tilldelar programmet.
 
-    ![Konfigurera enkel inloggning för Lägg till](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
-
-    > [!Note]
-    > Kapslade grupper stöds inte när du tilldelar grupper.
-
-21. Om du vill tilldela rollen till gruppen, Välj rollen och klicka på **tilldela** längst ned på sidan.
-
-    ![Konfigurera enkel inloggning för Lägg till](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+    ![Konfigurera enkel inloggning Lägg till](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
-    > Observera att du behöver uppdatera din session i Azure portal för att se nya roller.
+    > Kapslade grupper stöds inte när grupper tilldelas grupper.
+
+21. Om du vill tilldela rollen till gruppen väljer du rollen och klickar på knappen **tilldela** längst ned på sidan.
+
+    ![Konfigurera enkel inloggning Lägg till](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+
+    > [!Note]
+    > Observera att du måste uppdatera sessionen i Azure Portal för att se nya roller.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Amazon Web Services (AWS) i åtkomstpanelen, bör du få programsidan för Amazon Web Services (AWS) med möjlighet att välja rollen.
+När du klickar på panelen Amazon Web Services (AWS) i åtkomst panelen bör du hämta Amazon Web Services (AWS)-program sidan med möjlighet att välja rollen.
 
-![Konfigurera enkel inloggning för Lägg till](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_screen.png)
+![Konfigurera enkel inloggning Lägg till](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_screen.png)
 
-Du kan också kontrollera SAML-svar för att se de roller som skickas som anspråk.
+Du kan också kontrol lera SAML-svaret för att se vilka roller som skickas som anspråk.
 
-![Konfigurera enkel inloggning för Lägg till](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
+![Konfigurera enkel inloggning Lägg till](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Konfigurera etablering med MS Graph API: er](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

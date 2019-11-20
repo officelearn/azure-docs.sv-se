@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158291"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186428"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -572,14 +572,6 @@ Löpande `RESTORE`-instruktion, migrering av datamigrerings tjänsten och inbygg
 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) funktion som gör att du kan begränsa de resurser som är tilldelade till användarens arbets belastning kan klassificera vissa användares arbets belastning efter redundansväxling eller en användarinitierad ändring av tjänst nivån (till exempel ändringen av Max vCore eller Max instans lagrings storlek).
 
 **Lösning**: kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av SQL Agent-jobbet som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>Det går inte att autentisera till externa e-postservrar med säker anslutning (SSL)
-
-**Datum:** Aug 2019
-
-Database mail som har [kon figurer ATS med säker anslutning (SSL)](/sql/relational-databases/database-mail/configure-database-mail) kan inte autentiseras för vissa e-postservrar utanför Azure. Detta är ett säkerhets konfigurations problem som kommer att lösas snart.
-
-**Lösning:** Tillfälligt ta bort säker anslutning (SSL) från Database mail-konfigurationen tills problemet har lösts. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser måste initieras igen efter uppgraderingen av service nivå
 

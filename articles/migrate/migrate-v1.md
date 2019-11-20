@@ -1,18 +1,18 @@
 ---
-title: Arbeta med den tidigare versionen av Azure Migrate | Microsoft Docs
-description: Innehåller en översikt över hur du arbetar med den gamla versionen av Azure Migrate
+title: Arbeta med den tidigare versionen av Azure Migrate
+description: Beskriver hur du arbetar med den tidigare versionen av Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 07/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 52fe4af87d1f5ed6684896aebf404926691ccb07
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162463"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186543"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller information om hur du arbetar med den tidigare ver
 Det finns två versioner av tjänsten Azure Migrate:
 
 - **Aktuell version**: Använd den här versionen för att skapa Azure Migrate projekt, identifiera lokala datorer och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md) om vad som är nytt i den här versionen.
-- **Tidigare version**: Om du använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. Om du fortfarande behöver använda Azure Migrate projekt som skapats i den tidigare versionen kan du inte göra något av följande:
+- **Tidigare version**: om du använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. Om du fortfarande behöver använda Azure Migrate projekt som skapats i den tidigare versionen kan du inte göra något av följande:
     - Du kan inte längre skapa migreringsjobb.
     - Vi rekommenderar att du inte genomför nya identifieringar.
     - Du kan fortfarande komma åt befintliga projekt.
@@ -76,7 +76,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Låst** | **Detaljer**
+**Beredskap** | **Låst** | **Information**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -88,11 +88,11 @@ Beredskap okänd | Azure Migrate kan inte identifiera Azure-beredskap, vanligt v
 Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om den virtuella datorn kan köras i Azure.
 
 
-**Egenskap** | **Detaljer** | **Beredskap**
+**Egenskap** | **Information** | **Beredskap**
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core < = det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
-**Minnesoptimerade** | Datorns minnes storlek < = högsta mängd minne (3892 GB på Azure M-serien&nbsp;Standard_M128m<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
+**Minnesoptimerade** | Datorns minnes storlek < = högsta mängd minne (3892 GB på Azure M-serien Standard_M128m&nbsp;<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
 **Lagrings disk** | Den allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om det är inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre nätverkskort kopplade till sig. | Redo om det är inom gränserna.
 
@@ -105,7 +105,7 @@ Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ sys
 
 Följande logik används.
 
-**Operativ system** | **Detaljer** | **Beredskap**
+**Operativ system** | **Information** | **Beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure
@@ -261,7 +261,7 @@ För datorer som övervakas med System Center Operations Manager 2012 R2 eller s
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Skapa en grupp med beroende mappning
 
-1. När du har installerat agenterna går du till portalen och klickar på **Hantera** > **datorer**.
+1. När du har installerat agenterna går du till portalen och klickar på **hantera** > **datorer**.
 2. Sök efter den dator där du installerade agenterna.
 3. Kolumnen **beroenden** för datorn ska nu visas som **Visa beroenden**. Klicka på kolumnen om du vill visa datorernas beroenden.
 4. Beroende kartan för datorn visar följande information:
@@ -294,8 +294,8 @@ Beroende data som samlas in av Tjänstkarta är tillgängliga för frågor i arb
 Så här kör du Kusto-frågorna:
 
 1. När du har installerat agenterna går du till portalen och klickar på **Översikt**.
-2. I **Översikt**går du till avsnittet Essentials i projektet och klickar på arbets ytans namn bredvid **OMS**-arbetsytan.
-3. Klicka på **allmänna** > **loggar**på sidan Log Analytics arbets yta.
+2. I **Översikt**går du till avsnittet **Essentials** i projektet och klickar på arbets ytans namn bredvid **OMS-arbetsytan**.
+3. På sidan Log Analytics arbets yta klickar du på **allmänna** > **loggar**.
 4. Skriv din fråga för att samla in beroende data med Azure Monitor loggar. Sök efter exempel frågor i nästa avsnitt.
 5. Kör frågan genom att klicka på Kör. 
 

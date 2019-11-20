@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: bd808c0c71e02483b4c4b06e612720c1802869a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577994"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195943"
 ---
 # <a name="about-voice-assistants"></a>Om röst assistenter
 
@@ -39,7 +39,8 @@ Det första steget för att skapa en röst assistent är att bestämma vad det s
 Vi rekommenderar [direkt linje tal](direct-line-speech.md) som det bästa valet om du inte är säker på vad du vill att din assistent ska hantera. Den erbjuder integrering med en omfattande uppsättning verktyg och redigerings hjälpmedel, till exempel den [virtuella assistenten och företags mal len](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) och den [QNA Maker tjänsten](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) för att bygga på vanliga mönster och använda dina befintliga kunskaps källor.
 
 [Anpassade kommandon (förhands granskning)](custom-commands.md) ger en strömlinjeformad redigerings-och värd upplevelse som är särskilt anpassad för det naturliga språk kommandot och kontroll scenarier.
-   ![Jämförelse av Assistant-lösningar](media/voice-assistants/assistant-solution-comparison.png "CompArison av Assistant-lösningar ")
+
+   ![Jämförelse av Assistant-lösningar](media/voice-assistants/assistant-solution-comparison.png "Jämförelse av Assistant-lösningar")
 
 ## <a name="core-features"></a>Kärn funktioner
 

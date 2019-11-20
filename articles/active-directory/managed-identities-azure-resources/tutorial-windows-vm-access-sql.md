@@ -1,5 +1,5 @@
 ---
-title: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure SQL
+title: Självstudie`:` använda en hanterad identitet för att få åtkomst till Azure SQL – Windows-Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure SQL.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a11c5489c97e1050e525c0b83c160c1360119b60
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b0a743df545450f87a01785f6f8a15fe08b8eafe
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433167"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181180"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure SQL
 
@@ -73,7 +73,7 @@ SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel
 4. I fältet **Användarnamn** anger du namnet på det Azure AD-konto som du anger som serveradministratör, till exempel helen@woodgroveonline.com
 5. Klicka på **Alternativ**.
 6. I fältet **Anslut till databas** anger du namnet på den icke-systembaserade databas som du vill konfigurera.
-7. Klicka på **Anslut**. Slutför inloggningsprocessen.
+7. Klicka på **anslut**. Slutför inloggningsprocessen.
 8. I **Object Explorer** expanderar du mappen **Databaser**.
 9. Högerklicka på en användardatabas och klicka på **Ny fråga**.
 10. I frågefönstret anger du följande rad och klickar på **Kör** i verktygsfältet:

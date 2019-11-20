@@ -1,7 +1,7 @@
 ---
-title: 'Designer: förutsägelse pris (regression)'
+title: 'Design: förutse bil priser (Basic)-exempel'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skapar en maskin inlärnings modell för att förutsäga ett bils pris utan att behöva skriva en enda rad kod.
+description: Bygg en ML Regressions modell för att förutsäga ett bils pris utan att behöva skriva en enda rad kod med Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 0cdf2d0b632368a5a5bc24e092783c979f7c26bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: ab922733133856409e7c91ee7b216fdc5a341c06
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647161"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196146"
 ---
-# <a name="sample-1---regression-predict-price"></a>Exempel 1 – regression: Förutsäg pris
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Använd regression för att förutsäga bil priser med Azure Machine Learning designer
+
+**Designer (för hands version), exempel 1**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Lär dig hur du skapar en Regressions modell för Machine Learning utan att skriva en enda rad kod med hjälp av designern (för hands version).
@@ -35,7 +38,7 @@ Här är det slutliga, färdiga diagrammet i pipelinen. Den här artikeln inneh�
 
 ![Diagram över pipelinen](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

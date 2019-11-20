@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: b6647c1b850b7678944edbc899f0727f8e10db08
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076910"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184336"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -27,6 +27,8 @@ ms.locfileid: "74076910"
 Den här sidan innehåller felsöknings information för vanliga Azure Load Balancer frågor. När Load Balancer anslutningen inte är tillgänglig är de vanligaste symptomen följande: 
 - Virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar 
 - Virtuella datorer bakom Load Balancer svarar inte på trafiken på den konfigurerade porten
+
+När de externa klienterna till de virtuella server dels datorerna går via belastningsutjämnaren, används IP-adressen för klienterna för kommunikationen. Kontrol lera att IP-adressen för klienterna läggs till i listan över tillåtna NSG. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptom: virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar
 För att backend-servrarna ska delta i belastnings Utjämnings uppsättningen måste de klara avsöknings kontrollen. Mer information om hälso avsökningar finns i [förstå Load Balancer avsökningar](load-balancer-custom-probe-overview.md). 
@@ -96,18 +98,20 @@ Om en virtuell dator inte svarar på data trafiken kan det bero på att mål por
 1. Logga in på den virtuella datorns Server del. 
 2. Öppna en kommando tolk och kör följande kommando för att verifiera att det finns ett program som lyssnar på data porten:  netstat-a 
 3. Om porten inte finns med i status "lyssning" konfigurerar du rätt lyssnar port 
-4. Om porten är markerad som avlyssning kontrollerar du mål programmet på den porten för eventuella problem. 
+4. Om porten är markerad som avlyssning kontrollerar du mål programmet på den porten för eventuella problem.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Orsak 2: nätverks säkerhets gruppen blockerar porten på den virtuella datorn Load Balancer backend-poolen  
 
 Om en eller flera nätverks säkerhets grupper som kon figurer ATS i under nätet eller på den virtuella datorn blockerar käll-IP eller port, kommer den virtuella datorn inte att svara.
 
-* Lista de nätverks säkerhets grupper som kon figurer ATS på den virtuella datorn. Mer information finns i [Hantera nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md).
-* I listan över nätverks säkerhets grupper kontrollerar du om:
+För den offentliga belastningsutjämnaren kommer IP-adressen för Internet-klienter att användas för kommunikation mellan klienterna och de virtuella datorerna för belastningsutjämnare. Kontrol lera att klientens IP-adress är tillåtna i den virtuella datorns nätverks säkerhets grupp.
+
+1. Lista de nätverks säkerhets grupper som kon figurer ATS på den virtuella datorn. Mer information finns i [Hantera nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md)
+1. I listan över nätverks säkerhets grupper kontrollerar du om:
     - inkommande eller utgående trafik på data porten har störningar. 
-    - en regel för att **Neka alla** nätverks säkerhets grupper på nätverkskortet för den virtuella datorn eller under nätet som har en högre prioritet som standard regeln som tillåter Load Balancer avsökningar och trafik (nätverks säkerhets grupper måste tillåta Load Balancer IP-adress för 168.63.129.16, som är avsöknings port) 
-* Om någon av reglerna blockerar trafiken tar du bort och konfigurerar om reglerna för att tillåta data trafiken.  
-* Testa om den virtuella datorn nu har börjat svara på hälso avsökningarna.
+    - en regel för att **Neka alla** nätverks säkerhets grupper på nätverkskortet för den virtuella datorn eller under nätet som har en högre prioritet som standard regeln som tillåter Load Balancer avsökningar och trafik (nätverks säkerhets grupper måste tillåta Load Balancer IP-adress för 168.63.129.16, som är avsöknings port)
+1. Om någon av reglerna blockerar trafiken tar du bort och konfigurerar om reglerna för att tillåta data trafiken.  
+1. Testa om den virtuella datorn nu har börjat svara på hälso avsökningarna.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Orsak 3: komma åt Load Balancer från samma virtuella dator och nätverks gränssnitt 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Appkonfiguration återhämtning och disaster recovery | Microsoft Docs
-description: En översikt över hur du implementerar återhämtning och disaster recovery med konfiguration av Azure.
+title: Azure App återhämtning av konfiguration och haveri beredskap | Microsoft Docs
+description: En översikt över hur du implementerar återhämtning och haveri beredskap med Azure App-konfiguration.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,28 +12,28 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: c05957cda16c96b841433483a90429aab2b4d22d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706508"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185285"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Återhämtning och haveriberedskap
 
-Konfiguration av Azure är för närvarande en regional tjänst. Varje konfiguration av lagring har skapats i en viss Azure-region. Ett regionomfattande strömavbrott påverkar alla butiker i samma region. Konfiguration av omfattas inte automatisk redundans till en annan region. Den här artikeln innehåller allmänna råd om hur du kan använda flera configuration butiker i Azure-regioner för att öka geo-skyddet av ditt program.
+Azure App konfiguration är för närvarande en regional tjänst. Varje konfigurations Arkiv skapas i en viss Azure-region. Ett områdes omfattande avbrott påverkar alla butiker i den regionen. App-konfigurationen erbjuder inte automatisk redundans till en annan region. Den här artikeln innehåller allmän vägledning om hur du kan använda flera konfigurations lager i Azure-regioner för att öka geo-återhämtningen för ditt program.
 
-## <a name="high-availability-architecture"></a>Arkitektur för hög tillgänglighet
+## <a name="high-availability-architecture"></a>Arkitektur med hög tillgänglighet
 
-För att använda redundans över regioner, måste du skapa flera appbutiker konfigurationen i olika regioner. Med den här konfigurationen kan har ditt program minst en ytterligare konfiguration av lagra faller tillbaka om det primära lagret blir otillgänglig. Följande diagram visar topologin mellan programmet och dess primära och sekundära configuration butiker:
+Om du vill utnyttja redundans mellan regioner måste du skapa flera konfigurations lager för appar i olika regioner. Med den här installationen har ditt program minst en extra konfigurations lagring som går tillbaka om den primära lagringen blir otillgänglig. Följande diagram illustrerar topologin mellan ditt program och dess primära och sekundära konfigurations lager:
 
-![GEO-redundant lager](./media/geo-redundant-app-configuration-stores.png)
+![Geo-redundanta lager](./media/geo-redundant-app-configuration-stores.png)
 
-Programmet läser in konfigurationen från både primära och sekundära butiker parallellt. Detta ökar risken för att få har konfigurationsdata. Du är ansvarig för att lagra data i båda butiker synkroniserade. I följande avsnitt beskrivs hur du kan skapa geo-återhämtning i ditt program.
+Ditt program läser in konfigurationen från både den primära och den sekundära lagrings plats parallellt. Detta ökar risken för att hämta konfigurations data. Du är ansvarig för att hålla data i båda butikerna synkroniserade. I följande avsnitt förklaras hur du kan bygga geo-återhämtning i ditt program.
 
-## <a name="failover-between-configuration-stores"></a>Redundans mellan konfiguration
+## <a name="failover-between-configuration-stores"></a>Redundans mellan konfigurations lager
 
-Ditt program inte är rent tekniskt kan köra en redundansväxling. Försök görs att hämta samma uppsättning konfigurationsdata från två Appkonfiguration butiker samtidigt. Ordna din kod så att den läser in från den sekundära store först och sedan lagra primärt. Den här metoden garanterar att konfigurationsdata i det primära lagret företräde när den är tillgänglig. Följande kodfragment visar hur du kan implementera den här ordningen i .NET Core-CLI:
+Tekniskt sett är ditt program inte att köra en redundansväxling. Det görs ett försök att hämta samma uppsättning konfigurations data från två program konfigurations lager samtidigt. Ordna koden så att den läses in från den sekundära butiken först och sedan till det primära lagret. Den här metoden säkerställer att konfigurations data i det primära lagret prioriteras när de är tillgängliga. Följande kodfragment visar hur du kan implementera den här ordningen i .NET Core CLI:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -48,27 +48,27 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     }
 ```
 
-Observera den `optional` parameter skickades till den `AddAzureAppConfiguration` funktion. När värdet `true`, den här parametern förhindrar att programmet inte kan fortsätta om funktionen inte kan läsa in konfigurationsdata.
+Observera att parametern `optional` har överförts till funktionen `AddAzureAppConfiguration`. När värdet är `true`förhindrar den här parametern att programmet inte kan fortsätta om funktionen inte kan läsa in konfigurations data.
 
-## <a name="synchronization-between-configuration-stores"></a>Synkronisering mellan konfiguration
+## <a name="synchronization-between-configuration-stores"></a>Synkronisering mellan konfigurations lager
 
-Det är viktigt att din geo-redundant konfiguration lagrar alla har samma uppsättning data. Du kan använda den **exportera** funktionen i konfiguration av att kopiera data från det primära lagret till sekundärt på begäran. Den här funktionen är tillgänglig via både Azure portal och CLI.
+Det är viktigt att den geo-redundanta konfigurationen lagrar alla har samma uppsättning data. Du kan använda funktionen **Exportera** i appen konfiguration för att kopiera data från den primära butiken till den sekundära på begäran. Den här funktionen är tillgänglig via både Azure Portal och CLI.
 
-Från Azure-portalen kan du skicka en ändring till en annan konfiguration av lagring genom att följa dessa steg.
+Från Azure Portal kan du skicka en ändring till ett annat konfigurations Arkiv genom att följa dessa steg.
 
-1. Gå till den **Import/Export** och sedan **exportera** > **Appkonfiguration** > **Target**  >  **Väljer du en resurs**.
+1. Gå till fliken **Importera/exportera** och välj **Exportera** > app- **konfiguration** > **mål** > **Välj en resurs**.
 
-2. I det nya bladet som öppnas anger du den prenumeration, resursgrupp och resursnamnet för sekundär och väljer sedan **tillämpa**.
+2. På det nya bladet som öppnas anger du prenumerationen, resurs gruppen och resurs namnet för ditt sekundära Arkiv och väljer sedan **Använd**.
 
-3. Användargränssnittet uppdateras så att du kan välja vilka konfigurationsdata som du vill exportera till din sekundära store. Du kan lämna standardvärdet i tid eftersom och Ställ in både **från etikett** och **till etiketten** till samma värde. Välj **Använd**.
+3. Användar gränssnittet har uppdaterats så att du kan välja vilka konfigurations data som du vill exportera till ditt sekundära arkiv. Du kan lämna standardvärdet för tid och ange både **etikett** och **etikett** till samma värde. Välj **Använd**.
 
-4. Upprepa föregående steg för alla konfigurationsändringar.
+4. Upprepa föregående steg för alla konfigurations ändringar.
 
-Använda Azure CLI för att automatisera detta. Följande kommando visar hur du exporterar en enkel konfigurationsändring från det primära lagret till sekundärt:
+Om du vill automatisera export processen använder du Azure CLI. Följande kommando visar hur du exporterar en enskild konfigurations ändring från den primära lagrings platsen till den sekundära:
 
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig att utöka ditt program för att uppnå geo-elasticitet under körning för Appkonfiguration. Du kan också bädda in konfigurationsdata från Appkonfiguration när bygge eller distribution. Mer information finns i [integrera med en CI/CD-pipeline](./integrate-ci-cd-pipeline.md).
+I den här artikeln har du lärt dig hur du kan förbättra ditt program för att uppnå geo-återhämtning under körningen av app-konfigurationen. Du kan också bädda in konfigurations data från App-konfiguration vid bygge eller distributions tid. Mer information finns i [integrera med en CI/CD-pipeline](./integrate-ci-cd-pipeline.md).
 

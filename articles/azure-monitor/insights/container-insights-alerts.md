@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: c71893ec9eae844fb213114f6a3805815ff5894f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555443"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195026"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Så här konfigurerar du aviseringar för prestanda problem i Azure Monitor för behållare
 Azure Monitor för behållare övervakar prestanda för behållar arbets belastningar som distribueras till Azure Container Instances eller till hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS).
@@ -102,7 +102,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Följande frågor använder plats hållarnas värden \<your-Cluster-Name > och \<your-Controller-Name > för att representera klustret och kontrollanten. Ersätt dem med värden som är speciella för din miljö när du konfigurerar aviseringar.
+>Följande frågor använder plats hållarnas värden \<ditt-kluster namn > och \<ditt kontrollant-namn > för att representera ditt kluster och din kontrollant. Ersätt dem med värden som är speciella för din miljö när du konfigurerar aviseringar.
 
 Följande fråga beräknar den genomsnittliga CPU-användningen för alla behållare i en kontrollant som ett genomsnitt av processor användningen för varje behållar instans i en kontrollant varje minut. Måttet är en procent andel av gränsen som har kon figurer ATS för en behållare.
 
@@ -289,7 +289,7 @@ Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att an
 3. På fliken **övervakade kluster** väljer du ett kluster i listan.
 4. I rutan till vänster under **övervakning**väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azure Log Analytics-frågor.
 5. På sidan **loggar** väljer du **+ ny varnings regel**.
-6. I avsnittet **villkor** väljer du **varje gång den anpassade loggs ökningen är \<logic odefinierad >** i förväg definierade anpassade logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
+6. I avsnittet **villkor** väljer du **när den anpassade loggs ökningen är \<logiskt odefinierat >** i förväg definierade anpassade logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
 7. Klistra in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** .
 8. Konfigurera aviseringen på följande sätt:
 
@@ -308,4 +308,4 @@ Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att an
 ## <a name="next-steps"></a>Nästa steg
 
 - Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisering eller analys av klustren.
-- Mer information om Azure Monitor och hur du övervakar andra aspekter av ditt AKS-kluster finns i [Visa Azure Kubernetes service Health](container-insights-analyze.md).
+- Mer information om Azure Monitor och hur du övervakar andra aspekter av ditt Kubernetes-kluster finns i [Visa Kubernetes kluster prestanda](container-insights-analyze.md) och [Visa Kubernetes kluster hälsa](container-insights-health.md).

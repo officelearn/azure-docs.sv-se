@@ -1,19 +1,18 @@
 ---
-title: Azure Migrate support mat ris för VMware-utvärdering och migrering
-description: Sammanfattar support inställningar och begränsningar för utvärdering och migrering av virtuella VMware-datorer till Azure med hjälp av tjänsten Azure Migrate.
-services: backup
+title: Stöd för VMware-utvärdering och migrering i Azure Migrate
+description: Läs mer om stöd för utvärdering av virtuella VMware-datorer/migrering i Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838903"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196281"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av VMware
 
@@ -24,7 +23,7 @@ Du kan använda [Azure Migrate](migrate-overview.md) för att utvärdera och mig
 
 Tabellen sammanfattar scenarier som stöds för virtuella VMware-datorer.
 
-**Distribution** | **Detaljer**
+**Distribution** | **Information**
 --- | ---
 **Utvärdera lokala virtuella VMware-datorer** | [Konfigurera](tutorial-prepare-vmware.md) din första utvärdering.<br/><br/> [Kör](scale-vmware-assessment.md) en storskalig bedömning.
 **Migrera virtuella VMware-datorer** | Du kan migrera med hjälp av en agent utan migrering eller använda en agent-baserad migrering. [Läs mer](server-migrate-overview.md)
@@ -32,7 +31,7 @@ Tabellen sammanfattar scenarier som stöds för virtuella VMware-datorer.
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Azure-behörigheter** | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
 **VMware-begränsningar**  | Utvärdera upp till 35 000 virtuella VMware-datorer i ett enda projekt. Du kan skapa flera projekt i en Azure-prenumeration. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
@@ -62,7 +61,7 @@ USA | USA, centrala eller västra USA 2
 
 Azure Migrate: Server utvärdering kan identifiera appar, roller och funktioner. Genom att identifiera din program inventering kan du identifiera och planera en sökväg för migrering som är anpassad för dina lokala arbets belastningar. Azure Migrate: Server utvärderingen tillhandahåller identifiering utan agent, med autentiseringsuppgifter för dator gäst, fjärråtkomst till datorer med WMI och SSH-anrop.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 Datorer som stöds | Lokala virtuella VMware-datorer
 Datorns operativ system | Alla Windows-och Linux-versioner
@@ -73,19 +72,25 @@ Dator gränser för app-Discovery | 10000 per apparat. 35000 per projekt
 
 I den här tabellen sammanfattas utvärderings support och begränsningar för VMware virtualization-servrar.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **vCenter-server** | Virtuella VMware-datorer som du vill utvärdera måste hanteras av en eller flera vCenter-servrar som kör 5,5, 6,0, 6,5 eller 6,7.
 
 ## <a name="assessment-vcenter-server-permissions"></a>Utvärdering – vCenter Server behörigheter
 
-För utvärdering behöver du ett skrivskyddat konto för vCenter Server.
+Azure Migrate behöver åtkomst till vCenter Server för att identifiera virtuella datorer för utvärdering och agent lös migrering.
+
+- Om du planerar att identifiera program eller visualisera beroenden på ett agent sätt skapar du ett vCenter Server-konto med skrivskyddad åtkomst tillsammans med de behörigheter som har Aktiver ATS för **virtuella datorer** > **gäst åtgärder**.
+
+  ![vCenter Server konto privilegier](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Om du inte planerar att utföra program identifiering och visualisering av beroenden för agenter, ställer du in ett skrivskyddat konto för vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Bedömnings krav
 
 Azure Migrate kör en förenklad installation för att identifiera virtuella VMware-datorer och skicka VM-metadata och prestanda data till Azure Migrate. Installation av VMware distribueras med hjälp av en områdesmall som importer ATS till vCenter Server. I följande tabell sammanfattas kraven på installationen.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Distribution av utrustning** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 virtuella datorer i ett projekt.
@@ -101,11 +106,11 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 - När du distribuerar installationen kontrollerar Azure Migrate en anslutning till de URL: er som sammanfattas i tabellen nedan.
 - Om du använder en URL-baserad proxy för att ansluta till Internet kan du ge åtkomst till dessa URL: er och se till att proxyservern matchar eventuella CNAME-poster som tas emot när URL: erna genomsöks.
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | --- |
 *.portal.azure.com  | Navigera till Azure Migrate i Azure Portal.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Logga in till din Azure-prenumeration.
-*.microsoftonline.com <br/> *. microsoftonline-p.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 management.azure.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 dc.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault.
@@ -144,14 +149,14 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 
 I den här tabellen sammanfattas utvärderings support och begränsningar för VMware virtualization-servrar.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 vCenter Server | Version 5,5, 6,0, 6,5 eller 6,7.
 VMware vSphere | Version 5,5, 6,0, 6,5 eller 6,7,
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>Agent utan migrering – vCenter Server behörigheter
 
-**Behörigheter** | **Detaljer**
+**Behörigheter** | **Information**
 --- | ---
 Datastore.Browse | Tillåt bläddring av VM-loggfiler för att felsöka skapande och borttagning av ögonblicks bilder.
 Datastore.LowLevelFileOperations | Tillåt Läs-/skriv-/borttagnings-/namnbytes åtgärder i data lager läsaren för att felsöka skapande och borttagning av ögonblicks bilder.
@@ -165,7 +170,7 @@ Virtuell dator. interaktion. avstängning | Tillåt att den virtuella datorn st�
 
 ## <a name="agentless-migration-vmware-vm-requirements"></a>Agent utan virtuell migrering – krav för VMware VM
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Operativsystem som stöds** | [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) -operativsystem som stöds av Azure kan migreras med hjälp av en migrering utan agent.
 **Nödvändiga ändringar för Azure** | Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Azure Migrate gör dessa ändringar automatiskt för följande operativ system:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> För andra operativ system måste du göra justeringar manuellt innan migreringen. Relevanta artiklar innehåller instruktioner om hur du gör detta.
@@ -190,7 +195,7 @@ Virtuell dator. interaktion. avstängning | Tillåt att den virtuella datorn st�
 ## <a name="agentless-migration-appliance-requirements"></a>Krav för migrering utan agent
 
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **ESXi** | Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt.
@@ -204,11 +209,11 @@ Azure Migrate-enheten behöver Internet anslutning till Internet.
 - När du distribuerar installationen kontrollerar Azure Migrate en anslutning till de URL: er som sammanfattas i tabellen nedan.
 - Om du använder en URL-baserad proxy kan du ge åtkomst till dessa URL: er och se till att proxyservern matchar eventuella CNAME-poster som tas emot när URL: erna genomsöks.
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | ---
 *.portal.azure.com | Navigera till Azure Migrate i Azure Portal.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration.
-*.microsoftonline.com <br/> *. microsoftonline-p.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 management.azure.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 dc.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault.
@@ -231,7 +236,7 @@ vSphere/EXSI-värd | Inkommande på TCP-port 902 för att enheten ska replikera 
 
 I den här tabellen sammanfattas utvärderings support och begränsningar för VMware virtualization-servrar.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 vCenter Server | Version 5,5, 6,0, 6,5 eller 6,7.
 VMware vSphere | Version 5,5, 6,0, 6,5 eller 6,7.
@@ -279,7 +284,7 @@ Typ av nätverkskort | VMXNET3
 
 Replication-enheten behöver åtkomst till dessa URL: er.
 
-**URL** | **Detaljer**
+**URL** | **Information**
 --- | ---
 \*.backup.windowsazure.com | Används för replikerad data överföring och samordning
 \*.store.core.windows.net | Används för replikerad data överföring och samordning
@@ -297,7 +302,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 MySQL kan installeras på replikeringsprincipen med någon av dessa metoder.
 
-**Metod** | **Detaljer**
+**Metod** | **Information**
 --- | ---
 Ladda ned och installera manuellt | Hämta MySQL-programmet & Placera det i mappen C:\Temp\ASRSetup och installera manuellt.<br/> När du konfigurerar installationen av MySQL visas som redan installerad.
 Utan nedladdning online | Placera programmet MySQL installations program i mappen C:\Temp\ASRSetup. När du installerar installationen och klickar för att ladda ned och installera MySQL använder installations programmet det installations program som du har lagt till.
@@ -307,7 +312,7 @@ Hämta och installera i Azure Migrate | När du installerar installationen och t
 
 ## <a name="agent-based-migration-vmware-vm-requirements"></a>Agent-baserad migrering – krav för VMware VM
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Dator arbets belastning** | Azure Migrate stöder migrering av arbets belastningar (t. ex. Active Directory, SQL Server osv.) som körs på en dator som stöds.
 **Operativ system** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för virtuella dator operativ system.
@@ -324,7 +329,7 @@ Hämta och installera i Azure Migrate | När du installerar installationen och t
 **Oberoende diskar** | Stöds.
 **Genom strömnings diskar** | Stöds.
 **NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
-iSCSI-mål | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
+**iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
 **Multipath i/o** | Stöds ej.
 **Lagrings vMotion** | Stöds
 **Grupperade nätverkskort** | Stöds ej.
@@ -340,7 +345,7 @@ Mobilitets tjänsten som körs på virtuella VMware-datorer måste vara ansluten
 När du distribuerar mobilitets tjänsten kontrollerar den anslutningen till URL: erna som sammanfattas i tabellen nedan.
 
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | ---
 *.portal.azure.com | Navigera till Azure Migrate i Azure Portal.
 *.windows.net | Logga in till din Azure-prenumeration.
@@ -364,7 +369,7 @@ Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar 
 
 Alla lokala virtuella datorer som replikeras till Azure måste uppfylla de krav för virtuella Azure-datorer som sammanfattas i den här tabellen. När Site Recovery kör en krav kontroll för replikering kommer kontrollen att Miss klar om några av kraven inte uppfylls.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 Gäst operativ system | Kontrol lera att operativ system som stöds för [virtuella VMware-datorer med hjälp av replikering utan agent](#agentless-migration-vmware-vm-requirements)och för [virtuella VMware-datorer som använder agent-baserad replikering](#agent-based-migration-vmware-vm-requirements).<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.

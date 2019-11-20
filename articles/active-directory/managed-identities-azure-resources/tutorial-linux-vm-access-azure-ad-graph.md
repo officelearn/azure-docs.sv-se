@@ -1,5 +1,5 @@
 ---
-title: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure AD Graph API
+title: Självstudie`:` använda en hanterad identitet för virtuella Linux-datorer för att få åtkomst till Azure AD Graph API
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 481cb560daa26e59de2c78cc64bab9fb168eed58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d560e7d326cc2ddc47ed9f689dc8e31f8ab9ff
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307513"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183652"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure AD Graph API
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
@@ -36,7 +36,7 @@ I den här självstudien kör du frågor om medlemskapet för din virtuella dato
 > * Bevilja den virtuella datorns identitet åtkomst till Azure AD Graph 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att anropa Azure AD Graph
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -67,7 +67,7 @@ I den här självstudien beviljar du den virtuella datorns identitet möjlighete
 Azure AD Graph:
 - Tjänsthuvudnamnets appId (används vid tilldelning av programbehörighet): 00000002-0000-0000-c000-000000000000
 - Resurs-ID (används vid begäran av åtkomsttoken från hanterade identiteter för Azure-resurser): https://graph.windows.net
-- Referens för behörighetsomfång: [Referens för Azure AD Graph-behörigheter](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Referens för behörighetsomfång: [referens för Azure AD Graph-behörigheter](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-curl"></a>Bevilja programbehörigheter med CURL
 
@@ -132,7 +132,7 @@ Azure AD Graph:
  
 ## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet för att anropa Azure AD Graph 
 
-Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. I portalen går du till den virtuella Linux-datorn och i **översikten** klickar du på **Anslut**.  
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
-ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
-ms.translationtype: HT
+ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153556"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186002"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Direkt uppspelnings analys med Video Indexer
 
@@ -27,7 +27,7 @@ En lösning som beskrivs i den här artikeln gör det möjligt för kunder att a
 
 *Figur 1 – exempel Player som visar Video Indexer metadata i den aktiva strömmen*
 
-[Stream Analysis-lösningen](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md) , använder Azure Functions och två Logic Apps för att bearbeta ett Live-program från en Live-kanal i Azure Media Services med video Indexer och visar resultatet med Azure Media Player som visar den resulterande strömmen i nära real tid.
+[Stream Analysis-lösningen](https://aka.ms/livestreamanalysis) , använder Azure Functions och två Logic Apps för att bearbeta ett Live-program från en Live-kanal i Azure Media Services med video Indexer och visar resultatet med Azure Media Player som visar den resulterande strömmen i nära real tid.
 
 På hög nivå består den av två huvud steg. Det första steget körs var 60 sekund och tar ett under klipp av de senaste 60 sekunderna som spelas upp, skapar en till gång från det och indexerar det via Video Indexer. Sedan anropas det andra steget när indexeringen är klar. De insikter som fångas bearbetas, skickas till Azure Cosmos DB och det under klipp som indexeras tas bort.
 

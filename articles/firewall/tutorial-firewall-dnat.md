@@ -1,30 +1,30 @@
 ---
-title: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
+title: Filtrera inkommande trafik med Azure Firewall DNAT med portalen
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall DNAT via Azure-portalen.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114640"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195726"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudier: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
+# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
 
 Du kan konfigurera Azure Firewall Destination Network Address Translation (DNAT) att översätta och filtrera inkommande trafik till dina undernät. När du konfigurerar DNAT ställs åtgärden för NAT-regelsamling in på **Dnat**. Varje regel i NAT-regelsamlingen kan sedan användas till att översätta brandväggens offentliga IP-adress och port till en privat IP-adress och port. DNAT-regler lägger implicit till en motsvarande nätverksregel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
-> * Skapa en standardväg
+> * skapa en standardväg
 > * Konfigurera en DNAT-regel
 > * Testa brandväggen
 
@@ -151,10 +151,10 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
 
    |Inställning  |Värde  |
    |---------|---------|
-   |Name     |FW-DNAT-test|
-   |Subscription     |\<din prenumeration\>|
-   |Resource group     |**Använd befintlig**: RG-DNAT-Test |
-   |Location     |Välj samma plats som tidigare|
+   |Namn     |FW-DNAT-test|
+   |Prenumeration     |\<din prenumeration\>|
+   |Resursgrupp     |**Använd befintlig**: RG-DNAT-Test |
+   |Plats     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: VN-Hub|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
@@ -165,7 +165,7 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
 7. När distributionen är klar går du till resursgruppen **RG-DNAT-Test** och klickar på brandväggen **FW-DNAT-test**.
 8. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
-## <a name="create-a-default-route"></a>Skapa en standardväg
+## <a name="create-a-default-route"></a>skapa en standardväg
 
 För undernätet **SN-Workload** ställer du in att den utgående standardvägen ska gå via brandväggen.
 
@@ -223,11 +223,11 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
-> * Skapa en standardväg
+> * skapa en standardväg
 > * Konfigurera en DNAT-regel
 > * Testa brandväggen
 
 Därefter kan du övervaka Azure Firewall-loggarna.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)

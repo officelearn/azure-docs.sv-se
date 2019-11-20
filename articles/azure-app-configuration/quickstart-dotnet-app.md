@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329801"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185062"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Snabb start: skapa en .NET Framework-app med Azure App konfiguration
 
@@ -31,11 +31,11 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** >  **+ skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
     | Nyckel | Värde |
     |---|---|
@@ -45,9 +45,9 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 
-1. Starta Visual Studio och välj **fil** > **nytt** > -**projekt**.
+1. Starta Visual Studio och välj **fil** > **nytt** > **projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Next**.
+1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Nästa**.
 
 1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4.7.1** eller högre. Klicka på **Skapa**.
 
@@ -81,7 +81,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
     </appSettings>
     ```
 
-   Anslutnings strängen för appens konfigurations lager läses från miljövariabeln `ConnectionString`. Lägg till konfigurations verktyget `Environment` före `MyConfigStore` i egenskapen `configBuilders` i avsnittet `appSettings`.
+   Anslutnings strängen för appens konfigurations Arkiv läses från miljövariabeln `ConnectionString`. Lägg till konfigurations verktyget för `Environment` innan `MyConfigStore` i `configBuilders`-egenskapen i `appSettings`-avsnittet.
 
 1. Öppna *program.cs*och uppdatera `Main`-metoden för att använda app-konfiguration genom att anropa `ConfigurationManager`.
 
@@ -96,7 +96,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Ange en miljövariabel som heter **ConnectionString** till anslutningssträngen för ditt appkonfigurationsarkiv. Om du använder kommando tolken i Windows kör du följande kommando:
+1. Ange en miljö variabel med namnet **ConnectionString** till anslutnings strängen för appens konfigurations lager. Om du använder kommando tolken i Windows kör du följande kommando:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -112,7 +112,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en .NET Framework-konsol-app. Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar autentisering.
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en .NET Framework-konsol-app. Värdet `AppSettings` för `ConfiguratoinManager` ändras inte när programmet har startats. Appens konfiguration för .NET-standardkonfigurations leverantörs bibliotek, kan dock också användas i en .NET Framework app. Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar .NET Framework-appen att dynamiskt uppdatera konfigurations inställningar.
 
 > [!div class="nextstepaction"]
-> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)
+> [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-dotnet.md)

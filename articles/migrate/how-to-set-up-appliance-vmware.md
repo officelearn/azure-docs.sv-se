@@ -1,17 +1,17 @@
 ---
-title: Konfigurera en installation av Azure Migrate Server bedömning/migrering för virtuella VMware-datorer | Microsoft Docs
-description: Beskriver hur du konfigurerar en installation för identifiering, utvärdering och migrering utan agent för virtuella VMware-datorer med hjälp av Azure Migrate Server bedömning/migrering.
+title: Konfigurera en Azure Migrate-apparat för VMware
+description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella VMware-datorer.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158610"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185861"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurera en installation för virtuella VMware-datorer
 

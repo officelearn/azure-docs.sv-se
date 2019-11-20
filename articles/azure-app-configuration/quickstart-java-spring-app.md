@@ -14,32 +14,32 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: f4ebbd4f37422c5aa2fea07a243eb624ec9e2961
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687027"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184945"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabbstart: Skapa en Java våren-app med Azure App konfiguration
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabb start: skapa en Java våren-app med Azure App konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-app för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - En [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
 - [Apache maven](https://maven.apache.org/download.cgi) version 3,0 eller senare.
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
-    | /application/config.message | Hej |
+    | /application/config.message | Hello |
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
@@ -68,7 +68,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0.M5</version>
     </dependency>
     ```
 
@@ -119,7 +119,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
     }
     ```
 
-6. Skapa en ny fil med `bootstrap.properties` namnet under katalogen resurser i din app och Lägg till följande rader i filen. Ersätt exempel värdena med lämpliga egenskaper för appens konfigurations arkiv.
+6. Skapa en ny fil med namnet `bootstrap.properties` under katalogen resurser i din app och Lägg till följande rader i filen. Ersätt exempel värdena med lämpliga egenskaper för appens konfigurations arkiv.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
@@ -146,9 +146,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Java våren-app. Mer information finns i [våren på Azure](https://docs.microsoft.com/java/azure/spring-framework/).
-
-Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar autentisering.
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Java våren-app. Mer information finns i [våren på Azure](https://docs.microsoft.com/java/azure/spring-framework/). Fortsätt till nästa självstudie om du vill lära dig hur du använder en Azure-hanterad identitet för att effektivisera åtkomst till app-konfigurationen.
 
 > [!div class="nextstepaction"]
 > [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)

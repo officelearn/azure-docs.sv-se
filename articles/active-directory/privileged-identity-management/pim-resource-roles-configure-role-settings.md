@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144283"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74182722"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure-resurs roll i Privileged Identity Management
 
@@ -57,6 +57,9 @@ Följ dessa steg för att öppna inställningarna för en Azure-resurs roll.
     ![Fliken roll tilldelning på sidan roll inställningar](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
 
 1. Använd fliken **meddelande** eller **Nästa: aktiverings** knappen längst ned på sidan för att komma till fliken meddelande inställning för den här rollen. De här inställningarna styr alla e-postaviseringar relaterade till den här rollen.
+
+    > [!NOTE]
+    > Aviserings gränssnittet är för närvarande insamlat i Azure-regioner och-prenumerationer. Om du inte kan konfigurera de här detaljerade meddelandena, kom tillbaka om en dag eller två.
 
     ![Fliken roll meddelanden på sidan roll inställningar](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
 

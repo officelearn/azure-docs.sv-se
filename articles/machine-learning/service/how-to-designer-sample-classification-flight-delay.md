@@ -1,7 +1,7 @@
 ---
-title: 'Designer: klassificera, förutse flyg fördröjningar'
+title: 'Designer: förutse flyg fördröjnings exempel'
 titleSuffix: Azure Machine Learning
-description: Den här artikeln visar hur du skapar en maskin inlärnings modell för att förutsäga fördröjningar med hjälp av dra-och-släpp-designer och anpassad R-kod.
+description: Bygg en klassificerare och Använd anpassad R-kod för att förutsäga flyg fördröjningar med Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 06d158fb228ea82e61e785407fc0c59d66c2de15
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647202"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196023"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exempel 6 – klassificering: förutsäga flyg fördröjningar med R
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Bygg en klassificerare & använda R för att förutsäga flyg fördröjningar med Azure Machine Learning designer
+
+**Designer (för hands version) exempel 6**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Den här pipelinen använder historiska flyg-och väder data för att förutsäga om en schemalagd passagerar flygning kommer att fördröjas med mer än 15 minuter. Det här problemet kan uppstå som ett klassificerings problem, som förutsäger två klasser: fördröjt eller på tid.
@@ -26,7 +29,7 @@ Här är den slutliga pipeline-grafen för det här exemplet:
 
 [![diagram över pipelinen](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

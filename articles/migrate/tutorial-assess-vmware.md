@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 7187cb41fa7ea499035c57e83e04038b1269b418
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 595b6705b4e876ce5b42a7de831136cb0b62b1f5
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158665"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196448"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med Azure Migrate: Server utvärdering
 
@@ -173,7 +173,7 @@ Installations programmet måste ansluta till vCenter Server för att identifiera
 
 ### <a name="specify-vcenter-server-details"></a>Ange vCenter Server-information
 1. I **ange vCenter Server information**anger du namnet (FQDN) eller IP-adressen för vCenter Server. Du kan lämna standard porten eller ange en anpassad port som vCenter Server lyssnar på.
-2. I **användar namn** och **lösen ord**anger du de skrivskyddade kontoautentiseringsuppgifter som installeras av enheten för att identifiera virtuella datorer på vCenter-servern. Kontrol lera att kontot har de [behörigheter som krävs för identifiering](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Du kan begränsa identifieringen genom att begränsa åtkomsten till vCenter-kontot enligt detta. Lär dig mer om omfattnings identifiering [här](tutorial-assess-vmware.md#scoping-discovery).
+2. I **användar namn** och **lösen ord**anger du vCenter Server kontoautentiseringsuppgifter som installeras av enheten för att identifiera virtuella datorer på vCenter-servern. Kontrol lera att kontot har de [behörigheter som krävs för identifiering](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Du kan begränsa identifieringen genom att begränsa åtkomsten till vCenter-kontot enligt detta. Lär dig mer om omfattnings identifiering [här](tutorial-assess-vmware.md#scoping-discovery).
 3. Klicka på **Verifiera anslutning** för att kontrol lera att installationen kan ansluta till vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Ange autentiseringsuppgifter för virtuell dator
@@ -223,7 +223,7 @@ Det finns två metoder för att tilldela behörigheter för inventerings objekt 
 
     På samma sätt som för Server migrering, kan en användardefinierad roll (som heter <em>Azure _Migrate</em>) med dessa [privilegier](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) tilldelas till vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska migreras finns.
 
-![Tilldela behörigheter](./media/tutorial-assess-vmware/assign-perms.png)
+  ![Tilldela behörigheter](./media/tutorial-assess-vmware/assign-perms.png)
 
 - Den alternativa metoden är att tilldela användar kontot och rollen rollen på data center nivå och sprida dem till de underordnade objekten. Ge sedan kontot **Ingen åtkomst** roll för varje objekt (t. ex. virtuella datorer) som du inte vill identifiera/migrera. Den här konfigurationen är besvärlig. Det visar oavsiktlig åtkomst kontroll, eftersom varje nytt underordnat objekt automatiskt beviljas åtkomst som ärvs från den överordnade. Därför rekommenderar vi att du använder den första metoden.
 

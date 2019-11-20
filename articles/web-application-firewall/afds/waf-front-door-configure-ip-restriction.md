@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en regel för IP-begränsning med en brand Väggs regel för webb program för Azure-tjänsten för front dörr
+title: Konfigurera WAF-regel för IP-begränsning för Azure-tjänsten för front dörr
 description: Lär dig hur du konfigurerar en brand Väggs regel för webb program för att begränsa IP-adresser för en befintlig slut punkt för Azure frontend dörr service.
 services: web-application-firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: d0a32c4d59d580cb82ad6174c57ebbf677ac75b3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2917b2f04e7c5a4896c52861ab7eab4e0eb00b5d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517168"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186688"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Konfigurera en regel för IP-begränsning med en brand vägg för webbaserade program för Azure-tjänsten för front dörr
 I den här artikeln beskrivs hur du konfigurerar regler för IP-begränsning i en brand vägg för webbaserade program (WAF) för Azure-tjänsten för frontend-tjänsten med hjälp av Azure CLI, Azure PowerShell eller en Azure Resource Manager mall.
@@ -24,11 +24,11 @@ Som standard är ditt webb program tillgängligt från Internet. Om du vill begr
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Konfigurera en WAF-princip med Azure CLI
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in CLI-miljön och skapar en profil för Azure frontend-tjänsten.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Konfigurera Azure CLI-miljön
-1. Installera [Azure CLI](/cli/azure/install-azure-cli)eller Använd Azure Cloud Shell. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Välj knappen **prova** i CLI-kommandona som följer och logga sedan in på ditt Azure-konto i Cloud Shell-sessionen som öppnas. När sessionen har startats anger du `az extension add --name front-door` för att lägga till Azures tjänst tillägg för front dörr.
+1. Installera [Azure CLI](/cli/azure/install-azure-cli)eller Använd Azure Cloud Shell. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure Portal. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Välj knappen **prova** i CLI-kommandona som följer och logga sedan in på ditt Azure-konto i Cloud Shell-sessionen som öppnas. När sessionen har startats anger du `az extension add --name front-door` för att lägga till Azures tjänst tillägg för front dörr.
  2. Om du använder CLI lokalt i bash loggar du in på Azure med hjälp av `az login`.
 
 #### <a name="create-an-azure-front-door-service-profile"></a>Skapa en tjänst profil för Azure frontend-dörren
@@ -101,7 +101,7 @@ I det här exemplet tillämpas WAF-principen på **FrontendEndpoints [0]** . Du 
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Konfigurera en WAF-princip med Azure PowerShell
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in PowerShell-miljön och skapar en profil för Azure frontend-tjänsten.
 
 #### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön

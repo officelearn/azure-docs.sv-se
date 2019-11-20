@@ -1,5 +1,5 @@
 ---
-title: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure AD Graph API
+title: Självstudie`:`använda en virtuell Windows-hanterad identitet för att få åtkomst till Azure AD Graph
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43ef467adb8970d410404c151d0028ee4cda92b9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307802"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183011"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure AD Graph API
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du använder en automatiskt genererad hanterad identitet för en Windows virtuell dator (VM) för att få åtkomst till Azure AD Graph API för att hämta dess gruppmedlemskap. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden.  I den här självstudien kör du frågor om medlemskapet för din virtuella dators identitet i Azure AD-grupper. Gruppinformation används ofta i, till exempel, auktoriseringsbeslut. Under ytan representeras den virtuella datorns identitet av **tjänstens huvudnamn** i Azure AD. Innan du kör gruppfrågan lägger du till tjänsthuvudnamnet som representerar den virtuella datorns identitet till en grupp i Azure AD. Du kan använda detta med Azure PowerShell, Azure AD PowerShell eller Azure CLI.
+Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator (VM) för att få åtkomst till Azure AD-Graph API för att hämta dess grupp medlemskap. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden.  I den här självstudien kör du frågor om medlemskapet för din virtuella dators identitet i Azure AD-grupper. Gruppinformation används ofta i, till exempel, auktoriseringsbeslut. Under ytan representeras den virtuella datorns identitet av **tjänstens huvudnamn** i Azure AD. Innan du kör gruppfrågan lägger du till tjänsthuvudnamnet som representerar den virtuella datorns identitet till en grupp i Azure AD. Du kan använda detta med Azure PowerShell, Azure AD PowerShell eller Azure CLI.
 
 > [!div class="checklist"]
 > * Anslut till Azure AD
@@ -34,7 +34,7 @@ Den här självstudien visar hur du använder en automatiskt genererad hanterad 
 > * Bevilja den virtuella datorns identitet åtkomst till Azure AD Graph 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att anropa Azure AD Graph
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -72,7 +72,7 @@ I den här självstudien beviljar du den virtuella datorns identitet möjlighete
 Azure AD Graph:
 - Tjänsthuvudnamnets appId (används vid tilldelning av programbehörighet): 00000002-0000-0000-c000-000000000000
 - Resurs-ID (används vid begäran av åtkomsttoken från hanterade identiteter för Azure-resurser): https://graph.windows.net
-- Referens för behörighetsomfång: [Referens för Azure AD Graph-behörigheter](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Referens för behörighetsomfång: [referens för Azure AD Graph-behörigheter](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-azure-ad-powershell"></a>Tilldela programbehörigheter med Azure AD PowerShell
 
@@ -165,7 +165,7 @@ Om du vill använda den virtuella datorns systemtilldelade hanterade identitet f
    $AccessToken = $content.access_token
    ```
 
-5. Med hjälp av objekt-ID:t för tjänstens huvudnamn för den virtuella datorns identitet (du kan hämta värdet från variabeln som deklareras i föregående steg: ``$ManagedIdentitiesServicePrincipal.ObjectId``) kan du fråga Azure AD Graph API för att hämta dess gruppmedlemskap. Ersätt `<OBJECT ID>` med objekt-ID från föregående steg och <`ACCESS-TOKEN>` med tidigare hämtades åtkomst-token:
+5. Med hjälp av objekt-ID:t för tjänstens huvudnamn för den virtuella datorns identitet (du kan hämta värdet från variabeln som deklareras i föregående steg: ``$ManagedIdentitiesServicePrincipal.ObjectId``) kan du fråga Azure AD Graph API för att hämta dess gruppmedlemskap. Ersätt `<OBJECT ID>` med objekt-ID: t från föregående steg och <`ACCESS-TOKEN>` med den tidigare hämtade åtkomsttoken:
 
    ```powershell
    Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"

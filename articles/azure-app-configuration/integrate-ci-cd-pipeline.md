@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e2f682a2782eb1a61dd44e02d665175e31c441f8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357027"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185105"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrera med en CI/CD-pipeline
 
@@ -37,7 +37,7 @@ I följande exempel visas hur du inkluderar konfigurations data för appar som e
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du skapar lokalt kan du hämta och installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan gjort det.
 
@@ -56,7 +56,7 @@ Om du vill göra en moln version kan du till exempel se till att [Azure CLI](htt
 
     Lägg till *ConnectionString* som är associerad med appens konfigurations arkiv som en miljö variabel.
 
-2. Öppna *program.cs*och uppdatera `CreateWebHostBuilder` metoden för att använda den exporterade JSON- `config.AddJsonFile()` filen genom att anropa metoden.
+2. Öppna *program.cs*och uppdatera `CreateWebHostBuilder`-metoden för att använda den EXPORTERAde JSON-filen genom att anropa `config.AddJsonFile()`-metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

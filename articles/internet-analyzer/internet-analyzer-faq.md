@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 61cb6003549530f381b9cbbed74c1cb62c91431c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512904"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184256"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Vanliga frågor och svar om Azure Internet Analyzer (för hands version)
 
@@ -69,7 +69,7 @@ Följande förkonfigurerade slut punkter är tillgängliga under för hands vers
     * Indien, centrala
     * Centrala USA
     * Östasien
-    * USA, östra
+    * Östra USA
     * Västra Japan
     * Norra Europa
     * Sydafrika, norra
@@ -77,7 +77,7 @@ Följande förkonfigurerade slut punkter är tillgängliga under för hands vers
     * Förenade Arabemiraten, norra
     * Storbritannien, västra  
     * Västra Europa
-    * USA, västra
+    * Västra USA
     * Västra USA 2
 * **Flera kombinationer av Azure-regioner**
     * Östra USA, södra Brasilien
@@ -98,6 +98,10 @@ Följande förkonfigurerade slut punkter är tillgängliga under för hands vers
 ## <a name="how-is-internet-analyzer-different-from-other-monitoring-services-provided-by-azure"></a>Hur skiljer sig Internet Analyzer från andra övervaknings tjänster som tillhandahålls av Azure?
 
 Internet Analyzer hjälper dig att förstå dina slutanvändares prestanda och hjälper till att förbättra prestandan. Även om andra Azure Monitoring-verktyg ger insikter om dina Azure-tjänster fokuserar Internet Analyzer på att mäta slut punkt till slut punkt på Internet för dina användare.
+
+## <a name="how-is-measurement-data-handled-by-internet-analyzer"></a>Hur hanteras mätnings data av Internet Analyzer?
+
+Azure har [starka säkerhets processer och uppfyller en rad olika krav för efterlevnad](https://azure.microsoft.com/support/trust-center/). Endast du och ditt utsedda team har åtkomst till dina data. Microsoft-personal kan ha begränsad åtkomst till den endast under särskilda begränsade omständigheter med din vetskap. Den är krypterad under överföring och i vila.
 
 ## <a name="next-steps"></a>Nästa steg
 

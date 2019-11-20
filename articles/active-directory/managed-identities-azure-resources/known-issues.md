@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar med hanterade identiteter för Azure-resurser
+title: Vanliga frågor och svar med hanterade identiteter – Azure AD
 description: Kända problem med hanterade identiteter för Azure-resurser.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d882b34bc4f057035a16b7916249cfe8f0b8d0b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983438"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183877"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -64,11 +64,11 @@ Några av fördelarna med att använda hanterade identiteter för Azure-resurser
 Hanterade identiteter för VM-tillägget för Azure-resurser är fortfarande tillgängligt. Vi utvecklar dock inte längre nya funktioner på den. Vi rekommenderar att du växlar till att använda IMDS-slutpunkten. 
 
 Några av begränsningarna med att använda slut punkten för VM-tillägg är:
-- Begränsat stöd för Linux-distributioner: Kärnor stabilt, CentOS 7,1, Red Hat 7,2, Ubuntu 15,04, Ubuntu 16,04
+- Begränsat stöd för Linux-distributioner: kärnor stabilt, CentOS 7,1, Red Hat 7,2, Ubuntu 15,04, Ubuntu 16,04
 - Endast 32 användare tilldelade hanterade identiteter kan tilldelas den virtuella datorn.
 
 
-Obs! De hanterade identiteterna för VM-tillägget för Azure-resurser upphör att fungera i januari 2019. 
+Obs! de hanterade identiteterna för VM-tillägget för Azure-resurser upphör att fungera i januari 2019. 
 
 Mer information om Azure Instance Metadata Service finns i [IMDS-dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -84,8 +84,8 @@ Nej. Hanterade identiteter stöder för närvarande inte scenarier mellan katalo
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Vilka Azure RBAC-behörigheter krävs för hanterade identiteter på en resurs? 
 
-- Systemtilldelad hanterad identitet: Du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft. Compute/virtualMachines/Write. Den här åtgärden ingår i de resursbaserade inbyggda rollerna som [virtuell dator deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Användardefinierad hanterad identitet: Du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft. Compute/virtualMachines/Write. Förutom roll tilldelningen [hanterad identitets operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) över den hanterade identiteten.
+- Systemtilldelad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft. Compute/virtualMachines/Write. Den här åtgärden ingår i de resursbaserade inbyggda rollerna som [virtuell dator deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Användardefinierad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft. Compute/virtualMachines/Write. Förutom roll tilldelningen [hanterad identitets operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) över den hanterade identiteten.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Hur startar du om hanterade identiteter för Azure-resurser?
 Om tillägget stoppas i Windows och vissa versioner av Linux kan följande cmdlet användas för att starta om den manuellt:
@@ -94,7 +94,7 @@ Om tillägget stoppas i Windows och vissa versioner av Linux kan följande cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-Där: 
+Var: 
 - Tilläggs namn och typ för Windows är: ManagedIdentityExtensionForWindows
 - Tilläggs namn och-typ för Linux är: ManagedIdentityExtensionForLinux
 

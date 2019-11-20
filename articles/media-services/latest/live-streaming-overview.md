@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037881"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186148"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -63,7 +63,7 @@ När du använder direkt **sändnings evenemang**förlitar du dig på din lokala
 
 När du använder Cloud encoding med Media Services kan du konfigurera den lokala Live-kodaren för att skicka en video med en bit hastighet som bidrags flödet (upp till 32Mbps agg regering) till Live-händelsen (med hjälp av RTMP eller fragmenterad MP4-inmatnings protokoll). Direkt sändningen kodar den inkommande enkla bit hastigheten till [video strömmar med flera bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) hastigheter i varierande lösningar för att förbättra leveransen och gör den tillgänglig för leverans till uppspelning av enheter via bransch standard protokoll som MPEG-streck, Apple http Live Streaming (HLS) och Microsoft Smooth Streaming. 
 
-### <a name="live-transcription"></a>Direkt avskrift
+### <a name="live-transcription-preview"></a>Direkt avskrift (för hands version)
 
 Direkt avskrift är en funktion som du kan använda med Live-händelser som antingen är direkt eller direktsänd kodning. Mer information finns i [direkt avskriftering](live-transcription.md). När den här funktionen är aktive rad använder tjänsten funktionen [tal-till-text](../../cognitive-services/speech-service/speech-to-text.md) i Cognitive Services för att skriva över talade ord i inkommande ljud till text. Den här texten görs sedan tillgänglig för leverans tillsammans med video och ljud i MPEG-streck och HLS-protokoll.
 

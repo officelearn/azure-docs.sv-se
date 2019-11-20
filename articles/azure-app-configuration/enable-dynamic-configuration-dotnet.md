@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821713"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185239"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Självstudie: Använd dynamisk konfiguration i en .NET Framework app
 
@@ -28,23 +28,22 @@ För att hålla inställningarna uppdaterade och undvika för många anrop till 
 
 Den här självstudien visar hur du kan implementera dynamiska konfigurationsuppdateringar i koden. Den bygger på den app som introducerades i snabb starterna. Innan du fortsätter måste du först [skapa en .NET Framework-app med app-konfigurationen](./quickstart-dotnet-app.md) .
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera ditt program för att uppdatera konfigurationen med ett konfigurations lager för appar på begäran.
-> * Mata in den senaste konfigurationen i dina programs kontrollanter.
-
+> * Konfigurera din .NET Framework-app för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
+> * Mata in den senaste konfigurationen i ditt program.
 ## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 eller senare](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** >  **+ skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **konfigurations utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
     | Nyckel | Värde |
     |---|---|
@@ -52,11 +51,11 @@ I den här guiden får du lära dig att:
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
+## <a name="create-a-net-framework-console-app"></a>Skapa en .NET Framework-konsol-app
 
-1. Starta Visual Studio och välj **fil** > **nytt** > -**projekt**.
+1. Starta Visual Studio och välj **fil** > **nytt** > **projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Next**.
+1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Nästa**.
 
 1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4.7.1** eller högre. Klicka på **Skapa**.
 
@@ -148,7 +147,7 @@ I den här guiden får du lära dig att:
     ![Uppdatera lokala appar](./media/dotnet-app-run-refresh.png)
     
     > [!NOTE]
-    > Eftersom cachens förfallo tid var 10 sekunder med metoden `SetCacheExpiration` när du angav konfigurationen för uppdaterings åtgärden, uppdateras värdet för konfigurations inställningen bara om minst 10 sekunder har förflutit sedan den senaste uppdateringen för den inställningen.
+    > Eftersom cachens förfallo tid var 10 sekunder med metoden `SetCacheExpiration` när du angav konfigurationen för uppdaterings åtgärden, uppdateras värdet för konfigurations inställningen endast om minst 10 sekunder har förflutit sedan den senaste uppdateringen för den inställningen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -156,7 +155,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till en hanterad Azure-tjänstidentitet för att effektivisera åtkomsten till App Configuration och förbättra hanteringen av autentiseringsuppgifter för din app. Fortsätt till nästa självstudie om du vill lära dig hur du lägger till en Azure-hanterad tjänst identitet som effektiviserar åtkomst till app-konfigurationen.
+I den här självstudien har du aktiverat .NET Framework-appen för dynamisk uppdatering av konfigurations inställningar från App-konfigurationen. Fortsätt till nästa självstudie om du vill lära dig hur du använder en Azure-hanterad identitet för att effektivisera åtkomsten till app-konfigurationen.
 
 > [!div class="nextstepaction"]
 > [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)

@@ -1,5 +1,5 @@
 ---
-title: Fel sökning – Felsök problem med konfigurationen av Azure-tjänsten för front dörren | Microsoft Docs
+title: Felsöka konfigurations problem i Azure frontend-tjänsten
 description: I den här självstudien får du lära dig att själv felsöka några vanliga problem som du kan använda för din front dörr.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0d6303620b92368e422b54beab4f9c346d022a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335892"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184562"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Felsöka vanliga problem med Routning
 I den här artikeln beskrivs hur du felsöker några av de vanliga problemen i routningen som du kan använda för Azures konfiguration av frontend-tjänsten. 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs hur du felsöker några av de vanliga problemen i r
 ## <a name="hostname-not-routing-to-backend-and-returns-400-status-code"></a>Värdnamn dirigerar inte till Server del och returnerar 400 status kod
 
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 - Du har skapat en frontend-dörr, men en begäran till klient dels klienten returnerar en HTTP 400-status kod.
 
   - Du har skapat en DNS-mappning från en anpassad domän till den klient dels värd som du har konfigurerat. Att skicka en begäran till den anpassade domänens värdnamn returnerar dock en HTTP 400-statuskod och visas inte för att dirigera till den eller de Server delar som du har konfigurerat.
@@ -38,7 +38,7 @@ I den här artikeln beskrivs hur du felsöker några av de vanliga problemen i r
 
 ## <a name="request-to-frontend-hostname-returns-404-status-code"></a>Begäran till klient delens värdnamn returnerar 404 status kod
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 - Du har skapat en frontend-dörr och konfigurerat en klient dels värd, en backend-pool med minst en server del i den och en routningsprincip som ansluter klient dels värden till backend-poolen. Ditt innehåll verkar inte vara tillgängligt när du skickar en begäran till den konfigurerade klient dels värden eftersom en status kod för HTTP 404 returneras.
 
 ### <a name="cause"></a>Orsak
@@ -62,11 +62,11 @@ Det finns flera möjliga orsaker till det här problemet:
 
 
 3. Kontrol lera inställningarna för routningsregler
-     - Navigera till regeln för routning som ska vidarebefordra från klient delens värdnamn i fråga till en backend-pool. Kontrol lera att de godkända protokollen är korrekt konfigurerade, eller om inte, se till att protokollets front dörr kommer att användas när begäran vidarebefordras. De _godkända protokollen_ avgör vilka begär Anden som måste godkännas och _protokollet_ för vidarebefordran avgör vilken protokoll klient dörren ska använda för att vidarebefordra begäran till Server delen.
+     - Navigera till regeln för routning som ska vidarebefordra från klient delens värdnamn i fråga till en backend-pool. Kontrol lera att de godkända protokollen är korrekt konfigurerade, eller om inte, se till att protokollets front dörr kommer att användas när begäran vidarebefordras. De _godkända protokollen_ avgör vilka begär Anden som måste godkännas och _protokollet för vidarebefordran_ avgör vilken protokoll klient dörren ska använda för att vidarebefordra begäran till Server delen.
           - Exempel: om Server delen bara accepterar HTTP-förfrågningar är följande konfigurationer giltiga:
-               - _Godkända protokoll_ är http och https. _Protokoll_ för vidarebefordran är http. Matchnings förfrågan fungerar inte, eftersom HTTPS är ett tillåtet protokoll och om en begäran kom in som HTTPS, försöker front dörren vidarebefordra den med hjälp av HTTPS.
+               - _Godkända protokoll_ är http och https. _Protokoll för vidarebefordran_ är http. Matchnings förfrågan fungerar inte, eftersom HTTPS är ett tillåtet protokoll och om en begäran kom in som HTTPS, försöker front dörren vidarebefordra den med hjälp av HTTPS.
 
                - _Godkända protokoll_ är http. _Vidarebefordrande protokoll_ matchar antingen Request eller https.
 
-   - _URL_ -omskrivning är inaktive rad som standard och du bör endast använda det här fältet om du vill begränsa omfattningen av Server dels värd resurser som du vill göra tillgängliga. När den är inaktive rad vidarebefordrar front dörren samma sökväg för begäran som den tar emot. Det är möjligt att det här fältet är felkonfigurerat och att front dörren begär en resurs från Server delen som inte är tillgänglig, vilket returnerar en status kod för HTTP 404.
+   - _URL-omskrivning_ är inaktive rad som standard och du bör endast använda det här fältet om du vill begränsa omfattningen av Server dels värd resurser som du vill göra tillgängliga. När den är inaktive rad vidarebefordrar front dörren samma sökväg för begäran som den tar emot. Det är möjligt att det här fältet är felkonfigurerat och att front dörren begär en resurs från Server delen som inte är tillgänglig, vilket returnerar en status kod för HTTP 404.
 

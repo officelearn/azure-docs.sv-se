@@ -1,5 +1,5 @@
 ---
-title: Så använder du en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Data Lake Store
+title: Självstudie`:` använda en hanterad identitet för att få åtkomst till Azure Data Lake Store-Windows-Azure AD
 description: En självstudiekurs som visar hur du använder en systemtilldelad hanterad identitet för virtuell Windows-dator för åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -15,24 +15,24 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd03ccdab6a7120dc59e42ab62c1d3b2d1e5bc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3909e80ea36ed7aab638d717ecf8404d80beb59
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304901"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181886"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig att komma åt en Azure Data Lake Store med en systemtilldelad hanterad identitet för en virtuell Windows-dator. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+I den här självstudien lär du dig att komma åt en Azure Data Lake Store med en systemtilldelad hanterad identitet för en virtuell Windows-dator. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure Active Directory-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
 
 > [!div class="checklist"]
 > * Bevilja din virtuella dator åtkomst till en Azure Data Lake Store
 > * Hämta en åtkomsttoken med hjälp av en identitet för en virtuell dator och använd den för att få åtkomst till en Azure Data Lake Store
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -68,7 +68,7 @@ I den här självstudien autentiserar du till Lake Store-filsystemets REST API m
 1. I portalen går du till **Virtuella datorer** och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen. 
-4. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala slutpunkten för hanterade identiteter för Azure-resurser för att hämta en åtkomsttoken för Azure Data Lake Store.  Resurs-ID: t för Data Lake Store är `https://datalake.azure.net/`.  Data Lake gör en exakt matchning på resurs-ID, och det avslutande snedstrecket är viktigt.
+4. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala slutpunkten för hanterade identiteter för Azure-resurser för att hämta en åtkomsttoken för Azure Data Lake Store.  Resurs identifieraren för Data Lake Store är `https://datalake.azure.net/`.  Data Lake gör en exakt matchning på resurs-ID, och det avslutande snedstrecket är viktigt.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

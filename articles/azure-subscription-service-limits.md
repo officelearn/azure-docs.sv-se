@@ -6,16 +6,16 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: azure-policy
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: b6ce20196b6ffdcd6699611998260dc981cc4f44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818358"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185033"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter. Det här dokumentet avser för närvarande inte alla Azure-tjänster. Med tiden kommer listan att expanderas och uppdateras för att avse fler tjänster.
@@ -25,7 +25,7 @@ Mer information om priser för Azure finns i [Översikt över Azure-priser](http
 > [!NOTE]
 > Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](azure-resource-manager/resource-manager-quota-errors.md). Gränserna kan inte höjas över det maximala gräns värde som visas i följande tabeller. Om det inte finns någon övre gräns kolumn har inte resursen några justerbara gränser.
 >
-> De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](billing/billing-upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
+> De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnadsfri utvärderingsprenumeration](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](billing/billing-upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-azure-resource-manager"></a>Gränser och Azure Resource Manager
@@ -77,7 +77,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Frontend-tjänst](#azure-front-door-service-limits)
 * [Identitets hanterare](#identity-manager-limits)
 * [IoT Hub](#iot-hub-limits)
-* [IoT Hub Device Provisioning-tjänst](#iot-hub-device-provisioning-service-limits)
+* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -92,7 +92,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
   * [Lastbalanserare](#load-balancer)
   * [Network Watcher](#network-watcher-limits)
   * [Offentlig IP-adress](#publicip-address)
-  * [Privat länk](#private-link-limits)
+  * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
   * [Virtuellt WAN](#virtual-wan-limits)
@@ -104,11 +104,11 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
-* [Storage](#storage-limits)
+* [Lagring](#storage-limits)
 * [StorSimple-system](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Prenumeration](#subscription-limits)
-* [Virtuella datorer](#virtual-machines-limits)
+* [Virtual Machines](#virtual-machines-limits)
 * [Skaluppsättningar för virtuella datorer](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Prenumerationsgränser

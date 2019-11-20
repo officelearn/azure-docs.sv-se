@@ -8,18 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d5432c794c26e350b23fe47aa1574422143ca4b2
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: d1ef8852916e598373c104fb98a1c09ab656fbaf
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521961"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196211"
 ---
 # <a name="using-custom-security-policies-preview"></a>Använda anpassade säkerhets principer (förhands granskning)
 
 Azure Security Center skapar säkerhets rekommendationer för att skydda dina system och miljöer. De här rekommendationerna baseras på bransch bästa praxis, som ingår i den allmänna, Standard säkerhets policy som tillhandahålls alla kunder. De kan också komma från Security Centers kunskaper om bransch-och reglerings standarder.
 
-Med den här förhands gransknings funktionen kan du lägga till dina egna *anpassade* initiativ. Du får sedan rekommendationer om datorerna inte följer de principer som du skapar.
+Med den här förhands gransknings funktionen kan du lägga till dina egna *anpassade* initiativ. Du får sedan rekommendationer om din miljö inte följer de principer som du skapar.
+
+Som beskrivs [här](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) i Azure policy-dokumentationen, när du anger en plats för ditt eget initiativ, måste det vara en hanterings grupp eller en prenumeration. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Lägga till ett anpassat initiativ i din prenumeration 
 
@@ -55,7 +57,7 @@ Med den här förhands gransknings funktionen kan du lägga till dina egna *anpa
     > [!NOTE]
     > Om du skapar nya initiativ krävs autentiseringsuppgifter för Prenumerationens ägare. Mer information om Azure-roller finns [i behörigheter i Azure Security Center](security-center-permissions.md).
 
-1. Om du vill se de rekommendationer som finns i principen klickar du på **rekommendationer** från sid panelen för att öppna sidan rekommendationer. Rekommendationerna visas med etiketten "anpassad" och är tillgänglig i upp till 30 minuter.
+1. Om du vill se de rekommendationer som finns i principen klickar du på **rekommendationer** från sid panelen för att öppna sidan rekommendationer. Rekommendationerna visas med etiketten "anpassad" och är tillgänglig inom cirka en timme.
 
     [![anpassade rekommendationer](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 

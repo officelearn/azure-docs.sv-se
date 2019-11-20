@@ -1,7 +1,7 @@
 ---
-title: Designer&#58; som klassificerar bok granskningar
+title: 'Designer: klassificering av bok gransknings exempel'
 titleSuffix: Azure Machine Learning
-description: Bygg en maskin inlärnings modell som klassificerar bok granskningar i olika kategorier.
+description: Bygg en logistik Regressions klassificerare i multiklass för att förutse företags kategorin med Wikipedia SP 500-datauppsättning med Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 949ddc847a6011d460f2a3685008d12e64868767
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 43545c2d3bb3afe4e1c458f14c1ba30e41eea721
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647129"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196011"
 ---
-# <a name="sample-7---text-classification-predict-company-category"></a>Exempel 7 – text klassificering: förutse företags kategori 
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Bygg en klassificerare för att förutse företags kategori med Azure Machine Learning designer.
+
+**Designer (för hands version) exempel 7**
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Det här exemplet visar hur du använder text analys moduler för att bygga en pipeline för text klassificering i Azure Machine Learning designer (för hands version).
 
 Målet med text klassificering är att tilldela vissa text delar till en eller flera fördefinierade klasser eller kategorier. Texten kan vara ett dokument, nyhets artikel, Sök fråga, e-post, Tweet, support biljetter, kundfeedback, användar produkt granskning osv. Program med text klassificering inkluderar kategorisering av tidnings artiklar och nyhets brev innehåll i ämnen, organisering av webb sidor i hierarkiska kategorier, filtrering av skräp post, sentiment analys, förutsägelse av användar avsikt från Sök frågor, routning Support biljetter och analys av kundfeedback. 
 
-Den här pipelinen är en **multiklass logistik Regressions klassificerare** för att förutse företags kategorin med wikipedia SP 500-datauppsättning som härletts från wikipedia.  
+Den här pipelinen är en **multiklass logistik Regressions klassificerare** för att förutse företags kategorin med **Wikipedia SP 500-datauppsättning som härletts från Wikipedia**.  
 
 De grundläggande stegen för en utbildnings maskin inlärnings modell med text data är:
 

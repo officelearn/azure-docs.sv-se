@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a53f2a0e5927a75c4d22ada5837da26bd8deeda
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc9565f44fdb868bc45d2f99de1d4036e1d5d123
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028272"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181148"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -51,9 +51,14 @@ Följande administratörs roller är tillgängliga:
 
 Användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Observera att användare som har tilldelats den här rollen inte har lagts till som ägare när de skapar nya program registreringar eller företags program.
 
-> [!IMPORTANT]
-> Den här rollen ger möjlighet att hantera programautentiseringsuppgifter. Användare som har tilldelats den här rollen kan lägga till autentiseringsuppgifter i ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Om programmets identitet har beviljats åtkomst till Azure Active Directory, till exempel möjligheten att skapa eller uppdatera användare eller andra objekt, kan en användare som tilldelats rollen utföra dessa åtgärder samtidigt som programmet personifieras. Den här möjligheten att personifiera programmets identitet kan vara en höjning av privilegier över vad användaren kan göra via sina roll tilldelningar i Azure AD. Det är viktigt att förstå att tilldelning av en användare till rollen program administratör ger dem möjlighet att personifiera ett programs identitet.
+Program administratörer kan hantera programautentiseringsuppgifter som gör det möjligt för dem att personifiera programmet. Användare som har tilldelats den här rollen kan därför endast hantera programautentiseringsuppgifter för de program som antingen inte har tilldelats till några Azure AD-roller eller som tilldelas till följande administratörs roller:
+* Program administratör
+* Programutvecklare
+* Moln program administratör
+* Katalog läsare
 
+Om ett program tilldelas till en annan roll som inte nämns ovan, kan program administratören inte hantera autentiseringsuppgifterna för programmet. 
+ 
 Den här rollen ger också _möjlighet att godkänna_ delegerade behörigheter och program behörigheter, med undantag för behörigheter på Microsoft Graph och Azure AD-grafen.
 
 > [!IMPORTANT]
@@ -122,8 +127,12 @@ Gör inköp, hanterar prenumerationer, hanterar support ärenden och övervakar 
 
 Användare i den här rollen har samma behörigheter som program administratörs rollen, förutom möjligheten att hantera programproxyn. Den här rollen ger möjlighet att skapa och hantera alla aspekter av företags program och program registreringar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph och Azure AD Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
 
-> [!IMPORTANT]
-> Den här rollen ger möjlighet att hantera programautentiseringsuppgifter. Användare som har tilldelats den här rollen kan lägga till autentiseringsuppgifter i ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Om programmets identitet har beviljats åtkomst till Azure Active Directory, till exempel möjligheten att skapa eller uppdatera användare eller andra objekt, kan en användare som tilldelats rollen utföra dessa åtgärder samtidigt som programmet personifieras. Den här möjligheten att personifiera programmets identitet kan vara en höjning av privilegier över vad användaren kan göra via sina roll tilldelningar i Azure AD. Det är viktigt att förstå att tilldela en användare till rollen som moln program administratör och ger dem möjlighet att personifiera ett programs identitet.
+Moln program administratörer kan hantera programautentiseringsuppgifter som gör det möjligt för dem att personifiera programmet. Användare som har tilldelats den här rollen kan därför endast hantera programautentiseringsuppgifter för de program som antingen inte har tilldelats till några Azure AD-roller eller som tilldelas till följande administratörs roller:
+* Programutvecklare
+* Moln program administratör
+* Katalog läsare
+
+Om ett program tilldelas till en annan roll som inte nämns ovan, kan inte moln program administratören hantera autentiseringsuppgifterna för det programmet.
 
 ### <a name="cloud-device-administratorcloud-device-administrator-permissions"></a>[Moln enhets administratör](#cloud-device-administrator-permissions)
 
@@ -435,7 +444,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 | --- | --- |
 |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användar visningar</p><p>Hantera Office-support biljetter<p>Uppdatera principer för förfallo datum för lösen ord|
 |<p>För alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användar egenskaper utom användarens huvud namn</p>
-|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställ lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
+|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
 > Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:

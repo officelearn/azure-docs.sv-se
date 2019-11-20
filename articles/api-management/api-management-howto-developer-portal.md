@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 377ed8f17cfcf67f10cbdec77199c69c606afa3e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011485"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180695"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -142,6 +142,14 @@ Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsare
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> Om du använder CORS-principen i produkt omfånget, i stället för API: erna och ditt API använder prenumerations nyckel autentisering via en rubrik, fungerar inte konsolen.
+>
+> Webbläsaren utfärdar automatiskt ett alternativ HTTP-begäran, som inte innehåller något sidhuvud med prenumerations nyckeln. På grund av den saknade prenumerations nyckeln kan API Management inte associera alternativ anropet med en produkt, så det går inte att använda CORS-principen.
+>
+> Som en lösning kan du skicka prenumerations nyckeln i en frågeparameter.
 
 ## <a name="next-steps"></a>Nästa steg
 

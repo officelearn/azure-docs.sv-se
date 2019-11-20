@@ -1,17 +1,17 @@
 ---
-title: Metod tips för att skapa utvärdering med Azure Migrate Server-utvärdering
-description: Innehåller tips för att skapa utvärderingar med Azure Migrate Server bedömning.
+title: Rekommenderade metoder för utvärdering i Azure Migrate Server-utvärdering
+description: Tips för att skapa utvärderingar med Azure Migrate Server-utvärdering.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466943"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185985"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 

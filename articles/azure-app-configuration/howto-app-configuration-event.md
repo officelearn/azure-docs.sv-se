@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326603"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185178"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Snabbstart: Dirigera Azure App konfigurations händelser till en webb slut punkt med Azure CLI
+# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Snabb start: dirigera Azure App konfigurations händelser till en webb slut punkt med Azure CLI
 
 I den här snabb starten får du lära dig hur du konfigurerar Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt. Azure App konfigurations användare kan prenumerera på händelser som genereras när nyckel värden ändras. Dessa händelser kan utlösa Webhooks, Azure Functions, Azure Storage köer eller andra händelse hanterare som stöds av Azure Event Grid. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
 
@@ -40,7 +40,7 @@ Event Grid-ämnen är Azure-resurser och måste placeras i en Azure-resursgrupp.
 
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). 
 
-I följande exempel skapas en resurs grupp med `<resource_group_name>` namnet på den *västra* platsen.  Ersätt `<resource_group_name>` med ett unikt namn för din resursgrupp.
+I följande exempel skapas en resurs grupp med namnet `<resource_group_name>` på platsen för *västkusten* .  Ersätt `<resource_group_name>` med ett unikt namn för din resursgrupp.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus
@@ -48,7 +48,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration"></a>Skapa en app-konfiguration
 
-Ersätt `<appconfig_name>` med ett unikt namn för din app-konfiguration och `<resource_group_name>` med den resurs grupp som du skapade tidigare. Namnet måste vara unikt eftersom det används som ett DNS-namn.
+Ersätt `<appconfig_name>` med ett unikt namn för din app-konfiguration och `<resource_group_name>` med resurs gruppen som du skapade tidigare. Namnet måste vara unikt eftersom det används som ett DNS-namn.
 
 ```azurecli-interactive
 az appconfig create \
@@ -100,7 +100,7 @@ Visa ditt webbprogram igen och observera att en händelse för verifieringen av 
 
 ## <a name="trigger-an-app-configuration-event"></a>Utlös en konfigurations händelse för appen
 
-Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Skapa ett nyckel värde med hjälp `<appconfig_name>` av från tidigare.
+Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Skapa ett nyckel värde med hjälp av `<appconfig_name>` från tidigare.
 
 ```azurecli-interactive
 az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes

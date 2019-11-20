@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 11/17/2019
+ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388053"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184689"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mappa data flöde uttrycks verktyg
 
@@ -77,6 +77,40 @@ Med uttrycks funktioner som returnerar matriser, använder du hakparenteser [] f
 
 När du har kolumn namn som innehåller specialtecken eller mellanslag, omger du namnet med klammerparenteser.
 * ```{[dbo].this_is my complex name$$$}```
+
+## <a name="keyboard-shortcuts"></a>Kortkommandon
+
+* ```Ctrl-K Ctrl-C```: hela raden kommentarer
+* ```Ctrl-K Ctrl-U```: ta bort kommentar
+* ```F1```: ge redigerings hjälp kommandon
+* ```Alt-Down Arrow```: flytta aktuell rad nedåt
+* ```Alt-Up Arrow```: flytta upp aktuell rad
+* ```Cntrl-Space```: Visa Sammanhangs hjälp
+
+## <a name="manual-comments"></a>Manuella kommentarer
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+Om du lägger till en kommentar överst i uttrycket visas den i text rutan omvandling för att dokumentera dina omvandlings uttryck:
+
+![Kommentarer](media/data-flow/comments2.png "Kommentarer")
+
+## <a name="convert-to-dates-or-timestamps"></a>Konvertera till datum eller tidsstämplar
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+Observera att om du vill inkludera sträng litteraler i dina tidsstämplar måste du omsluta din konvertering i en toString ()
+
+## <a name="handling-column-names-with-special-characters"></a>Hantera kolumn namn med specialtecken
+
+När du har kolumn namn som innehåller specialtecken eller mellanslag, omger du namnet med klammerparenteser.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>Nästa steg
 

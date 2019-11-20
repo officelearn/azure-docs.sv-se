@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center och Azure Container Registry | Microsoft Docs
+title: Azure Security Center och Azure Container Registry
 description: Lär dig mer om Azure Security Centers integrering med Azure Container Registry
 services: security-center
 documentationcenter: na
@@ -10,22 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: f0de56f968488f0e5d551ad705cc6f8ca6e7bc47
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: MT
+ms.openlocfilehash: f2a07774fa23173738bc33907dd00017ca260fd9
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521870"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196384"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry integration med Security Center (förhands granskning)
 
 Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
-När du använder ACR tillsammans med Azure Security Center standard nivån (se [prissättning](security-center-pricing.md)) får du djupare insyn i registret och avbildningens sårbarheter.
+För djupare insyn i ditt register och avbildnings sårbarheter kan användare av Azure Security Center standard nivån aktivera de valfria paketen för behållar register. Mer information finns i [prissättning](security-center-pricing.md). När paketet har Aktiver ATS genomsöker Security Center automatiskt bilder i din ACR-tjänst när en avbildning skickas till registret. När genomsökningen är klar (vanligt vis efter cirka 10 minuter), är avgöranden tillgängliga i Security Center i rekommendationer som detta:
 
-[![Azure Container Registry (ACR) rekommendationer i Azure Security Center](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![exempel Azure Security Center rekommendationer om sårbarheter som identifierats i en Azure Container Registry (ACR) värd avbildning](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Fördelar med integrering
 

@@ -1,6 +1,6 @@
 ---
-title: Service Fabric Cluster Resource Manager - integrering | Microsoft Docs
-description: En översikt över integreringspunkter mellan Cluster Resource Manager och Service Fabric Management.
+title: Service Fabric Cluster Resource Manager – hanterings integrering | Microsoft Docs
+description: En översikt över integrerings platserna mellan kluster resurs hanteraren och Service Fabric hantering.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c201945e94474d54b8a19918f3b55a0b40995a97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743521"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196503"
 ---
-# <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Klustret resource manager-integrering med hantering av Service Fabric
-Service Fabric Cluster Resource Manager enhet inte uppgraderingar i Service Fabric, men den ingår. Det första sättet som Cluster Resource Manager hjälper med management är genom att spåra önskat tillstånd för klustret och tjänster i den. Cluster Resource Manager skickar ut hälsorapporter när det inte placerar klustret i önskad konfiguration. Till exempel om det finns inte tillräckligt med kapacitet skickar Cluster Resource Manager ut hälsotillståndsvarningar och fel som tyder på problemet. En annan typ av integrering har att göra med så här fungerar uppgraderingar. Klusterresurshanteraren ändrar något sitt beteende under uppgraderingar.  
+# <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Kluster resurs hanteraren-integrering med Service Fabric kluster hantering
+Service Fabric Cluster Resource Manager Driver inte uppgraderingar i Service Fabric, men det ingår. Det första sättet som kluster resurs hanteraren hjälper till med hantering är att spåra det önskade läget för klustret och tjänsterna i det. Kluster resurs hanteraren skickar ut hälso rapporter när det inte går att placera klustret i önskad konfiguration. Om det till exempel finns otillräcklig kapacitet i kluster resurs hanteraren skickas hälso varningar och fel som indikerar problemet. En annan integrerings komponent måste göra med hur uppgraderingar fungerar. Kluster resurs hanteraren ändrar sitt beteende något under uppgraderingar.  
 
-## <a name="health-integration"></a>Health-integrering
-Klusterresurshanteraren spårar ständigt de regler som du har definierat för att placera dina tjänster. Den spårar också återstående kapacitet för varje mått på noderna i klustret och i klustret som helhet. Om den inte kan uppfylla dessa regler eller om det finns inte tillräckligt med kapacitet, genereras health varningar och fel. Exempel: om en nod är överbelastade och Cluster Resource Manager försöker åtgärda situationen genom att flytta tjänster. Om det går inte att komma tillrätta med situationen genererar en varning för hälsotillstånd som anger vilken nod som är överbelastade och vilka mått.
+## <a name="health-integration"></a>Hälso integrering
+Kluster resurs hanteraren spårar kontinuerligt de regler som du har definierat för att placera dina tjänster. Det spårar också den återstående kapaciteten för varje mått på noderna och i klustret och i klustret som helhet. Om den inte kan uppfylla reglerna eller om det inte finns tillräckligt med kapacitet genereras hälso varningar och fel. Om en nod till exempel har överkapacitet och kluster resurs hanteraren kommer att försöka åtgärda problemet genom att flytta tjänster. Om det inte går att korrigera situationen uppstår en hälso varning som anger vilken nod som överskrider kapaciteten och för vilka mått.
 
-Ett annat exempel på hälsovarningar för Resource Manager är överträdelser av placeringsbegränsningar. Exempel: Om du har definierat en begränsning av placeringen (till exempel `“NodeColor == Blue”`) och Resource Manager identifierar ett brott mot denna begränsning, den genererar en varning om hälsotillstånd. Detta gäller för anpassade villkor och standardbegränsningar (till exempel Feldomän och Uppgraderingsdomänen begränsningar).
+Ett annat exempel på resurs hanterarens hälso varningar är överträdelser av placerings begränsningar. Om du till exempel har definierat en placerings begränsning (till exempel `“NodeColor == Blue”`) och Resource Manager upptäcker en överträdelse av denna begränsning, avger den en hälso varning. Detta gäller för anpassade begränsningar och standard begränsningar (t. ex. fel domän och uppgradering av domän begränsningar).
 
-Här är ett exempel på en sådan hälsorapport. I det här fallet är hälsorapporten för en av systemtjänsten partitioner. Hälsotillstånd meddelandet anger repliker av den partitionen är tillfälligt förpackade i för få uppgradera domäner.
+Här är ett exempel på en sådan hälso rapport. I det här fallet är hälso rapporten för en av system tjänstens partitioner. Hälso meddelandet anger att replikerna i partitionen är tillfälligt förpackade i för få uppgraderings domäner.
 
 ```posh
 PS C:\Users\User > Get-ServiceFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
@@ -71,65 +71,65 @@ HealthEvents          :
                         Transitions           : Ok->Warning = 8/10/2015 7:13:02 PM, LastError = 1/1/0001 12:00:00 AM
 ```
 
-Här är vad meddelandet hälsotillstånd tala om för oss är:
+Det här hälso meddelandet talar om för oss att:
 
-1. Alla repliker själva är felfri: Each has AggregatedHealthState : OK
-2. Uppgradera domän distribution villkoret överskrids för närvarande. Det innebär att en viss uppgradera domän har flera repliker från den här partitionen än den borde.
-3. Vilken nod innehåller repliken orsakar överträdelsen. I det här fallet är det nod med namnet ”Node.8”
-4. Om en uppgradering för närvarande pågår för detta partitionera (”för närvarande uppgradering--FALSKT”)
-5. Principen för programvarudistribution för den här tjänsten: "Distribution Policy -- Packing". Detta styrs av den `RequireDomainDistribution` [placering princip](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). ”Paketering” anger att i det här fallet DomainDistribution _inte_ krävs, så att vi vet att placeringen principen inte har angetts för den här tjänsten. 
-6. När rapporten har hänt – 8/10/2015 19:13:02: 00
+1. Alla själva replikerna är felfria: var och en har AggregatedHealthState: OK
+2. Distributions begränsningen för uppgraderings domänen håller på att överskridas. Det innebär att en viss uppgraderings domän har fler repliker från den här partitionen än den borde.
+3. Vilken nod innehåller den replik som orsakar överträdelsen. I det här fallet är det noden med namnet "Node. 8"
+4. Om en uppgradering för närvarande sker för den här partitionen ("uppgraderas för närvarande--false")
+5. Distributions principen för den här tjänsten: "distributions princip--packning". Detta styrs av principen för `RequireDomainDistribution` [placering](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Packning" indikerar att i det här fallet DomainDistribution _inte_ var obligatoriskt, så vi vet att placerings principen inte har angetts för den här tjänsten. 
+6. När rapporten skedde – 8/10/2015 7:13:02 PM
 
-Information som den här befogenheter aviseringar som utlöses i produktionsmiljön så att du vet något har gått fel och används också för att identifiera och stoppa felaktig uppgraderingar. I det här fallet vill vi skulle se om vi kan ta reda på varför Resource Manager var tvungen att bygga repliker i Uppgraderingsdomänen. Vanligtvis späcka beror på tillfälliga noder i den andra uppgradera domäner har ned, till exempel.
+Information som detta ger aviseringar som utlöses i produktion så att du kan se att något har gått fel och även används för att identifiera och stoppa Felaktiga uppgraderingar. I det här fallet skulle vi vilja se om vi kan ta reda på varför Resource Manager tvungen att packa replikerna i uppgraderings domänen. Normalt är packningen tillfällig eftersom noderna i de andra uppgraderings domänerna var inaktiverade, till exempel.
 
-Vi antar att Cluster Resource Manager försöker placera vissa tjänster, men det inte finns några lösningar som fungerar. När tjänster inte kan placeras, är det vanligtvis för någon av följande orsaker:
+Anta att kluster resurs hanteraren försöker placera vissa tjänster, men att det inte finns några lösningar som fungerar. När det inte går att placera tjänster är det vanligt vis någon av följande orsaker:
 
-1. Vissa övergående tillstånd har gjort det omöjligt att placera den här tjänstinstansen eller repliken korrekt
-2. Tjänstens placering kraven är unsatisfiable.
+1. Vissa tillfälliga villkor har gjort det omöjligt att placera tjänst instansen eller repliken korrekt
+2. Tjänstens placerings krav uppfyller kraven.
 
-I dessa fall hälsorapporter från Cluster Resource Manager hjälper dig att avgöra varför tjänsten kan inte placeras. Vi kallar den här processen begränsningen eliminering sekvensen. Under den går systemet igenom de konfigurera begränsningar som påverkar tjänsten och -poster de undanröjer. Det här sättet när tjänster är inte kunna lagras, du kan se vilka noder som har tagits bort och varför.
+I dessa fall kan hälso rapporter från kluster resurs hanteraren hjälpa dig att avgöra varför det inte går att placera tjänsten. Vi kallar den här processen för villkors Eli minerings ordningen. Under den guidar systemet igenom de konfigurerade begränsningarna som påverkar tjänsten och registrerar vad de eliminerar. På så sätt kan du se vilka noder som har eliminerats och varför det inte går att placera några tjänster.
 
-## <a name="constraint-types"></a>Villkorstyper
-Nu ska vi prata om var och en av de olika begränsningarna i dessa rapporter om hälsotillstånd. Du kan se hälsotillstånd meddelanden relaterade till de här begränsningarna när repliker inte kan placeras.
+## <a name="constraint-types"></a>Villkors typer
+Låt oss prata om var och en av de olika begränsningarna i dessa hälso rapporter. Du ser hälso meddelanden som är relaterade till dessa begränsningar när det inte går att placera repliker.
 
-* **ReplicaExclusionStatic** och **ReplicaExclusionDynamic**: De här begränsningarna indikerar att en lösning avvisades eftersom två service-objekt från samma partition måste placeras på samma nod. Detta är inte tillåten eftersom sedan fel på noden påverkar alltför partitionen. ReplicaExclusionStatic och ReplicaExclusionDynamic är nästan samma regel och skillnaderna verkligen har betydelse inte. Om du ser en begränsning eliminering sekvens som innehåller antingen ReplicaExclusionStatic eller ReplicaExclusionDynamic begränsning tror Klusterresurshanteraren att det inte finns tillräckligt många noder. Detta kräver återstående lösningar för att använda de här ogiltiga placeringar, vilket inte är tillåtet. Andra villkor i följd kommer vanligtvis berätta för oss varför noder som elimineras i första hand.
-* **PlacementConstraint**: Om du ser det här meddelandet innebär att vi eliminerat vissa noder eftersom de inte matchade placeringsbegränsningar för tjänsten. Vi spåra ut konfigurerade placeringen som en del av det här meddelandet. Detta är normalt om du har en begränsning för placering som definierats. Men om placering begränsningen felaktigt orsakar för många noder elimineras det här är hur du skulle se.
-* **NodeCapacity**: Den här begränsningen innebär att Cluster Resource Manager inte kunde placera replikerna på de angivna noderna eftersom som placerar dem över kapacitet.
-* **Tillhörighet**: Det här villkoret visar vi inte kunde placera repliken på de berörda noderna eftersom det skulle orsaka en överträdelse av tillhörighet begränsningen. Mer information om mappning mellan och är i [i den här artikeln](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** och **UpgradeDomain**: Den här begränsningen eliminerar noder om placera repliken på de angivna noderna skulle orsaka paketering i ett visst fel eller en uppgraderingsdomän. Flera exempel diskutera den här begränsningen visas i avsnittet på [fel- och begränsningar för domänen och resulterande beteende](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: Du bör inte normalt finns i den här begränsningen ta bort noder från lösningen eftersom den körs som en optimering som standard. Prioriterade platsbegränsningen finns också under uppgraderingar. Under uppgraderingen används för att flytta tjänster till där de fanns när uppgraderingen är igång.
+* **ReplicaExclusionStatic** och **ReplicaExclusionDynamic**: dessa begränsningar visar att en lösning avvisades eftersom två tjänst objekt från samma partition skulle behöva placeras på samma nod. Detta är inte tillåtet eftersom sedan felet i noden skulle påverka den partitionen. ReplicaExclusionStatic och ReplicaExclusionDynamic är nästan samma regel och skillnaderna spelar ingen roll. Om du ser en begränsnings Eli minerings sekvens som innehåller antingen ReplicaExclusionStatic-eller ReplicaExclusionDynamic-begränsningen, anser kluster resurs hanteraren att det inte finns tillräckligt med noder. Detta kräver att återstående lösningar använder dessa ogiltiga placeringar som inte är tillåtna. De andra begränsningarna i sekvensen meddelar vanligt vis oss varför noder elimineras på den första platsen.
+* **PlacementConstraint**: om du ser det här meddelandet innebär det att vi har eliminerat vissa noder eftersom de inte stämde överens med tjänstens placerings begränsningar. Vi går igenom de nuvarande konfigurerade placerings begränsningarna som en del av det här meddelandet. Detta är normalt om du har definierat en placerings begränsning. Men om placerings begränsningen gör att det inte finns tillräckligt många noder som kan elimineras så här.
+* **NodeCapacity**: den här begränsningen innebär att kluster resurs hanteraren inte kunde placera replikerna på de angivna noderna, eftersom det skulle placera dem över kapacitet.
+* **Tillhörighet**: den här begränsningen anger att det inte gick att placera repliken på de berörda noderna eftersom den skulle orsaka en överträdelse av tillhörighets begränsningen. Mer information om tillhörighet finns i [den här artikeln](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **Faulydomain** och **UpgradeDomain**: den här begränsningen eliminerar noder om du placerar repliken på de angivna noderna skulle leda till packning i ett visst fel eller en uppgraderings domän. Flera exempel som diskuterar den här begränsningen presenteras i avsnittet om [fel-och uppgraderings domän begränsningar och resulterande beteende](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: du bör normalt inte se den här begränsningen genom att ta bort noder från lösningen eftersom den körs som en optimering som standard. Den prioriterade plats begränsningen finns också vid uppgraderingar. Under uppgraderingen används den för att flytta tjänster tillbaka till den plats där uppgraderingen startade.
 
-## <a name="blocklisting-nodes"></a>Blocklisting noder
-Ett annat hälsotillstånd meddelande Cluster Resource Manager-rapporter är när noderna är blocklisted. Du kan tänka dig blocklisting som en tillfällig begränsning som tillämpas automatiskt åt dig. Noder får blocklisted när de uppstår upprepade fel vid start instanser av den typ av tjänst. Noder är blocklisted på basis av per tjänsttyp. En nod kan vara blocklisted för en tjänsttyp men inte en annan. 
+## <a name="blocklisting-nodes"></a>Blocklisting-noder
+Ett annat hälso meddelande är att kluster resurs hanterarens rapporter är när noderna är blocklisted. Du kan betrakta Blocklisting som en tillfällig begränsning som automatiskt tillämpas för dig. Noder får blocklisted när de stöter på upprepade problem när instanser av tjänst typen startas. Noderna är blocklisted per tjänst-typ. En nod kan vara blocklisted för en tjänst typ, men inte en annan. 
 
-Du ser blocklisting startar ofta under utvecklingen: vissa fel orsakar den tjänstevärden kraschar vid start. Service Fabric försöker skapa tjänstevärden några gånger och felet kvarstår. Efter några försök noden hämtar blocklisted och Cluster Resource Manager försöker att skapa någon annanstans-tjänsten. Om den misslyckade håller händer på flera noder, är det möjligt att alla giltiga noder i klustret hamnar blockeras. Blocklisting kan också ta bort så många noder att finns inte tillräckligt med kan starta tjänsten för att uppfylla önskad skala. Vanligtvis visas ytterligare fel eller varningar från Cluster Resource Manager som anger som tjänsten är under den önskade repliken eller instansantalet, samt hälsotillstånd meddelanden som indikerar felet nyheter som leder till blocklisting i först Placera.
+Du kommer att se hur Blocklisting fungerar ofta under utvecklingen: vissa fel gör att tjänst värden kraschar vid start. Service Fabric försöker skapa tjänst värden några gånger och det uppstår ett problem. Efter några försök får noden blocklisted och kluster resurs hanteraren kommer att försöka skapa tjänsten någon annan stans. Om det här problemet kvarstår på flera noder, är det möjligt att alla giltiga noder i klustret är blockerade. Blocklisting kan också ta bort så många noder som inte räcker för att kunna starta tjänsten för att uppfylla den önskade skalningen. Du ser vanligt vis ytterligare fel eller varningar från kluster resurs hanteraren som anger att tjänsten ligger under den önskade repliken eller antalet instanser, samt hälso meddelanden som anger vad felet är och som leder till Blocklisting i den första ringa.
 
-Blocklisting är inte ett permanent villkor. Noden tas bort från den på blockeringslistan och Service Fabric kan aktivera tjänster i den noden igen efter några minuter. Om tjänster fortsätter att misslyckas, är noden blocklisted för den typ av tjänst igen. 
+Blocklisting är inte ett permanent villkor. Efter några minuter tas noden bort från blockeringslistan och Service Fabric kan aktivera tjänsterna på den noden igen. Om tjänsterna fortsätter att fungera, är noden blocklisted för den tjänst typen igen. 
 
-### <a name="constraint-priorities"></a>Begränsningen prioriteringar
+### <a name="constraint-priorities"></a>Begränsnings prioritet
 
 > [!WARNING]
-> Ändra begränsningen prioriteringar rekommenderas inte och kan ha stor negativ inverkan på ditt kluster. Den informationen nedan har angetts för referens för begränsningen Standardprioriteter och deras beteende. 
+> Ändring av begränsnings prioriteter rekommenderas inte och kan ha betydande negativa effekter i klustret. Informationen nedan anges som referens för standard begränsnings prioriteterna och deras beteende. 
 >
 
-Med alla de här begränsningarna kan ha tycker du ”Hej – jag tror att fel domän begränsningar är viktigaste i mitt system. För att säkerställa domänbegränsningar fel inte bröt mot kan jag vill bryta mot andra villkor ”.
+Med alla dessa begränsningar kan du ha funderat på "Hej – Jag tror att fel domän begränsningar är de viktigaste i systemet. För att se till att fel domän begränsningen inte bryter mot varandra är jag villig att kränka andra begränsningar. "
 
-Begränsningar kan konfigureras med olika prioritet. Dessa är:
+Begränsningar kan konfigureras med olika prioritets nivåer. Dessa är:
 
-   - ”hård” (0)
-   - ”Mjuk” (1)
-   - ”optimering” (2)
-   - ”off” (-1). 
+   - "hård" (0)
+   - "mjuk" (1)
+   - "optimering" (2)
+   - "av" (-1). 
    
-De flesta av begränsningarna är som standard konfigurerade som hårda begränsningar.
+De flesta begränsningarna är konfigurerade som hårda begränsningar som standard.
 
-Det är ovanligt att ändra prioriteten för begränsningar. Det har skett gånger där begränsningen prioriteringar behövs för att ändra, vanligtvis för att kringgå vissa andra fel eller funktion som påverkar miljön. Allmänt flexibiliteten i begränsningen prioritet infrastruktur har arbetat mycket bra, men den behövs inte ofta. I de flesta fall sitter allt vid sin Standardprioriteter. 
+Det är ovanligt att ändra prioriteten för begränsningar. Det har varit tillfällen då begränsnings prioriteter behövde ändras, vanligt vis för att undvika andra fel eller beteenden som påverkar miljön. I allmänhet fungerar flexibiliteten i infrastrukturen för begränsnings prioritet mycket bra, men det behövs inte ofta. Det mesta av tiden som allt har varit på sina standard prioriteringar. 
 
-Prioritetsnivåer inte innebär att en viss begränsning _kommer_ ha brutits, eller som den ska alltid vara uppfyllda. Begränsningen prioriteringar definierar en order där begränsningar tillämpas. Prioriteter definiera kompromisser när det är omöjligt att räcka åt alla begränsningar. Alla begränsningar kan vanligtvis vara uppfyllda om det inte finns något annat i miljön. Några exempel på scenarier som leder till begränsningen överträdelser är i konflikt begränsningar eller stort antal samtidiga fel.
+Prioritets nivåerna innebär inte att en specifik begränsning _kommer_ att överskridas och att det alltid kommer att uppfyllas. Begränsnings prioriteter definierar i vilken ordning begränsningar tillämpas. Prioriteter definierar kompromisserna när det är omöjligt att uppfylla alla begränsningar. Vanligt vis kan alla begränsningar vara uppfyllda om det inte finns något annat som händer i miljön. Några exempel på scenarier som leder till begränsnings överträdelser är motstridiga begränsningar, eller ett stort antal samtidiga fel.
 
-I avancerade fall kan ändra du begränsningen prioriteringar. Anta exempelvis att du vill se till att tillhörighet skulle alltid ha brutits vid behov för att lösa problem för nod-kapacitet. Du kan ange prioritet för mappning mellan begränsningen till ”mjuk” (1) och lämna den kapacitet för begränsning angiven till ”hård” (0) för att uppnå detta.
+I avancerade situationer kan du ändra begränsnings prioriteterna. Anta till exempel att du ville se till att tillhörighet alltid skulle kränkas när det behövs för att lösa problem med nodens kapacitet. För att åstadkomma detta kan du ange prioriteten för tillhörighets begränsningen till "mjuk" (1) och lämna kapacitets begränsningen inställd på "hård" (0).
 
-Prioritet standardvärden för de olika begränsningarna anges i följande konfiguration:
+Standard prioritets värden för de olika begränsningarna anges i följande konfiguration:
 
 ClusterManifest.xml
 
@@ -144,7 +144,7 @@ ClusterManifest.xml
         </Section>
 ```
 
-via ClusterConfig.json för distribution av fristående eller Template.json för Azure som värd kluster:
+via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [
@@ -180,33 +180,33 @@ via ClusterConfig.json för distribution av fristående eller Template.json för
 ]
 ```
 
-## <a name="fault-domain-and-upgrade-domain-constraints"></a>Begränsningar för fel domän och uppgradera domän
-Klusterresurshanteraren vill hålla tjänster sprids ut bland fel- och uppgraderingsdomäner. Modellerar detta som en begränsning i Cluster Resource Manager-motorn. Mer information om hur de används och deras specifika beteende, finns i artikeln på [klusterkonfiguration](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
+## <a name="fault-domain-and-upgrade-domain-constraints"></a>Domän begränsningar för fel domän och uppgradering
+Kluster resurs hanteraren vill hålla tjänsterna spridda mellan fel-och uppgraderings domäner. Den modellerar detta som en begränsning i kluster resurs hanterarens motor. Om du vill ha mer information om hur de används och deras speciella beteende kan du läsa artikeln om [kluster konfiguration](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Cluster Resource Manager kan behöva bygga ett par repliker i en uppgraderingsdomän för att kunna hantera uppgraderingar, fel eller andra begränsningen överträdelser. Paketering i fel eller uppgradera domäner normalt inträffar bara när det finns flera fel eller andra omsättning i systemet som förhindrar korrekt placering. Om du vill förhindra förpackning även under sådana situationer kan du använda den `RequireDomainDistribution` [placering princip](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Observera att detta kan påverka tjänstens tillgänglighet och tillförlitlighet som en sidoeffekt, så fundera över den noggrant.
+Kluster resurs hanteraren kan behöva paketera ett par repliker i en uppgraderings domän för att hantera uppgraderingar, fel eller andra begränsnings fel. Packning i fel-eller uppgraderings domäner sker vanligt vis bara när det finns flera fel eller andra omsättnings bara i systemet som förhindrar korrekt placering. Om du vill förhindra packning även under dessa situationer kan du använda principen för `RequireDomainDistribution` [placering](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Observera att detta kan påverka tjänstens tillgänglighet och tillförlitlighet som en sido effekt, så tänk på det noggrant.
 
-Om miljön är korrekt konfigurerade respekteras alla begränsningar fullständigt, även under uppgraderingar. Huvudsaken är att Cluster Resource Manager bevakar för dina villkor. När den identifierar en överträdelse det omedelbart rapporterar det och försöker åtgärda problemet.
+Om miljön har kon figurer ATS korrekt respekteras alla begränsningar fullständigt, även vid uppgraderingar. Nyckeln är att kluster resurs hanteraren ser ut för dina begränsningar. När ett brott upptäcks rapporterar det omedelbart och försöker åtgärda problemet.
 
-## <a name="the-preferred-location-constraint"></a>Prioriterade platsbegränsningen
-PreferredLocation-begränsning är lite annorlunda eftersom den har två olika användningsområden. Användningen av den här begränsningen är under programuppgraderingar. Cluster Resource Manager hanterar automatiskt den här begränsningen under uppgraderingar. Den används för att se till att när uppgraderingar är klara att repliker gå tillbaka till sina ursprungliga platser. Andra PreferredLocation begränsningen används för den [ `PreferredPrimaryDomain` placering princip](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Båda dessa är optimeringar och kan därför PreferredLocation begränsningen är den enda begränsningen inställd på ”optimering” som standard.
+## <a name="the-preferred-location-constraint"></a>Prioriterad plats begränsning
+PreferredLocation-begränsningen är lite annorlunda, eftersom den har två olika användnings områden. En användning av den här begränsningen är vid program uppgraderingar. Kluster resurs hanteraren hanterar den här begränsningen automatiskt under uppgraderingar. Den används för att se till att när uppgraderingar är slutförda kommer replikerna att återgå till sina ursprungliga platser. Den andra användningen av PreferredLocation-begränsningen är för [principen för`PreferredPrimaryDomain` placering](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Båda dessa är optimeringar, och därför är PreferredLocation-begränsningen den enda begränsningen inställd på "optimering" som standard.
 
-## <a name="upgrades"></a>Uppgraderingar
-Cluster Resource Manager hjälper även under program- och klusteruppgradering, då den har två jobb:
+## <a name="upgrades"></a>Uppgraderingen
+Kluster resurs hanteraren hjälper även till vid program-och kluster uppgraderingar, under vilka den har två jobb:
 
-* Se till att reglerna för klustret inte komprometteras
-* Försök att uppgraderingen går smidigt
+* kontrol lera att klustrets regler inte har komprometterats
+* försök att hjälpa uppgraderingen smidigt
 
-### <a name="keep-enforcing-the-rules"></a>Behåll tvingande regler
-Det viktigaste du ska tänka på är att tillämpas reglerna – strikt begränsningarna som placeringsbegränsningar och kapaciteter - fortfarande under uppgraderingar. Placeringsbegränsningar se till att dina arbetsbelastningar endast köras var de ska kunna, även under uppgraderingar. När tjänster är mycket begränsad, kan uppgraderingen ta längre tid. När tjänsten eller den körs på noden är online för en uppdatering kan det finnas flera alternativ för där det går.
+### <a name="keep-enforcing-the-rules"></a>Fortsätt att verkställa reglerna
+Det viktigaste att vara medveten om är att reglerna – strikta begränsningar som placerings begränsningar och kapaciteter – fortfarande tillämpas under uppgraderingar. Placerings begränsningar säkerställer att arbets belastningarna bara körs där de är tillåtna, även under uppgraderingar. När tjänsterna är mycket begränsade kan uppgraderingar ta längre tid. När tjänsten eller noden som körs på är avstängd för en uppdatering kan det finnas några alternativ för var de kan gå.
 
-### <a name="smart-replacements"></a>Smart ersättningar
-När en uppgradering startar tar en ögonblicksbild av den aktuella ordningen på klustret i Resource Manager. Eftersom varje Uppgraderingsdomänen är klar försöker denna att returnera de tjänster som fanns i Uppgraderingsdomänen till deras ursprungliga placering. Det här sättet finns högst två övergångar för en tjänst under uppgraderingen. Det finns en flytta bort från den berörda noden och en flytta tillbaka. Returnera det kluster eller en tjänst till den såg ut före uppgraderingen innebär också uppgraderingen inte påverkar layouten för klustret. 
+### <a name="smart-replacements"></a>Smarta ersättningar
+När en uppgradering startar tar Resource Manager en ögonblicks bild av klustrets aktuella ordning. När varje uppgraderings domän har slutförts försöker den returnera de tjänster som fanns i den uppgraderings domänen till sin ursprungliga ordning. På så sätt finns det högst två över gångar för en tjänst under uppgraderingen. Det finns en flytt av den berörda noden och en flytt tillbaka i. Att returnera klustret eller tjänsten till hur det var innan uppgraderingen ser till att uppgraderingen inte påverkar klustrets layout. 
 
-### <a name="reduced-churn"></a>Minskad omsättning
-En annan sak som sker under uppgraderingar är att Cluster Resource Manager-stänger av belastningsutjämning. Hindrar belastningsutjämning förhindrar onödig reaktioner för uppgradering, t.ex. Flytta tjänster till noder som har töms för uppgraderingen. Om uppgraderingen i fråga är en uppgradering av klustret, belastningsutjämnad hela klustret inte under uppgraderingen. Begränsningen kontroller förblir aktiva, endast transport baserat på proaktiv fördelningen av mått är inaktiverat.
+### <a name="reduced-churn"></a>Reducerad omsättning
+En annan sak som inträffar under uppgraderingar är att kluster resurs hanteraren stänger av balanseringen. Att förhindra balansering förhindrar onödiga reaktioner på uppgraderingen, som att flytta tjänster till noder som har tömts för uppgraderingen. Om uppgraderingen i fråga är en kluster uppgradering, bal anse ras inte hela klustret under uppgraderingen. Begränsnings kontrollerna fortsätter att vara aktiva, endast rörelse baserat på den proaktiva utjämningen av mått är inaktive rad.
 
-### <a name="buffered-capacity--upgrade"></a>Buffrade kapacitet och uppgradering
-Allmänt vill du att uppgraderingen ska slutföra även om klustret är begränsad eller nära fullständig. Hantera kapacitet i klustret är ännu viktigare under uppgraderingar än vanligt. Beroende på antalet uppgraderingsdomäner, måste mellan 5 och 20 procent av kapaciteten som migreras uppgraderingen går igenom i klustret. Arbetet har gå någonstans. Det är där begreppet [buffras kapaciteter](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) är användbart. Buffrade kapacitet respekteras under normal drift. Cluster Resource Manager kan fylla noder upp till deras total kapacitet (förbrukar bufferten) under uppgraderingar om det behövs.
+### <a name="buffered-capacity--upgrade"></a>Uppgradering av buffrad kapacitet &
+Vanligt vis vill du att uppgraderingen ska slutföras även om klustret är begränsat eller nästan är fullt. Att hantera klustrets kapacitet är ännu mer viktigt under uppgraderingar än vanligt. Beroende på antalet uppgraderings domäner måste mellan 5 och 20 procent av kapaciteten migreras när uppgraderingen rullar genom klustret. Detta arbete måste gå någonstans. Det är här som begreppet [buffrad kapacitet](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) är användbart. Den buffrade kapaciteten respekteras under normal drift. Kluster resurs hanteraren kan fylla noderna upp till sin totala kapacitet (med bufferten) under uppgraderingarna om det behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 * Börja från början och [få en introduktion till Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)

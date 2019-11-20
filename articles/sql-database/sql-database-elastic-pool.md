@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 1b3ee75d1b24cab8211337cf1cdbd053327e16b8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823835"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186475"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 
@@ -226,3 +226,4 @@ Mer information finns i [skapa SQL Database aviseringar i Azure Portal](sql-data
 - För en video, se [Microsoft Virtual Academy video kurs på Azure SQL Database elastiska funktioner](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - En SaaS-självstudie med elastiska pooler finns i [Introduktion till Wingtip SaaS-programmet](sql-database-wtp-overview.md).
+- Mer information om resurs hantering i elastiska pooler med många databaser finns [i resurs hantering i kompakta elastiska pooler](sql-database-elastic-pool-resource-management.md).

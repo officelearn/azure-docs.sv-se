@@ -198,6 +198,8 @@
               href: sap-high-availability-installation-wsfc-shared-disk.md
             - name: Windows med SOFS-filresurs för (A)SCS-instans
               href: sap-high-availability-installation-wsfc-file-share.md
+            - name: HA för SAP NetWeaver på Windows med Azure NetApp Files (SMB)
+              href: high-availability-guide-windows-netapp-files-smb.md
             - name: SUSE Linux med NFS för (A)SCS-instans
               href: high-availability-guide-suse.md
             - name: SUSE Linux med NFS för (A)SCS-instans med Azure NetApp Files

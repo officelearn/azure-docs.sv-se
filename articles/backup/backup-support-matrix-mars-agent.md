@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e37951dd00b999f59a1b3c08a6852cbc1929630
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172058"
+ms.locfileid: "74195005"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -64,6 +64,8 @@ Och till följande IP-adresser:
 
 - 20.190.128.0/18
 - 40.126.0.0/18
+
+Åtkomst till alla webb adresser och IP-adresser som anges ovan använder HTTPS-protokollet på port 443.
 
 ### <a name="throttling-support"></a>Stöd för begränsning
 

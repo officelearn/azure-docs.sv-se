@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: sagupt
-ms.openlocfilehash: cae16430ce933b8d071696377b22f10c15b5eae5
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145387"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180590"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Minska tjänste kostnaderna med Azure Advisor
 
@@ -63,7 +63,7 @@ För att spara 60% av kostnaden rekommenderar vi att du lagrar dina ögonblicks 
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång](advisor-get-started.md)
-* [Rekommendationer för Advisor-prestanda](advisor-cost-recommendations.md)
-* [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-cost-recommendations.md)
-* [Rekommendationer för Advisor-säkerhet](advisor-cost-recommendations.md)
+* [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
+* [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
+* [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)

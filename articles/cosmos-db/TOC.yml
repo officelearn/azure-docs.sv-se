@@ -974,21 +974,19 @@
       items:
         - name: Återställa data från en säkerhetskopia
           href: how-to-backup-and-restore.md
-    - name: Loggning
+    - name: Övervaka
       items:
-        - name: Diagnostikloggning
-          href: logging.md
+        - name: Övervaka Cosmos DB
+          href: monitor-cosmos-db.md
+        - name: Azure Monitor för Cosmos (förhandsversion)
+          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+        - name: Visa mått från Cosmos DB-kontot
+          href: use-metrics.md
         - name: Programloggning med Logic Apps
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: Övervaka med mått
-      items:
-        - name: Visa mått från Cosmos DB-kontot
-          href: use-metrics.md
-        - name: Visa mått från Azure Monitor
-          href: cosmos-db-azure-monitor-metrics.md
-        - name: Övervaka serviceavtal
-          href: monitor-accounts.md
+        - name: Övervaka datareferens
+          href: monitor-cosmos-db-reference.md
     - name: Utveckla lokalt
       items:
         - name: Använd emulatorn

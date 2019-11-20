@@ -798,12 +798,14 @@
               items:
                 - name: Aktivera övervakningsöversikt
                   href: insights/container-insights-onboard.md
-                - name: Aktivera för nytt kluster
+                - name: Aktivera för nytt AKS-kluster
                   href: insights/container-insights-enable-new-cluster.md
-                - name: Aktivera för befintligt kluster
+                - name: Aktivera för befintligt AKS-kluster
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Aktivera för hybridkluster
                   href: insights/container-insights-hybrid-setup.md
+                - name: Aktivera för Azure Red Hat OpenShift
+                  href: insights/container-insights-azure-redhat-setup.md
                 - name: Regionsmappningar
                   href: insights/container-insights-region-mapping.md
             - name: Övervaka prestanda

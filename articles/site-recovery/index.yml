@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Dokumentation om Azure Site Recovery
-summary: Använd Azure Site Recovery för katastrofåterställning av lokala datorer och arbetsbelastningar till Azure, och virtuella Azure-datorer till en sekundär Azure-region. Med replikering till Azure på plats kan du dirigera redundansväxlingen när avbrott uppstår och fortsätta att komma åt arbetsbelastningar och appar i Azure. När den primära platsen är tillgänglig igen kan du växla tillbaka efter behov.
+summary: Använd Azure Site Recovery för haveriberedskap av lokala arbetsbelastningar och virtuella Azure-datorer.
 metadata:
   title: Dokumentation om Azure Site Recovery
-  description: Använd Azure Site Recovery för katastrofåterställning av lokala datorer och arbetsbelastningar till Azure, och virtuella Azure-datorer till en sekundär Azure-region. Med replikering till Azure på plats kan du dirigera redundansväxlingen när avbrott uppstår och fortsätta att komma åt arbetsbelastningar och appar i Azure. När den primära platsen är tillgänglig igen kan du växla tillbaka efter behov.
+  description: Konfigurera haveriberedskap till Azure för lokala arbetsbelastningar och virtuella Azure-datorer.
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 0d4405e447c7624e4d6cc714209ffc86451a74bd
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: ccbc4c92a6d0db9d5baf8a226ba79405a2b824ff
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001088"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74186590"
 landingContent:
 - title: Om Site Recovery
   linkLists:

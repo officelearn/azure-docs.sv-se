@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Migrate-dokumentation
-summary: Använd Azure Migrate för att migrera till Azure-molnet. Azure Migrate tillhandahåller en central hubb för identifiering, utvärdering och migrering av lokala arbetsbelastningar till Azure. Hubben tillhandahåller Azure Migrate-verktyg och integrerade verktyg från oberoende programvaruleverantörer (ISV).
+summary: Azure Migrate tillhandahåller en central verktygshubb för identifiering, utvärdering och migrering av lokala arbetsbelastningar till Azure.
 metadata:
   title: Azure Migrate-dokumentation
-  description: Använd Azure Migrate för att migrera till Azure-molnet. Azure Migrate tillhandahåller en central hubb för identifiering, utvärdering och migrering av lokala arbetsbelastningar till Azure. Hubben tillhandahåller Azure Migrate-verktyg och integrerade verktyg från oberoende programvaruleverantörer (ISV).
+  description: Använd Azure Migrate för att migrera lokala arbetsbelastningar på Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 494bb2f7ec6076bbc7b3b891cd0cb525ae53c5d1
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: e49bfdefe08b3a8f4598e809fd44b57f3f93de67
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001150"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74185837"
 landingContent:
 - title: Om Azure Migrate
   linkLists:
@@ -35,6 +35,10 @@ landingContent:
       url: ./tutorial-prepare-vmware.md
     - text: Utvärdera virtuella Hyper-V-datorer med Server Assessment
       url: ./tutorial-prepare-hyper-v.md
+    - text: Utvärdera fysiska servrar med Server Assessment
+      url: ./tutorial-prepare-physical.md
+    - text: Utvärdera servrar med importerade data
+      url: tutorial-assess-import.md
     - text: Migrera virtuella VMware-datorer med Server Migration
       url: ./server-migrate-overview.md
     - text: Migrera virtuella Hyper-V-datorer med Server Migration
@@ -52,13 +56,19 @@ landingContent:
     - text: Granska Azure Migrate-stödmatrisen
       url: migrate-support-matrix.md
     - text: Granska VMware-stödmatrisen
-      url: migrate-support-matrix-vmware.md
+      url: ./migrate-support-matrix-vmware.md
     - text: Granska Hyper-V-stödmatrisen
-      url: migrate-support-matrix-hyper-v.md
+      url: ./migrate-support-matrix-hyper-v.md
+    - text: Granska stödmatrisen för den fysiska servern
+      url: ./migrate-support-matrix-physical.md
 - title: Hantera
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Lägga till utvärderingsverktyg
+      url: ./how-to-assess.md
+    - text: Upptäcka programinventering
+      url: ./how-to-discover-applications.md
     - text: Lägga till migreringsverktyg
       url: ./how-to-migrate.md
     - text: Skala VMware-utvärdering
@@ -71,9 +81,9 @@ landingContent:
   linkLists:
   - linkListType: learn
     links:
-    - text: VMware-agentbaserad migreringsarkitektur
+    - text: Läs mer om VMware/fysisk agentbaserad migrering
       url: ./agent-based-migration-architecture.md
-    - text: Hyper-V-migreringsarkitektur
+    - text: Läs mer om Hyper-V-migrering
       url: ./hyper-v-migration-architecture.md
     - text: Läs mer om utvärderingar
       url: ./concepts-assessment-calculation.md

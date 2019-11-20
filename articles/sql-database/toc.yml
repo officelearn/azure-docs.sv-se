@@ -278,6 +278,8 @@
                   href: sql-database-xevent-code-ring-buffer.md
         - name: Prestandadiagnostik för hyperskala
           href: sql-database-hyperscale-performance-diagnostics.md
+        - name: Resurshantering i kompakta elastiska pooler
+          href: sql-database-elastic-pool-resource-management.md
     - name: Skalbarhet
       items:
         - name: Dokumentation om skalbarhet

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 50ee0ad78ae0e54071d90c8118a1989f306b59e6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932034"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224933"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
 
     Din pipeline bör nu se ut så här: 
 
-   ![Skärm bild som visar den förväntade konfigurationen för pipelinen när den har förberedats för distribution](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Skärm bild som visar den förväntade konfigurationen för pipelinen när den har förberedats för distribution](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     När du väljer **skapa en härlednings pipeline**inträffar flera saker:
     
@@ -70,7 +70,7 @@ I dialog rutan som visas kan du välja från alla befintliga Azure Kubernetes se
 
 1. I menyfliksområdet navigering väljer du **härlednings kluster** >  **+ ny**.
 
-    ![Skärm bild som visar hur du kommer till fönstret nytt fönster för utgångs kluster](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Skärm bild som visar hur du kommer till fönstret nytt fönster för utgångs kluster](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. Konfigurera en ny Kubernetes-tjänst i fönstret fönster för utlåsnings kluster.
 
@@ -96,7 +96,7 @@ När din AKS-tjänst har slutfört etableringen återgår du till inferencing-pi
 
 1. Välj **Distribuera**.
 
-    ![Skärm bild som visar hur du konfigurerar en ny slut punkt för Real tid](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Skärm bild som visar hur du konfigurerar en ny slut punkt för Real tid](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     Ett meddelande visas ovanför arbets ytan när distributionen är klar. Det kan ta några minuter.
 
@@ -106,7 +106,7 @@ När distributionen är klar kan du testa slut punkten för Real tid genom att g
 
 1. På sidan **slut punkter** väljer du den slut punkt som du har distribuerat.
 
-    ![Skärm bild som visar fliken slut punkter i real tid med den nyligen skapade slut punkten markerad](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![Skärm bild som visar fliken slut punkter i real tid med den nyligen skapade slut punkten markerad](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. Välj **test**.
 
@@ -114,7 +114,7 @@ När distributionen är klar kan du testa slut punkten för Real tid genom att g
 
     Portalen skickar en testbegäran till slut punkten och visar resultatet. Även om ett pris värde genereras för indata används inte det för att generera förutsägelse värdet.
 
-    ![Skärm bild som visar hur du testar real tids slut punkten med den visade etiketten för pris som marker ATS](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![Skärm bild som visar hur du testar real tids slut punkten med den visade etiketten för pris som marker ATS](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

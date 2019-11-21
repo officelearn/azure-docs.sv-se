@@ -1,22 +1,23 @@
 ---
-title: Skapa en delad integration runtime med egen värd i Azure Data Factory
+title: Skapa en delad integration runtime med egen värd med PowerShell
 description: Lär dig hur du skapar en delad integration runtime med egen värd i Azure Data Factory, så att flera data fabriker kan komma åt integrerings körningen.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: nabhishek
+manager: anansub
+ms.custom: seo-lt-2019
+ms.date: 10/31/2018
+ms.openlocfilehash: a8ac5bdaab915e46f5d5074c991703790d429e50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73677061"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218232"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Skapa en delad integration runtime med egen värd i Azure Data Factory
 
@@ -51,7 +52,7 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
 1. Skapa en länkad integration Runtime.
 1. Återkalla delningen.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter 
+### <a name="prerequisites"></a>Krav 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

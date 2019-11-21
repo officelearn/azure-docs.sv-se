@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 33e15055958ac99f2aa9eb160f9e5cf3c5b0cd41
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 0c1a4f33da7e1f39951d641ed1d563c46fb664ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493793"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232653"
 ---
 # <a name="create-python-model"></a>Skapa Python-modell
 
-Den här artikeln beskriver hur du använder modulen **skapa python-modell** för att skapa en modell som inte är tränad från ett Python-skript. 
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learning designer-miljön. 
+Lär dig hur du använder modulen **skapa python-modell** för att skapa en modell som inte är tränad från ett Python-skript. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learning designer-miljön. 
 
 När du har skapat modellen kan du använda [träna modell](train-model.md) för att träna modellen på en data uppsättning, t. ex. en annan elev i Azure Machine Learning. Den tränade modellen kan skickas till [Poäng modell](score-model.md) för att använda modellen för att göra förutsägelser. Den tränade modellen kan sedan sparas och poängsättnings arbets flödet kan publiceras som en webb tjänst.
 

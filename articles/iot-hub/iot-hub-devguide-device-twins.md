@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640629"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209719"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och Använd enheten dubbla i IoT Hub
 
@@ -108,18 +108,18 @@ I följande exempel visas ett enhets dubbla JSON-dokument:
 }
 ```
 
-I rotobjektet finns enhetens identitets egenskaper och behållar objekt för `tags` och båda `reported` egenskaperna och `desired` . `$etag``$metadata` `$version` [](iot-hub-devguide-device-twins.md#optimistic-concurrency) [](iot-hub-devguide-device-twins.md#device-twin-metadata) Behållaren innehåller skrivskyddade element (, och) som beskrivs i avsnitten enhets dubbla metadata och optimistisk samtidighet. `properties`
+I rotobjektet finns enhetens identitets egenskaper och behållar objekt för `tags` och både `reported`-och `desired` egenskaper. `properties`-behållaren innehåller skrivskyddade element (`$metadata`, `$etag`och `$version`) som beskrivs i avsnitten [enhets dubbla metadata](iot-hub-devguide-device-twins.md#device-twin-metadata) och [optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
 
 ### <a name="reported-property-example"></a>Exempel på rapporterad egenskap
 
-I föregående exempel innehåller enheten dubbla en `batteryLevel` egenskap som rapporteras av enhetens app. Den här egenskapen gör det möjligt att fråga och använda enheter baserat på den senaste rapporterade batteri nivån. Andra exempel är enhets funktioner för enhets program rapportering eller anslutnings alternativ.
+I föregående exempel innehåller enheten dubbla en `batteryLevel`-egenskap som rapporteras av enhets appen. Den här egenskapen gör det möjligt att fråga och använda enheter baserat på den senaste rapporterade batteri nivån. Andra exempel är enhets funktioner för enhets program rapportering eller anslutnings alternativ.
 
 > [!NOTE]
 > Rapporterade egenskaper fören klar scenarier där lösningens Server del är intresse rad av det sista kända värdet för en egenskap. Använd [enhets-till-moln-meddelanden](iot-hub-devguide-messages-d2c.md) om lösningens Server del behöver bearbeta telemetri i form av sekvenser med tidsstämplade händelser, t. ex. tids serier.
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel `telemetryConfig` används enhetens dubbla önskade och rapporterade egenskaper av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Exempel:
+I föregående exempel används den `telemetryConfig` enheten och de rapporterade egenskaperna som används av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -132,7 +132,7 @@ I föregående exempel `telemetryConfig` används enhetens dubbla önskade och r
    },
    ```
 
-2. Enhets appen meddelas om ändringen omedelbart om den är ansluten eller vid första åter anslutning. Device-appen rapporterar sedan den uppdaterade konfigurationen (eller ett fel tillstånd med hjälp `status` av egenskapen). Här är den del av de rapporterade egenskaperna:
+2. Enhets appen meddelas om ändringen omedelbart om den är ansluten eller vid första åter anslutning. Device-appen rapporterar sedan den uppdaterade konfigurationen (eller ett fel tillstånd med hjälp av egenskapen `status`). Här är den del av de rapporterade egenskaperna:
 
    ```json
    "reported": {
@@ -158,7 +158,7 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
 
 * **Hämta enhetens dubbla efter ID**. Den här åtgärden returnerar enhetens dubbla dokument, inklusive Taggar och önskade och rapporterat system egenskaper.
 
-* **Delvis uppdatering av enhets enhet** Den här åtgärden gör att lösningens Server del kan användas för att delvis uppdatera taggarna eller önskade egenskaper i en enhet. Den partiella uppdateringen uttrycks som ett JSON-dokument som lägger till eller uppdaterar en egenskap. Egenskaperna har angetts `null` till tas bort. I följande exempel skapas en ny önskad egenskap med värde `{"newProperty": "newValue"}`, vilket skriver över det befintliga värdet för `existingProperty` med `"otherNewValue"`och tar bort `otherOldProperty`. Inga andra ändringar har gjorts i befintliga önskade egenskaper eller Taggar:
+* **Delvis uppdatering av enhets enhet** Den här åtgärden gör att lösningens Server del kan användas för att delvis uppdatera taggarna eller önskade egenskaper i en enhet. Den partiella uppdateringen uttrycks som ett JSON-dokument som lägger till eller uppdaterar en egenskap. De egenskaper som anges för `null` tas bort. I följande exempel skapas en ny önskad egenskap med Value `{"newProperty": "newValue"}`, skriver över det befintliga värdet för `existingProperty` med `"otherNewValue"`och tar bort `otherOldProperty`. Inga andra ändringar har gjorts i befintliga önskade egenskaper eller Taggar:
 
    ```json
    {
@@ -174,15 +174,15 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
    }
    ```
 
-* **Ersätt önskade egenskaper**. Den här åtgärden gör att Server delen av lösningen helt skriver över alla befintliga önskade egenskaper och ersätter ett nytt JSON- `properties/desired`dokument för.
+* **Ersätt önskade egenskaper**. Den här åtgärden gör att Server delen av lösningen helt skriver över alla befintliga önskade egenskaper och ersätter ett nytt JSON-dokument för `properties/desired`.
 
-* **Ersätt Taggar**. Den här åtgärden gör att Server delen av lösningen fullständigt skriver över alla befintliga taggar och ersätter ett nytt JSON- `tags`dokument för.
+* **Ersätt Taggar**. Den här åtgärden gör att Server delen av lösningen fullständigt skriver över alla befintliga taggar och ersätter ett nytt JSON-dokument för `tags`.
 
 * **Få dubbla meddelanden**. Den här åtgärden gör att lösnings Server delen får ett meddelande när den dubbla ändras. För att göra det måste IoT-lösningen skapa en väg och ange data källan som lika med *twinChangeEvents*. Som standard finns inga sådana vägar i förväg, så inga dubbla meddelanden skickas. Om ändrings frekvensen är för hög, eller av andra orsaker, t. ex. interna problem, kan IoT Hub bara skicka ett meddelande som innehåller alla ändringar. Om ditt program behöver tillförlitlig granskning och loggning av alla mellanliggande tillstånd bör du därför använda meddelanden från enheten till molnet. Det dubbla aviserings meddelandet innehåller egenskaper och brödtext.
 
-  - properties
+  - Egenskaper
 
-    | Namn | Value |
+    | Namn | Värde |
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -196,7 +196,7 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
 
     Meddelande system egenskaper föregås av `$` symbolen.
 
-  - Body
+  - Innehåll
         
     Det här avsnittet innehåller alla dubbla ändringar i JSON-format. Den använder samma format som en korrigering, med skillnaden att den kan innehålla alla dubbla avsnitt: taggar, egenskaper. rapporterade, egenskaper. önskade och innehåller $metadata element. Exempel:
 
@@ -219,7 +219,7 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
     }
     ```
 
-Alla föregående åtgärder har stöd för [optimistisk](iot-hub-devguide-device-twins.md#optimistic-concurrency) samtidighet och kräver **ServiceConnect** -behörighet, enligt definitionen i [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md).
+Alla föregående åtgärder har stöd för [optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) och kräver **ServiceConnect** -behörighet, enligt definitionen i [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md).
 
 Förutom dessa åtgärder kan lösningens Server del:
 
@@ -245,11 +245,11 @@ SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md) gör det enkelt att a
 
 Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med följande begränsningar:
 
-* Alla nycklar i JSON-objekt är Skift läges känsliga 64 byte UTF-8 UNICODE-strängar. Tillåtna tecken utesluter Unicode-kontrolltecken (segment C0 och C1) och `.`, `$`, och SP.
+* Alla nycklar i JSON-objekt är UTF-8-kodade, SKIFT läges känsliga och upp till 1 KB långt. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.`, `$`och SP.
 
 * Alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna. Det maximala värdet för heltal är 4503599627370495 och det lägsta värdet för heltal är-4503599627370496.
 
-* Alla JSON-objekt i taggar, önskade och rapporterade egenskaper kan ha ett maximalt djup på 5. Till exempel är följande objekt giltigt:
+* Alla JSON-objekt i taggar, önskade och rapporterade egenskaper kan ha ett maximalt djup på 10. Till exempel är följande objekt giltigt:
 
    ```json
    {
@@ -260,7 +260,17 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
                    "three": {
                        "four": {
                            "five": {
-                               "property": "value"
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
                            }
                        }
                    }
@@ -271,11 +281,11 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
    }
    ```
 
-* Alla sträng värden kan vara högst 512 byte långa.
+* Alla sträng värden kan vara högst 4 KB långa.
 
 ## <a name="device-twin-size"></a>Enhetens dubbla storlek
 
-IoT Hub tillämpar en storleks begränsning på 8 KB för var och en av de respektive totala `tags`värdena `properties/desired`i, `properties/reported`och, förutom skrivskyddade element.
+IoT Hub tillämpar en begränsning för 8 KB storlek på var och en av de respektive totala värdena för `tags`, `properties/desired`och `properties/reported`, förutom skrivskyddade element.
 
 Storleken beräknas genom att räkna alla tecken, förutom UNICODE-kontrolltecken (segmenten C0 och C1) och blank steg utanför String-konstanter.
 
@@ -283,7 +293,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över g
 
 ## <a name="device-twin-metadata"></a>Enhetens dubbla metadata
 
-IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetens dubbla önskade och rapporterade egenskaper. Tidsstämplar anges i UTC och kodas i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetens dubbla önskade och rapporterade egenskaper. Tidsstämplar är UTC-formaterade och kodade i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -formatet `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
 Exempel:
 
@@ -339,7 +349,7 @@ Den här informationen lagras på alla nivåer (inte bara löv till JSON-struktu
 Taggar, önskade och rapporterade egenskaper alla stöder optimistisk samtidighet.
 Taggar har en ETag, som per [RFC7232](https://tools.ietf.org/html/rfc7232), som representerar TAGGENs JSON-representation. Du kan använda ETags i villkorliga uppdaterings åtgärder från lösningens Server del för att säkerställa konsekvens.
 
-Enhetens dubbla önskade och rapporterade egenskaper har inte ETags, men har ett `$version` värde som garanterar att det ökar. På samma sätt som en ETag, kan versionen användas av uppdaterings parten för att tvinga fram konsekvens av uppdateringar. Till exempel en enhets app för en rapporterad egenskap eller lösningens Server del för en önskad egenskap.
+Enhetens dubbla önskade och rapporterade egenskaper har inte ETags, men har ett `$version`-värde som garanterar att det ökar. På samma sätt som en ETag, kan versionen användas av uppdaterings parten för att tvinga fram konsekvens av uppdateringar. Till exempel en enhets app för en rapporterad egenskap eller lösningens Server del för en önskad egenskap.
 
 Versioner är också användbara när en iakttagit agent (t. ex. enhets appen som underrättar önskade egenskaper) måste stämma av races mellan resultatet av en Hämta-åtgärd och ett uppdaterings meddelande. [Avsnittet flöde för enhets åter anslutning](iot-hub-devguide-device-twins.md#device-reconnection-flow) innehåller mer information.
 
@@ -351,7 +361,7 @@ IoT Hub bevarar inte önskade egenskaper uppdaterings meddelanden för frånkopp
 2. Enhets app prenumererar på önskade egenskaper uppdatera meddelanden.
 3. Enhets appen hämtar det fullständiga dokumentet för önskade egenskaper.
 
-Device-appen kan ignorera alla meddelanden med `$version` mindre eller samma version av det fullständiga hämtade dokumentet. Den här metoden är möjlig eftersom IoT Hub garanterar att versioner alltid ökar.
+Device-appen kan ignorera alla meddelanden med `$version` mindre än eller lika med versionen av det fullständiga hämtade dokumentet. Den här metoden är möjlig eftersom IoT Hub garanterar att versioner alltid ökar.
 
 > [!NOTE]
 > Den här logiken är redan implementerad i SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md). Den här beskrivningen är användbar endast om enhets appen inte kan använda någon av Azure IoT-enhetens SDK: er och måste program mera MQTT-gränssnittet direkt.

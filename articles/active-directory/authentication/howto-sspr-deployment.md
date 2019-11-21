@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: fb79c6dd0358d0360c320cd67a46779b183ef21e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081525"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208503"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuera självbetjäning av lösenordsåterställning för Azure AD
 
@@ -136,7 +136,7 @@ För att säkerställa att distributionen fungerar som förväntat, bör du plan
 | Användaren loggar in när registreringen av lösen ords återställning tillämpas | Användaren uppmanas att registrera säkerhets information |
 | Användaren loggar in när registreringen av lösen ords återställning har slutförts | Användaren uppmanas inte att registrera säkerhets information |
 | SSPR-portalen är tillgänglig när användaren inte har någon licens | Är tillgänglig |
-| Återställ användar lösen ord från Windows 10-AADJ eller H + AADJ enhets Lås skärmen när användaren har registrerat sig | Användare kan återställa lösen ord |
+| Återställ användar lösen ord från Windows 10 Azure AD-ansluten eller hybrid Azure AD-ansluten enhets Lås skärm när användaren har registrerat sig | Användare kan återställa lösen ord |
 | SSPR-registrering och användnings data är tillgängliga för administratörer i nära real tid | Är tillgänglig via gransknings loggar |
 
 ### <a name="support-plan"></a>Supportplan

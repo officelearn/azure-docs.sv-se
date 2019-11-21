@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 5cf61d3446f960b65eb85538be9ea020671cced2
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: 1fe3598fd15424ab2593e3d236146c7566493743
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196046"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225125"
 ---
 # <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Använd utökat besluts träd för att förutse omsättning med Azure Machine Learning designer
 
@@ -31,7 +31,7 @@ Eftersom du försöker besvara frågan "vilket är en?" Detta kallas klassificer
 
 Här är det färdiga diagrammet för den här pipelinen:
 
-![Pipeline-diagram](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
+![Pipeline-diagram](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -51,11 +51,11 @@ För det första är en enkel data bearbetning.
 
 - RAW-datauppsättningen har många värden som saknas. Använd modulen **Rensa data som saknas** för att ersätta de saknade värdena med 0.
 
-    ![Rensa data uppsättningen](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Rensa data uppsättningen](./media/how-to-designer-sample-classification-predict-churn/cleaned-dataset.png)
 
 - Funktionerna och motsvarande omsättning är i olika data uppsättningar. Använd modulen **Lägg till kolumner** för att lägga till etikett kolumner i funktions kolumnerna. Den första kolumnen, **Col1**, är kolumnen etikett. Från visualiserings resultatet kan vi se att data uppsättningen är obalanserad. Det finns mer negativa (-1) exempel än positiva exempel (+ 1). Vi kommer att använda **SMOTE** -modulen för att öka undervisade ärenden senare.
 
-    ![Lägg till kolumn data uppsättningen](./media/how-to-ui-sample-classification-predict-churn/added-column1.png)
+    ![Lägg till kolumn data uppsättningen](./media/how-to-designer-sample-classification-predict-churn/added-column1.png)
 
 
 
@@ -69,7 +69,7 @@ För det första är en enkel data bearbetning.
 
 Visualisera utdata från modulen **utvärdera modell** för att se modellens prestanda i test uppsättningen. 
 
-![Utvärdera resultaten](./media/how-to-ui-sample-classification-predict-churn/evaluate-result.png)
+![Utvärdera resultaten](./media/how-to-designer-sample-classification-predict-churn/evaluate-result.png)
 
  Du kan flytta skjutreglaget **tröskelvärde** och se måtten för den binära klassificerings aktiviteten. 
 

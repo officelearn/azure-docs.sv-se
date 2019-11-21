@@ -1,6 +1,6 @@
 ---
 title: Konfigurera belastnings utjämning och utgående regler med hjälp av Azure PowerShell
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Den här artikeln visar hur du konfigurerar belastnings utjämning och utgående regler i Standard Load Balancer genom att använda Azure PowerShell.
 services: load-balancer
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: b621d56a76a51f9ce9df10f88f5c3f2f4babfc03
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 5fd68f4559420ca688b3f4d6f6d66ee52db5191e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816030"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225431"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med Azure PowerShell
 

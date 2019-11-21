@@ -1,6 +1,6 @@
 ---
 title: Skapa en offentlig belastningsutjämnare – Azure-mall
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Lär dig hur du skapar en offentlig lastbalanserare i Resource Manager med hjälp av en mall
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4cfbbfb17e8be3ae78aad5aa5125020762f864c7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275282"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225353"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Skapa en offentlig lastbalanserare med hjälp av en mall
 
@@ -62,12 +62,12 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
     azure config mode arm
     ```
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Följande utdata förväntas från kommandot ovan:
 
         info:    New mode is arm
 
 3. Navigera till [snabbstartsmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) i webbläsaren, kopiera innehållet i JSON-filen och klistra in det i en ny fil på din dator. I det här scenariot kopierar du värdena nedan till en fil med namnet **c:\lb\azuredeploy.parameters.json**.
-4. Kör cmdleten **azure group deployment create** för att distribuera den nya lastbalanseraren med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter utdatan beskriver de parametrar som används.
+4. Kör cmdleten **azure group deployment create** för att distribuera den nya lastbalanseraren med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter alla utdata förklarar parametrarna som använts.
 
     ```azurecli
     azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'

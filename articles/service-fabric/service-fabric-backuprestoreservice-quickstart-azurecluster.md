@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 43adb9f9d9989b39faa3af705a61ae8b0626a43e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 83a267453cd0c4f36fa5819d9d29934cf543bb76
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005537"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209620"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhets kopiering och återställning i Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -185,6 +185,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Använda Service Fabric Explorer
+
+1. I Service Fabric Explorer går du till fliken säkerhets kopior och väljer åtgärder > Skapa säkerhets kopierings princip.
+
+    ![Skapa säkerhets kopierings princip][6]
+
+2. Fyll i informationen. För Azure-kluster ska AzureBlobStore väljas.
+
+    ![Skapa säkerhets kopierings policy Azure-Blob Storage][7]
+
 ### <a name="enable-periodic-backup"></a>Aktivera periodisk säkerhets kopiering
 När du har definierat säkerhets kopierings policy för att uppfylla data skydds kraven för programmet ska säkerhets kopierings principen associeras med programmet. Beroende på krav kan säkerhets kopierings policyn associeras med ett program, en tjänst eller en partition.
 
@@ -310,3 +320,5 @@ Om du vill visa säkerhets kopior i Service Fabric Explorer navigerar du till en
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
+[6]: ./media/service-fabric-backuprestoreservice/create-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/creation-bp.png

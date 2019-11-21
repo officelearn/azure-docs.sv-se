@@ -1,22 +1,17 @@
 ---
-title: Azure CLI-exempel – Azure Functions | Microsoft Docs
+title: Azure CLI-exempel – Azure Functions
 description: Azure CLI-exempel – Azure Functions
-services: functions
-documentationcenter: functions
 author: syntaxc4
-manager: jeconnoc
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: azure-functions
 ms.topic: sample
 ms.date: 01/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a5cfa6e7a054003750536fbb5c8206ebabafe966
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: b875d2a478ccbd2fa99f43e584e02018866fc5cd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514442"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230918"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -37,7 +32,7 @@ Följande tabell inkluderar länkar till bash-skript för Azure Functions som an
 | Kontinuerlig distribution | Beskrivning|
 |---|---|
 | [Distribuera från GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Skapa en funktionsapp som distribueras från en GitHub-lagringsplats.  |
-| [Distribuera från Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Skapa en funktionsapp som distribueras från en Azure DevOps-lagringsplats.  |
+| [Distribuera från Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Skapa en Function-app som distribueras från en Azure DevOps-lagringsplats.  |
 
 | Konfigurera app | Beskrivning |
 |---|---|

@@ -468,6 +468,8 @@
   items:
     - name: Support
       href: support.md
+    - name: Regioner
+      href: regions.md
     - name: Priser och begränsningar
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Efterlevnad

@@ -1,20 +1,15 @@
 ---
 title: Köra Durable Functions som webbjobb – Azure
 description: Lär dig hur du kodar och konfigurerar Durable Functions att köras i WebJobs med hjälp av WebJobs SDK.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 06f2019dbaff390e88c73d1aae7a635a34a64721
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d8dd0c86fbc520d0bd3ef6034891bd9871774b4a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614609"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232741"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Köra Durable Functions som WebJobs
 
@@ -26,7 +21,7 @@ I version 3. x av WebJobs SDK är värden en implementering av `IHost`och i vers
 
 Länknings Durable Functionss exemplet är tillgängligt i en WebJobs SDK 2. x-version: Hämta eller klona [Durable Functions-lagringsplatsen](https://github.com/azure/azure-functions-durable-extension/)och gå till mappen *samples\\webjobssdk\\Chaining* .
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med grunderna i WebJobs SDK C# , klass biblioteks utveckling för Azure Functions och Durable functions. Om du behöver en introduktion till dessa ämnen, se följande resurser:
 
@@ -124,7 +119,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 Durable Functions i samband med WebJobs skiljer sig något från Durable Functions i samband med Azure Functions. Det är viktigt att vara medveten om skillnaderna när du skriver koden.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151215"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208404"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -114,13 +114,14 @@ Här följer stegvisa guider om hur du kan använda villkorlig åtkomst för att
 - [Kräv MFA för Azure-hantering](howto-conditional-access-policy-azure-management.md)
 - [Blockera äldre autentisering](howto-conditional-access-policy-block-legacy.md)
 - [Kräv MFA för alla användare](howto-conditional-access-policy-all-users-mfa.md)
+- [Kräv Azure MFA-registrering](../identity-protection/howto-identity-protection-configure-mfa-policy.md) – kräver Azure AD Identity Protection
 
 ## <a name="enabling-security-defaults"></a>Aktivera säkerhets inställningar
 
 Så här aktiverar du säkerhets inställningar i din katalog:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) As en säkerhets administratör, en administratör för villkorlig åtkomst eller global administratör.
-1. Bläddra till **Azure Active Directory**   > **Egenskaper**.
+1. Logga in på [Azure Portal](https://portal.azure.com) som säkerhets administratör, administratör för villkorlig åtkomst eller global administratör.
+1. Bläddra till **Azure Active Directory** > **Egenskaper**.
 1. Välj **hantera säkerhets inställningar**.
 1. Ställ in **Aktivera säkerhets inställningar** växla till **Ja**.
 1. Välj **Spara**.

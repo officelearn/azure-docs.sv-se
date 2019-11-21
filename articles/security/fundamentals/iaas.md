@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 7558ad2e5a4404db140daff89171af92c6072ef6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3368f72aeb7909c3e0a8653bb5b094729c4c45ed
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805983"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228023"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -68,7 +68,7 @@ Om den virtuella datorn kör kritiska program som behöver hög tillgänglighet 
 En tillgänglighets uppsättning är en logisk gruppering som du kan använda i Azure för att se till att de VM-resurser som du placerar i den är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure säkerställer att de virtuella datorerna som du placerar i en tillgänglighets uppsättning körs över flera fysiska servrar, beräknings rack, lagrings enheter och nätverks växlar. Om ett maskinvaru-eller Azure-program fel uppstår påverkas endast en del av de virtuella datorerna och det övergripande programmet fortsätter att vara tillgängligt för dina kunder. Tillgänglighets uppsättningar är en viktig funktion när du vill bygga pålitliga moln lösningar.
 
 ## <a name="protect-against-malware"></a>Skydda mot skadlig kod
-Du bör installera skydd mot skadlig kod för att hjälpa till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](antimalware.md) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)och [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+Du bör installera skydd mot skadlig kod för att hjälpa till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](antimalware.md) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)och [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. För miljöer som är separat från produktions miljön kan du använda ett tillägg för program mot skadlig kod för att skydda dina virtuella datorer och moln tjänster.
 
@@ -152,13 +152,13 @@ Vi rekommenderar att du krypterar dina virtuella hård diskar (VHD: er) för att
 Följande är metod tips för att använda Azure Disk Encryption:
 
 **Bästa praxis**: Aktivera kryptering på virtuella datorer.   
-**Information**: Azure Disk Encryption genererar och skriver krypterings nycklarna till nyckel valvet. Hantering av krypterings nycklar i ditt nyckel valv kräver Azure AD-autentisering. Skapa ett Azure AD-program för det här ändamålet. För autentisering kan du använda antingen autentisering baserad på klientens hemliga eller [klientbaserade Azure AD-autentisering](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+**Information**: Azure Disk Encryption genererar och skriver krypterings nycklarna till nyckel valvet. Hantera krypteringsnycklar i ditt nyckelvalv kräver Azure AD-autentisering. Skapa ett Azure AD-program för detta ändamål. Du kan använda antingen autentisering med klient-hemlighet för autentisering, eller [klientautentisering certifikatbaserad Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 **Bästa praxis**: Använd en nyckel krypterings nyckel (KEK) för ytterligare ett säkerhets lager för krypterings nycklar. Lägg till en KEK i ditt nyckel valv.   
-**Information**: Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckel krypterings nyckel i nyckel valvet. Du kan också importera en KEK från din lokala maskin varu säkerhetsmodul (HSM) för nyckel hantering. Mer information finns i Key Vault- [dokumentationen](../../key-vault/key-vault-hsm-protected-keys.md). När en nyckel krypterings nyckel anges använder Azure Disk Encryption den nyckeln för att omsluta krypterings hemligheter innan du skriver till Key Vault. Att hålla en depositions kopia av den här nyckeln i en lokal nyckel hantering HSM ger ytterligare skydd mot oavsiktlig borttagning av nycklar.
+**Information**: Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckel krypterings nyckel i nyckel valvet. Du kan också importera en KEK från din lokala maskin varu säkerhetsmodul (HSM) för nyckel hantering. Mer information finns i Key Vault- [dokumentationen](../../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. Att hålla en depositions kopia av den här nyckeln i en lokal nyckel hantering HSM ger ytterligare skydd mot oavsiktlig borttagning av nycklar.
 
 **Bästa praxis**: ta en [ögonblicks bild](../../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhets kopia innan diskarna krypteras. Säkerhets kopieringar ger ett återställnings alternativ om ett oväntat fel uppstår under krypteringen.   
-**Information**: virtuella datorer med hanterade diskar behöver en säkerhets kopia innan krypteringen utförs. När du har skapat en säkerhets kopia kan du använda cmdleten **set-AzVMDiskEncryptionExtension** för att kryptera hanterade diskar genom att ange parametern *-skipVmBackup* . Mer information om hur du säkerhetskopierar och återställer krypterade virtuella datorer finns i [Azure Backup](../../backup/backup-azure-vms-encryption.md) artikeln.
+**Information**: virtuella datorer med hanterade diskar behöver en säkerhets kopia innan krypteringen utförs. När du har skapat en säkerhets kopia kan du använda cmdleten **set-AzVMDiskEncryptionExtension** för att kryptera hanterade diskar genom att ange parametern *-skipVmBackup* . Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../../backup/backup-azure-vms-encryption.md) artikeln.
 
 **Bästa praxis**: för att se till att krypterings hemligheterna inte korsar regionala gränser, Azure Disk Encryption behöver nyckel valvet och de virtuella datorerna finns i samma region.   
 **Information**: skapa och Använd ett nyckel valv i samma region som den virtuella dator som ska krypteras.

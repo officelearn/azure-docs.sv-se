@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c2769210b40b011a35973e48eebce60526f6fc10
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987170"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207172"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Felsöka enheter med kommandot dsregcmd
 
@@ -28,10 +28,10 @@ I det här avsnittet visas status parametrar för enhets anslutning. I tabellen 
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Enhets tillstånd |
 | ---   | ---   | ---   | ---   |
-| JA | NO | NO | Azure AD-ansluten |
-| NO | NO | JA | Domänansluten |
-| JA | NO | JA | Hybrid AD-ansluten |
-| NO | JA | JA | Lokala DRS-anslutna |
+| Ja | NO | NO | Azure AD-ansluten |
+| NO | NO | Ja | Domänanslutna |
+| Ja | NO | Ja | Hybrid AD-ansluten |
+| NO | Ja | Ja | Lokala DRS-anslutna |
 
 > [!NOTE]
 > Workplace Join (Azure AD-registrerad) visas i avsnittet "användar tillstånd"
@@ -54,7 +54,7 @@ I det här avsnittet visas status parametrar för enhets anslutning. I tabellen 
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Enhetsinformation
+## <a name="device-details"></a>Enhets information
 
 Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas enhets identifierings information som lagras i molnet.
 
@@ -84,6 +84,9 @@ Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutnin
 ## <a name="tenant-details"></a>Klient information
 
 Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas vanliga klient uppgifter när en enhet är ansluten till Azure AD.
+
+> [!NOTE]
+> Om MDM-URL: er i det här avsnittet är tomma, betyder det att MDM antingen inte har kon figurer ATS eller att den aktuella användaren inte omfattas av MDM-registreringen. Kontrol lera inställningarna för mobilitet i Azure AD för att granska MDM-konfigurationen.
 
 > [!NOTE]
 > Även om du ser MDM-URL: er betyder det inte att enheten hanteras av en MDM. Informationen visas om klienten har MDM-konfiguration för automatisk registrering även om själva enheten inte hanteras. 
@@ -133,7 +136,7 @@ Det här avsnittet innehåller status för olika attribut för den användare so
 - **WorkplaceJoined:** -anges till "Ja" om registrerade Azure AD-konton har lagts till i enheten i den aktuella ntuser-kontexten.
 - **WamDefaultSet:** -Ställ in på Ja om ett standard-webbkonto för WAM skapas för den inloggade användaren. Det här fältet kan visa ett fel om dsreg/status körs i administratörs kontexten. 
 - **WamDefaultAuthority:** -inställt på "organisationer" för Azure AD.
-- **WamDefaultId:** -Always https://login.microsoft.com"" för Azure AD.
+- **WamDefaultId:** -always https://login.microsoft.comför Azure AD.
 - **WamDefaultGUID:** -WAM-providerns (Azure AD/Microsoft-konto) GUID för standard-WAM-webbkontot. 
 
 ### <a name="sample-user-state-output"></a>Exempel på utdata från användar tillstånd

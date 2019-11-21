@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
-ms.openlocfilehash: 14d7c6c6352528207a20071908c31ea684dde19d
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 64e1f172a947cb08795272fe2a022e9d7beac7a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903643"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215731"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: python-exempel
 
@@ -21,6 +21,9 @@ ms.locfileid: "73903643"
 > * [.NET-exempel](hdinsight-sdk-dotnet-samples.md)
 > * [Java-exempel](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
+
+> [!Important]
+> Python 2,7 är inaktuellt den 1 januari 2020. Om du fortfarande använder python 2,7 uppgraderar du till 3,7 för att kunna använda HDInsight python SDK.  
 
 Den här artikeln innehåller:
 

@@ -1,17 +1,19 @@
 ---
-title: Käll omvandling i data flöde för mappning – Azure Data Factory
+title: Käll omvandling i data flöde för mappning
 description: Lär dig hur du konfigurerar en käll omvandling i mappnings data flödet.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 5889d96057d4b028e8716e407819d17938f58b3c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675957"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217737"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Käll omvandling för att mappa data flöde 
 
@@ -77,8 +79,8 @@ Jokertecken exempel:
 * ```[]``` matchar ett tecken i hakparenteserna
 
 * ```/data/sales/**/*.csv``` hämtar alla CSV-filer under/data/Sales
-* ```/data/sales/20??/**``` hämtar alla filer i 20-talet
-* ```/data/sales/2004/*/12/[XY]1?.csv``` får alla CSV-filer i 2004 i december som börjar med X eller Y som föregås av ett tvåsiffrigt tal
+* ```/data/sales/20??/**``` hämtar alla filer i det 20-talet
+* ```/data/sales/2004/*/12/[XY]1?.csv``` hämtar alla CSV-filer i 2004 i december som börjar med X eller Y som föregås av ett tvåsiffrigt tal
 
 **Partitionens rot Sök väg:** Om du har partitionerade mappar i fil källan med ett ```key=value``` format (t. ex. Year = 2019) kan du tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödes data strömmen.
 
@@ -169,7 +171,7 @@ När du använder CosmosDB som ursprungs typ finns det några alternativ att tä
 
 På fliken **optimera** för käll omvandling kan du se en typ av **Källtyp** . Det här alternativet är bara tillgängligt när din källa är Azure SQL Database. Detta beror på att Data Factory försöker göra anslutningar parallella för att köra stora frågor mot din SQL Database källa.
 
-![Käll partitions inställningar](media/data-flow/sourcepart3.png "Partitionering")
+![Käll partitions inställningar](media/data-flow/sourcepart3.png "partitionering")
 
 Du behöver inte partitionera data på din SQL Database källa, men partitioner är användbara för stora frågor. Du kan basera partitionen på en kolumn eller en fråga.
 

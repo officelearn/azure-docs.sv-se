@@ -2,17 +2,17 @@
 title: Vad är Azure Private Link service?
 description: Lär dig mer om Azure Private Link service.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: cad8e3e4f32a8773fe914362b637d39765a23c21
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.author: allensu
+ms.openlocfilehash: 8ac93e7ed1638137e70086ac22fa9bb97606830e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672522"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228049"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -42,13 +42,13 @@ När en konsument har initierat en anslutning kan tjänste leverantören accepte
 
 Om den privata länk tjänsten inte längre används kan du ta bort den. Men innan du tar bort tjänsten bör du kontrol lera att det inte finns några privata slut punkts anslutningar kopplade till den. Du kan avvisa alla anslutningar och ta bort tjänsten.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Egenskaper
 
 En privat länk-tjänst anger följande egenskaper: 
 
 |Egenskap |Förklaring  |
 |---------|---------|
-|Etablerings status (provisioningState)  |En skrivskyddad egenskap som visar det aktuella etablerings läget för tjänsten för privat länk. Tillämpliga etablerings tillstånd är: Rader Bröt Brutit Uppdaterar ". När etablerings statusen har slutförts har du slutfört den privata länk tjänsten.        |
+|Etablerings status (provisioningState)  |En skrivskyddad egenskap som visar det aktuella etablerings läget för tjänsten för privat länk. Tillämpliga etablerings tillstånd är: "ta bort; Bröt Brutit Uppdaterar ". När etablerings statusen har slutförts har du slutfört den privata länk tjänsten.        |
 |Alias (alias)     | Alias är en globalt unik sträng som är skrivskyddad för din tjänst. Det hjälper dig att maskera kund informationen för din tjänst och samtidigt skapar ett namn som är enkelt att dela för din tjänst. När du skapar en privat länk-tjänst genererar Azure alias för din tjänst som du kan dela med dina kunder. Dina kunder kan använda det här aliaset för att begära en anslutning till din tjänst.          |
 |Synlighet (synlighet)     | Visibility är den egenskap som styr exponerings inställningarna för din privata länk tjänst. Tjänste leverantörer kan välja att begränsa exponeringen för deras tjänster till prenumerationer med RBAC-behörighet (rollbaserad åtkomst kontroll), en begränsad uppsättning prenumerationer eller alla Azure-prenumerationer.          |
 |Automatiskt godkännande (automatiskt godkännande)    |   Automatiskt godkännande styr automatisk åtkomst till den privata länk tjänsten. De prenumerationer som anges i listan med automatiskt godkännande godkänns automatiskt när en anslutning begärs från privata slut punkter i dessa prenumerationer.          |
@@ -77,13 +77,13 @@ En privat länk-tjänst anger följande egenskaper:
 
 **Alias** är ett globalt unikt namn för din tjänst. Det hjälper dig att maskera kund informationen för din tjänst och samtidigt skapar ett namn som är enkelt att dela för din tjänst. När du skapar en privat länk-tjänst genererar Azure ett alias för tjänsten som du kan dela med dina kunder. Dina kunder kan använda det här aliaset för att begära en anslutning till din tjänst.
 
-Aliaset består av tre delar: *Prefix*. *GUID*. *Suffix*
+Aliaset består av tre delar: *prefix*. *GUID*. *Suffix*
 
 - Prefix är tjänstens namn. Du kan välja ett eget prefix. När du har skapat aliaset kan du inte ändra det, så välj ditt prefix på lämpligt sätt.  
 - GUID kommer att tillhandahållas av plattformen. Detta gör att namnet blir globalt unikt. 
 - Suffixet läggs till av Azure: *region*. Azure. privatelinkservice 
 
-Fullständigt alias:  *Prefix*. {GUID}. *region*. Azure. privatelinkservice  
+Fullständigt alias: *prefix*. {GUID}. *region*. Azure. privatelinkservice  
 
 ## <a name="control-service-exposure"></a>Kontrol lera tjänstens exponering
 

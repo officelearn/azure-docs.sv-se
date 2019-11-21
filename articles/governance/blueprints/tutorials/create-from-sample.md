@@ -1,14 +1,14 @@
 ---
-title: Skapa en miljö från ett skiss exempel
-description: Använd ett skiss exempel för att skapa en skiss definition som konfigurerar två resurs grupper och konfigurerar en roll tilldelning för var och en.
+title: 'Självstudie: skiss exempel till ny miljö'
+description: I den här självstudien använder du ett skiss exempel för att skapa en skiss definition som konfigurerar två resurs grupper och konfigurerar en roll tilldelning för var och en.
 ms.date: 03/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 31363f8756a8483533a24a8005c0ca9cb7ea7ea0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960274"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74216914"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudie: skapa en miljö från ett skiss exempel
 

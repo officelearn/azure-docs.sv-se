@@ -1,14 +1,14 @@
 ---
-title: Hantera taggstyrning
-description: Använd Azure Policy ändra-resultatet för att skapa och använda en etikett styrnings modell på nya och befintliga resurser.
+title: 'Självstudie: hantera märkes styrning'
+description: I den här självstudien använder du ändrings resultatet för Azure Policy för att skapa och tillämpa en etikett styrnings modell på nya och befintliga resurser.
 ms.date: 11/04/2019
 ms.topic: tutorial
-ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 59de9d6ff03e160f83e2f2ad8b8b697109f31cd7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069662"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74216688"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Självstudie: hantera märkes styrning med Azure Policy
 

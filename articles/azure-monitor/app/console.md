@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 01/30/2019
+ms.date: 11/19/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: 1cafa78fb4fba28fbd0691e256efe482fc9664ef
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: ee8dabcc957364bade36608067aad568662c24ae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678203"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232726"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
@@ -22,15 +22,14 @@ Med [Application Insights](../../azure-monitor/app/app-insights-overview.md) kan
 Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in med ett Microsoft-konto som du kan ha för Windows, Xbox Live eller andra Microsoft-molntjänster. Ditt team kan ha en organisations prenumeration på Azure: Be ägaren att lägga till dig med hjälp av din Microsoft-konto.
 
 > [!NOTE]
-> Det finns en ny beta Application Insights SDK som heter [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) som kan användas för att aktivera Application Insights för alla konsol program. Vi rekommenderar att du använder det här paketet och tillhör ande instruktioner [härifrån.](../../azure-monitor/app/worker-service.md) Det här paketet riktar [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)och kan därför användas i .net Core 2,0 eller högre, och .NET Framework 4.7.2 eller högre.
-Det här dokumentet kommer att bli inaktuellt när en stabil version av det nya paketet släpps.
+> Det finns en ny Application Insights SDK som heter [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) som kan användas för att aktivera Application Insights för alla konsol program. Vi rekommenderar att du använder det här paketet och tillhör ande instruktioner [härifrån.](../../azure-monitor/app/worker-service.md) Det här paketet riktar [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)och kan därför användas i .net Core 2,0 eller högre, och .NET Framework 4.7.2 eller högre.
 
 ## <a name="getting-started"></a>Komma igång
 
-* [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md) på [Azure Portal](https://portal.azure.com). För program typ väljer du **Allmänt**.
+* [Skapa en Application Insights-resurs](https://portal.azure.com) på [Azure Portal](../../azure-monitor/app/create-new-resource.md). För program typ väljer du **Allmänt**.
 * Kopiera instrumenteringsnyckeln. Leta upp nyckeln i den **grundläggande** List rutan för den nya resurs som du skapade. 
 * Installera det senaste [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) -paketet.
-* Ange Instrumentation-nyckeln i koden innan du spårar en telemetri (eller anger APPINSIGHTS_INSTRUMENTATIONKEY-miljövariabeln). Därefter bör du kunna spåra telemetri manuellt och se det på Azure Portal
+* Ange Instrumentation-nyckeln i koden innan du spårar eventuell telemetri (eller anger APPINSIGHTS_INSTRUMENTATIONKEY miljövariabel). Därefter bör du kunna spåra telemetri manuellt och se det på Azure Portal
 
 ```csharp
 // you may use different options to create configuration as shown later in this article
@@ -42,13 +41,13 @@ telemetryClient.TrackTrace("Hello World!");
 
 * Installera den senaste versionen av [Microsoft. ApplicationInsights. DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) -paketet – det spårar automatiskt http, SQL eller andra externa beroende anrop.
 
-Du kan initiera och konfigurera Application Insights från koden eller med hjälp av `ApplicationInsights.config`-filen. Kontrol lera att initieringen sker så tidigt som möjligt. 
+Du kan initiera och konfigurera Application Insights från koden eller med `ApplicationInsights.config` filen. Kontrol lera att initieringen sker så tidigt som möjligt. 
 
 > [!NOTE]
 > Instruktioner som hänvisar till **ApplicationInsights. config** gäller endast appar som är riktade till .NET Framework och som inte gäller för .net Core-program.
 
 ### <a name="using-config-file"></a>Använda konfigurations filen
-Application Insights SDK söker som standard efter `ApplicationInsights.config`-fil i arbets katalogen när `TelemetryConfiguration` skapas
+Som standard letar Application Insights SDK efter `ApplicationInsights.config` fil i arbets katalogen när `TelemetryConfiguration` skapas
 
 ```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads ApplicationInsights.config file if present
@@ -98,7 +97,7 @@ Du kan få ett fullständigt exempel på konfigurations filen genom att installe
 > [!NOTE]
 > Det finns inte stöd för att läsa konfigurations filen på .NET Core. Du kan överväga att använda [Application Insights SDK för ASP.net Core](../../azure-monitor/app/asp-net-core.md)
 
-* Under program start skapas och konfigureras `DependencyTrackingTelemetryModule`-instans – det måste vara singleton och måste bevaras för programmets livs längd.
+* Under program start skapas och konfigureras `DependencyTrackingTelemetryModule` instans – det måste vara singleton och måste bevaras för programmets livs längd.
 
 ```csharp
 var module = new DependencyTrackingTelemetryModule();
@@ -125,7 +124,7 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Om du har skapat konfigurationen med en normal `TelemetryConfiguration()`-konstruktor måste du även aktivera korrelations stöd. **Det behövs inte** om du läser konfigurationen från filen, använt `TelemetryConfiguration.CreateDefault()` eller `TelemetryConfiguration.Active`.
+Om du har skapat en konfiguration med en vanlig `TelemetryConfiguration()`-konstruktor måste du även aktivera korrelations stöd. **Det behövs inte** om du läser konfigurationen från filen, använt `TelemetryConfiguration.CreateDefault()` eller `TelemetryConfiguration.Active`.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
-ms.date: 06/01/2019
-ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: dce4fee57a6d712534ba265cc932e10e66fc9899
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497885"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232640"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
@@ -272,20 +272,20 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | tecken        | 6.0 – 84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
-| Lektion        | 7.3-15     | 
+| Klass        | 7.3-15     | 
 | CLI          | 1.1.0      | 
 | klippare        | 0.6.0      | 
 | flernodskluster      | 2.0.7-1    | 
 | codetools    | 0,2 – 16     | 
 | colorspace   | 1.4-1      | 
-| Kompilatorn     | 3.5.1      | 
+| kompilatorn     | 3.5.1      | 
 | färg       | 1.3.4      | 
 | Klammerparentes         | 3.3        | 
 | data. table   | 1.12.2     | 
-| Data uppsättningar     | 3.5.1      | 
+| datasets     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
-| nedbrytning       | 0.6.19     | 
+| digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
 | utvärdera     | 0,14       | 
@@ -293,7 +293,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
 | förvalta      | 0,8-71     | 
-| ADFS           | 1.3.1      | 
+| fs           | 1.3.1      | 
 | gdata        | 2.18.0     | 
 | generisk typ     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
@@ -313,7 +313,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | httr         | 1.4.0      | 
 | ipred        | 0,9 – 9      | 
 | iteratorer    | 1.0.10     | 
-| jsonlite     | 1,6        | 
+| jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
 | knitr        | 1,23       | 
 | märkning     | 0,3        | 
@@ -323,9 +323,9 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | lubridate    | 1.7.4      | 
 | magrittr     | 1.5        | 
 | markdown     | 1          | 
-| VIKTPROCENT         | 7.3-51.4   | 
+| MASS         | 7.3-51.4   | 
 | Matrix       | 1.2 – 17     | 
-| Indatametod      | 3.5.1      | 
+| indatametod      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
 | MIME         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
@@ -334,7 +334,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | nlme         | 3.1-140    | 
 | vasslepulver         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
-| Openssl      | 1,4        | 
+| openssl      | 1.4        | 
 | parallel     | 3.5.1      | 
 | pelar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 

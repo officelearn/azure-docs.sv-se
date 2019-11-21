@@ -2,7 +2,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Översikt över Azure Resource Graph
+    - name: Vad är Azure Resource Graph?
       displayName: 'Resource Manager, query language, rbac, permissions'
       href: overview.md
 - name: Snabbstarter

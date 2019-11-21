@@ -1,22 +1,18 @@
 ---
 title: Skapa en funktion som kan integreras med Azure Logic Apps
 description: Skapa en funktion som integrerar med Azure Logic Apps och Azure Cognitive Services för att kategorisera tweetsentiment och skicka meddelanden när sentimentet är svagt.
-services: functions, logic-apps, cognitive-services
-keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 author: craigshoemaker
-manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480022"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226612"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -36,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Anslut logikappen till funktionen.
 > * Skicka ett e-postmeddelande baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Ett aktivt [Twitter](https://twitter.com/)-konto. 
 + Ett [Outlook.com](https://outlook.com/)-konto (för att skicka meddelanden).
@@ -47,7 +43,7 @@ Om du inte redan har gjort detta måste du slutföra stegen för att skapa din f
 
 API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser. Använd API för textanalys för att identifiera tweetsentimenten som övervakas.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -58,7 +54,7 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
     | Inställning      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | --- |
     | **Namn** | MyCognitiveServicesAccnt | Välj ett unikt kontonamn. |
-    | **Location** | Västra USA | Använd platsen som är närmast dig. |
+    | **Plats** | USA, västra | Använd platsen som är närmast dig. |
     | **prisnivå** | F0 | Börja med den lägsta nivån. Om du får slut på anrop skalar du till en högre nivå.|
     | **Resursgrupp** | myResourceGroup | Använd samma resursgrupp för alla tjänster i självstudien.|
 
@@ -125,7 +121,7 @@ Med Functions får du ett bra sätt att avlasta pågående uppgifter i ett logik
     ```
     Den här funktionskoden returnerar en färgkategori baserat på sentimentets poäng från begäran. 
 
-4. Testa funktionen genom att klicka på **Test** längst till höger för att expandera fliken Test. Skriv värdet `0.2` för **Brödtext i förfrågan** och klicka sedan på **Run**. Värdet **RED** (Röd) returneras i brödtexten i svaret. 
+4. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. Värdet **RED** (Röd) returneras i brödtexten i svaret. 
 
     ![Testa funktionen i Azure Portal](./media/functions-twitter-email/07-function-test.png)
 
@@ -145,7 +141,7 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
     | ----------------- | ------------ | ------------- |
     | **Namn** | TweetSentiment | Välj ett lämpligt namn för din app. |
     | **Resursgrupp** | myResourceGroup | Välj samma befintliga resursgrupp som tidigare. |
-    | **Location** | Östra USA | Välj en plats i närheten av dig. |    
+    | **Plats** | USA, östra | Välj en plats i närheten av dig. |    
 
 4. När du har angett rätt inställningsvärden klickar du på **Skapa** för att skapa logikappen. 
 
@@ -242,7 +238,7 @@ Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när senti
 | **Ämne** | Negativt tweetsentiment identifierat  | E-postmeddelandets ämnesrad.  |
 | **Brödtext** | Tweet-text, plats | Klicka på parametrarna **Tweet-text** och **Plats**. |
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 Nu när arbetsflödet är klart kan du aktivera logikappen och se när funktionen är igång.
 

@@ -1,111 +1,111 @@
 ---
-title: Självstudie – minska kostnaderna i Azure med optimerings rekommendationer | Microsoft Docs
-description: Den här självstudien hjälper dig att minska kostnaderna för Azure när du arbetar med optimerings rekommendationer.
+title: Tutorial - Reduce Azure costs with optimization recommendations | Microsoft Docs
+description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 10/24/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 603de4d9bed936ecb91f130b0e30f6d1383a9092
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a9dbb121cab49024aaf0dc65bbac938764d9f8b2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935840"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229836"
 ---
-# <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudie: Optimera kostnader från rekommendationer
+# <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimize costs from recommendations
 
-Azure Cost Management tillhandahåller tillsammans med Azure Advisor rekommendationer för kostnadsoptimering. Azure Advisor hjälper dig att optimera och förbättra effektiviteten genom att identifiera inaktiva och underutnyttjade resurser. Den här självstudien vägleder dig genom ett exempel där du kan identifiera underutnyttjade Azure-resurser och sedan vidta åtgärder för att minska kostnaderna.
+Azure Cost Management tillhandahåller tillsammans med Azure Advisor rekommendationer för kostnadsoptimering. Azure Advisor hjälper dig att optimera och förbättra effektiviteten genom att identifiera inaktiva och underutnyttjade resurser. This tutorial walks you through an example where you identify underutilized Azure resources and then you take action to reduce costs.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Visa rekommendationer för kostnads optimering för att se potentiell användnings effektivitet
-> * Vidta rekommendationer för att ändra storlek på en virtuell dator till ett mer kostnads effektivt alternativ
-> * Verifiera åtgärden för att säkerställa att storleken på den virtuella datorn har ändrats
+> * View cost optimization recommendations to view potential usage inefficiencies
+> * Act on a recommendation to resize a virtual machine to a more cost-effective option
+> * Verify the action to ensure that the virtual machine was successfully resized
 
 ## <a name="prerequisites"></a>Krav
-Rekommendationerna är tillgängliga för olika omfattningar och Azure-konto typer. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+Recommendations are available for a variety of scopes and Azure account types. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Prenumeration
 - Resursgrupp
 
-Du måste ha aktiva virtuella datorer med minst 14 dagars aktivitet.
+You must have active virtual machines with at least 14 days of activity.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
 
-## <a name="view-cost-optimization-recommendations"></a>Visa rekommendationer för kostnads optimering
+## <a name="view-cost-optimization-recommendations"></a>View cost optimization recommendations
 
-Om du vill visa rekommendationer för kostnads optimering för en prenumeration öppnar du önskad omfattning i Azure Portal och väljer **Advisor-rekommendationer**.
+To view cost optimization recommendations for a subscription, open the desired scope in the Azure portal and select **Advisor recommendations**.
 
-Om du vill visa rekommendationer för en hanterings grupp öppnar du önskad omfattning i Azure Portal och väljer **kostnads analys** i menyn. Använd **omfånget** Pill för att växla till ett annat omfång, till exempel en hanterings grupp. Välj **Advisor-rekommendationer** på menyn. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+To view recommendations for a management group, open the desired scope in the Azure portal and select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope, such as a management group. Select **Advisor recommendations** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-![Rekommendationer för Cost Management Advisor som visas i Azure Portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![Cost Management Advisor recommendations shown in the Azure portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
-Listan över rekommendationer identifierar användnings ineffektivitet eller visar köp rekommendationer som kan hjälpa dig att spara ytterligare pengar. De totala **möjliga årliga besparingarna** visar det totala beloppet som du kan spara om du stänger av eller frigör alla virtuella datorer som uppfyller rekommendations reglerna. Om du inte vill stänga av dem bör du överväga att ändra storlek på dem till en billigare VM-SKU.
+The list of recommendations identifies usage inefficiencies or shows purchase recommendations that can help you save additional money. The totaled **Potential yearly savings** shows the total amount that you can save if you shut down or deallocate all of your VMs that meet recommendation rules. If you don't want to shut them down, you should consider resizing them to a less expensive VM SKU.
 
-Kategorin **påverkan** , tillsammans med **potentiella årliga besparingar**, är utformad för att hjälpa till att identifiera rekommendationer som har möjlighet att spara så mycket som möjligt.
+The **Impact** category, along with the **Potential yearly savings**, are designed to help identify recommendations that have the potential to save as much as possible.
 
-Rekommendationer för hög påverkan är:
-- [Köp reserverade instanser av virtuella datorer för att spara pengar jämfört med betala per användning-kostnad](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
-- [Optimera den virtuella datorn genom att ändra storlek på eller stänga av underutnyttjade instanser](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Använd standard lagring för att lagra Managed Disks ögonblicks bilder](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+High impact recommendations include:
+- [Buy reserved virtual machine instances to save money over pay-as-you-go costs](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Optimize virtual machine spend by resizing or shutting down underutilized instances](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Use Standard Storage to store Managed Disks snapshots](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
-Rekommendationer för medelhög påverkan är:
-- [Ta bort Azure Data Factory pipelines som inte fungerar](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
-- [Minska kostnaderna genom att ta bort icke-etablerade ExpressRoute-kretsar](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
-- [Minska kostnaderna genom att ta bort eller konfigurera om inaktiva virtuella nätverks-gatewayer](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
+Medium impact recommendations include:
+- [Delete Azure Data Factory pipelines that are failing](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Reduce costs by eliminating un-provisioned ExpressRoute circuits](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Reduce costs by deleting or reconfiguring idle virtual network gateways](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
-## <a name="act-on-a-recommendation"></a>Agera enligt rekommendation
+## <a name="act-on-a-recommendation"></a>Act on a recommendation
 
-Azure Advisor övervakar användningen av den virtuella datorn i sju dagar och identifierar sedan underutnyttjade virtuella datorer. Virtuella datorer vars processor användning är fem procent eller mindre och nätverks användningen är sju MB eller mindre under fyra eller flera dagar betraktas virtuella datorer med låg belastning.
+Azure Advisor monitors your virtual machine usage for seven days and then identifies underutilized virtual machines. Virtual machines whose CPU utilization is five percent or less and network usage is seven MB or less for four or more days are considered low-utilization virtual machines.
 
-Inställningen 5% eller mindre processor användning är standard, men du kan justera inställningarna. Mer information om hur du justerar inställningen finns i [Konfigurera den genomsnittliga CPU-användningen eller rekommendationen för den virtuella datorn med lägre användning](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
+The 5% or less CPU utilization setting is the default, but you can adjust the settings. For more information about adjusting the setting, see the [Configure the average CPU utilization rule or the low usage virtual machine recommendation](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
-Även om vissa scenarier kan resultera i låg användning genom design, kan du ofta Spara pengar genom att ändra storleken på dina virtuella datorer till mindre dyra storlekar. Dina faktiska besparingar kan variera om du väljer en åtgärd för att ändra storlek. Låt oss gå igenom ett exempel på att ändra storlek på en virtuell dator.
+Although some scenarios can result in low utilization by design, you can often save money by changing the size of your virtual machines to less expensive sizes. Your actual savings might vary if you choose a resize action. Let's walk through an example of resizing a virtual machine.
 
-I listan över rekommendationer klickar du på rekommendationen **rätt storlek eller avstängning underutnyttjade virtuella datorer** . I listan över kandidater för virtuella datorer väljer du en virtuell dator som du vill ändra storlek på och klickar sedan på den virtuella datorn. Den virtuella datorns information visas så att du kan kontrol lera användnings måtten. Det **potentiella årliga sparande** värdet är vad du kan spara om du stänger av eller tar bort den virtuella datorn. Att ändra storlek på en virtuell dator kommer förmodligen att spara pengar, men du kommer inte att spara hela mängden potentiella årliga besparingar.
+In the list of recommendations, click the **Right-size or shutdown underutilized virtual machines** recommendation. In the list of virtual machine candidates, choose a virtual machine to resize and then click the virtual machine. The virtual machine's details are shown so that you can verify the utilization metrics. The **potential yearly savings** value is what you can save if you shut down or remove the VM. Resizing a VM will probably save you money, but you won't save the full amount of the potential yearly savings.
 
-![Exempel på rekommendations information](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![Example of Recommendation details](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
-I den virtuella dator informationen kontrollerar du användningen av den virtuella datorn för att bekräfta att det är en lämplig storleks ändrings kandidat.
+In the VM details, check the utilization of the virtual machine to confirm that it's a suitable resize candidate.
 
-![Exempel på information om virtuella datorer som visar historisk användning](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![Example VM details showing historical utilization](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
-Anteckna storleken på den aktuella virtuella datorn. När du har kontrollerat att storleken på den virtuella datorn ska ändras stänger du den virtuella dator informationen så att du ser listan över virtuella datorer.
+Note the current virtual machine's size. After you've verified that the virtual machine should be resized, close the VM details so that you see the list of virtual machines.
 
-I listan över kandidater att stänga av eller ändra storlek väljer du * * ändra storlek *&lt;FromVirtualMachineSKU&gt;* till *&lt;ToVirtualMachineSKU&gt;* * *.
-![exempel rekommendation med alternativet att ändra storlek på den virtuella datorn](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+In the list of candidates to shut down or resize, select **Resize *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;***.
+![Example recommendation with the option to resize the virtual machine](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
-Sedan visas en lista över tillgängliga alternativ för storleks ändring. Välj den som ska ge bästa möjliga prestanda och kostnads effektivitet för ditt scenario. I följande exempel ändrar det valda alternativet storlek från **Standard_D8s_v3** till **Standard_D2s_v3**.
+Next, you're presented with a list of available resize options. Choose the one that will give the best performance and cost-effectiveness for your scenario. In the following example, the option chosen resizes from **Standard_D8s_v3** to **Standard_D2s_v3**.
 
-![Exempel lista med tillgängliga VM-storlekar där du kan välja en storlek](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![Example list of available VM sizes where you can choose a size](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-När du har valt lämplig storlek klickar du på **ändra storlek** för att starta åtgärden ändra storlek.
+After you choose a suitable size, click **Resize** to start the resize action.
 
-För storleks ändring krävs en aktiv virtuell dator som körs aktivt för omstart. Om den virtuella datorn finns i en produktions miljö rekommenderar vi att du kör åtgärden ändra storlek efter kontors tid. Schemaläggning av omstarten kan minska avbrott som orsakas av tillfälligt otillgänglighet.
+Resizing requires an actively running virtual machine to restart. If the virtual machine is in a production environment, we recommend that you run the resize operation after business hours. Scheduling the restart can reduce disruptions caused by momentarily unavailability.
 
-## <a name="verify-the-action"></a>Verifiera åtgärden
+## <a name="verify-the-action"></a>Verify the action
 
-När storleks ändringen av den virtuella datorn har slutförts visas ett Azure-meddelande.
+When the VM resizing completes successfully, an Azure notification is shown.
 
-![Aviseringen om storleks ändring av virtuell dator har ändrats](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![Successful resized virtual machine notification](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Visa rekommendationer för kostnads optimering för att se potentiell användnings effektivitet
-> * Vidta rekommendationer för att ändra storlek på en virtuell dator till ett mer kostnads effektivt alternativ
-> * Verifiera åtgärden för att säkerställa att storleken på den virtuella datorn har ändrats
+> * View cost optimization recommendations to view potential usage inefficiencies
+> * Act on a recommendation to resize a virtual machine to a more cost-effective option
+> * Verify the action to ensure that the virtual machine was successfully resized
 
-Om du inte redan har läst den Cost Management Best Practices-artikeln får du vägledning och principer på hög nivå som du kan använda för att hantera kostnader.
+If you haven't already read the Cost Management best practices article, it provides high-level guidance and principles to consider to help manage costs.
 
 > [!div class="nextstepaction"]
-> [Metod tips för Cost Management](cost-mgt-best-practices.md)
+> [Cost Management best practices](cost-mgt-best-practices.md)

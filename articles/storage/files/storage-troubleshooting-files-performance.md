@@ -1,169 +1,170 @@
 ---
-title: Fel söknings guide för Azure Files prestanda
-description: Kända prestanda problem med Azure-filresurser och tillhör ande lösningar.
+title: Azure Files performance troubleshooting guide
+description: Known performance issues with Azure file shares and associated workarounds.
 author: gunjanj
 ms.service: storage
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996607"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227811"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
+# <a name="troubleshoot-azure-files-performance-issues"></a>Troubleshoot Azure Files performance issues
 
-Den här artikeln innehåller några vanliga problem som rör Azure-filresurser. Den ger potentiella orsaker och lösningar när dessa problem uppstår.
+This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
 
-## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Hög latens, lågt data flöde och allmänna prestanda problem
+## <a name="high-latency-low-throughput-and-general-performance-issues"></a>High latency, low throughput, and general performance issues
 
-### <a name="cause-1-share-experiencing-throttling"></a>Orsak 1: Resurs begränsning
+### <a name="cause-1-share-experiencing-throttling"></a>Cause 1: Share experiencing throttling
 
-Standard kvoten på en Premium-resurs är 100 GiB, vilket ger 100 bas linje IOPS (med möjlighet att överföra upp till 300 per timme). Mer information om etablering och dess relation till IOPS finns i avsnittet [etablerade resurser](storage-files-planning.md#provisioned-shares) i planerings guiden.
+The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
-Du kan använda Azures mått i portalen för att kontrol lera om din resurs är begränsad.
+To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj **alla tjänster** och Sök sedan efter **mått**.
+1. Select **All services** and then search for **Metrics**.
 
 1. Välj **Mått**.
 
-1. Välj ditt lagrings konto som resurs.
+1. Select your storage account as the resource.
 
-1. Välj **fil** som mått namn område.
+1. Select **File** as the metric namespace.
 
-1. Välj **transaktioner** som mått.
+1. Select **Transactions** as the metric.
 
-1. Lägg till ett filter för **ResponseType** och kontrol lera om det finns några begär Anden som har svars koden **SUCCESSWITHTHROTTLING** (för SMB) eller **ClientThrottlingError** (för rest).
+1. Add a filter for **ResponseType** and check to see if any requests have a response code of **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
 
-![Mått alternativ för Premium-fil resurser](media/storage-troubleshooting-premium-fileshares/metrics.png)
-
-### <a name="solution"></a>Lösning
-
-- Öka resursens etablerade kapacitet genom att ange en högre kvot på din resurs.
-
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>Orsak 2: Hög metadata/namnrymd, tungt arbets belastning
-
-Om majoriteten av dina begär Anden är icke-koncentriska metadata (till exempel CreateFile/OpenFile/closefile/queryinfo/querydirectory) blir svars tiden sämre jämfört med Läs-och skriv åtgärder.
-
-Du kan använda samma steg som ovan för att kontrol lera om de flesta av dina begär Anden är koncentriska metadata. Lägg till ett filter för **API-namn**, förutom i stället för att lägga till ett filter för **ResponseType**.
-
-![Filtrera efter API-namn i dina mått](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
-
-### <a name="workaround"></a>Lösning:
-
-- Kontrol lera om programmet kan ändras för att minska antalet metadata-åtgärder.
-
-### <a name="cause-3-single-threaded-application"></a>Orsak 3: Single-threaded-program
-
-Om programmet som används av kunden är en enkel tråd kan detta leda till betydligt lägre IOPS/data flöde än vad som är möjligt utifrån den etablerade resurs storleken.
+![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
 ### <a name="solution"></a>Lösning
 
-- Öka programmets parallellitet genom att öka antalet trådar.
-- Växla till program där parallellitet är möjligt. För kopierings åtgärder kan kunder till exempel använda AzCopy eller RoboCopy från Windows-klienter eller **parallellt** kommando på Linux-klienter.
+- Increase share provisioned capacity by specifying a higher quota on your share.
 
-## <a name="very-high-latency-for-requests"></a>Mycket hög svars tid för begär Anden
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>Cause 2: Metadata/namespace heavy workload
 
-### <a name="cause"></a>Orsak
+If the majority of your requests are metadata centric, (such as createfile/openfile/closefile/queryinfo/querydirectory) then the latency will be worse when compared to read/write operations.
 
-Den virtuella klient datorn kan finnas i en annan region än fil resursen.
+To confirm if most of your requests are metadata centric, you can use the same steps as above. Except instead of adding a filter for **ResponseType**, add a filter for **API Name**.
+
+![Filter for API Name in your metrics](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
+
+### <a name="workaround"></a>Lösning
+
+- Check if the application can be modified to reduce the number of metadata operations.
+- Add a VHD on the file share and mount VHD over SMB from the client to perform files operations against the data. This approach works for single writer and multiple readers scenarios and allows metadata operations to be local, offering performance similar to a local direct-attached storage.
+
+### <a name="cause-3-single-threaded-application"></a>Cause 3: Single-threaded application
+
+If the application being used by the customer is single-threaded, this can result in significantly lower IOPS/throughput than the maximum possible based on your provisioned share size.
 
 ### <a name="solution"></a>Lösning
 
-- Kör programmet från en virtuell dator som finns i samma region som fil resursen.
+- Increase application parallelism by increasing the number of threads.
+- Switch to applications where parallelism is possible. For example, for copy operations, customers could use AzCopy or RoboCopy from Windows clients or the **parallel** command on Linux clients.
 
-## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klienten kunde inte uppnå maximalt data flöde som stöds av nätverket
-
-En möjlig orsak till detta är ett saknat SMB-stöd för flera kanaler. Azure-filresurser stöder för närvarande bara en kanal, så det finns bara en anslutning från den virtuella klient datorn till servern. Den här enskilda anslutningen peggas till en enda kärna på den virtuella klient datorn, så det maximala data flödet som kan nås från en virtuell dator binds till en enda kärna.
-
-### <a name="workaround"></a>Lösning:
-
-- Att hämta en virtuell dator med en större kärna kan hjälpa till att förbättra data flödet.
-- Genom att köra klient programmet från flera virtuella datorer ökar du data flödet.
-
-- Använd REST-API: er där det är möjligt.
-
-## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Data flödet på Linux-klienter är betydligt lägre jämfört med Windows-klienter.
+## <a name="very-high-latency-for-requests"></a>Very high latency for requests
 
 ### <a name="cause"></a>Orsak
 
-Detta är ett känt problem med implementeringen av SMB-klienten på Linux.
+The client VM could be located in a different region than the file share.
 
-### <a name="workaround"></a>Lösning:
+### <a name="solution"></a>Lösning
 
-- Sprida belastningen över flera virtuella datorer.
-- Använd flera monterings punkter med alternativet **nosharesock** på samma virtuella dator och sprid belastningen över dessa monterings punkter.
-- På Linux kan du prova att montera med alternativet **nostrictsync** för att undvika att framtvinga SMB-tömning på varje fsync-anrop. För Azure Files stör inte det här alternativet data consistentcy, men kan resultera i inaktuella fil-metadata på katalog listan (**ls-l-** kommando). Om du direkt frågar efter metadata för filen (**stat** -kommandot) returneras de senaste metadata som är aktuella för filen.
+- Run the application from a VM that is located in the same region as the file share.
 
-## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Hög latens för Metadatas tungt arbets belastningar som involverar omfattande öppna/stäng-åtgärder.
+## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client unable to achieve maximum throughput supported by the network
 
-### <a name="cause"></a>Orsak
+One potential cause of this is a lack fo SMB multi-channel support. Currently, Azure file shares only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
-Saknar stöd för katalog lån.
+### <a name="workaround"></a>Lösning
 
-### <a name="workaround"></a>Lösning:
+- Obtaining a VM with a bigger core may help improve throughput.
+- Running the client application from multiple VMs will increase throughput.
 
-- Undvik att öppna och stänga av samma katalog inom en kort tids period om det är möjligt.
-- För virtuella Linux-datorer ökar du timeout-värdet för katalog post genom att ange **actimeo =\<SEK >** som monterings alternativ. Som standard är det en sekund, så ett större värde som tre eller fem kan hjälpa dig.
-- För virtuella Linux-datorer uppgraderar du kernel till 4,20 eller högre.
+- Use REST APIs where possible.
 
-## <a name="low-iops-on-centosrhel"></a>Låga IOPS på CentOS/RHEL
+## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Throughput on Linux clients is significantly lower when compared to Windows clients.
 
 ### <a name="cause"></a>Orsak
 
-I/o-djupet är större än ett stöds inte på CentOS/RHEL.
+This is a known issue with the implementation of SMB client on Linux.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
-- Uppgradera till CentOS 8/RHEL 8.
-- Ändra till Ubuntu.
+- Spread the load across multiple VMs.
+- On the same VM, use multiple mount points with **nosharesock** option, and spread the load across these mount points.
+- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentcy, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
 
-## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Långsam fil kopiering till och från Azure Files i Linux
-
-Om du upplever långsam fil kopiering till och från Azure Files kan du ta en titt på [filen för långsam fil kopiering till och från Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) i fel söknings guiden för Linux.
-
-## <a name="jitterysaw-tooth-pattern-for-iops"></a>Darr/såg-Tooth-mönster för IOPS
+## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>High latencies for metadata heavy workloads involving extensive open/close operations.
 
 ### <a name="cause"></a>Orsak
 
-Klient programmet överskrider konsekventa bas linje IOPS. För närvarande finns det ingen utjämning av belastningen på tjänst sidan, så om klienten överskrider en bas linje för IOPS, kommer den att få en begränsning av tjänsten. Den begränsningen kan resultera i att klienten har ett Darr/såg-Tooth IOPS-mönster. I det här fallet kan den genomsnittliga IOPS som uppnås av klienten vara lägre än bas linjens IOPS.
+Lack of support for directory leases.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
-- Minska belastningen på begäran från klient programmet, så att resursen inte får någon begränsning.
-- Öka kvoten för resursen så att resursen inte får någon begränsning.
+- If possible, avoid excessive opening/closing handle on the same directory within a short period of time.
+- For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=\<sec>** as a mount option. By default, it is one second, so a larger value like three or five might help.
+- For Linux VMs, upgrade the kernel to 4.20 or higher.
 
-## <a name="excessive-directoryopendirectoryclose-calls"></a>För många DirectoryOpen/DirectoryClose-anrop
-
-### <a name="cause"></a>Orsak
-
-Om antalet DirectoryOpen/DirectoryClose-anrop är bland de främsta API-anropen och du inte förväntar dig att klienten ska göra många anrop, kan det vara ett problem med antivirus programmet som är installerat på den virtuella Azure-klientdatorn.
-
-### <a name="workaround"></a>Lösning:
-
-- En korrigering för det här problemet finns i [april Platform Update för Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
-
-## <a name="file-creation-is-slower-than-expected"></a>Filen har skapats långsammare än förväntat
+## <a name="low-iops-on-centosrhel"></a>Low IOPS on CentOS/RHEL
 
 ### <a name="cause"></a>Orsak
 
-Arbets belastningar som förlitar sig på att skapa ett stort antal filer kommer inte att se en stor skillnad mellan prestanda i Premium fil resurser och standard fil resurser.
+IO depth greater than one is not supported on CentOS/RHEL.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
-- Ingen.
+- Upgrade to CentOS 8 / RHEL 8.
+- Change to Ubuntu.
 
-## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Långsamma prestanda från Windows 8,1 eller Server 2012 R2
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Slow file copying to and from Azure Files in Linux
+
+If you are experiencing slow file copying to and from Azure Files, take a look at the [Slow file copying to and from Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) section in the Linux troubleshooting guide.
+
+## <a name="jitterysaw-tooth-pattern-for-iops"></a>Jittery/saw-tooth pattern for IOPS
 
 ### <a name="cause"></a>Orsak
 
-Högre än förväntad fördröjning vid åtkomst till Azure Files för i/o-intensiva arbets belastningar.
+Client application consistently exceeds baseline IOPS. Currently, there is no service side smoothing of the request load, so if the client exceeds baseline IOPS, it will get throttled by the service. That throttling can result in the client experiencing a jittery/saw-tooth IOPS pattern. In this case, average IOPS achieved by the client might be lower than the baseline IOPS.
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
-- Installera den tillgängliga [snabb korrigeringen](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+- Reduce the request load from the client application, so that the share does not get throttled.
+- Increase the quota of the share so that the share does not get throttled.
+
+## <a name="excessive-directoryopendirectoryclose-calls"></a>Excessive DirectoryOpen/DirectoryClose calls
+
+### <a name="cause"></a>Orsak
+
+If the number of DirectoryOpen/DirectoryClose calls is among the top API calls and you don't expect the client to be making that many calls, it may be an issue with the antivirus installed on the Azure client VM.
+
+### <a name="workaround"></a>Lösning
+
+- A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+
+## <a name="file-creation-is-slower-than-expected"></a>File creation is slower than expected
+
+### <a name="cause"></a>Orsak
+
+Workloads that rely on creating a large number of files will not see a substantial difference between the performance of premium file shares and standard file shares.
+
+### <a name="workaround"></a>Lösning
+
+- Inget.
+
+## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Slow performance from Windows 8.1 or Server 2012 R2
+
+### <a name="cause"></a>Orsak
+
+Higher than expected latency accessing Azure Files for IO intensive workloads.
+
+### <a name="workaround"></a>Lösning
+
+- Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).

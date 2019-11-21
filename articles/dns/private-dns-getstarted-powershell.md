@@ -1,31 +1,31 @@
 ---
-title: Snabb start – skapa en privat Azure-DNS-zon med hjälp av Azure PowerShell
-description: I den här artikeln skapar och testar du en privat DNS-zon och-post i Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med Azure PowerShell.
+title: Quickstart - Create an Azure private DNS zone using Azure PowerShell
+description: In this article, you create and test a private DNS zone and record in Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med Azure PowerShell.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
-ms.author: victorh
-ms.openlocfilehash: 39c57c6afcf4f51bdda5830359bffcb13c3b5d8e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: allensu
+ms.openlocfilehash: 5532eb9897de2f746b194fb6bd496548e989b994
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163417"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210824"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Snabb start: skapa en privat Azure-DNS-zon med hjälp av Azure PowerShell
+# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Quickstart: Create an Azure private DNS zone using Azure PowerShell
 
 Den här artikeln visar hur du skapar din första privata DNS-zon och DNS-post med Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-En DNS-zon används som värd för DNS-poster för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
+En DNS-zon används som värd för DNS-poster för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en privat DNS-zon
+> * Create a private DNS zone
 > * Skapa virtuella testdatorer
 > * Skapa en ytterligare DNS-post
 > * Testa den privata zonen
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du vill kan du slutföra den här snabb starten med [Azure CLI](private-dns-getstarted-cli.md).
+If you prefer, you can complete this quickstart using [Azure CLI](private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
@@ -44,11 +44,11 @@ Först skapar du en resursgrupp som ska innehålla DNS-zonen:
 New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
-## <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
+## <a name="create-a-private-dns-zone"></a>Create a private DNS zone
 
 En DNS-zon skapas med hjälp av cmdleten `New-AzPrivateDnsZone`.
 
-I följande exempel skapas ett virtuellt nätverk med namnet **myAzureVNet**. Sedan skapar den en DNS-zon med namnet **Private.contoso.com** i resurs gruppen **MyAzureResourceGroup** , länkar DNS-zonen till det virtuella **MyAzureVnet** -nätverket och aktiverar automatisk registrering.
+The following example creates a virtual network named **myAzureVNet**. Then it creates a DNS zone named **private.contoso.com** in the **MyAzureResourceGroup** resource group, links the DNS zone to the **MyAzureVnet** virtual network, and enables automatic registration.
 
 ```azurepowershell
 Install-Module -Name Az.PrivateDns -force
@@ -68,7 +68,7 @@ $link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
   -VirtualNetworkId $vnet.id -EnableRegistration
 ```
 
-Om du bara vill skapa en zon för namn matchning (ingen automatisk värdnamn registrering) kan du utelämna parametern `-EnableRegistration`.
+If you want to create a zone just for name resolution (no automatic hostname registration), you can omit the `-EnableRegistration` parameter.
 
 ### <a name="list-dns-private-zones"></a>Lista privata DNS-zoner
 
@@ -114,7 +114,7 @@ Det här kan ta några minuter.
 
 ## <a name="create-an-additional-dns-record"></a>Skapa en ytterligare DNS-post
 
-Du skapar postuppsättningar med hjälp av cmdleten `New-AzPrivateDnsRecordSet`. I följande exempel skapas en post med det relativa namnet **db** i DNS-zonen **Private.contoso.com**i resurs gruppen **MyAzureResourceGroup**. Det fullständigt kvalificerade namnet på post uppsättningen är **db.Private.contoso.com**. Posttypen är ”A” med IP-adressen ”10.2.0.4”, och TTL är 3600 sekunder.
+Du skapar postuppsättningar med hjälp av cmdleten `New-AzPrivateDnsRecordSet`. The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.private.contoso.com**. Posttypen är ”A” med IP-adressen ”10.2.0.4”, och TTL är 3600 sekunder.
 
 ```azurepowershell
 New-AzPrivateDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
@@ -132,7 +132,7 @@ Get-AzPrivateDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzu
 
 ## <a name="test-the-private-zone"></a>Testa den privata zonen
 
-Nu kan du testa namn matchningen för din privata **Private.contoso.com** -zon.
+Now you can test the name resolution for your **private.contoso.com** private zone.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Konfigurera virtuella datorer för att tillåta inkommande ICMP
 
@@ -199,7 +199,7 @@ Upprepa för myVM02.
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 
-När de inte längre behövs tar du bort resurs gruppen **MyAzureResourceGroup** för att ta bort de resurser som skapats i den här artikeln.
+When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this article.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name MyAzureResourceGroup
@@ -208,4 +208,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Azure DNS Private Zones scenarier](private-dns-scenarios.md)
+> [Azure DNS Private Zones scenarios](private-dns-scenarios.md)

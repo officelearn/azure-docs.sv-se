@@ -1,37 +1,36 @@
 ---
-title: 'Snabb start: Konfigurera enhets etablering med hjälp av en Azure Resource Manager mall'
-description: Azure snabb start – konfigurera Azure-IoT Hub Device Provisioning Service med hjälp av en mall
+title: Set up Azure IoT Hub Device Provisioning using Azure Resource Manager template
+description: Azure quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f74260b5a2d088a6019653dcbcc6709e438916c4
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
-ms.translationtype: MT
+ms.openlocfilehash: 9a763a492496cef0f01468dc4b655a61e91a2a53
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151644"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229474"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Snabb start: Konfigurera IoT Hub Device Provisioning Service med en Azure Resource Manager-mall
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Quickstart: Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
 
-Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att programmässigt konfigurera de Azure-molnresurser som är nödvändiga för att etablera dina enheter. De här stegen visar hur du skapar en IoT-hubb och en ny IoT Hub Device Provisioning Service och länkar de två tjänsterna tillsammans med en Azure Resource Manager-mall. I den här snabb starten används [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) för att utföra de programmerings steg som krävs för att skapa en resurs grupp och distribuera mallen, men du kan enkelt använda [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .net, ruby eller andra programmeringsspråk för att utföra dessa steg och distribuera mallen. 
+Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att programmässigt konfigurera de Azure-molnresurser som är nödvändiga för att etablera dina enheter. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This quickstart uses [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby, or other programming languages to perform these steps and deploy your template. 
 
 
 ## <a name="prerequisites"></a>Krav
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- Den här snabb starten kräver att du kör Azure CLI lokalt. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- This quickstart requires that you run the Azure CLI locally. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Logga in på Azure och skapa en resursgrupp
 
 Logga in på ditt Azure-konto och välj din prenumeration.
 
-1. I kommando tolken kör du [inloggnings kommandot][lnk-login-command]:
+1. At the command prompt, run the [login command][lnk-login-command]:
     
     ```azurecli
     az login
@@ -39,7 +38,7 @@ Logga in på ditt Azure-konto och välj din prenumeration.
 
     Följ instruktionerna för att autentisera med hjälp av koden och logga in på ditt Azure-konto via en webbläsare.
 
-2. Om du har flera Azure-prenumerationer får du åtkomst till alla Azure-konton som är associerade med dina autentiseringsuppgifter när du loggar in på Azure. Använd följande [kommando för att visa en lista över de Azure-konton][lnk-az-account-command] som du kan använda:
+2. Om du har flera Azure-prenumerationer får du åtkomst till alla Azure-konton som är associerade med dina autentiseringsuppgifter när du loggar in på Azure. Use the following [command to list the Azure accounts][lnk-az-account-command] available for you to use:
     
     ```azurecli
     az account list 
@@ -51,7 +50,7 @@ Logga in på ditt Azure-konto och välj din prenumeration.
     az account set --subscription {your subscription name or id}
     ```
 
-3. När du skapar Azure-molnresurser IoT-hubbar och etablerar tjänster skapar du dem i en resursgrupp. Använd antingen en befintlig resurs grupp eller kör följande [kommando för att skapa en resurs grupp][lnk-az-resource-command]:
+3. När du skapar Azure-molnresurser IoT-hubbar och etablerar tjänster skapar du dem i en resursgrupp. Either use an existing resource group, or run the following [command to create a resource group][lnk-az-resource-command]:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
@@ -114,7 +113,7 @@ Använd en JSON-mall för att skapa en etableringstjänst och en länkad IoT-hub
 
    ```
 
-4. Lägg till följande rader till samlingen **resurser** när du ska skapa en IoT-hubb. JSON anger de minsta egenskaper som krävs för att skapa en IoT-hubb. Egenskaperna **namn** och **plats** skickas som parametrar. Mer information om de egenskaper som du kan ange för en IoT-hubb i en mall finns i [referens för Microsoft. Devices/IotHubs-mallen](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Lägg till följande rader till samlingen **resurser** när du ska skapa en IoT-hubb. The JSON specifies the minimum properties required to create an IoT hub. Egenskaperna **namn** och **plats** skickas som parametrar. To learn more about the properties you can specify for an IoT hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -235,7 +234,7 @@ Använd en JSON-mall för att skapa en etableringstjänst och en länkad IoT-hub
 
 ## <a name="create-a-resource-manager-parameter-file"></a>Skapa en Resource Manager-parameterfil
 
-Mallen som du definierade i det sista steget använder parametrar för att ange namnet på IoT-hubben, namnet på etablerings tjänsten och platsen (Azure-regionen) för att skapa dem. Du kan skicka dessa parametrar i en separat fil. När du gör det kan du återanvända samma mall för flera distribueringar. Skapa parameterfilen genom att följa dessa steg:
+The template that you defined in the last step uses parameters to specify the name of the IoT hub, the name of the provisioning service, and the location (Azure region) to create them. Du kan skicka dessa parametrar i en separat fil. När du gör det kan du återanvända samma mall för flera distribueringar. Skapa parameterfilen genom att följa dessa steg:
 
 1. Använd ett redigeringsprogram för att skapa en Azure Resource Manager-parameterfil som heter **parameters.json** med följande stomme: 
 
@@ -248,7 +247,7 @@ Mallen som du definierade i det sista steget använder parametrar för att ange 
    }
    ```
 
-2. Lägg till värdet **iotHubName** i parameteravsnittet.  Ett IoT Hub-namn måste vara globalt unikt i Azure, så du kanske vill lägga till ett unikt prefix eller suffix till exempel namnet, eller välja ett nytt namn helt och hållet. Kontrol lera att namnet följer rätt namngivnings konventioner för en IoT-hubb: det ska vara 3-50 tecken långt och får bara innehålla alfanumeriska tecken i versaler eller gemener (-). 
+2. Lägg till värdet **iotHubName** i parameteravsnittet.  An IoT hub name must be globally unique in Azure, so you may want to add a unique prefix or suffix to the example name, or choose a new name altogether. Make sure your name follows proper naming conventions for an IoT hub: it should be 3-50 characters in length, and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
 
    ```json
     "parameters": {
@@ -259,7 +258,7 @@ Mallen som du definierade i det sista steget använder parametrar för att ange 
    
    ```
 
-3. Lägg till värdet **provisioningServiceName** till parameteravsnittet. Du måste också välja ett globalt unikt namn för etablerings tjänsten. Se till att det följer rätt namngivnings konventioner för en IoT Hub Device Provisioning Service: det ska vara 3-64 tecken långt och får bara innehålla alfanumeriska tecken eller bindestreck ("-") med versaler eller gemener.
+3. Lägg till värdet **provisioningServiceName** till parameteravsnittet. You will also need to choose a globally unique name for your provisioning service. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
    ```json
     "parameters": {
@@ -321,7 +320,7 @@ Använd följande Azure CLI-kommandon för att distribuera dina mallar och verif
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. Om du inte planerar att fortsätta kan du använda Azure CLI för att [ta bort en enskild resurs][lnk-az-resource-command], till exempel en IoT-hubb eller en etablerings tjänst, eller för att ta bort en resurs grupp och alla dess resurser.
+De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. If you do not plan to continue, you can use the Azure CLI to [delete an individual resource][lnk-az-resource-command], such as an IoT hub or a provisioning service, or to delete a resource group and all of its resources.
 
 Ta bort etableringstjänsten genom att köra följande kommando:
 
@@ -344,10 +343,10 @@ Du kan också ta bort resursgrupper och enskilda resurser med Azure-portalen, Po
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du distribuerat en IoT-hubb och en enhets etablerings tjänst instans och länkat de två resurserna. Om du vill lära dig hur du använder den här installationen för att etablera en simulerad enhet fortsätter du till snabb starten för att skapa en simulerad enhet.
+In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a simulated device, continue to the quickstart for creating a simulated device.
 
 > [!div class="nextstepaction"]
-> [Snabb start för att skapa en simulerad enhet](./quick-create-simulated-device.md)
+> [Quickstart to create a simulated device](./quick-create-simulated-device.md)
 
 
 <!-- Links -->

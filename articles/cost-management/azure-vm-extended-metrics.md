@@ -1,6 +1,6 @@
 ---
-title: Lägga till utökade mått för Azure virtual machines | Microsoft Docs
-description: Den här artikeln hjälper dig att aktivera och konfigurera utökade diagnostikmåtten för virtuella datorer i Azure.
+title: Add extended metrics for Azure virtual machines | Microsoft Docs
+description: This article helps you enable and configure extended diagnostics metrics for your Azure VMs.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -8,82 +8,82 @@ manager: vitavor
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: e1d0beb6ced0d582166d556c1ae2fc17b375dddf
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: ebbdd89d3ef41d4fb40197cbd83038b5cbc02073
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695369"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230148"
 ---
-# <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för Azure-datorer
+# <a name="add-extended-metrics-for-azure-virtual-machines"></a>Add extended metrics for Azure virtual machines
 
-Cloudyn använder Azure måttdata från virtuella datorer i Azure för att visa du detaljerad information om sina resurser. Måttdata, även kallat prestandaräknare, används av Cloudyn för att generera rapporter. Dock Cloudyn inte automatiskt samla in alla Azure måttdata från virtuella gästdatorer – du måste aktivera mått samling. Den här artikeln hjälper dig att aktivera och konfigurera ytterligare diagnostik mått för virtuella datorer i Azure.
+Cloudyn uses Azure metric data from your Azure VMs to show you detailed information about their resources. Metric data, also called performance counters, is used by Cloudyn to generate reports. However, Cloudyn does not automatically gather all Azure metric data from guest VMs — you must enable metric collection. This article helps you enable and configure additional diagnostics metrics for your Azure VMs.
 
-När du har aktiverat mått samling kan du:
+After you enable metric collection, you can:
 
-- Vet när dina virtuella datorer ansluter till deras minne, disk och CPU-gränser.
-- Identifiera användningstrender och avvikelser.
-- Styra kostnaderna genom storlek beroende på användningen.
-- Hämta kostnad effektiva Bedömningsrekommendationer optimering från Cloudyn.
+- Know when your VMs are reaching their memory, disk, and CPU limits.
+- Detect usage trends and anomalies.
+- Control your costs by sizing according to usage.
+- Get cost effective sizing optimization recommendations from Cloudyn.
 
-Du kanske exempelvis vill övervaka processor och minne-% av virtuella datorer i Azure. Azures virtuella Azure-mått motsvarar _procent CPU_ och _\Memory @ no__t-2-allokerade byte som används_.
+For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _Percentage CPU_ and _\Memory\% Committed Bytes In Use_.
 
 > [!NOTE]
-> Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Cloudyn är inte kompatibel med [Log Analytics agenten](../azure-monitor/platform/agents-overview.md). 
+> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the [Log Analytics agent](../azure-monitor/platform/agents-overview.md). 
 
-## <a name="determine-whether-extended-metrics-are-enabled"></a>Avgöra om utökade mått har aktiverats
+## <a name="determine-whether-extended-metrics-are-enabled"></a>Determine whether extended metrics are enabled
 
 1. Logga in på Azure Portal på https://portal.azure.com.
-2. Under **virtuella datorer**, Välj en virtuell dator och sedan under **övervakning**väljer **mått**. En lista över tillgängliga mått visas.
-3. Välj vissa mått och ett diagram som visar data för dessa.  
-    ![Exempel mått – värd procent CPU](./media/azure-vm-extended-metrics/metric01.png)
+2. Under **Virtual machines**, select a VM and then under **Monitoring**, select **Metrics**. A list of available metrics is shown.
+3. Select some metrics and a graph displays data for them.  
+    ![Example metric – host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)
 
-En begränsad uppsättning standardmått är tillgängliga för värdar i föregående exempel, men minne mått är inte. Minne mått är en del av utökade mått. I det här fallet aktiveras inte utökade mått för den virtuella datorn. Du måste utföra några ytterligare steg för att aktivera utökade mått. Följande information hjälper dig att aktivera dem.
+In the preceding example, a limited set of standard metrics are available for your hosts, but memory metrics are not. Memory metrics are part of extended metrics. In this case, extended metrics are not enabled for the VM. You must perform some additional steps to enable extended metrics. The following information guides you through enabling them.
 
-## <a name="enable-extended-metrics-in-the-azure-portal"></a>Aktivera utökad mätvärden i Azure portal
+## <a name="enable-extended-metrics-in-the-azure-portal"></a>Enable extended metrics in the Azure portal
 
-Standardmått är värdmått för datorn. _Procent andel CPU_ -mått är ett exempel. Det finns också basmått för virtuella gästdatorer och de också kallas utökade mått. Exempel på utökade mått är _\Memory @ no__t-1 allokerade byte som används_ och _\Memory\Available byte_.
+Standard metrics are host computer metrics. The _Percentage CPU_ metric is one example. There are also basic metrics for guest VMs and they're also called extended metrics. Examples of extended metrics include _\Memory\% Committed Bytes In Use_ and _\Memory\Available Bytes_.
 
-Det är enkelt att aktivering av utökad mått. Aktivera övervakning på gästnivå för varje virtuell dator. När du aktiverar övervakning på gästnivå, är Azure diagnostics-agenten installerad på den virtuella datorn. Som standard läggs en grundläggande uppsättning utökade mått. Följande process är samma för virtuella datorer i klassiska och regelbundna och likadan ut för Windows och Linux-datorer.
+Enabling extended metrics is straightforward. For each VM, enable guest-level monitoring. When you enable guest-level monitoring, the Azure diagnostics agent is installed on the VM. By default, a basic set of extended metrics are added. The following process is the same for classic and regular VMs and the same for Windows and Linux VMs.
 
-Tänk på att både Azure och Linux övervakning på gästnivå kräver ett lagringskonto. När du aktiverar övervakning på gästnivå, om du inte väljer ett befintligt lagringskonto kan skapas ett åt dig.
+Keep in mind that both Azure and Linux guest-level monitoring require a storage account. When you enable guest-level monitoring, if you don't choose an existing storage account, then one is created for you.
 
-### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Aktivera övervakning på gästnivå på befintliga virtuella datorer
+### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Enable guest-level monitoring on existing VMs
 
-1. I **virtuella datorer**, visa din lista över dina virtuella datorer och väljer sedan en virtuell dator.
-2. Under **övervakning**väljer **diagnostikinställningar**.
-3. På sidan diagnostik inställningar **aktivera övervakning på gästnivå**.  
-    ![Aktivera gäst på övervakning på sidan Översikt](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-4. Azure diagnostics-agenten är installerad på den virtuella datorn efter ett par minuter. En grundläggande uppsättning mått har lagts till. Uppdatera sidan. Har lagts till prestandaräknare visas på fliken Översikt.
-5. Välj under övervakning, **mått**.
-6. I måttdiagram under **mått Namespace**väljer **gäst (klassisk)** .
-7. I listan över mått kan du visa alla tillgängliga prestandaräknare för den Virtuella gästdatorn.  
-    ![lista över exempel utökade mått](./media/azure-vm-extended-metrics/extended-metrics.png)
+1. In **Virtual Machines**, view your list of your VMs and then select a VM.
+2. Under **Monitoring**, select **Diagnostic settings**.
+3. On the Diagnostics settings page, click **Enable guest-level monitoring**.  
+    ![Enable guest level monitoring on the Overview page](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+4. After a few minutes, the Azure diagnostics agent is installed on the VM. A basic set of metrics are added. Uppdatera sidan. The added performance counters appear on the Overview tab.
+5. Under Monitoring, select **Metrics**.
+6. In the metrics chart under **Metric Namespace**, select **Guest (Classic)** .
+7. In the Metric list, you can view all of the available performance counters for the guest VM.  
+    ![list of example extended metrics](./media/azure-vm-extended-metrics/extended-metrics.png)
 
-### <a name="enable-guest-level-monitoring-on-new-vms"></a>Aktivera övervakning på gästnivå på nya virtuella datorer
+### <a name="enable-guest-level-monitoring-on-new-vms"></a>Enable guest-level monitoring on new VMs
 
-När du skapar nya virtuella datorer, på fliken hantering, Välj **på** för **OS gästen diagnostik**.
+When you create new VMs, on the Management tab, select **On** for **OS guest diagnostics**.
 
-![värdet på diagnostik för Gästoperativsystem](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![set Guest OS diagnostics to On](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
-Mer information om hur du aktiverar utökade mått för Azure-datorer finns i [förstå och använda Azure Linux-agent](../virtual-machines/extensions/agent-linux.md) och [översikt över Azure VM-agenten](../virtual-machines/extensions/agent-windows.md).
+For more information about enabling extended metrics for Azure virtual machines, see [Understanding and using the Azure Linux agent](../virtual-machines/extensions/agent-linux.md) and [Azure Virtual Machine Agent overview](../virtual-machines/extensions/agent-windows.md).
 
-## <a name="resource-manager-credentials"></a>Resource Manager-autentiseringsuppgifter
+## <a name="resource-manager-credentials"></a>Resource Manager credentials
 
-När du aktiverar utökade mått, kontrollerar du att Cloudyn har åtkomst till din [Resource Manager autentiseringsuppgifter](activate-subs-accounts.md). Dina autentiseringsuppgifter krävs för Cloudyn att samla in och visa information om prestanda för dina virtuella datorer. De också används för att skapa kostnadsrekommendationer för optimering. Cloudyn måste minst tre dagar prestandadata från en instans för att avgöra om det är en kandidat för en downsizing rekommendation.
+After you enable extended metrics, ensure that Cloudyn has access to your [Resource Manager credentials](activate-subs-accounts.md). Your credentials are required for Cloudyn to collect and display performance data for your VMs. They're also used to create cost optimization recommendations. Cloudyn needs at least three days of performance data from an instance to determine if it is a candidate for a downsizing recommendation.
 
-## <a name="enable-vm-metrics-with-a-script"></a>Aktivera VM-mått med ett skript
+## <a name="enable-vm-metrics-with-a-script"></a>Enable VM metrics with a script
 
-Du kan aktivera mätvärden för virtuell dator med Azure PowerShell-skript. När du har många virtuella datorer som du vill aktivera mått på kan använda du ett skript för att automatisera processen. Exempelskript som finns på GitHub på [Azure aktivera diagnostik](https://github.com/Cloudyn/azure-enable-diagnostics).
+You can enable VM metrics with Azure PowerShell scripts. When you have many VMs that you want to enable metrics on, you can use a script to automate the process. Example scripts are on GitHub at [Azure Enable Diagnostics](https://github.com/Cloudyn/azure-enable-diagnostics).
 
-## <a name="view-azure-performance-metrics"></a>Visa Azure prestandamått
+## <a name="view-azure-performance-metrics"></a>View Azure performance metrics
 
-Om du vill visa prestandamått på dina Azure-instanser i Cloudyn-portalen, gå till **tillgångar** > **Compute** > **instans Explorer**. I listan över VM-instanser, expandera en instans och sedan en resurs för att visa information.
+To view performance metrics on your Azure Instances in the Cloudyn portal, navigate to **Assets** > **Compute** > **Instance Explorer**. In the list of VM instances, expand an instance and then expand a resource to view details.
 
-![exempel-informationen som visas i Explorer-instans](./media/azure-vm-extended-metrics/instance-explorer.png)
+![example information shown in Instance Explorer](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte redan har aktiverat Azure Resource Manager API-åtkomst för dina konton, fortsätter du till [Activate Azure-prenumeration och konton](activate-subs-accounts.md).
+- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](activate-subs-accounts.md).

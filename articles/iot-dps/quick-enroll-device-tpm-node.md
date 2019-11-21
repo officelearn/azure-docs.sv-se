@@ -1,23 +1,22 @@
 ---
-title: 'Snabb start: registrera TPM-enhet på Azure Device Provisioning-tjänsten med Node. js'
-description: Azure-snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning Service med hjälp av Node.js-tjänstens SDK. Den här snabbstarten använder enskilda registreringar.
+title: Enroll TPM device to Azure Device Provisioning Service using Node.js
+description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Node.js service SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 02d5ec3b7ddd960e15b75fd3aa6691a187b5911a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: d76ed4a9ecf0f5442c6b8b80c900e7edfc114cc7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903474"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228600"
 ---
-# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med Node. js-tjänst-SDK
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Node.js service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
@@ -104,7 +103,7 @@ Om du tänker utforska Node.js-tjänstexemplet ska du inte rensa resurserna som 
 
 1. Stäng utdatafönstret för Node.js på datorn.
 1. Om du har skapat en simulerad TPM-enhet stänger du TPM-simulatorfönstret.
-2. Gå till enhets etablerings tjänsten i Azure Portal, klicka på **Hantera registreringar**och välj sedan fliken **enskilda registreringar** . Välj *registrerings-ID* för registrerings posten du skapade med den här snabb starten och klicka på knappen **ta bort** högst upp på bladet. 
+2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade. 
  
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten har du programmässigt skapat en individuell registreringspost för en TPM-enhet, och eventuellt skapat en TPM-simulerad enhet på datorn och etablerat den på IoT-hubben med hjälp av Azure IoT Hub Device Provisioning-tjänsten. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 

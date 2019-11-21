@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med växthus | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Greenhouse | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Greenhouse.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: cd5a52ea47d7166c6f197b233d1a10ff063ff7c5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1cf60e13f7b3ad13d204d67cb7c538d1d11a5dbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159173"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227546"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Självstudie: Azure Active Directory integrering med växthus
+# <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Azure Active Directory integration with Greenhouse
 
 I den här självstudien lär du dig att integrera Greenhouse med Azure Active Directory (AD Azure).
 När du integrerar Greenhouse med Azure AD innebär det följande fördelar:
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -186,7 +186,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 För att Azure AD-användare ska kunna logga in i Greenhouse måste de etableras till Greenhouse. I Greenhouse görs etablering manuellt.
 
 >[!NOTE]
->Du kan använda andra verktyg eller API:er för Greenhouse-kontoskapande som tillhandahålls av Greenhouse för att etablera AAD-användarkonton. 
+>You can use any other Greenhouse user account creation tools or APIs provided by Greenhouse to provision Azure AD user accounts. 
 
 **Utför följande steg för att etablera ett användarkonto:**
 
@@ -198,11 +198,11 @@ För att Azure AD-användare ska kunna logga in i Greenhouse måste de etableras
 
 3. Klicka på **Nya användare**.
    
-    ![Ny användare](./media/greenhouse-tutorial/ic790792.png "Ny användare")
+    ![New User](./media/greenhouse-tutorial/ic790792.png "New User")
 
 4. I avsnittet **Lägg till ny användare** utför du följande steg:
    
-    ![Lägg till ny användare](./media/greenhouse-tutorial/ic790793.png "Lägg till ny användare")
+    ![Add New User](./media/greenhouse-tutorial/ic790793.png "Add New User")
 
     a. I textrutan för att **ange användarens e-postadress** skriver du e-postadressen för ett giltigt Azure Active Directory-konto som du vill etablera.
 
@@ -223,5 +223,5 @@ När du klickar på Greenhouse-panelen i åtkomstpanelen så borde du automatisk
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

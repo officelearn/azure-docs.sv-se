@@ -1,139 +1,135 @@
 ---
-title: Körmiljö för Azure Functions installation | Microsoft Docs
-description: Så här installerar du Körmiljö för Azure Functions Preview 2
-services: functions
+title: Azure Functions Runtime Installation
+description: How to Install the Azure Functions Runtime preview 2
 author: apwestgarth
-manager: stefsch
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 0fbc76f3cb3fea84347ef55e40e1b2bed9b98152
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085502"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226728"
 ---
-# <a name="install-the-azure-functions-runtime-preview-2"></a>Installera Körmiljö för Azure Functions för hands version 2
+# <a name="install-the-azure-functions-runtime-preview-2"></a>Install the Azure Functions Runtime preview 2
 
 [!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
-Följ dessa steg om du vill installera Körmiljö för Azure Functions Preview 2:
+If you would like to install the Azure Functions Runtime preview 2, follow these steps:
 
-1. Se till att datorn uppfyller minimi kraven.
-1. Hämta [körmiljö för Azure Functions för hands versions installation](https://aka.ms/azafrv2).
-1. Avinstallera Körmiljö för Azure Functions för hands version 1.
-1. Installera Körmiljö för Azure Functions för hands version 2.
-1. Slutför konfigurationen av Körmiljö för Azure Functions för hands version 2.
-1. Skapa din första funktion i Körmiljö för Azure Functions för hands version
+1. Ensure your machine passes the minimum requirements.
+1. Download the [Azure Functions Runtime Preview Installer](https://aka.ms/azafrv2).
+1. Uninstall the Azure Functions Runtime preview 1.
+1. Install the Azure Functions Runtime preview 2.
+1. Complete the configuration of the Azure Functions Runtime preview 2.
+1. Create your first function in Azure Functions Runtime Preview
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du installerar Körmiljö för Azure Functions för hands versionen måste du ha följande resurser tillgängliga:
+Before you install the Azure Functions Runtime preview, you must have the following resources available:
 
-1. En dator som kör Microsoft Windows Server 2016 eller Microsoft Windows 10 Creators Update (Professional eller Enterprise Edition).
-1. En SQL Server instans som körs i nätverket.  Den minsta version som krävs är SQL Server Express.
+1. A machine running Microsoft Windows Server 2016 or Microsoft Windows 10 Creators Update (Professional or Enterprise Edition).
+1. A SQL Server instance running within your network.  Minimum edition required is SQL Server Express.
 
-## <a name="uninstall-previous-version"></a>Avinstallera tidigare version
+## <a name="uninstall-previous-version"></a>Uninstall Previous Version
 
-Om du tidigare har installerat Körmiljö för Azure Functions för hands versionen måste du avinstallera innan du installerar den senaste versionen.  Avinstallera Körmiljö för Azure Functions för hands versionen genom att ta bort programmet i Lägg till/ta bort program i Windows.
+If you have previously installed the Azure Functions Runtime preview, you must uninstall before installing the latest release.  Uninstall the Azure Functions Runtime preview by removing the program in Add/Remove Programs in Windows.
 
-## <a name="install-the-azure-functions-runtime-preview"></a>Installera Körmiljö för Azure Functions för hands version
+## <a name="install-the-azure-functions-runtime-preview"></a>Install the Azure Functions Runtime Preview
 
-Installations programmet för förhands granskning Körmiljö för Azure Functions vägleder dig genom installationen av Körmiljö för Azure Functions för hands versions hantering och arbets roller.  Det går att installera hanterings-och arbets rollen på samma dator.  Men när du lägger till fler Function-appar måste du distribuera fler arbets roller på ytterligare datorer för att kunna skala dina funktioner till flera arbetare.
+The Azure Functions Runtime Preview Installer guides you through the installation of the Azure Functions Runtime preview Management and Worker Roles.  It is possible to install the Management and Worker role on the same machine.  However, as you add more function apps, you must deploy more worker roles on additional machines to be able to scale your functions onto multiple workers.
 
-## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Installera hanterings-och arbets rollen på samma dator
+## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Install the Management and Worker Role on the same machine
 
-1. Kör installations programmet för Körmiljö för Azure Functions för hands version.
+1. Run the Azure Functions Runtime Preview Installer.
 
-    ![Körmiljö för Azure Functions för hands versions installation][1]
+    ![Azure Functions Runtime preview installer][1]
 
-1. Klicka på **Nästa**.
-1. När du har läst villkoren i **licens avtalet**markerar du **kryss rutan** för att godkänna villkoren och klickar sedan på **Nästa** för att gå vidare.
-1. Välj de roller som du vill installera på den här datorn **funktions hanterings roll** och/eller Functions Worker- **roll** och klicka på **Nästa**.
+1. Klicka på **Next**.
+1. Once you have read the terms of the **EULA**, **check the box** to accept the terms and click **Next** to advance.
+1. Select the roles you want to install on this machine **Functions Management Role** and/or **Functions Worker Role** and click **Next**.
 
-    ![Körmiljö för Azure Functions för hands version-roll val][3]
-
-    > [!NOTE]
-    > Du kan installera Functions Worker- **rollen** på många andra datorer. Det gör du genom att följa dessa anvisningar och bara välja **Functions Worker-roll** i installations programmet.
-
-1. Klicka på **Nästa** om du vill att **installations guiden för körmiljö för Azure Functions** startar installations processen på datorn.
-1. När du är klar startar installations guiden **körmiljö för Azure Functions** konfigurations verktyget.
-
-    ![Körmiljö för Azure Functions för hands versions installation slutförd][6]
+    ![Azure Functions Runtime preview installer - role selection][3]
 
     > [!NOTE]
-    > Om du installerar på **Windows 10** och behållar funktionen inte har aktiver **körmiljö för Azure Functions** ATS tidigare uppmanas du att starta om datorn för att slutföra installationen.
+    > You can install the **Functions Worker Role** on many other machines. To do so, follow these instructions, and only select **Functions Worker Role** in the installer.
 
-## <a name="configure-the-azure-functions-runtime"></a>Konfigurera Körmiljö för Azure Functions
+1. Click **Next** to have the **Azure Functions Runtime Setup Wizard** begin the installation process on your machine.
+1. Once complete, the setup wizard launches the **Azure Functions Runtime** configuration tool.
 
-För att slutföra installationen av Körmiljö för Azure Functions måste du slutföra konfigurationen.
+    ![Azure Functions Runtime preview installer complete][6]
 
-1. Konfigurations verktyget för **körmiljö för Azure Functions** visar vilka roller som är installerade på datorn.
+    > [!NOTE]
+    > If you are installing on **Windows 10** and the **Container** feature has not been previously enabled, the **Azure Functions Runtime Setup** prompts you to reboot your machine to complete the install.
 
-    ![Körmiljö för Azure Functions för hands versions konfiguration][7]
+## <a name="configure-the-azure-functions-runtime"></a>Configure the Azure Functions Runtime
 
-1. Klicka på fliken **databas** , ange anslutnings information för din SQL Server instans, inklusive att ange en [huvud nyckel för databasen](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)och klicka på **Använd**.  Anslutning till en SQL Server instans krävs för att Körmiljö för Azure Functions ska kunna skapa en databas för att stödja körnings miljön.
+To complete the Azure Functions Runtime installation, you must complete the configuration.
 
-    ![Körmiljö för Azure Functions förhandsgranska databas konfiguration][8]
+1. The **Azure Functions Runtime** configuration tool shows which roles are installed on your machine.
 
-1. Klicka på fliken **autentiseringsuppgifter** .  Här måste du skapa två nya autentiseringsuppgifter för användning med en fil resurs som är värd för alla dina funktions program.  Ange kombinationer av **användar namn** och **lösen ord** för **fil resursens ägare** och för **fil resurs användaren**och klicka sedan på **Använd**.
+    ![Azure Functions Runtime preview configuration tool][7]
 
-    ![Körmiljö för Azure Functions för hands versions inloggning][9]
+1. Click the **Database** tab, enter the connection details for your SQL Server instance, including specifying a [Database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), and click **Apply**.  Connectivity to a SQL Server instance is required in order for the Azure Functions Runtime to create a database to support the Runtime.
 
-1. Klicka på fliken **fil resurs** .  Här måste du ange information om fil resursens plats.  Fil resursen kan skapas åt dig eller så kan du använda en befintlig fil resurs och klicka på **Använd**.  Om du väljer en ny fil resurs plats måste du ange en katalog som ska användas av Körmiljö för Azure Functions.
+    ![Azure Functions Runtime preview database configuration][8]
 
-    ![Körmiljö för Azure Functions för hands versions fil resurs][10]
+1. Click the **Credentials** tab.  Here, you must create two new credentials for use with a file share for hosting all your function apps.  Specify **User name** and **Password** combinations for the **file share owner** and for the **file share user**, then click **Apply**.
 
-1. Klicka på fliken **IIS** .  Den här fliken visar information om de webbplatser i IIS som Körmiljö för Azure Functions konfigurations verktyget skapar.  Du kan ange ett anpassat DNS-namn här för Körmiljö för Azure Functions Preview-portalen.  Klicka på **tillämpa** för att slutföra.
+    ![Azure Functions Runtime preview credentials][9]
 
-    ![Körmiljö för Azure Functions förhandsgranska IIS][11]
+1. Click the **File Share** tab.  Here you must specify the details of the file share  location.  The file share can be created for you or you can use an existing File Share and click **Apply**.  If you select a new File Share location, you must specify a directory for use by the Azure Functions Runtime.
 
-1. Klicka på fliken **tjänster** .  På den här fliken visas statusen för tjänsterna i Körmiljö för Azure Functions konfigurations verktyget.  Om **Azure Functions Host Activation Service** inte körs efter den inledande konfigurationen klickar du på **Starta tjänst**.
+    ![Azure Functions Runtime preview file share][10]
 
-    ![Körmiljö för Azure Functions för hands versions konfiguration slutförd][12]
+1. Click the **IIS** tab.  This tab shows the details of the websites in IIS that the Azure Functions Runtime configuration tool creates.  You may specify a custom DNS name here for the Azure Functions Runtime preview portal.  Click **Apply** to complete.
 
-1. Bläddra till **körmiljö för Azure Functions Portal** som `https://<machinename>.<domain>/`.
+    ![Azure Functions Runtime preview IIS][11]
 
-    ![Körmiljö för Azure Functions för hands versions portalen][13]
+1. Click the **Services** tab.  This tab shows the status of the services in your Azure Functions Runtime configuration tool.  If the  **Azure Functions Host Activation Service** is not running after initial configuration, click **Start Service**.
 
-## <a name="create-your-first-function-in-azure-functions-runtime-preview"></a>Skapa din första funktion i Körmiljö för Azure Functions för hands version
+    ![Azure Functions Runtime preview configuration complete][12]
 
-Skapa din första funktion i Körmiljö för Azure Functions för hands version
+1. Browse to the **Azure Functions Runtime Portal** as `https://<machinename>.<domain>/`.
 
-1. Bläddra till **körmiljö för Azure Functions Portal** `https://<machinename>.<domain>` till exempel `https://mycomputer.mydomain.com`.
+    ![Azure Functions Runtime preview portal][13]
 
-1. Du uppmanas att **Logga**in, om distribuerat i en domän använder ditt domän konto användar namn och lösen ord, annars använder du ditt lokala konto användar namn och lösen ord för att logga in på portalen.
+## <a name="create-your-first-function-in-azure-functions-runtime-preview"></a>Create your first function in Azure Functions Runtime preview
 
-    ![Körmiljö för Azure Functions förhandsgranska Portal inloggning][14]
+To create your first function in Azure Functions Runtime preview
 
-1. Du måste skapa en prenumeration för att kunna skapa Function-appar.  Klicka **+** på alternativet bredvid prenumerationerna i det övre vänstra hörnet i portalen.
+1. Browse to the **Azure Functions Runtime Portal** as `https://<machinename>.<domain>` for example `https://mycomputer.mydomain.com`.
 
-    ![Körmiljö för Azure Functions för hands versions Portal prenumerationer][15]
+1. You are prompted to **Log in**, if deployed in a domain use your domain account username and password, otherwise use your local account username and password to log in to the portal.
 
-1. Välj **DefaultPlan**, ange ett namn för din prenumeration och klicka på **skapa**.
+    ![Azure Functions Runtime preview portal login][14]
 
-    ![Körmiljö för Azure Functions prenumerations plan och namn för Preview-portalen][16]
+1. To create function apps, you must create a Subscription.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions.
 
-1. Alla dina funktions-appar visas i den vänstra rutan i portalen.  Om du vill skapa en ny Funktionsapp väljer du rubrik **funktionen appar** och klickar **+** på alternativet.
+    ![Azure Functions Runtime preview portal subscriptions][15]
 
-1. Ange ett namn för din Function-app, Välj rätt prenumeration, Välj vilken version av Azure Functions runtime du vill program vara mot och klicka på **skapa**
+1. Choose **DefaultPlan**, enter a name for your Subscription, and click **Create**.
 
-    ![Körmiljö för Azure Functions Preview Portal ny function-app][17]
+    ![Azure Functions Runtime preview portal subscription plan and name][16]
 
-1. Din nya Function-app visas i den vänstra rutan i portalen.  Välj Functions och klicka sedan på **ny funktion** överst i mittenfönstret i portalen.
+1. All of your function apps are listed in the left-hand pane of the portal.  To create a new Function App, select the heading **Function Apps** and click the **+** option.
 
-    ![Körmiljö för Azure Functions för hands versions mallar][18]
+1. Enter a name for your function app, select the correct Subscription, choose which version of the Azure Functions runtime you wish to program against and click **Create**
 
-1. Välj funktionen timer-utlösare i namnet på den högra utfällbara filen och ändra schemat till `*/5 * * * * *` (detta cron-uttryck gör att din timer-funktion körs var femte sekund) och klickar på **skapa**
+    ![Azure Functions Runtime preview portal new function app][17]
 
-    ![Körmiljö för Azure Functions förhandsgranska ny konfiguration av timer-funktionen][19]
+1. Your new function app is listed in the left-hand pane of the portal.  Select Functions and then click **New Function** at the top of the center pane in the portal.
 
-1. Din funktion har nu skapats.  Du kan visa körnings loggen för din Function-app genom att expandera rutan **logg** längst ned i portalen.
+    ![Azure Functions Runtime preview templates][18]
 
-    ![Körmiljö för Azure Functions för hands versions funktionen körs][20]
+1. Select the Timer Trigger function, in the right-hand flyout name your function and change the Schedule to `*/5 * * * * *` (this cron expression causes your timer function to execute every five seconds), and click **Create**
+
+    ![Azure Functions Runtime preview new timer function configuration][19]
+
+1. Your function has now been created.  You can view the execution log of your Function app by expanding the **log** pane at the bottom of the portal.
+
+    ![Azure Functions Runtime preview function executing][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

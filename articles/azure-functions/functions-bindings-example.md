@@ -1,28 +1,24 @@
 ---
-title: Azure Functions utlösare och bindnings exempel
-description: Lär dig att konfigurera Azure Function-bindningar
-services: functions
-documentationcenter: na
+title: Azure Functions trigger and binding example
+description: Learn to configure Azure Function bindings
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d1959792823e04cf34d65ab775ae8c51e741e293
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097472"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227245"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions utlösare och bindnings exempel
+# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions trigger and binding example
 
-Den här artikeln visar hur du konfigurerar en utlösare [och bindningar](./functions-triggers-bindings.md) i en Azure-funktion.
+This article demonstrates how to configure a [trigger and bindings](./functions-triggers-bindings.md) in an Azure Function.
 
-Anta att du vill skriva en ny rad i Azure Table Storage varje gång ett nytt meddelande visas i Azure Queue Storage. Det här scenariot kan implementeras med hjälp av en Azure Queue Storage-utlösare och en utgående bindning för Azure Table Storage. 
+Suppose you want to write a new row to Azure Table storage whenever a new message appears in Azure Queue storage. This scenario can be implemented using an Azure Queue storage trigger and an Azure Table storage output binding. 
 
-Här är en *Function. JSON* -fil för det här scenariot. 
+Here's a *function.json* file for this scenario. 
 
 ```json
 {
@@ -45,18 +41,18 @@ Här är en *Function. JSON* -fil för det här scenariot.
 }
 ```
 
-Det första elementet i `bindings` matrisen är kön Storage-utlösare. \- `type` Och`direction` -egenskaperna identifierar utlösaren. `name` Egenskapen identifierar funktions parametern som tar emot köns meddelande innehåll. Namnet på kön som ska övervakas är i `queueName`och anslutnings strängen är i den app-inställning som identifieras av `connection`.
+The first element in the `bindings` array is the Queue storage trigger. The `type` and `direction` properties identify the trigger. The `name` property identifies the function parameter that receives the queue message content. The name of the queue to monitor is in `queueName`, and the connection string is in the app setting identified by `connection`.
 
-Det andra elementet i `bindings` matrisen är Azure-Table Storage utgående bindning. \- `type` Och`direction` -egenskaperna identifierar bindningen. `name` Egenskapen anger hur funktionen tillhandahåller den nya tabell raden, i det här fallet genom att använda funktionens retur värde. Namnet på tabellen är i `tableName`och anslutnings strängen är i den app-inställning som identifieras av. `connection`
+The second element in the `bindings` array is the Azure Table Storage output binding. The `type` and `direction` properties identify the binding. The `name` property specifies how the function provides the new table row, in this case by using the function return value. The name of the table is in `tableName`, and the connection string is in the app setting identified by `connection`.
 
-Om du vill visa och redigera innehållet i *Function. JSON* i Azure Portal klickar du på alternativet **avancerad redigerare** på fliken **integrera** i din funktion.
+To view and edit the contents of *function.json* in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function.
 
 > [!NOTE]
-> Värdet för `connection` är namnet på en app-inställning som innehåller anslutnings strängen, inte själva anslutnings strängen. Bindningar använder anslutnings strängar som är lagrade i appinställningar för att framtvinga bästa praxis som *Function. JSON* inte innehåller tjänst hemligheter.
+> The value of `connection` is the name of an app setting that contains the connection string, not the connection string itself. Bindings use connection strings stored in app settings to enforce the best practice that *function.json* does not contain service secrets.
 
-## <a name="c-script-example"></a>C#skript exempel
+## <a name="c-script-example"></a>C# script example
 
-Här är C# skript koden som fungerar med denna utlösare och bindning. Observera att namnet på parametern som tillhandahåller innehållet i kön är `order`. det här namnet är obligatoriskt `name` eftersom egenskap svärdet i *Function. JSON* är`order` 
+Here's C# script code that works with this trigger and binding. Notice that the name of the parameter that provides the queue message content is `order`; this name is required because the `name` property value in *function.json* is `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -84,9 +80,9 @@ public class Person
 }
 ```
 
-## <a name="javascript-example"></a>JavaScript-exempel
+## <a name="javascript-example"></a>JavaScript example
 
-Samma *Function. JSON* -fil kan användas med en JavaScript-funktion:
+The same *function.json* file can be used with a JavaScript function:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -104,9 +100,9 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>Exempel på klass bibliotek
+## <a name="class-library-example"></a>Class library example
 
-I ett klass bibliotek tillhandahålls samma Utlös ande och bindande informations &mdash; kön och tabell namn, lagrings konton, funktions parametrar för indata &mdash; och utdata från attribut i stället för en function. JSON-fil. Här är ett exempel:
+In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Här är ett exempel:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -134,9 +130,9 @@ public class Person
 }
 ```
 
-Nu har du en fungerande funktion som utlöses av en Azure-kö och matar ut data till Azure Table Storage.
+You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Mönster för Azure Functions bindnings uttryck](./functions-bindings-expressions-patterns.md)
+> [Azure Functions binding expression patterns](./functions-bindings-expressions-patterns.md)

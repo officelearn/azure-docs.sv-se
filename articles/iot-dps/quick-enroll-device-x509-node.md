@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: så här registrerar du X. 509-enheter på Azure Device Provisioning-tjänsten med Node. js'
+title: Enroll X.509 devices to Azure Device Provisioning Service using Node.js
 description: Den här snabbstarten använder gruppregistreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Node.js-tjänstens SDK
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3b2c27b8fc595dae39ed7374ec3647e6b4ba6f23
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b2995c6ba031e71cba9068b691cbedc1cf80c457
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903418"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228571"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Node.js
 
@@ -140,7 +139,7 @@ Om du vill använda det här testverktyget för att generera certifikat utför d
 Om du tänker utforska Node.js-tjänstexemplet ska du inte rensa resurserna som har skapats i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla Azure-resurser som har skapats i den här snabbstarten.
  
 1. Stäng utdatafönstret för Node.js på datorn.
-2. Gå till enhets etablerings tjänsten i Azure Portal, klicka på **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Välj *registrerings-ID* för registrerings posten du skapade med den här snabb starten och klicka på knappen **ta bort** högst upp på bladet.  
+2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart and click the **Delete** button at the top of the blade.  
 3. I Device Provisioning-tjänsten i Azure-portalen klickar du på **Certifikat**, sedan på certifikatet du laddade upp för den här snabbstarten och till sist på knappen **Ta bort** överst i fönstret **Certifikatinformation**.  
  
 ## <a name="next-steps"></a>Nästa steg

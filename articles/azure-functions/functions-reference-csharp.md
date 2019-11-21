@@ -1,41 +1,38 @@
 ---
-title: Azure Functions C# referens för skript utvecklare
-description: Lär dig hur du utvecklar Azure Functions C# med hjälp av skript.
+title: Azure Functions C# script developer reference
+description: Understand how to develop Azure Functions using C# script.
 author: craigshoemaker
-manager: gwallace
-keywords: azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 8bbfef9d9873669120f792bce3e50e457791d4b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3b05b0a4a56332cce1068f53a23a7d118a2e6bfc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787201"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230425"
 ---
-# <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# script (. CSX)-referens för utvecklare
+# <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# script (.csx) developer reference
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Den här artikeln är en introduktion till att utveckla Azure Functions C# med hjälp av skript ( *. CSX*).
+This article is an introduction to developing Azure Functions by using C# script ( *.csx*).
 
-Azure Functions stöder C# och C# skriptbaserade programmeringsspråk. Om du vill ha vägledning om hur [du C# använder i ett biblioteks projekt i Visual Studio-klass](functions-develop-vs.md), se [ C# referens för utvecklare](functions-dotnet-class-library.md).
+Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in a Visual Studio class library project](functions-develop-vs.md), see [C# developer reference](functions-dotnet-class-library.md).
 
-Den här artikeln förutsätter att du redan har läst [guiden Azure Functions utvecklare](functions-reference.md).
+This article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
-## <a name="how-csx-works"></a>How. CSX fungerar
+## <a name="how-csx-works"></a>How .csx works
 
-C# Skript upplevelsen för Azure Functions baseras på [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Data flödar till C# din funktion via metod argument. Argument namn anges i en `function.json`-fil och det finns fördefinierade namn för att komma åt saker som funktions loggar och avbrutna token.
+The C# script experience for Azure Functions is based on the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Data flows into your C# function via method arguments. Argument names are specified in a `function.json` file, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
-Med formatet *. CSX* kan du skriva mindre "standard" och fokusera på att bara skriva en C# funktion. I stället för att figursätta allting i ett namn område och en klass definierar du bara en `Run`-metod. Ta med alla sammansättnings referenser och namn rymder i början av filen som vanligt.
+The *.csx* format allows you to write less "boilerplate" and focus on writing just a C# function. Instead of wrapping everything in a namespace and class, just define a `Run` method. Include any assembly references and namespaces at the beginning of the file as usual.
 
-En Function Apps *. CSX* -filer kompileras när en instans initieras. Det här steget innebär att t. ex. kall start kan C# ta längre tid för C# skript funktioner jämfört med klass bibliotek. Det här steget i kompileringen C# är också orsaken till att skript funktioner kan redige C# ras i Azure Portal, medan klass bibliotek inte är det.
+A function app's *.csx* files are compiled when an instance is initialized. This compilation step means things like cold start may take longer for C# script functions compared to C# class libraries. This compilation step is also why C# script functions are editable in the Azure portal, while C# class libraries are not.
 
-## <a name="folder-structure"></a>Mappstruktur
+## <a name="folder-structure"></a>Folder structure
 
-Mappstrukturen för ett C# skript projekt ser ut så här:
+The folder structure for a C# script project looks like the following:
 
 ```
 FunctionsProject
@@ -52,13 +49,13 @@ FunctionsProject
  | - bin
 ```
 
-Det finns en delad [Host. JSON](functions-host-json.md) -fil som kan användas för att konfigurera Function-appen. Varje funktion har sin egen kod fil (. CSX) och bindnings konfigurations fil (Function. JSON).
+There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
 
-De bindnings tillägg som krävs i [version 2. x](functions-versions.md) av Functions-körningen definieras i `extensions.csproj`-filen, med de faktiska biblioteksfilerna i mappen `bin`. När du utvecklar lokalt måste du [Registrera bindnings tillägg](./functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
-## <a name="binding-to-arguments"></a>Bindning till argument
+## <a name="binding-to-arguments"></a>Binding to arguments
 
-Indata-eller utdata är kopplade till C# en skript funktions parameter via egenskapen `name` i konfigurations filen *Function. JSON* . I följande exempel visas en *Function. JSON* -fil och filen *Run. CSX* för en funktion som utlöses av en kö. Parametern som tar emot data från Queue-meddelandet heter `myQueueItem` eftersom värdet för egenskapen `name` används.
+Input or output data is bound to a C# script function parameter via the `name` property in the *function.json* configuration file. The following example shows a *function.json* file  and *run.csx* file for a queue-triggered function. The parameter that receives data from the queue message is named `myQueueItem` because that's the value of the `name` property.
 
 ```json
 {
@@ -88,19 +85,19 @@ public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 }
 ```
 
-Instruktionen `#r` beskrivs [senare i den här artikeln](#referencing-external-assemblies).
+The `#r` statement is explained [later in this article](#referencing-external-assemblies).
 
-## <a name="supported-types-for-bindings"></a>Typer som stöds för bindningar
+## <a name="supported-types-for-bindings"></a>Supported types for bindings
 
-Varje bindning har sina egna typer som stöds. till exempel kan en BLOB-utlösare användas med en sträng parameter, en POCO-parameter, en `CloudBlockBlob`-parameter eller någon av flera andra typer som stöds. [Bindnings referens artikeln för BLOB-bindningar](functions-bindings-storage-blob.md#trigger---usage) listar alla parameter typer som stöds för BLOB-utlösare. Mer information finns i [utlösare och bindningar](functions-triggers-bindings.md) och [bindnings referens dokument för varje bindnings typ](functions-triggers-bindings.md#next-steps).
+Each binding has its own supported types; for instance, a blob trigger can be used with a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob.md#trigger---usage) lists all supported parameter types for blob triggers. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-## <a name="referencing-custom-classes"></a>Referera till anpassade klasser
+## <a name="referencing-custom-classes"></a>Referencing custom classes
 
-Om du behöver använda en anpassad POCO-klass (Plain CLR Object) kan du inkludera klass definitionen i samma fil eller lägga den i en separat fil.
+If you need to use a custom Plain Old CLR Object (POCO) class, you can include the class definition inside the same file or put it in a separate file.
 
-I följande exempel visas ett *Run. CSX* -exempel som innehåller en definition av en Poco-klass.
+The following example shows a *run.csx* example that includes a POCO class definition.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -115,13 +112,13 @@ public class MyClass
 }
 ```
 
-En POCO-klass måste ha en get-och set-metod definierad för varje egenskap.
+A POCO class must have a getter and setter defined for each property.
 
-## <a name="reusing-csx-code"></a>Återanvänder. CSX-kod
+## <a name="reusing-csx-code"></a>Reusing .csx code
 
-Du kan använda klasser och metoder som definierats i andra *. CSX* -filer i filen *Run. CSX* . Det gör du genom att använda `#load`-direktiv i filen *Run. CSX* . I följande exempel delas en loggnings rutin med namnet `MyLogger` i *loggen. CSX* och läses in i *Run. CSX* med hjälp av `#load`-direktivet:
+You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file. In the following example, a logging routine named `MyLogger` is shared in *myLogger.csx* and loaded into *run.csx* using the `#load` directive:
 
-Exempel på *Kör. CSX*:
+Example *run.csx*:
 
 ```csharp
 #load "mylogger.csx"
@@ -135,7 +132,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-Exempel på *CSX*:
+Example *mylogger.csx*:
 
 ```csharp
 public static void MyLogger(ILogger log, string logtext)
@@ -144,9 +141,9 @@ public static void MyLogger(ILogger log, string logtext)
 }
 ```
 
-Att använda en delad *. CSX* -fil är ett vanligt mönster när du vill skriva data som skickas mellan funktioner med hjälp av ett Poco-objekt. I följande förenklade exempel delar en HTTP-utlösare och en Queue-utlösare ett POCO-objekt med namnet `Order` för att starkt skriva order data:
+Using a shared *.csx* file is a common pattern when you want to strongly type the data passed between functions by using a POCO object. In the following simplified example, an HTTP trigger and queue trigger share a POCO object named `Order` to strongly type the order data:
 
-Exempel på *Kör. CSX* för http-utlösare:
+Example *run.csx* for HTTP trigger:
 
 ```cs
 #load "..\shared\order.csx"
@@ -172,7 +169,7 @@ public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Ord
 }
 ```
 
-Exempel på *Kör. CSX* för Queue-utlösare:
+Example *run.csx* for queue trigger:
 
 ```cs
 #load "..\shared\order.csx"
@@ -189,7 +186,7 @@ public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log
 }
 ```
 
-Exempel *order. CSX*:
+Example *order.csx*:
 
 ```cs
 public class Order
@@ -211,25 +208,25 @@ public class Order
 }
 ```
 
-Du kan använda en relativ sökväg med `#load`-direktivet:
+You can use a relative path with the `#load` directive:
 
-* `#load "mylogger.csx"` läser in en fil som finns i Function-mappen.
-* `#load "loadedfiles\mylogger.csx"` läser in en fil som finns i en mapp i Function-mappen.
-* `#load "..\shared\mylogger.csx"` läser in en fil som finns i en mapp på samma nivå som Function-mappen, det vill säga direkt under *wwwroot*.
+* `#load "mylogger.csx"` loads a file located in the function folder.
+* `#load "loadedfiles\mylogger.csx"` loads a file located in a folder in the function folder.
+* `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
 
-`#load`-direktivet fungerar endast med *. CSX* -filer, inte med *. cs* -filer.
+The `#load` directive works only with *.csx* files, not with *.cs* files.
 
-## <a name="binding-to-method-return-value"></a>Bindning till metod retur värde
+## <a name="binding-to-method-return-value"></a>Binding to method return value
 
-Du kan använda ett metod retur värde för en utgående bindning med namnet `$return` i *Function. JSON*. Exempel finns i [utlösare och bindningar](./functions-bindings-return-value.md).
+You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](./functions-bindings-return-value.md).
 
-Använd returvärdet endast om en lyckad funktions körning alltid resulterar i ett retur värde som skickas till utgående bindning. Annars använder du `ICollector` eller `IAsyncCollector`, som du ser i följande avsnitt.
+Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
 
-## <a name="writing-multiple-output-values"></a>Skriva flera värden för utdata
+## <a name="writing-multiple-output-values"></a>Writing multiple output values
 
-Om du vill skriva flera värden till en utgående bindning, eller om ett lyckat funktions anrop kanske inte leder till att något skickas till utgående bindning, använder du [`ICollector`-](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [`IAsyncCollector`-](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typer. Dessa typer är skrivskyddade samlingar som skrivs till utgående bindning när metoden har slutförts.
+To write multiple values to an output binding, or if a successful function invocation might not result in anything to pass to the output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
 
-I det här exemplet skrivs flera köa meddelanden till samma kö med hjälp av `ICollector`:
+This example writes multiple queue messages into the same queue using `ICollector`:
 
 ```csharp
 public static void Run(ICollector<string> myQueue, ILogger log)
@@ -241,7 +238,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## <a name="logging"></a>Loggning
 
-Om du vill logga utdata till dina strömmande loggar i C#inkluderar du ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log`. Undvik att använda `Console.Write` i Azure Functions.
+To log output to your streaming logs in C#, include an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -251,11 +248,11 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> Information om ett nyare loggnings ramverk som du kan använda i stället för `TraceWriter` finns i [skriva loggar C# i funktioner](functions-monitoring.md#write-logs-in-c-functions) i artikeln **övervaka Azure Functions** .
+> For information about a newer logging framework that you can use instead of `TraceWriter`, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
 
 ## <a name="async"></a>Async
 
-Om du vill göra en funktion [asynkron](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)använder du nyckelordet `async` och returnerar ett `Task`-objekt.
+To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -267,13 +264,13 @@ public async static Task ProcessQueueMessageAsync(
 }
 ```
 
-Du kan inte använda `out`-parametrar i async functions. För utgående bindningar använder du [funktionen returnera värde](#binding-to-method-return-value) eller ett [insamlat objekt](#writing-multiple-output-values) i stället.
+You can't use `out` parameters in async functions. For output bindings, use the [function return value](#binding-to-method-return-value) or a [collector object](#writing-multiple-output-values) instead.
 
-## <a name="cancellation-tokens"></a>Token för avbrytande
+## <a name="cancellation-tokens"></a>Cancellation tokens
 
-En funktion kan ta emot en [CancellationToken](/dotnet/api/system.threading.cancellationtoken) -parameter som gör att operativ systemet kan meddela din kod när funktionen ska avslutas. Du kan använda det här meddelandet för att se till att funktionen inte avslutas plötsligt på ett sätt som lämnar data i ett inkonsekvent tillstånd.
+A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-I följande exempel visas hur du söker efter förestående funktions avslutning.
+The following example shows how to check for impending function termination.
 
 ```csharp
 using System;
@@ -298,9 +295,9 @@ public static void Run(
 }
 ```
 
-## <a name="importing-namespaces"></a>Importerar namn områden
+## <a name="importing-namespaces"></a>Importing namespaces
 
-Om du behöver importera namn områden kan du göra det som vanligt med `using`-satsen.
+If you need to import namespaces, you can do so as usual, with the `using` clause.
 
 ```csharp
 using System.Net;
@@ -310,7 +307,7 @@ using Microsoft.Extensions.Logging;
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
-Följande namn rymder importeras automatiskt och är därför valfria:
+The following namespaces are automatically imported and are therefore optional:
 
 * `System`
 * `System.Collections.Generic`
@@ -321,9 +318,9 @@ Följande namn rymder importeras automatiskt och är därför valfria:
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`
 
-## <a name="referencing-external-assemblies"></a>Referera till externa sammansättningar
+## <a name="referencing-external-assemblies"></a>Referencing external assemblies
 
-För Ramverks sammansättningar lägger du till referenser med hjälp av direktivet `#r "AssemblyName"`.
+For framework assemblies, add references by using the `#r "AssemblyName"` directive.
 
 ```csharp
 #r "System.Web.Http"
@@ -336,7 +333,7 @@ using Microsoft.Extensions.Logging;
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
-Följande sammansättningar läggs automatiskt till av Azure Functions-värd miljön:
+The following assemblies are automatically added by the Azure Functions hosting environment:
 
 * `mscorlib`
 * `System`
@@ -349,7 +346,7 @@ Följande sammansättningar läggs automatiskt till av Azure Functions-värd mil
 * `System.Web.Http`
 * `System.Net.Http.Formatting`
 
-Följande sammansättningar kan refereras till av enkla namn (till exempel `#r "AssemblyName"`):
+The following assemblies may be referenced by simple-name (for example, `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -358,22 +355,22 @@ Följande sammansättningar kan refereras till av enkla namn (till exempel `#r "
 * `Microsoft.AspNet.WebHooks.Common`
 * `Microsoft.Azure.NotificationHubs`
 
-## <a name="referencing-custom-assemblies"></a>Referera till anpassade sammansättningar
+## <a name="referencing-custom-assemblies"></a>Referencing custom assemblies
 
-Om du vill referera till en anpassad sammansättning kan du antingen använda en *delad* sammansättning eller en *privat* sammansättning:
+To reference a custom assembly, you can use either a *shared* assembly or a *private* assembly:
 
-* Delade sammansättningar delas över alla funktioner i en Function-app. Om du vill referera till en anpassad sammansättning laddar du upp sammansättningen till en mapp med namnet `bin` i [mappen för Function app-rotmappen](functions-reference.md#folder-structure) (Wwwroot).
+* Shared assemblies are shared across all functions within a function app. To reference a custom assembly, upload the assembly to a folder named `bin` in your [function app root folder](functions-reference.md#folder-structure) (wwwroot).
 
-* Privata sammansättningar ingår i en specifik funktions kontext och stöder sid inläsning av olika versioner. Privata sammansättningar ska överföras i en `bin`-mapp i funktions katalogen. Referera till sammansättningarna med hjälp av fil namnet, till exempel `#r "MyAssembly.dll"`.
+* Private assemblies are part of a given function's context, and support side-loading of different versions. Private assemblies should be uploaded in a `bin` folder in the function directory. Reference the assemblies using the file name, such as `#r "MyAssembly.dll"`.
 
-Information om hur du överför filer till mappen funktion finns i avsnittet om [paket hantering](#using-nuget-packages).
+For information on how to upload files to your function folder, see the section on [package management](#using-nuget-packages).
 
-### <a name="watched-directories"></a>Bevakade kataloger
+### <a name="watched-directories"></a>Watched directories
 
-Katalogen som innehåller funktions skript filen bevakas automatiskt för ändringar av sammansättningar. Om du vill se sammansättnings ändringar i andra kataloger lägger du till dem i listan `watchDirectories` i [Host. JSON](functions-host-json.md).
+The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host.json](functions-host-json.md).
 
-## <a name="using-nuget-packages"></a>Använda NuGet-paket
-Om du vill använda NuGet-paket i en C# 2. x-funktion laddar du upp en *Function. proj* -fil till funktionens mapp i funktions appens fil system. Här är ett exempel på en *Function. proj* -fil som lägger till en referens till *Microsoft. ProjectOxford. Face* version *1.1.0*:
+## <a name="using-nuget-packages"></a>Using NuGet packages
+To use NuGet packages in a 2.x C# function, upload a *function.proj* file to the function's folder in the function app's file system. Here is an example *function.proj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -387,12 +384,12 @@ Om du vill använda NuGet-paket i en C# 2. x-funktion laddar du upp en *Function
 </Project>
 ```
 
-Om du vill använda en anpassad NuGet-feed anger du flödet i en *NuGet. config* -fil i Funktionsapp roten. Mer information finns i [Konfigurera NuGet-beteende](/nuget/consume-packages/configuring-nuget-behavior).
+To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the Function App root. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior).
 
 > [!NOTE]
-> I 1. x C# -funktioner refereras NuGet-paket till med en *Project. JSON* -fil i stället för en *Function. proj* -fil.
+> In 1.x C# functions, NuGet packages are referenced with a *project.json* file instead of a *function.proj* file.
 
-Använd en *Project. JSON* -fil i stället för 1. x-funktioner. Här är ett exempel på en *Project. JSON* -fil:
+For 1.x functions, use a *project.json* file instead. Here is an example *project.json* file:
 
 ```json
 {
@@ -406,11 +403,11 @@ Använd en *Project. JSON* -fil i stället för 1. x-funktioner. Här är ett ex
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Använda en function. PROJ-fil
+### <a name="using-a-functionproj-file"></a>Using a function.proj file
 
-1. Öppna funktionen i Azure Portal. På fliken loggar visas installations resultatet för paketet.
-2. Om du vill ladda upp en *Function. proj* -fil använder du en av de metoder som beskrivs i avsnittet [så här uppdaterar du Function-appdata](functions-reference.md#fileupdate) i avsnittet Azure Functions Developer reference.
-3. När *Function. proj* -filen har överförts visas utdata som i följande exempel i funktionens strömmande logg:
+1. Open the function in the Azure portal. The logs tab displays the package installation output.
+2. To upload a *function.proj* file, use one of the methods described in the [How to update function app files](functions-reference.md#fileupdate) in the Azure Functions developer reference topic.
+3. After the *function.proj* file is uploaded, you see output like the following example in your function's streaming log:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -426,7 +423,7 @@ Använd en *Project. JSON* -fil i stället för 1. x-funktioner. Här är ett ex
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-Använd `System.Environment.GetEnvironmentVariable`, som du ser i följande kod exempel för att hämta en miljö variabel eller ett inställnings värde för appen:
+To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
 
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
@@ -445,15 +442,15 @@ public static string GetEnvironmentVariable(string name)
 
 <a name="imperative-bindings"></a>
 
-## <a name="binding-at-runtime"></a>Bindning vid körning
+## <a name="binding-at-runtime"></a>Binding at runtime
 
-I C# och andra .net-språk kan du använda ett [tvingande](https://en.wikipedia.org/wiki/Imperative_programming) bindnings mönster, till skillnad från [*deklarativ*](https://en.wikipedia.org/wiki/Declarative_programming) bindningar i *Function. JSON*. Tvingande bindning är användbart när bindnings parametrar måste beräknas vid körning i stället för design tid. Med det här mönstret kan du binda till indata-och utgående bindningar som stöds i-farten i funktions koden.
+In C# and other .NET languages, you can use an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) binding pattern, as opposed to the [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. With this pattern, you can bind to supported input and output bindings on-the-fly in your function code.
 
-Definiera en tvingande bindning enligt följande:
+Define an imperative binding as follows:
 
-- Ta **inte** med en post i *Function. JSON* för önskade tvingande bindningar.
-- Skicka in en indataparameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) eller [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
-- Använd följande C# mönster för att utföra data bindningen.
+- **Do not** include an entry in *function.json* for your desired imperative bindings.
+- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Use the following C# pattern to perform the data binding.
 
 ```cs
 using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
@@ -462,11 +459,11 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` är det .NET-attribut som definierar bindningen och `T` är en indata-eller utdatatyp som stöds av den bindnings typen. `T` kan inte vara en `out`-parameter typ (till exempel `out JObject`). Till exempel stöder Mobile Apps tabellens utgående bindning [sex typer av utdata](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) för `T`.
+`BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is an input or output type that's supported by that binding type. `T` cannot be an `out` parameter type (such as `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
 
-### <a name="single-attribute-example"></a>Exempel på ett attribut
+### <a name="single-attribute-example"></a>Single attribute example
 
-Följande exempel kod skapar en [utgående bindning för Storage BLOB](functions-bindings-storage-blob.md#output) med en BLOB-sökväg som definieras vid körning och skriver sedan en sträng till blobben.
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#output) with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -481,11 +478,11 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definierar [lagrings-BLOB](functions-bindings-storage-blob.md) -indata eller utdata-bindningen och [TextWriter](/dotnet/api/system.io.textwriter) är en typ av utgående bindning som stöds.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and [TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
 
-### <a name="multiple-attribute-example"></a>Exempel på flera attribut
+### <a name="multiple-attribute-example"></a>Multiple attribute example
 
-I föregående exempel hämtas app-inställningen för funktionens huvud anslutnings sträng för lagrings konton (som är `AzureWebJobsStorage`). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()`. Använd en `Binder`-parameter, inte `IBinder`.  Exempel:
+The preceding example gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) and passing the attribute array into `BindAsync<T>()`. Use a `Binder` parameter, not `IBinder`.  Exempel:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -506,10 +503,10 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-I följande tabell visas .NET-attributen för varje bindnings typ och de paket som de är definierade i.
+The following table lists the .NET attributes for each binding type and the packages in which they are defined.
 
 > [!div class="mx-codeBreakAll"]
-> | Enheten | Attribut | Lägg till referens |
+> | Binding | Attribut | Add reference |
 > |------|------|------|
 > | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 > | Händelsehubbar | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
@@ -518,13 +515,13 @@ I följande tabell visas .NET-attributen för varje bindnings typ och de paket s
 > | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
 > | Lagringskö | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Lagringsblob | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-> | Lagrings tabell | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+> | Storage table | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om utlösare och bindningar](functions-triggers-bindings.md)
+> [Learn more about triggers and bindings](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Läs mer om metod tips för Azure Functions](functions-best-practices.md)
+> [Learn more about best practices for Azure Functions](functions-best-practices.md)

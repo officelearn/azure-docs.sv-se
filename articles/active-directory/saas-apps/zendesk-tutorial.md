@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Zendesk | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Zendesk | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zendesk.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a57258dfe112c1b2d03bc43738c92272a156f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4887457f457ff533a0eaf10be7db1627a950f5bd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160840"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233270"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Självstudie: Azure Active Directory integrering med Zendesk
+# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Tutorial: Azure Active Directory integration with Zendesk
 
 I den här självstudien lär du dig att integrera Zendesk med Azure Active Directory (AD Azure).
 När du integrerar Zendesk med Azure AD får du följande fördelar:
@@ -210,7 +210,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -258,13 +258,13 @@ Målet med det här avsnittet är att skapa en användare med namnet Britta Simo
 
 3. Välj fliken **Användare** och klicka på **Lägg till**.
 
-    ![Lägg till användare](././media/zendesk-tutorial/ic773632.png "Lägga till användare")
+    ![Add user](././media/zendesk-tutorial/ic773632.png "Lägga till användare")
 4. Skriv **namnet** och **e-postadressen** för ett befintligt Azure AD-konto du vill etablera och klicka sedan på **Spara**.
 
-    ![Ny användare](././media/zendesk-tutorial/ic773633.png "Ny användare")
+    ![New user](././media/zendesk-tutorial/ic773633.png "New user")
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för att skapa Zendesk-användarkonton som tillhandahålls av Zendesk för att etablera AAD-användarkonton.
+> You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -278,6 +278,6 @@ När du klickar på Zendesk-panelen i åtkomstpanelen så borde du automatiskt l
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Konfigurera användarförsörjning](zendesk-provisioning-tutorial.md)

@@ -1,22 +1,16 @@
 ---
-title: Lägga till meddelanden i en Azure Storage-kö med Functions | Microsoft Docs
+title: Lägga till meddelanden i en Azure Storage-kö med Functions
 description: Använd Azure Functions för att skapa en funktion utan server som startas av en HTTP-begäran och skapar ett meddelande i en Azure Storage-kö.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 09/19/2017
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1d24eb81361a337ed00d719a7fb5895e73583030
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096321"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226890"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -24,7 +18,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att skapa da
 
 ![Kömeddelande som visas i Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -66,7 +60,7 @@ Nu när du har definierat en utdatabindning måste du uppdatera koden så att bi
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-I det här avsnittet lägger du till kod som skriver ett meddelande till utdatakön. Meddelandet innehåller värdet som skickades till HTTP-utlösaren i frågesträngen. Om frågesträngen till exempel innehåller `name=Azure`, kommer kömeddelandet att vara *Namn som skickats till funktionen: Azure*.
+I det här avsnittet lägger du till kod som skriver ett meddelande till utdatakön. Meddelandet innehåller värdet som skickades till HTTP-utlösaren i frågesträngen. Om frågesträngen till exempel innehåller `name=Azure` så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
 
 1. Välj din funktion så att funktionskoden visas i redigeraren.
 
@@ -149,7 +143,7 @@ Hoppa över det här avsnittet om du redan har installerat Storage Explorer och 
 
 1. Expandera noden **Köer** och välj sedan kön med namnet **outqueue**. 
 
-   Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure*, kommer kömeddelandet att vara *Namn som skickats till funktionen: Azure*.
+   Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure* så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
 
     ![Kömeddelande som visas i Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

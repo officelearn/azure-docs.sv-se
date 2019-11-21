@@ -1,28 +1,28 @@
 ---
-title: Skapa en princip för granskning av resurser med PowerShell
-description: Använda Azure PowerShell för att skapa en Azure Policy-tilldelning som identifierar icke-kompatibla resurser.
+title: 'Quickstart: New policy assignment with PowerShell'
+description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3e488bece1b74eb473e3e08ea9c36a78063bd5a8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960116"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210070"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
-Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status. I den här snabbstarten skapar du en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar. När du är klar kommer du att identifiera virtuella datorer som *inte är kompatibla*.
+Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status. I den här snabbstarten skapar du en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar. When complete, you'll identify virtual machines that are *non-compliant*.
 
-Azure PowerShell-modulen används för att hantera Azure-resurser från kommando raden eller i skript.
-Den här guiden förklarar hur du använder AZ-modulen för att skapa en princip tilldelning.
+The Azure PowerShell module is used to manage Azure resources from the command line or in scripts.
+This guide explains how to use Az module to create a policy assignment.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 - Innan du börjar bör du kontrollera att den senaste versionen av Azure PowerShell har installerats. Detaljerad information finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
-- Registrera resurs leverantören Azure Policy Insights med Azure PowerShell. När du registrerar resursprovidern säkerställer du att din prenumeration fungerar med den. Om du vill registrera en resursprovider måste du ha behörighet att utföra åtgärden att registrera resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
+- Register the Azure Policy Insights resource provider using Azure PowerShell. När du registrerar resursprovidern säkerställer du att din prenumeration fungerar med den. Om du vill registrera en resursprovider måste du ha behörighet att utföra åtgärden att registrera resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
-I den här snabb starten skapar du en princip tilldelning för definitionen *Granska virtuella datorer utan Managed disks* . Den här princip definitionen identifierar virtuella datorer som inte använder hanterade diskar.
+In this quickstart, you create a policy assignment for the *Audit VMs without managed disks* definition. This policy definition identifies virtual machines not using managed disks.
 
 Skapa en ny principtilldelning genom att köra följande kommandon:
 
@@ -51,11 +51,11 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 Föregående kommandon använder följande information:
 
 - **Namn** - det faktiska namnet på tilldelningen. I det här exemplet användes *audit-vm-manageddisks*.
-- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan hanterade diskar*.
+- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan Managed Disks*.
 - **Definition** – Principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionens ID *Granska virtuella datorer som inte använder hanterade diskar*.
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper. Kom ihåg att ersätta &lt;omfång&gt; med namnet på din resursgrupp.
 
-Du är nu redo att identifiera icke-kompatibla resurser för att förstå miljöns kompatibilitetstillstånd.
+You're now ready to identify non-compliant resources to understand the compliance state of your environment.
 
 ## <a name="identify-non-compliant-resources"></a>Identifiera icke-kompatibla resurser
 
@@ -66,7 +66,7 @@ Använd följande information för att identifiera resurser som inte är kompati
 Get-AzPolicyState -ResourceGroupName $rg.ResourceGroupName -PolicyAssignmentName 'audit-vm-manageddisks' -Filter 'IsCompliant eq false'
 ```
 
-Mer information om hur du hämtar princip status finns i [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
+For more information about getting policy state, see [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
 
 Ditt resultat liknar följande exempel:
 
@@ -88,7 +88,7 @@ PolicyDefinitionCategory    : Compute
 ManagementGroupIds          : {managementGroupId}
 ```
 
-Resultaten matchar det du ser på fliken **Resource Compliance (resurs krav** ) i en princip tilldelning i vyn Azure Portal.
+The results match what you see in the **Resource compliance** tab of a policy assignment in the Azure portal view.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -103,7 +103,7 @@ Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<
 
 I den här snabbstarten har du tilldelat en principdefinition för att identifiera icke-kompatibla resurser i Azure-miljön.
 
-Om du vill ha mer information om tilldelning av principer för att kontrollera att de nya resurserna är kompatibla fortsätter du till självstudiekursen för att:
+Om du vill ha mer information om tilldelning av principer för att validera att de nya resurserna är kompatibla fortsätter du till självstudien för att:
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./tutorials/create-and-manage.md)

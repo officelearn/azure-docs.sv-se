@@ -1,23 +1,23 @@
 ---
-title: 'Snabb start: registrera TPM-enhet på Azure Device Provisioning-tjänsten med python'
-description: Azure snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten med SDK för Python-etableringstjänst. Den här snabbstarten använder enskilda registreringar.
+title: Enroll TPM device to Azure Device Provisioning Service using Python
+description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Python provisioning service SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 49e7961200a2ab523997350fffa6606d65f60c8c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f241fd7ca4b0385641067f938f0f8136c9f05ba5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903403"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229539"
 ---
-# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med hjälp av python Provisioning service SDK
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Python provisioning service SDK
+
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 De här stegen visar hur du programmässigt skapar en enskild registrering för en TPM-enhet i Azure IoT Hub Device Provisioning-tjänsten med [SDK för Python-etableringtjänst](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) med hjälp av ett Python-exempelprogram. Python-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här artikeln används en Windows-utvecklingsdator för att gå igenom registreringsprocessen.
@@ -29,7 +29,7 @@ Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portale
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
-1. Ladda ned och installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i de plattformsspecifika miljövariablerna när du uppmanas att göra det under installationen. 
+1. Ladda ned och installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. 
 
 1. Välj ett av följande alternativ:
 
@@ -109,7 +109,7 @@ Om du tänker utforska Java-tjänstexemplet ska du inte rensa resurserna som har
 
 1. Stäng utdatafönstret för Python-exemplet på datorn.
 1. Om du har skapat en simulerad TPM-enhet stänger du TPM-simulatorfönstret.
-1. Gå till enhets etablerings tjänsten i Azure Portal, klicka på **Hantera registreringar**och välj sedan fliken **enskilda registreringar** . Välj *registrerings-ID* för registrerings posten du skapade med den här snabb starten och klicka på knappen **ta bort** högst upp på bladet.  
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 
 ## <a name="next-steps"></a>Nästa steg

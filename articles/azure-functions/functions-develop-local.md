@@ -1,48 +1,42 @@
 ---
-title: Utveckla och kör Azure Functions lokalt | Microsoft Docs
-description: Lär dig hur du kodar och testar Azure Functions på den lokala datorn innan du kör dem på Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
+title: Develop and run Azure functions locally
+description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.author: glenga
-ms.openlocfilehash: 7c2e727ecb080d1db212e8b45a2c48bac81a3949
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 835edcb94b294d93cab41ea51b88ac38db71d95e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709314"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230634"
 ---
-# <a name="code-and-test-azure-functions-locally"></a>Kod och test Azure Functions lokalt
+# <a name="code-and-test-azure-functions-locally"></a>Code and test Azure Functions locally
 
-När du har möjlighet att utveckla och testa Azure Functions i [Azure Portal], föredrar många utvecklare en lokal utvecklings miljö. Funktionerna gör det enkelt att använda dina favorit kod redigerare och utvecklingsverktyg för att skapa och testa funktioner på den lokala datorn. Dina lokala funktioner kan ansluta till Live Azure-tjänster och du kan felsöka dem på din lokala dator med hjälp av körnings funktionen för fullständiga funktioner.
+While you're able to develop and test Azure Functions in the [Azure-portalen], many developers prefer a local development experience. Functions makes it easy to use your favorite code editor and development tools to create and test functions on your local computer. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
 
-## <a name="local-development-environments"></a>Lokala utvecklings miljöer
+## <a name="local-development-environments"></a>Local development environments
 
-Hur du utvecklar funktioner på din lokala dator beror på [språk](supported-languages.md) och verktygs inställningar. Miljöerna i följande tabell stöder lokal utveckling:
+The way in which you develop functions on your local computer depends on your [language](supported-languages.md) and tooling preferences. The environments in the following table support local development:
 
-|Miljö                              |Languages         |Beskrivning|
+|Miljö                              |Språk         |Beskrivning|
 |-----------------------------------------|------------|---|
-|[Visual Studio Code](functions-develop-vs-code.md)| [](functions-reference-python.md) [](functions-create-first-function-powershell.md) [](functions-reference-node.md) [(klass bibliotek), skript (. CSX), C# ](functions-dotnet-class-library.md)Java Script, PowerShell, python [ C# ](functions-reference-csharp.md) | [Azure Functions-tillägget för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) lägger till funktioner som stöder vs Code. Kräver kärn verktyg. Stöder utveckling av Linux, MacOS och Windows när du använder version 2. x av kärn verktygen. Mer information finns i [skapa din första funktion med Visual Studio Code](functions-create-first-function-vs-code.md). |
-| [Kommando tolk eller Terminal](functions-run-local.md) | [](functions-reference-python.md) [](functions-reference-powershell.md) [](functions-reference-node.md) [(klass bibliotek), skript (. CSX), C# ](functions-dotnet-class-library.md)Java Script, PowerShell, python [ C# ](functions-reference-csharp.md) | [Azure Functions Core tools] tillhandahåller kärn körning och mallar för att skapa funktioner som möjliggör lokal utveckling. Version 2. x stöder utveckling på Linux, MacOS och Windows. Alla miljöer förlitar sig på kärn verktyg för den lokala Functions-körningen. |
-| [Visual Studio 2019](functions-develop-vs.md) | [C#(klass bibliotek)](functions-dotnet-class-library.md) | Azure Functions verktyg ingår i **Azure Development** -arbetsbelastningen för [Visual Studio 2019](https://www.visualstudio.com/vs/) och senare versioner. Gör att du kan kompilera funktioner i ett klass bibliotek och publicera. dll-filen på Azure. Innehåller kärn verktygen för lokal testning. Läs mer i [utveckla Azure Functions med Visual Studio](functions-develop-vs.md). |
-| [Maven](functions-create-first-java-maven.md) önskade | [Java](functions-reference-java.md) | Integrerar med Core-verktyg för att möjliggöra utveckling av Java-funktioner. Version 2. x stöder utveckling på Linux, MacOS och Windows. Mer information finns i [skapa din första funktion med Java och maven](functions-create-first-java-maven.md). Har även stöd för utveckling med [Sol förmörkelse](functions-create-maven-eclipse.md) och [IntelliJ idé](functions-create-maven-intellij.md) |
+|[Visual Studio-kod](functions-develop-vs-code.md)| [C# (class library)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-create-first-function-powershell.md), [Python](functions-reference-python.md) | The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, MacOS, and Windows, when using version 2.x of the Core Tools. To learn more, see [Create your first function using Visual Studio Code](functions-create-first-function-vs-code.md). |
+| [Command prompt or terminal](functions-run-local.md) | [C# (class library)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-reference-powershell.md), [Python](functions-reference-python.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Version 2.x supports development on Linux, MacOS, and Windows. All environments rely on Core Tools for the local Functions runtime. |
+| [Visual Studio 2019](functions-develop-vs.md) | [C# (class library)](functions-dotnet-class-library.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio 2019](https://www.visualstudio.com/vs/) and later versions. Lets you compile functions in a class library and publish the .dll to Azure. Includes the Core Tools for local testing. To learn more, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md). |
+| [Maven](functions-create-first-java-maven.md) (various) | [Java](functions-reference-java.md) | Integrates with Core Tools to enable development of Java functions. Version 2.x supports development on Linux, MacOS, and Windows. To learn more, see [Create your first function with Java and Maven](functions-create-first-java-maven.md). Also supports development using [Eclipse](functions-create-maven-eclipse.md) and [IntelliJ IDEA](functions-create-maven-intellij.md) |
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-Var och en av de här lokala utvecklings miljöerna gör att du kan skapa Function app-projekt och använda fördefinierade funktions mallar för att skapa nya funktioner. Varje använder kärn verktygen så att du kan testa och felsöka dina funktioner mot Real tids körningen på din egen dator precis som med andra appar. Du kan också publicera ditt Function app-projekt från någon av dessa miljöer till Azure.  
+Each of these local development environments lets you create function app projects and use predefined Functions templates to create new functions. Each uses the Core Tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Läs mer om lokal utveckling av kompilerade C# funktioner med visual Studio 2019 i [utveckla Azure Functions med Visual Studio](functions-develop-vs.md).
-+ Mer information om lokal utveckling av funktioner med VS Code på en Mac-, Linux-eller Windows-dator finns i [distribuera Azure Functions från vs Code](/azure/javascript/tutorial-vscode-serverless-node-01).
-+ Mer information om hur du utvecklar funktioner från kommando tolken eller terminalen finns i [arbeta med Azure Functions Core tools](functions-run-local.md).
++ To learn more about local development of compiled C# functions using Visual Studio 2019, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
++ To learn more about local development of functions using VS Code on a Mac, Linux, or Windows computer, see [Deploy Azure Functions from VS Code](/azure/javascript/tutorial-vscode-serverless-node-01).
++ To learn more about developing functions from the command prompt or terminal, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure-portalen]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

@@ -1,7 +1,7 @@
 ---
-title: 'Design: klassificera, förutse inkomst exempel'
+title: 'Designer: Classify, predict income example'
 titleSuffix: Azure Machine Learning
-description: Följ det här exemplet för att bygga en icke-kodad klassificerare för att förutsäga intäkter med Azure Machine Learning designer.
+description: Follow this example build a no-code classifier to predict income with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,64 +10,64 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 527db89be85cc5b095d33ba89c776a077119f08a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: adc7712a4f41daea9ed691e6df52290e98e8d81f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196055"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214138"
 ---
-# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Bygg en klassificerare & använda funktions val för att förutse intäkter med Azure Machine Learning designer
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Build a classifier & use feature selection to predict income with Azure Machine Learning designer
 
-**Designer (för hands version), exempel 3**
+**Designer (preview) sample 3**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Lär dig hur du skapar en dator inlärnings klassificerare utan att skriva en enda rad kod med hjälp av designern (för hands version). Det här exemplet tränar ett **besluts träd i två klasser** för att förutsäga den vuxen skatte inkomsten (> = 50 000 eller < = 50 000).
+Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
 
-Eftersom frågan besvarar "vilket är en?" Detta kallas för ett klassificerings problem. Du kan dock använda samma grundläggande process för att ta itu med alla typer av maskin inlärnings problem, oavsett om det är regression, klassificering, klustring och så vidare.
+Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
-Här är den slutliga pipeline-grafen för det här exemplet:
+Here's the final pipeline graph for this sample:
 
-![Diagram över pipelinen](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
+![Graph of the pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Öppna det genom att klicka på exemplet 3.
+4. Click the sample 3 to open it.
 
 
 
 ## <a name="data"></a>Data
 
-Data uppsättningen innehåller 14 funktioner och en etikett kolumn. Det finns flera typer av funktioner, inklusive numeriska och kategoriska. Följande diagram visar ett utdrag från data uppsättningen: ![data](media/how-to-ui-sample-classification-predict-income/data.png)
+The dataset contains 14 features and one label column. There are multiple types of features, including numerical and categorical. The following diagram shows an excerpt from the dataset: ![data](media/how-to-designer-sample-classification-predict-income/data.png)
 
 
 
-## <a name="pipeline-summary"></a>Sammanfattning av pipeline
+## <a name="pipeline-summary"></a>Pipeline summary
 
-Följ de här stegen för att skapa pipelinen:
+Follow these steps to create the pipeline:
 
-1. Dra den binära indatamängds-modulen för total mängds inkomst till pipeline-arbetsytan.
-1. Lägg till en modul för **delade data** för att skapa inlärnings-och test uppsättningar. Ange bråk delen av raderna i den första data uppsättningen för utdata till 0,7. Den här inställningen anger att 70% av data kommer att matas ut till den vänstra porten i modulen och resten till rätt port. Vi använder den vänstra data uppsättningen för utbildning och det som är bäst för testning.
-1. Lägg till **funktionen filtrera baserat funktions val** för att välja 5 funktioner efter PearsonCorreclation. 
-1. Lägg till en modul för **besluts träd med två klasser** för att initiera en utökat besluts träds klassificerare.
-1. Lägg till en modul för **träna modell** . Anslut klassificeraren från föregående steg till den vänstra Indataporten för **träna-modellen**. Anslut den filtrerade data uppsättningen från filter baserat funktions val modul som utbildnings data uppsättning.  **Träna-modellen** kommer att träna klassificeraren.
-1. Lägg till omvandling av urvals kolumner och Använd omvandling för att tillämpa samma omvandling (filtrerad beroende funktions val) för att testa data uppsättningen.
-![Apply-Transformation](media/how-to-ui-sample-classification-predict-income/transformation.png)
-1. Lägg till modulen för **Poäng modell** och Anslut modulen **träna modell** till den. Lägg sedan till test uppsättningen (utdata från modulen Använd omvandling som använder funktions urvalet som test uppsättning för) i **Poäng modellen**. **Poäng modellen** kommer att göra förutsägelserna. Du kan välja dess utdataport för att se förutsägelserna och den positiva klassen sannolikhet.
+1. Drag the Adult Census Income Binary dataset module into the pipeline canvas.
+1. Add a **Split Data** module to create the training and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port of the module and the rest to the right port. We use the left dataset for training and the right one for testing.
+1. Add the **Filter Based Feature Selection** module to select 5 features by PearsonCorreclation. 
+1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
+1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Connect the filtered dataset from Filter Based Feature Selection module as training dataset.  The **Train Model** will train the classifier.
+1. Add Select Columns Transformation and Apply Transformation module to apply the same transformation (filtered based feature selection) to test dataset.
+![apply-transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
+1. Add **Score Model** module and connect the **Train Model** module to it. Then add the test set (the output of Apply Transformation module which apply feature selection to test set too) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 
 
-    Den här pipelinen har två score-moduler, den som finns i kolumnen till höger har uteslutit etikett-kolumnen innan den gör förutsägelsen. Detta är för berett för att distribuera en slut punkt i real tid, eftersom webb tjänstens indatatyper endast förväntar sig att funktioner inte är märkta. 
+    This pipeline has two score modules, the one on the right has excluded label column before make the prediction. This is prepared to deploy a real-time endpoint, because the web service input will expect only features not label. 
 
-1. Lägg till en **utvärdera modell** -modul och Anslut den returnerade data uppsättningen till den vänstra Indataporten. Om du vill se utvärderings resultaten väljer du utdataporten för modulen **utvärdera modell** och väljer **visualisera**.
+1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
 
 ## <a name="results"></a>Resultat
 
-![Utvärdera resultaten](media/how-to-ui-sample-classification-predict-income/evaluate-result.png)
+![Evaluate the results](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
-I utvärderings resultatet kan du se att kurvor som ROC, precisions åter kallelse och förvirring. 
+In the evaluation results, you can see that the curves like ROC, Precision-recall and confusion metrics. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -75,11 +75,11 @@ I utvärderings resultatet kan du se att kurvor som ROC, precisions åter kallel
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de andra exempel som är tillgängliga för designern:
+Explore the other samples available for the designer:
 
-- [Exempel 1 – regression: förutsäga ett bils pris](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exempel 4 – klassificering: förutsägelse kredit risk (kostnads känsligt)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-designer-sample-classification-churn.md)
-- [Exempel 6 – klassificering: förutsäga flyg fördröjningar](how-to-designer-sample-classification-flight-delay.md)
-- [Exempel 7 – text klassificering: Wikipedia SP 500-datauppsättning](how-to-designer-sample-text-classification.md)
+- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

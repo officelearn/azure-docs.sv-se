@@ -1,6 +1,6 @@
 ---
-title: Aktivera automatisk användar etablering för Azure Active Directory program med flera klienter
-description: En guide för oberoende program varu leverantörer för att aktivera automatisk etablering
+title: Enable automatic user provisioning for multi-tenant applications - Azure AD
+description: A guide for independent software vendors for enabling automated provisioning
 services: active-directory
 documentationcenter: azure
 author: BarbaraSelden
@@ -15,108 +15,108 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429462"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232320"
 ---
-# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
+# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Enable automatic user provisioning for your multi-tenant application
 
-Automatisk användar etablering är en process där du automatiserar genereringen, underhållet och borttagningen av användar identiteter i mål systemen, till exempel program vara som en tjänst.
+Automatic user provisioning is the process of automating the creation, maintenance, and removal of user identities in target systems like your software-as-a-service applications.
 
-## <a name="why-enable-automatic-user-provisioning"></a>Varför ska jag aktivera automatisk användar etablering?
+## <a name="why-enable-automatic-user-provisioning"></a>Why enable automatic user provisioning?
 
-Program som kräver att en användar post finns i programmet innan en användares första inloggning kräver användar etablering. Det finns fördelar med dig som en tjänste leverantör och förmåner till dina kunder.
+Applications that require that a user record is present in the application before a user’s first sign in require user provisioning. There are benefits to you as a service provider, and benefits to your customers.
 
-### <a name="benefits-to-you-as-the-service-provider"></a>Fördelar till dig som tjänst leverantör
+### <a name="benefits-to-you-as-the-service-provider"></a>Benefits to you as the service provider
 
-* Öka säkerheten för ditt program med hjälp av Microsoft Identity Platform.
+* Increase the security of your application by using the Microsoft identity platform.
 
-* Sänk faktisk och uppfattad kund ansträngning för att anta ditt program.
+* Reduce actual and perceived customer effort to adopt your application.
 
-* Minska kostnaderna i integrering med flera identitets leverantörer (IDP: er) för automatisk användar etablering med hjälp av system för SCIM-baserad etablering (Cross-Domain Identity Management).
+* Reduce your costs in integrating with multiple identity providers (IdPs) for automatic user provisioning by using System for Cross-Domain Identity Management (SCIM)-based provisioning.
 
-* Minska support kostnaderna genom att tillhandahålla omfattande loggar som hjälper kunderna att felsöka problem med användar etablering.
+* Reduce support costs by providing rich logs to help customers troubleshoot user provisioning issues.
 
-* Öka synligheten för ditt program i [Azure AD App-galleriet](https://azuremarketplace.microsoft.com/marketplace/apps).
+* Increase the visibility of your application in the [Azure AD app gallery](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-* Få en prioriterad lista på sidan med program självstudier.
+* Get a prioritized listing in the App Tutorials page.
 
-### <a name="benefits-to-your-customers"></a>Förmåner till dina kunder
+### <a name="benefits-to-your-customers"></a>Benefits to your customers
 
-* Öka säkerheten genom att automatiskt ta bort åtkomsten till programmet för användare som ändrar roller eller lämna organisationen till ditt program.
+* Increase security by automatically removing access to your application for users who change roles or leave the organization to your application.
 
-* Förenkla användar hanteringen för ditt program genom att undvika mänskligt fel och repetitivt arbete som är kopplat till manuell etablering.
+* Simplify user management for your application by avoiding human error and repetitive work associated with manual provisioning.
 
-* Sänk kostnaderna för att vara värd för och underhålla anpassade etablerings lösningar.
+* Reduce the costs of hosting and maintaining custom-developed provisioning solutions.
 
-## <a name="choose-a-provisioning-method"></a>Välj en etablerings metod
+## <a name="choose-a-provisioning-method"></a>Choose a provisioning method
 
-Azure AD tillhandahåller flera integrerings vägar för att aktivera automatisk användar etablering för programmet.
+Azure AD provides several integration paths to enable automatic user provisioning for your application.
 
-* [Azure AD Provisioning-tjänsten](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) hanterar etableringen och avetableringen av användare från Azure AD till ditt program (utgående etablering) och från ditt program till Azure AD (inkommande etablering). Tjänsten ansluter till systemet med API-slutpunkter för användar hantering i SCIM (Cross-Domain Identity Management) som tillhandahålls av ditt program.
+* The [Azure AD Provisioning Service](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) manages the provisioning and deprovisioning of users from Azure AD to your application (outbound provisioning) and from your application to Azure AD (inbound provisioning). The service connects to the System for Cross-Domain Identity Management (SCIM) user management API endpoints provided by your application.
 
-* När du använder [Microsoft Graph](https://docs.microsoft.com/graph/)hanterar ditt program inkommande och utgående etablering av användare och grupper från Azure AD till ditt program genom att fråga Microsoft Graph-API: et.
+* When using the [Microsoft Graph](https://docs.microsoft.com/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
 
-* Användar etableringen för Security Assertion Markup Language just-in-Time (SAML JIT) kan aktive ras om programmet använder SAML för federation. Den använder anspråk information som skickas i SAML-token för att etablera användare.
+* The Security Assertion Markup Language Just in Time (SAML JIT) user provisioning can be enabled if your application is using SAML for federation. It uses claims information sent in the SAML token to provision users.
 
-För att avgöra vilket integrations alternativ som ska användas för programmet, se jämförelse tabellen på hög nivå och se mer detaljerad information om varje alternativ.
+To help determine which integration option to use for your application, refer to the high-level comparison table, and then see the more detailed information on each option.
 
-| Funktioner som är aktiverade eller utökade genom automatisk etablering| Azure AD Provisioning-tjänst (SCIM 2,0)| Microsoft Graph API (OData v 4.0)| SAML JIT |
+| Capabilities enabled or enhanced by Automatic Provisioning| Azure AD Provisioning Service (SCIM 2.0)| Microsoft Graph API (OData v4.0)| SAML JIT |
 |---|---|---|---|
-| Hantering av användare och grupper i Azure AD| √| √| Endast användare |
-| Hantera användare och grupper som synkroniseras från lokala Active Directory| √| √| Endast användare * |
-| Få åtkomst till data utanför användare och grupper under etablerings åtkomst till O365-data (team, SharePoint, e-post, kalender, dokument osv.)| X +| √| X |
-| Skapa, läsa och uppdatera användare baserat på affärs regler| √| √| √ |
-| Ta bort användare baserat på affärs regler| √| √| X |
-| Hantera automatisk användar etablering för alla program från Azure Portal| √| X| √ |
-| Stöd för flera identitets leverantörer| √| X| √ |
-| Stöd gäst konton (B2B)| √| √| √ |
-| Stöd för icke-Enterprise-konton (B2C)| X| √| √ |
+| User and group management in Azure AD| √| √| User only |
+| Manage users and groups synced from on-premises Active Directory| √*| √*| User only* |
+| Access data beyond users and groups during provisioning Access to O365 data (Teams, SharePoint, Email, Calendar, Documents, etc.)| X+| √| X |
+| Create, read, and update users based on business rules| √| √| √ |
+| Delete users based on business rules| √| √| X |
+| Manage automatic user provisioning for all applications from the Azure portal| √| X| √ |
+| Support multiple identity providers| √| X| √ |
+| Support guest accounts (B2B)| √| √| √ |
+| Support non-enterprise accounts (B2C)| X| √| √ |
 
-<sup>*</sup> – Azure AD Connect installations programmet krävs för att synkronisera användare från AD till Azure AD.  
-<sup>+</sup >– genom att använda scim för etablering förhindrar du att du integrerar ditt program med Microsoft Graph i andra syfte.
+<sup>*</sup> – Azure AD Connect setup is required to sync users from AD to Azure AD.  
+<sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with MIcrosoft Graph for other purposes.
 
-## <a name="azure-ad-provisioning-service-scim"></a>Azure AD Provisioning-tjänst (SCIM)
+## <a name="azure-ad-provisioning-service-scim"></a>Azure AD Provisioning Service (SCIM)
 
-Azure AD Provisioning Services använder [scim](https://aka.ms/SCIMOverview), en bransch standard för etablering som stöds av många identitets leverantörer (IDP: er) samt program (t. ex. slack, g Suite, Dropbox). Vi rekommenderar att du använder Azure AD Provisioning-tjänsten om du vill stödja IDP: er utöver Azure AD, eftersom alla SCIM-kompatibla IdP kan ansluta till din SCIM-slutpunkt. Genom att skapa en enkel/User-slutpunkt kan du aktivera etablering utan att behöva underhålla din egen synkronisering. 
+The Azure AD provisioning services uses [SCIM](https://aka.ms/SCIMOverview), an industry standard for provisioning supported by many identity providers (IdPs) as well as applications (e.g. Slack, G Suite, Dropbox). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint. Building a simple /User endpoint, you can enable provisioning without having to maintain your own sync engine. 
 
-Mer information om hur Azure AD Provisioning-tjänsten användare SCIM finns i: 
+For more information on how the Azure AD Provisioning Service users SCIM, see: 
 
-* [Läs mer om SCIM-standarden](https://aka.ms/SCIMOverview)
+* [Learn more about the SCIM standard](https://aka.ms/SCIMOverview)
 
-* [Använda systemet för SCIM (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
-* [Förstå Azure AD SCIM-implementeringen](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Understand the Azure AD SCIM implementation](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
-## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph för etablering
+## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph for Provisioning
 
-När du använder Microsoft Graph för etablering har du till gång till alla omfattande användar data som är tillgängliga i Graph. Förutom information om användare och grupper kan du också hämta ytterligare information, t. ex. användarens roller, chef och direkt rapporter, ägda och registrerade enheter och hundratals andra data delar som är tillgängliga i [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
 
-Fler än 15 000 000 organisationer och 90% av Fortune 500-företag använder Azure AD för att prenumerera på Microsofts moln tjänster som Office 365, Microsoft Azure, Enterprise Mobility Suite eller Microsoft 365. Du kan använda Microsoft Graph för att integrera din app med administrativa arbets flöden, till exempel medarbetarnas onboarding (och terminering), profil underhåll med mera. 
+More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Office 365, Microsoft Azure, Enterprise Mobility Suite, or Microsoft 365. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
 
-Läs mer om hur du använder Microsoft Graph för etablering:
+Learn more about using Microsoft Graph for provisioning:
 
-* [Microsoft Graph start sida](https://developer.microsoft.com/graph)
+* [Microsoft Graph Home page](https://developer.microsoft.com/graph)
 
 * [Översikt över Microsoft Graph](https://docs.microsoft.com/graph/overview)
 
-* [Översikt över Microsoft Graph auth](https://docs.microsoft.com/graph/auth/)
+* [Microsoft Graph Auth Overview](https://docs.microsoft.com/graph/auth/)
 
-* [Komma igång med Microsoft Graph](https://developer.microsoft.com/graph/get-started)
+* [Getting started with Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 
-## <a name="using-saml-jit-for-provisioning"></a>Använda SAML JIT för etablering
+## <a name="using-saml-jit-for-provisioning"></a>Using SAML JIT for provisioning
 
-Om du bara vill etablera användare vid första inloggningen till ditt program och inte behöver avetablera användare automatiskt, är SAML JIT ett alternativ. Ditt program måste ha stöd för SAML 2,0 som ett Federations protokoll för att använda SAML JIT.
+If you want to provision users only upon first sign in to your application, and do not need to automatically deprovision users, SAML JIT is an option. Your application must support SAML 2.0 as a federation protocol to use SAML JIT.
 
-SAML JIT använder anspråks informationen i SAML-token för att skapa och uppdatera användar information i programmet. Kunder kan konfigurera dessa nödvändiga anspråk i Azure AD-programmet efter behov. Ibland måste JIT-etableringen aktive ras från program sidan så att kunden kan använda den här funktionen. SAML JIT är användbart för att skapa och uppdatera användare, men det går inte att ta bort eller inaktivera användare i programmet.
+SAML JIT uses the claims information in the SAML token to create and update user information in the application. Customers can configure these required claims in the Azure AD application as needed. Sometimes the JIT provisioning needs to be enabled from the application side so that customer can use this feature. SAML JIT is useful for creating and updating users, but it can't delete or deactivate the users in the application.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Aktivera enkel inloggning för ditt program](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [Enable Single Sign-on for your application](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
 
-* [Skicka in din program lista](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) och partner med Microsoft för att skapa dokumentation på Microsofts webbplats.
+* [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
-* [Gå med i Microsoft Partner Network (kostnads fri) och skapa en marknads plan](https://partner.microsoft.com/en-us/explore/commercial).
+* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial).

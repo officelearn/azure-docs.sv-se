@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Mozy Enterprise | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mozy Enterprise.
+title: 'Tutorial: Azure Active Directory integration with Mozy Enterprise | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Mozy Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f1aca75045f674fa45f5ad00c14a37c1abe7aea
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7d3b7f8982a24856818cbb6ce86060beac969fc2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160426"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233497"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Självstudie: Azure Active Directory integrering med Mozy Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Azure Active Directory integration with Mozy Enterprise
 
-I den här självstudien får du lära dig att integrera Mozy Enterprise med Azure Active Directory (Azure AD).
-Genom att integrera Mozy Enterprise med Azure AD får du följande fördelar:
+In this tutorial, you learn how to integrate Mozy Enterprise with Azure Active Directory (Azure AD).
+Integrating Mozy Enterprise with Azure AD provides you with the following benefits:
 
-* Du kan styra Azure AD som har åtkomst till Mozy Enterprise.
-* Du kan göra det möjligt för användarna att logga in automatiskt till Mozy Enterprise (enkel inloggning) med sina Azure AD-konton.
+* You can control in Azure AD who has access to Mozy Enterprise.
+* You can enable your users to be automatically signed-in to Mozy Enterprise (Single Sign-On) with their Azure AD accounts.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Mozy Enterprise behöver du följande objekt:
+To configure Azure AD integration with Mozy Enterprise, you need the following items:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Mozy Enterprise Single Sign-on-aktiverad prenumeration
+* Mozy Enterprise single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Mozy Enterprise stöder **SP** -INITIERAd SSO
+* Mozy Enterprise supports **SP** initiated SSO
 
-## <a name="adding-mozy-enterprise-from-the-gallery"></a>Lägga till Mozy Enterprise från galleriet
+## <a name="adding-mozy-enterprise-from-the-gallery"></a>Adding Mozy Enterprise from the gallery
 
-Om du vill konfigurera integrationen av Mozy Enterprise i Azure AD måste du lägga till Mozy Enterprise från galleriet i listan över hanterade SaaS-appar.
+To configure the integration of Mozy Enterprise into Azure AD, you need to add Mozy Enterprise from the gallery to your list of managed SaaS apps.
 
-**Gör så här för att lägga till Mozy Enterprise från galleriet:**
+**To add Mozy Enterprise from the gallery, perform the following steps:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integrationen av Mozy Enterprise i Azure AD måste du lä
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **Mozy Enterprise**, väljer **Mozy Enterprise** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. In the search box, type **Mozy Enterprise**, select **Mozy Enterprise** from result panel then click **Add** button to add the application.
 
-     ![Mozy Enterprise i resultat listan](common/search-new-app.png)
+     ![Mozy Enterprise in the results list](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Mozy Enterprise baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Mozy Enterprise.
+In this section, you configure and test Azure AD single sign-on with Mozy Enterprise based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Mozy Enterprise needs to be established.
 
-Om du vill konfigurera och testa enkel inloggning med Azure AD med Mozy Enterprise måste du slutföra följande Bygg stenar:
+To configure and test Azure AD single sign-on with Mozy Enterprise, you need to complete the following building blocks:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Mozy Enterprise Single Sign-on](#configure-mozy-enterprise-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Configure Mozy Enterprise Single Sign-On](#configure-mozy-enterprise-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Mozy Enterprise test User](#create-mozy-enterprise-test-user)** – om du vill ha en motsvarighet till Britta Simon i Mozy Enterprise som är länkad till Azure AD-representation av användare.
+5. **[Create Mozy Enterprise test user](#create-mozy-enterprise-test-user)** - to have a counterpart of Britta Simon in Mozy Enterprise that is linked to the Azure AD representation of user.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning för Azure AD med Mozy Enterprise:
+To configure Azure AD single sign-on with Mozy Enterprise, perform the following steps:
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **Mozy Enterprise** Application Integration väljer du **enkel inloggning**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Mozy Enterprise** application integration page, select **Single sign-on**.
 
     ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
@@ -103,18 +103,18 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Mo
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning för Mozy företags domän och URL: er](common/sp-signonurl.png)
+    ![Mozy Enterprise Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Mozy Enterprise client support team](https://support.mozy.com/) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Contact [Mozy Enterprise Client support team](https://support.mozy.com/) to get the value. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera Mozy Enterprise** kopierar du lämpliga URL: er enligt ditt krav.
+6. On the **Set up Mozy Enterprise** section, copy the appropriate URL(s) as per your requirement.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -124,31 +124,31 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Mo
 
     c. Utloggnings-URL
 
-### <a name="configure-mozy-enterprise-single-sign-on"></a>Konfigurera Mozy Enterprise Single Sign-on
+### <a name="configure-mozy-enterprise-single-sign-on"></a>Configure Mozy Enterprise Single Sign-On
 
-1. Logga in på företagets företags webbplats som administratör i ett annat webbläsarfönster.
+1. In a different web browser window, log into your Mozy Enterprise company site as an administrator.
 
-2. Klicka på **autentiseringsprincip**i avsnittet **konfiguration** .
+2. In the **Configuration** section, click **Authentication Policy**.
    
-    ![Autentiseringsprincip](./media/mozy-enterprise-tutorial/ic777314.png "Autentiseringsprincip")
+    ![Authentication policy](./media/mozy-enterprise-tutorial/ic777314.png "Authentication policy")
 
-3. Utför följande steg i avsnittet **autentiseringsprincip** :
+3. On the **Authentication Policy** section, perform the following steps:
    
-    ![Autentiseringsprincip](./media/mozy-enterprise-tutorial/ic777315.png "Autentiseringsprincip")
+    ![Authentication policy](./media/mozy-enterprise-tutorial/ic777315.png "Authentication policy")
    
-    a. Välj **katalog tjänst** som **Provider**.
+    a. Select **Directory Service** as **Provider**.
    
-    b. Välj **Använd LDAP-push**.
+    b. Select **Use LDAP Push**.
    
     c. Klicka på fliken **SAML-autentisering**.
    
-    d. Klistra in **inloggnings-URL**, som du har kopierat från Azure Portal till text rutan för **autentiserings-URL** .
+    d. Paste **Login URL**, which you have copied from the Azure portal into the **Authentication URL** textbox.
    
-    e. Klistra in **Azure AD-identifierare**, som du har kopierat från Azure Portal till text rutan **SAML-slutpunkt** .
+    e. Paste **Azure AD Identifier**, which you have copied from the Azure portal into the **SAML Endpoint** textbox.
    
-    f. Öppna det hämtade Base-64-kodade certifikatet i anteckningar, kopiera innehållet i det till Urklipp och klistra sedan in hela certifikatet i text rutan för **SAML-certifikatet** .
+    f. Open your downloaded base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **SAML Certificate** textbox.
    
-    g. Välj **Aktivera SSO för administratörer för att logga in med sina Nätverksautentiseringsuppgifter**.
+    g. Select **Enable SSO for Admins to log in with their network credentials**.
    
     h. Klicka på **Spara ändringar**.
 
@@ -170,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -179,15 +179,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Mozy Enterprise.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Mozy Enterprise.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Mozy Enterprise**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Mozy Enterprise**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **Mozy Enterprise**.
+2. In the applications list, select **Mozy Enterprise**.
 
-    ![Mozy Enterprise-länken i program listan](common/all-applications.png)
+    ![The Mozy Enterprise link in the Applications list](common/all-applications.png)
 
 3. I menyn till vänster väljer du **Användare och grupper**.
 
@@ -203,48 +203,48 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-mozy-enterprise-test-user"></a>Skapa Mozy Enterprise test User
+### <a name="create-mozy-enterprise-test-user"></a>Create Mozy Enterprise test user
 
-För att Azure AD-användarna ska kunna logga in på Mozy Enterprise måste de tillhandahållas i Mozy Enterprise. När det gäller Mozy Enterprise är etableringen en manuell uppgift.
+In order to enable Azure AD users to log into Mozy Enterprise, they must be provisioned into Mozy Enterprise. In the case of Mozy Enterprise, provisioning is a manual task.
 
 >[!NOTE]
->Du kan använda andra Mozy-verktyg för användar konton eller API: er från Mozy Enterprise för att etablera AAD-användarkonton.
+>You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision Azure AD user accounts.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på din **Mozy Enterprise** -klient.
+1. Log in to your **Mozy Enterprise** tenant.
 
-2. Klicka på **användare**och sedan på **Lägg till ny användare**.
+2. Click **Users**, and then click **Add New User**.
    
     ![Användare](./media/mozy-enterprise-tutorial/ic777317.png "Användare")
    
     >[!NOTE]
-    >Alternativet **Lägg till ny användare** visas bara om **Mozy** har valts som Provider under **autentiseringsprincip**. Om SAML-autentisering har kon figurer ATS läggs användarna automatiskt till första inloggningen via enkel inloggning.
+    >The **Add New User** option is only displayed only if **Mozy** is selected as the provider under **Authentication policy**. If SAML Authentication is configured, then the users are added automatically on their first login through Single sign on.
     
-3. Utför följande steg i dialog rutan ny användare:
+3. On the new user dialog, perform the following steps:
    
-    ![Lägg till användare](./media/mozy-enterprise-tutorial/ic777318.png "Lägg till användare")
+    ![Add Users](./media/mozy-enterprise-tutorial/ic777318.png "Add Users")
    
-    a. Välj en grupp i listan **Välj en grupp** .
+    a. From the **Choose a Group** list, select a group.
    
-    b. Välj en typ i listan **vilken typ av användare som** används.
+    b. From the **What type of user** list, select a type.
    
-    c. I text rutan **användar namn** anger du namnet på Azure AD-användaren.
+    c. In the **Username** textbox, type the name of the Azure AD user.
    
-    d. Skriv e-postadressen för Azure AD-användaren i text rutan för **e-post** .
+    d. In the **Email** textbox, type the email address of the Azure AD user.
    
-    e. Välj **skicka e-post för användar instruktioner**.
+    e. Select **Send user instruction email**.
    
-    f. Klicka på **Lägg till användare**.
+    f. Click **Add User(s)** .
 
      >[!NOTE]
-     > När användaren har skapats skickas ett e-postmeddelande till den Azure AD-användare som innehåller en länk för att bekräfta kontot innan det aktive ras.
+     > After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Mozy Enterprise på åtkomst panelen, bör du loggas in automatiskt till det Mozy-företag som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+When you click the Mozy Enterprise tile in the Access Panel, you should be automatically signed in to the Mozy Enterprise for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -252,5 +252,5 @@ När du klickar på panelen Mozy Enterprise på åtkomst panelen, bör du loggas
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

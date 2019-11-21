@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Lynda.com | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Lynda.com.
+title: 'Tutorial: Azure Active Directory integration with Lynda.com | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Lynda.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef24d55089938f6721eb6461f57797bca9ed82fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7550ba7f375cb7d8b291c0adf7f0ebded16f0990
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159479"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227520"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Självstudie: Azure Active Directory integrering med Lynda.com
+# <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Tutorial: Azure Active Directory integration with Lynda.com
 
-I den här självstudien får du lära dig hur du integrerar Lynda.com med Azure Active Directory (Azure AD).
-Genom att integrera Lynda.com med Azure AD får du följande fördelar:
+In this tutorial, you learn how to integrate Lynda.com with Azure Active Directory (Azure AD).
+Integrating Lynda.com with Azure AD provides you with the following benefits:
 
-* Du kan styra i Azure AD som har åtkomst till Lynda.com.
-* Du kan göra det möjligt för användarna att logga in automatiskt till Lynda.com (enkel inloggning) med sina Azure AD-konton.
+* You can control in Azure AD who has access to Lynda.com.
+* You can enable your users to be automatically signed-in to Lynda.com (Single Sign-On) with their Azure AD accounts.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -37,23 +37,23 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Lynda.com behöver du följande objekt:
+To configure Azure AD integration with Lynda.com, you need the following items:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Lynda.com-aktiverad prenumeration med enkel inloggning
+* Lynda.com single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Lynda.com stöder **SP** -INITIERAd SSO
-* Lynda.com stöder **just-in-Time** User-etablering
+* Lynda.com supports **SP** initiated SSO
+* Lynda.com supports **Just In Time** user provisioning
 
-## <a name="adding-lyndacom-from-the-gallery"></a>Lägga till Lynda.com från galleriet
+## <a name="adding-lyndacom-from-the-gallery"></a>Adding Lynda.com from the gallery
 
-Om du vill konfigurera integreringen av Lynda.com i Azure AD måste du lägga till Lynda.com från galleriet i listan över hanterade SaaS-appar.
+To configure the integration of Lynda.com into Azure AD, you need to add Lynda.com from the gallery to your list of managed SaaS apps.
 
-**Utför följande steg för att lägga till Lynda.com från galleriet:**
+**To add Lynda.com from the gallery, perform the following steps:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -67,31 +67,31 @@ Om du vill konfigurera integreringen av Lynda.com i Azure AD måste du lägga ti
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **Lynda.com**, väljer **Lynda.com** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. In the search box, type **Lynda.com**, select **Lynda.com** from result panel then click **Add** button to add the application.
 
-     ![Lynda.com i resultat listan](common/search-new-app.png)
+     ![Lynda.com in the results list](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Lynda.com baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Lynda.com upprättas.
+In this section, you configure and test Azure AD single sign-on with Lynda.com based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Lynda.com needs to be established.
 
-Om du vill konfigurera och testa enkel inloggning med Lynda.com i Azure AD måste du slutföra följande Bygg stenar:
+To configure and test Azure AD single sign-on with Lynda.com, you need to complete the following building blocks:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Lynda.com-enkel inloggning](#configure-lyndacom-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Configure Lynda.com Single Sign-On](#configure-lyndacom-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Lynda.com test User](#create-lyndacom-test-user)** – om du vill ha en motsvarighet till Britta Simon i Lynda.com som är länkad till Azure AD-representation av användare.
+5. **[Create Lynda.com test user](#create-lyndacom-test-user)** - to have a counterpart of Britta Simon in Lynda.com that is linked to the Azure AD representation of user.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Lynda.com i Azure AD:
+To configure Azure AD single sign-on with Lynda.com, perform the following steps:
 
-1. Välj **enkel inloggning**på sidan **Lynda.com** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. In the [Azure portal](https://portal.azure.com/), on the **Lynda.com** application integration page, select **Single sign-on**.
 
     ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
@@ -105,18 +105,18 @@ Utför följande steg för att konfigurera enkel inloggning med Lynda.com i Azur
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning för Lynda.com-domän och URL: er](common/sp-signonurl.png)
+    ![Lynda.com Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.lynda.com/Shibboleth.sso/InCommon?providerId=<url>&target=<url>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Lynda.com client support team](https://www.linkedin.com/help/lynda/ask) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Contact  [Lynda.com Client support team](https://www.linkedin.com/help/lynda/ask) to get the value. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. I avsnittet **konfigurera Lynda.com** kopierar du lämpliga URL: er enligt ditt krav.
+6. On the **Set up Lynda.com** section, copy the appropriate URL(s) as per your requirement.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,9 +126,9 @@ Utför följande steg för att konfigurera enkel inloggning med Lynda.com i Azur
 
     c. Utloggnings-URL
 
-### <a name="configure-lyndacom-single-sign-on"></a>Konfigurera Lynda.com enkel inloggning
+### <a name="configure-lyndacom-single-sign-on"></a>Configure Lynda.com Single Sign-On
 
-Om du vill konfigurera enkel inloggning på **Lynda.com** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Lynda.com](https://www.linkedin.com/help/lynda/ask). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+To configure single sign-on on **Lynda.com** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Lynda.com support team](https://www.linkedin.com/help/lynda/ask). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -157,15 +157,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Lynda.com.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Lynda.com.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Lynda.com**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Lynda.com**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **Lynda.com**.
+2. In the applications list, select **Lynda.com**.
 
-    ![Lynda.com-länken i program listan](common/all-applications.png)
+    ![The Lynda.com link in the Applications list](common/all-applications.png)
 
 3. I menyn till vänster väljer du **Användare och grupper**.
 
@@ -181,21 +181,21 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-lyndacom-test-user"></a>Skapa Lynda.com test användare
+### <a name="create-lyndacom-test-user"></a>Create Lynda.com test user
 
-Det finns inget åtgärds objekt som du kan använda för att konfigurera användar etablering till Lynda.com.  
-När en tilldelad användare försöker logga in på Lynda.com med hjälp av åtkomst panelen kontrollerar Lynda.com om användaren finns.  
+There is no action item for you to configure user provisioning to Lynda.com.  
+When an assigned user tries to log in to Lynda.com using the access panel, Lynda.com checks whether the user exists.  
 
-Om det inte finns något användar konto tillgängligt ännu, skapas det automatiskt av Lynda.com.
+If there is no user account available yet, it is automatically created by Lynda.com.
 
 > [!NOTE]
-> Du kan använda andra verktyg för Lynda.com av användar konton eller API: er som tillhandahålls av Lynda.com för att etablera AAD-användarkonton.
+> You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Lynda.com på åtkomst panelen, bör du loggas in automatiskt på den Lynda.com som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+When you click the Lynda.com tile in the Access Panel, you should be automatically signed in to the Lynda.com for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -203,5 +203,5 @@ När du klickar på panelen Lynda.com på åtkomst panelen, bör du loggas in au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

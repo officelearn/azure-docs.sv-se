@@ -448,12 +448,12 @@
           href: control-flow-get-metadata-activity.md
         - name: If-villkorsaktivitet
           href: control-flow-if-condition-activity.md
-        - name: Växlingsaktivitet
-          href: control-flow-switch-activity.md
         - name: Sökningsaktivitet
           href: control-flow-lookup-activity.md
         - name: Ange variabelaktivitet
           href: control-flow-set-variable-activity.md
+        - name: Växlingsaktivitet
+          href: control-flow-switch-activity.md
         - name: Tills-aktivitet
           href: control-flow-until-activity.md
         - name: Verifieringsaktivitet

@@ -1,7 +1,7 @@
 ---
-title: Testa appen i LUIS-portalen
+title: Test app in LUIS portal
 titleSuffix: Azure Cognitive Services
-description: Använd Language Understanding (LUIS) för att kontinuerligt arbeta med ditt program för att förfina det och förbättra dess språk förståelse.
+description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: ebc86d1cf91cf79ab83b0f49d9898a91d8be8a75
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 628547e8254bb0055cf1f09af50e79b68311a759
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500285"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221726"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Test your LUIS app in the LUIS portal
 
-[Testning](luis-concept-test.md) av en app är en iterativ process. När du har tränat din LUIS-app kan du testa den med exempel yttranden för att se om intentarna och entiteterna identifieras korrekt. Om de inte är det kan du göra uppdateringar till LUIS-appen, träna och testa igen. 
+[Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -30,90 +30,98 @@ ms.locfileid: "73500285"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="test-an-utterance"></a>Testa en uttryck
+## <a name="train-before-testing"></a>Train before testing
 
-1. Öppna din app genom att välja namnet på sidan **Mina appar** . 
+In order to test against the most recent version of the active app, select **Train** from the top menu, before testing. 
 
-1. Välj **testa** i programmets övre panel för att komma åt **test** -bildspel-panelen.
+## <a name="test-an-utterance"></a>Test an utterance
 
-    ![Sidan träna & test app](./media/luis-how-to-interactive-test/test.png)
+The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user. 
 
-1. Ange en uttryck i text rutan och välj RETUR. Du kan ange så många test-yttranden som du vill i **testet**, men bara en uttryck i taget.
+1. Access your app by selecting its name on the **My Apps** page. 
 
-1. Uttryck, dess främsta avsikt och score läggs till i listan över yttranden under text rutan.
+1. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
-    ![Interaktiv testning identifierar fel avsikt](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Train & Test App page](./media/luis-how-to-interactive-test/test.png)
 
-## <a name="inspect-score"></a>Granska Poäng
+1. Enter an utterance in the text box and select Enter. You can type as many test utterances as you want in the **Test**, but only one utterance at a time.
 
-Du har granskat informationen om test resultatet i **inspektions** panelen. 
+1. The utterance, its top intent, and score are added to the list of utterances under the text box.
+
+    ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
+
+## <a name="inspect-score"></a>Inspect score
+
+You inspect details of the test result in the **Inspect** panel. 
  
-1. Med **testskärms** panelen öppen väljer du **inspektera** för en uttryck som du vill jämföra. 
+1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
-    ![Klicka på granska om du vill visa mer information om test resultaten](./media/luis-how-to-interactive-test/inspect.png)
+    ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
-1. **Inspektions** panelen visas. Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar resultatet av den valda uttryck.
+1. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
-    ![Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar resultatet av den valda uttryck.](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
-## <a name="correct-top-scoring-intent"></a>Korrigera topp i resultat syfte
+## <a name="correct-top-scoring-intent"></a>Correct top scoring intent
 
-1. Om den översta bedömnings avsikten är felaktig väljer du knappen **Redigera** .
+1. If the top scoring intent is incorrect, select the **Edit** button.
 
-1.  Välj rätt avsikt för uttryck i list rutan.
+1.  In the drop-down list, select the correct intent for the utterance.
 
-    ![Välj rätt avsikt](./media/luis-how-to-interactive-test/intent-select.png)
+    ![Select correct intent](./media/luis-how-to-interactive-test/intent-select.png)
 
-## <a name="view-sentiment-results"></a>Visa sentiment-resultat
+## <a name="view-sentiment-results"></a>View sentiment results
 
-Om **sentiment-analysen** har kon figurer ATS på **[publicerings](luis-how-to-publish-app.md#enable-sentiment-analysis)** sidan, inkluderar test resultatet sentiment som finns i uttryck. 
+If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
 
-![Bild av test fönstret med sentiment-analys](./media/luis-how-to-interactive-test/sentiment.png)
+![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
-## <a name="correct-matched-patterns-intent"></a>Korrekt matchat mönsters avsikt
+## <a name="correct-matched-patterns-intent"></a>Correct matched pattern's intent
 
-Om du använder [mönster](luis-concept-patterns.md) och uttryck har matchat ett mönster, men fel avsikten är förväntat, väljer du länken **Redigera** med mönstret och väljer sedan rätt avsikt.
+If you are using [Patterns](luis-concept-patterns.md) and the utterance matched a pattern, but the wrong intent was predicted, select the **Edit** link by the pattern, then select the correct intent.
 
-## <a name="compare-with-published-version"></a>Jämför med publicerad version
+## <a name="compare-with-published-version"></a>Compare with published version
 
-Du kan testa den aktiva versionen av din app med den publicerade [slut punkts](luis-glossary.md#endpoint) versionen. I panelen **Granska** väljer du **Jämför med publicerad**. Tester mot den publicerade modellen dras av från kvot balansen för Azure-prenumerationen. 
+You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
-![Jämför med publicerad](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+![Compare with published](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
-## <a name="view-endpoint-json-in-test-panel"></a>Visa Endpoint JSON i test panelen
-Du kan visa slut punkts-JSON som returneras för jämförelsen genom att välja vyn **Visa JSON**.
+## <a name="view-endpoint-json-in-test-panel"></a>View endpoint JSON in test panel
+You can view the endpoint JSON returned for the comparison by selecting the **Show JSON view**.
 
-![Publicerat JSON-svar](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+![Published JSON response](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 <!--Service name is 'Bing Spell Check v7 API' in the portal-->
-## <a name="additional-settings-in-test-panel"></a>Ytterligare inställningar i test panelen
+## <a name="additional-settings-in-test-panel"></a>Additional settings in test panel
 
-### <a name="luis-endpoint"></a>LUIS-slutpunkt
+### <a name="luis-endpoint"></a>LUIS endpoint
 
-Om du har flera LUIS-slutpunkter använder du länken **ytterligare inställningar** i testens publicerade fönster för att ändra slut punkten som används för testning. Om du inte är säker på vilken slut punkt du ska använda väljer du standard **Starter_Key**. 
+If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
 
-![Panelen test med ytterligare inställningar länk markerad](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+> [!div class="mx-imgBorder"]
+> ![Test panel with Additional Settings link highlighted](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
+<!--
+###  View Bing Spell Check corrections in test panel
 
-### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Visa Stavningskontroll i Bing korrigeringar i test panelen
+Requirements to view the spelling corrections: 
 
-Krav för att Visa stavnings korrigeringar: 
+* Published app
+* Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
-* Publicerad app
-* Stavningskontroll i Bing [tjänst nyckel](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). Tjänst nyckeln lagras inte och måste återställas för varje webbläsarsession. 
+Use the following procedure to include the [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service  in the Test pane results. 
 
-Använd följande procedur för att inkludera tjänsten [stavningskontroll i Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) i test fönstrets resultat. 
+1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
 
-1. I **test** fönstret anger du en uttryck. När uttryck är förutsägt väljer du **[Granska](#inspect-score)** under den uttryck som du har angett. 
+1. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
 
-1. När **inspektions** panelen öppnas väljer du **[Jämför med publicerad](#compare-with-published-version)** . 
+1. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
 
-1. När den **publicerade** panelen öppnas väljer du **[ytterligare inställningar](#additional-settings-in-test-panel)** .
+1. In the pop-up dialog, check **Enable Bing Spell Check** and enter the key, then select **Done**. 
+    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-1. I popup-dialog rutan markerar du **aktivera stavningskontroll i Bing** och anger nyckeln och väljer sedan **Slutför**. 
-    ![ange Stavningskontroll i Bing tjänst nyckel](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
-
-1. Ange en fråga med en felaktig stavning, till exempel `book flite to seattle` och välj RETUR. Den felaktiga stavningen av ordet `flite` ersätts i frågan som skickats till LUIS och det resulterande JSON-kommandot visar både den ursprungliga frågan, som `query`och den korrigerade stavningen i frågan, som `alteredQuery`.
+1. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>
@@ -125,13 +133,14 @@ Använd följande procedur för att inkludera tjänsten [stavningskontroll i Bin
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+-->
 
 ## <a name="batch-testing"></a>Batch-testning
-Se batch testing [Concepts](luis-concept-batch-test.md) och lär dig [hur du](luis-how-to-batch-test.md) testar en batch med yttranden.
+See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om testning indikerar att LUIS-appen inte känner igen rätt avsikter och entiteter kan du arbeta för att förbättra din LUIS-appens exakthet genom att märka fler yttranden eller lägga till funktioner. 
+If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
 
-* [Märk föreslagna yttranden med LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Använd funktioner för att förbättra LUIS-appens prestanda](luis-how-to-add-features.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

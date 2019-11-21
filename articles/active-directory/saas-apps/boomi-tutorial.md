@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Boomi | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Boomi.
 services: active-directory
 documentationCenter: na
@@ -16,33 +16,33 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1044a78d9bf1b52a7b0dd9e47d7db6d98b45299c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081970"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231958"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Boomi
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi
 
-I den här självstudien får du lära dig hur du integrerar Boomi med Azure Active Directory (Azure AD). När du integrerar Boomi med Azure AD kan du:
+In this tutorial, you'll learn how to integrate Boomi with Azure Active Directory (Azure AD). When you integrate Boomi with Azure AD, you can:
 
-* Kontroll i Azure AD som har åtkomst till Boomi.
-* Gör det möjligt för användarna att logga in automatiskt till Boomi med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Control in Azure AD who has access to Boomi.
+* Enable your users to be automatically signed-in to Boomi with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+To get started, you need the following items:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Boomi för enkel inloggning (SSO) aktive rad.
+* En Azure AD-prenumeration. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Boomi single sign-on (SSO) enabled subscription.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Boomi stöder **IDP**-initierad enkel inloggning
 
@@ -51,96 +51,96 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 För att konfigurera integreringen av Boomi till Azure AD behöver du lägga till Boomi från galleriet till listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Boomi** i sökrutan.
-1. Välj **Boomi** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Boomi** in the search box.
+1. Select **Boomi** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-boomi"></a>Konfigurera och testa enkel inloggning med Azure AD för Boomi
+## <a name="configure-and-test-azure-ad-single-sign-on-for-boomi"></a>Configure and test Azure AD single sign-on for Boomi
 
-Konfigurera och testa Azure AD SSO med Boomi med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Boomi.
+Configure and test Azure AD SSO with Boomi using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Boomi.
 
-Om du vill konfigurera och testa Azure AD SSO med Boomi, slutför du följande Bygg stenar:
+To configure and test Azure AD SSO with Boomi, complete the following building blocks:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera BOOMI SSO](#configure-boomi-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa Boomi test User](#create-boomi-test-user)** -om du vill ha en motsvarighet till B. Simon i Boomi som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Boomi SSO](#configure-boomi-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Boomi test user](#create-boomi-test-user)** - to have a counterpart of B.Simon in Boomi that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Boomi** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. In the [Azure portal](https://portal.azure.com/), on the **Boomi** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
+1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
     a. I textrutan **Identifierare** skriver du in en URL: `https://platform.boomi.com/`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE]
-    > Värdet för svars-URL är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Hämta det här värdet genom att kontakta [supportteamet för Boomi-klienten](https://boomi.com/company/contact/). Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för svars-URL är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Hämta det här värdet genom att kontakta [supportteamet för Boomi-klienten](https://boomi.com/company/contact/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Boomi-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+1. Boomi application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/default-attributes.png)
+    ![mallar](common/default-attributes.png)
 
-1. Utöver ovan förväntar sig Boomi-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+1. In addition to above, Boomi application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
     | Namn |  Källattribut|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera Boomi** kopierar du lämpliga URL: er baserat på ditt krav.
+1. On the **Set up Boomi** section, copy the appropriate URL(s) based on your requirement.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Välj **Ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
+1. In the **User** properties, follow these steps:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Boomi.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Boomi.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. I programlistan väljer du **Boomi**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-## <a name="configure-boomi-sso"></a>Konfigurera Boomi SSO
+## <a name="configure-boomi-sso"></a>Configure Boomi SSO
 
-1. Logga in på din Boomi-företags webbplats som administratör i ett annat webbläsarfönster.
+1. In a different web browser window, sign in to your Boomi company site as an administrator.
 
 1. Gå till **Företagsnamn** och sedan till **Konfigurera**.
 
@@ -160,11 +160,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-boomi-test-user"></a>Skapa Boomi-testanvändare
 
-För att Azure AD-användare ska kunna logga in på Boomi måste de tillhandahållas i Boomi. När det gäller Boomi är etablering en manuell aktivitet.
+In order to enable Azure AD users to sign in to Boomi, they must be provisioned into Boomi. När det gäller Boomi är etablering en manuell aktivitet.
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Gör följande för att etablera ett användarkonto:
 
-1. Logga in på din Boomi-företags webbplats som administratör.
+1. Sign in to your Boomi company site as an administrator.
 
 1. När du loggat in går du till **Användarhantering** och sedan till **Användare**.
 
@@ -178,24 +178,24 @@ För att Azure AD-användare ska kunna logga in på Boomi måste de tillhandahå
 
     a. I textrutan **User e-mail address** (E-post för användare) skriver du användarens e-postadress som B.Simon@contoso.com.
 
-    b. I text rutan **förnamn** skriver du det första namnet på användaren, t. ex. B.
+    b. In the **First name** textbox, type the First name of user like B.
 
     c. I textrutan **Efternamn** skriver du efternamnet: Simon.
 
     d. Ange användarens **Federations-ID**. Varje användare ha ett Federation-ID som unikt identifierar användare i kontot.
 
-    e. Tilldela rollen **Standardanvändare** till användaren. Tilldela inte administratörs rollen eftersom detta ger dem normal åtkomst till atmosfär samt enkel inloggning.
+    e. Tilldela rollen **Standardanvändare** till användaren. Do not assign the Administrator role because that would give them normal Atmosphere access as well as single sign-on access.
 
-    f. Klicka på **OK**.
+    f. Klicka på **OK**
 
     > [!NOTE]
-    > Användaren får inget e-postmeddelande med ett välkomst meddelande som innehåller ett lösen ord som kan användas för att logga in på AtomSphere-kontot eftersom lösen ordet hanteras via identitets leverantören. Du kan använda andra verktyg eller API:er för Boomi-kontoskapande som tillhandahålls av Boomi för att etablera AAD-användarkonton.
+    > The user will not receive a welcome notification email containing a password that can be used to log in to the AtomSphere account because their password is managed through the identity provider. You may use any other Boomi user account creation tools or APIs provided by Boomi to provision Azure AD user accounts.
 
-## <a name="test-sso"></a>Testa SSO
+## <a name="test-sso"></a>Test SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Boomi-panelen i åtkomstpanelen bör du automatiskt loggas in på Boomi som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Boomi-panelen i åtkomstpanelen bör du automatiskt loggas in på Boomi som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -205,4 +205,4 @@ När du klickar på Boomi-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Boomi med Azure AD](https://aad.portal.azure.com/)
+- [Try Boomi with Azure AD](https://aad.portal.azure.com/)

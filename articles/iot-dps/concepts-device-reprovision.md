@@ -1,93 +1,92 @@
 ---
-title: Enhetskoncept för reprovisioning för Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
-description: Beskriver enheten reprovisioning begrepp för Azure IoT Hub Device Provisioning-tjänsten
+title: Azure IoT Hub Device Provisioning Service - Device concepts
+description: Describes device reprovisioning concepts for the Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d6e5b5c7e8e8bf83646b417aa94658efd25b49e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730014"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228843"
 ---
-# <a name="iot-hub-device-reprovisioning-concepts"></a>IoT Hub Device reprovisioning begrepp
+# <a name="iot-hub-device-reprovisioning-concepts"></a>IoT Hub Device reprovisioning concepts
 
-Under livscykeln för en IoT-lösning är det vanligt att flytta enheter mellan IoT-hubbar. Orsaker till flytten kan innehålla följande scenarier:
+During the lifecycle of an IoT solution, it's common to move devices between IoT hubs. The reasons for this move may include the following scenarios:
 
-* **Geoplats / GeoLatency**: När en enhet flyttas mellan platser Nätverksfördröjningen förbättras genom att låta enheten migreras till en närmare IoT-hubb.
+* **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device migrated to a closer IoT hub.
 
-* **Multitenans**: En enhet kan användas inom samma IoT-lösning och omtilldelas till en ny kund eller kundens plats. Den här nya kunden kan betjänas med hjälp av en annan IoT-hubb.
+* **Multi-tenancy**: A device may be used within the same IoT solution and reassigned to a new customer, or customer site. This new customer may be serviced using a different IoT hub.
 
-* **Lösning ändra**: En enhet kan flyttas till en ny eller uppdaterad IoT-lösning. Omtilldelningen kan kräva att enheten att kommunicera med en ny IoT-hubb som är ansluten till andra backend-komponenter.
+* **Solution change**: A device could be moved into a new or updated IoT solution. This reassignment may require the device to communicate with a new IoT hub that's connected to other back-end components.
 
-* **Karantän**: Liknar en ändring av lösningen. En enhet som fungerar, komprometteras eller inaktuella som kan tilldelas till en IoT-hubb kan bara uppdatera och få tillbaka efterlevnad. När enheten fungerar korrekt, har den sedan migreras till dess huvudsakliga hub.
+* **Quarantine**: Similar to a solution change. A device that's malfunctioning, compromised, or out-of-date may be reassigned to an IoT hub that can only update and get back in compliance. Once the device is functioning properly, it's then migrated back to its main hub.
 
-Reprovisioning stöd i Device Provisioning-tjänsten adresser dessa behov. Enheter kan tilldelas automatiskt till nya IoT-hubbar baserat på reprovisioning principen som är konfigurerad på enhetens registreringspost.
+Reprovisioning support within the Device Provisioning Service addresses these needs. Devices can be automatically reassigned to new IoT hubs based on the reprovisioning policy that's configured on the device's enrollment entry.
 
-## <a name="device-state-data"></a>Tillstånd för enhetsdata
+## <a name="device-state-data"></a>Device state data
 
-Enhetens tillståndsdata består av den [enhetstvillingen](../iot-hub/iot-hub-devguide-device-twins.md) och funktioner för enheter. Dessa data lagras i instansen Device Provisioning-tjänsten och IoT-hubben som en enhet har tilldelats.
+Device state data is composed of the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) and device capabilities. This data is stored in the Device Provisioning Service instance and the IoT hub that a device is assigned to.
 
-![Etablering med Device Provisioning-tjänst](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
-När en enhet har etablerats med en instans av Device Provisioning-tjänsten, utförs följande steg:
+When a device is initially provisioned with a Device Provisioning Service instance, the following steps are done:
 
-1. Enheten skickar en etableringsbegäran till en instans av Device Provisioning-tjänsten. Tjänstinstansen autentiserar enhetens identitet baserat på en registreringspost och skapar den initiala konfigurationen av enhetsdata för tillstånd. Tjänstinstansen tilldelar enheten till en IoT-hubb baserat på registreringskonfigurationen för och returnerar den IoT hub-tilldelningen till enheten.
+1. The device sends a provisioning request to a Device Provisioning Service instance. The service instance authenticates the device identity based on an enrollment entry, and creates the initial configuration of the device state data. The service instance assigns the device to an IoT hub based on the enrollment configuration and returns that IoT hub assignment to the device.
 
-2. Etablering tjänstinstansen får en kopia av alla tillstånd för första enhetsdata till tilldelad IoT hub. Enheten ansluter till den tilldelade IoT hub och börjar åtgärder.
+2. The provisioning service instance gives a copy of any initial device state data to the assigned IoT hub. The device connects to the assigned IoT hub and begins operations.
 
-Framöver kommer enhetens tillståndsdata i IoT-hubb kan uppdateras genom att [åtgärder](../iot-hub/iot-hub-devguide-device-twins.md#device-operations) och [backend-åtgärder](../iot-hub/iot-hub-devguide-device-twins.md#back-end-operations). Starttillstånd tillståndsinformationen som lagras i Device Provisioning-tjänsten databasinstans förblir orörd. Den här vara orört enhetsdata tillstånd är den inledande konfigurationen.
+Over time, the device state data on the IoT hub may be updated by [device operations](../iot-hub/iot-hub-devguide-device-twins.md#device-operations) and [back-end operations](../iot-hub/iot-hub-devguide-device-twins.md#back-end-operations). The initial device state information stored in the Device Provisioning Service instance stays untouched. This untouched device state data is the initial configuration.
 
-![Etablering med Device Provisioning-tjänst](./media/concepts-device-reprovisioning/dps-provisioning-2.png)
+![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-provisioning-2.png)
 
-Beroende på scenario, som en enhet som flyttar mellan IoT-hubbar, kan det också vara nödvändigt att migrera enhetstillstånd uppdateras på föregående IoT-hubb över till den nya IoT-hubben. Den här migreringen stöds av reprovisioning principer i Device Provisioning-tjänsten.
+Depending on the scenario, as a device moves between IoT hubs, it may also be necessary to migrate device state updated on the previous IoT hub over to the new IoT hub. This migration is supported by reprovisioning policies in the Device Provisioning Service.
 
-## <a name="reprovisioning-policies"></a>Reprovisioning principer
+## <a name="reprovisioning-policies"></a>Reprovisioning policies
 
-Beroende på scenario skickar en enhet vanligtvis en begäran till en allokering tjänstinstans vid omstart. Det stöder även en metod för att manuellt starta etablering på begäran. Reprovisioning principen på en registreringspost bestämmer hur den device provisioning-tjänstinstansen hanterar dessa etablering begäranden. Principen anger också om enhetens tillståndsdata ska migreras under reprovisioning. Samma principer är tillgängliga för enskilda registreringar och registreringsgrupper:
+Depending on the scenario, a device usually sends a request to a provisioning service instance on reboot. It also supports a method to manually trigger provisioning on demand. The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests. The policy also determines whether device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
 
-* **Etablera och migrera data**: Den här principen är standard för nya poster för registrering. Den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skicka en ny begäran (1). Beroende på posten registreringskonfigurationen får enheten omtilldelas till en annan IoT-hubb. Om enheten ändras IoT-hubbar, tas enhetsregistrering med den första IoT-hubben bort. Den uppdaterade enhetsinformationen tillstånd från den första IoT-hubben kommer att migreras över till den nya IoT-hubben (2). Under migreringen, enhetens status kommer att rapporteras som **tilldela**.
+* **Re-provision and migrate data**: This policy is the default for new enrollment entries. This policy takes action when devices associated with the enrollment entry submit a new request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The updated device state information from that initial IoT hub will be migrated over to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
-    ![Etablering med Device Provisioning-tjänst](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Etablera och återställa till ursprungliga config**: Den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skickar in en ny begäran om etablering (1). Beroende på posten registreringskonfigurationen får enheten omtilldelas till en annan IoT-hubb. Om enheten ändras IoT-hubbar, tas enhetsregistrering med den första IoT-hubben bort. Inledande konfigurationsdata som etablering tjänstinstansen tas emot när enheten har etablerats har angetts för den nya IoT-hubben (2). Under migreringen, enhetens status kommer att rapporteras som **tilldela**.
+* **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
-    Den här principen används ofta för en fabriksåterställning utan att ändra IoT-hubbar.
+    This policy is often used for a factory reset without changing IoT hubs.
 
-    ![Etablering med Device Provisioning-tjänst](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Aldrig etablera**: Enheten omtilldelas aldrig till en annan hubb. Den här principen har angetts för att hantera bakåtkompatibilitet kompatibilitet.
+* **Never re-provision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
 
-### <a name="managing-backwards-compatibility"></a>Hantera bakåtkompatibilitet kompatibilitet
+### <a name="managing-backwards-compatibility"></a>Managing backwards compatibility
 
-Enhetstilldelningar till IoT-hubbar hade ett Fäst beteende innan September 2018. När en enhet som har gått tillbaka igenom etableringen, skulle det endast tilldelas till samma IoT-hubb.
+Before September 2018, device assignments to IoT hubs had a sticky behavior. When a device went back through the provisioning process, it would only be assigned back to the same IoT hub.
 
-Etableringstjänsten innehåller bakåtkompatibilitet kompatibilitet för lösningar som har tagit ett beroende på det här beteendet. Det här beteendet är för närvarande bibehålls för enheter baserat på följande villkor:
+For solutions that have taken a dependency on this behavior, the provisioning service includes backwards compatibility. This behavior is presently maintained for devices according to the following criteria:
 
-1. Enheterna som ansluter med en API-version innan du tillgängligheten för reprovisioning stöd som finns i Device Provisioning-tjänsten. Referera till tabellen API.
+1. The devices connect with an API version before the availability of native reprovisioning support in the Device Provisioning Service. Refer to the API table below.
 
-2. Registreringspost för enheterna som har inte en reprovisioning princip som angetts dem.
+2. The enrollment entry for the devices doesn't have a reprovisioning policy set on them.
 
-Denna kompatibilitet ser till att som tidigare har distribuerat enheter upplevelse på samma sätt som finns under den inledande testningen. För att bevara det tidigare beteendet, inte spara en princip för reprovisioning till dessa registreringar. Om en reprovisioning princip har angetts, har reprovisioning principen företräde framför beteende. Genom att låta reprovisioning principen prioriteras gör uppdatera kunderna enhetsbeteende utan att behöva återställa avbildningen av enheten.
+This compatibility makes sure that previously deployed devices experience the same behavior that's present during initial testing. To preserve the previous behavior, don't save a reprovisioning policy to these enrollments. If a reprovisioning policy is set, the reprovisioning policy takes precedence over the behavior. By allowing the reprovisioning policy to take precedence, customers can update device behavior without having to reimage the device.
 
-Följande flödesschema hjälper till att visa när beteendet finns:
+The following flow chart helps to show when the behavior is present:
 
-![bakåtkompatibilitet flödesschema för kompatibilitet](./media/concepts-device-reprovisioning/reprovisioning-compatibility-flow.png)
+![backwards compatibility flow chart](./media/concepts-device-reprovisioning/reprovisioning-compatibility-flow.png)
 
-I följande tabell visar de API-versionerna före tillgängligheten för inbyggda reprovisioning stöd i Device Provisioning-tjänsten:
+The following table shows the API versions before the availability of native reprovisioning support in the Device Provisioning Service:
 
-| REST-API | C SDK | Python SDK |  SDK för Node | Java SDK | .NET SDK |
+| REST-API | C SDK | Python SDK |  Node SDK | Java SDK | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
-| [2018-04-01 och tidigare](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 och tidigare](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 och tidigare](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 eller tidigare](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 eller tidigare](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 eller tidigare](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
+| [2018-04-01 and earlier](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 and earlier](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 and earlier](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 or earlier](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 or earlier](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 or earlier](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 
 > [!NOTE]
-> Förmodligen kommer att ändra dessa värden och länkar. Detta är endast ett platshållaren försök att fastställa där versionerna som kan fastställas med en kund och vad de förväntade versionerna kommer att bli.
+> These values and links are likely to change. This is only a placeholder attempt to determine where the versions can be determined by a customer and what the expected versions will be.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur du etablera om enheter](how-to-reprovision.md)
+* [How to reprovision devices](how-to-reprovision.md)

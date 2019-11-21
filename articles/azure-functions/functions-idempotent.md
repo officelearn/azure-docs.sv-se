@@ -1,47 +1,45 @@
 ---
-title: Designa Azure Functions för identiska ingångar
-description: Skapa Azure Functions som ska idempotenta
+title: Designing Azure Functions for identical input
+description: Building Azure Functions to be idempotent
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: 39e785a1ca7a158ddb90a3e6ba914582c405612a
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 15af60ac5a862e6fb20e65ba6fbb92482420b7c0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997398"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226862"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>Designa Azure Functions för identiska ingångar
+# <a name="designing-azure-functions-for-identical-input"></a>Designing Azure Functions for identical input
 
-Verkligheten för händelse driven och meddelandebaserade arkitektur kräver att du accepterar identiska begär Anden samtidigt som data integriteten och system stabiliteten bevaras.
+The reality of event-driven and message-based architecture dictates the need to accept identical requests while preserving data integrity and system stability.
 
-För att illustrera, kan du titta på en knapp för höjd samtal. När du trycker på knappen tänds den och en hiss skickas till golvet. En stund senare kan någon annan ansluta dig till dig i lobbyn. Den här personen är på gång och trycker på den lysande knappen en gång i taget. Du kommer tillbaka och Chuckle till dig själv när du är påmind om att kommandot för att anropa en hiss är idempotenta.
+To illustrate, consider an elevator call button. As you press the button, it lights up and an elevator is sent to your floor. A few moments later, someone else joins you in the lobby. This person smiles at you and presses the illuminated button a second time. You smile back and chuckle to yourself as you're reminded that the command to call an elevator is idempotent.
 
-Genom att trycka på en uttrycks samtals knapp en andra, tredje eller fjärde tiden har du inte någon betydelse för det slutliga resultatet. När du trycker på knappen skickas hissen till din våning, oavsett antalet gånger. Idempotenta system, t. ex. hissen, resulterar i samma resultat oavsett hur många gånger identiska kommandon utfärdas.
+Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the number of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
 
-När det gäller att skapa program bör du överväga följande scenarier:
+When it comes to building applications, consider the following scenarios:
 
-- Vad händer om inventerings kontroll programmet försöker ta bort samma produkt mer än en gång?
-- Hur fungerar ditt personal program om det finns fler än en förfrågan om att skapa en medarbetar post för samma person?
-- Var går pengarna till om din bank app får 100-begäran om att göra samma åter kallelse?
+- What happens if your inventory control application tries to delete the same product more than once?
+- How does your human resource application behave if there is more than one request to create an employee record for the same person?
+- Where does the money go if your banking app gets 100 requests to make the same withdrawal?
 
-Det finns många kontexter där förfrågningar till en funktion kan ta emot identiska kommandon. Några situationer är:
+There are many contexts where requests to a function may receive identical commands. Some situations include:
 
-- Principer för återförsök skickar samma begäran flera gånger
-- Cachelagrade kommandon som spelas upp i programmet
-- Program fel som skickar flera identiska begär Anden
+- Retry policies sending the same request many times
+- Cached commands replayed to the application
+- Application errors sending multiple identical requests
 
-För att skydda data integriteten och system hälsan innehåller ett idempotenta-program logik som kan innehålla följande beteenden:
+To protect data integrity and system health, an idempotent application contains logic that may contain the following behaviors:
 
-- Verifierar att det finns data innan du försöker köra en borttagning
-- Kontrollerar om det finns data som redan finns innan du försöker köra en åtgärd för att skapa
-- Synkronisera logik som skapar eventuell konsekvens i data
-- Samtidighets kontroller
-- Dubblettidentifiering
-- Verifiering av data aktualitet
-- Skydds logik för att verifiera indata
+- Verifying of the existence of data before trying to execute a delete
+- Checking to see if data already exists before trying to execute a create action
+- Reconciling logic that creates eventual consistency in data
+- Concurrency controls
+- Duplication detection
+- Data freshness validation
+- Guard logic to verify input data
 
-Slutligen idempotens uppnås genom att säkerställa att en specifik åtgärd är möjlig och utförs bara en gång.
+Ultimately idempotency is achieved by ensuring a given action is possible and is only executed once.

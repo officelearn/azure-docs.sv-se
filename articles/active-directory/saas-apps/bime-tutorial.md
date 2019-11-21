@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Bime | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Bime | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bime.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7774fd55a64df198a9b025a67ce377deebefe8fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73157685"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232073"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Självstudie: Azure Active Directory integrering med Bime
+# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Azure Active Directory integration with Bime
 
 I den här självstudien lär du dig att integrera Bime med Azure Active Directory (AD Azure).
 Integreringen av Bime med Azure AD medför följande fördelar:
@@ -137,11 +137,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bi
 
 2. I verktygsfältet klickar du på **Admin** och sedan på **Konto**.
   
-    ![Innehavaradministration](./media/bime-tutorial/ic775558.png "Innehavaradministration")
+    ![Admin](./media/bime-tutorial/ic775558.png "Admin")
 
 3. På sidan för kontokonfiguration utför du följande steg:
   
-    ![Konfigurera enkel inloggning](./media/bime-tutorial/ic775559.png "Konfigurera enkel inloggning")
+    ![Configure Single Sign-On](./media/bime-tutorial/ic775559.png "Konfigurera enkel inloggning")
 
     a. Välj **Aktivera SAML-autentisering**.
 
@@ -169,7 +169,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -212,7 +212,7 @@ För att göra det möjligt för Azure AD-användare att logga in på Bime måst
 
 2. I verktygsfältet klickar du på **Admin** och sedan på **Användare**.
 
-    ![Innehavaradministration](./media/bime-tutorial/ic775561.png "Innehavaradministration")
+    ![Admin](./media/bime-tutorial/ic775561.png "Admin")
 
 3. I **användarlistan** klickar du på **Lägg till ny användare** (”+”).
 
@@ -220,18 +220,18 @@ För att göra det möjligt för Azure AD-användare att logga in på Bime måst
 
 4. I dialogrutan **Användarinformation** utför du följande steg:
 
-    ![Användar information](./media/bime-tutorial/ic775563.png "Användar information")
+    ![User Details](./media/bime-tutorial/ic775563.png "User Details")
 
     a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
 
     b. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
 
-    c. I text rutan **e-post** anger du e-postmeddelandet som **brittasimon\@contoso.com**.
+    c. In the **Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
     d. Klicka på **Save** (Spara).
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för Bime-kontoskapande som tillhandahålls av Bime för att etablera AAD-användarkonton.
+> You can use any other Bime user account creation tools or APIs provided by Bime to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
@@ -245,5 +245,5 @@ När du klickar på Bime-panelen i åtkomstpanelen bör du automatiskt loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

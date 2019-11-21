@@ -1,73 +1,69 @@
 ---
-title: Köra Azure Functions från ett paket | Microsoft Docs
-description: Kör den Azure Functions körningen av dina funktioner genom att montera en distributions paket fil som innehåller dina projektfiler för Function-appen.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
+title: Run your Azure Functions from a package
+description: Have the Azure Functions runtime run your functions by mounting a deployment package file that contains your function app project files.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: glenga
-ms.openlocfilehash: dc7f2b6c6e00477b6326e3277cb195aa0de6868c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5d3465e0899f7e5eab213bdb6234313128b7ec8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176418"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230360"
 ---
-# <a name="run-your-azure-functions-from-a-package-file"></a>Köra Azure Functions från en paketfil
+# <a name="run-your-azure-functions-from-a-package-file"></a>Run your Azure Functions from a package file
 
-I Azure kan du köra dina funktioner direkt från en distributions paket fil i din Function-app. Det andra alternativet är att distribuera dina filer i katalogen `d:\home\site\wwwroot` i din Function-app.
+In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` directory of your function app.
 
-I den här artikeln beskrivs fördelarna med att köra funktioner från ett paket. Den visar också hur du aktiverar den här funktionen i Function-appen.
+This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
 > [!IMPORTANT]
-> När du distribuerar dina funktioner till en Linux Function-app i en [Premium-plan](functions-scale.md#premium-plan)bör du alltid köra från paket filen och [publicera din app med hjälp av Azure Functions Core tools](functions-run-local.md#project-file-deployment).
+> When deploying your functions to a Linux function app in a [Premium plan](functions-scale.md#premium-plan), you should always run from the package file and [publish your app using the Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
-## <a name="benefits-of-running-from-a-package-file"></a>Fördelar med att köra från en paket fil
+## <a name="benefits-of-running-from-a-package-file"></a>Benefits of running from a package file
   
-Det finns flera fördelar med att köra från en paket fil:
+There are several benefits to running from a package file:
 
-+ Minskar risken för fil kopierings låsnings problem.
-+ Kan distribueras till en produktions-app (med omstart).
-+ Du kan vara säker på vilka filer som körs i din app.
-+ Förbättrar prestandan för [Azure Resource Manager distributioner](functions-infrastructure-as-code.md).
-+ Kan minska kall start tider, särskilt för JavaScript-funktioner med stora NPM paket träd.
++ Reduces the risk of file copy locking issues.
++ Can be deployed to a production app (with restart).
++ You can be certain of the files that are running in your app.
++ Improves the performance of [Azure Resource Manager deployments](functions-infrastructure-as-code.md).
++ May reduce cold-start times, particularly for JavaScript functions with large npm package trees.
 
-Mer information finns i [det här meddelandet](https://github.com/Azure/app-service-announcements/issues/84).
+For more information, see [this announcement](https://github.com/Azure/app-service-announcements/issues/84).
 
-## <a name="enabling-functions-to-run-from-a-package"></a>Aktivera funktioner för att köra från ett paket
+## <a name="enabling-functions-to-run-from-a-package"></a>Enabling functions to run from a package
 
-Om du vill att din Function-app ska kunna köras från ett paket lägger du bara till en `WEBSITE_RUN_FROM_PACKAGE`-inställning i appens inställningar. Inställningen `WEBSITE_RUN_FROM_PACKAGE` kan ha något av följande värden:
+To enable your function app to run from a package, you just add a `WEBSITE_RUN_FROM_PACKAGE` setting to your function app settings. The `WEBSITE_RUN_FROM_PACKAGE` setting can have one of the following values:
 
 | Värde  | Beskrivning  |
 |---------|---------|
-| **`1`**  | Rekommenderas för Function-appar som körs i Windows. Kör från en paket fil i mappen `d:\home\data\SitePackages` i din Function-app. Om du inte [distribuerar med zip Deploy](#integration-with-zip-deployment)kräver det här alternativet att mappen också har en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på paket filen i mappen utan blank steg. |
-|**`<URL>`**  | Platsen för en angiven paketfil som du vill köra. När du använder Blob Storage bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) för att göra det möjligt för functions-körningen att komma åt paketet. Du kan använda [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp paketfiler till ditt Blob Storage-konto. När du anger en URL måste du även [Synkronisera utlösare](functions-deployment-technologies.md#trigger-syncing) när du har publicerat ett uppdaterat paket. |
+| **`1`**  | Recommended for function apps running on Windows. Run from a package file in the `d:\home\data\SitePackages` folder of your function app. If not [deploying with zip deploy](#integration-with-zip-deployment), this option requires the folder to also have a file named `packagename.txt`. This file contains only the name of the package file in folder, without any whitespace. |
+|**`<URL>`**  | Location of a specific package file you want to run. When using Blob storage, you should use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to enable the Functions runtime to access to the package. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. When you specify a URL, you must also [sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package. |
 
 > [!CAUTION]
-> När du kör en Function-app i Windows ger det externa URL-alternativet sämre kall start prestanda. När du distribuerar din Function-app till Windows ska du ställa in `WEBSITE_RUN_FROM_PACKAGE` till `1` och publicera med zip-distribution.
+> When running a function app on Windows, the external URL option yields worse cold-start performance. When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
 
-Följande visar en Function-app som kon figurer ATS för att köras från en. zip-fil som finns i Azure Blob Storage:
+The following shows a function app configured to run from a .zip file hosted in Azure Blob storage:
 
-![Inställning för WEBSITE_RUN_FROM_ZIP-app](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
+![WEBSITE_RUN_FROM_ZIP app setting](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
 
 > [!NOTE]
-> För närvarande stöds endast. zip-paketfiler.
+> Currently, only .zip package files are supported.
 
-## <a name="integration-with-zip-deployment"></a>Integrering med zip-distribution
+## <a name="integration-with-zip-deployment"></a>Integration with zip deployment
 
-[Zip-distribution][Zip deployment for Azure Functions] är en funktion i Azure App Service som gör att du kan distribuera ditt app-projekt till katalogen `wwwroot`. Projektet paketeras som en. zip-distributions fil. Samma API: er kan användas för att distribuera paketet till mappen `d:\home\data\SitePackages`. Med `WEBSITE_RUN_FROM_PACKAGE`-appens inställnings värde för `1`kopierar API: erna för zip-distribution ditt paket till `d:\home\data\SitePackages`-mappen i stället för att extrahera filerna till `d:\home\site\wwwroot`. Det skapar också filen `packagename.txt`. Efter en omstart monteras paketet till `wwwroot` som ett skrivskyddat fil system. Mer information om zip-distribution finns i [zip-distribution för Azure Functions](deployment-zip-push.md).
+[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` folder. With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` folder instead of extracting the files to `d:\home\site\wwwroot`. It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
-## <a name="adding-the-website_run_from_package-setting"></a>Lägger till inställningen WEBSITE_RUN_FROM_PACKAGE
+## <a name="adding-the-website_run_from_package-setting"></a>Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 ## <a name="troubleshooting"></a>Felsöka
 
-- Kör från paket gör `wwwroot` skrivskyddat, så att du får ett fel meddelande när du skriver filer till den här katalogen.
-- Tar-och gzip-format stöds inte.
-- Den här funktionen skapar inte lokal cache.
-- För förbättrad kall start prestanda använder du det lokala zip-alternativet (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- Run From Package makes `wwwroot` read-only, so you will receive an error when writing files to this directory.
+- Tar and gzip formats are not supported.
+- This feature does not compose with local cache.
+- For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
 
 ## <a name="next-steps"></a>Nästa steg
 

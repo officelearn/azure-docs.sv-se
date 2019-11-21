@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skapa en offentlig Standard Load Balancer – Azure CLI'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en offentlig lastbalanserare med Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fb292e268df57dda8ed2db56a915270b7fe51bb2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 30f2fa7537ed481c25940a2ed67c99c58a7a80ed
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839822"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214796"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabb start: skapa en Standard Load Balancer för att belastningsutjämna virtuella datorer med Azure CLI
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Create a Standard Load Balancer to load balance VMs using Azure CLI
 
 Den här snabbstartsguiden visar hur du skapar en Standard Load Balancer. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Ubuntu-servern och lastbalansera en webbapp mellan de två virtuella datorerna.
 
@@ -74,7 +74,7 @@ Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.m
     --backend-pool-name myBackEndPool       
   ```
 
-### <a name="create-the-health-probe"></a>Skapa hälsoavsökningen
+### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
 
 En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 
@@ -110,7 +110,7 @@ Innan du kan distribuera virtuella datorer och testa din lastbalanserare måste 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Skapa det virtuella nätverket *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -197,7 +197,7 @@ Skapa en tillgänglighetsuppsättning med [az vm availabilityset create](/cli/az
     --name myAvailabilitySet
 ```
 
-### <a name="create-three-virtual-machines"></a>Skapa tre virtuella datorer
+### <a name="create-three-virtual-machines"></a>Create three virtual machines
 
 Du kan använda en konfigurationsfil för cloud-init för att installera NGINX och köra en Hello World Node.js-app på en virtuell Linux-dator. Skapa en fil med namnet cloud-init.txt i ditt nuvarande gränssnitt och kopiera och klistra in följande konfiguration i gränssnittet. Se till att kopiera hela cloud-init-filen korrekt, särskilt den första raden:
 

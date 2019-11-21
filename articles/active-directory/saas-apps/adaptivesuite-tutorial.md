@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med anpassningsbara insikter | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och anpassningsbara insikter.
+title: 'Tutorial: Azure Active Directory integration with Adaptive Insights | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Adaptive Insights.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,68 +16,68 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bf05fc30a2b111a12c0b8e131db5117ec784075b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70213627"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232125"
 ---
-# <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Självstudie: integrera anpassningsbara insikter med Azure Active Directory
+# <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integrate Adaptive Insights with Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar anpassningsbara insikter med Azure Active Directory (Azure AD). När du integrerar anpassningsbara insikter med Azure AD kan du:
+In this tutorial, you'll learn how to integrate Adaptive Insights with Azure Active Directory (Azure AD). When you integrate Adaptive Insights with Azure AD, you can:
 
-* Kontroll i Azure AD som har till gång till anpassningsbara insikter.
-* Gör det möjligt för användarna att logga in automatiskt till anpassningsbara insikter med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Control in Azure AD who has access to Adaptive Insights.
+* Enable your users to be automatically signed-in to Adaptive Insights with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+To get started, you need the following items:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Anpassad insikts aktive rad prenumeration med enkel inloggning (SSO).
+* En Azure AD-prenumeration. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Adaptive Insights single sign-on (SSO) enabled subscription.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Anpassningsbara insikter stöder **IDP** -INITIERAd SSO
+* Adaptive Insights supports **IDP** initiated SSO
 
-## <a name="adding-adaptive-insights-from-the-gallery"></a>Lägga till anpassningsbara insikter från galleriet
+## <a name="adding-adaptive-insights-from-the-gallery"></a>Adding Adaptive Insights from the gallery
 
-Om du vill konfigurera integrering av anpassningsbara insikter i Azure AD måste du lägga till anpassningsbara insikter från galleriet i listan över hanterade SaaS-appar.
+To configure the integration of Adaptive Insights into Azure AD, you need to add Adaptive Insights from the gallery to your list of managed SaaS apps.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. Skriv **adaptiva insikter** i sökrutan i avsnittet **Lägg till från galleriet** .
-1. Välj **adaptiva insikter** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Adaptive Insights** in the search box.
+1. Select **Adaptive Insights** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD SSO med anpassningsbara insikter med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i anpassningsbara insikter.
+Configure and test Azure AD SSO with Adaptive Insights using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Adaptive Insights.
 
-Om du vill konfigurera och testa Azure AD SSO med anpassningsbara insikter slutför du följande Bygg stenar:
+To configure and test Azure AD SSO with Adaptive Insights, complete the following building blocks:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera adaptiv Insights SSO](#configure-adaptive-insights-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-5. **[Skapa anpassningsbara insikter-test](#create-adaptive-insights-test-user)** för att få en motsvarighet till B. Simon i anpassningsbara insikter som är länkade till Azure AD-representation av användare.
-6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure Adaptive Insights SSO](#configure-adaptive-insights-sso)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create Adaptive Insights test user](#create-adaptive-insights-test-user)** - to have a counterpart of B.Simon in Adaptive Insights that is linked to the Azure AD representation of user.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+### <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för **anpassningsbara insikter** -program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. In the [Azure portal](https://portal.azure.com/), on the **Adaptive Insights** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -88,120 +88,120 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     > [!NOTE]
-    > Du kan hämta identifierare (enhets-ID) och svars-URL-värden från sidan med **Inställningar för SAML SSO-inställningar** för adaptiva insikter.
+    > You can get Identifier(Entity ID) and Reply URL values from the Adaptive Insights’s **SAML SSO Settings** page.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera anpassningsbara insikter** kopierar du lämpliga URL: er baserat på ditt krav.
+6. On the **Set up Adaptive Insights** section, copy the appropriate URL(s) based on your requirement.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-adaptive-insights-sso"></a>Konfigurera adaptiv Insights SSO
+### <a name="configure-adaptive-insights-sso"></a>Configure Adaptive Insights SSO
 
-1. Logga in på din anpassade Insights-företags webbplats som administratör i ett annat webbläsarfönster.
+1. In a different web browser window, sign in to your Adaptive Insights company site as an administrator.
 
 2. Gå till **Administration**.
 
-    ![Innehavaradministration](./media/adaptivesuite-tutorial/ic805644.png "Innehavaradministration")
+    ![Admin](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
-3. I avsnittet **användare och roller** klickar du på **Inställningar för SAML SSO**.
+3. In the **Users and Roles** section, click **SAML SSO Settings**.
 
-    ![Hantera inställningar för SAML SSO](./media/adaptivesuite-tutorial/ic805645.png "Hantera inställningar för SAML SSO")
+    ![Manage SAML SSO Settings](./media/adaptivesuite-tutorial/ic805645.png "Manage SAML SSO Settings")
 
-4. Utför följande steg på sidan **Inställningar för SAML SSO** :
+4. On the **SAML SSO Settings** page, perform the following steps:
 
-    ![Inställningar för SAML SSO](./media/adaptivesuite-tutorial/ic805646.png "Inställningar för SAML SSO")
+    ![SAML SSO Settings](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO Settings")
 
-    a. I text rutan **namn på identitetsprovider** anger du ett namn för din konfiguration.
+    a. In the **Identity provider name** textbox, type a name for your configuration.
 
-    b. Klistra in värdet för **Azure AD-identifieraren** som kopierats från Azure Portal till text rutan för **entitets-ID för identitetsprovider** .
+    b. Paste the **Azure AD Identifier** value copied from Azure portal into the **Identity provider Entity ID** textbox.
 
-    c. Klistra in värdet för **inloggnings-URL:** en som kopierats från Azure Portal i text rutan för **URL: en för autentiseringsprovider**
+    c. Paste the **Login URL** value copied from Azure portal into the **Identity provider SSO URL** textbox.
 
-    d. Klistra in **URL** -värdet för utloggning som kopierats från Azure Portal till text rutan för **anpassad utloggnings-URL** .
+    d. Paste the **Logout URL** value copied from Azure portal into the **Custom logout URL** textbox.
 
-    e. Överför ditt hämtade certifikat genom att klicka på **Välj fil**.
+    e. To upload your downloaded certificate, click **Choose file**.
 
-    f. Välj följande för:
+    f. Select the following, for:
 
-     * **SAML-användar-ID**, Välj **användarens anpassade insikter-användar namn**.
+     * **SAML user id**, select **User’s Adaptive Insights user name**.
 
-     * **SAML-användarens ID-plats**, Välj **användar-ID i NameID för ämnet**.
+     * **SAML user id location**, select **User id in NameID of Subject**.
 
-     * **SAML NameID-format**, Välj **e-postadress**.
+     * **SAML NameID format**, select **Email address**.
 
-     * **Aktivera SAML**, Välj **Tillåt SAML SSO och Direct adaptiv Insights-inloggning**.
+     * **Enable SAML**, select **Allow SAML SSO and direct Adaptive Insights login**.
 
-    g. Kopiera **URL: en för adaptiv insikter** och klistra in i text rutorna **identifiera (enhets-ID)** och **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    g. Copy **Adaptive Insights SSO URL** and paste into the **Identifier(Entity ID)** and **Reply URL** textboxes in the **Basic SAML Configuration** section in the Azure portal.
 
     h. Klicka på **Save** (Spara).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Välj **Ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
+1. In the **User** properties, follow these steps:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till anpassningsbara insikter.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Adaptive Insights.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **adaptiva insikter**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Adaptive Insights**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-adaptive-insights-test-user"></a>Skapa anpassningsbara insikter-test användare
+### <a name="create-adaptive-insights-test-user"></a>Create Adaptive Insights test user
 
-Om du vill att Azure AD-användare ska kunna logga in på anpassningsbara insikter måste de vara etablerade i anpassningsbara insikter. Vid anpassningsbara insikter är etableringen en manuell uppgift.
+To enable Azure AD users to sign in to Adaptive Insights, they must be provisioned into Adaptive Insights. In the case of Adaptive Insights, provisioning is a manual task.
 
 **Utför följande steg för att konfigurera användarförsörjning:**
 
-1. Logga in på din **anpassade Insights** företags webbplats som administratör.
+1. Sign in to your **Adaptive Insights** company site as an administrator.
 
 2. Gå till **Administration**.
 
-   ![Innehavaradministration](./media/adaptivesuite-tutorial/IC805644.png "Innehavaradministration")
+   ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
-3. I avsnittet **användare och roller** klickar du på **användare**.
+3. In the **Users and Roles** section, click **Users**.
 
-   ![Lägg till användare](./media/adaptivesuite-tutorial/IC805648.png "Lägg till användare")
+   ![Add User](./media/adaptivesuite-tutorial/IC805648.png "Lägg till användare")
 
-4. I avsnittet **ny användare** utför du följande steg:
+4. In the **New User** section, perform the following steps:
 
    ![Skicka](./media/adaptivesuite-tutorial/IC805649.png "Skicka")
 
-   a. Ange **namn**, **användar namn**, **e-postadress**och **lösen ord** för en giltig Azure Active Directory användare som du vill etablera i de relaterade text rutorna.
+   a. Type the **Name**, **Username**, **Email**, **Password** of a valid Azure Active Directory user you want to provision into the related textboxes.
 
-   b. Välj en **roll**.
+   b. Select a **Role**.
 
    c. Klicka på **Skicka**.
 
 > [!NOTE]
-> Du kan använda andra verktyg för anpassade insikter för att skapa användar konton eller API: er som tillhandahålls av anpassningsbara insikter för att etablera AAD-användarkonton.
+> You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision Azure AD user accounts.
 
-### <a name="test-sso"></a>Testa SSO 
+### <a name="test-sso"></a>Test SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen adaptiva insikter på åtkomst panelen, bör du loggas in automatiskt på de anpassningsbara insikter som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+When you click the Adaptive Insights tile in the Access Panel, you should be automatically signed in to the Adaptive Insights for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

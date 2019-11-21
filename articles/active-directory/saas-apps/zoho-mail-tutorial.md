@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Zoho | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Zoho | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zoho.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3b5d0e52e927a44d5bce5314e724c1c753809ce0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161048"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231946"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Självstudie: Azure Active Directory integrering med Zoho
+# <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutorial: Azure Active Directory integration with Zoho
 
 I den här självstudien lär du dig hur du integrerar Zoho med Azure Active Directory (Azure AD).
 Du får följande fördelar när du integrerar Zoho med Azure AD:
@@ -131,15 +131,15 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
 
 2. Gå till **Kontrollpanelen**.
    
-    ![Kontroll panel](./media/zoho-mail-tutorial/ic789607.png "Kontroll panel")
+    ![Control Panel](./media/zoho-mail-tutorial/ic789607.png "Control Panel")
 
 3. Klicka på fliken **SAML-autentisering**.
    
-    ![SAML-autentisering](./media/zoho-mail-tutorial/ic789608.png "SAML-autentisering")
+    ![SAML Authentication](./media/zoho-mail-tutorial/ic789608.png "SAML Authentication")
 
 4. Gör följande i avsnittet **SAML-autentiseringsinformation**:
    
-    ![Information om SAML-autentisering](./media/zoho-mail-tutorial/ic789609.png "Information om SAML-autentisering")
+    ![SAML Authentication Details](./media/zoho-mail-tutorial/ic789609.png "SAML Authentication Details")
    
     a. I textrutan för **inloggnings-URL** klistrar du in **inloggnings-URL:en** som du har kopierat från Azure-portalen.
    
@@ -171,7 +171,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -209,7 +209,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 För att kunna göra det möjligt för Azure AD-användare att logga in på Zoho Mail måste de etableras i Zoho Mail. När det gäller Zoho Mail är etablering en manuell uppgift.
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för att skapa Zoho Mail-användarkonton som tillhandahålls av Zoho Mail för att etablera AAD-användarkonton.
+> You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision Azure AD user accounts.
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Gör följande för att etablera ett användarkonto:
 
@@ -219,17 +219,17 @@ För att kunna göra det möjligt för Azure AD-användare att logga in på Zoho
 
 1. Gå till **Användarinformation \> Lägg till användare**.
    
-    ![Lägg till användare](./media/zoho-mail-tutorial/ic789611.png "Lägg till användare")
+    ![Add User](./media/zoho-mail-tutorial/ic789611.png "Lägg till användare")
 
 1. Gör följande i dialogrutan **Lägg till användare**:
    
-    ![Lägg till användare](./media/zoho-mail-tutorial/ic789612.png "Lägg till användare")
+    ![Add User](./media/zoho-mail-tutorial/ic789612.png "Lägg till användare")
    
     a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
 
     b. I textrutan **Efternamn** skriver du efternamnet: **Simon**.
 
-    c. I text rutan **email-ID** anger du e-post-ID för användaren som **brittasimon\@contoso.com**.
+    c. In the **Email ID** textbox, type the email id of user like **brittasimon\@contoso.com**.
 
     d. I textrutan **Lösenord** anger du användarens lösenord.
    
@@ -250,5 +250,5 @@ När du klickar på Zoho-panelen i åtkomstpanelen bör du automatiskt loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

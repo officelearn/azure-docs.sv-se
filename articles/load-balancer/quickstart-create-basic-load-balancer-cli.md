@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en Basic Load Balancer – Azure CLI'
-titlesuffix: Azure Load Balancer
+title: 'Quickstart: Create a Basic Load Balancer - Azure CLI'
+titleSuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en offentlig lastbalanserare med Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
-ms.openlocfilehash: 67d137039778b7ec8d5e65acb017b84ad6df5cb2
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 49bd66a5ff3cc9d3cddcb0577e335794550ffd17
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274231"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214850"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Create a load balancer to load balance VMs using Azure CLI
 
 Den här snabbstarten visar hur du skapar en Azure Load Balancer för att lastbalansera internettrafik mellan virtuell datorer i Azure. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Ubuntu-servern och lastbalansera en webbapp mellan dem.
 
@@ -55,7 +55,7 @@ För att du ska kunna komma åt din webbapp på Internet behöver du en offentli
 
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
   - en klientdels-IP-pool som tar emot inkommande nätverkstrafik i lastbalanseraren.
-  - en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+  - en serverdels-IP-pool dit klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
   - en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
   - en lastbalanseringsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
@@ -108,7 +108,7 @@ Innan du kan distribuera virtuella datorer och testa din lastbalanserare måste 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Skapa det virtuella nätverket *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -146,7 +146,7 @@ Skapa en regel för nätverkssäkerhetsgrupp som tillåter inkommande anslutning
 ```
 ### <a name="create-nics"></a>Skapa nätverkskort
 
-Skapa två nätverks gränssnitt med [AZ Network NIC Create](/cli/azure/network/nic#az-network-nic-create) och koppla dem till den offentliga IP-adressen och nätverks säkerhets gruppen. 
+Create two network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

@@ -69,6 +69,8 @@
       href: ddos-protection-overview.md
     - name: Undernätstillägg
       href: subnet-extension.md
+    - name: Delegering av undernät
+      href: subnet-delegation-overview.md
     - name: Interoperabilitet för serverdelsanslutning
       items:
         - name: Prefix och testinstallation

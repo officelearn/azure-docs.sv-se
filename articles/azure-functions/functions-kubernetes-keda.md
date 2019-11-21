@@ -1,74 +1,69 @@
 ---
-title: Azure Functions på Kubernetes med KEDA
-description: Lär dig hur du kör Azure Functions i Kubernetes i molnet eller lokalt med hjälp av KEDA, Kubernetes-baserad händelse driven autoskalning.
-services: functions
-documentationcenter: na
+title: Azure Functions on Kubernetes with KEDA
+description: Understand how to run Azure Functions in Kubernetes in the cloud or on-premises using KEDA, Kubernetes-based event driven autoscaling.
 author: jeffhollan
-manager: jeconnoc
-keywords: Azure Functions, functions, Event Processing, dynamisk beräkning, Server lös arkitektur, Kubernetes
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 0b77946b24bcc2e329a5c4480e9bd5ef055ef82b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173693"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230487"
 ---
-# <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
+# <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions on Kubernetes with KEDA
 
-Azure Functions runtime ger flexibilitet i värd och hur du vill.  [KEDA](https://keda.sh) (Kubernetes Event drived autoskalning) är sömlöst med Azure Functions Runtime och verktyg för att tillhandahålla händelse driven Scale i Kubernetes.
+The Azure Functions runtime provides flexibility in hosting where and how you want.  [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
 
-## <a name="how-kubernetes-based-functions-work"></a>Hur Kubernetes-baserade funktioner fungerar
+## <a name="how-kubernetes-based-functions-work"></a>How Kubernetes-based functions work
 
-Azure Functionss tjänsten består av två viktiga komponenter: en körnings miljö och en skalnings styrenhet.  Functions-körningen körs och kör koden.  Körningen innehåller logik för att utlösa, logga och hantera funktions körningar.  Azure Functions körningen kan köras *var som helst*.  Den andra komponenten är en skalnings styrenhet.  Skalnings styrenheten övervakar händelse frekvensen som är riktad mot din funktion och skalar i proaktivt antalet instanser som kör din app.  Läs mer i [Azure Functions skala och vara värd](functions-scale.md).
+The Azure Functions service is made up of two key components: a runtime and a scale controller.  The Functions runtime runs and executes your code.  The runtime includes logic on how to trigger, log, and manage function executions.  The Azure Functions runtime can run *anywhere*.  The other component is a scale controller.  The scale controller monitors the rate of events that are targeting your function, and proactively scales the number of instances running your app.  To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-Kubernetes-baserade funktioner tillhandahåller Functions-körning i en [Docker-behållare](functions-create-function-linux-custom-image.md) med händelse driven skalning via KEDA.  KEDA kan skala ned till 0 instanser (när inga händelser inträffar) och upp till *n* instanser. Detta sker genom att de anpassade måtten exponeras för Kubernetes autoskalning (horisontell Pod autoskalning).  Med hjälp av Functions-behållare med KEDA kan du replikera Server lös funktions funktioner i ett Kubernetes-kluster.  Dessa funktioner kan också distribueras med funktionen [virtuella AKS-noder (Azure Kubernetes Services)](../aks/virtual-nodes-cli.md) för Server lös infrastruktur.
+Kubernetes-based Functions provides the Functions runtime in a [Docker container](functions-create-function-linux-custom-image.md) with event-driven scaling through KEDA.  KEDA can scale down to 0 instances (when no events are occurring) and up to *n* instances. It does this by exposing custom metrics for the Kubernetes autoscaler (Horizontal Pod Autoscaler).  Using Functions containers with KEDA makes it possible to replicate serverless function capabilities in any Kubernetes cluster.  These functions can also be deployed using [Azure Kubernetes Services (AKS) virtual nodes](../aks/virtual-nodes-cli.md) feature for serverless infrastructure.
 
-## <a name="managing-keda-and-functions-in-kubernetes"></a>Hantera KEDA och funktioner i Kubernetes
+## <a name="managing-keda-and-functions-in-kubernetes"></a>Managing KEDA and functions in Kubernetes
 
-Om du vill köra funktioner i ditt Kubernetes-kluster måste du installera KEDA-komponenten. Du kan installera den här komponenten med hjälp av [Azure Functions Core tools](functions-run-local.md).
+To run Functions on your Kubernetes cluster, you must install the KEDA component. You can install this component using [Azure Functions Core Tools](functions-run-local.md).
 
-### <a name="installing-with-the-azure-functions-core-tools"></a>Installera med Azure Functions Core Tools
+### <a name="installing-with-the-azure-functions-core-tools"></a>Installing with the Azure Functions Core Tools
 
-Som standard installerar kärn verktyg både KEDA-och Osiris-komponenter, som stöder händelse driven respektive HTTP-skalning.  Installationen använder `kubectl` som körs i den aktuella kontexten.
+By default, Core Tools installs both KEDA and Osiris components, which support event-driven and HTTP scaling, respectively.  The installation uses `kubectl` running in the current context.
 
-Installera KEDA i klustret genom att köra följande installations kommando:
+Install KEDA in your cluster by running the following install command:
 
 ```cli
 func kubernetes install --namespace keda
 ```
 
-## <a name="deploying-a-function-app-to-kubernetes"></a>Distribuera en Function-app till Kubernetes
+## <a name="deploying-a-function-app-to-kubernetes"></a>Deploying a function app to Kubernetes
 
-Du kan distribuera valfri Function-app till ett Kubernetes-kluster som kör KEDA.  Eftersom dina funktioner körs i en Docker-behållare behöver projektet en `Dockerfile`.  Om den inte redan har en, kan du lägga till en Dockerfile genom att köra följande kommando i roten för ditt Functions-projekt:
+You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a `Dockerfile`.  If it doesn't already have one, you can add a Dockerfile by running the following command at the root of your Functions project:
 
 ```cli
 func init --docker-only
 ```
 
-Om du vill skapa en avbildning och distribuera dina funktioner till Kubernetes kör du följande kommando:
+To build an image and deploy your functions to Kubernetes, run the following command:
 
 > [!NOTE]
-> Kärn verktygen använder Docker CLI för att bygga och publicera avbildningen. Se till att Docker redan är installerat och är anslutna till ditt konto med `docker login`.
+> The core tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
 
-> Ersätt `<name-of-function-deployment>` med namnet på din Function-app.
+> Replace `<name-of-function-deployment>` with the name of your function app.
 
-Detta skapar en Kubernetes `Deployment` resurs, en `ScaledObject` resurs och en `Secrets`, som innehåller miljövariabler som importeras från `local.settings.json`s filen.
+This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
 
-### <a name="deploying-a-function-app-from-a-private-registry"></a>Distribuera en Function-app från ett privat register
+### <a name="deploying-a-function-app-from-a-private-registry"></a>Deploying a function app from a private registry
 
-Ovanstående flöde fungerar även för privata register.  Om du hämtar behållar avbildningen från ett privat register ska du ta med den `--pull-secret` flagga som refererar till den Kubernetes hemlighet som innehåller de privata autentiseringsuppgifterna för registret när du kör `func kubernetes deploy`.
+The above flow works for private registries as well.  If you are pulling your container image from a private registry, include the `--pull-secret` flag that references the Kubernetes secret holding the private registry credentials when running `func kubernetes deploy`.
 
-## <a name="removing-a-function-app-from-kubernetes"></a>Ta bort en Function-app från Kubernetes
+## <a name="removing-a-function-app-from-kubernetes"></a>Removing a function app from Kubernetes
 
-När du har distribuerat kan du ta bort en funktion genom att ta bort den associerade `Deployment``ScaledObject`en `Secrets` som skapats.
+After deploying you can remove a function by removing the associated `Deployment`, `ScaledObject`, an `Secrets` created.
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>
@@ -76,31 +71,31 @@ kubectl delete ScaledObject <name-of-function-deployment>
 kubectl delete secret <name-of-function-deployment>
 ```
 
-## <a name="uninstalling-keda-from-kubernetes"></a>Avinstallerar KEDA från Kubernetes
+## <a name="uninstalling-keda-from-kubernetes"></a>Uninstalling KEDA from Kubernetes
 
-Du kan köra följande Core tools-kommando för att ta bort KEDA från ett Kubernetes-kluster:
+You can run the following core tools command to remove KEDA from a Kubernetes cluster:
 
 ```cli
 func kubernetes remove --namespace keda
 ```
 
-## <a name="supported-triggers-in-keda"></a>Utlösare som stöds i KEDA
+## <a name="supported-triggers-in-keda"></a>Supported triggers in KEDA
 
-KEDA har stöd för följande Azure Function-utlösare:
+KEDA has support for the following Azure Function triggers:
 
-* [Azure Storage köer](functions-bindings-storage-queue.md)
-* [Azure Service Bus köer](functions-bindings-service-bus.md)
-* [Azure Event/IoT-hubbar](functions-bindings-event-hubs.md)
+* [Azure Storage Queues](functions-bindings-storage-queue.md)
+* [Azure Service Bus Queues](functions-bindings-service-bus.md)
+* [Azure Event / IoT Hubs](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
-* [RabbitMQ-kö](https://github.com/azure/azure-functions-rabbitmq-extension)
+* [RabbitMQ Queue](https://github.com/azure/azure-functions-rabbitmq-extension)
 
-### <a name="http-trigger-support"></a>Stöd för HTTP-utlösare
+### <a name="http-trigger-support"></a>HTTP Trigger support
 
-Du kan använda Azure Functions som exponerar HTTP-utlösare, men KEDA inte direkt hanterar dem.  Azure Functions Core Tools installerar ett relaterat projekt, Osiris, som möjliggör skalning av HTTP-slutpunkter från 0 till 1.  Skalning från 1 till *n* förlitar sig på traditionella skalnings principer för Kubernetes.
+You can use Azure Functions that expose HTTP triggers, but KEDA doesn't directly manage them.  The Azure Functions Core Tools will install a related project, Osiris, that enables scaling HTTP endpoints from 0 to 1.  Scaling from 1 to *n* would rely on the traditional Kubernetes scaling policies.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:
 
-* [Skapa en funktion med en anpassad avbildning](functions-create-function-linux-custom-image.md)
+* [Create a function using a custom image](functions-create-function-linux-custom-image.md)
 * [Koda och testa Azure Functions lokalt](functions-develop-local.md)
-* [Så här fungerar Azure Function förbrukning-planen](functions-scale.md)
+* [How the Azure Function consumption plan works](functions-scale.md)

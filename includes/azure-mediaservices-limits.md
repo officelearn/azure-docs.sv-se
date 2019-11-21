@@ -1,60 +1,60 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e61b804c20063e87c19df4484291f81fdbb03a7b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 49150daa783280f47cb9401434ebfab8f6204090
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72601142"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224524"
 ---
 >[!NOTE]
->För resurser som inte har åtgärd ATS öppnar du ett support ärende för att be om en ökning av kvoterna. Skapa inte ytterligare Azure Media Services konton i ett försök att få högre gränser.
+>For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
 | Resurs | Standardgräns | 
 | --- | --- | 
-| Azure Media Services konton i en enda prenumeration | 25 (fast) |
-| Reserverade enheter per Media Services konto |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Jobb per Media Services konto | 50,000<sup>2</sup> |
+| Azure Media Services accounts in a single subscription | 25 (fast) |
+| Media reserved units per Media Services account |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Jobs per Media Services account | 50,000<sup>2</sup> |
 | Länkade uppgifter per jobb | 30 (fast) |
-| Till gångar per Media Services konto | 1,000,000|
+| Assets per Media Services account | 1,000,000|
 | Tillgångar per uppgift | 50 |
 | Tillgångar per jobb | 100 |
 | Unik positionerare som är associerad med en tillgång vid ett tillfälle | 5<sup>4</sup> |
-| Live Channels per Media Services konto |5|
+| Live channels per Media Services account |5|
 | Program i stoppat tillstånd per kanal |50|
 | Program i körningstillstånd per kanal |3|
-| Slut punkter för direkt uppspelning som har stoppats eller körts per Media Services konto|2|
+| Streaming endpoints that are stopped or running per Media Services account|2|
 | Strömningsenheter per slutpunkt för direktuppspelning |10 |
 | Lagringskonton | 1,000<sup>5</sup> (fast) |
 | Policy | 1,000,000<sup>6</sup> |
-| Filstorlek| I vissa fall finns det en gräns för maximal fil storlek som stöds för bearbetning i Media Services. <sup>7</sup> |
+| Filstorlek| In some scenarios, there's a limit on the maximum file size supported for processing in Media Services.<sup>7</sup> |
 
-<sup>1</sup> Om du ändrar typ, till exempel från S2 till S1, återställs de högsta reserverade enhets gränserna.
+<sup>1</sup>If you change the type, for example, from S2 to S1, the maximum reserved unit limits are reset.
 
-<sup>2</sup> Det här antalet inkluderar köade, avslutade, aktiva och avbrutna jobb. Det inkluderar inte borttagna jobb. Du kan ta bort gamla jobb med **IJob. Delete** eller **ta bort** http-begäran.
+<sup>2</sup>This number includes queued, finished, active, and canceled jobs. It doesn't include deleted jobs. You can delete old jobs by using **IJob.Delete** or the **DELETE** HTTP request.
 
-Från och med den 1 april 2017 raderas alla jobb poster i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med tillhör ande uppgifts poster. Automatisk borttagning sker även om det totala antalet poster unders tiger Max kvoten. Om du vill arkivera jobb-och uppgifts information använder du koden som beskrivs i [Hantera till gångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
+As of April 1, 2017, any job record in your account older than 90 days is automatically deleted, along with its associated task records. Automatic deletion occurs even if the total number of records is below the maximum quota. To archive the job and task information, use the code described in [Manage assets with the Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> När du gör en begäran om att lista jobb enheter returneras högst 1 000 jobb per begäran. Om du vill hålla koll på alla skickade jobb använder du de översta eller SKIP-frågorna som beskrivs i [alternativ för OData system-frågor](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
+<sup>3</sup>When you make a request to list job entities, a maximum of 1,000 jobs is returned per request. To keep track of all submitted jobs, use the top or skip queries as described in [OData system query options](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup> Lokaliserare är inte utformade för att hantera åtkomst kontroll per användare. Använd Digital Rights Management-lösningar (DRM) om du vill ge olika åtkomst rättigheter till enskilda användare. Mer information finns i [skydda ditt innehåll med Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>Locators aren't designed for managing per-user access control. To give different access rights to individual users, use digital rights management (DRM) solutions. For more information, see [Protect your content with Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
 
-<sup>5</sup> Lagrings kontona måste vara från samma Azure-prenumeration.
+<sup>5</sup>The storage accounts must be from the same Azure subscription.
 
-<sup>6</sup> Det finns en gräns på 1 000 000-principer för olika Media Servicess principer. Ett exempel är för lokaliserings principen eller ContentKeyAuthorizationPolicy. 
+<sup>6</sup>There's a limit of 1,000,000 policies for different Media Services policies. An example is for the Locator policy or ContentKeyAuthorizationPolicy. 
 
 >[!NOTE]
-> Om du alltid använder samma dagar och åtkomst behörigheter använder du samma princip-ID. Information och ett exempel finns i [Hantera till gångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
+> If you always use the same days and access permissions, use the same policy ID. For information and an example, see [Manage assets with the Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup> Den maximala storlek som stöds för en enskild BLOB är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare gränser gäller i Media Services baserat på de VM-storlekar som används av tjänsten. Storleks gränsen gäller för de filer som du överför och även de filer som genereras på grund av Media Services bearbetning (kodning eller analys). Om käll filen är större än 260 GB kommer jobbet sannolikt att Miss förväntas. 
+<sup>7</sup>The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. Additional limits apply in Media Services based on the VM sizes that are used by the service. The size limit applies to the files that you upload and also the files that get generated as a result of Media Services processing (encoding or analyzing). If your source file is larger than 260-GB, your Job will likely fail. 
 
-I följande tabell visas gränserna för de medie reserverade enheterna S1, S2 och S3. Om käll filen är större än de gränser som anges i tabellen, Miss lyckas kodnings jobbet. Om du kodar 4K-resolutioner med lång varaktighet måste du använda S3-medie reserverade enheter för att uppnå de prestanda som behövs. Öppna ett support ärende om du har ett 4K-innehåll som är större än 260 GB-gränsen på S3-enheternas reserverade enheter.
+The following table shows the limits on the media reserved units S1, S2, and S3. If your source file is larger than the limits defined in the table, your encoding job fails. If you encode 4K resolution sources of long duration, you're required to use S3 media reserved units to achieve the performance needed. If you have 4K content that's larger than the 260-GB limit on the S3 media reserved units, open a support ticket.
 
-|Enhets typ för reserverat medium   |Maximal ingångs storlek (GB)|
+|Media reserved unit type   |Maximum input size (GB)|
 |---|---|
 |S1 |   26|
 |S2 | 60|

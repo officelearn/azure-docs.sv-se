@@ -1,35 +1,35 @@
 ---
-title: Mall funktioner – distribution
-description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta distributions information.
+title: Template functions - deployment
+description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: 17caf78fb77e330685bb45ab03aaeed611900ba0
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/19/2019
+ms.openlocfilehash: a255cea128241465788f21013eb0522a29f5bd9e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149637"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230239"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributions funktioner för Azure Resource Manager mallar 
+# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Deployment functions for Azure Resource Manager templates 
 
-Resource Manager innehåller följande funktioner för att hämta värden från avsnitt i mallen och värden som är relaterade till distributionen:
+Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
-* [spridningen](#deployment)
+* [deployment](#deployment)
+* [environment](#environment)
 * [parameters](#parameters)
 * [variables](#variables)
 
-För att hämta värden från resurser, resurs grupper eller prenumerationer, se [resurs funktioner](resource-group-template-functions-resource.md).
-
-<a id="deployment" />
+To get values from resources, resource groups, or subscriptions, see [Resource functions](resource-group-template-functions-resource.md).
 
 ## <a name="deployment"></a>distribution
+
 `deployment()`
 
-Returnerar information om den aktuella distributions åtgärden.
+Returns information about the current deployment operation.
 
-### <a name="return-value"></a>Returvärde
+### <a name="return-value"></a>Return value
 
-Den här funktionen returnerar det objekt som skickas under distributionen. Egenskaperna i det returnerade objektet skiljer sig åt beroende på om distributions objekt skickas som en länk eller som ett infogat objekt. När distributions objekt skickas direkt, till exempel när du använder parametern **-TemplateFile** i Azure PowerShell för att peka på en lokal fil, har det returnerade objektet följande format:
+This function returns the object that is passed during deployment. The properties in the returned object differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
 
 ```json
 {
@@ -51,7 +51,7 @@ Den här funktionen returnerar det objekt som skickas under distributionen. Egen
 }
 ```
 
-När objektet skickas som en länk, till exempel när du använder parametern **-TemplateUri** för att peka på ett fjärrobjekt, returneras objektet i följande format: 
+When the object is passed as a link, such as when using the **-TemplateUri** parameter to point to a remote object, the object is returned in the following format: 
 
 ```json
 {
@@ -75,11 +75,11 @@ När objektet skickas som en länk, till exempel när du använder parametern **
 }
 ```
 
-När du [distribuerar till en Azure-prenumeration](deploy-to-subscription.md), i stället för en resurs grupp, innehåller retur-objektet en `location`-egenskap. Egenskapen Location ingår när du distribuerar antingen en lokal mall eller en extern mall.
+When you [deploy to an Azure subscription](deploy-to-subscription.md), instead of a resource group, the return object includes a `location` property. The location property is included when deploying either a local template or an external template.
 
 ### <a name="remarks"></a>Kommentarer
 
-Du kan använda Deployment () för att länka till en annan mall baserat på den överordnade mallens URI.
+You can use deployment() to link to another template based on the URI of the parent template.
 
 ```json
 "variables": {  
@@ -87,11 +87,11 @@ Du kan använda Deployment () för att länka till en annan mall baserat på den
 }
 ```  
 
-Om du distribuerar om en mall från distributions historiken i portalen distribueras mallen som en lokal fil. Egenskapen `templateLink` returneras inte i distributions funktionen. Om mallen använder `templateLink` för att skapa en länk till en annan mall ska du inte använda portalen för att distribuera om den. Använd i stället de kommandon som du använde för att distribuera mallen från början.
+If you redeploy a template from the deployment history in the portal, the template is deployed as a local file. The `templateLink` property isn't returned in the deployment function. If your template relies on `templateLink` to construct a link to another template, don't use the portal to redeploy. Instead, use the commands you used to originally deploy the template.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) returnerar distributions objekt:
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) returns the deployment object:
 
 ```json
 {
@@ -107,7 +107,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 }
 ```
 
-Föregående exempel returnerar följande objekt:
+The preceding example returns the following object:
 
 ```json
 {
@@ -131,28 +131,125 @@ Föregående exempel returnerar följande objekt:
 }
 ```
 
-En mall för en prenumerations nivå som använder distributions funktionen finns i [funktionen för prenumerations distribution](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Den distribueras med antingen `az deployment create`-eller `New-AzDeployment` kommandon.
+For a subscription-level template that uses the deployment function, see [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). It's deployed with either `az deployment create` or `New-AzDeployment` commands.
 
-<a id="parameters" />
+## <a name="environment"></a>miljö
+
+`environment()`
+
+Returns information about the Azure environment used for deployment.
+
+### <a name="return-value"></a>Return value
+
+This function returns properties for the current Azure environment.
+
+```json
+{
+  "name": "",
+  "gallery": "",
+  "graph": "",
+  "portal": "",
+  "graphAudience": "",
+  "activeDirectoryDataLake": "",
+  "batch": "",
+  "media": "",
+  "sqlManagement": "",
+  "vmImageAliasDoc": "",
+  "resourceManager": "",
+  "authentication": {
+    "loginEndpoint": "",
+    "audiences": [
+      "",
+      ""
+    ],
+    "tenant": "",
+    "identityProvider": ""
+  },
+  "suffixes": {
+    "acrLoginServer": "",
+    "azureDatalakeAnalyticsCatalogAndJob": "",
+    "azureDatalakeStoreFileSystem": "",
+    "azureFrontDoorEndpointSuffix": "",
+    "keyvaultDns": "",
+    "sqlServerHostname": "",
+    "storage": ""
+  }
+}
+```
+
+### <a name="example"></a>Exempel
+
+The following example template returns the environment object.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "environmentOutput": {
+            "value": "[environment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+The preceding example returns the following object when deployed to global Azure:
+
+```json
+{
+  "name": "AzureCloud",
+  "gallery": "https://gallery.azure.com/",
+  "graph": "https://graph.windows.net/",
+  "portal": "https://portal.azure.com",
+  "graphAudience": "https://graph.windows.net/",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "batch": "https://batch.core.windows.net/",
+  "media": "https://rest.media.azure.net",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "resourceManager": "https://management.azure.com/",
+  "authentication": {
+    "loginEndpoint": "https://login.windows.net/",
+    "audiences": [
+      "https://management.core.windows.net/",
+      "https://management.azure.com/"
+    ],
+    "tenant": "common",
+    "identityProvider": "AAD"
+  },
+  "suffixes": {
+    "acrLoginServer": ".azurecr.io",
+    "azureDatalakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDatalakeStoreFileSystem": "azuredatalakestore.net",
+    "azureFrontDoorEndpointSuffix": "azurefd.net",
+    "keyvaultDns": ".vault.azure.net",
+    "sqlServerHostname": ".database.windows.net",
+    "storage": "core.windows.net"
+  }
+}
+```
 
 ## <a name="parameters"></a>parameters
+
 `parameters(parameterName)`
 
-Returnerar ett parameter värde. Det angivna parameter namnet måste definieras i avsnittet Parameters i mallen.
+Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| parameterName |Ja |sträng |Namnet på den parameter som ska returneras. |
+| parameterName |Ja |sträng |The name of the parameter to return. |
 
-### <a name="return-value"></a>Returvärde
+### <a name="return-value"></a>Return value
 
-Värdet för den angivna parametern.
+The value of the specified parameter.
 
 ### <a name="remarks"></a>Kommentarer
 
-Normalt använder du parametrar för att ange resurs värden. I följande exempel anges namnet på webbplatsen till det parameter värde som överfördes under distributionen.
+Typically, you use parameters to set resource values. The following example sets the name of web site to the parameter value passed in during deployment.
 
 ```json
 "parameters": { 
@@ -172,7 +269,7 @@ Normalt använder du parametrar för att ange resurs värden. I följande exempe
 
 ### <a name="example"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) visas en förenklad användning av funktionen Parameters.
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) shows a simplified use of the parameters function.
 
 ```json
 {
@@ -227,38 +324,37 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 }
 ```
 
-Utdata från föregående exempel med standardvärdena är:
+The output from the preceding example with the default values is:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | Alternativ 1 |
+| stringOutput | Sträng | option 1 |
 | intOutput | Int | 1 |
-| objectOutput | Objekt | {"One": "a", "två": "b"} |
+| objectOutput | Objekt | {"one": "a", "two": "b"} |
 | arrayOutput | Matris | [1, 2, 3] |
-| crossOutput | Sträng | Alternativ 1 |
+| crossOutput | Sträng | option 1 |
 
-Mer information om hur du använder parametrar finns [i parametrar i Azure Resource Manager mall](template-parameters.md).
+For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
 
-<a id="variables" />
+## <a name="variables"></a>variables
 
-## <a name="variables"></a>användarvariabler
 `variables(variableName)`
 
-Returnerar värdet för variabeln. Det angivna variabel namnet måste definieras i avsnittet Variables i mallen.
+Returns the value of variable. The specified variable name must be defined in the variables section of the template.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| variableName |Ja |Sträng |Namnet på variabeln som ska returneras. |
+| variableName |Ja |Sträng |The name of the variable to return. |
 
-### <a name="return-value"></a>Returvärde
+### <a name="return-value"></a>Return value
 
-Värdet för den angivna variabeln.
+The value of the specified variable.
 
 ### <a name="remarks"></a>Kommentarer
 
-Normalt använder du variabler för att förenkla din mall genom att endast konstruera komplexa värden en gång. I följande exempel skapas ett unikt namn för ett lagrings konto.
+Typically, you use variables to simplify your template by constructing complex values only once. The following example constructs a unique name for a storage account.
 
 ```json
 "variables": {
@@ -282,7 +378,7 @@ Normalt använder du variabler för att förenkla din mall genom att endast kons
 
 ### <a name="example"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) returnerar olika variabel värden.
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) returns different variable values.
 
 ```json
 {
@@ -320,20 +416,20 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 }
 ```
 
-Utdata från föregående exempel med standardvärdena är:
+The output from the preceding example with the default values is:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| exampleOutput1 | Sträng | Variabel |
+| exampleOutput1 | Sträng | myVariable |
 | exampleOutput2 | Matris | [1, 2, 3, 4] |
-| exampleOutput3 | Sträng | Variabel |
-| exampleOutput4 |  Objekt | {"Egenskap1": "värde1", "Egenskap2": "värde2"} |
+| exampleOutput3 | Sträng | myVariable |
+| exampleOutput4 |  Objekt | {"property1": "value1", "property2": "value2"} |
 
-Mer information om hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).
+For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
-* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
+* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To merge several templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 

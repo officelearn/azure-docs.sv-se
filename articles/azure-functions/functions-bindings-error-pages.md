@@ -1,36 +1,30 @@
 ---
-title: Vägledning för Azure Functions fel hantering
-description: Lär dig att hantera fel i Azure Functions med länkar till vissa bindnings fel.
-services: functions
-cloud: ''
-documentationcenter: ''
+title: Azure Functions error handling guidance
+description: Learn to handle errors in Azure Functions with links to specific binding errors.
 author: craigshoemaker
-manager: gwallace
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: d301940998175adb6469e46cff2de918b5cae9df
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 06dc4c5c1713ee10f263e573a698e9ea36ca2662
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155298"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227326"
 ---
-# <a name="azure-functions-error-handling"></a>Azure Functions fel hantering
+# <a name="azure-functions-error-handling"></a>Azure Functions error handling
 
-Att hantera fel i Azure Functions är viktigt för att undvika förlorade data, missade händelser och för att övervaka hälso tillståndet för programmet.
+Handling errors in Azure Functions is important to avoid lost data, missed events, and to monitor the health of your application.
 
-I den här artikeln beskrivs allmänna strategier för fel hantering tillsammans med länkar till platsspecifika fel.
+This article describes general strategies for error handling along with links to binding-specific errors.
 
-## <a name="handling-errors"></a>Hantera fel
+## <a name="handling-errors"></a>Handling errors
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-## <a name="binding-error-codes"></a>Fel koder för bindning
+## <a name="binding-error-codes"></a>Binding error codes
 
-Vid integrering med Azure-tjänster kan fel komma från API: erna för underliggande tjänster. Information om platsspecifika fel finns i avsnittet **undantag och retur koder** i följande artiklar:
+When integrating with Azure services, errors may originate from the APIs of the underlying services. Information relating to binding-specific errors is available in the **Exceptions and return codes** section of the following articles:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

@@ -1,7 +1,7 @@
 ---
-title: Konfigurera belastnings utjämning och utgående regler med hjälp av Azure CLI
-titlesuffix: Azure Load Balancer
-description: Den här artikeln visar hur du konfigurerar belastnings utjämning och utgående regler i en Standard Load Balancer med hjälp av Azure CLI.
+title: Configure load balancing and outbound rules using Azure CLI
+titleSuffix: Azure Load Balancer
+description: This article shows how to configure load balancing and outbound rules in a Standard Load Balancer using the Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: allensu
-ms.openlocfilehash: 503c8f71b7e26cfe6803a6df1d3fec9ef55cd5c3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7230b0c2b80137b068bbeacf43ab2133491a69b0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571141"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225473"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Konfigurera belastningsutjämning och regler för utgående trafik i Standard Load Balancer med hjälp av Azure CLI
 
-Den här snabb starten visar hur du konfigurerar utgående regler i Standard Load Balancer med Azure CLI.  
+This quickstart shows you how to configure outbound rules in Standard Load Balancer using Azure CLI.  
 
-När du är färdig innehåller Load Balancer resursen två klient delar och regler som är kopplade till dem: en för inkommande och en annan för utgående.  Varje klient del har en referens till en offentlig IP-adress och det här scenariot använder en annan offentlig IP-adress för inkommande och utgående.   Belastnings Utjämnings regeln tillhandahåller endast inkommande belastnings utjämning och regeln för utgående trafik styr den utgående NAT-filen som har angetts för den virtuella datorn.  I den här snabb starten används två separata backend-pooler, en för inkommande och en för utgående, för att illustrera kapacitet och tillåta flexibilitet för det här scenariot.
+When you are done, the Load Balancer resource contains two frontends and rules associated with them: one for inbound and another for outbound.  Each frontend has a reference to a public IP address and this scenario uses a different public IP address for inbound versus outbound.   The load balancing rule provides only inbound load balancing and the outbound rule controls the outbound NAT provided for the VM.  This quickstart uses two separate backend pools, one for inbound and one for outbound, to illustrate capability and allow for flexibility for this scenario.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -34,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt så kräver den här själv
 
 Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-I följande exempel skapas en resurs grupp med namnet *myresourcegroupoutbound* på *eastus2* -platsen:
+The following example creates a resource group named *myresourcegroupoutbound* in the *eastus2* location:
 
 ```azurecli-interactive
   az group create \
@@ -42,7 +42,7 @@ I följande exempel skapas en resurs grupp med namnet *myresourcegroupoutbound* 
     --location eastus2
 ```
 ## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
-Skapa ett virtuellt nätverk med namnet *myvnetoutbound* med ett undernät med namnet *mysubnetoutbound* i *myresourcegroupoutbound* med [AZ Network VNet Create](https://docs.microsoft.com/cli/azure/network/vnet).
+Create a virtual network named *myvnetoutbound* with a subnet named *mysubnetoutbound* in the *myresourcegroupoutbound* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -53,35 +53,35 @@ Skapa ett virtuellt nätverk med namnet *myvnetoutbound* med ett undernät med n
     --subnet-prefix 192.168.0.0/24
 ```
 
-## <a name="create-inbound-public-ip-address"></a>Skapa offentlig IP-adress för inkommande trafik 
+## <a name="create-inbound-public-ip-address"></a>Create inbound Public IP address 
 
-För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. En Standard Load Balancer stöder endast offentliga IP-standardadresser. Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip) för att skapa en offentlig standard-IP-adress med namnet *mypublicipinbound* i *myresourcegroupoutbound*.
+För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. En Standard Load Balancer stöder endast offentliga IP-standardadresser. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a Standard Public IP address named *mypublicipinbound* in *myresourcegroupoutbound*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipinbound --sku standard
 ```
 
-## <a name="create-outbound-public-ip-address"></a>Skapa utgående offentlig IP-adress 
+## <a name="create-outbound-public-ip-address"></a>Create outbound public IP address 
 
-Skapa en standard-IP-adress för Load Balancer klient delen utgående konfiguration med [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip).
+Create a Standard IP address for Load Balancer's frontend outbound configuration using [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
 ```
 
-## <a name="create-azure-load-balancer"></a>Skapa Azure Load Balancer
+## <a name="create-azure-load-balancer"></a>Create Azure Load Balancer
 
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
-  - En IP-adress för klient delen som tar emot inkommande nätverks trafik i belastningsutjämnaren.
-  - En backend-pool där klient delens IP-adress skickar den belastningsutjämnade nätverks trafiken.
-  - En backend-pool för utgående anslutning. 
-  - En hälso avsökning som avgör hälso tillståndet för VM-instanser i Server delen.
-  - En regel för inkommande belastnings utjämning som definierar hur trafiken distribueras till de virtuella datorerna.
-  - En regel för utgående belastningsutjämnare som definierar hur trafiken distribueras från de virtuella datorerna.
+  - A frontend IP that receives the incoming network traffic on the load balancer.
+  - A backend pool where the frontend IP sends the load balanced network traffic.
+  - A backend pool for outbound connectivity. 
+  - A health probe that determines health of the backend VM instances.
+  - A load balancer inbound rule that defines how traffic is distributed to the VMs.
+  - A load balancer outbound rule that defines how traffic is distributed from the VMs.
 
-### <a name="create-load-balancer"></a>Skapa Load Balancer
+### <a name="create-load-balancer"></a>Create Load Balancer
 
-Skapa en Load Balancer med den inkommande IP-adressen med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *lb* som innehåller en inkommande IP-konfiguration för klient delen och en *bepoolinbound* som är associerad med den offentliga IP-adressen  *mypublicipinbound* som du skapade i föregående steg.
+Create a Load Balancer with the inbound IP address using [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named *lb* that includes an inbound frontend IP configuration and a backend pool *bepoolinbound* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
 
 ```azurecli-interactive
   az network lb create \
@@ -94,9 +94,9 @@ Skapa en Load Balancer med den inkommande IP-adressen med [AZ Network lb Create]
     --public-ip-address mypublicipinbound   
   ```
 
-### <a name="create-outbound-pool"></a>Skapa utgående pool
+### <a name="create-outbound-pool"></a>Create outbound pool
 
-Skapa ytterligare en backend-adresspool för att definiera utgående anslutning för en pool med virtuella datorer med [AZ Network lb Address-pool Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *bepooloutbound*.  Att skapa en separat utgående pool ger maximal flexibilitet, men du kan utelämna det här steget och endast använda inkommande *bepoolinbound* .
+Create an additional backend address pool to define outbound connectivity for a pool of VMs with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) with the name *bepooloutbound*.  Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.
 
 ```azurecli-interactive
   az network lb address-pool create \
@@ -105,8 +105,8 @@ Skapa ytterligare en backend-adresspool för att definiera utgående anslutning 
     --name bepooloutbound
 ```
 
-### <a name="create-outbound-frontend-ip"></a>Skapa utgående IP-adress för klient del
-Skapa den utgående IP-konfigurationen för klient delen för Load Balancer med [AZ Network lb frontend-IP Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) som inkluderar och utgående klient DELENS IP-konfiguration med namnet *myfrontendoutbound* som är kopplad till den offentliga IP-adressen  *mypublicipoutbound*
+### <a name="create-outbound-frontend-ip"></a>Create outbound frontend IP
+Create the outbound frontend IP configuration for the Load Balancer with [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) that includes and outbound frontend IP configuration named *myfrontendoutbound* that is associated to the public IP address *mypublicipoutbound*
 
 ```azurecli-interactive
   az network lb frontend-ip create \
@@ -116,7 +116,7 @@ Skapa den utgående IP-konfigurationen för klient delen för Load Balancer med 
     --public-ip-address mypublicipoutbound 
   ```
 
-### <a name="create-health-probe"></a>Skapa hälso avsökning
+### <a name="create-health-probe"></a>Create health probe
 
 En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 
@@ -130,12 +130,12 @@ En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerst
     --path /  
 ```
 
-### <a name="create-load-balancing-rule"></a>Skapa belastnings Utjämnings regel
+### <a name="create-load-balancing-rule"></a>Create load balancing rule
 
-En belastnings Utjämnings regel definierar klient delens IP-konfiguration för den inkommande trafiken och backend-poolen för att ta emot trafiken, tillsammans med den begärda käll-och mål porten. Skapa en regel för belastnings utjämning *myinboundlbrule* med [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) för att lyssna på port 80 i klient delens pool *myfrontendinbound* och skicka belastningsutjämnad nätverks trafik till backend-adresspoolen *även* använder port 80. 
+A load balancer rule defines the frontend IP configuration for the incoming traffic and the backend pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myinboundlbrule* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) for listening to port 80 in the frontend pool *myfrontendinbound* and sending load-balanced network traffic to the backend address pool *bepool* also using port 80. 
 
 >[!NOTE]
->Den här belastnings Utjämnings regeln inaktiverar automatisk utgående NAT som ett resultat av den här regeln med parametern--Disable-utgående-SNAT-SNAT. Utgående NAT anges bara av regeln för utgående trafik.
+>This load balancing rule disables automatic outbound (S)NAT as a result of this rule with the --disable-outbound-snat parameter. Outbound NAT is only provided by the outbound rule.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -151,9 +151,9 @@ az network lb rule create \
 --disable-outbound-snat
 ```
 
-### <a name="create-outbound-rule"></a>Skapa utgående regel
+### <a name="create-outbound-rule"></a>Create outbound rule
 
-En utgående regel definierar den offentliga klient delens IP-adress, som representeras av klient delens *myfrontendoutbound*, som kommer att användas för all utgående NAT-trafik samt den backend-pool som regeln gäller.  Skapa en utgående regel *myoutboundrule* för utgående nätverks översättning av alla virtuella datorer (NIC IP-konfigurationer) i backend-poolen för *pooler* .  Kommandot nedan ändrar även tids gränsen för utgående inaktivitet från 4 till 15 minuter och tilldelar 10000 SNAT-portar i stället för 1024.  Granska [utgående regler](https://aka.ms/lboutboundrules) för mer information.
+An outbound rule defines the frontend public IP, represented by the frontend *myfrontendoutbound*, which will be used for all outbound NAT traffic as well as the backend pool to which this rule applies.  Create an outbound rule *myoutboundrule* for outbound network translation of all virtual machines (NIC IP configurations) in *bepool* backend pool.  The command below also changes the outbound idle timeout from 4 to 15 minutes and allocates 10000 SNAT ports instead of 1024.  Review [outbound rules](https://aka.ms/lboutboundrules) for more details.
 
 ```azurecli-interactive
 az network lb outbound-rule create \
@@ -167,9 +167,9 @@ az network lb outbound-rule create \
  --address-pool bepooloutbound
 ```
 
-Om du inte vill använda en separat utgående pool kan du ändra argumentet för adresspoolen i föregående kommando för att ange *bepoolinbound* i stället.  Vi rekommenderar att du använder separata pooler för flexibilitet och läsbarhet för den resulterande konfigurationen.
+If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *bepoolinbound* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
 
-Nu kan du fortsätta med att lägga till den virtuella datorn till backend-poolens *bepoolinbound* __och__ *bepooloutbound* genom att uppdatera IP-konfigurationen för respektive NIC-resurser med [AZ Network NIC IP-config Address-pool Add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -180,7 +180,7 @@ När de inte längre behövs kan du ta bort resursgruppen, lastbalanseraren och 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln skapade du Standard Load Balancer, konfigurerade både inkommande trafik regler för belastnings utjämning, konfigurerade och hälso avsökningar för de virtuella datorerna i backend-poolen. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+In this article, you created Standard Load Balancer, configured both inbound load balancer traffic rules, configured and health probe for the VMs in the backend pool. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

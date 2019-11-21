@@ -1,79 +1,79 @@
 ---
 title: Vad är Azure Privat Link?
-description: Lär dig hur du använder Azures privata länk för att få åtkomst till Azure PaaS Services (till exempel Azure Storage och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket.
+description: Learn how to use Azure Private Link to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: kumud
-ms.openlocfilehash: aa176cb5ffc67ebba826cf13a1a66608301af5e5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: allensu
+ms.openlocfilehash: e33fce7b3fc19d6dfa83f95b6a9bcb43588945d1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601532"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228079"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Vad är Azure Privat Link? (Förhandsversion)
-Med Azures privata länk kan du komma åt Azure PaaS Services (till exempel Azure Storage, Azure Cosmos DB och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen [privat länk-tjänst](private-link-service-overview.md) i ditt virtuella nätverk (VNet) och leverera den privat för kunderna. Installations-och användnings upplevelsen med Azure Private Link är konsekvent i Azure PaaS, kundägda och delade partner tjänster.
+Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage, Azure Cosmos DB, and SQL Database) and Azure hosted customer/partner services over a [Private Endpoint](private-endpoint-overview.md) in your virtual network. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. You can also create your own [Private Link Service](private-link-service-overview.md) in your virtual network (VNet) and deliver it privately to your customers. The setup and consumption experience using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Information om kända begränsningar finns i [privat slut punkt](private-endpoint-overview.md#limitations) och [privat länk tjänst](private-link-service-overview.md#limitations).
+> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations).
 
 
-![Översikt över privat slut punkt](media/private-link-overview/private-endpoint.png)
+![Private endpoint overview](media/private-link-overview/private-endpoint.png)
 
 ## <a name="key-benefits"></a>Viktiga fördelar
-Azure Private-länken ger följande fördelar:  
-- **Privat åtkomst till tjänster på Azure-plattformen**: Anslut ditt virtuella nätverk till tjänster som körs i Azure privat utan att behöva en offentlig IP-adress på källan eller målet. Tjänste leverantörer kan återge sina tjänster privat i sitt eget virtuella nätverk och konsumenter kan komma åt tjänsterna privat i det lokala virtuella nätverket. Den privata länk plattformen hanterar anslutningen mellan konsumenter och tjänster över Azures stamnät nätverk. 
+Azure Private Link provides the following benefits:  
+- **Privately access services on the Azure platform**: Connect your virtual network to services running in Azure privately without needing a public IP address at the source or destination. Service providers can render their services privately in their own virtual network and consumers can access those services privately in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
  
-- **Lokala och peer-baserade nätverk**: åtkomst tjänster som körs i Azure från lokala ExpressRoute privata peering/VPN-tunnlar (lokalt) och peer-baserade virtuella nätverk med privata slut punkter. Du behöver inte konfigurera offentlig peering eller gå över på Internet för att komma åt tjänsten. Den här möjligheten ger ett säkert sätt att migrera arbets belastningar till Azure.
+- **On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering/VPN tunnels (from on-premises) and peered virtual networks using private endpoints. There is no need to set up public peering or traverse the internet to reach the service. This ability provides a secure way to migrate workloads to Azure.
  
-- **Skydd mot data exfiltrering**: med Azures privata länk mappas den privata slut punkten i VNet till en specifik instans av kundens PaaS-resurs i stället för hela tjänsten. Användning av privat slut punkts konsumenter kan bara ansluta till den angivna resursen och inte till någon annan resurs i tjänsten. Detta i den inbyggda mekanismen ger skydd mot data exfiltrering-risker. 
+- **Protection against data exfiltration**:  With Azure Private Link, the private endpoint in the VNet is mapped to a specific instance of the customer's PaaS resource as opposed to the entire service. Using the private endpoint consumers can only connect to the specific resource and not to any other resource in the service. This in built mechanism provides protection against data exfiltration risks. 
  
-- **Global räckvidd**: Anslut privat till tjänster som körs i andra regioner. Det innebär att användarens virtuella nätverk kan finnas i region A och det kan ansluta till tjänster bakom privat länk i region B.  
+- **Global reach**: Connect privately to services running in other regions. This means that the consumer's virtual network could be in region A and it can connect to services behind Private Link in region B.  
  
-- **Utöka till dina egna tjänster**: utnyttja samma erfarenheter och funktionalitet för att återge din egen tjänst privat för dina konsumenter i Azure. Genom att placera tjänsten bakom en Standard Load Balancer kan du aktivera den för privat länk. Konsumenten kan sedan ansluta direkt till tjänsten med hjälp av en privat slut punkt i sitt eget VNet. Du kan hantera dessa anslutnings begär Anden med ett enkelt godkännande flöde. Azures privata länk fungerar även för konsumenter och tjänster som tillhör olika Active Directory klienter. 
+- **Extend to your own services**: Leverage the same experience and functionality to render your own service privately to your consumers in Azure. By placing your service behind a Standard Load Balancer you can enable it for Private Link. The consumer can then connect directly to your service using a Private Endpoint in their own VNet. You can manage these connection requests using a simple approval call flow. Azure Private Link works for consumers and services belonging to different Active Directory tenants as well. 
 
 ## <a name="availability"></a>Tillgänglighet 
- I följande tabell visas de privata länk tjänsterna och de regioner där de är tillgängliga. 
+ The following table lists the Private Link services and the regions where they are available. 
 
-|Scenario  |Tjänster som stöds   |Tillgängliga regioner | Status   |
+|Scenario  |Supported services   |Tillgängliga regioner | Status   |
 |---------|---------|---------|---------|
-|Privat länk för kundägda tjänster|Privata länk tjänster bakom Standard Load Balancer | Alla offentliga regioner  |  Förhandsversion  |
-|Privat länk för Azure PaaS Services   | Azure Storage        |  Alla offentliga regioner      | Förhandsversion         |
-|  | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Förhandsversion         |
-|  |  Azure SQL Database         | Alla offentliga regioner      |   Förhandsversion      |
-||Azure SQL Data Warehouse| Alla offentliga regioner |Förhandsversion|
-||Azure Cosmos DB| Västra centrala USA, västra USA, norra centrala USA |Förhandsversion|
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer | All public regions  |  Förhandsversion  |
+|Private Link for Azure PaaS services   | Azure Storage        |  All public regions      | Förhandsversion         |
+|  | Azure Data Lake Storage Gen2        |  All public regions      | Förhandsversion         |
+|  |  Azure SQL Database         | All public regions      |   Förhandsversion      |
+||Azure SQL Data Warehouse| All public regions |Förhandsversion|
+||Azure Cosmos DB| West Central US, WestUS, North Central US |Förhandsversion|
 
-Du hittar de senaste aviseringarna på [sidan för Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
+For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-Den privata Azure-länken är integrerad med Azure Monitor som gör att du kan arkivera loggar till ett lagrings konto, strömma händelser till Händelsehubben eller skicka dem till Azure Monitor loggar. Du kan komma åt följande information på Azure Monitor: 
-- **Privat slut punkt**: data som bearbetas av den privata slut punkten (in/ut)
+Azure Private Link is integrated with Azure Monitor which allows you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. You can access the following information on Azure Monitor: 
+- **Private endpoint**: Data processed by the Private Endpoint  (IN/OUT)
  
-- **Privat länk tjänst**:
-    - Data som bearbetas av tjänsten för privat länk (IN/ut)
-    - Tillgänglighet för NAT-Port  
+- **Private Link service**:
+    - Data processed by the Private Link service (IN/OUT)
+    - NAT port availability  
  
-## <a name="pricing"></a>Priser   
-Pris information finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link/).
+## <a name="pricing"></a>Prissättning   
+For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
  
 ## <a name="faqs"></a>Vanliga frågor och svar  
-Vanliga frågor och svar om [Azures privata länkar](private-link-faq.md).
+For FAQs, see [Azure Private Link FAQs](private-link-faq.md).
  
 ## <a name="limits"></a>Begränsningar  
-För gränser, se [gränser för privata Azure-länkar](../azure-subscription-service-limits.md#private-link-limits).
+For limits, see [Azure Private Link limits](../azure-subscription-service-limits.md#private-link-limits).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en privat slut punkt för SQL Database servern med hjälp av portalen](create-private-endpoint-portal.md)
-- [Skapa en privat slut punkt för SQL Database Server med PowerShell](create-private-endpoint-powershell.md)
-- [Skapa en privat slut punkt för SQL Database Server med CLI](create-private-endpoint-cli.md)
-- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
-- [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen](../cosmos-db/how-to-configure-private-endpoints.md)
-- [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)
+- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
+- [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
 
 
  

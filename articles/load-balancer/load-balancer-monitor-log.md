@@ -1,7 +1,7 @@
 ---
-title: Övervaka åtgärder, händelser och räknare för offentliga Basic-Load Balancer
-titlesuffix: Azure Load Balancer
-description: Lär dig hur du aktiverar aviserings händelser och loggning av avsöknings hälso status för offentliga Basic-Load Balancer
+title: Monitor operations, events, and counters for public Basic Load Balancer
+titleSuffix: Azure Load Balancer
+description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,89 +13,89 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: df35168d0fab0b01ff11c4105a1fcc5b16e21f30
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350719"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214920"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor loggar för offentliga grundläggande Load Balancer
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor logs for public Basic Load Balancer
 
 >[!IMPORTANT] 
->Azure Load Balancer stöder två olika typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
+>Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver den grundläggande lastbalanseraren. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md) which exposes telemetry via multi-dimensional metrics in Azure Monitor.
 
-Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastnings utjämning. Vissa av dessa loggar kan nås via portalen. Loggar kan strömmas till en händelsehubben eller en arbets yta för Log Analytics. Alla loggar kan extraheras från Azure Blob Storage och visas i olika verktyg, till exempel Excel och Power BI.  Du kan lära dig mer om de olika typerna av loggar i listan nedan.
+You can use different types of logs in Azure to manage and troubleshoot Basic Load Balancers. Some of these logs can be accessed through the portal. Logs can be streamed to an event hub or a Log Analytics workspace. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI.  You can learn more about the different types of logs from the list below.
 
-* **Aktivitets loggar:** Du kan använda [Visa aktivitets loggar för att övervaka åtgärder på resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) för att visa all aktivitet som skickas till din Azure-prenumeration (er) och deras status. Aktivitets loggar är aktiverade som standard och kan visas i Azure Portal.
-* **Aviserings händelse loggar:** Du kan använda den här loggen för att visa aviseringar som aktive ras av belastningsutjämnaren. Status för belastningsutjämnaren samlas in var femte minut. Den här loggen skrivs bara om en belastnings Utjämnings aviserings händelse höjs.
-* **Hälso avsöknings loggar:** Du kan använda den här loggen för att visa problem som upptäckts av din hälso avsökning, till exempel antalet instanser i din backend-pool som inte tar emot begär Anden från belastningsutjämnaren på grund av hälso avsöknings fel. Loggen skrivs till när statusen för hälso avsökningen ändras.
+* **Activity logs:** You can use [View activity logs to monitor actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) to view all activity being submitted to your Azure subscription(s), and their status. Activity logs are enabled by default, and can be viewed in the Azure portal.
+* **Alert event logs:** You can use this log to view alerts raised by the load balancer. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.
+* **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
 > [!IMPORTANT]
-> Azure Monitor loggar för närvarande endast fungerar för offentliga Basic Load Balancer. Loggar är bara tillgängliga för resurser som distribueras i distributions modellen för Resource Manager. Du kan inte använda loggar för resurser i den klassiska distributions modellen. Mer information om distributions modellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor logs currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
-Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Aktivera loggning av händelse-och hälso avsökning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
+Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Enable event and health probe logging to start collecting the data available through those logs. Use the following steps to enable logging.
 
-Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) innan du fortsätter.
+Logga in på [Azure-portalen](https://portal.azure.com). If you don't already have a load balancer, [create a load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) before you continue.
 
-1. I portalen klickar du på **resurs grupper**.
-2. Välj **\<resource-Group-name >** där belastningsutjämnaren är.
-3. Välj belastningsutjämnaren.
-4. Välj **övervaknings** > **diagnostiska inställningar**.
-5. I fönstret **diagnostikinställningar** , under **diagnostikinställningar**, väljer du **+ Lägg till diagnostisk inställning**.
-6. I fönstret Skapa **diagnostikinställningar** anger du **MyLBDiagnostics** i fältet **namn** .
-7. Det finns tre alternativ för **diagnostikinställningar**.  Du kan välja en, två eller alla tre och konfigurera var och en för dina behov:
-   * **Arkivera till ett lagrings konto**
-   * **Strömma till en Event Hub**
-   * **Skicka till Log Analytics**
+1. In the portal, click **Resource groups**.
+2. Select **\<resource-group-name>** where your load balancer is.
+3. Select your load balancer.
+4. Select **Monitoring** > **Diagnostic settings**.
+5. In the **Diagnostics settings** pane, under **Diagnostics settings**, select **+ Add diagnostic setting**.
+6. In the **Diagnostics settings** creation pane, enter **myLBDiagnostics** in the **Name** field.
+7. You have three options for the **Diagnostics settings**.  You can choose one, two or all three and configure each for your requirements:
+   * **Archive to a storage account**
+   * **Stream to an event hub**
+   * **Send to Log Analytics**
 
-    ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagringskonto
-    Du behöver ett lagrings konto som redan har skapats för den här processen.  Information om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    ### <a name="archive-to-a-storage-account"></a>Archive to a storage account
+    You'll need a storage account already created for this process.  To create a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
-    1. Markera kryss rutan bredvid **arkivera till ett lagrings konto**.
-    2. Välj **Konfigurera** för att öppna fönstret **Välj ett lagrings konto** .
-    3. Välj den **prenumeration** där ditt lagrings konto skapades i den nedrullningsbara rutan.
-    4. Välj namnet på ditt lagrings konto under **lagrings konto** i den nedrullningsbara List rutan. 
-    5. Välj OK.
+    1. Select the checkbox next to **Archive to a storage account**.
+    2. Select **Configure** to open the **Select a storage account** pane.
+    3. Select the **Subscription** where your storage account was created in the pull-down box.
+    4. Select the name of your storage account under **Storage account** in the pull-down box. 
+    5. Select OK.
 
-    ### <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
-    Du behöver en Event Hub som redan har skapats för den här processen.  Information om hur du skapar en Event Hub finns i [Quickstart: Skapa en Event Hub med Azure Portal @ no__t-0
+    ### <a name="stream-to-an-event-hub"></a>Stream to an event hub
+    You'll need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-    1. Markera kryss rutan bredvid **strömma till en Event Hub**
-    2. Välj **Konfigurera** för att öppna fönstret **Välj händelsehubben** .
-    3. Välj den **prenumeration** där händelsehubben skapades i den nedrullningsbara rutan.
-    4. **Välj namn område för Event Hub** i den nedrullningsbara rutan.
-    5. **Välj princip namn för Event Hub** i den nedrullningsbara rutan.
-    6. Välj OK.
+    1. Select the checkbox next to **Stream to an event hub**
+    2. Select **Configure** to open the **Select event hub** pane.
+    3. Select the **Subscription** where your event hub was created in the pull-down box.
+    4. **Select event hub namespace** in the pull-down box.
+    5. **Select event hub policy name** in the pull-down box.
+    6. Select OK.
 
     ### <a name="send-to-log-analytics"></a>Skicka till Log Analytics
-    Du behöver redan ha en Log Analytics-arbetsyta skapad och konfigurerad för den här processen.  Om du vill skapa en Log Analytics arbets yta, se [skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    You'll need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-    1. Markera kryss rutan bredvid **Skicka till Log Analytics**.
-    2. Välj den **prenumeration** där Log Analytics arbets ytan finns i den nedrullningsbara rutan.
-    3. Välj **arbets ytan Log Analytics** i list rutan.
+    1. Select the checkbox next to **Send to Log Analytics**.
+    2. Select the **Subscription** where your Log Analytics workspace is in the pull-down box.
+    3. Select the **Log Analytics Workspace** in the pull-down box.
 
 
-8. Under avsnittet **logg** i fönstret **diagnostikinställningar** väljer du kryss rutan bredvid båda:
+8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
    * **LoadBalancerAlertEvent**
    * **LoadBalancerProbeHealthStatus**
 
-9.  Under avsnittet **mått** i fönstret **diagnostikinställningar** väljer du kryss rutan bredvid:
+9.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
    * **AllMetrics**
 
-11. Kontrol lera att allting ser korrekt ut och klicka sedan på **Spara** högst upp i fönstret Skapa **diagnostiska inställningar** .
+11. Verify everything looks correct and click **Save** at the top of the create **Diagnostic settings** pane.
 
 ## <a name="activity-log"></a>Aktivitetslogg
 
-Aktivitets loggen skapas som standard. Loggarna bevaras för 90 dagar i Azures händelse logg arkiv. Läs mer om dessa loggar genom att läsa artikeln [Visa aktivitets loggar för att övervaka åtgärder i resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) .
+The activity log is generated by default. The logs are preserved for 90 days in Azure's Event Logs store. Learn more about these logs by reading the [View activity logs to monitor actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) article.
 
-## <a name="archive-to-storage-account-logs"></a>Arkivera till lagrings konto loggar
+## <a name="archive-to-storage-account-logs"></a>Archive to storage account logs
 
-### <a name="alert-event-log"></a>Aviserings händelse logg
+### <a name="alert-event-log"></a>Alert event log
 
-Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare. Händelserna är inloggade i JSON-format och lagras i det lagrings konto du angav när du aktiverade loggningen. Följande exempel är en händelse.
+This log is only generated if you've enabled it on a per load balancer basis. The events are logged in JSON format and stored in the storage account you specified when you enabled the logging. The following example is of an event.
 
 ```json
 {
@@ -114,11 +114,11 @@ Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare.
 }
 ```
 
-JSON-utdata visar egenskapen *EventName* , som beskriver orsaken till att belastningsutjämnaren skapade en avisering. I det här fallet orsakade den genererade aviseringen på grund av att TCP-portens belastning orsakade av NAT-gränser (SNAT).
+The JSON output shows the *eventname* property, which will describe the reason for the load balancer created an alert. In this case, the alert generated was because of TCP port exhaustion caused by source IP NAT limits (SNAT).
 
-### <a name="health-probe-log"></a>Hälso avsöknings logg
+### <a name="health-probe-log"></a>Health probe log
 
-Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare enligt beskrivningen ovan. Data lagras i det lagrings konto du angav när du aktiverade loggningen. En behållare med namnet Insights-logs-loadbalancerprobehealthstatus skapas och följande data loggas:
+This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. A container named 'insights-logs-loadbalancerprobehealthstatus' is created and the following data is logged:
 
 ```json
 {
@@ -154,27 +154,27 @@ Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare 
 }
 ```
 
-JSON-utdata visas i fältet egenskaper grundläggande information om avsökningens hälso status. Egenskapen *dipDownCount* visar det totala antalet instanser på Server delen, som inte tar emot nätverks trafik på grund av misslyckade avsöknings svar.
+The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end, which are not receiving network traffic because of failed probe responses.
 
-### <a name="view-and-analyze-the-audit-log"></a>Visa och analysera gransknings loggen
+### <a name="view-and-analyze-the-audit-log"></a>View and analyze the audit log
 
-Du kan visa och analysera Gransknings logg data med någon av följande metoder:
+You can view and analyze audit log data using any of the following methods:
 
-* **Azure-verktyg:** Hämta information från gransknings loggarna via Azure PowerShell, kommando rads gränssnittet för Azure (CLI), Azure-REST API eller Azure Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) .
-* **Power BI:** Om du inte redan har ett [Power BI](https:// .microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [innehålls paketet för Azure audit-loggar för Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)kan du analysera dina data med förkonfigurerade instrument paneler, eller så kan du anpassa vyer så att de passar dina behov.
+* **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) article.
+* **Power BI:** If you don't already have a [Power BI](https:// .microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), you can analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
 
-### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälso avsökningen och händelse loggen
+### <a name="view-and-analyze-the-health-probe-and-event-log"></a>View and analyze the health probe and event log
 
-Anslut till ditt lagrings konto och hämta JSON-logg poster för händelse-och hälso avsöknings loggar. När du har hämtat JSON-filerna kan du konvertera dem till CSV och Visa i Excel, Power BI eller något annat verktyg för data visualisering.
+Connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, Power BI, or any other data visualization tool.
 
 > [!TIP]
 > Om du är bekant med Visual Studio och kan grunderna i att ändra värden för konstanter och variabler i C# så kan du använda [verktygen för loggkonvertering](https://github.com/Azure-Samples/networking-dotnet-log-converter) från GitHub.
 
-## <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
-När diagnostikinformation strömmas till en Event Hub, kan den användas för centraliserad logg analys i ett SIEM-verktyg från tredje part med Azure Monitor-integrering. Mer information finns i [Stream Azure Monitoring data to Event Hub](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+## <a name="stream-to-an-event-hub"></a>Stream to an event hub
+When diagnostic information is streamed to an event hub, it can be used for centralized log analysis in a third-party SIEM tool with Azure Monitor Integration. For more information, see [Stream Azure monitoring data to an event hub](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Skicka till Log Analytics
-Resurser i Azure kan få sin diagnostikinformation att skickas direkt till en Log Analytics arbets yta där komplexa frågor kan köras mot informationen för fel sökning och analys.  Mer information finns i [samla in Azure-resursposter i Log Analytics arbets yta i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
+Resources in Azure can have their diagnostic information sent directly to a Log Analytics workspace where complex queries can be run against the information for troubleshooting and analysis.  For more information, see [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
 
 ## <a name="next-steps"></a>Nästa steg
 

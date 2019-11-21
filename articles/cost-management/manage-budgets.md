@@ -1,89 +1,89 @@
 ---
-title: Hantera Cloudyn-budgetar i Azure
-description: Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i Cloudyn.
+title: Manage Cloudyn budgets in Azure
+description: This article helps you quickly create budgets and start managing them in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: ad0566f0b93593140d217767f8d97f410dfcbb3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9d7d0e049d3c35aab56145beb94c8e41e56c5785
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259241"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219099"
 ---
-# <a name="manage-azure-budgets-with-cloudyn"></a>Hantera Azure budgetar med Cloudyn
+# <a name="manage-azure-budgets-with-cloudyn"></a>Manage Azure budgets with Cloudyn
 
-Inställningen upp budgetar och budget-baserade aviseringar bidra till att förbättra din cloud styrning och ansvar. Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i Cloudyn.
+Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cloudyn.
 
-När du har ett Enterprise- eller MSP-konto, kan du använda dina hierarkiska kostnadsstrukturen för entiteten ska tilldelas olika affärsenheter, avdelningar eller andra kostnadsenhet månatliga budget kvoter. När du har ett Premium-konto, kan du använda funktionen budget för hantering, som sedan appliceras till hela cloud-utgifter. Alla budgetar tilldelas manuellt.
+When you have an Enterprise or MSP account, you can use your hierarchical cost entity structure to assign monthly budget quotas to different business units, departments, or any other cost entity. When you have a Premium account, you can use the budget management functionality, which is then applied to your entire cloud expenditure. All budgets are manually assigned.
 
-Baserat på tilldelade budgetar kan du ange tröskelvärde för aviseringar baserat på procentandelen av din budget som förbrukas och definiera allvarlighetsgraden för varje tröskelvärde.
+Based on assigned budgets, you can set threshold alerts based on the percentage of your budget that's consumed and define the severity of each threshold.
 
-Budgetrapporter visar tilldelade budgeten. Användare kan visa när deras utgifter är över, under eller översättningsminnen med deras användning över tid. När du väljer **Visa/dölj fält** högst upp på rapportsidan budget du kan visa kostnaden, budget, ackumulerade kostnaden eller total budget.
+Budget reports show the assigned budget. Users can view when their spending is over, under, or at par with their consumption over time. When you select **Show/Hide Fields** at the top of a budget report, you can view cost, budget, accumulated cost, or total budget.
 
-Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Läs mer om budgetar i Cost Management [skapa och hantera budgetar](tutorial-acm-create-budgets.md).
+Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. For more information about budgets in Cost Management, see [Create and manage budgets](tutorial-acm-create-budgets.md).
 
-## <a name="create-budgets"></a>Skapa budgetar
+## <a name="create-budgets"></a>Create budgets
 
-När du skapar en budget kan du ställa in den för räkenskapsåret och den gäller för en specifik enhet.
+When you create a budget, you set it for your fiscal year and it applies to a specific entity.
 
-Skapa en budget och tilldela den till en entitet:
+To create a budget and assign it to an entity:
 
-1. Gå till **kostnader** &gt; **kostnadshantering** &gt; **Budget**.
-2. På sidan Budgetstyrning under **entiteter**, väljer du den entitet som där du vill skapa budgeten.
-3. I året, väljer du det året där du vill skapa budgeten.
-4. Ange ett Budgetvärde för varje månad. När du är klar klickar du på **spara**.
-I det här exemplet anges månatliga budgeten för juni 2018 till $135,000. Den totala budgeten för året är $1,615,000.00.
-![Skapa en budget-sida där du kan ange en budget för varje månad](./media/manage-budgets/set-budget.png)
+1. Navigate to **Costs** &gt; **Cost Management** &gt; **Budget**.
+2. On the Budget Management page, under **Entities**, select the entity where you want to create the budget.
+3. In the budget year, select the year where you want to create the budget.
+4. For each month, set a budget value. When you're done, click  **Save**.
+In this example, the monthly budget for June 2018 is set to $135,000. The total budget for the year is $1,615,000.00.
+![Create a budget page where you set a budget for each month](./media/manage-budgets/set-budget.png)
 
 
-Importera en fil för årlig budget:
+To import a file for the annual budget:
 
-1. Under **åtgärder**väljer **exportera** att ladda ned en tom CSV-mall som ska användas som din bas för budgeten.
-2. Fyll i CSV-filen med din budgetposter och spara den lokalt.
-3. Under **åtgärder**väljer **Import**.
-4. Välj din sparade fil och klicka sedan på **OK**.
+1. Under **Actions**, select **Export** to download an empty CSV template to use as your basis for the budget.
+2. Fill in the CSV file with your budget entries and save it locally.
+3. Under **Actions**, select **Import**.
+4. Select your saved file and then click **OK**.
 
-Exportera din färdiga budget som en CSV-fil under **åtgärder**väljer **exportera** att hämta filen.
+To export your completed budget as a CSV file, under **Actions**, select **Export** to download the file.
 
-## <a name="view-budget-in-reports"></a>Visa budget i rapporter
+## <a name="view-budget-in-reports"></a>View budget in reports
 
-När du är klar visas din budget i de flesta kostnadsrapporter under **kostnader** &gt; **kostnadsanalys** och i Cost vs. Rapport med budget över tid. Du kan även schemalägga rapporter baserade på budgetgränser med **åtgärder**.
+When completed, your budget is shown in most Cost reports under **Costs** &gt; **Cost Analysis** and in the Cost vs. Budget Over Time report. You can also schedule reports based on budget thresholds using **Actions**.
 
-Här är ett exempel på Cost Analysis-rapport. Den visar den totala budget och kostnad per arbetsbelastning och användning typer sedan i början av året.
+Here's an example of the Cost Analysis report. It shows the total budget and cost by workload and usage types since the beginning of the year.
 
-![Exemplet Cost Analysis-rapporten med budget](./media/manage-budgets/cost-analysis-budget-example.png)
+![Example Cost Analysis report with budget](./media/manage-budgets/cost-analysis-budget-example.png)
 
-I det här exemplet antar vi att det aktuella datumet infaller den 22 juni. Kostnaden för juni 2018 är $71,611.28 jämfört med $135,000 månatliga budget. Kostnaden är mycket lägre än den månatliga budgeten eftersom det fortfarande finns åtta dagar ägna innan slutet av månaden.
+In this example, assume the current date is June 22. The cost for June 2018 is $71,611.28 compared to the monthly budget of $135,000. The cost is much lower than the monthly budget because there are still eight days of spending before the end of the month.
 
-Ett annat sätt att visa rapporten är att titta på ackumulerade kostnaden vs din budget. Se ackumulerade kostnaderna under **Visa/dölj fält**väljer **ackumulerade kostnaden** och **Total Budget**. Här är ett exempel som visar den ackumulerade kostnaden sedan i början av året.
+Another way to view the report is to look at accumulated cost vs your budget. To see accumulated costs, under **Show/Hide Fields**, select **Accumulated Cost** and **Total Budget**. Here's an example showing the accumulated cost since the beginning of the year.
 
-![Exempel ackumulerade kostnaden och total budget visas i Cost vs. Rapport med budget över tid](./media/manage-budgets/accumulated-budget.png)
+![Example accumulated cost and total budget shown in the Cost vs. Budget Over Time report](./media/manage-budgets/accumulated-budget.png)
 
-Någon gång kanske i framtiden den ackumulerade kostnaden överskrider din budget. Du kan se att enklare om du ändrar diagramvy till den _rad_ typen.
+Sometime in the future your accumulated cost might exceed your budget. You can more easily see that if you change the chart view to the _line_ type.
 
-![Budget visas i ett linjediagram i kostnaden av månader rapporten](./media/manage-budgets/budget-line.png)
+![Budget shown in a line chart in the Cost by Months report](./media/manage-budgets/budget-line.png)
 
-## <a name="create-budget-alerts-for-a-filter"></a>Skapa budget aviseringar för ett filter
+## <a name="create-budget-alerts-for-a-filter"></a>Create budget alerts for a filter
 
-I exemplet ovan ser du att den ackumulerade kostnaden närmat sig budgeten. Du kan skapa automatiska budget aviseringar så att du meddelas när utgifter metoder eller överskrider din budget. Det är i princip en schemalagd rapport med ett tröskelvärde. Budget tröskelvärde för mått är:
+In the previous example, you can see that the accumulated cost approached the budget. You can create automatic budget alerts so that you're notified when spending approaches or exceeds your budget. Basically, the alert is a scheduled report with a threshold. Budget alert threshold metrics include:
 
-- Återstående kostnaden jämfört med budget – ange ett värde tröskelvärde för valuta
-- Kostnad procent jämfört med budget – ange ett värde tröskelvärdet i procent
+- Remaining cost vs. budget – to specify a currency value threshold
+- Cost percentage vs. budget – to specify a percentage value threshold
 
-Nu ska vi titta på ett exempel.
+Let's look at an example.
 
-I Cost vs. Budget över tid rapporten, klickar du på **åtgärder** och välj sedan **Schemalägg rapport**. Välj ett tröskelvärde för mått på fliken tröskelvärdet. Till exempel **kostnadsbudget procent jämfört med**. Välj en typ av avisering och ange ett procentvärde av budgeten. Om du vill bli informerad bara en gång, väljer **antalet på varandra följande aviseringar** och skriv sedan _1_. Klicka på **Spara**.
+In the Cost vs. Budget Over Time report, click **Actions** and then select **Schedule report**. On the Threshold tab, select a threshold metric. For example, **Cost percentage vs budget**. Select an alert type and enter a percentage value of the budget. If you want to get notified only once, select **Number of consecutive alerts** and then type _1_. Klicka på **Save** (Spara).
 
-![Skapa en budgetavisering om på Spara eller schema rapporten](./media/manage-budgets/budget-alert.png)
+![Creating a budget alert on the Save or Schedule this report box](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte har redan slutfört den första självstudiekursen för Cloudyn, kan du läsa den på [granska användning och kostnader](tutorial-review-usage.md).
-- Läs mer om den [rapporter som är tillgängliga i Cloudyn](use-reports.md).
+- If you haven't already completed the first tutorial for Cloudyn, read it at  [Review usage and costs](tutorial-review-usage.md).
+- Learn more about the [reports available in Cloudyn](use-reports.md).

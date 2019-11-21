@@ -1,43 +1,41 @@
 ---
-title: Övervaka Azure Functions med Azure Monitor loggar
-description: Lär dig hur du använder Azure Monitor loggar med Azure Functions för att övervaka funktions körningar.
+title: Monitoring Azure Functions with Azure Monitor Logs
+description: Learn how to use Azure Monitor Logs with Azure Functions to monitor function executions.
 author: ahmedelnably
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: a4fcf6b4dfeae3d8e53e083b2951d9d594c53d73
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 9aac6662304395b1bce5dfc21770d296f6a4f2ab
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72966143"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226855"
 ---
-# <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Övervaka Azure Functions med Azure Monitor loggar
+# <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitoring Azure Functions with Azure Monitor Logs
 
-Azure Functions erbjuder en integrering med [Azure Monitors loggar](../azure-monitor/platform/data-platform-logs.md) för att övervaka funktioner. Den här artikeln visar hur du konfigurerar Azure Functions att skicka systemgenererade och användarspecifika loggar till Azure Monitor loggar.
+Azure Functions offers an integration with [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated and user-generated logs to Azure Monitor Logs.
 
-Azure Monitor loggar ger dig möjlighet att konsolidera loggar från olika resurser i samma arbets yta, där den kan analyseras med [frågor](../azure-monitor/log-query/log-query-overview.md) för att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [Log Analytics](../azure-monitor/log-query/portals.md) i Azure Portal och sedan antingen analysera data med hjälp av dessa verktyg eller spara frågor för användning med [visualiseringar](../azure-monitor/visualizations.md) eller [varnings regler](../azure-monitor/platform/alerts-overview.md).
+Azure Monitor Logs gives you the ability to consolidate logs from different resources in the same workspace, where it can be analyzed with [queries](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](../azure-monitor/log-query/portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](../azure-monitor/visualizations.md) or [alert rules](../azure-monitor/platform/alerts-overview.md).
 
-Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/) som används av Azure datautforskaren som är lämplig för enkla logg frågor, men även avancerade funktioner som agg regeringar, kopplingar och smart analys. Du kan snabbt lära dig frågespråket med [flera lektioner](../azure-monitor/log-query/get-started-queries.md).
+Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Integrering med Azure Monitor loggar finns för närvarande i en offentlig för hands version för Function-appar som körs på Windows förbruknings-, Premium-och dedikerade värd planer.
+> Integration with Azure Monitor Logs is currently in public preview for function apps running on Windows Consumption, Premium, and Dedicated hosting plans.
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="setting-up"></a>Setting up
 
-I avsnittet övervakning väljer du **diagnostikinställningar** och klickar sedan på **Lägg till**.
+From the Monitoring section, select **Diagnostic settings** and then click **Add**.
 
-![Lägg till en diagnostisk inställning](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-På inställnings sidan väljer du **Skicka till Log Analytics**, och under **loggen** Välj **FunctionAppLogs**innehåller den här tabellen de önskade loggarna.
+In the setting page, choose **Send to Log Analytics**, and under **LOG** choose **FunctionAppLogs**, this table contains the desired logs.
 
-![Lägg till en diagnostisk inställning](media/functions-monitor-log-analytics/choose-table.png)
+![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
 
-## <a name="user-generated-logs"></a>Loggar som skapats av användare
+## <a name="user-generated-logs"></a>User generated logs
 
-Om du vill skapa anpassade loggar kan du använda den specifika loggnings instruktionen, beroende på ditt språk, här visas exempel på kodfragment:
+To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
 
 **JavaScript**
 
@@ -69,15 +67,15 @@ Om du vill skapa anpassade loggar kan du använda den specifika loggnings instru
     Write-Host "My app logs here."
 ```
 
-## <a name="querying-the-logs"></a>Skicka frågor till loggarna
+## <a name="querying-the-logs"></a>Querying the logs
 
-Om du vill fråga de genererade loggarna går du till Log Analytics-arbetsytan och klickar på **loggar**.
+To query the generated logs, go to the log analytics workspace and click **Logs**.
 
-![Frågefönstret i LA-arbetsytan](media/functions-monitor-log-analytics/querying.png)
+![Query window in LA workspace](media/functions-monitor-log-analytics/querying.png)
 
-Azure Functions skriver alla loggar till **FunctionAppLogs** -tabellen är några exempel frågor.
+Azure Functions writes all logs to **FunctionAppLogs** table, here are some sample queries.
 
-### <a name="all-logs"></a>Alla loggar
+### <a name="all-logs"></a>All logs
 
 ```
 
@@ -86,7 +84,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>En speciell funktions loggar
+### <a name="a-specific-function-logs"></a>A specific function logs
 
 ```
 
@@ -107,6 +105,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [Azure Functions översikt](functions-overview.md)
-- Läs mer om [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md)
-- Läs mer om [frågespråket](../azure-monitor/log-query/get-started-queries.md).
+- Review the [Azure Functions overview](functions-overview.md)
+- Learn more about [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md)
+- Learn more about the [query language](../azure-monitor/log-query/get-started-queries.md).

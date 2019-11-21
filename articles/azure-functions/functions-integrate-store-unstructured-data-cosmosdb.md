@@ -1,24 +1,15 @@
 ---
-title: Lagra ostrukturerade data i Azure Cosmos DB och Functions | Microsoft Docs
+title: Store unstructured data using Azure Cosmos DB and Functions
 description: Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-keywords: azure-funktioner, funktioner, händelsebearbetning, Cosmos DB, dynamisk beräkning, serverlös arkitektur
-ms.assetid: ''
-ms.service: azure-functions
-ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdae0a04d09b7985935bee0ae636d7f88fbff541
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107018"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230552"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Lagra ostrukturerade data i Azure Functions och Azure Cosmos DB
 
@@ -31,7 +22,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 

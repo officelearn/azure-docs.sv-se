@@ -1,63 +1,59 @@
 ---
-title: Ansluta funktioner till Azure Storage med hjälp av Visual Studio
-description: Lär dig hur du lägger till en utgående bindning för C# att ansluta dina klass biblioteks funktioner till en Azure Storage kö med Visual Studio.
-author: ggailey777
-ms.author: glenga
+title: Connect functions to Azure Storage using Visual Studio
+description: Learn how to add an output binding to connect your C# class library functions to an Azure Storage queue using Visual Studio.
 ms.date: 07/22/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace
-ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bd899c5cc7aafc5b3349cf4cec9098a849665a2d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329610"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227427"
 ---
-# <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Ansluta funktioner till Azure Storage med hjälp av Visual Studio
+# <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connect functions to Azure Storage using Visual Studio
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Den här artikeln visar hur du använder Visual Studio för att ansluta den funktion som du skapade i [föregående snabb starts artikel] till Azure Storage. Den utgående bindning som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en kö för Azure Queue Storage. 
+This article shows you how to use Visual Studio to connect the function you created in the [previous quickstart article] to Azure Storage. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue. 
 
-De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
+Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar den här artikeln måste du: 
+Before you start this article, you must: 
 
- - Slutför [del 1 av Visual Studio snabb start] [./Functions-Create-First-Function-vs-Code.MD]. 
+ - Complete [part 1 of the Visual Studio quickstart][./functions-create-first-function-vs-code.md]. 
 
-- Logga in på din Azure-prenumeration från Visual Studio.
+- Sign in to your Azure subscription from Visual Studio.
 
-## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
+## <a name="download-the-function-app-settings"></a>Download the function app settings
 
-I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. För att ansluta till ditt lagrings konto när funktionen körs lokalt måste du hämta appinställningar till filen *Local. Settings. JSON* . 
+In the [previous quickstart article](functions-create-first-function-vs-code.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. 
 
-1. Under **åtgärder**väljer du **Redigera Azure App Service inställningar**. 
+1. Under **Actions**, select **Edit Azure App Service Settings**. 
 
-    ![Redigera program inställningarna](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
+    ![Edit the application settings](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
-1. Under **AzureWebJobsStorage**, kopierar du **värdet för fjärrsträng till** **lokalt**och väljer sedan **OK**. 
+1. Under **AzureWebJobsStorage**, copy the **Remote** string value to **Local**, and then select **OK**. 
 
-Lagrings bindningen, som använder inställningen `AzureWebJobsStorage` för anslutningen, kan nu ansluta till din Queue Storage när den körs lokalt.
+The storage binding, which uses the `AzureWebJobsStorage` setting for the connection, can now connect to your Queue storage when running locally.
 
 ## <a name="register-binding-extensions"></a>Registrera bindningstillägg
 
-Eftersom du använder en kö för lagring av utdata måste du använda tillägget för lagrings bindningar installerade innan du kör projektet. Med undantag för HTTP-och timer-utlösare implementeras bindningar som tilläggs paket. 
+Because you're using a Queue storage output binding, you need the Storage bindings extension installed before you run the project. Except for HTTP and timer triggers, bindings are implemented as extension packages. 
 
-1. Från **verktyg** -menyn väljer du **NuGet Package Manager** > **Package Manager-konsolen**. 
+1. From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**. 
 
-1. I-konsolen kör du följande [install-Package-](/nuget/tools/ps-ref-install-package) kommando för att installera lagrings tilläggen:
+1. In the console, run the following [Install-Package](/nuget/tools/ps-ref-install-package) command to install the Storage extensions:
 
     ```Command
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.6
     ````
 
-Nu kan du lägga till bindningen för Storage-utdata i projektet.
+Now, you can add the storage output binding to your project.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
@@ -65,7 +61,7 @@ Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-När bindningen har definierats kan du använda `name` för bindningen för att komma åt den som ett attribut i funktions under skriften. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
+After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
@@ -73,31 +69,31 @@ När bindningen har definierats kan du använda `name` för bindningen för att 
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
-En ny kö med namnet `outqueue` skapas i ditt lagrings konto av Functions-körningen när data bindningen först används. Du använder Cloud Explorer för att kontrol lera att kön har skapats tillsammans med det nya meddelandet.
+A new queue named `outqueue` is created in your storage account by the Functions runtime when the output binding is first used. You'll use Cloud Explorer to verify that the queue was created along with the new message.
 
 ## <a name="examine-the-output-queue"></a>Granska utdatakö
 
-1. I Visual Studio från menyn **Visa** väljer du **Cloud Explorer**.
+1. In Visual Studio from the **View** menu, select **Cloud Explorer**.
 
-1. Expandera dina Azure-prenumerationer och **lagrings konton**i **Cloud Explorer**och expandera sedan det lagrings konto som används av din funktion. Om du inte kan komma ihåg lagrings kontots namn kontrollerar du inställningen för anslutnings strängen `AzureWebJobsStorage` i filen *Local. Settings. JSON* .  
+1. In **Cloud Explorer**, expand your Azure subscription and **Storage Accounts**, then expand the storage account used by your function. If you can't remember the storage account name, check the `AzureWebJobsStorage` connection string setting in the *local.settings.json* file.  
 
-1. Expandera noden **köer** och dubbelklicka sedan på kön med namnet **disqueue** för att visa innehållet i kön i Visual Studio. 
+1. Expand the **Queues** node, and then double-click the queue named **outqueue** to view the contents of the queue in Visual Studio. 
 
    Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure* så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
 
-    ![Köa meddelande visas i Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
+    ![Queue message shown in Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
-1. Kör funktionen igen, skicka en annan begäran och se att ett nytt meddelande visas i kön.  
+1. Run the function again, send another request, and you'll see a new message appear in the queue.  
 
-Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
+Now, it's time to republish the updated function app to Azure.
 
-## <a name="redeploy-and-verify-the-updated-app"></a>Distribuera om och verifiera den uppdaterade appen
+## <a name="redeploy-and-verify-the-updated-app"></a>Redeploy and verify the updated app
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **publicera**. Välj sedan **publicera** för att publicera projektet på Azure igen.
+1. In **Solution Explorer**, right-click the project and select **Publish**, then choose **Publish** to republish the project to Azure.
 
-1. När distributionen är klar kan du använda webbläsaren igen för att testa den omdistribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` till URL: en.
+1. After deployment completes, you can again use the browser to test the redeployed function. As before, append the query string `&name=<yourname>` to the URL.
 
-1. [Visa meddelandet i lagrings kön](#examine-the-output-queue) igen för att kontrol lera att utgående bindningen igen genererar ett nytt meddelande i kön.
+1. Again [view the message in the storage queue](#examine-the-output-queue) to verify that the output binding again generates a new message in the queue.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -105,12 +101,12 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Mer information om hur du utvecklar funktioner finns i [utveckla Azure Functions med Visual Studio](functions-develop-vs.md).
+You've updated your HTTP triggered function to write data to a Storage queue. To learn more about developing Functions, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
 
-Sedan bör du aktivera Application Insights övervakning för din Function-app:
+Next, you should enable Application Insights monitoring for your function app:
 
 > [!div class="nextstepaction"]
 > [Aktivera Application Insights-integrering](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
-[föregående snabb starts artikel]: functions-create-your-first-function-visual-studio.md
+[previous quickstart article]: functions-create-your-first-function-visual-studio.md

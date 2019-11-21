@@ -1,6 +1,6 @@
 ---
-title: Utvärdera alternativ för att migrera data från StorSimple 5000-7000-serien | Microsoft Docs
-description: Översikt över alternativ för att migrera data från StorSimple 5000-7000-serien.
+title: Evaluate options to migrate data from StorSimple 5000-7000 series| Microsoft Docs
+description: Provides an overview of the options to migrate data from StorSimple 5000-7000 series.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -13,118 +13,118 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d51891c076f1784fbddb88bfaed28ac1d889afdc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631619"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227772"
 ---
-# <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
+# <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options to migrate data from StorSimple 5000-7000 series 
 
 > [!IMPORTANT]
-> 9 juli 2019 når StorSimple 5000/7000-serien slutet av supportstatus (EOS). Vi rekommenderar att StorSimple 5000/7000-kunder som migrerar till en av de alternativ som beskrivs i dokumentet.
+> On July 9, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
 
-StorSimple 5000-7000-serien når [supporten](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) i juli 2019. Kunder som använder StorSimple 5000-7000-serien har ett alternativ för att uppgradera till andra Azure part först hybridtjänster. Den här artikeln beskrivs Azure hybrid-alternativen att migrera data. 
+StorSimple 5000-7000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in July 2019. The customers who are running StorSimple 5000-7000 series have an option to upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data. 
 
-## <a name="migration-options"></a>Migreringsalternativ
+## <a name="migration-options"></a>Migration options
 
-Kunder som använder StorSimple har 5000-7000-serien Azure eller från tredje part alternativ.
+The customers using StorSimple 5000-7000 series have Azure or third-party options.
 
-### <a name="azure-options"></a>Alternativ för Azure
+### <a name="azure-options"></a>Azure options
 
-#### <a name="upgrade-to-storsimple-8000-series"></a>Uppgradera till StorSimple 8000-serien
+#### <a name="upgrade-to-storsimple-8000-series"></a>Upgrade to StorSimple 8000 Series
 
-Uppgradera till StorSimple 8000-serien och således att fortsätta på StorSimple-plattformen.  Den här uppgraderingsvägen kräver kunder för att ersätta sina serieenheter för 5000 – 7000-med 8000-serien. Data migreras från 5000 – 7000-serieenhet med hjälp av migreringsverktyget. När migreringen är slutförd fortsätter StorSimple 8000-serieenheter att Datacenter till Azure Blob Storage. 
+Upgrade to StorSimple 8000 series and thus continue on the StorSimple platform.  This upgrade path requires customers to replace their 5000-7000 series devices with an 8000 series. The data is migrated from the 5000-7000 series device by using the migration tool. Once the migration is successfully complete, the StorSimple 8000 series devices will continue to tier data to Azure Blob Storage. 
 
-Mer information om hur du migrerar data med hjälp av en StorSimple 8000-serien, går du till [migrera data från StorSimple 5000-7000-serien 8000-serien enheten](storsimple-8000-migrate-from-5000-7000.md).
+For more information on how to migrate data using a StorSimple 8000 series, go to [Migrate data from StorSimple 5000-7000 series to 8000 series device](storsimple-8000-migrate-from-5000-7000.md).
 
 #### <a name="migrate-to-azure-file-sync"></a>Migrera till Azure File Sync
 
-Den här helt nya migreringsalternativ ger kunder möjlighet att lagra sin organisations filresurser i Azure-filer. Dessa filresurser är sedan centraliserade för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Faktiska datamigreringen utförs sedan som en värd kopia eller med hjälp av migreringsverktyget.
+This brand new migration option enables customers to store their organization’s file shares in the Azure Files. These files shares are then centralized for on-premises access using Azure File Sync (AFS). AFS can be deployed on a Windows Server host. The actual data migration is then performed as a host copy or using the migration tool.
 
-Mer information om hur du migrerar data till Azure File Sync går du till [migrera data från StorSimple 5000-7000-serien till Azure File Sync](storsimple-5000-7000-afs-migration.md).
+For more information on how to migrate data to Azure File Sync, go to [Migrate data from StorSimple 5000-7000 series to Azure File Sync](storsimple-5000-7000-afs-migration.md).
 
-### <a name="third-party-options"></a>Tredjeparts-alternativ
+### <a name="third-party-options"></a>Third-party options
 
-#### <a name="migrate-to-panzura-freedom-nas"></a>Migrera till Panzura frihet NAS
+#### <a name="migrate-to-panzura-freedom-nas"></a>Migrate to Panzura Freedom NAS
 
-StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att behålla sina data i Azure. Panzura frihet-lösningen innehåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Den här lösningen kan lokala, hybrid och data i molnet arbetsflöden för NFS, SMB och mobila klienter. 
+StorSimple 5000-7000 customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients. 
 
-Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära Migreringsstöd för från den [Panzura webbplats](https://panzura.com/storsimple-migration/).
+This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/storsimple-migration/).
 
-#### <a name="migrate-to-cohesity"></a>Migrera till Cohesity
+#### <a name="migrate-to-cohesity"></a>Migrate to Cohesity
 
-Cohesity kan du migrera data från din aktuella StorSimple 5000 – 7000 till Cohesity Data Platform på Azure. Cohesity Data Platform är en programvarudefinierad webbskalade-lösning som konsoliderar filer, säkerhetskopieringar, objekt och virtuella datorer till en enda lösning i molnet. Du kan hantera, skydda och etablera data och appar från molnet till kärna via en enda glasruta efter migrering till Dataplattformen. Med Cohesity, börjar du med bara tre noder. 
+Cohesity enables you to migrate data from your current StorSimple 5000–7000 to the Cohesity Data Platform on Azure. The Cohesity Data Platform is a software-defined web-scale solution that consolidates files, backups, objects, and VMs onto a single cloud-native solution. After migration to the Data Platform, you can manage, protect, and provision data and apps from cloud to core through a single pane of glass. With Cohesity, start with as few as three nodes. 
 
-Läs mer på [migrering till dataplattform Cohesity](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+Learn more on [migration to the Cohesity Data Platform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
-#### <a name="migrate-to-nasuni"></a>Migrera till Nasuni
+#### <a name="migrate-to-nasuni"></a>Migrate to Nasuni
 
-Nasuni gör det enkelt för StorSimple 5000-7000-kunder att migrera och behålla sina data i Azure.  Nasuni är en ledande lösning i Azure-baserade NAS lagring, vilket ger kunderna prestanda och säkerhet som de förväntar sig från en lokal lösningar med molnbaserad Ekonomihantering och skala.  Förutom högpresterande fillagring, Nasuni och Azure hantera säkerhetskopiering och Katastrofåterställning, samtidigt som du vill dela och samarbeta med dina data i hela världen med centraliserad hantering av lagring. 
+Nasuni makes it easy for StorSimple 5000-7000 customers to migrate and keep their data in Azure.  Nasuni is a leading Azure-based NAS storage solution, giving customers the performance and security they expect from on-prem solutions, with cloud economics and scale.  In addition to high performance file storage, Nasuni and Azure handle backup and DR, while allowing you to share and collaborate on your data around the globe with centralized file storage management. 
 
-Nasuni har erfarenhet av att göra din migrering enkelt – Kom igång idag: https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni has the experience to make your migration easy – get started today: https://info.nasuni.com/nasuni-storsimple-migration
 
-#### <a name="migrate-to-talon-fast"></a>Migrera till Talon FAST
+#### <a name="migrate-to-talon-fast"></a>Migrate to Talon FAST
 
-Talon gör det enkelt för StorSimple 5000-7000-kunder kan fortsätta att utnyttja fördelarna de värden så mycket i StorSimple-plattformen (lokalt kompakta backas upp av ett obegränsat antal molnresurser) med ännu större funktion.  Kunder kan migrera och behålla sina data i Azure samtidigt som du nu har en mindre fotavtryck programvarubaserad på plats och lägga till fördelar som globala filen låsning, globalt namnområde och flera platser samarbete med Talon snabb lösning.  Talon är en ledande lösning i Azure-ekosystemet, arbetar med globala kunder att migrera sina lokala filen server-arbetsbelastningar i en konsoliderad, Azure-baserade fotavtryck utan att kompromissa användaren arbetsflöde eller upplevelse.  
+Talon makes it easy for StorSimple 5000-7000 customers to continue to leverage the benefits they valued so much in the StorSimple platform (small on-site footprint backed by unlimited cloud resources) with even greater function.  With the Talon FAST solution, customers can migrate and keep their data in Azure, while now having an even smaller software-only onsite footprint and adding benefits such as global file locking, global namespace, and multi-site collaboration.  Talon is a leading Azure ecosystem solution, working with global customers to migrate their on-premises file server workloads into a consolidated, Azure-based footprint without compromising user workflow or experience.  
 
-Mer information om hur du utvecklas till en cloud-konsoliderad enterprise på https://www.talonstorage.com/alliances/microsoft-storsimple.
-
-
-## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar
-
-### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>F. När StorSimple 5000- och 7000-serieenheter når slutet av tjänsten? 
-
-A. StorSimple 5000-7000-serien nå [slutet av tjänsten](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) i juli 2019. Slutet av tjänsten innebär att Microsoft inte längre att kunna ge stöd för både maskin- och av dessa enheter efter juli 2019. Vi rekommenderar starkt att du börjar utforma en plan för att migrera data från dina enheter nu.
-
-### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>F. Vad händer med de data som jag har lagras i Azure?  
-
-A. Du kan fortsätta att använda data i Azure när du migrerar till en nyare tjänst. 
+Learn more about how to evolve to a cloud-consolidated enterprise at https://www.talonstorage.com/alliances/microsoft-storsimple.
 
 
-### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>F. Vad händer med de data som jag har lagras lokalt på min StorSimple-enhet? 
+## <a name="migration---frequently-asked-questions"></a>Migration - Frequently asked questions
 
-A. De data som finns på den lokala enheten kan kopieras till den nyare servicen enligt beskrivningen i dokument för migrering.
+### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>F. When do the StorSimple 5000 and 7000 series devices reach end of service? 
 
-### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>F. Vad händer om jag vill behålla Mina StorSimple 5000/7000-serien installation? 
+A. StorSimple 5000-7000 series reach [end of service](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in July 2019. The end of service implies that Microsoft will no longer be able to provide support for both hardware and software of these devices after July 2019. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
 
-A. Tjänsterna kan fortsätta att fungera, kommer Microsoft inte längre att tillhandahålla stöd för maskinvara och programvara. Migrering rekommenderas för affärskontinuitet.
+### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>F. What happens to the data I have stored in Azure?  
 
-### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-5000-7000-series-devices"></a>F. Vilka alternativ är tillgängliga för att migrera data från StorSimple 5000-7000-serieenheter? 
+A. You can continue to use the data in Azure once you migrate it to a newer service. 
 
-A. Beroende på deras scenario har StorSimple 5000-7000-serien användare följande migreringsalternativ. 
 
- - **Uppgradera till 8000-serien**: Använd det här alternativet när du vill fortsätta på StorSimple-plattformen. 
- - **Migrera till Azure File Sync**: Använd det här alternativet när du vill växla till Azure ursprungligt format. Du kan använda Azure File Sync för central hantering av filresurser. 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>F. What happens to the data I have stored locally on my StorSimple device? 
 
-Du kan kontakta Microsoft Support om du vill diskutera migreringsalternativ som inte visas här.
+A. The data that is on the local device can be copied to the newer service as described in the migration documents.
 
-### <a name="q-is-migration-to-other-storage-solutions-supported"></a>F. Är migrering till andra lagringslösningar som stöds?
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>F. What happens if I want to keep my StorSimple 5000/7000 series appliance? 
 
-A. Ja. Migrering till andra lagringslösningar med värden kopia av informationen som stöds.
+A. While the services might continue to work, Microsoft will no longer be able to provide hardware and software support. Migration is strongly recommended for business continuity.
 
-### <a name="q-is-migration-supported-by-microsoft"></a>F. Migrering som stöds av Microsoft? 
+### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-5000-7000-series-devices"></a>F. What options are available to migrate data from StorSimple 5000-7000 series devices? 
 
-A. Migrera från 5000 och 7000-serien finns fullständigt stöd för. Microsoft rekommenderar att du i själva verket kontaktar supporten innan du påbörjar migreringen. Migreringen är för närvarande en assisterad åtgärd. Om du planerar att migrera data från StorSimple 5000-7000-serieenhet, [öppna ett supportärende](storsimple-8000-contact-microsoft-support.md).
+A. Depending on their scenario, StorSimple 5000-7000 series users have the following migration options. 
 
-### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>F. Vad är prismodellen för båda migreringsalternativen?
+ - **Upgrade to 8000 series**: Use this option when you want to continue on StorSimple platform. 
+ - **Migrate to Azure File Sync**: Use this option when you want to switch to Azure native format. You can use Azure File Sync for centralized management of file shares. 
 
-A. Migrering varierar beroende på vilket alternativ som väljs. Medan migreringen själva är kostnadsfri, om du vill uppgradera till en StorSimple 8000-serien kommer det att kostnaden för maskinvarans. 
+You can contact Microsoft Support to discuss migration options not listed here.
 
-Prenumerationsavgiften för tjänsten kan på liknande sätt kan tillkomma när du använder Azure File Sync. I båda fallen kan måste kunder även betala pågående lagringskostnader. Se en uppskattning följande: 
-- [Priser för StorSimple](https://azure.microsoft.com/pricing/details/storsimple/)  
-- [AFS priser]( https://azure.microsoft.com/pricing/details/storage/files/)
+### <a name="q-is-migration-to-other-storage-solutions-supported"></a>F. Is migration to other storage solutions supported?
 
-### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>F.  Hur lång tid tar det för att slutföra en migrering?
+A. Ja. Migration to other storage solutions using host copy of the data is supported.
 
-A. Dags att migrera data beror på mängden data och uppgraderingsalternativet om du har valt. 
+### <a name="q-is-migration-supported-by-microsoft"></a>F. Is migration supported by Microsoft? 
 
-### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>F. Vad är Support upphör datum för StorSimple 8000-serien?
+A. Migrating from 5000 or 7000 series is a fully supported operation. In fact, Microsoft recommends reaching out to Support before you start migration. Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 5000-7000 series device, [Open a Support ticket](storsimple-8000-contact-microsoft-support.md).
 
-A. I slutet av Support för StorSimple 8000-serien är publiceringsdatum [här](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>F. What is the pricing model for both the migration options?
+
+A. Cost of migration varies depending on the option you choose. While migration itself is free, if you decide to upgrade to a StorSimple 8000 series, there will be the cost of the hardware device. 
+
+Similarly, when using Azure File Sync, the subscription fees for the service may apply. In each case, customers will also have to pay ongoing storage costs. Refer to the following for an estimate: 
+- [StorSimple pricing](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [AFS pricing]( https://azure.microsoft.com/pricing/details/storage/files/)
+
+### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>F.  How long does it take to complete a migration?
+
+A. The time to migrate data depends on the amount of the data and the upgrade option selected. 
+
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>F. What is the End of Support date for StorSimple 8000 series?
+
+A. The End of Support date for StorSimple 8000 series is published [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 
 ## <a name="next-steps"></a>Nästa steg
- - [Migrera data från en StorSimple 5000-7000-serien till en enhet för 8000-serien](storsimple-8000-migrate-from-5000-7000.md).
- - [Migrera data från en StorSimple 5000-7000-serien till Azure File Sync](storsimple-5000-7000-afs-migration.md)
+ - [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](storsimple-8000-migrate-from-5000-7000.md).
+ - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](storsimple-5000-7000-afs-migration.md)

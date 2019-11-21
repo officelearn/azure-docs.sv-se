@@ -1,33 +1,33 @@
 ---
-title: Ansluta till ett Azure Cosmos-konto med Azures privata länk
-description: Lär dig hur du säkert får åtkomst till Azure Cosmos-kontot från en virtuell dator genom att skapa en privat slut punkt.
-author: SnehaGunda
+title: Connect to an Azure Cosmos account with Azure Private Link
+description: Learn how to securely access the Azure Cosmos account from a VM by creating a Private Endpoint.
+author: asudbring
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: sngun
-ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.author: allensu
+ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007336"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229409"
 ---
-# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Anslut privat till ett Azure Cosmos-konto med hjälp av Azure Private Link
+# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connect privately to an Azure Cosmos account using Azure Private Link
 
-Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
+Azure Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
 
-I den här artikeln får du lära dig hur du skapar en virtuell dator i ett virtuellt Azure-nätverk och ett Azure Cosmos-konto med en privat slut punkt med hjälp av Azure Portal. Sedan kan du på ett säkert sätt komma åt Azure Cosmos-kontot från den virtuella datorn.
+In this article, you will learn how to create a VM on an Azure virtual network and an Azure Cosmos account with a Private Endpoint using the Azure portal. Then, you can securely access the Azure Cosmos account from the VM.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal.](https://portal.azure.com)
+Sign in to the [Azure portal.](https://portal.azure.com)
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs (ett Azure Cosmos-konto i det här exemplet).
+In this section, you will create a virtual network and the subnet to host the VM that is used to access your Private Link resource (an Azure Cosmos account in this example).
 
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 
@@ -35,20 +35,20 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Namn | Ange *MyVirtualNetwork*. |
+    | Namn | Enter *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Plats | Välj **WestCentralUS**.|
-    | Undernät – namn | Ange *undernät*. |
+    | Plats | Select **WestCentralUS**.|
+    | Undernät – namn | Enter *mySubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
 
-1. Lämna resten som standard och välj **skapa**.
+1. Leave the rest as default and select **Create**.
 
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **Compute** > **virtuell dator**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
@@ -56,56 +56,56 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
+    | Resursgrupp | Välj **myResourceGroup**. You created this in the previous section.  |
     | **INSTANSINFORMATION** |  |
-    | Namn på virtuell dator | Ange *myVm*. |
-    | Region | Välj **WestCentralUS**. |
+    | Namn på virtuell dator | Enter *myVm*. |
+    | Region | Select **WestCentralUS**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
-    | Bild | Välj **Windows Server 2019 Data Center**. |
+    | Bild | Select **Windows Server 2019 Datacenter**. |
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
-    | Användarnamn | Ange ett valfritt användar namn. |
-    | Lösenord | Ange ett valfritt lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Bekräfta lösenord | Ange lösen ordet igen. |
+    | Användarnamn | Enter a username of your choice. |
+    | Lösenord | Enter a password of your choice. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Bekräfta lösenord | Reenter the password. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
     | **SPARA PENGAR** |  |
     | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
     |||
 
-1. Välj **Nästa: diskar**.
+1. Select **Next: Disks**.
 
-1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
+1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
-    | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Virtuellt nätverk | Leave the default **MyVirtualNetwork**.  |
+    | Adressutrymme | Leave the default **10.1.0.0/24**.|
+    | Undernät | Leave the default **mySubnet (10.1.0.0/24)** .|
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
     ||
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+1. Välj **Granska + skapa**. You're taken to the **Review + create** page where Azure validates your configuration.
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+1. When you see the **Validation passed** message, select **Create**.
 
 ## <a name="create-an-azure-cosmos-account"></a>Skapa ett Azure Cosmos-konto
 
-Skapa ett [Azure Cosmos SQL API-konto](../cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account). För enkelhetens skull kan du skapa ett Azure Cosmos-konto i samma region som de andra resurserna (det vill säga "WestCentralUS").
+Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account). For simplicity, you can create the Azure Cosmos account in the same region as the other resources (that is "WestCentralUS").
 
-## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Skapa en privat slut punkt för ditt Azure Cosmos-konto
+## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Create a Private Endpoint for your Azure Cosmos account
 
-Skapa en privat länk för ditt Azure Cosmos-konto enligt beskrivningen i avsnittet [skapa en privat länk med hjälp av Azure Portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) avsnittet i den länkade artikeln.
+Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) section of the linked article.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
-Anslut till VM- *myVm* från Internet på följande sätt:
+Connect to the VM *myVm* from the internet as follows:
 
-1. Skriv *myVm*i portalens Sök fält.
+1. In the portal's search bar, enter *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
@@ -115,7 +115,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
     1. Välj **Anslut** om du uppmanas att göra det.
 
-    1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
+    1. Enter the username and password you specified when creating the VM.
 
         > [!NOTE]
         > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
@@ -126,16 +126,16 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 1. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.  
 
-## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Få åtkomst till Azure Cosmos-kontot privat från den virtuella datorn
+## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Access the Azure Cosmos account privately from the VM
 
-I det här avsnittet ska du ansluta privat till Azure Cosmos-kontot med hjälp av den privata slut punkten. 
+In this section, you will connect privately to the Azure Cosmos account using the Private Endpoint. 
 
 > [!IMPORTANT]
-> DNS-konfigurationen för Azure Cosmos-kontot måste ha en manuell ändring på värd filen för att inkludera det fullständiga domän namnet för det angivna kontot. I produktions scenarier konfigurerar du DNS-servern så att den använder de privata IP-adresserna. I demonstrations syfte kan du dock använda administratörs behörighet på den virtuella datorn och ändra `c:\Windows\System32\Drivers\etc\hosts`-filen (i Windows) eller `/etc/hosts` fil (på Linux) för att inkludera IP-adressen och DNS-mappningen.
+> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the demo purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file (on Windows) or `/etc/hosts` file (on Linux) to include the IP address and DNS mapping.
 
-1. Om du vill inkludera IP-adressen och DNS-mappningen loggar du in på den virtuella datorn *myVM*, öppnar `c:\Windows\System32\Drivers\etc\hosts`-filen och inkluderar DNS-informationen från föregående steg i följande format:
+1. To include the IP address and DNS mapping, sign into your Virtual machine *myVM*, open the `c:\Windows\System32\Drivers\etc\hosts` file and include the DNS information from previous step in the following format:
 
-   [Privat IP-adress] [Konto slut punkt]. Documents. Azure. com
+   [Private IP Address] [Account endpoint].documents.azure.com
 
    **Exempel:**
 
@@ -144,40 +144,40 @@ I det här avsnittet ska du ansluta privat till Azure Cosmos-kontot med hjälp a
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. I fjärr skrivbord för *myVM*installerar du [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+1. In the Remote Desktop of *myVM*, install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 
-1. Välj **Cosmos DB konton (för hands version)** med högerklickning.
+1. Select **Cosmos DB Accounts (Preview)** with the right-click.
 
-1. Välj **Anslut till Cosmos DB**.
+1. Select **Connect to Cosmos DB**.
 
 1. Välj **API**.
 
-1. Ange anslutnings strängen genom att klistra in informationen som tidigare har kopierats.
+1. Enter the connection string by pasting the information previously copied.
 
 1. Välj **Nästa**.
 
 1. Välj **Anslut**.
 
-1. Bläddra i Azure Cosmos-databaser och behållare från *mycosmosaccount*.
+1. Browse the Azure Cosmos databases and containers from *mycosmosaccount*.
 
-1. (Valfritt) Lägg till nya objekt i *mycosmosaccount*.
+1. (Optionally) add new items to *mycosmosaccount*.
 
-1. Stäng fjärr skrivbords anslutningen till *myVM*.
+1. Close the remote desktop connection to *myVM*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den privata slut punkten, Azure Cosmos-kontot och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
+When you're done using the Private Endpoint, Azure Cosmos account and the VM, delete the resource group and all of the resources it contains: 
 
-1. Ange *myResourceGroup* i rutan **Sök** högst upp i portalen och välj *myResourceGroup* från Sök resultaten.
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
 
 1. Välj **Ta bort resursgrupp**.
 
-1. Ange *myResourceGroup* för **Skriv resurs gruppens namn** och välj **ta bort**.
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en virtuell dator i ett virtuellt nätverk, ett Azure Cosmos-konto och en privat slut punkt. Du har anslutit till den virtuella datorn från Internet och på ett säkert sätt kommunicerat med Azure Cosmos-kontot med hjälp av en privat länk.
+In this article, you created a VM on a virtual network, an Azure Cosmos account and a Private Endpoint. You connected to the VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
 
-* Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).
+* To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
 
-* Om du vill veta mer om begränsning av privat slut punkt när du använder med Azure Cosmos DB kan du läsa mer i [Azure privat länk med Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) artikel.
+* To learn more about limitation of Private Endpoint when using with Azure Cosmos DB, see [Azure Private Link with Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) article.

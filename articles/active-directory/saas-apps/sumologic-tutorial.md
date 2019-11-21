@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SumoLogic | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SumoLogic.
+title: 'Tutorial: Azure Active Directory integration with SumoLogic | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and SumoLogic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d7d7b808472b3f5446fadfe800584f61b1df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089538"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233355"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Självstudier: Azure Active Directory-integrering med SumoLogic
+# <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutorial: Azure Active Directory integration with SumoLogic
 
-I den här självstudien får du lära dig hur du integrerar SumoLogic med Azure Active Directory (AD Azure).
-Integrera SumoLogic med Azure AD ger dig följande fördelar:
+In this tutorial, you learn how to integrate SumoLogic with Azure Active Directory (Azure AD).
+Integrating SumoLogic with Azure AD provides you with the following benefits:
 
-* Du kan styra i Azure AD som har åtkomst till SumoLogic.
-* Du kan aktivera användarna att vara automatiskt inloggad till SumoLogic (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* You can control in Azure AD who has access to SumoLogic.
+* You can enable your users to be automatically signed-in to SumoLogic (Single Sign-On) with their Azure AD accounts.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med SumoLogic, behöver du följande objekt:
+To configure Azure AD integration with SumoLogic, you need the following items:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* SumoLogic enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* SumoLogic single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för SumoLogic **SP** -initierad SSO
+* SumoLogic supports **SP** initiated SSO
 
-## <a name="adding-sumologic-from-the-gallery"></a>Att lägga till SumoLogic från galleriet
+## <a name="adding-sumologic-from-the-gallery"></a>Adding SumoLogic from the gallery
 
-För att konfigurera integrering av SumoLogic i Azure AD, som du behöver lägga till SumoLogic från galleriet i din lista över hanterade SaaS-appar.
+To configure the integration of SumoLogic into Azure AD, you need to add SumoLogic from the gallery to your list of managed SaaS apps.
 
-**Utför följande steg för att lägga till SumoLogic från galleriet:**
+**To add SumoLogic from the gallery, perform the following steps:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av SumoLogic i Azure AD, som du behöver lägga
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **SumoLogic**väljer **SumoLogic** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. In the search box, type **SumoLogic**, select **SumoLogic** from result panel then click **Add** button to add the application.
 
-     ![SumoLogic i resultatlistan](common/search-new-app.png)
+     ![SumoLogic in the results list](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SumoLogic baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SumoLogic upprättas.
+In this section, you configure and test Azure AD single sign-on with SumoLogic based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in SumoLogic needs to be established.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SumoLogic, måste du utföra följande byggblock:
+To configure and test Azure AD single sign-on with SumoLogic, you need to complete the following building blocks:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera SumoLogic Single Sign-On](#configure-sumologic-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare SumoLogic](#create-sumologic-test-user)**  – du har en motsvarighet för Britta Simon i SumoLogic som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Configure SumoLogic Single Sign-On](#configure-sumologic-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Create SumoLogic test user](#create-sumologic-test-user)** - to have a counterpart of Britta Simon in SumoLogic that is linked to the Azure AD representation of user.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med SumoLogic:
+To configure Azure AD single sign-on with SumoLogic, perform the following steps:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **SumoLogic** application integration markerar **enkel inloggning**.
+1. In the [Azure portal](https://portal.azure.com/), on the **SumoLogic** application integration page, select **Single sign-on**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SumoLog
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![SumoLogic domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![SumoLogic Domain and URLs single sign-on information](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<tenantname>.SumoLogic.com`
 
@@ -118,57 +118,57 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SumoLog
     | `https://<tenantname>.au.sumologic.com` |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [SumoLogic klienten supportteamet](https://www.sumologic.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Contact [SumoLogic Client support team](https://www.sumologic.com/contact-us/) to get these values. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera SumoLogic** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. On the **Set up SumoLogic** section, copy the appropriate URL(s) as per your requirement.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-sumologic-single-sign-on"></a>Konfigurera SumoLogic Single Sign-On
+### <a name="configure-sumologic-single-sign-on"></a>Configure SumoLogic Single Sign-On
 
-1. I ett annat webbläsarfönster, loggar du in din SumoLogic företagets webbplats som administratör.
+1. In a different web browser window, sign in to your SumoLogic company site as an administrator.
 
-1. Gå till **hantera \> Security**.
+1. Go to **Manage \> Security**.
 
-    ![Hantera](./media/sumologic-tutorial/ic778556.png "hantera")
+    ![Hantera](./media/sumologic-tutorial/ic778556.png "Hantera")
 
 1. Klicka på **SAML**.
 
-    ![Globala säkerhetsinställningarna](./media/sumologic-tutorial/ic778557.png "globala inställningar")
+    ![Global security settings](./media/sumologic-tutorial/ic778557.png "Global security settings")
 
-1. Från den **Välj en konfiguration eller skapa en ny** väljer **Azure AD**, och klicka sedan på **konfigurera**.
+1. From the **Select a configuration or create a new one** list, select **Azure AD**, and then click **Configure**.
 
-    ![Konfigurera SAML 2.0](./media/sumologic-tutorial/ic778558.png "konfigurerar du SAML 2.0")
+    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configure SAML 2.0")
 
-1. På den **konfigurera SAML 2.0** dialogrutan utför följande steg:
+1. On the **Configure SAML 2.0** dialog, perform the following steps:
 
-    ![Konfigurera SAML 2.0](./media/sumologic-tutorial/ic778559.png "konfigurerar du SAML 2.0")
+    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configure SAML 2.0")
 
-    a. I den **Konfigurationsnamnet** textrutan typ **Azure AD**.
+    a. In the **Configuration Name** textbox, type **Azure AD**.
 
-    b. Välj **felsökningsläge**.
+    b. Select **Debug Mode**.
 
-    c. I den **utfärdare** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
+    c. In the **Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-    d. I den **Authn fråge-URL** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    d. In the **Authn Request URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-    e. Öppna din Base64-kodat certifikat i anteckningar, kopiera innehållet i den till Urklipp och klistra in hela certifikatet i **X.509-certifikat** textrutan.
+    e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
 
-    f. Som **e-attributet**väljer **Använd SAML ämne**.  
+    f. As **Email Attribute**, select **Use SAML subject**.  
 
-    g. Välj **SP initierade inloggning Configuration**.
+    g. Select **SP initiated Login Configuration**.
 
-    h. I den **inloggning sökväg** textrutan typ **Azure** och klicka på **spara**.
+    h. In the **Login Path** textbox, type **Azure** and click **Save**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -195,19 +195,19 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SumoLogic.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to SumoLogic.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SumoLogic**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **SumoLogic**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **SumoLogic**.
+2. In the applications list, select **SumoLogic**.
 
-    ![Länken SumoLogic i listan med program](common/all-applications.png)
+    ![The SumoLogic link in the Applications list](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. I menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -221,13 +221,13 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-sumologic-test-user"></a>Skapa SumoLogic testanvändare
+### <a name="create-sumologic-test-user"></a>Create SumoLogic test user
 
-För att aktivera Azure AD-användare att logga in på SumoLogic, måste de etableras till SumoLogic. När det gäller SumoLogic är etablering en manuell aktivitet.
+In order to enable Azure AD users to sign in to SumoLogic, they must be provisioned to SumoLogic. In the case of SumoLogic, provisioning is a manual task.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på din **SumoLogic** klient.
+1. Sign in to your **SumoLogic** tenant.
 
 1. Gå till **Hantera \> Användare**.
 
@@ -237,26 +237,26 @@ För att aktivera Azure AD-användare att logga in på SumoLogic, måste de etab
 
     ![Användare](./media/sumologic-tutorial/ic778562.png "Användare")
 
-1. På den **ny användare** dialogrutan utför följande steg:
+1. On the **New User** dialog, perform the following steps:
 
-    ![Ny användare](./media/sumologic-tutorial/ic778563.png "Ny användare") 
+    ![New User](./media/sumologic-tutorial/ic778563.png "New User") 
 
-    a. Skriv relaterad information av Azure AD-konto som du vill etablera i den **Förnamn**, **efternamn**, och **e-post** textrutor.
+    a. Type the related information of the Azure AD account you want to provision into the **First Name**, **Last Name**, and **Email** textboxes.
   
-    b. Välj en roll.
+    b. Select a role.
   
-    c. Som **Status**väljer **Active**.
+    c. As **Status**, select **Active**.
   
-    d. Klicka på **Spara**.
+    d. Klicka på **Save** (Spara).
 
 > [!NOTE]
-> Du kan använda alla andra SumoLogic användare konto verktyg för att skapa eller API: er som tillhandahålls av SumoLogic att etablera AAD-användarkonton.
+> You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SumoLogic i åtkomstpanelen, bör det vara loggas in automatiskt till SumoLogic som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SumoLogic tile in the Access Panel, you should be automatically signed in to the SumoLogic for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -264,5 +264,5 @@ När du klickar på panelen SumoLogic i åtkomstpanelen, bör det vara loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

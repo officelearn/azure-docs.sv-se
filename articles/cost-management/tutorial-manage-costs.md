@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: b72e03f6901fbb2b904328992107e31021c76be6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969123"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229805"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudie: Hantera kostnader med hjälp av Cloudyn
 
@@ -23,7 +23,7 @@ Du hanterar kostnader och skapar showback-rapporter i Cloudyn genom att allokera
 
 Till exempel kanske du vill få ersättning för ingenjörskostnader. Du måste kunna visa ingenjörsteamet att du behöver ett specifikt belopp baserat på resurskostnader. Du kan visa en rapport med alla förbrukade resurser som är taggade med *engineering*.
 
-I den här artikeln används taggar och kategorier ibland synonymt. Kategorier är en bred samling och kan vara många saker. De kan bestå av affärsenheter, kostnadsställen, webbtjänster eller något annat som är taggat. Taggar är namn/värde-par som gör det möjligt att kategorisera resurser och att visa och hantera konsolideras faktureringsinformation genom att tillämpa samma tagg på flera resurser och resursgrupper. I tidigare versioner av Azure-portalen kallades ett *taggnamn* för en *nyckel*. Taggar skapas för och lagras av en enda Azure-prenumeration. Taggar i AWS består av nyckel/värde-par. Eftersom både Azure och AWS har använt termen *nyckel*, används den termen i Cloudyn. Category Manager använder nycklar (taggnamn) för att sammanfoga taggar.
+I den här artikeln används taggar och kategorier ibland synonymt. Kategorier är en bred samling och kan vara många saker. De kan bestå av affärsenheter, kostnadsställen, webbtjänster eller något annat som är taggat. Tags are name/value pairs that enable you to categorize resources and to view and manage consolidated billing information by applying the same tag to multiple resources and resource groups. I tidigare versioner av Azure-portalen kallades ett *taggnamn* för en *nyckel*. Taggar skapas för och lagras av en enda Azure-prenumeration. Taggar i AWS består av nyckel/värde-par. Eftersom både Azure och AWS har använt termen *nyckel*, används den termen i Cloudyn. Category Manager använder nycklar (taggnamn) för att sammanfoga taggar.
 
 I den här guiden får du lära dig att:
 
@@ -33,10 +33,10 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - [Inaktiverade konton måste aktiveras](activate-subs-accounts.md) på Cloudyn-portalen.
 - [Övervakning på gästnivå](azure-vm-extended-metrics.md) måste vara aktiverat på dina virtuella datorer.
 
@@ -87,9 +87,9 @@ Du ser den nya kostnadsmodellen i listan med modeller, med statusen **Processing
 
 Category Manager är ett verktyg för datarensning som hjälper dig att koppla värden från flera kategorier (taggar) för att skapa nya. Det är ett enkelt och regelbaserat verktyg där du väljer en kategori och skapar regler för att koppla befintliga värden. Du kanske till exempel har de befintliga kategorierna **R&amp;D** och **dev**, där både avser utvecklingsgruppen.
 
-Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Category Manager**. Välj plustecknet (**+**) om du vill skapa en ny kategori. Ange ett namn för kategori och ange sedan de kategorinycklar du vill ta med i den nya kategorin under **Keys** (Nycklar).
+Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Category Manager**. Välj plustecknet ( **+** ) om du vill skapa en ny kategori. Ange ett namn för kategori och ange sedan de kategorinycklar du vill ta med i den nya kategorin under **Keys** (Nycklar).
 
-När du definierar en regel kan du lägga till flera värden med ett OR-villkor. Du kan också utföra vissa grundläggande strängåtgärder. I båda fallen klickar du på symbolen med tre punkter (**...** ) till höger om **Rule** (Regel).
+När du definierar en regel kan du lägga till flera värden med ett OR-villkor. Du kan också utföra vissa grundläggande strängåtgärder. I båda fallen klickar du på symbolen med tre punkter ( **...** ) till höger om **Rule** (Regel).
 
 Om du vill definiera en ny regel skapar du den i området **Rules** (Regler). Ange till exempel **dev** under **Rules** och sedan **R&amp;D** under **Actions** (Åtgärder). När du är färdig sparar du den nya kategorin.
 

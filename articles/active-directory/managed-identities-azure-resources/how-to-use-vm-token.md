@@ -1,6 +1,6 @@
 ---
-title: Hur du använder hanterade identiteter för Azure-resurser på en virtuell dator för att hämta en åtkomsttoken
-description: Steg för steg-anvisningar och exempel för att använda hanterade identiteter för Azure-resurser på en virtuella datorer att hämta en OAuth-åtkomsttoken.
+title: Use managed identities on a virtual machine to acquire access token - Azure AD
+description: Step by step instructions and examples for using managed identities for Azure resources on a virtual machines to acquire an OAuth access token.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,56 +15,56 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d14debff8baf4bdeb808b32e64b389ad0f9e2f38
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290804"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232218"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>How to use managed identities for Azure resources on an Azure VM to acquire an access token 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
-Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
+Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-Den här artikeln innehåller olika exempel på kod och skript för tokenförvärv samt vägledning om viktiga ämnen som hantering av token upphör att gälla och HTTP-fel. 
+This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Om du planerar att använda Azure PowerShell-exempel i den här artikeln, måste du installera den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps).
+If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 > [!IMPORTANT]
-> - Alla exempel kod eller skript i den här artikeln förutsätter att klienten körs på en virtuell dator med hanterade identiteter för Azure-resurser. Använd funktionen VM ”Anslut” i Azure-portalen för att fjärransluta till den virtuella datorn. Mer information om hur du aktiverar hanterade identiteter för Azure-resurser på en virtuell dator finns i [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md), eller någon av varianten artiklar (med PowerShell, CLI, en mall eller en Azure SDK). 
+> - All sample code/script in this article assumes the client is running on a virtual machine with managed identities for Azure resources. Use the virtual machine "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling managed identities for Azure resources on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 
 > [!IMPORTANT]
-> - Säkerhetsgräns hanterade identiteter för Azure-resurser, är den resurs som används på. Alla kod/skript som körs på en virtuell dator kan begära och hämta token för alla hanterade identiteter som är tillgängliga på den. 
+> - The security boundary of managed identities for Azure resources, is the resource it's being used on. All code/scripts running on a virtual machine can request and retrieve tokens for any managed identities available on it. 
 
 ## <a name="overview"></a>Översikt
 
-Ett klientprogram kan begära hanterade identiteter för Azure-resurser [appspecifika åtkomsttoken](../develop/developer-glossary.md#access-token) för att komma åt en viss resurs. Token är [baserat på de hantera identiteterna för Azure-resurser tjänstens huvudnamn](overview.md#how-does-it-work). Därför finns inget behov för klienten att registrera sig för att hämta en åtkomsttoken under eget huvudnamn för tjänsten. Token är lämpliga för en ägartoken i [tjänst-till-tjänst-anrop som kräver klientautentiseringsuppgifter](../develop/v1-oauth2-client-creds-grant-flow.md).
+A client application can request managed identities for Azure resources [app-only access token](../develop/developer-glossary.md#access-token) for accessing a given resource. The token is [based on the managed identities for Azure resources service principal](overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
-| [Hämta en token via HTTP](#get-a-token-using-http) | Information om protokoll för hanterade identiteter för Azure-resurser token slutpunkt |
-| [Hämta en token med hjälp av Microsoft.Azure.Services.AppAuthentication-klientbiblioteket för .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exempel på hur du använder biblioteket Microsoft.Azure.Services.AppAuthentication från en .NET-klient
-| [Hämta en token med C#](#get-a-token-using-c) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en C#-klient |
-| [Hämta en token med hjälp av Java](#get-a-token-using-java) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Java-klient |
-| [Hämta en token med hjälp av Go](#get-a-token-using-go) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Go-klient |
-| [Hämta en token med Azure PowerShell](#get-a-token-using-azure-powershell) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en PowerShell-klient |
-| [Hämta en token med CURL](#get-a-token-using-curl) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Bash/CURL-klient |
-| Hantering av tokencachelagring | Vägledning för hantering av åtkomsttoken har upphört att gälla |
-| [Felhantering](#error-handling) | Vägledning för att hantera HTTP-fel som returnerades från hanterade identiteter för Azure-resurser tokenslutpunkt |
-| [Resurs-ID: N för Azure-tjänster](#resource-ids-for-azure-services) | Hämta resurs-ID för Azure-tjänster som stöds |
+| [Get a token using HTTP](#get-a-token-using-http) | Protocol details for managed identities for Azure resources token endpoint |
+| [Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Example of using the Microsoft.Azure.Services.AppAuthentication library from a .NET client
+| [Get a token using C#](#get-a-token-using-c) | Example of using managed identities for Azure resources REST endpoint from a C# client |
+| [Get a token using Java](#get-a-token-using-java) | Example of using managed identities for Azure resources REST endpoint from a Java client |
+| [Get a token using Go](#get-a-token-using-go) | Example of using managed identities for Azure resources REST endpoint from a Go client |
+| [Get a token using Azure PowerShell](#get-a-token-using-azure-powershell) | Example of using managed identities for Azure resources REST endpoint from a PowerShell client |
+| [Get a token using CURL](#get-a-token-using-curl) | Example of using managed identities for Azure resources REST endpoint from a Bash/CURL client |
+| Handling token caching | Guidance for handling expired access tokens |
+| [Felhantering](#error-handling) | Guidance for handling HTTP errors returned from the managed identities for Azure resources token endpoint |
+| [Resource IDs for Azure services](#resource-ids-for-azure-services) | Where to get resource IDs for supported Azure services |
 
-## <a name="get-a-token-using-http"></a>Hämta en token via HTTP 
+## <a name="get-a-token-using-http"></a>Get a token using HTTP 
 
-Det grundläggande gränssnittet för att hämta en åtkomsttoken baseras på REST, vilket gör den tillgänglig för valfritt program som körs på den virtuella datorn som kan göra HTTP-REST-anrop. Detta liknar den Azure AD-programmeringsmodellen förutom klienten använder en slutpunkt på den virtuella datorn (jämfört med en Azure AD-slutpunkten).
+The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses an endpoint on the virtual machine (vs an Azure AD endpoint).
 
-Exempel på begäran med hjälp av Azure Instance Metadata Service (IMDS) slutpunkt *(rekommenderas)* :
+Sample request using the Azure Instance Metadata Service (IMDS) endpoint *(recommended)* :
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -72,16 +72,16 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 
 | Element | Beskrivning |
 | ------- | ----------- |
-| `GET` | HTTP-verbet, vilket innebär att du vill hämta data från slutpunkten. I det här fallet en OAuth åtkomsttoken. | 
-| `http://169.254.169.254/metadata/identity/oauth2/token` | Hanterade identiteter för Azure-resurser slutpunkten för Instance Metadata Service. |
-| `api-version`  | En frågesträngsparameter som anger API-version för IMDS-slutpunkten. Använd API-versionen `2018-02-01` eller större. |
-| `resource` | En frågesträngsparameter som anger App-ID-URI för målresursen. Den visas också i de `aud` (målgrupp) anspråk i utfärdade token. Det här exemplet begär en token för att få åtkomst till Azure Resource Manager, som har en App-ID-URI för https://management.azure.com/. |
-| `Metadata` | En HTTP-begäran med huvud anger krävs av hanterade identiteter för Azure-resurser som en minskning mot angrepp Server sida begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, i gemener. |
-| `object_id` | (Valfritt) En frågesträngsparameter som anger object_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
-| `client_id` | (Valfritt) En frågesträngsparameter som anger client_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
-| `mi_res_id` | (Valfritt) En frågesträngsparameter som anger mi_res_id (Azure-resurs-ID) för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter. |
+| `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
+| `http://169.254.169.254/metadata/identity/oauth2/token` | The managed identities for Azure resources endpoint for the Instance Metadata Service. |
+| `api-version`  | A query string parameter, indicating the API version for the IMDS endpoint. Please use API version `2018-02-01` or greater. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `Metadata` | An HTTP request header field, required by managed identities for Azure resources as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case. |
+| `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
+| `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
+| `mi_res_id` | (Optional) A query string parameter, indicating the mi_res_id (Azure Resource ID) of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities. |
 
-Exempel på begäran med hjälp av hanterade identiteter för Azure-resurser VM-tillägget Endpoint *(planerad för utfasning i januari 2019)* :
+Sample request using the managed identities for Azure resources VM Extension Endpoint *(planned for deprecation in January 2019)* :
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -90,14 +90,14 @@ Metadata: true
 
 | Element | Beskrivning |
 | ------- | ----------- |
-| `GET` | HTTP-verbet, vilket innebär att du vill hämta data från slutpunkten. I det här fallet en OAuth åtkomsttoken. | 
-| `http://localhost:50342/oauth2/token` | Hanterade identiteter för Azure-resurser slutpunkten, där 50342 är standardporten och kan konfigureras. |
-| `resource` | En frågesträngsparameter som anger App-ID-URI för målresursen. Den visas också i de `aud` (målgrupp) anspråk i utfärdade token. Det här exemplet begär en token för att få åtkomst till Azure Resource Manager, som har en App-ID-URI för https://management.azure.com/. |
-| `Metadata` | En HTTP-begäran med huvud anger krävs av hanterade identiteter för Azure-resurser som en minskning mot angrepp Server sida begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, i gemener.|
-| `object_id` | (Valfritt) En frågesträngsparameter som anger object_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
-| `client_id` | (Valfritt) En frågesträngsparameter som anger client_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användartilldelade hanterade identiteter.|
+| `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
+| `http://localhost:50342/oauth2/token` | The managed identities for Azure resources endpoint, where 50342 is the default port and is configurable. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `Metadata` | An HTTP request header field, required by managed identities for Azure resources as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.|
+| `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
+| `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 
-Exempelsvaret:
+Sample response:
 
 ```json
 HTTP/1.1 200 OK
@@ -115,21 +115,21 @@ Content-Type: application/json
 
 | Element | Beskrivning |
 | ------- | ----------- |
-| `access_token` | Den begärda åtkomst-token. När du anropar en REST API för säker token är inbäddad i den `Authorization` begäran rubrik fältet som en ”ägartoken”, vilket gör att API för att autentisera anroparen. | 
-| `refresh_token` | Används inte av hanterade identiteter för Azure-resurser. |
-| `expires_in` | Antal sekunder som den åtkomst-token fortsätter att vara giltig, innan du går ut från tidpunkten för utfärdande. Tid för utfärdande finns i token `iat` anspråk. |
-| `expires_on` | Timespan när åtkomsttoken upphör att gälla. Det datum då representeras som hur många sekunder från ”1970-01-01T0:0:0Z UTC” (motsvarar token `exp` anspråk). |
-| `not_before` | Timespan när åtkomsttoken träder i kraft och kan godkännas. Det datum då representeras som hur många sekunder från ”1970-01-01T0:0:0Z UTC” (motsvarar token `nbf` anspråk). |
-| `resource` | Resursen åtkomsttoken har begärts för som matchar den `resource` frågesträngparametern för begäran. |
-| `token_type` | Typ av token, som är en ”ägar” åtkomsttoken, vilket innebär att resursen kan ge åtkomst till innehavare av denna token. |
+| `access_token` | The requested access token. When calling a secured REST API, the token is embedded in the `Authorization` request header field as a "bearer" token, allowing the API to authenticate the caller. | 
+| `refresh_token` | Not used by managed identities for Azure resources. |
+| `expires_in` | The number of seconds the access token continues to be valid, before expiring, from time of issuance. Time of issuance can be found in the token's `iat` claim. |
+| `expires_on` | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC"  (corresponds to the token's `exp` claim). |
+| `not_before` | The timespan when the access token takes effect, and can be accepted. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `nbf` claim). |
+| `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
+| `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
-## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Hämta en token med hjälp av Microsoft.Azure.Services.AppAuthentication-klientbiblioteket för .NET
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-För .NET-program och funktioner är det enklaste sättet att arbeta med hanterade identiteter för Azure-resurser via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket gör också att du kan testa din kod lokalt på utvecklingsdatorn, använder användarkontot från Visual Studio, den [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns i den [Microsoft.Azure.Services.AppAuthentication referens](/azure/key-vault/service-to-service-authentication). Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
+For .NET applications and functions, the simplest way to work with managed identities for Azure resources is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference](/azure/key-vault/service-to-service-authentication). This section shows you how to get started with the library in your code.
 
-1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paket till ditt program.
+1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet packages to your application.
 
-2.  Lägg till följande kod i ditt program:
+2.  Add the following code to your application:
 
     ```csharp
     using Microsoft.Azure.Services.AppAuthentication;
@@ -141,9 +141,9 @@ För .NET-program och funktioner är det enklaste sättet att arbeta med hantera
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Läs mer om Microsoft.Azure.Services.AppAuthentication och vilka åtgärder som den exponerar i den [Microsoft.Azure.Services.AppAuthentication referens](/azure/key-vault/service-to-service-authentication) och [App Service och KeyVault med hanterade identiteter för .NET-exempel för Azure-resurser](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference](/azure/key-vault/service-to-service-authentication) and the [App Service and KeyVault with managed identities for Azure resources .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
-## <a name="get-a-token-using-c"></a>Hämta en token med C#
+## <a name="get-a-token-using-c"></a>Get a token using C#
 
 ```csharp
 using System;
@@ -176,9 +176,9 @@ catch (Exception e)
 
 ```
 
-## <a name="get-a-token-using-java"></a>Hämta en token med hjälp av Java
+## <a name="get-a-token-using-java"></a>Get a token using Java
 
-Använd det här [JSON-biblioteket](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) att hämta en token med hjälp av Java.
+Use this [JSON library](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) to retrieve a token using Java.
 
 ```Java
 import java.io.*;
@@ -220,7 +220,7 @@ class GetMSIToken {
 }
 ```
 
-## <a name="get-a-token-using-go"></a>Hämta en token med hjälp av Go
+## <a name="get-a-token-using-go"></a>Get a token using Go
 
 ```
 package main
@@ -298,18 +298,18 @@ func main() {
 }
 ```
 
-## <a name="get-a-token-using-azure-powershell"></a>Hämta en token med Azure PowerShell
+## <a name="get-a-token-using-azure-powershell"></a>Get a token using Azure PowerShell
 
-I följande exempel visar hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en PowerShell-klient till:
+The following example demonstrates how to use the managed identities for Azure resources REST endpoint from a PowerShell client to:
 
-1. Hämta en åtkomsttoken.
-2. Använd åtkomsttoken att anropa en Azure Resource Manager REST API och få information om den virtuella datorn. Se till att ersätta din prenumerations-ID, resursgruppnamn och namn på virtuell dator för `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, och `<VM-NAME>`respektive.
+1. Acquire an access token.
+2. Use the access token to call an Azure Resource Manager REST API and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
 
 ```azurepowershell
 Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Headers @{Metadata="true"}
 ```
 
-Exempel på hur du Parsar åtkomsttoken från svaret:
+Example on how to parse the access token from the response:
 ```azurepowershell
 # Get an access token for managed identities for Azure resources
 $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' `
@@ -325,14 +325,14 @@ echo $vmInfoRest
 
 ```
 
-## <a name="get-a-token-using-curl"></a>Hämta en token med CURL
+## <a name="get-a-token-using-curl"></a>Get a token using CURL
 
 ```bash
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s
 ```
 
 
-Exempel på hur du Parsar åtkomsttoken från svaret:
+Example on how to parse the access token from the response:
 
 ```bash
 response=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true -s)
@@ -340,69 +340,69 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The managed identities for Azure resources access token is $access_token
 ```
 
-## <a name="token-caching"></a>Tokencachelagring
+## <a name="token-caching"></a>Token caching
 
-När de hanterade identiteterna för Azure-resurser undersystem som används (IMDS/hanterade identiteter för Azure-resurser VM-tillägg) cachelagra token, vi rekommenderar också för att implementera tokencachelagring i din kod. Därför bör du förbereda för scenarier där resursen indikerar att token har upphört att gälla. 
+While the managed identities for Azure resources subsystem being used (IMDS/managed identities for Azure resources VM Extension) does cache tokens, we also recommend to implement token caching in your code. As a result, you should prepare for scenarios where the resource indicates that the token is expired. 
 
-Enbart resultat i wire-anrop till Azure AD när:
-- cache-miss inträffar på grund av ingen token i de hanterade identiteterna för Azure-resurser undersystem cache
-- den cachelagra token har upphört att gälla
+On-the-wire calls to Azure AD result only when:
+- cache miss occurs due to no token in the managed identities for Azure resources subsystem cache
+- the cached token is expired
 
 ## <a name="error-handling"></a>Felhantering
 
-Hanterade identiteter för Azure-resurser slutpunkten signalerar fel via fältet status kod för meddelandehuvudet för HTTP-svar som 4xx eller 5xx-fel:
+The managed identities for Azure resources endpoint signals errors via the status code field of the HTTP response message header, as either 4xx or 5xx errors:
 
-| Statuskod | Felorsak | Hur du hanterar |
+| Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
-| 404 hittades inte. | Uppdaterar IMDS slutpunkt. | Försök igen med Expontential Backoff. Se information nedan. |
-| 429 för många begäranden. |  Begränsa IMDS gränsen har nåtts. | Försök med exponentiell Backoff. Se information nedan. |
-| 4xx-fel i begäran. | En eller flera av parametrarna var fel. | Försök inte igen.  Granska felinformationen för mer information.  4xx-fel uppstår fel i designläge.|
-| 5xx tillfälligt fel från tjänsten. | Hanterade identiteter för Azure-resurser undersystem eller Azure Active Directory returnerade ett tillfälligt fel. | Det är bra att försöka igen efter att ha väntat i minst 1 sekund.  Om du gör för snabbt eller alltför ofta kan IMDS och/eller Azure AD returnera ett pris gräns-fel (429).|
-| timeout | Uppdaterar IMDS slutpunkt. | Försök igen med Expontential Backoff. Se information nedan. |
+| 404 Not found. | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
+| 429 Too many requests. |  IMDS Throttle limit reached. | Retry with Exponential Backoff. See guidance below. |
+| 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
+| 5xx Transient error from service. | The managed identities for Azure resources sub-system or Azure Active Directory returned a transient error. | It is safe to retry after waiting for at least 1 second.  If you retry too quickly or too often, IMDS and/or Azure AD may return a rate limit error (429).|
+| timeout | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
 
-Om ett fel inträffar, innehåller motsvarande HTTP-svarstext JSON med felinformation:
+If an error occurs, the corresponding HTTP response body contains JSON with the error details:
 
 | Element | Beskrivning |
 | ------- | ----------- |
-| error   | Fel-ID. |
-| error_description | Utförlig beskrivning av fel. **Felbeskrivningar kan ändra när som helst. Inte att skriva kod som grenar baserat på värdena i felbeskrivningen.**|
+| fel   | Error identifier. |
+| error_description | Verbose description of error. **Error descriptions can change at any time. Do not write code that branches based on values in the error description.**|
 
-### <a name="http-response-reference"></a>Referens för HTTP-svar
+### <a name="http-response-reference"></a>HTTP response reference
 
-Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyckat svar och åtkomst-token som finns i svarstexten JSON, i elementet access_token.
+This section documents the possible error responses. A "200 OK" status is a successful response, and the access token is contained in the response body JSON, in the access_token element.
 
-| Statuskod | Fel | Felbeskrivning | Lösning |
+| Statuskod | Fel | Error Description | Lösning |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Felaktig förfrågan | invalid_resource | AADSTS50001: Programmet heter *\<URI\>* hittades inte i klientorganisationen med namnet  *\<TENANT-ID\>* . Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare i klienten. Du kanske har skickat din begäran om autentisering till fel klient. \ | (Endast Linux) |
-| 400 Felaktig förfrågan | bad_request_102 | Metadata som krävs-huvud har inte angetts | Antingen den `Metadata` begäran rubrik fält saknas i din begäran eller är felaktigt formaterad. Värdet måste anges som `true`, i gemener. Se ”Sample-begäran” i det föregående avsnittet REST ett exempel.|
-| 401 Ej behörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI har formaterats korrekt. Den `scheme:host/resource-path` del måste anges som `http://localhost:50342/oauth2/token`. Se ”Sample-begäran” i det föregående avsnittet REST ett exempel.|
-|           | invalid_request | Begäran saknar en obligatorisk parameter, innehåller ett ogiltigt parametervärde, innehåller en parameter mer än en gång eller annars har fel format. |  |
-|           | unauthorized_client | Klienten har inte behörighet att begära ett åtkomsttoken med hjälp av den här metoden. | På en begäran som inte använder lokal loopback för att anropa tillägget, eller på en virtuell dator som inte har hanterade identiteter för Azure-resurser konfigurerats korrekt. Se [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration. |
-|           | access_denied | Resursägaren eller auktoriseringsservern nekade begäran. |  |
-|           | unsupported_response_type | Auktoriseringsservern har inte stöd för att hämta en åtkomsttoken med hjälp av den här metoden. |  |
-|           | invalid_scope | Det begärda omfånget är ogiltig, okänt eller felaktigt. |  |
-| 500 Internt serverfel | Okänd | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att hanterade identiteter för Azure-resurser har aktiverats på den virtuella datorn. Se [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET-begäran URI har formaterats korrekt, särskilt den resurs som URI angavs i frågesträngen. Se ”Sample-begäran” i det föregående avsnittet REST exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) en lista över tjänster och deras respektive resurs-ID.
+| 400 Bad Request | invalid_resource | AADSTS50001: The application named *\<URI\>* was not found in the tenant named *\<TENANT-ID\>* . This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\ | (Linux only) |
+| 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the preceding REST section for an example.|
+| 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the preceding REST section for an example.|
+|           | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. |  |
+|           | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have managed identities for Azure resources configured correctly. See [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
+|           | access_denied | The resource owner or authorization server denied the request. |  |
+|           | unsupported_response_type | The authorization server does not support obtaining an access token using this method. |  |
+|           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |
+| 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that managed identities for Azure resources has been enabled on the VM. See [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the preceding REST section for an example, or [Azure services that support Azure AD authentication](services-support-msi.md) for a list of services and their respective resource IDs.
 
-## <a name="retry-guidance"></a>Riktlinjer för återförsök 
+## <a name="retry-guidance"></a>Retry guidance 
 
-Vi rekommenderar att försöka igen om du får ett 404, 429 och 5xx felkod (se [felhantering](#error-handling) ovan).
+It is recommended to retry if you receive a 404, 429, or 5xx error code (see [Error handling](#error-handling) above).
 
-Begränsning begränsningar gäller antalet anrop som görs till IMDS-slutpunkten. När begränsningen tröskelvärdet överskrids begränsar IMDS endpoint eventuella ytterligare begäranden medan begränsningen är aktiverat. Under denna tid kan IMDS slutpunkten returnerar statuskoden HTTP 429 (”för många begäranden”), och förfrågningarna som misslyckas. 
+Throttling limits apply to the number of calls made to the IMDS endpoint. When the throttling threshold is exceeded, IMDS endpoint limits any further requests while the throttle is in effect. During this period, the IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
 
-Vi rekommenderar följande strategin för återförsök: 
+For retry, we recommend the following strategy: 
 
 | **Återförsöksstrategi** | **Inställningar** | **Värden** | **Hur det fungerar** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Antal återförsök<br />Min. backoff<br />Max. backoff<br />Deltabackoff<br />Första snabba återförsöket |5<br />0 sek.<br />60 sek.<br />2 sek.<br />false |Försök 1 – 0 sek. fördröjning<br />Försök 2 – ~2 sek. fördröjning<br />Försök 3 – ~6 sek. fördröjning<br />Försök 4 – ~14 sek. fördröjning<br />Försök 5 – ~30 sek. fördröjning |
 
-## <a name="resource-ids-for-azure-services"></a>Resurs-ID: N för Azure-tjänster
+## <a name="resource-ids-for-azure-services"></a>Resource IDs for Azure services
 
-Se [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) för en lista över resurser som stöder Azure AD och har testats med hanterade identiteter för Azure-resurser och deras respektive resurs-ID.
+See [Azure services that support Azure AD authentication](services-support-msi.md) for a list of resources that support Azure AD and have been tested with managed identities for Azure resources, and their respective resource IDs.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att aktivera hanterade identiteter för Azure-resurser på en Azure VM, se [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md).
+- To enable managed identities for Azure resources on an Azure VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md).
 
 
 

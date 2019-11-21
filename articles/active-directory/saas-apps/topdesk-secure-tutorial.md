@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med TOPdesk-Secure | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with TOPdesk - Secure | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk – Secure.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3125f5b9075a69289bd6a44d62c3d06d5e6d910d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 393557531fe69a494a16e0f4c49ac07891e490ec
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161122"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233404"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Självstudie: Azure Active Directory integrering med TOPdesk-Secure
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Azure Active Directory integration with TOPdesk - Secure
 
 I den här självstudien lär du dig att integrera TOPdesk – Secure med Azure Active Directory (AD Azure).
 Genom att integrera TOPdesk – Secure med Azure AD får du följande fördelar:
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
     a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.topdesk.net`
 
-    b. I rutan **identifiera URL** fyller du i TOPdesk metadata-URL som du kan hämta från TOPdesk-konfigurationen. Den bör använda följande mönster: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    b. In the **Identifier URL** box, fill in the TOPdesk metadata URL that you can retrieve from the TOPdesk configuration. It should use the following pattern: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
 
     c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
@@ -139,7 +139,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
 3. Klicka på **Inloggningsinställningar**.
 
-    ![Inloggnings inställningar](./media/topdesk-secure-tutorial/ic790599.png "Inloggnings inställningar")
+    ![Login Settings](./media/topdesk-secure-tutorial/ic790599.png "Login Settings")
 
 4. Expandera menyn **Inloggningsinställningar** och klicka sedan på **Allmänt**.
 
@@ -147,13 +147,13 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
 5. I avsnittet **Skydda** i avsnittet för konfiguration av **SAML-inloggning** utför du följande steg:
 
-    ![Tekniska inställningar](./media/topdesk-secure-tutorial/ic790855.png "Tekniska inställningar")
+    ![Technical Settings](./media/topdesk-secure-tutorial/ic790855.png "Technical Settings")
 
     a. Klicka på **Ladda ned** för att ladda ned den offentliga metadatafilen, och spara den lokalt på datorn.
 
     b. Öppna metadatafilen och leta upp noden **AssertionConsumerService**.
 
-    ![Intygs konsument tjänst](./media/topdesk-secure-tutorial/ic790856.png "Intygs konsument tjänst")
+    ![Assertion Consumer Service](./media/topdesk-secure-tutorial/ic790856.png "Assertion Consumer Service")
 
     c. Kopiera värdet **AssertionConsumerService**, klistra in det i textrutan flr svars-URL i avsnittet om **TOPdesk – Secure-domän och URL:er**.
 
@@ -171,11 +171,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
 7. I avsnittet **Offentligt** klickar du på **Lägg till**.
 
-    ![Skapa](./media/topdesk-secure-tutorial/ic790607.png "Lägg till")
+    ![Add](./media/topdesk-secure-tutorial/ic790607.png "Lägg till")
 
 8. I dialogrutan **SAML-konfigurationsassistent** utför du följande steg:
 
-    ![Konfigurations assistent för SAML](./media/topdesk-secure-tutorial/ic790608.png "Konfigurations assistent för SAML")
+    ![SAML Configuration Assistant](./media/topdesk-secure-tutorial/ic790608.png "SAML Configuration Assistant")
 
     a. Ladda upp den nedladdade metadatafilen från Azure-portalen genom att gå till **Federation Metadata** och klicka på **Bläddra**.
 
@@ -209,7 +209,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -257,7 +257,7 @@ När det gäller TOPdesk – Secure är etablering en manuell aktivitet.
 
 3. I dialogrutan **New Operator** (Ny operatör) utför du följande steg:
 
-    ![Ny operator](./media/topdesk-secure-tutorial/ic790611.png "Ny operator")
+    ![New Operator](./media/topdesk-secure-tutorial/ic790611.png "New Operator")
 
     a. Klicka på fliken **Allmänt**.
 
@@ -270,7 +270,7 @@ När det gäller TOPdesk – Secure är etablering en manuell aktivitet.
     e. Klicka på **Save** (Spara).
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för TOPdesk – Secure-kontoskapande som tillhandahålls av TOPdesk – Secure för att etablera AAD-användarkonton.
+> You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -284,5 +284,5 @@ När du klickar på TOPdesk – Secure-panelen i åtkomstpanelen bör du automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

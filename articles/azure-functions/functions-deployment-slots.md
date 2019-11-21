@@ -1,191 +1,188 @@
 ---
-title: Azure Functions distributions platser
-description: Lär dig att skapa och använda distributions fack med Azure Functions
+title: Azure Functions deployment slots
+description: Learn to create and use deployment slots with Azure Functions
 author: craigshoemaker
-manager: gwallace
-keywords: Azure Functions, Functions
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576322"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230675"
 ---
-# <a name="azure-functions-deployment-slots"></a>Azure Functions distributions platser
+# <a name="azure-functions-deployment-slots"></a>Azure Functions deployment slots
 
-Med Azure Functions distributions platser kan din Function-app köra olika instanser som kallas "platser". Platser är olika miljöer som exponeras via en offentligt tillgänglig slut punkt. En app-instans är alltid mappad till produktions platsen och du kan byta instanser som har tilldelats till en plats på begäran. Function-appar som körs under App Service-planen kan ha flera platser, medan endast en plats tillåts under konsumtion.
+Azure Functions deployment slots allow your function app to run different instances called "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running under the Apps Service plan may have multiple slots, while under Consumption only one slot is allowed.
 
-Följande visar hur funktioner påverkas av växlings platser:
+The following reflect how functions are affected by swapping slots:
 
-- Trafik omdirigering är sömlös; inga förfrågningar ignoreras på grund av en växling.
-- Om en funktion körs under växlingen fortsätter körningen och efterföljande utlösare dirigeras till den utbytta App-instansen.
+- Traffic redirection is seamless; no requests are dropped because of a swap.
+- If a function is running during a swap, execution continues and subsequent triggers are routed to the swapped app instance.
 
 > [!NOTE]
-> Platser är för närvarande inte tillgängliga för Linux-förbruknings planen.
+> Slots are currently not available for the Linux Consumption plan.
 
-## <a name="why-use-slots"></a>Varför ska jag använda platser?
+## <a name="why-use-slots"></a>Why use slots?
 
-Det finns ett antal fördelar med att använda distributions platser. I följande scenarier beskrivs vanliga användnings områden för fack:
+There are a number of advantages to using deployment slots. The following scenarios describe common uses for slots:
 
-- **Olika miljöer i olika syfte**: med olika platser får du möjlighet att särskilja App-instanser innan du växlar till produktion eller mellanlagringsplats.
-- Att **förvärma**: distribution till en plats i stället för direkt till produktion gör att appen kan värmas innan Live. Dessutom minskar svars tiden för HTTP-utlösta arbets belastningar med hjälp av platser. Instanser värms upp före distributionen, vilket minskar kall starten för nyligen distribuerade funktioner.
-- **Enkel återgång**: efter en byte med produktion har platsen med en tidigare mellanlagrad app nu den tidigare produktions appen. Om ändringarna som utbyts till produktions platsen inte är som du förväntar dig, kan du omedelbart omvända växlingen för att få din "senast fungerande instans" tillbaka.
+- **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
+- **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment which reduces the cold start for newly-deployed functions.
+- **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
 
-## <a name="swap-operations"></a>Växlings åtgärder
+## <a name="swap-operations"></a>Swap operations
 
-Under en växling anses en plats vara källan och den andra målet. Käll platsen har instansen av programmet som används på mål platsen. Följande steg säkerställer att mål platsen inte upplever drift stopp under en växling:
+During a swap, one slot is considered the source and the other the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
 
-1. **Tillämpa inställningar:** Inställningar från mål platsen tillämpas på alla instanser av käll platsen. Produktions inställningarna tillämpas till exempel på mellanlagringsplatsen. De tillämpade inställningarna omfattar följande kategorier:
-    - [Platsspecifika appinställningar och](#manage-settings) anslutnings strängar (om tillämpligt)
-    - Inställningar för [kontinuerlig distribution](../app-service/deploy-continuous-deployment.md) (om aktive rad)
-    - [App Service autentiseringsinställningar](../app-service/overview-authentication-authorization.md) (om den är aktive rad)
+1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. The applied settings include the following categories:
+    - [Slot-specific](#manage-settings) app settings and connection strings (if applicable)
+    - [Continuous deployment](../app-service/deploy-continuous-deployment.md) settings (if enabled)
+    - [App Service authentication](../app-service/overview-authentication-authorization.md) settings (if enabled)
 
-1. **Vänta tills omstarter och tillgänglighet:** Växlingen väntar på att varje instans på käll platsen ska kunna slutföra sin omstart och är tillgänglig för förfrågningar. Om någon instans inte kan starta om återställer växlings åtgärden alla ändringar till käll platsen och stoppar åtgärden.
+1. **Wait for restarts and availability:** The swap waits for every instance in the source slot to complete its restart and to be available for requests. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
-1. **Uppdaterings dirigering:** Om alla instanser på käll platsen har förvärmts korrekt, slutför de två platserna växlingen genom att växla regler för routning. Efter det här steget har mål platsen (till exempel produktions platsen) den app som tidigare har förvärmts på käll platsen.
+1. **Update routing:** If all instances on the source slot are warmed up successfully, the two slots complete the swap by switching routing rules. After this step, the target slot (for example, the production slot) has the app that's previously warmed up in the source slot.
 
-1. **Upprepa åtgärd:** Nu när käll platsen har för hands växlings appen tidigare på mål platsen, utför du samma åtgärd genom att tillämpa alla inställningar och starta om instanserna för käll platsen.
+1. **Repeat operation:** Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances for the source slot.
 
 Tänk på följande punkter:
 
-- Vid alla tidpunkter på växlings åtgärden sker initieringen av de växlade apparna på käll platsen. Mål platsen är online medan käll platsen förbereds, om växlingen lyckas eller inte.
+- At any point of the swap operation, initialization of the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared, whether the swap succeeds or fails.
 
-- Om du vill byta mellan en mellanlagringsplats med produktions platsen kontrollerar du att produktions platsen *alltid* är mål platsen. På så sätt kommer växlings åtgärden inte att påverka din produktions program.
+- To swap a staging slot with the production slot, make sure that the production slot is *always* the target slot. This way, the swap operation doesn't affect your production app.
 
-- Inställningar som rör händelse källor och bindningar måste konfigureras som [distributions plats inställningar](#manage-settings) *innan du påbörjar en växling*. Genom att markera dem som "trög" i förväg säkerställer du att händelser och utdata dirigeras till rätt instans.
+- Settings related to event sources and bindings need to be configured as [deployment slot settings](#manage-settings) *before you initiate a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
 
 ## <a name="manage-settings"></a>Hantera inställningar
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-### <a name="create-a-deployment-setting"></a>Skapa en distributions inställning
+### <a name="create-a-deployment-setting"></a>Create a deployment setting
 
-Du kan markera inställningar som en distributions inställning som gör den "trög". En inställning för tröghet växlar inte med App-instansen.
+You can mark settings as a deployment setting which makes it "sticky". A sticky setting does not swap with the app instance.
 
-Om du skapar en distributions inställning på en plats, se till att skapa samma inställning med ett unikt värde på andra platser som ingår i en växling. På så sätt, medan värdet för en inställning inte ändras, förblir inställnings namnen konsekventa mellan platser. Detta namn konsekvens säkerställer att koden inte försöker komma åt en inställning som har definierats på en plats, men inte en annan.
+If you create a deployment setting in one slot, make sure to create the same setting with a unique value in any other slot involved in a swap. This way, while a setting's value doesn't change, the setting names remain consistent among slots. This name consistency ensures your code doesn't try to access a setting that is defined in one slot but not another.
 
-Använd följande steg för att skapa en distributions inställning:
+Use the following steps to to create a deployment setting:
 
-- Navigera till *platser* i Function-appen
-- Klicka på plats namnet
-- Under *plattforms funktioner > allmänna inställningar*klickar du på **konfiguration**
-- Klicka på det inställnings namn som du vill använda för den aktuella platsen
-- Klicka i kryss rutan **distributions plats inställning**
+- Navigate to *Slots* in the function app
+- Click on the slot name
+- Under *Platform Features > General Settings*, click on **Configuration**
+- Click on the setting name you want to stick with the current slot
+- Click the **Deployment slot setting** checkbox
 - Klicka på **OK**
-- När bladet har angetts försvinner klickar du på **Spara** för att behålla ändringarna
+- Once setting blade disappears, click **Save** to keep the changes
 
-![Distributions plats inställning](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
+![Deployment Slot Setting](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
 
 ## <a name="deployment"></a>Distribution
 
-Platser är tomma när du skapar en plats. Du kan använda någon av de [distributions tekniker som stöds](./functions-deployment-technologies.md) för att distribuera programmet till en plats.
+Slots are empty when you create a slot. You can use any of the [supported deployment technologies](./functions-deployment-technologies.md) to deploy your application to a slot.
 
 ## <a name="scaling"></a>Skalning
 
-Alla platser skalas till samma antal anställda som produktions platsen.
+All slots scale to the same number of workers as the production slot.
 
-- För förbruknings planer skalas-facket som Function-appen skalar.
-- För App Service planer skalas appen till ett fast antal arbetare. Platser körs på samma antal arbets tagare som app-planen.
+- For Consumption plans, the slot scales as the function app scales.
+- For App Service plans, the app scales to a fixed number of workers. Slots run on the same number of workers as the app plan.
 
-## <a name="add-a-slot"></a>Lägg till en plats
+## <a name="add-a-slot"></a>Add a slot
 
-Du kan lägga till en plats via [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) eller via portalen. Följande steg visar hur du skapar en ny plats i portalen:
+You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
 
-1. Navigera till din Function-app och klicka på **plus tecknet** bredvid *platser*.
+1. Navigate to your function app and click on the **plus sign** next to *Slots*.
 
-    ![Lägg till Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+    ![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
 
-1. Ange ett namn i text rutan och tryck på knappen **skapa** .
+1. Enter a name in the textbox, and press the **Create** button.
 
-    ![Namn Azure Functions distributions fack](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+    ![Name Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
 
-## <a name="swap-slots"></a>Växla platser
+## <a name="swap-slots"></a>Swap slots
 
-Du kan växla mellan platser via [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) eller via portalen. Följande steg visar hur du byter platser i portalen:
+You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
 
-1. Navigera till Function-appen
-1. Klicka på det käll plats namn som du vill byta
-1. På fliken *Översikt* klickar du på **växlings** knappen ![växlar Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Kontrol lera konfigurations inställningarna för växlingen och klicka på **Byt** plats för ![växlings Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Navigate to the function app
+1. Click on the source slot name that you want to swap
+1. From the *Overview* tab, click on the **Swap** button  ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. Verify the configuration settings for your swap and click **Swap** ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
-Åtgärden kan ta en stund medan växlings åtgärden körs.
+The operation may take a moment while the swap operation is executing.
 
-## <a name="roll-back-a-swap"></a>Återställa en växling
+## <a name="roll-back-a-swap"></a>Roll back a swap
 
-Om en växling resulterar i ett fel eller om du bara vill "ångra" en växling kan du återställa den ursprungliga statusen. Om du vill återgå till förväxlat tillstånd, gör du en annan växling för att omvända växlingen.
+If a swap results in an error or you simply want to "undo" a swap, you can roll back to the initial state. To return to the pre-swapped state, do another swap to reverse the swap.
 
-## <a name="remove-a-slot"></a>Ta bort en plats
+## <a name="remove-a-slot"></a>Remove a slot
 
-Du kan ta bort en plats via [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) eller via portalen. Följande steg visar hur du tar bort en plats i portalen:
+You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
 
-1. Navigera till Function-appens översikt
+1. Navigate to the function app Overview
 
-1. Klicka på knappen **ta bort**
+1. Click on the **Delete** button
 
-    ![Lägg till Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+    ![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
 
-## <a name="automate-slot-management"></a>Automatisera plats hantering
+## <a name="automate-slot-management"></a>Automate slot management
 
-Med [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)kan du automatisera följande åtgärder för en plats:
+Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), you can automate the following actions for a slot:
 
 - [skapa](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [ta bort](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [skärm](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [automatisk växling](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [auto-swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>Ändra App Service-plan
+## <a name="change-app-service-plan"></a>Change app service plan
 
-Med en Function-app som körs under en App Service plan har du möjlighet att ändra den underliggande App Service-planen för en plats.
+With a function app that is running under an App Service plan, you have the option to change the underlying app service plan for a slot.
 
 > [!NOTE]
-> Du kan inte ändra en platss App Service plan under förbruknings planen.
+> You can't change a slot's App Service plan under the Consumption plan.
 
-Använd följande steg för att ändra en platss App Service-plan:
+Use the following steps to change a slot's app service plan:
 
-1. Navigera till en plats
+1. Navigate to a slot
 
-1. Under *plattforms funktioner*klickar du på **alla inställningar**
+1. Under *Platform Features*, click **All Settings**
 
-    ![Ändra App Service-plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+    ![Change app service plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
 
-1. Klicka på **App Service plan**
+1. Click on **App Service plan**
 
-1. Välj en ny App Service plan eller skapa en ny plan
+1. Select a new App Service plan, or create a new plan
 
 1. Klicka på **OK**
 
-    ![Ändra App Service-plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
+    ![Change app service plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 
 
 ## <a name="limitations"></a>Begränsningar
 
-Azure Functions distributions fack har följande begränsningar:
+Azure Functions deployment slots have the following limitations:
 
-- Antalet tillgängliga fack för en app beror på planen. Förbruknings planen tillåts bara en distributions plats. Det finns ytterligare platser för appar som körs under App Service plan.
-- När en plats byts ut återställs nycklar för appar som har en inställning för `AzureWebJobsSecretStorageType` app som är lika med `files`.
-- Det finns inga tillgängliga platser för Linux-förbruknings planen.
+- The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under the App Service plan.
+- Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
+- Slots are not available for the Linux Consumption plan.
 
 ## <a name="support-levels"></a>Supportnivåer
 
-Det finns två nivåer av stöd för distributions platser:
+There are two levels of support for deployment slots:
 
-- **Allmän tillgänglighet (ga)** : fullständigt stöd för och godkänd användning av produktion.
-- För **hands version**: stöds inte ännu, men förväntas komma att uppnå GA-status i framtiden.
+- **General availability (GA)** : Fully supported and approved for production use.
+- **Preview**: Not yet supported, but is expected to reach GA status in the future.
 
-| Operativ system/värd plan           | Support nivå     |
+| OS/Hosting plan           | Level of support     |
 | ------------------------- | -------------------- |
-| Windows-förbrukning       | Allmän tillgänglighet |
+| Windows Consumption       | Allmän tillgänglighet |
 | Windows Premium           | Allmän tillgänglighet  |
-| Windows-dedikerad         | Allmän tillgänglighet |
-| Linux-förbrukning         | Stöd saknas          |
+| Windows Dedicated         | Allmän tillgänglighet |
+| Linux Consumption         | Stöd saknas          |
 | Linux Premium             | Allmän tillgänglighet  |
-| Linux-dedikerad           | Allmän tillgänglighet |
+| Linux Dedicated           | Allmän tillgänglighet |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distributions tekniker i Azure Functions](./functions-deployment-technologies.md)
+- [Deployment technologies in Azure Functions](./functions-deployment-technologies.md)

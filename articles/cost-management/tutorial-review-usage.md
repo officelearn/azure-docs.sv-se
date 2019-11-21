@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 2b701e618bdcbd50709360c55cfb9ceb68781ebc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 41abf9d0675e7ea620a15656f97fcaed4fd0ff66
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969101"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229790"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -36,10 +36,10 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 
 ## <a name="open-the-cloudyn-portal"></a>Öppna Cloudyn-portalen
 
@@ -89,7 +89,7 @@ Visa ID:n för VM-instanser genom att klicka på plustecknet bredvid **List of C
 
 Om du vill se en självstudievideo om att identifiera ineffektivitet i användningen kan du titta på [Optimera VM-storlek i Cloudyn](https://youtu.be/1xaZBNmV704).
 
-Azure Cost Management ger även kostnadsbesparande rekommendationer för Azure-tjänster. Mer information finns i [Självstudie: Optimera kostnader från rekommendationer](tutorial-acm-opt-recommendations.md).
+Azure Cost Management ger även kostnadsbesparande rekommendationer för Azure-tjänster. Mer information finns i [Självstudie: Optimera kostnader utifrån rekommendationer](tutorial-acm-opt-recommendations.md).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Skapa aviseringar för onormalt höga kostnader
 
@@ -101,7 +101,7 @@ I det här exemplet används rapporten **Actual Cost Over Time** (Faktisk kostna
 2. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**.
 3. Längst upp till höger i rapporten väljer du **Åtgärder** och sedan **Schemalägg rapport**.
 4. Om du vill skicka e-post med rapporten till dig själv vid schemalagt intervall väljer du fliken **Schemaläggning** i rapportdialogrutan **Spara eller schemalägg den här**. Välj **Skicka via e-post**. Eventuella taggar samt den gruppering och filtrering du använde ingår i den rapport som du får via e-post.
-5. Välj fliken **Tröskel** och sedan **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde).
+5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**.
    1. I tröskelrutan **Röd avisering** anger du 10000.
    2. I tröskelrutan **Gul avisering** anger du 9000.
    3. I rutan **Antal på varandra följande aviseringar** anger du det antal på varandra följande aviseringar som ska tas emot. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar.
@@ -109,7 +109,7 @@ I det här exemplet används rapporten **Actual Cost Over Time** (Faktisk kostna
 
 ![Exemplet visar röda och gula aviseringar baserat på tröskelvärden för utgifter](./media/tutorial-review-usage/schedule-alert01.png)
 
-Du kan även välja tröskelvärdesmåttet **Cost Percentage vs. Budget** (Kostnadernas procentandel av budgeten) till att skapa aviseringar. På så sätt kan du ange tröskelvärden som procentandelar av budgeten i stället för valutavärden.
+You can also choose the **Cost Percentage vs. Budget** threshold metric to create alerts. På så sätt kan du ange tröskelvärden som procentandelar av budgeten i stället för valutavärden.
 
 ## <a name="export-data"></a>Exportera data
 

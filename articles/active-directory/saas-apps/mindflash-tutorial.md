@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Mindflash | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mindflash.
+title: 'Tutorial: Azure Active Directory integration with Mindflash | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Mindflash.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e7498411e68b83f8c05d50f52f73f97df9f797
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 78d4f44e9fe2310fab485804e0aaf70aa0dfbdb0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160588"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233545"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Självstudie: Azure Active Directory integrering med Mindflash
+# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Azure Active Directory integration with Mindflash
 
-I den här självstudien får du lära dig hur du integrerar Mindflash med Azure Active Directory (Azure AD).
-Genom att integrera Mindflash med Azure AD får du följande fördelar:
+In this tutorial, you learn how to integrate Mindflash with Azure Active Directory (Azure AD).
+Integrating Mindflash with Azure AD provides you with the following benefits:
 
-* Du kan styra i Azure AD som har åtkomst till Mindflash.
-* Du kan göra det möjligt för användarna att logga in automatiskt till Mindflash (enkel inloggning) med sina Azure AD-konton.
+* You can control in Azure AD who has access to Mindflash.
+* You can enable your users to be automatically signed-in to Mindflash (Single Sign-On) with their Azure AD accounts.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Mindflash behöver du följande objekt:
+To configure Azure AD integration with Mindflash, you need the following items:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Mindflash-aktiverad prenumeration med enkel inloggning
+* Mindflash single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Mindflash stöder **SP** -INITIERAd SSO
+* Mindflash supports **SP** initiated SSO
 
-## <a name="adding-mindflash-from-the-gallery"></a>Lägga till Mindflash från galleriet
+## <a name="adding-mindflash-from-the-gallery"></a>Adding Mindflash from the gallery
 
-Om du vill konfigurera integreringen av Mindflash i Azure AD måste du lägga till Mindflash från galleriet i listan över hanterade SaaS-appar.
+To configure the integration of Mindflash into Azure AD, you need to add Mindflash from the gallery to your list of managed SaaS apps.
 
-**Utför följande steg för att lägga till Mindflash från galleriet:**
+**To add Mindflash from the gallery, perform the following steps:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Mindflash i Azure AD måste du lägga ti
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **Mindflash**, väljer **Mindflash** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. In the search box, type **Mindflash**, select **Mindflash** from result panel then click **Add** button to add the application.
 
-     ![Mindflash i resultat listan](common/search-new-app.png)
+     ![Mindflash in the results list](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Mindflash baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Mindflash upprättas.
+In this section, you configure and test Azure AD single sign-on with Mindflash based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Mindflash needs to be established.
 
-Om du vill konfigurera och testa enkel inloggning med Mindflash i Azure AD måste du slutföra följande Bygg stenar:
+To configure and test Azure AD single sign-on with Mindflash, you need to complete the following building blocks:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Mindflash-enkel inloggning](#configure-mindflash-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Configure Mindflash Single Sign-On](#configure-mindflash-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Mindflash test User](#create-mindflash-test-user)** – om du vill ha en motsvarighet till Britta Simon i Mindflash som är länkad till Azure AD-representation av användare.
+5. **[Create Mindflash test user](#create-mindflash-test-user)** - to have a counterpart of Britta Simon in Mindflash that is linked to the Azure AD representation of user.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Mindflash i Azure AD:
+To configure Azure AD single sign-on with Mindflash, perform the following steps:
 
-1. Välj **enkel inloggning**på sidan **Mindflash** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. In the [Azure portal](https://portal.azure.com/), on the **Mindflash** application integration page, select **Single sign-on**.
 
     ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Utför följande steg för att konfigurera enkel inloggning med Mindflash i Azur
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning för Mindflash-domän och URL: er](common/sp-identifier.png)
+    ![Mindflash Domain and URLs single sign-on information](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.mindflash.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.mindflash.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Mindflash client support team](https://www.mindflash.com/contact/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Contact [Mindflash Client support team](https://www.mindflash.com/contact/) to get these values. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. I avsnittet **Konfigurera Mindflash** kopierar du lämpliga URL: er enligt ditt krav.
+6. On the **Set up Mindflash** section, copy the appropriate URL(s) as per your requirement.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,9 +126,9 @@ Utför följande steg för att konfigurera enkel inloggning med Mindflash i Azur
 
     c. Utloggnings-URL
 
-### <a name="configure-mindflash-single-sign-on"></a>Konfigurera Mindflash enkel inloggning
+### <a name="configure-mindflash-single-sign-on"></a>Configure Mindflash Single Sign-On
 
-Om du vill konfigurera enkel inloggning på **Mindflash** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Mindflash](https://www.mindflash.com/contact/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+To configure single sign-on on **Mindflash** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Mindflash support team](https://www.mindflash.com/contact/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -157,15 +157,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Mindflash.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Mindflash.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Mindflash**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Mindflash**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **Mindflash**.
+2. In the applications list, select **Mindflash**.
 
-    ![Mindflash-länken i program listan](common/all-applications.png)
+    ![The Mindflash link in the Applications list](common/all-applications.png)
 
 3. I menyn till vänster väljer du **Användare och grupper**.
 
@@ -181,41 +181,41 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-mindflash-test-user"></a>Skapa Mindflash test användare
+### <a name="create-mindflash-test-user"></a>Create Mindflash test user
 
-För att Azure AD-användare ska kunna logga in på Mindflash måste de tillhandahållas i Mindflash. När det gäller Mindflash är etableringen en manuell uppgift.
+In order to enable Azure AD users to log into Mindflash, they must be provisioned into Mindflash. In the case of Mindflash, provisioning is a manual task.
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Utför följande steg för att tillhandahålla ett användarkonto:
 
-1. Logga in på din **Mindflash** -företags webbplats som administratör.
+1. Log in to your **Mindflash** company site as an administrator.
 
 1. Gå till **Hantera användare**.
    
-    ![Hantera användare](./media/mindflash-tutorial/ic787140.png "Hantera användare")
+    ![Manage Users](./media/mindflash-tutorial/ic787140.png "Manage Users")
 
-1. Klicka på **Lägg till användare**och klicka sedan på **ny**.
+1. Click the **Add Users**, and then click **New**.
 
-1. I avsnittet **Lägg till nya användare** utför du följande steg för ett giltigt Azure AD-konto som du vill etablera:
+1. In the **Add New Users** section, perform the following steps of a valid Azure AD account you want to provision:
    
-    ![Lägg till nya användare](./media/mindflash-tutorial/ic787141.png "Lägg till nya användare")
+    ![Add New Users](./media/mindflash-tutorial/ic787141.png "Add New Users")
    
-    a. I text rutan **förnamn** skriver du **första namnet** på användaren som **Britta**.
+    a. In the **First name** textbox, type **First name** of the user as **Britta**.
 
-    b. I text rutan **efter namn** skriver du användarens **efter namn** som **Simon**.
+    b. In the **Last name** textbox, type **Last name** of the user as **Simon**.
     
-    c. Skriv **e-postadressen** till användaren som **BrittaSimon\@contoso.com**i rutan **e-post** .
+    c. In the **Email** textbox, type **Email Address** of the user as **BrittaSimon\@contoso.com**.
 
     b. Klicka på **Lägg till**.
 
 >[!NOTE]
->Du kan använda andra verktyg för Mindflash av användar konton eller API: er som tillhandahålls av Mindflash för att etablera AAD-användarkonton. 
+>You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision Azure AD user accounts. 
 > 
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Mindflash på åtkomst panelen, bör du loggas in automatiskt på den Mindflash som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+When you click the Mindflash tile in the Access Panel, you should be automatically signed in to the Mindflash for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -223,5 +223,5 @@ När du klickar på panelen Mindflash på åtkomst panelen, bör du loggas in au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

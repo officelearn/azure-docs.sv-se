@@ -2,20 +2,20 @@
 title: ta med fil
 description: ta med fil
 services: notification-hubs
-author: spelluru
+author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 04/02/2018
-ms.author: spelluru
+ms.date: 11/07/2019
+ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: c15d695e072e72c6e7be6dcf49f3ea049a9b70b7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 520a0b4ec42b9a32fbd30c28c7ce311b5445f23d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187934"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260893"
 ---
-När du skickar meddelanden om mallar, behöver du bara ange en uppsättning egenskaper. I det här scenariot innehåller uppsättningen egenskaper den lokaliserade versionen av den aktuella nyheten.
+When you send template notifications, you only need to provide a set of properties. In this scenario, the set of properties contain the localized version of the current news.
 
 ```json
 {
@@ -25,17 +25,19 @@ När du skickar meddelanden om mallar, behöver du bara ange en uppsättning ege
 }
 ```
 
-### <a name="send-notifications-using-a-c-console-app"></a>Skicka meddelanden med hjälp av en C#-konsolapp
+### <a name="send-notifications-using-a-c-console-app"></a>Send notifications using a C# console app
 
-Det här avsnittet visar hur du skickar meddelanden med hjälp av en konsolapp. Koden skickar meddelanden till Windows Store- och iOS-enheter. Ändra metoden `SendTemplateNotificationAsync` i den konsolapp som du skapade tidigare med följande kod:
+This section shows how to send notifications using a console app. The code broadcasts notifications to both Windows Store and iOS devices. Ändra metoden `SendTemplateNotificationAsync` i den konsolapp som du skapade tidigare med följande kod:
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
 {
     // Define the notification hub.
-    NotificationHubClient hub = 
-        NotificationHubClient.CreateClientFromConnectionString(
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(
             "<connection string with full access>", "<hub name>");
+
+    // Apple requires the apns-push-type header for all requests
+    var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
 
     // Sending the notification as a template notification. All template registrations that contain 
     // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
@@ -64,11 +66,11 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-Metoden SendTemplateNotificationAsync levererar lokaliserade del av nyheter till **alla** dina enheter, oavsett plattformen. Din meddelandehubb bygger och levererar rätt interna nyttolasten för alla enheter som prenumererar på en specifik tagg.
+The SendTemplateNotificationAsync method delivers the localized piece of news to **all** your devices, irrespective of the platform. Your notification hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
 
-### <a name="sending-notification-with-mobile-services"></a>Skicka meddelanden med Mobile Services
+### <a name="sending-notification-with-mobile-services"></a>Sending notification with Mobile Services
 
-Använd följande skript i dina mobiltjänster-scheduler:
+In your Mobile Services scheduler, use the following script:
 
 ```csharp
 var azure = require('azure');

@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning från CloudSimple – Använd privat moln webbplats som värd för en virtuell Skriv bords infrastruktur med VMware-Horisont
-description: Beskriver hur du kan använda din CloudSimple privata moln webbplats som värd för en virtuell Skriv bords infrastruktur med VMware-Horisont
+title: Azure VMware Solution by CloudSimple - Use Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
+description: Describes how you can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,136 +8,136 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8e5aeb63c54bd9ad71d5eb179fb93972468af4c0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972756"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206545"
 ---
-# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Använd CloudSimple privata moln webbplats som värd för en virtuell Skriv bords infrastruktur med VMware-Horisont
+# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Use CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
 
-Du kan använda din CloudSimple privata moln webbplats som värd för en virtuell Skriv bords infrastruktur (VDI) med VMware-Horisont 7. x. Följande bild visar den logiska lösnings arkitekturen för VDI.
+You can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure (VDI) using VMware Horizon 7.x. The following figure shows the logical solution architecture for the VDI.
 
-![Horisont distribution](media/horizon-deployment.png)
+![Horizon deployment](media/horizon-deployment.png)
 
-Med den här lösningen har du fullständig kontroll över Horisont View Manager och app-volym. De välkända gränssnitts-, API-och CLI-gränssnitten möjliggör användning av befintliga skript och verktyg.
+With this solution, you have full control over Horizon View Manager and App Volume. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools.
 
-CloudSimple-lösningen kräver att du gör följande:
+The CloudSimple solution requires you to do the following:
 
-* Installera, konfigurera och hantera VMware-Horisont 7. x i ditt privata moln.
-* Ange dina egna Horisont licenser.
+* Install, configure, and manage VMware Horizon 7.x in your Private Cloud.
+* Provide your own Horizon licenses.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-I följande avsnitt beskrivs hur du distribuerar en VDI-lösning med hjälp av Horisont i ditt privata moln.
+The following sections describe how to deploy a VDI solution using Horizon in your Private Cloud.
 
-1. [Kontrol lera att VMware-produktsortiment är kompatibla](#verify-that-vmware-product-versions-are-compatible)
-2. [Uppskatta storleken på din Skriv bords miljö](#estimate-the-size-of-your-desktop-environment)
-3. [Skapa ett privat moln för din miljö](#create-a-private-cloud-for-your-environment)
-4. [Installera VMware-Horisont i ditt privata moln](#install-vmware-horizon-in-your-private-cloud)
+1. [Verify that VMware product versions are compatible](#verify-that-vmware-product-versions-are-compatible)
+2. [Estimate the size of your desktop environment](#estimate-the-size-of-your-desktop-environment)
+3. [Create a Private Cloud for your environment](#create-a-private-cloud-for-your-environment)
+4. [Install VMware Horizon in your Private Cloud](#install-vmware-horizon-in-your-private-cloud)
 
-### <a name="verify-that-vmware-product-versions-are-compatible"></a>Kontrol lera att VMware-produktsortiment är kompatibla
+### <a name="verify-that-vmware-product-versions-are-compatible"></a>Verify that VMware product versions are compatible
 
-* Kontrol lera att dina aktuella och planerade versioner av Horisont, app-volymer, Unified Access Gateway och User Environment Manager är kompatibla med varandra och med vCenter och PSC i det privata molnet. Kompatibilitetsinformation finns i [VMware Compatibility Matrix för horisont 7,5](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=).
-* Om du vill ta reda på de aktuella versionerna av vCenter och PSC i ditt privata moln går du till **resurser** i [CloudSimple-portalen](access-cloudsimple-portal.md), väljer ditt privata moln och klickar på fliken **vSphere hanterings nätverk** .
+* Verify that your current and planned versions of Horizon, App Volumes, Unified Access Gateway, and User Environment Manager are compatible with each other and with vCenter and PSC in the Private Cloud. For compatibility information, see [VMware Compatibility Matrix for Horizon 7.5](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=).
+* To find out the current versions of vCenter and PSC in your Private Cloud, go to **Resources** in the [CloudSimple portal](access-cloudsimple-portal.md), select your Private Cloud, and click the **vSphere Management Network** tab.
 
-![vCenter-och PSC-versioner](media/private-cloud-vsphere-versions.png)
+![vCenter and PSC versions](media/private-cloud-vsphere-versions.png)
 
-### <a name="estimate-the-size-of-your-desktop-environment"></a>Uppskatta storleken på din Skriv bords miljö
+### <a name="estimate-the-size-of-your-desktop-environment"></a>Estimate the size of your desktop environment
 
-* Kontrol lera att din identifierade konfiguration är i drift gränser i VMware.
-* Beräkna de resurser som behövs på din DR-plats för att skydda din lokala miljö.
+* Verify that your identified configuration is within VMware operational limits.
+* Estimate the resources that are needed in your DR site to protect your on-premises environment.
 
-### <a name="create-a-private-cloud-for-your-environment"></a>Skapa ett privat moln för din miljö
+### <a name="create-a-private-cloud-for-your-environment"></a>Create a Private Cloud for your environment
 
-1. Skapa ett privat moln från CloudSimple-portalen genom att följa anvisningarna i [Konfigurera en privat moln miljö](quickstart-create-private-cloud.md).  CloudSimple skapar en standard-vCenter-användare med namnet "cloudowner" i varje nyligen skapat privat moln. Mer information om standard användar-och behörighets modellen för privata moln finns i [Lär dig mer om behörighets modellen för privata moln](learn-private-cloud-permissions.md).
-2. Skapa ett VLAN i ditt privata moln för Horisont hanterings planet och tilldela det en under näts CIDR. Instruktioner finns i [skapa och hantera VLAN/undernät](create-vlan-subnet.md). Detta är det nätverk där alla lösnings komponenter (Unified Access Gateway, anslutnings Server, app Volume Server och User Environment Manager-servrar) ska installeras.
-3. Bestäm om du vill använda en extern identitetsprovider med ditt privata moln vCenter. Om ja, Välj något av följande alternativ:
-    * Använd din lokala Active Directory som extern identitets leverantör. Instruktioner finns i [vCenter Identity sources](set-vcenter-identity.md).
-    * Konfigurera en Active Directory-server i det privata molnet i ett Horisont hanterings plan VLAN som ska användas som extern identitetsprovider. Instruktioner finns i [vCenter Identity sources](set-vcenter-identity.md).
-    * Konfigurera en DHCP-och DNS-server i Horisont Management plan VLAN i det privata molnet. Instruktioner finns i [Konfigurera DNS-och DHCP-program och arbets belastningar i ditt privata moln i CloudSimple](dns-dhcp-setup.md).
-4. Konfigurera DNS-vidarebefordran på den DNS-server som är installerad i det privata molnet. Instruktioner finns i [skapa en villkorlig vidarebefordrare](on-premises-dns-setup.md#create-a-conditional-forwarder).
+1. Create a Private Cloud from the CloudSimple portal by following the instructions in [Configure a Private Cloud environment](quickstart-create-private-cloud.md).  CloudSimple creates a default vCenter user named 'cloudowner' in every newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permissions model](learn-private-cloud-permissions.md).
+2. Create a VLAN in your Private Cloud for the Horizon management plane and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the solution components (Unified Access Gateway, Connection Server, App Volume Server, and User Environment Manager servers) will be installed.
+3. Decide if you want to use an external identity provider with your Private Cloud vCenter. If yes, choose one of these options:
+    * Use your on-premises Active Directory as the external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
+    * Set up an Active Directory server in the Private Cloud in Horizon management plane VLAN to use as your external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
+    * Set up a DHCP and DNS server in Horizon management plane VLAN in the Private Cloud. For instructions, see [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
+4. Configure DNS forwarding on the DNS server installed in the Private Cloud. For instructions, see [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
-### <a name="install-vmware-horizon-in-your-private-cloud"></a>Installera VMware-Horisont i ditt privata moln
+### <a name="install-vmware-horizon-in-your-private-cloud"></a>Install VMware Horizon in your Private Cloud
 
-Följande distributions diagram illustrerar en horisont lösning som distribueras i ett privat moln. Unified Access Gateway, AD/DC, View och app Volume Server installeras i ett användardefinierat VLAN 234. Unified Access Gateway har en tilldelad offentlig IP-adress som kan nås från Internet. Horisont Station ära datorer för virtuella datorer distribueras i VLAN 235 för att ge ytterligare isolering och säkerhet.
+The following deployment diagram depicts a Horizon solution deployed in a Private Cloud. Unified Access Gateway, AD/DC, View, and App Volume Server are installed in user-created VLAN 234. Unified Access Gateway has an assigned public IP address that is reachable from the Internet. Horizon desktop pool VMs are deployed in VLAN 235 to provide additional isolation and security.
 
-![Horisont distribution i det privata molnet](media/horizon-private-cloud.png)
+![Horizon deployment in the Private Cloud](media/horizon-private-cloud.png)
 
-I följande avsnitt beskrivs hur du konfigurerar en distribution som liknar den som illustreras i bilden. Innan du börjar ska du kontrol lera att du har följande:
+The following sections outline the instructions to set up a deployment similar to the one that is depicted in the figure. Before you begin, verify that you have the following:
 
-* Ett privat moln som skapats med CloudSimple-portalen och som har tillräckligt med kapacitet för att köra dina Skriv bords grupper.
-* Tillräcklig bandbredd mellan din lokala miljö och den privata moln miljön för att stödja nätverks trafiken för dina Skriv bord.
-* En plats-till-plats-VPN-tunnel som kon figurer ATS mellan ditt lokala data Center och det privata molnet.
-* IP-nåbarhet från slut användar under nät i din lokala miljö till CloudSimple privata moln under nät.
-* AD/DHCP/DNS har installerats för ditt privata moln.
+* A Private Cloud created using the CloudSimple portal with sufficient capacity to run your desktop pools.
+* Sufficient bandwidth between your on-premises environment and the Private Cloud environment to support the network traffic for your desktops.
+* A Site-to-Site VPN tunnel set up between your on-premises datacenter and the Private Cloud.
+* IP reachability from end-user subnets in your on-premises environment to the CloudSimple Private Cloud subnets.
+* AD/DHCP/DNS installed for your Private Cloud.
 
-#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>CloudSimple-Portal: Skapa ett dedikerat VLAN/undernät för Skriv bords grupper
+#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>CloudSimple portal: Create a dedicated VLAN/subnet for desktop pools
 
-Skapa ett virtuellt lokalt nätverk för Horisont-skrivbords bassänger och tilldela den till en under näts CIDR. Instruktioner finns i [skapa och hantera VLAN/undernät](create-vlan-subnet.md). Det här är det nätverk där alla virtuella dator datorer ska köras.
+Create a VLAN for the Horizon desktop pools and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the desktop virtual machines will run.
 
-Skydda din horisont distribution genom att följa standard metod tips för säkerhet:
+Follow standard security best practices to secure your Horizon deployment:
 
-* Tillåt endast fjärr skrivbords RDP-trafik/SSH-trafik till dina Station ära datorer.
-* Tillåt endast hanterings trafik mellan horisont hanterings plan VLAN och Desktop-pool-VLAN.
-* Tillåt endast hanterings trafik från lokala nätverk.
+* Allow only desktop RDP traffic / SSH traffic to your desktop VMs.
+* Allow only management traffic between Horizon management plane VLAN and desktop pool VLAN.
+* Allow only management traffic from on-premises network.
 
-Du kan använda dessa metod tips genom att konfigurera [brand Väggs regler](firewall.md) från CloudSimple-portalen.
+You can enforce these best practices by configuring [firewall rules](firewall.md) from the CloudSimple portal.
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>CloudSimple-Portal: Konfigurera brand Väggs regler för säker Horisont hanterings plan
+#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>CloudSimple portal: Configure firewall rules to secure Horizon management plane
 
-Konfigurera följande regler i CloudSimple-portalen. Instruktioner finns i [Konfigurera brand Väggs tabeller och regler](firewall.md).
+Set up the following rules in the CloudSimple portal. For instructions, see [Set up firewall tables and rules](firewall.md).
 
-1. Konfigurera brand Väggs regler i CloudSimple N-S-brandväggen för att tillåta kommunikation mellan lokala undernät och Horisont hanterings-VLAN så att bara de nätverks portar som anges i [listan över](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) VMware-dokuments Horisont är tillåtna.
+1. Configure firewall rules in the CloudSimple N-S firewall to allow communication between on-premises subnets and Horizon management VLAN so that only the network ports listed in the VMware document [Horizon port list](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) are allowed.
 
-2. Skapa E-W brand Väggs regler mellan horisont hanterings-VLAN och Desktop pool-VLAN i det privata molnet.
+2. Create E-W firewall rules between the Horizon management VLAN and desktop pool VLAN in the Private Cloud.
 
-#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>CloudSimple-Portal: Skapa en offentlig IP-adress för Unified Access Gateway
+#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>CloudSimple portal: Create a public IP address for Unified Access Gateway
 
-Skapa en offentlig IP-adress för den enhetliga åtkomst-gateway-enheten för att aktivera Skriv bords klient anslutningar från Internet. Anvisningar finns i [tilldela offentliga IP-adresser](public-ips.md).
+Create a public IP address for the Unified Access Gateway appliance to enable desktop client connections from the internet. For instructions, see [Allocate public IP addresses](public-ips.md).
 
-När installationen är klar tilldelas den offentliga IP-adressen och visas på sidan offentliga IP-adresser.
+When the setup is complete, the public IP address is assigned and listed on the Public IPs page.
 
-#### <a name="cloudsimple-portal-escalate-privileges"></a>CloudSimple-Portal: Eskalera privilegier
+#### <a name="cloudsimple-portal-escalate-privileges"></a>CloudSimple portal: Escalate privileges
 
-Standard användaren "cloudowner" har inte tillräckliga privilegier i det privata molnet vCenter för att installera horisont, så användarens vCenter-privilegier måste eskaleras. Mer information finns i [eskalera privilegier](escalate-private-cloud-privileges.md).
+The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install Horizon, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
 
-#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>vCenter-gränssnitt: Skapa en användare i privat moln för Horisont installation
+#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>vCenter UI: Create a user in Private Cloud for Horizon installation
 
-1. Logga in på vCenter med hjälp av cloudowner-användarautentiseringsuppgifter.
-2. Skapa en ny användare, "Horisont-soln-admin" i vCenter och Lägg till användaren i gruppen Administratörer i vCenter.
-3. Logga ut från vCenter som "cloudowner"-användare och logga in som "Horisont-soln-admin"-användare.
+1. Sign in to vCenter using the 'cloudowner' user credentials.
+2. Create a new user, 'horizon-soln-admin', in vCenter and add the user to the administrators group in vCenter.
+3. Sign out of vCenter as the 'cloudowner' user and sign in as the 'horizon-soln-admin' user.
 
-#### <a name="vcenter-ui-install-vmware-horizon"></a>vCenter-gränssnitt: Installera VMware-Horisont
+#### <a name="vcenter-ui-install-vmware-horizon"></a>vCenter UI: Install VMware Horizon
 
-Som nämnts i den tidigare logiska arkitektur-sektionen har Horisont lösningen följande komponenter:
+As mentioned in the earlier logical architecture section, Horizon solution has the following components:
 
-* Vyn VMware-Horisont
+* VMware Horizon View
 * VMware Unified Access Gateway
-* VMware app Volume Manager
+* VMware App Volume Manager
 * VMware User Environment Manager
 
-Installera komponenterna på följande sätt:
+Install the components as follows:
 
-1. Installera och konfigurera Unified Access Gateway genom att följa anvisningarna i VMware-dokumentet [distribuera och konfigurera VMware Unified Access Gateway](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html).
+1. Install and configure Unified Access Gateway by following the instructions provided in the VMware document [Deploying and Configuring VMware Unified Access Gateway](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html).
 
-2. Installera vyn Horisont i det privata molnet genom att följa anvisningarna i [Visa installations guide](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html).
+2. Install Horizon View in the Private Cloud by following the instructions in [View Installation Guide](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html).
 
-3. Installera app Volume Manager genom att följa anvisningarna i [Installera och konfigurera VMware-app-volymer](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html).
+3. Install App Volume Manager by following the instructions in [Install and Configure VMware App Volumes](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html).
 
-4. Installera och konfigurera användar miljö hanteraren genom att följa anvisningarna i [om hur du installerar och konfigurerar VMware User Environment Manager](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html).
+4. Install and configure User Environment Manager by following the instructions in [About Installing and Configuring VMware User Environment Manager](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html).
 
-#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>Skicka en support förfrågan om att ladda upp program volymer för förpaketerade VMware-Horisont
+#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>File a support request to upload VMware Horizon pre-packaged app volumes
 
-Som en del av installations processen använder app Volume Manager förpaketerade volymer för att etablera app-stackar och skrivbara volymer. Dessa volymer fungerar som mallar för app-stackar och skrivbara volymer.
+As a part of the installation process, App Volume Manager uses pre-packaged volumes to provision app stacks and writable volumes. These volumes serve as templates for app stacks and writable volumes.
 
-Att ladda upp volymerna till data lagret för det privata molnet kräver rot lösen ordet för ESXi. Om du behöver hjälp kan du skicka en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Bifoga AppVolumes Installer-paketet så att CloudSimple support personal kan ladda upp mallarna till din privata moln miljö.
+Uploading the volumes to the Private Cloud datastore requires the ESXi root password. For assistance, submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Attach the AppVolumes installer bundle so that CloudSimple support personnel can upload the templates to your Private Cloud environment.
 
-#### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple-Portal: Ta bort behörigheter för att eskalera
+#### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple portal: De-escalate privileges
 
-Du kan nu [](escalate-private-cloud-privileges.md#de-escalate-privileges) ta bort privilegierna för användaren ' cloudowner '.
+You can now [de-escalate the privileges](escalate-private-cloud-privileges.md#de-escalate-privileges) of the 'cloudowner' user.
 
-## <a name="ongoing-management-of-your-horizon-solution"></a>Kontinuerlig hantering av din horisont lösning
+## <a name="ongoing-management-of-your-horizon-solution"></a>Ongoing management of your Horizon solution
 
-Du har fullständig kontroll över horisont-och app Volume Manager-programvara i din privata moln miljö och förväntas utföra den nödvändiga hantering av program livs cykeln. Se till att alla nya program versioner är kompatibla med det privata molnets vCenter och PSC innan du uppdaterar eller uppgraderar Horisont-eller app-volym.
+You have full control over Horizon and App Volume Manager software in your Private Cloud environment and are expected to perform the necessary software lifecycle management. Ensure that any new versions of software are compatible with the Private Cloud vCenter and PSC before updating or upgrading Horizon or App Volume.

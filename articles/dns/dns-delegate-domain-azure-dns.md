@@ -1,18 +1,18 @@
 ---
-title: Självstudie – Använda Azure DNS som värd för din domän och underdomän
-description: Den här självstudien visar hur du konfigurerar Azure DNS för att vara värd för dina DNS-zoner.
+title: 'Tutorial: Host your domain and subdomain - Azure DNS'
+description: In this article, learn how to configure Azure DNS to host your DNS zones.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: allensu
+ms.openlocfilehash: 062a5beaec30d510d37af436e00f4d57785245cd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464218"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212218"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Självstudie: Använda Azure DNS som värd för din domän
 
@@ -32,22 +32,22 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
+You must have a domain name available to test with that you can host in Azure DNS . Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
-Exempel domänen som används för den här självstudien är contoso.net, men Använd ditt eget domän namn.
+The example domain used for this tutorial is contoso.net, but use your own domain name.
 
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
-1. Gå till [Azure Portal](https://portal.azure.com/) för att skapa en DNS-zon. Sök efter och välj **DNS-zoner**.
+1. Go to the [Azure portal](https://portal.azure.com/) to create a DNS zone. Search for and select **DNS zones**.
 
    ![DNS-zon](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
-1. Välj **Skapa DNS-zon**.
+1. Select **Create DNS zone**.
 1. På sidan **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
-   | **Inställning** | **Värde** | **Information** |
+   | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
    |**Namn**|[ditt domännamn] |Det domännamn som du har köpt. Den här självstudien använder contoso.net som ett exempel.|
    |**Prenumeration**|[Din prenumeration]|Välj den prenumeration där du vill skapa zonen.|

@@ -4,14 +4,8 @@ title: Dokumentation om Azure Notebooks
 metadata:
   title: Dokumentation om Azure Notebooks
   description: 'Lär dig hur du skapar, kör och delar Jupyter Notebooks via den värdbaserade tjänsten Azure Notebooks.'
-  services: notebooks
-  author: kraigb
-  manager: barbkess
-  ms.service: azure-notebooks
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 12/04/2018
-  ms.author: kraigb
 abstract:
   description: 'Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. Jupyter (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera markdown-text, körbar kod (Python, R, och F#), beständiga data, grafik och visualiseringar på en enda delbar arbetsyta som kallas en notebook-fil.'
 sections:

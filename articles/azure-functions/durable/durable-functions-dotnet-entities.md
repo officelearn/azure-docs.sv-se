@@ -1,41 +1,37 @@
 ---
-title: Guide för utvecklare till varaktiga entiteter i .NET-Azure Functions
-description: Så här arbetar du med varaktiga entiteter i .NET med Durable Functions-tillägget för Azure Functions.
-services: functions
+title: Developer's Guide to Durable Entities in .NET - Azure Functions
+description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
 author: sebastianburckhardt
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 74b013c9953974371957cc4d88439d20770d78a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904068"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231433"
 ---
-# <a name="developers-guide-to-durable-entities-in-net"></a>Guide för utvecklare till varaktiga entiteter i .NET
+# <a name="developers-guide-to-durable-entities-in-net"></a>Developer's guide to durable entities in .NET
 
-I den här artikeln beskrivs de tillgängliga gränssnitten för att utveckla beständiga entiteter med .NET i detalj, inklusive exempel och allmänna råd. 
+In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
 
-Enhets funktionerna ger programutvecklare utan server ett bekvämt sätt att organisera program tillstånd som en samling detaljerade entiteter. Mer information om underliggande koncept finns i artikeln [beständiga entiteter: begrepp](durable-functions-entities.md) .
+Entity functions provide serverless application developers with a convenient way to organize application state as a collection of fine-grained entities. For more detail about the underlying concepts, see the [Durable Entities: Concepts](durable-functions-entities.md) article.
 
-Vi erbjuder för närvarande två API: er för att definiera entiteter:
+We currently offer two APIs for defining entities:
 
-- Den **klassbaserade syntaxen** representerar entiteter och åtgärder som klasser och metoder. Den här syntaxen ger enkel läsbar kod och gör att åtgärder kan anropas på ett typ kontrollerat sätt via gränssnitt. 
+- The **class-based syntax** represents entities and operations as classes and methods. This syntax produces easily readable code and allows operations to be invoked in a type-checked manner through interfaces. 
 
-- Den **Function-baserade syntaxen** är ett gränssnitt på lägre nivå som representerar entiteter som funktioner. Den ger exakt kontroll över hur enhets åtgärderna skickas och hur enhetens tillstånd hanteras.  
+- The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched, and how the entity state is managed.  
 
-Den här artikeln fokuserar främst på den klassbaserade syntaxen, eftersom vi förväntar dig att den passar bättre för de flesta program. Den [Function-baserade syntaxen](#function-based-syntax) kan dock vara lämplig för program som vill definiera eller hantera egna abstraktioner för enhets tillstånd och åtgärder. Det kan också vara lämpligt för att implementera bibliotek som kräver allmänhet för närvarande inte stöds av den klassbaserade syntaxen. 
+This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) may be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
 
 > [!NOTE]
-> Den klassbaserade syntaxen är bara ett lager ovanpå den Function-baserade syntaxen så att båda variantarna kan användas i samma program. 
+> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application. 
  
-## <a name="defining-entity-classes"></a>Definiera enhets klasser
+## <a name="defining-entity-classes"></a>Defining entity classes
 
-Följande exempel är en implementering av en `Counter` entitet som lagrar ett enda värde av typen Integer, och som erbjuder fyra åtgärder `Add`, `Reset`, `Get`och `Delete`.
+The following example is an implementation of a `Counter` entity that stores a single value of type integer, and offers four operations `Add`, `Reset`, `Get`, and `Delete`.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -71,38 +67,38 @@ public class Counter
 }
 ```
 
-Funktionen `Run` innehåller den standard som krävs för att använda den klassbaserade syntaxen. Det måste vara en *statisk* Azure-funktion. Den körs en gång för varje åtgärds meddelande som bearbetas av entiteten. När `DispatchAsync<T>` anropas och entiteten inte redan finns i minnet, skapar den ett objekt av typen `T` och fyller i fälten från den senast beständiga JSON som finns i lagrings utrymmet (om det finns några). Sedan anropas metoden med det matchande namnet.
+The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
 
 > [!NOTE]
-> Statusen för en klassbaserade entitet **skapas implicit** innan enheten bearbetar en åtgärd och kan tas **bort explicit** i en åtgärd genom att anropa `Entity.Current.DeleteState()`.
+> The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
 
-### <a name="class-requirements"></a>Klass krav
+### <a name="class-requirements"></a>Class Requirements
  
-Enhets klasser är POCOs (vanliga gamla CLR-objekt) som inte kräver några särskilda superklasser, gränssnitt eller attribut. Ändå
+Entity classes are POCOs (plain old CLR objects) that require no special superclasses, interfaces, or attributes. However:
 
-- Klassen måste vara constructible (se [entitetens konstruktion](#entity-construction)).
-- Klassen måste vara JSON-serialiserbar (se [enhets serialisering](#entity-serialization)).
+- The class must be constructible (see [Entity construction](#entity-construction)).
+- The class must be JSON-serializable (see [Entity serialization](#entity-serialization)).
 
-Dessutom måste alla metoder som är avsedda att anropas som en åtgärd uppfylla ytterligare krav:
+Also, any method that is intended to be invoked as an operation must satisfy additional requirements:
 
-- En åtgärd måste ha högst ett argument och får inte ha några Överlagrings-eller generiska typ argument.
-- En åtgärd som är avsedd att anropas från ett dirigering som använder ett gränssnitt måste returnera `Task` eller `Task<T>`.
-- Argument och retur värden måste vara serialiserbara värden eller objekt.
+- An operation must have at most one argument, and must not have any overloads or generic type arguments.
+- An operation meant to be called from an orchestration using an interface must return `Task` or `Task<T>`.
+- Arguments and return values must be serializable values or objects.
 
-### <a name="what-can-operations-do"></a>Vad kan åtgärder göra?
+### <a name="what-can-operations-do"></a>What can operations do?
 
-Alla entitets åtgärder kan läsa och uppdatera enhetens tillstånd, och ändringar i statusen sparas automatiskt till lagringen. Dessutom kan åtgärder utföra externa I/O eller andra beräkningar inom de allmänna gränser som är gemensamma för alla Azure Functions.
+All entity operations can read and update the entity state, and changes to the state are automatically persisted to storage. Moreover, operations can perform external I/O or other computations, within the general limits common to all Azure Functions.
 
-Åtgärder har också till gång till funktioner som tillhandahålls av `Entity.Current`-kontexten:
+Operations also have access to functionality provided by the `Entity.Current` context:
 
-* `EntityName`: namnet på entiteten som körs för tillfället.
-* `EntityKey`: nyckeln för den entitet som körs för tillfället.
-* `EntityId`: ID: t för entiteten som körs för tillfället (innehåller namn och nyckel).
-* `SignalEntity`: skickar ett enkelriktat meddelande till en entitet.
-* `CreateNewOrchestration`: startar ett nytt dirigering.
-* `DeleteState`: tar bort den här entitetens tillstånd.
+* `EntityName`: the name of the currently executing entity.
+* `EntityKey`: the key of the currently executing entity.
+* `EntityId`: the ID of the currently executing entity (includes name and key).
+* `SignalEntity`: sends a one-way message to an entity.
+* `CreateNewOrchestration`: starts a new orchestration.
+* `DeleteState`: deletes the state of this entity.
 
-Vi kan till exempel ändra entiteten Counter så att den startar en dirigering när räknaren når 100 och skickar enhets-ID: t som ett indataargument:
+For example, we can modify the counter entity so it starts an orchestration when the counter reaches 100 and passes the entity ID as an input argument:
 
 ```csharp
     public void Add(int amount) 
@@ -115,16 +111,16 @@ Vi kan till exempel ändra entiteten Counter så att den startar en dirigering n
     }
 ```
 
-## <a name="accessing-entities-directly"></a>Åtkomst till entiteter direkt
+## <a name="accessing-entities-directly"></a>Accessing entities directly
 
-Klassbaserade entiteter kan nås direkt, med hjälp av explicita sträng namn för entiteten och dess åtgärder. Vi tillhandahåller några exempel nedan. en djupare förklaring av underliggande koncept (till exempel signaler eller anrop) finns i diskussionen i [Access-entiteter](durable-functions-entities.md#access-entities). 
+Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Access entities](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
-> Om möjligt rekommenderar vi [att du använder entiteter via gränssnitt](#accessing-entities-through-interfaces), eftersom det ger mer typ kontroll.
+> Where possible, we recommend [Accessing entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
 
-### <a name="example-client-signals-entity"></a>Exempel: klient Signals-entitet
+### <a name="example-client-signals-entity"></a>Example: client signals entity
 
-Följande Azure http-funktion implementerar en BORTTAGNINGs åtgärd med hjälp av REST-konventioner. Den skickar en Delete-signal till räknar enheten vars nyckel skickas i URL-sökvägen.
+The following Azure Http Function implements a DELETE operation using REST conventions. It sends a delete signal to the counter entity whose key is passed in the URL path.
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -139,9 +135,9 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-### <a name="example-client-reads-entity-state"></a>Exempel: klienten läser enhets tillstånd
+### <a name="example-client-reads-entity-state"></a>Example: client reads entity state
 
-Följande Azure http-funktion implementerar en GET-åtgärd med hjälp av REST-konventioner. Den läser det aktuella läget för den räknar entitet vars nyckel skickas i URL-sökvägen.
+The following Azure Http Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
 
 ```csharp
 [FunctionName("GetCounter")]
@@ -157,11 +153,11 @@ public static async Task<HttpResponseMessage> GetCounter(
 ```
 
 > [!NOTE]
-> Objektet som returneras av `ReadEntityStateAsync` är bara en lokal kopia, det vill säga en ögonblicks bild av enhets statusen från en tidigare tidpunkt. I synnerhet kan det vara inaktuellt, och om du ändrar det här objektet påverkas inte den faktiska entiteten. 
+> The object returned by `ReadEntityStateAsync` is just a local copy, that is, a snapshot of the entity state from some earlier point in time. In particular, it may be stale, and modifying this object has no effect on the actual entity. 
 
-### <a name="example-orchestration-first-signals-then-calls-entity"></a>Exempel: Orchestration First Signals och anropar sedan entiteten
+### <a name="example-orchestration-first-signals-then-calls-entity"></a>Example: orchestration first signals, then calls entity
 
-Följande dirigering signalerar en Counter-entitet för att öka den och anropar sedan samma entitet för att läsa det senaste värdet.
+The following orchestration signals a counter entity to increment it, and then calls the same entity to read its latest value.
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -180,11 +176,11 @@ public static async Task<int> Run(
 }
 ```
 
-## <a name="accessing-entities-through-interfaces"></a>Komma åt entiteter via gränssnitt
+## <a name="accessing-entities-through-interfaces"></a>Accessing entities through interfaces
 
-Gränssnitt kan användas för att komma åt entiteter via genererade proxyobjekt. Den här metoden säkerställer att namnet och argument typen för en åtgärd matchar vad som implementeras. Vi rekommenderar att du använder gränssnitt för att komma åt entiteter när det är möjligt.
+Interfaces can be used for accessing entities via generated proxy objects. This approach ensures that the name and argument type of an operation matches what is implemented. We recommend using interfaces for accessing entities whenever possible.
 
-Vi kan till exempel ändra Counter-exemplet enligt följande:
+For example, we can modify the counter example as follows:
 
 ```csharp
 public interface ICounter
@@ -201,13 +197,13 @@ public class Counter : ICounter
 }
 ```
 
-Enhets klasser och enhets gränssnitt liknar kärnor och kornig het som är populära av [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). Mer information om likheter och skillnader mellan varaktiga entiteter och Orleans finns i [jämförelse med virtuella aktörer](durable-functions-entities.md#comparison-with-virtual-actors).
+Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#comparison-with-virtual-actors).
 
-Förutom att tillhandahålla typ kontroll är gränssnitten användbara för en bättre uppdelning av problem i programmet. Till exempel, eftersom en entitet kan implementera flera gränssnitt, kan en enskild entitet betjäna flera roller. Eftersom ett gränssnitt kan implementeras av flera entiteter kan dessutom allmänna kommunikations mönster implementeras som återanvändbara bibliotek.
+Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
 
-### <a name="example-client-signals-entity-through-interface"></a>Exempel: klient Signals-entitet via gränssnitt
+### <a name="example-client-signals-entity-through-interface"></a>Example: client signals entity through interface
 
-Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface`. Exempel:
+Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. Exempel:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -222,15 +218,15 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-I det här exemplet är `proxy`-parametern en dynamiskt genererad instans av `ICounter`, som internt översätter anropet till `Delete` till en signal.
+In this example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Delete` into a signal.
 
 > [!NOTE]
-> `SignalEntityAsync`-API: er kan endast användas för enkelriktade åtgärder. Även om en åtgärd returnerar `Task<T>`, kommer värdet för parametern `T` alltid vara null eller `default`, inte det faktiska resultatet.
-Det är till exempel inte meningsfullt att signalera `Get` åtgärden eftersom inget värde returneras. Klienter kan i stället använda antingen `ReadStateAsync` för att få åtkomst till räknar statusen direkt, eller så kan starta en Orchestrator-funktion som anropar `Get`-åtgärden. 
+> The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
+For example, it doesn't make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
 
-### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Exempel: dirigerar första signaler och anropar sedan entitet via proxy
+### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Example: orchestration first signals, then calls entity through proxy
 
-Om du vill anropa eller signalera en entitet från ett Orchestration-objekt kan `CreateEntityProxy` användas, tillsammans med gränssnitts typen, för att generera en proxy för entiteten. Den här proxyn kan sedan användas för att anropa eller signalera åtgärder:
+To call or signal an entity from within an orchestration, `CreateEntityProxy` can be used, along with the interface type, to generate a proxy for the entity. This proxy can then be used to call or signal operations:
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -250,39 +246,39 @@ public static async Task<int> Run(
 }
 ```
 
-Implicit, alla åtgärder som returnerar `void` signaleras och alla åtgärder som returnerar `Task` eller `Task<T>` anropas. En kan ändra det här standard beteendet och signal åtgärder även om de returnerar uppgiften, genom att använda metoden `SignalEntity<IInterfaceType>` uttryckligen.
+Implicitly, any operations that return `void` are signaled, and any operations that return `Task` or `Task<T>` are called. One can change this default behavior, and signal operations even if they return Task, by using the `SignalEntity<IInterfaceType>` method explicitly.
 
-### <a name="shorter-option-for-specifying-the-target"></a>Kortare alternativ för att ange målet
+### <a name="shorter-option-for-specifying-the-target"></a>Shorter option for specifying the target
 
-När du anropar eller signalerar en entitet med ett gränssnitt måste det första argumentet ange målentiteten. Målet kan anges antingen genom att ange entitets-ID eller, i de fall där det bara finns en klass som implementerar entiteten, bara enhets nyckeln:
+When calling or signaling an entity using an interface, the first argument must specify the target entity. The target can be specified either by specifying the entity ID, or, in cases where there's just one class that implements the entity, just the entity key:
 
 ```csharp
 context.SignalEntity<ICounter>(new EntityId(nameof(Counter), "myCounter"), ...);
 context.SignalEntity<ICounter>("myCounter", ...);
 ```
 
-Om endast enhets nyckeln har angetts och det inte går att hitta en unik implementering vid körning, genereras `InvalidOperationException`. 
+If only the entity key is specified and a unique implementation can't be found at runtime, `InvalidOperationException` is thrown. 
 
-### <a name="restrictions-on-entity-interfaces"></a>Begränsningar för enhets gränssnitt
+### <a name="restrictions-on-entity-interfaces"></a>Restrictions on entity interfaces
 
-Som vanligt måste alla parametrar och retur typer vara JSON-serialiserbar. Annars utlöses serialiserade undantag vid körning.
+As usual, all parameter and return types must be JSON-serializable. Otherwise, serialization exceptions are thrown at runtime.
 
-Vi tillämpar också vissa ytterligare regler:
-* Enhets gränssnitt får bara definiera metoder.
-* Enhets gränssnitt får inte innehålla generiska parametrar.
-* Enhets gränssnitts metoder får inte ha mer än en parameter.
-* Enhets gränssnitts metoder måste returnera `void`, `Task`eller `Task<T>` 
+We also enforce some additional rules:
+* Entity interfaces must only define methods.
+* Entity interfaces must not contain generic parameters.
+* Entity interface methods must not have more than one parameter.
+* Entity interface methods must return `void`, `Task`, or `Task<T>` 
 
-Om någon av dessa regler överträds, genereras en `InvalidOperationException` vid körning när gränssnittet används som ett typ argument för att `SignalEntity` eller `CreateProxy`. I undantags meddelandet förklaras vilken regel som har brutits.
+If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message explains which rule was broken.
 
 > [!NOTE]
-> Gränssnitts metoder som returnerar `void` kan bara signaleras (envägs), inte anropas (dubbelriktat). Gränssnitts metoder som returnerar `Task` eller `Task<T>` kan antingen anropas eller signaleras. Om den anropas, returnerar de resultatet av åtgärden eller återskapar undantag som har utlösts av åtgärden. Men när en signal skickas returnerar de inte det faktiska resultatet eller undantaget från åtgärden, utan bara standardvärdet.
+> Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
 
-## <a name="entity-serialization"></a>Enhets serialisering
+## <a name="entity-serialization"></a>Entity serialization
 
-Eftersom status för en entitet är varaktigt, måste entitets klassen serialiseras. Durable Functions runtime använder [JSON.net](https://www.newtonsoft.com/json) -biblioteket för det här syftet, som har stöd för ett antal principer och attribut för att kontrol lera serialiseringen och avserialiserings processen. De vanligaste C# data typerna (inklusive matriser och samlings typer) är redan serialiserbara och kan enkelt användas för att definiera statusen för varaktiga entiteter.
+Since the state of an entity is durably persisted, the entity class must be serializable. The Durable Functions runtime uses the [Json.NET](https://www.newtonsoft.com/json) library for this purpose, which supports a number of policies and attributes to control the serialization and deserialization process. Most commonly used C# data types (including arrays and collection types) are already serializable, and can easily be used for defining the state of durable entities.
 
-Json.NET kan till exempel enkelt serialisera och deserialisera följande klass:
+For example, Json.NET can easily serialize and deserialize the following class:
 
 ```csharp
 [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
@@ -311,13 +307,13 @@ public class User
 }
 ```
 
-### <a name="serialization-attributes"></a>Attribut för serialisering
+### <a name="serialization-attributes"></a>Serialization Attributes
 
-I exemplet ovan valde vi att inkludera flera attribut för att göra den underliggande serialiseringen tydligare:
-- Vi kommenterar klassen med `[JsonObject(MemberSerialization.OptIn)]` för att påminna oss om att klassen måste vara serialiserbar, och att endast spara medlemmar som uttryckligen marker ATS som JSON-egenskaper.
--  Vi kommenterar fälten som ska sparas med `[JsonProperty("name")]` för att påminna oss om att ett fält är en del av det beständiga enhets läget och att ange det egenskaps namn som ska användas i JSON-representationen.
+In the example above, we chose to include several attributes to make the underlying serialization more visible:
+- We annotate the class with `[JsonObject(MemberSerialization.OptIn)]` to remind us that the class must be serializable, and to persist only members that are explicitly marked as JSON properties.
+-  We annotate the fields to be persisted with `[JsonProperty("name")]` to remind us that a field is part of the persisted entity state, and to specify the property name to be used in the JSON representation.
 
-Dessa attribut är dock inte obligatoriska. andra konventioner eller attribut är tillåtna så länge de fungerar med Json.NET. Till exempel kan en använda `[DataContract]` attribut eller inga attribut alls:
+However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one may use `[DataContract]` attributes, or no attributes at all:
 
 ```csharp
 [DataContract]
@@ -335,29 +331,29 @@ public class Counter
 }
 ```
 
-Som standard lagras *inte* namnet på klassen som en del av JSON-representationen: det vill säga att vi använder `TypeNameHandling.None` som standardinställning. Det här standard beteendet kan åsidosättas med hjälp av `JsonObject` eller `JsonProperty` attribut.
+By default, the name of the class is *not* stored as part of the JSON representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
 
-### <a name="making-changes-to-class-definitions"></a>Göra ändringar i klass definitioner
+### <a name="making-changes-to-class-definitions"></a>Making changes to class definitions
 
-En del Försiktighet krävs när du gör ändringar i en klass definition efter att ett program har körts, eftersom det inte längre är säkert att det lagrade JSON-objektet matchar den nya klass definitionen. Det är ofta möjligt att ta itu med att ändra data format så länge som en upprättar deserialiserings processen som används av `JsonConvert.PopulateObject`.
+Some care is required when making changes to a class definition after an application has been run, because the stored JSON object may no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
 
-Här följer några exempel på ändringar och deras inverkan:
+For example, here are some examples of changes and their effect:
 
-1. Om en ny egenskap läggs till, som inte finns i den lagrade JSON-filen, förutsätts dess standardvärde.
-1. Om en egenskap tas bort, som finns i den lagrade JSON-filen, går det tidigare innehållet förlorat.
-1. Om du byter namn på en egenskap är resultatet som om du tar bort den gamla och lägger till en ny.
-1. Om typen för en egenskap ändras så att den inte längre kan avserialiseras från den lagrade JSON-filen genereras ett undantag.
-1. Om typen för en egenskap ändras, men den fortfarande kan avserialiseras från den lagrade JSON-filen, kommer den att göra det.
+1. If a new property is added, which is not present in the stored JSON, it assumes its default value.
+1. If a property is removed, which is present in the stored JSON, the previous content is lost.
+1. If a property is renamed, the effect is as if removing the old one and adding a new one.
+1. If the type of a property is changed so it can no longer be deserialized from the stored JSON, an exception is thrown.
+1. If the type of a property is changed, but it can still be deserialized from the stored JSON, it will do so.
 
-Det finns många tillgängliga alternativ för att anpassa beteendet för Json.NET. Om du till exempel vill framtvinga ett undantag om den lagrade JSON-filen innehåller ett fält som inte finns i klassen, anger du attributet `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. Det är också möjligt att skriva anpassad kod för deserialisering som kan läsa JSON som lagras i godtyckligt format.
+There are many options available for customizing the behavior of Json.NET. For example, to force an exception if the stored JSON contains a field that is not present in the class, specify the attribute `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. It is also possible to write custom code for deserialization that can read JSON stored in arbitrary formats.
 
-## <a name="entity-construction"></a>Enhets konstruktion
+## <a name="entity-construction"></a>Entity construction
 
-Ibland vill vi utöva mer kontroll över hur enhets objekt konstrueras. Nu beskriver vi flera alternativ för att ändra standard beteendet när du konstruerar objekt i entiteten. 
+Sometimes we want to exert more control over how entity objects are constructed. We now describe several options for changing the default behavior when constructing entity objects. 
 
-### <a name="custom-initialization-on-first-access"></a>Anpassad initiering vid första åtkomst
+### <a name="custom-initialization-on-first-access"></a>Custom initialization on first access
 
-Ibland behöver vi utföra vissa särskilda initieringar innan de skickar en åtgärd till en entitet som aldrig har använts, eller som har tagits bort. Om du vill ange det här beteendet kan du lägga till ett villkor före `DispatchAsync`:
+Occasionally we need to perform some special initialization before dispatching an operation to an entity that has never been accessed, or that has been deleted. To specify this behavior, one can add a conditional before the `DispatchAsync`:
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -371,11 +367,11 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-### <a name="bindings-in-entity-classes"></a>Bindningar i entitets klasser
+### <a name="bindings-in-entity-classes"></a>Bindings in entity classes
 
-Till skillnad från vanliga funktioner har klass metoder för entiteter inte direkt åtkomst till indata-och utgående bindningar. I stället måste bindnings data samlas in i deklarationen för ingångs punkt funktionen och sedan skickas till `DispatchAsync<T>`-metoden. Alla objekt som skickas till `DispatchAsync<T>` skickas automatiskt till konstruktorn för entity-klassen som ett argument.
+Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
 
-I följande exempel visas hur en `CloudBlobContainer` referens från [BLOB-databindningen](../functions-bindings-storage-blob.md#input) kan göras tillgänglig för en klass baserad entitet.
+The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob.md#input) can be made available to a class-based entity.
 
 ```csharp
 public class BlobBackedEntity
@@ -402,11 +398,11 @@ public class BlobBackedEntity
 }
 ```
 
-Mer information om bindningar i Azure Functions finns i dokumentationen för [Azure Functions-utlösare och bindningar](../functions-triggers-bindings.md) .
+For more information on bindings in Azure Functions, see the [Azure Functions Triggers and Bindings](../functions-triggers-bindings.md) documentation.
 
-### <a name="dependency-injection-in-entity-classes"></a>Beroende inmatning i entitets klasser
+### <a name="dependency-injection-in-entity-classes"></a>Dependency injection in entity classes
 
-Entitets klasser stöder [Azure Functions beroende insprutning](../functions-dotnet-dependency-injection.md). Följande exempel visar hur du registrerar en `IHttpClientFactory`-tjänst i en klass-baserad entitet.
+Entity classes support [Azure Functions Dependency Injection](../functions-dotnet-dependency-injection.md). The following example demonstrates how to register an `IHttpClientFactory` service into a class-based entity.
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
@@ -423,7 +419,7 @@ namespace MyNamespace
 }
 ```
 
-Följande kodfragment visar hur du införlivar den inmatade tjänsten i enhets klassen.
+The following snippet demonstrates how to incorporate the injected service into your entity class.
 
 ```csharp
 public class HttpEntity
@@ -451,16 +447,16 @@ public class HttpEntity
 ```
 
 > [!NOTE]
-> Undvik problem med serialisering genom att undanta fält som är avsedda att lagra inmatade värden från serialiseringen.
+> To avoid issues with serialization, make sure to exclude fields meant to store injected values from the serialization.
 
 > [!NOTE]
-> Till skillnad från när du använder konstruktorn för att använda konstruktorn i vanliga .NET-Azure Functions, *måste* funktions plats metoden för funktioner för klassbaserade entiteter deklareras `static`. Om du deklarerar en icke-statisk funktions start punkt kan det orsaka konflikter mellan den normala Azure Functions objekt initieraren och den varaktiga entitetens objekt initierare.
+> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point may cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
 
-## <a name="function-based-syntax"></a>Function-baserad syntax
+## <a name="function-based-syntax"></a>Function-based syntax
 
-Hittills har vi fokuserat på den klassbaserade syntaxen, eftersom vi förväntar sig att det passar bättre för de flesta program. Den Function-baserade syntaxen kan dock vara lämplig för program som vill definiera eller hantera egna abstraktioner för enhets tillstånd och åtgärder. Det kan också vara lämpligt när du implementerar bibliotek som kräver allmänhet för närvarande inte stöds av den klassbaserade syntaxen. 
+So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax. 
 
-Med den Function-baserade syntaxen hanterar entitets funktionen explicit åtgärds sändningen och hanterar explicit status för entiteten. Följande kod visar till exempel den *räknar* enhet som implementeras med hjälp av den Function-baserade syntaxen.  
+With the function-based syntax, the Entity Function explicitly handles the operation dispatch, and explicitly manages the state of the entity. For example, the following code shows the *Counter* entity implemented using the function-based syntax.  
 
 ```csharp
 [FunctionName("Counter")]
@@ -484,34 +480,34 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-### <a name="the-entity-context-object"></a>Entitetens kontext objekt
+### <a name="the-entity-context-object"></a>The entity context object
 
-Entitet-/regionsspecifika funktioner kan nås via ett kontext objekt av typen `IDurableEntityContext`. Detta kontext objekt är tillgängligt som en parameter för entitet-funktionen och via den asynkrona lokala egenskapen `Entity.Current`.
+Entity-specific functionality can be accessed via a context object of type `IDurableEntityContext`. This context object is available as a parameter to the entity function, and via the async-local property `Entity.Current`.
 
-Följande medlemmar ger information om den aktuella åtgärden och gör det möjligt för oss att ange ett retur värde. 
+The following members provide information about the current operation, and allow us to specify a return value. 
 
-* `EntityName`: namnet på entiteten som körs för tillfället.
-* `EntityKey`: nyckeln för den entitet som körs för tillfället.
-* `EntityId`: ID: t för entiteten som körs för tillfället (innehåller namn och nyckel).
-* `OperationName`: namnet på den aktuella åtgärden.
-* `GetInput<TInput>()`: hämtar indatamängden för den aktuella åtgärden.
-* `Return(arg)`: returnerar ett värde till den dirigering som anropade åtgärden.
+* `EntityName`: the name of the currently executing entity.
+* `EntityKey`: the key of the currently executing entity.
+* `EntityId`: the ID of the currently executing entity (includes name and key).
+* `OperationName`: the name of the current operation.
+* `GetInput<TInput>()`: gets the input for the current operation.
+* `Return(arg)`: returns a value to the orchestration that called the operation.
 
-Följande medlemmar hanterar status för entiteten (skapa, läsa, uppdatera, ta bort). 
+The following members manage the state of the entity (create, read, update, delete). 
 
-* `HasState`: huruvida entiteten finns, det har en viss status. 
-* `GetState<TState>()`: hämtar entitetens aktuella status. Om den inte redan finns skapas den.
-* `SetState(arg)`: skapar eller uppdaterar status för entiteten.
-* `DeleteState()`: tar bort status för entiteten, om den finns. 
+* `HasState`: whether the entity exists, that is, has some state. 
+* `GetState<TState>()`: gets the current state of the entity. If it does not already exist, it is created.
+* `SetState(arg)`: creates or updates the state of the entity.
+* `DeleteState()`: deletes the state of the entity, if it exists. 
 
-Om det tillstånd som returneras av `GetState` är ett objekt, kan det ändras direkt av program koden. Du behöver inte anropa `SetState` igen i slutet (men inte heller ingen skada). Om `GetState<TState>` anropas flera gånger måste samma typ användas.
+If the state returned by `GetState` is an object, it can be directly modified by the application code. There is no need to call `SetState` again at the end (but also no harm). If `GetState<TState>` is called multiple times, the same type must be used.
 
-Slutligen används följande medlemmar för att signalera andra entiteter eller starta nya dirigeringar:
+Finally, the following members are used to signal other entities, or start new orchestrations:
 
-* `SignalEntity(EntityId, operation, input)`: skickar ett enkelriktat meddelande till en entitet.
-* `CreateNewOrchestration(orchestratorFunctionName, input)`: startar ett nytt dirigering.
+* `SignalEntity(EntityId, operation, input)`: sends a one-way message to an entity.
+* `CreateNewOrchestration(orchestratorFunctionName, input)`: starts a new orchestration.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om entitets-koncept](durable-functions-entities.md)
+> [Learn about entity concepts](durable-functions-entities.md)

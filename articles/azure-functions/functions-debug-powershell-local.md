@@ -1,39 +1,34 @@
 ---
-title: Felsöka PowerShell Azure Functions lokalt
-description: Lär dig hur du utvecklar funktioner med hjälp av PowerShell.
-services: functions
-documentationcenter: na
+title: Debug PowerShell Azure Functions locally
+description: Understand how to develop functions by using PowerShell.
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 5b396ef6b00d53a313ed4fb426685c12e2c1549d
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 36d15858e1fb535189891303a89b00021027f1e8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981849"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227043"
 ---
-# <a name="debug-powershell-azure-functions-locally"></a>Felsöka PowerShell Azure Functions lokalt
+# <a name="debug-powershell-azure-functions-locally"></a>Debug PowerShell Azure Functions locally
 
-Med Azure Functions kan du utveckla dina funktioner som PowerShell-skript.
+Azure Functions lets you develop your functions as PowerShell scripts.
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Du kan felsöka PowerShell-funktioner lokalt på samma sätt som du gör med PowerShell-skript med hjälp av följande standard utvecklings verktyg:
+You can debug your PowerShell functions locally as you would any PowerShell scripts using the following standard development tools:
 
-* [Visual Studio Code](https://code.visualstudio.com/): Microsofts kostnads fria och lätta text redigerare med öppen källkod med PowerShell-tillägget som ger en fullständig PowerShell-utvecklings upplevelse.
-* En PowerShell-konsol: Felsök med samma kommandon som du använder för att felsöka andra PowerShell-processer.
+* [Visual Studio Code](https://code.visualstudio.com/): Microsoft's free, lightweight, and open-source text editor with the PowerShell extension that offers a full PowerShell development experience.
+* A PowerShell console: Debug using the same commands you would use to debug any other PowerShell process.
 
-[Azure Functions Core tools](functions-run-local.md) stöder lokal fel sökning av Azure Functions, inklusive PowerShell-funktioner.
+[Azure Functions Core Tools](functions-run-local.md) supports local debugging of Azure Functions, including PowerShell functions.
 
-## <a name="example-function-app"></a>Exempel på Function-app
+## <a name="example-function-app"></a>Example function app
 
-Function-appen som används i den här artikeln har en enda HTTP-utlöst funktion och har följande filer:
+The function app used in this article has a single HTTP triggered function and has the following files:
 
 ```
 PSFunctionApp
@@ -45,9 +40,9 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Den här funktions appen liknar den som du får när du slutför snabb starten av [PowerShell](functions-create-first-function-powershell.md).
+This function app is similar to the one you get when you complete the [PowerShell quickstart](functions-create-first-function-powershell.md).
 
-Funktions koden i `run.ps1` ser ut som följande skript:
+The function code in `run.ps1` looks like the following script:
 
 ```powershell
 param($Request)
@@ -69,11 +64,11 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 })
 ```
 
-## <a name="set-the-attach-point"></a>Ange kopplings punkt
+## <a name="set-the-attach-point"></a>Set the attach point
 
-Om du vill felsöka en PowerShell-funktion måste funktionen stoppa för att fel söknings programmet ska kopplas. Cmdleten `Wait-Debugger` slutar att köras och väntar på fel sökning.
+To debug any PowerShell function, the function needs to stop for the debugger to be attached. The `Wait-Debugger` cmdlet stops execution and waits for the debugger.
 
-Allt du behöver göra är att lägga till ett anrop till cmdleten `Wait-Debugger` strax ovanför `if`-instruktionen enligt följande:
+All you need to do is add a call to the `Wait-Debugger` cmdlet just above the `if` statement, as follows:
 
 ```powershell
 param($Request)
@@ -90,103 +85,103 @@ if($name) {
 # ...
 ```
 
-Fel sökning startar i `if`-instruktionen. 
+Debugging starts at the `if` statement. 
 
-Med `Wait-Debugger` på plats kan du nu felsöka funktionerna med hjälp av antingen Visual Studio Code eller en PowerShell-konsol.
+With `Wait-Debugger` in place, you can now debug the functions using either Visual Studio Code or a PowerShell console.
 
-## <a name="debug-in-visual-studio-code"></a>Fel sökning i Visual Studio Code
+## <a name="debug-in-visual-studio-code"></a>Debug in Visual Studio Code
 
-Om du vill felsöka PowerShell-funktionerna i Visual Studio Code måste du ha följande installerat:
+To debug your PowerShell functions in Visual Studio Code, you must have the following installed:
 
-* [PowerShell-tillägg för Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
+* [PowerShell extension for Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions-tillägg för Visual Studio Code](functions-create-first-function-vs-code.md)
-* [PowerShell Core 6,2 eller högre](/powershell/scripting/install/installing-powershell-core-on-windows)
+* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-När du har installerat dessa beroenden läser du in ett befintligt PowerShell Functions-projekt eller [skapar ditt första PowerShell Functions-projekt](functions-create-first-function-powershell.md).
-
->[!NOTE]
-> Om projektet inte har de konfigurationsfiler som behövs uppmanas du att lägga till dem.
-
-### <a name="set-the-powershell-version"></a>Ange PowerShell-version
-
-PowerShell-kärnan installeras sida vid sida med Windows PowerShell. Ange PowerShell Core som PowerShell-version som ska användas med PowerShell-tillägget för Visual Studio Code.
-
-1. Tryck på F1 för att Visa kommandots lastpall och Sök sedan efter `Session`.
-
-1. Välj **PowerShell: Visa session-menyn @ no__t-0.
-
-1. Om den **aktuella sessionen** inte är **PowerShell Core 6**väljer du **Switch för att: PowerShell Core 6 @ no__t-0.
-
-När du har en PowerShell-fil öppen visas den version som visas i grönt längst ned till höger i fönstret. Om du väljer den här texten visas även session-menyn. Mer information finns i [välja en version av PowerShell som ska användas med tillägget](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
-
-### <a name="start-the-function-app"></a>Starta Function-appen
-
-Kontrol lera att `Wait-Debugger` har angetts i den funktion där du vill koppla fel sökaren.  Med `Wait-Debugger` tillagd kan du felsöka din Function-app med Visual Studio Code.
-
-Välj **fel söknings** fönstret och sedan **koppla till PowerShell-funktionen**.
-
-![fel sökare](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
-
-Du kan också trycka på F5 för att starta fel sökningen.
-
-Åtgärden starta fel sökning utför följande aktiviteter:
-
-* Kör `func extensions install` i terminalen för att installera eventuella Azure Functions tillägg som krävs av din Function-app.
-* Kör `func host start` i terminalen för att starta Function-appen i functions-värden.
-* Koppla PowerShell-felsökaren till PowerShell-körnings utrymme i functions-körningen.
+After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](functions-create-first-function-powershell.md).
 
 >[!NOTE]
-> Du måste se till att PSWorkerInProcConcurrencyUpperBound är inställt på 1 för att säkerställa att fel söknings upplevelsen i Visual Studio Code fungerar korrekt. Detta är standardinställningen.
+> Should your project not have the needed configuration files, you are prompted to add them.
 
-När din Function-App körs behöver du en separat PowerShell-konsol för att anropa funktionen HTTP-utlöst.
+### <a name="set-the-powershell-version"></a>Set the PowerShell version
 
-I det här fallet är PowerShell-konsolen klienten. @No__t-0 används för att utlösa funktionen.
+PowerShell Core installs side by side with Windows PowerShell. Set PowerShell Core as the PowerShell version to use with the PowerShell extension for Visual Studio Code.
 
-Kör följande kommando i en PowerShell-konsol:
+1. Press F1 to display the command pallet, then search for `Session`.
+
+1. Choose **PowerShell: Show Session Menu**.
+
+1. If your **Current session** isn't **PowerShell Core 6**, choose **Switch to: PowerShell Core 6**.
+
+When you have a PowerShell file open, you see the version displayed in green at the bottom right of the window. Selecting this text also displays the session menu. To learn more, see the [Choosing a version of PowerShell to use with the extension](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
+
+### <a name="start-the-function-app"></a>Start the function app
+
+Verify that `Wait-Debugger` is set in the function where you want to attach the debugger.  With `Wait-Debugger` added, you can debug your function app using Visual Studio Code.
+
+Choose the **Debug** pane and then **Attach to PowerShell function**.
+
+![debugger](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
+
+You can also press the F5 key to start debugging.
+
+The start debugging operation does the following tasks:
+
+* Runs `func extensions install` in the terminal to install any Azure Functions extensions required by your function app.
+* Runs `func host start` in the terminal to start the function app in the Functions host.
+* Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime.
+
+>[!NOTE]
+> You need to ensure PSWorkerInProcConcurrencyUpperBound is set to 1 to ensure correct debugging experience in Visual Studio Code. This is the default.
+
+With your function app running, you need a separate PowerShell console to call the HTTP triggered function.
+
+In this case, the PowerShell console is the client. The `Invoke-RestMethod` is used to trigger the function.
+
+In a PowerShell console, run the following command:
 
 ```powershell
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Du märker att ett svar inte direkt returneras. Det beror på att `Wait-Debugger` har bifogat fel söknings programmet och PowerShell-körningen gick in i avbrotts läge så snart det kunde. Detta beror på BreakAll- [konceptet](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), som beskrivs senare. När du har tryckt på knappen `continue`, bryts fel sökaren nu på linjen direkt efter `Wait-Debugger`.
+You'll notice that a response isn't immediately returned. That's because `Wait-Debugger` has attached the debugger and PowerShell execution went into break mode as soon as it could. This is because of the [BreakAll concept](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), which is explained later. After you press the `continue` button, the debugger now breaks on the line right after `Wait-Debugger`.
 
-I det här läget är fel söknings programmet ansluten och du kan utföra alla vanliga fel söknings åtgärder. Mer information om hur du använder fel sökning i Visual Studio Code finns i [den officiella dokumentationen](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
+At this point, the debugger is attached and you can do all the normal debugger operations. For more information on using the debugger in Visual Studio Code, see [the official documentation](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
-När du har gått vidare och fullständigt anropar skriptet ser du att:
+After you continue and fully invoke your script, you'll notice that:
 
-* PowerShell-konsolen som gjorde `Invoke-RestMethod` returnerade ett resultat
-* Den integrerade PowerShell-konsolen i Visual Studio Code väntar på att ett skript ska köras
+* The PowerShell console that did the `Invoke-RestMethod` has returned a result
+* The PowerShell Integrated Console in Visual Studio Code is waiting for a script to be executed
 
-Senare när du anropar samma funktion bryts fel söknings verktyget i PowerShell-tillägget direkt efter `Wait-Debugger`.
+Later when you invoke the same function, the debugger in PowerShell extension breaks right after the `Wait-Debugger`.
 
-## <a name="debugging-in-a-powershell-console"></a>Fel sökning i en PowerShell-konsol
+## <a name="debugging-in-a-powershell-console"></a>Debugging in a PowerShell Console
 
 >[!NOTE]
-> Det här avsnittet förutsätter att du har läst [Azure Functions Core tools-dokument](functions-run-local.md) och vet hur du använder kommandot `func host start` för att starta din Function-app.
+> This section assumes you have read the [Azure Functions Core Tools docs](functions-run-local.md) and know how to use the `func host start` command to start your function app.
 
-Öppna en konsol, `cd` i katalogen för din Function-app och kör följande kommando:
+Open up a console, `cd` into the directory of your function app, and run the following command:
 
 ```sh
 func host start
 ```
 
-När Function-appen körs och `Wait-Debugger` på plats kan du ansluta till processen. Du behöver två fler PowerShell-konsoler.
+With the function app running and the `Wait-Debugger` in place, you can attach to the process. You do need two more PowerShell consoles.
 
-En av konsolerna fungerar som-klienten. Från detta anropar du `Invoke-RestMethod` för att utlösa funktionen. Du kan till exempel köra följande kommando:
+One of the consoles acts as the client. From this, you call `Invoke-RestMethod` to trigger the function. For example, you can run the following command:
 
 ```powershell
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Du ser att det inte returnerar något svar, vilket är ett resultat av `Wait-Debugger`. PowerShell-körnings utrymme väntar nu på att ett fel söknings program ska bifogas. Nu är det dags att bifoga.
+You'll notice that it doesn't return a response, which is a result of the `Wait-Debugger`. The PowerShell runspace is now waiting for a debugger to be attached. Let's get that attached.
 
-Kör följande kommando i den andra PowerShell-konsolen:
+In the other PowerShell console, run the following command:
 
 ```powershell
 Get-PSHostProcessInfo
 ```
 
-Den här cmdleten returnerar en tabell som ser ut som följande utdata:
+This cmdlet returns a table that looks like the following output:
 
 ```output
 ProcessName ProcessId AppDomainName
@@ -201,9 +196,9 @@ pwsh            32071 None
 pwsh            88785 None
 ```
 
-Anteckna `ProcessId` för objektet i tabellen med `ProcessName` som `dotnet`. Den här processen är din Function-app.
+Make note of the `ProcessId` for the item in the table with the `ProcessName` as `dotnet`. This process is your function app.
 
-Kör sedan följande kodfragment:
+Next, run the following snippet:
 
 ```powershell
 # This enters into the Azure Functions PowerShell process.
@@ -214,7 +209,7 @@ Enter-PSHostProcess -Id $ProcessId
 Debug-Runspace 1
 ```
 
-När den har startats bryts fel sökaren och ser ut ungefär så här:
+Once started, the debugger breaks and shows something like the following output:
 
 ```
 Debugging Runspace: Runspace1
@@ -227,29 +222,29 @@ At /Path/To/PSFunctionApp/HttpTriggerFunction/run.ps1:13 char:1
 [DBG]: [Process:49988]: [Runspace1]: PS /Path/To/PSFunctionApp>>
 ```
 
-Nu är du stoppad vid en Bryt punkt i [PowerShell-felsökaren](/powershell/module/microsoft.powershell.core/about/about_debuggers). Härifrån kan du utföra alla vanliga fel söknings åtgärder, stega, stega i, fortsätta, avsluta och andra. Om du vill se en fullständig uppsättning fel söknings kommandon som är tillgängliga i-konsolen kör du kommandona `h` eller `?`.
+At this point, you're stopped at a breakpoint in the [PowerShell debugger](/powershell/module/microsoft.powershell.core/about/about_debuggers). From here, you can do all of the usual debug operations,  step over, step into, continue, quit, and others. To see the complete set of debug commands available in the console, run the `h` or `?` commands.
 
-Du kan också ange Bryt punkter på den här nivån med cmdleten `Set-PSBreakpoint`.
+You can also set breakpoints at this level with the `Set-PSBreakpoint` cmdlet.
 
-När du fortsätter och har anropat skriptet fullständigt ser du att:
+Once you continue and fully invoke your script, you'll notice that:
 
-* PowerShell-konsolen där du körde `Invoke-RestMethod` har nu returnerat ett resultat.
-* PowerShell-konsolen där du körde `Debug-Runspace` väntar på att ett skript ska köras.
+* The PowerShell console where you executed `Invoke-RestMethod` has now returned a result.
+* The PowerShell console where you executed `Debug-Runspace` is waiting for a script to be executed.
 
-Du kan anropa samma funktion igen (med `Invoke-RestMethod` till exempel) och fel söknings verktyget bryts direkt efter kommandot `Wait-Debugger`.
+You can invoke the same function again (using `Invoke-RestMethod` for example) and the debugger breaks in right after the `Wait-Debugger` command.
 
-## <a name="considerations-for-debugging"></a>Att tänka på vid fel sökning
+## <a name="considerations-for-debugging"></a>Considerations for debugging
 
-Tänk på följande när du felsöker din funktions kod.
+Keep in mind the following issues when debugging your Functions code.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` kan orsaka att fel söknings programmet avbryts på oväntad plats
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` might cause your debugger to break in an unexpected place
 
-PowerShell-tillägget använder `Debug-Runspace`, vilket i sin tur använder PowerShell: s `BreakAll`-funktion. Den här funktionen instruerar PowerShell att stoppa vid det första kommandot som körs. Med det här beteendet får du möjlighet att ställa in Bryt punkter i fel söknings körnings utrymme.
+The PowerShell extension uses `Debug-Runspace`, which in turn relies on PowerShell's `BreakAll` feature. This feature tells PowerShell to stop at the first command that is executed. This behavior gives you the opportunity to set breakpoints within the debugged runspace.
 
-Azure Functions runtime kör några kommandon innan du faktiskt anropar ditt `run.ps1`-skript, så det är möjligt att fel söknings programmet slutar att fungera i `Microsoft.Azure.Functions.PowerShellWorker.psm1` eller `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
+The Azure Functions runtime runs a few commands before actually invoking your `run.ps1` script, so it's possible that the debugger ends up breaking within the `Microsoft.Azure.Functions.PowerShellWorker.psm1` or `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
 
-Om den här rasten inträffar kör du kommandot `continue` eller `c` för att hoppa över den här Bryt punkten. Sedan stoppar du den förväntade Bryt punkten.
+Should this break happen,  run the `continue` or `c` command to skip over this breakpoint. You then stop at the expected breakpoint.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utvecklar funktioner med hjälp av PowerShell finns i [Azure Functions PowerShell Developer Guide](functions-reference-powershell.md).
+To learn more about developing Functions using PowerShell, see [Azure Functions PowerShell developer guide](functions-reference-powershell.md).

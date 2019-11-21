@@ -1,6 +1,6 @@
 ---
-title: Hantera dina anslutna enheter på mitt konto Portal – Azure AD
-description: Visa och inaktivera dina anslutna enheter från sidan enheter i portalen mitt konto.
+title: Manage your connected devices from the My Account portal - Azure AD
+description: How to view and disable devices connected to your work or school account from the Devices page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,64 +12,64 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c0eb691abaabf09ae8f89354e1fdb6f18cf8e5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73804262"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233221"
 ---
-# <a name="manage-your-connected-devices-from-the-my-account-portal"></a>Hantera dina anslutna enheter från min konto Portal
+# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Manage devices connected to your work or school account from the Devices page
 
-På sidan **enheter** i **min konto** Portal kan du:
+From the **Devices** page of the **My Account** portal, you can:
 
-- Visa ditt arbets-eller skol konto – anslutna enheter.
+- View your work or school account-connected devices.
 
-- Inaktivera alla enheter som du inte längre äger, har tappat bort eller blivit stulna.
+- Disable any devices you no longer own, have lost, or that have been stolen.
 
-## <a name="view-your-connected-devices"></a>Visa dina anslutna enheter
+## <a name="view-your-connected-devices"></a>View your connected devices
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
+1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
-2. Välj **enheter** i det vänstra navigerings fönstret eller Välj länken **Hantera enheter** från **enhets** blocket.
+2. Select **Devices** from the left navigation pane or select the **Manage devices** link from the **Devices** block.
 
-    ![Sidan mitt konto, som visar markerade enheter länkar](media/my-account-portal/my-account-portal-devices.png)
+    ![My Account page, showing highlighted Devices links](media/my-account-portal/my-account-portal-devices.png)
 
-3. Granska informationen för dina anslutna enheter och se till att du känner igen dem.
+3. Review the information for your connected devices, making sure you recognize them all.
 
-    ![Sidan enhet, visar anslutna enheter](media/my-account-portal/my-account-portal-devices-page.png)
+    ![Device page, showing connected devices](media/my-account-portal/my-account-portal-devices-page.png)
 
-## <a name="disable-a-device"></a>Inaktivera en enhet
+## <a name="disable-a-device"></a>Disable a device
 
-Du kan när som helst inaktivera alla anslutna enheter. Detta är särskilt viktigt om en enhet inte är bekant för dig eller om en enhet tappas bort eller blir stulen. När du har inaktiverat en enhet kan den inte längre autentiseras av din organisation och kommer inte att kunna komma åt någon av organisationens resurser.
+You can disable any of your connected devices at any time. This is especially important if a device isn't familiar to you or if a device is lost or stolen. After you disable a device, it can no longer be authenticated by your organization, and will be unable to access any of your organization's resources.
 
 >[!Important]
->Om du inaktiverar en enhet av misstag finns det inget sätt att ångra den. Du måste kontakta din organisations administratör för att lägga till enheten igen.
+>If you disable a device by mistake, there's no way to undo it. You'll have to contact your organization's administrator to add the device again.
 
-1. Välj **inaktivera** från den enhet som du vill ta bort.
+1. Select **Disable** from the device you want to remove.
 
-    ![Sidan enhet med markerad inaktivera länk](media/my-account-portal/my-account-portal-devices-disable.png)
+    ![Device page with highlighted Disable link](media/my-account-portal/my-account-portal-devices-disable.png)
 
-2. Välj **Ja** för att bekräfta att du vill inaktivera enheten.
+2. Select **Yes** to confirm you want to disable the device.
 
-## <a name="view-a-bitlocker-key"></a>Visa en BitLocker-nyckel
+## <a name="view-a-bitlocker-key"></a>View a BitLocker key
 
-Om du är utelåst från din enhet eller har ett allvarligt fel kan du gå till en annan enhet och visa din BitLocker-nyckel från portalen **mitt konto** .
+If you're locked out of your device or have a fatal error, you can go to another device and view your BitLocker key from the **My Account** portal.
 
-1. På en annan enhet, där du inte är utelåst, går du till sidan **enheter** i portalen **mitt konto** .
+1. On another device, where you're not locked out, go to the **Devices** page of the **My Account** portal.
 
-    ![Sidan enhet med BitLocker-nyckel alternativ](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+    ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Välj **Visa BitLocker-nycklar** för den låsta enheten och skriv ner BitLocker-nyckeln för den låsta enheten.
+2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har visat dina anslutna enheter kan du:
+After viewing your connected devices, you can:
 
-- Välj om du vill visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
+- Select to view or manage your [security info](user-help-security-info-overview.md).
 
-- Visa och hantera dina [organisationer](my-account-portal-organizations-page.md).
+- View and manage your [organizations](my-account-portal-organizations-page.md).
 
-- Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

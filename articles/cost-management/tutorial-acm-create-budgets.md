@@ -1,130 +1,130 @@
 ---
-title: Självstudie – skapa och hantera Azure budgetar | Microsoft Docs
-description: Den här självstudien hjälper plan och kontot för kostnaderna för Azure-tjänster som du förbrukar.
+title: Tutorial - Create and manage Azure budgets | Microsoft Docs
+description: This tutorial helps plan and account for the costs of Azure services that you consume.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c4de8b0d78d66709d13526c69f9d33b16dbad1dc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: edb46bc361c515439a93d9c3d0b9987bebe4b1b1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010227"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229883"
 ---
-# <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudie: Skapa och hantera budgetar för Azure
+# <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Create and manage Azure budgets
 
-Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter att proaktivt hantera kostnader och övervaka hur utgifter fortskrider över tid. När budgetgränser som du har skapat överskrids utlöses endast meddelanden. Ingen av dina resurser som påverkas och förbrukning stoppats inte. Du kan använda budgetar för att jämföra och spåra utgifter som du analysera kostnaderna.
+Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. They help you inform others about their spending to proactively manage costs, and to monitor how spending progresses over time. When the budget thresholds you've created are exceeded, only notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs.
 
-Kostnader och användnings data är vanligt vis tillgängliga inom 12-16 timmar och budgetar utvärderas mot dessa kostnader var fjärde timme. E-postaviseringar tas normalt emot inom 12-16 timmar.
+Cost and usage data is typically available within 12-16 hours and budgets are evaluated against these costs every four hours. Email notifications are normally received within 12-16 hours.
 
-Budgetar återställa automatiskt i slutet av en viss (månadsvis, Kvartalsvis eller årligen) för samma budgetbelopp när du väljer ett förfallodatum i framtiden. Eftersom de återställa med samma budgetbelopp, måste du skapa separata budgetar när budgeterade valutabelopp skiljer sig åt för framtida perioder.
+Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
 
-Exemplen i den här självstudiekursen beskriver hur du skapar och redigerar en budget för en prenumeration på Azure Enterprise Agreement (EA).
+The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
 
-Se [hur du skapar en budget för att övervaka dina utgifter med Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) video för att se hur du kan skapa budgetar i Azure för att övervaka utgifter.
+Watch the [How to create a budget to monitor your spending with Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) video to see how you can create budgets in Azure to monitor spending.
 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en budget i Azure portal
-> * Redigera en budget
+> * Create a budget in the Azure portal
+> * Edit a budget
 
 ## <a name="prerequisites"></a>Krav
 
-Budgetar stöds för olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa budgetar måste du ha minst Läs behörighet för ditt Azure-konto.
+Budgets are supported for a variety of Azure account types. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). To view budgets, you need at least read access for your Azure account.
 
- För Azure EA-prenumerationer måste du ha Läs behörighet för att Visa budgetar. För att skapa och hantera budgetar, måste du ha behörigheten deltagare. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Du kan dock skapa budgetar för EA fakturering konton.
+ For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission. You can create individual budgets for EA subscriptions and resource groups. However, you cannot create budgets for EA billing accounts.
 
-Följande Azure-behörigheter, eller omfattningar, stöds per prenumeration för budgetar per användare och grupp. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+The following Azure permissions, or scopes, are supported per subscription for budgets by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Ägare – Kan skapa, ändra och ta bort budgetar för en prenumeration.
-- Deltagare och kostnadshantering deltagare – kan skapa, ändra eller ta bort egna budgetar. Kan ändra budgetbeloppet för budgetar som skapats av andra.
-- Läsare och kostnadshantering läsare – kan visa dig som de har behörighet att.
+- Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Kan ändra budgetbeloppet för budgetar som skapats av andra.
+- Reader and Cost Management reader – Can view budgets that they have permission to.
 
-Läs mer om att tilldela behörighet till Cost Management-data, [tilldela åtkomst till Cost Management data](assign-access-acm-data.md).
+For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 - Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="create-a-budget-in-the-azure-portal"></a>Skapa en budget i Azure portal
+## <a name="create-a-budget-in-the-azure-portal"></a>Create a budget in the Azure portal
 
-Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Ditt navigerings innehåll i Azure Portal avgör om du skapar en budget för en prenumeration eller för en hanterings grupp.
+You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a management group.
 
-Om du vill skapa eller Visa en budget öppnar du önskad omfattning i Azure Portal och väljer **budgetar** i menyn. Du kan till exempel navigera till **prenumerationer**, välja en prenumeration i listan och sedan välja **budgetar** i menyn. Använd **omfånget** Pill för att växla till ett annat omfång, t. ex. en hanterings grupp, i budgetar. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+To create or view a budget, open the desired scope in the Azure portal and select **Budgets** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope, like a management group, in Budgets. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-När du har skapat din budget visar de en enkel vy över dina aktuella utgifter mot dessa.
+After you create budgets, they show a simple view of your current spending against them.
 
 Klicka på **Lägg till**.
 
-![Exempel som visar en lista över budgetar som redan har skapats](./media/tutorial-acm-create-budgets/budgets01.png)
+![Example showing a list of budgets already created](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Kontrol lera att det angivna definitions området är korrekt i fönstret **skapa budget** . Välj de filter som du vill lägga till. Med filter kan du skapa budgetar för vissa kostnader, till exempel resurs grupper i en prenumeration eller tjänst som virtuella datorer. Alla filter som du kan använda i kostnads analyser kan också tillämpas på en budget.
+In the **Create budget** window, make sure that the scope shown is correct. Choose any filters that you want to add. Filters allow you to create budgets on specific costs, such as resource groups in a subscription or a service like virtual machines. Any filter you can use in cost analysis can also be applied to a budget.
 
-När du har identifierat ditt omfång och filter anger du ett budget namn. Välj sedan en månatlig, kvartals Visa eller årlig budget återställnings period. Den här återställnings perioden bestämmer tids perioden som analyseras av budgeten. Kostnaden som utvärderas av budgeten börjar vid noll i början av varje ny period. När du skapar en kvartalsvis budget, fungerar den på samma sätt som en månatlig budget. Skillnaden är budgetbeloppet för kvartalet som fördelas jämnt mellan de tre månaderna av kvartalet. En årlig budget mängd delas jämnt mellan alla 12 månader från kalender året.
+After you've identified your scope and filters, type a budget name. Then, choose a monthly, quarterly or annual budget reset period. This reset period determines the time window that's analyzed by the budget. The cost evaluated by the budget starts at zero at the beginning of each new period. When you create a quarterly budget, it works in the same way as a monthly budget. The difference is that the budget amount for the quarter is evenly divided among the three months of the quarter. An annual budget amount is evenly divided among all 12 months of the calendar year.
 
-Om du har en prenumeration enligt principen betala per användning, MSDN eller Visual Studio kan fakturerings fakturerings perioden inte justeras till kalender månaden. För dessa prenumerations typer och resurs grupper kan du skapa en budget som är justerad till din faktura period eller kalender månader. Om du vill skapa en budget justerad till din faktura period väljer du en återställnings period för **fakturerings månad**, **fakturerings kvartal**eller **fakturerings år**. Om du vill skapa en budget justerad till kalender månaden väljer du en återställnings period på **varje månad**, **kvartals vis**eller **varje år**.
+If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those subscription types and resource groups, you can create a budget that's aligned to your invoice period or to calendar months. To create a budget aligned to your invoice period, select a reset period of **Billing month**, **Billing quarter**, or **Billing year**. To create a budget aligned to the calendar month, select a reset period of **Monthly**, **Quarterly**, or **Annually**.
 
-Sedan identifierar du förfallo datumet då budgeten blir ogiltig och slutar utvärdera dina kostnader.
+Next, identify the expiration date when the budget becomes invalid and stops evaluating your costs.
 
-Baserat på de fält som valts i budgeten så långt visas ett diagram som hjälper dig att välja ett tröskelvärde som ska användas för din budget. Den föreslagna budgeten baseras på den högsta prognostiserade kostnaden som du kan ådra dig i framtida perioder. Du kan ändra budget beloppet.
+Based on the fields chosen in the budget so far, a graph is shown to help you select a threshold to use for your budget. The suggested budget is based on the highest forecasted cost that you might incur in future periods. You can change the budget amount.
 
-![Exempel som visar hur du skapar budget med månads kostnads data ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Example showing budget creation with monthly cost data ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-När du har konfigurerat budget beloppet klickar du på **Nästa** för att konfigurera budget aviseringar. Budgetar kräver minst en kostnad tröskelvärdet (% av budgeten) och en motsvarande e-postadress. Du kan också ta upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett budget tröskelvärde är uppfyllt tas e-postaviseringar normalt emot i mindre än 20 timmar. Mer information om meddelanden finns i [använda kostnads aviseringar](cost-mgt-alerts-monitor-usage-spending.md). I exemplet nedan skapas en e-postavisering när 90% av budgeten nås. Om du skapar en budget med budget-API: et kan du även tilldela roller till personer som ska ta emot aviseringar. Det finns inte stöd för att tilldela roller till personer i Azure Portal. Mer information om API: er för Azure-budgetar finns i [budget-API](/rest/api/consumption/budgets).
+After you configure the budget amount, click **Next** to configure budget alerts. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than 20 hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md). In the example below, an email alert gets generated when 90% of the budget is reached. If you create a budget with the Budgets API, you can also assign roles to people to receive alerts. Assigning roles to people isn't supported in the Azure portal. For more about the Azure budgets API, see [Budgets API](/rest/api/consumption/budgets).
 
-![Exempel som visar aviserings villkor](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
+![Example showing alert conditions](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-När du har skapat en budget, visas den i kostnadsanalys. Visa din budget i förhållande till din kostnadstrend är en av de första stegen när du börjar [analysera dina kostnader och utgifter](quick-acm-cost-analysis.md).
+After you create a budget, it is shown in cost analysis. Viewing your budget in relation to your spending trend is one of the first steps when you start to [analyze your costs and spending](quick-acm-cost-analysis.md).
 
-![Exempel budget och utgifter visas i kostnadsanalys](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Example budget and spending shown in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
-I exemplet ovan skapade du en budget för en prenumeration. Du kan också skapa en budget för en resursgrupp. Om du vill skapa en budget för en resursgrupp, navigerar du till **kostnadshantering + fakturering** &gt; **prenumerationer** &gt; Välj en prenumeration > **resurs grupper** > Välj en resursgrupp > **budgetar** > och sedan **Lägg till** en budget.
+In the preceding example, you created a budget for a subscription. However, you can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
 
-## <a name="trigger-an-action-group"></a>Utlös en åtgärds grupp
+## <a name="trigger-an-action-group"></a>Trigger an action group
 
-När du skapar eller redigerar en budget för en prenumeration eller resurs grupps omfång kan du konfigurera den så att den anropar en åtgärds grupp. Åtgärds gruppen kan utföra en rad olika åtgärder när ditt budget tröskelvärde är uppfyllt. Åtgärds grupper stöds för närvarande endast för prenumerations-och resurs grupps omfång. Mer information om åtgärds grupper finns [i skapa och hantera åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md). Mer information om hur du använder budget baserad automatisering med åtgärds grupper finns i [hantera kostnader med Azure-budgetar](../billing/billing-cost-management-budget-scenario.md).
-
-
-
-Om du vill skapa eller uppdatera åtgärds grupper klickar du på **Hantera åtgärds grupper** när du skapar eller redigerar en budget.
-
-![Exempel på hur du skapar en budget för att Visa hantera åtgärds grupper](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform a variety of different actions when your budget threshold is met. Action Groups are currently only supported for subscription and resource group scopes. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../billing/billing-cost-management-budget-scenario.md).
 
 
-Klicka sedan på **Lägg till åtgärds grupp** och skapa åtgärds gruppen.
+
+To create or update action groups, click **Manage action groups** while you're creating or editing a budget.
+
+![Example of creating a budget to show Manage action groups](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-![Bild av rutan Lägg till åtgärds grupp](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+Next, click **Add action group** and create the action group.
 
-När åtgärds gruppen har skapats stänger du rutan för att återgå till din budget.
 
-Konfigurera din budget att använda din åtgärds grupp när ett enskilt tröskelvärde uppfylls. Upp till fem olika tröskelvärden stöds.
+![Image of the Add action group box](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 
-![Exempel som visar val av åtgärds grupp för ett varnings villkor](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+After the action group is created, close the box to return to your budget.
 
-I följande exempel visas budget trösklarna inställt på 50%, 75% och 100%. Varje har kon figurer ATS för att utlösa de angivna åtgärderna i den angivna åtgärds gruppen.
+Configure your budget to use your action group when an individual threshold is met. Up to five different thresholds are supported.
 
-![Exempel som visar aviserings villkor som kon figurer ATS med olika åtgärds grupper och typ av åtgärder](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
+![Example showing action group selection for an alert condition](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
 
-Budget integrering med åtgärds grupper fungerar bara för åtgärds grupper som har det gemensamma varnings schemat inaktiverat. Mer information om hur du inaktiverar schemat finns [Hur gör jag för att aktivera det vanliga aviserings schemat?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+The following example shows budget thresholds set to 50%, 75% and 100%. Each is configured to trigger the specified actions within the designated action group.
+
+![Example showing alert conditions configured with various action groups and type of actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
+
+Budget integration with action groups only works for action groups that have the common alert schema disabled. For more information about disabling the schema, see [How do I enable the common alert schema?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en budget i Azure portal
-> * Redigera en budget
+> * Create a budget in the Azure portal
+> * Edit a budget
 
-Gå vidare till nästa självstudie för att skapa en återkommande exporten av cost management-data.
+Advance to the next tutorial to create a recurring export for your cost management data.
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera exporterade data](tutorial-export-acm-data.md)
+> [Create and manage exported data](tutorial-export-acm-data.md)

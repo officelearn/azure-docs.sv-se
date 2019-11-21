@@ -1,5 +1,5 @@
 ---
-title: Använda en privat Helm-lagringsplats i Azure dev Spaces
+title: How to use a private Helm repository in Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,38 +7,38 @@ author: zr-msft
 ms.author: zarhoads
 ms.date: 08/22/2019
 ms.topic: conceptual
-description: Använd en privat Helm-lagringsplats i ett Azure dev-utrymme.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare, Helm
+description: Use a private Helm repository in an Azure Dev Space.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers, Helm
 manager: gwallace
-ms.openlocfilehash: d0f2cb739a502d614ac329eef1fc57b2fb15cb38
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
-ms.translationtype: MT
+ms.openlocfilehash: 23c96dade4d8917fae64337a9584fb9c6d410b68
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014521"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229061"
 ---
-# <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Använda en privat Helm-lagringsplats i Azure dev Spaces
+# <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Use a private Helm repository in Azure Dev Spaces
 
-[Helm][helm] är en paket hanterare för Kuberentes. Helm använder ett [diagram][helm-chart] format för att paketera beroenden. Helm-diagram lagras i en lagrings plats, som kan vara offentliga eller privata. Azure dev Spaces hämtar bara Helm-diagram från offentliga databaser när programmet körs. I de fall där Helm-lagringsplatsen är privat eller om Azure dev Spaces inte kan komma åt den, kan du lägga till ett diagram från lagrings platsen direkt i ditt program. Genom att lägga till diagrammet direkt kan Azure dev-Spaces köra ditt program utan att behöva komma åt den privata Helm-lagringsplatsen.
+[Helm][helm] is a package manager for Kuberentes. Helm uses a [chart][helm-chart] format to package dependencies. Helm charts are stored in a repository, which can be public or private. Azure Dev Spaces only retrieves Helm charts from public repositories when running your application. In cases where the Helm repository is private or Azure Dev Spaces can't access it, you can add a chart from that repository directly to your application. Adding the chart directly lets Azure Dev Spaces run your application without having to access the private Helm repository.
 
-## <a name="add-the-private-helm-repository-to-your-local-machine"></a>Lägg till den privata Helm-lagringsplatsen på din lokala dator
+## <a name="add-the-private-helm-repository-to-your-local-machine"></a>Add the private Helm repository to your local machine
 
-Använd [Helm lagrings platsen Add][helm-repo-add] och [Helm lagrings platsen Update][helm-repo-update] för att få åtkomst till den privata Helm-lagringsplatsen från den lokala datorn.
+Use [helm repo add][helm-repo-add] and [helm repo update][helm-repo-update] to access the private Helm repository from your local machine.
 
 ```cmd
 helm repo add privateRepoName http://example.com/helm/v1/repo --username user --password 5tr0ng_P@ssw0rd!
 helm repo update
 ```
 
-## <a name="add-the-chart-to-your-application"></a>Lägg till diagrammet i ditt program
+## <a name="add-the-chart-to-your-application"></a>Add the chart to your application
 
-Navigera till projekt katalogen och kör `azds prep`.
+Navigate to your project's directory and run `azds prep`.
 
 ```cmd
 azds prep --public
 ```
 
-Skapa en yaml-fil för [krav.][helm-requirements] med ditt diagram i programmets diagram katalog. Om ditt program till exempel heter *APP1*, skulle du skapa *diagram/APP1/krav. yaml*.
+Create a [requirements.yaml][helm-requirements] file with your chart in your application's chart directory. For example, if your application is named *app1*, you would create *charts/app1/requirements.yaml*.
 
 ```yaml
 dependencies:
@@ -47,19 +47,19 @@ dependencies:
       repository:  http://example.com/helm/v1/repo
 ```
 
-Navigera till programmets diagram katalog och Använd Helm- [beroende uppdatering][helm-dependency-update] för att uppdatera Helm-beroenden för ditt program och ladda ned diagrammet från den privata lagrings platsen.
+Navigate to your application's chart directory and use [helm dependency update][helm-dependency-update] to update the Helm dependencies for your application and download the chart from the private repository.
 
 ```cmd
 helm dependency update
 ```
 
-Verifiera en under katalog i *diagram* med en *tgz* -fil som har lagts till i programmets diagram katalog. Till exempel *Charts/APP1/Charts/mychart-0.1.0. tgz*.
+Verify a *charts* subdirectory with a *tgz* file has been added to your application's chart directory. For example, *charts/app1/charts/mychart-0.1.0.tgz*.
 
-Diagrammet från din privata Helm-lagringsplats har laddats ned och lagts till i projektet. Ta bort filen *Requirements. yaml* så att dev Spaces inte försöker uppdatera detta beroende.
+The chart from your private Helm repository has been downloaded and added to your project. Remove the *requirements.yaml* file so that Dev Spaces won't try to update this dependency.
 
-## <a name="run-your-application"></a>Kör programmet
+## <a name="run-your-application"></a>Köra ditt program
 
-Navigera till rot katalogen för projektet och kör `azds up` för att kontrol lera att programmet har körts i ditt utvecklings utrymme.
+Navigate to the root directory of your project and run `azds up` to verify your application successfully runs in your dev space.
 
 ```cmd
 $ azds up
@@ -76,11 +76,11 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [Helm och hur det fungerar][helm].
+Learn more about [Helm and how it works][helm].
 
 [helm]: https://docs.helm.sh
-[helm-chart]: https://helm.sh/docs/developing_charts/
-[helm-dependency-update]: https://helm.sh/docs/helm/#helm-dependency-update
-[helm-repo-add]: https://helm.sh/docs/helm/#helm-repo-add
-[helm-repo-update]: https://helm.sh/docs/helm/#helm-repo-update
-[helm-requirements]: https://helm.sh/docs/developing_charts/#chart-dependencies
+[helm-chart]: https://helm.sh/docs/topics/charts/
+[helm-dependency-update]: https://v2.helm.sh/docs/helm/#helm-dependency-update
+[helm-repo-add]: https://v2.helm.sh/docs/helm/#helm-repo-add
+[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies

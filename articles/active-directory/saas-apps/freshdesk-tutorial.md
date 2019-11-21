@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med FreshDesk | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with FreshDesk | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FreshDesk.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e75a45bc4ccd2614520fda39e09996c2286bdbd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73155754"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227617"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Självstudie: Azure Active Directory integrering med FreshDesk
+# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Azure Active Directory integration with FreshDesk
 
 I den här självstudien lär du dig att integrera FreshDesk med Azure Active Directory (AD Azure).
 Genom att integrera FreshDesk med Azure AD får du följande fördelar:
@@ -202,7 +202,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -246,19 +246,19 @@ När det gäller FreshDesk är etablering en manuell aktivitet.
 
 2. På menyn längst upp klickar du på **Admin**.
 
-    ![Innehavaradministration](./media/freshdesk-tutorial/IC776772.png "Innehavaradministration")
+    ![Admin](./media/freshdesk-tutorial/IC776772.png "Admin")
 
 3. På fliken **Allmänna inställningar** klickar du på **Agenter**.
   
-    ![Aktörer](./media/freshdesk-tutorial/IC776773.png "Agenter")
+    ![Agents](./media/freshdesk-tutorial/IC776773.png "Agenter")
 
 4. Klicka på **Ny Agent**.
 
-    ![Ny agent](./media/freshdesk-tutorial/IC776774.png "Ny agent")
+    ![New Agent](./media/freshdesk-tutorial/IC776774.png "New Agent")
 
 5. I dialogrutan Agentinformation utför du följande steg:
 
-    ![Agent information](./media/freshdesk-tutorial/IC776775.png "Agent information")
+    ![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
 
     a. I textrutan **E-post** skriver du in Azure AD-e-postadressen för det Azure AD-konto som du vill etablera.
 
@@ -272,7 +272,7 @@ När det gäller FreshDesk är etablering en manuell aktivitet.
     >Azure AD-kontoinnehavaren får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det aktiveras.
     >
     >[!NOTE]
-    >Du kan använda andra verktyg eller API:er för Freshdesk-kontoskapande som tillhandahålls av Freshdesk för att etablera AAD-användarkonton till Freshdesk.
+    >You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision Azure AD user accounts to FreshDesk.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -286,5 +286,5 @@ När du klickar på FreshDesk-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

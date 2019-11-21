@@ -1,67 +1,67 @@
 ---
-title: Omvänd DNS för Azure-tjänster | Microsoft Docs
-description: Lär dig hur du konfigurerar omvänd DNS-sökning för tjänster som finns i Azure
+title: Reverse DNS for Azure services - Azure DNS
+description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
+author: asudbring
+manager: KumudD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
-ms.openlocfilehash: c33914fb404467a20a9799df9643e9702234c300
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: allensu
+ms.openlocfilehash: 550ba617dec0359fd7d4e0bc309e411095de0d1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224490"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211234"
 ---
-# <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurera omvänd DNS för tjänster som finns i Azure
+# <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configure reverse DNS for services hosted in Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Den här artikeln förklarar hur du konfigurerar omvänd DNS-sökning för tjänster som finns i Azure.
+This article explains how to configure reverse DNS lookups for services hosted in Azure.
 
-Tjänster i Azure använder IP-adresser som tilldelats av Azure och ägs av Microsoft. Dessa omvända DNS-poster (PTR-poster) måste skapas i motsvarande Microsoft-ägda zoner för omvänd DNS-sökning. Den här artikeln beskriver hur du gör detta.
+Services in Azure use IP addresses assigned by Azure and owned by Microsoft. These reverse DNS records (PTR records) must be created in the corresponding Microsoft-owned reverse DNS lookup zones. This article explains how to do this.
 
-Det här scenariot ska inte förväxlas med möjligheten att vara [värd för zoner för omvänd DNS-sökning för dina tilldelade IP-intervall i Azure DNS](dns-reverse-dns-hosting.md). I det här fallet måste IP-intervallen som representeras av zonen för omvänd sökning tilldelas till din organisation, vanligt vis av din Internet leverantör.
+This scenario should not be confused with the ability to [host the reverse DNS lookup zones for your assigned IP ranges in Azure DNS](dns-reverse-dns-hosting.md). In this case, the IP ranges represented by the reverse lookup zone must be assigned to your organization, typically by your ISP.
 
-Innan du läser den här artikeln bör du känna till den här [översikten över omvänd DNS och support i Azure](dns-reverse-dns-overview.md).
+Before reading this article, you should be familiar with this [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
 
-I Azure DNS exponeras beräknings resurser (till exempel virtuella datorer, skalnings uppsättningar för virtuella datorer eller Service Fabric kluster) via en PublicIpAddress-resurs. Omvänd DNS-sökning konfigureras med egenskapen "ReverseFqdn" för PublicIpAddress.
-
-
-Omvänd DNS stöds inte för närvarande för Azure App Service.
-
-## <a name="validation-of-reverse-dns-records"></a>Validering av omvända DNS-poster
-
-En tredje part bör inte kunna skapa omvända DNS-poster för deras Azure-tjänst mappning till dina DNS-domäner. För att förhindra detta kan Azure bara skapa en omvänd DNS-post där domän namnet som anges i den omvända DNS-posten är samma som, eller som kan matchas till, DNS-namnet eller IP-adressen för en PublicIpAddress eller en moln tjänst i samma Azure-prenumeration.
-
-Den här verifieringen utförs bara när den omvända DNS-posten har angetts eller ändrats. Regelbunden omautentisering utförs inte.
-
-Exempel: Antag att PublicIpAddress-resursen har DNS-namnet contosoapp1.northus.cloudapp.azure.com och IP-23.96.52.53. ReverseFqdn för PublicIpAddress kan anges som:
-* DNS-namnet för PublicIpAddress, contosoapp1.northus.cloudapp.azure.com
-* DNS-namnet för en annan PublicIpAddress i samma prenumeration, till exempel contosoapp2.westus.cloudapp.azure.com
-* Ett anpassad DNS-namn, till exempel app1.contoso.com, så länge det här namnet *först* konfigureras som en CNAME till ContosoApp1.northus.cloudapp.Azure.com, eller till en annan PublicIpAddress i samma prenumeration.
-* Ett anpassad DNS-namn, till exempel app1.contoso.com, så länge det här namnet *först* konfigureras som en A-post till IP-23.96.52.53 eller till IP-adressen för en annan PublicIpAddress i samma prenumeration.
-
-Samma begränsningar gäller för omvänd DNS för Cloud Services.
+In Azure DNS, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
 
 
-## <a name="reverse-dns-for-publicipaddress-resources"></a>Omvänd DNS för PublicIpAddress-resurser
+Reverse DNS is not currently supported for the Azure App Service.
 
-Det här avsnittet innehåller detaljerade anvisningar för hur du konfigurerar omvänd DNS för PublicIpAddress-resurser i distributions modellen för Resource Manager med hjälp av antingen Azure PowerShell, den klassiska Azure-CLI eller Azure CLI. Det finns för närvarande inte stöd för att konfigurera omvänd DNS för PublicIpAddress-resurser via Azure Portal.
+## <a name="validation-of-reverse-dns-records"></a>Validation of reverse DNS records
 
-Azure har för närvarande endast stöd för omvänd DNS för IPv4 PublicIpAddress-resurser. Det stöds inte för IPv6.
+A third party should not be able to create reverse DNS records for their Azure service mapping to your DNS domains. To prevent this, Azure only allows the creation of a reverse DNS record where domain name specified in the reverse DNS record is the same as, or resolves to, the DNS name or IP address of a PublicIpAddress or Cloud Service in the same Azure subscription.
 
-### <a name="add-reverse-dns-to-an-existing-publicipaddresses"></a>Lägg till omvänd DNS till en befintlig PublicIpAddresses
+This validation is only performed when the reverse DNS record is set or modified. Periodic re-validation is not performed.
+
+For example: suppose the PublicIpAddress resource has the DNS name contosoapp1.northus.cloudapp.azure.com and IP address 23.96.52.53. The ReverseFqdn for the PublicIpAddress can be specified as:
+* The DNS name for the PublicIpAddress, contosoapp1.northus.cloudapp.azure.com
+* The DNS name for a different PublicIpAddress in the same subscription, such as contosoapp2.westus.cloudapp.azure.com
+* A vanity DNS name, such as app1.contoso.com, so long as this name is *first* configured as a CNAME to contosoapp1.northus.cloudapp.azure.com, or to a different PublicIpAddress in the same subscription.
+* A vanity DNS name, such as app1.contoso.com, so long as this name is *first* configured as an A record to the IP address 23.96.52.53, or to the IP address of a different PublicIpAddress in the same subscription.
+
+The same constraints apply to reverse DNS for Cloud Services.
+
+
+## <a name="reverse-dns-for-publicipaddress-resources"></a>Reverse DNS for PublicIpAddress resources
+
+This section provides detailed instructions for how to configure reverse DNS for PublicIpAddress resources in the Resource Manager deployment model, using either Azure PowerShell, Azure classic CLI, or Azure CLI. Configuring reverse DNS for PublicIpAddress resources is not currently supported via the Azure portal.
+
+Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources. It is not supported for IPv6.
+
+### <a name="add-reverse-dns-to-an-existing-publicipaddresses"></a>Add reverse DNS to an existing PublicIpAddresses
 
 #### <a name="powershell"></a>PowerShell
 
-Så här uppdaterar du omvänd DNS till en befintlig PublicIpAddress:
+To update reverse DNS to an existing PublicIpAddress:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -69,7 +69,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
-Om du vill lägga till omvänd DNS till en befintlig PublicIpAddress som inte redan har ett DNS-namn, måste du också ange ett DNS-namn:
+To add reverse DNS to an existing PublicIpAddress that doesn't already have a DNS name, you must also specify a DNS name:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -81,13 +81,13 @@ Set-AzPublicIpAddress -PublicIpAddress $pip
 
 #### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
-Så här lägger du till omvänd DNS till en befintlig PublicIpAddress:
+To add reverse DNS to an existing PublicIpAddress:
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-Om du vill lägga till omvänd DNS till en befintlig PublicIpAddress som inte redan har ett DNS-namn, måste du också ange ett DNS-namn:
+To add reverse DNS to an existing PublicIpAddress that doesn't already have a DNS name, you must also specify a DNS name:
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
@@ -95,21 +95,21 @@ azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f con
 
 #### <a name="azure-cli"></a>Azure CLI
 
-Så här lägger du till omvänd DNS till en befintlig PublicIpAddress:
+To add reverse DNS to an existing PublicIpAddress:
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com.
 ```
 
-Om du vill lägga till omvänd DNS till en befintlig PublicIpAddress som inte redan har ett DNS-namn, måste du också ange ett DNS-namn:
+To add reverse DNS to an existing PublicIpAddress that doesn't already have a DNS name, you must also specify a DNS name:
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com --dns-name contosoapp1
 ```
 
-### <a name="create-a-public-ip-address-with-reverse-dns"></a>Skapa en offentlig IP-adress med omvänd DNS
+### <a name="create-a-public-ip-address-with-reverse-dns"></a>Create a Public IP Address with reverse DNS
 
-För att skapa en ny PublicIpAddress med egenskapen omvänd DNS redan angiven:
+To create a new PublicIpAddress with the reverse DNS property already specified:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -129,9 +129,9 @@ azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d conto
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
 ```
 
-### <a name="view-reverse-dns-for-an-existing-publicipaddress"></a>Visa omvänd DNS för en befintlig PublicIpAddress
+### <a name="view-reverse-dns-for-an-existing-publicipaddress"></a>View reverse DNS for an existing PublicIpAddress
 
-Så här visar du det konfigurerade värdet för en befintlig PublicIpAddress:
+To view the configured value for an existing PublicIpAddress:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -151,9 +151,9 @@ azure network public-ip show -n PublicIp -g MyResourceGroup
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
 ```
 
-### <a name="remove-reverse-dns-from-existing-public-ip-addresses"></a>Ta bort omvänd DNS från befintliga offentliga IP-adresser
+### <a name="remove-reverse-dns-from-existing-public-ip-addresses"></a>Remove reverse DNS from existing Public IP Addresses
 
-Ta bort en omvänd DNS-egenskap från en befintlig PublicIpAddress:
+To remove a reverse DNS property from an existing PublicIpAddress:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -176,83 +176,83 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 ```
 
 
-## <a name="configure-reverse-dns-for-cloud-services"></a>Konfigurera omvänd DNS för Cloud Services
+## <a name="configure-reverse-dns-for-cloud-services"></a>Configure reverse DNS for Cloud Services
 
-Det här avsnittet innehåller detaljerade anvisningar för hur du konfigurerar omvänd DNS för Cloud Services i den klassiska distributions modellen med hjälp av Azure PowerShell. Det finns inte stöd för att konfigurera omvänd DNS för Cloud Services via Azure Portal, den klassiska Azure-CLI eller Azure CLI.
+This section provides detailed instructions for how to configure reverse DNS for Cloud Services in the Classic deployment model, using Azure PowerShell. Configuring reverse DNS for Cloud Services is not supported via the Azure portal, Azure classic CLI, or Azure CLI.
 
-### <a name="add-reverse-dns-to-existing-cloud-services"></a>Lägg till omvänd DNS till befintlig Cloud Services
+### <a name="add-reverse-dns-to-existing-cloud-services"></a>Add reverse DNS to existing Cloud Services
 
-Så här lägger du till en omvänd DNS-post i en befintlig moln tjänst:
+To add a reverse DNS record to an existing Cloud Service:
 
 ```powershell
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
-### <a name="create-a-cloud-service-with-reverse-dns"></a>Skapa en moln tjänst med omvänd DNS
+### <a name="create-a-cloud-service-with-reverse-dns"></a>Create a Cloud Service with reverse DNS
 
-För att skapa en ny moln tjänst med egenskapen omvänd DNS redan angiven:
+To create a new Cloud Service with the reverse DNS property already specified:
 
 ```powershell
 New-AzureService –ServiceName "contosoapp1" –Location "West US" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
-### <a name="view-reverse-dns-for-existing-cloud-services"></a>Visa omvänd DNS för befintliga Cloud Services
+### <a name="view-reverse-dns-for-existing-cloud-services"></a>View reverse DNS for existing Cloud Services
 
-Så här visar du den omvända DNS-egenskapen för en befintlig moln tjänst:
+To view the reverse DNS property for an existing Cloud Service:
 
 ```powershell
 Get-AzureService "contosoapp1"
 ```
 
-### <a name="remove-reverse-dns-from-existing-cloud-services"></a>Ta bort omvänd DNS från befintliga Cloud Services
+### <a name="remove-reverse-dns-from-existing-cloud-services"></a>Remove reverse DNS from existing Cloud Services
 
-Så här tar du bort en omvänd DNS-egenskap från en befintlig moln tjänst:
+To remove a reverse DNS property from an existing Cloud Service:
 
 ```powershell
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
-### <a name="how-much-do-reverse-dns-records-cost"></a>Hur mycket kostar det att omvända DNS-poster?
+### <a name="how-much-do-reverse-dns-records-cost"></a>How much do reverse DNS records cost?
 
-De är kostnads fria!  Det kostar inget extra att omvända DNS-poster eller frågor.
+They're free!  There is no additional cost for reverse DNS records or queries.
 
-### <a name="will-my-reverse-dns-records-resolve-from-the-internet"></a>Kommer mina omvända DNS-poster att matchas från Internet?
+### <a name="will-my-reverse-dns-records-resolve-from-the-internet"></a>Will my reverse DNS records resolve from the internet?
 
-Ja. När du har angett egenskapen omvänd DNS för din Azure-tjänst hanterar Azure alla DNS-delegeringar och DNS-zoner som krävs för att säkerställa att omvänd DNS-post matchar alla Internet användare.
+Ja. Once you set the reverse DNS property for your Azure service, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all Internet users.
 
-### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Har standard omvända DNS-poster skapats för mina Azure-tjänster?
+### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Are default reverse DNS records created for my Azure services?
 
-Nej. Omvänd DNS är en valbar funktion. Inga standardvärden för omvänd DNS-poster skapas om du väljer att inte konfigurera dem.
+Nej. Reverse DNS is an opt-in feature. No default reverse DNS records are created if you choose not to configure them.
 
-### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>Vad är formatet för det fullständigt kvalificerade domän namnet (FQDN)?
+### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>What is the format for the fully-qualified domain name (FQDN)?
 
-FQDN anges i vidarebefordran och måste avslutas med en punkt (till exempel "app1.contoso.com.").
+FQDNs are specified in forward order, and must be terminated by a dot (for example, "app1.contoso.com.").
 
-### <a name="what-happens-if-the-validation-check-for-the-reverse-dns-ive-specified-fails"></a>Vad händer om verifierings kontrollen för den omvända DNS jag har angett Miss lyckas?
+### <a name="what-happens-if-the-validation-check-for-the-reverse-dns-ive-specified-fails"></a>What happens if the validation check for the reverse DNS I've specified fails?
 
-När den omvända DNS-valideringen Miss lyckas, Miss lyckas åtgärden att konfigurera den omvända DNS-posten. Korrigera det omvända DNS-värdet vid behov och försök igen.
+Where the reverse DNS validation check fails, the operation to configure the reverse DNS record fails. Correct the reverse DNS value as required, and retry.
 
-### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Kan jag konfigurera omvänd DNS för Azure App Service?
+### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Can I configure reverse DNS for Azure App Service?
 
-Nej. Omvänd DNS stöds inte för Azure App Service.
+Nej. Reverse DNS is not supported for the Azure App Service.
 
-### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Kan jag konfigurera flera omvända DNS-poster för min Azure-tjänst?
+### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Can I configure multiple reverse DNS records for my Azure service?
 
-Nej. Azure har stöd för en enda omvänd DNS-post för varje Azure-moln tjänst eller PublicIpAddress.
+Nej. Azure supports a single reverse DNS record for each Azure Cloud Service or PublicIpAddress.
 
-### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>Kan jag konfigurera omvänd DNS för IPv6 PublicIpAddress-resurser?
+### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>Can I configure reverse DNS for IPv6 PublicIpAddress resources?
 
-Nej. Azure har för närvarande endast stöd för omvänd DNS för IPv4 PublicIpAddress-resurser och Cloud Services.
+Nej. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources and Cloud Services.
 
-### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Kan jag skicka e-postmeddelanden till externa domäner från mina Azure Compute-tjänster?
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Can I send emails to external domains from my Azure Compute services?
 
-Den tekniska möjligheten att skicka e-post direkt från en Azure-distribution beror på prenumerations typen. Oavsett prenumerations typ rekommenderar Microsoft att använda betrodda e-posttjänster för att skicka utgående e-post. Mer information finns i [förbättrad Azure-säkerhet för att skicka e-post – November 2017 uppdatering](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
+The technical ability to send email directly from an Azure deployment depends on the subscription type. Regardless of subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For further details, see [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om omvänd DNS finns i [Omvänd DNS-sökning på Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Lär dig hur du kan vara [värd för zonen för omvänd sökning för det IP-adressintervall som tilldelas Internet leverantör i Azure DNS](dns-reverse-dns-for-azure-services.md).
+Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
 

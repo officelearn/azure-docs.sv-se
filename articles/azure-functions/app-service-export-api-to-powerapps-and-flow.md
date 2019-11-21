@@ -1,138 +1,132 @@
 ---
-title: Exportera en Azure-värdbaserad API till PowerApps och Microsoft Flow | Microsoft Docs
-description: Översikt över hur du exponerar ett API som finns i App Service till PowerApps och Microsoft Flow
-services: app-service
-author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
-ms.service: app-service
+title: Exporting an Azure-hosted API to PowerApps and Microsoft Flow
+description: Overview of how to expose an API hosted in App Service to PowerApps and Microsoft Flow
 ms.topic: conceptual
 ms.date: 12/15/2017
-ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: b12d1fec9b7852835d3d5b5346d64868d2ee8c46
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082849"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233080"
 ---
-# <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserad API till PowerApps och Microsoft Flow
+# <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exporting an Azure-hosted API to PowerApps and Microsoft Flow
 
-[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) är en tjänst för att skapa och använda anpassade affärsappar som ansluter till dina data och arbetar på olika plattformar. [Microsoft Flow](https://flow.microsoft.com/guided-learning/learning-introducing-flow/) är det enkelt att automatisera arbets flöden och affärs processer mellan dina favorit program och-tjänster. Både PowerApps och Microsoft Flow levereras med en mängd inbyggda anslutningar till data källor som Office 365, Dynamics 365, Salesforce med mera. I vissa fall vill app-och flödes byggare också ansluta till data källor och API: er som skapats av organisationen.
+[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) is a service for building and using custom business apps that connect to your data and work across platforms. [Microsoft Flow](/learn/modules/get-started-with-flow/index) makes it easy to automate workflows and business processes between your favorite apps and services. Both PowerApps and Microsoft Flow come with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. In some cases, app and flow builders also want to connect to data sources and APIs built by their organization.
 
-På samma sätt kan utvecklare som vill exponera sina API: er mer brett inom en organisation göra sina API: er tillgängliga för app-och flödes byggare. Det här avsnittet visar hur du exporterar ett API som skapats med [Azure Functions](../azure-functions/functions-overview.md) eller [Azure App Service](../app-service/overview.md). Det exporterade API: et blir en *anpassad anslutning*som används i PowerApps och Microsoft Flow precis som en inbyggd koppling.
+Similarly, developers that want to expose their APIs more broadly within an organization can make their APIs available to app and flow builders. This topic shows you how to export an API built with [Azure Functions](../azure-functions/functions-overview.md) or [Azure App Service](../app-service/overview.md). The exported API becomes a *custom connector*, which is used in PowerApps and Microsoft Flow just like a built-in connector.
 
 > [!IMPORTANT]
-> API-definitionerna som visas i den här artikeln stöds bara för [version 1. x av Azure Functions runtime](functions-versions.md#creating-1x-apps) och app Services appar. Version 2. x av Functions integreras med API Management för att skapa och underhålla OpenAPI-definitioner. Mer information finns i [skapa en openapi-definition för en funktion med Azure API Management](functions-openapi-definition.md). 
+> The API definition functionality shown in this article is only supported for [version 1.x of the Azure Functions runtime](functions-versions.md#creating-1x-apps) and App Services apps. Version 2.x of Functions integrates with API Management to create and maintain OpenAPI definitions. To learn more, see [Create an OpenAPI definition for a function with Azure API Management](functions-openapi-definition.md). 
 
-## <a name="create-and-export-an-api-definition"></a>Skapa och exportera en API-definition
-Innan du exporterar ett API måste du beskriva API: et med en OpenAPI-definition (tidigare kallad [Swagger](https://swagger.io/) -fil). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade. PowerApps och Microsoft Flow kan skapa anpassade anslutningar för valfri OpenAPI 2,0-definition. Azure Functions och Azure App Service har inbyggt stöd för att skapa, vara värd för och hantera OpenAPI-definitioner. Mer information finns i [hantera en RESTful-API med CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
-
-> [!NOTE]
-> Du kan också bygga anpassade anslutningar i PowerApps och Microsoft Flow användar gränssnitt, utan att använda en OpenAPI-definition. Mer information finns i [Registrera och använda en anpassad anslutning (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) och [Registrera och använda en anpassad anslutning (Microsoft Flow)](/power-automate/developer/register-custom-api).
-
-Exportera API-definitionen genom att följa dessa steg:
-
-1. Gå till Azure Functions eller något annat App Service program i [Azure Portal](https://portal.azure.com).
-
-    Om du använder Azure Functions väljer du din Function-app, väljer **plattforms funktioner**och sedan **API-definition**.
-
-    ![Azure Functions API-definition](media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png)
-
-    Om du använder Azure App Service väljer du **API-definition** från listan Inställningar.
-
-    ![App Service API-definition](media/app-service-export-api-to-powerapps-and-flow/api-definition-app.png)
-
-2. Knappen **Exportera till PowerApps + Microsoft Flow** bör vara tillgänglig (om inte, måste du först skapa en openapi-definition). Klicka på den här knappen för att starta export processen.
-
-    ![Exportera till PowerApps + Microsoft Flow knapp](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
-
-3. Välj **export läge**:
-
-    Med **Express** kan du skapa anpassade anslutnings program i Azure Portal. Det kräver att du är inloggad på PowerApps eller Microsoft Flow och har behörighet att skapa anslutningar i mål miljön. Detta är den rekommenderade metoden om dessa två krav kan uppfyllas. Om du använder det här läget följer du anvisningarna för [Använd Express export](#express) nedan.
-
-    Med **manuell** kan du exportera API-definitionen, som du sedan importerar med hjälp av PowerApps eller Microsoft Flow portaler. Detta är den rekommenderade metoden om Azure-användaren och användaren med behörighet att skapa kopplingar är olika personer eller om anslutningen måste skapas i en annan Azure-klient. Om du använder det här läget följer du anvisningarna för att [använda manuella exporter](#manual) nedan.
-
-    ![Export läge](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
+## <a name="create-and-export-an-api-definition"></a>Create and export an API definition
+Before exporting an API, you must describe the API using an OpenAPI definition (formerly known as a [Swagger](https://swagger.io/) file). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade. PowerApps and Microsoft Flow can create custom connectors for any OpenAPI 2.0 definition. Azure Functions and Azure App Service have built-in support for creating, hosting, and managing OpenAPI definitions. For more information, see [Host a RESTful API with CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
-> Det anpassade anslutnings programmet använder en *kopia* av API-definitionen, så PowerApps och Microsoft Flow kommer inte omedelbart att känna till om du gör ändringar i programmet och dess API-definition. Om du gör ändringar upprepar du export stegen för den nya versionen.
+> You can also build custom connectors in the PowerApps and Microsoft Flow UI, without using an OpenAPI definition. For more information, see [Register and use a custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) and [Register and use a custom connector (Microsoft  Flow)](/power-automate/developer/register-custom-api).
+
+To export the API definition, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Functions or another App Service application.
+
+    If using Azure Functions, select your function app, choose **Platform features**, and then **API definition**.
+
+    ![Azure Functions API definition](media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png)
+
+    If using Azure App Service, select **API definition** from the settings list.
+
+    ![App Service API definition](media/app-service-export-api-to-powerapps-and-flow/api-definition-app.png)
+
+2. The **Export to PowerApps + Microsoft Flow** button should be available (if not, you must first create an OpenAPI definition). Click this button to begin the export process.
+
+    ![Export to PowerApps + Microsoft Flow button](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
+
+3. Select the **Export Mode**:
+
+    **Express** lets you create the custom connector from within the Azure portal. It requires that you are signed into PowerApps or Microsoft Flow and have permission to create connectors in the target environment. This is the recommended approach if these two requirements can be met. If using this mode, follow the [Use express export](#express) instructions below.
+
+    **Manual** lets you export the API definition, which you then import using the PowerApps or Microsoft Flow portals. This is the recommended approach if the Azure user and the user with permission to create connectors are different people or if the connector needs to be created in another Azure tenant. If using this mode, follow the [Use manual export](#manual) instructions below.
+
+    ![Export mode](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
+
+> [!NOTE]
+> The custom connector uses a *copy* of the API definition, so PowerApps and Microsoft Flow will not immediately know if you make changes to the application and its API definition. If you do make changes, repeat the export steps for the new version.
 
 <a name="express"></a>
-## <a name="use-express-export"></a>Använd Express export
+## <a name="use-express-export"></a>Use express export
 
-Slutför exporten i **Express** läge genom att följa dessa steg:
+To complete the export in **Express** mode, follow these steps:
 
-1. Kontrol lera att du är inloggad på den PowerApps eller Microsoft Flow klient som du vill exportera till. 
+1. Make sure you're signed in to the PowerApps or Microsoft Flow tenant to which you want to export. 
 
-2. Använd de inställningar som anges i tabellen.
+2. Use the settings as specified in the table.
 
     |Inställning|Beskrivning|
     |--------|------------|
-    |**Miljö**|Välj den miljö som den anpassade anslutningen ska sparas i. Mer information finns i [Översikt över miljöer](https://powerapps.microsoft.com/tutorials/environments-overview/).|
-    |**Anpassat API-namn**|Ange ett namn som PowerApps och Microsoft Flows byggare ser i sin kopplings lista.|
-    |**Förbered säkerhets konfiguration**|Vid behov kan du ange den säkerhets konfigurations information som krävs för att ge användarna åtkomst till ditt API. Det här exemplet visar en API-nyckel. Mer information finns i [Ange autentiseringstyp](#auth) nedan.|
+    |**Miljö**|Select the environment that the custom connector should be saved to. For more information, see [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/).|
+    |**Custom API Name**|Enter a name, which PowerApps and Microsoft Flow builders will see in their connector list.|
+    |**Prepare security configuration**|If required, provide the security configuration details needed to grant users access to your API. This example shows an API key. For more information, see [Specify authentication type](#auth) below.|
  
-    ![Express export till PowerApps och Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
+    ![Express export to PowerApps and Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-express.png)
 
-3. Klicka på **OK**. Det anpassade anslutnings programmet har nu skapats och lagts till i den miljö som du har angett.
+3. Klicka på **OK** The custom connector is now built and added to the environment you specified.
 
 <a name="manual"></a>
-## <a name="use-manual-export"></a>Använd manuell export
+## <a name="use-manual-export"></a>Use manual export
 
-Följ dessa steg om du vill slutföra exporten i **manuellt** läge:
+To complete the export in **Manual** mode, follow these steps:
 
-1. Klicka på **Hämta** och spara filen, eller klicka på kopierings knappen och spara URL: en. Du kommer att använda nedladdnings filen eller URL: en under importen.
+1. Click **Download** and save the file, or click the copy button and save the URL. You will use the download file or the URL during import.
  
-    ![Manuell export till PowerApps och Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-manual.png)
+    ![Manual export to PowerApps and Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-manual.png)
  
-2. Om API-definitionen innehåller säkerhets definitioner, så anropas dessa i steg #2. Under importen identifierar PowerApps och Microsoft Flow dessa och begär säkerhets information. Samla in de autentiseringsuppgifter som är relaterade till varje definition som ska användas i nästa avsnitt. Mer information finns i [Ange autentiseringstyp](#auth) nedan.
+2. If your API definition includes any security definitions, these are called out in step #2. During import, PowerApps and Microsoft Flow detects these and prompts for security information. Gather the credentials related to each definition for use in the next section. For more information, see [Specify authentication type](#auth) below.
 
-    ![Säkerhet för manuell export](media/app-service-export-api-to-powerapps-and-flow/export-manual-security.png)
+    ![Security for manual export](media/app-service-export-api-to-powerapps-and-flow/export-manual-security.png)
 
-    I det här exemplet visas den säkerhets definition för API-nyckeln som ingick i OpenAPI-definitionen.
+    This example shows the API key security definition that was included in the OpenAPI definition.
 
-Nu när du har exporterat API-definitionen importerar du den för att skapa en anpassad anslutning i PowerApps och Microsoft Flow. Anpassade anslutningar delas mellan de två tjänsterna, så du behöver bara importera definitionen en gång.
+Now that you've exported the API definition, you import it to create a custom connector in PowerApps and Microsoft Flow. Custom connectors are shared between the two services, so you only need to import the definition once.
 
-Följ dessa steg om du vill importera API-definitionen till PowerApps och Microsoft Flow:
+To import the API definition into PowerApps and Microsoft Flow, follow these steps:
 
 1. Gå till [powerapps.com](https://web.powerapps.com) eller [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Klicka på kugg hjuls ikonen i det övre högra hörnet och klicka sedan på **anpassade anslutningar**.
+2. In the upper right corner, click the gear icon, then click **Custom connectors**.
 
    ![Kugghjulsikon i tjänst](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Klicka på **Skapa anpassad anslutning**och klicka sedan på **Importera en openapi-definition**.
+3. Click **Create custom connector**, then click **Import an OpenAPI definition**.
 
    ![Skapa anpassad anslutningsapp](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-4. Ange ett namn för den anpassade anslutningen och navigera sedan till den OpenAPI-definition som du exporterade och klicka på **Fortsätt**.
+4. Enter a name for the custom connector, then navigate to the OpenAPI definition that you exported, and click **Continue**.
 
-   ![Ladda upp OpenAPI-definition](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+   ![Upload OpenAPI definition](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
 
-4. På fliken **Allmänt** granskar du den information som kommer från openapi-definitionen.
+4. On the **General** tab, review the information that comes from the OpenAPI definition.
 
-5. Om du uppmanas att ange autentiseringsinformation på fliken **säkerhet** anger du lämpliga värden för autentiseringstypen. Klicka på **Fortsätt**.
+5. On the **Security** tab, if you are prompted to provide authentication details, enter the values appropriate for the authentication type. Klicka på **Fortsätt**.
 
-    ![Fliken säkerhet](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
+    ![Security tab](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 
-    I det här exemplet visas obligatoriska fält för autentisering med API-nyckel. Fälten skiljer sig åt beroende på autentiseringstypen.
+    This example shows the required fields for API key authentication. The fields differ depending on the authentication type.
 
-6. Alla de åtgärder som definierats i din OpenAPI-fil fylls i automatiskt på fliken **definitioner** . Om alla nödvändiga åtgärder har definierats kan du gå till nästa steg. Om inte, kan du lägga till och ändra åtgärder här.
+6. On the **Definitions** tab, all the operations defined in your OpenAPI file are auto-populated. If all your required operations are defined, you can go to the next step. If not, you can add and modify operations here.
 
-    ![Fliken definitioner](media/app-service-export-api-to-powerapps-and-flow/tab-definitions.png)
+    ![Definitions tab](media/app-service-export-api-to-powerapps-and-flow/tab-definitions.png)
 
-    Det här exemplet har en åtgärd med namnet `CalculateCosts`. Metadata, till exempel **Beskrivning**, kommer från openapi-filen.
+    This example has one operation, named `CalculateCosts`. The metadata, like **Description**, all comes from the OpenAPI file.
 
-7. Klicka på **Skapa koppling** överst på sidan.
+7. Click **Create connector** at the top of the page.
 
-Nu kan du ansluta till den anpassade anslutningen i PowerApps och Microsoft Flow. Mer information om hur du skapar anslutningar i PowerApps och Microsoft Flow portaler finns i [Registrera din anpassade anslutning (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) och [Registrera din anpassade anslutning (Microsoft Flow)](/power-automate/get-started-flow-dev#create-a-custom-connector).
+You can now connect to the custom connector in PowerApps and Microsoft Flow. For more information on creating connectors in the PowerApps and Microsoft Flow portals, see [Register your custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) and [Register your custom connector (Microsoft  Flow)](/power-automate/get-started-flow-dev#create-a-custom-connector).
 
 <a name="auth"></a>
 ## <a name="specify-authentication-type"></a>Ange autentiseringstyp
 
-PowerApps och Microsoft Flow stöd för en samling identitets leverantörer som tillhandahåller autentisering för anpassade anslutningar. Om ditt API kräver autentisering, se till att det är infångat som en _säkerhets definition_ i openapi-dokumentet, som i följande exempel:
+PowerApps and Microsoft Flow support a collection of identity providers that provide authentication for custom connectors. If your API requires authentication, ensure that it is captured as a _security definition_ in your OpenAPI document, like the following example:
 
 ```json
 "securityDefinitions": {
@@ -144,40 +138,40 @@ PowerApps och Microsoft Flow stöd för en samling identitets leverantörer som 
     }
 }
 ``` 
-Under exporten anger du konfigurations värden som tillåter PowerApps och Microsoft Flow att autentisera användare.
+During export, you provide configuration values that allow PowerApps and Microsoft Flow to authenticate users.
 
-I det här avsnittet beskrivs de autentiseringstyper som stöds i **Express** -läge: API-nyckel, Azure Active Directory och generisk OAuth 2,0. PowerApps och Microsoft Flow stöder även grundläggande autentisering och OAuth 2,0 för vissa tjänster som Dropbox, Facebook och SalesForce.
+This section covers the authentication types that are supported in **Express** mode: API key, Azure Active Directory, and Generic OAuth 2.0. PowerApps and Microsoft Flow also support Basic Authentication, and OAuth 2.0 for specific services like Dropbox, Facebook, and SalesForce.
 
-### <a name="api-key"></a>API-nyckel
-När du använder en API-nyckel uppmanas användarna av din anslutning att ange nyckeln när de skapar en anslutning. Du anger ett API-nyckel namn för att hjälpa dem att förstå vilken nyckel som behövs. I det tidigare exemplet använder vi namnet `API Key (contact meganb@contoso.com)` så att personer vet var de ska hämta information om API-nyckeln. För Azure Functions är nyckeln vanligt vis en av värd nycklarna, som täcker flera funktioner i Function-appen.
+### <a name="api-key"></a>API key
+When using an API key, the users of your connector are prompted to provide the key when they create a connection. You specify an API key name to help them understand which key is needed. In the earlier example, we use the name `API Key (contact meganb@contoso.com)` so people know where to get information about the API key. For Azure Functions, the key is typically one of the host keys, covering several functions within the function app.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
-När du använder Azure AD behöver du två Azure AD-programregistreringar: en för själva API: et och en för det anpassade anslutnings programmet:
+When using Azure AD, you need two Azure AD application registrations: one for the API itself, and one for the custom connector:
 
-- Om du vill konfigurera registrering för API: et använder du funktionen [App Service autentisering/auktorisering](../app-service/configure-authentication-provider-aad.md) .
+- To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/configure-authentication-provider-aad.md) feature.
 
-- Om du vill konfigurera registreringen för anslutningen följer du stegen i [lägga till ett Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Registreringen måste ha delegerad åtkomst till ditt API och en svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- To configure registration for the connector, follow the steps in [Adding an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
-Mer information finns i exempel på Azure AD-registrering för [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) och [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). I de här exemplen används Azure Resource Manager som API: et. Ersätt ditt API om du följer anvisningarna.
+For more information, see the Azure AD registration examples for [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) and [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). These examples use Azure Resource Manager as the API; substitute your API if you follow the steps.
 
-Följande konfigurations värden måste anges:
-- **Klient-ID** – klient-ID för din ANSLUTNINGS Azure AD-registrering
-- **Klient hemlighet** – klient hemligheten för din ANSLUTNINGS Azure AD-registrering
-- **Inloggnings-URL** – bas-URL: en för Azure AD. I Azure är detta vanligt vis `https://login.windows.net`.
-- **Klient-ID** – ID för den klient som ska användas för inloggningen. Detta bör vara "common" eller ID: t för den klient som anslutningen skapas i.
-- **Resurs-URL** – resurs-URL för Azure AD-registreringen för ditt API
+The following configuration values are required:
+- **Client ID** - the client ID of your connector Azure AD registration
+- **Client secret** - the client secret of your connector Azure AD registration
+- **Login URL** - the base URL for Azure AD. In Azure, this is typically `https://login.windows.net`.
+- **Tenant ID** - the ID of the tenant to be used for the login. This should be "common" or the ID of the tenant in which the connector is created.
+- **Resource URL** - the resource URL of the Azure AD registration for your API
 
 > [!IMPORTANT]
-> Om någon annan ska importera API-definitionen till PowerApps och Microsoft Flow som en del av det manuella flödet måste du ge dem klient-ID och klient hemlighet för *anslutnings registreringen*samt resurs-URL: en för ditt API. Se till att dessa hemligheter hanteras på ett säkert sätt. **Dela inte säkerhets referenser för själva API: et.**
+> If someone else will import the API definition into PowerApps and Microsoft Flow as part of the manual flow, you must provide them with the client ID and client secret of the *connector registration*, as well as the resource URL of your API. Make sure that these secrets are managed securely. **Do not share the security credentials of the API itself.**
 
-### <a name="generic-oauth-20"></a>Generisk OAuth 2,0
-När du använder allmän OAuth 2,0 kan du integrera med valfri OAuth 2,0-Provider. På så sätt kan du arbeta med anpassade providers som inte stöds internt.
+### <a name="generic-oauth-20"></a>Generic OAuth 2.0
+When using generic OAuth 2.0, you can integrate with any OAuth 2.0 provider. This allows you to work with custom providers that are not natively supported.
 
-Följande konfigurations värden måste anges:
-- **Klient-ID** – klient-ID för OAuth 2,0
-- **Klient hemlighet** – klient hemligheten för OAuth 2,0
-- **URL för auktorisering** – URL för OAuth 2,0-auktorisering
-- **Token-URL** – URL för OAuth 2,0-token
-- **Uppdatera URL** – uppdaterings-URL: en för OAuth 2,0
+The following configuration values are required:
+- **Client ID** - the OAuth 2.0 client ID
+- **Client secret** - the OAuth 2.0 client secret
+- **Authorization URL** - the OAuth 2.0 authorization URL
+- **Token URL** - the OAuth 2.0 token URL
+- **Refresh URL** - the OAuth 2.0 refresh URL
 
 

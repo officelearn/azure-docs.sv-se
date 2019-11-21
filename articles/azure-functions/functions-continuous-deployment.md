@@ -1,88 +1,84 @@
 ---
 title: Löpande distribution för Azure Functions
-description: Använd funktionerna för kontinuerlig distribution i Azure App Service för att publicera dina funktioner.
-author: ggailey777
-manager: gwallace
+description: Use the continuous deployment features of Azure App Service to publish your functions.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.author: glenga
-ms.openlocfilehash: dae75153cffbf2f0e836e1a28b78a9f05f54e6e0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091184"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230890"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
 
-Du kan använda Azure Functions för att distribuera koden kontinuerligt genom att använda [käll kontroll integrering](functions-deployment-technologies.md#source-control). Med käll kontroll integrering kan du använda ett arbets flöde där en kod uppdatering utlöser distribution till Azure. Om du inte har använt Azure Functions, kom igång genom att granska [Azure Functions översikten](functions-overview.md).
+You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers deployment to Azure. If you're new to Azure Functions, get started by reviewing the [Azure Functions overview](functions-overview.md).
 
-Kontinuerlig distribution är ett lämpligt alternativ för projekt där du integrerar flera och ofta förekommande bidrag. När du använder kontinuerlig distribution upprätthåller du en enda källa för sanningen för din kod, vilket gör det möjligt för team att samar beta på ett enkelt sätt. Du kan konfigurera kontinuerlig distribution i Azure Functions från följande käll kods platser:
+Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. You can configure continuous deployment in Azure Functions from the following source code locations:
 
-* [Azure-databaser](https://azure.microsoft.com/services/devops/repos/)
+* [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
 * [Bitbucket](https://bitbucket.org/)
 
-Enhets distributionen för funktioner i Azure är Function-appen. Alla funktioner i en Function-app distribueras samtidigt. När du aktiverar kontinuerlig distribution konfigureras åtkomst till funktions kod i Azure Portal som *skrivskyddad* eftersom källan till sanningen är inställt på någon annan stans.
+The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time. After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the source of truth is set to be elsewhere.
 
-## <a name="requirements-for-continuous-deployment"></a>Krav för kontinuerlig distribution
+## <a name="requirements-for-continuous-deployment"></a>Requirements for continuous deployment
 
-För att kontinuerlig distribution ska lyckas måste katalog strukturen vara kompatibel med den grundläggande mappstrukturen som Azure Functions förväntar sig.
+For continuous deployment to succeed, your directory structure must be compatible with the basic folder structure that Azure Functions expects.
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 >[!NOTE]  
-> Kontinuerlig distribution stöds ännu inte för Linux-appar som körs i en förbruknings plan. 
+> Continuous deployment is not yet supported for Linux apps running on a Consumption plan. 
 
-## <a name="credentials"></a>Konfigurera kontinuerlig distribution
+## <a name="credentials"></a>Set up continuous deployment
 
-Slutför de här stegen för att konfigurera kontinuerlig distribution för en befintlig Function-app. Stegen demonstrerar integreringen med en GitHub-lagringsplats, men liknande steg gäller för Azure databaser eller andra käll kods centraler.
+To configure continuous deployment for an existing function app, complete these steps. The steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
 
-1. I din Function-app i [Azure Portal](https://portal.azure.com)väljer du **plattforms funktioner** > **Deployment Center**.
+1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment Center**.
 
-    ![Öppna distributions Center](./media/functions-continuous-deployment/platform-features.png)
+    ![Open Deployment Center](./media/functions-continuous-deployment/platform-features.png)
 
-2. I **distributions Center**väljer du **GitHub**och väljer sedan **auktorisera**. Om du redan har auktoriserat GitHub väljer du **Fortsätt**. 
+2. In **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue**. 
 
-    ![Azure App Service distributions Center](./media/functions-continuous-deployment/github.png)
+    ![Azure App Service Deployment Center](./media/functions-continuous-deployment/github.png)
 
-3. I GitHub väljer du knappen **auktorisera AzureAppService** . 
+3. In GitHub, select the **Authorize AzureAppService** button. 
 
-    ![Auktorisera Azure App Service](./media/functions-continuous-deployment/authorize.png)
+    ![Authorize Azure App Service](./media/functions-continuous-deployment/authorize.png)
     
-    I **distributions Center** i Azure Portal väljer du **Fortsätt**.
+    In **Deployment Center** in the Azure portal, select **Continue**.
 
-4. Välj en av följande build-providers:
+4. Select one of the following build providers:
 
-    * **App Service Build Service**: bäst när du inte behöver en version eller om du behöver en allmän version.
-    * **Azure-pipeliner (för hands version)** : bäst när du behöver mer kontroll över versionen. Den här providern är för närvarande en för hands version.
+    * **App Service build service**: Best when you don't need a build or if you need a generic build.
+    * **Azure Pipelines (Preview)** : Best when you need more control over the build. This provider currently is in preview.
 
-    ![Välj en build-Provider](./media/functions-continuous-deployment/build.png)
+    ![Select a build provider](./media/functions-continuous-deployment/build.png)
 
-5. Konfigurera information som är specifik för det alternativ för käll kontroll som du har angett. För GitHub måste du ange eller välja värden för **organisation**, **lagrings plats**och **gren**. Värdena baseras på kodens plats. Välj sedan **Fortsätt**.
+5. Configure information specific to the source control option you specified. For GitHub, you must enter or select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. Then, select **Continue**.
 
-    ![Konfigurera GitHub](./media/functions-continuous-deployment/github-specifics.png)
+    ![Configure GitHub](./media/functions-continuous-deployment/github-specifics.png)
 
-6. Granska all information och välj sedan **Slutför** för att slutföra distributions konfigurationen.
+6. Review all details, and then select **Finish** to complete your deployment configuration.
 
     ![Sammanfattning](./media/functions-continuous-deployment/summary.png)
 
-När processen är färdig distribueras all kod från den angivna källan till din app. Vid detta tillfälle utlöser ändringar i distributions källan en distribution av ändringarna till din Function-app i Azure.
+When the process is finished, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
 
 ## <a name="deployment-scenarios"></a>Distributionsscenarier
 
 <a name="existing"></a>
 
-### <a name="move-existing-functions-to-continuous-deployment"></a>Flytta befintliga funktioner till kontinuerlig distribution
+### <a name="move-existing-functions-to-continuous-deployment"></a>Move existing functions to continuous deployment
 
-Om du redan har skrivit funktioner i [Azure Portal](https://portal.azure.com) och du vill ladda ned innehållet i din app innan du växlar till kontinuerlig distribution, går du till fliken **Översikt** i din Function-app. Välj knappen **Hämta appens innehåll** .
+If you've already written functions in the [Azure portal](https://portal.azure.com) and you want to download the contents of your app before you switch to continuous deployment, go to the **Overview** tab of your function app. Select the **Download app content** button.
 
-![Hämta app-innehåll](./media/functions-continuous-deployment/download.png)
+![Download app content](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
-> När du har konfigurerat kontinuerlig integrering kan du inte längre redigera dina källfiler i functions-portalen.
+> After you configure continuous integration, you can no longer edit your source files in the Functions portal.
 
 ## <a name="next-steps"></a>Nästa steg
 

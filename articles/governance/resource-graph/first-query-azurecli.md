@@ -1,16 +1,16 @@
 ---
-title: Kör din första fråga med Azure CLI
-description: Den här artikeln vägleder dig igenom stegen för att aktivera Resource Graph-tillägget för Azure CLI och köra din första fråga.
+title: 'Quickstart: Your first Azure CLI query'
+description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and run your first query.
 ms.date: 10/18/2019
 ms.topic: quickstart
-ms.openlocfilehash: b74e4314a7755bb067831f955ca02d62485abe4f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a3ef32b2c2dcaa7a043bbb3e1e859ee295f02f2f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958959"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74216615"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabb start: kör din första resurs diagram fråga med Azure CLI
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Quickstart: Run your first Resource Graph query using Azure CLI
 
 Det första steget till att använda Azure Resource Graph är att kontrollera att tillägget för [Azure CLI](/cli/azure/) är installerat. Denna snabbstart vägleder dig genom processen för att lägga till tillägget i Azure CLI-installationen. Du kan använda tillägget med Azure CLI installerat lokalt eller via [Azure Cloud Shell](https://shell.azure.com).
 
@@ -31,7 +31,7 @@ Om du vill aktivera Azure CLI för att skicka frågor till Azure Resource Graph,
    az extension add --name resource-graph
    ```
 
-1. Kontrol lera att tillägget har installerats och att den är den förväntade versionen (minst **1.0.0**):
+1. Validate that the extension has been installed and is the expected version (at least **1.0.0**):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -87,10 +87,10 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om [frågespråket](./concepts/query-language.md).
-- Lär dig mer om hur du [utforskar resurser](./concepts/explore-resources.md).
-- Kör din första fråga med hjälp av [Azure Portal](first-query-portal.md).
-- Kör din första fråga med [Azure PowerShell](first-query-powershell.md).
-- Se exempel på [Start frågor](./samples/starter.md).
-- Se exempel på [avancerade frågor](./samples/advanced.md).
-- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+- Get more information about the [query language](./concepts/query-language.md).
+- Learn more about how to [explore resources](./concepts/explore-resources.md).
+- Run your first query by using the [Azure portal](first-query-portal.md).
+- Run your first query with [Azure PowerShell](first-query-powershell.md).
+- See samples of [Starter queries](./samples/starter.md).
+- See samples of [Advanced queries](./samples/advanced.md).
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

@@ -1,71 +1,71 @@
 ---
-title: 'Koppla data: modulreferens'
+title: 'Join Data: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Anslut till data i Azure Machine Learning för att sammanfoga data uppsättningar.
+description: Learn how to use the join Join Data module in Azure Machine Learning to merge datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
-ms.date: 06/01/2019
-ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: b07bde671be73af2a351353d9794907972a022e7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495082"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232611"
 ---
 # <a name="join-data"></a>Koppla data
 
-Den här artikeln beskriver hur du använder modulen **koppla data** i Azure Machine Learning designer (för hands version) för att slå samman två data uppsättningar med en kopplings åtgärd i databas format.  
+This article describes how to use the **Join Data** module in Azure Machine Learning designer (preview) to merge two datasets using a database-style join operation.  
 
-## <a name="how-to-configure-join-data"></a>Så här konfigurerar du kopplings data
+## <a name="how-to-configure-join-data"></a>How to configure Join Data
 
-Om du vill utföra en koppling på två data uppsättningar ska de relateras av en nyckel kolumn. Sammansatta nycklar med flera kolumner stöds också. 
+To perform a join on two datasets, they should be related by a key column. Composite keys using multiple columns are also supported. 
 
-1. Lägg till de data uppsättningar som du vill kombinera och dra sedan modulen **koppla data** till din pipeline. 
+1. Add the datasets you want to combine, and then drag the **Join Data** module into your pipeline. 
 
-    Du hittar modulen i kategorin **data omvandling** under **manipulation**.
+    You can find the module in the **Data Transformation** category, under **Manipulation**.
 
-1. Anslut data uppsättningarna till modulen **koppla data** . 
+1. Connect the datasets to the **Join Data** module. 
  
-1. Välj **Starta kolumn väljaren** för att välja nyckel kolumn (er). Kom ihåg att välja kolumner för både vänster och höger indata.
+1. Select **Launch column selector** to choose key column(s). Remember to choose columns for both the left and right inputs.
 
-    För en enskild nyckel:
+    For a single key:
 
-    Välj en enskild nyckel kolumn för båda indata.
+    Select a single key column for both inputs.
     
-    För en sammansatt nyckel:
+    For a composite key:
 
-    Välj alla nyckel kolumner från vänster inmatad och höger indatatyp i samma ordning. Modulen **koppla data** kommer att koppla tabellerna när alla nyckel kolumner matchar. Markera alternativet **Tillåt dubbletter och behåll kolumn ordning i markering** om kolumn ordningen inte är densamma som den ursprungliga tabellen. 
+    Select all the key columns from left input and right input in the same order. The **Join Data** module will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
 
-    ![kolumn-väljare](media/module/join-data-column-selector.png)
+    ![column-selector](media/module/join-data-column-selector.png)
 
 
-1. Välj alternativet **Matcha gemener/versal** om du vill bevara Skift läges känslighet för en text kolumn koppling. 
+1. Select the **Match case** option if you want to preserve case sensitivity on a text column join. 
    
-1. Använd List rutan **kopplings typ** för att ange hur data uppsättningarna ska kombineras.  
+1. Use the **Join type** dropdown list to specify how the datasets should be combined.  
   
-    * **Inre koppling**: en *inre koppling* är den vanligaste kopplings åtgärden. Den returnerar de kombinerade raderna endast när värdena för nyckel kolumnerna matchar.  
+    * **Inner Join**: An *inner join* is the most common join operation. It returns the combined rows only when the values of the key columns match.  
   
-    * **Vänster yttre koppling**: en *vänster yttre koppling* returnerar kopplade rader för alla rader från den vänstra tabellen. När en rad i den vänstra tabellen inte har några matchande rader i den högra tabellen, innehåller den returnerade raden värden som saknas för alla kolumner som kommer från den högra tabellen. Du kan också ange ett ersättnings värde för saknade värden.  
+    * **Left Outer Join**: A *left outer join* returns joined rows for all rows from the left table. When a row in the left table has no matching rows in the right table, the returned row contains missing values for all columns that come from the right table. You can also specify a replacement value for missing values.  
   
-    * **Fullständig yttre koppling**: en *fullständig yttre koppling* returnerar alla rader från den vänstra tabellen (**TABLE1**) och från den högra tabellen (**tabell2**).  
+    * **Full Outer Join**: A *full outer join* returns all rows from the left table (**table1**) and from the right table (**table2**).  
   
-         För varje rad i en tabell som inte har några matchande rader i den andra, innehåller resultatet en rad som innehåller värden som saknas.  
+         For each of the rows in either table that have no matching rows in the other, the result includes a row containing missing values.  
   
-    * **Vänster halv koppling**: en *vänster halv koppling* returnerar bara värdena från den vänstra tabellen när värdena för nyckel kolumnerna matchar.  
+    * **Left Semi-Join**: A *left semi-join* returns only the values from the left table when the values of the key columns match.  
 
-1. För alternativet **Behåll rätt nyckel kolumner i en sammanfogad tabell**:
+1. For the option **Keep right key columns in joined table**:
 
-    * Välj det här alternativet om du vill visa nycklarna från båda ingångs tabellerna.
-    * Avmarkera för att endast returnera nyckel kolumnerna från den vänstra indatatypen.
+    * Select this option to view the keys from both input tables.
+    * Deselect to only return the key columns from the left input.
 
-1. Kör pipelinen eller Välj modulen koppla data och vald **körning vald** för att utföra kopplingen.
+1. Run the pipeline, or select the Join Data module and selected **Run Selected** to perform the join.
 
-1. Om du vill visa resultaten högerklickar du på data uppsättningen för att **ansluta Data** > **resultat** > **visualisera**.
+1. To view the results, right-click the **Join Data** > **Results dataset** > **Visualize**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

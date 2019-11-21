@@ -1,22 +1,18 @@
 ---
 title: Skapa din första funktion med Azure CLI
 description: Lär dig hur du skapar din första Azure-funktion för serverfri körning med Azure CLI och Azure Functions Core Tools.
-author: ggailey777
-ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace
-ms.openlocfilehash: 1d0c6edf250e49fe966388253617181ed2b3dff1
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 147ad4bd20ee1c7ae8f1529e1b3bc0e4f3e7dbb0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329645"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230846"
 ---
-# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Snabb start: skapa din första funktion från kommando raden med hjälp av Azure CLI
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Quickstart: Create your first function from the command line using Azure CLI
 
 I den här snabbstarten får du hjälp med att skapa din första funktion från kommandoraden eller terminalen. Du kan använda Azure CLI till att skapa en funktionsapp, som är den [serverfria](https://azure.microsoft.com/solutions/serverless/) infrastruktur som är värd för funktionen. Funktionskodprojektet genereras från en mall med hjälp av [Azure Functions Core Tools](functions-run-local.md) som också används för att distribuera funktionsapprojektet till Azure.
 
@@ -26,9 +22,9 @@ Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator.
 
 Innan du kör exemplet måste du ha följande:
 
-+ Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare.
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
 
-+ Installera [Azure CLI](/cli/azure/install-azure-cli). Den här artikeln kräver Azure CLI version 2,0 eller senare. Kör `az --version` för att se vilken version du har. Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
++ Installera [Azure CLI](/cli/azure/install-azure-cli). This     article requires the Azure CLI version 2.0 or later. Kör `az --version` för att se vilken version du har. Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + En aktiv Azure-prenumeration.
 
@@ -36,7 +32,7 @@ Innan du kör exemplet måste du ha följande:
 
 [!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-## <a name="enable-extension-bundles"></a>Aktivera tilläggs paket
+## <a name="enable-extension-bundles"></a>Enable extension bundles
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

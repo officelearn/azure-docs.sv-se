@@ -1,66 +1,66 @@
 ---
-title: Översikt över omvänd DNS i Azure | Microsoft Docs
-description: Lär dig hur omvänd DNS fungerar och hur den kan användas i Azure
+title: Overview of reverse DNS in Azure - Azure DNS
+description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: asudbring
+manager: KumuD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
-ms.openlocfilehash: 9d3a62ec1c9ede1f25f2b53f800642a792b3aa28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 2788cc3957e9822e61c10f5f06a29802e225bcbf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60192990"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211016"
 ---
-# <a name="overview-of-reverse-dns-and-support-in-azure"></a>Översikt över omvänd DNS- och stöd i Azure
+# <a name="overview-of-reverse-dns-and-support-in-azure"></a>Overview of reverse DNS and support in Azure
 
-Den här artikeln ger en översikt över hur omvänd DNS fungerar och omvänd DNS-scenarier som stöds i Azure.
+This article gives an overview of how reverse DNS works, and the reverse DNS scenarios supported in Azure.
 
-## <a name="what-is-reverse-dns"></a>Vad är omvänd DNS?
+## <a name="what-is-reverse-dns"></a>What is reverse DNS?
 
-Konventionell DNS-poster för att aktivera en mappning från ett DNS-namn (till exempel ”www.contoso.com”) till en IP-adress (till exempel 64.4.6.100).  Omvänd DNS kan översättningen av IP-adress (64.4.6.100) till ett namn (”www.contoso.com”).
+Conventional DNS records enable a mapping from a DNS name (such as 'www.contoso.com') to an IP address (such as 64.4.6.100).  Reverse DNS enables the translation of an IP address (64.4.6.100) back to a name ('www.contoso.com').
 
-Omvända DNS-poster används i olika situationer. Omvända DNS-poster används ofta för att bekämpa skräppost e-post genom att verifiera avsändaren av ett e-postmeddelande.  Den mottagande e-postservern hämtar omvänd DNS-posten för den avsändande serverns IP-adress och kontrollerar om värden har behörighet att skicka e-post från den ursprungliga domänen. 
+Reverse DNS records are used in a variety of situations. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message.  The receiving mail server retrieves the reverse DNS record of the sending server's IP address, and verifies if that host is authorized to send e-mail from the originating domain. 
 
-## <a name="how-reverse-dns-works"></a>Hur omvänd DNS fungerar
+## <a name="how-reverse-dns-works"></a>How reverse DNS works
 
-Omvända DNS-poster finns i särskilda DNS-zoner, kallas även ”ARPA-zoner.  Zonerna utgör en separat DNS-hierarkin parallellt med den vanliga hierarkin som värd för domäner, till exempel ”contoso.com”.
+Reverse DNS records are hosted in special DNS zones, known as 'ARPA' zones.  These zones form a separate DNS hierarchy in parallel with the normal hierarchy hosting domains such as 'contoso.com'.
 
-Till exempel implementeras DNS-poster ”www.contoso.com” med hjälp av en DNS-”A”-post med namnet ”www” i zonen ”contoso.com”.  Den här A-post som pekar på den motsvarande IP-adressen i det här fallet 64.4.6.100.  Omvänd sökning implementeras separat, med hjälp av en ”PTR-post med namnet” 100 ”i zonen” 6.4.64.in-addr.arpa ”(Observera att IP-adresser återförs i ARPA-zoner.)  Den här PTR-post pekar om den har konfigurerats korrekt, på namn ”www.contoso.com”.
+For example, the DNS record 'www.contoso.com' is implemented using a DNS 'A' record with the name 'www' in the zone 'contoso.com'.  This A record points to the corresponding IP address, in this case 64.4.6.100.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
 
-När en organisation tilldelas ett IP-Adressblock, hämta de också behörighet för att hantera motsvarande ARPA-zonen. ARPA-zoner som motsvarar IP-Adressblock som används av Azure är hyst och hanterad av Microsoft. Leverantören kan vara värd för ARPA-zonen för dina egna IP-adresser åt dig, eller kan du vara värd för ARPA-zonen i en DNS-tjänst om du föredrar, till exempel Azure DNS.
+When an organization is assigned an IP address block, they also acquire the right to manage the corresponding ARPA zone. The ARPA zones corresponding to the IP address blocks used by Azure are hosted and managed by Microsoft. Your ISP may host the ARPA zone for your own IP addresses for you, or may allow you to host the ARPA zone in a DNS service of your choice, such as Azure DNS.
 
 > [!NOTE]
-> Vanliga DNS-sökningar och omvänd DNS-sökning är implementerade i separata, parallella DNS-hierarkier. Omvänd sökning efter ”www.contoso.com” är **inte** på zonen ”contoso.com” i stället den är värd för ARPA-zonen för motsvarande IP-Adressblock. Separata zoner används för IPv4 och IPv6-Adressblock.
+> Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it is hosted in the ARPA zone for the corresponding IP address block. Separate zones are used for IPv4 and IPv6 address blocks.
 
 ### <a name="ipv4"></a>IPv4
 
-Namnet på en IPv4 zon för omvänd sökning ska vara i formatet: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
+The name of an IPv4 reverse lookup zone should be in the following format: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
 
-Till exempel när du skapar en omvänd zon till värdposter för värdar med IP-adresser som finns i prefixet 192.0.2.0/24 skapas zonnamnet genom att isolera nätverksprefixet av adressen (192.0.2) och sedan återställa ordning (2.0.192) och lägger till suffixet `.in-addr.arpa`.
+For example, when creating a reverse zone to host records for hosts with IPs that are in the 192.0.2.0/24 prefix, the zone name would be created by isolating the network prefix of the address (192.0.2) and then reversing the order (2.0.192) and adding the suffix `.in-addr.arpa`.
 
-|Undernät-klass|Nätverksprefix  |Återförda nätverksprefixet  |Standard-suffix  |Omvända zonnamnet |
+|Subnet class|Network prefix  |Reversed network prefix  |Standard suffix  |Reverse zone name |
 |-------|----------------|------------|-----------------|---------------------------|
-|Klass A|203.0.0.0/8     | 203        | .in-addr.arpa   | `203.in-addr.arpa`        |
-|Klass B|198.51.0.0/16   | 51.198     | .in-addr.arpa   | `51.198.in-addr.arpa`     |
-|Klass C|192.0.2.0/24    | 2.0.192    | .in-addr.arpa   | `2.0.192.in-addr.arpa`    |
+|Class A|203.0.0.0/8     | 203        | .in-addr.arpa   | `203.in-addr.arpa`        |
+|Class B|198.51.0.0/16   | 51.198     | .in-addr.arpa   | `51.198.in-addr.arpa`     |
+|Class C|192.0.2.0/24    | 2.0.192    | .in-addr.arpa   | `2.0.192.in-addr.arpa`    |
 
-### <a name="classless-ipv4-delegation"></a>Classless IPv4-delegering
+### <a name="classless-ipv4-delegation"></a>Classless IPv4 delegation
 
-I vissa fall kan det IP-adressintervall som allokerats till en organisation är mindre än en klass C (/ 24) intervall. I det här fallet IP-adressintervall faller inte på en zon gräns inom den `.in-addr.arpa` zon hierarkin och därför kan inte delegeras som en underordnad zon.
+In some cases, the IP range allocated to an organization is smaller than a Class C (/24) range. In this case, the IP range does not fall on a zone boundary within the `.in-addr.arpa` zone hierarchy, and hence cannot be delegated as a child zone.
 
-I stället används en annan mekanism för att överföra kontroll över enskilda omvänd sökning (PTR) poster till en dedikerad DNS-zon. Den här mekanismen delegerar en underordnad zon för varje IP-adressintervall och mappar varje IP-adress i intervallet individuellt till den underordnade zonen med CNAME-poster.
+Instead, a different mechanism is used to transfer control of individual reverse lookup (PTR) records to a dedicated DNS zone. This mechanism delegates a child zone for each IP range, then maps each IP address in the range individually to that child zone using CNAME records.
 
-Anta exempelvis att en organisation har beviljats IP-adressintervall 192.0.2.128/26 av dess ISP: N. Detta representerar 64 IP-adresser från 192.0.2.128 till 192.0.2.191. Omvänd DNS för det här intervallet har införts på följande sätt:
-- Organisationen skapar en zon för omvänd sökning som heter 128-26.2.0.192.in-addr.arpa. Prefixet ' 128-26' representerar det nätverkssegment som tilldelats organisationen i klass C (/ 24) intervall.
-- ISP: N skapar NS-poster för att ställa in DNS-delegering för zonen ovan från överordnade klass C-zonen. Det skapar också CNAME-poster i zonen för omvänd sökning på överordnade (klass C), mappa varje IP-adress i IP-adressintervall till den nya zonen som skapats av organisationen:
+For example, suppose an organization is granted the IP range 192.0.2.128/26 by its ISP. This represents 64 IP addresses, from 192.0.2.128 to 192.0.2.191. Reverse DNS for this range is implemented as follows:
+- The organization creates a reverse lookup zone called 128-26.2.0.192.in-addr.arpa. The prefix '128-26' represents the network segment assigned to the organization within the Class C (/24) range.
+- The ISP creates NS records to set up the DNS delegation for the above zone from the Class C parent zone. It also creates CNAME records in the parent (Class C) reverse lookup zone, mapping each IP address in the IP range to the new zone created by the organization:
 
 ```
 $ORIGIN 2.0.192.in-addr.arpa
@@ -73,7 +73,7 @@ $ORIGIN 2.0.192.in-addr.arpa
 131       CNAME    131.128-26.2.0.192.in-addr.arpa
 ; etc
 ```
-- Organisation sedan hanterar enskilda PTR-poster i sina underordnade zonen.
+- The organization then manages the individual PTR records within their child zone.
 
 ```
 $ORIGIN 128-26.2.0.192.in-addr.arpa
@@ -83,35 +83,35 @@ $ORIGIN 128-26.2.0.192.in-addr.arpa
 131      PTR    partners.contoso.com
 ; etc
 ```
-En omvänd sökning för IP-adress ”192.0.2.129”-frågor för en PTR-post med namnet ”129.2.0.192.in-addr.arpa”. Den här frågan matchas via CNAME-post i den överordnade zonen till PTR-post i den underordnade zonen.
+A reverse lookup for the IP address '192.0.2.129' queries for a PTR record named '129.2.0.192.in-addr.arpa'. This query resolves via the CNAME in the parent zone to the PTR record in the child zone.
 
 ### <a name="ipv6"></a>IPv6
 
-Namnet på en zon för omvänd sökning av IPv6 bör vara i följande format: `<IPv6 network prefix in reverse order>.ip6.arpa`
+The name of an IPv6 reverse lookup zone should be in the following form: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Till exempel. När skapar en omvänd zon till värdposter för värdar med IP-adresser som tillhör 2001:db8:1000:abdc:: / 64 prefix zonnamnet skapas genom att isolera nätverksprefixet av adressen (2001:db8:abdc::). Expandera därefter IPv6-prefix för nätverket att ta bort [noll komprimering](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), om den har använts för att förkorta IPv6-adressprefix (2001:0db8:abdc:0000::). Omvänd ordning, med en punkt som avgränsare mellan varje hexadecimalt värde prefix, skapa återförda nätverksprefixet (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) och lägger till suffixet `.ip6.arpa`.
+For example,. When creating a reverse zone to host records for hosts with IPs that are in the 2001:db8:1000:abdc::/64 prefix, the zone name would be created by isolating the network prefix of the address (2001:db8:abdc::). Next expand the IPv6 network prefix to remove [zero compression](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), if it was used to shorten the IPv6 address prefix (2001:0db8:abdc:0000::). Reverse the order, using a period as the delimiter between each hexadecimal number in the prefix, to build the reversed network prefix (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) and add the suffix `.ip6.arpa`.
 
 
-|Nätverksprefix  |Utökad och återförda nätverksprefixet |Standard-suffix |Omvända zonnamnet  |
+|Network prefix  |Expanded and reversed network prefix |Standard suffix |Reverse zone name  |
 |---------|---------|---------|---------|
 |2001:db8:abdc::/64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | .ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
 |2001:db8:1000:9102::/64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | .ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
 
 
-## <a name="azure-support-for-reverse-dns"></a>Azure-stöd för omvänd DNS
+## <a name="azure-support-for-reverse-dns"></a>Azure support for reverse DNS
 
-Azure har stöd för två separata scenarier om omvänd DNS:
+Azure supports two separate scenarios relating to reverse DNS:
 
-**Värdar för zonen för omvänd sökning som motsvarar IP-Adressblock.**
-Azure DNS kan användas för att [värd zoner för omvänd sökning och hantera PTR-posterna för varje omvänd DNS-sökning](dns-reverse-dns-hosting.md), för både IPv4 och IPv6.  Hur du skapar en zon för omvänd sökning (ARPA), ställa in delegeringen och konfigurera PTR-poster är desamma som för vanliga DNS-zoner.  De enda skillnaderna är att delegeringen måste konfigureras via Leverantören i stället för DNS-registrator och endast posttyp PTR ska användas.
+**Hosting the reverse lookup zone corresponding to your IP address block.**
+Azure DNS can be used to [host your reverse lookup zones and manage the PTR records for each reverse DNS lookup](dns-reverse-dns-hosting.md), for both IPv4 and IPv6.  The process of creating the reverse lookup (ARPA) zone, setting up the delegation, and configuring PTR records is the same as for regular DNS zones.  The only differences are that the delegation must be configured via your ISP rather than your DNS registrar, and only the PTR record type should be used.
 
-**Konfigurera omvänd DNS-posten för IP-adress som tilldelats till din Azure-tjänst.** Azure kan du [konfigurera omvänd sökning för IP-adresser som allokerats till din Azure-tjänst](dns-reverse-dns-for-azure-services.md).  Den här omvänd sökning har konfigurerats av Azure som en PTR-post i motsvarande ARPA-zonen.  Dessa ARPA-zoner som motsvarar alla IP-adressintervall som används av Azure, hos Microsoft
+**Configure the reverse DNS record for the IP address assigned to your Azure service.** Azure enables you to [configure the reverse lookup for the IP addresses allocated to your Azure service](dns-reverse-dns-for-azure-services.md).  This reverse lookup is configured by Azure as a PTR record in the corresponding ARPA zone.  These ARPA zones, corresponding to all the IP ranges used by Azure, are hosted by Microsoft
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om omvänd DNS [omvänd DNS-sökning på Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Lär dig hur du [värdar för zonen för omvänd sökning för din ISP-tilldelad IP-adressintervall i Azure DNS](dns-reverse-dns-for-azure-services.md).
+Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
 <br>
-Lär dig hur du [hantera omvända DNS-poster för dina Azure-tjänster](dns-reverse-dns-for-azure-services.md).
+Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
 

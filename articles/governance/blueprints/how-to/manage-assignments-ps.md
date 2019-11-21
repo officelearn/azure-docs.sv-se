@@ -1,33 +1,33 @@
 ---
-title: Hantera tilldelningar med PowerShell
-description: Lär dig hur du hanterar skiss tilldelningar med den officiella Azure-ritningen PowerShell-modul, AZ. skiss.
+title: How to manage assignments with PowerShell
+description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 98c2173568f65d029b00ca6c8b25d2195094a5e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00824ceed2e86683a86b172e529ba88704dbb050
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961609"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210304"
 ---
-# <a name="how-to-manage-assignments-with-powershell"></a>Hantera tilldelningar med PowerShell
+# <a name="how-to-manage-assignments-with-powershell"></a>How to manage assignments with PowerShell
 
-En skiss tilldelning kan hanteras med hjälp av modulen **AZ. skiss** Azure PowerShell. Modulen har stöd för att hämta, skapa, uppdatera och ta bort tilldelningar. Modulen kan också hämta information om befintliga skiss definitioner. Den här artikeln beskriver hur du installerar modulen och börjar använda den.
+A blueprint assignment can be managed using the **Az.Blueprint** Azure PowerShell module. The module supports fetching, creating, updating, and removing assignments. The module can also fetch details on existing blueprint definitions. This article covers how to install the module and start using it.
 
-## <a name="add-the-azblueprint-module"></a>Lägg till modulen AZ. skiss
+## <a name="add-the-azblueprint-module"></a>Add the Az.Blueprint module
 
-Om du vill aktivera Azure PowerShell hantera skiss tilldelningar måste modulen läggas till. Den här modulen kan användas med lokalt installerat PowerShell, med [Azure Cloud Shell](https://shell.azure.com) eller med [Azure PowerShell Docker-avbildningen](https://hub.docker.com/r/azuresdk/azure-powershell/).
+To enable Azure PowerShell to manage blueprint assignments, the module must be added. Den här modulen kan användas med lokalt installerat PowerShell, med [Azure Cloud Shell](https://shell.azure.com) eller med [Azure PowerShell Docker-avbildningen](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### <a name="base-requirements"></a>Grundläggande krav
 
-Modulen Azure-modeller kräver följande program vara:
+The Azure Blueprints module requires the following software:
 
-- Azure PowerShell 1.5.0 eller högre. Om den ännu inte är installerad följer du [de här instruktionerna](/powershell/azure/install-az-ps).
-- PowerShellGet 2.0.1 eller högre. Om den inte är installerad eller uppdaterad följer du [de här instruktionerna](/powershell/gallery/installing-psget).
+- Azure PowerShell 1.5.0 or higher. Om den ännu inte är installerad följer du [de här instruktionerna](/powershell/azure/install-az-ps).
+- PowerShellGet 2.0.1 eller högre. Om den inte är installerad eller uppdaterad följer du [de här instruktionerna](/powershell/scripting/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Installera modulen
 
-Modulen modeller för PowerShell är **AZ. skissa**.
+The Blueprints module for PowerShell is **Az.Blueprint**.
 
 1. Från en **administrativ** PowerShell-prompt kör du följande kommando:
 
@@ -37,21 +37,21 @@ Modulen modeller för PowerShell är **AZ. skissa**.
    ```
 
    > [!NOTE]
-   > Om **AZ. Accounts** redan är installerat kan du behöva använda `-AllowClobber` för att framtvinga installationen.
+   > If **Az.Accounts** is already installed, it may be necessary to use `-AllowClobber` to force the installation.
 
-1. Kontrol lera att modulen har importer ATS och att den är rätt version (0.2.6):
+1. Validate that the module has been imported and is the correct version (0.2.6):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
    Get-Command -Module 'Az.Blueprint' -CommandType 'Cmdlet'
    ```
 
-## <a name="get-blueprint-definitions"></a>Hämta skiss definitioner
+## <a name="get-blueprint-definitions"></a>Get blueprint definitions
 
-Det första steget för att arbeta med en tilldelning får ofta en referens till en skiss definition.
-`Get-AzBlueprint`-cmdlet: en hämtar en eller flera skiss definitioner. Cmdleten kan hämta skiss definitioner från en hanterings grupp med `-ManagementGroupId {mgId}` eller en prenumeration med `-SubscriptionId {subId}`. Parametern **Name** hämtar en skiss definition, men den måste användas med **ManagementGroupId** eller **SubscriptionId**. **Version** kan användas med **ett namn** för att vara mer utförlig om vilken skiss definition som returneras. I stället för **version**hämtar växeln `-LatestPublished` den senast publicerade versionen.
+The first step to working with an assignment is often getting a reference to a blueprint definition.
+The `Get-AzBlueprint` cmdlet gets one or more blueprint definitions. The cmdlet can get blueprint definitions from a management group with `-ManagementGroupId {mgId}` or a subscription with `-SubscriptionId {subId}`. The **Name** parameter gets a blueprint definition, but must be used with **ManagementGroupId** or **SubscriptionId**. **Version** can be used with **Name** to be more explicit about which blueprint definition is returned. Instead of **Version**, the switch `-LatestPublished` grabs the most recently published version.
 
-I följande exempel används `Get-AzBlueprint` för att hämta alla versioner av en skiss definition med namnet "101-ritningar-definition-Subscription" från en speciell prenumeration som visas som `{subId}`:
+The following example uses `Get-AzBlueprint` to get all versions of a blueprint definition named '101-blueprints-definition-subscription' from a specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -63,7 +63,7 @@ $blueprints = Get-AzBlueprint -SubscriptionId '{subId}' -Name '101-blueprints-de
 $blueprints
 ```
 
-Exempel resultatet för en skiss definition med flera versioner ser ut så här:
+The example output for a blueprint definition with multiple versions looks like this:
 
 ```output
 Name                 : 101-blueprints-definition-subscription
@@ -78,7 +78,7 @@ Parameters           : {storageAccount_storageAccountType, storageAccount_locati
 ResourceGroups       : ResourceGroup
 ```
 
-[Skiss parametrarna](../concepts/parameters.md#blueprint-parameters) i skiss definitionen kan utökas för att ge mer information.
+The [blueprint parameters](../concepts/parameters.md#blueprint-parameters) on the blueprint definition can be expanded to provide more information.
 
 ```azurepowershell-interactive
 $blueprints.Parameters
@@ -93,11 +93,11 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 [Usergrouporapplicationname]:Reader_RoleAssignmentName Microsoft.Azure.Commands.Blueprint.Models.PSParameterDefinition
 ```
 
-## <a name="get-blueprint-assignments"></a>Hämta skiss uppgifter
+## <a name="get-blueprint-assignments"></a>Get blueprint assignments
 
-Om skiss tilldelningen redan finns kan du hämta en referens till den med `Get-AzBlueprintAssignment`-cmdleten. Cmdleten använder **SubscriptionId** och **namnet** som valfria parametrar. Om **SubscriptionId** inte anges används den aktuella prenumerations kontexten.
+If the blueprint assignment already exists, you can get a reference to it with the `Get-AzBlueprintAssignment` cmdlet. The cmdlet takes **SubscriptionId** and **Name** as optional parameters. If **SubscriptionId** isn't specified, the current subscription context is used.
 
-I följande exempel används `Get-AzBlueprintAssignment` för att hämta en enda skiss tilldelning med namnet "tilldelning-lås-resurs-grupper" från en viss prenumeration som visas som `{subId}`:
+The following example uses `Get-AzBlueprintAssignment` to get a single blueprint assignment named 'Assignment-lock-resource-groups' from a specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -109,7 +109,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -SubscriptionId '{subId}' -Name
 $blueprintAssignment
 ```
 
-Exempel resultatet för en skiss tilldelning ser ut så här:
+The example output for a blueprint assignment looks like this:
 
 ```output
 Name              : Assignment-lock-resource-groups
@@ -123,52 +123,52 @@ Parameters        :
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="create-blueprint-assignments"></a>Skapa skiss tilldelningar
+## <a name="create-blueprint-assignments"></a>Create blueprint assignments
 
-Om skiss tilldelningen inte finns ännu kan du skapa den med cmdleten `New-AzBlueprintAssignment`. Denna cmdlet använder följande parametrar:
+If the blueprint assignment doesn't exist yet, you can create it with the `New-AzBlueprintAssignment` cmdlet. This cmdlet uses the following parameters:
 
-- **Namn** [obligatoriskt]
-  - Anger namnet på skiss tilldelningen
-  - Måste vara unikt och finns inte redan i **SubscriptionId**
-- **Skiss** [krävs]
-  - Anger den skiss definition som ska tilldelas
-  - Använd `Get-AzBlueprint` för att hämta referens objekt
-- **Plats** [krävs]
-  - Anger regionen för den systemtilldelade distributions objekt för hanterad identitet och prenumeration som ska skapas i
-- **Prenumeration** (valfritt)
-  - Anger den prenumeration som tilldelningen har distribuerats till
-  - Om inget värde anges används den aktuella prenumerations kontexten som standard
-- **Lås** (valfritt)
-  - Definierar den [skiss resurs låsning](../concepts/resource-locking.md) som ska användas för distribuerade resurser
-  - Alternativ som stöds: _ingen_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-  - Om inget värde anges används _ingen_
-- **SystemAssignedIdentity** (valfritt)
-  - Välj om du vill skapa en systemtilldelad hanterad identitet för tilldelningen och distribuera resurserna
-  - Standardvärdet för parametern "identitet" har angetts
-  - Kan inte användas med **UserAssignedIdentity**
-- **UserAssignedIdentity** (valfritt)
-  - Anger den användare som tilldelats den hanterade identitet som ska användas för tilldelningen och för att distribuera resurserna
-  - En del av parametern "identitet" har angetts
-  - Kan inte användas med **SystemAssignedIdentity**
-- **Parameter** (valfritt)
-  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) med nyckel/värde-par för att ange [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) för skiss tilldelningen
-  - Standardvärdet för en dynamisk parameter är **DefaultValue** i definitionen
-  - Om en parameter inte anges och saknar **Standardvärde**, är parametern inte valfri
+- **Name** [required]
+  - Specifies the name of the blueprint assignment
+  - Must be unique and not already exist in **SubscriptionId**
+- **Blueprint** [required]
+  - Specifies the blueprint definition to assign
+  - Use `Get-AzBlueprint` to get the reference object
+- **Location** [required]
+  - Specifies the region for the system-assigned managed identity and subscription deployment object to be created in
+- **Subscription** (optional)
+  - Specifies the subscription the assignment is deployed to
+  - If not provided, defaults to the current subscription context
+- **Lock** (optional)
+  - Defines the [blueprint resource locking](../concepts/resource-locking.md) to use for deployed resources
+  - Supported options: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
+  - If not provided, defaults to _None_
+- **SystemAssignedIdentity** (optional)
+  - Select to create a system-assigned managed identity for the assignment and to deploy the resources
+  - Default for the "identity" parameter set
+  - Can't be used with **UserAssignedIdentity**
+- **UserAssignedIdentity** (optional)
+  - Specifies the user-assigned managed identity to use for the assignment and to deploy the resources
+  - Part of the "identity" parameter set
+  - Can't be used with **SystemAssignedIdentity**
+- **Parameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of key/value pairs for setting [dynamic parameters](../concepts/parameters.md#dynamic-parameters) on the blueprint assignment
+  - Default for a dynamic parameter is the **defaultValue** in the definition
+  - If a parameter isn't provided and has no **defaultValue**, the parameter isn't optional
 
     > [!NOTE]
-    > **Parametern** stöder inte secureStrings.
+    > **Parameter** doesn't support secureStrings.
 
-- **ResourceGroupParameter** (valfritt)
-  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) för resurs grupps artefakter
-  - Varje resurs grupps plats hållare har nyckel/värde-par för dynamisk inställning av **namn** och **plats** för den här resurs grupps artefakten
-  - Om ingen resurs grupps parameter har angetts och saknar **DefaultValue**, är resurs grupps parametern inte valfri
-- **AssignmentFile** (valfritt)
-  - Sökvägen till en JSON-fil representation av en skiss tilldelning
-  - Den här parametern är en del av en PowerShell-parameter uppsättning som bara innehåller **namn**, **skiss**och **SubscriptionId**, plus de gemensamma parametrarna.
+- **ResourceGroupParameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of resource group artifacts
+  - Each resource group artifact placeholder has key/value pairs for dynamically setting **Name** and **Location** on that resource group artifact
+  - If a resource group parameter isn't provided and has no **defaultValue**, the resource group parameter isn't optional
+- **AssignmentFile** (optional)
+  - The path to a JSON file representation of a blueprint assignment
+  - This parameter is part of a PowerShell parameter set that only includes **Name**, **Blueprint**, and **SubscriptionId**, plus the common parameters.
 
-### <a name="example-1-provide-parameters"></a>Exempel 1: Ange parametrar
+### <a name="example-1-provide-parameters"></a>Example 1: Provide parameters
 
-I följande exempel skapas en ny tilldelning av version 1,1 för skiss definitionen My-skiss som hämtats med `Get-AzBlueprint`, anger den hanterade identitets-och tilldelnings objekt platsen till "westus2", låser resurserna med _AllResourcesReadOnly_och anger hash-tabeller för både **parameter** -och **ResourceGroupParameter** för en speciell prenumeration som representeras som `{subId}`:
+The following example creates a new assignment of version '1.1' of the 'my-blueprint' blueprint definition fetched with `Get-AzBlueprint`, sets the managed identity and assignment object location to 'westus2', locks the resources with _AllResourcesReadOnly_, and sets the hash tables for both **Parameter** and **ResourceGroupParameter** on specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -189,7 +189,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
-Exempel på utdata för att skapa en skiss tilldelning ser ut så här:
+The example output for creating a blueprint assignment looks like this:
 
 ```output
 Name              : my-blueprint-assignment
@@ -203,10 +203,10 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-### <a name="example-2-use-a-json-assignment-definition-file"></a>Exempel 2: använda en JSON-tilldelning definitions fil
+### <a name="example-2-use-a-json-assignment-definition-file"></a>Example 2: Use a JSON assignment definition file
 
-I följande exempel skapas nästan samma tilldelning som [exempel 1](#example-1-provide-parameters).
-I stället för att skicka parametrar till cmdleten visar exemplet användningen av en JSON-tilldelnings definitions fil och parametern **AssignmentFile** . Dessutom konfigureras egenskapen **excludedPrincipals** som en del av **låsen**. Det finns ingen PowerShell-parameter för **excludedPrincipals** och egenskapen kan bara konfigureras genom att ställa in den via JSON-tilldelningens definitions fil.
+The following example creates nearly the same assignment as [Example 1](#example-1-provide-parameters).
+Instead of passing parameters to the cmdlet, the example shows use of a JSON assignment definition file and the **AssignmentFile** parameter. Additionally, the **excludedPrincipals** property is configured as part of **locks**. There isn't a PowerShell parameter for **excludedPrincipals** and the property can only be configured by setting it through the JSON assignment definition file.
 
 ```json
 {
@@ -247,50 +247,50 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
     -AssignmentFile '.\assignment.json'
 ```
 
-## <a name="update-blueprint-assignments"></a>Uppdatera skiss tilldelningar
+## <a name="update-blueprint-assignments"></a>Update blueprint assignments
 
-Ibland är det nödvändigt att uppdatera en skiss tilldelning som redan har skapats. `Set-AzBlueprintAssignment`-cmdleten hanterar den här åtgärden. Cmdlet: en tar de flesta av samma parametrar som `New-AzBlueprintAssignment`-cmdleten gör, vilket gör det möjligt för allt som har angetts för tilldelningen att uppdateras. Undantagen är _namn_, _skiss_och _SubscriptionId_. Endast de angivna värdena uppdateras.
+Sometimes it's necessary to update a blueprint assignment that has already been created. The `Set-AzBlueprintAssignment` cmdlet handles this action. The cmdlet takes most of the same parameters that the `New-AzBlueprintAssignment` cmdlet does, allowing anything that was set on the assignment to be updated. The exceptions are the _Name_, _Blueprint_, and _SubscriptionId_. Only the values provided are updated.
 
-Information om vad som händer när du uppdaterar en skiss tilldelning finns i [regler för uppdatering av tilldelningar](./update-existing-assignments.md#rules-for-updating-assignments).
+To understand what happens when updating a blueprint assignment, see [rules for updating assignments](./update-existing-assignments.md#rules-for-updating-assignments).
 
-- **Namn** [obligatoriskt]
-  - Anger namnet på den skiss tilldelning som ska uppdateras
-  - Används för att hitta tilldelningen att uppdatera och inte ändra tilldelningen
-- **Skiss** [krävs]
-  - Anger skiss definitionen för skiss tilldelningen
-  - Använd `Get-AzBlueprint` för att hämta referens objekt
-  - Används för att hitta tilldelningen att uppdatera och inte ändra tilldelningen
-- **Plats** (valfritt)
-  - Anger regionen för den systemtilldelade distributions objekt för hanterad identitet och prenumeration som ska skapas i
-- **Prenumeration** (valfritt)
-  - Anger den prenumeration som tilldelningen har distribuerats till
-  - Om inget värde anges används den aktuella prenumerations kontexten som standard
-  - Används för att hitta tilldelningen att uppdatera och inte ändra tilldelningen
-- **Lås** (valfritt)
-  - Definierar den [skiss resurs låsning](../concepts/resource-locking.md) som ska användas för distribuerade resurser
-  - Alternativ som stöds: _ingen_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-- **SystemAssignedIdentity** (valfritt)
-  - Välj om du vill skapa en systemtilldelad hanterad identitet för tilldelningen och distribuera resurserna
-  - Standardvärdet för parametern "identitet" har angetts
-  - Kan inte användas med **UserAssignedIdentity**
-- **UserAssignedIdentity** (valfritt)
-  - Anger den användare som tilldelats den hanterade identitet som ska användas för tilldelningen och för att distribuera resurserna
-  - En del av parametern "identitet" har angetts
-  - Kan inte användas med **SystemAssignedIdentity**
-- **Parameter** (valfritt)
-  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) med nyckel/värde-par för att ange [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) för skiss tilldelningen
-  - Standardvärdet för en dynamisk parameter är **DefaultValue** i definitionen
-  - Om en parameter inte anges och saknar **Standardvärde**, är parametern inte valfri
+- **Name** [required]
+  - Specifies the name of the blueprint assignment to update
+  - Used to locate the assignment to update, not to change the assignment
+- **Blueprint** [required]
+  - Specifies the blueprint definition of the blueprint assignment
+  - Use `Get-AzBlueprint` to get the reference object
+  - Used to locate the assignment to update, not to change the assignment
+- **Location** (optional)
+  - Specifies the region for the system-assigned managed identity and subscription deployment object to be created in
+- **Subscription** (optional)
+  - Specifies the subscription the assignment is deployed to
+  - If not provided, defaults to the current subscription context
+  - Used to locate the assignment to update, not to change the assignment
+- **Lock** (optional)
+  - Defines the [blueprint resource locking](../concepts/resource-locking.md) to use for deployed resources
+  - Supported options: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
+- **SystemAssignedIdentity** (optional)
+  - Select to create a system-assigned managed identity for the assignment and to deploy the resources
+  - Default for the "identity" parameter set
+  - Can't be used with **UserAssignedIdentity**
+- **UserAssignedIdentity** (optional)
+  - Specifies the user-assigned managed identity to use for the assignment and to deploy the resources
+  - Part of the "identity" parameter set
+  - Can't be used with **SystemAssignedIdentity**
+- **Parameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of key/value pairs for setting [dynamic parameters](../concepts/parameters.md#dynamic-parameters) on the blueprint assignment
+  - Default for a dynamic parameter is the **defaultValue** in the definition
+  - If a parameter isn't provided and has no **defaultValue**, the parameter isn't optional
 
     > [!NOTE]
-    > **Parametern** stöder inte secureStrings.
+    > **Parameter** doesn't support secureStrings.
 
-- **ResourceGroupParameter** (valfritt)
-  - En [hash-tabell](/powershell/module/microsoft.powershell.core/about/about_hash_tables) för resurs grupps artefakter
-  - Varje resurs grupps plats hållare har nyckel/värde-par för dynamisk inställning av **namn** och **plats** för den här resurs grupps artefakten
-  - Om ingen resurs grupps parameter har angetts och saknar **DefaultValue**, är resurs grupps parametern inte valfri
+- **ResourceGroupParameter** (optional)
+  - A [hash table](/powershell/module/microsoft.powershell.core/about/about_hash_tables) of resource group artifacts
+  - Each resource group artifact placeholder has key/value pairs for dynamically setting **Name** and **Location** on that resource group artifact
+  - If a resource group parameter isn't provided and has no **defaultValue**, the resource group parameter isn't optional
 
-I följande exempel uppdateras tilldelningen av version 1,1 av skiss definitionen mina-skisser som hämtats med `Get-AzBlueprint` genom att ändra lås läget:
+The following example updates the assignment of version '1.1' of the 'my-blueprint' blueprint definition fetched with `Get-AzBlueprint` by changing the lock mode:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -303,7 +303,7 @@ $bpAssignment = Set-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -SubscriptionId '{subId}' -Lock AllResourcesDoNotDelete
 ```
 
-Exempel på utdata för att skapa en skiss tilldelning ser ut så här:
+The example output for creating a blueprint assignment looks like this:
 
 ```output
 Name              : my-blueprint-assignment
@@ -317,11 +317,11 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="remove-blueprint-assignments"></a>Ta bort skiss tilldelningar
+## <a name="remove-blueprint-assignments"></a>Remove blueprint assignments
 
-När det är dags för en skiss tilldelning som ska tas bort, hanterar `Remove-AzBlueprintAssignment`-cmdlet åtgärden. Cmdlet: en tar antingen **namn** eller **InputObject** för att ange vilken skiss tilldelning som ska tas bort. **SubscriptionId** _krävs_ och måste tillhandahållas i samtliga fall.
+When it's time for a blueprint assignment to be removed, the `Remove-AzBlueprintAssignment` cmdlet handles this action. The cmdlet takes either **Name** or **InputObject** to specify which blueprint assignment to remove. **SubscriptionId** is _required_ and must be provided in all cases.
 
-I följande exempel hämtas en befintlig skiss tilldelning med `Get-AzBlueprintAssignment` och tas sedan bort från den aktuella prenumerationen som visas som `{subId}`:
+The following example fetches an existing blueprint assignment with `Get-AzBlueprintAssignment` and then removes it from the specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -333,9 +333,9 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Kod exempel från slut punkt till slut punkt
+## <a name="end-to-end-code-example"></a>End-to-end code example
 
-Genom att samla alla steg tillsammans hämtar du skiss definitionen och skapar, uppdaterar och tar bort en skiss tilldelning i den angivna prenumerationen som visas som `{subId}`:
+Bringing all the steps together, the following example gets the blueprint definition, then creates, updates, and removes a blueprint assignment in the specific subscription represented as `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

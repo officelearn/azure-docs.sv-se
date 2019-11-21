@@ -1,6 +1,6 @@
 ---
-title: Hantera moduler i Azure Automation
-description: I den här artikeln beskrivs hur du hanterar moduler i Azure Automation
+title: Manage Modules in Azure Automation
+description: This article describes how to manage modules in Azure Automation
 services: automation
 ms.service: automation
 author: bobbytreed
@@ -8,27 +8,27 @@ ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82f02f0ac11c80161f709b3b493306bc8aafc8bd
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435464"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231582"
 ---
-# <a name="manage-modules-in-azure-automation"></a>Hantera moduler i Azure Automation
+# <a name="manage-modules-in-azure-automation"></a>Manage Modules in Azure Automation
 
-Azure Automation ger möjlighet att importera PowerShell-moduler till ditt Automation-konto som ska användas av PowerShell-baserade Runbooks. Dessa moduler kan vara anpassade moduler som du har skapat, från PowerShell-galleriet eller AzureRM-och AZ-modulerna för Azure. När du skapar ett Automation-konto importeras vissa moduler som standard.
+Azure Automation provides the ability to import PowerShell modules into your Automation Account to be used by the PowerShell based runbooks. These modules can be custom modules you've created, from the PowerShell Gallery, or the AzureRM and Az modules for Azure. When you create an Automation Account, some modules are imported by default.
 
 ## <a name="import-modules"></a>Importera moduler
 
-Du kan importera en modul till ditt Automation-konto på flera sätt. I följande avsnitt visas hur du importerar en modul på olika sätt.
+There are multiple ways that you can import a module into your Automation Account. The following sections show the different ways to import a module.
 
 > [!NOTE]
-> Den maximala sökvägen till en fil i en modul som ska användas i Azure Automation är 140 tecken. Alla sökvägar över 140 tecken kommer inte att kunna importeras till PowerShell-sessionen med `Import-Module`.
+> The max path of a file in a module to be used in Azure Automation is 140 characters. Any path over 140 characters will not be able to be imported into the PowerShell session with `Import-Module`.
 
 ### <a name="powershell"></a>PowerShell
 
-Du kan använda [New-AzureRmAutomationModule](/powershell/module/azurerm.automation/new-azurermautomationmodule) för att importera en modul till ditt Automation-konto. Cmdleten tar en URL till ett zip-paket för en modul.
+You can use the [New-AzureRmAutomationModule](/powershell/module/azurerm.automation/new-azurermautomationmodule) to import a module into your Automation Account. The cmdlet takes a url to a module zip package.
 
 ```azurepowershell-interactive
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
@@ -36,39 +36,39 @@ New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -Reso
 
 ### <a name="azure-portal"></a>Azure portal
 
-I Azure Portal navigerar du till ditt Automation-konto och väljer **moduler** under **delade resurser**. Klicka på **+ Lägg till en modul**. Välj en **. zip** -fil som innehåller modulen och klicka på **OK** för att börja importera processen.
+In the Azure portal, navigate to your Automation Account and select **Modules** under **Shared Resources**. Click **+ Add a module**. Select a **.zip** file that contains your module and click **Ok** to start to import process.
 
 ### <a name="powershell-gallery"></a>PowerShell-galleriet
 
-Moduler från PowerShell-galleriet kan antingen importeras från [PowerShell-galleriet](https://www.powershellgallery.com) direkt eller från ditt Automation-konto.
+Modules from the PowerShell gallery can either be imported from the [PowerShell Gallery](https://www.powershellgallery.com) directly or from your Automation Account.
 
-Om du vill importera en modul från PowerShell-galleriet går du till https://www.powershellgallery.com och söker efter den modul som du vill importera. Klicka på **distribuera för att Azure Automation** på fliken **Azure Automation** under **installations alternativ**. Den här åtgärden öppnar Azure Portal. På sidan **Importera** väljer du ditt Automation-konto och klickar på **OK**.
+To import a module from the PowerShell Gallery, go to https://www.powershellgallery.com and search for the module you want to import. Click **Deploy to Azure Automation** on the **Azure Automation** tab under **Installation Options**. This action opens up the Azure portal. On the **Import** page, select your Automation Account and click **OK**.
 
-![PowerShell-galleriet importera modul](../media/modules/powershell-gallery.png)
+![PowerShell Gallery import module](../media/modules/powershell-gallery.png)
 
-Du kan också importera moduler från PowerShell-galleriet direkt från ditt Automation-konto. I ditt Automation-konto väljer du **moduler** under **delade resurser**. Klicka på **Bläddra i galleriet**på sidan moduler och Sök sedan i PowerShell-galleriet efter en modul. Välj den modul som du vill importera och klicka på **Importera**. På sidan **Importera** klickar du på **OK** för att starta import processen.
+You can also import modules from the PowerShell Gallery directly from your Automation Account. In your Automation Account, select **Modules** under **Shared Resources**. On the modules page click **Browse gallery**, then search the PowerShell Gallery for a module. Select the module you want to import and click **Import**. On the **Import** page, click **OK** to start the import process.
 
-![PowerShell-galleriet importera från Azure Portal](../media/modules/gallery-azure-portal.png)
+![PowerShell Gallery import from Azure portal](../media/modules/gallery-azure-portal.png)
 
-## <a name="delete-modules"></a>Ta bort moduler
+## <a name="delete-modules"></a>Delete modules
 
-Om du har problem med en modul eller om du behöver återställa till en tidigare version av en modul kan du ta bort den från ditt Automation-konto. Du kan inte ta bort den ursprungliga versionen av [standardmodulerna](#default-modules) som importeras när du skapar ett Automation-konto. Om den modul som du vill ta bort är en nyare version av en av [standardmodulerna](#default-modules) som är installerad, kommer den att återställas till den version som installerades med ditt Automation-konto. Annars tas alla moduler som du tar bort från ditt Automation-konto bort.
+If you have issues with a module or you need to roll back to a previous version of a module, you can delete it from your Automation Account. You can not delete the original version of the [default modules](#default-modules) that are imported when you create an Automation Account. If the module you want to delete is a newer version of one of the [default modules](#default-modules) installed, it will roll-back to the version that was installed with your Automation Account. Otherwise, any module you delete from your Automation Account will be removed.
 
 ### <a name="azure-portal"></a>Azure portal
 
-I Azure Portal navigerar du till ditt Automation-konto och väljer **moduler** under **delade resurser**. Välj den modul som du vill ta bort. **Ta bort**clcick på sidan **modul** . Om den här modulen är en av [standardmodulerna](#default-modules)återställs den till den version som fanns när Automation-kontot skapades.
+In the Azure portal, navigate to your Automation Account and select **Modules** under **Shared Resources**. Select the module you want to remove. On the **Module** page, clcick **Delete**. If this module is one of the [default modules](#default-modules), it will be rolled back to the version that was present when the Automation Account was created.
 
 ### <a name="powershell"></a>PowerShell
 
-Om du vill ta bort en modul via PowerShell kör du följande kommando:
+To remove a module through PowerShell, run the following command:
 
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
 ```
 
-## <a name="internal-cmdlets"></a>Interna cmdletar
+## <a name="internal-cmdlets"></a>Internal cmdlets
 
-Följande är en lista över cmdletar i den interna `Orchestrator.AssetManagement.Cmdlets`-modulen som importeras till varje Automation-konto. Dessa cmdletar är tillgängliga i dina runbooks och DSC-konfigurationer och gör att du kan interagera med dina till gångar i ditt Automation-konto. Dessutom kan du med interna cmdlet: ar Hämta hemligheter från krypterade **variabel** värden, **autentiseringsuppgifter**och krypterade **anslutnings** fält. Det går inte att hämta dessa hemligheter i Azure PowerShell-cmdletar. Dessa cmdletar kräver inte att du implicit ansluter till Azure när du använder dem, t. ex. genom att använda ett Kör som-konto för att autentisera till Azure.
+The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account. Additionally, the internal cmdlets allow you to retrieve secrets from encrypted **Variable** values, **Credentials**, and encrypted **Connection** fields. The Azure PowerShell cmdlets are not able to retrieve these secrets. These cmdlets do not require you to implicitly connect to Azure when using them, such as using a Run As Account to authenticate to Azure.
 
 |Namn|Beskrivning|
 |---|---|
@@ -78,15 +78,15 @@ Följande är en lista över cmdletar i den interna `Orchestrator.AssetManagemen
 |Get-AutomationVariable|`Get-AutomationVariable [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]`|
 |Set-AutomationVariable|`Set-AutomationVariable [-Name] <string> -Value <Object> [<CommonParameters>]` |
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
-|Vänta-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
+|Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
-## <a name="add-a-connection-type-to-your-module"></a>Lägg till en Anslutnings typ i modulen
+## <a name="add-a-connection-type-to-your-module"></a>Add a connection type to your module
 
-Du kan ange en anpassad [Anslutnings typ](../automation-connections.md) som du kan använda i ditt Automation-konto genom att lägga till en valfri fil i modulen. Den här filen är en metadatafil som anger en Azure Automation Anslutnings typ som ska användas med modulens cmdlets i ditt Automation-konto. För att uppnå detta måste du först veta hur du skapar en PowerShell-modul. Mer information om hur du redigerar modulen finns i [så här skriver du en PowerShell-modul för skript](/powershell/developer/module/how-to-write-a-powershell-script-module).
+You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this, you must first know how to author a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
-![Använd en anpassad anslutning i Azure Portal](../media/modules/connection-create-new.png)
+![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
 
-Om du vill lägga till en Azure Automation Anslutnings typ måste modulen innehålla en fil med namnet `<ModuleName>-Automation.json` som anger egenskaperna för anslutnings typen. JSON-filen placeras i mappen module i den komprimerade ZIP-filen. Den här filen innehåller fälten i en anslutning som krävs för att ansluta till systemet eller tjänsten som modulen representerar. Konfigurationen Slutför skapandet av en Anslutnings typ i Azure Automation. Med den här filen kan du ange fält namn, typer och om fälten ska vara krypterade eller valfria, för modulens Anslutnings typ. Följande exempel är en mall i JSON-filformatet som definierar en egenskap för användar namn och lösen ord:
+To add an Azure Automation connection type, your module must contain a file with the name `<ModuleName>-Automation.json` that specifies the connection type properties. The json file is placed within the module folder of your compressed .zip file. This file contains the fields of a connection that is required to connect to the system or service the module represents. The configuration ends up creating a connection type in Azure Automation. Using this file you can set the field names, types, and whether the fields should be encrypted or optional, for the connection type of the module. The following example is a template in the json file format that defines a username and password property:
 
 ```json
 {
@@ -109,13 +109,13 @@ Om du vill lägga till en Azure Automation Anslutnings typ måste modulen inneh�
 }
 ```
 
-## <a name="module-best-practices"></a>Metod tips för modul
+## <a name="module-best-practices"></a>Module best practices
 
-PowerShell-moduler kan importeras till Azure Automation för att göra att deras cmdlets är tillgängliga för användning i Runbooks och deras DSC-resurser som är tillgängliga för användning i DSC-konfigurationer. Azure Automation lagrar de här modulerna i bakgrunden, och i Runbook-jobbet och körnings tiden för DSC-kompilering läses de in i Azure Automation sand lådor där Runbooks kör och DSC-konfigurationer kompileras. DSC-resurser i moduler placeras också automatiskt på Automation DSC pull-servern. De kan hämtas av datorer när de använder DSC-konfigurationer.
+PowerShell modules can be imported into Azure Automation to make their cmdlets available for use within runbooks and their DSC resources available for use within DSC configurations. Behind the scenes, Azure Automation stores these modules, and at runbook job and DSC compilation job execution time, loads them into the Azure Automation sandboxes where runbooks execute and DSC configurations compile. Any DSC resources in modules are also automatically placed on the Automation DSC pull server. They can be pulled by machines when they apply DSC configurations.
 
-Vi rekommenderar att du funderar på följande när du skapar en PowerShell-modul för användning i Azure Automation:
+We recommend you consider the following when you author a PowerShell module for use in Azure Automation:
 
-* Ta inte med en versions-mapp i. zip-paketet.  Det här problemet är mindre viktigt för Runbooks, men orsakar ett problem med tillstånds konfigurations tjänsten.  Azure Automation skapar automatiskt mappen version när modulen distribueras till noder som hanteras av DSC, och om en versions katalog finns kommer du att få två instanser.  Exempel på mappstruktur för en DSC-modul:
+* Do NOT include a version folder within the .zip package.  This issue is less of a concern for runbooks but will cause an issue with the State Configuration service.  Azure Automation will create the version folder automatically when the module is distributed to nodes managed by DSC, and if a version folder exists you will end up with two instances.  Example folder structure for a  DSC module:
 
 ```powershell
 myModule
@@ -126,7 +126,7 @@ myModule
   myModuleManifest.psd1
 ```
 
-* Lägg till en sammanfattning, beskrivning och hjälp-URI för varje cmdlet i modulen. I PowerShell kan du definiera viss hjälpinformation för cmdlets så att användaren kan få hjälp med att använda dem genom att köra cmdleten **Get-Help**. I följande exempel visas hur du definierar en sammanfattning och hjälp-URI för i en. psm1-modul fil:
+* Lägg till en sammanfattning, beskrivning och hjälp-URI för varje cmdlet i modulen. I PowerShell kan du definiera viss hjälpinformation för cmdlets så att användaren kan få hjälp med att använda dem genom att köra cmdleten **Get-Help**. The following example shows how to define a synopsis and help URI for in a .psm1 module file:
 
   ```powershell
   <#
@@ -166,13 +166,13 @@ myModule
   }
   ```
 
-  Genom att ange den här informationen visas den här hjälpen med cmdleten **Get-Help** i PowerShell-konsolen. Den här beskrivningen visas också i Azure Portal.
+  Providing this info shows this help using the **Get-Help** cmdlet in the PowerShell console. This description is also displayed in the Azure portal.
 
   ![Hjälp med integreringsmoduler](../media/modules/module-activity-description.png)
 
-* Om modulen ansluter till en extern tjänst bör den innehålla en [Anslutnings typ](#add-a-connection-type-to-your-module). Varje cmdlet i modulen ska kunna använda ett anslutningsobjekt (en instans av anslutningstypen) som en parameter. Användarna mappar parametrarna för anslutnings till gången till cmdletens motsvarande parametrar varje gång de anropar en cmdlet. Baserat på ovanstående Runbook-exempel används ett exempel på Contoso-ContosoConnection som heter för att komma åt contoso-resurser och returnera data från den externa tjänsten.
+* If the module connects to an external service, it should contain a [connection type](#add-a-connection-type-to-your-module). Varje cmdlet i modulen ska kunna använda ett anslutningsobjekt (en instans av anslutningstypen) som en parameter. Users map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. Based on the runbook example above, it uses an example Contoso connection asset called ContosoConnection to access Contoso resources and return data from the external service.
 
-  I följande exempel mappas fälten till egenskaperna för användar namn och lösen ord för ett `PSCredential`-objekt och skickas sedan till cmdlet: en.
+  In the following example, the fields are mapped to the UserName and Password properties of a `PSCredential` object and then passed to the cmdlet.
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -182,7 +182,7 @@ myModule
   }
   ```
 
-  Ett enklare och bättre sätt att närma sig detta beteende är att skicka anslutningsobjektet direkt till cmdleten:
+  An easier and better way to approach this behavior is directly passing the connection object to the cmdlet:
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -191,11 +191,11 @@ myModule
   }
   ```
 
-  Du kan aktivera beteende som i föregående exempel för dina cmdlets genom att tillåta att de accepterar ett anslutnings objekt direkt som en parameter, i stället för bara anslutnings fält för parametrar. Vanligt vis vill du ha en parameter uppsättning för var och en, så att en användare som inte använder Azure Automation kan anropa dina cmdletar utan att skapa en hash-post för att fungera som anslutnings objekt. Parametern set `UserAccount`, används för att skicka anslutnings fälts egenskaperna. med `ConnectionObject` kan du skicka anslutningen direkt genom.
+  You can enable behavior like the preceding example for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. The parameter set `UserAccount`, is used to pass the connection field properties. `ConnectionObject` lets you pass the connection straight through.
 
-* Definiera utdatatypen för alla cmdletar i modulen. Genom att definiera en utdatatyp för en cmdlet kan IntelliSense hjälpa dig under designfasen med att fastställa utdataegenskaperna för cmdleten, för användning under redigeringar. Det är särskilt användbart vid grafisk redigering av Automation-Runbook, där kunskap om design tid är en nyckel till en enkel användar upplevelse med modulen.
+* Define the output type for all cmdlets in the module. Genom att definiera en utdatatyp för en cmdlet kan IntelliSense hjälpa dig under designfasen med att fastställa utdataegenskaperna för cmdleten, för användning under redigeringar. It's especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.
 
-Lägg till `[OutputType([<MyOutputType>])]` där MyOutputType är en giltig typ. Mer information om OutputType finns i [om functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Följande kod är ett exempel på hur du lägger till `OutputType` till en-cmdlet:
+Add `[OutputType([<MyOutputType>])]` where MyOutputType is a valid type. To learn more about OutputType, see [About Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). The following code is an example of adding `OutputType` to a cmdlet:
 
   ```powershell
   function Get-ContosoUser {
@@ -210,11 +210,11 @@ Lägg till `[OutputType([<MyOutputType>])]` där MyOutputType är en giltig typ.
 
   ![Utdatatyp för grafiska runbooks](../media/modules/runbook-graphical-module-output-type.png)
 
-  Det här beteendet liknar funktionen "Type Ahead" för cmdletens utdata i PowerShell ISE utan att behöva köra den.
+  This behavior is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.
 
   ![POSH IntelliSense](../media/modules/automation-posh-ise-intellisense.png)
 
-* Gör alla cmdlets i modulen tillståndslösa. Flera Runbook-jobb kan samtidigt köras i samma AppDomain och samma process och sandbox. Om det finns ett tillstånd som delas på dessa nivåer kan jobben påverka varandra. Det här beteendet kan leda till intermittent och svårt att diagnostisera problem.  Här är ett exempel på vad du inte ska göra.
+* Gör alla cmdlets i modulen tillståndslösa. Multiple runbook jobs can simultaneously run in the same AppDomain and the same process and sandbox. If there is any state shared on those levels, jobs can affect each other. This behavior can lead to intermittent and hard to diagnose issues.  Här är ett exempel på vad du inte ska göra.
 
   ```powershell
   $globalNum = 0
@@ -232,15 +232,15 @@ Lägg till `[OutputType([<MyOutputType>])]` där MyOutputType är en giltig typ.
   }
   ```
 
-* Modulen bör helt ingå i ett xcopy-möjligt paket. Azure Automation moduler distribueras till Automation-sandbox när Runbooks måste köras. Modulerna måste fungera oberoende av värden som de körs på. Du bör kunna lägga upp och flytta ett modul-paket och få det att fungera som vanligt när det importeras till en annan värds PowerShell-miljö. För att detta ska ske bör modulen vara beroende av filer utanför modulen modul. Den här mappen är den mapp som hämtas när modulen importeras till Azure Automation. Modulen bör inte heller vara beroende av unika register inställningar på en värd, till exempel de inställningar som ställts in när en produkt installeras. Alla filer i modulen måste ha en sökväg som är kortare än 140 tecken. Alla sökvägar över 140 tecken orsakar problem med att importera din Runbook. Om du inte följer den här rekommenderade metoden går det inte att använda modulen i Azure Automation.  
+* The module should be fully contained in an xcopy-able package. Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute. The modules need to work independently of the host they're running on. You should be able to Zip up and move a module package and have it function as normal when imported into another host's PowerShell environment. In order for that to happen, the module shouldn't depend on any files outside the module folder. This folder is the folder that gets zipped up when the module is imported into Azure Automation. The module should also not depend on any unique registry settings on a host, such as those settings set when a product is installed. All files in the module should have a path fewer than 140 characters. Any paths over 140 characters will cause issues importing your runbook. If this best practice isn't followed, the module won't be usable in Azure Automation.  
 
-* Om du refererar till [Azure PowerShell AZ-moduler](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) i modulen kontrollerar du att du inte också refererar till `AzureRM`. Det går inte att använda modulen `Az` tillsammans med modulerna `AzureRM`. `Az` stöds i Runbooks men importeras inte som standard. Mer information om modulerna i `Az` och överväganden för att ta hänsyn till finns [i AZ module i Azure Automation](../az-modules.md).
+* If referencing [Azure Powershell Az modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your module, ensure you aren't also referencing `AzureRM`. The `Az` module can't be used in conjunction with the `AzureRM` modules. `Az` is supported in runbooks but aren't imported by default. To learn about the `Az` modules and considerations to take into account, see [Az module support in Azure Automation](../az-modules.md).
 
-## <a name="default-modules"></a>Standardmoduler
+## <a name="default-modules"></a>Default modules
 
-I följande tabell visas de moduler som importeras som standard när ett Automation-konto skapas. De moduler som anges nedan kan ha nyare versioner av dem importerade, men den ursprungliga versionen kan inte tas bort från ditt Automation-konto även om du tar bort en nyare version av dem.
+The following table lists the modules that are imported by default when an Automation Account is created. The modules listed below can have newer versions of them imported, but the original version can not be removed from your Automation Account even if you delete a newer version of them.
 
-|Modulnamn|Version|
+|Module name|Version|
 |---|---|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
@@ -252,14 +252,14 @@ I följande tabell visas de moduler som importeras som standard när ett Automat
 | AzureRM.Sql | 1.0.3 |
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
-| GPRegistryPolicyParser | 0,2 |
-| Microsoft. PowerShell. Core | 0 |
-| Microsoft. PowerShell. Diagnostics |  |
-| Microsoft. PowerShell. Management |  |
-| Microsoft. PowerShell. Security |  |
+| GPRegistryPolicyParser | 0.2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
 | Microsoft.PowerShell.Utility |  |
-| Microsoft. WSMan. Management |  |
-| Orchestrator. AssetManagement. cmdletar | 1 |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |

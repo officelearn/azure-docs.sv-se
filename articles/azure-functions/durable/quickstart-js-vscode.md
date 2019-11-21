@@ -1,22 +1,16 @@
 ---
 title: Skapa din första beständiga funktion i Azure med hjälp av JavaScript
 description: Skapa och publicera en beständig Azure-funktion med hjälp av Visual Studio Code.
-services: functions
-documentationcenter: na
 author: ColbyTresness
-manager: jeconnoc
-keywords: azure functions, functions, event processing, compute, serverless architecture
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 1a1586124a1cfb05f2b7c4e9c3b0070170447b96
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 94ba2830824c4a918e9451a9fc5140d422110370
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614570"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231315"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -28,13 +22,13 @@ I den här artikeln får du lära dig hur du använder Azure Functions-tillägge
 
 ![Köra beständiga funktioner i Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Kontrol lera att du har den senaste versionen av [Azure Functions Core tools](../functions-run-local.md).
+* Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
 * På en Windows-dator kontrollerar du att [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) är installerad och körs. På en Mac- eller Linux-dator måste du använda ett faktiskt Azure Storage-konto.
 
@@ -50,23 +44,23 @@ För att slutföra den här självstudien behöver du:
 
 1. Installera npm-paketet för `durable-functions` genom att köra `npm install durable-functions` i funktionsappens rotkatalog.
 
-## <a name="creating-your-functions"></a>Skapa dina funktioner
+## <a name="creating-your-functions"></a>Creating your functions
 
-Nu ska vi skapa de tre funktioner som du behöver för att komma igång med Durable functions: ett http-, en Orchestrator och en aktivitets funktion. HTTP starter initierar hela lösningen och Orchestrator skickar arbete till olika aktivitets funktioner.
+We'll now create the three functions you need to get started with Durable Functions: an HTTP starter, an orchestrator, and an activity function. The HTTP starter will initiate your entire solution, and the orchestrator will dispatch work to various activity functions.
 
-### <a name="http-starter"></a>HTTP-start
+### <a name="http-starter"></a>HTTP starter
 
 Skapa först en HTTP-utlöst funktion som startar en orkestrering av beständig funktion.
 
-1. Välj ikonen **skapa funktion** från *Azure:* functions.
+1. From *Azure: Functions*, choose the **Create Function** icon.
 
     ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
-2. Välj mappen med ditt Function app-projekt och välj mallen **Durable Functions HTTP-** startfunktion.
+2. Select the folder with your function app project and select the **Durable Functions HTTP Starter** function template.
 
-    ![Välj mallen för HTTP-startmallen](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Choose the HTTP starter template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Lämna standardnamnet som `DurableFunctionsHttpStart` och tryck på ** **RETUR** och välj sedan **anonym** autentisering.
+3. Leave the default name as `DurableFunctionsHttpStart` and press ****Enter**, then select **Anonymous** authentication.
 
     ![Välj anonym autentisering](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
@@ -74,29 +68,29 @@ Nu har vi skapat en startpunkt till vår beständiga funktion. Vi lägger till e
 
 ### <a name="orchestrator"></a>Orchestrator
 
-Nu ska vi skapa en Orchestrator för att koordinera aktivitets funktioner.
+Now, we'll create an orchestrator to coordinate activity functions.
 
-1. Välj ikonen **skapa funktion** från *Azure:* functions.
+1. From *Azure: Functions*, choose the **Create Function** icon.
 
     ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
-2. Välj mappen med ditt Function app-projekt och välj mallen för **Durable Functions Orchestrator** -funktion. Lämna namnet som standard "DurableFunctionsOrchestrator"
+2. Select the folder with your function app project and select the **Durable Functions orchestrator** function template. Leave the name as the default "DurableFunctionsOrchestrator"
 
-    ![Välj Orchestrator-mall](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Choose the orchestrator template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Vi har lagt till en orkestrerare för att samordna aktivitetsfunktioner. Nu lägger vi till den refererade aktivitetsfunktionen.
 
 ### <a name="activity"></a>Aktivitet
 
-Nu ska vi skapa en aktivitets funktion för att faktiskt utföra lösningens arbete.
+Now, we'll create an activity function to actually carry out the work of the solution.
 
-1. Välj ikonen **skapa funktion** från *Azure:* functions.
+1. From *Azure: Functions*, choose the **Create Function** icon.
 
     ![Skapa en funktion](./media/quickstart-js-vscode/create-function.png)
 
-2. Välj mappen med ditt Function app-projekt och välj funktions mal len för **Durable Functions aktivitet** . Lämna namnet som standard "Hello".
+2. Select the folder with your function app project and select the **Durable Functions activity** function template. Leave the name as the default "Hello".
 
-    ![Välj aktivitets mal len](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Choose the activity template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 Nu har vi lagt till alla komponenter som behövs för att påbörja en orkestrering och kedja ihop aktivitetsfunktioner.
 
@@ -104,14 +98,14 @@ Nu har vi lagt till alla komponenter som behövs för att påbörja en orkestrer
 
 Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.
 
-1. Starta Azure Storage emulator på en Windows-dator och se till att egenskapen **AzureWebJobsStorage** för *Local. Settings. JSON* är inställd på `UseDevelopmentStorage=true`.
+1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of *local.settings.json* is set to `UseDevelopmentStorage=true`.
 
-    För Storage-emulator 5,8 ser du till att egenskapen **AzureWebJobsSecretStorageType** för Local. Settings. JSON har angetts till `files`. På en Mac-eller Linux-dator måste du ange **AzureWebJobsStorage** -egenskapen till anslutnings strängen för ett befintligt Azure Storage-konto. Du skapar ett lagringskonto senare i den här artikeln.
+    For Storage Emulator 5.8 make sure that the **AzureWebJobsSecretStorageType** property of local.settings.json is set to `files`. On     a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage         account. Du skapar ett lagringskonto senare i den här artikeln.
 
 2. Ange en brytpunkt i funktionskoden och tryck på F5 för att starta funktionsappsprojektet om du vill testa funktionen. Utdata från Core Tools visas på panelen **Terminal**. Om det här är första gången du Durable Functions installeras Durable Functions-tillägget, och bygget kan ta några sekunder.
 
     > [!NOTE]
-    > JavaScript Durable Functions kräver version **1.7.0** eller senare av tillägget **Microsoft.Azure.WebJobs.Extensions.DurableTask**. Kör följande kommando från rotmappen i Azure Functions-appen för att installera Durable Functions-tillägget `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
+    > JavaScript Durable Functions kräver version **1.7.0** eller senare av tillägget **Microsoft.Azure.WebJobs.Extensions.DurableTask**. Run the following command from the root folder of your Azure Functions app to install the Durable Functions extension `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
 
@@ -119,13 +113,13 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
 4. Ersätt `{functionName}` med `DurableFunctionsOrchestrator`.
 
-5. Skicka en HTTP POST-begäran till URL-slutpunkten med hjälp av ett verktyg som [Postman](https://www.getpostman.com/) eller [sväng](https://curl.haxx.se/).
+5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
 
    Svaret är det första resultatet från HTTP-funktionen, som anger att den beständiga orkestreringen har startats korrekt. Det är inte ännu slutresultatet av orkestreringen. Svaret innehåller några användbara URL:er. För tillfället kör vi en fråga om orkestreringens status.
 
-6. Kopiera URL-värdet för `statusQueryGetUri` och klistra in det i webbläsarens Adress fält och kör begäran. Alternativt kan du även fortsätta att använda Postman för att utfärda GET-begäran.
+6. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
 
-   Begäran kör en fråga mot orkestreringsinstansen om statusen. Du får ett möjligt svar som visar att instansen har slutförts och innehåller utdata eller resultat från den varaktiga funktionen. Det ser ut så här: 
+   Begäran kör en fråga mot orkestreringsinstansen om statusen. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
 
     ```json
     {
@@ -143,7 +137,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
     }
     ```
 
-7. Stoppa fel sökningen genom att trycka på **SKIFT + F5** i vs Code.
+7. To stop debugging, press **Shift + F5** in VS Code.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 

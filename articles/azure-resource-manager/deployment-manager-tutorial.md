@@ -5,16 +5,16 @@ author: mumian
 ms.date: 10/10/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a05e45c5dc60cf26b2fb4f50cb4699c0fde142a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ded7de96e560bbd0feb1c68429bb2d8219c8bd01
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147413"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232703"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig förhandsversion)
 
-Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. Om du föredrar en snabbare metod skapar [snabb starten av Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) de konfigurationer som krävs i din prenumeration och anpassar artefakterna för att distribuera ett program över flera regioner. Snabb starten utför samma uppgifter som i den här självstudien.
+Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. If you prefer a faster approach, [Azure Deployment Manager quickstart](https://github.com/Azure-Samples/adm-quickstart) creates the required configurations in your subscription and customizes the artifacts to deploy an application across multiple regions. The quickstart performs the same tasks as it does in this tutorial.
 
 För att använda Deployment Manager måste du skapa två mallar:
 
@@ -22,7 +22,7 @@ För att använda Deployment Manager måste du skapa två mallar:
 * **En distributionsmall**: Beskriver stegen för att distribuera dina program.
 
 > [!IMPORTANT]
-> Om din prenumeration har marker ATS för Kanarie för att testa nya Azure-funktioner kan du bara använda Azure Deployment Manager för att distribuera till Kanarie regionerna. 
+> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to the Canary regions. 
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -40,8 +40,8 @@ Den här självstudien omfattar följande uppgifter:
 
 Ytterligare resurser:
 
-* [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
-* [Självstudie: Använd hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -53,7 +53,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 * Viss erfarenhet av att utveckla [Azure Resource Manager-mallar](./resource-group-overview.md).
 * Azure PowerShell. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt upphöjt PowerShell-fönster och använd följande kommando:
+* Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/scripting/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt upphöjt PowerShell-fönster och använd följande kommando:
 
     ```powershell
     Install-Module -Name Az.DeploymentManager
@@ -64,7 +64,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 Mallen för tjänsttopologin beskriver de Azure-resurser som utgör din tjänst och var de ska distribueras. Definitionen av tjänsttopologin har följande hierarki:
 
 * Tjänsttopologi
-  * Tjänster
+  * Services
     * Tjänstenheter
 
 Följande diagram visar tjänsttopologin som används i den här självstudien:
@@ -105,7 +105,7 @@ De två versionerna (1.0.0.0 och 1.0.0.1) är avsedda för [ändringsdistributio
 
     ![Azure Deployment Manager-självstudie om att skapa en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I den här självstudien innehåller det komprimerade paketet bara en index. html-fil.
+    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. In this tutorial, the compressed package only contains an index.html file.
 3. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Azure Deployment Manager-självstudie om att skapa containerRoot och parametrar för en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
@@ -130,11 +130,11 @@ De två versionerna (1.0.0.0 och 1.0.0.1) är avsedda för [ändringsdistributio
 
 Mallartefakter används av tjänsttopologimallen och binära artefakter används av distributionsmallen. Både topologimallen och distributionsmallen definierar en Azure-resurs för en artefaktkälla, som är en resurs som används för att peka Resource Manager på mallen och de binära artefakterna som används i distributionen. För att förenkla självstudien används ett lagringskonto för att lagra både mallartefakterna och de binära artefakterna. Båda artefaktkällorna peka på samma lagringskonto.
 
-Kör följande PowerShell-skript för att skapa en resurs grupp, skapa en lagrings behållare, skapa en BLOB-behållare, ladda upp de hämtade filerna och skapa sedan en SAS-token.
+Run the following PowerShell script to create a resource group, create a storage container, create a blob container, upload the downloaded files, and then create a SAS token.
 
 > [!IMPORTANT]
-> **projectName** i PowerShell-skriptet används för att generera namn för de Azure-tjänster som distribueras i den här självstudien. Olika Azure-tjänster har olika krav på namnen. Om du vill se till att distributionen lyckas väljer du ett namn med färre än 12 tecken och bara gemena bokstäver och siffror.
-> Spara en kopia av projekt namnet. Du använder samma projectName i självstudien.
+> **projectName** in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with only lower case letters and numbers.
+> Save a copy of the project name. You use the same projectName through the tutorial.
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -176,9 +176,9 @@ $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 Write-Host $url
 ```
 
-Gör en kopia av URL: en med SAS-token. URL-adressen krävs för att fylla i ett fält i de två parametervärdena, filen Topology Parameters och filen för distributions parametrar.
+Make a copy of the URL with the SAS token. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
 
-Öppna behållaren från Azure Portal och kontrol lera att både **binärfilerna** och **mallarna** för mappar och filerna har laddats upp.
+Open the container from the Azure portal and verify that both the **binaries** and the **templates** folders and the files are uploaded.
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Skapa den användartilldelade hanterade identiteten
 
@@ -210,7 +210,7 @@ Du måste skapa en användartilldelad hanterad identitet och konfigurera åtkoms
 
 Mallen innehåller följande parametrar:
 
-* **projectName**: det här namnet används för att skapa namnen på Deployment Manager-resurserna. Om du till exempel använder "jdoe" är namnet på tjänstens topologi **jdoe**ServiceTopology.  Resursnamnen definieras i variabelavsnittet i den här mallen.
+* **projectName**: This name is used to create the names for the Deployment Manager resources. For example, using "jdoe", the service topology name is **jdoe**ServiceTopology.  Resursnamnen definieras i variabelavsnittet i den här mallen.
 * **azureResourcelocation**: För att förenkla självstudien delar alla resurser den här platsen om inget annat anges. För närvarande kan Azure Deployment Manager-resurser endast skapas i regionen **USA, centrala** eller **USA, östra 2**.
 * **artifactSourceSASLocation**: SAS-URI:n till blobcontainern där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
 * **templateArtifactRoot**: Offset-sökvägen från blobcontainern där mallarna och parametrarna lagras. Standardvärdet är **templates/1.0.0.0**. Ändra inte det här värdet såvida du inte vill ändra mappstrukturen som beskrivs i [Förbereda artefakterna](#prepare-the-artifacts). Relativa sökvägar används i den här självstudien.  Den fullständiga sökvägen skapas genom att **artifactSourceSASLocation**, **templateArtifactRoot**, och **templateArtifactSourceRelativePath** (eller **parametersArtifactSourceRelativePath**) sammanfogas.
@@ -247,13 +247,13 @@ Du skapar en parameterfil som används med topologimallen.
 1. Öppna **\ADMTemplates\CreateADMServiceTopology.Parameters** i Visual Studio Code eller i valfritt redigeringsprogram.
 2. Fyll parametervärdena:
 
-    * **projectName**: Ange en sträng med 4-5 tecken. Det här namnet används för att skapa unika Azure-resurs namn.
+    * **projectName**: Enter a string with 4-5 characters. This name is used to create unique azure resource names.
     * **azureResourceLocation**: Om du inte är bekant med Azure-platser använder du **centralus** i den här självstudien.
     * **artifactSourceSASLocation**: Ange SAS-URI:n till rotkatalogen (blobcontainern) där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
     * **templateArtifactRoot**: Såvida du inte ändrar mappstrukturen för artefakterna använder du **templates/1.0.0.0** i den här självstudien.
 
 > [!IMPORTANT]
-> Topologimallen och distributionsmallen delar vissa vanliga parametrar. Dessa parametrar måste ha samma värden. Dessa parametrar är: **projectName**, **azureResourceLocation**och **artifactSourceSASLocation** (båda artefakt källorna delar samma lagrings konto i den här självstudien).
+> Topologimallen och distributionsmallen delar vissa vanliga parametrar. Dessa parametrar måste ha samma värden. These parameters are: **projectName**, **azureResourceLocation**, and **artifactSourceSASLocation** (both artifact sources share the same storage account in this tutorial).
 
 ## <a name="create-the-rollout-template"></a>Skapa distributionsmallen
 
@@ -265,7 +265,7 @@ Mallen innehåller följande parametrar:
 
 ![Azure Deployment Manager-självstudie om parametrar för distributionsmallen](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* **projectName**: det här namnet används för att skapa namnen på Deployment Manager-resurserna. Om du till exempel använder "jdoe" är namnet på distributionen **jdoe**.  Namnen definieras i variabelavsnittet i mallen.
+* **projectName**: This name is used to create the names for the Deployment Manager resources. For example, using "jdoe", the rollout name is **jdoe**Rollout.  Namnen definieras i variabelavsnittet i mallen.
 * **azureResourcelocation**: För att förenkla självstudien delar alla Deployment Manager-resurser den här platsen om inget annat anges. För närvarande kan Azure Deployment Manager-resurser endast skapas i regionen **USA, centrala** eller **USA, östra 2**.
 * **artifactSourceSASLocation**: SAS-URI:n till rotkatalogen (blobcontainern) där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
 * **binaryArtifactRoot**: Standardvärdet är **binaries/1.0.0.0**. Ändra inte det här värdet såvida du inte vill ändra mappstrukturen som beskrivs i [Förbereda artefakterna](#prepare-the-artifacts). Relativa sökvägar används i den här självstudien.  Den fullständiga sökvägen skapas genom att **artifactSourceSASLocation**, **binaryArtifactRoot**, och **deployPackageUri** som anges i CreateWebApplicationParameters.json sammanfogas.  Se [Förbereda artefakterna](#prepare-the-artifacts).
@@ -307,7 +307,7 @@ Du skapar en parameterfil som används med distributionsmallen.
 1. Öppna **\ADMTemplates\CreateADMRollout.Parameters** i Visual Studio Code eller valfritt redigeringsprogram.
 2. Fyll parametervärdena:
 
-    * **projectName**: Ange en sträng med 4-5 tecken. Det här namnet används för att skapa unika Azure-resurs namn.
+    * **projectName**: Enter a string with 4-5 characters. This name is used to create unique azure resource names.
     * **azureResourceLocation**: För närvarande kan Deployment Manager-resurser endast skapas i regionen **USA,centrala** eller **USA, östra 2**.
     * **artifactSourceSASLocation**: Ange SAS-URI:n till rotkatalogen (blobcontainern) där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
     * **binaryArtifactRoot**: Såvida du inte ändrar mappstrukturen för artefakterna använder du **binaries/1.0.0.0** i den här självstudien.
@@ -318,7 +318,7 @@ Du skapar en parameterfil som används med distributionsmallen.
         ```
 
 > [!IMPORTANT]
-> Topologimallen och distributionsmallen delar vissa vanliga parametrar. Dessa parametrar måste ha samma värden. Dessa parametrar är: **projectName**, **azureResourceLocation**och **artifactSourceSASLocation** (båda artefakt källorna delar samma lagrings konto i den här självstudien).
+> Topologimallen och distributionsmallen delar vissa vanliga parametrar. Dessa parametrar måste ha samma värden. These parameters are: **projectName**, **azureResourceLocation**, and **artifactSourceSASLocation** (both artifact sources share the same storage account in this tutorial).
 
 ## <a name="deploy-the-templates"></a>Distribuera mallarna
 
@@ -334,10 +334,10 @@ Azure PowerShell kan användas för att distribuera mallarna.
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
 
-    Om du kör skriptet från en annan PowerShell-session än den som du körde för att [förbereda artefakter](#prepare-the-artifacts) -skriptet måste du fylla i variablerna först, vilket innefattar **$resourceGroupName** och **$filepath**.
+    If you run this script from a different PowerShell session from the one you ran the [Prepare the artifacts](#prepare-the-artifacts) script, you need to repopulate the variables first, which include **$resourceGroupName** and **$filePath**.
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment` är ett asynkront anrop. Meddelandet lyckades innebär att distributionen har startats. För att verifiera distributionen, se steg 2 och steg 4 i den här proceduren.
+    > `New-AzResourceGroupDeployment` is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, see step 2 and step 4 of this procedure.
 
 2. Kontrollera att tjänsttopologin och de angivna resurserna har skapats på Azure-portalen:
 
@@ -366,7 +366,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
         -Verbose
     ```
 
-    Du måste installera PowerShell-cmdlets för Deployment Manager innan du kan köra denna cmdlet. Se Förutsättningar. -Verbose-växeln kan användas för att se hela utdata.
+    Du måste installera PowerShell-cmdlets för Deployment Manager innan du kan köra denna cmdlet. Se Förutsättningar. The -Verbose switch can be used to see the whole output.
 
     Följande exempel visar körningsstatusen:
 
@@ -450,9 +450,9 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Använd fältet **Filtrera efter namn** för att visa resursgrupperna som skapats i den här självstudien. De bör vara 3–4:
 
-    * **&lt;projectName > RG**: innehåller Deployment Manager-resurser.
-    * **&lt;projectName > ServiceWUSrg**: innehåller de resurser som definierats av ServiceWUS.
-    * **&lt;projectName > ServiceEUSrg**: innehåller de resurser som definierats av ServiceEUS.
+    * **&lt;projectName>rg**: contains the Deployment Manager resources.
+    * **&lt;projectName>ServiceWUSrg**: contains the resources defined by ServiceWUS.
+    * **&lt;projectName>ServiceEUSrg**: contains the resources defined by ServiceEUS.
     * Resursgruppen för den användardefinierade hanterade identiteten.
 3. Välj resursgruppens namn.
 4. Välj **Ta bort resursgrupp** från menyn längst upp.
@@ -460,4 +460,4 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. Information om hur du integrerar hälso övervakning i Azure Deployment Manager finns i [Självstudier: använda hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. To integrate health monitoring in Azure Deployment Manager, see [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

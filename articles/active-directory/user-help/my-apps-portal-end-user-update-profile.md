@@ -1,6 +1,6 @@
 ---
-title: Uppdatera din profil och ditt konto på portalen för Mina appar – Azure AD
-description: Lär dig hur du uppdaterar din profil och din arbets-eller skol konto information, inklusive hur du ändrar ditt lösen ord, aktiverar lösen ords återställning, uppdaterar dina säkerhets verifierings metoder, visar din organisations användnings villkor och loggar ut från var du har loggat in med ditt arbets-eller skol konto.
+title: Update profile & account info from the My Apps portal - Azure AD
+description: Learn how to update your profile and your work or school account information, including changing your password, turning on password reset, updating your security verification methods, viewing your organization's terms of use statement, and signing out of everywhere you've signed in using your work or school account.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,131 +13,131 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3ecdffae61fbadfd5d975af942861e24589c6fbf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820387"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233166"
 ---
-# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>Uppdatera din profil och konto information på portalen Mina appar
+# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Update your profile and work or school account information on the My Apps portal
 
-Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och utföra  **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
+You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Innehållet är avsett för användare. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="view-your-organization-related-profile-information"></a>Visa information om din organisatoriska profil
+## <a name="view-your-organization-related-profile-information"></a>View your organization-related profile information
 
-Beroende på vad din organisation har valt att inkludera på din **profil** sida i portalen för **Mina appar** kan du se din detaljerade information om arbetet, tillsammans med dina enheter och din aktivitet, samt ytterligare organisationer som du tillhör.
+Depending on what your organization has chosen to include on your **Profile** page of the **My Apps** portal, you might see your specific work-related details, along with your devices and activity, and any additional organizations to which you belong.
 
-### <a name="to-view-your-profile-information"></a>Visa din profil information
+### <a name="to-view-your-profile-information"></a>To view your profile information
 
-1. Logga in på ditt arbets-eller skol konto, [gå till portalen **Mina appar** ](my-apps-portal-end-user-access.md).
+1. Sign in to your work or school account, [go to the **My Apps** portal](my-apps-portal-end-user-access.md).
 
-2. Från sidan **appar** väljer du din profil bild i det övre högra hörnet, där det står ditt namn och din organisation och väljer sedan **profil**.
+2. From the **Apps** page, select your profile picture from the upper-right corner, where it says your name and your organization, and then select **Profile**.
 
-    Sidan **profil** visas med din profil information.
+    The **Profile** page appears, showing your profile information.
 
-    ![Sidan profil, som visar all tillgänglig information](media/my-apps-portal/my-apps-portal-profile-page.png)
+    ![Profile page, showing all of the available information](media/my-apps-portal/my-apps-portal-profile-page.png)
 
-3. Från **profil** sidan kan du:
+3. From the **Profile** page, you can:
 
-    - **Granska organisationens relaterade uppgifter.** Visa ditt foto, namn, rubrik, tillhör ande e-postadresser och Office-information. Den här informationen hanteras av din organisation och du kan inte ändra den. Kontakta supportavdelningen om du ser ett fel.
+    - **Review your organization-related details.** View your photo, name, title, associated email addresses, and office information. This information is managed by your organization and you won't be able to change it. If you see an error, contact your Helpdesk.
 
-    - **Granska dina enheter & aktivitet**. Kontrol lera att varje enhet är välbekant och korrekt ansluten till din organisation. Om du inte känner igen en enhet väljer du **inaktivera enhet** för att ta bort associationen med ditt konto. När du har inaktiverat en enhet tas den bort från den här sidan.
+    - **Review your Devices & activity**. Make sure each device is familiar and properly connected to your organization. If you don’t recognize a device, select **Disable device** to remove the association with your account. After you disable a device, it’s removed from this page.
 
-    - **Granska dina organisationer.** Se till att du fortfarande arbetar med var och en av de angivna organisationerna. Om du inte längre arbetar med en organisation rekommenderar vi starkt att du väljer **Logga in för att lämna organisationen**. När du har lämnat organisationen tas den bort från den här sidan.
+    - **Review your Organizations.** Make sure that you still work with each of the specified organizations. If you no longer work with an organization, we highly recommend that you select **Sign in to leave organization**. After you leave the organization, it’s removed from this page.
 
-## <a name="manage-your-work-or-school-account-information"></a>Hantera information om ditt arbets-eller skol konto
+## <a name="manage-your-work-or-school-account-information"></a>Manage your work or school account information
 
-Uppdatera och hantera ditt arbets-eller skol konto information från sidan **profil** i portalen **Mina appar** . På den här sidan får du hjälp att:
+Update and manage your work or school account information from the **Profile** page of the **My Apps** portal. This page helps you to:
 
-- Ändra lösen ordet för ditt arbets-eller skol konto.
+- Change your work or school account password.
 
-- Aktivera lösen ords återställning (om administratören har aktiverat den här funktionen).
+- Turn on password reset (if your administrator has turned on this feature).
 
-- Ange ytterligare säkerhets verifierings information.
+- Provide additional security verification information.
 
-- Granska din organisations användnings villkor.
+- Review your organization’s terms of use.
 
-- Logga ut från överallt.
+- Sign out of everywhere.
 
-## <a name="change-your-password"></a>Ändra ditt lösen ord
+## <a name="change-your-password"></a>Ändra ditt lösenord
 
-Om du vill ändra lösen ordet för ditt arbets-eller skol konto kan du välja **ändra lösen ord** i avsnittet **Hantera konto** på **profil** sidan.
+If you want to change the password for your work or school account, you can select **Change password** from the **Manage account** area of the **Profile** page.
 
-### <a name="to-change-your-password"></a>Ändra lösen ordet
+### <a name="to-change-your-password"></a>To change your password
 
-1. Välj **ändra lösen ord**i avsnittet **Hantera konto** på **profil** sidan.
+1. From the **Manage account** area of the **Profile** page, select **Change password**.
 
-2. På sidan **ändra lösen ord** kontrollerar du att ditt användar-ID är korrekt och skriver sedan det gamla lösen ordet och det nya lösen ordet i rutorna.
+2. On the **Change password** page, make sure your User ID is correct, and then type your old password and your new password into the boxes.
 
-    ![Sidan Ändra lösen ord](media/my-apps-portal/my-apps-portal-change-password-page.png)
+    ![Change password page](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
 3. Välj **Skicka**.
 
-    Ditt lösen ord har ändrats. Du måste logga in till appar som du tidigare har loggat in på för att använda ditt arbets-eller skol konto.
+    Your password is changed. You’ll be required to sign-in to any apps you’ve previously signed in to using your work or school account.
 
-## <a name="set-up-and-use-password-reset"></a>Konfigurera och Använd lösen ords återställning
+## <a name="set-up-and-use-password-reset"></a>Set up and use password reset
 
-Om du har glömt ditt lösen ord, fick du aldrig ett från företagets support eller har låsts av ditt konto, kan du återställa ditt eget lösen ord.
+If you forgot your password, never got one from your company support, or have been locked out of your account, you can reset your own password.
 
 >[!Important]
->Administratören måste aktivera den här funktionen och du måste registrera dig för att delta. Mer information om hur du registrerar och hur du återställer ditt lösen ord finns i [Registrera för lösen ords återställning via självbetjäning](active-directory-passwords-reset-register.md) och [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
+>Your administrator must turn on this feature and you must register to participate. For details about how to register and how to reset your password, see [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-## <a name="change-your-security-verification-information"></a>Ändra din säkerhets verifierings information
+## <a name="change-your-security-verification-information"></a>Change your security verification information
 
-Om din organisation kräver att du använder tvåstegsverifiering kan du lägga till, uppdatera och ta bort tillhör ande säkerhets information på sidan **ytterligare säkerhets verifiering** .
+If your organization requires you to use two-factor verification, you can add, update, and delete your associated security information from the **Additional security verification** page.
 
-Tvåstegsverifiering kräver att du använder två olika verifierings uppgifter, t. ex. ett lösen ord och en PIN-kod, innan du kan komma åt ditt konto eller din organisations information. Mer information om tvåstegsverifiering finns i [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md)tvåstegsverifiering.
+Two-factor verification requires you to use two pieces of verification info, like a password and a PIN, before you can get to your account or to your organization’s information. For more information about two-factor verification, see [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md).
 
-### <a name="to-change-your-security-information"></a>Ändra din säkerhets information
+### <a name="to-change-your-security-information"></a>To change your security information
 
-1. Välj **ytterligare säkerhets verifiering**i avsnittet **Hantera konto** på **profil** sidan.
+1. From the **Manage account** area of the **Profile** page, select **Additional security verification**.
 
-    ![Sidan ytterligare säkerhets verifiering](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
+    ![Additional security verification page](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
 
-2. På sidan **ytterligare säkerhets verifiering** kan du lägga till, ändra eller ta bort följande information:
+2. On the **Additional security verification** page, you can add, change, or delete the following information:
 
-    - **Standard verifierings alternativ.** Välj den sekundära standard metod som ska användas för tvåstegsverifiering. Den här metoden används automatiskt när två faktorer behöver verifieras efter att du har angett ditt användar namn och lösen ord.
+    - **Default verification option.** Select the default secondary method to use for two-factor verification. This method is automatically used any time two-factor verification is required after you enter your username and password.
 
-    - **Lägg till, uppdatera eller ta bort verifierings metoder.** Du kan lägga till nya, uppdatera befintliga eller ta bort gammal information som inte längre gäller.
+    - **Add, update, or remove verification methods.** You can add new, update existing, or delete old information that no longer applies.
 
-    - **Konfigurera Microsoft Authenticator-appen.** Du kan välja att konfigurera Microsoft Authenticator-appen så att den fungerar som din verifierings metod. Mer information om Microsoft Authenticator-appen finns i [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md)
+    - **Set up the Microsoft Authenticator app.** You can choose to set up the Microsoft Authenticator app to work as your verification method. For more information about the Microsoft Authenticator app, see [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md)
 
-3. Spara ändringarna genom att välja **Spara** .
+3. Select **Save** to save your changes.
 
-## <a name="review-your-organizations-terms-of-use-statement"></a>Granska din organisations användnings villkors uttryck
+## <a name="review-your-organizations-terms-of-use-statement"></a>Review your organization’s terms of use statement
 
-Du kan välja att granska din organisations användnings villkor, om den är tillgänglig.
+You can choose to review your organization’s terms of use statement, if it’s available.
 
-1. Välj **Granska användnings villkor**i avsnittet **Hantera konto** på **profil** sidan.
+1. From the **Manage account** area of the **Profile** page, select **Review terms of use**.
 
-2. Granska din organisations användnings villkor och välj **Godkänn** för att bekräfta att du har läst och förstått användnings villkoren för din organisation.
+2. Review your organization's terms of use and select **Accept** to confirm that you've read and understood the terms of use for your organization.
 
-    ![Användningsvillkor sida från portalen Mina appar](media/my-apps-portal/my-apps-portal-tou-page.png)
+    ![Terms of use page from the My Apps portal](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    Om din organisation inte har några användnings villkor kan du välja **färdig** för att återgå till **profil** sidan.
+    If your organization doesn't have a terms of use, you can select **Done** to return to the **Profile** page.
 
-## <a name="sign-out-of-everywhere"></a>Logga ut från överallt
+## <a name="sign-out-of-everywhere"></a>Sign out of everywhere
 
-Du kan välja att logga ut från överallt där du är inloggad på ditt arbets-eller skol konto. Detta inkluderar alla appar och enheter.
+You can choose to sign out of everywhere you’re currently signed in to using your work or school account. This includes all apps and devices.
 
-### <a name="to-sign-out-of-everywhere"></a>Logga ut från överallt
+### <a name="to-sign-out-of-everywhere"></a>To sign out of everywhere
 
-1. I avsnittet **Hantera konto** på **profil** sidan väljer du **Logga ut överallt**.
+1. From the **Manage account** area of the **Profile** page, select **Sign out everywhere**.
 
-2. I bekräftelse rutan **Logga ut överallt** väljer du **Ja** för att bekräfta att du vill logga ut från alla sessioner och enheter. Välj **Nej** om du ångrar dig.
+2. In the **Sign out everywhere** confirmation box, select **Yes** to confirm that you want to sign out of all your sessions and devices. Select **No** if you change your mind.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört dina uppdateringar på **profil** sidan kan du:
+After you finish your updates on the **Profile** page, you can:
 
-- [Få åtkomst till och använda appar på Mina appar-portalen](my-apps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Visa och uppdatera dina grupper – relaterad information](my-apps-portal-end-user-groups.md).
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
 
-- [Utför dina egna åtkomst granskningar](my-apps-portal-end-user-access-reviews.md).
+- [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

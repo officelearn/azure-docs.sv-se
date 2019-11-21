@@ -1,27 +1,25 @@
 ---
-title: Hantera lokala lokala resurser med hjälp av PowerShell-funktioner
-description: Lär dig hur du konfigurerar Hybridanslutningar i Azure Relay för att ansluta en PowerShell Function-app till lokala resurser, som sedan kan användas för att fjärrhantera den lokala resursen.
+title: Manage remote on-premises resources by using PowerShell functions
+description: Learn how to configure Hybrid Connections in Azure Relay to connect a PowerShell function app to on-premises resources, which can then be used to remotely manage the on-premises resource.
 author: eamono
-manager: gailey777
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 9/5/2019
 ms.author: eamono
-ms.openlocfilehash: 2a3cf79883d79eb82c361731eb6a632c2df3c9be
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 36fc4c873dccfe9fa814bddccd829ed04207f095
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299426"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226941"
 ---
-# <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Hantera hybrid miljöer med PowerShell i Azure Functions och App Service Hybridanslutningar
+# <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Managing hybrid environments with PowerShell in Azure Functions and App Service Hybrid Connections
 
-Funktionen Azure App Service Hybridanslutningar ger åtkomst till resurser i andra nätverk. Du kan lära dig mer om den här funktionen i [hybridanslutningar](../app-service/app-service-hybrid-connections.md) -dokumentationen. Den här artikeln beskriver hur du använder den här funktionen för att köra PowerShell-funktioner som riktar sig mot en lokal server. Den här servern kan sedan användas för att hantera alla resurser i den lokala miljön från en Azure PowerShell-funktion.
+The Azure App Service Hybrid Connections feature enables access to resources in other networks. You can learn more about this capability in the [Hybrid Connections](../app-service/app-service-hybrid-connections.md) documentation. This article describes how to use this capability to run PowerShell functions that target an on-premises server. This server can then be used to manage all resources in the on-premises environment from an Azure PowerShell function.
 
 
-## <a name="configure-an-on-premises-server-for-powershell-remoting"></a>Konfigurera en lokal server för PowerShell-fjärrkommunikation
+## <a name="configure-an-on-premises-server-for-powershell-remoting"></a>Configure an on-premises server for PowerShell remoting
 
-Följande skript aktiverar PowerShell-fjärrkommunikation och skapar en ny brand Väggs regel och en WinRM https-lyssnare. I test syfte används ett självsignerat certifikat. I en produktions miljö rekommenderar vi att du använder ett signerat certifikat.
+The following script enables PowerShell remoting, and it creates a new firewall rule and a WinRM https listener. For testing purposes, a self-signed certificate is used. In a production environment, we recommend that you use a signed certificate.
 
 ```powershell
 # For configuration of WinRM, see
@@ -48,98 +46,98 @@ $Cmd = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=
 cmd.exe /C $Cmd
 ```
 
-## <a name="create-a-powershell-function-app-in-the-portal"></a>Skapa en PowerShell Function-app i portalen
+## <a name="create-a-powershell-function-app-in-the-portal"></a>Create a PowerShell function app in the portal
 
-App Service Hybridanslutningar-funktionen är bara tillgänglig i de grundläggande, standard-och isolerade pris planerna. När du skapar Function-appen med PowerShell skapar eller väljer du någon av dessa planer.
+The App Service Hybrid Connections feature is available only in Basic, Standard, and Isolated pricing plans. When you create the function app with PowerShell, create or select one of these plans.
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **+ skapa en resurs** i menyn till vänster och väljer sedan **Function app**.
+1. In the [Azure portal](https://portal.azure.com), select **+ Create a resource** in the menu on the left, and then select **Function app**.
 
-1. För **värd plan**väljer du **App Service plan**och väljer sedan **App Service plan/plats**.
+1. For **Hosting plan**, select **App Service plan**, and then select **App Service plan/Location**.
 
-1. Välj **Skapa ny**, ange ett **App Service plan** namn, Välj en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som du har åtkomst till och välj sedan **pris nivå**.
+1. Select **Create new**, type an **App Service plan** name, choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access, and then select **Pricing tier**.
 
-1. Välj S1 standard-plan och välj sedan **Använd**.
+1. Choose the S1 Standard plan, and then select **Apply**.
 
-1. Välj **OK** för att skapa planen och konfigurera sedan de återstående **Funktionsapp** inställningarna som anges i tabellen omedelbart efter följande skärm bild:
+1. Select **OK** to create the plan, and then configure the remaining **Function App** settings as specified in the table immediately after the following screenshot:
 
-    ![PowerShell Core Function-app](./media/functions-hybrid-powershell/create-function-powershell-app.png)  
+    ![PowerShell Core function app](./media/functions-hybrid-powershell/create-function-powershell-app.png)  
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. |
-    | **Resursgrupp** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. Du kan också använda det föreslagna värdet. |
-    | **OS** | Önskat OS | Välj Windows. |
-    | **Körningsstack** | Önskat språk | Välj PowerShell Core. |
-    | **Storage** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också använda ett befintligt konto.
-    | **Application Insights** | Standard | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen kan du ändra det **nya resurs namnet** eller välja en annan **plats** i en region i [Azure](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill lagra dina data. |
+    | **Resursgrupp** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. You can also use the suggested value. |
+    | **OS** | Preferred OS | Select Windows. |
+    | **Körningsstack** | Önskat språk | Choose PowerShell Core. |
+    | **Storage** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Storage account names must be from 3 to 24 characters in length and can contain numbers and lowercase letters only. Du kan också använda ett befintligt konto.
+    | **Application Insights** | Standard | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) region where you want to store your data. |
 
-1. När inställningarna har verifierats väljer du **skapa**.
+1. After your settings are validated, select **Create**.
 
-1. Välj **meddelande** ikonen i det övre högra hörnet i portalen och vänta på meddelandet "distributionen lyckades".
+1. Select the **Notification** icon in the upper-right corner of the portal, and wait for the "Deployment succeeded" message.
 
-1. Välj **Gå till resurs** att visa den nya funktionsappen. Du kan också välja **Fäst vid instrument panelen**. Genom att fästa blir det enklare att återgå till den här funktions program resursen från instrument panelen.
+1. Välj **Gå till resurs** att visa den nya funktionsappen. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
-## <a name="create-a-hybrid-connection-for-the-function-app"></a>Skapa en hybrid anslutning för Function-appen
+## <a name="create-a-hybrid-connection-for-the-function-app"></a>Create a hybrid connection for the function app
 
-Hybrid anslutningar konfigureras från avsnittet nätverk i Function-appen:
+Hybrid connections are configured from the networking section of the function app:
 
-1. Välj fliken **plattforms funktioner** i Function-appen och välj sedan **nätverk**. 
-   ![Översikt över appar för plattforms nätverk](./media/functions-hybrid-powershell/app-overview-platform-networking.png)  
-1. Välj **Konfigurera dina hybrid anslutningar slut punkter**.
+1. Select the **Platform features** tab in the function app, and then select **Networking**. 
+   ![App Overview for platform networking](./media/functions-hybrid-powershell/app-overview-platform-networking.png)  
+1. Select **Configure your hybrid connections endpoints**.
    ![Nätverk](./media/functions-hybrid-powershell/select-network-feature.png)  
-1. Välj **Lägg till hybrid anslutning**.
-   ![Hybrid anslutning](./media/functions-hybrid-powershell/hybrid-connection-overview.png)  
-1. Ange information om hybrid anslutningen som visas direkt efter följande skärm bild. Du kan välja att göra **slut punkts värd** inställningen matcha värd namnet för den lokala servern för att göra det lättare att komma ihåg servern senare när du kör fjärrkommandon. Porten matchar standard porten för Windows Remote Management-tjänsten som definierades på servern tidigare.
-  ![Lägg till hybrid anslutning](./media/functions-hybrid-powershell/add-hybrid-connection.png)  
+1. Select **Add hybrid connection**.
+   ![Hybrid Connection](./media/functions-hybrid-powershell/hybrid-connection-overview.png)  
+1. Enter information about the hybrid connection as shown right after the following screenshot. You have the option of making the **Endpoint Host** setting match the host name of the on-premises server to make it easier to remember the server later when you're running remote commands. The port matches the default Windows remote management service port that was defined on the server earlier.
+  ![Add Hybrid Connection](./media/functions-hybrid-powershell/add-hybrid-connection.png)  
 
-    **Hybrid anslutnings namn**: ContosoHybridOnPremisesServer
+    **Hybrid connection name**: ContosoHybridOnPremisesServer
     
-    **Slut punkts värd**: finance1
+    **Endpoint Host**: finance1
     
-    **Slut punkts port**: 5986
+    **Endpoint Port**: 5986
     
-    **Service Bus-namnrymd**: Skapa ny
+    **Servicebus namespace**: Create New
     
-    **Plats**: Välj en tillgänglig plats
+    **Location**: Pick an available location
     
-    **Namn**: contosopowershellhybrid
+    **Name**: contosopowershellhybrid
 
-5. Välj **OK** för att skapa hybrid anslutningen.
+5. Select **OK** to create the hybrid connection.
 
-## <a name="download-and-install-the-hybrid-connection"></a>Ladda ned och installera hybrid anslutningen
+## <a name="download-and-install-the-hybrid-connection"></a>Download and install the hybrid connection
 
-1. Välj **Hämta anslutnings hanteraren** för att spara. msi-filen lokalt på datorn.
-![Hämta installations program](./media/functions-hybrid-powershell/download-hybrid-connection-installer.png)  
-1. Kopiera MSI-filen från den lokala datorn till den lokala servern.
-1. Kör installations programmet för Hybridanslutningshanteraren för att installera tjänsten på den lokala servern.
-![Installera hybrid anslutning](./media/functions-hybrid-powershell/hybrid-installation.png)  
-1. Öppna hybrid anslutningen från portalen och kopiera sedan Gateway-anslutningssträngen till Urklipp.
-![Kopiera hybrid anslutnings sträng](./media/functions-hybrid-powershell/copy-hybrid-connection.png)  
-1. Öppna Hybridanslutningshanteraren gränssnittet på den lokala servern.
-![Öppna användar gränssnittet för Hybrid anslutning](./media/functions-hybrid-powershell/hybrid-connection-ui.png)  
-1. Välj knappen **ange manuellt** och klistra in anslutnings strängen från Urklipp.
-![Klistra in anslutning](./media/functions-hybrid-powershell/enter-manual-connection.png)  
-1. Starta om Hybridanslutningshanteraren från PowerShell om den inte visas som ansluten.
+1. Select **Download connection manager** to save the .msi file locally on your computer.
+![Download installer](./media/functions-hybrid-powershell/download-hybrid-connection-installer.png)  
+1. Copy the .msi file from your local computer to the on-premises server.
+1. Run the Hybrid Connection Manager installer to install the service on the on-premises server.
+![Install Hybrid Connection](./media/functions-hybrid-powershell/hybrid-installation.png)  
+1. From the portal, open the hybrid connection and then copy the gateway connection string to the clipboard.
+![Copy hybrid connection string](./media/functions-hybrid-powershell/copy-hybrid-connection.png)  
+1. Open the Hybrid Connection Manager UI on the on-premises server.
+![Open Hybrid Connection UI](./media/functions-hybrid-powershell/hybrid-connection-ui.png)  
+1. Select the **Enter Manually** button and paste the connection string from the clipboard.
+![Paste connection](./media/functions-hybrid-powershell/enter-manual-connection.png)  
+1. Restart the Hybrid Connection Manager from PowerShell if it doesn't show as connected.
     ```powershell
     Restart-Service HybridConnectionManager
     ```
 
-## <a name="create-an-app-setting-for-the-password-of-an-administrator-account"></a>Skapa en app-inställning för lösen ordet för ett administratörs konto
+## <a name="create-an-app-setting-for-the-password-of-an-administrator-account"></a>Create an app setting for the password of an administrator account
 
-1. Välj fliken **plattforms funktioner** i Function-appen.
-1. Under **allmänna inställningar**väljer du **konfiguration**.
-![Välj plattforms konfiguration](./media/functions-hybrid-powershell/select-configuration.png)  
-1. Expandera den **nya program inställningen** för att skapa en ny inställning för lösen ordet.
-1. Ge inställningen namnet _ContosoUserPassword_och ange lösen ordet.
-1. Välj **OK** och spara för att lagra lösen ordet i Function-programmet.
-![Lägg till app-inställning för lösen ord](./media/functions-hybrid-powershell/add-appsetting-password.png)  
+1. Select the **Platform features** tab in the function app.
+1. Under **General Settings**, select **Configuration**.
+![Select Platform configuration](./media/functions-hybrid-powershell/select-configuration.png)  
+1. Expand **New application setting** to create a new setting for the password.
+1. Name the setting _ContosoUserPassword_, and enter the password.
+1. Select **OK** and then save to store the password in the function application.
+![Add app setting for password](./media/functions-hybrid-powershell/add-appsetting-password.png)  
 
-## <a name="create-a-function-http-trigger-to-test"></a>Skapa en funktion för http-utlösare att testa
+## <a name="create-a-function-http-trigger-to-test"></a>Create a function http trigger to test
 
-1. Skapa en ny HTTP-utlösnings funktion från Function-appen.
-![Skapa ny HTTP-utlösare](./media/functions-hybrid-powershell/create-http-trigger-function.png)  
-1. Ersätt PowerShell-koden från mallen med följande kod:
+1. Create a new HTTP trigger function from the function app.
+![Create new HTTP trigger](./media/functions-hybrid-powershell/create-http-trigger-function.png)  
+1. Replace the PowerShell code from the template with the following code:
 
     ```powershell
     # Input bindings are passed in via param block.
@@ -174,12 +172,12 @@ Hybrid anslutningar konfigureras från avsnittet nätverk i Function-appen:
                    -SessionOption (New-PSSessionOption -SkipCACheck)
     ```
 
-3. Välj **Spara** och **Kör** för att testa funktionen.
-![Testa Function-appen](./media/functions-hybrid-powershell/test-function-hybrid.png)  
+3. Select **Save** and **Run** to test the function.
+![Test the function app](./media/functions-hybrid-powershell/test-function-hybrid.png)  
 
-## <a name="managing-other-systems-on-premises"></a>Hantera andra system lokalt
+## <a name="managing-other-systems-on-premises"></a>Managing other systems on-premises
 
-Du kan använda den anslutna lokala servern för att ansluta till andra servrar och hanterings system i den lokala miljön. På så sätt kan du hantera data Center åtgärder från Azure med hjälp av PowerShell-funktionerna. Följande skript registrerar en PowerShell-klientsession som körs under de angivna autentiseringsuppgifterna. Autentiseringsuppgifterna måste vara för en administratör på fjärrservrarna. Du kan sedan använda den här konfigurationen för att få åtkomst till andra slut punkter på den lokala servern eller data centret.
+You can use the connected on-premises server to connect to other servers and management systems in the local environment. This lets you manage your datacenter operations from Azure by using your PowerShell functions. The following script registers a PowerShell configuration session that runs under the provided credentials. These credentials must be for an administrator on the remote servers. You can then use this configuration to access other endpoints on the local server or datacenter.
 
 ```powershell
 # Input bindings are passed in via param block.
@@ -246,15 +244,15 @@ Invoke-Command -ComputerName $HybridEndpoint `
                -ConfigurationName $SessionName
 ```
 
-Ersätt följande variabler i skriptet med tillämpliga värden från din miljö:
+Replace the following variables in this script with the applicable values from your environment:
 * $HybridEndpoint
 * $RemoteServer
 
-I de två föregående scenarierna kan du ansluta och hantera dina lokala miljöer med hjälp av PowerShell i Azure Functions och Hybridanslutningar. Vi rekommenderar att du lär dig mer om [hybridanslutningar](../app-service/app-service-hybrid-connections.md) och [PowerShell i functions](./functions-reference-powershell.md).
+In the two preceding scenarios, you can connect and manage your on-premises environments by using PowerShell in Azure Functions and Hybrid Connections. We encourage you to learn more about [Hybrid Connections](../app-service/app-service-hybrid-connections.md) and [PowerShell in functions](./functions-reference-powershell.md).
 
-Du kan också använda virtuella Azure- [nätverk](./functions-create-vnet.md) för att ansluta till din lokala miljö via Azure Functions.
+You can also use Azure [virtual networks](./functions-create-vnet.md) to connect to your on-premises environment through Azure Functions.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Lär dig mer om att arbeta med PowerShell-funktioner](functions-reference-powershell.md)
+> [Learn more about working with PowerShell functions](functions-reference-powershell.md)

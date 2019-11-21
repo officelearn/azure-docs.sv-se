@@ -1,24 +1,24 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a8ee7cc28985d905a0d158745145ce7ffaa5ba6e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: df237cdbb8944928641f2dbea2117bbef7ba9165
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67187749"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224439"
 ---
-| Resource | Standardgräns | Övre gräns |
+| Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Maximalt antal betrodda IP-adresser eller intervall</a> per prenumeration |0 |50 |
-| Kom ihåg mina enheter, antal dagar |14 |60 |
-| Maximalt antal applösenord |0 |Ingen gräns |
+| Maximum number of trusted IP addresses or ranges</a> per subscription |0 |50 |
+| Remember my devices, number of days |14 |60 |
+| Maximum number of app passwords |0 |Obegränsat |
 | Tillåt **X** försök under MFA-anrop |1 |99 |
-| Timeoutvärde för tvåvägs textmeddelande i sekunder |60 |600 |
-| Standard för engångsförbikopplingar i sekunder |300 |1 800 |
-| Lås användarkontot efter **X** på varandra följande MFA-nekanden i följd |Inte angiven |99 |
-| Återställ räknaren för kontoutelåsning efter **X** minuter |Inte angiven |9 999 |
-| Återställ konto efter **X** minuter |Inte angiven |9 999 |
+| Two-way text message timeout seconds |60 |600 |
+| Standard för engångsförbikopplingar i sekunder |300 |1,800 |
+| Lås användarkontot efter **X** på varandra följande MFA-nekanden i följd |Not set |99 |
+| Återställ räknaren för kontoutelåsning efter **X** minuter |Not set |9,999 |
+| Återställ konto efter **X** minuter |Not set |9,999 |

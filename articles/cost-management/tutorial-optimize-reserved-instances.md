@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 6af6a6b334d29c6ff813a9b2ff35153aed239b1b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967150"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229866"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -38,10 +38,10 @@ I den här självstudien beskrivs hur Azure och AWS reserverade instanser (RI) s
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - Du måste ha köpt dina RI i Azure eller AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Lära dig mer om Azure RI-kostnader

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Identity Protection ord lista
-description: Azure Active Directory Identity Protection ord lista
+title: Azure Active Directory Identity Protection Glossary
+description: Azure Active Directory Identity Protection Glossary
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,152 +11,152 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5439b8626d1fa0ea502d33455db8b2564fbd45f0
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886927"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232350"
 ---
-# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection ord lista
+# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary
 
-### <a name="at-risk-user"></a>I risk (användare)
-En användare med en eller flera aktiva risk identifieringar. 
+### <a name="at-risk-user"></a>At risk (User)
+A user with one or more active risk detections. 
 
-### <a name="atypical-sign-in-location"></a>Ovanlig-inloggnings plats
-En inloggning från en geografisk plats som inte är typisk för den specifika användaren, liknande användare eller klienten.
+### <a name="atypical-sign-in-location"></a>Atypical sign-in location
+A sign-in from a geographic location that is not typical for the specific user, similar users, or the tenant.
 
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
-En säkerhetsmodul med Azure Active Directory som ger en sammanställd vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter.
+A security module of Azure Active Directory that provides a consolidated view into risk detections and potential vulnerabilities affecting an organization’s identities.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
-En princip för att skydda åtkomsten till resurser. Regler för villkorlig åtkomst lagras i Azure Active Directory och utvärderas av Azure AD innan åtkomst beviljas till resursen.  Exempel regler är att begränsa åtkomsten baserat på användarens plats, enhetens hälso tillstånd eller autentiseringsmetod för användare.
+A policy for securing access to resources. Conditional Access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
 
 ### <a name="credentials"></a>Autentiseringsuppgifter
-Information som innehåller identifiering och identifierings bevis som används för att få åtkomst till lokala resurser och nätverks resurser. Exempel på autentiseringsuppgifter är användar namn och lösen ord, smartkort och certifikat.
+Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
 
 ### <a name="event"></a>Händelse
-En post för en aktivitet i Azure Active Directory.
+A record of an activity in Azure Active Directory.
 
-### <a name="false-positive-risk-detection"></a>Falskt-positivt (risk identifiering)
-En identifierings status för risker som anges manuellt av en identitets skydds användare, vilket indikerar att riskbedömningen har undersökts och flaggats felaktigt som en risk identifiering.
+### <a name="false-positive-risk-detection"></a>False-positive (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the risk detection was investigated and was incorrectly flagged as a risk detection.
 
 ### <a name="identity"></a>Identitet
-En person eller enhet som måste verifieras med hjälp av autentisering, baserat på kriterier som lösen ord eller certifikat.
+A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
 
-### <a name="identity-risk-detection"></a>Identifiering av identitets risker
-AAD-händelse som flaggats som avvikande av identitets skydd och kan tyda på att en identitet har komprometterats.
+### <a name="identity-risk-detection"></a>Identity risk detection
+Azure AD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
 
-### <a name="ignored-risk-detection"></a>Ignoreras (risk identifiering)
-En identifierings status för risker som anges manuellt av en identitets skydds användare, vilket indikerar att risk identifieringen stängs utan att vidta en åtgärd.
+### <a name="ignored-risk-detection"></a>Ignored (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the risk detection is closed without taking a remediation action.
 
-### <a name="impossible-travel-from-atypical-locations"></a>Omöjlig resa från ovanlig platser
-En risk identifiering som utlöses när två inloggningar för samma användare upptäcks, där minst en av dem är från en ovanlig-inloggnings plats och där tiden mellan inloggningarna är kortare än den minsta tid det tar för att fysiskt passera mellan dessa platser.  
+### <a name="impossible-travel-from-atypical-locations"></a>Impossible travel from atypical locations
+A risk detection triggered when two sign-ins for the same user are detected, where at least one of them is from an atypical sign-in location, and where the time between the sign-ins is shorter than the minimum time it would take to physically travel between these locations.  
 
 ### <a name="investigation"></a>Undersökning
-Processen för att granska aktiviteter, loggar och annan relevant information som rör en risk identifiering för att avgöra om det krävs åtgärder för att åtgärda eller minska problemet, förstå om och hur identiteten har komprometterats och förstå hur den komprometterade identiteten användes.
+The process of reviewing the activities, logs, and other relevant information related to a risk detection to decide whether remediation or mitigation steps are necessary, understand if and how the identity was compromised, and understand how the compromised identity was used.
 
-### <a name="leaked-credentials"></a>Läckta autentiseringsuppgifter
-En risk identifiering som utlöses när aktuella användarautentiseringsuppgifter (användar namn och lösen ord) upptäcks offentligt på den mörka webben av våra forskare.
+### <a name="leaked-credentials"></a>Leaked credentials
+A risk detection triggered when current user credentials (user name and password) are found posted publicly in the Dark   web by our researchers.
 
 ### <a name="mitigation"></a>Åtgärd
-En åtgärd för att begränsa eller eliminera möjligheten för en angripare att utnyttja en komprometterad identitet eller enhet utan att återställa identiteten eller enheten till ett säkert tillstånd. En minskning löser inte tidigare risk identifieringar som är associerade med identiteten eller enheten.
+An action to limit or eliminate the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous risk detections associated with the identity or device.
 
 ### <a name="multi-factor-authentication"></a>Multifaktorautentisering
-En autentiseringsmetod som kräver två eller fler autentiseringsmetoder, som kan innehålla något som användaren har, ett sådant certifikat. något som användaren känner till, t. ex. användar namn, lösen ord eller pass fraser; fysiska attribut, t. ex. ett tumavtryck, och personliga attribut, till exempel en personlig signatur.
+An authentication method that requires two or more authentication methods, which may include something the user has, such a certificate; something the user knows, such as user names, passwords, or pass phrases; physical attributes, such as a thumbprint; and personal attributes, such as a personal signature.
 
-### <a name="offline-detection"></a>Identifiering av offline
-Identifiering av avvikelser och utvärdering av risken för en händelse, till exempel inloggnings försök efter faktum, för en händelse som redan har inträffat.
+### <a name="offline-detection"></a>Offline detection
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt after the fact, for an event that has already happened.
 
-### <a name="policy-condition"></a>Princip villkor
-En del av en säkerhets princip, som definierar entiteterna (grupper, användare, appar, enhets plattformar, enhets tillstånd, IP-intervall, klient typer) som ingår i principen eller som undantas från den.
+### <a name="policy-condition"></a>Policy condition
+A part of a security policy, which defines the entities (groups, users, apps, device platforms, Device states, IP ranges, client types) included in the policy or excluded from it.
 
 ### <a name="policy-rule"></a>Principregel
-Den del av en säkerhets princip som beskriver de omständigheter som skulle utlösa principen och de åtgärder som vidtas när principen utlöses.
+The part of a security policy that describes the circumstances that would trigger the policy, and the actions taken when the policy is triggered.
 
 ### <a name="prevention"></a>Prevention (Skydd)
-En åtgärd för att förhindra att organisationen skadas genom missbruk av en identitet eller en enhet som misstänks vara intrång eller som är medveten om att bli komprometterad. En förebyggande åtgärd skyddar inte enheten eller identiteten och löser inte tidigare identifieringar av risker.
+An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk detections.
 
-### <a name="privileged-user"></a>Privilegie rad (användare)
-En användare som vid en risk identifiering har permanent eller temporär administratörs behörighet till en eller flera resurser i Azure Active Directory, till exempel en global administratör, fakturerings administratör, tjänst administratör, användar administratör och lösen ord Administratörstoken. 
+### <a name="privileged-user"></a>Privileged (user)
+A user that at the time of a risk detection, had permanent or temporary admin permissions to one or more resources in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
 
-### <a name="real-time"></a>Real tids
-Se real tids identifiering.
+### <a name="real-time"></a>Real-time
+See Real-time detection.
 
-### <a name="real-time-detection"></a>Real tids identifiering
-Identifiering av avvikelser och utvärdering av risken för en händelse som inloggnings försök innan händelsen tillåts fortsätta.
+### <a name="real-time-detection"></a>Real-time detection
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt before the event is allowed to proceed.
 
-### <a name="remediated-risk-detection"></a>Åtgärdad (identifiering av risker)
-En status för identifiering av risker anges automatiskt av identitets skydd, vilket indikerar att risk identifieringen reparerades med hjälp av standard åtgärds åtgärden för den här typen av risk identifiering. Till exempel, när användar lösen ordet återställs, åtgärdas många risk identifieringar som indikerar att det tidigare lösen ordet komprometteras automatiskt.
+### <a name="remediated-risk-detection"></a>Remediated (risk detection)
+A risk detection status set automatically by Identity Protection, indicating that the risk detection was remediated using the standard remediation action for this type of risk detection. For example, when the user password is reset, many risk detections that indicate that the previous password was compromised are automatically remediated.
 
-### <a name="remediation"></a>Reparation
-En åtgärd för att skydda en identitet eller en enhet som tidigare misstänkts eller var känd för att komprometteras. En reparations åtgärd återställer identiteten eller enheten till ett säkert tillstånd och löser tidigare risk identifieringar som är associerade med identiteten eller enheten.
+### <a name="remediation"></a>Remediation
+An action to secure an identity or a device that were previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk detections associated with the identity or device.
 
-### <a name="resolved-risk-detection"></a>Löst (identifiering av risker)
-En identifierings status för risker som anges manuellt av en identitets skydds användare, vilket indikerar att användaren vidtog en lämplig reparations åtgärd utanför identitets skyddet och att identifieringen av risker bör anses vara stängd.
+### <a name="resolved-risk-detection"></a>Resolved (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the user took an appropriate remediation action outside Identity Protection, and that the risk detection should be considered closed.
 
-### <a name="risk-detection-status"></a>Status för identifiering av risk
-En egenskap för en risk identifiering som anger om händelsen är aktiv och om den stängs, orsaken till stängningen.
+### <a name="risk-detection-status"></a>Risk detection status
+A property of a risk detection, indicating whether the event is active, and if closed, the reason for closing it.
 
-### <a name="risk-detection-type"></a>Typ av risk identifiering
-En kategori för risk identifiering, som anger typen av avvikelse som orsakade att händelsen ansågs vara riskfylld.
+### <a name="risk-detection-type"></a>Risk detection type
+A category for the risk detection, indicating the type of anomaly that caused the event to be considered risky.
 
-### <a name="risk-level-risk-detection"></a>Risk nivå (identifiering av risker)
-En indikation (hög, medel eller låg) av risk identifieringens allvarlighets grad för att hjälpa identitets skydds användare att prioritera de åtgärder som de vidta för att minska risken för deras organisation. 
+### <a name="risk-level-risk-detection"></a>Risk level (risk detection)
+An indication (High, Medium, or Low) of the severity of the risk detection to help Identity Protection users prioritize the actions they take to reduce the risk to their organization. 
 
-### <a name="risk-level-sign-in"></a>Risk nivå (inloggning)
-En indikation (hög, medel eller låg) av sannolikheten för en speciell inloggning, som någon annan försöker använda användarens identitet.
+### <a name="risk-level-sign-in"></a>Risk level (sign-in)
+An indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to use the user’s identity.
 
-### <a name="risk-level-user-compromise"></a>Risk nivå (användarens kompromisser)
-En indikation (hög, medel eller låg) av sannolikheten för att en identitet har komprometterats.
+### <a name="risk-level-user-compromise"></a>Risk level (user compromise)
+An indication (High, Medium, or Low) of the likelihood that an identity has been compromised.
 
-### <a name="risk-level-vulnerability"></a>Risk nivå (sårbarhet)
-En indikation (hög, medel eller låg) av säkerhets riskens allvarlighets grad för att hjälpa identitets skydds användare att prioritera de åtgärder som de vidta för att minska risken för organisationen.
+### <a name="risk-level-vulnerability"></a>Risk level (vulnerability)
+An indication (High, Medium, or Low) of the severity of the vulnerability to help Identity Protection users prioritize the actions they take to reduce the risk to their organization.
 
-### <a name="secure-identity"></a>Skydda (identitet)
-Vidta reparations åtgärder, till exempel en ändring av lösen ord eller dator avbildning för att återställa en potentiellt komprometterad identitet till ett kompromisslös tillstånd.
+### <a name="secure-identity"></a>Secure (identity)
+Take remediation action such as a password change or machine reimaging to restore a potentially compromised identity to an uncompromised state.
 
 ### <a name="security-policy"></a>Säkerhetsprincip
-En samling av princip regler och villkor. En princip kan tillämpas på entiteter som användare, grupper, appar, enheter, enhets plattformar, enhets tillstånd, IP-intervall och auth 2.0-klient typer. När en princip har Aktiver ATS utvärderas den när en entitet som ingår i principen utfärdas en token för en resurs.
+A collection of policy rules and condition. A policy can be applied to entities such as users, groups, apps, devices, device platforms, device states, IP ranges, and Auth2.0 client types. When a policy is enabled, it is evaluated whenever an entity included in the policy is issued a token for a resource.
 
-### <a name="sign-in-v"></a>Logga in (v)
-För att autentisera till en identitet i Azure Active Directory.
+### <a name="sign-in-v"></a>Sign in (v)
+To authenticate to an identity in Azure Active Directory.
 
-### <a name="sign-in-n"></a>Inloggning (n)
-Processen eller åtgärden att autentisera en identitet i Azure Active Directory och händelsen som fångar upp den här åtgärden.
+### <a name="sign-in-n"></a>Sign-in (n)
+The process or action of authenticating an identity in Azure Active Directory, and the event that captures this operation.
 
-### <a name="sign-in-from-anonymous-ip-address"></a>Logga in från anonym IP-adress
-En risk identifiering utlöses efter en lyckad inloggning från IP-adress som har identifierats som en anonym proxy-IP-adress.
+### <a name="sign-in-from-anonymous-ip-address"></a>Sign in from anonymous IP address
+A risk detection triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
 
-### <a name="sign-in-from-infected-device"></a>Logga in från angripen enhet
-En risk identifiering som utlöses när en inloggning härstammar från en IP-adress, som är känd att användas av en eller flera komprometterade enheter, som aktivt försöker kommunicera med en bot-Server.
+### <a name="sign-in-from-infected-device"></a>Sign in from infected device
+A risk detection triggered when a sign-in originates from an IP address, which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
 
-### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Logga in från IP-adress med misstänkt aktivitet
-En risk identifiering utlöses efter en lyckad inloggning från en IP-adress med ett stort antal misslyckade inloggnings försök över flera användar konton under en kort tids period.
+### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Sign in from IP address with suspicious activity
+A risk detection triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
 
-### <a name="sign-in-from-unfamiliar-location"></a>Logga in från en okänd plats
-En risk identifiering som utlöses när en användare har loggat in från en ny plats (IP, latitud/longitud och ASN).
+### <a name="sign-in-from-unfamiliar-location"></a>Sign in from unfamiliar location
+A risk detection triggered when a user successfully signs in from a new location (IP, Latitude/Longitude, and ASN).
 
-### <a name="sign-in-risk"></a>Inloggnings risk
-Se risk nivå (inloggning)
+### <a name="sign-in-risk"></a>Sign-in risk
+See Risk level (sign-in)
 
-### <a name="sign-in-risk-policy"></a>Princip för inloggnings risk
-En princip för villkorlig åtkomst som utvärderar risken för en särskilt inloggning och tillämpar åtgärder baserat på fördefinierade villkor och regler.
+### <a name="sign-in-risk-policy"></a>Sign-in risk policy
+A Conditional Access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
-### <a name="user-compromise-risk"></a>Risk för användar kompromisser
-Se risk nivå (användar kompromisser)
+### <a name="user-compromise-risk"></a>User compromise risk
+See Risk level (user compromise)
 
-### <a name="user-risk"></a>Användar risk
-Se risk nivå (användar kompromisser).
+### <a name="user-risk"></a>User risk
+See Risk level (user compromise).
 
-### <a name="user-risk-policy"></a>Användar risk princip
-En princip för villkorlig åtkomst som beaktar inloggningen och tillämpar åtgärder baserat på fördefinierade villkor och regler.
+### <a name="user-risk-policy"></a>User risk policy
+A Conditional Access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
 
 ### <a name="users-flagged-for-risk"></a>Användare som har flaggats för risk
-Användare som har risk identifieringar, som antingen är aktiva eller åtgärdade
+Users that have risk detections, which are either active or remediated
 
-### <a name="vulnerability"></a>Brist
-En konfiguration eller ett villkor i Azure Active Directory, vilket gör att katalogen är mottaglig för att utnyttja eller drabbas av hot.
+### <a name="vulnerability"></a>Vulnerability
+A configuration or condition in Azure Active Directory, which makes the directory susceptible to exploits or threats.
 
 ## <a name="see-also"></a>Se också
 

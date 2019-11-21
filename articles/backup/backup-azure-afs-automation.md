@@ -1,125 +1,125 @@
 ---
-title: Säkerhetskopiera och återställa Azure Files med PowerShell
-description: I den här artikeln får du lära dig hur du säkerhetskopierar och återställer Azure Files med hjälp av Azure Backup-tjänsten och PowerShell.
+title: Back up and restore Azure Files with PowerShell
+description: In this article, learn how to back up and restore Azure Files using the Azure Backup service and PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 18c7340d1cb782ba41c472156259170f37139a74
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173486"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224163"
 ---
-# <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
+# <a name="back-up-and-restore-azure-files-with-powershell"></a>Back up and restore Azure Files with PowerShell
 
-Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhetskopiera och återställa en Azure Files fil resurs med hjälp av ett [Azure Backup](backup-overview.md) Recovery Services-valv.
+This article describes how to use Azure PowerShell to back up and recover an Azure Files file share using an [Azure Backup](backup-overview.md) Recovery Services vault.
 
-Den här artikeln förklarar hur du:
+This article explains how to:
 
 > [!div class="checklist"]
 >
-> * Konfigurera PowerShell och registrera Azure Recovery Services-providern.
+> * Set up PowerShell and register the Azure Recovery Services Provider.
 > * Skapa ett Recovery Services-valv.
-> * Konfigurera säkerhets kopiering för en Azure-filresurs.
-> * Kör ett säkerhets kopierings jobb.
-> * Återställa en säkerhets kopie rad Azure-filresurs eller en enskild fil från en resurs.
-> * Övervaka säkerhets kopierings-och återställnings jobb.
+> * Configure backup for an Azure file share.
+> * Run a backup job.
+> * Restore a backed up Azure file share, or an individual file from a share.
+> * Monitor backup and restore jobs.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-* [Läs mer](backup-azure-recovery-services-vault-overview.md) om Recovery Services-valv.
-* Läs om förhands gransknings funktionerna för att [säkerhetskopiera Azure-filresurser](backup-azure-files.md).
-* Granska PowerShell-objektcachen för Recovery Services.
+* [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
+* Read about the preview capabilities for [backing up Azure file shares](backup-azure-files.md).
+* Review the PowerShell object hierarchy for Recovery Services.
 
-## <a name="recovery-services-object-hierarchy"></a>Recovery Services objektets hierarki
+## <a name="recovery-services-object-hierarchy"></a>Recovery Services object hierarchy
 
-Objektets hierarki sammanfattas i följande diagram.
+The object hierarchy is summarized in the following diagram.
 
-![Recovery Services objektets hierarki](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Recovery Services object hierarchy](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Granska referens referensen för [cmdleten](/powershell/module/az.recoveryservices) **AZ. RecoveryServices** i Azure-biblioteket.
+Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices) reference in the Azure library.
 
-## <a name="set-up-and-install"></a>Konfigurera och installera
+## <a name="set-up-and-install"></a>Set up and install
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Konfigurera PowerShell på följande sätt:
+Set up PowerShell as follows:
 
-1. [Ladda ned den senaste versionen av AZ PowerShell](/powershell/azure/install-az-ps). Den lägsta version som krävs är 1.0.0.
+1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.0.0.
 
-2. Hitta Azure Backup PowerShell-cmdlet: ar med det här kommandot:
+2. Find the Azure Backup PowerShell cmdlets with this command:
 
     ```powershell
     Get-Command *azrecoveryservices*
     ```
 
-3. Granska alias och cmdlets för Azure Backup, Azure Site Recovery och Recovery Services valvet visas. Här är ett exempel på vad du kan se. Det är inte en fullständig lista över cmdletar.
+3. Review the aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. Here's an example of what you might see. It's not a complete list of cmdlets.
 
-    ![Lista över Recovery Services-cmdletar](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
+    ![List of Recovery Services cmdlets](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Logga in på ditt Azure-konto med **Connect-AzAccount**.
-5. På webb sidan som visas uppmanas du att ange dina autentiseringsuppgifter för kontot.
+4. Sign in to your Azure account with **Connect-AzAccount**.
+5. On the web page that appears, you're prompted to input your account credentials.
 
-    * Alternativt kan du inkludera dina konto uppgifter som en parameter i cmdleten **Connect-AzAccount** med **-Credential**.
-    * Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras tenantID eller primära domän namn. Ett exempel är **Connect-AzAccount-Tenant** fabrikam.com.
+    * Alternately, you can include your account credentials as a parameter in the **Connect-AzAccount** cmdlet with **-Credential**.
+    * If you're a CSP partner working on behalf of a tenant, specify the customer as a tenant, using their tenantID or tenant primary domain name. An example is **Connect-AzAccount -Tenant** fabrikam.com.
 
-6. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer.
+6. Associate the subscription you want to use with the account, because an account can have several subscriptions.
 
     ```powershell
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-7. Om du använder Azure Backup för första gången ska du använda cmdleten **register-AzResourceProvider** för att registrera Azure Recovery Services-providern med din prenumeration.
+7. If you're using Azure Backup for the first time, use the **Register-AzResourceProvider** cmdlet to register the Azure Recovery Services provider with your subscription.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-8. Verifiera att providern har registrerats:
+8. Verify that the providers registered successfully:
 
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
+9. In the command output, verify that **RegistrationState** changes to **Registered**. If it doesn't, run the **Register-AzResourceProvider** cmdlet again.
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-Recovery Services valvet är en Resource Manager-resurs, så du måste placera den i en resurs grupp. Du kan använda en befintlig resurs grupp, eller så kan du skapa en resurs grupp med cmdleten **New-AzResourceGroup** . När du skapar en resurs grupp anger du namn och plats för resurs gruppen.
+The Recovery Services vault is a Resource Manager resource, so you must place it within a resource group. You can use an existing resource group, or you can create a resource group with the **New-AzResourceGroup** cmdlet. When you create a resource group, specify the name and location for the resource group.
 
-Följ dessa steg om du vill skapa ett Recovery Services-valv.
+Follow these steps to create a Recovery Services vault.
 
-1. Ett valv placeras i en resurs grupp. Om du inte har en befintlig resurs grupp skapar du en ny med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). I det här exemplet skapar vi en ny resurs grupp i regionen USA, västra.
+1. A vault is placed in a resource group. If you don't have an existing resource group, create a new one with the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). In this example, we create a new resource group in the West US region.
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Använd cmdleten [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) för att skapa valvet. Ange samma plats för valvet som användes för resurs gruppen.
+2. Use the [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Ange vilken typ av redundans som ska användas för valv lagringen.
+3. Specify the type of redundancy to use for the vault storage.
 
-   * Du kan använda [Lokalt Redundant lagring](../storage/common/storage-redundancy-lrs.md) eller [Geo-redundant lagring](../storage/common/storage-redundancy-grs.md).
-   * I följande exempel anges alternativet **-BackupStorageRedundancy** för[set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd för **testvault** som är inställt på **interredundant**.
+   * You can use [locally redundant storage](../storage/common/storage-redundancy-lrs.md) or [geo-redundant storage](../storage/common/storage-redundancy-grs.md).
+   * The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
      Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
      ```
 
-### <a name="view-the-vaults-in-a-subscription"></a>Visa valv i en prenumeration
+### <a name="view-the-vaults-in-a-subscription"></a>View the vaults in a subscription
 
-Om du vill visa alla valv i prenumerationen använder du [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0).
+To view all vaults in the subscription, use [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0).
 
 ```powershell
 Get-AzRecoveryServicesVault
 ```
 
-Utdata ser ut ungefär så här. Observera att den associerade resurs gruppen och platsen tillhandahålls.
+The output is similar to the following. Note that the associated resource group and location are provided.
 
 ```powershell
 Name              : Contoso-vault
@@ -131,22 +131,22 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-### <a name="set-the-vault-context"></a>Ange valv kontext
+### <a name="set-the-vault-context"></a>Set the vault context
 
-Lagra Valve-objektet i en variabel och ange valv kontexten.
+Store the vault object in a variable, and set the vault context.
 
-* Många Azure Backup-cmdletar kräver att Recovery Services Vault-objektet är inmatat, så det är praktiskt att lagra valvet i en variabel.
-* Valvets sammanhang är typen av data som skyddas i valvet. Ange den med [set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). När kontexten har angetts gäller den för alla efterföljande cmdletar.
+* Many Azure Backup cmdlets require the Recovery Services vault object as an input, so it's convenient to store the vault object in a variable.
+* Valvets sammanhang är typen av data som skyddas i valvet. Set it with [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). After the context is set, it applies to all subsequent cmdlets.
 
-I följande exempel anges valv kontexten för **testvault**.
+The following example sets the vault context for **testvault**.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
-### <a name="fetch-the-vault-id"></a>Hämta valv-ID: t
+### <a name="fetch-the-vault-id"></a>Fetch the vault ID
 
-Vi planerar att föråldra inställningen för valv kontext i enlighet med Azure PowerShell rikt linjer. I stället kan du lagra eller hämta valv-ID: t och skicka det till relevanta kommandon. Så om du inte har angett valv kontexten eller vill ange kommandot som ska köras för ett visst valv, måste du skicka valv-ID: t till "-vaultID" till alla relevanta kommandon enligt följande:
+We plan on deprecating the vault context setting in accordance with Azure PowerShell guidelines. Instead, you can store or fetch the vault ID, and pass it to relevant commands. So, if you haven't set the vault context or want to specify the command to run for a certain vault, pass the vault ID as "-vaultID" to all relevant command as follows:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -155,14 +155,14 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType 
 
 ## <a name="configure-a-backup-policy"></a>Konfigurera en säkerhetskopieringspolicy
 
-En säkerhets kopierings princip anger schemat för säkerhets kopior och hur länge återställnings punkter för säkerhets kopiering ska behållas:
+A backup policy specifies the schedule for backups, and how long backup recovery points should be kept:
 
-* En säkerhets kopierings princip är associerad med minst en bevarande princip. En bevarande princip definierar hur länge en återställnings punkt ska sparas innan den tas bort.
-* Visa standard kvarhållning av säkerhets kopierings princip med [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Visa standard schema för säkerhets kopiering med [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Du använder cmdleten [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) för att skapa en ny säkerhets kopierings princip. Du har angett schema-och bevarande princip objekt.
+* A backup policy is associated with at least one retention policy. A retention policy defines how long a recovery point is kept before it's deleted.
+* View the default backup policy retention using [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
+* View the default backup policy schedule using [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
+* You use the [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) cmdlet to create a new backup policy. You input the schedule and retention policy objects.
 
-Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I exemplet nedan förutsätter du att den önskade start tiden är 01:00 AM UTC för dagliga säkerhets kopieringar.
+By default, a start time is defined in the Schedule Policy Object. Use the following example to change the start time to the desired start time. The desired start time should be in UTC as well. The below example assumes the desired start time is 01:00 AM UTC for daily backups.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -172,9 +172,9 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
 > [!IMPORTANT]
-> Du behöver bara ange start tiden i 30 minuter. I ovanstående exempel kan det bara vara "01:00:00" eller "02:30:00". Start tiden får inte vara "01:15:00"
+> You need to provide the start time in 30 minute multiples only. In the above example, it can be only "01:00:00" or "02:30:00". The start time cannot be "01:15:00"
 
-I följande exempel lagras schema principen och bevarande principen i variabler. Den använder sedan variablerna som parametrar för en ny princip (**NewAFSPolicy**). **NewAFSPolicy** tar en daglig säkerhets kopiering och behåller den i 30 dagar.
+The following example stores the schedule policy and the retention policy in variables. It then uses those variables as parameters for a new policy (**NewAFSPolicy**). **NewAFSPolicy** takes a daily backup and retains it for 30 days.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -182,7 +182,7 @@ $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "Azure
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```
 
-Utdata ser ut ungefär så här.
+The output is similar to the following.
 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
@@ -190,23 +190,23 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
 ```
 
-## <a name="enable-backup"></a>Aktivera säkerhets kopiering
+## <a name="enable-backup"></a>Enable backup
 
-När du har definierat säkerhets kopierings principen kan du aktivera skyddet för Azure-filresursen med hjälp av principen.
+After you define the backup policy, you can enable the protection for the Azure file share using the policy.
 
-### <a name="retrieve-a-backup-policy"></a>Hämta en princip för säkerhets kopiering
+### <a name="retrieve-a-backup-policy"></a>Retrieve a backup policy
 
-Du hämtar relevant princip objekt med [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Använd denna cmdlet för att hämta en princip eller för att visa de principer som är kopplade till en arbets belastnings typ.
+You fetch the relevant policy object with [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Use this cmdlet to get a specific policy, or to view the policies associated with a workload type.
 
-#### <a name="retrieve-a-policy-for-a-workload-type"></a>Hämta en princip för en arbets belastnings typ
+#### <a name="retrieve-a-policy-for-a-workload-type"></a>Retrieve a policy for a workload type
 
-I följande exempel hämtas principer för **migreringsåtgärden**för arbets belastnings typen.
+The following example retrieves policies for the workload type **AzureFiles**.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureFiles"
 ```
 
-Utdata ser ut ungefär så här.
+The output is similar to the following.
 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
@@ -215,27 +215,27 @@ dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 
 ```
 
 > [!NOTE]
-> Tids zonen för fältet **BackupTime** i PowerShell är Universal Coordinated Time (UTC). När tiden för säkerhets kopieringen visas i Azure Portal justeras tiden till din lokala tidszon.
+> The time zone of the **BackupTime** field in PowerShell is Universal Coordinated Time (UTC). When the backup time is shown in the Azure portal, the time is adjusted to your local time zone.
 
-### <a name="retrieve-a-specific-policy"></a>Hämta en speciell princip
+### <a name="retrieve-a-specific-policy"></a>Retrieve a specific policy
 
-Följande princip hämtar säkerhets kopierings principen med namnet **dailyafs**.
+The following policy retrieves the backup policy named **dailyafs**.
 
 ```powershell
 $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 ```
 
-### <a name="enable-backup-and-apply-policy"></a>Aktivera säkerhets kopiering och tillämpa princip
+### <a name="enable-backup-and-apply-policy"></a>Enable backup and apply policy
 
-Aktivera skydd med [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). När principen är associerad med valvet utlöses säkerhets kopieringarna enligt princip schemat.
+Enable protection with [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). After the policy is associated with the vault, backups are triggered in accordance with the policy schedule.
 
-I följande exempel aktive ras skyddet för Azure-filresurs- **testAzureFileShare** i Storage Account **testStorageAcct**, med principen **dailyafs**.
+The following example enables protection for the Azure file share **testAzureFileShare** in storage account **testStorageAcct**, with the policy **dailyafs**.
 
 ```powershell
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol
 ```
 
-Kommandot väntar tills det konfigurera skydds jobbet har avslut ATS och ger liknande utdata som visas.
+The command waits until the configure protection job is finished and gives a similar output, as shown.
 
 ```cmd
 WorkloadName       Operation            Status                 StartTime                                                                                                         EndTime                   JobID
@@ -243,15 +243,15 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-## <a name="trigger-an-on-demand-backup"></a>Utlös en säkerhets kopiering på begäran
+## <a name="trigger-an-on-demand-backup"></a>Trigger an on-demand backup
 
-Använd [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) för att köra en säkerhets kopiering på begäran för en skyddad Azure-filresurs.
+Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) to run an on-demand backup for a protected Azure file share.
 
-1. Hämta lagrings kontot och fil resursen från behållaren i valvet som innehåller dina säkerhets kopierings data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Om du vill starta ett säkerhets kopierings jobb får du information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
-3. Kör en säkerhets kopiering på begäran med[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
+1. Retrieve the storage account and file share from the container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Run an on-demand backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
-Kör säkerhets kopiering på begäran på följande sätt:
+Run the on-demand backup as follows:
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
@@ -259,7 +259,7 @@ $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -Workloa
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
-Kommandot returnerar ett jobb med ett ID som ska spåras, som du ser i följande exempel.
+The command returns a job with an ID to be tracked, as shown in the following example.
 
 ```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -267,19 +267,19 @@ WorkloadName     Operation            Status               StartTime            
 testAzureFS       Backup               Completed            11/12/2018 2:42:07 PM     11/12/2018 2:42:11 PM     8bdfe3ab-9bf7-4be6-83d6-37ff1ca13ab6
 ```
 
-Ögonblicks bilder av Azure-filresurser används när säkerhets kopieringen görs, så vanligt vis jobbet slutförs när kommandot returnerar utdata.
+Azure file share snapshots are used while the backups are taken, so usually the job completes by the time the command returns this output.
 
-### <a name="using-on-demand-backups-to-extend-retention"></a>Använda säkerhets kopiering på begäran för att utöka kvarhållning
+### <a name="using-on-demand-backups-to-extend-retention"></a>Using on-demand backups to extend retention
 
-Säkerhets kopiering på begäran kan användas för att spara dina ögonblicks bilder i 10 år. Scheduler kan användas för att köra PowerShell-skript på begäran med vald kvarhållning och därmed ta ögonblicks bilder med jämna mellanrum varje vecka, månad eller år. När du utför vanliga ögonblicks bilder kan du se [begränsningarna för säkerhets kopiering på begäran](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) med Azure Backup.
+On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots, refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) using Azure backup.
 
-Om du letar efter exempel skript kan du referera till exempel skriptet på GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> att använda Azure Automation Runbook som gör att du kan schemalägga säkerhets kopieringar regelbundet och behålla dem till och med 10 år.
+If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
 
-### <a name="modify-the-protection-policy"></a>Ändra skydds principen
+### <a name="modify-the-protection-policy"></a>Modify the protection policy
 
-Om du vill ändra principen som används för att säkerhetskopiera Azure-filresursen använder du [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Ange relevant säkerhets kopierings objekt och den nya säkerhets kopierings principen.
+To change the policy used for backing up the Azure file share, use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Specify the relevant backup item and the new backup policy.
 
-I följande exempel ändras skydds principen för **testAzureFS** från **dailyafs** till **monthlyafs**.
+The following example changes the **testAzureFS** protection policy from **dailyafs** to **monthlyafs**.
 
 ```powershell
 $monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"
@@ -288,20 +288,20 @@ $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -Workloa
 Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
 ```
 
-## <a name="restore-azure-file-shares-and-files"></a>Återställa Azure-filresurser och filer
+## <a name="restore-azure-file-shares-and-files"></a>Restore Azure file shares and files
 
-Du kan återställa en hel fil resurs eller vissa filer på resursen. Du kan återställa till den ursprungliga platsen eller till en annan plats.
+You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
 
-### <a name="fetch-recovery-points"></a>Hämta återställnings punkter
+### <a name="fetch-recovery-points"></a>Fetch recovery points
 
-Använd [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) för att visa en lista över alla återställnings punkter för det säkerhetskopierade objektet.
+Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) to list all recovery points for the backed-up item.
 
-I följande skript:
+In the following script:
 
-* Variabeln **$RP** är en matris av återställnings punkter för det valda säkerhets kopierings objektet från de senaste sju dagarna.
-* Matrisen sorteras i omvänd ordning med den senaste återställnings punkten vid index **0**.
-* Använd standard PowerShell-matrisering för att välja återställnings punkt.
-* I exemplet väljer **$RP [0]** den senaste återställnings punkten.
+* The variable **$rp** is an array of recovery points for the selected backup item from the past seven days.
+* The array is sorted in reverse order of time with the latest recovery point at index **0**.
+* Use standard PowerShell array indexing to pick the recovery point.
+* In the example, **$rp[0]** selects the latest recovery point.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
@@ -311,7 +311,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $st
 $rp[0] | fl
 ```
 
-Utdata ser ut ungefär så här.
+The output is similar to the following.
 
 ```powershell
 FileShareSnapshotUri : https://testStorageAcct.file.core.windows.net/testAzureFS?sharesnapshot=2018-11-20T00:31:04.00000
@@ -327,24 +327,24 @@ ContainerType        : AzureStorage
 BackupManagementType : AzureStorage
 ```
 
-När du har valt den relevanta återställnings punkten återställer du fil resursen eller filen till den ursprungliga platsen eller till en annan plats.
+After the relevant recovery point is selected, you restore the file share or file to the original location, or to an alternate location.
 
-### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Återställa en Azure-filresurs till en annan plats
+### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Restore an Azure file share to an alternate location
 
-Använd [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange följande parametrar för att identifiera den alternativa platsen:
+Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location:
 
-* **TargetStorageAccountName**: det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
-* **TargetFileShareName**: de fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
-* **TargetFolder**: mappen under den fil resurs som data återställs till. Om det säkerhetskopierade innehållet ska återställas till en rotmapp, ger du målmappens värden som en tom sträng.
-* **ResolveConflict**: instruktion om det finns en konflikt med återställda data. Accepterar **överskrivning** eller **Skip**.
+* **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
+* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
+* **TargetFolder**: The folder under the file share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
+* **ResolveConflict**: Instruction if there's a conflict with the restored data. Accepts **Overwrite** or **Skip**.
 
-Kör cmdleten med parametrarna på följande sätt:
+Run the cmdlet with the parameters as follows:
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -ResolveConflict Overwrite
 ```
 
-Kommandot returnerar ett jobb med ett ID som ska spåras, som du ser i följande exempel.
+The command returns a job with an ID to be tracked, as shown in the following example.
 
 ```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -352,44 +352,44 @@ WorkloadName     Operation            Status               StartTime            
 testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
 ```
 
-### <a name="restore-an-azure-file-to-an-alternate-location"></a>Återställa en Azure-fil till en annan plats
+### <a name="restore-an-azure-file-to-an-alternate-location"></a>Restore an Azure file to an alternate location
 
-Använd [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) för att återställa till den valda återställnings punkten. Ange de här parametrarna för att identifiera den alternativa platsen och för att unikt identifiera den fil som du vill återställa.
+Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) to restore to the selected recovery point. Specify these parameters to identify the alternate location, and to uniquely identify the file you want to restore.
 
-* **TargetStorageAccountName**: det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
-* **TargetFileShareName**: de fil resurser i mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
-* **TargetFolder**: mappen under den fil resurs som data återställs till. Om det säkerhetskopierade innehållet ska återställas till en rotmapp, ger du målmappens värden som en tom sträng.
-* **SourceFilePath**: den absoluta sökvägen till filen som ska återställas inom fil resursen, som en sträng. Den här sökvägen är samma sökväg som används i PowerShell-cmdleten **Get-AzStorageFile** .
-* **SourceFileType**: om en katalog eller en fil är markerad. Accepterar **katalog** eller **fil**.
-* **ResolveConflict**: instruktion om det finns en konflikt med återställda data. Accepterar **överskrivning** eller **Skip**.
+* **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
+* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
+* **TargetFolder**: The folder under the file share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
+* **SourceFilePath**: The absolute path of the file, to be restored within the file share, as a string. This path is the same path used in the **Get-AzStorageFile** PowerShell cmdlet.
+* **SourceFileType**: Whether a directory or a file is selected. Accepts **Directory** or **File**.
+* **ResolveConflict**: Instruction if there's a conflict with the restored data. Accepts **Overwrite** or **Skip**.
 
-De ytterligare parametrarna (SourceFilePath och SourceFileType) är bara relaterade till den enskilda filen som du vill återställa.
+The additional parameters (SourceFilePath and SourceFileType) are related only to the individual file you want to restore.
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
 
-Det här kommandot returnerar ett jobb med ett ID som ska spåras, som du ser i föregående avsnitt.
+This command returns a job with an ID to be tracked, as shown in the previous section.
 
-### <a name="restore-azure-file-shares-and-files-to-the-original-location"></a>Återställa Azure-filresurser och filer till den ursprungliga platsen
+### <a name="restore-azure-file-shares-and-files-to-the-original-location"></a>Restore Azure file shares and files to the original location
 
-När du återställer till en ursprunglig plats behöver du inte ange parametrar för mål och mål. Endast **ResolveConflict** måste anges.
+When you restore to an original location, you don't need to specify destination- and target-related parameters. Only **ResolveConflict** must be provided.
 
-#### <a name="overwrite-an-azure-file-share"></a>Skriv över en Azure-filresurs
+#### <a name="overwrite-an-azure-file-share"></a>Overwrite an Azure file share
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
 ```
 
-#### <a name="overwrite-an-azure-file"></a>Skriv över en Azure-fil
+#### <a name="overwrite-an-azure-file"></a>Overwrite an Azure file
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
 
-## <a name="track-backup-and-restore-jobs"></a>Spåra säkerhets kopierings-och återställnings jobb
+## <a name="track-backup-and-restore-jobs"></a>Track backup and restore jobs
 
-Säkerhets kopierings-och återställnings åtgärder på begäran returnerar ett jobb tillsammans med ett ID, som visas när du [körde en säkerhets kopiering på begäran](#trigger-an-on-demand-backup). Använd cmdleten [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) för att spåra jobb förlopp och information.
+On-demand backup and restore operations return a job along with an ID, as shown when you [ran an on-demand backup](#trigger-an-on-demand-backup). Use the [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) cmdlet to track the job progress and details.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om](backup-azure-files.md) att säkerhetskopiera Azure Files i Azure Portal.
+[Learn about](backup-azure-files.md) backing up Azure Files in the Azure portal.

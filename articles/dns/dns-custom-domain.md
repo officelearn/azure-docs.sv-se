@@ -1,171 +1,171 @@
 ---
-title: Integrera Azure DNS med dina Azure-resurser
-description: Lär dig hur du använder Azure DNS tillsammans för att tillhandahålla DNS för dina Azure-resurser.
+title: Integrate Azure DNS with your Azure resources - Azure DNS
+description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
-ms.author: victorh
-ms.openlocfilehash: 051aabed758f80208549cf64bf5d74b1fecfbe75
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.author: allensu
+ms.openlocfilehash: b005cb9e0611d18c24e2b77abf493292d47f44b4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854165"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212421"
 ---
-# <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använd Azure DNS för att tillhandahålla anpassade domän inställningar för en Azure-tjänst
+# <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Use Azure DNS to provide custom domain settings for an Azure service
 
-Azure DNS tillhandahåller DNS för en anpassad domän för någon av dina Azure-resurser som stöder anpassade domäner eller som har ett fullständigt kvalificerat domän namn (FQDN). Ett exempel är att du har en Azure-webbapp som du vill att användarna ska ha åtkomst till genom att antingen använda contoso.com\.eller www-contoso.com som ett fullständigt domän namn. Den här artikeln vägleder dig genom konfigurationen av Azure-tjänsten med Azure DNS för att använda anpassade domäner.
+Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www\.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att kunna använda Azure DNS för din anpassade domän måste du först delegera din domän till Azure DNS. Besök [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) för instruktioner om hur du konfigurerar namnservrar för delegering. När din domän är delegerad till din Azure DNS zon kan du konfigurera de DNS-poster som behövs.
+In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you are able to configure the DNS records needed.
 
-Du kan konfigurera en anpassad eller anpassad domän för [Azure Function-appar](#azure-function-app), [offentliga IP-adresser](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob Storage](#blob-storage)och [Azure CDN](#azure-cdn).
+You can configure a vanity or custom domain for [Azure Function Apps](#azure-function-app), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob storage](#blob-storage), and [Azure CDN](#azure-cdn).
 
-## <a name="azure-function-app"></a>Azure-Funktionsapp
+## <a name="azure-function-app"></a>Azure Function App
 
-Om du vill konfigurera en anpassad domän för Azure Function-appar skapas en CNAME-post samt konfigurationen i själva appen.
+To configure a custom domain for Azure function apps, a CNAME record is created as well as configuration on the function app itself.
  
-Navigera till **Funktionsapp** och välj din Function-app. Klicka på **plattforms funktioner** och under **nätverk** klickar du på **anpassade domäner**.
+Navigate to **Function App** and select your function app. Click **Platform features** and under **Networking** click **Custom domains**.
 
-![bladet Function-app](./media/dns-custom-domain/functionapp.png)
+![function app blade](./media/dns-custom-domain/functionapp.png)
 
-Observera den aktuella URL: en på bladet **anpassade domäner** , används den här adressen som alias för den DNS-post som skapats.
+Note the current url on the **Custom domains** blade, this address is used as the alias for the DNS record created.
 
-![bladet anpassad domän](./media/dns-custom-domain/functionshostname.png)
+![custom domain blade](./media/dns-custom-domain/functionshostname.png)
 
-Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande information på bladet **Lägg till uppsättning av poster** och klicka på **OK** för att skapa den.
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Namn     | myfunctionapp        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
-|type     | CNAME        | Använd en CNAME-post med ett alias.        |
-|TTL     | 1        | 1 används i 1 timme        |
-|TTL-enhet     | Timmar        | Timmar används som tids mått         |
-|Alias     | adatumfunction.azurewebsites.net        | Det DNS-namn som du skapar alias för, i det här exemplet är det DNS-namnet för adatumfunction.azurewebsites.net som tillhandahålls som standard till Function-appen.        |
+|Namn     | myfunctionapp        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Typ     | CNAME        | Use a CNAME record is using an alias.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Timmar        | Hours are used as the time measurement         |
+|Alias     | adatumfunction.azurewebsites.net        | The DNS name you are creating the alias for, in this example it is the adatumfunction.azurewebsites.net DNS name provided by default to the function app.        |
 
-Gå tillbaka till din Function-app, klicka på **plattforms funktioner**och under **nätverk** klickar du på **anpassade domäner**. under **anpassade värdnamn** klickar du på **+ Lägg till värdnamn**.
+Navigate back to your function app, click **Platform features**, and under **Networking** click **Custom domains**, then under **Custom Hostnames** click **+ Add hostname**.
 
-På bladet **Lägg till värdnamn** anger du CNAME-posten i textfältet **hostname** och klickar på **Verifiera**. Om posten hittas visas knappen **Lägg till värdnamn** . Klicka på **Lägg till värdnamn** för att lägga till aliaset.
+On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record is found, the **Add hostname** button appears. Click **Add hostname** to add the alias.
 
-![funktions appar Lägg till värd namn bladet](./media/dns-custom-domain/functionaddhostname.png)
+![function apps add host name blade](./media/dns-custom-domain/functionaddhostname.png)
 
 ## <a name="public-ip-address"></a>Offentlig IP-adress
 
-Om du vill konfigurera en anpassad domän för tjänster som använder en offentlig IP-adressresurs, till exempel Application Gateway, Load Balancer, moln tjänst, virtuella Resource Manager-datorer och klassiska virtuella datorer, används en A-post.
+To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used.
 
-Navigera till **nätverkets** > **offentliga IP-adress**, Välj den offentliga IP-resursen och klicka på **konfiguration**. Notate IP-adressen som visas.
+Navigate to **Networking** > **Public IP address**, select the Public IP resource and click **Configuration**. Notate the IP address shown.
 
-![offentligt IP-blad](./media/dns-custom-domain/publicip.png)
+![public ip blade](./media/dns-custom-domain/publicip.png)
 
-Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande information på bladet **Lägg till uppsättning av poster** och klicka på **OK** för att skapa den.
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Namn     | mywebserver        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
-|type     | A        | Använd en A-post eftersom resursen är en IP-adress.        |
-|TTL     | 1        | 1 används i 1 timme        |
-|TTL-enhet     | Timmar        | Timmar används som tids mått         |
-|IP-adress     | `<your ip address>`       | Den offentliga IP-adressen.|
+|Namn     | mywebserver        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Typ     | A        | Use an A record as the resource is an IP address.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Timmar        | Hours are used as the time measurement         |
+|IP-adress     | `<your ip address>`       | The public IP address.|
 
-![skapa en A-post](./media/dns-custom-domain/arecord.png)
+![create an A record](./media/dns-custom-domain/arecord.png)
 
-När en post har skapats kör `nslookup` du för att verifiera att posten matchar.
+Once the A record is created, run `nslookup` to validate the record resolves.
 
-![offentlig IP DNS-sökning](./media/dns-custom-domain/publicipnslookup.png)
+![public ip dns lookup](./media/dns-custom-domain/publicipnslookup.png)
 
 ## <a name="app-service-web-apps"></a>App Service (Web Apps)
 
-Följande steg tar dig igenom hur du konfigurerar en anpassad domän för en app service-webbapp.
+The following steps take you through configuring a custom domain for an app service web app.
 
-Navigera till **App Service** och välj den resurs som du konfigurerar ett anpassat domän namn och klicka på **anpassade domäner**.
+Navigate to **App Service** and select the resource you are configuring a custom domain name, and click **Custom domains**.
 
-Observera den aktuella URL: en på bladet **anpassade domäner** , används den här adressen som alias för den DNS-post som skapats.
+Note the current url on the **Custom domains** blade, this address is used as the alias for the DNS record created.
 
-![bladet anpassade domäner](./media/dns-custom-domain/url.png)
+![custom domains blade](./media/dns-custom-domain/url.png)
 
-Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande information på bladet **Lägg till uppsättning av poster** och klicka på **OK** för att skapa den.
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Namn     | mywebserver        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
-|type     | CNAME        | Använd en CNAME-post med ett alias. Om resursen använde en IP-adress används en A-post.        |
-|TTL     | 1        | 1 används i 1 timme        |
-|TTL-enhet     | Timmar        | Timmar används som tids mått         |
-|Alias     | webserver.azurewebsites.net        | Det DNS-namn som du skapar alias för, i det här exemplet är det DNS-namnet för webserver.azurewebsites.net som tillhandahålls som standard till webbappen.        |
+|Namn     | mywebserver        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Typ     | CNAME        | Use a CNAME record is using an alias. If the resource used an IP address, an A record would be used.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Timmar        | Hours are used as the time measurement         |
+|Alias     | webserver.azurewebsites.net        | The DNS name you are creating the alias for, in this example it is the webserver.azurewebsites.net DNS name provided by default to the web app.        |
 
 
-![skapa en CNAME-post](./media/dns-custom-domain/createcnamerecord.png)
+![create a CNAME record](./media/dns-custom-domain/createcnamerecord.png)
 
-Gå tillbaka till App Service som har kon figurer ATS för det anpassade domän namnet. Klicka på **anpassade domäner**och sedan på **värd namn**. Klicka på **+ Lägg till värdnamn**om du vill lägga till en CNAME-post som du har skapat.
+Navigate back to the app service that is configured for the custom domain name. Click **Custom domains**, then click **Hostnames**. To add the CNAME record you created, click **+ Add hostname**.
 
 ![bild 1](./media/dns-custom-domain/figure1.png)
 
-När processen är klar kan du köra **nslookup** för att verifiera att namn matchningen fungerar.
+Once the process is complete, run **nslookup** to validate name resolution is working.
 
 ![bild 1](./media/dns-custom-domain/finalnslookup.png)
 
-Om du vill veta mer om hur du mappar en anpassad domän till App Service kan du gå [till mappa ett befintligt anpassat DNS-namn till Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Information om hur du migrerar ett aktivt DNS-namn finns i [Migrera ett aktivt DNS-namn till Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
 
-Om du behöver köpa en anpassad domän går du till [köpa ett anpassat domän namn för Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) för att lära dig mer om App Service-domäner.
+If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) to learn more about App Service domains.
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blobb-lagring
 
-Följande steg tar dig igenom hur du konfigurerar en CNAME-post för ett Blob Storage-konto med hjälp av metoden för att verifiera. Den här metoden säkerställer att det inte finns någon stillestånds tid.
+The following steps take you through configuring a CNAME record for a blob storage account using the asverify method. This method ensures there is no downtime.
 
-Gå till **lagrings** > **lagrings konton**, Välj ditt lagrings konto och klicka på **anpassad domän**. Notate FQDN under steg 2, det här värdet används för att skapa den första CNAME-posten
+Navigate to **Storage** > **Storage Accounts**, select your storage account, and click **Custom domain**. Notate the FQDN under step 2, this value is used to create the first CNAME record
 
-![anpassad domän för Blob Storage](./media/dns-custom-domain/blobcustomdomain.png)
+![blob storage custom domain](./media/dns-custom-domain/blobcustomdomain.png)
 
-Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande information på bladet **Lägg till uppsättning av poster** och klicka på **OK** för att skapa den.
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
 
-|Egenskap  |Value  |Beskrivning  |
+|Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Namn     | verifiera. mystorageaccount        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
-|type     | CNAME        | Använd en CNAME-post med ett alias.        |
-|TTL     | 1        | 1 används i 1 timme        |
-|TTL-enhet     | Timmar        | Timmar används som tids mått         |
-|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Det DNS-namn som du skapar alias för, i det här exemplet är det DNS-namnet för asverify.adatumfunctiona9ed.blob.core.windows.net som anges som standard för lagrings kontot.        |
+|Namn     | asverify.mystorageaccount        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Typ     | CNAME        | Use a CNAME record is using an alias.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Timmar        | Hours are used as the time measurement         |
+|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | The DNS name you are creating the alias for, in this example it is the asverify.adatumfunctiona9ed.blob.core.windows.net DNS name provided by default to the storage account.        |
 
-Gå tillbaka till ditt lagrings konto genom  > att klicka på lagrings**lagrings konton**, Välj ditt lagrings konto och klicka på **anpassad domän**. Skriv in aliaset som du skapade utan prefixet för att verifiera i text rutan, markera * * Använd indirekt CNAME-validering och klicka på **Spara**. När det här steget har slutförts går du tillbaka till DNS-zonen och skapar en CNAME-post utan prefixet verify.  Efter den tidpunkten är det säkert att ta bort CNAME-posten med cdnverify-prefixet.
+Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
 
-![anpassad domän för Blob Storage](./media/dns-custom-domain/indirectvalidate.png)
+![blob storage custom domain](./media/dns-custom-domain/indirectvalidate.png)
 
-Verifiera DNS-matchning genom att köra`nslookup`
+Validate DNS resolution by running `nslookup`
 
-Mer information om hur du mappar en anpassad domän till en Blob Storage-slutpunkt finns i [Konfigurera ett eget domän namn för din Blob Storage-slutpunkt](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
+To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
 
 ## <a name="azure-cdn"></a>Azure CDN
 
-Följande steg beskriver hur du konfigurerar en CNAME-post för en CDN-slutpunkt med cdnverify-metoden. Den här metoden säkerställer att det inte finns någon stillestånds tid.
+The following steps take you through configuring a CNAME record for a CDN endpoint using the cdnverify method. This method ensures there is no downtime.
 
-Navigera till **nätverks** > -**CDN-profiler**och välj din CDN-profil.
+Navigate to **Networking** > **CDN Profiles**, select your CDN profile.
 
-Välj den slut punkt som du arbetar med och klicka på **+ anpassad domän**. Observera **slut punkts namnet** som det här värdet är den post som CNAME-posten pekar på.
+Select the endpoint you are working with and click **+ Custom domain**. Note the **Endpoint hostname** as this value is the record that the CNAME record points to.
 
-![Anpassad CDN-domän](./media/dns-custom-domain/endpointcustomdomain.png)
+![CDN custom domain](./media/dns-custom-domain/endpointcustomdomain.png)
 
-Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande information på bladet **Lägg till uppsättning av poster** och klicka på **OK** för att skapa den.
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
 
-|Egenskap  |Value  |Beskrivning  |
+|Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Namn     | cdnverify. mycdnendpoint        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
-|type     | CNAME        | Använd en CNAME-post med ett alias.        |
-|TTL     | 1        | 1 används i 1 timme        |
-|TTL-enhet     | Timmar        | Timmar används som tids mått         |
-|Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Det DNS-namn som du skapar alias för, i det här exemplet är det DNS-namnet för cdnverify.adatumcdnendpoint.azureedge.net som anges som standard för lagrings kontot.        |
+|Namn     | cdnverify.mycdnendpoint        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Typ     | CNAME        | Use a CNAME record is using an alias.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Timmar        | Hours are used as the time measurement         |
+|Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | The DNS name you are creating the alias for, in this example it is the cdnverify.adatumcdnendpoint.azureedge.net DNS name provided by default to the storage account.        |
 
-Gå tillbaka till CDN-slutpunkten genom att klicka på **Network** > **CDN-profiler**och välj din CDN-profil. Klicka på **+ anpassad domän** och ange ditt CNAME-postalias utan cdnverify-prefixet och klicka på **Lägg till**.
+Navigate back to your CDN endpoint by clicking **Networking** > **CDN Profiles**, and select your CDN profile. Click **+ Custom domain** and enter your CNAME record alias without the cdnverify prefix and click **Add**.
 
-När det här steget har slutförts går du tillbaka till DNS-zonen och skapar en CNAME-post utan prefixet cdnverify.  Efter den tidpunkten är det säkert att ta bort CNAME-posten med cdnverify-prefixet. Mer information om CDN och hur du konfigurerar en anpassad domän utan mellanliggande registrerings steg finns i [mappa Azure CDN innehåll till en anpassad domän](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
+Once this step is complete, return to your DNS zone and create a CNAME record without the cdnverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix. For more information on CDN and how to configure a custom domain without the intermediate registration step visit [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [konfigurerar omvänd DNS för tjänster som finns i Azure](dns-reverse-dns-for-azure-services.md).
+Learn how to [configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).

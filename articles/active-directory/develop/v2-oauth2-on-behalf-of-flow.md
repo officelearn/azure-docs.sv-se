@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity-plattformen och OAuth2.0 On-Behalf-Of-flöde | Azure
-description: Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänst till tjänst-autentisering med hjälp av OAuth2.0 On-Behalf-Of-flöde.
+title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow | Azure
+description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -13,72 +13,74 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7582cd8453b25f071c18566f09d2155a6377a0a6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 09d851572731ad9c83093b7076279df112585703
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482156"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207499"
 ---
-# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-plattformen och OAuth 2.0 Behalf flow
+# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-OAuth 2.0-Behalf-flödet (OBO) fungerar användningsfall där ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. För mellannivå-tjänsten ska göra autentiserade begäranden till den underordnade tjänsten, måste den säkra en åtkomsttoken från Microsoft identity-plattformen för användarens räkning.
+The OAuth 2.0 On-Behalf-Of flow (OBO) serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform, on behalf of the user.
+
+This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
 > [!NOTE]
 >
-> - Microsoft identity-plattformen slutpunkt stöder inte alla scenarier och funktioner. Läs mer om för att avgöra om du ska använda Microsoft identity-plattformen endpoint, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md). Mer specifikt stöds kända klientprogram inte för appar med Microsoft-konto (MSA) och Azure AD målgrupper. Därför fungerar inte ett vanligt mönster för medgivande för OBO för klienter som loggar in både personliga- och arbets-eller skolkonto. Mer information om hur du hanterar det här steget i flödet finns [få medgivande för mellannivå programmet](#gaining-consent-for-the-middle-tier-application).
-> - Från och med maj 2018 vissa implicit flöde härledda `id_token` kan inte användas för OBO-flöde. Ensidesappar (SPA) ska ha genomgått en **åtkomst** token i en mellannivå konfidentiell klient för att utföra OBO flödar i stället. Mer information om vilka klienter som kan utföra OBO-anrop, finns i [begränsningar](#client-limitations).
+> - The Microsoft identity platform endpoint doesn't support all scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md). Specifically, known client applications aren't supported for apps with Microsoft account (MSA) and Azure AD audiences. Thus, a common consent pattern for OBO will not work for clients that sign in both personal and work or school accounts. To learn more about how to handle this step of the flow, see [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application).
+> - As of May 2018, some implicit-flow derived `id_token` can't be used for OBO flow. Single-page apps (SPAs) should pass an **access** token to a middle-tier confidential client to perform OBO flows instead. For more info about which clients can perform OBO calls, see [limitations](#client-limitations).
 
-## <a name="protocol-diagram"></a>Protokollet diagram
+## <a name="protocol-diagram"></a>Protocol diagram
 
-Anta att användaren har autentiserats på ett program med hjälp av den [flöde beviljat med OAuth 2.0-auktoriseringskod](v2-oauth2-auth-code-flow.md). Programmet har nu en åtkomsttoken *för API-A* (token A) med det användar- och medgivande till att komma åt mellannivå webb-API (API-A). Nu kan måste API A göra en autentiserad begäran till underordnade webb-API (API-B).
+Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v2-oauth2-auth-code-flow.md). At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
 
-De steg som följer utgör OBO-flödet och beskrivs med hjälp av följande diagram.
+The steps that follow constitute the OBO flow and are explained with the help of the following diagram.
 
-![Visar OAuth2.0 On-Behalf-Of-flöde](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Shows the OAuth2.0 On-Behalf-Of flow](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
-1. Klientprogrammet skickar en begäran till API A med token A (med en `aud` anspråk av API-A).
-1. API-A autentiserar till Microsoft identity-plattformen utfärdande-slutpunkten och begär en token för att komma åt API B.
-1. Microsoft identity-plattformen utfärdande slutpunkt validerar API A autentiseringsuppgifter med token A och utfärdar en åtkomsttoken för API-B (token B).
-1. Token B har angetts i auktoriseringshuvudet för begäran till API B.
-1. Data från den skyddade resursen returneras av API B.
+1. The client application makes a request to API A with token A (with an `aud` claim of API A).
+1. API A authenticates to the Microsoft identity platform token issuance endpoint and requests a token to access API B.
+1. The Microsoft identity platform token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
+1. Token B is set in the authorization header of the request to API B.
+1. Data from the secured resource is returned by API B.
 
 > [!NOTE]
-> I det här scenariot har mellannivå-tjänsten inga användaråtgärder för att hämta användarens medgivande till att få åtkomst till underordnade API. Därför visas kan ge åtkomst till underordnade API gång som en del av samtycke steg under autentiseringen. Läs hur du ställer in detta för din app i [få medgivande för mellannivå programmet](#gaining-consent-for-the-middle-tier-application).
+> In this scenario, the middle-tier service has no user interaction to obtain the user's consent to access the downstream API. Therefore, the option to grant access to the downstream API is presented upfront as a part of the consent step during authentication. To learn how to set this up for your app, see [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application).
 
-## <a name="service-to-service-access-token-request"></a>Tjänst-till-tjänst begäran om åtkomsttoken
+## <a name="service-to-service-access-token-request"></a>Service-to-service access token request
 
-Skapa en HTTP POST till klientspecifik Microsoft identity-plattformen tokenslutpunkten med följande parametrar om du vill begära en åtkomst-token.
+To request an access token, make an HTTP POST to the tenant-specific Microsoft identity platform token endpoint with the following parameters.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
 
-Det finns två fall beroende på om klientprogrammet väljer att skyddas av en delad hemlighet eller ett certifikat.
+There are two cases depending on whether the client application chooses to be secured by a shared secret or a certificate.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fall: Begäran om åtkomsttoken med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>First case: Access token request with a shared secret
 
-När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begäran om åtkomsttoken följande parametrar:
+When using a shared secret, a service-to-service access token request contains the following parameters:
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| `grant_type` | Obligatoriskt | Typ av begäran om åtkomsttoken. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obligatoriskt | Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
-| `client_secret` | Obligatoriskt | Klienthemlighet som du skapade för din app i Azure portal - registreringar appsidan. |
-| `assertion` | Obligatoriskt | Värdet för den token som används i begäran. |
-| `scope` | Obligatoriskt | Ett blanksteg avgränsade lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md). |
-| `requested_token_use` | Obligatoriskt | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
+| `grant_type` | Krävs | The type of  token request. For a request using a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Krävs | The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
+| `client_secret` | Krävs | The client secret that you generated for your app in the Azure portal - App registrations page. |
+| `assertion` | Krävs | The value of the token used in the request. |
+| `scope` | Krävs | A space separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). |
+| `requested_token_use` | Krävs | Specifies how the request should be processed. In the OBO flow, the value must be set to `on_behalf_of`. |
 
 #### <a name="example"></a>Exempel
 
-Följande HTTP POST begär en åtkomsttoken och uppdateringstoken med `user.read` omfång för den https://graph.microsoft.com webb-API.
+The following HTTP POST requests an access token and refresh token with `user.read` scope for the https://graph.microsoft.com web API.
 
 ```
 //line breaks for legibility only
@@ -95,25 +97,25 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: Begäran om åtkomsttoken med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Second case: Access token request with a certificate
 
-En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehåller följande parametrar:
+A service-to-service access token request with a certificate contains the following parameters:
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| `grant_type` | Obligatoriskt | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obligatoriskt |  Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
-| `client_assertion_type` | Obligatoriskt | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obligatoriskt | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs hur du registrerar ditt certifikat och format för kontrollen i [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md). |
-| `assertion` | Obligatoriskt | Värdet för den token som används i begäran. |
-| `requested_token_use` | Obligatoriskt | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
-| `scope` | Obligatoriskt | En blankstegsavgränsad lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md).|
+| `grant_type` | Krävs | The type of the token request. For a request using a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Krävs |  The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
+| `client_assertion_type` | Krävs | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Krävs | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. To learn how to register your certificate and the format of the assertion, see [certificate credentials](active-directory-certificate-credentials.md). |
+| `assertion` | Krävs | The value of the token used in the request. |
+| `requested_token_use` | Krävs | Specifies how the request should be processed. In the OBO flow, the value must be set to `on_behalf_of`. |
+| `scope` | Krävs | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md).|
 
-Observera att parametrarna är nästan samma sätt som när det gäller begäran från delad hemlighet utom som den `client_secret` parameter har ersatts av två parametrar: en `client_assertion_type` och `client_assertion`.
+Notice that the parameters are almost the same as in the case of the request by shared secret except that the `client_secret` parameter is replaced by two parameters: a `client_assertion_type` and `client_assertion`.
 
 #### <a name="example"></a>Exempel
 
-Följande HTTP POST begär en åtkomsttoken med `user.read` omfång för den https://graph.microsoft.com webb-API med ett certifikat.
+The following HTTP POST requests an access token with `user.read` scope for the https://graph.microsoft.com web API with a certificate.
 
 ```
 // line breaks for legibility only
@@ -131,21 +133,21 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## <a name="service-to-service-access-token-response"></a>Tjänsten access token svar
+## <a name="service-to-service-access-token-response"></a>Service to service access token response
 
-Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
+A success response is a JSON OAuth 2.0 response with the following parameters.
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `token_type` | Anger typ tokenu värdet. Den enda skriver som Microsoft identity-plattformen stöder är `Bearer`. Mer information om ägartoken, finns det [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| `scope` | Omfattning åtkomst beviljas i token. |
-| `expires_in` | Hur lång tid i sekunder som den åtkomst-token är giltig. |
-| `access_token` | Den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att autentisera till den mottagande tjänsten. |
-| `refresh_token` | Uppdateringstoken för den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Uppdateringstoken finns bara om den `offline_access` omfång begärdes. |
+| `token_type` | Indicates the token type value. The only type that Microsoft identity platform supports is `Bearer`. For more info about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| `scope` | The scope of access granted in the token. |
+| `expires_in` | The length of time, in seconds, that the access token is valid. |
+| `access_token` | The requested access token. The calling service can use this token to authenticate to the receiving service. |
+| `refresh_token` | The refresh token for the requested access token. The calling service can use this token to request another access token after the current access token expires. The refresh token is only provided if the `offline_access` scope was requested. |
 
-### <a name="success-response-example"></a>Exempel för lyckade svar
+### <a name="success-response-example"></a>Success response example
 
-I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token för den https://graph.microsoft.com webb-API.
+The following example shows a success response to a request for an access token for the https://graph.microsoft.com web API.
 
 ```
 {
@@ -159,11 +161,11 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token f
 ```
 
 > [!NOTE]
-> Ovanstående åtkomsttoken är en v1.0-formaterad token. Det beror på att token har angetts baserat på resursen ifråga. Microsoft Graph begär v1.0 token, så Microsoft identity-plattformen ger v1.0 åtkomsttoken när en klient begär token för Microsoft Graph. De program som ska titta på åtkomsttoken. Klienterna behöver inte inspektera dem.
+> The above access token is a v1.0-formatted token. This is because the token is provided based on the resource being accessed. The Microsoft Graph requests v1.0 tokens, so Microsoft identity platform produces v1.0 access tokens when a client requests tokens for Microsoft Graph. Only applications should look at access tokens. Clients should not need to inspect them.
 
-### <a name="error-response-example"></a>Fel svar, exempel
+### <a name="error-response-example"></a>Error response example
 
-Ett felsvar returneras av tokenslutpunkten vid försök att hämta en åtkomsttoken för den underordnade API om underordnade API: et har en princip för villkorlig åtkomst (till exempel multifaktorautentisering) angetts för den. Tjänsten mellannivå bör ge det här felet till klientprogrammet så att klientprogrammet kan ange användarinteraktion för att uppfylla principen för villkorlig åtkomst.
+An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as multi-factor authentication) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```
 {
@@ -177,9 +179,9 @@ Ett felsvar returneras av tokenslutpunkten vid försök att hämta en åtkomstto
 }
 ```
 
-## <a name="use-the-access-token-to-access-the-secured-resource"></a>Använd åtkomsttoken för att komma åt den skyddade resursen
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Use the access token to access the secured resource
 
-Tjänsten mellannivå kan nu använda den token som anskaffats ovan för att göra autentiserade begäranden till den underordnade webben-API, genom att ange token i den `Authorization` rubrik.
+Now the middle-tier service can use the token acquired above to make authenticated requests to the downstream web API, by setting the token in the `Authorization` header.
 
 ### <a name="example"></a>Exempel
 
@@ -189,42 +191,42 @@ Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
-## <a name="gaining-consent-for-the-middle-tier-application"></a>Få ditt medgivande för mellannivå-programmet
+## <a name="gaining-consent-for-the-middle-tier-application"></a>Gaining consent for the middle-tier application
 
-Beroende på målgruppen för ditt program, kan du olika strategier för att säkerställa att OBO-flödet har lyckats. I samtliga fall är målet att säkerställa rätt tillstånd ges. Hur detta sker dock beror på vilka användare ditt program har stöd för.
+Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is successful. In all cases, the ultimate goal is to ensure proper consent is given. How that occurs, however, depends on which users your application supports.
 
-### <a name="consent-for-azure-ad-only-applications"></a>Medgivande för Azure endast AD-program
+### <a name="consent-for-azure-ad-only-applications"></a>Consent for Azure AD-only applications
 
-#### <a name="default-and-combined-consent"></a>/.default och kombinerade medgivande
+#### <a name="default-and-combined-consent"></a>/.default and combined consent
 
-Den traditionella metoden ”kända klientprogram” räcker för program som behöver bara logga in arbets- eller skolkonton. Mellannivå-programmet lägger till klienten i listan över kända klienter program i manifestet och sedan klienten kan utlösa en kombinerad godkännandeflöde för både själva och mellannivå-programmet. Detta görs på Microsoft identity-plattformen slutpunkt med hjälp av den [ `/.default` omfång](v2-permissions-and-consent.md#the-default-scope). När du utlöser en godkännandeskärmen med kända klientprogram och `/.default`, godkännandeskärmen visas behörigheter för både klienten mellannivå-API, och också begära behörigheterna som krävs av mellannivå-API. Användaren anger medgivande för båda programmen och sedan OBO flödet fungerar.
+For applications that only need to sign in work or school accounts, the traditional "Known Client Applications" approach is sufficient. The middle tier application adds the client to the known client applications list in its manifest, and then the client can trigger a combined consent flow for both itself and the middle tier application. On the Microsoft identity platform endpoint, this is done using the [`/.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `/.default`, the consent screen will show permissions for both the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
 
-För tillfället har inte stöd för personliga Microsoft-kontosystemet kombinerade medgivande och så den här metoden fungerar inte för appar som vill speciellt logga in personliga konton. Personliga Microsoft-konton som används som gästkonton i en klient hanteras med hjälp av Azure AD-system och kan gå igenom kombinerade medgivande.
+At this time, the personal Microsoft account system does not support combined consent and so this approach does not work for apps that want to specifically sign in personal accounts. Personal Microsoft accounts being used as guest accounts in a tenant are handled using the Azure AD system, and can go through combined consent.
 
-#### <a name="pre-authorized-applications"></a>Förauktoriserade program
+#### <a name="pre-authorized-applications"></a>Pre-authorized applications
 
-En funktion i application-portalen är ”förauktoriserade program”. På så sätt kan indikerar en resurs att ett visst program alltid har behörighet att ta emot vissa omfång. Detta är främst användbart för att skapa anslutningar mellan en frontend-klient och en backend-resurs smidigare. En resurs kan deklarera flera förauktoriserade program – alla sådana program kan begära dessa behörigheter i en OBO flow och tar emot dem utan att användaren som ger sitt medgivande.
+A feature of the application portal is "pre-authorized applications". In this way, a resource can indicate that a given application always has permission to receive certain scopes. This is primarily useful to make connections between a front-end client and a back-end resource more seamless. A resource can declare multiple pre-authorized applications - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
 
 #### <a name="admin-consent"></a>Administratörsmedgivande
 
-En klientadministratör kan garantera att program har behörighet att anropa sina nödvändiga API: er genom att tillhandahålla administratörens godkännande för mellannivå-programmet. Om du vill göra detta måste administratören hitta mellannivå-program i deras klienter, öppna sidan behörigheter som krävs för och väljer att ge behörighet för appen. Läs mer om administratörens godkännande i den [medgivande och behörigheter dokumentation](v2-permissions-and-consent.md).
+A tenant admin can guarantee that applications have permission to call their required APIs by providing admin consent for the middle tier application. To do this, the admin can find the middle tier application in their tenant, open the required permissions page, and choose to give permission for the app. To learn more about admin consent, see the [consent and permissions documentation](v2-permissions-and-consent.md).
 
-### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Medgivande för Azure AD + program för Microsoft-konto
+### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Consent for Azure AD + Microsoft account applications
 
-På grund av begränsningar i behörighetsmodellen för personliga konton och bristen på en styrande klient skiljer medgivande kraven för personliga konton sig lite från Azure AD. Det finns ingen klient för att kunna tillhandahålla klienttäckande medgivande för eller är det möjligt att göra kombinerade medgivande. Därför Observera andra strategier för närvarande själva – att dessa fungerar för program som bara behöver stöd för Azure AD-konton.
+Because of restrictions in the permissions model for personal accounts and the lack of a governing tenant, the consent requirements for personal accounts are a bit different from Azure AD. There is no tenant to provide tenant-wide consent for, nor is there the ability to do combined consent. Thus, other strategies present themselves - note that these work for applications that only need to support Azure AD accounts as well.
 
-#### <a name="use-of-a-single-application"></a>Användning av ett program
+#### <a name="use-of-a-single-application"></a>Use of a single application
 
-I vissa situationer kan du bara ha en enda parkoppling av mellannivå och frontend-klienten. I det här scenariot kan det vara lättare att göra detta med ett enda program, vilket eliminerar behovet av ett program på mellannivå helt och hållet. Du kan använda cookies, en id_token eller en åtkomsttoken begärs för programmet för att autentisera mellan klient- och webb-API. Begär godkännande från den här enda program till backend-resursen.
+In some scenarios, you may only have a single pairing of middle-tier and front-end client. In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether. To authenticate between the front-end and the web API, you can use cookies, an id_token, or an access token requested for the application itself. Then, request consent from this single application to the back-end resource.
 
-## <a name="client-limitations"></a>Klientbegränsningar
+## <a name="client-limitations"></a>Client limitations
 
-Om en klient använder det implicita flödet för att hämta en id_token och klienten har också jokertecken i en svars-URL, kan id_token inte användas för en OBO-flöde.  Dock kan åtkomsttoken som köpts via implicit beviljande av flödet fortfarande lösas in av en konfidentiell klient även om den initierande klienten har ett jokertecken svars-URL som registrerats.
+If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token can't be used for an OBO flow.  However, access tokens acquired through the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om OAuth 2.0-protokollet och ett annat sätt att utföra tjänst till tjänst-autentisering via klientautentiseringsuppgifter.
+Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.
 
-* [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient i Microsoft identity-plattformen](v2-oauth2-client-creds-grant-flow.md)
-* [Flöde för OAuth 2.0-kod i Microsoft identity-plattformen](v2-oauth2-auth-code-flow.md)
-* [Med hjälp av den `/.default` omfång](v2-permissions-and-consent.md#the-default-scope)
+* [OAuth 2.0 client credentials grant in Microsoft identity platform](v2-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 code flow in Microsoft identity platform](v2-oauth2-auth-code-flow.md)
+* [Using the `/.default` scope](v2-permissions-and-consent.md#the-default-scope)

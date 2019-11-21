@@ -1,247 +1,247 @@
 ---
-title: Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
-description: Så här skapar du ett nytt SaaS-erbjudande (Software as a Service) för att lista eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
+title: Create a new SaaS offer in the Commercial Marketplace
+description: How to create a new Software as a Service (SaaS) offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center.
 author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 11/19/2019
+ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076949"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213351"
 ---
-# <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
+# <a name="create-a-new-saas-offer"></a>Create a new SaaS offer
 
-För att börja skapa SaaS-erbjudanden (program vara som en tjänst) måste du först [skapa ett partner Center-konto](./create-account.md) och öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)med fliken **Översikt** vald.
+To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
-![Instrument panel för extern Marketplace på Partner Center](./media/new-offer-overview.png)
+![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
 >[!Note]
-> När ett erbjudande har publicerats uppdateras bara ändringar i erbjudandet som gjorts i Partner Center i systemet och Store-frontend efter ompubliceringen. Kontrol lera att du har skickat in erbjudandet för publicering när du har gjort ändringar.
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
 
-Välj det + **nya erbjudandet...** och välj sedan meny alternativet **program vara som en tjänst** . 
+Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
-Om du väljer en annan erbjudande typ kan du omdirigeras till den äldre [Cloud Partner Portal](https://cloudpartner.azure.com/). Endast SaaS-och Dynamics 365-erbjudanden är tillgängliga i den kommersiella Marketplace för partner Center för tillfället.
+If you select another offer type, you may be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/). Only SaaS and Dynamics 365 offers are available in the Commercial Marketplace portal on Partner Center at this time.
 
-![Skapa erbjudande fönster i Partner Center](./media/new-offer-click.png)
+![Create offer window on Partner Center](./media/new-offer-click.png)
 
-Dialog rutan **nytt erbjudande** visas. 
+The **New offer** dialog box is displayed. 
 
-![Dialog rutan Nytt erbjudande](./media/new-offer-popup.png)
+![New offer dialog box](./media/new-offer-popup.png)
 
-## <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
+## <a name="offer-id-and-alias"></a>Offer ID and alias
 
-- **Erbjudande-ID**: unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg). Detta är begränsat till 50 tecken och kan inte ändras när du har valt *skapa*.  
-Exempel: test-erbjudande-1
-<br>Resulterar i URL: en: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can't be changed after you select *Create*.  
+Example: test-offer-1
+<br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Erbjud alias**: namnet som används för att referera till erbjudandet i Partner Center-portalen. Det här namnet används inte på Marketplace och skiljer sig från namnet på *erbjudandet* och andra värden som ska visas för kunderna. Det går inte att ändra det här värdet när du har valt *skapa*.
+- **Offer alias**: The name used to refer to the offer within the Partner Center portal. This name won't be used in the marketplace and is different than the *Offer Name* and other values that will be shown to customers. This value can't be changed after you select *Create*.
 
-<br>Exempel: test erbjudande 1&#8482;
+<br>Example: Test Offer 1&#8482;
 
-Välj **Skapa**.  Sidan **erbjudande översikt** skapas för det här erbjudandet.  
+Välj **Skapa**.  An **Offer overview** page is created for this offer.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
 -->
 
-## <a name="offer-overview"></a>Erbjudande översikt
+## <a name="offer-overview"></a>Offer overview
 
-Sidan **erbjudande översikt** innehåller: 
+The **Offer overview** page includes: 
 
-- **Publicerings status** visar en visuell representation av de steg som krävs för att publicera det här erbjudandet och hur lång tid varje steg tar att slutföra. Ofullständiga publicerings stegs ikoner blir grå. 
+- The **Publishing status** displays a visual representation of the steps required to publish this offer and how long each step will take to complete. Incomplete publishing step icons will be greyed out. 
 
-- Menyn **erbjudande översikt** innehåller en lista med länkar för att utföra åtgärder på det här erbjudandet. Den här listan över åtgärder ändras baserat på det val du gör för ditt erbjudande.  
-    - Om erbjudandet är ett utkast till att ta bort utkast 
-    - Om erbjudandet är Live-Stop Sälj erbjudande 
-    - Om erbjudandet är i för hands version-Go-Live 
-    - Om du inte har slutfört Publisher-utloggning-Avbryt publicering
+- The **Offer overview** menu contains a list of links for performing operations on this offer. This list of operations will change based on the selection you make for your offer.  
+    - If the offer is a draft - Delete draft 
+    - If the offer is live - Stop sell offer 
+    - If the offer is in preview - Go-live 
+    - If you haven't completed publisher sign out - Cancel publish
 
-## <a name="offer-setup"></a>Erbjudande konfiguration
+## <a name="offer-setup"></a>Offer setup
 
-På fliken **erbjudande konfiguration** ställer du in följande information. Välj **Spara** när du är klar med fälten.
+The **Offer setup** tab asks for the following information. Select **Save** after completing these fields.
 
-- **Vill du sälja via Microsoft?** (Ja/Nej)
-    - **Ja**, du vill sälja ditt erbjudande via Microsoft, med Microsoft hosting Marketplace-transaktioner för din räkning. eller 
-    - **Nej**, du föredrar att bara lista ditt erbjudande via Marketplace, bearbeta alla monetära transaktioner oberoende av Microsoft.    
+- **Would you like to sell through Microsoft?** (Yes/No)
+    - **Yes**, you would like to sell your offer through Microsoft, with Microsoft hosting marketplace transactions on your behalf; or 
+    - **No**, you would prefer to just list your offer through the marketplaces, processing any monetary transactions independently of Microsoft.    
 
-### <a name="sell-through-microsoft"></a>Sälj via Microsoft
+### <a name="sell-through-microsoft"></a>Sell through Microsoft
 
-Genom att sälja via Microsoft får du bättre kund identifiering och förvärv, som gör det möjligt för Microsoft att vara värd för Marketplace-transaktioner för din räkning och dra nytta av Microsofts globalt tillgängliga funktioner i Commerce.
+Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft's globally available commerce capabilities.
 
-#### <a name="saas-offer-requirements"></a>Krav för SaaS-erbjudande
+#### <a name="saas-offer-requirements"></a>SaaS offer requirements
 
-Följande kriterier måste vara uppfyllda för att kunna visa SaaS-erbjudanden (Software as a Service) med kommersiell marknads plats på Partner Center:
+In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
 
-- Ditt erbjudande måste använda [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) för identitets hantering och autentisering.
-- Ditt erbjudande måste använda [SaaS-API: er](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) för att integrera med Azure Marketplace.
-- Mer omfattande krav finns i [publicerings guiden för SaaS-erbjudandet](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+- Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
+- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="saas-pricing-and-billing-options"></a>Pris-och fakturerings alternativ för SaaS
-Med SaaS-lösningar som körs i utgivarens Azure-prenumeration inkluderar licens avgifter som betalas av kunderna kostnaden för den infrastruktur som program varan distribueras på. Användningen av Azure-infrastrukturen hanteras och faktureras till dig, partnern direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare ska paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. 
+#### <a name="saas-pricing-and-billing-options"></a>SaaS pricing and billing options
+With SaaS solutions running in the publisher's Azure subscription, license fees paid by customers include the cost of the infrastructure upon which the software is deployed. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers should bundle Azure infrastructure usage fees into their software license pricing. 
 
-SaaS erbjuder stöd för månatlig eller årlig fakturering baserat på en fast avgift, per användare eller förbruknings avgifter med hjälp av den avgiftsbelagda fakturerings tjänsten. Microsofts kommersiella marknads plats fungerar på en byrå modell, där utgivare anger priser, Microsoft fakturerar kunder och Microsoft betalar intäkterna till utgivaren samtidigt som en byrå avgift debiteras.
+SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
 
-I följande tabell visas ett exempel på uppdelning av kostnader och utbetalningar för att demonstrera byråns modell.
+The following table shows an example break down of costs and payouts to demonstrate the agency model.
 
-|**Din licens kostnad**|**$100 per månad**|
+|**Your license cost**|**$100 per month**|
 |:---|:---|
-|Användnings kostnad i Azure (D1/1-kärna)|Debiteras direkt till utgivaren, inte hos kunden|
-|Kunden debiteras av Microsoft|$100,00 per månad (utgivare måste redovisa alla kostnader som uppstått eller genom att överföra infrastruktur i licens avgiften)|
+|Azure usage cost (D1/1-Core)|Billed directly to the publisher, not the customer|
+|Customer is billed by Microsoft|$100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
 
-|**Microsoft-räkningar**|**$100 per månad**|
+|**Microsoft bills**|**$100 per month**|
 |:---|:---|
-|Microsoft betalar 80% av din licens kostnad <br>**för kvalificerade SaaS-appar betalar Microsoft 90% av din licens kostnad*|$80,00 per månad <br>*$* 90,00 per månad *|
+|Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$* 90.00 per month*|
 
-- I det här exemplet har Microsoft fakturerar $100,00 till kunden för din program varu licens och ger ut $80,00 till utgivaren.
-- Partner som har kvalificerat sig för den **minskade service avgiften för Marketplace** ser en reducerad transaktions avgift på SaaS-erbjudandena från maj 2019 till och med juni 2020. I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $90,00 till utgivaren.
+- In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
+- Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
-> **Minskad service avgift för Marketplace**: för vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick.  Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd. 
+> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
 
-### <a name="list-through-microsoft"></a>Lista via Microsoft
+### <a name="list-through-microsoft"></a>List through Microsoft
 
-Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. Om du väljer att bara lista ditt erbjudande och inte Transact via Microsoft innebär det att Microsoft inte deltar direkt i program licens transaktioner. Det finns ingen kopplad transaktions avgift och utgivaren behåller 100% av alla licens avgifter som samlas in från kunden. Utgivaren ansvarar dock för att stödja alla aspekter av program licens transaktionen, inklusive men inte begränsat till: order uppfyllelse, mätning, fakturering, fakturering, betalning och insamling. 
+Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection. 
 
-- **Hur vill du att potentiella kunder ska kunna interagera med det här registrerings erbjudandet?**
+- **How do you want potential customers to interact with this listing offer?**
 
-##### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
-Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan komma åt din app.  Exempel: `https://contoso.com/saas-app`
+##### <a name="get-it-now-free"></a>Get it now (free)
+List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  Exempel: `https://contoso.com/saas-app`
 
-##### <a name="free-trial-listing"></a>Kostnads fri utvärderings version (lista)
-Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig URL (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Till exempel: `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+##### <a name="free-trial-listing"></a>Free trial (listing)
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Till exempel: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
-> De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure AD för att automatisera skapandet av konton i din app. Microsoft-konton (MSA) stöds inte för autentisering med denna token.
+> The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### <a name="contact-me"></a>Kontakta mig
-Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [Anslut lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
-## <a name="example-marketplace-offer-listing"></a>Exempel lista för Marketplace-erbjudanden
+## <a name="example-marketplace-offer-listing"></a>Example marketplace offer listing
 
-![Exempel lista för Marketplace-erbjudanden med anteckningar](./media/marketplace-offer.svg)
+![Example marketplace offer listing with notes](./media/marketplace-offer.svg)
 
-## <a name="enable-a-test-drive"></a>Aktivera en testen het
+## <a name="enable-a-test-drive"></a>Enable a test drive
 
-En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+A test drive is a great way to showcase your offer to potential customers by giving them the option to 'try before you buy', resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Aktivera en testen het** (kryss ruta)
+- **Enable a test drive** (checkbox)
 
-Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations miljö där kunder kan testa ditt erbjudande under en bestämd tids period. 
+By enabling test drive, you will be asked to configure a demonstration environment for customers to try your offer for a fixed period of time. 
 
-### <a name="type-of-test-drive"></a>Typ av test enhet
+### <a name="type-of-test-drive"></a>Type of test drive
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : en distributions mall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser.
-- **[Dynamics 365 för företag, Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett företags huvud företags resurs planerings system (finans, Operations, service Chain, CRM osv.).  
-- **[Dynamics 365 för kund engagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft är värd för och underhåller tjänsten Test Drive (inklusive etablering och distribution) för ett kund engagemang system (Sales, service, Project service, Field service osv.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ekonomi-och drift företags resurs planerings system (finans, drift, tillverkning, leverans kedja osv.). 
-- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : en distributions mall som omfattar alla komplexa lösnings arkitekturer. Alla anpassade produkter bör använda den här typen av test enhet.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : en inbäddad länk till en anpassad instrument panel. Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt bör använda den här typen av test enhet. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources.
+- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Business Central enterprise resource planning system (finance, operations, supply chain, CRM, etc.).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Customer Engagement system (sales, service, project service, field service, etc.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Finance and Operations enterprise resource planning system (finance, operations, manufacturing, supply chain, etc.). 
+- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : A deployment template encompassing all complex solution architectures. Any custom products should use this type of Test Drive.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : An embedded link to a custom-built dashboard. Products that want to demonstrate an interactive Power BI visual should use this type of Test Drive. All you need to upload here is your embedded Power BI URL.
 
-#### <a name="additional-test-drive-resources"></a>Ytterligare resurser för enhets test
-- [Test Drive tekniska metod tips](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Metod tips för marknadsföring av test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Översikt över test enhet en pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+#### <a name="additional-test-drive-resources"></a>Additional test drive resources
+- [Test Drive Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Test Drive Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Test Drive Overview One Pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
-## <a name="connect-lead-management"></a>Anslut lead-hantering
+## <a name="connect-lead-management"></a>Connect lead management
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
-#### <a name="additional-lead-management-resources"></a>Ytterligare resurser för ledar hantering
-- [Vanliga frågor och svar om lead management](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Vanliga konfigurations fel för lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Översikt över ledar hantering en personsökare](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+#### <a name="additional-lead-management-resources"></a>Additional lead management resources
+- [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+Remember to **Save** before moving on to the next section!
 
 ## <a name="properties"></a>Egenskaper
-På fliken **Egenskaper** uppmanas du att definiera de kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, de juridiska avtalen som stöder ditt erbjudande och din app-version. 
+The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
 
-Välj **Spara** när du är klar med fälten. 
+Select **Save** after completing these fields. 
 
 ### <a name="category"></a>Kategori
-Välj minst en (1) och högst tre (3) kategorier som används för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. 
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
 
 ### <a name="industry"></a>Bransch
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Appversion
-Detta är ett valfritt fält som används i AppSource Marketplace för att identifiera versions numret för ditt erbjudande. 
+This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
 
 ### <a name="standard-contract"></a>Standardavtal
 
-- **Använd standard kontrakt?**
+- **Use Standard Contract?**
 
-För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft en standard kontrakts mal len för att hjälpa till att under lätta en transaktion i Marketplace. 
+To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace. 
 
-I stället för att utforma anpassade villkor kan Azure Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. 
+Rather than crafting custom terms and conditions, Azure Marketplace publishers can choose to offer their software under the Standard Contract, which customers only need to vet and accept once. 
 
-Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041178.
+The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178.
 
 #### <a name="terms-of-use"></a>Användningsvillkor
 
-Om licens villkoren skiljer sig från standard kontraktet kan du välja att ange egna juridiska användnings villkor här. Dessa kan anges som oformaterad text eller som en enskild URL-länk till dina licens villkor.
+If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. These can be entered as plain text or as a single URL linking to your license terms.
 
-Kunder måste acceptera dessa villkor innan de kan testa din app. 
+Customers are required to accept these terms before they can try your app. 
 
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+Remember to **Save** before moving on to the next section!
 
-## <a name="offer-listing"></a>Erbjudande lista
+## <a name="offer-listing"></a>Offer listing
 
-På fliken erbjudande lista visas de språk (och marknader) där ditt erbjudande är tillgängligt, för närvarande är engelska (USA) den enda tillgängliga platsen. Dessutom visar den här sidan status för den språkspecifika listan och datum/tid då den lades till. Du måste definiera Marketplace-information (erbjudande namn, beskrivning, Sök villkor osv.) för varje språk/marknad.
+The Offer listing tab displays the languages (and markets) where your offer is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
 > [!NOTE]
-> Erbjudande för List innehåll (till exempel Beskrivning av erbjudande, dokument, skärm bilder, användnings villkor och sekretess policy) behöver inte vara på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [icke-engelskt språk]". Det är också acceptabelt att tillhandahålla en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för erbjudandet.
+> Offer listing content (such as offer description, documents, screenshots, terms of use and privacy policy) is not required to be in English as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
-### <a name="offer-listings"></a>Erbjudande listor
+### <a name="offer-listings"></a>Offer listings
 
-Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt erbjudande och marknadsförings till gångar.
+Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
-- **Namn** (obligatoriskt): det namn som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post.  Detta kan vara ett varumärke.  Detta får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
-- **Sammanfattning** (krävs): Ange en kort beskrivning av ditt erbjudande som ska användas i Sök Resultat för Marketplace-listor. Upp till 100 tecken text kan anges i det här fältet.
-- **Beskrivning** (krävs): Ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information.
-Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns i artikeln [skriva en bra app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
-- **Sök Nyckelord**: ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i Marketplace.
-- **Komma igång-instruktioner** (krävs): förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet. 
+- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Summary** (required): Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
+- **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
+Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+- **Search keywords**: Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
+- **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
 
 #### <a name="description"></a>**Beskrivning**
 
-Det här fältet är obligatoriskt. Objekt som ska tas med i beskrivningen: 
+This is a required field. Items to include in the description: 
 
-* Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen.  
-* Tänk på att de första meningarna kan visas i Sök motorns resultat.  
-* Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
-* Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt. 
+* Clearly describe your offer's value proposition in the first few sentences of your description.  
+* Keep in mind that the first few sentences might be displayed in search engine results.  
+* Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
+* Use industry-specific vocabulary or benefit-based wording as much as possible. 
 
-Kärn komponenterna i dina värde förslag bör innehålla följande information: 
+Core components of your value proposition should include the following information: 
 
-* Beskrivning av produkten. 
-* Typ av användare som fördelar från produkten. 
-* Kunden behöver eller målar produkten om produkt adressen. 
+* Description of the product. 
+* Type of user that benefits from the product. 
+* Customer needs or pain that the product addresses. 
 
-Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML-taggar för att formatera beskrivningen. 
+To make your offer description more engaging you can use HTML tags to format the description. 
 
-1. Om du vill skapa stycken lägger du till `<p>` i begging i texten och lägger till `</p>` i slutet.
+1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
 
-    **Exempel**: 
+    **Example**: 
 
-    `<p>` det här är mitt första stycke. `</p>` <br>
-    `<p>` det här är mitt andra stycke. `</p>` <br>
+    `<p>` This is my first paragraph. `</p>` <br>
+    `<p>` This is my second paragraph. `</p>` <br>
 
-    Ovanstående skulle se ut så här:
+    The above would look like this:
 
-    <p> Detta är mitt första stycke. </p>
-    <p> Det här är mitt andra stycke. </p>
+    <p> This is my first paragraph. </p>
+    <p> This is my second paragraph. </p>
 
-1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>` taggarna nedan. Du kan kopiera och klistra in fler punkt objekt (objekt mellan `<li>` och `</li>` taggar) i `<ul>` och `</ul>` taggar. Se till att du lägger till `<ul></ul>`. 
+1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`. 
 
-    **Exempel**:
+    **Example**:
 
     ```
     <ul> 
@@ -251,236 +251,236 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
     </ul> 
     ```
 
-    Ovanstående skulle se ut så här:
+    The above would look like this:
     <ul> 
-        <li>Lägg till text här</li> 
-        <li> Lägg till text här </li> 
-        <li> Lägg till text här </li> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
     </ul> 
 
-1. Om du vill använda **fetstil** lägger du till `<b>` i början av den text som du vill använda fetstil och lägger till `</b>` i slutet av den text som du vill använda fetstil. 
+1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold. 
 
-    **Exempel**: `<b>` kostnads fri utvärderings version `</b>`
+    **Example**: `<b>` FREE TRIAL `</b>`
     
-    Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik. 
+    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront. 
 
-    **KOSTNADS FRI UTVÄRDERING**
+    **FREE TRIAL**
 
-1. Om du vill lägga till **rad brytningar** mellan innehållet lägger du till `<br>` före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet startar på en ny rad lägger du till `<br><br>` före innehållet. 
+1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content. 
 
-    **Exempel**:
+    **Example**:
 
-    Detta är en textrad. `<br>` det här är en text rad som börjar på en ny rad. `<br><br>` det här är en rad som kommer att starta två rader nedan. 
+    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below. 
 
-    Ovanstående skulle se ut så här:
+    The above would look like this:
 
-    Detta är en textrad. <br> Detta är en text rad som börjar på en ny rad. <br><br> Det här är en rad som kommer att starta två rader nedan. 
+    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below. 
 
-1. Om du vill **öka storleken på texten**väljer du först hur stor du vill att texten ska vara. Använd exemplen nedan. När du har valt textens storlek lägger du till motsvarande `<H*></H*>`-Taggar i början och slutet av texten. 
+1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text. 
 
-    **Exempel**:
+    **Example**:
 
-    `<h1>`detta är rubrik 1`</h1>` <br>
-    `<h2>`detta är rubrik 2`</h2>` <br>
-    `<h3>`detta är rubrik 3`</h3>` <br>
-    `<h4>`detta är rubrik 4`</h4>` <br>
-    `<h5>`detta är rubrik 5`</h5>` <br>
-    `<h6>`detta är rubrik 6`</h6>` 
+    `<h1>`This is heading 1`</h1>` <br>
+    `<h2>`This is heading 2`</h2>` <br>
+    `<h3>`This is heading 3`</h3>` <br>
+    `<h4>`This is heading 4`</h4>` <br>
+    `<h5>`This is heading 5`</h5>` <br>
+    `<h6>`This is heading 6`</h6>` 
 
-    Ovanstående skulle se ut så här:
+    The above would look like this:
 
-    ![Exempel rubriker](./media/heading.png)
+    ![Sample headings](./media/heading.png)
 
 #### <a name="links"></a>Länkar
 
-- **Sekretess policy** (krävs): länka till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
-- **CSP-program marknadsförings material** (valfritt): du måste ange en länk till marknadsförings material om du väljer att utöka ditt erbjudande till [CSP-programmet (Cloud Solution Provider)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
-- **Användbara länkar** (valfritt): valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
+- **Privacy Policy** (required): Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
+- **CSP Program Marketing Materials** (optional): You must provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+- **Useful Links** (optional): Optional supplemental online documents about your app or related services listed by providing a **Title**  and  **URL**. Add additional useful links by clicking  **+ Add a URL**.
 
 #### <a name="contact-information"></a>Kontaktinformation
 
-- **Kontakter**: Ange ett **namn** på en anställd, **telefonnummer**och **e-** postadress för varje kund kontakt.  (De *kommer inte* att visas offentligt). Det krävs också en **Support-URL** för **support kontakt** gruppen.  (Den här informationen *kommer* att visas offentligt).
+- **Contacts**: For each customer contact, provide an employee  **Name** ,  **Phone number**, and  **Email**  address.  (These *will not* be displayed publicly). A **Support URL**  is also required for the  **Support Contact**  group.  (This information *will* be displayed publicly).
 
-**Support kontakt** (krävs): för allmänna supportfrågor.
+**Support contact** (required): For general support questions.
 
-Teknisk **kontakt** (krävs): för tekniska frågor.
+**Engineering contact** (required): For technical questions.
 
-**Kanal chefs kontakt** (krävs): för åter försäljar frågor som är relaterade till CSP-programmet.
+**Channel Manager contact** (required): For reseller questions related to the CSP program.
 
-#### <a name="files-and-images"></a>Filer och avbildningar
+#### <a name="files-and-images"></a>Files and Images
 
-- **Dokument** (krävs): Lägg till relaterade marknadsförings dokument för ditt erbjudande i PDF-format, vilket ger minst ett (1) och högst tre (3) dokument per erbjudande.
-- **Avbildningar** (valfritt): det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ Medium: 90 x 90 pixlar, stor: 216 x 216 bild punkter _( krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
-- **Skärm bilder** (krävs): Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
-- **Videor** (valfritt): Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.
+- **Documents** (required): Add related marketing documents for your offer, in PDF format, providing a minimum of one (1) and maximum of three (3) documents per offer.
+- **Images** (optional): There are multiple places where your offer's logo images may appear throughout the marketplace(s), requiring the following sizes -- Small: 48 x 48 pixels _(required),_ Medium: 90 x 90 pixels, Large: 216 x 216 pixels _(required),_ Wide: 255 x 115 pixels, and Hero: 815 x 290 pixels. All images must be in .PNG format.
+- **Screenshots** (required): Add screenshots demonstrating your offer. A maximum of five (5) screenshots may be added and should be sized at 1280 x 720 pixels. All images must be in .PNG format.
+- **Videos** (optional): Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
 
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+Remember to **Save** before moving on to the next section!
 
-#### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
+#### <a name="additional-marketplace-listing-resources"></a>Additional marketplace listing resources
 
-- [Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 ## <a name="preview"></a>Förhandsversion
 
-På fliken **förhands granskning** kan du definiera en begränsad **förhands gransknings grupp** för att släppa ditt erbjudande innan du publicerar erbjudandet Live till den bredare Marketplace-publiken.
+The **Preview** tab enables you to define a limited **Preview Audience** for releasing your offer prior to publishing your offer live to the broader marketplace audience.
 
 > [!IMPORTANT]
-> Du måste välja **Go Live** innan ditt erbjudande publiceras Live till offentlig Marketplace-publik när du har kontrollerat ditt erbjudande i för hands versionen.
+> You must select **Go live** before your offer will be published live to the marketplace public audience after checking your offer in Preview.
 
-- **Definiera en förhands gransknings mål grupp: Lägg till ett enda AAD/MSA-konto per rad, tillsammans med en valfri beskrivning.**
+- **Define a Preview Audience: Add a single AAD/MSA account email per line, along with an optional description.**
 
-Lägg till upp till tio (10) e-postadresser manuellt, eller 20 (20) om du överför en CSV-fil, för befintligt Microsoft-konto (MSA) eller Azure Active Directory-konton som hjälper dig att verifiera ditt erbjudande innan du publicerar Live. Genom att lägga till dessa konton definierar du en mål grupp som ska få för hands versions åtkomst till ditt erbjudande innan den publiceras på Marketplace (s). Om erbjudandet redan är Live kan du fortfarande definiera en förhands gransknings grupp för att testa ändringar eller uppdateringar av ditt erbjudande.
+Add up to ten (10) email addresses manually, or twenty (20) if uploading a CSV file, for existing Microsoft Account (MSA) or Azure Active Directory accounts to help with validating your offer before publishing live. By adding these accounts, you are defining an audience that will be allowed preview access to your offer before it is published to the marketplace(s). If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
 
 > [!NOTE]
-> Förhands gransknings publiken skiljer sig från en privat publik. En förhands gransknings mål grupp har åtkomst till ditt erbjudande _innan_ de publiceras Live på Marketplace. Du kan också välja att skapa en plan och bara göra den tillgänglig för en privat publik. På fliken **plan lista** kan du definiera en privat mål grupp med kryss rutan för **privat plan** . Du kan sedan definiera en privat mål grupp med upp till 20 000 kunder med hjälp av Azure klient-ID.
+> The preview audience differs from a private audience. A preview audience is allowed access to your offer _prior_ to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience. In the **plan listing** tab, you can define a private audience with the **This is a private plan** checkbox. You can then define a private audience of up to 20,000 customers using Azure Tenant IDs.
 
-## <a name="technical-configuration"></a>Teknisk konfiguration
+## <a name="technical-configuration"></a>Technical configuration
 
-På fliken **teknisk konfiguration** definieras den tekniska informationen (URL-sökväg, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för slutanvändaren om de väljer att förvärva det. Diagram som beskriver användningen av de insamlade fälten finns i dokumentationen för [API: er för SaaS-utförande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+The **Technical configuration** tab defines the technical details (URL path, webhook, tenant ID, and app ID) used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it. Diagrams describing the usage of the collected fields are available in documentation for [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **Landnings sidans URL** (krävs): definiera den plats-URL som kunderna ska landa efter när ditt erbjudande har hämtats från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
+- **Landing page URL** (required): Define the site URL that customers will land on after acquiring your offer from the marketplace. This URL will be the endpoint that receives a token when a customer is routed to the page. That token can be exchanged for provisioning details using resolve in the fulfillment APIs. Those details and any others you collect can be used as part of a customer-interactive web page built in your experience to complete registration and activate their purchase.
 
-- **Anslutning-webhook** (krävs): för alla asynkrona händelser som Microsoft behöver skicka till dig för kunden (exempel: SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD-klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (t. ex. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID** som anges (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
+- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
- Observera att Azure-programmets ID är associerat med ditt utgivar-ID, så se till att samma program-ID används i alla dina erbjudanden.
+ Note that the Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
 
-## <a name="plan-overview"></a>Plan översikt
+## <a name="plan-overview"></a>Plan overview
 
-På fliken **plan översikt** kan du ange olika plan alternativ inom samma erbjudande. Dessa planer (kallas ibland SKU: er) kan variera beroende på version, monetarisering eller tjänst nivåer. Du måste konfigurera minst en plan för att kunna sälja ditt erbjudande i Marketplace.
+The **Plan overview** tab enables you to provide a variety of plan options within the same offer. These plans (sometimes referred to as SKUs) could differ in terms of version, monetization, or tiers of service. You must set up at least one plan in order to sell your offer in the marketplace.
 
-När du har skapat dina prenumerations namn, ID: n, pris modeller, tillgänglighet (offentlig eller privat), aktuell publicerings status och alla tillgängliga åtgärder.
+Once created, you will see your plan names, IDs, pricing models, availability (Public or Private), current publishing status, and any available actions.
 
-Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroende på planens aktuella status och kan vara:
+**Actions** available in the **Plan overview** vary depending on the current status of your plan and may include:
 
-- Om plan status är **Draft** -ta bort utkast
-- Om plan status är **Live** -Stop Sälj plan eller synkronisera privat publik
+- If the plan status is **Draft** - Delete draft
+- If the plan status is **Live** - Stop sell plan or Sync private audience
 
-**Skapa en ny plan** (minst en plan för de som väljer att sälja via Microsoft)
+**Create new plan** (minimum of one plan for those who select to sell through Microsoft)
 
-- **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Observera att ID: t inte kan ändras när du har valt skapa.
-- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Namn på erbjudande: Windows Server; planer: Windows Server 2016, Windows Server 2019).
+- **Plan ID:** Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). Use only lowercase, alphanumeric characters, dashes or underscores. A maximum of 50 characters are allowed for this plan ID. Note that the ID cannot be modified after selecting create.
+- **Plan name:** Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (E.g. Offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
 
-### <a name="plan-listing"></a>Plan lista
+### <a name="plan-listing"></a>Plan listing
 
-På fliken **plan lista** visas de språk (och marknader) där ditt abonnemang är tillgängligt, för närvarande är engelska (USA) den enda tillgängliga platsen. Dessutom visar den här sidan status för den språkspecifika listan och datum/tid då den lades till. Du måste definiera Marketplace-information (erbjudande namn, beskrivning, Sök villkor osv.) för varje språk/marknad.
+The **plan listing** tab displays the languages (and markets) where your plan is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
-#### <a name="plan-listing-details"></a>Information om plan lista
+#### <a name="plan-listing-details"></a>Plan listing details
 
-Om du väljer ett av plan språken visas **planens registrerings** information, inklusive **namn** och **Beskrivning.**
+Selecting one of the plan languages will display the **plan listing** information, including **Name** and **Description.**
 
-- **Namn**: förifyllt baserat på din förhands gransknings **nya plan** post och visas som rubrik för ditt erbjudandes "program varu plan" på Marketplace.
-- **Beskrivning:** Den här beskrivningen är en möjlighet att förklara vad som gör att den här program varu planen är unik och eventuella skillnader jämfört med andra program varu planer i erbjudandet. Får innehålla upp till 500 tecken.
+- **Name**: Pre-populated based on your preview **New plan** entry and will appear as the title of your offer's "Software plan" displayed in the marketplace.
+- **Description:** This description is an opportunity to explain what makes this software plan unique and any differences from other software plans within your offer. May contain up to 500 characters.
 
-Välj **Spara** när du är klar med fälten.
+Select **Save** after completing these fields.
 
-#### <a name="plan-pricing-and-availability"></a>Planera priser och tillgänglighet
+#### <a name="plan-pricing-and-availability"></a>Plan pricing and availability
 
-På fliken **priser och tillgänglighet** kan du konfigurera de marknader som planen kommer att vara tillgänglig i, den önskade uppräknings modellen, priset och fakturerings perioden. Dessutom kan du ange om du vill att planen ska vara synlig för alla eller bara för vissa kunder (en privat mål grupp).
+The **Pricing and availability** tab enables you to configure the markets that this plan will be available in, the desired monetization model, price, and billing term. In addition, you can indicate whether to make the plan visible to everyone or only to specific customers (a private audience).
 
-##### <a name="enabling-free-trials"></a>Aktivera kostnads fria utvärderingar
+##### <a name="enabling-free-trials"></a>Enabling Free Trials
 
-SaaS erbjudanden via den kommersiella marknads platsen gör att du kan tillhandahålla en månads kostnads fri utvärderings version när du säljer via Microsoft. För alla fakturerings modeller och villkor förutom mätnings planer stöds kostnads fria utvärderings versioner. Med det här alternativet kan kunder ha en låg barriär för att komma in genom en månads kostnads fri åtkomst.  Om du väljer att aktivera en kostnads fri utvärderings version för planer i ditt erbjudande kan kunden inte konvertera till en betald prenumeration innan den första en månads period slutar att gälla.  Under den här tiden kan kunder som köper erbjudandet prova över de planer som stöds och som har den kostnads fria utvärderings versionen aktive rad och konvertera mellan dem.  Konverteringen till en betald prenumeration görs automatiskt i slutet av perioden.
-
->[!Note]
->Om kunden väljer att konvertera till en plan utan kostnads fria utvärderings versioner sker konverteringen, men den kostnads fria utvärderings versionen går förlorad omedelbart.  När en kund börjar betala för en plan kan de inte längre få en kostnads fri utvärderings version på samma prenumeration igen, även om de konverteras till en SKU som stöder kostnads fria utvärderings versioner.
-
-Möjligheten att konfigurera en kostnads fri utvärderings version är tillgänglig för varje plan i erbjudandet. Du behöver bara gå till pris och tillgänglighet för varje erbjudande och markera kryss rutan för en månads utvärdering.
-
-![En månads kostnads fri utvärderings ruta](./media/free-trial-enable.png)
+SaaS offers through the commercial marketplace enable you to provide a one-month free trial when selling through Microsoft. For all billing models and terms except metered plans, free trials are supported. This option allows customers to have a low-barrier to entry through one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of the initial one month period.  During this time, customers purchasing your offer can try out any of the supported plans that have the free trial enabled and convert between them.  The conversion to a paid subscription is done automatically at the end of the term.
 
 >[!Note]
->När ditt transactable-erbjudande har publicerats med en kostnads fri utvärderings version kan det inte inaktive ras för den planen. Kontrol lera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
+>If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will be lost immediately.  Also, once a customer starts paying for a plan, they can no longer get free trial on the same subscription again, even if they convert to a SKU that does support free trials.
 
-Om du vill få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API-egenskapen `isFreeTrial`, som kommer att markeras som sant eller falskt. Mer information finns i [SaaS Hämta prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
+The ability to configure a free trial is available for each plan in your offer. Simply navigate to the Pricing and Availability for each offer and check the box to allow a one-month trial.
+
+![One month free trial checkbox](./media/free-trial-enable.png)
 
 >[!Note]
->Kostnads fria utvärderings versioner stöds inte för planer som utnyttjar Marketplace-avläsning.
+>Once your transactable offer has been published with a free trial it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
 
-#### <a name="markets"></a>Marknaden
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
 
-- **Redigera marknader** (valfritt)
+>[!Note]
+>Free trials are not supported for plans that leverage the marketplace metering service.
 
-Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan för alla marknads platser där du vill att den här planen ska vara tillgänglig. En sökruta och knapp för att välja "skatte mottagare", där Microsoft betalar försäljnings-och användnings skatt för din räkning, ingår i hjälpen.
+#### <a name="markets"></a>Markets
 
-Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Du bör alltid granska priset för varje marknad innan du publicerar. Priserna kan granskas med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
+- **Edit markets** (optional)
 
-#### <a name="pricing"></a>Priser
+Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf, are included to help.
 
-- **Pris modell**: fast pris eller plats baserad
+If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. You should always review the price for each market before publishing. Pricing can be reviewed by using the "Export prices (xlsx)" link after saving your changes.
 
-**Fast pris:** Ge åtkomst till ditt erbjudande med ett enkelt pris per månad eller årligt pris. Detta kallas ibland för platsbaserade priser. Med den här pris sättnings modellen kan du välja att definiera förmätnings planer som använder API: et för avläsning av program vara för att debitera kunder enligt andra enheter än standard enheter.  Mer information om avgiftsbelagd fakturering finns i [mäta fakturering med Marketplace-avläsning](./saas-metered-billing.md).
+#### <a name="pricing"></a>Prissättning
 
-**Per användare:** Ge åtkomst till ditt erbjudande med priset baserat på antalet användare som har åtkomst till erbjudandet eller med platser. Med den här användarbaserade modellen kan du ange det lägsta och högsta antalet användare som tillåts baserat på priset. På så sätt kan olika pris punkter konfigureras baserat på antalet användare genom att konfigurera flera planer.  Dessa fält är valfria. Om alternativet inte är markerat tolkas antalet användare som att de inte har en gräns (minst 1 och högst lika många som systemet kan stödja). De här fälten kan redige ras som en del av en uppdatering av planen.
+- **Pricing model**: Flat rate or Seat based
 
-När du har publicerat det kan du inte ändra fakturerings pris modellen. Dessutom måste alla planer för samma erbjudande dela samma pris modell.
+**Flat rate:** Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers according to non-standard units.  For more information on metered billing, see [metered billing using the marketplace metering service](./saas-metered-billing.md).
 
-- **Fakturerings period**: varje månad eller per år
+**Per user:** Enable access to your offer with the price based on the number of users accessing the offer or occupying seats. This user-based model enables you to set the minimum and maximum number of users allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
 
-Välj den frekvens som kunderna måste betala i det angivna priset. Minst ett månatligt eller årligt pris måste tillhandahållas, eller så kan båda alternativen göras tillgängliga för kunderna.
+Once published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
 
-- **Pris**: USD per månad eller USD per år
+- **Billing term**: Monthly or Annual
 
-Priser som anges i lokal valuta (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. Du ansvarar för att verifiera priset och äga dessa inställningar.
-*\*Du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
+Select the frequency that customers must pay the price listed. At least one Monthly or Annual price must be provided, or both options can be made available to customers.
 
-Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
+- **Price**: USD per month or USD per year
 
-- När en plan har publicerats går det inte att ändra pris sättnings modellen.
-- När en fakturerings period har publicerats för en plan kan du inte ta bort den senare.
-- När ett pris för en marknad i planen har publicerats kan det inte ändras senare.
+Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. You are responsible for validating this pricing and own these settings.
+*\*You must first save your pricing changes to enable export of pricing data.*
 
-### <a name="plan-audience"></a>Planera mål grupp
+Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published:
 
-Du har möjlighet att konfigurera varje plan så att den blir synlig för alla eller bara för en speciell grupp som du väljer. Du kan tilldela medlemskap i den här begränsade mål gruppen med hjälp av Azure AD-klient-ID: n.
+- Once a plan is published, the pricing model can't be changed.
+- Once a billing term is published for a plan, it can't be removed later.
+- Once a price for a market in your plan is published, it can't be changed later.
+
+### <a name="plan-audience"></a>Plan Audience
+
+You have the option to configure each plan to be visible to everyone or to only a specific audience of your choosing. You can assign membership in this restricted audience using Azure AD tenant IDs.
 
 #### <a name="privacy"></a>Sekretess
 
-- **Det här är en privat plan** (valfri kryss ruta)
+- **This is a private plan** (Optional checkbox)
 
-Markera den här kryss rutan om du vill att planen ska vara privat och endast synlig för den begränsade gruppen som du väljer. När du har publicerat som privat plan kan du uppdatera mål gruppen eller välja att göra planen tillgänglig för alla. När en plan publiceras som synlig för alla måste den vara synlig för alla. (Planen kan inte konfigureras som en privat plan igen).
+Check this box to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone. (The plan cannot be configured as a private plan again).
 
-- **Begränsad mål grupp (klient-ID)**
+- **Restricted Audience (Tenant IDs)**
 
-Tilldela den mål grupp som ska ha åtkomst till den här privata planen. Åtkomst tilldelas med klient-ID: n med alternativet att inkludera en beskrivning av varje tilldelad klient-ID. Högst 10 klient-ID: n kan läggas till, eller 20 000 kunders klient-ID om du importerar en. csv-kalkylbladsfilen.
+Assign the audience that will have access to this private plan. Access is assigned using tenant IDs with the option to include a description of each tenant ID assigned. A maximum of 10 tenant IDs can be added, or 20,000 customers tenant IDs if importing a .csv spreadsheet file.
 
-En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrol lera klient organisationen loggar du in på Azure Portal med det konto som du vill använda för att hantera ditt program. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med hjälp av en domän namn-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+A tenant is a representation of an organization, with an ID represented as a GUID (Globally Unique Identifier, a 128-bit integer number used to identify resources). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. To check the tenant, sign in to the Azure portal with the account you want to use to manage your application. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. You can also look up your organization's tenant ID using a domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
-Även om SaaS-erbjudanden använder klient-ID: n för att definiera en privat mål grupp kan andra erbjudande typer använda Azures prenumerations-ID (som också visas som GUID).
+While SaaS offers use tenant IDs to define a private audience, other offer types may use Azure Subscription IDs (which are also represented as GUIDs).
 
 > [!NOTE]
-> Den privata mål gruppen (eller den begränsade mål gruppen) skiljer sig från en förhands gransknings publik. På fliken **[förhands granskning](#preview)** kan du definiera en förhands gransknings mål grupp. En förhands gransknings mål grupp har åtkomst till ditt erbjudande *innan* erbjudandet publiceras Live på Marketplace. Även om den privata mål behållaren endast gäller för en viss plan, kan förhands gransknings publiken Visa alla planer (privata eller inte), men endast under den begränsade för hands perioden medan planen testas och verifieras.
+> The private audience (or restricted audience) differs from a preview audience. In the **[Preview](#preview)** tab, you can define a preview audience. A preview audience is allowed access to your offer *prior* to the offer being published live in the marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is tested and validated.
 
-## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Exempel lista över planer i ett Marketplace-erbjudande
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Example list of plans within a marketplace offer
 
-![Exempel på Marketplace-plan lista med anteckningar](./media/marketplace-plan.svg)
+![Example marketplace plan listing with notes](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>Testkör
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
-## <a name="cloud-solution-provider-csp-reseller-audience"></a>Moln lösnings leverantör (CSP) åter försäljare
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Cloud Solution Provider (CSP) Reseller Audience
 
-Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet kan moln lösnings leverantörer sälja din produkt som en del av en samlad lösning till sina kunder. Mer information finns i [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. For more information, see [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
 
 ## <a name="publish"></a>Publicera
 
-När du har slutfört alla obligatoriska avsnitt i erbjudandet väljer du **publicera** i det övre högra hörnet i portalen. Du omdirigeras sedan till sidan **Granska och publicera** .
+Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be re-directed to the **Review and publish** page.
 
-#### <a name="submit-offer-to-preview"></a>Skicka erbjudande till för hands version
+#### <a name="submit-offer-to-preview"></a>Submit offer to preview
 
-Om det här är första gången du publicerar det här erbjudandet kan du:
+If this is your first time publishing this offer, you can:
 
-- Se slut för ande status för varje avsnitt i erbjudandet.
-    - *Inte startad* – innebär att avsnittet inte har vidrör ATS och måste slutföras.
-    - *Uncompleted* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
-    - *Complete* – innebär att avsnittet har slutförts, att alla nödvändiga data har angetts och att det inte finns några fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
-- Tillhandahåll test instruktioner till certifierings teamet för att se till att appen testas korrekt, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.
-- Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Du måste gå tillbaka till Partner Center och välja **Go-Live** för erbjudandet att publicera ditt erbjudande till allmänheten (eller om ett privat erbjudande till den privata mål gruppen).
+- See the completion status for each section of the offer.
+    - *Not started* - means the section has not been touched and needs to be completed.
+    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
+    - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+- Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
+- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./update-existing-offer.md)
+- [Uppdatera ett befintligt erbjudande i Commercial Marketplace](./update-existing-offer.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Skapa en intern lastbalanserare – Azure-portalen'
-titlesuffix: Azure Load Balancer
+title: 'Tutorial: Create an internal load balancer - Azure portal'
+titleSuffix: Azure Load Balancer
 description: Den här självstudien beskriver hur du skapar en grundläggande intern lastbalanserare med hjälp av Azure-portalen.
 services: load-balancer
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273501"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225212"
 ---
-# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare på Azure-portalen
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare i Azure-portalen
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande begäranden sprids över virtuella datorer. Du kan använda Azure-portalen för att skapa en grundläggande lastbalanserare och balansera intern trafik över virtuella datorer. Den här självstudien visar hur du skapar och konfigurerar en intern lastbalanserare, serverdelsservrar och nätverksresurser på prisnivån Grundläggande.
 
@@ -55,13 +55,13 @@ Först skapar du ett virtuellt nätverk (VNet). I det virtuella nätverket skapa
 1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumeration** > **Resursgrupp**: I listrutan väljer du **MyResourceGroupLB**.
+   - **Prenumeration** > **Resursgrupp**: i listrutan väljer du **MyResourceGroupLB**.
    - **Instansinformation** > **Namn på virtuell dator**: Skriv *MyVM1*.
    - **Instansinformation** > **Tillgänglighetsalternativ**: 
      1. I listrutan väljer du **Tillgänglighetsuppsättning**. 
      2. Välj **Skapa ny**, skriv *MyAvailabilitySet* och välj **OK**.
    
-1. Välj fliken **Nätverk** eller välj **Nästa: Diskar** och sedan **Nästa: Nätverk**. 
+1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
    
    Kontrollera att följande har valts:
    - **Virtuellt nätverk**: **MyVNet**
@@ -89,17 +89,17 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
    
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Value                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Subscription               | Välj din prenumeration.    |    
-    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | type          | Välj **Intern**.                                        |
+    | Typ          | Select **Internal**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
-    | IP-adresstilldelning              | Välj **Statisk**.   |
-    | Privat IP-adress|Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
+    | IP address assignment              | Välj **Statisk**.   |
+    | Privat IP-adress|Type an address that is in the address space of your virtual network and subnet, for example *10.3.0.7*.  |
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**. 
    
@@ -166,7 +166,7 @@ En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtue
 
 Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackendPool**, även det med port 80. 
 
-**Så här skapar du belastningsutjämningsregeln:**
+**Så här skapar du lastbalanserarregeln:**
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    

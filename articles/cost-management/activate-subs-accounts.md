@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 09/19/2019
 ms.topic: quickstart
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 53ac79c257e88380d462e5ef69ed494ae9967c07
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 77ea61d6aafad556a90b934d77569b8166aeafef
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155171"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230177"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
@@ -60,7 +60,7 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
 1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
     ![välj ditt klient-ID i rutan Identifiera prenumerationer på nytt](./media/activate-subs-accounts/existing-sub.png)
 2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
-    1. Logga in på [Azure Portal](https://portal.azure.com).
+    1. Logga in på [Azure-portalen](https://portal.azure.com).
     2. Välj **Azure Active Directory** i Azure Portal.
     3. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
     4. Kopiera katalog-ID GUID. Det här värdet är ditt klientorganisations-ID.
@@ -87,7 +87,7 @@ När du använder Cloudyn-portalen första gången kan du se följande meddeland
 
 - *The specified API key is not a top level enrollment key* (Den angivna API-nyckeln är inte en registreringsnyckel på toppnivå) visas i **installationsguiden för Cloudyn**.
 - *Direct Enrollment – No* (Direktregistrering – nej) visas i Enterprise-avtalsportalen.
-- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* (Inga användningsdata hittades för de senaste 30 dagarna. Kontakta återförsäljaren för att kontrollera om pålägg har aktiverats för ditt Azure-konto) visas i Cloudyn-portalen.
+- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* displayed in the Cloudyn portal.
 
 Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller molntjänstleverantören måste aktivera _pålägg_ för ditt Azure-konto för att du ska kunna se dina data i Cloudyn.
 

@@ -1,138 +1,136 @@
 ---
 title: Azure Functions Premium-prenumerationsavtal
-description: Information och konfigurations alternativ (VNet, ingen kall start, obegränsad körnings tid) för Azure Functions Premium-planen.
+description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: jeffhollan
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 8cda3ce85e6e7e9d5d7787406eb3b9785c1f7724
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 36db3d466b2d1de0b8673e218cbfc52fda974b89
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719029"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226776"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-prenumerationsavtal
 
-Azure Functions Premium-planen är ett värd alternativ för Function-appar. Premium-prenumerationen innehåller funktioner som VNet-anslutning, ingen kall start och förstklassig maskin vara.  Flera Function-appar kan distribueras till samma Premium plan och med planen kan du konfigurera storlek på beräknings instanser, bas Plans storlek och maximal schema storlek.  En jämförelse av Premium-planen och andra plan-och värd typer finns i [funktions skala och värd alternativ](functions-scale.md).
+The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
-## <a name="create-a-premium-plan"></a>Skapa en Premium-plan
+## <a name="create-a-premium-plan"></a>Create a Premium plan
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-Du kan också skapa en Premium-plan med hjälp av [AZ functionapp plan Create](/cli/azure/functionapp/plan#az-functionapp-plan-create) i Azure CLI. I följande exempel skapas en nivå plan för _elastisk Premium 1_ :
+You can also create a Premium plan using [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) in the Azure CLI. The following example creates an _Elastic Premium 1_ tier plan:
 
 ```azurecli-interactive
 az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
 --location <REGION> --sku EP1
 ```
 
-I det här exemplet ersätter du `<RESOURCE_GROUP>` med din resurs grupp och `<PLAN_NAME>` med ett namn för din plan som är unik i resurs gruppen. Ange ett [`<REGION>`som stöds ](#regions). Om du vill skapa en Premium-plan som stöder Linux inkluderar du alternativet `--is-linux`.
+In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
 
-När planen har skapats kan du använda [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) för att skapa din Function-app. I portalen skapas både planen och appen på samma tidpunkt. 
+With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. 
 
 ## <a name="features"></a>Funktioner
 
-Följande funktioner är tillgängliga för Function-appar som distribueras till en Premium-plan.
+The following features are available to function apps deployed to a Premium plan.
 
-### <a name="pre-warmed-instances"></a>Förvärmade instanser
+### <a name="pre-warmed-instances"></a>Pre-warmed instances
 
-Om inga händelser och körningar inträffar idag i förbruknings planen kan din app skalas ned till noll instanser. När nya händelser kommer in måste en ny instans vara anpassad med din app som körs på den.  Det kan ta lite tid att utföra särskilda nya instanser beroende på appen.  Den ytterligare svars tiden för det första anropet kallas ofta app kall start.
+If no events and executions occur today in the Consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
 
-I Premium-planen kan du ha din app förvärmad på ett angivet antal instanser, upp till din minsta schema storlek.  Förvärmade instanser gör det också möjligt för dig att förskala en app innan hög belastning. När appen skalas ut skalas den först till de förvärmade instanserna. Ytterligare instanser fortsätter att buffras och värmas omedelbart i förberedelser inför nästa skalnings åtgärd. Genom att ha en buffert för förvärmade instanser kan du effektivt förhindra kall start fördröjning.  Förvärmade instanser är en funktion i Premium-planen och du måste behålla minst en instans som körs och som är tillgänglig hela tiden när planen är aktiv.
+In the Premium plan, you can have your app pre-warmed on a specified number of instances, up to your minimum plan size.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
 
-Du kan konfigurera antalet förvärmade instanser i Azure Portal genom att välja **Funktionsapp**, gå till fliken **plattforms funktioner** och välja alternativen för **skala ut** . I redigerings fönstret för Function-appen är de förvärmade instanserna speciella för den appen, men minimi-och Max instanserna gäller hela planen.
+You can configure the number of pre-warmed instances in the Azure portal by selected your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, pre-warmed instances is specific to that app, but the minimum and maximum instances apply to your entire plan.
 
-![Inställningar för elastisk skalning](./media/functions-premium-plan/scale-out.png)
+![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
 
-Du kan också konfigurera förvärmade instanser för en app med Azure CLI
+You can also configure pre-warmed instances for an app with the Azure CLI
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
-### <a name="private-network-connectivity"></a>Anslutning till privat nätverk
+### <a name="private-network-connectivity"></a>Private network connectivity
 
-Azure Functions som distribueras till en Premium-plan drar nytta av [ny VNet-integrering för webbappar](../app-service/web-sites-integrate-with-vnet.md).  När appen har kon figurer ATS kan den kommunicera med resurser i ditt VNet eller skyddas via tjänst slut punkter.  IP-begränsningar är också tillgängliga i appen för att begränsa inkommande trafik.
+Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
 
-När du tilldelar ett undernät till din Function-app i en Premium-plan behöver du ett undernät med tillräckligt med IP-adresser för varje möjlig instans. Vi kräver ett IP-block med minst 100 tillgängliga adresser.
+When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
-Mer information finns i [integrera din Function-app med ett VNet](functions-create-vnet.md).
+Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
-### <a name="rapid-elastic-scale"></a>Snabb elastisk skalning
+### <a name="rapid-elastic-scale"></a>Rapid elastic scale
 
-Ytterligare beräknings instanser läggs automatiskt till för din app med samma snabbt skalnings logik som förbruknings planen.  Mer information om hur skalning fungerar finns i [funktions skala och värd](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-### <a name="unbounded-run-duration"></a>Obegränsad körnings tid
+### <a name="unbounded-run-duration"></a>Unbounded run duration
 
-Azure Functions i en förbruknings plan är begränsad till 10 minuter för en enda körning.  I Premium-planen är varaktigheten för körningen standardvärdet 30 minuter för att förhindra överkörningar. Du kan dock [ändra Host. JSON-konfigurationen](./functions-host-json.md#functiontimeout) för att göra detta obegränsat för appar för Premium-plan.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
 
-## <a name="plan-and-sku-settings"></a>Planera och SKU-inställningar
+## <a name="plan-and-sku-settings"></a>Plan and SKU settings
 
-När du skapar planen konfigurerar du två inställningar: det minsta antalet instanser (eller plan storlek) och den maximala burst-gränsen.  Minimi instanserna är reserverade och körs alltid.
+When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  Minimum instances are reserved and always running.
 
 > [!IMPORTANT]
-> Du debiteras för varje instans som allokeras i minsta instans antal oavsett om funktionerna körs eller inte.
+> You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.
 
-Om din app kräver instanser som ligger utanför din plan storlek, kan den fortsätta att skala ut tills antalet instanser träffar den maximala burst-gränsen.  Du debiteras för instanser utöver din plan storlek bara när de är igång och hyr till dig.  Vi kommer att få bästa möjliga prestanda när du skalar din app till den definierade Max gränsen, medan de minsta plan instanserna är garanterade för din app.
+If your app requires instances beyond your plan size, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and rented to you.  We will make a best effort at scaling your app out to its defined maximum limit, whereas the minimum plan instances are guaranteed for your app.
 
-Du kan konfigurera plan storlek och Max i Azure Portal genom att välja alternativen **skala ut** i planen eller en Function-app som distribueras till den planen (under **plattforms funktioner**).
+You can configure the plan size and maximums in the Azure portal by selected the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
 
-Du kan också öka den maximala burst-gränsen från Azure CLI:
+You can also increase the maximum burst limit from the Azure CLI:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
 ```
 
-### <a name="available-instance-skus"></a>Tillgängliga instanser SKU: er
+### <a name="available-instance-skus"></a>Available instance SKUs
 
-När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och använt minne per sekund.  Din app kan automatiskt skala ut till flera instanser efter behov.  
+When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory consumed per second.  Your app can automatically scale out to multiple instances as needed.  
 
-|SKU|Kärnor|Minne|Storage|
+|SKU|Kärnor|Minne|Lagring|
 |--|--|--|--|
-|EP1|1|3,5 GB|250 GB|
+|EP1|1|3.5GB|250 GB|
 |EP2|2|7GB|250 GB|
-|EP3|4|14 GB|250 GB|
+|EP3|4|14GB|250 GB|
 
 ## <a name="regions"></a>Regioner
 
-Nedan finns de regioner som stöds för varje operativ system.
+Below are the currently supported regions for each OS.
 
 |Region| Windows | Linux |
 |--| -- | -- |
 |Australien, centrala| ✔<sup>1</sup> | |
 |Australien, centrala 2| ✔<sup>1</sup> | |
-|Östra Australien| ✔ | |
-|Sydöstra Australien | ✔ | ✔ |
-|Södra Brasilien| ✔<sup>2</sup> |  |
-|Centrala Kanada| ✔ |  |
-|Centrala USA| ✔ |  |
-|Östasien| ✔ |  |
+|Australien, östra| ✔ | |
+|Australien, sydöstra | ✔ | ✔ |
+|Brasilien, södra| ✔<sup>2</sup> |  |
+|Kanada, centrala| ✔ |  |
+|USA, centrala| ✔ |  |
+|Asien, östra| ✔ |  |
 |USA, östra | ✔ | ✔ |
 |USA, östra 2| ✔ |  |
 |Frankrike, centrala| ✔ |  |
-|Östra Japan| ✔ | ✔ |
-|Västra Japan| ✔ | |
+|Japan, östra| ✔ | ✔ |
+|Japan, västra| ✔ | |
 |Sydkorea, centrala| ✔ |  |
-|Norra centrala USA| ✔ |  |
-|Norra Europa| ✔ | ✔ |
-|Södra centrala USA| ✔ |  |
-|Södra Indien | ✔ | |
-|Sydostasien| ✔ | ✔ |
+|USA, norra centrala| ✔ |  |
+|Europa, norra| ✔ | ✔ |
+|USA, södra centrala| ✔ |  |
+|Indien, södra | ✔ | |
+|Asien, sydöstra| ✔ | ✔ |
 |Storbritannien, södra| ✔ | |
 |Storbritannien, västra| ✔ |  |
-|Västra Europa| ✔ | ✔ |
+|Europa, västra| ✔ | ✔ |
 |Indien, västra| ✔ |  |
-|Västra USA| ✔ | ✔ |
-|Västra USA 2| ✔ |  |
+|USA, västra| ✔ | ✔ |
+|USA, västra 2| ✔ |  |
 
-<sup>1</sup> Högsta skala begränsad till 20 instanser.  
-<sup>2</sup> Högsta skala begränsad till 60 instanser.
+<sup>1</sup>Maximum scale out limited to 20 instances.  
+<sup>2</sup>Maximum scale out limited to 60 instances.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Förstå Azure Functions skalnings-och värd alternativ](functions-scale.md)
+> [Understand Azure Functions scale and hosting options](functions-scale.md)

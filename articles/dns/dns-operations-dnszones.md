@@ -1,9 +1,9 @@
 ---
-title: Hantera DNS-zoner i Azure DNS-PowerShell | Microsoft Docs
-description: Du kan hantera DNS-zoner med Azure PowerShell. Den här artikeln beskriver hur du uppdaterar, tar bort och skapar DNS-zoner på Azure DNS
+title: Manage DNS zones in Azure DNS - PowerShell | Microsoft Docs
+description: You can manage DNS zones using Azure Powershell. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: vhorne
+author: asudbring
 manager: timlt
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
@@ -12,25 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: victorh
-ms.openlocfilehash: dd238be6dbfcd14480b2c0cf03236902ef39e722
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: 7a838f10d44f3be0af79bba5d303467884159cbf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959414"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211702"
 ---
-# <a name="how-to-manage-dns-zones-using-powershell"></a>Så här hanterar du DNS-zoner med PowerShell
+# <a name="how-to-manage-dns-zones-using-powershell"></a>How to manage DNS Zones using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](dns-operations-dnszones-portal.md)
+> * [Portalen](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Klassisk Azure CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
-Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure PowerShell. Du kan också hantera dina DNS-zoner med plattforms oberoende [Azure CLI](dns-operations-dnszones-cli.md) eller Azure Portal.
+This article shows you how to manage your DNS zones by using Azure PowerShell. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure portal.
 
-Den här guiden behandlar särskilt offentliga DNS-zoner. Information om hur du använder Azure PowerShell för att hantera privata zoner i Azure DNS finns i [komma igång med Azure DNS Private Zones med hjälp av Azure PowerShell](private-dns-getstarted-powershell.md).
+This guide specifically deals with Public DNS zones. For information on using Azure PowerShell to manage Private Zones in Azure DNS, see [Get started with Azure DNS Private Zones using Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -41,23 +41,23 @@ Den här guiden behandlar särskilt offentliga DNS-zoner. Information om hur du 
 
 En DNS-zon skapas med hjälp av cmdleten `New-AzureRmDnsZone`.
 
-I följande exempel skapas en DNS-zon med namnet *contoso.com* i resurs gruppen med namnet *MyResourceGroup*:
+The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Manager Taggar](dns-zones-records.md#tags), *Project = demo* och *Kuvert = test*:
+The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS stöder också privata DNS-zoner.  Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur man kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med PowerShell](./private-dns-getstarted-powershell.md).
+Azure DNS also supports private DNS zones.  Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur man kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med PowerShell](./private-dns-getstarted-powershell.md).
 
-## <a name="get-a-dns-zone"></a>Hämta en DNS-zon
+## <a name="get-a-dns-zone"></a>Get a DNS zone
 
-Använd cmdleten `Get-AzureRmDnsZone` för att hämta en DNS-zon. Den här åtgärden returnerar ett DNS-zon objekt som motsvarar en befintlig zon i Azure DNS. Objektet innehåller data om zonen (till exempel antalet post uppsättningar), men innehåller inte själva post uppsättningarna (se `Get-AzureRmDnsRecordSet`).
+To retrieve a DNS zone, use the `Get-AzureRmDnsZone` cmdlet. This operation returns a DNS zone object corresponding to an existing zone in Azure DNS. The object contains data about the zone (such as the number of record sets), but does not contain the record sets themselves (see `Get-AzureRmDnsRecordSet`).
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
@@ -88,13 +88,13 @@ $zoneList = Get-AzureRmDnsZone
 
 ## <a name="update-a-dns-zone"></a>Uppdatera en DNS-zon
 
-Du kan göra ändringar i en DNS-zonresurs med `Set-AzureRmDnsZone`. Den här cmdleten uppdaterar inte någon av DNS-postuppsättningarna i zonen (mer information finns i [Hantera DNS-poster](dns-operations-recordsets.md)). Den används endast för att uppdatera zonresursens egenskaper. Egenskaperna för skrivbara zoner är för närvarande begränsade till [Azure Resource Manager taggar för zon resursen](dns-zones-records.md#tags).
+Du kan göra ändringar i en DNS-zonresurs med `Set-AzureRmDnsZone`. Den här cmdleten uppdaterar inte någon av DNS-postuppsättningarna i zonen (mer information finns i [Hantera DNS-poster](dns-operations-recordsets.md)). Den används endast för att uppdatera zonresursens egenskaper. The writable zone properties are currently limited to the [Azure Resource Manager ‘tags’ for the zone resource](dns-zones-records.md#tags).
 
-Använd något av följande två sätt för att uppdatera en DNS-zon:
+Use one of the following two ways to update a DNS zone:
 
-### <a name="specify-the-zone-using-the-zone-name-and-resource-group"></a>Ange zonen med zon namnet och resurs gruppen
+### <a name="specify-the-zone-using-the-zone-name-and-resource-group"></a>Specify the zone using the zone name and resource group
 
-Den här metoden ersätter de befintliga zon taggarna med de värden som anges.
+This approach replaces the existing zone tags with the values specified.
 
 ```powershell
 Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -102,7 +102,7 @@ Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Ta
 
 ### <a name="specify-the-zone-using-a-zone-object"></a>Ange zonen med ett $zone-objekt
 
-Den här metoden hämtar det befintliga zonfilen, ändrar taggarna och genomför ändringarna. På så sätt kan befintliga taggar bevaras.
+This approach retrieves the existing zone object, modifies the tags, and then commits the changes. In this way, existing tags can be preserved.
 
 ```powershell
 # Get the zone object
@@ -118,11 +118,11 @@ $zone.Tags.Add("status","approved")
 Set-AzureRmDnsZone -Zone $zone
 ```
 
-När du använder `Set-AzureRmDnsZone` med ett $zone-objekt används [etag-kontroller](dns-zones-records.md#etags) för att säkerställa att samtidiga ändringar inte skrivs över. Du kan använda den valfria växeln `-Overwrite` för att ignorera dessa kontroller.
+When using `Set-AzureRmDnsZone` with a $zone object, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
 
-## <a name="delete-a-dns-zone"></a>Ta bort en DNS-zon
+## <a name="delete-a-dns-zone"></a>Delete a DNS Zone
 
-DNS-zoner kan tas bort med hjälp av cmdleten `Remove-AzureRmDnsZone`.
+DNS zones can be deleted using the `Remove-AzureRmDnsZone` cmdlet.
 
 > [!NOTE]
 > Om du tar bort en DNS-zon så tar du även bort DNS-posterna i zonen. Du kan inte ångra den här åtgärden. Om DNS-zonen används, så misslyckas de tjänster som använder zonen när zonen tas bort.
@@ -154,7 +154,7 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 ```
 
-Precis som med `Set-AzureRmDnsZone` kan du ange zonen med ett `$zone`-objekt som gör att etag-kontroller ser till att samtidiga ändringar inte tas bort. Använd växeln `-Overwrite` för att ignorera de här kontrollerna.
+As with `Set-AzureRmDnsZone`, specifying the zone using a `$zone` object enables Etag checks to ensure concurrent changes are not deleted. Use the `-Overwrite` switch to suppress these checks.
 
 ## <a name="confirmation-prompts"></a>Bekräftelsemeddelanden
 
@@ -170,9 +170,9 @@ Mer information om `-Confirm` och `$ConfirmPreference` finns i [Om inställnings
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [hanterar post uppsättningar och poster](dns-operations-recordsets.md) i din DNS-zon.
+Learn how to [manage record sets and records](dns-operations-recordsets.md) in your DNS zone.
 <br>
-Lär dig hur du [delegerar din domän till Azure DNS](dns-domain-delegation.md).
+Learn how to [delegate your domain to Azure DNS](dns-domain-delegation.md).
 <br>
-Läs [Azure DNS PowerShell Reference-dokumentationen](/powershell/module/azurerm.dns).
+Review the [Azure DNS PowerShell reference documentation](/powershell/module/azurerm.dns).
 

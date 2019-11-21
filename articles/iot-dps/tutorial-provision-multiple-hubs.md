@@ -1,24 +1,23 @@
 ---
-title: 'Självstudie: Använd Azure IoT Hub Device Provisioning Service för att etablera enheter över belastningsutjämnade IoT-hubbar'
-description: 'Självstudie: enhets etablerings tjänst automatisk enhets etablering över belastningsutjämnade IoT-hubbar i Azure Portal'
-author: sethmanheim
-ms.author: sethm
+title: Provision devices across load balanced hubs using Azure IoT Hub Device Provisioning Service
+description: Tutorial - Device Provisioning Service automatic device provisioning across load balanced IoT hubs in Azure Portal
+author: wesmc7777
+ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6cd5dcb1fd96ac0fda75bf89dcf7259695cf971d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: fb3002e5f195bd3dca32a3500c6789f90e9ea0d6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112779"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229455"
 ---
-# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Självstudie: etablera enheter över belastningsutjämnade IoT-hubbar
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Provision devices across load-balanced IoT hubs
 
-Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här självstudiekursen får du lära du dig att:
+Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använda Azure Portal till att etablera en andra enhet till en andra IoT-hubb 
@@ -56,7 +55,7 @@ Följ dessa steg om du vill ange allokeringsprincipen:
 
 1. Om du vill ställa in allokeringsprincipen går du till Device Provisioning-tjänstsidan och klickar på **Hantera allokeringsprincip**.
 2. Ange allokeringsprincipen till **Jämnt viktad distribution**.
-3. Klicka på **Spara**.
+3. Klicka på **Save** (Spara).
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>Länka den nya IoT-hubben till enhetsetableringstjänsten
 
@@ -66,7 +65,7 @@ Länka enhetsetableringstjänsten till IoT-hubben så att enhetsetableringstjän
 2. Välj **Linked IoT hubs** (Länkade IoT-hubbar) på Device Provisioning-tjänstens sida.
 3. Klicka på **Lägg till**.
 4. På sidan **Lägg till länk i IoT Hub** använder du alternativknapparna för att ange om den länkade IoT-hubben är placerad i den aktuella prenumerationen eller i en annan prenumeration. Välj sedan IoT-hubbens namn från rutan **IoT Hub**.
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 
 ## <a name="next-steps"></a>Nästa steg
 

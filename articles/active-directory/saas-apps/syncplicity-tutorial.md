@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Syncplicity | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Syncplicity.
+title: 'Tutorial: Azure Active Directory integration with Syncplicity | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Syncplicity.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,177 +15,177 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089298"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233289"
 ---
-# <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Självstudier: Integrera Syncplicity med Azure Active Directory
+# <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutorial: Integrate Syncplicity with Azure Active Directory
 
-I de här självstudierna lär du dig att integrera Syncplicity med Azure Active Directory (AD Azure). När du integrerar Syncplicity med Azure AD, kan du:
+In this tutorial, you'll learn how to integrate Syncplicity with Azure Active Directory (Azure AD). When you integrate Syncplicity with Azure AD, you can:
 
-* Styr i Azure AD som har åtkomst till Syncplicity.
-* Ge dina användare att automatiskt inloggad till Syncplicity med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Control in Azure AD who has access to Syncplicity.
+* Enable your users to be automatically signed-in to Syncplicity with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+To get started, you need the following items:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Aktiverat prenumeration Syncplicity enkel inloggning (SSO).
+* En Azure AD-prenumeration. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Syncplicity single sign-on (SSO) enabled subscription.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Har stöd för Syncplicity **SP** -initierad SSO.
+In this tutorial, you configure and test Azure AD SSO in a test environment. Syncplicity supports **SP** initiated SSO.
 
-## <a name="adding-syncplicity-from-the-gallery"></a>Att lägga till Syncplicity från galleriet
+## <a name="adding-syncplicity-from-the-gallery"></a>Adding Syncplicity from the gallery
 
-För att konfigurera integrering av Syncplicity i Azure AD, som du behöver lägga till Syncplicity från galleriet i din lista över hanterade SaaS-appar.
+To configure the integration of Syncplicity into Azure AD, you need to add Syncplicity from the gallery to your list of managed SaaS apps.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **Syncplicity** i sökrutan.
-1. Välj **Syncplicity** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Syncplicity** in the search box.
+1. Select **Syncplicity** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Konfigurera och testa Azure AD SSO
+## <a name="configure-and-test-azure-ad-sso"></a>Configure and test Azure AD SSO
 
-Konfigurera och testa Azure AD enkel inloggning med Syncplicity med en testanvändare kallas **B.Simon**. Du måste upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Syncplicity för SSO ska fungera.
+Configure and test Azure AD SSO with Syncplicity using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Syncplicity.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Syncplicity, utför du följande byggblock:
+To configure and test Azure AD SSO with Syncplicity, complete the following building blocks:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Syncplicity SSO](#configure-syncplicity-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med B.Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera B.Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Syncplicity](#create-syncplicity-test-user)**  – du har en motsvarighet för B.Simon i Syncplicity som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure Syncplicity SSO](#configure-syncplicity-sso)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create Syncplicity test user](#create-syncplicity-test-user)** - to have a counterpart of B.Simon in Syncplicity that is linked to the Azure AD representation of user.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+### <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Syncplicity** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. In the [Azure portal](https://portal.azure.com/), on the **Syncplicity** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** ange värdena för följande fält:
+1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.syncplicity.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.syncplicity.com/sp`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Syncplicity klienten supportteamet](https://www.syncplicity.com/contact-us) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Contact [Syncplicity Client support team](https://www.syncplicity.com/contact-us) to get these values. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-   ![Länk för hämtning av certifikat](common/certificatebase64.png)
+   ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **konfigurera Syncplicity** avsnittet, kopiera den lämpliga URL: er efter behov.
+1. On the **Set up Syncplicity** section, copy the appropriate URL(s) based on your requirement.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-syncplicity-sso"></a>Konfigurera Syncplicity SSO
+### <a name="configure-syncplicity-sso"></a>Configure Syncplicity SSO
 
-1. Logga in på din **Syncplicity** klient.
+1. Sign in to your **Syncplicity** tenant.
 
-1. Klicka på menyn längst upp **admin**väljer **inställningar**, och klicka sedan på **anpassad domän och enkel inloggning**.
+1. In the menu on the top, click **admin**, select **settings**, and then click **Custom domain and single sign-on**.
 
     ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
 
-1. På den **enkel inloggning (SSO)** dialogrutan utför följande steg:
+1. On the **Single Sign-On (SSO)** dialog page, perform the following steps:
 
-    ![Enkel inloggning \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
+    ![Single Sign-On \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
 
-    a. I den **Custom Domain** textrutan skriver du namnet på din domän.
+    a. In the **Custom Domain** textbox, type the name of your domain.
   
-    b. Välj **aktiverat** som **enkel inloggningsstatus**.
+    b. Select **Enabled** as **Single Sign-On Status**.
 
-    c. I den **entitets-Id** textrutan klistra in den **identifierare (entitets-ID)** värde, som du har använt i den **SAML grundkonfiguration** i Azure-portalen.
+    c. In the **Entity Id** textbox, Paste the **Identifier (Entity ID)** value, which you have used in the **Basic SAML Configuration** in the Azure portal.
 
-    d. I den **inloggning sid-URL** textrutan klistra in den **inloggnings-URL** som du har kopierat från Azure-portalen.
+    d. In the **Sign-in page URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
 
-    e. I den **sid-URL för utloggning** textrutan klistra in den **URL för utloggning** som du har kopierat från Azure-portalen.
+    e. In the **Logout page URL** textbox, Paste the **Logout URL** which you have copied from Azure portal.
 
-    f. I **providern identitetscertifikat**, klickar du på **Välj fil**, och sedan ladda upp det certifikat som du har hämtat från Azure-portalen.
+    f. In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate which you have downloaded from the Azure portal.
 
     g. Klicka på **SPARA ÄNDRINGAR** för att spara ändringarna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Välj **Ny användare** överst på skärmen.
+1. In the **User** properties, follow these steps:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Syncplicity.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Syncplicity.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **Syncplicity**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Syncplicity**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-syncplicity-test-user"></a>Skapa Syncplicity testanvändare
+### <a name="create-syncplicity-test-user"></a>Create Syncplicity test user
 
-För AAD-användare för att kunna logga in, måste de etableras till Syncplicity program. Det här avsnittet beskrivs hur du skapar AAD-användarkonton i Syncplicity.
+For Azure AD users to be able to sign in, they must be provisioned to Syncplicity application. This section describes how to create Azure AD user accounts in Syncplicity.
 
-**Om du vill konfigurera ett användarkonto till Syncplicity, utför du följande steg:**
+**To provision a user account to Syncplicity, perform the following steps:**
 
-1. Logga in på din **Syncplicity** klient (till exempel: `https://company.Syncplicity.com`).
+1. Sign in to your **Syncplicity** tenant (for example: `https://company.Syncplicity.com`).
 
-1. Klicka på **admin** och välj **användarkonton** och klicka sedan på **ADD A USER**.
+1. Click **admin** and select **user accounts** and then click **ADD A USER**.
 
-    ![Hantera användare](./media/syncplicity-tutorial/ic769764.png "Hantera användare")
+    ![Manage Users](./media/syncplicity-tutorial/ic769764.png "Manage Users")
 
-1. Typen i **e-postadresser** ett Azure AD-konto som du vill etablera, väljer du **användaren** som **rollen**, och klicka sedan på **nästa**.
+1. Type the **Email addresses** of an Azure AD account you want to provision, select **User** as **Role**, and then click **NEXT**.
 
-    ![Kontoinformation](./media/syncplicity-tutorial/ic769765.png "kontoinformation")
-
-    > [!NOTE]
-    > Kontoinnehavare för AAD får ett e-postmeddelande, inklusive en länk för att bekräfta och aktivera kontot.
-
-1. Välj en grupp i ditt företag som de nya användarna ska bli medlem i och klicka sedan på **nästa**.
-
-    ![Gruppmedlemskap](./media/syncplicity-tutorial/ic769772.png "gruppmedlemskap")
+    ![Account Information](./media/syncplicity-tutorial/ic769765.png "Account Information")
 
     > [!NOTE]
-    > Om det finns inga grupper som visas, klickar du på **nästa**.
+    > The Azure AD account holder  gets an email including a link to confirm and activate the account.
 
-1. Markera de mappar som du vill placera under Syncplicitys kontroll på användarens dator och klicka sedan på **nästa**.
+1. Select a group in your company that your new user should become a member of, and then click **NEXT**.
 
-    ![Syncplicity mappar](./media/syncplicity-tutorial/ic769773.png "Syncplicity mappar")
+    ![Group Membership](./media/syncplicity-tutorial/ic769772.png "Group Membership")
+
+    > [!NOTE]
+    > If there are no groups listed, click **NEXT**.
+
+1. Select the folders you would like to place under Syncplicity’s control on the user’s computer, and then click **NEXT**.
+
+    ![Syncplicity Folders](./media/syncplicity-tutorial/ic769773.png "Syncplicity Folders")
 
 > [!NOTE]
-> Du kan använda alla andra Syncplicity användare konto verktyg för att skapa eller API: er som tillhandahålls av Syncplicity att etablera AAD-användarkonton.
+> You can use any other Syncplicity user account creation tools or APIs provided by Syncplicity to provision Azure AD user accounts.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Test SSO
 
-När du väljer panelen Syncplicity i åtkomstpanelen, bör det vara loggas in automatiskt till Syncplicity som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Syncplicity tile in the Access Panel, you should be automatically signed in to the Syncplicity for which you set up SSO. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -193,4 +193,4 @@ När du väljer panelen Syncplicity i åtkomstpanelen, bör det vara loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

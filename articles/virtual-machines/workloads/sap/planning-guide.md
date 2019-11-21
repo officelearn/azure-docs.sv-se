@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machines planera och implementera för SAP NetWeaver | Microsoft Docs
-description: Azure Virtual Machines planera och implementera SAP-NetWeaver
+title: Azure Virtual Machines planning and implementation for SAP NetWeaver | Microsoft Docs
+description: Azure Virtual Machines planning and implementation for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1b791ac58ada84ac0c2087f266d29bff4bd9c6fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067865"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224715"
 ---
-# <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
+# <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planning and implementation for SAP NetWeaver
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -313,614 +313,614 @@ ms.locfileid: "71067865"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Microsoft Azure gör det möjligt för företag att förvärva beräknings-och lagrings resurser i minimal tid utan att de får längd. Med tjänsten Azure Virtual Machine kan företag distribuera klassiska program, t. ex. SAP NetWeaver-baserade program till Azure och utöka sin tillförlitlighet och tillgänglighet utan att ytterligare resurser är tillgängliga lokalt. Azure Virtual Machine-tjänster har även stöd för anslutning mellan platser, vilket gör det möjligt för företag att aktivt integrera Azure-Virtual Machines i sina lokala domäner, deras privata moln och deras liggande SAP-system.
-I den här white paper beskrivs grunderna i Microsoft Azure virtuella datorn och en genom gång av planerings-och implementerings överväganden för SAP NetWeaver-installationer i Azure och därför bör dokumentet läsas innan du påbörjar den faktiska distributioner av SAP NetWeaver på Azure.
-Pappret kompletterar SAP-installations dokumentation och SAP-anteckningar, som representerar de primära resurserna för installationer och distributioner av SAP-program på vissa plattformar.
+Microsoft Azure enables companies to acquire compute and storage resources in minimal time without lengthy procurement cycles. Azure Virtual Machine service allows companies to deploy classical applications, like SAP NetWeaver based applications into Azure and extend their reliability and availability without having further resources available on-premises. Azure Virtual Machine Services also supports cross-premises connectivity, which enables companies to actively integrate Azure Virtual Machines into their on-premises domains, their Private Clouds and their SAP System Landscape.
+This white paper describes the fundamentals of Microsoft Azure Virtual Machine and provides a walk-through of planning and implementation considerations for SAP NetWeaver installations in Azure and as such should be the document to read before starting actual deployments of SAP NetWeaver on Azure.
+The paper complements the SAP Installation Documentation and SAP Notes, which represent the primary resources for installations and deployments of SAP software on given platforms.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="summary"></a>Sammanfattning
-Molnbaserad data behandling är en mycket vanlig term som används för att få mer och mer betydelse inom IT-branschen, från små företag till stora och multinationella företag.
+Cloud Computing is a widely used term, which is gaining more and more importance within the IT industry, from small companies up to large and multinational corporations.
 
-Microsoft Azure är Cloud Services plattform från Microsoft, som erbjuder ett brett spektrum av nya möjligheter. Nu kan kunderna snabbt etablera och avetablera program som en tjänst i molnet, så att de inte är begränsade till tekniska eller budgetmässiga restriktioner. I stället för att investera tid och budget i maskin varu infrastruktur kan företag fokusera på program, affärs processer och dess fördelar för kunder och användare.
+Microsoft Azure is the Cloud Services Platform from Microsoft, which offers a wide spectrum of new possibilities. Now customers are able to rapidly provision and de-provision applications as a service in the cloud, so they are not limited to technical or budgeting restrictions. Instead of investing time and budget into hardware infrastructure, companies can focus on the application, business processes, and its benefits for customers and users.
 
-Med Microsoft Azure Virtual Machine-tjänsterna, erbjuder Microsoft en omfattande plattform för infrastruktur som en tjänst (IaaS). SAP NetWeaver-baserade program stöds på virtuella Azure-datorer (IaaS). I det här dokumentet beskrivs hur du planerar och implementerar SAP NetWeaver-baserade program inom Microsoft Azure som vilken plattform som helst.
+Med Microsoft Azure Virtual Machine-tjänsterna, erbjuder Microsoft en omfattande plattform för infrastruktur som en tjänst (IaaS). SAP NetWeaver-baserade program stöds på virtuella Azure-datorer (IaaS). This whitepaper describes how to plan and implement SAP NetWeaver based applications within Microsoft Azure as the platform of choice.
 
-Själva pappret fokuserar på två huvudsakliga aspekter:
+The paper itself focuses on two main aspects:
 
-* I den första delen beskrivs två distributions mönster som stöds för SAP NetWeaver-baserade program på Azure. Den beskriver också allmän hantering av Azure med SAP-distributioner i åtanke.
-* Den andra delen av informationen implementerar de två olika scenarier som beskrivs i den första delen.
+* The first part describes two supported deployment patterns for SAP NetWeaver based applications on Azure. It also describes general handling of Azure with SAP deployments in mind.
+* The second part details implementing the two different scenarios described in the first part.
 
-Mer resurser finns i kapitel [resurser][planning-guide-1.2] i det här dokumentet.
+For additional resources, see chapter [Resources][planning-guide-1.2] in this document.
 
-### <a name="definitions-upfront"></a>Definitioner, framtill
-I hela dokumentet använder vi följande villkor:
+### <a name="definitions-upfront"></a>Definitions upfront
+Throughout the document, we use the following terms:
 
-* IaaS: Infrastruktur som en tjänst
-* PaaS: Plattform som en tjänst
-* SaaS: Program vara som en tjänst
-* SAP-komponent: ett enskilt SAP-program som ECC, BW, Solution Manager eller S/4HANA.  SAP-komponenter kan baseras på traditionella ABAP-eller Java-tekniker eller icke-NetWeaver-baserade program som affärs objekt.
-* SAP-miljö: en eller flera SAP-komponenter grupperade logiskt för att utföra en affärs funktion som utveckling, QAS, utbildning, DR eller produktion.
-* SAP-liggande: Den här termen avser hela SAP-till gångarna i en kunds IT-liggande. SAP-landskapet innehåller alla produktions miljöer och icke-produktions miljöer.
-* SAP-system: Kombinationen av DBMS-skiktet och program lagret i, till exempel ett SAP ERP-utvecklingssystem, SAP BW test system, SAP CRM-produktionssystem osv. I Azure-distributioner finns det inte stöd för att dela upp dessa två skikt mellan lokalt och Azure. Innebär att ett SAP-system antingen är distribuerat lokalt eller distribuerat i Azure. Du kan dock distribuera de olika systemen i ett SAP-landskap till antingen Azure eller lokalt. Du kan t. ex. distribuera SAP CRM-utvecklings-och test system i Azure, men i det lokala SAP CRM-operativsystemet.
-* Mellan platser eller hybrider: Beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration som har plats-till-plats-, flera-plats-eller ExpressRoute-anslutning mellan lokala data Center (er) och Azure. I gemensam Azure-dokumentation beskrivs även dessa typer av distributioner som olika platser eller hybrid scenarier. Orsaken till anslutningen är att utöka lokala domäner, lokala Active Directory/OpenLDAP och lokala DNS i Azure. Det lokala landskapet utökas till Azure-till gångar för prenumerationen. De virtuella datorerna kan vara en del av den lokala domänen. Domän användare av den lokala domänen kan komma åt servrarna och kan köra tjänster på de virtuella datorerna (t. ex. DBMS-tjänster). Kommunikation och namn matchning mellan virtuella datorer som distribuerats lokalt och Azure-distribuerade virtuella datorer är möjligt. Detta är det vanligaste och nästan exklusiva fallet som distribuerar SAP-tillgångar till Azure. Mer information finns i [den här][vpn-gateway-cross-premises-options] artikeln och [detta][vpn-gateway-site-to-site-create].
-* Azure Monitoring Extension, förbättrad övervakning och Azure-tillägg för SAP: Beskriv ett och samma objekt. Den beskriver ett VM-tillägg som måste distribueras av dig för att tillhandahålla grundläggande data om Azure-infrastrukturen till SAP-värd agenten. SAP i SAP-anteckningar kan referera till det som övervaknings tillägg eller förbättrad övervakning. I Azure refererar vi till det som Azure- **tillägg för SAP**.
+* IaaS: Infrastructure as a Service
+* PaaS: Platform as a Service
+* SaaS: Software as a Service
+* SAP Component: an individual SAP application such as ECC, BW, Solution Manager, or S/4HANA.  SAP components can be based on traditional ABAP or Java technologies or a non-NetWeaver based application such as Business Objects.
+* SAP Environment: one or more SAP components logically grouped to perform a business function such as Development, QAS, Training, DR, or Production.
+* SAP Landscape: This term refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and non-production environments.
+* SAP System: The combination of DBMS layer and application layer of, for example, an SAP ERP development system, SAP BW test system, SAP CRM production system, etc. In Azure deployments, it is not supported to divide these two layers between on-premises and Azure. Means an SAP system is either deployed on-premises or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape into either Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but the SAP CRM production system on-premises.
+* Cross-premises or hybrid: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as cross-premises or hybrid scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. This is the most common and nearly exclusive case deploying SAP assets into Azure. For more information, see [this][vpn-gateway-cross-premises-options] article and [this][vpn-gateway-site-to-site-create].
+* Azure Monitoring Extension, Enhanced Monitoring and Azure Extension for SAP: Describe one and the same item. It describes a VM extension that needs to be deployed by you to provide some basic data about the Azure infrastructure to the SAP Host Agent. SAP in SAP notes might refer to it as Monitoring Extension or Enhanced monitoring. In Azure, we are referring to it as **Azure Extension for SAP**.
 
 > [!NOTE]
-> Mellan lokala eller hybrid distributioner av SAP-system där Azure Virtual Machines som kör SAP-system är medlemmar i en lokal domän som stöds för produktion av SAP-system. Lokala eller hybrid konfigurationer stöds för att distribuera delar eller slutföra SAP-landskap till Azure. Även om du kör hela SAP liggande i Azure måste de virtuella datorerna vara en del av den lokala domänen och ADS/OpenLDAP. 
+> Cross-premises or hybrid deployments of SAP systems where Azure Virtual Machines running SAP systems are members of an on-premises domain are supported for production SAP systems. Cross-premises  or hybrid configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires having those VMs being part of on-premises domain and ADS/OpenLDAP. 
 >
 >
 
 
 
-### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Resurser
-Start punkten för SAP-arbetsbelastningen på Azure-dokumentationen finns [här](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Från och med den här start punkten hittar du många artiklar som beskriver avsnitten i:
+### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Resources
+The entry point for SAP workload on Azure documentation is found [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Starting with this entry point you find many articles that cover the topics of:
 
-- SAP NetWeaver och Business One på Azure
-- SAP DBMS-handböcker för olika DBMS-system i Azure
-- Hög tillgänglighet och haveri beredskap för SAP-arbetsbelastningar på Azure
-- Detaljerad vägledning för att köra SAP HANA på Azure
-- Vägledning som är särskilt för Azure HANA-stora instanser för SAP HANA-DBMS 
+- SAP NetWeaver and Business One on Azure
+- SAP DBMS guides for various DBMS systems in Azure
+- High availability and disaster recovery for SAP workload on Azure
+- Specific guidance for running SAP HANA on Azure
+- Guidance specific to Azure HANA Large Instances for the SAP HANA DBMS 
 
 
 > [!IMPORTANT]
-> När det är möjligt används en länk till de refererande SAP-installations guiderna eller annan SAP-dokumentation (referens <http://service.sap.com/instguides>InstGuide-01, se). När det gäller förutsättningarna, installations processen eller information om särskilda SAP-funktioner bör SAP-dokumentationen och guiderna alltid läsas noga, eftersom Microsoft-dokumenten bara täcker vissa uppgifter för SAP-program som är installerade och körs i en Microsoft Azure virtuell dator.
+> Wherever possible a link to the referring SAP Installation Guides or other SAP documentation is used (Reference InstGuide-01, see <http://service.sap.com/instguides>). When it comes to the prerequisites, installation process, or details of specific SAP functionality the SAP documentation and guides should always be read carefully, as the Microsoft documents only covers specific tasks for SAP software installed and operated in a Microsoft Azure Virtual Machine.
 >
 >
 
-Följande SAP-anteckningar är relaterade till ämnet i SAP på Azure:
+The following SAP Notes are related to the topic of SAP on Azure:
 
-| Antecknings nummer | Titel |
+| Note number | Rubrik |
 | --- | --- |
-| [1928533] |SAP-program på Azure: Produkter och storlek som stöds |
-| [2015553] |SAP på Microsoft Azure: Support krav |
-| [1999351] |Felsöka utökad Azure-övervakning för SAP |
-| [2178632] |Nyckel övervaknings mått för SAP på Microsoft Azure |
-| [1409604] |Virtualisering i Windows: Förbättrad övervakning |
-| [2191498] |SAP på Linux med Azure: Förbättrad övervakning |
-| [2243692] |Linux på Microsoft Azure-VM (IaaS): Problem med SAP-licenser |
-| [1984787] |SUSE LINUX Enterprise Server 12: Installations information |
-| [2002167] |Red Hat Enterprise Linux 7. x: Installation och uppgradering |
-| [2069760] |Oracle Linux 7. x SAP-installation och uppgradering |
-| [1597355] |Rekommendation för växlings utrymme för Linux |
+| [1928533] |SAP Applications on Azure: Supported Products and Sizing |
+| [2015553] |SAP on Microsoft Azure: Support Prerequisites |
+| [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP |
+| [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure |
+| [1409604] |Virtualization on Windows: Enhanced Monitoring |
+| [2191498] |SAP on Linux with Azure: Enhanced Monitoring |
+| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues |
+| [1984787] |SUSE LINUX Enterprise Server 12: Installation notes |
+| [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
+| [2069760] |Oracle Linux 7.x SAP Installation and Upgrade |
+| [1597355] |Swap-space recommendation for Linux |
 
-Läs även [SCN-wikin](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) som innehåller alla SAP-anteckningar för Linux.
+Also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
-Allmänna standard begränsningar och maximala begränsningar för Azure-prenumerationer finns i [den här artikeln][azure-subscription-service-limits-subscription].
+General default limitations and maximum limitations of Azure subscriptions can be found in [this article][azure-subscription-service-limits-subscription].
 
-## <a name="possible-scenarios"></a>Möjliga scenarier
-SAP visas ofta som ett av de mest verksamhets kritiska programmen i företag. Arkitekturen och åtgärderna i dessa program är huvudsakligen komplexa och säkerställer att du uppfyller kraven på tillgänglighet och prestanda är viktigt.
+## <a name="possible-scenarios"></a>Possible Scenarios
+SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Därför måste företag tänka noga om vilken moln leverantör som ska väljas för att köra affärs kritiska affärs processer på. Azure är den perfekta offentliga moln plattformen för affärs kritiska SAP-program och affärs processer. Med tanke på olika Azure-infrastrukturer kan nästan alla befintliga SAP NetWeaver-och S/4HANA-system finnas i Azure idag. Azure tillhandahåller virtuella datorer med många terabyte minne och mer än 200 processorer. Utöver att Azure erbjuder [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), vilket gör att du kan skala ut Hana-distributioner på upp till 24TB och skala ut Ana-distributioner på upp till 120 TB. 
-
-
-För att kunna distribuera SAP-system till antingen Azure IaaS eller IaaS i allmänhet är det viktigt att förstå de betydande skillnaderna mellan erbjudandena för traditionella Outsourcer eller värdar och IaaS-erbjudanden. Den traditionella värddatorn eller utlösaren anpassar infrastrukturen (nätverk, lagring och server typ) till arbets belastningen som en kund vill vara värd för, det är i stället kundens eller partnerns ansvar att karakterisera arbets belastningen och välja rätt Azure komponenter för virtuella datorer, lagring och nätverk för IaaS-distributioner.
-
-Som ett första steg måste kunderna verifiera följande objekt:
-
-* De virtuella SAP-typerna av Azure som stöds
-* Produkter/utgåvor som stöds av SAP på Azure
-* De OS-och DBMS-versioner som stöds för de aktuella SAP-versionerna i Azure
-* SAPS-genomflöde från olika Azure-SKU: er
-
-Svaren på dessa frågor kan läsas i SAP NOTE [1928533].
-
-Som ett andra steg måste begränsningar för Azure-resurser och bandbredd jämföras med den faktiska resurs användningen av lokala system. Kunderna måste därför vara bekant med de olika funktionerna i de Azure-typer som stöds med SAP i följande områden:
-
-* PROCESSOR-och minnes resurser för olika VM-typer och
-* IOPS-bandbredd för olika VM-typer och
-* Nätverksfunktioner av olika typer av virtuella datorer.
-
-De flesta av dessa data hittar du [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows].
-
-Tänk på att de gränser som anges i länken ovan är övre gränser. Det innebär inte att begränsningarna för någon av resurserna, till exempel IOPS, kan tillhandahållas under alla omständigheter. Undantagen om är processor-och minnes resurser för en vald VM-typ. För de VM-typer som stöds av SAP reserveras processor-och minnes resurserna, vilket är tillgängligt när som helst vid varje tidpunkt för förbrukningen i den virtuella datorn.
-
-Microsoft Azures plattformen är en plattform för flera innehavare. Det leder till att lagring, nätverk och andra resurser delas mellan klienter. Intelligent begränsning och kvot logik används för att förhindra att en klient påverkar prestandan hos en annan klient (svår granne) på ett drastiskt sätt. Särskilt för att certifiera Azure-plattformen för SAP HANA måste Microsoft bevisa resurs isoleringen för de fall där flera virtuella datorer kan köras på samma värd regelbundet till SAP. Även om logiken i Azure försöker behålla varianser i bandbredden som är små, är det mycket delade plattformar att introducera större varianser i tillgänglighet för resurs/bandbredd än kunder kan uppleva i sina lokala distributioner. Sannolikheten att ett SAP-system på Azure kan uppleva större varianser än i ett lokalt system måste tas med i beräkningen.
-
-Ett sista steg är att utvärdera tillgänglighets kraven. Det kan hända att den underliggande Azure-infrastrukturen behöver uppdateras och kräver att värdarna som kör virtuella datorer startas om. Microsoft dokumenterar olika fall i [underhålls läge för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). För att minska de sällsynta fall där virtuella datorer tvingas starta om, men ännu mer viktiga för de fall du behöver för att korrigera gäst operativ system eller DBMS-komponenter, måste du utveckla ett giltigt koncept för hög tillgänglighet för dina produktions-SAP-system. Detta krav skiljer sig inte från de krav du har på plats. Microsoft driver ständigt Azure-plattformen för att minska nedtid som orsakas av plattforms ändringar. 
-
-För att kunna distribuera ett SAP-system till Azure måste det lokala SAP-systemets operativ system, databas-och SAP-program finnas i SAP Azure-stödmatrisen, få plats i de resurser som Azure-infrastrukturen kan tillhandahålla och som kan arbeta med tillgänglighets service avtal Microsoft Azure erbjudanden. När dessa system identifieras måste du bestämma något av följande två distributions scenarier.
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out ANA deployments of up to 120TB. 
 
 
+In order to successfully deploy SAP systems into either Azure IaaS or IaaS in general, it is important to understand the significant differences between the offerings of traditional outsourcers or hosters and IaaS offerings. Whereas the traditional hoster or outsourcer adapts infrastructure (network, storage and server type) to the workload a customer wants to host, it is instead the customer's  or partner's responsibility to characterize the workload and choose the correct Azure components of VMs, storage and network for IaaS deployments.
+
+As a first step, customers need to verify the following items:
+
+* The SAP supported VM types of Azure
+* The SAP supported products/releases on Azure
+* The supported OS and DBMS releases for the specific SAP releases in Azure
+* SAPS throughput provided by different Azure SKUs
+
+The answers to these questions can be read in SAP Note [1928533].
+
+As a second step, Azure resource and bandwidth limitations need to be compared to actual resource consumption of on-premises systems. Therefore, customers need to be familiar with the different capabilities of the Azure types supported with SAP in the area of:
+
+* CPU and memory resources of different VM types and
+* IOPS bandwidth of different VM types and
+* Network capabilities of different VM types.
+
+Most of that data can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
+
+Keep in mind that the limits listed in the link above are upper limits. It does not mean that the limits for any of the resources, for example IOPS can be provided under all circumstances. The exceptions though are the CPU and memory resources of a chosen VM type. For the VM types supported by SAP, the CPU and memory resources are reserved and as such available at any point in time for consumption within the VM.
+
+The Microsoft Azure platform is a multi-tenant platform. As a result storage, network, and other resources are shared between tenants. Intelligent throttling and quota logic is used to prevent one tenant from impacting the performance of another tenant (noisy neighbor) in a drastic way. Especially for certifying the Azure platform for SAP HANA, Microsoft needs to prove the resource isolation for cases where multiple VMs can run on the same host on a regular basis to SAP. Though logic in Azure tries to keep variances in bandwidth experienced small, highly shared platforms tend to introduce larger variances in resource/bandwidth availability than customers might experience in their on-premises deployments. The probability that an SAP system on Azure could experience larger variances than in an on-premises system needs to be taken into account.
+
+A last step is to evaluate availability requirements. It can happen, that the underlying Azure infrastructure needs to get updated and requires the hosts running VMs to be rebooted. Microsoft documents the different cases in [Maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). To mitigate the rare cases where VMs are forced to reboot, but even more important for the cases you need to patch guest OS or DBMS components, you need to develop a valid high availability concepts for your production SAP systems. This requirement is not any different than the requirements you face on-premises. Microsoft is steadily advancing the Azure platform to reduce downtime caused by platform changes. 
+
+In order to successfully deploy an SAP system onto Azure, the on-premises SAP system(s) Operating System, Database, and SAP applications must appear on the SAP Azure support matrix, fit within the resources the Azure infrastructure can provide and which can work with the Availability SLAs Microsoft Azure offers. As those systems are identified, you need to decide on one of the following two deployment scenarios.
 
 
 
-### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Lokal distribution av en eller flera virtuella SAP-datorer i Azure med kravet på att vara fullständigt integrerat i det lokala nätverket
-![VPN med plats-till-plats-anslutning (mellan platser)][planning-guide-figure-300]
 
-Det här scenariot är ett scenario mellan olika platser med många möjliga distributions mönster. Det kan beskrivas som att köra vissa delar av det lokala SAP-området och andra delar av SAP-landskapet på Azure. Alla aspekter av det faktum att en del av SAP-komponenterna körs på Azure bör vara genomskinlig för slutanvändare. Därför fungerar STMS (SAP transport Correction system), RFC-kommunikation, utskrift, säkerhet (som SSO) osv. fungerar sömlöst för de SAP-system som körs på Azure. I det här scenariot beskrivs även ett scenario där det fullständiga SAP-landskapet körs i Azure med kundens domän och DNS utökad till Azure.
+
+### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Cross-Premises - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network
+![VPN with Site-To-Site Connectivity (cross-premises)][planning-guide-figure-300]
+
+This scenario is a cross-premises scenario with many possible deployment patterns. It can be described as running some parts of the SAP landscape on-premises and other parts of the SAP landscape on Azure. All aspects of the fact that part of the SAP components are running on Azure should be transparent for end users. Hence the SAP Transport Correction System (STMS), RFC Communication, Printing, Security (like SSO), etc. work seamlessly for the SAP systems running on Azure. But the cross-premises scenario also describes a scenario where the complete SAP landscape runs in Azure with the customer's domain and DNS extended into Azure.
 
 > [!NOTE]
-> Det här är distributions scenariot, som stöds för att köra produktiva SAP-system.
+> This is the deployment scenario, which is supported for running productive SAP systems.
 >
 >
 
-Läs [den här artikeln][vpn-gateway-create-site-to-site-rm-powershell] om du vill ha mer information om hur du ansluter ditt lokala nätverk till Microsoft Azure
+Read [this article][vpn-gateway-create-site-to-site-rm-powershell] for more information on how to connect your on-premises network to Microsoft Azure
 
 > [!IMPORTANT]
-> När vi pratar om scenarier mellan olika platser mellan Azure och lokala kund distributioner, tittar vi på hela SAP-systemets granularitet. Scenarier som *inte stöds* för scenarier med olika platser är:
+> When we are talking about cross-premises scenarios between Azure and on-premises customer deployments, we are looking at the granularity of whole SAP systems. Scenarios which are *not supported* for cross-premises scenarios are:
 >
-> * Köra olika lager av SAP-program i olika distributions metoder. Till exempel köra DBMS-lagret lokalt, men SAP-programlagret i virtuella datorer distribueras som virtuella Azure-datorer eller vice versa.
-> * Vissa komponenter i ett SAP-lager i Azure och vissa lokalt. Till exempel dela instanser av SAP-Programskiktet mellan lokala och virtuella Azure-datorer.
-> * Distribution av virtuella datorer som kör SAP-instanser av ett system över flera Azure-regioner stöds inte.
+> * Running different layers of SAP applications in different deployment methods. For example running the DBMS layer on-premises, but the SAP application layer in VMs deployed as Azure VMs or vice versa.
+> * Some components of an SAP layer in Azure and some on-premises. For example splitting Instances of the SAP application layer between on-premises and Azure VMs.
+> * Distribution of VMs running SAP instances of one system over multiple Azure Regions is not supported.
 >
-> Orsaken till dessa begränsningar är kravet för ett högpresterande nätverk med låg latens i ett SAP-system, särskilt mellan program instanserna och DBMS-skiktet i ett SAP-system.
+> The reason for these restrictions is the requirement for a low latency high-performance network within one SAP system, especially between the application instances and the DBMS layer of an SAP system.
 >
-> Särskild planering av system och regioner måste inträffa när du använder flera SAP-system som är mycket integrerade. Se till att distribuera dessa system så nära varandra som möjligt för att minimera nätverks fördröjningen. Exempel på mycket integrerade SAP-system är:
-> * SAP BW att läsa data från SAP OLTP-system som ERP eller CRM eller SRM; eller
-> * SAP-SLT används för att replikera data mellan flera SPA-system eller till och med mellan SAP-och icke-SAP-system. eller
-> * SAP S/4 ansluten till ett SAP ERP-system; annat.
+> Special planning of the systems and regions must occur when using multiple SAP systems which are highly integrated. Make sure to deploy these systems as close as possible to each other to minimize network latency. Examples of highly integrated SAP systems are:
+> * SAP BW reading data from SAP OLTP systems like ERP or CRM or SRM; or
+> * SAP SLT being used to replicate data between multiple SPA systems or even between SAP and non-SAP systems; or
+> * SAP S/4 connected to an SAP ERP system; etc.
 
 
-### <a name="supported-os-and-database-releases"></a>Operativ system och databas versioner som stöds
-* Microsoft Server-programvara som stöds för Azure Virtual Machine-tjänster visas i den <https://support.microsoft.com/kb/2721672>här artikeln:.
-* Operativ system versioner som stöds, databas system versioner som stöds på Azures tjänster för virtuella datorer tillsammans med SAP-program dokumenteras i SAP anmärkning [1928533].
-* SAP-program och versioner som stöds på Azure Virtual Machine-tjänster finns dokumenterade i SAP anmärkning [1928533].
-* Endast 64-bitars avbildningar stöds för att köras som gäst datorer i Azure för SAP-scenarier. Därför stöds endast 64-bitars SAP-program och databaser.
+### <a name="supported-os-and-database-releases"></a>Supported OS and Database Releases
+* Microsoft server software supported for Azure Virtual Machine Services is listed in this article: <https://support.microsoft.com/kb/2721672>.
+* Supported operating system releases, database system releases supported on Azure Virtual Machine Services in conjunction with SAP software are documented in SAP Note [1928533].
+* SAP applications and releases supported on Azure Virtual Machine Services are documented in SAP Note [1928533].
+* Only 64Bit images are supported to run as Guest VMs in Azure for SAP scenarios. As a result, only 64-bit SAP applications and databases are supported.
 
-## <a name="microsoft-azure-virtual-machine-services"></a>Microsoft Azure tjänster för virtuella datorer
-Microsoft Azures plattformen är en plattform för moln tjänster på Internet som är värd för och drivs i Microsoft Data Center. Plattformen innehåller Microsoft Azure virtuella dator tjänster (infrastruktur som en tjänst eller IaaS) och en uppsättning funktioner för att PaaS-funktioner (Platform as a Service).
+## <a name="microsoft-azure-virtual-machine-services"></a>Microsoft Azure Virtual Machine Services
+The Microsoft Azure platform is an internet-scale cloud services platform hosted and operated in Microsoft data centers. The platform includes the Microsoft Azure Virtual Machine Services (Infrastructure as a Service, or IaaS) and a set of rich Platform as a Service (PaaS) capabilities.
 
-Azure-plattformen minskar behovet av upp-front-teknik och infrastruktur inköp. Det fören klar underhåll och drift program genom att tillhandahålla beräknings-och lagrings utrymme på begäran för att vara värd för, skala och hantera webb program och anslutna program. Infrastruktur hantering automatiseras med en plattform som är utformad för hög tillgänglighet och dynamisk skalning för att matcha användnings behov med alternativet för en pris modell enligt principen betala per användning.
+The Azure platform reduces the need for up-front technology and infrastructure purchases. It simplifies maintaining and operating applications by providing on-demand compute and storage to host, scale, and manage web application and connected applications. Infrastructure management is automated with a platform that is designed for high availability and dynamic scaling to match usage needs with the option of a pay-as-you-go pricing model.
 
-![Placering av Microsoft Azure virtuella dator tjänster][planning-guide-figure-400]
+![Positioning of Microsoft Azure Virtual Machine Services][planning-guide-figure-400]
 
-Med Azure Virtual Machine-tjänster är det möjligt för Microsoft att distribuera anpassade Server avbildningar till Azure som IaaS-instanser (se bild 4). Virtual Machines i Azure baseras på virtuella Hyper-V-hårddiskar (VHD) och kan köra olika operativ system som gäst operativ system.
+With Azure Virtual Machine Services, Microsoft is enabling you to deploy custom server images to Azure as IaaS instances (see Figure 4). The Virtual Machines in Azure are based on Hyper-V virtual hard drives (VHD) and are able to run different operating systems as Guest OS.
 
-I ett drifts perspektiv erbjuder Azure Virtual Machine-tjänsten liknande upplevelser som virtuella datorer som distribueras lokalt. Det har dock stor nytta av att du inte behöver köpa, administrera och hantera infrastrukturen. Utvecklare och administratörer har fullständig kontroll över operativ system avbildningen på de här virtuella datorerna. Administratörer kan logga in via fjärr anslutning på de virtuella datorerna för att utföra underhålls-och fel söknings aktiviteter samt program distributions uppgifter. Vad gäller distribution är de enda begränsningarna storlekarna och funktionerna i virtuella Azure-datorer. Dessa storlekar kanske inte är lika detaljerade i konfigurationen eftersom det kan göras lokalt. Det finns ett urval av VM-typer som representerar en kombination av:
+From an operational perspective, the Azure Virtual Machine Service offers similar experiences as virtual machines deployed on premises. However, it has the significant advantage that you don't need to procure, administer, and manage the infrastructure. Developers and Administrators have full control of the operating system image within these virtual machines. Administrators can sign in remotely in to those virtual machines to perform maintenance and troubleshooting tasks as well as software deployment tasks. In regard to deployment, the only restrictions are the sizes and capabilities of Azure VMs. These sizes may not be as fine granular in configuration as it could be done on premises. There is a choice of VM types that represent a combination of:
 
-* Antal virtuella processorer
+* Number of vCPUs
 * Minne
-* Antal virtuella hård diskar som kan kopplas
-* Nätverks-och lagrings bandbredd
+* Number of VHDs that can be attached
+* Network and Storage bandwidths
 
-Storlek och begränsningar för olika storlekar på virtuella datorer som erbjuds kan visas i en tabell i [den här artikeln (Linux)][virtual-machines-sizes-linux] och [den här artikeln (Windows)][virtual-machines-sizes-windows].
+The size and limitations of various different virtual machines sizes offered can be seen in a table in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows].
 
-Det är inte alla olika VM-serier som erbjuds i var och en av Azure-regionerna (för Azure-regioner se nästa kapitel). Tänk också på att inte alla virtuella datorer eller VM-serier är certifierade för SAP.
+Not all different VM series might be offered in each one of the Azure Regions (for Azure Regions see next chapter). Also be aware that not all VMs or VM-Series are certified for SAP.
 
 > [!IMPORTANT]
-> För användning av SAP NetWeaver-baserade program stöds endast en delmängd av de VM-typer och konfigurationer som anges i SAP anmärkning [1928533] .
+> For the use of SAP NetWeaver based applications, only the subset of VM types and configurations listed in SAP Note [1928533] are supported.
 >
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
-Virtual Machines distribueras till så kallade *Azure-regioner*. En Azure-region kan vara en eller flera data Center som finns nära varandra. För de flesta regionerna i världen har Microsoft minst två Azure-regioner. I Europa finns det till exempel en Azure-region i *Nord Europa* och *en av Västeuropa*. Sådana två Azure-regioner i ett geografiskt politisk region skiljs åt med tillräckligt stort avstånd så att fysiska eller tekniska haveri effekter inte påverkar både Azure-regioner i samma geografiskt politisk region. Eftersom Microsoft ständigt skapar nya Azure-regioner i olika politiska regioner globalt, växer antalet regioner ständigt och från och med dec 2015 uppnås antalet 20 Azure-regioner med ytterligare regioner som redan har meddelats. Du som kund kan distribuera SAP-system i alla dessa regioner, inklusive de två Azure-regionerna i Kina. Aktuell information om Azure-regioner finns på följande webbplats:<https://azure.microsoft.com/regions/>
+Virtual Machines are deployed into so called *Azure Regions*. An Azure Region may be one or multiple data centers that are located in close proximity. For most of the geopolitical regions in the world, Microsoft has at least two Azure Regions. For example, in Europe there is an Azure Region of *North Europe* and one of *West Europe*. Such two Azure Regions within a geopolitical region are separated by significant enough distance so that natural or technical disasters do not affect both Azure Regions in the same geopolitical region. Since Microsoft is steadily building out new Azure Regions in different geopolitical regions globally, the number of these regions is steadily growing and as of Dec 2015 reached the number of 20 Azure Regions with additional Regions announced already. You as a customer can deploy SAP systems into all these regions, including the two Azure Regions in China. For current up-to-date information about Azure regions see this website: <https://azure.microsoft.com/regions/>
 
-### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Koncept för Microsoft Azure virtuell dator
-Microsoft Azure erbjuder en IaaS-lösning (Infrastructure as a Service) som fungerar som värd för Virtual Machines med liknande funktioner som en lokal virtualiseringslösning. Du kan skapa Virtual Machines inifrån Azure Portal, PowerShell eller CLI, som även erbjuder funktioner för distribution och hantering.
+### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>The Microsoft Azure Virtual Machine Concept
+Microsoft Azure offers an Infrastructure as a Service (IaaS) solution to host Virtual Machines with similar functionalities as an on-premises virtualization solution. You are able to create Virtual Machines from within the Azure portal, PowerShell or CLI, which also offer deployment and management capabilities.
 
-Med Azure Resource Manager kan du etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall för att distribuera programmet flera gånger under varje fas av programmets livs cykel.
+Med Azure Resource Manager kan du etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. You use the same template to repeatedly deploy your application during every stage of the application life cycle.
 
-Mer information om hur du använder Resource Manager-mallar finns här:
+More information about using Resource Manager templates can be found here:
 
-* [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager mallar och Azure CLI](../../linux/create-ssh-secured-vm-from-template.md)
-* [Hantera virtuella datorer med hjälp av Azure Resource Manager och PowerShell][virtual-machines-deploy-rmtemplates-powershell]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../linux/create-ssh-secured-vm-from-template.md)
+* [Manage virtual machines using Azure Resource Manager and PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://azure.microsoft.com/documentation/templates/>
 
-En annan intressant funktion är möjligheten att skapa bilder från Virtual Machines, vilket gör att du kan förbereda vissa databaser där du snabbt kan distribuera virtuella dator instanser som uppfyller dina krav.
+Another interesting feature is the ability to create images from Virtual Machines, which allows you to prepare certain repositories from which you are able to quickly deploy Virtual machine instances, which meet your requirements.
 
-Mer information om hur du skapar bilder från Virtual Machines finns i [den här artikeln (Linux)][virtual-machines-linux-capture-image-resource-manager] och [den här artikeln (Windows)][virtual-machines-windows-capture-image-resource-manager].
+More information about creating images from Virtual Machines can be found in [this article (Linux)][virtual-machines-linux-capture-image-resource-manager] and [this article (Windows)][virtual-machines-windows-capture-image-resource-manager].
 
-#### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Fel domäner
-Fel domäner representerar en fysisk felenhet, nära relaterad till den fysiska infrastrukturen i Data Center, medan ett fysiskt blad eller en rack kan betraktas som en feldomän, det finns ingen direkt mappning mellan de två.
+#### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Fault Domains
+Fault Domains represent a physical unit of failure, closely related to the physical infrastructure contained in data centers, and while a physical blade or rack can be considered a Fault Domain, there is no direct one-to-one mapping between the two.
 
-När du distribuerar flera Virtual Machines som en del av ett SAP-system i Microsoft Azure virtuella dator tjänster kan du påverka Azure Fabric Controller för att distribuera programmet till olika fel domäner, vilket uppfyller kraven i Microsoft Azure service avtal. Distributionen av fel domäner i en Azure-Scale-enhet (samling av hundratals datornoder eller lagringsnoder och nätverk) eller tilldelningen av virtuella datorer till en speciell fel domän är dock något som du inte har direkt kontroll över. För att dirigera Azure Fabric-styrenheten för att distribuera en uppsättning virtuella datorer över olika fel domäner måste du tilldela en Azure-tillgänglighets uppsättning till de virtuella datorerna vid distributions tillfället. Mer information om Azures tillgänglighets uppsättningar finns i kapitel [tillgänglighets uppsättningar för Azure][planning-guide-3.2.3] i det här dokumentet.
+When you deploy multiple Virtual Machines as part of one SAP system in Microsoft Azure Virtual Machine Services, you can influence the Azure Fabric Controller to deploy your application into different Fault Domains, thereby meeting the requirements of the Microsoft Azure SLA. However, the distribution of Fault Domains over an Azure Scale Unit (collection of hundreds of Compute nodes or Storage nodes and networking) or the assignment of VMs to a specific Fault Domain is something over which you do not have direct control. In order to direct the Azure fabric controller to deploy a set of VMs over different Fault Domains, you need to assign an Azure Availability Set to the VMs at deployment time. For more information on Azure Availability Sets, see chapter [Azure Availability Sets][planning-guide-3.2.3] in this document.
 
-#### <a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Uppgradera domäner
-Uppgraderings domäner representerar en logisk enhet som hjälper till att fastställa hur en virtuell dator i ett SAP-system, som består av SAP-instanser som körs i flera virtuella datorer, uppdateras. Vid en uppgradering går Microsoft Azure igenom processen med att uppdatera uppgraderings domänerna en i taget. Genom att sprida virtuella datorer vid distributions tiden över olika uppgraderings domäner kan du skydda ditt SAP-system delvis från potentiella stillestånds tider. För att Azure ska kunna distribuera de virtuella datorerna i ett SAP-system sprids över olika uppgraderings domäner måste du ange ett särskilt attribut vid distributions tiden för varje virtuell dator. På liknande sätt som fel domäner är en Azure Scale Unit uppdelad i flera uppgraderings domäner. För att dirigera Azure Fabric-styrenheten för att distribuera en uppsättning virtuella datorer över olika uppgraderings domäner måste du tilldela en Azure-tillgänglighets uppsättning till de virtuella datorerna vid distributions tillfället. Mer information om Azures tillgänglighets uppsättningar finns i kapitel [tillgänglighets uppsättningar för Azure][planning-guide-3.2.3] nedan.
+#### <a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Upgrade Domains
+Upgrade Domains represent a logical unit that helps to determine how a VM within an SAP system, that consists of SAP instances running in multiple VMs, is updated. When an upgrade occurs, Microsoft Azure goes through the process of updating these Upgrade Domains one by one. By spreading VMs at deployment time over different Upgrade Domains, you can protect your SAP system partly from potential downtime. In order to force Azure to deploy the VMs of an SAP system spread over different Upgrade Domains, you need to set a specific attribute at deployment time of each VM. Similar to Fault Domains, an Azure Scale Unit is divided into multiple Upgrade Domains. In order to direct the Azure fabric controller to deploy a set of VMs over different Upgrade Domains, you need to assign an Azure Availability Set to the VMs at deployment time. For more information on Azure Availability Sets, see chapter [Azure Availability Sets][planning-guide-3.2.3] below.
 
-#### <a name="18810088-f9be-4c97-958a-27996255c665"></a>Tillgänglighets uppsättningar i Azure
-Azure-Virtual Machines inom en Azure-tillgänglighets uppsättning distribueras av Azure Fabric Controller över olika fel-och uppgraderings domäner. Syftet med distributionen över olika fel-och uppgraderings domäner är att förhindra att alla virtuella datorer i SAP-system stängs vid infrastruktur underhåll eller fel i en fel domän. Som standard ingår inte virtuella datorer i en tillgänglighets uppsättning. Deltagande av en virtuell dator i en tillgänglighets uppsättning definieras vid distributions tillfället eller senare av en omkonfiguration och omdistribution av en virtuell dator.
+#### <a name="18810088-f9be-4c97-958a-27996255c665"></a>Azure Availability Sets
+Azure Virtual Machines within one Azure Availability Set are distributed by the Azure Fabric Controller over different Fault and Upgrade Domains. The purpose of the distribution over different Fault and Upgrade Domains is to prevent all VMs of an SAP system from being shut down in the case of infrastructure maintenance or a failure within one Fault Domain. By default, VMs are not part of an Availability Set. The participation of a VM in an Availability Set is defined at deployment time or later on by a reconfiguration and redeployment of a VM.
 
-Läs [den här artikeln][virtual-machines-manage-availability] för att förstå konceptet med tillgänglighets uppsättningar i Azure och hur tillgänglighets uppsättningar relaterar till fel-och uppgraderings domäner
+To understand the concept of Azure Availability Sets and the way Availability Sets relate to Fault and Upgrade Domains, read [this article][virtual-machines-manage-availability]
 
-Om du vill definiera tillgänglighets uppsättningar för Azure Resource Manager via en JSON-mall, se [specifikationerna för REST-API](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) och Sök efter "tillgänglighet".
+To define availability sets for Azure Resource Manager via a json template, see [the rest-api specs](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) and search for "availability".
 
-### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Lagrings Microsoft Azure Storage och data diskar
-Microsoft Azure Virtual Machines använder olika lagrings typer. När du implementerar SAP på Azure Virtual Machine-tjänster är det viktigt att förstå skillnaderna mellan dessa två huvud typer av lagring:
+### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Storage: Microsoft Azure Storage and Data Disks
+Microsoft Azure Virtual Machines utilize different storage types. When implementing SAP on Azure Virtual Machine Services, it is important to understand the differences between these two main types of storage:
 
-* Icke-beständig, flyktig lagring.
-* Beständig lagring.
+* Non-Persistent, volatile storage.
+* Persistent storage.
 
-Virtuella Azure-datorer erbjuder icke-beständiga diskar när en virtuell dator har distribuerats. I händelse av en VM-omstart rensas allt innehåll på dessa enheter. Därför är det en förutsättning att datafiler och logg-/återställnings fil för databaser inte bör finnas på de icke-beständiga enheterna. Det kan finnas undantag för vissa databaser, där dessa icke-beständiga enheter kan vara lämpliga för tempdb och temporära tabell utrymmen. Undvik dock att använda enheterna för virtuella datorer i A-serien eftersom dessa icke-sparade enheter är begränsade i data flöde med den virtuella dator serien. Mer information finns i artikeln [förstå den tillfälliga enheten på virtuella Windows-datorer i Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reboot, all content on those drives will be wiped out. Hence, it is a given that data files and log/redo files of databases should under no circumstances be located on those non-persisted drives. There might be exceptions for some of the databases, where these non-persisted drives could be suitable for tempdb and temp tablespaces. However, avoid using those drives for A-Series VMs since those non-persisted drives are limited in throughput with that VM family. For further details, read the article [Understanding the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ---
 > ![Windows][Logo_Windows] Windows
 > 
-> Enhets D:\ i en virtuell Azure-dator är en icke beständig enhet som backas upp av vissa lokala diskar på Azure Compute-noden. Eftersom den inte är beständig innebär det att alla ändringar som görs i innehållet på D:\ enheten förloras när den virtuella datorn startas om. Efter "alla ändringar", t. ex. filer lagrade, kataloger som skapats, program som installerats osv.
+> Drive D:\ in an Azure VM is a non-persisted drive, which is backed by some local disks on the Azure compute node. Because it is non-persisted, this means that any changes made to the content on the D:\ drive is lost when the VM is rebooted. By "any changes",  like files stored, directories created, applications installed, etc.
 > 
 > ![Linux][Logo_Linux] Linux
 > 
-> Virtuella Linux Azure-datorer monterar automatiskt en enhet på/mnt/Resource som är en icke beständig enhet som backas upp av lokala diskar på Azure Compute-noden. Eftersom den är icke-beständig innebär det att alla ändringar som görs i innehållet i/mnt/Resource förloras när den virtuella datorn startas om. Ändringar, t. ex. filer lagrade, kataloger som skapats, program som installerats osv.
+> Linux Azure VMs automatically mount a drive at /mnt/resource that is a non-persisted drive backed by local disks on the Azure compute node. Because it is non-persisted, this means that any changes made to content in /mnt/resource are lost when the VM is rebooted. By any changes, like files stored, directories created, applications installed, etc.
 > 
 > 
 
 ---
 
-Microsoft Azure Storage tillhandahåller beständig lagring och de typiska skydds nivåer och redundans som visas på SAN-lagring. Diskar som baseras på Azure Storage är virtuella hård diskar (VHD: er) som finns i Azure Storage-tjänsterna. Den lokala OS-disken (Windows C:\, Linux-/dev/sda1) lagras på Azure Storage och ytterligare volymer/diskar som monteras på den virtuella datorn lagras även där.
+Microsoft Azure Storage provides persisted storage and the typical levels of protection and redundancy seen on SAN storage. Disks based on Azure Storage are virtual hard disk (VHDs) located in the Azure Storage Services. The local OS-Disk (Windows C:\, Linux /dev/sda1) is stored on the Azure Storage, and additional Volumes/Disks mounted to the VM get stored there, too.
 
-Det går att ladda upp en befintlig virtuell hård disk lokalt eller skapa en tom virtuell hård disk i Azure och koppla dem till distribuerade virtuella datorer.
+It is possible to upload an existing VHD from on-premises or create empty ones from within Azure and attach those to deployed VMs.
 
-När du har skapat eller laddat upp en virtuell hård disk i Azure Storage kan du montera och koppla dem till en befintlig virtuell dator och kopiera befintliga (demonterade) VHD.
+After creating or uploading a VHD into Azure Storage, it is possible to mount and attach those to an existing Virtual Machine and to copy existing (unmounted) VHD.
 
-Eftersom de virtuella hård diskarna är bestående, är data och ändringar i dem säkra när de startar om och återskapar en virtuell dator instans. Även om en instans tas bort förblir de här virtuella hård diskarna säkra och kan distribueras om, eller om det går att montera icke-OS-diskar på andra virtuella datorer.
+As those VHDs are persisted, data and changes within those are safe when rebooting and recreating a Virtual Machine instance. Even if an instance is deleted, these VHDs stay safe and can be redeployed or in case of non-OS disks can be mounted to other VMs.
 
-Mer information om Azure Storage hittar du här:
+More information about Azure Storage can be found here:
 
 * <https://azure.microsoft.com/documentation/services/storage/>
 * <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
-#### <a name="azure-standard-storage"></a>Azure standard Storage
-Azure standard Storage var den typ av lagring som är tillgänglig när Azure-IaaS släpptes. Det gällde IOPS-kvoter per enskild disk. Svars tiden upplevde inte i samma klass som SAN/NAS-enheter som vanligt vis har distribuerats för avancerade SAP-system som finns lokalt. Azure standard-lagring visat sig vara tillräckligt för många hundratals SAP-system under tiden som distribuerats i Azure.
+#### <a name="azure-standard-storage"></a>Azure Standard Storage
+Azure Standard storage was the type of storage available when Azure IaaS was released. There were IOPS quotas enforced per single disk. Latency experienced was not in the same class as SAN/NAS devices typically deployed for high-end SAP systems hosted on-premises. Nevertheless, the Azure Standard Storage proved sufficient for many hundreds SAP systems meanwhile deployed in Azure.
 
-Diskar som lagras på Azures standard lagrings konton debiteras baserat på faktiska data som lagras, volymen lagrings transaktioner, utgående data överföringar och alternativ för redundans som valts. Många diskar kan skapas med maximalt 1 TB storlek, men om de inte är tomma är det ingen kostnad. Om du sedan fyller en virtuell hård disk med 100 GB, debiteras du för lagring av 100 GB och inte för den nominella storlek som den virtuella hård disken skapades med.
+Disks that are stored on Azure Standard Storage Accounts are charged based on the actual data that is stored, the volume of storage transactions, outbound data transfers, and redundancy option chosen. Many disks can be created at the maximum 1TB in size, but as long as those remain empty there is no charge. If you then fill one VHD with 100GB each, you are charged for storing 100GB and not for the nominal size the VHD got created with.
 
 #### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
-Azure Premium Storage lanserades med målet att tillhandahålla:
+Azure Premium Storage got introduced with the goal to provide:
 
-* Bättre I/O-latens.
-* Bättre data flöde.
-* Mindre variation i i/O-latens.
+* Better I/O latency.
+* Better throughput.
+* Less variability in I/O latency.
 
-I detta syfte har många ändringar införts och vilka de två viktigaste är:
+For that purpose, many changes were introduced of which the two most significant are:
 
-* Användning av SSD-diskar i Azure Storage noder
-* En ny Read cache som backas upp av den lokala SSD-noden i en Azure-datornod
+* Usage of SSD disks in the Azure Storage nodes
+* A new read cache that is backed by the local SSD of an Azure compute node
 
-I motsats till standard lagring där funktionerna inte ändrades beroende på storleken på disken (eller VHD) har Premium Storage för närvarande tre olika disk kategorier, som visas i den här artikeln:<https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/>
+In opposite to Standard storage where capabilities did not change dependent on the size of the disk (or VHD), Premium Storage currently has three different disk categories, which are shown in this article: <https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/>
 
-Du ser att IOPS/disk och disk data flöde/disk är beroende av storleks kategorin för diskarna
+You see that IOPS/disk and disk throughput/disk are dependent on the size category of the disks
 
-Kostnads grund för Premium Storage är inte den faktiska data volym som lagras på sådana diskar, men storleks kategorin för en sådan disk, oberoende av mängden data som lagras på disken.
+Cost basis in the case of Premium Storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk.
 
-Du kan också skapa diskar på Premium Storage som inte är direkt mappar till de storleks kategorier som visas. Detta kan vara fallet, särskilt när du kopierar diskar från standard lagring till Premium Storage. I sådana fall utförs en mappning till nästa största Premium Storage disk alternativ.
+You also can create disks on Premium Storage that are not directly mapping into the size categories shown. This may be the case, especially when copying disks from Standard Storage into Premium Storage. In such cases a mapping to the next largest Premium Storage disk option is performed.
 
-De flesta Azure VM-familjer som certifierats med SAP kan arbeta med Premium Storage och eller en blandning mellan Azure standard och Premium Storage.
+Most of the Azure VM families certified with SAP are able to work with Premium Storage and or a mixture between Azure standard and Premium Storage.
 
-Om du checkar ut delen i VM-seriens virtuella datorer i [den här artikeln (Linux)][virtual-machines-sizes-linux] och [den här artikeln (Windows)][virtual-machines-sizes-windows]inser du att det finns data volym begränsningar för Premium Storage diskar på VM-nivåns kornig het. Andra virtuella datorer i DS-serien eller GS-serien har också olika begränsningar avseende antalet data diskar som kan monteras. Dessa gränser beskrivs också i den artikel som nämns ovan. Men i grunden innebär det att om du t. ex. monterar 32 x P30-diskar till en enskild DS14 VM kan du inte få 32 x maximalt data flöde för en P30-disk. I stället begränsas det maximala data flödet på VM-nivå enligt beskrivningen i artikeln.
+If you are checking out the part of the DS-series VMs in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows], you realize that there are data volume limitations to Premium Storage disks on the granularity of the VM level. Different DS-series or GS-series VMs also have different limitations in regards to the number of data disks that can be mounted. These limits are documented in the article mentioned above as well. But in essence it means that if you, for example, mount 32 x P30 disks to a single DS14 VM you can NOT get 32 x the maximum throughput of a P30 disk. Instead the maximum throughput on VM level as documented in the article limits data throughput.
 
-Mer information om Premium Storage hittar du här:<https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
+More information on Premium Storage can be found here: <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
 #### <a name="azure-storage-accounts"></a>Azure Storage-konton
 
-När du distribuerar tjänster eller virtuella datorer i Azure kan distribution av virtuella hård diskar och VM-avbildningar ordnas i enheter som kallas Azure Storage-konton. När du planerar en Azure-distribution måste du noggrant överväga begränsningarna i Azure. På den ena sidan finns det ett begränsat antal lagrings konton per Azure-prenumeration. Även om varje Azure Storage konto kan innehålla ett stort antal VHD-filer, finns det en fast gräns för det totala antalet IOPS per lagrings konto. När du distribuerar hundratals virtuella SAP-datorer med DBMS-system som skapar betydande IO-anrop, rekommenderar vi att du distribuerar virtuella IOPS-DBMS virtuella datorer mellan flera Azure Storage-konton. Vård måste inte överskrida den aktuella gränsen för Azure Storage konton per prenumeration. Eftersom lagring är en viktig del av databas distributionen för ett SAP-system, diskuteras det här konceptet i detalj i den redan refererade [DBMS-distributions guiden][dbms-guide].
+When deploying services or VMs in Azure, deployment of VHDs and VM Images can be organized in units called Azure Storage Accounts. When planning an Azure deployment, you need to carefully consider the restrictions of Azure. On the one side, there is a limited number of Storage Accounts per Azure subscription. Although each Azure Storage Account can hold a large number of VHD files, there is a fixed limit on the total IOPS per Storage Account. When deploying hundreds of SAP VMs with DBMS systems creating significant IO calls, it is recommended to distribute high IOPS DBMS VMs between multiple Azure Storage Accounts. Care must be taken not to exceed the current limit of Azure Storage Accounts per subscription. Because storage is a vital part of the database deployment for an SAP system, this concept is discussed in more detail in the already referenced [DBMS Deployment Guide][dbms-guide].
 
-Mer information om Azure Storage-konton finns i [den här artikeln][storage-scalability-targets]. Genom att läsa den här artikeln inser du att det finns skillnader i begränsningarna mellan Azure standard Storage-konton och Premium Storage-konton. Större skillnader är mängden data som kan lagras i ett sådant lagrings konto. I standard lagring är volymen en större storlek än med Premium Storage. På den andra sidan är standard lagrings kontot i hög grad begränsat i IOPS (se kolumn **Total begär ande frekvens**), medan Azure Premium Storage-kontot inte har någon sådan begränsning. Vi kommer att diskutera information och resultat av dessa skillnader när du diskuterar distributioner av SAP-system, särskilt DBMS-servrarna.
+More information about Azure Storage Accounts can be found in [this article][storage-scalability-targets]. Reading this article, you realize that there are differences in the limitations between Azure Standard Storage Accounts and Premium Storage Accounts. Major differences are the volume of data that can be stored within such a Storage Account. In Standard Storage the volume is a magnitude larger than with Premium Storage. On the other side, the Standard Storage Account is severely limited in IOPS (see column **Total Request Rate**), whereas the Azure Premium Storage Account has no such limitation. We will discuss details and results of these differences when discussing the deployments of SAP systems, especially the DBMS servers.
 
-Inom ett lagrings konto har du möjlighet att skapa olika behållare i syfte att organisera och kategorisera olika virtuella hård diskar. Dessa behållare används till exempel separata virtuella hård diskar för olika virtuella datorer. Det finns inga prestanda konsekvenser i att bara använda en behållare eller flera behållare under ett enda Azure Storage konto.
+Within a Storage Account, you have the possibility to create different containers for the purpose of organizing and categorizing different VHDs. These containers are used to, for example, separate VHDs of different VMs. There are no performance implications in using just one container or multiple containers underneath a single Azure Storage Account.
 
-I Azure visas ett VHD-namn efter följande namn anslutning som måste ange ett unikt namn för den virtuella hård disken i Azure:
+Within Azure a VHD name follows the following naming connection that needs to provide a unique name for the VHD within Azure:
 
     http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
 
-Strängen ovan måste vara unikt identifiera den virtuella hård disk som lagras på Azure Storage.
+The string above needs to uniquely identify the VHD that is stored on Azure Storage.
 
 #### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
 
-Managed Disks är en ny resurs typ i Azure Resource Manager som kan användas i stället för virtuella hård diskar som lagras i Azure Storage konton. Managed Disks automatiskt justeras mot tillgänglighets uppsättningen för den virtuella datorn som de är kopplade till och därför ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den virtuella datorn. Mer information finns i [översikts artikeln](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the Availability Set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 
-Vi rekommenderar att du använder hanterad disk, eftersom de fören klar distributionen och hanteringen av dina virtuella datorer.
-SAP stöder för närvarande endast Premium Managed Disks. Mer information finns i SAP NOTE [1928533].
+We recommend to you use Managed disk, because they simplify the deployment and management of your virtual machines.
+SAP currently only supports Premium Managed Disks. For more information, read SAP Note [1928533].
 
-#### <a name="microsoft-azure-storage-resiliency"></a>Microsoft Azure Storage återhämtning
+#### <a name="microsoft-azure-storage-resiliency"></a>Microsoft Azure Storage resiliency
 
-Microsoft Azure Storage lagrar den grundläggande virtuella hård disken (med OS) och anslutna diskar eller BLOBBAR på minst tre separata lagringsnoder. Detta faktum kallas lokalt redundant lagring (LRS). LRS är standard för alla typer av lagring i Azure. 
+Microsoft Azure Storage stores the base VHD (with OS) and attached disks or BLOBs on at least three separate storage nodes. This fact is called Local Redundant Storage (LRS). LRS is default for all types of storage in Azure. 
 
-Det finns flera olika typer av redundans, som beskrivs i artikeln [Azure Storage replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
-
-> [!NOTE]
->Från och med Azure Premium Storage, vilket är den rekommenderade typen av lagring för virtuella DBMS-datorer och diskar som lagrar databas-och logg-/återskapa-filer, är den enda tillgängliga metoden LRS. Därför måste du konfigurera databas metoder, t. ex. SQL Server Always on, Oracle data Guard eller HANA-systemreplikering för att aktivera databasreplikering till en annan Azure-region eller en annan Azure-tillgänglighets zon.
-
+There are several more redundancy methods, which are all described in the article [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 > [!NOTE]
-> För DBMS-distributioner rekommenderas inte användningen av Geo-redundant lagring som tillgänglig med Azure standard Storage eftersom den har allvarlig prestanda påverkan och inte besvarar Skriv ordningen mellan olika virtuella hård diskar som är anslutna till en virtuell dator. Det faktum att det inte går att använda Skriv ordningen mellan olika virtuella hård diskar är en hög potential för att få fram inkonsekventa databaser på replikerings sidan om databasen och logg/gör om filer sprids över flera virtuella hård diskar (så ofta fallet) på den virtuella käll datorn.
+>As of Azure Premium Storage, which is the recommended type of storage for DBMS VMs and disks that store database and log/redo files, the only available method is LRS. As a result, you need to configure database methods, like SQL Server Always On, Oracle Data Guard or HANA System Replication to enable database data replication into another Azure Region or another Azure Availability Zone.
 
 
-### <a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure nätverk
+> [!NOTE]
+> For DBMS deployments, the usage of Geo Redundant Storage as available with Azure Standard Storage is not recommended since it has severe performance impact and does not honor the write order across different VHDs that are attached to a VM. The fact of not honoring the write order across different VHDs bears a high potential to end up in inconsistent databases on the replication target side if database and log/redo files are spread across multiple VHDs (as mostly the case) on the source VM side.
 
-Microsoft Azure tillhandahåller en nätverks infrastruktur som tillåter mappning av alla scenarier, som vi vill realisera med SAP-programvara. Funktionerna är:
 
-* Åtkomst från utsidan, direkt till de virtuella datorerna via Windows Terminal Services eller SSH/VNC
-* Åtkomst till tjänster och vissa portar som används av program i de virtuella datorerna
-* Intern kommunikation och namn matchning mellan en grupp virtuella datorer som distribueras som virtuella Azure-datorer
-* Anslutning mellan olika platser mellan en kunds lokala nätverk och Azure-nätverket
-* Mellan Azure-region eller data Center anslutning mellan Azure-platser
+### <a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure Networking
+
+Microsoft Azure provides a network infrastructure, which allows the mapping of all scenarios, which we want to realize with SAP software. The capabilities are:
+
+* Access from the outside, directly to the VMs via Windows Terminal Services or ssh/VNC
+* Access to services and specific ports used by applications within the VMs
+* Internal Communication and Name Resolution between a group of VMs deployed as Azure VMs
+* Cross-premises Connectivity between a customer's on-premises network and the Azure network
+* Cross Azure Region or data center connectivity between Azure sites
 
 Mer information finns här: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
-Det finns många olika möjligheter att konfigurera namn och IP-matchning i Azure. Det finns också en Azure DNS tjänst som kan användas i stället för att konfigurera en egen DNS-server. Mer information finns i [den här artikeln][virtual-networks-manage-dns-in-vnet] och på [den här sidan](https://azure.microsoft.com/services/dns/).
+There are many different possibilities to configure name and IP resolution in Azure. There is also an Azure DNS service, which can be used instead of setting up your own DNS server. More information can be found in [this article][virtual-networks-manage-dns-in-vnet] and on [this page](https://azure.microsoft.com/services/dns/).
 
-För Cross-premises-eller hybrid scenarier förlitar vi sig på att den lokala AD/OpenLDAP/DNS har utökats via VPN eller privat anslutning till Azure. För vissa scenarier som dokumenteras här kan det vara nödvändigt att ha en AD-OpenLDAP-replik installerad i Azure.
+For cross-premises or hybrid scenarios, we are relying on the fact that the on-premises AD/OpenLDAP/DNS has been extended via VPN or private connection to Azure. For certain scenarios as documented here, it might be necessary to have an AD/OpenLDAP replica installed in Azure.
 
-Eftersom nätverk och namn matchning är en viktig del av databas distributionen för ett SAP-system, diskuteras det här konceptet mer detaljerat i [distributions guiden för DBMS][dbms-guide].
+Because networking and name resolution is a vital part of the database deployment for an SAP system, this concept is discussed in more detail in the [DBMS Deployment Guide][dbms-guide].
 
 ##### <a name="azure-virtual-networks"></a>Azure Virtual Networks
 
-Genom att skapa en Azure-Virtual Network kan du definiera adress intervallet för de privata IP-adresser som allokerats av Azure DHCP-funktioner. I scenarier med flera platser allokeras det angivna IP-adressintervallet fortfarande med hjälp av DHCP av Azure. Domän namns matchning görs dock lokalt (förutsatt att de virtuella datorerna är en del av en lokal domän) och därmed kan matcha adresser bortom olika Azure-Cloud Services.
+By building up an Azure Virtual Network, you can define the address range of the private IP addresses allocated by Azure DHCP functionality. In cross-premises scenarios, the IP address range defined is still allocated using DHCP by Azure. However, Domain Name resolution is done on-premises (assuming that the VMs are a part of an on-premises domain) and hence can resolve addresses beyond different Azure Cloud Services.
 
-Varje virtuell dator i Azure måste vara ansluten till en Virtual Network.
+Every Virtual Machine in Azure needs to be connected to a Virtual Network.
 
-Mer information hittar du i [den här artikeln][resource-groups-networking] och på [den här sidan](https://azure.microsoft.com/documentation/services/virtual-network/).
+More details can be found in [this article][resource-groups-networking] and on [this page](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-
-> [!NOTE]
-> När en virtuell dator har distribuerats kan du som standard inte ändra Virtual Network-konfigurationen. TCP/IP-inställningarna måste vara kvar på Azure DHCP-servern. Standard beteendet är dynamisk IP-tilldelning.
->
->
-
-MAC-adressen för det virtuella nätverkskortet kan ändras, till exempel efter storleks ändring och Windows-eller Linux-gästen hämtar det nya nätverkskortet och automatiskt använder DHCP för att tilldela IP-och DNS-adresser i det här fallet.
-
-##### <a name="static-ip-assignment"></a>Statisk IP-tilldelning
-Det är möjligt att tilldela fasta eller reserverade IP-adresser till virtuella datorer i ett Azure-Virtual Network. Om du kör de virtuella datorerna i ett Azure-Virtual Network öppnas en bra möjlighet att använda den här funktionen om det behövs eller krävs för vissa scenarier. IP-tilldelningen är giltig för hela den virtuella datorn, oberoende av om den virtuella datorn körs eller stängs av. Därför måste du ange det totala antalet virtuella datorer (som kör och stoppade virtuella datorer) i kontot när du definierar intervallet för IP-adresser för Virtual Network. IP-adressen är tilldelad antingen tills den virtuella datorn och dess nätverks gränssnitt tas bort eller tills IP-adressen tilldelas på nytt. Mer information finns i [den här artikeln][virtual-networks-static-private-ip-arm-pportal].
 
 > [!NOTE]
-> Du bör tilldela statiska IP-adresser via Azure till enskilda virtuella nätverkskort. Du bör inte tilldela statiska IP-adresser i gäst operativ systemet till en vNIC. Vissa Azure-tjänster som Azure Backup-tjänsten är beroende av att minst primär vNIC är inställd på DHCP och inte statiska IP-adresser. Se även dokumentet [Felsöka säkerhets kopiering av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking).
+> By default, once a VM is deployed you cannot change the Virtual Network configuration. The TCP/IP settings must be left to the Azure DHCP server. Default behavior is Dynamic IP assignment.
 >
 >
 
-##### <a name="multiple-nics-per-vm"></a>Flera nätverkskort per virtuell dator
+The MAC address of the virtual network card may change, for example after resize and the Windows or Linux guest OS picks up the new network card and automatically uses DHCP to assign the IP and DNS addresses in this case.
 
-Du kan definiera flera virtuella nätverks gränssnitts kort (vNIC) för en virtuell Azure-dator. Med möjligheten att ha flera virtuella nätverkskort kan du börja konfigurera nätverks trafik separation där exempelvis klient trafik dirigeras genom en vNIC och Server dels trafik dirigeras genom en andra vNIC. Beroende av vilken typ av virtuell dator det finns olika begränsningar avseende antalet virtuella nätverkskort. Detaljerad information, funktioner och begränsningar finns i följande artiklar:
+##### <a name="static-ip-assignment"></a>Static IP Assignment
+It is possible to assign fixed or reserved IP addresses to VMs within an Azure Virtual Network. Running the VMs in an Azure Virtual Network opens a great possibility to leverage this functionality if needed or required for some scenarios. The IP assignment remains valid throughout the existence of the VM, independent of whether the VM is running or shutdown. As a result, you need to take the overall number of VMs (running and stopped VMs) into account when defining the range of IP addresses for the Virtual Network. The IP address remains assigned either until the VM and its Network Interface is deleted or until the IP address gets de-assigned again. For more information, read [this article][virtual-networks-static-private-ip-arm-pportal].
 
-* [Skapa en virtuell Windows-dator med flera nätverkskort][virtual-networks-multiple-nics-windows]
-* [Skapa en virtuell Linux-dator med flera nätverkskort][virtual-networks-multiple-nics-linux]
-* [Distribuera virtuella datorer med flera nätverkskort med en mall][virtual-network-deploy-multinic-arm-template]
-* [Distribuera virtuella datorer med flera nätverkskort med hjälp av PowerShell][virtual-network-deploy-multinic-arm-ps]
-* [Distribuera virtuella datorer med flera nätverkskort med hjälp av Azure CLI][virtual-network-deploy-multinic-arm-cli]
+> [!NOTE]
+> You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking).
+>
+>
 
-#### <a name="site-to-site-connectivity"></a>Plats-till-plats-anslutning
+##### <a name="multiple-nics-per-vm"></a>Multiple NICs per VM
 
-Virtuella Azure-datorer och lokala nätverk är länkade till en transparent och permanent VPN-anslutning. Det förväntas bli det vanligaste distributions mönstret för SAP i Azure. Antagande är att operativa procedurer och processer med SAP-instanser i Azure bör fungera transparent. Det innebär att du bör kunna skriva ut från dessa system samt använda SAP transport Management system (TMS) för att transportera ändringar från ett utvecklings system i Azure till ett test system som distribueras lokalt. Mer dokumentation kring plats-till-plats finns i [den här artikeln][vpn-gateway-create-site-to-site-rm-powershell]
+You can define multiple virtual network interface cards (vNIC) for an Azure Virtual Machine. With the ability to have multiple vNICs you can start to set up network traffic separation where, for example, client traffic is routed through one vNIC and backend traffic is routed through a second vNIC. Dependent on the type of VM there are different limitations in regards to the number of vNICs. Exact details, functionality, and restrictions can be found in these articles:
 
-##### <a name="vpn-tunnel-device"></a>VPN-tunnel enhet
+* [Create a Windows VM with multiple NICs][virtual-networks-multiple-nics-windows]
+* [Create a Linux VM with multiple NICs][virtual-networks-multiple-nics-linux]
+* [Deploy multi NIC VMs using a template][virtual-network-deploy-multinic-arm-template]
+* [Deploy multi NIC VMs using PowerShell][virtual-network-deploy-multinic-arm-ps]
+* [Deploy multi NIC VMs using the Azure CLI][virtual-network-deploy-multinic-arm-cli]
 
-För att skapa en plats-till-plats-anslutning (lokalt Data Center till Azure Data Center) måste du antingen hämta och konfigurera en VPN-enhet eller använda tjänsten Routning och fjärråtkomst (RRAS) som introducerades som en program varu komponent med Windows Server 2012.
+#### <a name="site-to-site-connectivity"></a>Site-to-Site Connectivity
 
-* [Skapa ett virtuellt nätverk med en plats-till-plats-VPN-anslutning med PowerShell][vpn-gateway-create-site-to-site-rm-powershell]
+Cross-premises is Azure VMs and On-Premises linked with a transparent and permanent VPN connection. It is expected to become the most common SAP deployment pattern in Azure. The assumption is that operational procedures and processes with SAP instances in Azure should work transparently. This means you should be able to print out of these systems as well as use the SAP Transport Management System (TMS) to transport changes from a development system in Azure to a test system, which is deployed on-premises. More documentation around site-to-site can be found in [this article][vpn-gateway-create-site-to-site-rm-powershell]
+
+##### <a name="vpn-tunnel-device"></a>VPN Tunnel Device
+
+In order to create a site-to-site connection (on-premises data center to Azure data center), you need to either obtain and configure a VPN device, or use Routing and Remote Access Service (RRAS) which was introduced as a software component with Windows Server 2012.
+
+* [Create a virtual network with a site-to-site VPN connection using PowerShell][vpn-gateway-create-site-to-site-rm-powershell]
 * [Om VPN-enheter för plats-till-plats-VPN Gateway-anslutningar][vpn-gateway-about-vpn-devices]
 * [Vanliga frågor och svar om VPN Gateway][vpn-gateway-vpn-faq]
 
-![Plats-till-plats-anslutning mellan lokala platser och Azure][planning-guide-figure-600]
+![Site-to-site connection between on-premises and Azure][planning-guide-figure-600]
 
-Bilden ovan visar två Azure-prenumerationer som har reserverade IP-adresser för användning i virtuella nätverk i Azure. Anslutningen från det lokala nätverket till Azure upprättas via VPN.
+The Figure above shows two Azure subscriptions have IP address subranges reserved for usage in Virtual Networks in Azure. The connectivity from the on-premises network to Azure is established via VPN.
 
-#### <a name="point-to-site-vpn"></a>Punkt-till-plats-VPN
+#### <a name="point-to-site-vpn"></a>Point-to-Site VPN
 
-Punkt-till-plats-VPN kräver att varje klient dator ansluter med sin egen VPN till Azure. För SAP-scenarier tittar vi på, punkt-till-plats-anslutning är inte praktiskt. Därför ges inga ytterligare referenser till punkt-till-plats-VPN-anslutning.
+Point-to-site VPN requires every client machine to connect with its own VPN into Azure. For the SAP scenarios, we are looking at, point-to-site connectivity is not practical. Therefore, no further references are given to point-to-site VPN connectivity.
 
-Mer information hittar du här
+More information can be found here
 * [Konfigurera en punkt-till-plats-anslutning till ett VNet med Azure-portalen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 * [Konfigurera en punkt-till-plats-anslutning till ett VNet med PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
-#### <a name="multi-site-vpn"></a>VPN för flera platser
+#### <a name="multi-site-vpn"></a>Multi-Site VPN
 
-Azure nuförtiden erbjuder också möjligheten att skapa VPN-anslutningar på flera platser för en Azure-prenumeration. Tidigare var en enskild prenumeration begränsad till en plats-till-plats-VPN-anslutning. Den här begränsningen gick bort med VPN-anslutningar på flera platser för en enda prenumeration. Detta gör det möjligt att använda mer än en Azure-region för en speciell prenumeration genom konfigurationer med flera platser.
+Azure also nowadays offers the possibility to create Multi-Site VPN connectivity for one Azure subscription. Previously a single subscription was limited to one site-to-site VPN connection. This limitation went away with Multi-Site VPN connections for a single subscription. This makes it possible to leverage more than one Azure Region for a specific subscription through cross-premises configurations.
 
-Mer dokumentation finns i [den här artikeln][vpn-gateway-create-site-to-site-rm-powershell]
+For more documentation, see [this article][vpn-gateway-create-site-to-site-rm-powershell]
 
-#### <a name="vnet-to-vnet-connection"></a>VNet-till-VNet-anslutning
+#### <a name="vnet-to-vnet-connection"></a>VNet to VNet Connection
 
-Med VPN för flera platser måste du konfigurera en separat Azure-Virtual Network i varje region. Du har dock ofta kravet att program komponenterna i de olika regionerna ska kommunicera med varandra. Vi rekommenderar att denna kommunikation inte vidarebefordras från en Azure-region till en lokal plats och därifrån till den andra Azure-regionen. Azure ger dig möjlighet att konfigurera en anslutning från en Azure-Virtual Network i en region till en annan Azure-Virtual Network som finns i en annan region. Den här funktionen kallas VNet-till-VNet-anslutning. Du hittar mer information om den här funktionen här: <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
+Using Multi-Site VPN, you need to configure a separate Azure Virtual Network in each of the regions. However often you have the requirement that the software components in the different regions should communicate with each other. Ideally this communication should not be routed from one Azure Region to on-premises and from there to the other Azure Region. To shortcut, Azure offers the possibility to configure a connection from one Azure Virtual Network in one region to another Azure Virtual Network hosted in another region. This functionality is called VNet-to-VNet connection. More details on this functionality can be found here: <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
 
-#### <a name="private-connection-to-azure-expressroute"></a>Privat anslutning till Azure-ExpressRoute
+#### <a name="private-connection-to-azure-expressroute"></a>Private Connection to Azure ExpressRoute
 
-Med Microsoft Azure ExpressRoute kan du skapa privata anslutningar mellan Azures Data Center och antingen kundens lokala infrastruktur eller i en miljö med en gemensam plats. ExpressRoute erbjuds av olika MPLS-VPN-providers (Packet Switched) eller andra nätverks tjänst leverantörer. ExpressRoute-anslutningar går inte via offentligt Internet. ExpressRoute-anslutningar ger högre säkerhet, mer tillförlitlighet genom flera parallella kretsar, snabbare hastigheter och lägre fördröjning än vanliga anslutningar via Internet.
+Microsoft Azure ExpressRoute allows the creation of private connections between Azure data centers and either the customer's on-premises infrastructure or in a co-location environment. ExpressRoute is offered by various MPLS (packet switched) VPN providers or other Network Service Providers. ExpressRoute-anslutningar går inte via offentligt Internet. ExpressRoute connections offer higher security, more reliability through multiple parallel circuits, faster speeds, and lower latencies than typical connections over the Internet.
 
-Hitta mer information om Azure ExpressRoute och erbjudanden här:
+Find more details on Azure ExpressRoute and offerings here:
 
 * <https://azure.microsoft.com/documentation/services/expressroute/>
 * <https://azure.microsoft.com/pricing/details/expressroute/>
 * <https://azure.microsoft.com/documentation/articles/expressroute-faqs/>
 
-Express Route möjliggör flera Azure-prenumerationer via en ExpressRoute-krets som dokumenteras här
+Express Route enables multiple Azure subscriptions through one ExpressRoute circuit as documented here
 
 * <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/>
 * <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>
 
-#### <a name="forced-tunneling-in-case-of-cross-premises"></a>Tvingad tunnel trafik i händelse av olika platser
-För virtuella datorer som ansluter till lokala domäner via plats-till-plats-eller ExpressRoute måste du kontrol lera att Internet-proxyinställningarna har distribuerats för alla användare i de virtuella datorerna. Som standard skulle program som körs i de virtuella datorerna eller användare som använder en webbläsare för att komma åt Internet inte gå via företagets proxy, men skulle ansluta direkt via Azure till Internet. Men även om proxyinställningarna inte är en 100%-lösning för att dirigera trafiken via företagets proxy, eftersom det är ansvars område och tjänster för att kontrol lera proxyn. Om program som körs på den virtuella datorn inte gör det eller om en administratör ändrar inställningarna kan trafik till Internet tas ur drift direkt via Azure till Internet.
+#### <a name="forced-tunneling-in-case-of-cross-premises"></a>Forced tunneling in case of cross-premises
+For VMs joining on-premises domains through site-to-site, point-to-site or ExpressRoute, you need to make sure that the Internet proxy settings are getting deployed for all the users in those VMs as well. By default, software running in those VMs or users using a browser to access the internet would not go through the company proxy, but would connect straight through Azure to the internet. But even the proxy setting is not a 100% solution to direct the traffic through the company proxy since it is responsibility of software and services to check for the proxy. If software running in the VM is not doing that or an administrator manipulates the settings, traffic to the Internet can be detoured again directly through Azure to the Internet.
 
-För att undvika sådan direkt Internet anslutning kan du konfigurera Tvingad tunnel trafik med plats-till-plats-anslutning mellan lokalt och Azure. En detaljerad beskrivning av funktionen för Tvingad tunnel trafik publiceras här<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+In order to avoid such a direct internet connectivity, you can configure Forced Tunneling with site-to-site connectivity between on-premises and Azure. The detailed description of the Forced Tunneling feature is published here <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
-Tvingad tunnel trafik med ExpressRoute har Aktiver ATS av kunder som skickar en standard väg via ExpressRoute BGP-peering-sessioner.
+Forced Tunneling with ExpressRoute is enabled by customers advertising a default route via the ExpressRoute BGP peering sessions.
 
-#### <a name="summary-of-azure-networking"></a>Översikt över Azure-nätverk
+#### <a name="summary-of-azure-networking"></a>Summary of Azure Networking
 
-Det här kapitlet innehåller många viktiga punkter om Azure-nätverk. Här är en sammanfattning av de viktigaste punkterna:
+This chapter contained many important points about Azure Networking. Here is a summary of the main points:
 
-* Med virtuella Azure-nätverk kan du lagra en nätverks struktur i Azure-distributionen. Virtuella nätverk kan vara isolerade mot varandra eller med hjälp av nätverks säkerhets grupps trafik mellan virtuella nätverk kan styras.
-* Virtuella Azure-nätverk kan utnyttjas för att tilldela IP-adressintervall till virtuella datorer eller tilldela fasta IP-adresser till virtuella datorer
-* Om du vill konfigurera en plats-till-plats-eller punkt-till-plats-anslutning måste du först skapa en Azure-Virtual Network
-* När en virtuell dator har distribuerats går det inte längre att ändra Virtual Network som tilldelats den virtuella datorn
+* Azure Virtual Networks allow you to put a network structure into your Azure deployment. VNets can be isolated against each other or with the help of Network Security Groups traffic between VNets can be controlled.
+* Azure Virtual Networks can be leveraged to assign IP address ranges to VMs or assign fixed IP addresses to VMs
+* To set up a Site-To-Site or Point-To-Site connection you need to create an Azure Virtual Network first
+* Once a virtual machine has been deployed, it is no longer possible to change the Virtual Network assigned to the VM
 
-### <a name="quotas-in-azure-virtual-machine-services"></a>Kvoter i Azure Virtual Machine-tjänster
-Vi måste vara tydliga om det faktum att lagrings-och nätverks infrastrukturen delas mellan virtuella datorer som kör en mängd olika tjänster i Azure-infrastrukturen. Och precis som i kundens egna data Center, sker överetablering av några av infrastruktur resurserna i en viss grad. Microsoft Azures plattformen använder disk, processor, nätverk och andra kvoter för att begränsa resursanvändningen och bevara konsekvent och deterministisk prestanda.  De olika typerna av virtuella datorer (A5, A6 osv.) har olika kvoter för antalet diskar, CPU: n, RAM-minne och nätverk.
+### <a name="quotas-in-azure-virtual-machine-services"></a>Quotas in Azure Virtual Machine Services
+We need to be clear about the fact that the storage and network infrastructure is shared between VMs running a variety of services in the Azure infrastructure. And just as in the customer's own data centers, over-provisioning of some of the infrastructure resources does take place to a degree. The Microsoft Azure Platform uses disk, CPU, network, and other quotas to limit the resource consumption and to preserve consistent and deterministic performance.  The different VM types (A5, A6, etc.) have different quotas for the number of disks, CPU, RAM, and Network.
 
 > [!NOTE]
-> PROCESSOR-och minnes resurser för de VM-typer som stöds av SAP är förallokerade på noderna. Det innebär att när den virtuella datorn har distribuerats är resurserna på värden tillgängliga som de definieras av VM-typen.
+> CPU and memory resources of the VM types supported by SAP are pre-allocated on the host nodes. This means that once the VM is deployed, the resources on the host are available as defined by the VM type.
 >
 >
 
-När du planerar och ändrar storlek på SAP på Azure-lösningar måste kvoterna för varje virtuell dator storlek beaktas. De virtuella dator kvoterna beskrivs [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows].
+When planning and sizing SAP on Azure solutions, the quotas for each virtual machine size must be considered. The VM quotas are described [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
-De kvoter som beskrivs representerar de teoretiska maximala värdena.  Gränsen för IOPS per disk kan uppnås med Small IOs (8 KB), men kanske inte kan uppnås med stor IOs (1 MB).  IOPS-gränsen tillämpas på en enskild disk granularitet.
+The quotas described represent the theoretical maximum values.  The limit of IOPS per disk may be achieved with small IOs (8kb) but possibly may not be achieved with large IOs (1Mb).  The IOPS limit is enforced on the granularity of single disk.
 
-Som ett grovt besluts träd för att avgöra om ett SAP-system passar in i Azures tjänster för virtuella datorer och dess funktioner eller om ett befintligt system måste konfigureras på ett annat sätt för att kunna distribuera systemet på Azure, kan besluts trädet nedan användas:
+As a rough decision tree to decide whether an SAP system fits into Azure Virtual Machine Services and its capabilities or whether an existing system needs to be configured differently in order to deploy the system on Azure, the decision tree below can be used:
 
-![Besluts träd för att bestämma möjlighet att distribuera SAP på Azure][planning-guide-figure-700]
+![Decision tree to decide ability to deploy SAP on Azure][planning-guide-figure-700]
 
-**Steg 1**: Den viktigaste informationen att börja med är SAPS-kravet för ett angivet SAP-system. SAPS-kraven måste delas upp i DBMS-delen och SAP-programdelen, även om SAP-systemet redan har distribuerats lokalt i en konfiguration på två nivåer. För befintliga system kan SAPS som är relaterade till maskin varan som används ofta bestämmas eller beräknas utifrån befintliga SAP-benchmarks. Resultaten finns här: <https://sap.com/about/benchmark.html>.
-För nyligen distribuerade SAP-system bör du ha genomgått en storleks bedömning, vilket bör fastställa systemets krav på SAPS.
-Se även den här bloggen och det bifogade dokumentet för SAP-storlek på Azure:<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+**Step 1**: The most important information to start with is the SAPS requirement for a given SAP system. The SAPS requirements need to be separated out into the DBMS part and the SAP application part, even if the SAP system is already deployed on-premises in a 2-tier configuration. For existing systems, the SAPS related to the hardware in use often can be determined or estimated based on existing SAP benchmarks. The results can be found here: <https://sap.com/about/benchmark.html>.
+For newly deployed SAP systems, you should have gone through a sizing exercise, which should determine the SAPS requirements of the system.
+See also this blog and attached document for SAP sizing on Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
-**Steg 2**: I befintliga system ska i/O-volym och I/O-åtgärder per sekund på DBMS-servern mätas. För nyligen planerade system bör storleks övningen för det nya systemet också ge grova idéer om I/O-kraven på DBMS-sidan. Om du är osäker måste du utföra ett koncept bevis.
+**Step 2**: For existing systems, the I/O volume and I/O operations per second on the DBMS server should be measured. For newly planned systems, the sizing exercise for the new system also should give rough ideas of the I/O requirements on the DBMS side. If unsure, you eventually need to conduct a Proof of Concept.
 
-**Steg 3**: Jämför SAPS-kravet för DBMS-servern med SAPS de olika VM-typerna för Azure kan tillhandahålla. Informationen om SAPS av olika typer av virtuella Azure-datorer finns dokumenterad i SAP NOTE [1928533]. Fokus bör vara på den virtuella DBMS-datorn först eftersom databas skiktet är skiktet i ett SAP NetWeaver-system som inte skalas ut i de flesta distributioner. SAP-programlagret kan däremot skalas ut. Om inget av de SAP-typer som stöds av Azure VM-typer kan leverera nödvändiga SAPS, kan arbets belastningen för det planerade SAP-systemet inte köras på Azure. Du måste antingen distribuera systemet lokalt eller så måste du ändra arbets belastnings volymen för systemet.
+**Step 3**: Compare the SAPS requirement for the DBMS server with the SAPS the different VM types of Azure can provide. The information on SAPS of the different Azure VM types is documented in SAP Note [1928533]. The focus should be on the DBMS VM first since the database layer is the layer in an SAP NetWeaver system that does not scale out in the majority of deployments. In contrast, the SAP application layer can be scaled out. If none of the SAP supported Azure VM types can deliver the required SAPS, the workload of the planned SAP system can't be run on Azure. You either need to deploy the system on-premises or you need to change the workload volume for the system.
 
-**Steg 4**: Som dokumenteras [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]tillämpar Azure en IOPS-kvot per disk oberoende om du använder standard lagring eller Premium Storage. Beroende på typ av virtuell dator, antalet data diskar som kan monteras varierar. Det innebär att du kan beräkna ett högsta IOPS-nummer som kan uppnås med var och en av de olika typerna av virtuella datorer. Beroende av databasens fillayout kan du göra stripe-diskar för att bli en volym i gäst operativ systemet. Men om den aktuella IOPS-volymen i ett distribuerat SAP-system överskrider de beräknade gränserna för den största VM-typen i Azure och om det inte finns någon risk att kompensera med mer minne, kan arbets belastningen för SAP-systemet påverkas allvarligt. I sådana fall kan du trycka på en punkt där du inte bör distribuera systemet på Azure.
+**Step 4**: As documented [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows], Azure enforces an IOPS quota per disk independent whether you use Standard Storage or Premium Storage. Dependent on the VM type, the number of data disks, which can be mounted varies. As a result, you can calculate a maximum IOPS number that can be achieved with each of the different VM types. Dependent on the database file layout, you can stripe disks to become one volume in the guest OS. However, if the current IOPS volume of a deployed SAP system exceeds the calculated limits of the largest VM type of Azure and if there is no chance to compensate with more memory, the workload of the SAP system can be impacted severely. In such cases, you can hit a point where you should not deploy the system on Azure.
 
-**Steg 5**: Särskilt i SAP-system, som distribueras lokalt i konfigurationer på två nivåer, är sannolikheten att systemet kan behöva konfigureras på Azure i en konfiguration på tre nivåer. I det här steget måste du kontrol lera om det finns en komponent i SAP-programlagret, som inte kan skalas ut och som inte passar in i processor-och minnes resurser som de olika Azure VM-typerna erbjuder. Om det verkligen finns en sådan komponent kan inte SAP-systemet och dess arbets belastning distribueras till Azure. Men om du kan skala ut SAP-programkomponenter till flera virtuella Azure-datorer kan systemet distribueras till Azure.
+**Step 5**: Especially in SAP systems, which are deployed on-premises in 2-Tier configurations, the chances are that the system might need to be configured on Azure in a 3-Tier configuration. In this step, you need to check whether there is a component in the SAP application layer, which can't be scaled out and which would not fit into the CPU and memory resources the different Azure VM types offer. If there indeed is such a component, the SAP system and its workload can't be deployed into Azure. But if you can scale out the SAP application components into multiple Azure VMs, the system can be deployed into Azure.
 
-**Steg 6**: Om DBMS-och SAP-programmets skikt komponenter kan köras på virtuella Azure-datorer måste konfigurationen definieras med avseende på:
+**Step 6**: If the DBMS and SAP application layer components can be run in Azure VMs, the configuration needs to be defined with regard to:
 
-* Antal virtuella Azure-datorer
-* VM-typer för enskilda komponenter
-* Antal virtuella hård diskar i DBMS VM för att tillhandahålla tillräckligt med IOPS
+* Number of Azure VMs
+* VM types for the individual components
+* Number of VHDs in DBMS VM to provide enough IOPS
 
-## <a name="managing-azure-assets"></a>Hantera Azure-tillgångar
+## <a name="managing-azure-assets"></a>Managing Azure Assets
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
-Azure Portal är ett av tre gränssnitt för att hantera distributioner av virtuella Azure-datorer. De grundläggande hanterings aktiviteterna, t. ex. distribution av virtuella datorer från avbildningar, kan göras via Azure Portal. Dessutom är skapandet av lagrings konton, virtuella nätverk och andra Azure-komponenter också aktiviteter som Azure Portal kan hantera bra. Funktioner som att ladda upp virtuella hård diskar från lokala datorer till Azure eller kopiera en virtuell hård disk i Azure är dock aktiviteter, vilket kräver verktyg från tredje part eller administration via PowerShell eller CLI.
+The Azure portal is one of three interfaces to manage Azure VM deployments. The basic management tasks, like deploying VMs from images, can be done through the Azure portal. In addition, the creation of Storage Accounts, Virtual Networks, and other Azure components are also tasks the Azure portal can handle well. However, functionality like uploading VHDs from on-premises to Azure or copying a VHD within Azure are tasks, which require either third-party tools or administration through PowerShell or CLI.
 
-![Översikt över Microsoft Azure-portalen virtuell dator][planning-guide-figure-800]
-
-
-Administrations-och konfigurations uppgifter för den virtuella dator instansen är möjliga i Azure Portal.
-
-Förutom att starta om och stänga av en virtuell dator kan du också koppla, koppla från och skapa data diskar för den virtuella dator instansen, för att avbilda instansen för avbildnings förberedelse och konfigurera storleken på den virtuella dator instansen.
-
-Azure Portal innehåller grundläggande funktioner för att distribuera och konfigurera virtuella datorer och många andra Azure-tjänster. Alla tillgängliga funktioner omfattas dock inte av Azure Portal. I Azure Portal går det inte att utföra uppgifter som:
-
-* Laddar upp VHD: er till Azure
-* Kopiera virtuella datorer
+![Microsoft Azure portal - Virtual Machine overview][planning-guide-figure-800]
 
 
-### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Hantering via Microsoft Azure PowerShell-cmdletar
+Administration and configuration tasks for the Virtual Machine instance are possible from within the Azure portal.
 
-Windows PowerShell är ett kraftfullt och utöknings Bart ramverk som har varit mycket omfattande av kunder som distribuerar ett större antal system i Azure. Efter installationen av PowerShell-cmdletar på en stationär dator, bärbar dator eller dedikerad hanterings Station kan PowerShell-cmdlet: ar köras via fjärr anslutning.
+Besides restarting and shutting down a Virtual Machine you can also attach, detach, and create data disks for the Virtual Machine instance, to capture the instance for image preparation, and configure the size of the Virtual Machine instance.
 
-Processen för att aktivera en lokal stationär dator/bärbar dator för användning av Azure PowerShell-cmdletar och hur du konfigurerar dem för användning med Azure-prenumerationerna beskrivs i [den här artikeln][powershell-install-configure].
+The Azure portal provides basic functionality to deploy and configure VMs and many other Azure services. However not all available functionality is covered by the Azure portal. In the Azure portal, it's not possible to perform tasks like:
 
-Mer detaljerade anvisningar om hur du installerar, uppdaterar och konfigurerar Azure PowerShell-cmdletar finns i [det här kapitlet i distributions guiden][deployment-guide-4.1].
-
-Kund upplevelsen har hittills varit att PowerShell (PS) är det mest kraftfulla verktyget för att distribuera virtuella datorer och att skapa anpassade steg i distributionen av virtuella datorer. Alla kunder som kör SAP-instanser i Azure använder PS-cmdlet: ar för att komplettera de hanterings uppgifter som de gör i Azure Portal eller även använder PS-cmdlet: ar enbart för att hantera sina distributioner i Azure. Eftersom de Azure-/regionsspecifika cmdletarna delar samma namngivnings konvention som över 2000 Windows-relaterade cmdlets, är det en enkel uppgift för Windows-administratörer att utnyttja dessa cmdlets.
-
-Se följande exempel:<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+* Uploading VHDs to Azure
+* Copying VMs
 
 
-Distribution av Azure-tillägget för SAP (se kapitel [Azure-tillägg för SAP][planning-guide-9.1] i det här dokumentet) är bara möjlig via POWERSHELL eller cli. Därför är det nödvändigt att konfigurera och konfigurera PowerShell eller CLI när du distribuerar eller administrerar ett SAP NetWeaver-system i Azure.  
+### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Management via Microsoft Azure PowerShell cmdlets
 
-Eftersom Azure tillhandahåller fler funktioner kommer nya PS-cmdlets att läggas till som kräver en uppdatering av cmdletarna. Därför är det klokt att kontrol lera Azures hämtnings plats minst en gång <https://azure.microsoft.com/downloads/> i månaden för en ny version av cmdletarna. Den nya versionen installeras ovanpå den äldre versionen.
+Windows PowerShell is a powerful and extensible framework that has been widely adopted by customers deploying larger numbers of systems in Azure. After the installation of PowerShell cmdlets on a desktop, laptop or dedicated management station, the PowerShell cmdlets can be run remotely.
 
-En allmän lista över Azure-relaterade PowerShell-kommandon finns här: <https://docs.microsoft.com/powershell/azure/overview>.
+The process to enable a local desktop/laptop for the usage of Azure PowerShell cmdlets and how to configure those for the usage with the Azure subscription(s) is described in [this article][powershell-install-configure].
 
-### <a name="management-via-microsoft-azure-cli-commands"></a>Hantering via Microsoft Azure CLI-kommandon
+More detailed steps on how to install, update, and configure the Azure PowerShell cmdlets can also be found in [this chapter of the Deployment Guide][deployment-guide-4.1].
 
-För kunder som använder Linux och vill hantera Azure-resurser kan det hända att PowerShell inte är ett alternativ. Microsoft erbjuder Azure CLI som ett alternativ.
-Azure CLI innehåller en uppsättning kommandon med öppen källkod, plattforms oberoende funktioner för att arbeta med Azure-plattformen. Azure CLI innehåller många av de funktioner som finns i Azure Portal.
+Customer experience so far has been that PowerShell (PS) is certainly the more powerful tool to deploy VMs and to create custom steps in the deployment of VMs. All of the customers running SAP instances in Azure are using PS cmdlets to supplement management tasks they do in the Azure portal or are even using PS cmdlets exclusively to manage their deployments in Azure. Since the Azure-specific cmdlets share the same naming convention as the more than 2000 Windows-related cmdlets, it is an easy task for Windows administrators to leverage those cmdlets.
 
-Information om installation, konfiguration och hur du använder CLI-kommandon för att utföra Azure-aktiviteter finns i
+See example here: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-* [Installera den klassiska Azure CLI][xplat-cli]
-* [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
-* [Använd den klassiska Azure-CLI: en för Mac, Linux och Windows med Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-Läs även kapitel [Azure CLI för virtuella Linux-datorer][deployment-guide-4.5.2] i [distributions guiden][planning-guide] för hur du använder Azure CLI för att distribuera Azure-tillägget för SAP.
+Deployment of the Azure Extension for SAP (see chapter [Azure Extension for SAP][planning-guide-9.1] in this document) is only possible via PowerShell or CLI. Therefore it is mandatory to set up and configure PowerShell or CLI when deploying or administering an SAP NetWeaver system in Azure.  
 
-## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Olika sätt att distribuera virtuella datorer för SAP i Azure
+As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://azure.microsoft.com/downloads/> for a new version of the cmdlets. The new version is installed on top of the older version.
 
-I det här kapitlet får du lära dig olika sätt att distribuera en virtuell dator i Azure. Ytterligare förberedelse procedurer, samt hantering av virtuella hård diskar och virtuella datorer i Azure, beskrivs i det här kapitlet.
+For a general list of Azure-related PowerShell commands check here: <https://docs.microsoft.com/powershell/azure/overview>.
 
-### <a name="deployment-of-vms-for-sap"></a>Distribution av virtuella datorer för SAP
+### <a name="management-via-microsoft-azure-cli-commands"></a>Management via Microsoft Azure CLI commands
 
-Microsoft Azure erbjuder flera olika sätt att distribuera virtuella datorer och tillhör ande diskar. Det är därför viktigt att förstå skillnaderna eftersom virtuella datorers förberedelser kan variera beroende på distributions metoden. I allmänhet tar vi en titt på följande scenarier:
+For customers who use Linux and want to manage Azure resources Powershell might not be an option. Microsoft offers Azure CLI as an alternative.
+The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. The Azure CLI provides much of the same functionality found in the Azure portal.
 
-#### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Flytta en virtuell dator från lokal plats till Azure med en icke-generaliserad disk
+For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
-Du planerar att flytta ett angivet SAP-system från en lokal plats till Azure. Detta kan göras genom att ladda upp den virtuella hård disken som innehåller operativ systemet, SAP-binärfiler och DBMS-binärfiler plus de virtuella hård diskarna med data-och loggfilerna för DBMS till Azure. Till skillnad från [scenario #2 nedan][planning-guide-5.1.2]behåller du användar kontona för värd namnet, SAP sid och SAP på den virtuella Azure-datorn som de konfigurerades i den lokala miljön. Därför är det inte nödvändigt att generalisera avbildningen. Se kapitel [förberedelser för att flytta en virtuell dator från en lokal plats till Azure med en icke-generaliserad disk][planning-guide-5.2.1] i det här dokumentet för de lokala förberedelse stegen och överföra icke-generaliserade virtuella datorer eller virtuella hård diskar till Azure. Läs kapitel [scenario 3: Att flytta en virtuell dator från lokalt med hjälp av en icke-generaliserad virtuell Azure][deployment-guide-3.4] -dator med SAP i [distributions guiden][deployment-guide] för detaljerade anvisningar om hur du distribuerar en sådan avbildning i Azure.
+* [Install the Azure classic CLI][xplat-cli]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
+* [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-#### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Distribuera en virtuell dator med en kundspecifik avbildning
+Also read chapter [Azure CLI for Linux VMs][deployment-guide-4.5.2] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure  Extension for SAP.
 
-På grund av särskilda krav på uppdatering av operativ system-eller DBMS-versionen kanske de angivna avbildningarna på Azure Marketplace inte passar dina behov. Därför kan du behöva skapa en virtuell dator med en egen privat OS/DBMS VM-avbildning, som kan distribueras flera gånger efteråt. För att förbereda en sådan privat avbildning för duplicering måste följande objekt beaktas:
+## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Different ways to deploy VMs for SAP in Azure
+
+In this chapter, you learn the different ways to deploy a VM in Azure. Additional preparation procedures, as well as handling of VHDs and VMs in Azure are covered in this chapter.
+
+### <a name="deployment-of-vms-for-sap"></a>Deployment of VMs for SAP
+
+Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thus it is important to understand the differences since preparations of the VMs might differ depending on the method of deployment. In general, we take a look at the following scenarios:
+
+#### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Moving a VM from on-premises to Azure with a non-generalized disk
+
+You plan to move a specific SAP system from on-premises to Azure. This can be done by uploading the VHD, which contains the OS, the SAP Binaries, and DBMS binaries plus the VHDs with the data and log files of the DBMS to Azure. In contrast to [scenario #2 below][planning-guide-5.1.2], you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. Therefore, generalizing the image is not necessary. See chapters [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document for on-premises preparation steps and upload of non-generalized VMs or VHDs to Azure. Read chapter [Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP][deployment-guide-3.4] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
+
+#### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Deploying a VM with a customer-specific image
+
+Due to specific patch requirements of your OS or DBMS version, the provided images in the Azure Marketplace might not fit your needs. Therefore, you might need to create a VM using your own private OS/DBMS VM image, which can be deployed several times afterwards. To prepare such a private image for duplication, the following items have to be considered:
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Se mer information här: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>Windows-inställningarna (t. ex. Windows SID och värdnamn) måste vara abstrakta/generaliserade på den lokala virtuella datorn via Sysprep-kommandot.
+> See more details here: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> The Windows settings (like Windows SID and hostname) must be abstracted/generalized on the on-premises VM via the sysprep command.
 >
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Följ stegen som beskrivs i de här artiklarna för [SUSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd]eller [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle]för att förbereda en virtuell hård disk som ska överföras till Azure.
+> Follow the steps described in these articles for [SUSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd], or [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle], to prepare a VHD to be uploaded to Azure.
 >
 >
 
 ---
-Om du redan har installerat SAP-innehåll i din lokala virtuella dator (särskilt för 2-nivå system) kan du anpassa inställningarna för SAP-systemet efter distributionen av den virtuella Azure-datorn via den instans namn procedur som stöds av SAP Software Provisioning Manager (SAP Anmärkning [1619720]). Se kapitel [förberedelser för att distribuera en virtuell dator med en kundspecifik avbildning för SAP][planning-guide-5.2.2] och [Ladda upp en virtuell hård disk från lokalt till Azure][planning-guide-5.3.2] i det här dokumentet för lokala förberedelse steg och uppladdning av en generaliserad virtuell dator till Azure. Läs kapitel [scenario 2: Distribuera en virtuell dator med en anpassad avbildning för][deployment-guide-3.3] SAP i [distributions guiden][deployment-guide] för detaljerade anvisningar om hur du distribuerar en sådan avbildning i Azure.
+If you have already installed SAP content in your on-premises VM (especially for 2-Tier systems), you can adapt the SAP system settings after the deployment of the Azure VM through the instance rename procedure supported by the SAP Software Provisioning Manager (SAP Note [1619720]). See chapters [Preparation for deploying a VM with a customer-specific image for SAP][planning-guide-5.2.2] and [Uploading a VHD from on-premises to Azure][planning-guide-5.3.2] of this document for on-premises preparation steps and upload of a generalized VM to Azure. Read chapter [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
 
-#### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Distribuera en virtuell dator från Azure Marketplace
+#### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Deploying a VM out of the Azure Marketplace
 
-Du vill använda en virtuell dator avbildning från Microsoft eller tredje part från Azure Marketplace för att distribuera den virtuella datorn. När du har distribuerat den virtuella datorn i Azure följer du samma rikt linjer och verktyg för att installera SAP-programvaran och/eller DBMS i den virtuella datorn som du skulle göra i en lokal miljö. Mer detaljerad distributions beskrivning finns i kapitel [scenario 1: Distribuera en virtuell dator från Azure Marketplace för SAP][deployment-guide-3.2] i [distributions guiden][deployment-guide].
+You would like to use a Microsoft or third-party provided VM image from the Azure Marketplace to deploy your VM. After you deployed your VM in Azure, you follow the same guidelines and tools to install the SAP software and/or DBMS inside your VM as you would do in an on-premises environment. For more detailed deployment description, see chapter [Scenario 1: Deploying a VM out of the Azure Marketplace for SAP][deployment-guide-3.2] in the [Deployment Guide][deployment-guide].
 
-### <a name="6ffb9f41-a292-40bf-9e70-8204448559e7"></a>Förbereda virtuella datorer med SAP för Azure
+### <a name="6ffb9f41-a292-40bf-9e70-8204448559e7"></a>Preparing VMs with SAP for Azure
 
-Innan du överför virtuella datorer till Azure måste du se till att de virtuella datorerna och de virtuella hård diskarna uppfyller vissa krav. Det finns små skillnader beroende på vilken distributions metod som används.
+Before uploading VMs into Azure, you need to make sure the VMs and VHDs fulfill certain requirements. There are small differences depending on the deployment method that is used.
 
-#### <a name="1b287330-944b-495d-9ea7-94b83aff73ef"></a>Förberedelser för att flytta en virtuell dator från en lokal plats till Azure med en icke-generaliserad disk
+#### <a name="1b287330-944b-495d-9ea7-94b83aff73ef"></a>Preparation for moving a VM from on-premises to Azure with a non-generalized disk
 
-En vanlig distributions metod är att flytta en befintlig virtuell dator, som kör ett SAP-system från lokal plats till Azure. Den virtuella datorn och SAP-systemet på den virtuella datorn bör bara köras i Azure med samma värdnamn och förmodligen samma SAP-SID. I det här fallet bör gäst operativ systemet för den virtuella datorn inte generaliseras för flera distributioner. Om det lokala nätverket har utökats till Azure (mer information finns i kapitlet om [distribution av en eller flera virtuella SAP-datorer i Azure med kravet på att vara fullständigt integrerat i det lokala nätverket][planning-guide-2.2] i det här dokumentet), och sedan samma domän konton kan användas på den virtuella datorn som de användes innan lokalt.
+A common deployment method is to move an existing VM, which runs an SAP system from on-premises to Azure. That VM and the SAP system in the VM just should run in Azure using the same hostname and likely the same SAP SID. In this case, the guest OS of VM should not be generalized for multiple deployments. If the on-premises network got extended into Azure (see chapter [cross-premises - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network][planning-guide-2.2] in this document), then even the same domain accounts can be used within the VM as those were used before on-premises.
 
-Krav när du förbereder din egen Azure VM-disk:
+Requirements when preparing your own Azure VM Disk are:
 
-* Den virtuella hård disken som innehåller operativ systemet kan endast ha en maximal storlek på 127GB. Den här begränsningen togs bort i slutet av mars 2015. Nu kan den virtuella hård disken som innehåller operativ systemet vara upp till 1 TB i storlek som andra Azure Storage värdbaserade virtuella hård diskar också.
-* Den måste vara i det fasta VHD-formatet. Dynamiska virtuella hård diskar eller virtuella hård diskar i VHDx-format stöds ännu inte i Azure. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
-* Virtuella hård diskar, som monteras på den virtuella datorn och ska monteras igen i Azure till den virtuella datorn måste också ha ett fast VHD-format. Läs [den här artikeln (Linux)](../../linux/managed-disks-overview.md) och [den här artikeln (Windows)](../../windows/managed-disks-overview.md)) för storleks gränser för data diskar. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
-* Lägg till ett annat lokalt konto med administratörs behörighet, som kan användas av Microsoft support eller som kan tilldelas som kontext för tjänster och program som ska köras i tills den virtuella datorn har distribuerats och mer lämpliga användare kan användas.
-* Lägg till andra lokala konton som de kan behöva för det angivna distributions scenariot.
+* Originally the VHD containing the operating system could have a maximum size of 127GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1TB in size as any other Azure Storage hosted VHD as well.
+* It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article (Linux)](../../linux/managed-disks-overview.md) and [this article (Windows)](../../windows/managed-disks-overview.md)) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* Add another local account with administrator privileges, which can be used by Microsoft support or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
+* Add other local accounts as those might be needed for the specific deployment scenario.
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> I det här scenariot krävs ingen generalisering (Sysprep) av den virtuella datorn för att ladda upp och distribuera den virtuella datorn i Azure.
-> Kontrol lera att enheten D:\ används inte.
-> Ange automonterad disk för anslutna diskar enligt beskrivningen i kapitel [Ange automontera för anslutna diskar][planning-guide-5.5.3] i det här dokumentet.
+> In this scenario no generalization (sysprep) of the VM is required to upload and deploy the VM on Azure.
+> Make sure that drive D:\ is not used.
+> Set disk automount for attached disks as described in chapter [Setting automount for attached disks][planning-guide-5.5.3] in this document.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> I det här scenariot krävs ingen generalisering (waagent) av den virtuella datorn för att ladda upp och distribuera den virtuella datorn i Azure.
-> Se till att/mnt/Resource inte används och att alla diskar är monterade via uuid. För OS-disken kontrollerar du att Start programmet också återspeglar den UUID-baserade monteringen.
+> In this scenario no generalization (waagent -deprovision) of the VM is required to upload and deploy the VM on Azure.
+> Make sure that /mnt/resource is not used and that ALL disks are mounted via uuid. For the OS disk, make sure that the bootloader entry also reflects the uuid-based mount.
 >
 >
 
 ---
-#### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Förberedelser inför distribution av en virtuell dator med en kundspecifik avbildning för SAP
+#### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Preparation for deploying a VM with a customer-specific image for SAP
 
-VHD-filer som innehåller ett generaliserat operativ system lagras i behållare på Azure Storage konton eller som hanterade disk avbildningar. Du kan distribuera en ny virtuell dator från en sådan avbildning genom att referera till den virtuella hård disken eller den hanterade disk avbildningen som en källa i filerna [för distributions mal len enligt beskrivningen i kapitel scenario 2: Distribuera en virtuell dator med en anpassad avbildning för][deployment-guide-3.3] SAP av [distributions guiden][deployment-guide].
+VHD files that contain a generalized OS are stored in containers on Azure Storage Accounts or as Managed Disk images. You can deploy a new VM from such an image by referencing the VHD or Managed Disk image as a source in your deployment template files as described in chapter [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3] of the [Deployment Guide][deployment-guide].
 
-Krav när du förbereder din egen Azure VM-avbildning:
+Requirements when preparing your own Azure VM Image are:
 
-* Den virtuella hård disken som innehåller operativ systemet kan endast ha en maximal storlek på 127GB. Den här begränsningen togs bort i slutet av mars 2015. Nu kan den virtuella hård disken som innehåller operativ systemet vara upp till 1 TB i storlek som andra Azure Storage värdbaserade virtuella hård diskar också.
-* Den måste vara i det fasta VHD-formatet. Dynamiska virtuella hård diskar eller virtuella hård diskar i VHDx-format stöds ännu inte i Azure. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
-* Virtuella hård diskar, som monteras på den virtuella datorn och ska monteras igen i Azure till den virtuella datorn måste också ha ett fast VHD-format. Läs [den här artikeln (Linux)](../../windows/managed-disks-overview.md) och [den här artikeln (Windows)](../../linux/managed-disks-overview.md) för storleks gränser för data diskar. Dynamiska virtuella hård diskar konverteras till statiska virtuella hård diskar när du laddar upp den virtuella hård disken med PowerShell-cmdletarna eller CLI
-* Lägg till andra lokala konton som de kan behöva för det angivna distributions scenariot.
-* Om avbildningen innehåller en installation av SAP-NetWeaver och omnamnering av värd namnet från det ursprungliga namnet vid Azure-distributionen är troligt, rekommenderar vi att du kopierar de senaste versionerna av SAP Software Provisioning Manager-DVD: n till mallen. På så sätt kan du enkelt använda de funktioner för SAP som har angetts för att anpassa det ändrade värd namnet och/eller ändra SID för SAP-systemet i den distribuerade virtuella dator avbildningen så fort en ny kopia startas.
+* Originally the VHD containing the operating system could have a maximum size of 127GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1TB in size as any other Azure Storage hosted VHD as well.
+* It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Please read [this article (Linux)](../../windows/managed-disks-overview.md) and [this article (Windows)](../../linux/managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* Add other local accounts as those might be needed for the specific deployment scenario.
+* If the image contains an installation of SAP NetWeaver and renaming of the host name from the original name at the point of the Azure deployment is likely, it is recommended to copy the latest versions of the SAP Software Provisioning Manager DVD into the template. This will enable you to easily use the SAP provided rename functionality to adapt the changed hostname and/or change the SID of the SAP system within the deployed VM image as soon as a new copy is started.
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Kontrol lera att enheten D:\ används inte ange automonterad disk för anslutna diskar enligt beskrivningen i kapitel [Ange automontera för anslutna diskar][planning-guide-5.5.3] i det här dokumentet.
+> Make sure that drive D:\ is not used Set disk automount for attached disks as described in chapter [Setting automount for attached disks][planning-guide-5.5.3] in this document.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Se till att/mnt/Resource inte används och att alla diskar är monterade via uuid. För OS-disken kontrollerar du att Start programmet också återspeglar den UUID-baserade monteringen.
+> Make sure that /mnt/resource is not used and that ALL disks are mounted via uuid. For the OS disk, make sure the bootloader entry also reflects the uuid-based mount.
 >
 >
 
 ---
-* SAP GUI (för administration och konfigurations syfte) kan vara förinstallerat i en sådan mall.
-* Annan program vara som krävs för att köra de virtuella datorerna i scenarier med flera platser kan installeras så länge den här program varan kan arbeta med den virtuella datorns namnbyte.
+* SAP GUI (for administrative and setup purposes) can be pre-installed in such a template.
+* Other software necessary to run the VMs successfully in cross-premises scenarios can be installed as long as this software can work with the rename of the VM.
 
-Om den virtuella datorn är för beredd för att vara generisk och slutligen oberoende av konton/användare som inte är tillgängliga i det riktade scenariot för Azure-distribution, utförs det senaste förberedelse steget för att generalisera sådan avbildning.
+If the VM is prepared sufficiently to be generic and eventually independent of accounts/users not available in the targeted Azure deployment scenario, the last preparation step of generalizing such an image is conducted.
 
-##### <a name="generalizing-a-vm"></a>Generalisera en virtuell dator
+##### <a name="generalizing-a-vm"></a>Generalizing a VM
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Det sista steget är att logga in på en virtuell dator med ett administratörs konto. Öppna ett Windows-kommando fönster som *administratör*. Gå till%windir%\windows\system32\sysprep och kör Sysprep. exe.
-> Ett litet fönster visas. Det är viktigt att kontrol lera **generalize** -alternativet (Standardvärdet är avmarkerat) och ändra avstängnings alternativet från standardvärdet ' reboot ' till ' shutdown '. Den här proceduren förutsätter att Sysprep-processen körs lokalt i gäst operativ systemet på en virtuell dator.
-> Om du vill utföra proceduren med en virtuell dator som redan körs i Azure följer du stegen som beskrivs i [den här artikeln](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
+> The last step is to sign in to a VM with an Administrator account. Open a Windows command window as *administrator*. Go to %windir%\windows\system32\sysprep and execute sysprep.exe.
+> A small window will appear. It is important to check the **Generalize** option (the default is unchecked) and change the Shutdown Option from its default of 'Reboot' to 'shutdown'. This procedure assumes that the sysprep process is executed on-premises in the Guest OS of a VM.
+> If you want to perform the procedure with a VM already running in Azure, follow the steps described in [this article](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -929,82 +929,82 @@ Om den virtuella datorn är för beredd för att vara generisk och slutligen obe
 >
 
 ---
-### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Överföra virtuella datorer och virtuella hård diskar mellan lokala datorer och Azure
-Eftersom det inte går att ladda upp VM-avbildningar och diskar till Azure via Azure Portal måste du använda Azure PowerShell-cmdletar eller CLI. En annan möjlighet är att använda verktyget ' AzCopy '. Verktyget kan kopiera virtuella hård diskar mellan lokalt och Azure (i båda riktningarna). Den kan också kopiera virtuella hård diskar mellan Azure-regioner. Läs [den här dokumentationen][storage-use-azcopy] för hämtning och användning av AzCopy.
+### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Transferring VMs and VHDs between on-premises to Azure
+Since uploading VM images and disks to Azure is not possible via the Azure portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
-Ett tredje alternativ är att använda olika verktyg som är orienterade från andra tillverkare. Se dock till att dessa verktyg stöder Azure Page blobbar. I vårt syfte måste vi använda Azure Page BLOB Store (skillnaderna beskrivs här: <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). De verktyg som tillhandahålls av Azure är också effektiva för att komprimera virtuella datorer och virtuella hård diskar, som måste överföras. Detta är viktigt eftersom den här effektiviteten i komprimeringen minskar uppladdnings tiden (som varierar beroende på uppladdnings länken till Internet från den lokala anläggningen och det riktade Azure-distributions området). Det är ett rimligt antagande att det tar längre tid att ladda upp en virtuell dator eller en virtuell hård disk från den europeiska platsen till de amerikanska Azure-datacenterna än att ladda upp samma virtuella datorer/virtuella hård diskar till de europeiska Azure-datacenterna.
+A third alternative would be to use various third-party GUI-oriented tools. However, make sure that these tools are supporting Azure Page Blobs. For our purposes, we need to use Azure Page Blob store (the differences are described here: <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Also the tools provided by Azure are efficient in compressing the VMs and VHDs, which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S.-based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
 
-#### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Ladda upp en virtuell hård disk från lokal plats till Azure
-För att överföra en befintlig virtuell dator eller virtuell hård disk från det lokala nätverket måste en virtuell dator eller virtuell hård disk uppfylla kraven som anges i kapitel [förberedelser för att flytta en virtuell dator från en lokal plats till Azure med en icke-generaliserad disk][planning-guide-5.2.1] i det här dokumentet.
+#### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Uploading a VHD from on-premises to Azure
+To upload an existing VM or VHD from the on-premises network such a VM or VHD needs to meet the requirements as listed in chapter [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document.
 
-Sådan virtuell dator behöver inte generaliseras och kan laddas upp i det tillstånd och den form den har efter avstängning på den lokala sidan. Detsamma gäller för ytterligare virtuella hård diskar, som inte innehåller något operativ system.
+Such a VM does NOT need to be generalized and can be uploaded in the state and shape it has after shutdown on the on-premises side. The same is true for additional VHDs, which don't contain any operating system.
 
-##### <a name="uploading-a-vhd-and-making-it-an-azure-disk"></a>Ladda upp en virtuell hård disk och göra den till en Azure-disk
-I det här fallet vill vi ladda upp en virtuell hård disk, antingen med eller utan ett operativ system, och montera den på en virtuell dator som en data disk eller använda den som en operativ system disk. Detta är en process med flera steg
+##### <a name="uploading-a-vhd-and-making-it-an-azure-disk"></a>Uploading a VHD and making it an Azure Disk
+In this case we want to upload a VHD, either with or without an OS in it, and mount it to a VM as a data disk or use it as OS disk. This is a multi-step process
 
 **PowerShell**
 
-* Logga in på din prenumeration med *Connect-AzAccount*
-* Ange prenumerationen för din kontext med *set-AzContext* och parametern SubscriptionId eller SubscriptionName-se<https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Ladda upp den virtuella hård disken med *Add-AzVhd* till ett Azure Storage konto – Se<https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* Valfritt Skapa en hanterad disk från den virtuella hård disken med *New-AzDisk* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
-* Ange operativ system disken för en ny VM-konfiguration till den virtuella hård disken eller hanterad disk med *set-AzVMOSDisk* -se<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-* Skapa en ny virtuell dator från den virtuella dator konfigurationen med *New-AzVM* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
-* Lägg till en datadisk till en ny virtuell dator med *Add-AzVMDataDisk* -se<https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
+* Sign in to your subscription with *Connect-AzAccount*
+* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (Optional) Create a Managed Disk from the VHD with *New-AzDisk*  - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
+* Set the OS disk of a new VM config to the VHD or Managed Disk with *Set-AzVMOSDisk* - see <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+* Create a new VM from the VM config with *New-AzVM* - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+* Add a data disk to a new VM with *Add-AzVMDataDisk* - see <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
 
 **Azure CLI**
 
-* Logga in på din prenumeration med *AZ-inloggning*
-* Välj din prenumeration med *AZ-konto uppsättning-- `<subscription name or id` prenumeration >*
-* Ladda upp den virtuella hård disken med *AZ Storage BLOB upload* -se [använda Azure CLI med Azure Storage][storage-azure-cli]
-* Valfritt Skapa en hanterad disk från den virtuella hård disken med *AZ disk Create* -se https://docs.microsoft.com/cli/azure/disk
-* Skapa en ny virtuell dator som anger den överförda virtuella hård disken eller hanterade diskar som OS-disk med *AZ VM Create* och parameter *--Attach-OS-disk*
-* Lägg till en datadisk till en ny virtuell dator med *AZ VM disk Attach* och parameter *-New*
+* Sign in to your subscription with *az login*
+* Select your subscription with *az account set --subscription `<subscription name or id`>*
+* Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
+* (Optional) Create a Managed Disk from the VHD with *az disk create* - see https://docs.microsoft.com/cli/azure/disk
+* Create a new VM specifying the uploaded VHD or Managed Disk as OS disk with *az vm create* and parameter *--attach-os-disk*
+* Add a data disk to a new VM with *az vm disk attach* and parameter *--new*
 
 **Mall**
 
-* Ladda upp den virtuella hård disken med PowerShell eller Azure CLI
-* Valfritt Skapa en hanterad disk från den virtuella hård disken med PowerShell, Azure CLI eller Azure Portal
-* Distribuera den virtuella datorn med en JSON-mall som refererar till den virtuella hård disken som visas i [den här exempel-JSON-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) eller med Managed disks som visas i [den här exempel-JSON-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)
+* Upload the VHD with Powershell or Azure CLI
+* (Optional) Create a Managed Disk from the VHD with Powershell, Azure CLI, or the Azure portal
+* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
-#### <a name="deployment-of-a-vm-image"></a>Distribution av en VM-avbildning
-Om du vill överföra en befintlig virtuell dator eller virtuell hård disk från det lokala nätverket måste du, för att kunna använda den som en virtuell Azure-dator avbildning, så att en virtuell dator eller virtuell hård disk uppfyller kraven som anges i kapitel [förberedelser för att distribuera en virtuell dator med en kundspecifik avbildning för SAP][planning-guide-5.2.2] av det här dokumentet.
+#### <a name="deployment-of-a-vm-image"></a>Deployment of a VM Image
+To upload an existing VM or VHD from the on-premises network, in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer-specific image for SAP][planning-guide-5.2.2] of this document.
 
-* Använd *Sysprep* på Windows eller *waagent-deetablering* i Linux för att generalisera din virtuella dator – se [Sysprep teknisk referens](https://technet.microsoft.com/library/cc766049.aspx) för Windows eller [så här avbildar du en virtuell Linux-dator som ska användas som en Resource Manager-mall][capture-image-linux-step-2-create-vm-image] för Linux
-* Logga in på din prenumeration med *Connect-AzAccount*
-* Ange prenumerationen för din kontext med *set-AzContext* och parametern SubscriptionId eller SubscriptionName-se<https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Ladda upp den virtuella hård disken med *Add-AzVhd* till ett Azure Storage konto – Se<https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* Valfritt Skapa en hanterad disk avbildning från den virtuella hård disken med *New-AzImage* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
-* Ange operativ system disken för en ny VM-konfiguration till
-  * VHD med *set-AzVMOSDisk-SourceImageUri-CreateOption fromImage* -se<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-  * Hanterad disk avbildnings *uppsättning – AzVMSourceImage* – se<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
-* Skapa en ny virtuell dator från den virtuella dator konfigurationen med *New-AzVM* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
+* Sign in to your subscription with *Connect-AzAccount*
+* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (Optional) Create a Managed Disk Image from the VHD with *New-AzImage*  - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
+* Set the OS disk of a new VM config to the
+  * VHD with *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* - see <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+  * Managed Disk Image *Set-AzVMSourceImage* - see <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
+* Create a new VM from the VM config with *New-AzVM* - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 
 **Azure CLI**
 
-* Använd *Sysprep* på Windows eller *waagent-deetablering* i Linux för att generalisera din virtuella dator – se [Sysprep teknisk referens](https://technet.microsoft.com/library/cc766049.aspx) för Windows eller [så här avbildar du en virtuell Linux-dator som ska användas som en Resource Manager-mall][capture-image-linux-step-2-create-vm-image] för Linux
-* Logga in på din prenumeration med *AZ-inloggning*
-* Välj din prenumeration med *AZ-konto uppsättning-- `<subscription name or id` prenumeration >*
-* Ladda upp den virtuella hård disken med *AZ Storage BLOB upload* -se [använda Azure CLI med Azure Storage][storage-azure-cli]
-* Valfritt Skapa en hanterad disk avbildning från den virtuella hård disken med *AZ image Create* -se https://docs.microsoft.com/cli/azure/image
-* Skapa en ny virtuell dator som anger den överförda virtuella hård disken eller hanterade disk avbildningen som en OS-disk med *AZ VM Create* och parameter *--image*
+* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
+* Sign in to your subscription with *az login*
+* Select your subscription with *az account set --subscription `<subscription name or id`>*
+* Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
+* (Optional) Create a Managed Disk Image from the VHD with *az image create* - see https://docs.microsoft.com/cli/azure/image
+* Create a new VM specifying the uploaded VHD or Managed Disk Image as OS disk with *az vm create* and parameter *--image*
 
 **Mall**
 
-* Använd *Sysprep* på Windows eller *waagent-deetablering* i Linux för att generalisera din virtuella dator – se [Sysprep teknisk referens](https://technet.microsoft.com/library/cc766049.aspx) för Windows eller [så här avbildar du en virtuell Linux-dator som ska användas som en Resource Manager-mall][capture-image-linux-step-2-create-vm-image] för Linux
-* Ladda upp den virtuella hård disken med PowerShell eller Azure CLI
-* Valfritt Skapa en hanterad disk avbildning från den virtuella hård disken med PowerShell, Azure CLI eller Azure Portal
-* Distribuera den virtuella datorn med en JSON-mall som refererar till avbildningens virtuella hård disk som visas i [den här exempel-JSON-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) eller med hjälp av den hanterade disk avbildningen som du ser i [det här exemplet](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)
+* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
+* Upload the VHD with Powershell or Azure CLI
+* (Optional) Create a Managed Disk Image from the VHD with Powershell, Azure CLI, or the Azure portal
+* Deploy the VM with a JSON template referencing the image VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using the Managed Disk Image as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
-#### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Laddar ned VHD: er eller Managed Disks till lokalt
-Azure-infrastruktur som en tjänst är inte en enkelriktad gata som bara kan ladda upp virtuella hård diskar och SAP-system. Du kan också flytta SAP-system från Azure tillbaka till den lokala världen.
+#### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Downloading VHDs or Managed Disks to on-premises
+Azure Infrastructure as a Service is not a one-way street of only being able to upload VHDs and SAP systems. You can move SAP systems from Azure back into the on-premises world as well.
 
-Under hämtningen kan de virtuella hård diskarna eller Managed Disks inte vara aktiva. Även när du laddar ned diskar, som är monterade på virtuella datorer, måste den virtuella datorn stängas av och frigöras. Om du bara vill hämta det databas innehåll som ska användas för att konfigurera ett nytt system lokalt och om det är acceptabelt under hämtningen och installationen av det nya systemet som systemet i Azure fortfarande kan fungera kan du undvika en lång stillestånds tid genom att utföra en komprimerad säkerhets kopiering av databasen till en disk och bara ladda ned den disken i stället för att även hämta den virtuella datorn för OS-basen.
+During the time of the download the VHDs or Managed Disks can't be active. Even when downloading disks, which are mounted to VMs, the VM needs to be shut down and deallocated. If you only want to download the database content which, then should be used to set up a new system on-premises and if it is acceptable that during the time of the download and the setup of the new system that the system in Azure can still be operational, you could avoid a long downtime by performing a compressed database backup into a disk and just download that disk instead of also downloading the OS base VM.
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 
-* Laddar ned en hanterad disk  
-  Du måste först få åtkomst till den underliggande blobben för den hanterade disken. Sedan kan du kopiera den underliggande blobben till ett nytt lagrings konto och ladda ned blobben från det här lagrings kontot.
+* Downloading a Managed Disk  
+  You first need to get access to the underlying blob of the Managed Disk. Then you can copy the underlying blob to a new storage account and download the blob from this storage account.
 
   ```powershell
   $access = Grant-AzDiskAccess -ResourceGroupName <resource group> -DiskName <disk name> -Access Read -DurationInSecond 3600
@@ -1018,52 +1018,52 @@ Under hämtningen kan de virtuella hård diskarna eller Managed Disks inte vara 
   Revoke-AzDiskAccess -ResourceGroupName <resource group> -DiskName <disk name>
   ```
 
-* Hämta en virtuell hård disk  
-  När SAP-systemet har stoppats och den virtuella datorn stängs av kan du använda PowerShell-cmdleten Save-AzVhd på det lokala målet för att ladda ned VHD-diskarna tillbaka till den lokala världen. För att göra det behöver du webb adressen till den virtuella hård disken, som du hittar i "lagrings avsnittet" i Azure Portal (du måste navigera till lagrings kontot och lagrings behållaren där den virtuella hård disken skapades) och du måste veta var den virtuella hård disken ska kopieras.
+* Downloading a VHD  
+  Once the SAP system is stopped and the VM is shut down, you can use the PowerShell cmdlet Save-AzVhd on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the URL of the VHD, which you can find in the 'storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
-  Sedan kan du använda kommandot genom att definiera parametern SourceUri som URL för den virtuella hård disk som ska laddas ned och LocalFilePath som den fysiska platsen för den virtuella hård disken (inklusive dess namn). Kommandot kan se ut så här:
+  Then you can leverage the command by defining the parameter SourceUri as the URL of the VHD to download and the LocalFilePath as the physical location of the VHD (including its name). The command could look like:
 
   ```powerhell
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Mer information om cmdlet: en Save-AzVhd finns här <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
+  For more details of the Save-AzVhd cmdlet, check here <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
 
 #### <a name="azure-cli"></a>Azure CLI
-* Laddar ned en hanterad disk  
-  Du måste först få åtkomst till den underliggande blobben för den hanterade disken. Sedan kan du kopiera den underliggande blobben till ett nytt lagrings konto och ladda ned blobben från det här lagrings kontot.
+* Downloading a Managed Disk  
+  You first need to get access to the underlying blob of the Managed Disk. Then you can copy the underlying blob to a new storage account and download the blob from this storage account.
   ```
   az disk grant-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --duration-in-seconds 3600
   az storage blob download --sas-token "<sas token>" --account-name <account name> --container-name <container name> --name <blob name> --file <local file>
   az disk revoke-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>"
   ```
 
-* Hämta en virtuell hård disk   
-  När SAP-systemet har stoppats och den virtuella datorn stängs av kan du använda Azure CLI-kommandot _Azure Storage BLOB-hämtning_ på det lokala målet för att ladda ned VHD-diskarna tillbaka till den lokala världen. För att göra det måste du ha namnet och den virtuella hård diskens behållare, som du hittar i "lagrings avsnittet" i Azure Portal (måste gå till lagrings kontot och lagrings behållaren där den virtuella hård disken skapades) och du måste veta var den virtuella hård disken ska vara COP IED till.
+* Downloading a VHD   
+  Once the SAP system is stopped and the VM is shut down, you can use the Azure CLI command _azure storage blob download_ on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD, which you can find in the 'Storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
-  Sedan kan du använda kommandot genom att definiera parameter-blob och behållare för den virtuella hård disken som ska laddas ned och målet som den fysiska mål platsen för den virtuella hård disken (inklusive dess namn). Kommandot kan se ut så här:
+  Then you can leverage the command by defining the parameters blob and container of the VHD to download and the destination as the physical target location of the VHD (including its name). The command could look like:
 
   ```
   az storage blob download --name <name of the VHD to download> --container-name <container of the VHD to download> --account-name <storage account name of the VHD to download> --account-key <storage account key> --file <destination of the VHD to download>
   ```
 
-### <a name="transferring-vms-and-disks-within-azure"></a>Överföra virtuella datorer och diskar i Azure
+### <a name="transferring-vms-and-disks-within-azure"></a>Transferring VMs and disks within Azure
 
-#### <a name="copying-sap-systems-within-azure"></a>Kopiera SAP-system i Azure
+#### <a name="copying-sap-systems-within-azure"></a>Copying SAP systems within Azure
 
-Ett SAP-system eller en dedikerad DBMS-server som har stöd för ett SAP-program skikt kommer sannolikt att bestå av flera diskar, som innehåller antingen operativ systemet med binärfilerna eller data-och loggfilerna för SAP-databasen. Varken Azure-funktionen för att kopiera diskar eller Azure-funktionerna för att spara diskar på en lokal disk har en mekanism för synkronisering, som ögonblicks bilder av flera diskar på ett konsekvent sätt. Därför skulle statusen för de kopierade eller sparade diskarna även om de är monterade mot samma virtuella dator vara annorlunda. Det innebär att i det konkreta fallet att ha olika data och loggfiler som finns i de olika diskarna skulle databasen i slutet vara inkonsekvent.
+An SAP system or even a dedicated DBMS server supporting an SAP application layer will likely consist of several disks, which contain either the OS with the binaries or the data and log file(s) of the SAP database. Neither the Azure functionality of copying disks nor the Azure functionality of saving disks to a local disk has a synchronization mechanism, which snapshots multiple disks in a consistent manner. Therefore, the state of the copied or saved disks even if those are mounted against the same VM would be different. This means that in the concrete case of having different data and logfile(s) contained in the different disks, the database in the end would be inconsistent.
 
-**Ingående För att kunna kopiera eller spara diskar som ingår i en SAP-systemkonfiguration måste du stoppa SAP-systemet och även behöva stänga av den distribuerade virtuella datorn. Du kan bara kopiera eller ladda ned disk uppsättningen för att antingen skapa en kopia av SAP-systemet i Azure eller lokalt.**
+**Conclusion: In order to copy or save disks, which are part of an SAP system configuration you need to stop the SAP system and also need to shut down the deployed VM. Only then you can copy or download the set of disks to either create a copy of the SAP system in Azure or on-premises.**
 
-Data diskar kan lagras som VHD-filer i ett Azure Storage konto och kan kopplas direkt till en virtuell dator eller användas som en avbildning. I det här fallet kopieras den virtuella hård disken till en annan plats innan den kopplas till den virtuella datorn. Det fullständiga namnet på VHD-filen i Azure måste vara unikt inom Azure. Som tidigare nämnts är namnet en typ av namn på tre delar som ser ut så här:
+Data disks can be stored as VHD files in an Azure Storage Account and can be directly attached to a virtual machine or be used as an image. In this case, the VHD is copied to another location before being attached to the virtual machine. The full name of the VHD file in Azure must be unique within Azure. As mentioned earlier already, the name is kind of a three-part name that looks like:
 
     http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
 
-Det går också att Managed Disks data diskar. I det här fallet används den hanterade disken för att skapa en ny hanterad disk innan den kopplas till den virtuella datorn. Namnet på den hanterade disken måste vara unikt inom en resurs grupp.
+Data disks can also be Managed Disks. In this case, the Managed Disk is used to create a new Managed Disk before being attached to the virtual machine. The name of the Managed Disk must be unique within a resource group.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
-Du kan använda Azure PowerShell cmdlets för att kopiera en virtuell hård disk som visas i [den här artikeln][storage-powershell-guide-full-copy-vhd]. Om du vill skapa en ny hanterad disk använder du New-AzDiskConfig och New-AzDisk som visas i följande exempel.
+You can use Azure PowerShell cmdlets to copy a VHD as shown in [this article][storage-powershell-guide-full-copy-vhd]. To create a new Managed Disk, use New-AzDiskConfig and New-AzDisk as shown in the following example.
 
 ```powershell
 $config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
@@ -1072,24 +1072,24 @@ New-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk 
 
 ##### <a name="azure-cli"></a>Azure CLI
 
-Du kan använda Azure CLI för att kopiera en virtuell hård disk som visas i [den här artikeln][storage-azure-cli-copy-blobs]. Om du vill skapa en ny hanterad disk använder du *AZ disk Create* som visas i följande exempel.
+You can use Azure CLI to copy a VHD as shown in [this article][storage-azure-cli-copy-blobs]. To create a new Managed Disk, use *az disk create* as shown in the following example.
 
 ```
 az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --name <disk name> --resource-group <resource group name> --location <location>
 ```
 
-##### <a name="azure-storage-tools"></a>Azure Storage verktyg
+##### <a name="azure-storage-tools"></a>Azure Storage tools
 
 * <https://storageexplorer.com/>
 
-Professional-versioner av Azure Storage Explorer hittar du här:
+Professional editions of Azure Storage Explorers can be found here:
 
 * <https://www.cerebrata.com/>
 * <https://clumsyleaf.com/products/cloudxplorer>
 
-Kopieringen av en virtuell hård disk i ett lagrings konto är en process som bara tar några sekunder (liknande SAN-maskinvara som skapar ögonblicks bilder med Lazy Copy och kopiering vid skrivning). När du har en kopia av VHD-filen kan du koppla den till en virtuell dator eller använda den som en avbildning för att koppla kopior av den virtuella hård disken till virtuella datorer.
+The copy of a VHD itself within a storage account is a process, which takes only a few seconds (similar to SAN hardware creating snapshots with lazy copy and copy on write). After you have a copy of the VHD file, you can attach it to a virtual machine or use it as an image to attach copies of the VHD to virtual machines.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 ```powershell
 # attach a vhd to a vm
@@ -1132,72 +1132,72 @@ az disk create --name <new disk name> --resource-group <resource group name> --l
 az vm disk attach --disk <new disk name or managed disk id> --resource-group <resource group name> --vm-name <vm name> --caching <caching option> --lun <lun, for example 0>
 ```
 
-#### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Kopiera diskar mellan Azure Storage-konton
-Det går inte att utföra den här uppgiften på Azure Portal. Du kan använda Azure PowerShell-cmdletar, Azure CLI eller en lagrings webbläsare från tredje part. PowerShell-cmdletarna eller CLI-kommandona kan skapa och hantera blobbar, bland annat möjligheten att asynkront kopiera blobbar mellan lagrings konton och mellan regioner i Azure-prenumerationen.
+#### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copying disks between Azure Storage Accounts
+This task cannot be performed on the Azure portal. You can use Azure PowerShell cmdlets, Azure CLI, or a third-party storage browser. The PowerShell cmdlets or CLI commands can create and manage blobs, which include the ability to asynchronously copy blobs across Storage Accounts and across regions within the Azure subscription.
 
-##### <a name="powershell"></a>Powershell
-Du kan också kopiera virtuella hård diskar mellan prenumerationer. Mer information finns i [den här artikeln][storage-powershell-guide-full-copy-vhd].
+##### <a name="powershell"></a>PowerShell
+You can also copy VHDs between subscriptions. For more information, read [this article][storage-powershell-guide-full-copy-vhd].
 
-Basic-flödet för PS-cmdlet-logiken ser ut så här:
+The basic flow of the PS cmdlet logic looks like this:
 
-* Skapa en lagrings konto kontext för **käll** lagrings kontot med *New-AzStorageContext* -se<https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Skapa en lagrings konto kontext för **mål** lagrings kontot med *New-AzStorageContext* -se<https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Starta kopian med
+* Create a storage account context for the **source** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Create a storage account context for the **target** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Start the copy with
 
 ```powershell
 Start-AzStorageBlobCopy -SrcBlob <source blob name> -SrcContainer <source container name> -SrcContext <variable containing context of source storage account> -DestBlob <target blob name> -DestContainer <target container name> -DestContext <variable containing context of target storage account>
 ```
 
-* Kontrol lera status för kopian i en slinga med
+* Check the status of the copy in a loop with
 
 ```powershell
 Get-AzStorageBlobCopyState -Blob <target blob name> -Container <target container name> -Context <variable containing context of target storage account>
 ```
 
-* Koppla den nya virtuella hård disken till en virtuell dator enligt beskrivningen ovan.
+* Attach the new VHD to a virtual machine as described above.
 
-Exempel finns i [den här artikeln][storage-powershell-guide-full-copy-vhd].
+For examples see [this article][storage-powershell-guide-full-copy-vhd].
 
 ##### <a name="azure-cli"></a>Azure CLI
-* Starta kopian med
+* Start the copy with
 
 ```
 az storage blob copy start --source-blob <source blob name> --source-container <source container name> --source-account-name <source storage account name> --source-account-key <source storage account key> --destination-container <target container name> --destination-blob <target blob name> --account-name <target storage account name> --account-key <target storage account name>
 ```
 
-* Kontrol lera status om kopian fortfarande finns i en slinga med
+* Check the status if the copy is still in a loop with
 
 ```
 az storage blob show --name <target blob name> --container <target container name> --account-name <target storage account name> --account-key <target storage account name>
 ```
 
-* Koppla den nya virtuella hård disken till en virtuell dator enligt beskrivningen ovan.
+* Attach the new VHD to a virtual machine as described above.
 
-Exempel finns i [den här artikeln][storage-azure-cli-copy-blobs].
+For examples see [this article][storage-azure-cli-copy-blobs].
 
-### <a name="disk-handling"></a>Disk hantering
+### <a name="disk-handling"></a>Disk Handling
 
-#### <a name="4efec401-91e0-40c0-8e64-f2dceadff646"></a>VM/disk struktur för SAP-distributioner
+#### <a name="4efec401-91e0-40c0-8e64-f2dceadff646"></a>VM/disk structure for SAP deployments
 
-Vi rekommenderar att hanteringen av strukturen för en virtuell dator och de tillhör ande diskarna är enkla. I lokala installationer har kunder utvecklat många olika sätt att strukturera en server installation.
+Ideally the handling of the structure of a VM and the associated disks should be simple. In on-premises installations, customers developed many ways of structuring a server installation.
 
-* En bas disk som innehåller operativ systemet och alla binärfiler för DBMS och/eller SAP. Sedan mars 2015 kan disken vara upp till 1 TB i stället för tidigare begränsningar som är begränsad till 127GB.
-* En eller flera diskar, som innehåller DBMS-loggfilen för SAP-databasen och logg filen för det DBMS-baserade lagrings utrymmet (om DBMS stöder detta). Om kraven för databas logg IOPS är höga måste du Stripa flera diskar för att uppnå den IOPS-volym som krävs.
-* Ett antal diskar som innehåller en eller två databasfiler för SAP-databasen och data DBMS Temp-datafilerna också (om DBMS stöder detta).
+* One base disk, which contains the OS and all the binaries of the DBMS and/or SAP. Since March 2015, this disk can be up to 1TB in size instead of earlier restrictions that limited it to 127GB.
+* One or multiple disks, which contains the DBMS log file of the SAP database and the log file of the DBMS temp storage area (if the DBMS supports this). If the database log IOPS requirements are high, you need to stripe multiple disks in order to reach the IOPS volume required.
+* A number of disks containing one or two database files of the SAP database and the DBMS temp data files as well (if the DBMS supports this).
 
-![Referens konfiguration för Azure IaaS VM för SAP][planning-guide-figure-1300]
+![Reference Configuration of Azure IaaS VM for SAP][planning-guide-figure-1300]
 
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Med många kunder såg vi konfigurationer där till exempel SAP-och DBMS-binärfiler inte har installerats på c:\ enhet där operativ systemet installerades. Det fanns olika orsaker till detta, men när vi gick tillbaka till roten var det vanligt vis att enheterna var små och operativ system uppgraderingar behövde ytterligare utrymme 10-15 år sedan. Båda villkoren gäller inte för ofta längre. I dag är c:\ enheten kan mappas på stora volym diskar eller virtuella datorer. För att hålla distributionerna enkla i deras struktur rekommenderar vi att du följer följande distributions mönster för SAP NetWeaver-system i Azure
+> With many customers we saw configurations where, for example, SAP and DBMS binaries were not installed on the c:\ drive where the OS was installed. There were various reasons for this, but when we went back to the root, it usually was that the drives were small and OS upgrades needed additional space 10-15 years ago. Both conditions do not apply these days too often anymore. Today the c:\ drive can be mapped on large volume disks or VMs. In order to keep deployments simple in their structure, it is recommended to follow the following deployment pattern for SAP NetWeaver systems in Azure
 >
-> Växlings filen för Windows-operativsystemet bör vara på D: enhet (icke-beständig disk)
+> The Windows operating system pagefile should be on the D: drive (non-persistent disk)
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Placera Linux-swapfile under/mnt/mnt/Resource på Linux enligt beskrivningen i [den här artikeln][virtual-machines-linux-agent-user-guide]. Växlings filen kan konfigureras i konfigurations filen för Linux-agentens/etc/waagent.conf. Lägg till eller ändra följande inställningar:
+> Place the Linux swapfile under /mnt /mnt/resource on Linux as described in [this article][virtual-machines-linux-agent-user-guide]. The swap file can be configured in the configuration file of the Linux Agent /etc/waagent.conf. Add or change the following settings:
 >
 >
 
@@ -1206,20 +1206,20 @@ ResourceDisk.EnableSwap=y
 ResourceDisk.SwapSizeMB=30720
 ```
 
-Om du vill aktivera ändringarna måste du starta om Linux-agenten med
+To activate the changes, you need to restart the Linux Agent with
 
 ```
 sudo service waagent restart
 ```
 
-Läs SAP NOTE [1597355] för mer information om den rekommenderade växlings filens storlek
+Please read SAP Note [1597355] for more details on the recommended swap file size
 
 ---
-Antalet diskar som används för DBMS-datafilerna och vilken typ av Azure Storage diskarna är värd för, bör fastställas av IOPS-kraven och den latens som krävs. Exakta kvoter beskrivs i [den här artikeln (Linux)][virtual-machines-sizes-linux] och [den här artikeln (Windows)][virtual-machines-sizes-windows].
+The number of disks used for the DBMS data files and the type of Azure Storage these disks are hosted on should be determined by the IOPS requirements and the latency required. Exact quotas are described in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows].
 
-Erfarenhet av SAP-distributioner under de senaste två åren är några lektioner, som kan sammanfattas som:
+Experience of SAP deployments over the last two years taught us some lessons, which can be summarized as:
 
-* IOPS-trafik till olika datafiler är inte alltid samma eftersom befintliga kund system kan ha olika storleks data filer som representerar sina SAP-databaser. Detta innebär att det är bättre att använda en RAID-konfiguration över flera diskar för att placera datafilerna som LUN-hämtas från dem. Det finns situationer, särskilt med Azure standard Storage där en IOPS-taxa når kvoten för en enskild disk mot DBMS-transaktionshanteraren. I sådana scenarier rekommenderar vi att du använder Premium Storage, eller att du kan aggregera flera standard lagrings diskar med en programs rand.
+* IOPS traffic to different data files is not always the same since existing customer systems might have differently sized data files representing their SAP database(s). As a result it turned out to be better using a RAID configuration over multiple disks to place the data files LUNs carved out of those. There were situations, especially with Azure Standard Storage where an IOPS rate hit the quota of a single disk against the DBMS transaction log. In such scenarios, the use of Premium Storage is recommended or alternatively aggregating multiple Standard Storage disks with a software stripe.
 
 ---
 > ![Windows][Logo_Windows] Windows
@@ -1228,168 +1228,168 @@ Erfarenhet av SAP-distributioner under de senaste två åren är några lektione
 >
 > ![Linux][Logo_Linux] Linux
 >
-> * [Konfigurera programvaru-RAID på Linux][virtual-machines-linux-configure-raid]
-> * [Konfigurera LVM på en virtuell Linux-dator i Azure][virtual-machines-linux-configure-lvm]
-> * [Azure Storage hemligheter och I/O-optimeringar I Linux](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Configure Software RAID on Linux][virtual-machines-linux-configure-raid]
+> * [Configure LVM on a Linux VM in Azure][virtual-machines-linux-configure-lvm]
+> * [Azure Storage secrets and Linux I/O optimizations](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
 >
 
 ---
-* Premium Storage visar betydande bättre prestanda, särskilt för viktiga skrivningar i transaktions loggen. För SAP-scenarier som förväntas leverera produktion som prestanda rekommenderar vi starkt att du använder VM-serien som kan utnyttja Azure Premium Storage.
+* Premium Storage is showing significant better performance, especially for critical transaction log writes. For SAP scenarios that are expected to deliver production like performance, it is highly recommended to use VM-Series that can leverage Azure Premium Storage.
 
-Tänk på att disken som innehåller operativ systemet, och som vi rekommenderar, binärfilerna för SAP och databasen (bas-VM) också inte längre är begränsad till 127GB. Det kan nu ha upp till 1 TB storlek. Detta bör vara tillräckligt med utrymme för att behålla all nödvändig fil, inklusive t. ex. SAP batch job-loggar.
+Keep in mind that the disk, which contains the OS, and as we recommend, the binaries of SAP and the database (base VM) as well, is not anymore limited to 127GB. It now can have up to 1TB in size. This should be enough space to keep all the necessary file including, for example, SAP batch job logs.
 
-Mer information och mer information, specifikt för virtuella DBMS-datorer, finns i [distributions guiden för DBMS][dbms-guide]
+For more suggestions and more details, specifically for DBMS VMs, consult the [DBMS Deployment Guide][dbms-guide]
 
-#### <a name="disk-handling"></a>Disk hantering
+#### <a name="disk-handling"></a>Disk Handling
 
-I de flesta fall måste du skapa ytterligare diskar för att kunna distribuera SAP-databasen till den virtuella datorn. Vi har talat om överväganden om antalet diskar i kapitlet om [VM/disk Structure för SAP-distributioner][planning-guide-5.5.1] av det här dokumentet. Med Azure Portal kan du ansluta och koppla från diskar när en virtuell bas dator har distribuerats. Diskarna kan kopplas/kopplas från när den virtuella datorn är igång samt när den har stoppats. När du kopplar en disk, Azure Portal erbjuda en tom disk eller en befintlig disk, vilket vid tidpunkten inte är kopplat till en annan virtuell dator.
+In most scenarios, you need to create additional disks in order to deploy the SAP database into the VM. We talked about the considerations on number of disks in chapter [VM/disk structure for SAP deployments][planning-guide-5.5.1] of this document. The Azure portal allows to attach and detach disks once a base VM is deployed. The disks can be attached/detached when the VM is up and running as well as when it is stopped. When attaching a disk, the Azure portal offers to attach an empty disk or an existing disk, which at this point in time is not attached to another VM.
 
-**Obs!** Diskar kan bara kopplas till en virtuell dator vid en specifik tidpunkt.
+**Note**: Disks can only be attached to one VM at any given time.
 
-![Ansluta/koppla från diskar med Azure standard Storage][planning-guide-figure-1400]
+![Attach / detach disks with Azure Standard Storage][planning-guide-figure-1400]
 
-Under distributionen av en ny virtuell dator kan du välja om du vill använda Managed Disks eller placera diskarna på Azure Storage-konton. Om du vill använda Premium Storage rekommenderar vi att du använder Managed Disks.
+During the deployment of a new virtual machine, you can decide whether you want to use Managed Disks or place your disks on Azure Storage Accounts. If you want to use Premium Storage, we recommend using Managed Disks.
 
-Därefter måste du bestämma om du vill skapa en ny och en tom disk eller om du vill välja en befintlig disk som överfördes tidigare och som ska kopplas till den virtuella datorn nu.
+Next, you need to decide whether you want to create a new and empty disk or whether you want to select an existing disk that was uploaded earlier and should be attached to the VM now.
 
-**VIKTIGT!** Du vill **inte** använda cachelagring av värdar med Azure standard Storage. Du bör lämna inställningen för värd-cachen till standardvärdet NONE. Med Azure Premium Storage bör du aktivera cachelagring av filer om I/O-variabeln huvudsakligen läser som typisk I/O-trafik mot datafiler I databasen. I händelse av databas transaktions logg filen rekommenderas ingen cachelagring.
+**IMPORTANT**: You **DO NOT** want to use Host Caching with Azure Standard Storage. You should leave the Host Cache preference at the default of NONE. With Azure Premium Storage, you should enable Read Caching if the I/O characteristic is mostly read like typical I/O traffic against database data files. In case of database transaction log file, no caching is recommended.
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> [Så här ansluter du en datadisk i Azure Portal][virtual-machines-linux-attach-disk-portal]
+> [How to attach a data disk in the Azure portal][virtual-machines-linux-attach-disk-portal]
 >
-> Om diskarna är anslutna måste du logga in på den virtuella datorn för att öppna Windows Disk Manager. Om automount inte är aktiverat enligt rekommendationer i kapitel [inställningen automontera för anslutna diskar][planning-guide-5.5.3], måste den nyligen anslutna volymen tas online och initieras.
+> If disks are attached, you need to sign in to the VM to open the Windows Disk Manager. If automount is not enabled as recommended in chapter [Setting automount for attached disks][planning-guide-5.5.3], the newly attached volume needs to be taken online and initialized.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Om diskarna är anslutna måste du logga in på den virtuella datorn och initiera diskarna enligt beskrivningen i [den här artikeln][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
+> If disks are attached, you need to sign in to the VM and initialize the disks as described in [this article][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
 >
 >
 
 ---
-Om den nya disken är en tom disk, måste du även formatera disken. För formatering, särskilt för DBMS-data och loggfiler, samma rekommendationer som för distribution utan operativ system i DBMS tillämpas.
+If the new disk is an empty disk, you need to format the disk as well. For formatting, especially for DBMS data and log files the same recommendations as for bare-metal deployments of the DBMS apply.
 
-Som redan nämnts i kapitlet [Microsoft Azure begreppet virtuell dator][planning-guide-3.2]ger ett Azure Storage konto inte några oändliga resurser vad gäller i/O-volym, IOPS och data volym. Virtuella DBMS-datorer påverkas vanligt vis av detta. Det kan vara bäst att använda ett separat lagrings konto för varje virtuell dator om du har några virtuella datorer i/O-volymer som ska distribueras för att ligga inom gränsen för Azure Storage kontots volym. Annars måste du se hur du kan balansera de virtuella datorerna mellan olika lagrings konton utan att använda gränsen för varje enskilt lagrings konto. Mer information beskrivs i [distributions guiden för DBMS][dbms-guide]. Du bör också ha de här begränsningarna i åtanke för virtuella datorer i SAP-programservern eller andra virtuella datorer, vilket kan kräva ytterligare virtuella hård diskar. Dessa begränsningar gäller inte om du använder hanterad disk. Om du planerar att använda Premium Storage rekommenderar vi att du använder hanterad disk.
+As already mentioned in chapter [The Microsoft Azure Virtual Machine Concept][planning-guide-3.2], an Azure Storage account does not provide infinite resources in terms of I/O volume, IOPS, and data volume. Usually DBMS VMs are most affected by this. It might be best to use a separate Storage Account for each VM if you have few high I/O volume VMs to deploy in order to stay within the limit of the Azure Storage Account volume. Otherwise, you need to see how you can balance these VMs between different Storage accounts without hitting the limit of each single Storage Account. More details are discussed in the [DBMS Deployment Guide][dbms-guide]. You should also keep these limitations in mind for pure SAP application server VMs or other VMs, which eventually might require additional VHDs. These restrictions do not apply if you use Managed Disk. If you plan to use Premium Storage, we recommend using Managed Disk.
 
-Ett annat ämne, som är relevant för lagrings konton är om de virtuella hård diskarna i ett lagrings konto får geo-replikeras. Geo-replikering är aktiverat eller inaktiverat på lagrings konto nivån och inte på VM-nivån. Om geo-replikering är aktiverat replikeras de virtuella hård diskarna i lagrings kontot till ett annat Azure-datacenter inom samma region. Innan du bestämmer detta bör du tänka på följande begränsning:
+Another topic, which is relevant for Storage Accounts is whether the VHDs in a Storage Account are getting Geo-replicated. Geo-replication is enabled or disabled on the Storage Account level and not on the VM level. If geo-replication is enabled, the VHDs within the Storage Account would be replicated into another Azure data center within the same region. Before deciding on this, you should think about the following restriction:
 
-Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuell dator och replikerar inte IOs i kronologisk ordning över flera virtuella hård diskar i en virtuell dator. Därför replikeras den virtuella hård disken som representerar den virtuella bas datorn samt eventuella ytterligare virtuella hård diskar som är anslutna till den virtuella datorn oberoende av varandra. Det innebär att det inte finns någon synkronisering mellan ändringarna i de olika virtuella hård diskarna. Det faktum att IOs replikeras oberoende av i vilken ordning de skrivs, innebär att geo-replikering inte är ett värde för databas servrar som har sina databaser distribuerade över flera virtuella hård diskar. Förutom DBMS kan det också finnas andra program där processer skriver eller manipulerar data i olika virtuella hård diskar och där det är viktigt att behålla ändrings ordningen. Om det är ett krav bör geo-replikering i Azure inte aktive ras. Beroende på om du behöver eller vill använda geo-replikering för en uppsättning virtuella datorer, men inte för en annan uppsättning, kan du redan kategorisera virtuella datorer och deras relaterade virtuella hård diskar till olika lagrings konton som har geo-replikering aktiverat eller inaktiverat.
+Azure Geo-replication works locally on each VHD in a VM and does not replicate the IOs in chronological order across multiple VHDs in a VM. Therefore, the VHD that represents the base VM as well as any additional VHDs attached to the VM are replicated independent of each other. This means there is no synchronization between the changes in the different VHDs. The fact that the IOs are replicated independently of the order in which they are written means that geo-replication is not of value for database servers that have their databases distributed over multiple VHDs. In addition to the DBMS, there also might be other applications where processes write or manipulate data in different VHDs and where it is important to keep the order of changes. If that is a requirement, geo-replication in Azure should not be enabled. Dependent on whether you need or want geo-replication for a set of VMs, but not for another set, you can already categorize VMs and their related VHDs into different Storage Accounts that have geo-replication enabled or disabled.
 
-#### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Ställer in automontering för anslutna diskar
+#### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Setting automount for attached disks
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> För virtuella datorer, som skapas från egna avbildningar eller diskar, är det nödvändigt att kontrol lera och eventuellt ange parametern för automontering. Genom att ange den här parametern kan den virtuella datorn efter en omstart eller omdistribution i Azure montera de anslutna/monterade enheterna igen automatiskt.
-> Parametern anges för de avbildningar som tillhandahålls av Microsoft på Azure Marketplace.
+> For VMs, which are created from own Images or Disks, it is necessary to check and possibly set the automount parameter. Setting this parameter will allow the VM after a restart or redeployment in Azure to mount the attached/mounted drives again automatically.
+> The parameter is set for the images provided by Microsoft in the Azure Marketplace.
 >
-> Information om hur du ställer in den här monterings kontrollen finns i dokumentationen för den körbara kommando rads programmet DiskPart. exe här:
+> In order to set the automount, check the documentation of the command-line executable diskpart.exe here:
 >
-> * [Kommando rads alternativ för DiskPart](https://technet.microsoft.com/library/bb490893.aspx)
+> * [DiskPart Command-Line Options](https://technet.microsoft.com/library/bb490893.aspx)
 > * [Automount](https://technet.microsoft.com/library/cc753703.aspx)
 >
-> Windows kommando rads fönster bör öppnas som administratör.
+> The Windows command-line window should be opened as administrator.
 >
-> Om diskarna är anslutna måste du logga in på den virtuella datorn för att öppna Windows Disk Manager. Om automount inte är aktiverat enligt rekommendationer i kapitel [inställningen automontera för anslutna diskar][planning-guide-5.5.3], måste den nyligen anslutna volymen > tas online och initieras.
+> If disks are attached, you need to sign in to the VM to open the Windows Disk Manager. If automount is not enabled as recommended in chapter [Setting automount for attached disks][planning-guide-5.5.3],  the newly attached volume >needs to be taken online and initialized.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Du måste initiera en nyligen ansluten tom disk enligt beskrivningen i [den här artikeln][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
-> Du måste också lägga till nya diskar i/etc/fstab.
+> You need to initialize a newly attached empty disk as described in [this article][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
+> You also need to add new disks to the /etc/fstab.
 >
 >
 
 ---
-### <a name="final-deployment"></a>Slutlig distribution
+### <a name="final-deployment"></a>Final Deployment
 
-För den slutliga distributionen och de exakta stegen, särskilt vad gäller distributionen av Azure-tillägget för SAP, se [distributions guiden][deployment-guide].
+For the final deployment and exact steps, especially with regards to the deployment of the Azure Extension for SAP, refer to the [Deployment Guide][deployment-guide].
 
-## <a name="accessing-sap-systems-running-within-azure-vms"></a>Åtkomst till SAP-system som körs i virtuella Azure-datorer
+## <a name="accessing-sap-systems-running-within-azure-vms"></a>Accessing SAP systems running within Azure VMs
 
-Följande procedurer måste tillämpas för scenarier där du vill ansluta till dessa SAP-system via det offentliga Internet som använder SAP-gränssnittet.
+For scenarios where you want to connect to those SAP systems across the public internet using SAP GUI, the following procedures need to be applied.
 
-Senare i dokumentet diskuterar vi det andra större scenariot, ansluter till SAP-system i distributioner mellan platser, som har en plats-till-plats-anslutning (VPN-tunnel) eller en Azure ExpressRoute-anslutning mellan de lokala systemen och Azure-systemen.
+Later in the document we will discuss the other major scenario, connecting to SAP systems in cross-premises deployments, which have a site-to-site connection (VPN tunnel) or Azure ExpressRoute connection between the on-premises systems and Azure systems.
 
-### <a name="remote-access-to-sap-systems"></a>Fjärråtkomst till SAP-system
+### <a name="remote-access-to-sap-systems"></a>Remote Access to SAP systems
 
-Med Azure Resource Manager finns det inte längre några standard slut punkter som i den tidigare klassiska modellen. Alla portar i en Azure Resource Manager VM är öppna så länge:
+With Azure Resource Manager, there are no default endpoints anymore like in the former classic model. All ports of an Azure Resource Manager VM are open as long as:
 
-1. Ingen nätverks säkerhets grupp har definierats för under nätet eller nätverks gränssnittet. Nätverks trafik till virtuella Azure-datorer kan skyddas via så kallade "nätverks säkerhets grupper". Mer information finns i [Vad är en nätverkssäkerhetsgrupp?][virtual-networks-nsg]
-2. Ingen Azure Load Balancer har definierats för nätverks gränssnittet   
+1. No Network Security Group is defined for the subnet or the network interface. Network traffic to Azure VMs can be secured via so-called "Network Security Groups". Mer information finns i [Vad är en nätverkssäkerhetsgrupp?][virtual-networks-nsg]
+2. No Azure Load Balancer is defined for the network interface   
 
-Se skillnaden mellan den klassiska modellen och ARM-arkitekturen enligt beskrivningen i [den här artikeln][virtual-machines-azure-resource-manager-architecture].
+See the architecture difference between classic model and ARM as described in [this article][virtual-machines-azure-resource-manager-architecture].
 
-#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Konfiguration av SAP-systemet och SAP GUI-anslutning via Internet
+#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuration of the SAP System and SAP GUI connectivity over the internet
 
-I den här artikeln beskrivs information i det här avsnittet:<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Please see this article, which describes details to this topic: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
-#### <a name="changing-firewall-settings-within-vm"></a>Ändra brand Väggs inställningar i VM
+#### <a name="changing-firewall-settings-within-vm"></a>Changing Firewall Settings within VM
 
-Det kan vara nödvändigt att konfigurera brand väggen på dina virtuella datorer för att tillåta inkommande trafik till SAP-systemet.
+It might be necessary to configure the firewall on your virtual machines to allow inbound traffic to your SAP system.
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Som standard är Windows-brandväggen i en distribuerad Azure-dator aktive rad. Du måste nu tillåta SAP-porten att öppnas, annars kan inte SAP-ANVÄNDARGRÄNSSNITTET ansluta.
+> By default, the Windows Firewall within an Azure deployed VM is turned on. You now need to allow the SAP Port to be opened, otherwise the SAP GUI will not be able to connect.
 > Gör så här:
 >
-> * Öppna kontroll Kontrollpanelen\system och säkerhet-brandväggen till **Avancerade inställningar**.
-> * Högerklicka på regler för inkommande trafik och välj **ny regel**.
-> * I följande guide väljer du att skapa en ny **port** regel.
-> * I nästa steg i guiden lämnar du inställningen vid TCP och skriver in det port nummer som du vill öppna. Eftersom vårt SAP-instans-ID är 00 tog vi 3200. Om instansen har ett annat instans nummer, ska porten du definierade tidigare utifrån instans numret öppnas.
-> * I nästa del av guiden måste du lämna objektet **Tillåt anslutning** markerat.
-> * I nästa steg i guiden måste du definiera om regeln gäller för domän, privat och offentligt nätverk. Justera det om det behövs för dina behov. Men om du ansluter med SAP-GUI från utsidan via det offentliga nätverket måste du ha regeln tillämpad på det offentliga nätverket.
-> * I det sista steget i guiden namnger du regeln och sparar genom att trycka på **Slutför**.
+> * Open Control Panel\System and Security\Windows Firewall to **Advanced Settings**.
+> * Now right-click on Inbound Rules and chose **New Rule**.
+> * In the following Wizard chose to create a new **Port** rule.
+> * In the next step of the wizard, leave the setting at TCP and type in the port number you want to open. Since our SAP instance ID is 00, we took 3200. If your instance has a different instance number, the port you defined earlier based on the instance number should be opened.
+> * In the next part of the wizard, you need to leave the item **Allow Connection** checked.
+> * In the next step of the wizard you need to define whether the rule applies for Domain, Private and Public network. Please adjust it if necessary to your needs. However, connecting with SAP GUI from the outside through the public network, you need to have the rule applied to the public network.
+> * In the last step of the wizard, name the rule and save by pressing **Finish**.
 >
-> Regeln börjar gälla omedelbart.
+> The rule becomes effective immediately.
 >
-> ![Definition av port regel][planning-guide-figure-1600]
+> ![Port rule definition][planning-guide-figure-1600]
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Linux-avbildningarna i Azure Marketplace aktiverar inte program varan iptables-brandväggen som standard och anslutningen till ditt SAP-system bör fungera. Om du har aktiverat program varan iptables eller en annan brand vägg, se dokumentationen för program varan iptables eller den använda brand väggen för att tillåta inkommande TCP-trafik till port 32xx (där xx är system numret för ditt SAP-system).
+> The Linux images in the Azure Marketplace do not enable the iptables firewall by default and the connection to your SAP system should work. If you enabled iptables or another firewall, refer to the documentation of iptables or the used firewall to allow inbound tcp traffic to  port 32xx (where xx is the system number of your SAP system).
 >
 >
 
 ---
 #### <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
-Det grafiska användar gränssnittet för SAP ansluter inte direkt till någon av SAP-instanserna (port 32xx) som körs, men ansluter först via porten som öppnas till SAP Message Server-processen (port 36xx). Tidigare användes samma port av meddelande servern för intern kommunikation till program instanserna. För att förhindra att lokala program servrar kommunicerar med en meddelande server i Azure kan de interna kommunikations portarna ändras. Vi rekommenderar starkt att du ändrar den interna kommunikationen mellan SAP-meddelande servern och dess program instanser till ett annat port nummer på system som har klonas från lokala system, till exempel en klon av utveckling för projekt testning osv. Detta kan göras med standard profil parametern:
+The SAP GUI does not connect immediately to any of the SAP instances (port 32xx) which are running, but first connects via the port opened to the SAP message server process (port 36xx). In the past, the same port was used by the message server for the internal communication to the application instances. To prevent on-premises application servers from inadvertently communicating with a message server in Azure, the internal communication ports can be changed. It is highly recommended to change the internal communication between the SAP message server and its application instances to a different port number on systems that have been cloned from on-premises systems, such as a clone of development for project testing etc. This can be done with the default profile parameter:
 
 > rdisp/msserv_internal
 >
 >
 
-som dokumenteras i [säkerhets inställningar för SAP Message Server](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
+as documented in [Security Settings for the SAP Message Server](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
 
-### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Enkel virtuell dator med SAP NetWeaver demo/utbildnings scenario
+### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Single VM with SAP NetWeaver demo/training scenario
 
-![Att köra en enda virtuell dator SAP demo system med samma VM-namn, isolerade i Azure Cloud Services][planning-guide-figure-1700]
+![Running single VM SAP demo systems with the same VM names, isolated in Azure Cloud Services][planning-guide-figure-1700]
 
-I det här scenariot implementerar vi ett typiskt scenario för utbildning/demonstrations system där det fullständiga scenariot för utbildning/demonstration finns i en enda virtuell dator. Vi antar att distributionen görs via mallar för VM-avbildningar. Vi förutsätter också att flera av de virtuella datorerna för demo/utbildning måste distribueras med de virtuella datorerna med samma namn. Hela utbildnings systemen har ingen anslutning till dina lokala resurser och är en motsats till en hybrid distribution.
+In this scenario we are implementing a typical training/demo system scenario where the complete training/demo scenario is contained in a single VM. We assume that the deployment is done through VM image templates. We also assume that multiple of these demo/trainings VMs need to be deployed with the VMs having the same name. The whole training systems don't have connectivity to your on-premises assets and are an opposite to a hybrid deployment.
 
-Antagandet är att du har skapat en avbildning av en virtuell dator som beskrivs i vissa avsnitt av kapitlet att [förbereda virtuella datorer med SAP för Azure][planning-guide-5.2] i det här dokumentet.
+The assumption is that you created a VM Image as described in some sections of chapter [Preparing VMs with SAP for Azure][planning-guide-5.2] in this document.
 
-Händelse ordningen för att implementera scenariot ser ut så här:
+The sequence of events to implement the scenario looks like this:
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
-* Skapa en ny resurs grupp för varje utbildning/demo liggande
+* Create a new resource group for every training/demo landscape
 
 ```powershell
 $rgName = "SAPERPDemo1"
 New-AzResourceGroup -Name $rgName -Location "North Europe"
 ```
-* Skapa ett nytt lagrings konto om du inte vill använda Managed Disks
+* Create a new storage account if you don't want to use Managed Disks
 
 ```powershell
 $suffix = Get-Random -Minimum 100000 -Maximum 999999
 $account = New-AzStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
-* Skapa ett nytt virtuellt nätverk för varje utbildning/demo landskap för att aktivera användningen av samma värdnamn och IP-adresser. Det virtuella nätverket skyddas av en nätverks säkerhets grupp som endast tillåter trafik till port 3389 för att aktivera åtkomst till fjärr skrivbord och port 22 för SSH.
+* Create a new virtual network for every training/demo landscape to enable the usage of the same hostname and IP addresses. The virtual network is protected by a Network Security Group that only allows traffic to port 3389 to enable Remote Desktop access and port 22 for SSH.
 
 ```powershell
 # Create a new Virtual Network
@@ -1401,21 +1401,21 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name Subnet1 -AddressPrefix  1
 $vnet = New-AzVirtualNetwork -Name SAPERPDemoVNet -ResourceGroupName $rgName -Location "North Europe"  -AddressPrefix 10.0.1.0/24 -Subnet $subnetConfig
 ```
 
-* Skapa en ny offentlig IP-adress som kan användas för att få åtkomst till den virtuella datorn från Internet
+* Create a new public IP address that can be used to access the virtual machine from the internet
 
 ```powershell
 # Create a public IP address with a DNS name
 $pip = New-AzPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName -Location "North Europe" -DomainNameLabel $rgName.ToLower() -AllocationMethod Dynamic
 ```
 
-* Skapa ett nytt nätverks gränssnitt för den virtuella datorn
+* Create a new network interface for the virtual machine
 
 ```powershell
 # Create a new Network Interface
 $nic = New-AzNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Skapa en virtuell dator. I det här scenariot har varje virtuell dator samma namn. SAP SID för SAP NetWeaver-instanserna i de virtuella datorerna är också samma. I Azure-resurs gruppen måste namnet på den virtuella datorn vara unikt, men i olika Azure-resurs grupper kan du köra virtuella datorer med samma namn. Standard kontot administratör för Windows eller root för Linux är inte giltiga. Ett nytt administratörs användar namn måste därför definieras tillsammans med ett lösen ord. Storleken på den virtuella datorn måste också definieras.
+* Skapa en virtuell dator. For this scenario, every VM will have the same name. The SAP SID of the SAP NetWeaver instances in those VMs will be the same as well. Within the Azure Resource Group, the name of the VM needs to be unique, but in different Azure Resource Groups you can run VMs with the same name. The default 'Administrator' account of Windows or 'root' for Linux are not valid. Therefore, a new administrator user name needs to be defined together with a password. The size of the VM also needs to be defined.
 
 ```powershell
 #####
@@ -1476,7 +1476,7 @@ $vmconfig = Set-AzVMBootDiagnostics -Disable -VM $vmconfig
 $vm = New-AzVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
-* Du kan också lägga till ytterligare diskar och återställa nödvändigt innehåll. Alla BLOB-namn (URL: er till Blobbarna) måste vara unika i Azure.
+* Optionally add additional disks and restore necessary content. All blob names (URLs to the blobs) must be unique within Azure.
 
 ```powershell
 # Optional: Attach additional VHD data disks
@@ -1491,9 +1491,9 @@ Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -
 
 ##### <a name="cli"></a>CLI
 
-Följande exempel kod kan användas i Linux. För Windows kan du antingen använda PowerShell som det beskrivs ovan eller anpassa exemplet för att använda% rgName% i stället för $rgName och ange miljövariabeln med hjälp av Windows-kommando *uppsättningen*.
+The following example code can be used on Linux. For Windows, either use PowerShell as described above or adapt the example to use %rgName% instead of $rgName and set the environment variable using the Windows command *set*.
 
-* Skapa en ny resurs grupp för varje utbildning/demo liggande
+* Create a new resource group for every training/demo landscape
 
 ```
 rgName=SAPERPDemo1
@@ -1507,7 +1507,7 @@ az group create --name $rgName --location "North Europe"
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
 ```
 
-* Skapa ett nytt virtuellt nätverk för varje utbildning/demo landskap för att aktivera användningen av samma värdnamn och IP-adresser. Det virtuella nätverket skyddas av en nätverks säkerhets grupp som endast tillåter trafik till port 3389 för att aktivera åtkomst till fjärr skrivbord och port 22 för SSH.
+* Create a new virtual network for every training/demo landscape to enable the usage of the same hostname and IP addresses. The virtual network is protected by a Network Security Group that only allows traffic to port 3389 to enable Remote Desktop access and port 22 for SSH.
 
 ```
 az network nsg create --resource-group $rgName --location "North Europe" --name SAPERPDemoNSG
@@ -1518,19 +1518,19 @@ az network vnet create --resource-group $rgName --name SAPERPDemoVNet --location
 az network vnet subnet create --resource-group $rgName --vnet-name SAPERPDemoVNet --name Subnet1 --address-prefix 10.0.1.0/24 --network-security-group SAPERPDemoNSG
 ```
 
-* Skapa en ny offentlig IP-adress som kan användas för att få åtkomst till den virtuella datorn från Internet
+* Create a new public IP address that can be used to access the virtual machine from the internet
 
 ```
 az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --location "North Europe" --dns-name $rgNameLower --allocation-method Dynamic
 ```
 
-* Skapa ett nytt nätverks gränssnitt för den virtuella datorn
+* Create a new network interface for the virtual machine
 
 ```
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Skapa en virtuell dator. I det här scenariot har varje virtuell dator samma namn. SAP SID för SAP NetWeaver-instanserna i de virtuella datorerna är också samma. I Azure-resurs gruppen måste namnet på den virtuella datorn vara unikt, men i olika Azure-resurs grupper kan du köra virtuella datorer med samma namn. Standard kontot administratör för Windows eller root för Linux är inte giltiga. Ett nytt administratörs användar namn måste därför definieras tillsammans med ett lösen ord. Storleken på den virtuella datorn måste också definieras.
+* Skapa en virtuell dator. For this scenario, every VM will have the same name. The SAP SID of the SAP NetWeaver instances in those VMs will be the same as well. Within the Azure Resource Group, the name of the VM needs to be unique, but in different Azure Resource Groups you can run VMs with the same name. The default 'Administrator' account of Windows or 'root' for Linux are not valid. Therefore, a new administrator user name needs to be defined together with a password. The size of the VM also needs to be defined.
 
 ```
 #####
@@ -1564,7 +1564,7 @@ az vm create --resource-group $rgName --location "North Europe" --name SAPERPDem
 #az vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nics SAPERPDemoNIC --admin-username <username> --admin-password <password> --size Standard_DS11_v2 --os-disk-name os --image <managed disk image id> --authentication-type password
 ```
 
-* Du kan också lägga till ytterligare diskar och återställa nödvändigt innehåll. Alla BLOB-namn (URL: er till Blobbarna) måste vara unika i Azure.
+* Optionally add additional disks and restore necessary content. All blob names (URLs to the blobs) must be unique within Azure.
 
 ```
 # Optional: Attach additional VHD data disks
@@ -1576,502 +1576,502 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### <a name="template"></a>Mall
 
-Du kan använda exemplen på lagrings platsen för Azure-snabb start-mallar på GitHub.
+You can use the sample templates on the azure-quickstart-templates repository on GitHub.
 
-* [Enkel virtuell Linux-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* [Enkel virtuell Windows-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-* [Virtuell dator från avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+* [Simple Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+* [Simple Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+* [VM from image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Implementera en uppsättning virtuella datorer som kommunicerar i Azure
+### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Implement a set of VMs that communicate within Azure
 
-Detta icke-hybrid scenario är ett typiskt scenario för utbildnings-och demo syfte där program varan som representerar demo-/utbildnings scenariot sprids över flera virtuella datorer. De olika komponenterna som installeras på de olika virtuella datorerna måste kommunicera med varandra. I det här scenariot behövs det ingen lokal nätverkskommunikation eller ett scenario mellan platser.
+This non-hybrid scenario is a typical scenario for training and demo purposes where the software representing the demo/training scenario is spread over multiple VMs. The different components installed in the different VMs need to communicate with each other. Again, in this scenario no on-premises network communication or cross-premises scenario is needed.
 
-Det här scenariot är en utökning av den installation som beskrivs i kapitel [Single VM with demo/Training scenario för NetWeaver][planning-guide-7.1] i det här dokumentet. I det här fallet kommer fler virtuella datorer att läggas till i en befintlig resurs grupp. I följande exempel består utbildningen av en virtuell SAP ASCS/SCS-dator, en virtuell dator som kör ett DBMS och en virtuell SAP Application Server-instans.
+This scenario is an extension of the installation described in chapter [Single VM with SAP NetWeaver demo/training scenario][planning-guide-7.1] of this document. In this case more virtual machines will be added to an existing resource group. In the following example, the training landscape consists of an SAP ASCS/SCS VM, a VM running a DBMS, and an SAP Application Server instance VM.
 
-Innan du skapar det här scenariot måste du tänka på grundläggande inställningar som redan har utnyttjats i scenariot innan.
+Before you build this scenario, you need to think about basic settings as already exercised in the scenario before.
 
-#### <a name="resource-group-and-virtual-machine-naming"></a>Resurs grupp och namngivning av virtuella datorer
+#### <a name="resource-group-and-virtual-machine-naming"></a>Resource Group and Virtual Machine naming
 
-Alla resurs grupp namn måste vara unika. Utveckla ditt eget namngivnings schema för dina resurser, t `<rg-name`. ex. >-suffix.
+All resource group names must be unique. Develop your own naming scheme of your resources, such as `<rg-name`>-suffix.
 
-Det virtuella dator namnet måste vara unikt inom resurs gruppen.
+The virtual machine name has to be unique within the resource group.
 
-#### <a name="set-up-network-for-communication-between-the-different-vms"></a>Konfigurera nätverk för kommunikation mellan olika virtuella datorer
+#### <a name="set-up-network-for-communication-between-the-different-vms"></a>Set up Network for communication between the different VMs
 
-![Uppsättning virtuella datorer i ett Azure-Virtual Network][planning-guide-figure-1900]
+![Set of VMs within an Azure Virtual Network][planning-guide-figure-1900]
 
-För att förhindra att namnge kollisioner med kloner av samma utbildning/demonstration-landskap måste du skapa ett Azure-Virtual Network för varje landskap. DNS-namnmatchning kommer att tillhandahållas av Azure eller så kan du konfigurera din egen DNS-server utanför Azure (ska inte diskuteras här). I det här scenariot konfigurerar vi inte vår egen DNS. För alla virtuella datorer i en Azure-Virtual Network aktive ras kommunikation via värdnamn.
+To prevent naming collisions with clones of the same training/demo landscapes, you need to create an Azure Virtual Network for every landscape. DNS name resolution will be provided by Azure or you can configure your own DNS server outside Azure (not to be further discussed here). In this scenario, we do not configure our own DNS. For all virtual machines inside one Azure Virtual Network, communication via hostnames will be enabled.
 
-Anledningen till att separata utbildnings-eller demonstrations landskap av virtuella nätverk och inte bara resurs grupper kan vara:
+The reasons to separate training or demo landscapes by virtual networks and not only resource groups could be:
 
-* SAP landskap som kon figurer ATS kräver sin egen AD/OpenLDAP och en domän Server måste vara en del av varje landskap.  
-* SAP-landskapet som kon figurer ATS har komponenter som måste fungera med fasta IP-adresser.
+* The SAP landscape as set up needs its own AD/OpenLDAP and a Domain Server needs to be part of each of the landscapes.  
+* The SAP landscape as set up has components that need to work with fixed IP addresses.
 
-Mer information om virtuella Azure-nätverk och hur du definierar dem finns i [den här artikeln][virtual-networks-create-vnet-arm-pportal].
+More details about Azure Virtual Networks and how to define them can be found in [this article][virtual-networks-create-vnet-arm-pportal].
 
-## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>Distribuera virtuella SAP-datorer med företags nätverks anslutning (mellan platser)
+## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>Deploying SAP VMs with Corporate Network Connectivity (Cross-Premises)
 
-Du kör ett SAP-landskap och vill dela upp distributionen mellan Bare-Metal för avancerade DBMS-servrar, lokala virtualiserade miljöer för program lager och mindre 2-Tier konfigurerade SAP-system och Azure-IaaS. Det grundläggande antagandet är att SAP-system i ett SAP-landskap måste kommunicera med varandra och med många andra program varu komponenter som distribueras i företaget, oberoende av deras distributions formulär. Det bör inte heller finnas några skillnader i distributions formuläret för slutanvändaren som ansluter till SAP-ANVÄNDARGRÄNSSNITTET eller andra gränssnitt. Dessa villkor kan bara uppfyllas när vi har de lokala Active Directory-och OpenLDAP-och DNS-tjänsterna utökade till Azure-systemen via plats-till-plats/anslutning till flera platser eller privata anslutningar som Azure ExpressRoute.
+You run an SAP landscape and want to divide the deployment between bare-metal for high-end DBMS servers, on-premises virtualized environments for application layers, and smaller 2-Tier configured SAP systems and Azure IaaS. The base assumption is that SAP systems within one SAP landscape need to communicate with each other and with many other software components deployed in the company, independent of their deployment form. There also should be no differences introduced by the deployment form for the end user connecting with SAP GUI or other interfaces. These conditions can only be met when we have the on-premises Active Directory/OpenLDAP and DNS services extended to the Azure systems through site-to-site/multi-site connectivity or private connections like Azure ExpressRoute.
 
 
 
-### <a name="scenario-of-an-sap-landscape"></a>Scenario för ett SAP-landskap
+### <a name="scenario-of-an-sap-landscape"></a>Scenario of an SAP landscape
 
-Det kors-eller hybrid scenariot kan vara grovt beskrivet som i bilden nedan:
+The cross-premises or hybrid scenario can be roughly described like in the graphics below:
 
-![Plats-till-plats-anslutning mellan lokala och Azure-tillgångar][planning-guide-figure-2100]
+![Site-to-Site connectivity between on-premises and Azure assets][planning-guide-figure-2100]
 
-Scenariot som visas ovan beskriver ett scenario där den lokala
+The scenario shown above describes a scenario where the on-premises
 
-Minimi kravet är att använda säkra kommunikations protokoll som SSL/TLS för webb läsar åtkomst eller VPN-baserade anslutningar för system åtkomst till Azure-tjänsterna. Antagandet är att företag hanterar VPN-anslutningen mellan företagets nätverk och Azure på olika sätt. Vissa företag kan öppna alla portar i ett tomt fall. Vissa andra företag kanske vill vara precis på vilka portar de behöver öppna osv.
+The minimum requirement is the use of secure communication protocols such as SSL/TLS for browser access or VPN-based connections for system access to the Azure services. The assumption is that companies handle the VPN connection between their corporate network and Azure differently. Some companies might blankly open all the ports. Some other companies might want to be precise in which ports they need to open, etc.
 
-I tabellen nedan visas typiska SAP-kommunikations portar. I princip räcker det att öppna SAP Gateway-porten.
+In the table below typical SAP communication ports are listed. Basically it is sufficient to open the SAP gateway port.
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Tjänsten | Portnamn | Exempel `<nn`> = 01 | Standard intervall (min-max) | Kommentar |
+| Tjänst | Port Name | Example `<nn`> = 01 | Default Range (min-max) | Kommentar |
 | --- | --- | --- | --- | --- |
-| Dispatcher |sapdp`<nn>` se * |3201 |3200 - 3299 |SAP dispatcher, som används av SAP GUI för Windows och Java |
-| Meddelande Server |sapms`<sid`> Se * * |3600 |kostnads fri sapms`<anySID`> |sid = SAP-system-ID |
-| Gateway |sapgw`<nn`> Se * |3301 |kostnadsfri |SAP-Gateway, som används för CPIC-och RFC-kommunikation |
-| SAP-router |sapdp99 |3299 |kostnadsfri |Endast CI (Central instans) tjänst namn kan omtilldelas i/etc/Services till ett godtyckligt värde efter installationen. |
+| Dispatcher |sapdp`<nn>` see * |3201 |3200 - 3299 |SAP Dispatcher, used by SAP GUI for Windows and Java |
+| Message server |sapms`<sid`> see ** |3600 |free sapms`<anySID`> |sid = SAP-System-ID |
+| Gateway |sapgw`<nn`> see * |3301 |free |SAP gateway, used for CPIC and RFC communication |
+| SAP router |sapdp99 |3299 |free |Only CI (central instance) Service names can be reassigned in /etc/services to an arbitrary value after installation. |
 
-*) NN = SAP instance Number
+*) nn = SAP Instance Number
 
-\* *) sid = SAP-system-ID
+**) sid = SAP-System-ID
 
-Mer detaljerad information om portar som krävs för olika SAP-produkter och-tjänster av SAP-produkter <https://scn.sap.com/docs/DOC-17124>finns här.
-Med det här dokumentet bör du kunna öppna särskilda portar i VPN-enheten som krävs för särskilda SAP-produkter och-scenarier.
+More detailed information on ports required for different SAP products or services by SAP products can be found here <https://scn.sap.com/docs/DOC-17124>.
+With this document, you should be able to open dedicated ports in the VPN device necessary for specific SAP products and scenarios.
 
-Andra säkerhets åtgärder när du distribuerar virtuella datorer i ett sådant scenario kan vara att skapa en [nätverks säkerhets grupp][virtual-networks-nsg] för att definiera åtkomst regler.
+Other security measures when deploying VMs in such a scenario could be to create a [Network Security Group][virtual-networks-nsg] to define access rules.
 
-### <a name="dealing-with-different-virtual-machine-series"></a>Hantera olika serier för virtuella datorer
+### <a name="dealing-with-different-virtual-machine-series"></a>Dealing with different Virtual Machine Series
 
-Microsoft har lagt till många fler typer av virtuella datorer som skiljer sig åt antingen i antal virtuella processorer, minne eller viktigare på maskin vara som den körs på. Alla de virtuella datorerna stöds inte med SAP (se VM-typer som stöds i SAP NOTE [1928533]). Några av de virtuella datorerna körs på olika värdars maskin varu generationer. Dessa värden för maskin varu generationer distribueras i kornig het i en Azure-Scale-enhet. Det kan uppstå fall där de olika VM-typerna du väljer inte kan köras på samma Scale-Unit. En tillgänglighets uppsättning är begränsad i möjligheten att täcka skalnings enheter baserat på olika maskin vara.  Om du till exempel kör SAP DBMS-skiktet på en virtuell E64s_v3-dator som finns i en tillgänglighets uppsättning tillsammans med den virtuella datorn som kör den sekundära DBMS-instansen i en HA-konfiguration, kan du inte helt enkelt stoppa och starta om den sekundära virtuella datorn som virtuell dator i M-serien, eftersom du kanske vill upg rade den virtuella datorn. Orsak är att virtuella datorer i M-serien och virtuella datorer i Ev3-serien körs på olika maskin vara och med det i olika skalnings enheter. Du måste skapa en ny tillgänglighets uppsättning, ta bort den sekundära virtuella datorn Ev3, utan att ta bort lagringen, och sedan distribuera om den virtuella datorn som M-seriens virtuella dator till den nya tillgänglighets uppsättningen.
+Microsoft added many more VM types that differ either in number of vCPUs, memory or more important on hardware it is running on. Not all those VMs are supported with SAP (see supported VM types in SAP Note [1928533]). Some of those VMs run on different host hardware generations. These host hardware generations are getting deployed in the granularity of an Azure Scale-Unit. Cases may arise where the different VM types you chose can't be run on the same Scale-Unit. An Availability Set is limited in the ability to span Scale-Units based of different hardware.  For example if you are running the SAP DBMS layer on an E64s_v3 VM which is in an Availability Set together with the VM running the secondary DBMS instance in an HA configuration, you can't simply stop and restart the secondary VM as M-Series VM because you might want to upgrade the VM. Reason is that M-Series VMs and Ev3-Series VMs are running on different hardware and with that in different Scale-Units. You would need to create a new Availability Set, delete the secondary Ev3-Series VM, without deleting the storage, and redeploy the VM as M-Series VM into the new Availability Set.
 
-#### <a name="printing-on-a-local-network-printer-from-sap-instance-in-azure"></a>Skriva ut på en lokal nätverks skrivare från SAP-instansen i Azure
+#### <a name="printing-on-a-local-network-printer-from-sap-instance-in-azure"></a>Printing on a local network printer from SAP instance in Azure
 
-##### <a name="printing-over-tcpip-in-cross-premises-scenario"></a>Skriva ut över TCP/IP i ett scenario med flera platser
+##### <a name="printing-over-tcpip-in-cross-premises-scenario"></a>Printing over TCP/IP in Cross-Premises scenario
 
-Konfiguration av lokala TCP/IP-baserade nätverks skrivare i en virtuell Azure-dator är samma som i företagets nätverk, förutsatt att du har en VPN-anslutning för plats-till-plats-tunnel eller ExpressRoute-anslutning upprättad.
+Setting up your on-premises TCP/IP based network printers in an Azure VM is overall the same as in your corporate network, assuming you do have a VPN Site-To-Site tunnel or ExpressRoute connection established.
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
 > Gör så här:
 >
-> * Vissa nätverks skrivare levereras med en konfigurations guide som gör det enkelt att konfigurera skrivaren i en virtuell Azure-dator. Om ingen guide program vara har distribuerats med skrivaren är det manuella sättet att konfigurera skrivaren att skapa en ny TCP/IP-skrivarport.
-> * Öppna kontroll panelen – > enheter och skrivare – > lägga till en skrivare
-> * Välj Lägg till en skrivare med en TCP/IP-adress eller ett värdnamn
-> * Ange skrivarens IP-adress
-> * Skrivar port standard 9100
-> * Installera lämplig skrivar driv rutin manuellt om det behövs.
+> * Some network printers come with a configuration wizard which makes it easy to set up your printer in an Azure VM. If no wizard software has been distributed with the printer, the manual way to set up the printer is to create a new TCP/IP printer port.
+> * Open Control Panel -> Devices and Printers -> Add a printer
+> * Choose Add a printer using a TCP/IP address or hostname
+> * Type in the IP address of the printer
+> * Printer Port standard 9100
+> * If necessary install the appropriate printer driver manually.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> * precis som för Windows följer du standard proceduren för att installera en nätverks skrivare
-> * Följ bara de offentliga Linux-guiderna för [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) eller [Red Hat och Oracle Linux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) om hur du lägger till en skrivare.
+> * like for Windows just follow the standard procedure to install a network printer
+> * just follow the public Linux guides for [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) or [Red Hat and Oracle Linux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) on how to add a printer.
 >
 >
 
 ---
-![Nätverks utskrift][planning-guide-figure-2200]
+![Network printing][planning-guide-figure-2200]
 
-##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>Värdbaserad skrivare över SMB (delad skrivare) i ett scenario med flera platser
+##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>Host-based printer over SMB (shared printer) in Cross-Premises scenario
 
-Värdbaserade skrivare är inte nätverks kompatibla genom design. Men en värdbaserad skrivare kan delas mellan datorer i ett nätverk förutsatt att skrivaren är ansluten till en dator som är påslagen. Anslut företagets nätverk till antingen plats-till-plats eller ExpressRoute och dela din lokala skrivare. SMB-protokollet använder NetBIOS i stället för DNS as Name Service. NetBIOS-värdnamnet kan vara ett annat än DNS-värdnamnet. Standard fallet är att NetBIOS-värdnamnet och DNS-värdnamnet är identiska. DNS-domänen är inte begriplig i NetBIOS-namnområdet. Detta är att det fullständigt kvalificerade DNS-värdnamnet som består av DNS-värdnamnet och DNS-domänen inte får användas i NetBIOS-namn utrymmet.
+Host-based printers are not network-compatible by design. But a host-based printer can be shared among computers on a network as long as the printer is connected to a powered-on computer. Connect your corporate network either Site-To-Site or ExpressRoute and share your local printer. The SMB protocol uses NetBIOS instead of DNS as name service. The NetBIOS host name can be different from the DNS host name. The standard case is that the NetBIOS host name and the DNS host name are identical. The DNS domain does not make sense in the NetBIOS name space. Accordingly, the fully qualified DNS host name consisting of the DNS host name and DNS domain must not be used in the NetBIOS name space.
 
-Skrivar resursen identifieras med ett unikt namn i nätverket:
+The printer share is identified by a unique name in the network:
 
-* Värd namnet för SMB-värden (alltid nödvändigt).
-* Namnet på resursen (alltid nödvändigt).
-* Namnet på domänen om skrivar resursen inte finns i samma domän som SAP-systemet.
-* Dessutom kan ett användar namn och ett lösen ord krävas för att få åtkomst till skrivar resursen.
+* Host name of the SMB host (always needed).
+* Name of the share (always needed).
+* Name of the domain if printer share is not in the same domain as SAP system.
+* Additionally, a user name and a password may be required to access the printer share.
 
-Anvisningar:
+Så här:
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Dela din lokala skrivare.
-> I den virtuella Azure-datorn öppnar du Utforskaren och skriver in skrivarens resurs namn.
-> En installations guide för skrivare vägleder dig genom installations processen.
+> Share your local printer.
+> In the Azure VM, open the Windows Explorer and type in the share name of the printer.
+> A printer installation wizard will guide you through the installation process.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Här följer några exempel på dokumentation om hur du konfigurerar nätverks skrivare i Linux eller inkluderar ett kapitel angående utskrift i Linux. Den fungerar på samma sätt i en virtuell Azure Linux-dator så länge den virtuella datorn ingår i ett VPN:
+> Here are some examples of documentation about configuring network printers in Linux or including a chapter regarding printing in Linux. It will work the same way in an Azure Linux VM as long as the VM is part of a VPN:
 >
-> * SLES<https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
-> * RHEL eller Oracle Linux<https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
+> * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
+> * RHEL or Oracle Linux <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
 >
 >
 
 ---
-##### <a name="usb-printer-printer-forwarding"></a>USB-skrivare (vidarebefordring av skrivare)
+##### <a name="usb-printer-printer-forwarding"></a>USB Printer (printer forwarding)
 
-I Azure är möjligheten för Fjärrskrivbordstjänster att ge användarna åtkomst till sina lokala skrivar enheter i en fjärrsession inte tillgänglig.
+In Azure the ability of the Remote Desktop Services to provide users the access to their local printer devices in a remote session is not available.
 
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Mer information om hur du skriver ut med Windows finns här <https://technet.microsoft.com/library/jj590748.aspx>:.
+> More details on printing with Windows can be found here: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
 ---
-#### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>Integrering av SAP Azure-system i korrigerings-och transport system (TMS) i olika platser
+#### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>Integration of SAP Azure Systems into Correction and Transport System (TMS) in Cross-Premises
 
-TMS (SAP Change and transport system) måste konfigureras för att exportera och importera transport begär Anden mellan system i liggande format. Vi förutsätter att utvecklings instanserna för ett SAP-system (DEV) finns i Azure, medan kvalitets säkrings systemet (frågor och svar) och produktiva system (PRD) är lokalt. Dessutom förutsätter vi att det finns en central överförings katalog.
+The SAP Change and Transport System (TMS) needs to be configured to export and import transport request across systems in the landscape. We assume that the development instances of an SAP system (DEV) are located in Azure whereas the quality assurance (QA) and productive systems (PRD) are on-premises. Furthermore, we assume that there is a central transport directory.
 
-##### <a name="configuring-the-transport-domain"></a>Konfigurera transport domänen
+##### <a name="configuring-the-transport-domain"></a>Configuring the Transport Domain
 
-Konfigurera transport domänen på det system som du angav som transport domän kontrol Lanterna enligt beskrivningen i [Konfigurera transport](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm)domänkontrollanten. En systemuser-TMSADM skapas och den obligatoriska RFC-destinationen skapas. Du kan kontrol lera dessa RFC-anslutningar med transaktions SM59. Hostname-matchning måste vara aktiverat i din transport domän.
+Configure your Transport Domain on the system you designated as the Transport Domain Controller as described in [Configuring the Transport Domain Controller](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). A system user TMSADM will be created and the required RFC destination will be generated. You may check these RFC connections using the transaction SM59. Hostname resolution must be enabled across your transport domain.
 
-Anvisningar:
+Så här:
 
-* I vårt scenario bestämde vi att det lokala QAS-systemet är den CTS-domänkontrollanten. Anropa transaktion STMS. Dialog rutan TMS visas. Dialog rutan konfigurera transport domän visas. (Den här dialog rutan visas bara om du ännu inte har konfigurerat en transport domän.)
-* Se till att den automatiskt skapade användaren TMSADM är auktoriserad (SM59-> ABAP Connection- TMSADM@E61.DOMAIN_E61 >-> information-> verktyg (M) – > Authorization test). Den första skärmen i transaktions STMS bör visa att SAP-systemet nu fungerar som styrenhet för transport domänen som visas här:
+* In our scenario, we decided the on-premises QAS system will be the CTS domain controller. Call transaction STMS. The TMS dialog box appears. A Configure Transport Domain dialog box is displayed. (This dialog box only appears if you have not yet configured a transport domain.)
+* Make sure that the automatically created user TMSADM is authorized (SM59 -> ABAP Connection -> TMSADM@E61.DOMAIN_E61 -> Details -> Utilities(M) -> Authorization Test). The initial screen of transaction STMS should show that this SAP System is now functioning as the controller of the transport domain as shown here:
 
-![Inledande skärm för transaktions STMS på domänkontrollanten][planning-guide-figure-2300]
+![Initial screen of transaction STMS on the domain controller][planning-guide-figure-2300]
 
-#### <a name="including-sap-systems-in-the-transport-domain"></a>Inklusive SAP-system i transport domänen
+#### <a name="including-sap-systems-in-the-transport-domain"></a>Including SAP Systems in the Transport Domain
 
-Sekvensen inklusive ett SAP-system i en transport domän ser ut så här:
+The sequence of including an SAP system in a transport domain looks as follows:
 
-* I DEV-systemet i Azure går du till transport systemet (Client 000) och anropar Transaction STMS. Välj annan konfiguration i dialog rutan och fortsätt med inkludera system i domän. Ange domänkontrollanten som mål värd ([inklusive SAP-system i transport domänen](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). Systemet väntar nu på att tas med i transport domänen.
-* Av säkerhets skäl måste du gå tillbaka till domänkontrollanten för att bekräfta din begäran. Välj system översikt och godkänn väntar på systemet. Bekräfta sedan frågan och konfigurationen kommer att distribueras.
+* On the DEV system in Azure, go to the transport system (Client 000) and call transaction STMS. Choose Other Configuration from the dialog box and continue with Include System in Domain. Specify the Domain Controller as target host ([Including SAP Systems in the Transport Domain](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). The system is now waiting to be included in the transport domain.
+* For security reasons, you then have to go back to the domain controller to confirm your request. Choose System Overview and Approve of the waiting system. Then confirm the prompt and the configuration will be distributed.
 
-Detta SAP-system innehåller nu nödvändig information om alla andra SAP-system i transport domänen. På samma tidpunkt skickas adress data för det nya SAP-systemet till alla andra SAP-system, och SAP-systemet anges i transport kontroll programmets transport profil. Kontrol lera om RFC: er och åtkomst till domänens transport katalog fungerar.
+This SAP system now contains the necessary information about all the other SAP systems in the transport domain. At the same time, the address data of the new SAP system is sent to all the other SAP systems, and the SAP system is entered in the transport profile of the transport control program. Check whether RFCs and access to the transport directory of the domain work.
 
-Fortsätt med konfigurationen av ditt transport system som vanligt enligt beskrivningen i dokumentations [ändrings-och transport systemet](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
+Continue with the configuration of your transport system as usual as described in the documentation [Change and Transport System](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
 
-Anvisningar:
+Så här:
 
-* Kontrol lera att din STMS lokalt är korrekt konfigurerad.
-* Se till att värd namnet för transport domänkontrollanten kan lösas av den virtuella datorn på Azure och vice visum.
-* Anropa Transaction STMS-> andra konfigurations-> inkludera system i domän.
-* Bekräfta anslutningen i det lokala TMS-systemet.
-* Konfigurera transport vägar, grupper och lager som vanligt.
+* Make sure your STMS on premises is configured correctly.
+* Make sure the hostname of the Transport Domain Controller can be resolved by your virtual machine on Azure and vice visa.
+* Call transaction STMS -> Other Configuration -> Include System in Domain.
+* Confirm the connection in the on premises TMS system.
+* Configure transport routes, groups and layers as usual.
 
-I scenarier med plats-till-plats ansluten mellan olika platser kan svars tiden mellan lokala och Azure fortfarande vara betydande. Om vi följer ordningen för att transportera objekt via utvecklings-och test system till produktion eller om du tänker använda transporter eller support paket på olika system, inser du att, beroende på platsen för den centrala transport katalogen, vissa av systemen kommer att drabbas av hög latens vid läsning eller skrivning av data i den centrala transport katalogen. Situationen liknar konfigurationer i SAP landskap där de olika systemen sprids genom olika data Center med ett stort avstånd mellan data centren.
+In site-to-site connected cross-premises scenarios, the latency between on-premises and Azure still can be substantial. If we follow the sequence of transporting objects through development and test systems to production or think about applying transports or support packages to the different systems, you realize that, dependent on the location of the central transport directory, some of the systems will encounter high latency reading or writing data in the central transport directory. The situation is similar to SAP landscape configurations where the different systems are spread through different data centers with substantial distance between the data centers.
 
-För att undvika svars tid och låta systemet arbeta snabbt vid läsning eller skrivning till eller från transport katalogen, kan du konfigurera två STMS transport domäner (en för lokal och en med system i Azure och länka transport domänerna. Läs den här dokumentationen, som förklarar principerna bakom det här konceptet i SAP-TMS: <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
+In order to work around such latency and have the systems work fast in reading or writing to or from the transport directory, you can set up two STMS transport domains (one for on-premises and one with the systems in Azure and link the transport domains. Please check this documentation, which explains the principles behind this concept in the SAP TMS: <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
 
-Anvisningar:
+Så här:
 
-* Konfigurera en transport domän på varje plats (lokalt och Azure) med transaktion STMS<https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
-* Länka domänerna till en domän länk och bekräfta länken mellan de två domänerna.
+* Set up a transport domain on each location (on-premises and Azure) using transaction STMS <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
+* Link the domains with a domain link and confirm the link between the two domains.
   <https://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
-* Distribuera konfigurationen till det länkade systemet.
+* Distribute the configuration to the linked system.
 
-#### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>RFC-trafik mellan SAP-instanser som finns i Azure och lokalt (mellan platser)
+#### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>RFC traffic between SAP instances located in Azure and on-premises (Cross-Premises)
 
-RFC-trafik mellan system, som är lokalt och i Azure, måste fungera. Konfigurera en SM59 för anslutnings anrop i ett käll system där du måste definiera en RFC-anslutning till mål systemet. Konfigurationen liknar standard konfigurationen av en RFC-anslutning.
+RFC traffic between systems, which are on-premises and in Azure needs to work. To set up a connection call transaction SM59 in a source system where you need to define an RFC connection towards the target system. The configuration is similar to the standard setup of an RFC Connection.
 
-Vi antar att de virtuella datorerna i det kors lokala scenariot som kör SAP-system som måste kommunicera med varandra finns i samma domän. Konfigurationen av en RFC-anslutning mellan SAP-system skiljer sig därför inte från installations stegen och indatan i lokala scenarier.
+We assume that in the cross-premises scenario, the VMs, which run SAP systems that need to communicate with each other are in the same domain. Therefore the setup of an RFC connection between SAP systems does not differ from the setup steps and inputs in on-premises scenarios.
 
-#### <a name="accessing-local-fileshares-from-sap-instances-located-in-azure-or-vice-versa"></a>Åtkomst till lokala fil resurser från SAP-instanser som finns i Azure eller vice versa
+#### <a name="accessing-local-fileshares-from-sap-instances-located-in-azure-or-vice-versa"></a>Accessing local fileshares from SAP instances located in Azure or vice versa
 
-SAP-instanser som finns i Azure behöver komma åt fil resurser som finns i företags lokal. Dessutom behöver lokala SAP-instanser åtkomst till fil resurser som finns i Azure. Om du vill aktivera fil resurserna måste du konfigurera behörigheter och delnings alternativ på det lokala systemet. Se till att öppna portarna på VPN-eller ExpressRoute-anslutningen mellan Azure och ditt data Center.
+SAP instances located in Azure need to access file shares, which are within the corporate premises. In addition, on-premises SAP instances need to access file shares, which are located in Azure. To enable the file shares, you must configure the permissions and sharing options on the local system. Make sure to open the ports on the VPN or ExpressRoute connection between Azure and your datacenter.
 
 ## <a name="supportability"></a>Support
 
-### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Azure-tillägg för SAP
+### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Azure Extension for SAP
 
-För att kunna mata in viss del av Azures infrastruktur information om verksamhets kritiska SAP-system till SAP-värd agent instanserna som är installerade på virtuella datorer, måste ett Azure-tillägg (VM) för SAP installeras för de distribuerade virtuella datorerna. Eftersom de krav som publicerades av SAP var speciella för SAP-program, beslutade Microsoft inte att generiskt implementera de nödvändiga funktionerna i Azure, men lämna dem för kunderna att distribuera nödvändig VM-tillägg och konfigurationer till Virtual Machines som körs i Azure. Distribution och livs cykel hantering av Azure VM-tillägget för SAP kommer dock att automatiseras av Azure.
+In order to feed some portion of Azure infrastructure information of mission critical SAP systems to the SAP Host Agent instances, installed in VMs, an Azure (VM) Extension for SAP needs to get installed for the deployed VMs. Since the demands by SAP were specific to SAP applications, Microsoft decided not to generically implement the required functionality into Azure, but leave it for customers to deploy the necessary VM extension and configurations to their Virtual Machines running in Azure. However, deployment and lifecycle management of the Azure VM Extension for SAP will be mostly automated by Azure.
 
 #### <a name="solution-design"></a>Lösningsdesign
 
-Lösningen som har utvecklats för att möjliggöra att SAP-värd agent får nödvändig information baseras på arkitekturen i Azure VM agent och tillägg ramverket. Idén med Azure VM-agenten och tillägg ramverket är att tillåta att program vara som är tillgängliga i Azures tillägg för virtuella Azure-tillägg i en virtuell dator kan installeras. Princip idén bakom detta begrepp är att tillåta (i de fall som Azure-tillägget för SAP), distributionen av särskilda funktioner till en virtuell dator och konfigurationen av sådan program vara vid distributions tillfället.
+The solution developed to enable SAP Host Agent getting the required information is based on the architecture of Azure VM Agent and Extension framework. The idea of the Azure VM Agent and Extension framework is to allow installation of software application(s) available in the Azure VM Extension gallery within a VM. The principle idea behind this concept is to allow (in cases like the Azure Extension for SAP), the deployment of special functionality into a VM and the configuration of such software at deployment time.
 
-Azure VM-agenten som möjliggör hantering av vissa Azure VM-tillägg i den virtuella datorn matas in i virtuella Windows-datorer som standard när du skapar virtuella datorer i Azure Portal. Om det gäller SUSE, Red Hat eller Oracle Linux är VM-agenten redan en del av Azure Marketplace-avbildningen. Om en skulle ladda upp en virtuell Linux-dator från lokal plats till Azure måste VM-agenten installeras manuellt.
+The 'Azure VM Agent' that enables handling of specific Azure VM Extensions within the VM is injected into Windows VMs by default on VM creation in the Azure portal. In case of SUSE, Red Hat or Oracle Linux, the VM agent is already part of the Azure Marketplace image. In case one would upload a Linux VM from on-premises to Azure the VM agent has to be installed manually.
 
-De grundläggande Bygg stenarna i lösningen för att tillhandahålla Azure-infrastruktur information till SAP-värd agenten i Azure ser ut så här:
+The basic building blocks of the solution to provide Azure infrastructure information to SAP Host agent in Azure looks like this:
 
-![Microsoft Azure tilläggs komponenter][planning-guide-figure-2400]
+![Microsoft Azure Extension components][planning-guide-figure-2400]
 
-Som du ser i block diagrammet ovan, finns en del av lösningen i Azure VM-avbildningen och Azure Extension Gallery, som är en globalt replikerad lagrings plats som hanteras av Azure-åtgärder. Det är ansvaret för det gemensamma SAP/MS-teamet som arbetar med Azure-implementeringen av SAP för att arbeta med Azure-åtgärder för att publicera nya versioner av Azure-tillägget för SAP.
+As shown in the block diagram above, one part of the solution is hosted in the Azure VM Image and Azure Extension Gallery, which is a globally replicated repository that is managed by Azure Operations. It is the responsibility of the joint SAP/MS team working on the Azure implementation of SAP to work with Azure Operations to publish new versions of the Azure Extension for SAP.
 
-När du distribuerar en ny virtuell Windows-dator läggs Azure VM-agenten automatiskt till i den virtuella datorn. Den här agentens funktion är att samordna inläsningen och konfigurationen av de virtuella datorernas Azure-tillägg. För virtuella Linux-datorer ingår Azure VM-agenten redan i Azure Marketplace OS-avbildningen.
+When you deploy a new Windows VM, the Azure VM Agent is automatically added into the VM. The function of this agent is to coordinate the loading and configuration of the Azure Extensions of the VMs. For Linux VMs, the Azure VM Agent is already part of the Azure Marketplace OS image.
 
-Det finns dock ett steg som fortfarande måste utföras av kunden. Detta är inaktiverat och konfigurationen av prestanda insamling. Processen som är relaterad till konfigurationen automatiseras av ett PowerShell-skript eller CLI-kommando. PowerShell-skriptet kan laddas ned i Microsoft Azure Script Center enligt beskrivningen i [distributions guiden][deployment-guide].
+However, there is a step that still needs to be executed by the customer. This is the enablement and configuration of the performance collection. The process related to the configuration is automated by a PowerShell script or CLI command. The PowerShell script can be downloaded in the Microsoft Azure Script Center as described in the [Deployment Guide][deployment-guide].
 
-Den övergripande arkitekturen för Azure-tillägget för SAP ser ut så här:
+The overall Architecture of the Azure extension for SAP looks like:
 
-![Azure-tillägg för SAP ][planning-guide-figure-2500]
+![Azure extension for SAP ][planning-guide-figure-2500]
 
-**Om du vill ha mer information om hur du använder dessa PowerShell-cmdletar eller CLI-kommandot under distributioner följer du anvisningarna i [distributions guiden][deployment-guide].**
+**For the exact how-to and for detailed steps of using these PowerShell cmdlets or CLI command during deployments, follow the instructions given in the [Deployment Guide][deployment-guide].**
 
-### <a name="integration-of-azure-located-sap-instance-into-saprouter"></a>Integrering av Azure finns SAP-instans i SAProuter
+### <a name="integration-of-azure-located-sap-instance-into-saprouter"></a>Integration of Azure located SAP instance into SAProuter
 
-SAP-instanser som körs i Azure måste också vara tillgängliga från SAProuter.
+SAP instances running in Azure need to be accessible from SAProuter as well.
 
-![SAP-router nätverks anslutning][planning-guide-figure-2600]
+![SAP-Router Network Connection][planning-guide-figure-2600]
 
-En SAProuter aktiverar TCP/IP-kommunikationen mellan deltagande system om det inte finns någon direkt IP-anslutning. Detta ger fördelen att ingen anslutning från slut punkt till slut punkt mellan kommunikations partners är nödvändig på nätverks nivå. SAProuter lyssnar på port 3299 som standard.
-Om du vill ansluta SAP-instanser via en SAProuter måste du ge SAProuter-strängen och värd namnet med alla försök att ansluta.
+A SAProuter enables the TCP/IP communication between participating systems if there is no direct IP connection. This provides the advantage that no end-to-end connection between the communication partners is necessary on network level. The SAProuter is listening on port 3299 by default.
+To connect SAP instances through a SAProuter you need to give the SAProuter string and host name with any attempt to connect.
 
-## <a name="sap-netweaver-as-java"></a>SAP NetWeaver som Java
+## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java
 
-Hittills har dokumentet varit SAP-NetWeaver i allmänhet eller SAP NetWeaver ABAP-stacken. I det här små avsnittet visas information om de olika aspekterna för SAP Java-stacken. En av de viktigaste SAP NetWeaver Java-baserade program är SAP-Enterprise Portal. Andra SAP NetWeaver-baserade program som SAP PI och SAP Solution Manager använder både SAP NetWeaver-ABAP och Java-stackar. Därför är det verkligen nödvändigt att överväga vissa aspekter som rör SAP NetWeaver Java-stacken.
+So far the focus of the document has been SAP NetWeaver in general or the SAP NetWeaver ABAP stack. In this small section, specific considerations for the SAP Java stack are listed. One of the most important SAP NetWeaver Java exclusively based applications is the SAP Enterprise Portal. Other SAP NetWeaver based applications like SAP PI and SAP Solution Manager use both the SAP NetWeaver ABAP and Java stacks. Therefore, there certainly is a need to consider specific aspects related to the SAP NetWeaver Java stack as well.
 
-### <a name="sap-enterprise-portal"></a>SAP-Enterprise Portal
+### <a name="sap-enterprise-portal"></a>SAP Enterprise Portal
 
-Installationen av en SAP-Portal på en virtuell Azure-dator skiljer sig inte från en lokal installation om du distribuerar i scenarier med olika platser. Eftersom DNS görs av lokalt kan port inställningarna för de enskilda instanserna göras som konfigurerade lokalt. Rekommendationerna och begränsningarna som beskrivs i det här dokumentet gäller för ett program som SAP Enterprise Portal eller SAP NetWeaver Java stack i allmänhet.
+The setup of an SAP Portal in an Azure Virtual Machine does not differ from an on premises installation if you are deploying in cross-premises scenarios. Since the DNS is done by on-premises, the port settings of the individual instances can be done as configured on-premises. The recommendations and restrictions described in this document so far apply for an application like SAP Enterprise Portal or the SAP NetWeaver Java stack in general.
 
-![Exponerade SAP-Portal][planning-guide-figure-2700]
+![Exposed SAP Portal][planning-guide-figure-2700]
 
-Ett särskilt distributions scenario av vissa kunder är den direkta exponeringen hos SAP-Enterprise Portal till Internet medan den virtuella värden är ansluten till företagets nätverk via plats-till-plats-VPN-tunnel eller ExpressRoute. För ett sådant scenario måste du se till att vissa portar är öppna och inte blockeras av brand väggen eller nätverks säkerhets gruppen. 
+A special deployment scenario by some customers is the direct exposure of the SAP Enterprise Portal to the Internet while the virtual machine host is connected to the company network via site-to-site VPN tunnel or ExpressRoute. For such a scenario, you have to make sure that specific ports are open and not blocked by firewall or network security group. 
 
-Den inledande portalens URI är http (s)`<Portalserver`: >: 5XX00/irj där porten skapas som dokumenterad av SAP i <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+The initial portal URI is http(s):`<Portalserver`>:5XX00/irj where the port is formed as documented by SAP in <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
-![Slut punkts konfiguration][planning-guide-figure-2800]
+![Endpoint configuration][planning-guide-figure-2800]
 
-Om du vill anpassa URL: en och/eller portarna för din SAP-Enterprise Portal, se den här dokumentationen:
+If you want to customize the URL and/or ports of your SAP Enterprise Portal, check this documentation:
 
-* [Ändra portal-URL](https://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
-* [Ändra standard port nummer, Portal port nummer](https://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
+* [Change Portal URL](https://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
+* [Change Default port numbers, Portal port numbers](https://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
 
-## <a name="high-availability-ha-and-disaster-recovery-dr-for-sap-netweaver-running-on-azure-virtual-machines"></a>Hög tillgänglighet (HA) och haveri beredskap (DR) för SAP-NetWeaver som körs på Azure Virtual Machines
+## <a name="high-availability-ha-and-disaster-recovery-dr-for-sap-netweaver-running-on-azure-virtual-machines"></a>High Availability (HA) and Disaster Recovery (DR) for SAP NetWeaver running on Azure Virtual Machines
 
-### <a name="definition-of-terminologies"></a>Definition av terminologi
+### <a name="definition-of-terminologies"></a>Definition of terminologies
 
-Termen **hög tillgänglighet (ha)** är i allmänhet relaterad till en uppsättning tekniker som MINIMERAr IT-avbrott genom att ge IT-tjänster verksamhets kontinuitet genom redundanta, feltoleranta eller redundansväxling skyddade komponenter i **samma** Data Center. I vårt fall, inom en Azure-region.
+The term **high availability (HA)** is generally related to a set of technologies that minimizes IT disruptions by providing business continuity of IT services through redundant, fault-tolerant, or failover protected components inside the **same** data center. In our case, within one Azure Region.
 
-**Haveri beredskap (Dr)** är också riktad mot att minimera IT-tjänstens avbrott och återställningen, men över **olika** Data Center, som vanligt vis finns hundratals kilo meters avstånd. I vårt fall är det vanligt vis mellan olika Azure-regioner i samma politiska region eller som du har fastställt som kund.
+**Disaster recovery (DR)** is also targeting minimizing IT services disruption, and their recovery but across **different** data centers, that are usually located hundreds of kilometers away. In our case usually between different Azure Regions within the same geopolitical region or as established by you as a customer.
 
-### <a name="overview-of-high-availability"></a>Översikt över hög tillgänglighet
+### <a name="overview-of-high-availability"></a>Overview of High Availability
 
-Vi kan dela upp diskussionen om SAP hög tillgänglighet i Azure i två delar:
+We can separate the discussion about SAP high availability in Azure into two parts:
 
-* **Azure-infrastruktur med hög tillgänglighet**, till exempel ha för beräkning (VM), nätverk, lagring osv. och dess fördelar för att öka tillgängligheten för SAP-program.
-* **SAP-program hög tillgänglighet**, till exempel ha av SAP-program varu komponenter:
-  * SAP-program servrar
-  * SAP ASCS/SCS-instans
-  * DB-server
+* **Azure infrastructure high availability**, for example HA of compute (VMs), network, storage etc. and its benefits for increasing SAP application availability.
+* **SAP application high availability**, for example HA of SAP software components:
+  * SAP application servers
+  * SAP ASCS/SCS instance
+  * DB server
 
-och hur det kan kombineras med Azure-infrastruktur HA.
+and how it can be combined with Azure infrastructure HA.
 
-SAP hög tillgänglighet i Azure har vissa skillnader jämfört med SAP hög tillgänglighet i en lokal fysisk eller virtuell miljö. Följande dokument från SAP beskriver standard konfigurationerna för SAP med hög tillgänglighet i virtualiserade miljöer i <https://scn.sap.com/docs/DOC-44415>Windows:. Det finns ingen sapinst-integrerad SAP-HA-konfiguration för Linux som den finns för Windows. Mer information om SAP HA lokalt för Linux finns här: <https://scn.sap.com/docs/DOC-8541>.
+SAP High Availability in Azure has some differences compared to SAP High Availability in an on-premises physical or virtual environment. The following paper from SAP describes standard SAP High Availability configurations in virtualized environments on Windows: <https://scn.sap.com/docs/DOC-44415>. There is no sapinst-integrated SAP-HA configuration for Linux like it exists for Windows. Regarding SAP HA on-premises for Linux find more information here: <https://scn.sap.com/docs/DOC-8541>.
 
-### <a name="azure-infrastructure-high-availability"></a>Hög tillgänglighet för Azure-infrastruktur
+### <a name="azure-infrastructure-high-availability"></a>Azure Infrastructure High Availability
 
-Det finns för närvarande ett service avtal med en virtuell dator på 99,9%. För att få en uppfattning om hur tillgängligheten för en enskild virtuell dator kan se ut så kan du skapa produkten av de olika tillgängliga Azure <https://azure.microsoft.com/support/legal/sla/>-service avtal:.
+There is currently a single-VM SLA of 99.9%. To get an idea how the availability of a single VM might look like, you can build the product of the different available Azure SLAs: <https://azure.microsoft.com/support/legal/sla/>.
 
-Basen för beräkningen är 30 dagar per månad eller 43200 minuter. Därför motsvarar 0,05% nedtid till 21,6 minuter. Som vanligt kommer tillgängligheten för de olika tjänsterna att multipliceras på följande sätt:
+The basis for the calculation is 30 days per month, or 43200 minutes. Therefore, 0.05% downtime corresponds to 21.6 minutes. As usual, the availability of the different services will multiply in the following way:
 
-(Tillgänglighets tjänst #1/100) * (tillgänglighets tjänst #2/100) * (tillgänglighets tjänst #3/100) 
+(Availability Service #1/100) * (Availability Service #2/100) * (Availability Service #3/100) 
 
-Likadan
+Like:
 
-(99,95/100) * (99,9/100) * (99,9/100) = 0,9975 eller en övergripande tillgänglighet på 99,75%.
+(99.95/100) * (99.9/100) * (99.9/100) = 0.9975 or an overall availability of 99.75%.
 
-#### <a name="virtual-machine-vm-high-availability"></a>Hög tillgänglighet för virtuell dator (VM)
+#### <a name="virtual-machine-vm-high-availability"></a>Virtual Machine (VM) High Availability
 
-Det finns två typer av Azure Platform-händelser som kan påverka tillgängligheten för dina virtuella datorer: planerat underhåll och oplanerat underhåll.
+There are two types of Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
 
-* Planerade underhålls händelser är periodiska uppdateringar som görs av Microsoft till den underliggande Azure-plattformen för att förbättra den övergripande tillförlitligheten, prestandan och säkerheten för den plattforms infrastruktur som dina virtuella datorer körs på.
-* Oplanerade underhålls händelser inträffar när den maskin vara eller den fysiska infrastruktur som underliggande den virtuella datorn har misslyckats på något sätt. Det kan vara lokala nätverksfel, lokala diskfel eller andra fel på racknivå. När ett sådant fel upptäcks, kommer Azure-plattformen automatiskt att migrera den virtuella datorn från den ej hälsofysiska server som är värd för den virtuella datorn till en felfri fysisk server. Den här typen av händelser kan också göra att den virtuella datorn startas om, men det är ovanligt.
+* Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
+* Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. Det kan vara lokala nätverksfel, lokala diskfel eller andra fel på racknivå. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Den här typen av händelser kan också göra att den virtuella datorn startas om, men det är ovanligt.
 
-Mer information finns i den här dokumentationen:<https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+More details can be found in this documentation: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage Redundancy
 
-Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, vilket uppfyller Azure Storage service avtal även i de flesta tillfälliga maskin varu haverier.
+The data in your Microsoft Azure Storage Account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures.
 
-Eftersom Azure Storage håller tre avbildningar av data som standard behövs inte RAID5 eller RAID1 över flera Azure-diskar.
+Since Azure Storage is keeping three images of the data by default, RAID5 or RAID1 across multiple Azure disks are not necessary.
 
-Mer information hittar du i den här artikeln:<https://azure.microsoft.com/documentation/articles/storage-redundancy/>
+More details can be found in this article: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
 
-#### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Använda en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för SAP-program
+#### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Utilizing Azure Infrastructure VM Restart to Achieve Higher Availability of SAP Applications
 
-Om du väljer att inte använda funktioner som Windows Server Failover Clustering (WSFC) eller pacemaker på Linux (för närvarande endast för SLES 12 och högre) används Azure VM-omstart för att skydda ett SAP-system mot planerad och oplanerad stillestånds tid för Azure fysisk server infrastruktur och den övergripande underliggande Azure-plattformen.
+If you decide not to use functionalities like Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently only supported for SLES 12 and higher), Azure VM Restart is utilized to protect an SAP System against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 > [!NOTE]
-> Det är viktigt att nämna att Azure VM-omstart främst skyddar virtuella datorer och inte program. VM-omstart erbjuder inte hög tillgänglighet för SAP-program, men det erbjuder en viss nivå av infrastruktur tillgänglighet och därför indirekt tillgänglighet för SAP-system. Det finns inte heller något service avtal för den tid det tar att starta om en virtuell dator efter ett planerat eller oplanerat värd avbrott. Därför är den här metoden för hög tillgänglighet inte lämplig för kritiska komponenter i ett SAP-system som (A) SCS eller DBMS.
+> It is important to mention that Azure VM Restart primarily protects VMs and NOT applications. VM Restart does not offer high availability for SAP applications, but it does offer a certain level of infrastructure availability and therefore indirectly higher availability of SAP systems. There is also no SLA for the time it will take to restart a VM after a planned or unplanned host outage. Therefore, this method of high availability is not suitable for critical components of an SAP system like (A)SCS or DBMS.
 >
 >
 
-Ett annat viktigt infrastruktur element för hög tillgänglighet är lagring. Till exempel är Azure Storage service avtal 99,9% tillgänglighet. Om en distribuerar alla virtuella datorer med sina diskar till ett enda Azure Storage-konto, kommer potentiella Azure Storage otillgängligheten att orsaka att alla virtuella datorer som placerats i det Azure Storage kontot och alla SAP-komponenter som körs i de virtuella datorerna är tillgängliga.  
+Another important infrastructure element for high availability is storage. For example Azure Storage SLA is 99.9 % availability. If one deploys all VMs with its disks into a single Azure Storage Account, potential Azure Storage unavailability will cause unavailability of all VMs that are placed in that Azure Storage Account, and also all SAP components running inside of those VMs.  
 
-I stället för att lägga till alla virtuella datorer i ett enda Azure Storage konto kan du också använda dedikerade lagrings konton för varje virtuell dator och på så sätt öka den övergripande VM-och SAP-programmets tillgänglighet genom att använda flera oberoende Azure Storage-konton.
+Instead of putting all VMs into one single Azure Storage Account, you can also use dedicated storage accounts for each VM, and in this way increase overall VM and SAP application availability by using multiple independent Azure Storage Accounts.
 
-Azure Managed Disks placeras automatiskt i fel domänen för den virtuella dator som de är kopplade till. Om du placerar två virtuella datorer i en tillgänglighets uppsättning och använder Managed Disks, tar plattformen hand om att distribuera Managed Disks till olika fel domäner. Om du planerar att använda Premium Storage rekommenderar vi starkt att du använder hantera diskar även.
+Azure Managed Disks are automatically placed in the Fault Domain of the virtual machine they are attached to. If you place two virtual machines in an availability set and use Managed Disks, the platform will take care of distributing the Managed Disks into different Fault Domains as well. If you plan to use Premium Storage, we highly recommend using Manage Disks as well.
 
-En exempel arkitektur för ett SAP NetWeaver-system som använder Azures infrastruktur HA och lagrings konton kan se ut så här:
+A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts could look like this:
 
-![Använda Azure-infrastruktur HA för att få SAP-program högre tillgänglighet][planning-guide-figure-2900]
+![Utilizing Azure infrastructure HA to achieve SAP application higher availability][planning-guide-figure-2900]
 
-En exempel arkitektur för ett SAP NetWeaver-system som använder Azures infrastruktur HA och Managed Disks kan se ut så här:
+A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and Managed Disks could look like this:
 
-![Använda Azure-infrastruktur HA för att få SAP-program högre tillgänglighet][planning-guide-figure-2901]
+![Utilizing Azure infrastructure HA to achieve SAP application higher availability][planning-guide-figure-2901]
 
-För kritiska SAP-komponenter har vi uppnått följande hittills:
+For critical SAP components, we achieved the following so far:
 
-* Hög tillgänglighet för SAP-programservrar (AS)
+* High Availability of SAP Application Servers (AS)
 
-  SAP Application Server-instanser är redundanta komponenter. Varje SAP AS-instans distribueras på en egen virtuell dator, som körs i en annan Azure-fel-och uppgraderings domän (se kapitlen [fel domäner][planning-guide-3.2.1] och [uppgraderings domäner][planning-guide-3.2.2]). Detta säkerställs med hjälp av Azures tillgänglighets uppsättningar (se kapitel [tillgänglighets uppsättningar för Azure][planning-guide-3.2.3]). Potentiell planerad eller oplanerad otillgänglig tillgänglighet för en Azure-fel eller uppgraderings domän kommer att orsaka att ett begränsat antal virtuella datorer inte är tillgängliga med SAP som-instanser.
+  SAP application server instances are redundant components. Each SAP AS instance is deployed on its own VM, that is running in a different Azure Fault and Upgrade Domain (see chapters [Fault Domains][planning-guide-3.2.1] and [Upgrade Domains][planning-guide-3.2.2]). This is ensured by using Azure Availability Sets (see chapter [Azure Availability Sets][planning-guide-3.2.3]). Potential planned or unplanned unavailability of an Azure Fault or Upgrade Domain will cause unavailability of a restricted number of VMs with their SAP AS instances.
 
-  Varje SAP AS-instans placeras i ett eget Azure Storage konto – möjligt att inte få till gång till ett Azure Storage konto innebär att det bara finns en virtuell dator med sin SAP som instans. Tänk dock på att det finns en gräns för Azure Storage konton i en Azure-prenumeration. För att säkerställa att den automatiska starten av (A) SCS-instansen efter den virtuella datorn har startats om, måste du ange Autostart-parametern i (A) SCS-instansens start profil som beskrivs i kapitlet [använda Autostart för SAP-instanser][planning-guide-11.5]
-  Läs även kapitel [hög tillgänglighet för SAP-program servrar][planning-guide-11.4.1] för mer information.
+  Each SAP AS instance is placed in its own Azure Storage account - potential unavailability of one Azure Storage Account will cause unavailability of only one VM with its SAP AS instance. However, be aware that there is a limit of Azure Storage Accounts within one Azure subscription. To ensure automatic start of (A)SCS instance after the VM reboot, make sure to set the Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5].
+  Please also read chapter [High Availability for SAP Application Servers][planning-guide-11.4.1] for more details.
 
-  Även om du använder Managed Disks lagras dessa diskar också i ett Azure Storage konto och kan vara otillgängliga i händelse av ett lagrings avbrott.
+  Even if you use Managed Disks, those disks are also stored in an Azure Storage Account and can be unavailable in an event of a storage outage.
 
-* *Högre* Tillgänglighet för SAP (A) SCS-instans
+* *Higher* Availability of SAP (A)SCS instance
 
-  Här använder vi Azure VM-omstart för att skydda den virtuella datorn med en installerad SCS-instans (A). Om du har planerat eller oplanerat avbrott i Azure-servrarna startas virtuella datorer om på en annan tillgänglig server. Som tidigare nämnts kan Azure VM-omstart främst skydda virtuella datorer och inte program, i det här fallet (A) SCS-instansen. Genom den virtuella datorn startar vi om indirekt högre tillgänglighet för SAP (A) SCS-instansen. För att försäkra dig om att den automatiska starten av (A) SCS-instansen efter den virtuella datorn har startats om måste du ange Autostart-parametern i (A) SCS-instansens start profil som beskrivs i kapitlet [använda Autostart för SAP][planning-guide-11.5] Det innebär att (A) SCS-instansen som en enskild felpunkt (SPOF) som körs i en enskild virtuell dator är den avbrotts faktor som är tillgänglig för hela SAP-landskapet.
+  Here we utilize Azure VM Restart to protect the VM with installed SAP (A)SCS instance. In the case of planned or unplanned downtime of Azure severs, VMs will be restarted on another available server. As mentioned earlier, Azure VM Restart primarily protects VMs and NOT applications, in this case the (A)SCS instance. Through the VM Restart, we'll reach indirectly higher availability of SAP (A)SCS instance. To insure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5]. This means the (A)SCS instance as a Single Point of Failure (SPOF) running in a single VM will be the determinative factor for the availability of the whole SAP landscape.
 
-* *Högre* Tillgänglighet för DBMS-Server
+* *Higher* Availability of DBMS Server
 
-  På liknande sätt som i SAP (A) SCS-instansen använder vi Azure VM-omstart för att skydda den virtuella datorn med ett installerat DBMS-program och vi uppnår högre tillgänglighet för DBMS-programvara via omstart av virtuella datorer.
-  DBMS som körs i en enda virtuell dator är också en SPOF och det är den avvecklings faktor som är tillgänglig för hela SAP-landskapet.
+  Here, similar to the SAP (A)SCS instance use case, we utilize Azure VM Restart to protect the VM with installed DBMS software, and we achieve higher availability of DBMS software through VM Restart.
+  DBMS running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
 
-### <a name="sap-application-high-availability-on-azure-iaas"></a>Hög tillgänglighet för SAP-program på Azure-IaaS
+### <a name="sap-application-high-availability-on-azure-iaas"></a>SAP Application High Availability on Azure IaaS
 
-För att uppnå full tillgänglighet för SAP-systemet måste vi skydda alla viktiga SAP-system komponenter, till exempel redundanta SAP-programservrar och unika komponenter (till exempel en enskild felpunkt) som SAP (A) SCS-instans och DBMS.
+To achieve full SAP system high availability, we need to protect all critical SAP system components, for example redundant SAP application servers, and unique components (for example Single Point of Failure) like SAP (A)SCS instance and DBMS.
 
-#### <a name="5d9d36f9-9058-435d-8367-5ad05f00de77"></a>Hög tillgänglighet för SAP-programservrar
+#### <a name="5d9d36f9-9058-435d-8367-5ad05f00de77"></a>High Availability for SAP Application Servers
 
-För instansen SAP-programservrar/-dialog är det inte nödvändigt att tänka på en specifik lösning för hög tillgänglighet. Hög tillgänglighet uppnås genom redundans och därmed tillräckligt många av dem på olika virtuella datorer. De bör placeras i samma Azures tillgänglighets uppsättning för att undvika att de virtuella datorerna kan uppdateras samtidigt under avbrott i planerat underhåll. De grundläggande funktionerna, som bygger på olika uppgraderings-och fel domäner i en Azure-Scale-enhet, har redan introducerats i kapitel [uppgraderings domäner][planning-guide-3.2.2]. Azures tillgänglighets uppsättningar presenterades i kapitel [Azures tillgänglighets uppsättningar][planning-guide-3.2.3] i det här dokumentet.
+For the SAP application servers/dialog instances, it's not necessary to think about a specific high availability solution. High availability is achieved by redundancy and thereby having enough of them in different virtual machines. They should all be placed in the same Azure Availability Set to avoid that the VMs might be updated at the same time during planned maintenance downtime. The basic functionality, which builds on different Upgrade and Fault Domains within an Azure Scale Unit was already introduced in chapter [Upgrade Domains][planning-guide-3.2.2]. Azure Availability Sets were presented in chapter [Azure Availability Sets][planning-guide-3.2.3] of this document.
 
-Det finns inget obegränsat antal fel-och uppgraderings domäner som kan användas av en Azure-tillgänglighets uppsättning i en Azure-Scale-enhet. Det innebär att du placerar ett antal virtuella datorer i en tillgänglighets uppsättning, förr eller senare mer än en virtuell dator i samma fel-eller uppgraderings domän.
+There is no infinite number of Fault and Upgrade Domains that can be used by an Azure Availability Set within an Azure Scale Unit. This means that putting a number of VMs into one Availability Set, sooner or later more than one VM ends up in the same Fault or Upgrade Domain.
 
-Distribution av några SAP Application Server-instanser i sina dedikerade virtuella datorer och vi antar att vi fick fem uppgraderings domäner visas följande bild i slutet. Det faktiska max antalet fel-och uppdaterings domäner i en tillgänglighets uppsättning kan ändras i framtiden:
+Deploying a few SAP application server instances in their dedicated VMs and assuming that we got five Upgrade Domains, the following picture emerges at the end. The actual max number of fault and update domains within an availability set might change in the future:
 
-![HA av SAP-program servrar i Azure][planning-guide-figure-3000]
+![HA of SAP Application Servers in Azure][planning-guide-figure-3000]
 
-Mer information finns i den här dokumentationen:<https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+More details can be found in this documentation: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
-#### <a name="high-availability-for-sap-central-services-on-azure"></a>Hög tillgänglighet för SAP Central Services på Azure
+#### <a name="high-availability-for-sap-central-services-on-azure"></a>High Availability for SAP Central Services on Azure
 
-För hög tillgänglighets arkitektur i SAP Central Services på Azure, se artikeln [hög tillgänglighets arkitektur och scenarier för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) som information. Artikeln pekar på mer detaljerade beskrivningar för specifika operativ system.
+For High availability architecture of SAP Central Services on Azure, check the article [High-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) as entry information. The article points to more detailed descriptions for the particular operating systems.
 
-#### <a name="high-availability-for-the-sap-database-instance"></a>Hög tillgänglighet för SAP Database-instansen
+#### <a name="high-availability-for-the-sap-database-instance"></a>High Availability for the SAP database instance
 
-Den typiska SAP-DBMS HA-installationen baseras på två DBMS-datorer där DBMS-funktioner med hög tillgänglighet används för att replikera data från den aktiva DBMS-instansen till den andra virtuella datorn i en passiv DBMS-instans.
+The typical SAP DBMS HA setup is based on two DBMS VMs where DBMS high-availability functionality is used to replicate data from the active DBMS instance to the second VM into a passive DBMS instance.
 
-Funktioner för hög tillgänglighet och haveri beredskap för DBMS i allmänhet samt vissa DBMS beskrivs i [distributions guiden för DBMS][dbms-guide].
+High Availability and Disaster recovery functionality for DBMS in general as well as specific DBMS are described in the [DBMS Deployment Guide][dbms-guide].
 
-#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>Hög tillgänglighet från slut punkt till slut punkt för hela SAP-systemet
+#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>End-to-End High Availability for the Complete SAP System
 
-Här följer två exempel på en komplett SAP NetWeaver HA-arkitektur i Azure – en för Windows och en för Linux.
+Here are two examples of a complete SAP NetWeaver HA architecture in Azure - one for Windows and one for Linux.
 
-Endast ohanterade diskar: Begreppen som beskrivs nedan kan behöva komprometteras när du distribuerar många SAP-system och antalet distribuerade virtuella datorer överskrider max gränsen för lagrings konton per prenumeration. I sådana fall måste virtuella hård diskar i virtuella datorer kombineras inom ett lagrings konto. Vanligt vis skulle du göra detta genom att kombinera virtuella hård diskar med SAP-programlager på olika SAP-system.  Vi har också kombinerat olika virtuella hård diskar av olika DBMS-VM: er för olika SAP-system i ett Azure Storage-konto. Att bevara de IOPS-gränser som Azure Storage konton i åtanke<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>()
+Unmanaged disks only: The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
-##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] HA på Windows
+##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] HA on Windows
 
-![SAP NetWeaver Application HA-arkitektur med SQL Server i Azure IaaS][planning-guide-figure-3200]
+![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3200]
 
-Följande Azure-konstruktioner används för SAP NetWeaver-systemet för att minimera påverkan på infrastruktur problem och värd korrigering:
+The following Azure constructs are used for the SAP NetWeaver system, to minimize impact by infrastructure issues and host patching:
 
-* Hela systemet distribueras på Azure (nödvändigt-DBMS-lager, (A) SCS-instans och fullständigt program lager måste köras på samma plats).
-* Hela systemet körs i en Azure-prenumeration (krävs).
-* Hela systemet körs i en Azure-Virtual Network (krävs).
-* Det går att separera de virtuella datorerna i ett SAP-system i tre tillgänglighets uppsättningar även med alla virtuella datorer som tillhör samma Virtual Network.
-* Varje lager (till exempel DBMS, ASCS, program servrar) måste använda en dedikerad tillgänglighets uppsättning.
-* Alla virtuella datorer som kör DBMS-instanser av ett SAP-system finns i en tillgänglighets uppsättning. Vi förutsätter att det finns mer än en virtuell dator som kör DBMS-instanser per system sedan ursprungligt DBMS hög tillgänglighets funktioner används, till exempel SQL Server AlwaysOn eller Oracle data Guard.
-* Alla virtuella datorer som kör DBMS-instanser använder sina egna lagrings konton. DBMS-data och loggfiler replikeras från ett lagrings konto till ett annat lagrings konto med hjälp av DBMS-funktioner med hög tillgänglighet som synkroniserar data. Om du inte kan få till gång till ett lagrings konto kan du inte få till gång till en SQL-klusternod i Windows, men inte hela SQL Servers tjänsten.
-* Alla virtuella datorer som kör (A) SCS-instans av ett SAP-system finns i en tillgänglighets uppsättning. Ett WSFC-kluster (Windows Server failover Cluster) är konfigurerat i de virtuella datorerna för att skydda (A) SCS-instansen.
-* Alla virtuella datorer som kör (A) SCS-instanser använder sina egna lagrings konton. En SCS-instanser och globala SAP-mappar replikeras från ett lagrings konto till ett annat lagrings konto med hjälp av SIOS DataKeeper-replikering. Om ett lagrings konto inte är tillgängligt kommer det att leda till att en (A) SCS-klusternod (a) inte är tillgänglig, men inte hela SCS-tjänsten (A).
-* ALLA virtuella datorer som representerar SAP Application Server-lagret finns i en tredje tillgänglighets uppsättning.
-* ALLA virtuella datorer som kör SAP-programservrar använder sina egna lagrings konton. Om ett lagrings konto inte är tillgängligt kan en SAP-Programserver bli otillgänglig, där andra SAP-programservrar fortsätter att köras.
+* The complete system is deployed on Azure (required - DBMS layer, (A)SCS instance and complete application layer need to run in the same location).
+* The complete system runs within one Azure subscription (required).
+* The complete system runs within one Azure Virtual Network (required).
+* The separation of the VMs of one SAP system into three Availability Sets is possible even with all the VMs belonging to the same Virtual Network.
+* Each layer (for example DBMS, ASCS, Application Servers) must use a dedicated Availability Set.
+* All VMs running DBMS instances of one SAP system are in one Availability Set. We assume that there is more than one VM running DBMS instances per system since native DBMS high availability features are used, like SQL Server AlwaysOn or Oracle Data Guard.
+* All VMs running DBMS instances use their own storage account. DBMS data and log files are replicated from one storage account to another storage account using DBMS high availability functions that synchronize the data. Unavailability of one storage account will cause unavailability of one SQL Windows cluster node, but not the whole SQL Server service.
+* All VMs running (A)SCS instance of one SAP system are in one Availability Set. A Windows Server Failover Cluster (WSFC) is configured inside of those VMs to protect the (A)SCS instance.
+* All VMs running (A)SCS instances use their own storage account. (A)SCS instance files and SAP global folder are replicated from one storage account to another storage account using SIOS DataKeeper replication. Unavailability of one storage account will cause unavailability of one (A)SCS Windows cluster node, but not the whole (A)SCS service.
+* ALL the VMs representing the SAP application server layer are in a third Availability Set.
+* ALL the VMs running SAP application servers use their own storage account. Unavailability of one storage account will cause unavailability of one SAP application server, where other SAP application servers continue to run.
 
-Följande figur illustrerar samma liggande med Managed Disks.
+The following figure illustrated the same landscape using Managed Disks.
 
-![SAP NetWeaver Application HA-arkitektur med SQL Server i Azure IaaS][planning-guide-figure-3201]
+![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA på Linux
+##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA on Linux
 
-Arkitekturen för SAP HA på Linux på Azure är i princip samma som för Windows enligt beskrivningen ovan. Se SAP NOTE [1928533] för en lista över lösningar med hög tillgänglighet som stöds.
+The architecture for SAP HA on Linux on Azure is basically the same as for Windows as described above. Refer to SAP Note [1928533] for a list of supported high availability solutions.
 
-### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Använda Autostart för SAP-instanser
+### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Using Autostart for SAP instances
 
-SAP erbjöd funktionen att starta SAP-instanser direkt efter att operativ systemet startades på den virtuella datorn. De exakta stegen dokumenterades i Knowledge Base-artikeln [1909114]i SAP. Men SAP rekommenderar inte att du använder inställningen längre eftersom det inte finns någon kontroll i ordningen på instansen som startas om, förutsatt att fler än en virtuell dator har påverkat eller flera instanser har körts per virtuell dator. Om du antar ett typiskt Azure-scenario för en SAP Application Server-instans i en virtuell dator och om en enskild virtuell dator kommer att komma igång, är den autostarten inte kritisk och kan aktive ras genom att lägga till följande parameter:
+SAP offered the functionality to start SAP instances immediately after the start of the OS within the VM. The exact steps were documented in SAP Knowledge Base Article [1909114]. However, SAP is not recommending to use the setting anymore because there is no control in the order of instance restarts, assuming more than one VM got affected or multiple instances ran per VM. Assuming a typical Azure scenario of one SAP application server instance in a VM and the case of a single VM eventually getting restarted, the Autostart is not critical and can be enabled by adding this parameter:
 
     Autostart = 1
 
-I Start-profilen för SAP-ABAP och/eller Java-instansen.
+Into the start profile of the SAP ABAP and/or Java instance.
 
 > [!NOTE]
-> Den Autostart-parametern kan också ha vissa downfalls. I detalj är parametern utlöser starten av en SAP-ABAP eller Java-instans när den relaterade Windows/Linux-tjänsten för instansen startas. Det är verkligen fallet när operativ systemet startas. Omstarter av SAP-tjänster är dock också vanliga för SAP-funktioner för program livs cykel hantering, till exempel SUM eller andra uppdateringar och uppgraderingar. Dessa funktioner förväntas inte att en instans ska startas om automatiskt. Därför bör den Autostart-parametern inaktive ras innan aktiviteter körs. Autostart-parametern bör inte heller användas för SAP-instanser som är klustrade, som ASCS/SCS/CI.
+> The Autostart parameter can have some downfalls as well. In more detail, the parameter triggers the start of an SAP ABAP or Java instance when the related Windows/Linux service of the instance is started. That certainly is the case when the operating system boots up. However, restarts of SAP services are also a common thing for SAP Software Lifecycle Management functionality like SUM or other updates or upgrades. These functionalities are not expecting an instance to be restarted automatically at all. Therefore, the Autostart parameter should be disabled before running such tasks. The Autostart parameter also should not be used for SAP instances that are clustered, like ASCS/SCS/CI.
 >
 >
 
-Se ytterligare information om Autostart för SAP-instanser här:
+See additional information regarding autostart for SAP instances here:
 
-* [Starta/stoppa SAP tillsammans med din UNIX-server starta/stoppa](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
-* [Starta och stoppa SAP NetWeaver-hanterings agenter](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-* [Så här aktiverar du automatisk start av HANA-databas](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+* [Start/Stop SAP along with your Unix Server Start/Stop](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+* [Starting and Stopping SAP NetWeaver Management Agents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
+* [How to enable auto Start of HANA Database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
-### <a name="larger-3-tier-sap-systems"></a>Större SAP-system på 3 nivåer
-Hög tillgänglighets aspekter av SAP-konfigurationer på tre nivåer beskrivs redan i tidigare avsnitt. Men vad händer om system där DBMS-serverns krav är för stort för att det ska finnas i Azure, men SAP-programlagret kan distribueras till Azure?
+### <a name="larger-3-tier-sap-systems"></a>Larger 3-Tier SAP systems
+High-Availability aspects of 3-Tier SAP configurations got discussed in earlier sections already. But what about systems where the DBMS server requirements are too large to have it located in Azure, but the SAP application layer could be deployed into Azure?
 
-#### <a name="location-of-3-tier-sap-configurations"></a>Plats för SAP-konfigurationer på 3 nivåer
-Det finns inte stöd för att dela upp själva program nivån eller program-och DBMS-nivån mellan lokalt och Azure. Ett SAP-system är antingen fullständigt distribuerat lokalt eller i Azure. Det finns inte heller stöd för att vissa program servrar ska köras lokalt och andra i Azure. Det är diskussionens start punkt. Vi stöder inte heller att DBMS-komponenterna i ett SAP-system och SAP-program Server-lagret distribueras i två olika Azure-regioner. Till exempel DBMS i västra USA och SAP-program skikt i Central USA. Anledningen till att inte stödja sådana konfigurationer är fördröjnings känsligheten för SAP NetWeaver-arkitekturen.
+#### <a name="location-of-3-tier-sap-configurations"></a>Location of 3-Tier SAP configurations
+It is not supported to split the application tier itself or the application and DBMS tier between on-premises and Azure. An SAP system is either completely deployed on-premises OR in Azure. It is also not supported to have some of the application servers run on-premises and some others in Azure. That is the starting point of the discussion. We also are not supporting to have the DBMS components of an SAP system and the SAP application server layer deployed in two different Azure Regions. For example, DBMS in West US and SAP application layer in Central US. Reason for not supporting such configurations is the latency sensitivity of the SAP NetWeaver architecture.
 
-Men under de senaste åren har data Center partners utvecklat samplaceringar till Azure-regioner. Dessa samplatser är ofta i nära närhet till de fysiska Azure-datacenterna i en Azure-region. Det korta avståndet och anslutningen till till gångarna i samplaceringen via ExpressRoute till Azure kan resultera i en latens som är mindre än 2ms. I sådana fall är det möjligt att hitta DBMS-skiktet (inklusive SAN/NAS) i en sådan samplacering och SAP-Programskiktet i Azure. [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
+However, over the course of last year data center partners developed co-locations to Azure Regions. These co-locations often are in close proximity to the physical Azure data centers within an Azure Region. The short distance and connection of assets in the co-location through ExpressRoute into Azure can result in a latency that is less than 2ms. In such cases, to locate the DBMS layer (including storage SAN/NAS) in such a co-location and the SAP application layer in Azure is possible. [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 
-### <a name="offline-backup-of-sap-systems"></a>Offline-säkerhetskopiering av SAP-system
-Beroende av den valda SAP-konfigurationen (2-eller 3-skikt) kan du behöva säkerhetskopiera. Innehållet i den virtuella datorn och för att ha en säkerhets kopia av databasen. De DBMS-relaterade säkerhets kopiorna förväntas göras med databas metoder. En detaljerad beskrivning av de olika databaserna finns i DBMS- [Guide][dbms-guide]. Å andra sidan kan SAP-data säkerhets kopie ras på ett offline-sätt (inklusive databas innehållet) enligt beskrivningen i det här avsnittet eller online enligt beskrivningen i nästa avsnitt.
+### <a name="offline-backup-of-sap-systems"></a>Offline Backup of SAP systems
+Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a need to back up. The content of the VM itself plus to have a backup of the database. The DBMS-related backups are expected to be done with database methods. A detailed description for the different databases, can be found in [DBMS Guide][dbms-guide]. On the other hand, the SAP data can be backed up in an offline manner (including the database content as well) as described in this section or online as described in the next section.
 
-Offline-säkerhetskopiering kräver i princip en omstart av den virtuella datorn via Azure Portal och en kopia av den virtuella bas-VM-disken plus alla anslutna diskar till den virtuella datorn. Detta bevarar en tidpunkts avbildning av den virtuella datorn och den tillhör ande disken. Vi rekommenderar att du kopierar säkerhets kopiorna till ett annat Azure Storage konto. Därför gäller proceduren som beskrivs i kapitlet [kopiera diskar mellan Azure Storage konton][planning-guide-5.4.2] i det här dokumentet.
-Förutom avstängning med Azure Portal kan du också göra det via PowerShell eller CLI enligt beskrivningen här:<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+The offline backup would basically require a shutdown of the VM through the Azure portal and a copy of the base VM disk plus all attached disks to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the backups into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
+Besides the shutdown using the Azure portal one can also do it via Powershell or CLI as described here: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
-En återställning av detta tillstånd skulle bestå i att ta bort den virtuella bas datorn samt de ursprungliga diskarna för den virtuella bas datorn och monterade diskar, kopiera de sparade diskarna till det ursprungliga lagrings kontot eller resurs gruppen för hanterade diskar och sedan distribuera om systemet.
-Den här artikeln visar ett exempel på hur du skriptar den här processen i PowerShell:<http://www.westerndevs.com/azure-snapshots/>
+A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted disks, copying back the saved disks to the original Storage Account or resource group for managed disks and then redeploying the system.
+This article shows an example how to script this process in Powershell: <http://www.westerndevs.com/azure-snapshots/>
 
-Se till att installera en ny SAP-licens eftersom återställning av en VM-säkerhetskopiering enligt beskrivningen ovan skapar en ny maskin varu nyckel.
+Please make sure to install a new SAP license since restoring a VM backup as described above creates a new hardware key.
 
-### <a name="online-backup-of-an-sap-system"></a>Online-säkerhetskopiering av ett SAP-system
+### <a name="online-backup-of-an-sap-system"></a>Online backup of an SAP system
 
-Säkerhets kopiering av DBMS utförs med DBMS-/regionsspecifika metoder som beskrivs i DBMS- [guiden][dbms-guide].
+Backup of the DBMS is performed with DBMS-specific methods as described in the [DBMS Guide][dbms-guide].
 
-Andra virtuella datorer i SAP-systemet kan säkerhets kopie ras med hjälp av funktionen för säkerhets kopiering av virtuella Azure-datorer. Säkerhets kopiering av virtuella Azure-datorer är en standard metod för att säkerhetskopiera en komplett virtuell dator i Azure. Azure Backup lagrar säkerhets kopiorna i Azure och gör det möjligt att återställa en virtuell dator igen.
+Other VMs within the SAP system can be backed up using Azure Virtual Machine Backup functionality. Azure Virtual Machine Backup is a standard method to back up a complete VM in Azure. Azure Backup stores the backups in Azure and allows a restore of a VM again.
 
 > [!NOTE]
-> Från och med dec 2015 behåller inte det unika VM-ID som används för SAP-licensiering med den virtuella datorns säkerhets kopiering. Det innebär att en återställning från en säkerhets kopia av en virtuell dator kräver installation av en ny SAP-licens nyckel eftersom den återställda virtuella datorn anses vara en ny virtuell dator och inte en ersättning för den tidigare sparade.
+> As of Dec 2015 using VM Backup does NOT keep the unique VM ID which is used for SAP licensing. This means that a restore from a VM backup requires installation of a new SAP license key as the restored VM is considered to be a new VM and not a replacement of the former one which was saved.
 >
 > ![Windows][Logo_Windows] Windows
 >
-> Teoretiskt sett kan virtuella datorer som kör databaser säkerhets kopie ras på ett konsekvent sätt även om DBMS-systemet stöder Windows VSS (tjänsten Volume Shadow Copy <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>), t. ex. SQL Server gör.
-> Tänk dock på att det inte går att använda en säkerhets kopia av virtuella Azure-säkerhetskopieringar för att återställa databasen. Rekommendationen är därför att säkerhetskopiera databaser med DBMS-funktioner i stället för att förlita dig på säkerhets kopiering av virtuella Azure-datorer.
+> Theoretically, VMs that run databases can be backed up in a consistent manner as well if the DBMS system supports the Windows VSS (Volume Shadow Copy Service <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) as, for example, SQL Server does.
+> However, be aware that based on Azure VM backups point-in-time restores of databases are not possible. Therefore, the recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup.
 >
-> Om du vill bekanta dig med säkerhets kopiering av virtuella Azure <https://docs.microsoft.com/azure/backup/backup-azure-vms>-datorer här:.
+> To get familiar with Azure Virtual Machine Backup start here: <https://docs.microsoft.com/azure/backup/backup-azure-vms>.
 >
-> Andra möjligheter är att använda en kombination av Microsoft-Data Protection Manager som är installerade på en virtuell Azure-dator och Azure Backup för att säkerhetskopiera/återställa databaser. Mer information finns här: <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>.  
+> Other possibilities are to use a combination of Microsoft Data Protection Manager installed in an Azure VM and Azure Backup to backup/restore databases. More information can be found here: <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>.  
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Det finns ingen motsvarighet till Windows VSS i Linux. Därför är bara filkonsekventa säkerhets kopieringar möjliga, men inte programkonsekventa säkerhets kopieringar. Säkerhets kopieringen av SAP-DBMS bör göras med hjälp av DBMS-funktioner. Fil systemet som innehåller SAP-relaterade data kan sparas, till exempel med hjälp av tar som beskrivs här:<https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> There is no equivalent to Windows VSS in Linux. Therefore only file-consistent backups are possible but not application-consistent backups. The SAP DBMS backup should be done using DBMS functionality. The file system which includes the SAP-related data can be saved, for example, using tar as described here: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 
-### <a name="azure-as-dr-site-for-production-sap-landscapes"></a>Azure as DR-webbplats för produktion SAP-landskap
+### <a name="azure-as-dr-site-for-production-sap-landscapes"></a>Azure as DR site for production SAP landscapes
 
-Sedan mellan 2014 är tillägg till olika komponenter runt Hyper-V, System Center och Azure att aktivera användningen av Azure som en DR-plats för virtuella datorer som körs lokalt baserat på Hyper-V.
+Since Mid 2014, extensions to various components around Hyper-V, System Center, and Azure enable the usage of Azure as DR site for VMs running on-premises based on Hyper-V.
 
-En blogg som beskriver hur du distribuerar den här lösningen finns dokumenterad <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>här:.
+A blog detailing how to deploy this solution is documented here: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
 ## <a name="summary"></a>Sammanfattning
 
-De viktigaste punkterna med hög tillgänglighet för SAP-system i Azure är:
+The key points of High Availability for SAP systems in Azure are:
 
-* Vid det här tillfället går det inte att skydda SAP-felpunkten exakt på samma sätt som den kan göras i lokala distributioner. Orsaken är att delade disk kluster ännu inte har skapats i Azure utan användning av program från tredje part.
-* För DBMS-skiktet måste du använda DBMS-funktioner som inte förlitar sig på delad disk kluster teknik. Information finns dokumenterad i [DBMS-guiden][dbms-guide].
-* För att minimera effekten av problem inom fel domäner i Azure-infrastrukturen eller värd underhållet, bör du använda Azures tillgänglighets uppsättningar:
-  * Vi rekommenderar att du har en tillgänglighets uppsättning för SAP-program skiktet.
-  * Vi rekommenderar att du har en separat tillgänglighets uppsättning för SAP-DBMS-skiktet.
-  * Vi rekommenderar inte att du använder samma tillgänglighets uppsättning för virtuella datorer i olika SAP-system.
-  * Vi rekommenderar att du använder Premium Managed Disks.
-* För säkerhets kopiering av SAP DBMS-skiktet kontrollerar du [DBMS-guiden][dbms-guide].
-* Att säkerhetskopiera SAP-dialogrutor är mycket bra eftersom det vanligt vis är snabbare att omdistribuera enkla dialog instanser.
-* Säkerhets kopiering av den virtuella datorn som innehåller den globala katalogen i SAP-systemet och med alla profiler för de olika instanserna, är begriplig och bör utföras med Windows säkerhets kopiering eller, till exempel tar på Linux. Eftersom det finns skillnader mellan Windows Server 2008 (R2) och Windows Server 2012 (R2), vilket gör det enklare att säkerhetskopiera med hjälp av de senaste Windows Server-versionerna, rekommenderar vi att du kör Windows Server 2012 (R2) som Windows gäst operativ system.
+* At this point in time, the SAP single point of failure cannot be secured exactly the same way as it can be done in on-premises deployments. The reason is that Shared Disk clusters can't yet be built in Azure without the use of 3rd party software.
+* For the DBMS layer you need to use DBMS functionality that does not rely on shared disk cluster technology. Details are documented in the [DBMS Guide][dbms-guide].
+* To minimize the impact of problems within Fault Domains in the Azure infrastructure or host maintenance, you should use Azure Availability Sets:
+  * It is recommended to have one Availability Set for the SAP application layer.
+  * It is recommended to have a separate Availability Set for the SAP DBMS layer.
+  * It is NOT recommended to apply the same Availability set for VMs of different SAP systems.
+  * It is recommended to use Premium Managed Disks.
+* For Backup purposes of the SAP DBMS layer, check the [DBMS Guide][dbms-guide].
+* Backing up SAP Dialog instances makes little sense since it is usually faster to redeploy simple dialog instances.
+* Backing up the VM which contains the global directory of the SAP system and with it all the profiles of the different instances, does make sense and should be performed with Windows Backup or, for example, tar on Linux. Since there are differences between Windows Server 2008 (R2) and Windows Server 2012 (R2), which make it easier to back up using the more recent Windows Server releases, we recommend running Windows Server 2012 (R2) as Windows guest operating system.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs artiklarna:
+Read the articles:
 
-- [Azure Virtual Machines-distribution för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [SAP HANA infrastruktur konfiguration och åtgärder på Azure] (https://docs.microsoft.com/
-- Azure/Virtual-Machines/arbets belastningar/SAP/HANA – VM-åtgärder)
+- [Azure Virtual Machines deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/
+- azure/virtual-machines/workloads/sap/hana-vm-operations)

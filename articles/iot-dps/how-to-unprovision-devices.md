@@ -1,70 +1,69 @@
 ---
-title: Hur du avetablera enheter som har etablerats med Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
-description: Hur du avetablera enheter som har etablerats med Azure IoT Hub Device Provisioning-tjänsten
+title: Deprovision devices that were provisioned with Azure IoT Hub Device Provisioning Service
+description: How to deprovision devices that have been provisioned with Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ba62d8cff646ce5ef4f4b8a36fdad78ddc354227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60d0647522fbce2fea43531e164e0a6d1b0de144
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626528"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229683"
 ---
-# <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Hur du avetablera enheter som har tidigare Automatisk etablering 
+# <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>How to deprovision devices that were previously auto-provisioned 
 
-Du kan det vara nödvändigt att avetablering enheter som har tidigare Automatisk etablering via Device Provisioning-tjänsten. Till exempel en enhet kan säljas eller flyttas till en annan IoT-hubb eller den kan tappas bort, blir stulen eller annat sätt äventyras. 
+You may find it necessary to deprovision devices that were previously auto-provisioned through the Device Provisioning Service. For example, a device may be sold or moved to a different IoT hub, or it may be lost, stolen, or otherwise compromised. 
 
-I allmänhet omfattar avetablering en enhet två steg:
+In general, deprovisioning a device involves two steps:
 
-1. Disenroll enheten från din etableringstjänst för att förhindra framtida automatisk för etablering. Beroende på om du vill återkalla åtkomsten tillfälligt eller permanent, kan du inaktivera eller ta bort en post för registrering. För enheter som använder X.509-attestering, kanske du vill inaktivera/ta bort en post i hierarkin för din befintliga registreringsgrupper.  
+1. Disenroll the device from your provisioning service, to prevent future auto-provisioning. Depending on whether you want to revoke access temporarily or permanently, you may want to either disable or delete an enrollment entry. For devices that use X.509 attestation, you may want to disable/delete an entry in the hierarchy of your existing enrollment groups.  
  
-   - Läs hur du disenroll en enhet i [så disenroll en enhet från Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
-   - Läs hur du disenroll en enhet programmässigt med någon av SDK: er för etablering service i [hantera enhetsregistreringar med tjänst-SDK: er](how-to-manage-enrollments-sdks.md).
+   - To learn how to disenroll a device, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
+   - To learn how to disenroll a device programmatically using one of the provisioning service SDKs, see [Manage device enrollments with service SDKs](how-to-manage-enrollments-sdks.md).
 
-2. Avregistrera enheten från din IoT-hubb, att förhindra framtida kommunikation och dataöverföring. Igen, kan du inaktivera tillfälligt eller permanent ta bort enhetens post i identitetsregistret för IoT-hubben där den har etablerats. Se [inaktivera enheter](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) mer information om avstängning. Se ”/ IoT enheter” för din IoT Hub-resurs i den [Azure-portalen](https://portal.azure.com).
+2. Deregister the device from your IoT Hub, to prevent future communications and data transfer. Again, you can temporarily disable or permanently delete the device's entry in the identity registry for the IoT Hub where it was provisioned. See [Disable devices](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) to learn more about disablement. See "Device Management / IoT Devices" for your IoT Hub resource, in the [Azure portal](https://portal.azure.com).
 
-Hur du utför för att ta bort etableringen av en enhet beror på dess attesteringsmetod och dess tillämpliga registreringspost till etableringstjänsten. Följande avsnitt innehåller en översikt över processen, beroende på vilken registrering och attestering.
+The exact steps you take to deprovision a device depend on its attestation mechanism and its applicable enrollment entry with your provisioning service. The following sections provide an overview of the process, based on the enrollment and attestation type.
 
-## <a name="individual-enrollments"></a>Enskilda registreringar
-Enheter som använder TPM-attestering eller X.509-attestering med en lövcertifikatet tillhandahålls via en individuell registreringspost. 
+## <a name="individual-enrollments"></a>Individual enrollments
+Devices that use TPM attestation or X.509 attestation with a leaf certificate are provisioned through an individual enrollment entry. 
 
-Om du vill ta bort etableringen av en enhet har som en enskild registrering: 
+To deprovision a device that has an individual enrollment: 
 
-1. Disenroll enheten från etableringstjänsten:
+1. Disenroll the device from your provisioning service:
 
-   - Ta bort posten för enskild registrering om du vill återkalla permanent Enhetsåtkomst till etableringstjänsten för enheter som använder TPM-attestering, eller inaktivera på posten för att tillfälligt återkalla åtkomsten. 
-   - För enheter som använder X.509-attestering, kan du ta bort eller inaktivera posten. Tänk dock om du tar bort en enskild registrering för en enhet som använder X.509 och en aktiverad registreringsgrupp finns för ett signeringscertifikat i att enhetens certifikatkedjan, enheten kan registrera igen. Det kan vara säkrare att inaktivera registreringsposten för sådana enheter. På så vis förhindra enheten från Omregistrera, oavsett om en aktiverad registreringsgrupp finns för en av dess certifikat för tokensignering.
+   - For devices that use TPM attestation, delete the individual enrollment entry to permanently revoke the device's access to the provisioning service, or disable the entry to temporarily revoke its access. 
+   - For devices that use X.509 attestation, you can either delete or disable the entry. Be aware, though, if you delete an individual enrollment for a device that uses X.509 and an enabled enrollment group exists for a signing certificate in that device's certificate chain, the device can re-enroll. For such devices, it may be safer to disable the enrollment entry. Doing so prevents the device from re-enrolling, regardless of whether an enabled enrollment group exists for one of its signing certificates.
 
-2. Inaktivera eller ta bort enheten i identitetsregistret i IoT-hubben som etablerades till. 
+2. Disable or delete the device in the identity registry of the IoT hub that it was provisioned to. 
 
 
-## <a name="enrollment-groups"></a>Registreringsgrupper
-Med X.509-attestering, kan du också etablera enheter via en grupp för registrering. Registreringsgrupper har konfigurerats med ett signeringscertifikat, antingen ett mellanliggande certifikat eller rot CA-certifikat och styr åtkomsten till etableringstjänsten för enheter med detta certifikat i certifikatkedjan. Läs mer om registrering av grupper och X.509-certifikat med etableringstjänsten i [X.509-certifikat](concepts-security.md#x509-certificates). 
+## <a name="enrollment-groups"></a>Enrollment groups
+With X.509 attestation, devices can also be provisioned through an enrollment group. Enrollment groups are configured with a signing certificate, either an intermediate or root CA certificate, and control access to the provisioning service for devices with that certificate in their certificate chain. To learn more about enrollment groups and X.509 certificates with the provisioning service, see [X.509 certificates](concepts-security.md#x509-certificates). 
 
-Du kan visa information om grupp för registrering om du vill se en lista över enheter som har etablerats via en grupp för registrering. Det här är ett enkelt sätt att förstå vilken IoT-hubb varje enhet har etablerats. Visa listan över enheter: 
+To see a list of devices that have been provisioned through an enrollment group, you can view the enrollment group's details. This is an easy way to understand which IoT hub each device has been provisioned to. To view the device list: 
 
-1. Logga in på Azure-portalen och klicka på **alla resurser** i den vänstra menyn.
-2. Klicka på din etableringstjänst i listan över resurser.
-3. I etableringstjänsten, klickar du på **hantera registreringar**och välj sedan **Registreringsgrupper** fliken.
-4. Klicka på grupp för registrering för att öppna den.
+1. Log in to the Azure portal and click **All resources** on the left-hand menu.
+2. Click your provisioning service in the list of resources.
+3. In your provisioning service, click **Manage enrollments**, then select **Enrollment Groups** tab.
+4. Click the enrollment group to open it.
 
-   ![Visa post för registreringsgruppen i portalen](./media/how-to-unprovision-devices/view-enrollment-group.png)
+   ![View enrollment group entry in the portal](./media/how-to-unprovision-devices/view-enrollment-group.png)
 
-Det finns två scenarier för att tänka på med registreringsgrupper:
+With enrollment groups, there are two scenarios to consider:
 
-- Att avetablera alla enheter som har etablerats via en grupp för registrering:
-  1. Inaktivera gruppen registrering för att blockeringslista dess signeringscertifikat. 
-  2. Använda i listan med etablerade enheter för registreringsgruppen för att inaktivera eller ta bort varje enhet från identitetsregistret för dess respektive IoT-hubb. 
-  3. Du kan också ta bort grupp för registrering när du inaktiverar eller tar bort alla enheter från deras respektive IoT-hubbar. Tänk dock på att om du tar bort grupp för registrering och det finns en aktiverad registreringsgrupp för ett signeringscertifikat som är högre upp i certifikatkedjan för en eller flera av enheterna som dessa enheter kan registrera igen. 
+- To deprovision all of the devices that have been provisioned through an enrollment group:
+  1. Disable the enrollment group to blacklist its signing certificate. 
+  2. Use the list of provisioned devices for that enrollment group to disable or delete each device from the identity registry of its respective IoT hub. 
+  3. After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group. Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll. 
 
-- Att avetablera en enskild enhet från en grupp för registrering:
-  1. Skapa en inaktiverad enskild registrering för dess lövcertifikatet (enhet). Det här återkallar åtkomst till etableringstjänsten för enheten och tillåter åtkomst för andra enheter som har en grupp för registrering signeringscertifikat i sina kedjan samtidigt. Ta inte bort den inaktiverade enskilda registreringen för enheten. På så sätt kan enheten för att registrera igen via grupp för registrering. 
-  2. Använda i listan med etablerade enheter för registreringsgruppen för att hitta IoT-hubben som enheten har etablerats till och inaktivera eller ta bort det från den hubbens identitetsregister. 
+- To deprovision a single device from an enrollment group:
+  1. Create a disabled individual enrollment for its leaf (device) certificate. This revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Do not delete the disabled individual enrollment for the device. Doing so will allow the device to re-enroll through the enrollment group. 
+  2. Use the list of provisioned devices for that enrollment group to find the IoT hub that the device was provisioned to and disable or delete it from that hub's identity registry. 
   
   
 

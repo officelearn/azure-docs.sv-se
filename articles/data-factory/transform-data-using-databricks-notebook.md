@@ -1,22 +1,22 @@
 ---
-title: Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
+title: Run a Databricks Notebook with the Databricks Notebook activity
 description: Lär dig hur du kan använda Databricks Notebook-aktiviteten i Azure Data Factory för att köra en Databricks Notebook mot Databricks-jobbklustret.
 services: data-factory
-documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 03/12/2018
 ms.author: abnarain
+author: nabhishek
+manager: shwang
 ms.reviewer: douglasl
-ms.openlocfilehash: b6426017b7608742866cedb08b5ac9298400d433
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-lt-2019
+ms.date: 03/12/2018
+ms.openlocfilehash: 7ad7c8e70d8669612baf00f19d3695dc7fab07f5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140891"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217880"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
 
@@ -38,7 +38,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
   - **Azure Databricks-arbetsyta**. [Skapa en ny Azure Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) eller använd en befintlig. Du skapar en Python Notebook i Azure Databricks-arbetsytan. Sedan kör du denna notebook och skickar parametrar till den med hjälp av Azure Data Factory.
 
@@ -70,7 +70,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 1.  För **Plats** väljer du en plats för datafabriken.
 
-    Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
+    Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
 1.  Välj **Skapa**.
 
 
@@ -150,7 +150,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
           ![Skapa en ny mapp](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Skapa en ny antecknings bok](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), låt oss kalla IT- **anteckningsbok** under mappen **adftutorial** , klicka på **skapa.**
+       1. [Create a new notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder, click **Create.**
 
           ![Skapa en ny notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -178,7 +178,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
        ![Lägg till parameter](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Namnge parametern som inmatad och ange värdet som uttrycks  **\@pipeline (). Parameters. name**.
+    b.  Name the parameter as **input** and provide the value as expression **\@pipeline().parameters.name**.
 
 1.  Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Klicka på knappen **\>\>** (högerpil) för att stänga verifieringsfönstret.
 
@@ -200,7 +200,7 @@ Dialogrutan **Kör pipeline** efterfrågar parametern **namn**. Använd **/path/
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1.  Välj fliken **Övervaka**. Bekräfta att du ser en pipelinekörning. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
+1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
 
     ![Övervaka pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 

@@ -7,17 +7,17 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 4b309d54fae63f16574bb3799d77adfd89f91a57
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: bd778e3731780a89560d8caa02363a4e49f77e20
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967075"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219054"
 ---
-# <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudie: Tilldela åtkomst till Cloudyn-data
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudie: tilldela åtkomst till Cloudyn-data
 
 Åtkomsten till Cloudyn-data hanteras med hjälp av användare och entiteter. Cloudyn-användarkontot avgör åtkomsten till *entiteter* och administrativa funktioner. Det finns två typer av åtkomst: administratör och användare. Om administratörsåtkomsten inte modifieras per användare så ger den obegränsad tillgång till alla funktioner i Cloudyn-portalen, inklusive användarhantering, hantering av mottagarlistor och rotåtkomst till alla entitetsdata. Användaråtkomsten är avsedd för slutanvändare som vill visa och skapa rapporter för de entitetsdata de har åtkomst till.
 
@@ -35,10 +35,10 @@ När du registrerade ditt Azure-avtal eller -konto skapades ett konto med admini
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 
 ## <a name="create-a-user-with-admin-access"></a>Skapa en användare med administratörsåtkomst
 
@@ -110,7 +110,7 @@ Med åtkomstnivåer för entiteter tillsammans med en användares behörighet ka
 
 För att skapa en hierarki för kostnadsentiteter måste du ha ett konto med åtkomst av typen Enterprise eller Enterprise + kostnadsallokering.
 
-Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Trädet med **entiteter** visas i den vänstra rutan. Om det behövs expanderar du entitetsträdet så att du kan visa den entitet som du vill associera med ett konto.  Kontona för din molntjänstleverantör visas på flikarna i den högra rutan. Välj en flik och klicka och dra ett konto eller en prenumeration till entiteten. Rutan **Flytta** meddelar dig att kontot har skapats. Klicka på **OK**.
+Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Trädet med **entiteter** visas i den vänstra rutan. Om det behövs expanderar du entitetsträdet så att du kan visa den entitet som du vill associera med ett konto.  Kontona för din molntjänstleverantör visas på flikarna i den högra rutan. Välj en flik och klicka och dra ett konto eller en prenumeration till entiteten. Rutan **Flytta** meddelar dig att kontot har skapats. Klicka på **OK**
 
 Du kan också associera flera konton med en entitet. Markera kontona och klicka sedan på **Flytta**. I rutan Flytta konton väljer du den entitet som du vill flytta kontot till och klickar sedan på **Spara**. Rutan Flytta konton uppmanar dig att bekräfta att du vill flytta kontona. Klicka på **Ja** och sedan på **OK**.
 

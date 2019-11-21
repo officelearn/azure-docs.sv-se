@@ -1,16 +1,16 @@
 ---
-title: Skapa en skiss med REST-API
-description: Använd Azure Blueprints för att skapa, definiera och distribuera artefakter med hjälp av REST API.
+title: 'Quickstart: Create a blueprint with REST API'
+description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
 ms.date: 02/04/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9b711a6359ed9ecb45f25c460ece095af46ad8c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 40ae1eb3647f1eba6df920459fcc3673b31bfa01
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960416"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217052"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Define and Assign an Azure Blueprint with REST API
 
 När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
@@ -20,7 +20,7 @@ När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveck
 > - Markera en skiss som redo att tilldelas med **Publicerad**
 > - Tilldela en skiss till en befintlig prenumeration
 > - Kontrollera statusen och förloppet för en tilldelad skiss
-> - Ta bort en skiss som en prenumeration har tilldelats
+> - Ta bort en skiss som har tilldelats till en prenumeration
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -66,7 +66,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 > [!NOTE]
-> Ritningar kan också skapas på prenumerations nivå. Ett exempel finns i [skapa skiss vid prenumerations exempel](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+> Blueprints may also be created at the subscription level. To see an example, see [create blueprint at subscription example](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper för skissen, de resursgrupper som ska skapas och alla parametrar på skissnivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
 
@@ -332,7 +332,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstens huvud namns-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
+1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by tenant. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
    - REST API-URI
 

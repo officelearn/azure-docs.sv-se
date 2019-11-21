@@ -1,6 +1,6 @@
 ---
-title: Felsöka fel med Azure Automation delade resurser
-description: Lär dig hur du felsöker problem med Azure Automation delade resurser
+title: Troubleshoot errors with Azure Automation shared resources
+description: Learn how to troubleshoot issues with Azure Automation shared resources
 services: automation
 author: bobbytreed
 ms.author: robreed
@@ -8,42 +8,42 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b9b1be699190f6dc6f4771411c22f376d51637ec
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477457"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231536"
 ---
-# <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
+# <a name="troubleshoot-errors-with-shared-resources"></a>Troubleshoot errors with shared resources
 
-Den här artikeln beskriver lösningar för att lösa problem som du kan köra över när du använder de delade resurserna i Azure Automation.
+This article discusses solutions to resolve issues that you may run across when using the shared resources in Azure Automation.
 
 ## <a name="modules"></a>Moduler
 
-### <a name="module-stuck-importing"></a>Scenario: En modul har fastnat importera
+### <a name="module-stuck-importing"></a>Scenario: A Module is stuck importing
 
 #### <a name="issue"></a>Problem
 
-En modul har fastnat i den **importera** tillstånd när du importerar eller uppdatera dina moduler i Azure automation.
+A module is stuck in the **Importing** state when you import or update your modules in Azure automation.
 
 #### <a name="cause"></a>Orsak
 
-Importera PowerShell-moduler är en komplicerad process i flera steg. Den här processen introducerar möjligheten att en modul importeras inte korrekt. Om det här problemet inträffar kan modulen som du importerar ha fastnat i ett tillfälligt tillstånd. Mer information om den här processen finns [importera en PowerShell-modul]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this issue occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
-För att lösa problemet måste du ta bort den modul som har fastnat i den **importera** tillstånd med hjälp av den [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule) cmdlet. Du kan sedan göra om modulen importerades.
+To resolve this issue, you must remove the module that is stuck in the **Importing** state by using the [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule) cmdlet. You can then retry importing the module.
 
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Scenario: AzureRM-moduler har fastnat importera när du försöker uppdatera dem.
+### <a name="update-azure-modules-importing"></a>Scenario: AzureRM modules are stuck importing after trying to update them
 
 #### <a name="issue"></a>Problem
 
-En banderoll med följande meddelande kvar i ditt konto när du försöker uppdatera din AzureRM-moduler:
+A banner with the following message stays in your account after trying to update your AzureRM modules:
 
 ```error
 Azure modules are being updated
@@ -51,53 +51,53 @@ Azure modules are being updated
 
 #### <a name="cause"></a>Orsak
 
-Det finns ett känt problem med uppdatering AzureRM-moduler i ett Automation-konto som tillhör en resursgrupp med det numeriska namn som börjar med 0.
+There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
-Om du vill uppdatera din Azure-moduler i ditt Automation-konto, måste den vara i en resursgrupp som har ett alfanumeriskt namn. Resursgrupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler just nu.
+To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
-### <a name="module-fails-to-import"></a>Scenario: Modulen kan inte importera eller cmdlet: ar kan inte utföras när du har importerat
-
-#### <a name="issue"></a>Problem
-
-En modul kan inte importera eller importeras ordentligt, men inga cmdletar extraheras.
-
-#### <a name="cause"></a>Orsak
-
-Några vanliga orsaker som en modul inte kan importera till Azure Automation är:
-
-* Strukturen matchar inte strukturen som Automation måste det finnas i.
-* Modulen beror på en annan modul som inte har distribuerats till ditt Automation-konto.
-* Modulen saknar dess beroenden i mappen.
-* Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen, och du har inte beviljat fullständig lagringssökväg eller har inte lästs in modulen med hjälp av en offentligt tillgänglig URL.
-
-#### <a name="resolution"></a>Lösning
-
-Någon av följande lösningar problemet på:
-
-* Kontrollera att modulen följer följande format: ModuleName.Zip **->** ModuleName eller versionsnummer **->** (ModuleName.psm1, ModuleName.psd1)
-* Öppna filen .psd1 och om modulen har några beroenden. I annat fall kan du ladda upp dessa moduler till Automation-kontot.
-* Se till att alla refererade DLL-filer finns i modulmappen.
-
-### <a name="all-modules-suspended"></a>Scenario: Uppdatera AzureModule.ps1 pausar när du uppdaterar moduler
+### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
 
 #### <a name="issue"></a>Problem
 
-När du använder den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook för att uppdatera din Azure-moduler modulen uppdateringen uppdateringsprocessen hämtar har pausats.
+A module fails to import or imports successfully, but no cmdlets are extracted.
 
 #### <a name="cause"></a>Orsak
 
-Standardinställningen för att avgöra hur många moduler uppdateras samtidigt är 10 när du använder den `Update-AzureModule.ps1` skript. Uppdateringen är känslig för fel när för många-modulerna uppdateras samtidigt.
+Some common reasons that a module might not successfully import to Azure Automation are:
 
-#### <a name="resolution"></a>Lösning
+* The structure doesn't match the structure that Automation needs it to be in.
+* The module depends on another module that hasn't been deployed to your Automation account.
+* The module is missing its dependencies in the folder.
+* The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you haven't given the full storage path or haven't loaded the module by using a publicly accessible URL.
 
-Det är inte vanligt att alla AzureRM-moduler krävs i samma Automation-kontot. Vi rekommenderar att du bara importera de AzureRM-moduler som du behöver.
+#### <a name="resolution"></a>Upplösning
+
+Any of the following solutions fix the problem:
+
+* Make sure that the module follows the following format: ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
+* Open the .psd1 file and see if the module has any dependencies. If it does, upload these modules to the Automation account.
+* Make sure that any referenced .dlls are present in the module folder.
+
+### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 suspends when updating modules
+
+#### <a name="issue"></a>Problem
+
+When using the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook to update your Azure modules the module update the update process gets suspended.
+
+#### <a name="cause"></a>Orsak
+
+The default setting to determine how many modules get updated simultaneously is 10 when using the `Update-AzureModule.ps1` script. The update process is prone to errors when too many modules are being updated at the same time.
+
+#### <a name="resolution"></a>Upplösning
+
+It's not common that all the AzureRM modules are required in the same Automation account. It's recommended to only import the AzureRM modules that you need.
 
 > [!NOTE]
-> Undvika att importera den **AzureRM** modulen. Importera den **AzureRM** moduler kommer alla **AzureRM.\***  moduler som ska importeras, detta är inte recommened.
+> Avoid importing the **AzureRM** module. Importing the **AzureRM** modules causes all **AzureRM.\*** modules to be imported, this is not recommened.
 
-Om uppdateringen pausar, måste du lägga till den `SimultaneousModuleImportJobCount` parametern till den `Update-AzureModules.ps1` skript och ange ett lägre värde än standardvärdet är 10. Du rekommenderas om du implementerar den här logiken för att starta med värdet 3 eller 5. `SimultaneousModuleImportJobCount` är en parameter i `Update-AutomationAzureModulesForAccount` system-runbook som används för att uppdatera Azure-moduler. Den här ändringen gör processen kör längre, men har större möjlighet att slutföra. I följande exempel visar parametern och var du vill placera den i runbook:
+If the update process suspends, you need to add the `SimultaneousModuleImportJobCount` parameter to the `Update-AzureModules.ps1` script and provide a lower value than the default that is 10. It's recommended if you implement this logic, to start with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the `Update-AutomationAzureModulesForAccount` system runbook that is used to update Azure modules. This change makes the process run longer, but has a better chance of completing. The following example shows the parameter and where to put it in the runbook:
 
  ```powershell
          $Body = @"
@@ -116,13 +116,13 @@ Om uppdateringen pausar, måste du lägga till den `SimultaneousModuleImportJobC
 "@
 ```
 
-## <a name="run-as-accounts"></a>Kör som-konton
+## <a name="run-as-accounts"></a>Run As accounts
 
-### <a name="unable-create-update"></a>Scenario: Du kan inte skapa eller uppdatera en Kör som-konto
+### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
 
 #### <a name="issue"></a>Problem
 
-När du försöker skapa eller uppdatera en Kör som-konto, visas ett fel som liknar följande felmeddelande visas:
+When you try to create or update a Run As account, you receive an error similar to the following error message:
 
 ```error
 You do not have permissions to create…
@@ -130,19 +130,19 @@ You do not have permissions to create…
 
 #### <a name="cause"></a>Orsak
 
-Du har inte de behörigheter som du behöver skapa eller uppdatera kör som-kontot eller resursen är låst på en resursgruppsnivå.
+You don't have the permissions that you need to create or update the Run As account or the resource is locked at a resource group level.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
-Du måste ha behörighet till de olika resurserna som används av kör som-kontot för att skapa eller uppdatera en Kör som-konto. Läs om de behörigheter som krävs för att skapa eller uppdatera en Kör som-konto i [kör som-kontobehörighet](../manage-runas-account.md#permissions).
+To create or update a Run As account, you must have appropriate permissions to the various resources used by the Run As account. To learn about the permissions needed to create or update a Run As account, see [Run As account permissions](../manage-runas-account.md#permissions).
 
-Om problemet är på grund av ett lås, kontrollerar du att låset är ok om du vill ta bort den. Gå sedan till den resurs som är låst och högerklicka på låset väljer **ta bort** att ta bort låset.
+If the issue is because of a lock, verify that the lock is ok to remove it. Then navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
 
-### <a name="iphelper"></a>Scenario: Du får felet ”Det går inte att hitta en startpunkt med namnet” GetPerAdapterInfo ”i DLL-filen 'iplpapi.dll'” när kör en runbook.
+### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook.
 
 #### <a name="issue"></a>Problem
 
-När du kör en runbook visas följande undantag:
+When executing a runbook you receive the following exception:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -150,11 +150,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Orsak
 
-Det här felet beror sannolikt på grund av en felaktigt konfigurerad [kör som-konto](../manage-runas-account.md).
+This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
-Kontrollera att din [kör som-konto](../manage-runas-account.md) är korrekt konfigurerad. När den har konfigurerats korrekt kan du kontrollera att du har rätt kod i din runbook för att autentisera med Azure. I följande exempel visas ett kodfragment till att autentisera till Azure i en runbook med en Kör som-konto.
+Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection
@@ -164,8 +164,8 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser ditt problem eller inte kan lösa problemet besöker du någon av följande kanaler för ytterligare support:
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 * Få svar från Azure-experter via [Azure-forumen](https://azure.microsoft.com/support/forums/)
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure-kontot för att förbättra kundtjänstupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-* Om du behöver mer hjälp kan öppna du en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
+* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

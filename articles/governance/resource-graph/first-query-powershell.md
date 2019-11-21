@@ -1,16 +1,16 @@
 ---
-title: Kör din första fråga med PowerShell
-description: Den här artikeln vägleder dig igenom stegen för att aktivera Resource Graph-modulen för Azure PowerShell och köra din första fråga.
+title: 'Quickstart: Your first PowerShell query'
+description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
 ms.date: 10/18/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aaddcfc6cae16501ba6544f9789aa3ac1d13136
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: de0103ea5fe12ae26ac64d04a8efc50b9e708fc5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958783"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74216463"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Run your first Resource Graph query using Azure PowerShell
 
 Det första steget till att använda Azure Resource Graph är att kontrollera att modulen för Azure PowerShell är installerad. Denna snabbstart vägleder dig genom processen för att lägga till modulen i Azure PowerShell-installationen.
 
@@ -20,7 +20,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="add-the-resource-graph-module"></a>Lägga till Resource Graph-modulen
 
-Om du vill aktivera Azure PowerShell för att skicka frågor till Azure Resource Graph, måste du lägga till modulen. Den här modulen kan användas med lokalt installerad PowerShell, med [Azure Cloud Shell](https://shell.azure.com)eller med [PowerShell Docker-avbildningen](https://hub.docker.com/_/microsoft-powershell).
+Om du vill aktivera Azure PowerShell för att skicka frågor till Azure Resource Graph, måste du lägga till modulen. This module can be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or with the [PowerShell Docker image](https://hub.docker.com/_/microsoft-powershell).
 
 ### <a name="base-requirements"></a>Grundläggande krav
 
@@ -28,7 +28,7 @@ Azure Resource Graph-modulen måste ha följande programvara:
 
 - Azure PowerShell 1.0.0 eller senare. Om den ännu inte är installerad följer du [de här instruktionerna](/powershell/azure/install-az-ps).
 
-- PowerShellGet 2.0.1 eller högre. Om den inte är installerad eller uppdaterad följer du [de här instruktionerna](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 eller högre. Om den inte är installerad eller uppdaterad följer du [de här instruktionerna](/powershell/scripting/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Installera modulen
 
@@ -41,7 +41,7 @@ Resource Graph-modulen för PowerShell är **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Kontrol lera att modulen har importer ATS och är den senaste versionen (0.7.5):
+1. Validate that the module has been imported and is the latest version (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -84,7 +84,7 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
 > [!NOTE]
-> Om frågan inte returnerar resultat från en prenumeration som du redan har åtkomst till, Observera att `Search-AzGraph` cmdlet som standard har prenumerationer i standard kontexten. Om du vill visa en lista över prenumerations-ID: n som ingår i standard kontexten kör du den här `(Get-AzContext).Account.ExtendedProperties.Subscriptions` om du vill söka i alla prenumerationer som du har åtkomst till, kan du ange PSDefaultParameterValues för `Search-AzGraph`-cmdlet genom att köra `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> If the query does not return results from a subscription you already have access to, then note that `Search-AzGraph` cmdlet defaults to subscriptions in the default context. To see the list of subscription IDs which are part of the default context run this `(Get-AzContext).Account.ExtendedProperties.Subscriptions` If you wish to search across all the subscriptions you have access to, one can set the PSDefaultParameterValues for `Search-AzGraph` cmdlet by running `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -103,10 +103,10 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om [frågespråket](./concepts/query-language.md).
-- Lär dig mer om hur du [utforskar resurser](./concepts/explore-resources.md).
-- Kör din första fråga med hjälp av [Azure Portal](first-query-portal.md).
-- Kör din första fråga med [Azure CLI](first-query-azurecli.md).
-- Se exempel på [Start frågor](./samples/starter.md).
-- Se exempel på [avancerade frågor](./samples/advanced.md).
-- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+- Get more information about the [query language](./concepts/query-language.md).
+- Learn more about how to [explore resources](./concepts/explore-resources.md).
+- Run your first query by using the [Azure portal](first-query-portal.md).
+- Run your first query with [Azure CLI](first-query-azurecli.md).
+- See samples of [Starter queries](./samples/starter.md).
+- See samples of [Advanced queries](./samples/advanced.md).
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

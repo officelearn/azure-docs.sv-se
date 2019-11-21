@@ -1,7 +1,7 @@
 ---
-title: 'Designer: förutsägelse kredit risk exempel'
+title: 'Designer: Predict credit risk example'
 titleSuffix: Azure Machine Learning
-description: Bygg en klassificerare och Använd anpassade Python-skript för att förutsäga kredit risken med Azure Machine Learning designer.
+description: Build a classifier and use custom Python scripts to predict credit risk using Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,68 +10,68 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 0bf69683fc5afe24e0e7977b05892c3c10b0cd46
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: f174ed995b043ef99d22a0a292e9b5be394029a5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196096"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214234"
 ---
-# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Bygg en klassificerare & använda Python-skript för att förutsäga kredit risker med Azure Machine Learning designer
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Build a classifier & use Python scripts to predict credit risk using Azure Machine Learning designer
 
-**Designer (för hands version) exempel 4**
+**Designer (preview) sample 4**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Den här artikeln visar hur du skapar en komplex pipeline för maskin inlärning med hjälp av designern (för hands version). Du lär dig hur du implementerar anpassad logik med python-skript och jämför flera modeller för att välja det bästa alternativet.
+This article shows you how to build a complex machine learning pipeline using the designer (preview). You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
-Det här exemplet tränar en klassificerare till att förutsäga kredit risken med hjälp av kredit information, till exempel kredit historik, ålder och antal kredit kort. Du kan dock använda begreppen i den här artikeln för att ta itu med dina egna maskin inlärnings problem.
+This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-Här är det färdiga diagrammet för den här pipelinen:
+Here's the completed graph for this pipeline:
 
-[![diagram över pipelinen](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Klicka på exempel 4 för att öppna det.
+4. Click sample 4 to open it.
 
 ## <a name="data"></a>Data
 
-I det här exemplet används det tyska kredit kortets data uppsättning från UC Irvine-lagringsplatsen. Den innehåller 1 000-exempel med 20 funktioner och en etikett. Varje exempel representerar en person. De 20 funktionerna omfattar numeriska och kategoriska funktioner. Mer information om data uppsättningen finns på sidan för [webb-och webb sidor](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). Den sista kolumnen är etiketten, som anger kredit risken och bara har två möjliga värden: hög kredit risk = 2 och låg kredit risk = 1.
+This sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and one label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
-## <a name="pipeline-summary"></a>Sammanfattning av pipeline
+## <a name="pipeline-summary"></a>Pipeline summary
 
-I den här pipelinen jämför du två olika metoder för att skapa modeller för att lösa det här problemet:
+In this pipeline, you compare two different approaches for generating models to solve this problem:
 
-- Utbildning med den ursprungliga data uppsättningen.
-- Utbildning med en replikerad data uppsättning.
+- Training with the original dataset.
+- Training with a replicated dataset.
 
-Med båda metoderna utvärderar du modeller genom att använda test data uppsättningen med replikering för att säkerställa att resultaten justeras med funktionen cost. Testa två klassificerare med båda metoderna: **dubbelriktad Vector-dator** och **besluts träd med två klasser**.
+With both approaches, you evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. Test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
-Kostnaden för att klassificera ett litet risk exempel som hög är 1, och kostnaden för att klassificera ett högrisk exempel som lägsta är 5. Vi använder en **execute python-skriptfil** för att redovisa den här felklassificerings kostnaden.
+The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We use an **Execute Python Script** module to account for this misclassification cost.
 
-Här är diagrammet över pipelinen:
+Here's the graph of the pipeline:
 
-[![diagram över pipelinen](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Databearbetning
 
-Börja med att använda modulen **metadata-redigeraren** för att lägga till kolumn namn för att ersätta standard kolumn namnen med mer meningsfulla namn som hämtats från data uppsättnings beskrivningen på den unika gruppen. Ange de nya kolumn namnen som kommaavgränsade värden i fältet **nytt kolumn** namn i **metadata-redigeraren**.
+Start by using the **Metadata Editor** module to add column names to replace the default column names with more meaningful names, obtained from the dataset description on the UCI site. Provide the new column names as comma-separated values in the **New column** name field of the **Metadata Editor**.
 
-Sedan genererar du de inlärnings-och test uppsättningar som används för att utveckla riskhanterings modellen. Dela upp den ursprungliga data uppsättningen i utbildning och test uppsättningar av samma storlek med hjälp av modulen **dela data** . Om du vill skapa uppsättningar med samma storlek ställer du in **del av raderna i den första data uppsättnings** alternativet för att 0,7.
+Next, generate the training and test sets used to develop the risk prediction model. Split the original dataset into training and test sets of the same size by using the **Split Data** module. To create sets of equal size, set the **Fraction of rows in the first output dataset** option to 0.7.
 
-### <a name="generate-the-new-dataset"></a>Generera den nya data uppsättningen
+### <a name="generate-the-new-dataset"></a>Generate the new dataset
 
-Eftersom kostnaden för att uppskatta risken är hög, ställer du in kostnaden för att inte klassificera så här:
+Because the cost of underestimating risk is high, set the cost of misclassification like this:
 
-- För högrisk ärenden som är felklassificerade som låg risk: 5
-- För låg risk fall klassificeras som hög risk: 1
+- For high-risk cases misclassified as low risk: 5
+- For low-risk cases misclassified as high risk: 1
 
-Om du vill visa den här funktionen kan du generera en ny data uppsättning. I den nya data uppsättningen replikeras varje högrisk exempel fem gånger, men antalet låg risk exempel ändras inte. Dela data i utbildning och testa data uppsättningar före replikering för att förhindra att samma rad används i båda uppsättningarna.
+To reflect this cost function, generate a new dataset. In the new dataset, each high-risk example is replicated five times, but the number of low-risk examples doesn't change. Split the data into training and test datasets before replication to prevent the same row from being in both sets.
 
-För att replikera högrisk data, ska du ställa in python-koden i en **execute Python-skript** modul:
+To replicate the high-risk data, put this Python code into an **Execute Python Script** module:
 
 ```Python
 import pandas as pd
@@ -85,42 +85,42 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-**Execute python script** module replikerar både utbildning och test-datauppsättningar.
+The **Execute Python Script** module replicates both the training and test datasets.
 
 ### <a name="feature-engineering"></a>Funktionstekniker
 
-Den **dubbelriktade supporten för Vector Machine** kräver normaliserade data. Använd **normaliserings data** module för att normalisera intervallen för alla numeriska funktioner med en `tanh` omvandling. En `tanh` omvandling konverterar alla numeriska funktioner till värden inom ett intervall på 0 och 1 och bevarar den övergripande fördelningen av värden.
+The **Two-Class Support Vector Machine** algorithm requires normalized data. So use the **Normalize Data** module to normalize the ranges of all numeric features with a `tanh` transformation. A `tanh` transformation converts all numeric features to values within a range of 0 and 1 while preserving the overall distribution of values.
 
-Den **dubbelriktade metoden Vector Machine** module hanterar sträng funktioner, konverterar dem till kategoriska-funktioner och sedan till binära funktioner med värdet noll eller ett. Det innebär att du inte behöver normalisera de här funktionerna.
+The **Two-Class Support Vector Machine** module handles string features, converting them to categorical features and then to binary features with a value of zero or one. So you don't need to normalize these features.
 
 ## <a name="models"></a>Modeller
 
-Eftersom du har tillämpat två klassificerare, **stöd för dubbelriktad Vector Machine** (SVM) och **två klass djup**och två data uppsättningar, genererar du totalt fyra modeller:
+Because you applied two classifiers, **Two-Class Support Vector Machine** (SVM) and **Two-Class Boosted Decision Tree**, and two datasets, you generate a total of four models:
 
-- SVM utbildade med ursprungliga data.
-- SVM utbildade med replikerade data.
-- Utökat besluts träd tränat med ursprungliga data.
-- Utökat besluts träd tränat med replikerade data.
+- SVM trained with original data.
+- SVM trained with replicated data.
+- Boosted Decision Tree trained with original data.
+- Boosted Decision Tree trained with replicated data.
 
-I det här exemplet används standard arbets flödet för data vetenskap för att skapa, träna och testa modellerna:
+This sample uses the standard data science workflow to create, train, and test the models:
 
-1. Initiera Learning-algoritmerna med hjälp av **dubbelriktad Vector-dator** och två Klasss **öknings bara besluts träd**.
-1. Använd **träna modell** för att tillämpa algoritmen på data och skapa den faktiska modellen.
-1. Använd **Poäng modellen** för att skapa poäng med hjälp av test exemplen.
+1. Initialize the learning algorithms, using **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+1. Use **Train Model** to apply the algorithm to the data and create the actual model.
+1. Use **Score Model** to produce scores by using the test examples.
 
-I följande diagram visas en del av den här pipelinen där de ursprungliga och replikerade tränings uppsättningarna används för att träna två olika SVM-modeller. **Träna modellen** är ansluten till inlärnings uppsättningen och **Poäng modellen** är ansluten till test uppsättningen.
+The following diagram shows a portion of this pipeline, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
-![Pipeline-diagram](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Pipeline graph](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-I utvärderings fasen av pipelinen beräknar du precisionen för var och en av de fyra modellerna. För den här pipelinen använder du **utvärdera modell** för att jämföra exempel som har samma felklassificerings kostnad.
+In the evaluation stage of the pipeline, you compute the accuracy of each of the four models. For this pipeline, use **Evaluate Model** to compare examples that have the same misclassification cost.
 
-Modulen **utvärdera modell** kan beräkna prestanda måtten för så många som två poäng modeller. Så du kan använda en **utvärderings modell** för att utvärdera de två SVM-modellerna och en annan instans av **utvärdera modell** för att utvärdera de två bättre besluts träds modellerna.
+The **Evaluate Model** module can compute the performance metrics for as many as two scored models. So you can use one instance of **Evaluate Model** to evaluate the two SVM models and another instance of **Evaluate Model** to evaluate the two Boosted Decision Tree models.
 
-Observera att den replikerade test data uppsättningen används som indata för **Poäng modellen**. Med andra ord inkluderar de slutliga noggrannhets poängen kostnaden för att få etiketter fel.
+Notice that the replicated test dataset is used as the input for **Score Model**. In other words, the final accuracy scores include the cost for getting the labels wrong.
 
-## <a name="combine-multiple-results"></a>Kombinera flera resultat
+## <a name="combine-multiple-results"></a>Combine multiple results
 
-Modulen **utvärdera modell** skapar en tabell med en enda rad som innehåller olika mått. För att skapa en enda uppsättning noggrannhets resultat använder vi först **Lägg till rader** för att kombinera resultaten till en enda tabell. Vi använder sedan följande Python-skript i modulen **Kör Python-skript** för att lägga till modell namn och övnings metod för varje rad i resultat tabellen:
+The **Evaluate Model** module produces a table with a single row that contains various metrics. To create a single set of accuracy results, we first use **Add Rows** to combine the results into a single table. We then use the following Python script in the **Execute Python Script** module to add the model name and training approach for each row in the table of results:
 
 ```Python
 import pandas as pd
@@ -142,17 +142,17 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Resultat
 
-Om du vill visa resultatet av pipelinen högerklickar du på visualisera utdata för den sista **Välj kolumner i data uppsättnings** modulen.
+To view the results of the pipeline, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
 
-![Visualisera utdata](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualize output](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
-Den första kolumnen visar vilken Machine Learning-algoritm som används för att generera modellen.
+The first column lists the machine learning algorithm used to generate the model.
 
-Den andra kolumnen visar typen av inlärnings uppsättning.
+The second column indicates the type of the training set.
 
-Den tredje kolumnen innehåller det kostnads känsliga precision svärdet.
+The third column contains the cost-sensitive accuracy value.
 
-Från dessa resultat kan du se att den bästa precisionen tillhandahålls av modellen som skapades med **dubbelriktad Vector-dator** och utbildad på den replikerade träning-datauppsättningen.
+From these results, you can see that the best accuracy is provided by the model that was created with **Two-Class Support Vector Machine** and trained on the replicated training dataset.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -160,11 +160,11 @@ Från dessa resultat kan du se att den bästa precisionen tillhandahålls av mod
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de andra exempel som är tillgängliga för designern:
+Explore the other samples available for the designer:
 
-- [Exempel 1 – regression: förutsäga ett bils pris](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering med funktions val: inkomst förutsägelse](how-to-designer-sample-classification-predict-income.md)
-- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-designer-sample-classification-churn.md)
-- [Exempel 6 – klassificering: förutsäga flyg fördröjningar](how-to-designer-sample-classification-flight-delay.md)
-- [Exempel 7 – text klassificering: Wikipedia SP 500-datauppsättning](how-to-designer-sample-text-classification.md)
+- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

@@ -126,7 +126,7 @@
         - name: Initiera klusternoder
           href: /azure/databricks/clusters/init-scripts
           maintainContext: true
-        - name: Anpassade behållare
+        - name: Anpassade containrar
           href: /azure/databricks/clusters/custom-containers
           maintainContext: true
         - name: GPU-aktiverade kluster
@@ -1717,7 +1717,9 @@
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/databricks/'
-    - name: Stack Overflow
+    - name: Ställ en fråga – MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks'
+    - name: Ställ en fråga – Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

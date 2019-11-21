@@ -1,57 +1,57 @@
 ---
-title: Kör din första fråga med Azure Resource Graph Explorer
-description: Den här artikeln vägleder dig genom stegen för att köra din första fråga från Azure Portal med Azure Resource Graph Explorer.
+title: 'Quickstart: Your first portal query'
+description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4fbd4748cfeff46718cf65812ede886027b3961b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958834"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74216557"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
-Azure Resource graphs kraft är tillgängligt direkt i Azure Portal via Azure Resource Graph Explorer. Resurs diagram Utforskaren ger bläddringsbar information om de resurs typer och egenskaper för Azure Resource Manager som du kan fråga. Resurs diagram Utforskaren innehåller också ett rent gränssnitt för att arbeta med flera frågor, utvärdering av resultaten och till och med konvertera resultatet av vissa frågor till ett diagram som kan fästas på en Azure-instrumentpanel.
+The power of Azure Resource Graph is available directly in Azure portal through Azure Resource Graph Explorer. Resource Graph Explorer provides browsable information about the Azure Resource Manager resource types and properties that you can query. Resource Graph Explorer also provides a clean interface for working with multiple queries, evaluating the results, and even converting the results of some queries into a chart that can be pinned to an Azure dashboard.
 
-I slutet av den här snabb starten har du använt Azure Portal och resurs diagram Utforskaren för att köra din första resurs diagram fråga och fäst resultatet på en instrument panel.
+At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your first Resource Graph query and pinned the results to a dashboard.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="run-your-first-resource-graph-query"></a>Köra din första Resource Graph-fråga
 
-Öppna [Azure Portal](https://portal.azure.com) för att hitta och använda resurs diagram Utforskaren genom att följa dessa steg för att köra din första resurs diagram fråga:
+Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer following these steps to run your first Resource Graph query:
 
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **resurs diagram Utforskaren**.
+1. Välj **Alla tjänster** i den vänstra rutan. Search for and select **Resource Graph Explorer**.
 
-1. I **fråga 1** -delen av fönstret anger du frågan `Resources | project name, type | limit 5` och väljer **Kör fråga**.
+1. In the **Query 1** portion of the window, enter the query `Resources | project name, type | limit 5` and select **Run query**.
 
    > [!NOTE]
-   > Eftersom den här frågan inte tillhandahåller en sorterings modifierare, till exempel `order by`, kan du köra frågan flera gånger för att ge en annan uppsättning resurser per begäran.
+   > As this query example doesn't provide a sort modifier such as `order by`, running this query multiple times is likely to yield a different set of resources per request.
 
-1. Granska fråge svaret på fliken **resultat** . Välj fliken **meddelanden** om du vill visa information om frågan, inklusive antalet resultat och varaktighet för frågan. Eventuella fel visas under den här fliken.
+1. Review the query response in the **Results** tab. Select the **Messages** tab to see details about the query, including the count of results and duration of the query. Errors, if any, are displayed under this tab.
 
-1. Uppdatera frågan för att `order by` egenskapen **namn** : `Resources | project name, type | limit 5 | order by name asc`. Välj sedan **Kör fråga**.
+1. Update the query to `order by` the **Name** property: `Resources | project name, type | limit 5 | order by name asc`. Then, select **Run query**.
 
    > [!NOTE]
    > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
 
-1. Uppdatera frågan till första `order by` egenskapen **namn** och `limit` sedan till de fem översta resultaten: `Resources | project name, type | order by name asc | limit 5`. Välj sedan **Kör fråga**.
+1. Update the query to first `order by` the **Name** property and then `limit` to the top five results: `Resources | project name, type | order by name asc | limit 5`. Then, select **Run query**.
 
-När den slutliga frågan körs flera gånger, förutsatt att ingenting i din miljö ändras, är resultaten som returneras konsekventa och som förväntat – beställt av egenskapen **namn** , men fortfarande begränsat till de fem främsta resultaten.
+When the final query is run several times, assuming that nothing in your environment is changing, the results returned are consistent and as expected -- ordered by the **Name** property, but still limited to the top five results.
 
-### <a name="schema-browser"></a>Schema webbläsare
+### <a name="schema-browser"></a>Schema browser
 
-Schema webbläsaren finns i den vänstra rutan i resurs diagram Utforskaren. I den här listan över resurser visas alla _resurs typer_ av Azure-resurser som båda stöds av Azures resurs diagram och som finns i en klient som du har åtkomst till. Om du expanderar en resurs typ eller underEgenskaper visas underordnade egenskaper som kan användas för att skapa en resurs diagram fråga.
+The schema browser is located in the left pane of Resource Graph Explorer. This list of resources shows all the _resource types_ of Azure resources that are both supported by Azure Resource Graph and that exist in a tenant that you have access to. Expanding a resource type or subproperties show child properties that can be used to create a Resource Graph query.
 
-Om du väljer resurs typ placeras `where type =="<resource type>"` i rutan fråga. Om du väljer en av de underordnade egenskaperna läggs `where <propertyName> == "INSERT_VALUE_HERE"` till i rutan fråga.
-Schema läsaren är ett bra sätt att identifiera egenskaper för användning i frågor. Se till att ersätta _infoga\_värde\_här_ med ditt eget värde, justera frågan med villkor, operatorer och funktioner för att uppnå dina avsedda resultat.
+Selecting the resource type places `where type =="<resource type>"` into the query box. Selecting one of the child properties adds `where <propertyName> == "INSERT_VALUE_HERE"` into the query box.
+The schema browser is a great way to discover properties for use in queries. Be sure to replace _INSERT\_VALUE\_HERE_ with your own value, adjust the query with conditions, operators, and functions to achieve your intended results.
 
-## <a name="create-a-chart-from-the-resource-graph-query"></a>Skapa ett diagram från resurs diagram frågan
+## <a name="create-a-chart-from-the-resource-graph-query"></a>Create a chart from the Resource Graph query
 
-När du har kört den sista frågan ovan får du ett meddelande om att resultat uppsättningen inte är kompatibel med ett cirkel diagram visualisering om du väljer fliken **diagram** . Frågor som visar resultat kan inte göras i ett diagram, men frågor som tillhandahåller resurser kan räknas. Med hjälp av [typen fråga-Count Virtual Machines by OS](./samples/starter.md#count-virtual-machines-by-os-type)kan vi skapa en visualisering från resurs diagram frågan.
+After running the last query above, if you select the **Charts** tab, you get a message that "the result set isn't compatible with a pie chart visualization." Queries that list results can't be made into a chart, but queries that provide counts of resources can. Using the [Sample query - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type), let's create a visualization from the Resource Graph query.
 
-1. Ange följande fråga i delen med **frågan 1** i fönstret och välj **Kör fråga**.
+1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
 
    ```kusto
    Resources
@@ -59,67 +59,67 @@ När du har kört den sista frågan ovan får du ett meddelande om att resultat 
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
-1. Välj fliken **resultat** och Observera att svaret för den här frågan innehåller antal.
+1. Select the **Results** tab and note that the response for this query provides counts.
 
-1. Välj fliken **diagram** . Frågan resulterar nu i visualiseringar. Ändra typen från _Välj diagram typ..._ till ett _liggande diagram_ eller _Ring diagram_ för att experimentera med tillgängliga visualiserings alternativ.
+1. Select the **Charts** tab. Now, the query results in visualizations. Change the type from _Select chart type..._ to either _Bar chart_ or _Donut chart_ to experiment with the available visualization options.
 
-## <a name="pin-the-query-visualization-to-a-dashboard"></a>Fästa frågans visualisering på en instrument panel
+## <a name="pin-the-query-visualization-to-a-dashboard"></a>Pin the query visualization to a dashboard
 
-När du har resultat från en fråga som kan visualiseras kan data visualiseringen fästas på en av dina instrument paneler. Följ dessa steg när du har kört frågan ovan:
+When you have results from a query that can be visualized, that data visualization can then be pinned to one of your dashboards. After running the query above, follow these steps:
 
-1. Välj **Spara** och ange namnet "virtuella datorer efter OS-typ". Välj sedan **Spara** längst ned i den högra rutan.
+1. Select **Save** and provide the name "VMs by OS Type". Then select **Save** at the bottom of the right pane.
 
-1. Välj **Kör fråga** för att köra frågan igen nu när den har sparats.
+1. Select **Run query** to rerun the query now that it's been saved.
 
-1. Välj en data visualisering på fliken **diagram** . Välj **Fäst på instrument panelen**.
+1. On the **Charts** tab, select a data visualization. Then select **Pin to dashboard**.
 
-1. Välj antingen det Portal meddelande som visas eller Välj **instrument panel** i det vänstra fönstret.
+1. Either select the portal notification that appears or select **Dashboard** from the left pane.
 
-Frågan är nu tillgänglig på din instrument panel med rubriken för den panel som matchar frågans namn. Om frågan har sparats när den har fästs, har den namnet "fråga 1" i stället.
+The query is now available on your dashboard with the title of the tile matching the query name. If the query was unsaved when it was pinned, it's named 'Query 1' instead.
 
-Frågan och resulterande data visualisering körs och uppdateras varje gången instrument panelen laddas, vilket ger real tids och dynamiska insikter i din Azure-miljö direkt i ditt arbets flöde.
-
-> [!NOTE]
-> Frågor som resulterar i en lista kan också fästas på instrument panelen. Funktionen är inte begränsad till data visualiseringar av frågor.
-
-## <a name="import-example-resource-graph-explorer-dashboards"></a>Importera exempel resurs diagram instrument paneler i Graph Explorer
-
-Prova följande exempel på instrument paneler för att tillhandahålla exempel på resurs diagram frågor och hur du kan använda resurs Utforskaren för att förbättra ditt Azure Portal arbets flöde.
-
-- [Resurs diagram Utforskare – exempel på instrument panel #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
-
-  [![exempel bild för instrument panel #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
-
-- [Resurs diagram Utforskare – exempel på instrument panel #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
-
-  [![exempel bild för instrument panel #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+The query and resulting data visualization run and update each time the dashboard loads, providing real-time and dynamic insights to your Azure environment directly in your workflow.
 
 > [!NOTE]
-> Antalet och diagram i exempel skärmarna ovan kan skärm bilderna variera beroende på din Azure-miljö.
+> Queries that result in a list can also be pinned to the dashboard. The feature isn't limited to data visualizations of queries.
 
-1. Välj och ladda ned exempel instrument panel som du vill utvärdera.
+## <a name="import-example-resource-graph-explorer-dashboards"></a>Import example Resource Graph Explorer dashboards
 
-1. I Azure Portal väljer du **instrument panel** i det vänstra fönstret.
+To provide examples of Resource Graph queries and how Resource Graph Explorer can be used to enhance your Azure portal workflow, try out these example dashboards.
 
-1. Välj **överför**och leta upp och välj den instrument panels fil som har hämtats. Välj sedan **Öppna**.
+- [Resource Graph Explorer - Sample Dashboard #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-Den importerade instrument panelen visas automatiskt. Eftersom det nu finns i Azure Portal kan du utforska och göra ändringar efter behov eller skapa nya instrument paneler från exemplet för att dela med dina team. Mer information om hur du arbetar med instrument paneler finns [i skapa och dela instrument paneler i Azure Portal](../../azure-portal/azure-portal-dashboards.md).
+  [![Example image for Sample Dashboard #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
 
-## <a name="clean-up-resources"></a>Rensa resurser
+- [Resource Graph Explorer - Sample Dashboard #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-Om du vill ta bort exempel instrument panelerna för resurs diagram från din Azure Portal-miljö kan du göra det med följande steg:
+  [![Example image for Sample Dashboard #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
-1. Välj **instrument panel** i det vänstra fönstret.
+> [!NOTE]
+> Counts and charts in the above example dashboard screenshots will vary depending on your Azure environment.
 
-1. I list rutan instrument panel väljer du det exempel på den resurs diagram instrument panel som du vill ta bort.
+1. Select and download the sample dashboard you want to evaluate.
 
-1. Välj **ta bort** på instrument panelens meny längst upp på instrument panelen och välj **OK** för att bekräfta.
+1. In Azure portal, select **Dashboard** from the left pane.
+
+1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select **Open**.
+
+The imported dashboard is automatically displayed. Since it now exists in your Azure portal, you may explore and make changes as needed or create new dashboards from the example to share with your teams. For more information about working with dashboards, see [Create and share dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+
+## <a name="clean-up-resources"></a>Clean-up resources
+
+If you wish to remove the sample Resource Graph dashboards from your Azure portal environment, you can do so with the following steps:
+
+1. Select **Dashboard** from the left pane.
+
+1. From the dashboard drop-down, select the sample Resource Graph dashboard you wish to delete.
+
+1. Select **Delete** from the dashboard menu at the top of the dashboard and select **Ok** to confirm.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om [frågespråket](./concepts/query-language.md).
-- Lär dig mer om hur du [utforskar resurser](./concepts/explore-resources.md).
-- Kör din första fråga med [Azure CLI](first-query-azurecli.md).
-- Se exempel på [Start frågor](./samples/starter.md).
-- Se exempel på [avancerade frågor](./samples/advanced.md).
-- Ge feedback på [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+- Get more information about the [query language](./concepts/query-language.md).
+- Learn more about how to [explore resources](./concepts/explore-resources.md).
+- Run your first query with [Azure CLI](first-query-azurecli.md).
+- See samples of [Starter queries](./samples/starter.md).
+- See samples of [Advanced queries](./samples/advanced.md).
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

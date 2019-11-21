@@ -1,64 +1,63 @@
 ---
-title: 'Besluts träd med djup klass: modulreferens'
+title: 'Multiclass Boosted Decision Tree: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen för besluts träd med multiklass i Azure Machine Learning för att skapa en klassificerare med märkta data.
+description: Learn how to use the Multiclass Boosted Decision Tree module in Azure Machine Learning to create a classifier using labeled data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 08/22/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: b53e504e98cab34fdc50ee8715ec162c910dd40d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 7f39d393b96b1515e4815abdc28ac4079f271c1b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465993"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232610"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Förbättrat beslutsträd med flera klasser
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+This article describes a module in Azure Machine Learning designer (preview).
 
-Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för besluts träd.
+Use this module to create a machine learning model that is based on the boosted decision trees algorithm.
 
-Ett utökat besluts träd är en ensemble-utbildnings metod där det andra trädet korrigerar fel i det första trädet, och det tredje trädet korrigeras för felen i de första och andra träden och så vidare. Förutsägelser bygger på trädets ensembler tillsammans.
+A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth. Predictions are based on the ensemble of trees together.
 
-## <a name="how-to-configure"></a>Så här konfigurerar du 
+## <a name="how-to-configure"></a>How to configure 
 
-Den här modulen skapar en modell som inte är tränad. Eftersom klassificeringen är en övervakad inlärnings metod behöver du en *etikettad data uppsättning* som innehåller en etikett kolumn med ett värde för alla rader.
+This module creates an untrained classification model. Because classification is a supervised learning method, you need a *labeled dataset* that includes a label column with a value for all rows.
 
-Du kan träna den här typen av modell med hjälp av [träna-modellen](././train-model.md). 
+You can train this type of model by using the [Train Model](././train-model.md). 
 
-1.  Lägg till modulen **besluts träd med multiklass** i din pipeline.
+1.  Add the **Multiclass Boosted Decision Tree** module to your pipeline.
 
-1.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet för att **skapa utbildare läge** .
+1.  Specify how you want the model to be trained by setting the **Create trainer mode** option.
 
-    + **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
+    + **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.
 
 
-    *  **Maximalt antal löv per träd** begränsar det maximala antalet terminalserversessioner (löv) som kan skapas i alla träd.
+    *  **Maximum number of leaves per tree** limits the maximum number of terminal nodes (leaves) that can be created in any tree.
     
-        Genom att öka det här värdet kan du öka storleken på trädet och uppnå högre precision, samtidigt som det är risk för överanpassning och längre inlärnings tid.
+        By increasing this value, you potentially increase the size of the tree and achieve higher precision, at the risk of overfitting and longer training time.
   
-    * **Minsta antal sampel per lövnod** anger antalet fall som krävs för att skapa en terminalserversession (löv) i ett träd.  
+    * **Minimum number of samples per leaf node** indicates the number of cases required to create any terminal node (leaf) in a tree.  
 
-         Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler. Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst fem fall som uppfyller samma villkor.
+         By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
 
-    * **Inlärnings takten** definierar steg storleken under inlärningen. Ange ett tal mellan 0 och 1.
+    * **Learning rate** defines the step size while learning. Enter a number between 0 and 1.
 
-         Inlärnings frekvensen avgör hur snabbt eller långsamt en elev konvergerar i en optimal lösning. Om steg storleken är för stor kan du överskrida den optimala lösningen. Om steg storleken är för liten tar inlärningen längre tid att konvergera i den bästa lösningen.
+         The learning rate determines how fast or slow the learner converges on an optimal solution. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution.
 
-    * **Antal träd konstruktioner** anger det totala antalet besluts träd som ska skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
+    * **Number of trees constructed** indicates the total number of decision trees to create in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time will increase.
 
-    *  Med alternativet för **slumpmässigt nummer** kan du ange ett icke-negativt heltal som ska användas som slumpmässigt Seed-värde. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.  
+    *  **Random number seed** optionally sets a non-negative integer to use as the random seed value. Specifying a seed ensures reproducibility across runs that have the same data and parameters.  
 
-         Det slumpmässiga startvärdet anges som standard till 42. Efterföljande körningar som använder olika slumpmässiga frön kan ha olika resultat.
+         The random seed is set by default to 42. Successive runs using different random seeds can have different results.
 
 > [!Note]
-> Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](./train-model.md) .
+> If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,87 +1,83 @@
 ---
-title: Registrera Azure Functions bindnings tillägg
-description: Lär dig att registrera ett Azure Functions bindnings tillägg baserat på din miljö.
-services: functions
-documentationcenter: na
+title: Register Azure Functions binding extensions
+description: Learn to register an Azure Functions binding extension based on your environment.
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 40dca0797d75597f4728423eb9d6d071a15d81b9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 599becae0225bea623c383ead49cd9abcea6fff2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129272"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231100"
 ---
-# <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions bindnings tillägg
+# <a name="register-azure-functions-binding-extensions"></a>Register Azure Functions binding extensions
 
-I Azure Functions version 2. x är [bindningar](./functions-triggers-bindings.md) tillgängliga som separata paket från Functions-körningen. .NET-funktioner har åtkomst till bindningar via NuGet-paket, men tilläggs paket ger andra funktioner åtkomst till alla bindningar via en konfigurations inställning.
+In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
 
-Tänk på följande saker som rör bindnings tillägg:
+Consider the following items related to binding extensions:
 
-- Bindnings tillägg registreras inte explicit i functions 1. x, förutom när du [skapar ett C# klass bibliotek med Visual Studio](#local-csharp).
+- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio](#local-csharp).
 
-- HTTP-och timer-utlösare stöds som standard och kräver inte något tillägg.
+- HTTP and timer triggers are supported by default and don't require an extension.
 
-I följande tabell visas när och hur du registrerar bindningar.
+The following table indicates when and how you register bindings.
 
-| Utvecklingsmiljö |Registrering<br/> i funktioner 1. x  |Registrering<br/> i funktioner 2. x  |
+| Utvecklingsmiljö |Registrering<br/> in Functions 1.x  |Registrering<br/> in Functions 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|Automatisk|Automatisk|
-|Non-.NET-språk eller utveckling av lokala Azure Core-verktyg|Automatisk|[Använda Azure Functions Core Tools-och paket paket](#extension-bundles)|
-|C#klass bibliotek med Visual Studio|[Använda NuGet-verktyg](#vs)|[Använda NuGet-verktyg](#vs)|
-|C#klass bibliotek med Visual Studio Code|Saknas|[Använd .NET Core CLI](#vs-code)|
+|Azure portal|Automatisk|Automatisk|
+|Non-.NET languages or local Azure Core Tools development|Automatisk|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
+|C# class library using Visual Studio|[Use NuGet tools](#vs)|[Use NuGet tools](#vs)|
+|C# class library using Visual Studio Code|Gäller inte|[Use .NET Core CLI](#vs-code)|
 
-## <a name="extension-bundles"></a>Tilläggs paket för lokal utveckling
+## <a name="extension-bundles"></a>Extension bundles for local development
 
-Tilläggs paket är en distributions teknik som gör att du kan lägga till en kompatibel uppsättning funktions bindnings tillägg i din Function-app. En fördefinierad uppsättning tillägg läggs till när du skapar din app. Tilläggs paket som definieras i ett paket är kompatibla med varandra, vilket hjälper dig att undvika konflikter mellan paket. Du aktiverar tilläggs paket i appens Host. JSON-fil.  
+Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. A predefined set of extensions are added when you build your app. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. You enable extension bundles in the app's host.json file.  
 
-Du kan använda tilläggs paket med version 2. x och senare versioner av Functions-körningen. När du utvecklar lokalt kontrollerar du att du använder den senaste versionen av [Azure Functions Core tools](functions-run-local.md#v2).
+You can use extension bundles with version 2.x and later versions of the Functions runtime. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
 
-Använd tilläggs paket för lokal utveckling med hjälp av Azure Functions Core Tools, Visual Studio Code och när du skapar en fjärr anslutning.
+Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely.
 
-Om du inte använder tilläggs paket måste du installera .NET Core 2. x SDK på den lokala datorn innan du installerar eventuella bindnings tillägg. Paket för tillägg tar bort det här kravet för lokal utveckling. 
+If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you install any binding extensions. Extension bundles removes this requirement for local development. 
 
-Om du vill använda tilläggs paket uppdaterar du *Host. JSON* -filen så att den inkluderar följande post för `extensionBundle`:
+To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="vs"></a>C\# klass bibliotek med Visual Studio
+## <a name="vs"></a> C\# class library with Visual Studio
 
-I **Visual Studio**kan du installera paket från Package Manager-konsolen med kommandot [install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , som du ser i följande exempel:
+In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
 ```
 
-Namnet på det paket som används för en angiven bindning anges i referens artikeln för den bindningen. Ett exempel finns i [avsnittet paket i referens artikeln Service Bus bindning](functions-bindings-service-bus.md#packages---functions-1x).
+The name of the package used for a given binding is provided in the reference article for that binding. For an example, see the [Packages section of the Service Bus binding reference article](functions-bindings-service-bus.md#packages---functions-1x).
 
-Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till exempel `3.0.0-beta5`. Giltiga versioner visas på de enskilda paket sidorna på [NuGet.org](https://nuget.org). De huvud versioner som motsvarar Functions Runtime 1. x eller 2. x anges i referens artikeln för bindningen.
+Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
-Om du använder `Install-Package` för att referera till en bindning behöver du inte använda [tilläggs paket](#extension-bundles). Den här metoden är speciell för klass bibliotek som skapats i Visual Studio.
+If you use `Install-Package` to reference a binding, you don't need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
 
-## <a name="vs-code"></a>C# klass bibliotek med Visual Studio Code
+## <a name="vs-code"></a> C# class library with Visual Studio Code
 
 > [!NOTE]
-> Vi rekommenderar att du använder [tilläggs paket](#extension-bundles) för att automatiskt installera en kompatibel uppsättning bindnings tilläggs paket. 
+> We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages. 
 
-I **Visual Studio Code**installerar du paket för ett C# klass biblioteks projekt från kommando tolken med kommandot [dotnet Lägg till paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) i .net Core cli. Följande exempel visar hur du lägger till en bindning:
+In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
-.NET Core CLI kan bara användas för Azure Functions 2. x-utveckling.
+The .NET Core CLI can only be used for Azure Functions 2.x development.
 
-Ersätt `<BINDING_TYPE_NAME>` med namnet på det paket som innehåller den bindning du behöver. Du hittar den önskade bindnings referens artikeln i [listan över bindningar som stöds](./functions-triggers-bindings.md#supported-bindings).
+Replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
 
-Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till exempel `3.0.0-beta5`. Giltiga versioner visas på de enskilda paket sidorna på [NuGet.org](https://nuget.org). De huvud versioner som motsvarar Functions Runtime 1. x eller 2. x anges i referens artikeln för bindningen.
+Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Azure Function-utlösare och bindnings exempel](./functions-bindings-example.md)
+> [Azure Function trigger and binding example](./functions-bindings-example.md)

@@ -1,125 +1,121 @@
 ---
-title: Arbeta med proxyservrar i Azure Functions | Microsoft Docs
-description: Översikt över hur du använder Azure Functions Proxies
-services: functions
+title: Work with proxies in Azure Functions
+description: Overview of how to use Azure Functions Proxies
 author: alexkarcher-msft
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dffdffdfa80d940c4a50d0a6630c665164f24d5c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773059"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230460"
 ---
-# <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
+# <a name="work-with-azure-functions-proxies"></a>Work with Azure Functions Proxies
 
-Den här artikeln beskriver hur du konfigurerar och arbetar med Azure Functions-proxyservrar. Med den här funktionen kan du ange slutpunkter på funktionsappen som implementeras av en annan resurs. Du kan använda dessa proxyservrar för att dela ett stort API i flera funktionsappar (som i en mikrotjänstarkitektur), samtidigt som en enda API-yta för klienter.
+This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE] 
-> Standardfunktioner fakturering gäller proxy körningar. Mer information finns i [priser för Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+> Standard Functions billing applies to proxy executions. Mer information finns i [prissättning för Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-## <a name="create"></a>Skapa en proxy
+## <a name="create"></a>Create a proxy
 
-Det här avsnittet visar hur du skapar en proxy i Functions-portalen.
+This section shows you how to create a proxy in the Functions portal.
 
-1. Öppna den [Azure Portal], och gå sedan till din funktionsapp.
-2. I den vänstra rutan väljer **nya proxyserverkonfigurationen**.
-3. Ange ett namn för proxyservern.
-4. Konfigurera den slutpunkt som exponeras i den här funktionsappen genom att ange den **flödesmallen** och **HTTP-metoder**. Dessa parametrar fungerar enligt reglerna för [HTTP-utlösare].
-5. Ange den **backend-URL** till en annan slutpunkt. Den här slutpunkten kan vara en funktion i en annan funktionsapp eller det bero på att alla andra API: er. Värdet behöver inte vara statiska och kan referera till [program inställningar] och [parametrar från den ursprungliga klientbegäran].
+1. Open the [Azure-portalen], and then go to your function app.
+2. In the left pane, select **New proxy**.
+3. Provide a name for your proxy.
+4. Configure the endpoint that's exposed on this function app by specifying the **route template** and **HTTP methods**. These parameters behave according to the rules for [HTTP triggers].
+5. Set the **backend URL** to another endpoint. This endpoint could be a function in another function app, or it could be any other API. The value does not need to be static, and it can reference [application settings] and [parameters from the original client request].
 6. Klicka på **Skapa**.
 
-Proxyservern finns nu som en ny slutpunkt på din funktionsapp. Från en klientperspektiv motsvarar den en HttpTrigger i Azure Functions. Du kan testa din nya proxyserverkonfigurationen genom att kopiera URL: en för Proxy och testa det med dina favoritverktyg HTTP-klienten.
+Your proxy now exists as a new endpoint on your function app. From a client perspective, it is equivalent to an HttpTrigger in Azure Functions. You can try out your new proxy by copying the Proxy URL and testing it with your favorite HTTP client.
 
-## <a name="modify-requests-responses"></a>Ändra begäranden och svar
+## <a name="modify-requests-responses"></a>Modify requests and responses
 
-Du kan ändra begäranden till och -svar från backend-server med Azure Functions Proxies. Dessa omvandlingar kan använda variabler som definieras i [använda variabler].
+With Azure Functions Proxies, you can modify requests to and responses from the back-end. These transformations can use variables as defined in [Use variables].
 
-### <a name="modify-backend-request"></a>Ändra backend-begäran
+### <a name="modify-backend-request"></a>Modify the back-end request
 
-Som standard initieras backend-begäran som en kopia av den ursprungliga begäran. Förutom att URL: en för backend-server kan du ändra till HTTP-metoden, rubriker och frågesträngsparametrarna. Ändrade värden kan referera till [program inställningar] och [parametrar från den ursprungliga klientbegäran].
+By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
-Backend-begäranden kan ändras i portalen genom att expandera avsnittet *begär åsidosättning* på sidan information om proxyserver. 
+Back-end requests can be modified in the portal by expanding the *request override* section of the proxy detail page. 
 
-### <a name="modify-response"></a>Ändra svaret
+### <a name="modify-response"></a>Modify the response
 
-Som standard initieras klienten svaret som en kopia av backend-svaret. Du kan ändra Svarets statuskod, orsaksfras, rubriker och brödtext. Ändrade värden kan referera till [program inställningar], [parametrar från den ursprungliga klientbegäran], och [parametrar från backend-svaret].
+By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Server dels begär Anden kan ändras i portalen genom att avsnittet om *åsidosättning av svar* expanderas på sidan information om proxyserver. 
+Back-end requests can be modified in the portal by expanding the *response override* section of the proxy detail page. 
 
-## <a name="using-variables"></a>Använda variabler
+## <a name="using-variables"></a>Use variables
 
-Konfigurationen för en proxyserver behöver inte vara statisk. Du kan ange ett villkor för det för att använda variabler i ursprungliga klientbegäran, backend-svar eller programinställningar.
+The configuration for a proxy does not need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
 
-### <a name="reference-localhost"></a>Referens för lokala funktioner
-Du kan använda `localhost` att referera till en funktion i samma funktionsapp direkt, utan en proxy tur och RETUR-begäran.
+### <a name="reference-localhost"></a>Reference local functions
+You can use `localhost` to reference a function inside the same function app directly, without a roundtrip proxy request.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` sedan hänvisar till en lokal HTTP-utlöst funktion på vägen `/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` will reference a local HTTP triggered function at the route `/api/httptriggerC#1`
 
  
 >[!Note]  
->Om din funktion använder *funktion, admin eller sys* åtkomstnivåer, måste du ange koden och clientId, enligt den ursprungliga funktions-URL. I det här fallet skulle referensen se ut så här: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`Vi rekommenderar att du lagrar dessa nycklar i [program inställningar] och refererar till dem i dina-proxyservrar. På så sätt undviker du att lagra hemligheter i käll koden. 
+>If your function uses *function, admin or sys* authorization levels, you will need to provide the code and clientId, as per the original function URL. In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` We recommend storing these keys in [application settings] and referencing those in your proxies. This avoids storing secrets in your source code. 
 
-### <a name="request-parameters"></a>Parametrarna som referens
+### <a name="request-parameters"></a>Reference request parameters
 
-Du kan använda parametrarna som indata till backend-URL: en egenskap eller som en del av ändra begäranden och svar. Vissa parametrar kan vara kopplat från flödesmallen som anges i den grundläggande proxykonfigurationen och andra kan komma från egenskaperna för den inkommande begäranden.
+You can use request parameters as inputs to the back-end URL property or as part of modifying requests and responses. Some parameters can be bound from the route template that's specified in the base proxy configuration, and others can come from properties of the incoming request.
 
-#### <a name="route-template-parameters"></a>Dirigera mallparametrar
-Parametrar som används i flödesmallen är tillgängliga för att referera till efter namn. Parameternamnen står inom klammerparenteser ({}).
+#### <a name="route-template-parameters"></a>Route template parameters
+Parameters that are used in the route template are available to be referenced by name. The parameter names are enclosed in braces ({}).
 
-Exempel: om en proxy har en flödesmall som `/pets/{petId}`, backend-URL: en kan innehålla värdet för `{petId}`, som i `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. Om flödesmallen avslutas i ett jokertecken, till exempel `/api/{*restOfPath}`, värdet `{restOfPath}` är en strängrepresentation av återstående sökvägssegment från den inkommande begäranden.
+For example, if a proxy has a route template, such as `/pets/{petId}`, the back-end URL can include the value of `{petId}`, as in `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. If the route template terminates in a wildcard, such as `/api/{*restOfPath}`, the value `{restOfPath}` is a string representation of the remaining path segments from the incoming request.
 
-#### <a name="additional-request-parameters"></a>Om ytterligare begäranparametrar
-Följande värden kan användas i konfigurationsvärden förutom mallparametrar väg:
+#### <a name="additional-request-parameters"></a>Additional request parameters
+In addition to the route template parameters, the following values can be used in config values:
 
-* **{Request. Method}** : HTTP-metoden som används på den ursprungliga begäran.
-* **{Request. headers\< . Huvud\>}** : En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
-* **{Request. QueryString.\< ParameterName\>}** : En frågesträngparametern som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{request.method}** : The HTTP method that's used on the original request.
+* **{request.headers.\<HeaderName\>}** : A header that can be read from the original request. Replace *\<HeaderName\>* with the name of the header that you want to read. If the header is not included on the request, the value will be the empty string.
+* **{request.querystring.\<ParameterName\>}** : A query string parameter that can be read from the original request. Replace *\<ParameterName\>* with the name of the parameter that you want to read. If the parameter is not included on the request, the value will be the empty string.
 
-### <a name="response-parameters"></a>Referens för backend-svarsparametrar
+### <a name="response-parameters"></a>Reference back-end response parameters
 
-Svarsparametrar kan användas som en del av ändra svaret till klienten. Följande värden kan användas i konfigurationsvärden:
+Response parameters can be used as part of modifying the response to the client. The following values can be used in config values:
 
-* **{Server del. Response. StatusCode}** : Den HTTP-statuskod som returneras för backend-svaret.
-* **{Server del. Response. statusReason}** : HTTP-orsaks frasen som returneras i backend-svaret.
-* **{Server del. Response.\< headers. Huvud\>}** : En rubrik som kan läsas från Server delens svar. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
+* **{backend.response.statusCode}** : The HTTP status code that's returned on the back-end response.
+* **{backend.response.statusReason}** : The HTTP reason phrase that's returned on the back-end response.
+* **{backend.response.headers.\<HeaderName\>}** : A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the response, the value will be the empty string.
 
-### <a name="use-appsettings"></a>Referens för programinställningar
+### <a name="use-appsettings"></a>Reference application settings
 
-Du kan också referera [programinställningar som definierats för funktionsappen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) om inställningsnamn med procenttecken (%).
+You can also reference [application settings defined for the function app](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) by surrounding the setting name with percent signs (%).
 
-Till exempel en backend-URL: en för *https://%ORDER_PROCESSING_HOST%/api/orders* skulle ha ”% ORDER_PROCESSING_HOST %” ersätts med värdet för inställningen ORDER_PROCESSING_HOST.
+For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* would have "%ORDER_PROCESSING_HOST%" replaced with the value of the ORDER_PROCESSING_HOST setting.
 
 > [!TIP] 
-> Använd programinställningar för backend-värdar när du har flera distributioner eller testmiljöer. På så sätt kan du kan se till att du alltid pratar med rätt serverdelen för den miljön.
+> Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back-end for that environment.
 
-## <a name="debugProxies"></a>Felsöka proxyservrar
+## <a name="debugProxies"></a>Troubleshoot Proxies
 
-Genom att lägga till flaggan `"debug":true` till alla proxy i din `proxies.json` aktiverar felsökningsloggning. Loggar lagras i `D:\home\LogFiles\Application\Proxies\DetailedTrace` och är åtkomlig via avancerade verktyg (kudu). Alla HTTP-svar som innehåller också en `Proxy-Trace-Location` huvud med en URL till loggfilen.
+By adding the flag `"debug":true` to any proxy in your `proxies.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
 
-Du kan felsöka en proxy från klientsidan genom att lägga till en `Proxy-Trace-Enabled` rubrik inställd `true`. Detta kommer också logga en spårning på filsystemet och returnera trace-URL: en som en rubrik i svaret.
+You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
 
-### <a name="block-proxy-traces"></a>Blockera proxy spårningar
+### <a name="block-proxy-traces"></a>Block proxy traces
 
-Av säkerhetsskäl kan du inte vill att alla anropar din tjänst för att generera en spårning. De kommer inte att kunna få åtkomst till trace innehållet utan att dina inloggningsuppgifter, men genererar spårningen förbrukar resurser och visar att du använder Funktionsproxy.
+For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
 
-Inaktivera spårningar helt och hållet genom att lägga till `"debug":false` till alla viss proxy i din `proxies.json`.
+Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
-Proxyservrar som du konfigurerar lagras i en *proxies.json* filen som finns i roten av en funktionen app-katalogen. Du kan manuellt redigera filen och distribuera den som en del av din app när du använder någon av den [distributionsmetoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som Functions stöder. 
+The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. 
 
 > [!TIP] 
-> Om du inte har angett något av metoder för distribution, du kan också arbeta med den *proxies.json* filen i portalen. Gå till din funktionsapp väljer **plattformsfunktioner**, och välj sedan **App Service Editor**. Då kan du visa hela filen strukturen för din funktionsapp och göra ändringar.
+> If you have not set up one of the deployment methods, you can also work with the *proxies.json* file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
 
-*Proxies.JSON* definieras av ett objekt för proxyservrar som består av namngivna proxyservrar och deras definitioner. Du kan också om redigeringsprogram stöder det kan du referera till en [JSON-schema](http://json.schemastore.org/proxies) för kodifyllning. En exempelfil kan se ut så här:
+*Proxies.json* is defined by a proxies object, which is composed of named proxies and their definitions. Optionally, if your editor supports it, you can reference a [JSON schema](http://json.schemastore.org/proxies) for code completion. An example file might look like the following:
 
 ```json
 {
@@ -136,21 +132,21 @@ Proxyservrar som du konfigurerar lagras i en *proxies.json* filen som finns i ro
 }
 ```
 
-Varje proxy har ett eget namn som *proxy1* i föregående exempel. Objekt för rättighetsdefinition av motsvarande proxy definieras av följande egenskaper:
+Each proxy has a friendly name, such as *proxy1* in the preceding example. The corresponding proxy definition object is defined by the following properties:
 
-* **matchCondition**: Obligatoriskt--ett objekt som definierar de begär Anden som utlöser körningen av den här proxyn. Den innehåller två egenskaper som delas med [HTTP-utlösare]:
-    * _metoder_: En matris med de HTTP-metoder som proxyservern svarar på. Om det inte anges svarar proxyn på alla HTTP-metoder på vägen.
-    * _väg_: Required--definierar väg mal len och kontrollerar vilka URL-adresser som proxyservern svarar på. Till skillnad från i HTTP-utlösare finns inget standardvärde.
-* **Nytåligi**: URL: en till den backend-resurs som begäran ska skickas till via proxy. Det här värdet kan referera till programinställningar och parametrar från den ursprungliga klientbegäran. Om den här egenskapen inte finns, svarar Azure Functions med en HTTP 200 OK.
-* **requestOverrides**: Ett objekt som definierar omvandlingar till backend-begäran. Se [Definiera ett requestOverrides-objekt].
-* **responseOverrides**: Ett objekt som definierar omvandlingar till klient svaret. Se [Definiera ett responseOverrides-objekt].
+* **matchCondition**: Required--an object defining the requests that trigger the execution of this proxy. It contains two properties that are shared with [HTTP triggers]:
+    * _methods_: An array of the HTTP methods that the proxy responds to. If it is not specified, the proxy responds to all HTTP methods on the route.
+    * _route_: Required--defines the route template, controlling which request URLs your proxy responds to. Unlike in HTTP triggers, there is no default value.
+* **backendUri**: The URL of the back-end resource to which the request should be proxied. This value can reference application settings and parameters from the original client request. If this property is not included, Azure Functions responds with an HTTP 200 OK.
+* **requestOverrides**: An object that defines transformations to the back-end request. See [Define a requestOverrides object].
+* **responseOverrides**: An object that defines transformations to the client response. See [Define a responseOverrides object].
 
 > [!NOTE] 
-> Den *väg* -egenskapen i Azure Functions-proxyservrar inte att behandla den *routePrefix* egenskapen för värdkonfigurationen Funktionsapp. Om du vill lägga till ett prefix som `/api`, det måste finnas med i den *väg* egenskapen.
+> The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
 
-### <a name="disableProxies"></a> Inaktivera enskilda proxyservrar
+### <a name="disableProxies"></a> Disable individual proxies
 
-Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true` till proxyn i den `proxies.json` filen. Detta gör att alla begär Anden som uppfyller matchCondition kan returnera 404.
+You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondition to return 404.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -166,34 +162,34 @@ Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true`
 }
 ```
 
-### <a name="applicationSettings"></a> Programinställningar
+### <a name="applicationSettings"></a> Application Settings
 
-Beteendet proxy kan styras av flera appinställningar. De är alla som beskrivs i den [inställningsreferens för Functions-App](./functions-app-settings.md)
+The proxy behavior can be controlled by several app settings. They are all outlined in the [Functions App Settings reference](./functions-app-settings.md)
 
 * [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azure_function_proxy_disable_local_call)
 * [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azure_function_proxy_backend_url_decode_slashes)
 
-### <a name="reservedChars"></a> Reserverade tecken (strängformatering)
+### <a name="reservedChars"></a> Reserved Characters (string formatting)
 
-Proxyservrar läser alla strängar från en JSON-fil med hjälp av \ som en Escape-symbol. Proxyservrar tolkar också klammerparenteser. Se en fullständig uppsättning av exempel nedan.
+Proxies read all strings out of a JSON file, using \ as an escape symbol. Proxies also interpret curly braces. See a full set of examples below.
 
-|Tecken|Undantagstecknet|Exempel|
+|Character|Escaped Character|Exempel|
 |-|-|-|
-|{eller}|{{eller}}|`{{ example }}` --> `{ example }`
+|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
 |"|\\\"| `\"example\"` --> `"example"`
 
-### <a name="requestOverrides"></a>Definiera ett requestOverrides-objekt
+### <a name="requestOverrides"></a>Define a requestOverrides object
 
-Objektet requestOverrides definierar ändringar som gjorts på begäran när resursen backend-anropas. Objektet definieras av följande egenskaper:
+The requestOverrides object defines changes made to the request when the back-end resource is called. The object is defined by the following properties:
 
-* **Server del. Request.-metod**: HTTP-metoden som används för att anropa Server delen.
-* **backend.request.querystring.\<ParameterName\>** : En frågesträngparametern som kan anges för anropet till Server delen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
-* **backend. Request. header. Huvud:\> \<** En rubrik som kan anges för anropet till Server delen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
+* **backend.request.method**: The HTTP method that's used to call the back-end.
+* **backend.request.querystring.\<ParameterName\>** : A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
+* **backend.request.headers.\<HeaderName\>** : A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
 
-Värden kan referera till programinställningar och parametrar från den ursprungliga klientbegäran.
+Values can reference application settings and parameters from the original client request.
 
-En exempelkonfiguration kan se ut så här:
+An example configuration might look like the following:
 
 ```json
 {
@@ -214,18 +210,18 @@ En exempelkonfiguration kan se ut så här:
 }
 ```
 
-### <a name="responseOverrides"></a>Definiera ett responseOverrides-objekt
+### <a name="responseOverrides"></a>Define a responseOverrides object
 
-Objektet requestOverrides definierar ändringar som görs i ett svar som skickas tillbaka till klienten. Objektet definieras av följande egenskaper:
+The requestOverrides object defines changes that are made to the response that's passed back to the client. The object is defined by the following properties:
 
-* **response.statusCode**: Den HTTP-statuskod som ska returneras till klienten.
-* **response.statusReason**: Den HTTP-orsaks fras som ska returneras till klienten.
-* **Response. Body**: Sträng representationen för bröd texten som ska returneras till klienten.
-* **Response. headers. Huvud:\> \<** En rubrik som kan anges för svaret på klienten. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på ett svar.
+* **response.statusCode**: The HTTP status code to be returned to the client.
+* **response.statusReason**: The HTTP reason phrase to be returned to the client.
+* **response.body**: The string representation of the body to be returned to the client.
+* **response.headers.\<HeaderName\>** : A header that can be set for the response to the client. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the response.
 
-Värden kan referera till programinställningar, parametrar från den ursprungliga klientbegäran och parametrar från backend-svaret.
+Values can reference application settings, parameters from the original client request, and parameters from the back-end response.
 
-En exempelkonfiguration kan se ut så här:
+An example configuration might look like the following:
 
 ```json
 {
@@ -245,15 +241,15 @@ En exempelkonfiguration kan se ut så här:
 }
 ```
 > [!NOTE] 
-> I det här exemplet svarstexten anges direkt, så ingen `backendUri` egenskapen krävs. Exemplet visar hur du kan använda Azure Functions-proxyservrar för simulerade API: er.
+> In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
-[Azure Portal]: https://portal.azure.com
-[HTTP-utlösare]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
+[Azure-portalen]: https://portal.azure.com
+[HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
-[Definiera ett requestOverrides-objekt]: #requestOverrides
-[Definiera ett responseOverrides-objekt]: #responseOverrides
-[program inställningar]: #use-appsettings
-[Använda variabler]: #using-variables
-[parametrar från den ursprungliga klientbegäran]: #request-parameters
-[parametrar från backend-svaret]: #response-parameters
+[Define a requestOverrides object]: #requestOverrides
+[Define a responseOverrides object]: #responseOverrides
+[application settings]: #use-appsettings
+[Use variables]: #using-variables
+[parameters from the original client request]: #request-parameters
+[parameters from the back-end response]: #response-parameters

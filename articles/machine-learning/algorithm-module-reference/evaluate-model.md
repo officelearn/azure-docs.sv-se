@@ -1,129 +1,128 @@
 ---
-title: 'Utvärdera modell: modulreferens'
+title: 'Evaluate Model: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen utvärdera modell i Azure Machine Learning för att mäta noggrannheten i en utbildad modell.
+description: Learn how to use the Evaluate Model module in Azure Machine Learning to measure the accuracy of a trained model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497910"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214575"
 ---
-# <a name="evaluate-model-module"></a>Utvärdera modell modul
+# <a name="evaluate-model-module"></a>Evaluate Model module
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+This article describes a module in Azure Machine Learning designer (preview).
 
-Använd den här modulen för att mäta noggrannheten för en utbildad modell. Du anger en data uppsättning som innehåller resultat som genererats från en modell, och modulen **utvärdera modell** beräknar en uppsättning utvärderings mått som är bransch standard.
+Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
- Måtten som returneras av **evaluate-modellen** beror på vilken typ av modell du utvärderar:  
+ The metrics returned by **Evaluate Model** depend on the type of model that you are evaluating:  
   
--   **Klassificerings modeller**    
--   **Regressions modeller**    
-
+-   **Classification Models**    
+-   **Regression Models**    
 
 
 > [!TIP]
-> Om du inte har använt modell utvärderingen rekommenderar vi video serien av Dr. Stephen Elston som en del av [Machine Learning-kursen](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) från EDX. 
+> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
 
 
-Det finns tre sätt att använda modulen **utvärdera modell** :
+There are three ways to use the **Evaluate Model** module:
 
-+ Generera poäng över dina utbildnings data och utvärdera modellen baserat på dessa Poäng
-+ Generera poäng i modellen, men jämför dessa resultat med resultat från en reserverad test uppsättning
-+ Jämför poängen för två olika men relaterade modeller med samma uppsättning data
++ Generate scores over your training data, and evaluate the model based on these scores
++ Generate scores on the model, but compare those scores to scores on a reserved testing set
++ Compare scores for two different but related models, using the same set of data
 
-## <a name="use-the-training-data"></a>Använd tränings data
+## <a name="use-the-training-data"></a>Use the training data
 
-Om du vill utvärdera en modell måste du ansluta en data uppsättning som innehåller en uppsättning kolumner och resultat.  Om inga andra data är tillgängliga kan du använda den ursprungliga data uppsättningen.
+To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
 
-1. Anslut poängen för **data uppsättningen** i [Poäng modellen](./score-model.md) till indata för **utvärdera modell**. 
-2. Klicka på **utvärdera modell** modul och kör pipelinen för att generera utvärderings poängen.
+1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
+2. Click **Evaluate Model** module, and run the pipeline to generate the evaluation scores.
 
-## <a name="use-testing-data"></a>Använd test data
+## <a name="use-testing-data"></a>Use testing data
 
-Ett vanligt scenario i Machine Learning är att separera din ursprungliga data uppsättning till utbildning och testning av data uppsättningar, med hjälp av modulen [Split](./split-data.md) eller modulen [partition och exempel](./partition-and-sample.md) . 
+A common scenario in machine learning is to separate your original data set into training and testing datasets, using the [Split](./split-data.md) module, or the [Partition and Sample](./partition-and-sample.md) module. 
 
-1. Anslut poängen för **data uppsättningen** i [Poäng modellen](score-model.md) till indata för **utvärdera modell**. 
-2. Anslut utdata från modulen dela data som innehåller test data till den högra inmatningen av **utvärdera modell**.
-2. Klicka på **utvärdera modell** modul och välj **Kör valt** för att generera utvärderings poängen.
+1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
+2. Connect the output of the Split Data module that contains the testing data to the right-hand input of **Evaluate Model**.
+2. Click **Evaluate Model** module, and select **Run selected** to generate the evaluation scores.
 
-## <a name="compare-scores-from-two-models"></a>Jämför resultat från två modeller
+## <a name="compare-scores-from-two-models"></a>Compare scores from two models
 
-Du kan också ansluta en andra uppsättning Poäng för att **utvärdera modellen**.  Poängen kan vara en delad utvärderings uppsättning som har kända resultat eller en uppsättning resultat från en annan modell för samma data.
+You can also connect a second set of scores to **Evaluate Model**.  The scores might be a shared evaluation set that has known results, or a set of results from a different model for the same data.
 
-Den här funktionen är användbar eftersom du enkelt kan jämföra resultat från två olika modeller på samma data. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
+This feature is useful because you can easily compare results from two different models on the same data. Or, you might compare scores from two different runs over the same data with different parameters.
 
-1. Anslut poängen för **data uppsättningen** i [Poäng modellen](score-model.md) till indata för **utvärdera modell**. 
-2. Anslut utdata från modulen Poäng modell för den andra modellen till den högra inmatningen av **utvärdera modell**.
-3. Högerklicka på **utvärdera modell**och välj **Kör valda** för att generera utvärderings poängen.
+1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
+2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
+3. Right-click **Evaluate Model**, and select **Run selected** to generate the evaluation scores.
 
 ## <a name="results"></a>Resultat
 
-När du har kört **utvärdera modell**högerklickar du på modulen och väljer **utvärderings resultat** för att se resultatet. Du kan:
+After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. Du kan:
 
-+ Spara resultatet som en data uppsättning för enklare analys med andra verktyg
-+ Generera en visualisering i designern
++ Save the results as a dataset, for easier analysis with other tools
++ Generate a visualization in the designer
 
-Om du ansluter data uppsättningar till båda indata för **utvärdera modell**kommer resultatet att innehålla mått för båda data uppsättningarna eller båda modellerna.
-Modellen eller data som är kopplade till den vänstra porten visas först i rapporten följt av måtten för data uppsättningen eller modellen som är kopplad till rätt port.  
+If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
+The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
 
-Följande bild visar till exempel en jämförelse av resultat från två kluster modeller som bygger på samma data, men med olika parametrar.  
+For example, the following image represents a comparison of results from two clustering models that were built on the same data, but with different parameters.  
 
 ![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
-Eftersom det här är en kluster modell är utvärderings resultatet annorlunda än om du jämför resultat från två Regressions modeller eller jämför två klassificerings modeller. Den övergripande presentationen är dock densamma. 
+Because this is a clustering model, the evaluation results are different than if you compared scores from two regression models, or compared two classification models. However, the overall presentation is the same. 
 
 ## <a name="metrics"></a>Mått
 
-I det här avsnittet beskrivs de mått som returneras för de olika typerna av modeller som stöds för användning med **utvärdera modell**:
+This section describes the metrics returned for the specific types of models supported for use with **Evaluate Model**:
 
-+ [klassificerings modeller](#bkmk_classification)
-+ [Regressions modeller](#bkmk_regression)
++ [classification models](#bkmk_classification)
++ [regression models](#bkmk_regression)
 
-###  <a name="bkmk_classification"></a>Mått för klassificerings modeller
+###  <a name="bkmk_classification"></a> Metrics for classification models
 
-Följande mått rapporteras när klassificerings modeller utvärderas. Om du jämför modeller rangordnas de efter det mått som du väljer för utvärdering.  
+The following metrics are reported when evaluating classification models. If you compare models, they are ranked by the metric you select for evaluation.  
   
--   **Noggrannhet** mäter en klassificerings modells lämplighet som andel sanna resultat av totalt antal fall.  
+-   **Accuracy** measures the goodness of a classification model as the proportion of true results to total cases.  
   
--   **Precision** är förhållandet mellan faktiska resultat och alla positiva resultat.  
+-   **Precision** is the proportion of true results over all positive results.  
   
--   **Återkallande** är bråk delen av alla korrekta resultat som returneras av modellen.  
+-   **Recall** is the fraction of all correct results returned by the model.  
   
--   **F-score** beräknas som viktat medelvärde för precision och åter kallelse mellan 0 och 1, där det idealiska värdet F-Poäng är 1.  
+-   **F-score** is computed as the weighted average of precision and recall between 0 and 1, where the ideal F-score value is 1.  
   
--   **AUC** mäter ytan under kurvan som ritas med sant positiva resultat på y-axeln och falska positiva identifieringar på x-axeln. Det här måttet är användbart eftersom det innehåller ett enda nummer som gör det möjligt att jämföra modeller av olika typer.  
+-   **AUC** measures the area under the curve plotted with true positives on the y axis and false positives on the x axis. This metric is useful because it provides a single number that lets you compare models of different types.  
   
-- **Genomsnittlig logg förlust** är ett enda poäng som används för att uttrycka sanktionen för fel resultat. Det beräknas som skillnaden mellan två sannolikhets fördelningar – det sanna, och den som finns i modellen.  
+- **Average log loss** is a single score used to express the penalty for wrong results. It is calculated as the difference between two probability distributions – the true one, and the one in the model.  
   
-- **Inlärnings logg förlusten** är en enda poäng som representerar fördelen med klassificeraren över en slumpmässig förutsägelse. Logg förlusten mäter osäkerheten för din modell genom att jämföra sannolikheten att den matas till kända värden (mark sanningen) i etiketterna. Du vill minimera logg förlusten för modellen som helhet.
+- **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
 
-##  <a name="bkmk_regression"></a>Mät värden för Regressions modeller
+##  <a name="bkmk_regression"></a> Metrics for regression models
  
-Mät värdena som returneras för Regressions modeller är vanligt vis utformade för att uppskatta mängden fel.  En modell anses vara bra anpassad om skillnaden mellan observerade och förväntade värden är liten. Men om du tittar på resten av resten (skillnaden mellan en förutsägande punkt och dess motsvarande faktiska värde) kan du få mycket information om potentiell förskjutning i modellen.  
+The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
- Följande mått rapporteras för utvärdering av Regressions modeller. När du jämför modeller rangordnas de efter det mått som du väljer för utvärdering.  
+ The following metrics are reported for evaluating regression models. When you compare models, they are ranked by the metric you select for evaluation.  
   
-- **Medelvärde för absolut fel (Mae)** hur nära förutsägelserna är till de faktiska resultatet; Därför är en lägre poäng bättre.  
+- **Mean absolute error (MAE)** measures how close the predictions are to the actual outcomes; thus, a lower score is better.  
   
-- **Rot genomsnitts fel (rmse)** skapar ett enskilt värde som sammanfattar felet i modellen. Genom att squaring skillnaden ignorerar måttet skillnaden mellan överförutsägelse och under förutsägelse.  
+- **Root mean squared error (RMSE)** creates a single value that summarizes the error in the model. By squaring the difference, the metric disregards the difference between over-prediction and under-prediction.  
   
-- **Relativ absolut fel (RAE)** är den relativa absoluta skillnaden mellan förväntade och faktiska värden. relativ eftersom genomsnitts skillnaden divideras med det aritmetiska medelvärdet.  
+- **Relative absolute error (RAE)** is the relative absolute difference between expected and actual values; relative because the mean difference is divided by the arithmetic mean.  
   
-- **Ett relativt kvadratvärde (RSE)** normaliserar på samma sätt det totala antalet fel i det förväntade värdet genom att dividera med det totala antalet fel i det faktiska värdet.  
+- **Relative squared error (RSE)** similarly normalizes the total squared error of the predicted values by dividing by the total squared error of the actual values.  
   
-- **Genomsnitt noll ett fel (MZOE)** anger om förutsägelsen var korrekt eller inte.  Med andra ord: `ZeroOneLoss(x,y) = 1` när `x!=y`; annars `0`.
+- **Mean Zero One Error (MZOE)** indicates whether the prediction was correct or not.  In other words: `ZeroOneLoss(x,y) = 1` when `x!=y`; otherwise `0`.
   
-- **Koefficienten för bestämning**, som ofta kallas R<sup>2</sup>, representerar modellens förutsägande effekt som ett värde mellan 0 och 1. Noll betyder att modellen är slumpmässig (förklarar ingenting). 1 betyder en perfekt anpassning. Vi bör dock använda försiktighet i tolkningen av R<sup>2</sup> -värden, eftersom låga värden kan vara helt normala och höga värden kan vara misstänkta.
+- **Coefficient of determination**, often referred to as R<sup>2</sup>, represents the predictive power of the model as a value between 0 and 1. Zero means the model is random (explains nothing); 1 means there is a perfect fit. However, caution should be used in interpreting  R<sup>2</sup> values, as low values can be entirely normal and high values can be suspect.
   
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,6 +1,6 @@
 ---
-title: Säkra program med en enda sida med hjälp av implicit flöde för Microsoft Identity Platform | Azure
-description: Skapa webb program med hjälp av Microsoft Identity Platform-implementering av det implicita flödet för appar på en sida.
+title: Secure single-page applications using the Microsoft identity platform implicit flow | Azure
+description: Building web applications using Microsoft identity platform implementation of the implicit flow for single-page apps.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -13,49 +13,49 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 136a018e3ac66e2f3fd928a786a24652b99ea040
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1775106d7f8de9f6bbc2d9a36114e5bfda2625cb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73600996"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207630"
 ---
-# <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity Platform och implicit beviljande flöde
+# <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft identity platform and Implicit grant flow
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Med Microsoft Identity Platform-slutpunkten kan du logga användare i appar med en sida med både personliga konton och arbets-eller skol konton från Microsoft. En enkel sida och andra JavaScript-appar som körs främst i en webbläsare och har några intressanta utmaningar när de kommer till autentisering:
+With the Microsoft identity platform endpoint, you can sign users into your single-page apps with both personal and work or school accounts from Microsoft. Single-page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
-* Säkerhetsegenskaperna för dessa appar skiljer sig avsevärt från traditionella serverbaserade webb program.
-* Många auktoriseringsregler och identitets leverantörer stöder inte CORS-begäranden.
-* Full sid webbläsare omdirigeras bort från appen, vilket är särskilt invasivt i användar upplevelsen.
+* The security characteristics of these apps are significantly different from traditional server-based web applications.
+* Many authorization servers and identity providers do not support CORS requests.
+* Full page browser redirects away from the app become particularly invasive to the user experience.
 
-För dessa program (AngularJS, maskininlärning. js, reagerar. js osv.) stöder Microsoft Identity Platform det OAuth-för implicit beviljande av OAuth-2,0. Det implicita flödet beskrivs i [OAuth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.2). Den främsta fördelen är att den tillåter att appen hämtar token från Microsoft Identity Platform utan att utföra ett utbyte av autentiseringsuppgifter för backend-servern. Detta gör att appen kan logga in användaren, underhålla sessionen och hämta token till andra webb-API: er i klientens JavaScript-kod. Det finns några viktiga säkerhets aspekter att ta med i beräkningen när du använder det implicita flödet specifikt kring [klient](https://tools.ietf.org/html/rfc6749#section-10.3) -och [användarautentisering](https://tools.ietf.org/html/rfc6749#section-10.3).
+For these applications (AngularJS, Ember.js, React.js, and so on), Microsoft identity platform supports the OAuth 2.0 Implicit Grant flow. The implicit flow is described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). Its primary benefit is that it allows the app to get tokens from Microsoft identity platform without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code. There are a few important security considerations to take into account when using the implicit flow specifically around [client](https://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](https://tools.ietf.org/html/rfc6749#section-10.3).
 
-Om du vill använda det implicita flödet och Microsoft Identity Platform för att lägga till autentisering i din JavaScript-app rekommenderar vi att du använder JavaScript-biblioteket med öppen källkod, [msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js).
+This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
-Om du däremot hellre inte vill använda ett bibliotek i en app med en enda sida och skicka protokoll meddelanden själv, följer du de allmänna stegen nedan.
+However, if you prefer not to use a library in your single-page app and send protocol messages yourself, follow the general steps below.
 
 > [!NOTE]
-> Inte alla Azure Active Directory (Azure AD)-scenarier och-funktioner stöds av Microsoft Identity Platform-slutpunkten. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).
+> Not all Azure Active Directory (Azure AD) scenarios and features are supported by the Microsoft identity platform endpoint. To determine if you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
 
-## <a name="protocol-diagram"></a>Protokoll diagram
+## <a name="protocol-diagram"></a>Protocol diagram
 
-Följande diagram visar hur hela det implicita inloggnings flödet ser ut och de avsnitt som följer beskriver varje steg i detalj.
+The following diagram shows what the entire implicit sign-in flow looks like and the sections that follow describe each step in more detail.
 
-![Diagram som visar det implicita inloggnings flödet](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagram showing the implicit sign-in flow](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
-## <a name="send-the-sign-in-request"></a>Skicka inloggnings förfrågan
+## <a name="send-the-sign-in-request"></a>Send the sign-in request
 
-För att först logga in användaren i din app kan du skicka en [OpenID Connect](v2-protocols-oidc.md) -autentiseringsbegäran och få en `id_token` från slut punkten för Microsoft Identity Platform.
+To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authentication request and get an `id_token` from the Microsoft identity platform endpoint.
 
 > [!IMPORTANT]
-> För att kunna begära en ID-token och/eller en åtkomsttoken måste appens registrering på sidan [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) ha motsvarande implicit tilldelnings flöde aktiverat, genom att välja **ID-token** och **. eller åtkomsttoken** under avsnittet **implicit beviljande** . Om den inte är aktive rad returneras ett `unsupported_response` fel: **det angivna värdet för Indataparametern "response_type" tillåts inte för den här klienten. Förväntat värde är ' Code '**
+> To successfully request an ID token and/or an access token, the app registration in the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page must have the corresponding implicit grant flow enabled, by selecting **ID tokens** and.or **access tokens** under the **Implicit grant** section. If it's not enabled, an `unsupported_response` error will be returned: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'**
 
 ```
 // Line breaks for legibility only
@@ -71,30 +71,30 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Om du vill testa att logga in med det implicita flödet klickar du på <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> När du har loggat in bör webbläsaren omdirigeras till `https://localhost/myapp/` med ett `id_token` i adress fältet.
+> To test signing in using the implicit flow, click <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> After signing in, your browser should be redirected to `https://localhost/myapp/` with an `id_token` in the address bar.
 >
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| `tenant` | kunna |`{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | kunna | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `response_type` | kunna |Måste innehålla `id_token` för OpenID Connect-inloggning. Den kan även innehålla response_type `token`. Med hjälp av `token` här kan din app ta emot en åtkomsttoken omedelbart från den auktoriserade slut punkten utan att behöva göra en andra begäran till auktoriserad slut punkt. Om du använder `token` response_type måste `scope`-parametern innehålla ett omfång som anger vilken resurs som ska utfärda token för (till exempel User. read på Microsoft Graph).  |
-| `redirect_uri` | rekommenderas |Din app i redirect_uri där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. |
-| `scope` | kunna |En blankstegsavgränsad lista över [omfång](v2-permissions-and-consent.md). För OpenID Connect (id_tokens) måste den innehålla omfånget `openid`, vilket översätts till behörigheten "logga in dig" i medgivande gränssnittet. Du kanske också vill inkludera `email` och `profile` omfattningar för att få åtkomst till ytterligare användar data. Du kan också inkludera andra omfattningar i denna begäran om att begära medgivande till olika resurser, om en åtkomsttoken begärs. |
-| `response_mode` | Valfritt |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Standardvärdet söker efter en åtkomsttoken, men fragment om begäran innehåller en id_token. |
-| `state` | rekommenderas |Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med innehåll som du vill. Ett slumpmässigt genererat unikt värde används vanligt vis för [att förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
-| `nonce` | kunna |Ett värde som ingår i begäran, som genereras av appen, som kommer att ingå i den resulterande id_token som ett anspråk. Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Värdet är vanligt vis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. Krävs endast när en id_token begärs. |
-| `prompt` | Valfritt |Anger vilken typ av användar interaktion som krävs. De enda giltiga värdena för tillfället är "inloggning" "," none "," select_account "och" medgivande ". `prompt=login` tvingar användaren att ange sina autentiseringsuppgifter för den begäran, vilket negerar enkel inloggning. `prompt=none` är motsatt, ser du till att användaren inte visas med någon interaktiv prompt alls. Om begäran inte kan slutföras i bakgrunden via enkel inloggning, returnerar slut punkten för Microsoft Identity Platform ett fel. `prompt=select_account` skickar användaren till en konto väljare där alla konton som är lagrade i sessionen visas. `prompt=consent` utlöser dialog rutan OAuth-medgivande när användaren loggar in och ber användaren att bevilja behörighet till appen. |
-| `login_hint`  |Valfritt |Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med `preferred_username`-anspråket.|
-| `domain_hint` | Valfritt |Om den är inkluderad hoppar den e-postbaserad identifierings processen som användaren går igenom på inloggnings sidan, vilket leder till en något mer strömlinjeformad användar upplevelse. Detta används ofta för branschspecifika appar som fungerar i en enda klient, där de kommer att tillhandahålla ett domän namn inom en viss klient.  Detta vidarebefordrar användaren till Federations leverantören för den klienten.  Observera att detta hindrar gästerna från att logga in på det här programmet.  |
+| `tenant` | required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | required | The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `response_type` | required |Must include `id_token` for OpenID Connect sign-in. It may also include the response_type `token`. Using `token` here will allow your app to receive an access token immediately from the authorize endpoint without having to make a second request to the authorize endpoint. If you use the `token` response_type, the `scope` parameter must contain a scope indicating which resource to issue the token for (for example, user.read on Microsoft Graph).  |
+| `redirect_uri` | recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
+| `scope` | required |A space-separated list of [scopes](v2-permissions-and-consent.md). For OpenID Connect (id_tokens), it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI. Optionally you may also want to include the `email` and `profile` scopes for gaining access to additional user data. You may also include other scopes in this request for requesting consent to various resources, if an access token is requested. |
+| `response_mode` | optional |Specifies the method that should be used to send the resulting token back to your app. Defaults to query for just an access token, but fragment if the request includes an id_token. |
+| `state` | recommended |A value included in the request that will also be returned in the token response. It can be a string of any content that you wish. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
+| `nonce` | required |A value included in the request, generated by the app, that will be included in the resulting id_token as a claim. The app can then verify this value to mitigate token replay attacks. The value is typically a randomized, unique string that can be used to identify the origin of the request. Only required when an id_token is requested. |
+| `prompt` | optional |Indicates the type of user interaction that is required. The only valid values at this time are 'login', 'none', 'select_account', and 'consent'. `prompt=login` will force the user to enter their credentials on that request, negating single-sign on. `prompt=none` is the opposite - it will ensure that the user isn't presented with any interactive prompt whatsoever. If the request can't be completed silently via single-sign on, the Microsoft identity platform endpoint will return an error. `prompt=select_account` sends the user to an account picker where all of the accounts remembered in the session will appear. `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
+| `login_hint`  |optional |Can be used to pre-fill the username/email address field of the sign in page for the user, if you know their username ahead of time. Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim.|
+| `domain_hint` | optional |If included, it will skip the email-based discovery process that user goes through on the sign in page, leading to a slightly more streamlined user experience. This is commonly used for Line of Business apps that operate in a single tenant, where they will provide a domain name within a given tenant.  This will forward the user to the federation provider for that tenant.  Note that this will prevent guests from signing into this application.  |
 
-Användaren uppmanas att ange sina autentiseringsuppgifter och slutföra autentiseringen. Slut punkten för Microsoft Identity Platform ser också till att användaren har samtyckt till de behörigheter som anges i parametern `scope` fråga. Om användaren har samtyckt till **ingen** av dessa behörigheter uppmanas användaren att godkänna de behörigheter som krävs. Mer information finns i [behörigheter, medgivande och appar för flera klient organisationer](v2-permissions-and-consent.md).
+At this point, the user will be asked to enter their credentials and complete the authentication. The Microsoft identity platform endpoint will also ensure that the user has consented to the permissions indicated in the `scope` query parameter. If the user has consented to **none** of those permissions, it will ask the user to consent to the required permissions. For more info, see [permissions, consent, and multi-tenant apps](v2-permissions-and-consent.md).
 
-När användaren autentiserar och godkänner godkännandet, returnerar Microsoft Identity Platform-slutpunkten ett svar till din app vid den angivna `redirect_uri`med hjälp av metoden som anges i parametern `response_mode`.
+Once the user authenticates and grants consent, the Microsoft identity platform endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
-#### <a name="successful-response"></a>Lyckat svar
+#### <a name="successful-response"></a>Successful response
 
-Ett lyckat svar med `response_mode=fragment` och `response_type=id_token+token` ser ut ungefär så här (med rad brytningar för läsbarhet):
+A successful response using `response_mode=fragment` and `response_type=id_token+token` looks like the following (with line breaks for legibility):
 
 ```
 GET https://localhost/myapp/#
@@ -106,16 +106,16 @@ GET https://localhost/myapp/#
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `access_token` |Inkludera om `response_type` innehåller `token`. Den åtkomsttoken som appen begärde. Åtkomsttoken bör inte avkodas eller på annat sätt kontrol leras. den bör behandlas som en ogenomskinlig sträng. |
-| `token_type` |Inkludera om `response_type` innehåller `token`. Kommer alltid att vara `Bearer`. |
-| `expires_in`|Inkludera om `response_type` innehåller `token`. Anger antalet sekunder som token är giltig för cachelagring. |
-| `scope` |Inkludera om `response_type` innehåller `token`. Anger de omfång som access_token ska vara giltiga för. Får inte innehålla alla begärda omfattningar, om de inte gällde för användaren (endast för Azure AD-scope som begärs när ett personligt konto används för att logga in). |
-| `id_token` | En signerad JSON Web Token (JWT). Appen kan avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men de bör inte förlita sig på några begränsningar för auktorisering eller säkerhet. Mer information om id_tokens finns i [`id_token reference`](id-tokens.md). <br> **Obs:** Anges endast om `openid` omfattning begärdes. |
-| `state` |Om en tillstånds parameter ingår i begäran ska samma värde visas i svaret. Appen bör kontrol lera att tillstånds värden i begäran och svaret är identiska. |
+| `access_token` |Included if `response_type` includes `token`. The access token that the app requested. The access token shouldn't be decoded or otherwise inspected, it should be treated as an opaque string. |
+| `token_type` |Included if `response_type` includes `token`. Will always be `Bearer`. |
+| `expires_in`|Included if `response_type` includes `token`. Indicates the number of seconds the token is valid, for caching purposes. |
+| `scope` |Included if `response_type` includes `token`. Indicates the scope(s) for which the access_token will be valid. May not include all of the scopes requested, if they were not applicable to the user (in the case of Azure AD-only scopes being requested when a personal account is used to log in). |
+| `id_token` | A signed JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it shouldn't rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+| `state` |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
-#### <a name="error-response"></a>Fel svar
+#### <a name="error-response"></a>Error response
 
-Fel svar kan också skickas till `redirect_uri` så att appen kan hantera dem på rätt sätt:
+Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
 GET https://localhost/myapp/#
@@ -125,14 +125,14 @@ error=access_denied
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `error` |En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
-| `error_description` |Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken vid ett autentiseringsfel. |
+| `error` |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
+| `error_description` |A specific error message that can help a developer identify the root cause of an authentication error. |
 
-## <a name="getting-access-tokens-silently-in-the-background"></a>Hämta åtkomsttoken tyst i bakgrunden
+## <a name="getting-access-tokens-silently-in-the-background"></a>Getting access tokens silently in the background
 
-Nu när du har loggat in användaren i en app med en enda sida kan du hämta åtkomsttoken för att anropa webb-API: er som skyddas av Microsoft Identity Platform, t. ex. [Microsoft Graph](https://developer.microsoft.com/graph). Även om du redan har tagit emot en token med `token` response_type kan du använda den här metoden för att hämta tokens till ytterligare resurser utan att behöva omdirigera användaren för att logga in igen.
+Now that you've signed the user into your single-page app, you can silently get access tokens for calling web APIs secured by Microsoft identity platform, such as the [Microsoft Graph](https://developer.microsoft.com/graph). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
 
-I det normala OpenID Connect/OAuth-flödet gör du detta genom att göra en begäran till Microsoft Identity Platform `/token`-slutpunkten. Slut punkten för Microsoft Identity Platform stöder dock inte CORS-begäranden, så gör AJAX-anrop för att hämta och uppdatera token utanför frågan. I stället kan du använda det implicita flödet i en dold iframe för att hämta nya token för andra webb-API: er: 
+In the normal OpenID Connect/OAuth flow, you would do this by making a request to the Microsoft identity platform `/token` endpoint. However, the Microsoft identity platform endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question. Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 
 ```
 // Line breaks for legibility only
@@ -149,19 +149,19 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &login_hint=myuser@mycompany.com
 ```
 
-Information om frågeparametrar i URL: en finns i [Skicka inloggnings förfrågan](#send-the-sign-in-request).
+For details on the query parameters in the URL, see [send the sign in request](#send-the-sign-in-request).
 
 > [!TIP]
-> Försök kopiera & att klistra in nedanstående begäran i en webbläsare-flik! (Glöm inte att ersätta `login_hint` värden med rätt värde för din användare)
+> Try copy & pasting the below request into a browser tab! (Don't forget to replace the `login_hint` values with the correct value for your user)
 >
 >`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
 
-Tack vare `prompt=none`-parametern kommer den här begäran antingen att lyckas eller Miss lyckas omedelbart och återgå till ditt program. Ett lyckat svar skickas till din app vid den angivna `redirect_uri`med hjälp av den metod som anges i parametern `response_mode`.
+Thanks to the `prompt=none` parameter, this request will either succeed or fail immediately and return to your application. A successful response will be sent to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
-#### <a name="successful-response"></a>Lyckat svar
+#### <a name="successful-response"></a>Successful response
 
-Ett lyckat svar med `response_mode=fragment` ser ut så här:
+A successful response using `response_mode=fragment` looks like:
 
 ```
 GET https://localhost/myapp/#
@@ -174,16 +174,16 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `access_token` |Inkludera om `response_type` innehåller `token`. Den åtkomsttoken som appen begärde, i det här fallet för Microsoft Graph. Åtkomsttoken bör inte avkodas eller på annat sätt kontrol leras. den bör behandlas som en ogenomskinlig sträng. |
-| `token_type` | Kommer alltid att vara `Bearer`. |
-| `expires_in` | Anger antalet sekunder som token är giltig för cachelagring. |
-| `scope` | Anger de omfång som access_token ska vara giltiga för. Får inte innehålla alla begärda omfattningar, om de inte gällde för användaren (endast för Azure AD-scope som begärs när ett personligt konto används för att logga in). |
-| `id_token` | En signerad JSON Web Token (JWT). Inkludera om `response_type` innehåller `id_token`. Appen kan avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men de bör inte förlita sig på några begränsningar för auktorisering eller säkerhet. Mer information om id_tokens finns i [referensen`id_token`](id-tokens.md). <br> **Obs:** Anges endast om `openid` omfattning begärdes. |
-| `state` |Om en tillstånds parameter ingår i begäran ska samma värde visas i svaret. Appen bör kontrol lera att tillstånds värden i begäran och svaret är identiska. |
+| `access_token` |Included if `response_type` includes `token`. The access token that the app requested, in this case for the Microsoft Graph. The access token shouldn't be decoded or otherwise inspected, it should be treated as an opaque string. |
+| `token_type` | Will always be `Bearer`. |
+| `expires_in` | Indicates the number of seconds the token is valid, for caching purposes. |
+| `scope` | Indicates the scope(s) for which the access_token will be valid. May not include all of the scopes requested, if they were not applicable to the user (in the case of Azure AD-only scopes being requested when a personal account is used to log in). |
+| `id_token` | A signed JSON Web Token (JWT). Included if `response_type` includes `id_token`. The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it shouldn't rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token` reference](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+| `state` |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
-#### <a name="error-response"></a>Fel svar
+#### <a name="error-response"></a>Error response
 
-Fel svar kan också skickas till `redirect_uri` så att appen kan hantera dem på rätt sätt. Om `prompt=none`visas ett förväntat fel:
+Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately. In the case of `prompt=none`, an expected error will be:
 
 ```
 GET https://localhost/myapp/#
@@ -193,18 +193,18 @@ error=user_authentication_required
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `error` |En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
-| `error_description` |Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken vid ett autentiseringsfel. |
+| `error` |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
+| `error_description` |A specific error message that can help a developer identify the root cause of an authentication error. |
 
-Om du får det här felet i iframe-begäran måste användaren interaktivt logga in igen för att hämta en ny token. Du kan välja att hantera det här fallet på det sätt som passar ditt program.
+If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token. You can choose to handle this case in whatever way makes sense for your application.
 
-## <a name="refreshing-tokens"></a>Uppdatera token
+## <a name="refreshing-tokens"></a>Refreshing tokens
 
-Den implicita beviljandet tillhandahåller inte uppdaterade tokens. Både `id_token`s och `access_token`s upphör att gälla efter en kort tids period, så att din app måste vara för beredd för att uppdatera dessa token regelbundet. Om du vill uppdatera någon av typerna av token kan du utföra samma dolda iframe-begäran från ovan med hjälp av parametern `prompt=none` för att styra identitets plattformens beteende. Om du vill ta emot en ny `id_token`måste du använda `id_token` i `response_type` och `scope=openid`, samt en `nonce`-parameter.
+The implicit grant does not provide refresh tokens. Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically. To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control the identity platform's behavior. If you want to receive a new `id_token`, be sure to use `id_token` in the `response_type` and `scope=openid`, as well as a `nonce` parameter.
 
-## <a name="send-a-sign-out-request"></a>Skicka en begäran om utloggning
+## <a name="send-a-sign-out-request"></a>Send a sign out request
 
-OpenID Connect `end_session_endpoint` gör att din app kan skicka en begäran till Microsoft Identity Platform-slutpunkten för att avsluta en användares session och Rensa cookies som anges av Microsoft Identity Platform-slutpunkten. För att fullständigt signera en användare från ett webb program bör din app avsluta sin egen session med användaren (vanligt vis genom att rensa en token-cache eller släppa cookies) och sedan omdirigera webbläsaren till:
+The OpenID Connect `end_session_endpoint` allows your app to send a request to the Microsoft identity platform endpoint to end a user's session and clear cookies set by the Microsoft identity platform endpoint. To fully sign a user out of a web application, your app should end its own session with the user (usually by clearing a token cache or dropping cookies), and then redirect the browser to:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -212,9 +212,9 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| `tenant` |kunna |`{tenant}`-värdet i sökvägen till begäran kan användas för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common`, `organizations`, `consumers`och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
-| `post_logout_redirect_uri` | rekommenderas | URL: en som användaren ska returneras till när utloggning har slutförts. Värdet måste matcha en av de omdirigerings-URI: er som registrerats för programmet. Om detta inte anges visas ett allmänt meddelande för användaren av Microsoft Identity Platform-slutpunkten. |
+| `tenant` |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
+| `post_logout_redirect_uri` | recommended | The URL that the user should be returned to after logout completes. This value must match one of the redirect URIs registered for the application. If not included, the user will be shown a generic message by the Microsoft identity platform endpoint. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Gå över [MSAL JS-exemplen](sample-v2-code.md) för att komma igång med kodning.
+* Go over the [MSAL JS samples](sample-v2-code.md) to get started coding.

@@ -1,71 +1,67 @@
 ---
-title: Funktions typer i Durable Functions tillägget för Azure Functions
-description: Lär dig mer om de typer av funktioner och roller som stöder funktions-till-funktion-kommunikation i en Durable Functions dirigering i Azure Functions.
-services: functions
+title: Function types in the Durable Functions extension of Azure Functions
+description: Learn about the types of functions and roles that support function-to-function communication in a Durable Functions orchestration in Azure Functions.
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 555b4d95358978e84e14e8a2e8b3d1c9cb2efc18
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 7a485f31ed7e112745cf3b45bbfe348e6a2e0fd3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614603"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232772"
 ---
-# <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions typer och funktioner (Azure Functions)
+# <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions types and features (Azure Functions)
 
-Durable Functions är en utökning av [Azure Functions](../functions-overview.md). Du kan använda Durable Functions för tillstånds känslig dirigering av funktions körning. En hållbar Function-app är en lösning som består av olika Azure Functions. Funktioner kan spela olika roller i en varaktig funktions dirigering. 
+Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use Durable Functions for stateful orchestration of function execution. A durable function app is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
 
-Det finns för närvarande fyra varaktiga funktions typer i Azure Functions: aktivitet, Orchestrator, entitet och klient. Resten av det här avsnittet innehåller mer information om vilka typer av funktioner som ingår i ett dirigering.
+There are currently four durable function types in Azure Functions: activity, orchestrator, entity, and client. The rest of this section goes into more details about the types of functions involved in an orchestration.
 
-## <a name="orchestrator-functions"></a>Orchestrator-funktioner
+## <a name="orchestrator-functions"></a>Orchestrator functions
 
-Orchestrator Functions beskriver hur åtgärder utförs och i vilken ordning åtgärder utförs. Orchestrator Functions beskriver dirigeringen i kod (C# eller Java Script) som visas i [Durable Functions program mönster](durable-functions-overview.md#application-patterns). En dirigering kan ha många olika typer av åtgärder, inklusive [aktivitets funktioner](#activity-functions), [under dirigering](durable-functions-orchestrations.md#sub-orchestrations), [som väntar på externa händelser](durable-functions-orchestrations.md#external-events), [http](durable-functions-http-features.md)och [timers](durable-functions-orchestrations.md#durable-timers). Orchestrator-funktioner kan också samverka med [enhets funktioner](#entity-functions).
-
-> [!NOTE]
-> Orchestrator-funktioner skrivs med vanlig kod, men det finns strikta krav på hur du skriver koden. Mer specifikt måste Orchestrator-funktions koden vara *deterministisk*. Om du inte följer dessa determinism-krav kan det leda till att Orchestrator-funktioner inte kan köras på rätt sätt. Detaljerad information om dessa krav och hur du kan lösa dem finns i avsnittet [kod begränsningar](durable-functions-code-constraints.md) .
-
-Mer detaljerad information om Orchestrator-funktioner och deras funktioner finns i artikeln [beständiga Orchestrations](durable-functions-orchestrations.md) artiklar.
-
-## <a name="activity-functions"></a>Aktivitets funktioner
-
-Aktivitets funktionerna är den grundläggande arbets enheten i en varaktig funktions dirigering. Aktivitets funktioner är de funktioner och uppgifter som samordnas i processen. Du kan till exempel skapa en Orchestrator-funktion för att bearbeta en order. Uppgifterna omfattar att kontrol lera inventeringen, debitera kunden och skapa en försändelse. Varje aktivitet är en separat aktivitets funktion. Dessa aktivitets funktioner kan köras seriellt, parallellt eller någon kombination av båda.
-
-Till skillnad från Orchestrator Functions är aktivitets funktioner inte begränsade i den typ av arbete som du kan göra i dem. Aktivitets funktioner används ofta för att göra nätverks anrop eller köra processor intensiva åtgärder. En aktivitets funktion kan också returnera data tillbaka till Orchestrator-funktionen. Det varaktiga aktivitets ramverket garanterar att varje anropad aktivitets funktion utförs *minst en gång* under en Dirigerings körning.
+Orchestrator functions describe how actions are executed and the order in which actions are executed. Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in [Durable Functions application patterns](durable-functions-overview.md#application-patterns). An orchestration can have many different types of actions, including [activity functions](#activity-functions), [sub-orchestrations](durable-functions-orchestrations.md#sub-orchestrations), [waiting for external events](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-http-features.md), and [timers](durable-functions-orchestrations.md#durable-timers). Orchestrator functions can also interact with [entity functions](#entity-functions).
 
 > [!NOTE]
-> Eftersom aktivitets funktioner endast garanterar *minst en gång* , rekommenderar vi att du gör din aktivitets funktions logik *idempotenta* närhelst det är möjligt.
+> Orchestrator functions are written using ordinary code, but there are strict requirements on how to write the code. Specifically, orchestrator function code must be *deterministic*. Failing to follow these determinism requirements can cause orchestrator functions to fail to run correctly. Detailed information on these requirements and how to work around them can be found in the [code constraints](durable-functions-code-constraints.md) topic.
 
-Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger) för att definiera en aktivitets funktion. .NET Functions får en `DurableActivityContext` som en parameter. Du kan också binda utlösaren till alla andra JSON-serializeable-objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade objekt via egenskapen `<activity trigger binding name>` i [`context.bindings`-objektet](../functions-reference-node.md#bindings). Aktivitets funktioner kan bara ha ett enda värde. Om du vill skicka flera värden måste du använda tupler, matriser eller komplexa typer.
+For more detailed information on orchestrator functions and their features, see the [Durable orchestrations](durable-functions-orchestrations.md) article.
 
-> [!NOTE]
-> Du kan endast utlösa en aktivitets funktion från en Orchestrator-funktion.
+## <a name="activity-functions"></a>Activity functions
 
-## <a name="entity-functions"></a>Enhets funktioner
+Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process. For example, you might create an orchestrator function to process an order. The tasks involve checking the inventory, charging the customer, and creating a shipment. Each task would be a separate activity function. These activity functions may be executed serially, in parallel, or some combination of both.
 
-Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd. Vi refererar ofta till dessa tillstånds känsliga entiteter som *varaktiga enheter*. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskild utlösnings typ, *enhets utlösare*. De kan också anropas från klient funktioner eller från Orchestrator-funktioner. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
-
-> [!NOTE]
-> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare.
-
-Mer information om entitets funktioner finns i artikeln [beständiga entiteter](durable-functions-entities.md) .
-
-## <a name="client-functions"></a>Klient funktioner
-
-Orchestrator-funktioner utlöses av en [bindning för Orchestration-utlösare](durable-functions-bindings.md#orchestration-trigger) och entiteter utlöses av en [bindning för enhets utlösare](durable-functions-bindings.md#entity-trigger). Båda dessa utlösare fungerar genom att du reagerar på meddelanden som är köade i en [aktivitets hubb](durable-functions-task-hubs.md). Det primära sättet att leverera dessa meddelanden är att använda en [Orchestrator-klient bindning](durable-functions-bindings.md#orchestration-client) eller en [enhets klient bindning](durable-functions-bindings.md#entity-client) från en *klient funktion*. En icke-Orchestrator-funktion kan vara en *klient funktion*. Du kan till exempel utlösa Orchestrator från en HTTP-utlöst funktion, en funktion som utlöses av Azure Event Hub, osv. Det här är en funktion som en *klient funktion* använder för att använda den varaktiga klienten utgående bindning.
+Unlike orchestrator functions, activity functions aren't restricted in the type of work you can do in them. Activity functions are frequently used to make network calls or run CPU intensive operations. An activity function can also return data back to the orchestrator function. The Durable Task Framework guarantees that each called activity function will be executed *at least once* during an orchestration's execution.
 
 > [!NOTE]
-> Till skillnad från andra funktions typer kan inte funktionerna för Orchestrator och entitet utlösas direkt med hjälp av knapparna i Azure-portalen. Om du vill testa en Orchestrator-eller Entity-funktion i Azure-portalen måste du i stället köra en *klient funktion* som startar en Orchestrator-eller Entity-funktion som en del av dess implementering. En *manuell utlösnings* funktion rekommenderas för den enklaste test upplevelsen.
+> Because activity functions only guarantee *at least once* execution, we recommend you make your activity function logic *idempotent* whenever possible.
 
-Förutom att utlösa Orchestrator-eller entitet-funktioner kan den *varaktiga klient* bindningen användas för att interagera med att köra Orchestration och entiteter. Till exempel kan dirigeringar frågas, avslutas och de kan aktive ras för händelser. Mer information om hur du hanterar Orchestration och entiteter finns i artikeln [instans hantering](durable-functions-instance-management.md) .
+Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to define an activity function. .NET functions receive a `DurableActivityContext` as a parameter. You can also bind the trigger to any other JSON-serializeable object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings). Activity functions can only have a single value passed to them. To pass multiple values, you must use tuples, arrays, or complex types.
+
+> [!NOTE]
+> You can trigger an activity function only from an orchestrator function.
+
+## <a name="entity-functions"></a>Entity functions
+
+Entity functions define operations for reading and updating small pieces of state. We often refer to these stateful entities as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. They can also be invoked from client functions or from orchestrator functions. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
+
+> [!NOTE]
+> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
+
+For more information about entity functions, see the [Durable Entities](durable-functions-entities.md) article.
+
+## <a name="client-functions"></a>Client functions
+
+Orchestrator functions are triggered by an [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) and entity functions are triggered by an [entity trigger binding](durable-functions-bindings.md#entity-trigger). Both of these triggers work by reacting to messages that are enqueued into a [task hub](durable-functions-task-hubs.md). The primary way to deliver these messages is by using an [orchestrator client binding](durable-functions-bindings.md#orchestration-client) or an [entity client binding](durable-functions-bindings.md#entity-client) from within a *client function*. Any non-orchestrator function can be a *client function*. For example, You can trigger the orchestrator from an HTTP-triggered function, an Azure Event Hub triggered function, etc. What makes a function a *client function* is its use of the durable client output binding.
+
+> [!NOTE]
+> Unlike other function types, orchestrator and entity functions cannot be triggered directly using the buttons in the Azure Portal. If you want to test an orchestrator or entity function in the Azure Portal, you must instead run a *client function* that starts an orchestrator or entity function as part of its implementation. For the simplest testing experience, a *manual trigger* function is recommended.
+
+In addition to triggering orchestrator or entity functions, the *durable client* binding can be used to interact with running orchestrations and entities. For example, orchestrations can be queried, terminated, and can have events raised to them. For more information on managing orchestrations and entities, see the [Instance management](durable-functions-instance-management.md) article.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att skapa din första varaktiga funktion [C#](durable-functions-create-first-csharp.md) i eller [Java Script](quickstart-js-vscode.md).
+To get started, create your first durable function in [C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md).
 
 > [!div class="nextstepaction"]
-> [Läs mer om Durable Functions Orchestration](durable-functions-orchestrations.md)
+> [Read more about Durable Functions orchestrations](durable-functions-orchestrations.md)

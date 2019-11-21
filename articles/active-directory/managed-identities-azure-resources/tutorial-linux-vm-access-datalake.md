@@ -1,5 +1,5 @@
 ---
-title: Använda systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Data Lake Store
+title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Linux - Azure AD
 description: En självstudiekurs som visar hur du använder en systemtilldelad hanterad identitet för virtuell Linux-dator för åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474165219d7740e63bb5e0a62d08069109a52c31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f12ec41b661ac2cb462c6bf9ef62d6d831ebac0a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236140"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224289"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du använder en automatiskt genererad hanterad identitet för en Linux-dator (VM) för att få åtkomst till Azure Data Lake Store. Lär dig att: 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Lär dig att: 
 
 I den här guiden får du lära dig att:
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
 > * Få en åtkomsttoken genom att använda den virtuella datorns systemtilldelade hanterade identitet för åtkomst till Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -71,7 +71,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
 
 1. Bläddra till din virtuella Linux-dator i portalen. I **Översikt** väljer du **Anslut**.  
 2. Anslut till den virtuella datorn med valfri SSH-klient. 
-3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID: t för Data Lake Store är `https://datalake.azure.net/`.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. The resource identifier for Data Lake Store is `https://datalake.azure.net/`.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: så här registrerar du X. 509-enheter på Azure Device Provisioning-tjänsten med Java'
+title: Enroll X.509 devices to Azure Device Provisioning Service using Java
 description: Den här snabbstarten använder både gruppregistreringar och enskilda registreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Java.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8a1accf232b022bc3028f91d2151c00b98969f1f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 076e1e10a704451d657e4d18afedb6bd388f7686
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904769"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229513"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Java
 
@@ -207,7 +206,7 @@ Om du tänker utforska Java-tjänstexemplet ska du inte rensa resurserna som har
 
 1. Stäng utdatafönstret för Java-exemplet på datorn.
 1. Stäng _X509 Cert Generator_-fönstret på datorn.
-1. Gå till enhets etablerings tjänsten i Azure Portal, klicka på **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Välj *grupp namnet* för de X. 509-enheter som du har registrerat med den här snabb starten och klicka på knappen **ta bort** högst upp på bladet.  
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten har du registrerat en simulerad grupp X.509-enheter i Device Provisioning-tjänsten. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 

@@ -1,7 +1,7 @@
 ---
-title: Översikt över portar hög tillgänglighet i Azure
-titlesuffix: Azure Load Balancer
-description: Läs mer om hög tillgänglighet portar belastningsutjämning på en intern belastningsutjämnare.
+title: High availability ports overview in Azure
+titleSuffix: Azure Load Balancer
+description: Learn about high availability ports load balancing on an internal load balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,95 +13,95 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 350c6ae2e62a88477ce67132b56d9253166d13ec
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: c6529e2585a7fca2d160d093d303afa02e6f9379
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130433"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215081"
 ---
-# <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
+# <a name="high-availability-ports-overview"></a>High availability ports overview
 
-Azure Standard Load Balancer hjälper dig att belastningsutjämna TCP och UDP flöden på alla portar samtidigt när du använder en intern belastningsutjämnare. 
+Azure Standard Load Balancer helps you load-balance TCP and UDP flows on all ports simultaneously when you're using an internal load balancer. 
 
-En belastnings Utjämnings regel för belastnings utjämning med hög tillgänglighet (HA) är en variant av en belastnings Utjämnings regel som kon figurer ATS på ett internt Standard Load Balancer. Du kan förenkla användningen av en belastningsutjämnare genom att tillhandahålla en enkel regel för att belastningsutjämna alla TCP och UDP flöden som tas emot på alla portar för en intern Standard Load Balancer. Beslutet belastningsutjämning görs per flöde. Den här åtgärden baseras på följande fem-tuple-anslutning: Källans IP-adress, källport, mål-IP-adress, målport och protokoll
+A high availability (HA) ports load-balancing rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. You can simplify the use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
 
-Belastnings Utjämnings reglerna för HA-portar hjälper dig med kritiska scenarier, till exempel hög tillgänglighet och skalning för virtuella nätverks installationer (NVA) i virtuella nätverk. Funktionen kan också när ett stort antal portar måste vara Utjämning av nätverksbelastning. 
+The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
 
-Belastnings Utjämnings reglerna för HA-portar konfigureras när du ställer in frontend-och backend-portarna på **0** och protokollet till **alla**. Den interna belastnings Utjämnings resursen balanserar sedan alla TCP-och UDP-flöden, oavsett port nummer
+The HA ports load-balancing rules is configured when you set the front-end and back-end ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number
 
-## <a name="why-use-ha-ports"></a>Varför använda högtillgänglighetsportar?
+## <a name="why-use-ha-ports"></a>Why use HA ports?
 
-### <a name="nva"></a>Virtuella nätverksinstallationer
+### <a name="nva"></a>Network virtual appliances
 
-Du kan använda nva: er för att skydda din arbetsbelastning i Azure från flera typer av säkerhetshot. När du använder nva: er i dessa scenarier kan de vara tillförlitlig och med hög tillgänglighet och de skalar du ut för begäran.
+You can use NVAs to help secure your Azure workload from multiple types of security threats. When you use NVAs in these scenarios, they must be reliable and highly available, and they must scale out for demand.
 
-Du kan åstadkomma detta genom att lägga till NVA-instanser till backend-poolen för din interna belastningsutjämnare och konfigurera en hög tillgänglighet portarna belastningsutjämningsregel.
+You can achieve these goals simply by adding NVA instances to the back-end pool of your internal load balancer and configuring an HA ports load-balancer rule.
 
-NVA HA scenarier erbjuder högtillgänglighetsportar följande fördelar:
-- Ge snabb redundans till felfria instanser per instans hälsoavsökningar
-- Se till att bättre prestanda med skalning till *n*-aktiva instanser
-- Ange *n*-aktiva och aktivt-passivt scenarier
-- I stället för komplicerade lösningar, till exempel Apache ZooKeeper-noder för att övervaka installationer
+For NVA HA scenarios, HA ports offer the following advantages:
+- Provide fast failover to healthy instances, with per-instance health probes
+- Ensure higher performance with scale-out to *n*-active instances
+- Provide *n*-active and active-passive scenarios
+- Eliminate the need for complex solutions, such as Apache ZooKeeper nodes for monitoring appliances
 
-I följande diagram visas ett nav och eker virtual network-distributionen. Den ekrar tvinga tunneltrafik sin trafik till det virtuella navnätverket och via NVA, innan de lämnar det betrodda utrymmet. Nva: erna är bakom en intern Standard Load Balancer med en konfiguration för hög tillgänglighet portar. All trafik kan bearbetas och vidarebefordrats i enlighet med detta. När en belastnings Utjämnings regel för belastnings utjämning har kon figurer ATS som visas i följande diagram tillhandahåller belastnings Utjämnings regeln för belastnings utjämning också flödes symmetri för ingress
+The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as show in the following diagram, an HA Ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
 
 <a node="diagram"></a>
-![Diagram över nav-och-eker-virtuellt nätverk med NVA distribuerat i HA-läge](./media/load-balancer-ha-ports-overview/nvaha.png)
+![Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
-> Om du använder nva: er, kontrollerar du hur du bäst använder högtillgänglighetsportar och lära dig vilka scenarier som stöds med sina leverantörer.
+> If you are using NVAs, confirm with their providers how to best use HA ports and to learn which scenarios are supported.
 
-### <a name="load-balancing-large-numbers-of-ports"></a>Belastningsutjämning stort antal portar
+### <a name="load-balancing-large-numbers-of-ports"></a>Load-balancing large numbers of ports
 
-Du kan också använda högtillgänglighetsportar för program som kräver belastningsutjämning av stora mängder portar. Du kan förenkla dessa scenarier genom att använda en intern [Standardbelastningsutjämnare](load-balancer-standard-overview.md) med hög tillgänglighet portar. En enda regel för belastningsutjämning ersätter flera enskilda belastningsutjämningsregler, en för varje port.
+You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [Standard Load Balancer](load-balancer-standard-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 
-Hög tillgänglighet portar funktionen är tillgänglig i alla globala Azure-regioner.
+The HA ports feature is available in all the global Azure regions.
 
-## <a name="supported-configurations"></a>Konfigurationer som stöds
+## <a name="supported-configurations"></a>Supported configurations
 
-### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>En enskild, icke-flytande IP (icke - direkt Serverreturnering) högtillgänglighetsportar-konfiguration på en intern Standard Load Balancer
+### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>A single, non-floating IP (non-Direct Server Return) HA-ports configuration on an internal Standard Load Balancer
 
-Den här konfigurationen är en grundläggande konfiguration för hög tillgänglighet-portar. Du kan konfigurera en hög tillgänglighet portar belastningsutjämning-regel för en frontend IP-adress genom att göra följande:
-1. När du konfigurerar Standard Load Balancer, Välj den **högtillgänglighetsportar** kryssrutan i regelkonfigurationen för belastningsutjämnaren.
-2. För **flytande IP**väljer **inaktiverad**.
+This configuration is a basic HA ports configuration. You can configure an HA ports load-balancing rule on a single front-end IP address by doing the following:
+1. While configuring Standard Load Balancer, select the **HA ports** check box in the Load Balancer rule configuration.
+2. For **Floating IP**, select **Disabled**.
 
-Den här konfigurationen tillåter inte några andra belastningsutjämning regelkonfigurationen på aktuella belastningsutjämningsresursen. Det gör också att inga andra interna resursen belastningsutjämningskonfigurationen för den angivna uppsättningen serverdels-instanser.
+This configuration does not allow any other load-balancing rule configuration on the current load balancer resource. It also allows no other internal load balancer resource configuration for the given set of back-end instances.
 
-Du kan dock konfigurera en offentlig Standard Load Balancer för serverdelsinstanserna förutom regeln portar för hög tillgänglighet.
+However, you can configure a public Standard Load Balancer for the back-end instances in addition to this HA ports rule.
 
-### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>En enda flytande IP (direkt Serverreturnering) högtillgänglighetsportar konfiguration på en intern Standard Load Balancer
+### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>A single, floating IP (Direct Server Return) HA-ports configuration on an internal Standard Load Balancer
 
-På samma sätt kan du konfigurera belastningsutjämnaren om du vill använda en regel för belastningsutjämning med **HA Port** med en enda klientdel genom att ange den **flytande IP** till **aktiverad**. 
+You can similarly configure your load balancer to use a load-balancing rule with **HA Port** with a single front end by setting the **Floating IP** to **Enabled**. 
 
-Du kan lägga till mer flytande IP-regler för belastningsutjämning och/eller en offentlig belastningsutjämnare med hjälp av den här konfigurationen. Men du kan inte använda en icke-flytande IP högtillgänglighetsportar belastnings-utjämnande konfiguration på den här konfigurationen.
+By using this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you cannot use a non-floating IP, HA-ports load-balancing configuration on top of this configuration.
 
-### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>Konfigurationer med flera HA-portar på en intern Standard Load Balancer
+### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>Multiple HA-ports configurations on an internal Standard Load Balancer
 
-Om din situation kräver att du konfigurerar mer än en hög tillgänglighet port klientdelen för samma backend-pool, kan du göra följande: 
-- Konfigurera flera frontend privat IP-adress för en enskild resurs för interna Standard Load Balancer.
-- Konfigurera flera regler-belastningsutjämning, där varje regel har en unik frontend IP-adress har valt.
-- Välj den **högtillgänglighetsportar** alternativet och ange sedan **flytande IP** till **aktiverad** för alla belastningsutjämning regler.
+If your scenario requires that you configure more than one HA port front end for the same back-end pool, you can do the following: 
+- Configure more than one front-end private IP address for a single internal Standard Load Balancer resource.
+- Configure multiple load-balancing rules, where each rule has a single unique front-end IP address selected.
+- Select the **HA ports** option, and then set **Floating IP** to **Enabled** for all the load-balancing rules.
 
-### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>En intern belastningsutjämnare med högtillgänglighetsportar och en offentlig belastningsutjämnare på samma backend-instans
+### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>An internal load balancer with HA ports and a public load balancer on the same back-end instance
 
-Du kan konfigurera *en* offentlig Standard Load Balancer-resurs för backend-resurser, tillsammans med en enda intern Standard Load Balancer med hög tillgänglighet portar.
+You can configure *one* public Standard Load Balancer resource for the back-end resources, along with a single internal Standard Load Balancer with HA ports.
 
 >[!NOTE]
->Den här funktionen är för närvarande tillgänglig via Azure Resource Manager-mallar, men det är inte tillgängligt via Azure portal.
+>This capability is currently available via Azure Resource Manager templates, but it is not available via the Azure portal.
 
 ## <a name="limitations"></a>Begränsningar
 
-- Belastnings Utjämnings regler för HA-portar är bara tillgängliga för interna Standard Load Balancer.
-- Kombinera med en hög tillgänglighet portarna regel för belastningsutjämning och en icke-HA-portar som regel för belastningsutjämning inte stöds.
-- Befintliga IP-fragment vidarebefordras av HA port belastnings Utjämnings regler till samma mål som det första paketet.  IP-fragmentering av UDP-eller TCP-paket stöds inte.
-- Belastnings Utjämnings reglerna för HA-portar är inte tillgängliga för IPv6.
-- Flödes symmetrin (främst för NVA-scenarier) stöds med backend-instansen och ett enda nätverkskort (och enskild IP-konfiguration) endast när det används som det visas i diagrammet ovan och med belastnings Utjämnings regler för HA-portar. Den finns inte i något annat scenario. Det innebär att två eller flera Load Balancer resurser och deras respektive regler gör oberoende beslut och inte samordnade. Se beskrivningen och diagram för [virtuella nätverksinstallationer](#nva). När du använder flera nätverkskort eller mellan NVA mellan en offentlig och intern Load Balancer, är flödets symmetri inte tillgängligt.  Du kanske kan kringgå detta genom att källan NAT'ing ingångs flödet till IP-enheten för att tillåta svar på samma NVA.  Vi rekommenderar dock starkt att du använder ett enda nätverkskort och använder referens arkitekturen som visas i diagrammet ovan.
+- HA ports load-balancing rules are available only for internal Standard Load Balancer.
+- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule is not supported.
+- Existing IP fragments will be forwarded by HA Ports load-balancing rules to same destination as first packet.  IP fragmenting a UDP or TCP packet is not supported.
+- The HA ports load-balancing rules are not available for IPv6.
+- Flow symmetry (primarily for NVA scenarios) is supported with backend instance and a single NIC (and single IP configuration) only when used as shown in the diagram above and using HA Ports load-balancing rules. It is not provided in any other scenario. This means that two or more Load Balancer resources and their respective rules make independent decisions and are never coordinated. See the description and diagram for [network virtual appliances](#nva). When you are using multiple NICs or sandwiching the NVA between a public and internal Load Balancer, flow symmetry is not available.  You may be able to work around this by source NAT'ing the ingress flow to the IP of the appliance to allow replies to arrive on the same NVA.  However, we strongly recommend using a single NIC and using the reference architecture shown in the diagram above.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera portar med hög tillgänglighet på en intern Standard Load Balancer](load-balancer-configure-ha-ports.md)
-- [Lär dig mer om Standard Load Balancer](load-balancer-standard-overview.md)
+- [Configure HA ports on an internal Standard Load Balancer](load-balancer-configure-ha-ports.md)
+- [Learn about Standard Load Balancer](load-balancer-standard-overview.md)

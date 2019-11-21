@@ -1,23 +1,19 @@
 ---
-title: Skapa en funktionsapp från Azure Portal | Microsoft Docs
-description: Skapa en ny function-app i Azure från portalen.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
+title: Create a function app from the Azure Portal
+description: Create a new function app in Azure from the portal.
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 93bce0404c9b3bf630416557726dca0c856528c3
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 74eaa6837f362c849277a761da3ae79c3a8ac353
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170788"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230777"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure Portal
 
-Det här avsnittet visar hur du använder Azure Functions för att skapa en Function-app i Azure Portal. En funktionsapp är en container som är värd för körningen av enskilda funktioner. 
+This topic shows you how to use Azure Functions to create a function app in the Azure portal. En funktionsapp är en container som är värd för körningen av enskilda funktioner. 
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
@@ -31,15 +27,15 @@ När du har skapat funktionsappen kan du skapa enskilda funktioner på ett eller
 
 ## <a name="service-plans"></a>Tjänstplaner
 
-Azure Functions har tre olika Service planer: Förbruknings plan, Premium plan och dedikerad (App Service) plan. Du måste välja din tjänst plan när din Function-app skapas och kan sedan inte ändras. Mer information finns i [Choose an Azure Functions hosting plan](functions-scale.md) (Välja en värdplan för Azure Functions).
+Azure Functions has three different service plans: Consumption plan, Premium plan, and Dedicated (App Service) plan. You must choose your service plan when your function app is created, and it cannot subsequently be changed. Mer information finns i [Choose an Azure Functions hosting plan](functions-scale.md) (Välja en värdplan för Azure Functions).
 
-Om du planerar att köra JavaScript-funktioner på en dedikerad (App Service) plan bör du välja en plan med färre kärnor. Mer information finns i [JavaScript-referensen för Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+If you are planning to run JavaScript functions on a Dedicated (App Service) plan, you should choose a plan with fewer cores. Mer information finns i [JavaScript-referensen för Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
-När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Functions använder internt Storage för åtgärder som att hantera utlösare och logga funktionskörningar. Vissa lagringskonton stöder inte köer och tabeller, till exempel konton med endast bloblagring, Azure Premium Storage och allmänna lagringskonton med ZRS-replikering. Dessa konton filtreras bort från lagringskontobladet när du skapar en funktionsapp.
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Functions använder internt Storage för åtgärder som att hantera utlösare och logga funktionskörningar. Vissa lagringskonton stöder inte köer och tabeller, till exempel konton med endast bloblagring, Azure Premium Storage och allmänna lagringskonton med ZRS-replikering. Dessa konton filtreras bort från lagringskontobladet när du skapar en funktionsapp.
 
 >[!NOTE]
 >När du använder förbrukningsvärdplanen lagras funktionskoden och bindningskonfigurationsfilerna i Azure File Storage i huvudlagringskontot. När du tar bort huvudlagringskontot tas även det här innehållet bort och kan inte återställas.
@@ -48,7 +44,7 @@ Mer information om lagringskontotyper finns i [introduktionen till Azure Storage
 
 ## <a name="next-steps"></a>Nästa steg
 
-Medan Azure Portal gör det enkelt att skapa och testa funktioner, rekommenderar vi [lokal utveckling](functions-develop-local.md). När du har skapat en Function-app i portalen måste du fortfarande lägga till en funktion. 
+While the Azure portal makes it easy to create and try out Functions, we recommend [local development](functions-develop-local.md). After creating a function app in the portal, you still need to add a function. 
 
 > [!div class="nextstepaction"]
-> [Lägg till en HTTP-utlöst funktion](functions-create-first-azure-function.md#create-function)
+> [Add an HTTP triggered function](functions-create-first-azure-function.md#create-function)

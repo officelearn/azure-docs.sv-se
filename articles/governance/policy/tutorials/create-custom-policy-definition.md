@@ -1,16 +1,16 @@
 ---
-title: Skapa en anpassad principdefinition
-description: Skapa en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
+title: 'Tutorial: Create a custom policy definition'
+description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
 ms.date: 04/23/2019
 ms.topic: tutorial
-ms.openlocfilehash: 97a85eb28cd0dbb2586623fda442d87a5790db2a
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 743e3dea3c6daa7b2e713f2b1d5c1691d60785ec
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128801"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74216707"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
+# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Create a custom policy definition
 
 Med en anpassad principdefinition kan kunderna definiera egna regler för att använda Azure. De här reglerna framtvingar ofta:
 
@@ -42,11 +42,11 @@ Det är viktigt att du förstår syftet med principen innan du skapar principdef
 
 Dina krav bör tydligt identifiera både resurstillståndet ”to be” och ”not to be”.
 
-Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Azure Policy stöder ett antal [effekter](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
+Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Azure Policy supports a number of [effects](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
 
 ## <a name="determine-resource-properties"></a>Fastställa resursegenskaper
 
-Utifrån affärs kraven är Azure-resursen som ska granskas med Azure Policy ett lagrings konto. Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Azure Policy utvärderas mot JSON-representationen av resursen så att vi måste förstå de egenskaper som är tillgängliga för den resursen.
+Based on the business requirement, the Azure resource to audit with Azure Policy is a storage account. Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Azure Policy evaluates against the JSON representation of the resource, so we'll need to understand the properties available on that resource.
 
 Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
@@ -64,9 +64,9 @@ Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-re
 #### <a name="existing-resource-in-the-portal"></a>Befintlig resurs i portalen
 
 Det enklaste sättet att hitta egenskaper är att titta på en befintlig resurs av samma typ. Resurser som redan har konfigurerats med inställningen som du vill framtvinga innehåller också värdet att jämföra med.
-Titta på sidan **Exportera mall** (under **inställningar**) i Azure Portal för den aktuella resursen.
+Look at the **Export template** page (under **Settings**) in the Azure portal for that specific resource.
 
-![Sidan exportera mall på en befintlig resurs](../media/create-custom-policy-definition/export-template.png)
+![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
 
 Om du gör det för ett lagringskonto visas en mall som liknar det här exemplet:
 
@@ -203,7 +203,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. Resultatet av Azure-resursens diagram kan dock också innehålla information om [alias](../concepts/definition-structure.md#aliases) genom att _projicera_ _alias_ -matrisen:
+Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. However, Azure Resource Graph results can also include [alias](../concepts/definition-structure.md#aliases) details by _projecting_ the _aliases_ array:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -373,7 +373,7 @@ Skapandet av [principregeln](../concepts/definition-structure.md#policy-rule) ä
 - Lagringskontots **typ** är **Microsoft.Storage/storageAccounts**
 - Att lagringskontot **supportsHttpsTrafficOnly** inte är **sant**
 
-Eftersom vi behöver att båda dessa instruktionerna är sanna använder vi den **logiska operatorn** [allOf](../concepts/definition-structure.md#logical-operators). Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
+Eftersom vi behöver att båda dessa instruktionerna är sanna använder vi den [logiska operatorn](../concepts/definition-structure.md#logical-operators) **allOf**. Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
 
 ```json
 "if": {

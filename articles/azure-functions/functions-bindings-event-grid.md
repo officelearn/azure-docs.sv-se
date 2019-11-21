@@ -1,61 +1,56 @@
 ---
-title: Event Grid utlösare för Azure Functions
-description: Förstå hur du hanterar Event Grid händelser i Azure Functions.
-services: functions
-documentationcenter: na
+title: Event Grid trigger for Azure Functions
+description: Understand how to handle Event Grid events in Azure Functions.
 author: craigshoemaker
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: ff21a1325e341f119fc8615ca03b41b8068aca19
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8820818528835df6379c894eb06c154f4120f507
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991426"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227301"
 ---
-# <a name="event-grid-trigger-for-azure-functions"></a>Event Grid utlösare för Azure Functions
+# <a name="event-grid-trigger-for-azure-functions"></a>Event Grid trigger for Azure Functions
 
-Den här artikeln beskriver hur du hanterar [Event Grid](../event-grid/overview.md) händelser i Azure Functions.
+This article explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions.
 
-Event Grid är en Azure-tjänst som skickar HTTP-förfrågningar för att meddela dig om händelser som inträffar i *utgivare*. En utgivare är den tjänst eller resurs som har sitt ursprung i händelsen. Till exempel är ett Azure Blob Storage-konto en utgivare och [en BLOB-överföring eller borttagning är en händelse](../storage/blobs/storage-blob-event-overview.md). Vissa [Azure-tjänster har ett inbyggt stöd för att publicera händelser till Event Grid](../event-grid/overview.md#event-sources).
+Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and [a blob upload or deletion is an event](../storage/blobs/storage-blob-event-overview.md). Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources).
 
-Händelse *hanterare* tar emot och bearbetar händelser. Azure Functions är en av flera [Azure-tjänster som har inbyggt stöd för att hantera Event Grid händelser](../event-grid/overview.md#event-handlers). I den här artikeln får du lära dig hur du använder en Event Grid-utlösare för att anropa en funktion när en händelse tas emot från Event Grid.
+Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this article, you learn how to use an Event Grid trigger to invoke a function when an event is received from Event Grid.
 
-Om du vill kan du använda en HTTP-utlösare för att hantera Event Grid händelser. Se [Använd en HTTP-utlösare som en Event Grid utlösare](#use-an-http-trigger-as-an-event-grid-trigger) längre fram i den här artikeln. För närvarande kan du inte använda en Event Grid-utlösare för en Azure Functions-app när händelsen levereras i [CloudEvents-schemat](../event-grid/cloudevents-schema.md). Använd i stället en HTTP-utlösare.
+If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Use an HTTP trigger as an Event Grid trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article. Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the [CloudEvents schema](../event-grid/cloudevents-schema.md). Instead, use an HTTP trigger.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Paket-funktioner 2. x
+## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
-Event Grid-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 2. x. Käll koden för paketet finns i GitHub-lagringsplatsen [Azure-Functions-eventgrid-Extensions](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) .
+The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 2.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="packages---functions-1x"></a>Paket-funktioner 1. x
+## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
-Event Grid-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 1. x. Käll koden för paketet finns i GitHub-lagringsplatsen [Azure-Functions-eventgrid-Extensions](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) .
+The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 1.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exempel
 
-Se språkspecifika exempel för en Event Grid-utlösare:
+See the language-specific example for an Event Grid trigger:
 
 * C#
-* [C#skript (. CSX)](#c-script-example)
+* [C# script (.csx)](#c-script-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
-Ett exempel på en HTTP-utlösare finns i [använda HTTP-utlösare](#use-an-http-trigger-as-an-event-grid-trigger) senare i den här artikeln.
+For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
 
-### <a name="c-2x"></a>C#(2. x)
+### <a name="c-2x"></a>C# (2.x)
 
-I följande exempel visas en funktion 2. x [ C# -funktion](functions-dotnet-class-library.md) som binder till`EventGridEvent`:
+The following example shows a Functions 2.x [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -77,11 +72,11 @@ namespace Company.Function
 }
 ```
 
-Mer information finns i paket, [attribut](#attributes), [konfiguration](#configuration)och [användning](#usage).
+For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
-### <a name="c-version-1x"></a>C#(Version 1. x)
+### <a name="c-version-1x"></a>C# (Version 1.x)
 
-I följande exempel visas en funktion 1. x [ C# -funktion](functions-dotnet-class-library.md) som binder till`JObject`:
+The following example shows a Functions 1.x [C# function](functions-dotnet-class-library.md) that binds to `JObject`:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -104,11 +99,11 @@ namespace Company.Function
 }
 ```
 
-### <a name="c-script-example"></a>C#skript exempel
+### <a name="c-script-example"></a>C# script example
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen.
+The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
 
-Här är bindnings data i *Function. JSON* -filen:
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -123,9 +118,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-#### <a name="c-script-version-2x"></a>C#skript (version 2. x)
+#### <a name="c-script-version-2x"></a>C# script (Version 2.x)
 
-Här är funktioner 2. x C# -skript kod som binder till`EventGridEvent`:
+Here's Functions 2.x C# script code that binds to `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -138,11 +133,11 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Mer information finns i paket, [attribut](#attributes), [konfiguration](#configuration)och [användning](#usage).
+For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
-#### <a name="c-script-version-1x"></a>C#skript (version 1. x)
+#### <a name="c-script-version-1x"></a>C# script (Version 1.x)
 
-Här är funktioner 1. x C# -skript kod som binder till`JObject`:
+Here's Functions 1.x C# script code that binds to `JObject`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -156,11 +151,11 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-### <a name="javascript-example"></a>JavaScript-exempel
+### <a name="javascript-example"></a>JavaScript example
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
-Här är bindnings data i *Function. JSON* -filen:
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -175,7 +170,7 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-Här är JavaScript-koden:
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, eventGridEvent) {
@@ -187,11 +182,11 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-### <a name="python-example"></a>Python-exempel
+### <a name="python-example"></a>Python example
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen.
+The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding.
 
-Här är bindnings data i *Function. JSON* -filen:
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -207,7 +202,7 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-Här är python-koden:
+Here's the Python code:
 
 ```python
 import logging
@@ -221,14 +216,14 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### <a name="trigger---java-examples"></a>Utlös – Java-exempel
+### <a name="trigger---java-examples"></a>Trigger - Java examples
 
-Det här avsnittet innehåller följande exempel:
+This section contains the following examples:
 
-* [Event Grid utlösare, sträng parameter](#event-grid-trigger-string-parameter-java)
-* [Event Grid trigger, POJO-parameter](#event-grid-trigger-pojo-parameter-java)
+* [Event Grid trigger, String parameter](#event-grid-trigger-string-parameter-java)
+* [Event Grid trigger, POJO parameter](#event-grid-trigger-pojo-parameter-java)
 
-I följande exempel visas utlösarens bindning i en *Function. JSON* -fil och [Java-funktioner](functions-reference-java.md) som använder bindningen och utskriften av en händelse, först mottagandet händelsen som ```String``` och sekund som en POJO.
+The following examples show trigger binding in a *function.json* file and [Java functions](functions-reference-java.md) that use the binding and print out an event, first receiving the event as ```String``` and second as a POJO.
 
 ```json
 {
@@ -242,7 +237,7 @@ I följande exempel visas utlösarens bindning i en *Function. JSON* -fil och [J
 }
 ```
 
-#### <a name="event-grid-trigger-string-parameter-java"></a>Event Grid utlösare, String-parameter (Java)
+#### <a name="event-grid-trigger-string-parameter-java"></a>Event Grid trigger, String parameter (Java)
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -256,9 +251,9 @@ I följande exempel visas utlösarens bindning i en *Function. JSON* -fil och [J
   }
 ```
 
-#### <a name="event-grid-trigger-pojo-parameter-java"></a>Event Grid-utlösare, POJO-parameter (Java)
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Event Grid trigger, POJO parameter (Java)
 
-I det här exemplet används följande POJO som motsvarar de högsta nivå egenskaperna för en Event Grid händelse:
+This example uses the following POJO, representing the top-level properties of an Event Grid event:
 
 ```java
 import java.util.Date;
@@ -278,7 +273,7 @@ public class EventSchema {
 }
 ```
 
-Vid ankomsten avserialiseras händelsens JSON-nyttolast i ```EventSchema```-POJO för användning av funktionen. Detta gör att funktionen kan komma åt händelsens egenskaper på ett objektorienterat sätt.
+Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema``` POJO for use by the function. This allows the function to access the event's properties in an object-oriented way.
 
 ```java
   @FunctionName("eventGridMonitor")
@@ -296,13 +291,13 @@ Vid ankomsten avserialiseras händelsens JSON-nyttolast i ```EventSchema```-POJO
   }
 ```
 
-I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `EventGridTrigger` kommentar för parametrar vars värde kommer från EventGrid. Parametrar med dessa anteckningar gör att funktionen körs när en händelse tas emot.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med hjälp av `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from EventGrid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ## <a name="attributes"></a>Attribut
 
-Använd attributet [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
+In [C# class libraries](functions-dotnet-class-library.md), use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute.
 
-Här är ett `EventGridTrigger`-attribut i en metodsignatur:
+Here's an `EventGridTrigger` attribute in a method signature:
 
 ```csharp
 [FunctionName("EventGridTest")]
@@ -312,37 +307,37 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 }
 ```
 
-Ett fullständigt exempel finns i C# exemplet.
+For a complete example, see C# example.
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . Det finns inga parametrar eller egenskaper för konstruktorn att ange i `EventGridTrigger`-attributet.
+The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
 
-|function. JSON-egenskap |Beskrivning|
+|function.json property |Beskrivning|
 |---------|---------|
-| **typ** | Required-måste anges till `eventGridTrigger`. |
-| **riktning** | Required-måste anges till `in`. |
-| **Namn** | Obligatoriskt – variabel namnet som används i funktions koden för den parameter som tar emot händelse data. |
+| **typ** | Required - must be set to `eventGridTrigger`. |
+| **riktning** | Required - must be set to `in`. |
+| **name** | Required - the variable name used in function code for the parameter that receives the event data. |
 
 ## <a name="usage"></a>Användning
 
-För C# och F# -funktioner i Azure Functions 1. x kan du använda följande parameter typer för utlösaren för Event Grid:
+For C# and F# functions in Azure Functions 1.x, you can use the following parameter types for the Event Grid trigger:
 
 * `JObject`
 * `string`
 
-För C# - F# och-funktionerna i Azure Functions 2. x har du också möjlighet att använda följande parameter typ för Event Grid-utlösaren:
+For C# and F# functions in Azure Functions 2.x, you also have the option to use the following parameter type for the Event Grid trigger:
 
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-definierar egenskaper för fälten som är gemensamma för alla händelse typer.
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Defines properties for the fields common to all event types.
 
 > [!NOTE]
-> I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`visas ett "föråldrat" meddelande som gör att du kan använda `Microsoft.Azure.EventGrid.Models.EventGridEvent` i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och fullständigt kvalificerar `EventGridEvent` typ namnet genom att prefixet med `Microsoft.Azure.EventGrid.Models`. Information om hur du refererar till NuGet-paket i C# en-skript funktion finns i [använda NuGet-paket](functions-reference-csharp.md#using-nuget-packages)
+> In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`. For information about how to reference NuGet packages in a C# script function, see [Using NuGet packages](functions-reference-csharp.md#using-nuget-packages)
 
-För JavaScript-funktioner har den parameter som har namnet av egenskapen *Function. json* `name` en referens till Event-objektet.
+For JavaScript functions, the parameter named by the *function.json* `name` property has a reference to the event object.
 
 ## <a name="event-schema"></a>Händelseschema
 
-Data för en Event Grid-händelse tas emot som ett JSON-objekt i bröd texten i en HTTP-begäran. JSON ser ut ungefär som i följande exempel:
+Data for an Event Grid event is received as a JSON object in the body of an HTTP request. The JSON looks similar to the following example:
 
 ```json
 [{
@@ -370,49 +365,49 @@ Data för en Event Grid-händelse tas emot som ett JSON-objekt i bröd texten i 
 }]
 ```
 
-Exemplet som visas är en matris med ett-element. Event Grid skickar alltid en matris och kan skicka fler än en händelse i matrisen. Körningen anropar funktionen en gång för varje mat ris element.
+The example shown is an array of one element. Event Grid always sends an array and may send more than one event in the array. The runtime invokes your function once for each array element.
 
-Egenskaperna på den högsta nivån i Event JSON-data är desamma bland alla händelse typer, medan innehållet i egenskapen `data` är särskilt för varje händelse typ. Exemplet som visas är en Blob Storage-händelse.
+The top-level properties in the event JSON data are the same among all event types, while the contents of the `data` property are specific to each event type. The example shown is for a blob storage event.
 
-Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händelse egenskaper](../event-grid/event-schema.md#event-properties) i Event Grid-dokumentationen.
+For explanations of the common and event-specific properties, see [Event properties](../event-grid/event-schema.md#event-properties) in the Event Grid documentation.
 
-`EventGridEvent` typen definierar bara egenskaperna på den översta nivån. Egenskapen `Data` är en `JObject`.
+The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
 
 ## <a name="create-a-subscription"></a>Skapa en prenumeration
 
-Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-prenumeration som anger slut punkts-URL: en som anropar funktionen.
+To start receiving Event Grid HTTP requests, create an Event Grid subscription that specifies the endpoint URL that invokes the function.
 
 ### <a name="azure-portal"></a>Azure portal
 
-För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **Lägg till Event Grid prenumeration**.
+For functions that you develop in the Azure portal with the Event Grid trigger, select **Add Event Grid subscription**.
 
-![Skapa prenumeration i portalen](media/functions-bindings-event-grid/portal-sub-create.png)
+![Create subscription in portal](media/functions-bindings-event-grid/portal-sub-create.png)
 
-När du väljer den här länken öppnar portalen sidan **Skapa händelse prenumeration** med slut PUNKTens URL förifylld.
+When you select this link, the portal opens the **Create Event Subscription** page with the endpoint URL prefilled.
 
-![Förifyllt slut punkts-URL](media/functions-bindings-event-grid/endpoint-url.png)
+![Endpoint URL prefilled](media/functions-bindings-event-grid/endpoint-url.png)
 
-Mer information om hur du skapar prenumerationer med hjälp av Azure Portal finns i avsnittet [Skapa anpassad händelse-Azure Portal](../event-grid/custom-event-quickstart-portal.md) i Event Grid-dokumentationen.
+For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill skapa en prenumeration med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)använder du kommandot [AZ eventgrid Event-Subscription Create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) .
+To create a subscription by using [the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) command.
 
-Kommandot kräver slut punkts-URL: en som anropar funktionen. I följande exempel visas det användarspecifika URL-mönstret:
+The command requires the endpoint URL that invokes the function. The following example shows the version-specific URL pattern:
 
-#### <a name="version-2x-runtime"></a>Version 2. x-körning
+#### <a name="version-2x-runtime"></a>Version 2.x runtime
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
-#### <a name="version-1x-runtime"></a>Version 1. x-körning
+#### <a name="version-1x-runtime"></a>Version 1.x runtime
 
     https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
-System nyckeln är en auktoriseringskod som måste inkluderas i slut punkts-URL: en för en Event Grid-utlösare. I följande avsnitt beskrivs hur du hämtar system nyckeln.
+The system key is an authorization key that has to be included in the endpoint URL for an Event Grid trigger. The following section explains how to get the system key.
 
-Här är ett exempel som prenumererar på ett Blob Storage-konto (med en plats hållare för system nyckeln):
+Here's an example that subscribes to a blob storage account (with a placeholder for the system key):
 
-#### <a name="version-2x-runtime"></a>Version 2. x-körning
+#### <a name="version-2x-runtime"></a>Version 2.x runtime
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -423,7 +418,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
-#### <a name="version-1x-runtime"></a>Version 1. x-körning
+#### <a name="version-1x-runtime"></a>Version 1.x runtime
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -434,27 +429,27 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
-Mer information om hur du skapar en prenumeration finns i [snabb starten för Blob Storage](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) eller andra event Grid snabb starter.
+For more information about how to create a subscription, see [the blob storage quickstart](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) or the other Event Grid quickstarts.
 
-### <a name="get-the-system-key"></a>Hämta system nyckeln
+### <a name="get-the-system-key"></a>Get the system key
 
-Du kan hämta system nyckeln med hjälp av följande API (HTTP GET):
+You can get the system key by using the following API (HTTP GET):
 
-#### <a name="version-2x-runtime"></a>Version 2. x-körning
+#### <a name="version-2x-runtime"></a>Version 2.x runtime
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### <a name="version-1x-runtime"></a>Version 1. x-körning
+#### <a name="version-1x-runtime"></a>Version 1.x runtime
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Det här är ett administrations-API, så den kräver [huvud nyckeln](functions-bindings-http-webhook.md#authorization-keys)för Function-appen. Blanda inte ihop system nyckeln (för att anropa en Event Grid trigger-funktion) med huvud nyckeln (för att utföra administrativa uppgifter i Function-appen). När du prenumererar på ett Event Grid-ämne ska du se till att använda system nyckeln.
+This is an admin API, so it requires your function app [master key](functions-bindings-http-webhook.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
 
-Här är ett exempel på svaret som innehåller system nyckeln:
+Here's an example of the response that provides the system key:
 
 ```
 {
@@ -469,29 +464,29 @@ Här är ett exempel på svaret som innehåller system nyckeln:
 }
 ```
 
-Du kan hämta huvud nyckeln för din Function-app från fliken **funktions program inställningar** i portalen.
+You can get the master key for your function app from the **Function app settings** tab in the portal.
 
 > [!IMPORTANT]
-> Huvud nyckeln ger administratörs åtkomst till din Function-app. Dela inte den här nyckeln med tredje part eller distribuera den i interna klient program.
+> The master key provides administrator access to your function app. Don't share this key with third parties or distribute it in native client applications.
 
-Mer information finns i [Authorization Keys](functions-bindings-http-webhook.md#authorization-keys) i referens artikeln för http-utlösare.
+For more information, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys) in the HTTP trigger reference article.
 
-Du kan också skicka ett HTTP-värde för att ange nyckel värdet själv.
+Alternatively, you can send an HTTP PUT to specify the key value yourself.
 
-## <a name="local-testing-with-viewer-web-app"></a>Lokal testning med Viewer Web App
+## <a name="local-testing-with-viewer-web-app"></a>Local testing with viewer web app
 
-Om du vill testa en Event Grid-utlösare lokalt måste du få Event Grid HTTP-begäranden som levereras från deras ursprung i molnet till din lokala dator. Ett sätt att göra detta är genom att fånga förfrågningar online och skicka dem manuellt på den lokala datorn:
+To test an Event Grid trigger locally, you have to get Event Grid HTTP requests delivered from their origin in the cloud to your local machine. One way to do that is by capturing requests online and manually resending them on your local machine:
 
-1. [Skapa en visnings webb program](#create-a-viewer-web-app) som fångar händelse meddelanden.
-1. [Skapa en Event Grid-prenumeration](#create-an-event-grid-subscription) som skickar händelser till Viewer-appen.
-1. [Generera en begäran](#generate-a-request) och kopiera begär ande texten från visnings programmet.
-1. [Publicera begäran](#manually-post-the-request) till localhost-URL: en manuellt för din event Grid trigger-funktion.
+1. [Create a viewer web app](#create-a-viewer-web-app) that captures event messages.
+1. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the viewer app.
+1. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
+1. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
 
-När du är klar med testningen kan du använda samma prenumeration för produktion genom att uppdatera slut punkten. Använd kommandot [AZ eventgrid Event-Subscription Update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI.
+When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 
-### <a name="create-a-viewer-web-app"></a>Skapa ett visnings program för webb program
+### <a name="create-a-viewer-web-app"></a>Create a viewer web app
 
-För att förenkla insamling av händelse meddelanden kan du distribuera en [förbyggd webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar händelse meddelandena. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
+To simplify capturing event messages, you can deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
 
 Välj **Deploy to Azure** (Distribuera till Azure) för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
@@ -505,74 +500,74 @@ Du ser webbplatsen men det har inte publicerats händelser till den än.
 
 ### <a name="create-an-event-grid-subscription"></a>Skapa en Event Grid-prenumeration
 
-Skapa en Event Grid-prenumeration av den typ som du vill testa och ge den URL: en från din webbapp som slut punkt för händelse aviseringen. Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`. Den fullständiga URL: en är alltså `https://<your-site-name>.azurewebsites.net/api/updates`
+Create an Event Grid subscription of the type you want to test, and give it the URL from your web app as the endpoint for event notification. Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`. So, the full URL is `https://<your-site-name>.azurewebsites.net/api/updates`
 
-Information om hur du skapar prenumerationer med hjälp av Azure Portal finns i [Skapa anpassad händelse-Azure Portal](../event-grid/custom-event-quickstart-portal.md) i Event Grid-dokumentationen.
+For information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
-### <a name="generate-a-request"></a>Generera en begäran
+### <a name="generate-a-request"></a>Generate a request
 
-Utlöser en händelse som kommer att generera HTTP-trafik till din Web App-slutpunkt.  Om du till exempel har skapat en Blob Storage-prenumeration laddar du upp eller tar bort en blob. När en begäran visas i din webbapp kopierar du begär ande texten.
+Trigger an event that will generate HTTP traffic to your web app endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your web app, copy the request body.
 
-Begäran om prenumerations verifiering tas emot först. ignorera eventuella verifierings begär Anden och kopiera händelse förfrågningen.
+The subscription validation request will be received first; ignore any validation requests, and copy the event request.
 
-![Kopiera begär ande brödtext från webbapp](media/functions-bindings-event-grid/view-results.png)
+![Copy request body from web app](media/functions-bindings-event-grid/view-results.png)
 
-### <a name="manually-post-the-request"></a>Publicera begäran manuellt
+### <a name="manually-post-the-request"></a>Manually post the request
 
-Kör din Event Grid funktion lokalt.
+Run your Event Grid function locally.
 
-Använd ett verktyg som [Postman](https://www.getpostman.com/) eller [sväng](https://curl.haxx.se/docs/httpscripting.html) för att skapa en http post-begäran:
+Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/docs/httpscripting.html) to create an HTTP POST request:
 
-* Ange ett `Content-Type: application/json` huvud.
-* Ange ett `aeg-event-type: Notification`s huvud.
-* Klistra in RequestBin-data i begär ande texten.
-* Publicera till URL: en för din Event Grid trigger-funktion.
-  * Använd följande mönster för 2. x:
+* Set a `Content-Type: application/json` header.
+* Set an `aeg-event-type: Notification` header.
+* Paste the RequestBin data into the request body.
+* Post to the URL of your Event Grid trigger function.
+  * For 2.x use the following pattern:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * För 1. x-användning:
+  * For 1.x use:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
     ```
 
-Parametern `functionName` måste vara det namn som anges i attributet `FunctionName`.
+The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
-Följande skärm bilder visar rubrikerna och begär ande texten i Postman:
+The following screenshots show the headers and request body in Postman:
 
-![Rubriker i Postman](media/functions-bindings-event-grid/postman2.png)
+![Headers in Postman](media/functions-bindings-event-grid/postman2.png)
 
-![Begär ande text i Postman](media/functions-bindings-event-grid/postman.png)
+![Request body in Postman](media/functions-bindings-event-grid/postman.png)
 
-Funktionen Event Grid trigger kör och visar loggar som liknar följande exempel:
+The Event Grid trigger function executes and shows logs similar to the following example:
 
-![Exempel Event Grid utlösa funktions loggar](media/functions-bindings-event-grid/eg-output.png)
+![Sample Event Grid trigger function logs](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="local-testing-with-ngrok"></a>Lokal testning med ngrok
+## <a name="local-testing-with-ngrok"></a>Local testing with ngrok
 
-Ett annat sätt att testa en Event Grid-utlösare lokalt är att automatisera HTTP-anslutningen mellan Internet och din utvecklings dator. Du kan göra det med ett verktyg som [ngrok](https://ngrok.com/):
+Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with a tool like [ngrok](https://ngrok.com/):
 
-1. [Skapa en ngrok-slutpunkt](#create-an-ngrok-endpoint).
-1. [Kör funktionen Event Grid trigger](#run-the-event-grid-trigger-function).
-1. [Skapa en Event Grid-prenumeration](#create-a-subscription) som skickar händelser till ngrok-slutpunkten.
-1. [Utlösa en händelse](#trigger-an-event).
+1. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
+1. [Run the Event Grid trigger function](#run-the-event-grid-trigger-function).
+1. [Create an Event Grid subscription](#create-a-subscription) that sends events to the ngrok endpoint.
+1. [Trigger an event](#trigger-an-event).
 
-När du är klar med testningen kan du använda samma prenumeration för produktion genom att uppdatera slut punkten. Använd kommandot [AZ eventgrid Event-Subscription Update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI.
+When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 
-### <a name="create-an-ngrok-endpoint"></a>Skapa en ngrok-slutpunkt
+### <a name="create-an-ngrok-endpoint"></a>Create an ngrok endpoint
 
-Hämta *ngrok. exe* från [ngrok](https://ngrok.com/)och kör med följande kommando:
+Download *ngrok.exe* from [ngrok](https://ngrok.com/), and run with the following command:
 
 ```
 ngrok http -host-header=localhost 7071
 ```
 
-Parametern-Host-Head krävs eftersom Functions runtime förväntar sig begär Anden från localhost när den körs på localhost. 7071 är standard port numret när körningen körs lokalt.
+The -host-header parameter is needed because the functions runtime expects requests from localhost when it runs on localhost. 7071 is the default port number when the runtime runs locally.
 
-Kommandot skapar utdata som följande:
+The command creates output like the following:
 
 ```
 Session Status                online
@@ -586,60 +581,60 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Du använder `https://{subdomain}.ngrok.io`-URL: en för din Event Grid-prenumeration.
+You'll use the `https://{subdomain}.ngrok.io` URL for your Event Grid subscription.
 
-### <a name="run-the-event-grid-trigger-function"></a>Kör funktionen Event Grid trigger
+### <a name="run-the-event-grid-trigger-function"></a>Run the Event Grid trigger function
 
-Ngrok-URL: en får inte särskilt hantering av Event Grid, så din funktion måste köras lokalt när prenumerationen skapas. Om det inte är det skickas inte verifierings svaret och det går inte att skapa prenumerationen.
+The ngrok URL doesn't get special handling by Event Grid, so your function must be running locally when the subscription is created. If it isn't, the validation response doesn't get sent and the subscription creation fails.
 
 ### <a name="create-a-subscription"></a>Skapa en prenumeration
 
-Skapa en Event Grid-prenumeration av den typ som du vill testa och ge den ngrok-slutpunkten.
+Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint.
 
-Använd det här slut punkts mönstret för functions 2. x:
+Use this endpoint pattern for Functions 2.x:
 
 ```
 https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-Använd det här slut punkts mönstret för functions 1. x:
+Use this endpoint pattern for Functions 1.x:
 
 ```
 https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
 ```
 
-Parametern `{FUNCTION_NAME}` måste vara det namn som anges i attributet `FunctionName`.
+The `{FUNCTION_NAME}` parameter must be the name specified in the `FunctionName` attribute.
 
-Här är ett exempel på hur du använder Azure CLI:
+Here's an example using the Azure CLI:
 
 ```azurecli
 az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/runtime/webhooks/eventgrid?functionName=EventGridTrigger
 ```
 
-Information om hur du skapar en prenumeration finns i [skapa en prenumeration](#create-a-subscription) tidigare i den här artikeln.
+For information about how to create a subscription, see [Create a subscription](#create-a-subscription) earlier in this article.
 
 ### <a name="trigger-an-event"></a>Utlösa en händelse
 
-Utlöser en händelse som genererar HTTP-trafik till din ngrok-slutpunkt.  Om du till exempel har skapat en Blob Storage-prenumeration laddar du upp eller tar bort en blob.
+Trigger an event that will generate HTTP traffic to your ngrok endpoint.  For example, if you created a blob storage subscription, upload or delete a blob.
 
-Funktionen Event Grid trigger kör och visar loggar som liknar följande exempel:
+The Event Grid trigger function executes and shows logs similar to the following example:
 
-![Exempel Event Grid utlösa funktions loggar](media/functions-bindings-event-grid/eg-output.png)
+![Sample Event Grid trigger function logs](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Använd en HTTP-utlösare som en Event Grid-utlösare
+## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Use an HTTP trigger as an Event Grid trigger
 
-Event Grid händelser tas emot som HTTP-begäranden, så att du kan hantera händelser med hjälp av en HTTP-utlösare i stället för en Event Grid utlösare. En möjlig orsak till att göra detta är att få mer kontroll över slut punkts-URL: en som anropar funktionen. En annan orsak är när du behöver ta emot händelser i [CloudEvents-schemat](../event-grid/cloudevents-schema.md). För närvarande stöder Event Grid-utlösaren inte CloudEvents-schemat. I exemplen i det här avsnittet visas lösningar för både Event Grid schema och CloudEvents-schema.
+Event Grid events are received as HTTP requests, so you can handle events by using an HTTP trigger instead of an Event Grid trigger. One possible reason for doing that is to get more control over the endpoint URL that invokes the function. Another reason is when you need to receive events in the [CloudEvents schema](../event-grid/cloudevents-schema.md). Currently, the Event Grid trigger doesn't support the CloudEvents schema. The examples in this section show solutions for both Event Grid schema and CloudEvents schema.
 
-Om du använder en HTTP-utlösare måste du skriva kod för vad den Event Grid utlösaren gör automatiskt:
+If you use an HTTP trigger, you have to write code for what the Event Grid trigger does automatically:
 
-* Skickar ett verifierings svar till en [begäran om prenumerations verifiering](../event-grid/security-authentication.md#webhook-event-delivery).
-* Anropar funktionen en gång per element i händelse mat ris som finns i begär ande texten.
+* Sends a validation response to a [subscription validation request](../event-grid/security-authentication.md#webhook-event-delivery).
+* Invokes the function once per element of the event array contained in the request body.
 
-Information om den URL som ska användas för att anropa funktionen lokalt eller när den körs i Azure finns i [referens dokumentationen för http-utlösare](functions-bindings-http-webhook.md)
+For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md)
 
 ### <a name="event-grid-schema"></a>Event Grid-schema
 
-Följande exempel C# kod för en http-utlösare simulerar Event Grid utlösarens beteende. Använd det här exemplet för händelser som levereras i Event Grid-schemat.
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -677,7 +672,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Följande exempel på JavaScript-kod för en HTTP-utlösare simulerar Event Grid utlösnings beteende. Använd det här exemplet för händelser som levereras i Event Grid-schemat.
+The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
 
 ```javascript
 module.exports = function (context, req) {
@@ -705,11 +700,11 @@ module.exports = function (context, req) {
 };
 ```
 
-Din händelse hanterings kod hamnar inuti loopen genom `messages` matrisen.
+Your event-handling code goes inside the loop through the `messages` array.
 
-### <a name="cloudevents-schema"></a>CloudEvents-schema
+### <a name="cloudevents-schema"></a>CloudEvents schema
 
-Följande exempel C# kod för en http-utlösare simulerar Event Grid utlösarens beteende.  Använd det här exemplet för händelser som levereras i CloudEvents-schemat.
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior.  Use this example for events delivered in the CloudEvents schema.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -747,7 +742,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 }
 ```
 
-Följande exempel på JavaScript-kod för en HTTP-utlösare simulerar Event Grid utlösnings beteende. Använd det här exemplet för händelser som levereras i CloudEvents-schemat.
+The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
 
 ```javascript
 module.exports = function (context, req) {
@@ -775,7 +770,7 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Läs mer om Event Grid](../event-grid/overview.md)
+> [Learn more about Event Grid](../event-grid/overview.md)

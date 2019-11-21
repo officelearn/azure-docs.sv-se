@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Egnyte | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Egnyte | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Egnyte.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e53f3adbf7f9909d3590a0bc34dadc49d498291d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7201b7d3f9f7e8333b18a087f58b6211101b1304
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73157287"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233557"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Självstudie: Azure Active Directory integrering med Egnyte
+# <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: Azure Active Directory integration with Egnyte
 
 I den här självstudien lär du dig att integrera Egnyte med Azure Active Directory (Azure AD).
 När du integrerar Egnyte med Azure AD innebär det följande fördelar:
@@ -143,7 +143,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Egnyt
 
 5. Gör följande i avsnittet **Enkel inloggningsautentisering**:
 
-    ![Autentisering med enkel inloggning](./media/egnyte-tutorial/ic787822.png "Autentisering med enkel inloggning")   
+    ![Single Sign On Authentication](./media/egnyte-tutorial/ic787822.png "Single Sign On Authentication")   
     
     a. För **Enkel inloggningsautentisering** väljer du **SAML 2.0**.
    
@@ -179,7 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -228,9 +228,9 @@ För att Azure AD-användare ska kunna logga in i Egnyte måste de vara etablera
 
 4. I avsnittet **New Power User** (Ny privilegierad användare) utför du följande steg:
     
-    ![Ny standard användare](./media/egnyte-tutorial/ic787825.png "Ny standard användare")   
+    ![New Standard User](./media/egnyte-tutorial/ic787825.png "New Standard User")   
 
-    a. I text rutan **e-postadress** anger du e-postmeddelandet som **Brittasimon\@contoso.com**.
+    a. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
     b. I textrutan för **användarnamn** anger du användarnamnet för användaren, till exempel **Brittasimon**.
 
@@ -243,7 +243,7 @@ För att Azure AD-användare ska kunna logga in i Egnyte måste de vara etablera
     >
 
 >[!NOTE]
->Du kan använda valfria verktyg eller API:er från Egnyte för att etablera AAD-användarkonton.
+>You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision Azure AD user accounts.
 >
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
@@ -258,5 +258,5 @@ När du klickar på Egnyte-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

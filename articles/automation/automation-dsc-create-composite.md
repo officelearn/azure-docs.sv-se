@@ -1,7 +1,7 @@
 ---
-title: Konvertera konfigurationer till sammansatta resurser för tillstånds konfiguration – Azure Automation
-description: Lär dig hur du konverterar konfigurationer till sammansatta resurser för tillstånds konfiguration i Azure Automation.
-keywords: DSC, PowerShell, konfiguration, installation
+title: Convert configurations to composite resources for state configuration - Azure Automation
+description: Learn how to convert configurations to composite resources for state configuration in Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,53 +10,53 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d830b8e27bb6f66a533b8106cbec53eeca4ca139
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 85c13a7175bca015ab24c8b09500b47e3ea846ed
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970724"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231655"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Konvertera konfigurationer till sammansatta resurser
 
-> Gäller för: Windows PowerShell 5.1
+> Applies To: Windows PowerShell 5.1
 
-När du har börjat redigera konfigurationer kan du snabbt skapa "scenarier" som hanterar grupper av inställningar.
-Exempel:
+Once you get started authoring configurations, you can quickly create "scenarios" that manage groups of settings.
+Examples would be:
 
-- skapa en webb server
-- skapa en DNS-Server
-- skapa en SharePoint-Server
-- Konfigurera ett SQL-kluster
-- hantera brand Väggs inställningar
-- hantera lösen ords inställningar
+- create a web server
+- create a DNS server
+- create a SharePoint server
+- configure a SQL cluster
+- manage firewall settings
+- manage password settings
 
-Om du är intresse rad av att dela detta arbete med andra, är det bästa alternativet att paketera konfigurationen som en [sammansatt resurs](/powershell/dsc/resources/authoringresourcecomposite).
-Det kan vara en överbelastande att skapa sammansatta resurser för första gången.
+If you are interested in sharing this work with others, the best option is to package the configuration as a [Composite Resource](/powershell/scripting/dsc/resources/authoringresourcecomposite).
+Creating composite resources for the first time can be overwhelming.
 
 > [!NOTE]
-> Den här artikeln hänvisar till en lösning som underhålls av communityn för öppen källkod.
-> Support är endast tillgängligt i form av GitHub-samarbete, inte från Microsoft.
+> This article refers to a solution that is maintained by the Open Source community.
+> Support is only available in the form of GitHub collaboration, not from Microsoft.
 
-## <a name="community-project-compositeresource"></a>Community-projekt: CompositeResource
+## <a name="community-project-compositeresource"></a>Community project: CompositeResource
 
-En community-baserad lösning med namnet [CompositeResource](https://github.com/microsoft/compositeresource) har skapats för att lösa den här utmaningen.
+A community maintained solution named [CompositeResource](https://github.com/microsoft/compositeresource) has been created to resolve this challenge.
 
-CompositeResource automatiserar processen med att skapa en ny modul från din konfiguration.
-Du börjar med [punkt källa](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) konfigurations skriptet på din arbets Station (eller bygg Server) så att det läses in i minnet.
-I stället för att köra konfigurationen för att generera en MOF-fil använder du funktionen som tillhandahålls av CompositeResource-modulen för att automatisera en konvertering.
-Cmdleten läser in innehållet i konfigurationen, hämtar listan över parametrar och genererar en ny modul med allt du behöver.
+CompositeResource automates the process of creating a new module from your configuration.
+You start by [dot sourcing](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) the configuration script on your workstation (or build server) so it is loaded in memory.
+Next, rather than running the configuration to generate a MOF file, use the function provided by the CompositeResource module to automate a conversion.
+The cmdlet will load the contents of your configuration, get the list of parameters, and generate a new module with everything you need.
 
-När du har genererat en modul kan du öka versionen och lägga till viktig information varje gång du gör ändringar och publicera den till din egen [PowerShellGet-lagringsplats](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
+Once you have generated a module, you can increment the version and add release notes each time you make changes and publish it to your own [PowerShellGet repository](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-När du har skapat en sammansatt resurspool som innehåller din konfiguration (eller flera konfigurationer) kan du använda dem i den sammanställnings bara [redigerings upplevelsen](/azure/automation/compose-configurationwithcompositeresources) i Azure, eller lägga till dem i [DSC-konfigurations skript](/powershell/dsc/configurations/configurations) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
-Den senaste uppdateringen av projektet har också publicerat [Runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples) för att Azure Automation automatisera processen med att importera konfigurationer från PowerShell-galleriet.
+Once you have create a composite resource module containing your configuration (or multiple configurations), you can use them in the [Composable Authoring Experience](/azure/automation/compose-configurationwithcompositeresources) in Azure, or add them to [DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
+The latest update to the project has also published [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples) for Azure Automation to automate the process of importing configurations from the PowerShell Gallery.
 
-Om du vill prova att automatisera skapandet av sammansatta resurser för DSC går du till [PowerShell-galleriet](https://www.powershellgallery.com/packages/compositeresource/) och laddar ned lösningen eller klickar på "Project site" för att visa [dokumentationen](https://github.com/microsoft/compositeresource).
+To try out automating creation of composite resources for DSC, visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/) and download the solution or click "Project Site" to view the [documentation](https://github.com/microsoft/compositeresource).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/dsc/overview/overview)
-- [DSC-resurser](/powershell/dsc/resources/resources)
-- [Konfigurera den lokala Configuration Manager](/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
+- [DSC Resources](/powershell/scripting/dsc/resources/resources)
+- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

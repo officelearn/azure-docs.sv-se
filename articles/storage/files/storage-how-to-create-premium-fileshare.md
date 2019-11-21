@@ -1,43 +1,43 @@
 ---
-title: Skapa en Premium Azure-filresurs
-description: I den här artikeln får du lära dig hur du skapar en Premium Azure-filresurs.
+title: Create a premium Azure file share
+description: In this article, you learn how to create a premium Azure file share.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260220"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209538"
 ---
-# <a name="how-to-create-an-premium-azure-file-share"></a>Så här skapar du en Premium Azure-filresurs
-Premium-filresurser erbjuds på lagrings mediet SSD (solid-state disk) och är användbara för i/o-intensiva arbets belastningar, inklusive värd databaser och HPC (data behandling med höga prestanda). Premium-filresurser finns i en särskild typ av lagrings konto, vilket kallas ett FileStorage-konto. Premium-filresurser är utformade för högpresterande program och företags skalnings program, vilket ger konsekvent låg latens, höga IOPS och höga data flödes resurser.
+# <a name="how-to-create-an-premium-azure-file-share"></a>How to create an premium Azure file share
+Premium file shares are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
-Den här artikeln visar hur du skapar den här nya konto typen med hjälp av [Azure Portal](https://portal.azure.com/), Azure PowerShell och Azure CLI.
+This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du behöver en Azure-prenumeration för att få åtkomst till Azure-resurser, inklusive Premium Azure-filresurser. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+To access Azure resources including premium Azure file shares, you'll need an Azure subscription. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Skapa en Premium-filresurs med hjälp av Azure Portal
+## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Create a premium file share using the Azure portal
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-storage-account"></a>Skapa ett FileStorage-lagrings konto
+### <a name="create-a-filestorage-storage-account"></a>Create a filestorage storage account
 
-Nu är du redo att skapa ditt lagrings konto.
+Now you're ready to create your storage account.
 
-Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. Den här artikeln visar hur du skapar en ny resurs grupp.
+Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. This article shows how to create a new resource group.
 
-1. I Azure Portal väljer du **lagrings konton** på den vänstra menyn.
+1. In the Azure portal, select **Storage Accounts** on the left menu.
 
-    ![Azure Portal huvud sida Välj lagrings konto](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Azure portal main page select storage account](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
 1. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
 1. Välj den prenumeration där du vill skapa lagringskontot.
@@ -45,53 +45,53 @@ Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en
 
 1. Ange sedan ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure. Namnet måste också bestå av mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
 1. Välj en plats för ditt lagringskonto eller använd standardplatsen.
-1. För **prestanda** väljer du **Premium**.
-1. Välj **typ av konto** och välj **FileStorage**.
-1. Lämna **replikeringsuppsättningen** till standardvärdet för **lokalt REDUNDANT lagring (LRS)** .
+1. For **Performance** select **Premium**.
+1. Select **Account kind** and choose **FileStorage**.
+1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)** .
 
-    ![Så här skapar du ett lagrings konto för en Premium-filresurs](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
+    ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
 1. Välj **Skapa**.
 
-När lagrings konto resursen har skapats navigerar du till den.
+Once your storage account resource has been created, navigate to it.
 
 ### <a name="create-a-premium-file-share"></a>Skapa en premium-filresurs
 
-1. På den vänstra menyn för lagrings kontot bläddrar du till avsnittet **fil tjänst** och väljer sedan **filer**.
-1. Välj **fil resurs** för att skapa en Premium-filresurs.
-1. Ange ett namn och en önskad kvot för fil resursen och välj sedan **skapa**.
+1. In the left menu for the storage account, scroll to the **File service** section, then select **Files**.
+1. Select **File share** to create a premium file share.
+1. Enter a name and a desired quota for your file share, then select **Create**.
 
 > [!NOTE]
-> Etablerade resurs storlekar anges av resurs kvoten. fil resurser debiteras enligt den etablerade storleken på [sidan med pris](https://azure.microsoft.com/pricing/details/storage/files/) information för mer information.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
 
    ![Skapa en premium-filresurs](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa resurserna som skapats i den här artikeln kan du helt enkelt ta bort resurs gruppen. Om du tar bort resurs gruppen tas även det associerade lagrings kontot bort och andra resurser som är kopplade till resurs gruppen tas bort.
+If you would like to clean up the resources created in this article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
 
-## <a name="create-a-premium-file-share-using-powershell"></a>Skapa en Premium-filresurs med PowerShell
+## <a name="create-a-premium-file-share-using-powershell"></a>Create a premium file share using PowerShell
 
 ### <a name="create-an-account-using-powershell"></a>Skapa ett lagringskonto med PowerShell
 
-Installera först den senaste versionen av [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)-modulen.
+Installera först den senaste versionen av [PowerShellGet](/powershell/scripting/gallery/installing-psget)-modulen.
 
-Uppgradera sedan PowerShell-modulen, logga in på din Azure-prenumeration, skapa en resurs grupp och skapa ett lagrings konto.
+Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
-### <a name="upgrade-your-powershell-module"></a>Uppgradera din PowerShell-modul
+### <a name="upgrade-your-powershell-module"></a>Upgrade your PowerShell module
 
-Om du vill interagera med en Premium-filresurs från med PowerShell måste du installera en AZ. Storage-modul version 1.4.0 eller den senaste AZ. Storage-modulen.
+To interact with a premium file share from with PowerShell, you'll need to install an Az.Storage module version 1.4.0, or the latest Az.Storage module.
 
 Starta genom att öppna en PowerShell-session med förhöjd behörighet.
 
-Installera modulen AZ. Storage:
+Install the Az.Storage module:
 
 ```powershell
 Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
+### <a name="sign-in-to-your-azure-subscription"></a>Sign in to your Azure Subscription
 
 Använd kommandot `Connect-AzAccount` och följ anvisningarna på skärmen för att autentisera.
 
@@ -111,9 +111,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>Skapa ett FileStorage-lagrings konto
+### <a name="create-a-filestorage-storage-account"></a>Create a FileStorage storage account
 
-Om du vill skapa ett FileStorage lagrings konto från PowerShell använder du kommandot [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) :
+To create a filestorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -121,10 +121,10 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>Skapa en premium-filresurs
 
-Nu när du har ett FileStorage-konto kan du skapa en Premium-filresurs. Använd cmdleten [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) för att skapa en.
+Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
 
 > [!NOTE]
-> Etablerade resurs storlekar anges av resurs kvoten. fil resurser debiteras enligt den etablerade storleken på [sidan med pris](https://azure.microsoft.com/pricing/details/storage/files/) information för mer information.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
 
 ```powershell
 New-AzStorageShare `
@@ -140,11 +140,11 @@ Om du vill ta bort resursgruppen och dess kopplade resurser, inklusive det nya l
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="create-a-premium-file-share-using-azure-cli"></a>Skapa en Premium-filresurs med hjälp av Azure CLI
+## <a name="create-a-premium-file-share-using-azure-cli"></a>Create a premium file share using Azure CLI
 
-Logga in på [Azure Portal](https://portal.azure.com)för att starta Azure Cloud Shell.
+To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-Om du vill logga in på den lokala installationen av CLI måste du först kontrol lera att du har den senaste versionen och sedan köra inloggnings kommandot:
+If you want to log into your local installation of the CLI, first make sure you have the latest version, then run the login command:
 
 ```cli
 az login
@@ -160,9 +160,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>Skapa ett FileStorage-lagrings konto
+### <a name="create-a-filestorage-storage-account"></a>Create a FileStorage storage account
 
-Om du vill skapa ett FileStorage lagrings konto från Azure CLI använder du kommandot [AZ Storage Account Create](/cli/azure/storage/account) .
+To create a FileStorage storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
@@ -175,7 +175,7 @@ az storage account create `
 
 ### <a name="get-the-storage-account-key"></a>Hämta lagringskontonyckeln
 
-Lagrings konto nycklar styr åtkomsten till resurser i ett lagrings konto. i den här artikeln använder vi nyckeln för att skapa en Premium-fil resurs. Nycklarna skapas automatiskt när du skapar ett lagringskonto. Du kan hämta lagringskontonycklarna till lagringskontot med kommandot [az storage account keys list](/cli/azure/storage/account/keys):
+Storage account keys control access to resources in a storage account, in this article, we use the key in order to create a premium file share. Nycklarna skapas automatiskt när du skapar ett lagringskonto. Du kan hämta lagringskontonycklarna till lagringskontot med kommandot [az storage account keys list](/cli/azure/storage/account/keys):
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -186,10 +186,10 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>Skapa en premium-filresurs
 
-Nu när du har ett FileStorage-konto kan du skapa en Premium-filresurs. Använd kommandot [AZ Storage Share Create](/cli/azure/storage/share) för att skapa ett.
+Now that you have a filestorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
 
 > [!NOTE]
-> Etablerade resurs storlekar anges av resurs kvoten. fil resurser debiteras enligt den etablerade storleken på [sidan med pris](https://azure.microsoft.com/pricing/details/storage/files/) information för mer information.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
 
 ```azurecli-interactive
 az storage share create \
@@ -208,7 +208,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en Premium-filresurs. Om du vill veta mer om de prestanda som det här kontot erbjuder fortsätter du till avsnittet prestanda nivå i planerings guiden.
+In this article, you've created a premium file share. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
 
 > [!div class="nextstepaction"]
-> [Prestanda nivåer för fil resurs](storage-files-planning.md#file-share-performance-tiers)
+> [File share performance tiers](storage-files-planning.md#file-share-performance-tiers)

@@ -1,7 +1,7 @@
 ---
-title: 'Designer: klassificering av bok gransknings exempel'
+title: 'Designer: classify book reviews example'
 titleSuffix: Azure Machine Learning
-description: Bygg en logistik Regressions klassificerare i multiklass för att förutse företags kategorin med Wikipedia SP 500-datauppsättning med Azure Machine Learning designer.
+description: Build a multiclass logistic regression classifier to predict the company category with wikipedia SP 500 dataset using Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,98 +10,98 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 43545c2d3bb3afe4e1c458f14c1ba30e41eea721
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: 16253abce2940690a80f84aa5b68521c09212bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196011"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213790"
 ---
-# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Bygg en klassificerare för att förutse företags kategori med Azure Machine Learning designer.
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Build a classifier to predict company category using Azure Machine Learning designer.
 
-**Designer (för hands version) exempel 7**
+**Designer (preview) sample 7**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Det här exemplet visar hur du använder text analys moduler för att bygga en pipeline för text klassificering i Azure Machine Learning designer (för hands version).
+This sample demonstrates how to use text analytics modules to build a text classification pipeline in Azure Machine Learning designer (preview).
 
-Målet med text klassificering är att tilldela vissa text delar till en eller flera fördefinierade klasser eller kategorier. Texten kan vara ett dokument, nyhets artikel, Sök fråga, e-post, Tweet, support biljetter, kundfeedback, användar produkt granskning osv. Program med text klassificering inkluderar kategorisering av tidnings artiklar och nyhets brev innehåll i ämnen, organisering av webb sidor i hierarkiska kategorier, filtrering av skräp post, sentiment analys, förutsägelse av användar avsikt från Sök frågor, routning Support biljetter och analys av kundfeedback. 
+The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. Applications of text classification include categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
 
-Den här pipelinen är en **multiklass logistik Regressions klassificerare** för att förutse företags kategorin med **Wikipedia SP 500-datauppsättning som härletts från Wikipedia**.  
+This pipeline trains a **multiclass logistic regression classifier** to predict the company category with **Wikipedia SP 500 dataset derived from Wikipedia**.  
 
-De grundläggande stegen för en utbildnings maskin inlärnings modell med text data är:
+The fundamental steps of a training machine learning model with text data are:
 
 1. Hämta data
 
-1. I förväg bearbeta text data
+1. Pre-process the text data
 
-1. Funktions teknik
+1. Feature Engineering
 
-   Funktionen omvandla text till den numeriska funktionen med funktionen för att extrahera funktioner, till exempel funktion-hash, extrahera n-gram-funktionen från text data.
+   Convert text feature into the numerical feature with feature extracting module such as feature hashing, extract n-gram feature from the text data.
 
 1. Träna modellen
 
-1. Poäng data uppsättning
+1. Score dataset
 
 1. Utvärdera modellen
 
-Här är det sista, färdiga diagrammet för den pipeline vi kommer att arbeta med. Vi ger dig en motivering för alla moduler så att du kan fatta liknande beslut på egen hand.
+Here's the final, completed graph of the pipeline we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
 
-[![diagram över pipelinen](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png)](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png#lightbox)
+[![Graph of the pipeline](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## <a name="data"></a>Data
 
-I den här pipelinen använder vi data uppsättningen **Wikipedia SP 500** . Data uppsättningen härleds från Wikipedia (https://www.wikipedia.org/) baserat på artiklarna i varje S & P 500-företag. Innan du överför till Azure Machine Learning designer bearbetades data uppsättningen enligt följande:
+In this pipeline, we use the **Wikipedia SP 500** dataset. The dataset is derived from Wikipedia (https://www.wikipedia.org/) based on articles of each S&P 500 company. Before uploading to Azure Machine Learning designer, the dataset was processed as follows:
 
-- Extrahera text innehåll för varje enskilt företag
-- Ta bort wiki-formatering
-- Ta bort icke-alfanumeriska tecken
-- Konvertera all text till gemener
-- Kända företags kategorier har lagts till
+- Extract text content for each specific company
+- Remove wiki formatting
+- Remove non-alphanumeric characters
+- Convert all text to lowercase
+- Known company categories were added
 
-Det gick inte att hitta artiklar för vissa företag, så antalet poster är mindre än 500.
+Articles could not be found for some companies, so the number of records is less than 500.
 
-## <a name="pre-process-the-text-data"></a>I förväg bearbeta text data
+## <a name="pre-process-the-text-data"></a>Pre-process the text data
 
-Vi använder modulen för **Förbearbetad text** för att Förbearbeta text data, inklusive identifiera meningar, Tokenize och så vidare. Du har hittat alla alternativ som stöds i artikeln [**Förbearbeta text**](../algorithm-module-reference/preprocess-text.md) . Efter bearbetning av tex-data använder vi modulen **dela data** för att slumpmässigt dela in indata så att träning-datauppsättningen innehåller 50% av de ursprungliga data och test data uppsättningen innehåller 50% av den ursprungliga informationen.
+We use the **Preprocess Text** module to preprocess the text data, including detect the sentences, tokenize sentences and so on. You would found all supported options in the [**Preprocess Text**](../algorithm-module-reference/preprocess-text.md) article. After pre-processing tex data, we use the **Split Data** module to randomly divide the input data so that the training dataset contains 50% of the original data and the testing dataset contains 50% of the original data.
 
-## <a name="feature-engineering"></a>Funktions teknik
-I det här exemplet ska vi använda två metoder för att utföra funktions teknik.
+## <a name="feature-engineering"></a>Feature Engineering
+In this sample, we will use two methods performing feature engineering.
 
 ### <a name="feature-hashing"></a>Funktions-hash
-Vi använde modulen [**funktion-hash**](../algorithm-module-reference/feature-hashing.md) för att konvertera den oformaterade texten för artiklarna till heltal och använde heltals värden som inmatade funktioner i modellen. 
+We used the [**Feature Hashing**](../algorithm-module-reference/feature-hashing.md) module to convert the plain text of the articles to integers and used the integer values as input features to the model. 
 
-Modulens **hashing** -modul kan användas för att konvertera text dokument med text längd till en sträng med längden på numeriska funktioner med hjälp av den 32-bitars murmurhash v3-hashing-metoden som tillhandahålls av Vowpal Wabbit-biblioteket. Syftet med att använda funktionen hash är en minskning av dimensionalitet. hashing av funktioner gör också att funktions viktningen blir snabbare vid klassificerings tiden eftersom den använder värde jämförelse för hash i stället för sträng jämförelse.
+The **Feature Hashing** module can be used to convert variable-length text documents to equal-length numeric feature vectors, using the 32-bit murmurhash v3 hashing method provided by the Vowpal Wabbit library. The objective of using feature hashing is dimensionality reduction; also feature hashing makes the lookup of feature weights faster at classification time because it uses hash value comparison instead of string comparison.
 
-I exempel pipeline ställer vi in antalet hash-bitar till 14 och anger antalet n-g till 2. Med de här inställningarna kan hash-tabellen innehålla 2 ^ 14 poster där varje hash-funktion representerar en eller flera n-gram-funktioner och dess värde representerar förekomst frekvensen för den n-gram i text instansen. För många problem är en hash-tabell av den här storleken mer än lämplig, men i vissa fall kan mer utrymme behövas för att undvika kollisioner. Utvärdera prestanda för Machine Learning-lösningen med ett annat antal bitar. 
+In the sample pipeline, we set the number of hashing bits to 14 and set the number of n-grams to 2. With these settings, the hash table can hold 2^14 entries, in which each hashing feature represents one or more n-gram features and its value represents the occurrence frequency of that n-gram in the text instance. For many problems, a hash table of this size is more than adequate, but in some cases, more space might be needed to avoid collisions. Evaluate the performance of your machine learning solution using different number of bits. 
 
-### <a name="extract-n-gram-feature-from-text"></a>Extrahera N-g-funktion från text
+### <a name="extract-n-gram-feature-from-text"></a>Extract N-Gram Feature from Text
 
-En n-gram är en sammanhängande sekvens av n-termer från en specifik följd av text. En n-gram av storlek 1 kallas unigram. en n-gram av storlek 2 är en dubbel gram. en n-gram av storlek 3 är en trigram. N-gram av större storlekar kallas ibland för värdet n, t. ex. "fyra-gram", "fem-gram" och så vidare.
+An n-gram is a contiguous sequence of n terms from a given sequence of text. An n-gram of size 1 is referred to as a unigram; an n-gram of size 2 is a bigram; an n-gram of size 3 is a trigram. N-grams of larger sizes are sometimes referred to by the value of n, for instance, "four-gram", "five-gram", and so on.
 
-Vi har använt [**funktionen extrahera N-g från text**](../algorithm-module-reference/extract-n-gram-features-from-text.md)-modulen som en annan lösning för funktions teknik. I den här modulen extraheras först uppsättningen av n-gram, förutom n-gram, antalet dokument där varje n-gram visas i texten räknas (DF). I det här exemplet används TF-IDF-mått för att beräkna funktions värden. Sedan konverteras ostrukturerade text data till alfanumeriska funktions vektorer där varje funktion representerar TF-IDF av en n-gram i en text instans.
+We used [**Extract N-Gram Feature from Text**](../algorithm-module-reference/extract-n-gram-features-from-text.md)module as another solution for feature engineering. This module first extracts the set of n-grams, in addition to the n-grams, the number of documents where each n-gram appears in the text is counted(DF). In this sample, TF-IDF metric is used to calculate feature values. Then, it converts unstructured text data into equal-length numeric feature vectors where each feature represents the TF-IDF of an n-gram in a text instance.
 
-När du har konverterat text data till numeriska funktions vektorer används en **Välj kolumn** -modul för att ta bort text data från data uppsättningen. 
+After converting text data into numeric feature vectors, A **Select Column** module is used to remove the text data from the dataset. 
 
 ## <a name="train-the-model"></a>Träna modellen
 
-Valet av algoritm beror ofta på kraven i användnings fallet. Eftersom målet för den här pipelinen är att förutse företags kategorin är en klassificerings modell med flera klasser ett bra val. Med tanke på att antalet funktioner är stort och dessa funktioner är glesa använder vi **multiklass logistik Regressions** modell för den här pipelinen.
+Your choice of algorithm often depends on the requirements of the use case. Because the goal of this pipeline is to predict the category of company, a multi-class classifier model is a good choice. Considering that the number of features is large and these features are sparse, we use **Multiclass Logistic Regression** model for this pipeline.
 
-## <a name="test-evaluate-and-compare"></a>Testa, utvärdera och jämför
+## <a name="test-evaluate-and-compare"></a>Test, evaluate, and compare
 
- Vi delar data uppsättningen och använder olika data uppsättningar för att träna och testa modellen för att göra utvärderingen av modellen mer mål.
+ We split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
 
-När modellen har tränats använder vi **Poäng modellen** och **utvärderar modell** moduler för att generera förutsägande resultat och utvärdera modellerna. Men innan du använder modulen **Poäng modell** kan du utföra funktions konstruktioner som det som vi har gjort under utbildningen. 
+After the model is trained, we would use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models. However, before using the **Score Model** module, performing feature engineering as what we have done during training is required. 
 
-För modulen för **funktions-hash** är det enkelt att utföra funktions teknikern på Poäng flöde som utbildnings flöde. Använd modulen för modul- **hash** direkt för att bearbeta inmatnings text data.
+For **Feature Hashing** module, it is easy to perform feature engineer on scoring flow as training flow. Use **Feature Hashing** module directly to process the input text data.
 
-För att **extrahera N-g-funktionen från** en-modul skulle vi kunna ansluta resultatet av den här **ord** listan från tränings data flödet till **Indatamängden** i resultat data flödet och ange parametern för **ord listans läge** som **skrivskyddad** .
-[![diagram över poängen i n-gram](./media/how-to-ui-sample-text-classification/n-gram.png)](./media/how-to-ui-sample-text-classification/n-gram.png)
+For **Extract N-Gram Feature from Text** module, we would connect the **Result Vocabulary output** from the training dataflow to the **Input Vocabulary** on the scoring dataflow, and set the **Vocabulary mode** parameter to **ReadOnly**.
+[![Graph of n-gram score](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
 
-När du har slutfört konstruktions steget kan **Poäng modellen** användas för att generera förutsägelser för test data uppsättningen med hjälp av den tränade modellen. Kontrol lera resultatet genom att välja utdataporten för **Poäng modellen** och sedan välja **visualisera**.
+After finishing the engineering step, **Score Model** could be used to generate predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
 
-Vi skickar sedan poängen till modulen **utvärdera modell** för att generera utvärderings mått. **Utvärdera modellen** har två indataportar, så att vi kan utvärdera och jämföra poäng data uppsättningar som genereras med olika metoder. I det här exemplet jämför vi prestanda för resultatet som genererats med funktionen hashing och metoden n-gram.
-Kontrol lera resultatet genom att välja utdataporten för **utvärdera modellen** och sedan välja **visualisera**.
+We then pass the scores to the **Evaluate Model** module to generate evaluation metrics. **Evaluate Model** has two input ports, so that we could evaluate and compare scored datasets that are generated with different methods. In this sample, we compare the performance of the result generated with feature hashing method and n-gram method.
+To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -109,10 +109,10 @@ Kontrol lera resultatet genom att välja utdataporten för **utvärdera modellen
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de andra exempel som är tillgängliga för designern:
-- [Exempel 1 – regression: förutsäga ett bils pris](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering med funktions val: inkomst förutsägelse](how-to-designer-sample-classification-predict-income.md)
-- [Exempel 4 – klassificering: förutsägelse kredit risk (kostnads känsligt)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-designer-sample-classification-churn.md)
-- [Exempel 6 – klassificering: förutsäga flyg fördröjningar](how-to-designer-sample-classification-flight-delay.md)
+Explore the other samples available for the designer:
+- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)

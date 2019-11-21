@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med MCM | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with MCM | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MCM.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f8663d59c263b6fa24e23e286f8eb4e75b888da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159426"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227496"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Självstudie: Azure Active Directory integrering med MCM
+# <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutorial: Azure Active Directory integration with MCM
 
 I den här självstudien lär du dig att integrera MCM med Azure Active Directory (AD Azure).
 Integreringen av MCM med Azure AD medför följande fördelar:
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -186,7 +186,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 I det här avsnittet skapar du en användare med namnet Britta Simon i MCM. Ta hjälp av [supportteamet för MCM](https://mcmtechnology.com/support/) för att lägga till användarna i MCM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 >[!NOTE]
->Du kan använda andra verktyg eller API:er för MCM-kontoskapande som tillhandahålls av MCM för att etablera AAD-användarkonton.
+>You can use any other MCM user account creation tools or APIs provided by MCM to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -200,5 +200,5 @@ När du klickar på MCM-panelen i åtkomstpanelen bör du automatiskt loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

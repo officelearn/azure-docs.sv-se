@@ -4,14 +4,14 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 34de38e91d47457d215c7ebf65d04ed2dbae5324
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73083753"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224449"
 ---
-I följande tabell visas de gränser som är associerade med de olika tjänst nivåerna S1, S2, S3 och F1. Information om kostnaden för varje *enhet* i varje nivå finns i [Azure IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
+The following table lists the limits associated with the different service tiers S1, S2, S3, and F1. For information about the cost of each *unit* in each tier, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resurs | S1 Standard | S2 Standard | S3 Standard | F1 Kostnadsfri |
 | --- | --- | --- | --- | --- |
@@ -19,58 +19,59 @@ I följande tabell visas de gränser som är associerade med de olika tjänst ni
 | Maximalt antal enheter |200 |200 |10 |1 |
 
 > [!NOTE]
-> Kontakta Microsoft Support om du förväntar dig att använda fler än 200 enheter med en S1-eller S2-nivå hubb eller 10 enheter med ett nav på S3-nivå.
+> If you anticipate using more than 200 units with an S1 or S2 tier hub or 10 units with an S3 tier hub, contact Microsoft Support.
 > 
 > 
 
-I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
+The following table lists the limits that apply to IoT Hub resources.
 
 | Resurs | Gräns |
 | --- | --- |
 | Maximalt antal betalda IoT-hubbar per Azure-prenumeration |100 |
 | Maximalt antal kostnadsfria IoT-hubbar per Azure-prenumeration |1 |
-| Maximalt antal tecken i ett enhets-ID | 128 |
+| Maximum number of characters in a device ID | 128 |
 | Maximalt antal enhetsidentiteter<br/> som returneras i ett enskilt anrop |1,000 |
 | Maximal kvarhållning av IoT Hub-meddelanden för enhet-till-moln-meddelanden |7 dagar |
 | Maximal storlek för enhet-till-moln-meddelande |256 kB |
-| Maximal storlek för enhet-till-moln-batch |AMQP och HTTP: 256 KB för hela batchen <br/>MQTT: 256 KB för varje meddelande |
+| Maximal storlek för enhet-till-moln-batch |AMQP and HTTP: 256 KB for the entire batch <br/>MQTT: 256 KB for each message |
 | Maximalt antal meddelanden för enhet-till-moln-batch |500 |
 | Maximal storlek för moln-till-enhet-meddelande |64 kB |
 | Maximalt TTL-värde för moln-till-enhet-meddelanden |2 dagar |
 | Maximalt antal leveranser för moln-till-enhet- <br/> meddelanden |100 |
-| Högsta antal köer för moln till enhet per enhet |50 |
+| Maximum cloud-to-device queue depth per device |50 |
 | Maximalt antal leveranser för feedbackmeddelanden <br/> som svar på ett moln-till-enhet-meddelande |100 |
 | Maximalt TTL-värde för meddelanden som <br/> svar på ett moln-till-enhet-meddelande |2 dagar |
-| [Maximal enhets storlek](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (taggar, rapporterade egenskaper och önskade egenskaper) | 8 kB |
-| Maximal storlek för strängvärde för enhetstvilling | 4 KB |
-| [Maximalt djup för objekt i enhet, dubbla](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
+| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) | 8 KB for tags section, and 32 KB for desired and reported properties sections each |
+| Maximum length of device twin string key | 1 KB |
+| Maximum length of device twin string value | 4 KB |
+| [Maximum depth of object in device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 10 |
 | Maximal storlek på nyttolast för direkt metod | 128 KB |
 | Maximal kvarhållning för jobbhistorik | 30 dagar |
 | Maximalt antal samtidiga jobb | 10 (för S3), 5 (för S2), 1 (för S1) |
-| Maximalt antal ytterligare slutpunkter | 10 (för S1, S2 och S3) |
-| Maximalt antal regler för meddelandedirigering | 100 (för S1, S2 och S3) |
-| Maximalt antal anslutna enhets strömmar som har anslutits | 50 (endast för S1, S2, S3 och F1) |
-| Maximal data överföring för enhets ström | 300 MB per dag (endast för S1, S2, S3 och F1) |
+| Maximalt antal ytterligare slutpunkter | 10 (for S1, S2, and S3) |
+| Maximalt antal regler för meddelandedirigering | 100 (for S1, S2, and S3) |
+| Maximum number of concurrently connected device streams | 50 (for S1, S2, S3, and F1 only) |
+| Maximum device stream data transfer | 300 MB per day (for S1, S2, S3, and F1 only) |
 
 > [!NOTE]
-> Kontakta Microsoft Support om du behöver fler än 100 betalda IoT-hubbar i en Azure-prenumeration.
+> If you need more than 100 paid IoT hubs in an Azure subscription, contact Microsoft Support.
 
 > [!NOTE]
-> För närvarande är det totala antalet enheter plus moduler som kan registreras för en enda IoT Hub som är ett tak på 1 000 000. Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka den här gränsen.
+> Currently, the total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-IoT Hub begränsnings begär anden när följande kvoter överskrids.
+IoT Hub throttles requests when the following quotas are exceeded.
 
 | Begränsning | Värde per hubb |
 | --- | --- |
-| Identitetsregisteråtgärder <br/> (skapa, Hämta, Visa, uppdatera och ta bort), <br/> enskilda eller massimport/massexport |83.33 per sekund per enhet (5000 per minut/enhet) (för S3). <br/> 1.67 per sekund/enhet (100 per minut/enhet) (för S1 och S2). |
-| Enhetsanslutningar |6000/SEK/enhet (för S3), 120/SEK/enhet (för S2), 12/SEK per enhet (för S1). <br/>Minst 100 per sekund. |
-| Sändningar enhet-till-moln |6000/SEK/enhet (för S3), 120/SEK/enhet (för S2), 12/SEK per enhet (för S1). <br/>Minst 100 per sekund. |
-| Sändningar moln-till-enhet | 83.33 per sekund per enhet (5000/min/enhet) (för S3), 1.67/SEK/enhet (100 per minut/enhet) (för S1 och S2). |
-| Mottagningar moln-till-enhet |833.33 per sekund per enhet (50000/min/enhet) (för S3), 16.67/SEK/enhet (1000 per minut/enhet) (för S1 och S2). |
-| Filöverföringsåtgärder |83,33 fil överförings initieringar/SEK per enhet (5000/min/enhet) (för S3), 1,67 fil överförings initieringar/SEK/enhet (100 per minut/enhet) (för S1 och S2). <br/> 10 000 SAS-URI: er kan ligga ut för ett Azure Storage-konto i taget.<br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |
-| Direkta metoder | 24 MB/SEK per enhet (för S3), 480 KB/SEK/enhet (för S2), 160 KB/SEK/enhet (för S1).<br/> Baserat på 8 KB begränsnings skalans begränsnings storlek. |
-| Läsoperationer för enhetstvilling | 500 per sekund per enhet (för S3): högst 100 per sekund eller 10 per sekund per enhet (för S2), 100/SEK (för S1) |
-| Uppdateringar för enhetstvilling | 250 per sekund per enhet (för S3), högst 50 per sekund eller 5/SEK per enhet (för S2), 50/SEK (för S1) |
-| Jobbåtgärder <br/> (skapa, uppdatera, lista och ta bort) | 83.33 per sekund per enhet (5000/min/enhet) (för S3), 1.67/SEK/enhet (100 per minut/enhet) (för S2), 1.67/SEK/enhet (100 per minut/enhet) (för S1). |
-| Jobb per enhetsåtgärd, dataflöde | 50 per sekund per enhet (för S3): högst 10 per sekund eller 1 per sekund per enhet (för S2), 10 per sekund (för S1). |
-| Initierings takt för enhets strömmen | 5 nya strömmar/SEK (endast för S1, S2, S3 och F1). |
+| Identitetsregisteråtgärder <br/> (create, retrieve, list, update, and delete), <br/> enskilda eller massimport/massexport |83.33/sec/unit (5,000/min/unit) (for S3). <br/> 1.67/sec/unit (100/min/unit) (for S1 and S2). |
+| Enhetsanslutningar |6,000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minst 100 per sekund. |
+| Sändningar enhet-till-moln |6,000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minst 100 per sekund. |
+| Sändningar moln-till-enhet | 83.33/sec/unit (5,000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S1 and S2). |
+| Mottagningar moln-till-enhet |833.33/sec/unit (50,000/min/unit) (for S3), 16.67/sec/unit (1,000/min/unit) (for S1 and S2). |
+| Filöverföringsåtgärder |83.33 file upload initiations/sec/unit (5,000/min/unit) (for S3), 1.67 file upload initiations/sec/unit (100/min/unit) (for S1 and S2). <br/> 10,000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |
+| Direkta metoder | 24 MB/sec/unit (for S3), 480 KB/sec/unit (for S2), 160 KB/sec/unit (for S1).<br/> Based on 8-KB throttling meter size. |
+| Läsoperationer för enhetstvilling | 500/sec/unit (for S3), Maximum of 100/sec or 10/sec/unit (for S2), 100/sec (for S1) |
+| Uppdateringar för enhetstvilling | 250/sec/unit (for S3), Maximum of 50/sec or 5/sec/unit (for S2), 50/sec (for S1) |
+| Jobbåtgärder <br/> (create, update, list, and delete) | 83.33/sec/unit (5,000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S2), 1.67/sec/unit (100/min/unit) (for S1). |
+| Jobb per enhetsåtgärd, dataflöde | 50/sec/unit (for S3), maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1). |
+| Device stream initiation rate | 5 new streams/sec (for S1, S2, S3, and F1 only). |

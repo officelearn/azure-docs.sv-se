@@ -1,33 +1,33 @@
 ---
-title: 'Snabb start: Textanalys klient bibliotek | Microsoft Docs'
+title: 'Quickstart: Text Analytics client library | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten identifierar du språk genom att använda API för textanalys från Azure Cognitive Services.
+description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 11/19/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
-ms.openlocfilehash: 8b07e6b08e34e701aa4c3b254aee7245926085b6
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93912ef93ab1065bf3b7c5010c485f99229a06a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750220"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220787"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-for-detecting-language"></a>Snabb start: Använd Textanalys klient bibliotek för att identifiera språk
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use the Text Analytics client library
 
-Kom igång med Textanalys klient biblioteket. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
+Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
-Använd Textanalys klient bibliotek för att utföra:
+Use the Text Analytics client library to perform:
 
-* Sentimentanalys
-* Språkidentifiering
+* Känsloanalys
+* Språkspårning
 * Enhetsidentifiering
-* Extrahering av nyckelfraser
+* Extraktion av nyckelfraser
 
 ::: zone pivot="programming-language-csharp"
 
@@ -61,9 +61,9 @@ Använd Textanalys klient bibliotek för att utföra:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -73,7 +73,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)
+* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)

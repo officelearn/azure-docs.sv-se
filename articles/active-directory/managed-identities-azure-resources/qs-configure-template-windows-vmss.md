@@ -1,6 +1,6 @@
 ---
-title: Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med en mall
-description: Stegvisa instruktioner för att konfigurera hanterade identiteter för Azure-resurser på en virtuell datorskalning ange med en Azure Resource Manager-mall.
+title: Configure template to use managed identities on virtual machine scale sets - Azure AD
+description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,55 +15,55 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f80134620bd1db0a0d802aff94a701fd32bb0e9e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112518"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232196"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med en mall
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configure managed identities for Azure resources on an Azure virtual machine scale using a template
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
+Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-I den här artikeln du lär dig hur du utför följande hanterade identiteter för Azure-resurser åtgärder på en Azure VM-skalningsuppsättning med Azure Resource Manager-Distributionsmall:
-- Aktivera och inaktivera systemtilldelade hanterad identitet på en Azure VM-skalningsuppsättning
-- Lägga till och ta bort en Användartilldelad hanterad identitet på en Azure VM-skalningsuppsättning
+In this article, you learn how to perform the following managed identities for Azure resources operations on an Azure virtual machine scale set, using Azure Resource Manager deployment template:
+- Enable and disable the system-assigned managed identity on an Azure virtual machine scale set
+- Add and remove a user-assigned managed identity on an Azure virtual machine scale set
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)** .
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Ditt konto måste följande Azure rollbaserad åtkomstkontroll tilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
+- To perform the management operations in this article, your account needs the following Azure role based access control assignments:
 
     > [!NOTE]
-    > Inga ytterligare Azure AD directory rolltilldelningar krävs.
+    > No additional Azure AD directory role assignments required.
 
-    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) att skapa en skalningsuppsättning för virtuell dator och aktivera och ta bort system och/eller användartilldelade hanterad identitet från en skalningsuppsättning för virtuell dator.
-    - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roll för att skapa en Användartilldelad hanterad identitet.
-    - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att tilldela och ta bort en Användartilldelad hanterad identitet från och till en VM-skalningsuppsättning.
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from a virtual machine scale set.
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-Precis som med Azure-portalen och skript, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) mallar tillhandahåller möjligheten att distribuera nya eller ändrade resurser som definierats av en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portalbaserad, inklusive:
+As with the Azure portal and scripting, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
 
-   - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller basera den på en befintlig common eller [snabbstartsmall](https://azure.microsoft.com/documentation/templates/).
-   - Som härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), eller från den [aktuell status för distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-   - Med hjälp av en lokal [JSON-redigerare (till exempel VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), överföring och distribution med hjälp av PowerShell eller CLI.
-   - Med Visual Studio [Azure-resursgruppsprojekt](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) att både skapa och distribuera en mall.  
+   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/documentation/templates/).
+   - Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), or from the [current state of the deployment](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+   - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
+   - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template.  
 
-Oavsett vilket alternativ som väljs, är densamma under den första distributionen och omdistribution i mallens syntax. Aktivera hanterade identiteter för Azure-resurser på en ny eller befintlig virtuell dator görs på samma sätt. Dessutom som standard Azure Resource Manager har en [inkrementell uppdatering](../../azure-resource-manager/deployment-modes.md) till distributioner.
+Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling managed identities for Azure resources on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/deployment-modes.md) to deployments.
 
-## <a name="system-assigned-managed-identity"></a>Systemtilldelade hanterad identitet
+## <a name="system-assigned-managed-identity"></a>System-assigned managed identity
 
-I det här avsnittet ska du aktivera och inaktivera systemtilldelade hanterade identiteten med en Azure Resource Manager-mall.
+In this section, you will enable and disable the system-assigned managed identity using an Azure Resource Manager template.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet när du skapar skapandet av en skalningsuppsättning för virtuella datorer eller en befintlig VM-skalningsuppsättning
+### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Enable system-assigned managed identity during creation the creation of a virtual machines scale set or an existing virtual machine scale set
 
-1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
-2. Om du vill aktivera systemtilldelade hanterad identitet, läsa in mallen till en textredigerare, leta upp den `Microsoft.Compute/virtualMachinesScaleSets` resurs i närheten med resurserna och lägger till den `identity` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachinesScaleSets"` egenskapen. Använd följande syntax:
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
+2. To enable the system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachinesScaleSets` resource of interest within the resources section and add the `identity` property at the same level as the `"type": "Microsoft.Compute/virtualMachinesScaleSets"` property. Use the following syntax:
 
    ```JSON
    "identity": { 
@@ -72,10 +72,10 @@ I det här avsnittet ska du aktivera och inaktivera systemtilldelade hanterade i
    ```
 
 > [!NOTE]
-> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget genom att ange den i den `extensionProfile` elementet i mallen. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.  Mer information finns i [migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
+> You may optionally provision the managed identities for Azure resources virtual machine scale set extension by specifying it in the `extensionProfile` element of the template. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
 
-4. När du är klar bör läggas till resurs i mallen i följande avsnitt och bör likna följande:
+4. When you're done, the following sections should added to the resource section of your template  and should resemble the following:
 
    ```json
     "resources": [
@@ -115,25 +115,25 @@ I det här avsnittet ska du aktivera och inaktivera systemtilldelade hanterade i
     ]
    ``` 
 
-### <a name="disable-a-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera en automatiskt genererad hanterad identitet från en Azure VM-skalningsuppsättning
+### <a name="disable-a-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Disable a system-assigned managed identity from an Azure virtual machine scale set
 
-Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver en automatiskt genererad hanterad identitet:
+If you have a virtual machine scale set that no longer needs a system-assigned managed identity:
 
-1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachineScaleSets` resource intressanta inom den `resources` avsnittet. Om du har en virtuell dator som har bara systemtilldelade hanterad identitet kan du inaktivera det genom att ändra identitetstypen till `None`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a VM that only has system-assigned managed identity, you can disable it by changing the identity type to `None`.
 
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
-   Om din apiVersion är `2018-06-01` och den virtuella datorn har både system och användartilldelade hanterade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med userAssignedIdentities ordlista värden.
+   If your apiVersion is `2018-06-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the userAssignedIdentities dictionary values.
 
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
-   Om din apiVersion är `2017-12-01` och din skalningsuppsättning för virtuell dator har både system och användartilldelade hanterade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med den `identityIds` matris med de användartilldelade hanteras identiteter. 
+   If your apiVersion is `2017-12-01` and your virtual machine scale set has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities. 
    
     
 
-   I följande exempel visas hur bort en automatiskt genererad hanterad identitet från en VM-skalningsuppsättning med inga hanterade användartilldelade identiteter:
+   The following example shows you how remove a system-assigned managed identity from a virtual machine scale set with no user-assigned managed identities:
    
    ```json
    {
@@ -149,18 +149,18 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
-I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till en VM-skalningsuppsättning med Azure Resource Manager-mall.
+In this section, you assign a user-assigned managed identity to a virtual machine scale set using Azure Resource Manager template.
 
 > [!Note]
-> För att skapa en Användartilldelad hanterad identitet med en Azure Resource Manager-mall, se [skapa en hanterad Användartilldelad identitet](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
+> To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Tilldela en hanterad Användartilldelad identitet till en VM-skalningsuppsättning
+### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Assign a user-assigned managed identity to a virtual machine scale set
 
-1. Under den `resources` element, Lägg till följande post för att tilldela en hanterad Användartilldelad identitet till din skalningsuppsättning för virtuell dator.  Se till att ersätta `<USERASSIGNEDIDENTITY>` hanteras med namnet på den Användartilldelad identitet som du skapade.
+1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your virtual machine scale set.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
    
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
-   Om din apiVersion är `2018-06-01`, dina hanterade användartilldelade identiteter lagras i den `userAssignedIdentities` ordlista format och `<USERASSIGNEDIDENTITYNAME>` värdet måste vara lagrad i en variabel som anges i den `variables` i mallen.
+   If your apiVersion is `2018-06-01`, your user-assigned managed identities are stored in the `userAssignedIdentities` dictionary format and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
 
    ```json
    {
@@ -177,9 +177,9 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
    }
    ```   
 
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
     
-   Om din `apiVersion` är `2017-12-01` eller tidigare, dina hanterade användartilldelade identiteter lagras i den `identityIds` matris och `<USERASSIGNEDIDENTITYNAME>` värdet måste vara lagrad i en variabel som anges i avsnittet variabler i mallen.
+   If your `apiVersion` is `2017-12-01` or earlier, your user-assigned managed identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the variables section of your template.
 
    ```json
    {
@@ -196,11 +196,11 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
    }
    ``` 
 > [!NOTE]
-> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget genom att ange den i den `extensionProfile` elementet i mallen. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.  Mer information finns i [migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
+> You may optionally provision the managed identities for Azure resources virtual machine scale set extension by specifying it in the `extensionProfile` element of the template. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
-3. När du är klar bör se din mall ut ungefär så här:
+3. When you are done, your template should look similar to the following:
    
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
 
    ```json
    "resources": [
@@ -243,7 +243,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API-versionen 2017-12-01**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
    ```json
    "resources": [
@@ -285,15 +285,15 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
         }
     ]
    ```
-   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort Användartilldelad hanterad identitet från en Azure VM-skalningsuppsättning
+   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Remove user-assigned managed identity from an Azure virtual machine scale set
 
-Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver en hanterad Användartilldelad identitet:
+If you have a virtual machine scale set that no longer needs a user-assigned managed identity:
 
-1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachineScaleSets` resource intressanta inom den `resources` avsnittet. Om du har en skalningsuppsättning för virtuella datorer som endast har användartilldelade hanterad identitet kan du inaktivera det genom att ändra identitetstypen till `None`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user-assigned managed identity, you can disable it by changing the identity type to `None`.
 
-   I följande exempel visas hur bort alla användartilldelade hanterade identiteter från en virtuell dator med inga hanterade systemtilldelade identiteter:
+   The following example shows you how remove all user-assigned managed identities from a VM with no system-assigned managed identities:
 
    ```json
    {
@@ -306,19 +306,19 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
    }
    ```
    
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
     
-   Om du vill ta bort en enda hanterad användartilldelade-identitet från en VM-skalningsuppsättning, ta bort den från den `userAssignedIdentities` ordlista.
+   To remove a single user-assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
 
-   Om du har en systemtilldelad identitet kan du förvara den på den i den `type` värde den `identity` värde.
+   If you have a system-assigned identity, keep it in the in the `type` value under the `identity` value.
 
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
 
-   Om du vill ta bort en enda hanterad användartilldelade-identitet från en VM-skalningsuppsättning, ta bort den från den `identityIds` matris.
+   To remove a single user-assigned managed identity from a virtual machine scale set, remove it from the `identityIds` array.
 
-   Om du har en hanterad identitet med systemtilldelade förvara den på den i den `type` värde den `identity` värde.
+   If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
    
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hanterade identiteter för Azure-resurser översikt](overview.md).
+- [Managed identities for Azure resources overview](overview.md).
 

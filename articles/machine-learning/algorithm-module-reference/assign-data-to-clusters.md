@@ -1,52 +1,51 @@
 ---
-title: 'Tilldela data till kluster: modulreferens'
+title: 'Assign Data to Cluster: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen tilldela data till kluster i Azure Machine Learning till Poäng kluster modell.
+description: Learn how to use the Assign Data to Cluster module in Azure Machine Learning to score clustering model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 75a547a26057ad05444753253666dceea160d714
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493859"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214558"
 ---
-# <a name="module-assign-data-to-clusters"></a>Modul: tilldela data till kluster
+# <a name="module-assign-data-to-clusters"></a>Module: Assign Data to Clusters
 
-Den här artikeln beskriver hur du använder modulen *tilldela data till kluster* i Azure Machine Learning designer (för hands version). Modulen genererar förutsägelser genom en kluster modell som har tränats med algoritmen *K-metod* .
+This article describes how to use the *Assign Data to Clusters* module in Azure Machine Learning designer (preview). The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
 
-Modulen tilldela data till kluster returnerar en data uppsättning som innehåller de sannolika tilldelningarna för varje ny data punkt. 
+The Assign Data to Clusters module returns a dataset that contains the probable assignments for each new data point. 
 
-
-## <a name="how-to-use-assign-data-to-clusters"></a>Så här använder du tilldela data till kluster
+## <a name="how-to-use-assign-data-to-clusters"></a>How to use Assign Data to Clusters
   
-1. Leta upp en tidigare tränad kluster modell i Azure Machine Learning designer. Du kan skapa och träna en kluster modell genom att använda någon av följande metoder:  
+1. In Azure Machine Learning designer, locate a previously trained clustering model. You can create and train a clustering model by using either of the following methods:  
   
-    - Konfigurera den N:te klustrade algoritmen med hjälp av modulen [K-betyder-kluster](k-means-clustering.md) och träna modellen med hjälp av en data uppsättning och modulen träna kluster modell (den här artikeln).  
+    - Configure the K-means clustering algorithm by using the [K-Means Clustering](k-means-clustering.md) module, and train the model by using a dataset and the Train Clustering Model module (this article).  
   
-    - Du kan också lägga till en befintlig tränad kluster modell från gruppen för **sparade modeller** i din arbets yta.
+    - You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
 
-2. Koppla den tränade modellen till den vänstra Indataporten för att **tilldela data till kluster**.  
+2. Attach the trained model to the left input port of **Assign Data to Clusters**.  
 
-3. Bifoga en ny data uppsättning som indata. 
+3. Attach a new dataset as input. 
 
-   I den här data uppsättningen är etiketter valfria. I allmänhet är klustring en oövervakad inlärnings metod. Du förväntas inte känna till kategorierna i förväg. Inmatade kolumner måste dock vara samma som de kolumner som användes i träna kluster modellen, eller ett fel uppstår.
+   In this dataset, labels are optional. Generally, clustering is an unsupervised learning method. You are not expected to know the categories in advance. However, the input columns must be the same as the columns that were used in training the clustering model, or an error occurs.
 
     > [!TIP]
-    > Om du vill minska antalet kolumner som skrivs till designern från kluster förutsägelserna använder du [Välj kolumner i data uppsättningen](select-columns-in-dataset.md)och väljer en delmängd av kolumnerna. 
+    > To reduce the number of columns that are written to the designer from the cluster predictions, use [Select columns in the dataset](select-columns-in-dataset.md), and select a subset of the columns. 
     
-4. Lämna kryss rutan **Markera för Lägg till eller ta bort kontroll för endast resultat** markerad om du vill att resultatet ska innehålla den fullständiga data uppsättningen, inklusive en kolumn som visar resultatet (kluster tilldelningar).
+4. Leave the **Check for append or uncheck for result only** check box selected if you want the results to contain the full input dataset, including a column that displays the results (cluster assignments).
   
-    Om du avmarkerar den här kryss rutan returneras bara resultatet. Det här alternativet kan vara användbart när du skapar förutsägelser som en del av en webb tjänst.
+    If you clear this check box, only the results are returned. This option might be useful when you create predictions as part of a web service.
   
 5.  Köra en pipeline.  
   
 ### <a name="results"></a>Resultat
 
-+  Om du vill visa värdena i data uppsättningen högerklickar du på modulen, väljer **resultat data uppsättningar**och väljer sedan **visualisera**.
++  To view the values in the dataset, right-click the module, select **Result datasets**, and then select **Visualize**.
 

@@ -1,22 +1,16 @@
 ---
-title: Skapa en funktion i Azure som utlöses av Blob Storage | Microsoft Docs
+title: Create a function in Azure triggered by Blob storage
 description: Använd Azure Functions till att skapa en serverfri funktion som anropas när objekt läggs till i Azure Blob Storage.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: b8855fa061e07ec77482ca960971db8252608b51
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096871"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227153"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Skapa en funktion som utlöses av Azure Blob Storage
 
@@ -24,7 +18,7 @@ Lär dig hur du skapar en funktion som utlöses när filer överförs till eller
 
 ![Visa meddelande i loggarna.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Hämta och installera [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.

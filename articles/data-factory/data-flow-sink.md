@@ -1,117 +1,119 @@
 ---
-title: Konfigurera en Sink-omvandling i funktionen för att mappa data flöde i Azure Data Factory
-description: Lär dig hur du konfigurerar en Sink-omvandling i mappnings data flödet.
+title: Set up a sink transformation in the mapping data flow feature
+description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082937"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217933"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
+# <a name="sink-transformation-for-a-data-flow"></a>Sink transformation for a data flow
 
-När du har transformerat ditt data flöde kan du sinka data till en mål data uppsättning. I omvandling för mottagare väljer du en data uppsättnings definition för målets utgående data. Du kan ha så många handfat som dina data flöden kräver.
+After you transform your data flow, you can sink the data into a destination dataset. In the sink transformation, choose a dataset definition for the destination output data. You can have as many sink transformations as your data flow requires.
 
-För att kunna beakta schema avvikelser och ändringar i inkommande data, ska du skicka ut utdata till en mapp utan ett definierat schema i data uppsättningen för utdata. Du kan också konto för kolumn ändringar i dina källor genom att välja **Tillåt schema avvikelse** i källan. Sedan kan du Automap alla fält i mottagaren.
+To account for schema drift and changes in incoming data, sink the output data to a folder without a defined schema in the output dataset. You can also account for column changes in your sources by selecting **Allow schema drift** in the source. Then automap all fields in the sink.
 
-![Alternativen på fliken mottagare, inklusive alternativet automatisk mappning](media/data-flow/sink1.png "mottagare 1")
+![Options on the Sink tab, including the Auto Map option](media/data-flow/sink1.png "sink 1")
 
-Om du vill ta Sink alla inkommande fält aktiverar du **Auto Map**. Om du vill välja vilka fält som ska översättas till målet, eller om du vill ändra namnen på fälten vid målet, så Stäng av **automatisk mappning**. Öppna sedan fliken **mappning** för att mappa utmatnings fält.
+To sink all incoming fields, turn on **Auto Map**. To choose the fields to sink to the destination, or to change the names of the fields at the destination, turn off **Auto Map**. Then open the **Mapping** tab to map output fields.
 
-![Alternativ på fliken mappning](media/data-flow/sink2.png "mottagare 2")
+![Options on the Mapping tab](media/data-flow/sink2.png "sink 2")
 
 ## <a name="output"></a>Resultat 
-För Azure Blob Storage-eller Data Lake Storage Sink-typer skriver du ut transformerade data till en mapp. Spark genererar partitionerade utdatafiler baserat på det partitionerings schema som används av Sink-omvandlingen. 
+For Azure Blob storage or Data Lake Storage sink types, output the transformed data into a folder. Spark generates partitioned output data files based on the partitioning scheme that the sink transformation uses. 
 
-Du kan ställa in partitionerings schema från fliken **Optimize (optimera** ). Om du vill att Data Factory sammanfoga dina utdata till en enda fil väljer du **enskild partition**. Om du vill underhålla eller skapa partitionerade mappar använder du **nyckel partitionering** och anger de nycklar som du vill använda för partitionerade mappstrukturer.
+You can set the partitioning scheme from the **Optimize** tab. If you want Data Factory to merge your output into a single file, select **Single partition**. If you wish to maintain or create partitioned folders, use **Key partitioning** and set the keys you wish to use for partitioned folder structures.
 
-![Alternativ på fliken optimera](media/data-flow/opt001.png "mottagar alternativ")
+![Options on the Optimize tab](media/data-flow/opt001.png "sink options")
 
-## <a name="field-mapping"></a>Fält mappning
-På fliken **mappning** i din Sink-omvandling kan du mappa de inkommande kolumnerna till vänster till målen till höger. När du tar Sink-data flöden till filer skriver Data Factory alltid nya filer till en mapp. När du mappar till en databas data uppsättning väljer du åtgärds alternativ för databas tabell för att infoga, uppdatera, upsert eller ta bort.
+## <a name="field-mapping"></a>Field mapping
+On the **Mapping** tab of your sink transformation, you can map the incoming columns on the left to the destinations on the right. When you sink data flows to files, Data Factory will always write new files to a folder. When you map to a database dataset, you will choose database table operation options to insert, update, upsert, or delete.
 
-![Fliken mappning](media/data-flow/sink2.png "Mottagare")
+![The Mapping tab](media/data-flow/sink2.png "Sinks")
 
-I mappnings tabellen kan du välja att länka flera kolumner, ta bort flera kolumner eller mappa flera rader till samma kolumn namn.
+In the mapping table, you can multiselect to link multiple columns, delink multiple columns, or map multiple rows to the same column name.
 
-Om du alltid vill mappa inkommande uppsättning fält till ett mål som de är och för att fullständigt godkänna flexibla schema definitioner väljer du **Tillåt schema avvikelse**.
+To always map the incoming set of fields to a target as they are and to fully accept flexible schema definitions, select **Allow schema drift**.
 
-![Fliken mappning, som visar fält som har mappats till kolumner i data uppsättningen](media/data-flow/multi1.png "flera alternativ")
+![The Mapping tab, showing fields mapped to columns in the dataset](media/data-flow/multi1.png "multiple options")
 
-Om du vill återställa kolumn mappningarna väljer du **åter mappning**.
+To reset your column mappings, select **Re-map**.
 
-![Fliken mottagare](media/data-flow/sink1.png "Mottagar en")
+![The Sink tab](media/data-flow/sink1.png "Sink One")
 
-Välj **Verifiera schema** om du vill stoppa sinken om schemat ändras.
+Select **Validate schema** to fail the sink if the schema changes.
 
-Välj **Rensa mappen** för att trunkera innehållet i mappen Sink innan du skriver målfiler i den målmappen.
+Select **Clear the folder** to truncate the contents of the sink folder before writing the destination files in that target folder.
 
-## <a name="fixed-mapping-vs-rule-based-mapping"></a>Fast mappning jämfört med regel-baserad mappning
-När du inaktiverar automatisk mappning har du möjlighet att lägga till en kolumn-baserad mappning (fast mappning) eller regelbaserade mappning. Med hjälp av regelbaserade mappningar kan du skriva uttryck med mönster matchning medan fast mappning mappar logiska och fysiska kolumn namn.
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>Fixed mapping vs. rule-based mapping
+When you turn off auto-mapping, you will have the option to add either column-based mapping (fixed mapping) or rule-based mapping. Rule-based mapping will allow you to write expressions with pattern matching while fixed mapping will map logical and physical column names.
 
-![Regel baserad mappning](media/data-flow/rules4.png "Regel baserad mappning")
+![Rule-based Mapping](media/data-flow/rules4.png "Rule-based mapping")
 
-När du väljer regelbaserade mappning instruerar du ADF att utvärdera matchnings uttrycket så att det matchar inkommande mönster regler och definierar de utgående fält namnen. Du kan lägga till valfri kombination av både fält-och regelbaserade mappningar. Fält namn genereras sedan vid körning med ADF baserat på inkommande metadata från källan. Du kan visa namnen på de genererade fälten under fel sökning och i fönstret data förhands granskning.
+When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
 
-Information om mönster matchning finns i [kolumn mönster dokumentation](concepts-data-flow-column-pattern.md).
+Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
-Du kan också ange mönster för reguljära uttryck när du använder regel baserad matchning genom att expandera raden och ange ett reguljärt uttryck bredvid "namn matchningar:".
+You can also enter regular expression patterns when using rule based matching by expanding the row and entering a regular expression next to "Name Matches:".
 
-![Regex-mappning](media/data-flow/scdt1g4.png "Regex-mappning")
+![Regex Mapping](media/data-flow/scdt1g4.png "Regex mapping")
 
-Ett vanligt vanligt exempel för en regel baserad mappning jämfört med fast mappning är det fall där du vill mappa alla inkommande fält till samma namn i målet. Om det finns fasta mappningar, visar du varje enskild kolumn i tabellen. För regelbaserade mappningar skulle du ha en enda regel som mappar alla fält med ```true()``` till samma namn på inkommande fält som representeras av ```$$```.
+A very basic common example for a rule-based mapping vs. fixed mapping is the case where you want to map all incoming fields to the same name in your target. In the case of fixed mappings, you would list each individual column in the table. For rule-based mapping, you would have a single rule that maps all fields using ```true()``` to the same incoming field name represented by ```$$```.
 
-### <a name="sink-association-with-dataset"></a>Sink-Association med data uppsättning
+### <a name="sink-association-with-dataset"></a>Sink association with dataset
 
-Den data uppsättning som du väljer för din mottagare kan ha ett schema som definierats i data uppsättnings definitionen. Om det inte finns något definierat schema måste du tillåta schema drift. När du definierade en fast mappning behålls mappningen mellan logiska och fysiska namn i Sink-omvandlingen. Om du ändrar schema definitionen för data uppsättningen kan du eventuellt dela upp Sink-mappningen. Undvik detta genom att använda regel-baserad mappning. Regelbaserade mappningar är generaliserade, vilket innebär att schema ändringar i din data uppsättning inte bryter mappningen.
+The dataset that you select for your sink may or may not have a schema defined in the dataset definition. If it does not have a defined schema, then you must allow schema drift. When you defined a fixed mapping, the logical-to-physical name mapping will persist in the sink transformation. If you change the schema definition of the dataset, then you will potentially break your sink mapping. To avoid this, use rule-based mapping. Rule-based mappings are generalized, meaning that schema changes on your dataset will not break the mapping.
 
-## <a name="file-name-options"></a>Alternativ för fil namn
+## <a name="file-name-options"></a>File name options
 
-Konfigurera fil namn: 
+Set up file naming: 
 
-   * **Standard**: Tillåt Spark att namnge filer baserat på del standarder.
-   * **Mönster**: Ange ett mönster för utdatafilerna. Till exempel kommer **lån [n]** att skapa loans1. csv, loans2. csv och så vidare.
-   * **Per partition**: Ange ett fil namn per partition.
-   * **Som data i kolumnen**: Ange utdatafilen till värdet för en kolumn.
-   * **Utdata till en enda fil**: med det här alternativet kombinerar ADF de partitionerade utdatafilerna till en enda namngiven fil. Om du vill använda det här alternativet bör data uppsättningen matcha till ett mappnamn. Tänk också på att den här sammanslagnings åtgärden kan sluta fungera baserat på Node-storlek.
-
-> [!NOTE]
-> Fil åtgärder startar bara när du kör aktiviteten kör data flöde. De startar inte i fel söknings läge för data flöde.
-
-## <a name="database-options"></a>Databas alternativ
-
-Välj databas inställningar:
-
-![Fliken Inställningar, som visar alternativ för SQL-mottagare](media/data-flow/alter-row2.png "SQL-alternativ")
-
-* **Uppdaterings metod**: standard är att tillåta infogningar. Rensa **Tillåt infogning** om du vill sluta infoga nya rader från källan. Om du vill uppdatera, upsert eller ta bort rader måste du först lägga till en Alter-Row-omvandling för att tagga rader för dessa åtgärder. 
-* **Återskapa tabell**: släpp eller skapa mål tabellen innan data flödet har slutförts.
-* **Trunkera tabell**: ta bort alla rader från mål tabellen innan data flödet har slutförts.
-* **Batchstorlek**: Ange ett tal för Bucket skrivningar i segment. Använd det här alternativet för stora data inläsningar. 
-* **Aktivera mellanlagring**: Använd PolyBase när du läser in Azure Data Warehouse som din Sink-datauppsättning.
-* **För-och post-SQL-skript**: Ange SQL-skript med flera rader som ska köras före (för bearbetning) och efter (efter bearbetning)-data skrivs till din mottagar databas
-
-![skript för SQL-bearbetning före och efter bearbetning](media/data-flow/prepost1.png "Skript för SQL-bearbetning")
+   * **Default**: Allow Spark to name files based on PART defaults.
+   * **Pattern**: Enter a pattern for your output files. For example, **loans[n]** will create loans1.csv, loans2.csv, and so on.
+   * **Per partition**: Enter one file name per partition.
+   * **As data in column**: Set the output file to the value of a column.
+   * **Output to a single file**: With this option, ADF will combine the partitioned output files into a single named file. To use this option, your dataset should resolve to a folder name. Also, please be aware that this merge operation can possibly fail based upon node size.
 
 > [!NOTE]
-> I data flöde kan du direkt Data Factory skapa en ny tabell definition i mål databasen. Skapa tabell definitionen genom att ange en data uppsättning i Sink-omvandlingen som har ett nytt tabell namn. I SQL-datauppsättningen, under tabell namnet, väljer du **Redigera** och anger ett nytt tabell namn. I omvandlingen för mottagare aktiverar du sedan **Tillåt schema avvikelse**. Ange **import schema** till **ingen**.
+> File operations start only when you're running the Execute Data Flow activity. They don't start in Data Flow Debug mode.
 
-![Inställningar för SQL-datauppsättning, som visar var du redigerar tabell namnet](media/data-flow/dataset2.png "SQL-schema")
+## <a name="database-options"></a>Database options
+
+Choose database settings:
+
+![The Settings tab, showing SQL sink options](media/data-flow/alter-row2.png "SQL Options")
+
+* **Update method**: The default is to allow inserts. Clear **Allow insert** if you want to stop inserting new rows from your source. To update, upsert, or delete rows, first add an alter-row transformation to tag rows for those actions. 
+* **Recreate table**: Drop or create your target table before the data flow finishes.
+* **Truncate table**: Remove all rows from your target table before the data flow finishes.
+* **Batch size**: Enter a number to bucket writes into chunks. Use this option for large data loads. 
+* **Enable staging**: Use PolyBase when you load Azure Data Warehouse as your sink dataset.
+* **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
+
+![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
 
 > [!NOTE]
-> När du uppdaterar eller tar bort rader i din databas mottagare måste du ange nyckel kolumnen. Med den här inställningen kan Alter-Row-omvandlingen bestämma den unika raden i data flyttnings biblioteket (DML).
+> In Data Flow, you can direct Data Factory to create a new table definition in your target database. To create the table definition, set a dataset in the sink transformation that has a new table name. In the SQL dataset, below the table name, select **Edit** and enter a new table name. Then, in the sink transformation, turn on **Allow schema drift**. Set **Import schema** to **None**.
 
-### <a name="cosmosdb-specific-settings"></a>CosmosDB-inställningar
+![SQL dataset settings, showing where to edit the table name](media/data-flow/dataset2.png "SQL Schema")
 
-Vid landnings data i CosmosDB måste du överväga följande ytterligare alternativ:
+> [!NOTE]
+> When you update or delete rows in your database sink, you must set the key column. This setting allows the alter-row transformation to determine the unique row in the data movement library (DML).
 
-* Partitionsnyckel: det här fältet är obligatoriskt. Ange en sträng som representerar partitionens partitionsnyckel för din samling. Exempel: ```/movies/title```
-* Data flöde: Ange ett valfritt värde för det antal ru: er som du vill använda för din CosmosDB-samling för varje körning av det här data flödet. Minimum är 400.
+### <a name="cosmosdb-specific-settings"></a>CosmosDB specific settings
+
+When landing data in CosmosDB, you will need to consider these additional options:
+
+* Partition Key: This is a required field. Enter a string that represents the partition key for your collection. Exempel: ```/movies/title```
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat ditt data flöde lägger du till en [data flödes aktivitet i din pipeline](concepts-data-flow-overview.md).
+Now that you've created your data flow, add a [Data Flow activity to your pipeline](concepts-data-flow-overview.md).

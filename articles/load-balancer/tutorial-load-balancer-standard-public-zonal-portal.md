@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Virtuella datorer med lastbalanserare i en zon – Azure-portalen'
-titlesuffix: Azure Load Balancer
+title: 'Tutorial: Load Balancer VMs within a zone--Azure portal'
+titleSuffix: Azure Load Balancer
 description: Den här kursen visar hur du skapar en Standard Load Balancer med zonindelad klientdel för att lastbalansera virtuella datorer i en tillgänglighetszon med hjälp av Azure Portal
 services: load-balancer
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273387"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225174"
 ---
-# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure-portalen
+# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure Portal
 
 I den här kursen skapar du en offentlig [Azure Standard Load Balancer-instans](https://aka.ms/azureloadbalancerstandard) med en zonindelad klientdel som använder en offentlig IP-standardadress med Azure Portal. I det här scenariot anger du en viss zon för dina klientdels- och serverdelsinstanser för att justera din datasökväg och dina resurser med en viss zon. Du lär dig hur du använder följande funktioner:
 
@@ -50,14 +50,14 @@ Standard Load Balancer stöder endast offentliga IP-standardadresser. När du sk
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Load Balancer**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Value                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Subscription               | Välj din prenumeration.    |    
-    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | type          | Välj **Offentligt**.                                        |
-    | SKU           | Välj **standard**.                          |
+    | Typ          | Välj **Offentligt**.                                        |
+    | SKU           | Select **Standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
     |Tillgänglighetszon| Välj **1**.    |

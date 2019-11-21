@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Skapa en avancerad hanterad domän
       href: tutorial-create-instance-advanced.md
+    - name: Skapa ett skogsförtroende (förhandsversion)
+      href: tutorial-create-forest-trust.md
 - name: Exempel
   items:
     - name: Skapa en hanterad domän med Azure PowerShell
@@ -33,6 +35,12 @@
       href: administration-concepts.md
     - name: Vanliga distributionsscenarier
       href: scenarios.md
+    - name: Skogar och förtroenden
+      items:
+        - name: Resursskogar
+          href: concepts-resource-forest.md
+        - name: Skogsförtroenden
+          href: concepts-forest-trust.md
     - name: Så här fungerar Azure AD DS-synkronisering
       href: synchronization.md
     - name: Så här fungerar hash-synkronisering

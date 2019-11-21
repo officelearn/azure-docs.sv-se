@@ -168,6 +168,8 @@
           href: howto-configure-ssl.md
         - name: Webbappar
           href: howto-connect-webapp.md
+        - name: Ansluta med omdirigering
+          href: howto-redirection.md
     - name: Konfigurera serverparametrar
       items:
         - name: Azure Portal

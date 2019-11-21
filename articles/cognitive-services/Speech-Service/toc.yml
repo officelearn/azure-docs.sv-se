@@ -427,6 +427,33 @@
           href: 'https://aka.ms/csspeech/pythonref'
         - name: Viktig information om Speech SDK
           href: releasenotes.md
+- name: Enheter
+  exanded: false
+  items:
+    - name: Översikt
+      items:
+        - name: Om Speech Devices SDK
+          href: speech-devices-sdk.md
+        - name: Hämta Speech Devices SDK
+          href: get-speech-devices-sdk.md
+    - name: Maskinvara
+      items:
+        - name: Mikrofonmatrisrekommendationer
+          href: speech-devices-sdk-microphone.md
+        - name: Roobo v1-paket
+          href: speech-devices-sdk-roobo-v1.md
+    - name: Snabbstarter
+      items:
+        - name: Windows
+          href: speech-devices-sdk-windows-quickstart.md
+        - name: Linux
+          href: speech-devices-sdk-linux-quickstart.md
+        - name: Android
+          href: speech-devices-sdk-android-quickstart.md
+    - name: Resurser
+      items:
+        - name: Felsöka Speech Devices SDK
+          href: speech-devices-sdk-troubleshooting.md
 - name: Migrering
   exanded: false
   items:

@@ -3,44 +3,44 @@ title: ta med fil
 description: ta med fil
 services: billing
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f85605610727ef2c1e1987b7ef93a41ce2417a25
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: a01455da36e8ab573773fec2a6da1f7903b8ea20
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69626406"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224497"
 ---
-| Resource | Standardgräns | Övre gräns |
+| Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Virtuella datorer per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |25 000<sup>1</sup> per region. |25 000 per region. |
+| Virtuella datorer per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> per region. |25,000 per region. |
 | Totalt antal VM-kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Kontakta supporten. |
-| VM per serie, till exempel Dv2 och F, kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Kontakta supporten. |
-| [Medadministratörer](../articles/billing-add-change-azure-subscription-administrator.md) per prenumeration |Många. |Många. |
-| [Lagrings konton](../articles/storage/common/storage-quickstart-create-account.md) per region per prenumeration |250 |250 |
-| [Resurs grupper](../articles/azure-resource-manager/resource-group-overview.md) per prenumeration |980 |980 |
-| [Tillgänglighets uppsättningar](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per prenumeration |2 000 per region. |2 000 per region. |
-| Storlek på Azure Resource Manager API-begäran |4 194 304 byte. |4 194 304 byte. |
-| Taggar per prenumeration<sup>2</sup> |Många. |Många. |
-| Beräkningar av unika Taggar per prenumeration<sup>2</sup> | 10 000 | 10 000 |
-| [Molntjänster](../articles/cloud-services/cloud-services-choose-me.md) per prenumeration |EJ TILLÄMPLIGT<sup>3</sup> |EJ TILLÄMPLIGT<sup>3</sup> |
-| [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |EJ TILLÄMPLIGT<sup>3</sup> |EJ TILLÄMPLIGT<sup>3</sup> |
-| [Distributioner på prenumerations nivå](../articles/azure-resource-manager/deploy-to-subscription.md) per plats | 800<sup>4</sup> | 800 |
+| VM per series, such as Dv2 and F, cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Kontakta supporten. |
+| [Coadministrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited. |Unlimited. |
+| [Storage accounts](../articles/storage/common/storage-quickstart-create-account.md) per region per subscription |250 |250 |
+| [Resource groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |980 |980 |
+| [Availability sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per region. |2,000 per region. |
+| Azure Resource Manager API request size |4,194,304 bytes. |4,194,304 bytes. |
+| Tags per subscription<sup>2</sup> |Unlimited. |Unlimited. |
+| Unique tag calculations per subscription<sup>2</sup> | 10 000 | 10 000 |
+| [Molntjänster](../articles/cloud-services/cloud-services-choose-me.md) per prenumeration |N/A<sup>3</sup> |N/A<sup>3</sup> |
+| [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |N/A<sup>3</sup> |N/A<sup>3</sup> |
+| [Subscription-level deployments](../articles/azure-resource-manager/deploy-to-subscription.md) per location | 800<sup>4</sup> | 800 |
 
-<sup>1</sup> Standard gränserna varierar beroende på kategori typ, t. ex. kostnads fri utvärderings version och betala per användning och efter serie, till exempel Dv2, F och G. Standardvärdet för Enterprise-avtal-prenumerationer är till exempel 350.
+<sup>1</sup>Default limits vary by offer category type, such as Free Trial and Pay-As-You-Go, and by series, such as Dv2, F, and G. For example, the default for Enterprise Agreement subscriptions is 350.
 
-<sup>2</sup> Du kan använda ett obegränsat antal Taggar per prenumeration. Antalet Taggar per resurs eller resurs grupp är begränsat till 50. Resource Manager returnerar en [lista med unikt taggnamn och värden](/rest/api/resources/tags) i prenumerationen endast om antalet taggar är 10 000 eller mindre. Du kan fortfarande hitta en resurs efter tagg när antalet överskrider 10 000.  
+<sup>2</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 50. Resource Manager returns a [list of unique tag name and values](/rest/api/resources/tags) in the subscription only when the number of tags is 10,000 or less. You still can find a resource by tag when the number exceeds 10,000.  
 
-<sup>3</sup> Dessa funktioner krävs inte längre med Azures resurs grupper och Resource Manager.
+<sup>3</sup>These features are no longer required with Azure resource groups and Resource Manager.
 
-<sup>4</sup> Om du når gränsen på 800-distributioner tar du bort distributioner från den historik som inte längre behövs. Ta bort distributioner på prenumerations nivå genom att använda [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) eller [AZ Deployment Delete](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
+<sup>4</sup>If you reach the limit of 800 deployments, delete deployments from the history that are no longer needed. To delete subscription level deployments, use [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) or [az deployment delete](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
 
 > [!NOTE]
-> Virtuella dator kärnor har en regional total gräns. De har också en gräns för regionala serier per storlek, till exempel Dv2 och F. Dessa gränser tillämpas separat. Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. Den här prenumerationen kan distribuera 30 a1-VM: ar eller 30 D1-datorer, eller en kombination av de två som inte överskrider totalt 30 kärnor. Ett exempel på en kombination är 10 a1 VM och 20 D1-datorer.  
+> Virtual machine cores have a regional total limit. They also have a limit for regional per-size series, such as Dv2 and F. These limits are separately enforced. Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. This subscription can deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores. An example of a combination is 10 A1 VMs and 20 D1 VMs.  
 > <!-- -->
 > 
 > 

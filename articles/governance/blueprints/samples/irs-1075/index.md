@@ -3,12 +3,12 @@ title: Exempel på IRS 1075-skiss – översikt
 description: Översikt över IRS 1075-skissexemplet. Det här skissexemplet hjälper kunderna att utvärdera specifika IRS 1075-kontroller.
 ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1d2fdac47c590e663a51c11f54a3a135a7a0ed3d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210194"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267382"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Översikt över IRS 1075-skissexemplet
 
@@ -23,7 +23,8 @@ Avsnittet om kontrollmappning innehåller information om de principer som ingår
 Du har granskat översikten av IRS 1075-skissexemplet. Nu kan du gå vidare till följande artiklar och lära dig om kontrollmappning och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [Kontrollmappning för IRS 1075-skiss](./control-mapping.md)
+> [Skissen IRS 1075 – Kontrollmappning](./control-mapping.md)
+> [Skissen IRS 1075 – Distributionssteg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

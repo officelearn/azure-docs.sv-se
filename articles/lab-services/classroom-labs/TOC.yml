@@ -38,6 +38,8 @@
           href: class-type-shell-scripting-linux.md
         - name: Etisk hackning
           href: class-type-ethical-hacking.md
+        - name: Databashantering
+          href: class-type-database-management.md
     - name: Skapa och konfigurera labbkonton (labbkontoägare)
       items:
         - name: Skapa och hantera labbkonton

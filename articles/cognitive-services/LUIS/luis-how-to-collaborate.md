@@ -1,7 +1,7 @@
 ---
-title: Samar beta med andra – LUIS
+title: Collaborate with others - LUIS
 titleSuffix: Azure Cognitive Services
-description: En app-ägare kan lägga till deltagare till redigerings resursen. Dessa deltagare kan ändra modellen, träna och publicera appen.
+description: An app owner can add contributors to the authoring resource. These contributors can modify the model, train, and publish the app.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,98 +9,94 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: efeb8b28ef2b8eec480fcf5090e0173d6451deef
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467524"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225519"
 ---
-# <a name="add-contributors-to-your-app"></a>Lägg till deltagare i din app
+# <a name="add-contributors-to-your-app"></a>Add contributors to your app
 
-En app-ägare kan lägga till deltagare i appar. Dessa medarbetare kan ändra modellen, träna och publicera appen. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+An app owner can add contributors to apps. These collaborators can modify the model, train, and publish the app. 
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
-## <a name="add-contributor-to-azure-authoring-resource"></a>Lägg till deltagare i Azure Authoring-resursen
+## <a name="add-contributor-to-azure-authoring-resource"></a>Add contributor to Azure authoring resource
 
-Följande procedur gäller för alla användare som har **migrerat** till att använda Azures redigerings resurs.
+The following procedure is for all users that have **migrated** to use the Azure authoring resource.
 
-Du har migrerat om din LUIS redigerings miljö är knuten till en redigerings resurs på sidan för att **hantera > Azure-resurser** på Luis-portalen.
+You have migrated if your LUIS authoring experience is tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
 
-1. I Azure Portal letar du reda på den Language Understanding (LUIS) Authoring-resursen. Den har typen `LUIS.Authoring`.
-1. På den här resursens **Access Control (IAM)** väljer du **+ Lägg till** och väljer sedan **Lägg till roll tilldelning**.
+1. In the Azure portal, find the Language Understanding (LUIS) authoring resource. It has the type `LUIS.Authoring`.
+1. On this resource's **Access Control (IAM)** page, select **+Add** then select **Add role assignment**.
 
-    ![I Azure Portal lägger du till roll tilldelning på redigerings resurs.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
+    ![In Azure portal, add role assignment on authoring resource.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
 
-1. I fönstret **Lägg till roll tilldelning** väljer du **rollen** deltagare. I alternativet **tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller tjänstens huvud namn**. I alternativet **Välj** anger du användarens e-postadress. Om användaren är känd av fler än en e-postadress för samma domän kontrollerar du att ange det _primära_ e-postkontot.
+1. In the **Add role assignment** window, select the **Role** of Contributor. In the **Assign access to** option, select **Azure AD user, group, or service principal**. In the **Select** option, enter the user's email address. If the user is known by more than 1 email address for the same domain, make sure the enter the _primary_ email account.
 
-    ![Lägg till användarens e-post till deltagar rollen för Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
+    ![Add user's email to the contributor role for Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
 
-    När användarens e-postadress hittas väljer du kontot och väljer **Spara**. 
+    When the user's email is found, select the account and select **Save**. 
 
-    Om du har problem med den här roll tilldelningen granskar du [Azure Role-tilldelningar](../../role-based-access-control/role-assignments-portal.md) och [fel sökning av Azure åtkomst kontroll](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments).
+    If you have trouble with this role assignment, review [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) and [Azure access control troubleshooting](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments).
 
-## <a name="add-collaborator-to-luis-app"></a>Lägg till medarbetare i LUIS-appen
+## <a name="add-collaborator-to-luis-app"></a>Add collaborator to LUIS app
 
-Följande procedur är för alla användare som inte har **migrerats** att använda Azures redigerings resurs.
+The following procedure is for all users that have **not migrated** to use the Azure authoring resource.
 
-Du har inte migrerat om din LUIS redigerings upplevelse inte är kopplad till en redigerings resurs på sidan för att **hantera > Azure-resurser** på Luis-portalen.
+You have not migrated if your LUIS authoring experience is not tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
 
-En app har en enda författare, ägare, men kan ha många medarbetare. Om du vill tillåta medarbetare att redigera din LUIS-app måste du lägga till e-postmeddelandet som de använder för att få åtkomst till LUIS-portalen i listan med samarbets partners. När de har lagts till visas appen i LUIS-portalen.
+An app has a single author, the owner, but can have many collaborators. To allow collaborators to edit your LUIS app, you must add the email they use to access the LUIS portal to the collaborators list. Once they are added, the app shows in their LUIS portal.
 
-1. Välj **Hantera** på menyn längst upp till höger och välj sedan **medarbetare** på den vänstra menyn.
+1. Select **Manage** from the top right menu, then select **Collaborators** in the left menu.
 
-1. Välj **Lägg till medarbetare** i verktygsfältet.
+1. Select **Add Collaborator** from the toolbar.
 
-    [![Lägg till medarbetare](./media/luis-how-to-collaborate/add-collaborator.png "Lägg till medarbetare")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+1. Enter the email address the collaborator uses to sign in to the LUIS portal.
 
-1. Ange e-postadressen som medarbetaren använder för att logga in på LUIS-portalen.
-
-    ![Lägg till medarbetares e-postadress](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
+    ![Add collaborator's email address](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 
-### <a name="users-with-multiple-emails"></a>Användare med flera e-postmeddelanden 
+### <a name="users-with-multiple-emails"></a>Users with multiple emails 
 
-Om du lägger till deltagare/medarbetare i en LUIS-app, anger du den exakta e-postadressen. Medan Azure Active Directory (Azure AD) tillåter att en enskild användare har mer än ett e-postkonto som används interutbytbart, kräver LUIS att användaren loggar in med den e-postadress som anges när du lägger till deltagare/medarbetare.
+If you add contributors/collaborators to a LUIS app, you are specifying the exact email address. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to sign in with the email address specified when adding the contributor/collaborator.
 
 <a name="owner-and-collaborators"></a>
 
-### <a name="azure-active-directory-resources"></a>Azure Active Directory resurser
+### <a name="azure-active-directory-resources"></a>Azure Active Directory resources
 
-Om du använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) i din organisation behöver language Understanding (Luis) behörighet till informationen om användarnas åtkomst när de vill använda Luis. De resurser som LUIS kräver är minimala. 
+If you use [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) in your organization, Language Understanding (LUIS) needs permission to the information about your users' access when they want to use LUIS. The resources that LUIS requires are minimal. 
 
-Den detaljerade beskrivningen visas när du försöker registrera dig för ett konto som har administratörs medgivande eller som inte kräver administratörs medgivande, till exempel administratörs medgivande:
+You see the detailed description when you attempt to sign up with an account that has admin consent or does not require admin consent, such as administrator consent:
 
-* Gör att du kan logga in på appen med ditt organisations konto och låta appen läsa din profil. Appen kan också läsa grundläggande företags information. Detta ger LUIS behörighet att läsa grundläggande profil data, t. ex. användar-ID, e-post, namn
-* Tillåter appen att se och uppdatera dina data, även när du inte använder appen för närvarande. Behörigheten krävs för att uppdatera åtkomsttoken för användaren.
+* Allows you to sign in to the app with your organizational account and let the app read your profile. It also allows the app to read basic company information. This gives LUIS permission to read basic profile data, such as user ID, email, name
+* Allows the app to see and update your data, even when you are not currently using the app. The permission is required to refresh the access token of the user.
 
 
-### <a name="azure-active-directory-tenant-user"></a>Azure Active Directory klient organisations användare
+### <a name="azure-active-directory-tenant-user"></a>Azure Active Directory tenant user
 
-LUIS använder standard Azure Active Directory (Azure AD) för godkännande flöden. 
+LUIS uses standard Azure Active Directory (Azure AD) consent flow. 
 
-Klient organisationens administratör bör arbeta direkt med den användare som behöver åtkomst beviljad att använda LUIS i Azure AD. 
+The tenant admin should work directly with the user who needs access granted to use LUIS in the Azure AD. 
 
-* Först loggar användaren in på LUIS och ser popup-dialogrutan som kräver administratörs godkännande. Användaren kontaktar klient administratören innan du fortsätter. 
-* Sedan loggar klient organisations administratören in på LUIS och ser en dialog ruta för godkännande flöde. Det här är den dialog som administratören behöver för att ge användaren behörighet. När administratören godkänner behörigheten kan användaren fortsätta med LUIS. Om klient organisationen inte kommer att logga in på LUIS kan administratören komma åt [medgivande](https://account.activedirectory.windowsazure.com/r#/applications) för Luis, som visas i följande skärm bild. Observera att listan filtreras till objekt som innehåller namnet `LUIS`.
+* First, the user signs into LUIS, and sees the pop-up dialog needing admin approval. The user contacts the tenant admin before continuing. 
+* Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS. If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS, shown in the following screenshot. Notice the list is filtered to items that include the name `LUIS`.
 
-![Azure Active Directory-behörighet från App-webbplats](./media/luis-how-to-collaborate/tenant-permissions.png)
+![Azure active directory permission by app website](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Om klient administratören bara vill att vissa användare ska använda LUIS, finns det ett par möjliga lösningar:
-* Ge "administrativt medgivande" (medgivande till alla användare av Azure AD), men Ställ sedan in på "Ja" "användar tilldelning krävs" under egenskaper för företags program och tilldela/Lägg slutligen till de önskade användarna i programmet. Med den här metoden ger administratören fortfarande "administrativt medgivande" till appen, men det är möjligt att kontrol lera vilka användare som har åtkomst till den.
-* En andra lösning är att använda [Azure AD-Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) för att ge medgivande till varje enskild användare. 
+If the tenant admin only wants certain users to use LUIS, there are a couple of possible solutions:
+* Giving the "admin consent" (consent to all users of the Azure AD), but then set to "Yes" the "User assignment required" under Enterprise Application Properties, and finally assign/add only the wanted users to the Application. With this method, the Administrator is still providing "admin consent" to the App, however, it's possible to control the users that can access it.
+* A second solution, is by using [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user. 
 
-Lär dig mer om Azure Active Directory-användare och medgivande: 
-* [Begränsa din app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) till en uppsättning användare
+Learn more about Azure active directory users and consent: 
+* [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) to a set of users
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [hur du använder versioner](luis-how-to-manage-versions.md) för att kontrol lera appens livs cykel.
-* Förstå begreppen, inklusive [redigering av resurser](luis-concept-keys.md#authoring-key) och [deltagare](luis-concept-keys.md#contributions-from-other-authors) på den resursen.
-* Lär dig [hur du skapar](luis-how-to-azure-subscription.md) redigerings-och körnings resurser
-* Migrera till den nya [redigerings resursen](luis-migration-authoring.md) 
+* Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
+* Understand the concepts including the [authoring resource](luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
+* Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
+* Migrate to the new [authoring resource](luis-migration-authoring.md) 

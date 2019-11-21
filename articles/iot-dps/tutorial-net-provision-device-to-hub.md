@@ -1,23 +1,22 @@
 ---
-title: 'Självstudie: etablera en enhet med Azure IoT Hub Device Provisioning Service (.NET)'
-description: 'Självstudie: etablera din enhet till en enda IoT-hubb med Azure-IoT Hub Device Provisioning Service (.NET)'
+title: Provision device using Azure IoT Hub Device Provisioning Service (.NET)
+description: Tutorial - Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 02995549590f6f53feff92fe45bfb6cc3d543334
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a19774a163c8725e0232e955a7be907420ce8249
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112812"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229483"
 ---
-# <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Självstudie: registrera enheten till en IoT-hubb med Azure IoT Hub Provisioning service-klienten (.NET)
+# <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)
 
 I den förra självstudien lärde du dig att konfigurera en enhet för att ansluta till din enhetsetableringstjänst. I den här självstudien lär du dig att använda tjänsten för att etablera enheten till en enda IoT-hubb, med hjälp av **_individuell registrering_** och **_registreringslistor_** . I den här självstudiekursen lär du dig att:
 
@@ -130,7 +129,7 @@ Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
     Console.ReadLine();
     ```
         
-1. Högerklicka på din lösning i Visual Studio-Solution Explorer och klicka sedan på **Ange start projekt...** . Välj **enstaka start projekt**och välj sedan **DeviceProvisioning** -projektet i list menyn.  
+1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...** . Select **Single startup project**, and then select the **DeviceProvisioning** project in the dropdown menu.  
 
 1. Kör .NET-enhetsappen **DeviceProvisiong**. Den bör konfigurera etablering av enheten: 
 

@@ -1,111 +1,104 @@
 ---
-title: Hur du konfigurerar serverparametrar i Azure Database för MySQL
-description: Den här artikeln beskriver hur du konfigurerar MySQL-serverparametrar i Azure Database för MySQL med Azure-portalen.
+title: How To Configure Server Parameters in Azure Database for MySQL
+description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2019
+ms.openlocfilehash: 6b5d48a1d198b62af853a6334de41bad01b3c98c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422168"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232557"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Hur du konfigurerar serverparametrar i Azure Database för MySQL med hjälp av Azure portal
+# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>How to configure server parameters in Azure Database for MySQL by using the Azure portal
 
-Azure Database för MySQL stöder konfiguration av vissa serverparametrar. Den här artikeln beskriver hur du konfigurerar dessa parametrar med hjälp av Azure portal. Inte alla serverparametrar kan justeras.
+Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters by using the Azure portal. Not all server parameters can be adjusted.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navigera till serverparametrar på Azure-portalen
+## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navigate to Server Parameters on Azure portal
 
-1. Logga in på Azure portal och leta upp din Azure Database for MySQL-server.
-2. Under den **inställningar** klickar du på **serverparametrar** att öppna sidan parametrar för Azure Database for MySQL-server.
-![Sidan för Azure-portalservern parametrar](./media/howto-server-parameters/auzre-portal-server-parameters.png)
-3. Leta upp alla inställningar som du behöver justera. Granska den **beskrivning** kolumn att förstå syftet med och tillåtna värden.
-![Räkna upp Släpp ned](./media/howto-server-parameters/3-toggle_parameter.png)
-4. Klicka på **spara** att spara dina ändringar.
-![Spara eller ignorera ändringar](./media/howto-server-parameters/4-save_parameters.png)
-5. Om du har sparat nya värden för parametrarna, kan du alltid återgå allt till standardvärden genom att välja **Återställ allt till standardinställningarna**.
-![Återställ allt till standardinställningarna](./media/howto-server-parameters/5-reset_parameters.png)
+1. Sign in to the Azure portal, then locate your Azure Database for MySQL server.
+2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
+![Azure portal server parameters page](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Locate any settings you need to adjust. Review the **Description** column to understand the purpose and allowed values.
+![Enumerate drop down](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Click  **Save** to save your changes.
+![Save or Discard changes](./media/howto-server-parameters/4-save_parameters.png)
+5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
+![Reset all to default](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista över konfigurerbara serverparametrar
+## <a name="list-of-configurable-server-parameters"></a>List of configurable server parameters
 
-Listan över stöds serverparametrar växer hela tiden. Använda fliken server parametrar i Azure portal för att hämta definitionen och konfigurera serverparametrar baserat på dina programkrav.
+The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements.
 
-## <a name="non-configurable-server-parameters"></a>Inte går att konfigurera serverparametrar
+## <a name="non-configurable-server-parameters"></a>Non-configurable server parameters
 
-InnoDB Buffertpoolen och högsta antal anslutningar är inte kan konfigureras och bundet till din [prisnivån](concepts-service-tiers.md).
+The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
 
-|**Prisnivå**| **Compute-generering**|**virtuella kärnor**|**InnoDB Buffertpoolen (MB)**| **Högsta antal anslutningar**|
-|---|---|---|---|--|
-|Basic| Generation 4| 1| 960| 50|
-|Basic| Generation 4| 2| 2560| 100|
-|Basic| Generation 5| 1| 960| 50|
-|Basic| Generation 5| 2| 2560| 100|
-|Generellt syfte| Generation 4| 2| 3584| 300|
-|Generellt syfte| Generation 4| 4| 7680| 625|
-|Generellt syfte| Generation 4| 8| 15360| 1250|
-|Generellt syfte| Generation 4| 16| 31232| 2500|
-|Generellt syfte| Generation 4| 32| 62976| 5000|
-|Generellt syfte| Generation 5| 2| 3584| 300|
-|Generellt syfte| Generation 5| 4| 7680| 625|
-|Generellt syfte| Generation 5| 8| 15360| 1250|
-|Generellt syfte| Generation 5| 16| 31232| 2500|
-|Generellt syfte| Generation 5| 32| 62976| 5000|
-|Generellt syfte| Generation 5| 64| 125952| 10000|
-|Minnesoptimerad| Generation 5| 2| 7168| 600|
-|Minnesoptimerad| Generation 5| 4| 15360| 1250|
-|Minnesoptimerad| Generation 5| 8| 30720| 2500|
-|Minnesoptimerad| Generation 5| 16| 62464| 5000|
-|Minnesoptimerad| Generation 5| 32| 125952| 10000|
+|**Prisnivå**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|:---|---:|---:|---:|
+|Basic| 1| 960| |
+|Basic| 2| 2560| |
+|Generellt syfte| 2| 3584| 7168|
+|Generellt syfte| 4| 7680| 15360|
+|Generellt syfte| 8| 15360| 30720|
+|Generellt syfte| 16| 31232| 62464|
+|Generellt syfte| 32| 62976| 125952|
+|Generellt syfte| 64| 125952| 251904|
+|Minnesoptimerad| 2| 7168| 14336|
+|Minnesoptimerad| 4| 15360| 30720|
+|Minnesoptimerad| 8| 30720| 61440|
+|Minnesoptimerad| 16| 62464| 124928|
+|Minnesoptimerad| 32| 125952| 251904|
 
-Dessa ytterligare server-parametrar kan inte konfigureras i systemet:
+These additional server parameters are not configurable in the system:
 
-|**Parametern**|**Fast värde**|
+|**Parameter**|**Fixed value**|
 | :------------------------ | :-------- |
-|innodb_file_per_table på Basic-nivå|AV|
+|innodb_file_per_table in Basic tier|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512 MB|
 
-Andra serverparametrar som inte listas här är inställda på MySQL out-of-box standardvärdena för versioner [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) och [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Other server parameters that are not listed here are set to their MySQL out-of-box default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
-## <a name="working-with-the-time-zone-parameter"></a>Arbeta med parametern tidszon
+## <a name="working-with-the-time-zone-parameter"></a>Working with the time zone parameter
 
-### <a name="populating-the-time-zone-tables"></a>Fylla i tabellerna tidszon
+### <a name="populating-the-time-zone-tables"></a>Populating the time zone tables
 
-Tidszon tabellerna på din server kan fyllas genom att anropa den `az_load_timezone` lagrade proceduren från ett verktyg som MySQL-kommandoraden eller MySQL Workbench.
+The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
 
 > [!NOTE]
-> Om du kör den `az_load_timezone` kommandot från MySQL Workbench, du kan behöva inaktivera säker uppdateringsläget första med `SET SQL_SAFE_UPDATES=0;`.
+> If you are running the `az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();
 ```
 
-Om du vill visa tillgängliga tidszon värden, kör du följande kommando:
+To view available time zone values, run the following command:
 
 ```sql
 SELECT name FROM mysql.time_zone_name;
 ```
 
-### <a name="setting-the-global-level-time-zone"></a>Tidszonen global nivå
+### <a name="setting-the-global-level-time-zone"></a>Setting the global level time zone
 
-Den globala nivån tidszonen kan ställas in från den **serverparametrar** sidan på Azure portal. Den nedan anger globala tidszonen till värdet ”USA / Stillahavsområdet”.
+The global level time zone can be set from the **Server parameters** page in the Azure portal. The below sets the global time zone to the value "US/Pacific".
 
-![En parameter för tidszon](./media/howto-server-parameters/timezone.png)
+![Set time zone parameter](./media/howto-server-parameters/timezone.png)
 
-### <a name="setting-the-session-level-time-zone"></a>Tidszonen session nivå
+### <a name="setting-the-session-level-time-zone"></a>Setting the session level time zone
 
-Sessionen kan ställas in på tidszonen genom att köra den `SET time_zone` från ett verktyg som MySQL-kommandoraden eller MySQL Workbench. Exemplet nedan anger tidszonen till den **USA / Stillahavsområdet** tidszon.
+The session level time zone can be set by running the `SET time_zone` command from a tool like the MySQL command line or MySQL Workbench. The example below sets the time zone to the **US/Pacific** time zone.
 
 ```sql
 SET time_zone = 'US/Pacific';
 ```
 
-MySQL-dokumentationen för [datum- och tidsfunktioner](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
+Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anslutningsbibliotek för Azure Database for MySQL](concepts-connection-libraries.md).
+- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).

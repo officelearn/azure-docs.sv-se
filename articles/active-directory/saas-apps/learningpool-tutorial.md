@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med Learningpool Act | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Learningpool Act | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Learningpool Act.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6f5b2b67ec38ef690f932e189bd2fd9f0dd6da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5bc0b395fcc874190b67bd99262c3a1c9294c0ac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159587"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229282"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Självstudie: Azure Active Directory integrering med Learningpool Act
+# <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Azure Active Directory integration with Learningpool Act
 
 I den här självstudien lär du dig att integrera Learningpool Act med Azure Active Directory (AD Azure).
 Integreringen av Learningpool Act med Azure AD medför följande fördelar:
@@ -187,7 +187,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -228,7 +228,7 @@ Det finns ingen åtgärd som du behöver utföra för att konfigurera användare
 Användare måste skapas av ditt [supportteam för Learningpool Act](https://www.Learningpool.com/support).
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för Learningpool Act-kontoskapande som tillhandahålls av Learningpool Act för att etablera AAD-användarkonton.
+> You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
@@ -242,5 +242,5 @@ När du klickar på Learningpool Act-panelen i åtkomstpanelen bör du automatis
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

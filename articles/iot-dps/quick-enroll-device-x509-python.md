@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: så här registrerar du X. 509-enheter på Azure Device Provisioning-tjänsten med python'
+title: Enroll X.509 devices to Azure Device Provisioning Service using Python
 description: Den här snabbstarten använder gruppregistreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Python
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 23ae0bd9e66cbb592db0ec9adea5e4332a9aa19b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5be204b49611c47519c3fa9bbfa1e81dbedc0ca0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904725"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229502"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Python
 
@@ -32,7 +31,7 @@ Den här snabbstarten förutsätter att du redan har skapat en IoT-hubb och en D
 
 ## <a name="prerequisites"></a>Krav
 
-- Installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i de plattformsspecifika miljövariablerna när du uppmanas att göra det under installationen.
+- Installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen.
 - [Installera eller uppgradera *pip*, pakethanteringssystemet för Python](https://pip.pypa.io/en/stable/installing/).
 - Installera [Git](https://git-scm.com/download/).
 
@@ -141,7 +140,7 @@ Om du tänker utforska Java-tjänstexemplet ska du inte rensa resurserna som har
 
 1. Stäng utdatafönstret för Java-exemplet på datorn.
 1. Stäng _X509 Cert Generator_-fönstret på datorn.
-1. Gå till enhets etablerings tjänsten i Azure Portal, klicka på **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Välj *grupp namnet* för de X. 509-enheter som du har registrerat med den här snabb starten och klicka på knappen **ta bort** högst upp på bladet.  
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 
 ## <a name="next-steps"></a>Nästa steg

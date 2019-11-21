@@ -1,61 +1,61 @@
 ---
-title: Skydda nya resurser med skiss lås
-description: I den här självstudien får du lära dig att använda alternativen för resurs lås i Azure-ritningar som skrivskyddade och ta inte bort för att skydda nyligen distribuerade resurser.
+title: 'Tutorial: Protect new resources with locks'
+description: In this tutorial, you use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
 ms.date: 03/28/2019
 ms.topic: tutorial
-ms.openlocfilehash: e2adbb1e47222055753d4b3690646daa83b32bf1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5be8834e7d598e1d6a98ff7b46184ac0781190f5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960259"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210178"
 ---
-# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudie: skydda nya resurser med resurs lås för Azure-ritningar
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protect new resources with Azure Blueprints resource locks
 
-Med [resurs lås](../concepts/resource-locking.md)för Azure-ritningar kan du skydda nyligen distribuerade resurser från att manipuleras, även genom ett konto med _ägar_ rollen. Du kan lägga till det här skyddet i skiss definitionerna för resurser som skapats av en Resource Manager-mall artefakt.
+With Azure Blueprints [resource locks](../concepts/resource-locking.md), you can protect newly deployed resources from being tampered with, even by an account with the _Owner_ role. You can add this protection in the blueprint definitions of resources created by a Resource Manager template artifact.
 
-I den här självstudien utför du följande steg:
+In this tutorial, you'll complete these steps:
 
 > [!div class="checklist"]
-> - Skapa en skiss definition
-> - Markera skiss definitionen som **publicerad**
-> - Tilldela din skiss definition till en befintlig prenumeration
-> - Granska den nya resurs gruppen
-> - Ta bort tilldelningen för att ta bort låsen
+> - Create a blueprint definition
+> - Mark your blueprint definition as **Published**
+> - Assign your blueprint definition to an existing subscription
+> - Inspect the new resource group
+> - Unassign the blueprint to remove the locks
 
 ## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="create-a-blueprint-definition"></a>Skapa en skiss definition
+## <a name="create-a-blueprint-definition"></a>Create a blueprint definition
 
-Börja med att skapa skiss definitionen.
+First, create the blueprint definition.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. På sidan **komma igång** till vänster väljer du **skapa** under **skapa en skiss**.
+1. On the **Getting started** page on the left, select **Create** under **Create a blueprint**.
 
-1. Leta upp det **tomma skiss** exemplet överst på sidan. Välj **börja med en tom skiss**.
+1. Find the **Blank Blueprint** blueprint sample at the top of the page. Select **Start with blank blueprint**.
 
-1. Ange den här informationen på fliken **grundläggande** :
+1. Enter this information on the **Basics** tab:
 
-   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet. I den här självstudien använder vi namnet **Locked-storageaccount**.
-   - **Skiss Beskrivning**: Lägg till en beskrivning för skiss definitionen. Används **för att testa skiss resurs låsning på distribuerade resurser**.
-   - **Definitions plats**: Välj knappen med tre punkter (...) och välj sedan den hanterings grupp eller prenumeration som du vill spara din skiss definition till.
+   - **Blueprint name**: Provide a name for your copy of the blueprint sample. For this tutorial, we'll use the name **locked-storageaccount**.
+   - **Blueprint description**: Add a description for the blueprint definition. Use **For testing blueprint resource locking on deployed resources**.
+   - **Definition location**: Select the ellipsis button (...) and then select the management group or subscription to save your blueprint definition to.
 
-1. Välj fliken **artefakter** överst på sidan eller Välj **Nästa: artefakter** längst ned på sidan.
+1. Select the **Artifacts** tab at the top of the page, or select **Next: Artifacts** at the bottom of the page.
 
-1. Lägg till en resurs grupp på prenumerations nivån:
-   1. Välj raden **Lägg till artefakt** under **prenumeration**.
-   1. Välj **resurs grupp** under **artefakt typ**.
-   1. Ange **visnings namnet för artefakten** till **RGtoLock**.
-   1. Lämna rutorna för **resurs grupp namn** och **plats** tomma, men kontrol lera att kryss rutan är markerad för varje egenskap för att göra dem till **dynamiska parametrar**.
-   1. Välj **Lägg till** för att lägga till artefakten i skissen.
+1. Add a resource group at the subscription level:
+   1. Select the **Add artifact** row under **Subscription**.
+   1. Select **Resource Group** under **Artifact type**.
+   1. Set the **Artifact display name** to **RGtoLock**.
+   1. Leave the **Resource Group Name** and **Location** boxes blank, but make sure the check box is selected on each property to make them **dynamic parameters**.
+   1. Select **Add** to add the artifact to the blueprint.
 
-1. Lägg till en mall under resurs gruppen:
-   1. Välj raden **Lägg till artefakt** under posten **RGtoLock** . 
-   1. Välj **Azure Resource Manager mall** under **artefakt typ**, ange **artefakt visnings namnet** till **StorageAccount**och lämna **beskrivningen** tom. 
-   1. På fliken **mall** klistrar du in följande Resource Manager-mall i redigerings rutan. När du har klistrat in mallen väljer du **Lägg till** för att lägga till artefakten i skissen.
+1. Add a template under the resource group:
+   1. Select the **Add artifact** row under the **RGtoLock** entry. 
+   1. Select **Azure Resource Manager template** under **Artifact type**, set **Artifact display name** to **StorageAccount**, and leave **Description** blank. 
+   1. On the **Template** tab, paste the following Resource Manager template into the editor box. After you paste in the template, select **Add** to add the artifact to the blueprint.
 
    ```json
    {
@@ -99,134 +99,134 @@ Börja med att skapa skiss definitionen.
    }
    ```
 
-1. Välj **Spara utkast** längst ned på sidan.
+1. Select **Save Draft** at the bottom of the page.
 
-Det här steget skapar skiss definitionen i den valda hanterings gruppen eller prenumerationen.
+This step creates the blueprint definition in the selected management group or subscription.
 
-När du har skickat ett meddelande om att **skiss definitionen lyckades** visas går du till nästa steg.
+After the **Saving blueprint definition succeeded** portal notification appears, go to the next step.
 
-## <a name="publish-the-blueprint-definition"></a>Publicera skiss definitionen
+## <a name="publish-the-blueprint-definition"></a>Publish the blueprint definition
 
-Skiss definitionen har nu skapats i din miljö. Den skapas i **utkast** läge och måste publiceras innan den kan tilldelas och distribueras.
-
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
-
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta ritnings definitionen **Locked-storageaccount** och markera den.
-
-1. Välj **publicera skiss** överst på sidan. I det nya fönstret till höger anger du **1,0** som **version**. Den här egenskapen är användbar om du gör en ändring senare. Ange **ändrings anteckningar**, till exempel den **första versionen som publiceras för att låsa skissbaserade resurser**. Välj sedan **publicera** längst ned på sidan.
-
-Det här steget gör det möjligt att tilldela skissen till en prenumeration. När skiss definitionen har publicerats kan du fortfarande göra ändringar. Om du gör ändringar måste du publicera definitionen med ett nytt versions värde för att spåra skillnader mellan versioner av samma skiss definition.
-
-När du **har slutfört ett Portal meddelande om publicerings skissen** visas går du till nästa steg.
-
-## <a name="assign-the-blueprint-definition"></a>Tilldela skiss definitionen
-
-När skiss definitionen har publicerats kan du tilldela den till en prenumeration i hanterings gruppen där du sparade den. I det här steget anger du parametrar för att göra varje distribution av skiss definitionen unik.
+Your blueprint definition has now been created in your environment. It's created in **Draft** mode and must be published before it can be assigned and deployed.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta ritnings definitionen **Locked-storageaccount** och markera den.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find the **locked-storageaccount** blueprint definition, and then select it.
 
-1. Välj **tilldela skiss** överst på skiss definitions sidan.
+1. Select **Publish blueprint** at the top of the page. In the new pane on the right, enter **1.0** as the **Version**. This property is useful if you make a change later. Enter **Change notes**, such as **First version published for locking blueprint deployed resources**. Then select **Publish** at the bottom of the page.
 
-1. Ange parameter värden för skiss tilldelningen:
+This step makes it possible to assign the blueprint to a subscription. After the blueprint definition is published, you can still make changes. If you make changes, you need to publish the definition with a new version value to track differences between versions of the same blueprint definition.
+
+After the **Publishing blueprint definition succeeded** portal notification appears, go to the next step.
+
+## <a name="assign-the-blueprint-definition"></a>Assign the blueprint definition
+
+After the blueprint definition is published, you can assign it to a subscription within the management group where you saved it. In this step, you provide parameters to make each deployment of the blueprint definition unique.
+
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
+
+1. Select the **Blueprint definitions** page on the left. Use the filters to find the **locked-storageaccount** blueprint definition, and then select it.
+
+1. Select **Assign blueprint** at the top of the blueprint definition page.
+
+1. Provide the parameter values for the blueprint assignment:
 
    - **Grundläggande inställningar**
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen där du sparade skiss definitionen. Om du väljer fler än en prenumeration skapas en tilldelning för varje prenumeration med hjälp av de parametrar som du anger.
-     - **Tilldelnings namn**: namnet fylls i i förväg baserat på skiss definitionens namn. Vi vill att den här tilldelningen ska representera låsning av den nya resurs gruppen, så ändra tilldelnings namnet till **tilldelningen-Locked-storageaccount-TestingBPLocks**.
-     - **Plats**: Välj en region där du vill skapa den hanterade identiteten. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../active-directory/managed-identities-azure-resources/overview.md).
-       I den här självstudien väljer du **USA, östra 2**.
-     - **Ritnings definitions version**: Välj den publicerade versionen **1,0** av skiss definitionen.
+     - **Subscriptions**: Select one or more of the subscriptions that are in the management group where you saved your blueprint definition. If you select more than one subscription, an assignment will be created for each subscription, using the parameters you enter.
+     - **Assignment name**: The name is pre-populated based on the name of the blueprint definition. We want this assignment to represent locking the new resource group, so change the assignment name to **assignment-locked-storageaccount-TestingBPLocks**.
+     - **Location**: Select a region in which to create the managed identity. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../active-directory/managed-identities-azure-resources/overview.md).
+       For this tutorial, select **East US 2**.
+     - **Blueprint definition version**: Select the published version **1.0** of the blueprint definition.
 
-   - **Lås tilldelning**
+   - **Lock Assignment**
 
-     Välj Lås läget **skrivskyddad** skiss. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
+     Select the **Read Only** blueprint lock mode. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
 
-   - **Hanterad identitet**
+   - **Managed Identity**
 
-     Använd standard alternativet: **systemtilldelad**. Mer information finns i [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Use the default option: **System assigned**. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-   - **Artefakt parametrar**
+   - **Artifact parameters**
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt under vilken de har definierats. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. För varje artefakt anger du parametervärdet till det som visas i kolumnen **värde** .
+     The parameters defined in this section apply to the artifact under which they're defined. These parameters are [dynamic parameters](../concepts/parameters.md#dynamic-parameters) because they're defined during the assignment of the blueprint. For each artifact, set the parameter value to what you see in the **Value** column.
 
-     |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
+     |Artifact name|Artifact type|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |Resurs grupp för RGtoLock|Resursgrupp|Namn|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
-     |Resurs grupp för RGtoLock|Resursgrupp|Plats|Västra USA 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
-     |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|SKU för lagring. Standardvärdet är _Standard_LRS_.|
+     |RGtoLock resource group|Resursgrupp|Namn|TestingBPLocks|Defines the name of the new resource group to apply blueprint locks to.|
+     |RGtoLock resource group|Resursgrupp|Plats|USA, västra 2|Defines the location of the new resource group to apply blueprint locks to.|
+     |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
 
-1. När du har angett alla parametrar väljer du **tilldela** längst ned på sidan.
+1. After you've entered all parameters, select **Assign** at the bottom of the page.
 
-Det här steget distribuerar de definierade resurserna och konfigurerar den valda **Lås tilldelningen**. Det kan ta upp till 30 minuter att använda skiss lås.
+This step deploys the defined resources and configures the selected **Lock Assignment**. It can take up to 30 minutes to apply blueprint locks.
 
-När meddelandet **tilldelning av skiss definition lyckades** visas går du till nästa steg.
+After the **Assigning blueprint definition succeeded** portal notification appears, go to the next step.
 
-## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspektera resurser som distribueras av tilldelningen
+## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspect resources deployed by the assignment
 
-Tilldelningen skapar resurs gruppen _TestingBPLocks_ och det lagrings konto som distribuerats av Resource Manager-mallens artefakt. Den nya resurs gruppen och det valda lås läget visas på sidan tilldelnings information.
-
-1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
-
-1. Välj sidan **tilldelade ritningar** till vänster. Använd filtren för att hitta **tilldelningen-låsta-storageaccount-TestingBPLocks** skiss tilldelning och markera den.
-
-   Från den här sidan kan vi se att tilldelningen lyckades och att resurserna har distribuerats med det nya ritnings lås läget. Om tilldelningen uppdateras visas information om distributionen av varje definitions version i list rutan **tilldelnings åtgärd** . Du kan välja resurs gruppen för att öppna egenskaps sidan.
-
-1. Välj resurs gruppen **TestingBPLocks** .
-
-1. Välj **åtkomst kontroll sidan (IAM)** till vänster. Välj sedan fliken **roll tilldelningar** .
-
-   Här ser vi att roll tilldelningen _Locked-storageaccount-TestingBPLocks_ har _ägar_ rollen. Den har rollen eftersom den här rollen användes för att distribuera och låsa resurs gruppen.
-
-1. Välj fliken **neka tilldelningar** .
-
-   Skiss tilldelningen skapade en [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) på den distribuerade resurs gruppen för att tvinga det **skrivskyddade** utkast låset. Neka-tilldelningen hindrar någon med lämpliga rättigheter på fliken **roll tilldelningar** från att vidta vissa åtgärder. Neka-tilldelningen påverkar _alla huvud konton_.
-
-   Information om hur du undantar ett huvud konto från en neka-tilldelning finns i [resurs låsning](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
-
-1. Välj neka tilldelning och välj sedan sidan **nekade behörigheter** till vänster.
-
-   Neka-tilldelningen förhindrar alla åtgärder med **\*** -och **Åtgärds** konfigurationen, men den tillåter Läs åtkomst genom att utesluta **\*/Read** via **NotActions**.
-
-1. I Azure Portal dynamiska länkar väljer du **TestingBPLocks-Access Control (IAM)** . Välj sedan sidan **Översikt** till vänster och sedan knappen **ta bort resurs grupp** . Ange namnet **TestingBPLocks** för att bekräfta borttagningen och välj sedan **ta bort** längst ned i fönstret.
-
-   Det **gick inte att ta bort resurs gruppen TestingBPLocks** . Felet anger att även om ditt konto har behörighet att ta bort resurs gruppen nekas åtkomst av skiss tilldelningen. Kom ihåg att vi valde lås läget **skrivskyddad** skiss under skiss tilldelningen. Skiss låset förhindrar ett konto med behörighet, till och med _ägare_, från att ta bort resursen. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
-
-De här stegen visar att våra distribuerade resurser nu skyddas med skiss lås som förhindrar oönskad borttagning, även från ett konto som har behörighet att ta bort resurserna.
-
-## <a name="unassign-the-blueprint"></a>Ta bort tilldelningen av skissen
-
-Det sista steget är att ta bort skiss definitionens tilldelning. Om du tar bort tilldelningen tas inte de associerade artefakterna bort.
+The assignment creates the resource group _TestingBPLocks_ and the storage account deployed by the Resource Manager template artifact. The new resource group and the selected lock state are shown on the assignment details page.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **tilldelade ritningar** till vänster. Använd filtren för att hitta **tilldelningen-låsta-storageaccount-TestingBPLocks** skiss tilldelning och markera den.
+1. Select the **Assigned blueprints** page on the left. Use the filters to find the **assignment-locked-storageaccount-TestingBPLocks** blueprint assignment, and then select it.
 
-1. Välj **ta bort tilldelning av skiss** högst upp på sidan. Läs varningen i bekräftelse dialog rutan och välj sedan **OK**.
+   From this page, we can see that the assignment succeeded and that the resources were deployed with the new blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down shows details about the deployment of each definition version. You can select the resource group to open the property page.
 
-   När skiss tilldelningen tas bort, tas även Skissernas lås bort. Resurserna kan återigen tas bort av ett konto med rätt behörighet.
+1. Select the **TestingBPLocks** resource group.
 
-1. Välj **resurs grupper** på Azure-menyn och välj sedan **TestingBPLocks**.
+1. Select the **Access control (IAM)** page on the left. Then select the **Role assignments** tab.
 
-1. Välj sidan **åtkomst kontroll (IAM)** till vänster och välj sedan fliken **roll tilldelningar** .
+   Here we see that the _assignment-locked-storageaccount-TestingBPLocks_ blueprint assignment has the _Owner_ role. It has this role because this role was used to deploy and lock the resource group.
 
-Säkerheten för resurs gruppen visar att skiss tilldelningen inte längre har _ägar_ åtkomst.
+1. Select the **Deny assignments** tab.
 
-När du **har tagit bort skiss tilldelningen** visas ett Portal meddelande i nästa steg.
+   The blueprint assignment created a [deny assignment](../../../role-based-access-control/deny-assignments.md) on the deployed resource group to enforce the **Read Only** blueprint lock mode. The deny assignment prevents someone with appropriate rights on the **Role assignments** tab from taking specific actions. The deny assignment affects _All principals_.
+
+   For information about excluding a principal from a deny assignment, see [blueprints resource locking](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
+1. Select the deny assignment, and then select the **Denied Permissions** page on the left.
+
+   The deny assignment is preventing all operations with the **\*** and **Action** configuration, but it allows read access by excluding **\*/read** via **NotActions**.
+
+1. In the Azure portal breadcrumb, select **TestingBPLocks - Access control (IAM)** . Then select the **Overview** page on the left and then the **Delete resource group** button. Enter the name **TestingBPLocks** to confirm the delete and then select **Delete** at the bottom of the pane.
+
+   The portal notification **Delete resource group TestingBPLocks failed** appears. The error states that although your account has permission to delete the resource group, access is denied by the blueprint assignment. Remember that we selected the **Read Only** blueprint lock mode during blueprint assignment. The blueprint lock prevents an account with permission, even _Owner_, from deleting the resource. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
+
+These steps show that our deployed resources are now protected with blueprint locks that prevent unwanted deletion, even from an account that has permission to delete the resources.
+
+## <a name="unassign-the-blueprint"></a>Unassign the blueprint
+
+The last step is to remove the assignment of the blueprint definition. Removing the assignment doesn't remove the associated artifacts.
+
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
+
+1. Select the **Assigned blueprints** page on the left. Use the filters to find the **assignment-locked-storageaccount-TestingBPLocks** blueprint assignment, and then select it.
+
+1. Select **Unassign blueprint** at the top of the page. Read the warning in the confirmation dialog box, and then select **OK**.
+
+   When the blueprint assignment is removed, the blueprint locks are also removed. The resources can once again be deleted by an account with appropriate permissions.
+
+1. Select **Resource groups** from the Azure menu, and then select **TestingBPLocks**.
+
+1. Select the **Access control (IAM)** page on the left and then select the **Role assignments** tab.
+
+The security for the resource group shows that the blueprint assignment no longer has _Owner_ access.
+
+After the **Removing blueprint assignment succeeded** portal notification appears, go to the next step.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort följande resurser när du är klar med den här självstudien:
+When you're finished with this tutorial, delete these resources:
 
-- _TestingBPLocks_ för resurs grupp
-- Skiss definitionen är _låst – storageaccount_
+- Resource group _TestingBPLocks_
+- Blueprint definition _locked-storageaccount_
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om [livscykeln för en skiss](../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
-- Ta reda på hur du använder [skiss resurs låsning](../concepts/resource-locking.md).
+- Find out how to use [blueprint resource locking](../concepts/resource-locking.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
-- [Felsök problem](../troubleshoot/general.md) när en skiss tilldelas.
+- [Troubleshoot issues](../troubleshoot/general.md) during the assignment of a blueprint.

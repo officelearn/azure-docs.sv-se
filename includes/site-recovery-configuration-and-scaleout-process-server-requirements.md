@@ -9,25 +9,25 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: d77269c1e965d5bca1e32b756ef26e2c694e5c81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7baa2dbd1583ebbccbf9b21df3531404bd839e10
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747827"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260895"
 ---
-**Krav för konfiguration och process Server**
+**Configuration and process server requirements**
 
 
-## <a name="hardware-requirements"></a>Maskin varu krav
+## <a name="hardware-requirements"></a>Hardware requirements
 
 **Komponent** | **Krav** 
 --- | ---
-Processorkärnor | 8 
+CPU-kärnor | 8 
 RAM | 16 GB
-Antal diskar | 3, inklusive OS-disken, cache-disk för processerver och lagrings enhet för återställning efter fel 
-Ledigt disk utrymme (bearbetnings serverns cacheminne) | 600 GB
-Ledigt disk utrymme (kvarhållning av disk) | 600 GB
+Antal diskar | 3, including the OS disk, process server cache disk, and retention drive for failback 
+Free disk space (process server cache) | 600 GB
+Free disk space (retention disk) | 600 GB
  | 
 
 ## <a name="software-requirements"></a>Programvarukrav
@@ -36,10 +36,11 @@ Ledigt disk utrymme (kvarhållning av disk) | 600 GB
 --- | ---
 Operativsystem | Windows Server 2012 R2 <br> Windows Server 2016
 Nationella inställningar för operativsystem | Engelska (en-us)
-Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
-Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Ingen befintlig standard webbplats. <br> -Ingen befintlig webbplats eller ett program som lyssnar på port 443. <br>-Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx). <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställningen.
-| 
+Windows Server-roller | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
+Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting 
+FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
+|
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
@@ -47,36 +48,38 @@ IIS | -Ingen befintlig standard webbplats. <br> -Ingen befintlig webbplats eller
 --- | --- 
 IP-adresstyp | Statisk 
 Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring) 
-Typ av nätverkskort | VMXNET3 (om konfigurations servern är en virtuell VMware-dator)
+NIC type | VMXNET3 (if the configuration server is a VMware VM)
  |
-**Internet åtkomst** (servern behöver åtkomst till följande URL: er, direkt eller via proxy):|
-\*.backup.windowsazure.com | Används för replikerad data överföring och samordning
-\*.store.core.windows.net | Används för replikerad data överföring och samordning
-\*.blob.core.windows.net | Används för att komma åt lagrings kontot som lagrar replikerade data
-\*.hypervrecoverymanager.windowsazure.com | Används för hanterings åtgärder och samordning av replikering
-https:\//management.azure.com | Används för hanterings åtgärder och samordning av replikering 
-*.services.visualstudio.com | Används för telemetri (valfritt)
-time.nist.gov | Används för att kontrol lera tidssynkronisering mellan system och global tid
-time.windows.com | Används för att kontrol lera tidssynkronisering mellan system och global tid
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF-installationen behöver åtkomst till dessa URL: er. De används för åtkomst kontroll och identitets hantering av Azure Active Directory.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | För att slutföra MySQL-nedladdning. </br> I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också vit listas, om det behövs.
+**Internet access**  (the server needs access to the following URLs, directly or via proxy):|
+\*.backup.windowsazure.com | Used for replicated data transfer and coordination
+\*.store.core.windows.net | Used for replicated data transfer and coordination
+\*.blob.core.windows.net | Used to access storage account that stores replicated data
+\*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
+https:\//management.azure.com | Used for replication management operations and coordination 
+*.services.visualstudio.com | Used for telemetry purposes (optional)
+time.nist.gov | Used to check time synchronization between system and global time
+time.windows.com | Used to check time synchronization between system and global time
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also whitelisted, if necessary.
 |
 
-## <a name="required-software"></a>Nödvändig program vara
+## <a name="required-software"></a>Required software
 
 **Komponent** | **Krav** 
 --- | ---
-VMware vSphere PowerCLI | [PowerCLI version 6,0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) bör installeras om konfigurations servern körs på en virtuell VMware-dator.
-MySQL | MySQL ska installeras. Du kan installera manuellt, eller så kan Azure Site Recovery installera det. (Mer information finns i [Konfigurera inställningar](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings).)
+VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.
+MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
+|
 
-## <a name="sizing-and-capacity-requirements"></a>Storleks-och kapacitets krav
+## <a name="sizing-and-capacity-requirements"></a>Sizing and capacity requirements
 
-I följande tabell sammanfattas kapacitets kraven för konfigurations servern. Om du replikerar flera virtuella VMware-datorer bör du gå igenom [kapacitets planerings överväganden](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) och köra [Distributionshanteraren för Azure Site Recovery-verktyget](../articles/site-recovery/site-recovery-deployment-planner.md).
+The following table summarizes capacity requirements for the configuration server. If you're replicating multiple VMware VMs, review the [capacity planning considerations](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) and run the [Azure Site Recovery Deployment Planner tool](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
-**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Data ändrings takt** | **Replikerade datorer**
+**CPU** | **Memory** | **Cache disk** | **Data change rate** | **Replikerade datorer**
 --- | --- | --- | --- | ---
-8 virtuella processorer<br/><br/> 2 Sockets * 4 kärnor \@ 2,5 GHz | 16 GB | 300 GB | 500 GB eller mindre | < 100 datorer
-12 virtuella processorer<br/><br/> 2 SOCKS * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB till 1 TB | 100 till 150-datorer
-16 virtuella processorer<br/><br/> 2 SOCKS * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1 till 2 TB | 150 till 200-datorer
+8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16 GB | 300 GB | 500 GB or less | < 100 machines
+12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
+16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
+|
 

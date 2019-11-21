@@ -1,135 +1,131 @@
 ---
-title: Översikt över Azure Functions körnings versioner
-description: Azure Functions stöder flera versioner av körnings miljön. Lär dig mer om skillnaderna mellan dem och hur du väljer det som passar dig bäst.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
+title: Azure Functions runtime versions overview
+description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: glenga
-ms.openlocfilehash: 9ca7006bb842cbe235d2e982e611613e1fd74ed9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 53da5869b4768c95fd225fb15db60f4301e537d4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597395"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226538"
 ---
-# <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions körnings versioner
+# <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versions overview
 
-Huvud versionerna av Azure Functions runtime är relaterade till den version av .NET som körningen baseras på. I följande tabell visas den aktuella versionen av körnings miljön, versions nivån och den relaterade .NET-versionen. 
+The major versions of the Azure Functions runtime are related to the version of .NET on which the runtime is based. The following table indicates the current version of the runtime, the release level, and the related .NET version. 
 
-| Körnings version | Versions nivå<sup>1</sup> | .NET-version | 
+| Runtime version | Release level<sup>1</sup> | .NET version | 
 | --------------- | ------------- | ------------ |
-| 3.x  | förhandsversion | .NET Core 3. x | 
-| 2x | Allmänt tillgänglig | .NET Core 2.2 |
-| 1.x | GA<sup>2</sup> | .NET Framework 4,6<sup>3</sup> |
+| 3.x  | förhandsversion | .NET Core 3.x | 
+| 2.x | Allmänt tillgänglig | .NET Core 2.2 |
+| 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
-<sup>1</sup> GA-versioner stöds för produktions scenarier.   
-<sup>2</sup> Version 1. x är i underhålls läge. Förbättringar finns bara i senare versioner.   
-<sup>3</sup> Stöder endast utveckling i Azure Portal eller lokalt på Windows-datorer.
+<sup>1</sup>GA releases are supported for production scenarios.   
+<sup>2</sup>Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   
+<sup>3</sup>Only supports development in the Azure portal or locally on Windows computers.
 
 >[!NOTE]  
-> Version 3. x av Functions-körningen är i för hands version och stöds inte för produktions miljöer. Mer information om hur du testar version 3. x finns i [det här meddelandet](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
+> Version 3.x of the Functions runtime is in preview and isn't supported for production environments. For more information about trying out version 3.x, see [this announcement](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
 
-I den här artikeln beskrivs några skillnader mellan olika versioner, hur du kan skapa varje version och hur du ändrar versioner.
+This article details some of the differences between the various versions, how you can create each version, and how to change versions.
 
 ## <a name="languages"></a>Språk
 
-Från och med version 2. x använder körnings modellen en språk utöknings modell och alla funktioner i en Function-app måste dela samma språk. Språket i funktioner i en Function-app väljs när du skapar appen och underhålls i [\_RUNTIME inställningen funktioner \_WORKER](functions-app-settings.md#functions_worker_runtime) . 
+Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app and is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting. 
 
-Azure Functions 1. x experimentella språk kan inte använda den nya modellen, så de stöds inte i 2. x. Följande tabell visar vilka programmeringsspråk som för närvarande stöds i varje körnings version.
+Azure Functions 1.x experimental languages can't use the new model, so they aren't supported in 2.x. The following table indicates which programming languages are currently supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 Mer information finns i [språk som stöds](supported-languages.md).
 
-## <a name="creating-1x-apps"></a>Kör på en angiven version
+## <a name="creating-1x-apps"></a>Run on a specific version
 
-Som standard är Function-appar som skapats i Azure Portal och av Azure CLI inställda på version 2. x. När det är möjligt bör du använda den här körnings versionen. Om du behöver kan du fortfarande köra en Function-app på version 1. x-körningsmiljön. Du kan bara ändra kör tids versionen när du har skapat din Function-app, men innan du lägger till några funktioner. Information om hur du fäster körnings versionen på 1. x finns i [Visa och uppdatera den aktuella körnings versionen](set-runtime-version.md#view-and-update-the-current-runtime-version).
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 2.x. When possible, you should use this runtime version. If you need to, you can still run a function app on the version 1.x runtime. You can only change the runtime version after you create your function app but before you add any functions. To learn how to pin the runtime version to 1.x, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-Du kan också uppgradera till version 3. x av körnings miljön, som finns i för hands version. Gör detta om du behöver kunna köra dina funktioner på .NET Core 3. x. Information om hur du uppgraderar till 3. x finns i [Visa och uppdatera den aktuella körnings versionen](set-runtime-version.md#view-and-update-the-current-runtime-version).
+You can also upgrade to version 3.x of the runtime, which is in preview. Do this if you need to be able to run your functions on .NET Core 3.x. To learn how to upgrade to 3.x, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-## <a name="migrating-from-1x-to-later-versions"></a>Migrera från 1. x till senare versioner
+## <a name="migrating-from-1x-to-later-versions"></a>Migrating from 1.x to later versions
 
-Du kan välja att migrera en befintlig app som skrivits för att använda version 1. x runtime för att istället använda version 2. x. De flesta ändringar du behöver göra är relaterade till ändringar i språk körningen, till exempel C# API-ändringar mellan .NET Framework 4,7 och .net Core 2. Du måste också kontrol lera att din kod och dina bibliotek är kompatibla med den språk körning som du väljer. Slutligen är det viktigt att notera eventuella ändringar i utlösare, bindningar och funktioner som marker ATS nedan. För bästa migrerings resultat bör du skapa en ny function-app för version 2. x och port din befintliga version 1. x-funktions kod till den nya appen.  
+You may choose to migrate an existing app written to use the version 1.x runtime to instead use version 2.x. Most of the changes you need to make are related to changes in the language runtime, such as C# API changes between .NET Framework 4.7 and .NET Core 2. You'll also need to make sure your code and libraries are compatible with the language runtime you choose. Finally, be sure to note any changes in trigger, bindings, and features highlighted below. For the best migration results, you should create a new function app for version 2.x and port your existing version 1.x function code to the new app.  
 
-### <a name="changes-in-triggers-and-bindings"></a>Ändringar i utlösare och bindningar
+### <a name="changes-in-triggers-and-bindings"></a>Changes in triggers and bindings
 
-Version 2. x kräver att du installerar tillägg för vissa utlösare och bindningar som används av funktionerna i din app. Det enda undantaget för HTTP-och timer-utlösare, vilket inte kräver ett tillägg.  Mer information finns i [Registrera och installera bindnings tillägg](./functions-bindings-register.md).
+Version 2.x requires you to install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
 
-Det har också uppstått några ändringar i `function.json` eller attributen för funktionen mellan versioner. Till exempel är Event Hub `path`-egenskapen nu `eventHubName`. I den [befintliga bindnings tabellen](#bindings) finns länkar till dokumentation för varje bindning.
+There have also been a few changes in the `function.json` or attributes of the function between versions. For example, the Event Hub `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
 
-### <a name="changes-in-features-and-functionality"></a>Ändringar i funktioner och funktioner
+### <a name="changes-in-features-and-functionality"></a>Changes in features and functionality
 
-Några funktioner som också har tagits bort, uppdaterats eller ersatts i den nya versionen. Det här avsnittet innehåller information om de ändringar som visas i version 2. x efter att ha använt version 1. x.
+A few features that have also been removed, updated, or replaced in the new version. This section details the changes you see in version 2.x after having used version 1.x.
 
-I version 2. x gjordes följande ändringar:
+In version 2.x, the following changes were made:
 
-* Nycklar för att anropa HTTP-slutpunkter lagras alltid krypterade i Azure Blob Storage. I version 1. x lagrades nycklar i Azure File Storage som standard. När du uppgraderar en app från version 1. x till version 2. x återställs befintliga hemligheter som finns i fil lagringen.
+* Keys for calling HTTP endpoints are always stored encrypted in Azure Blob storage. In version 1.x, keys were stored in Azure File storage be default. When upgrading an app from version 1.x to version 2.x, existing secrets that are in file storage are reset.
 
-* Version 2. x-körningsmiljön innehåller inget inbyggt stöd för webhook-providrar. Den här ändringen gjordes för att förbättra prestandan. Du kan fortfarande använda HTTP-utlösare som slut punkter för Webhooks.
+* The version 2.x runtime doesn't include built-in support for webhook providers. This change was made to improve performance. You can still use HTTP triggers as endpoints for webhooks.
 
-* Värd konfigurations filen (Host. JSON) måste vara tom eller ha strängen `"version": "2.0"`.
+* The host configuration file (host.json) should be empty or have the string `"version": "2.0"`.
 
-* För att förbättra övervakningen ersätts instrument panelen WebJobs i portalen, som använde inställningen [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) , med Azure Application insikter som använder inställningen [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) . Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
+* To improve monitoring, the WebJobs dashboard in the portal, which used the [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) setting is replaced with Azure Application Insights, which uses the [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) setting. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
-* Alla funktioner i en Function-app måste dela samma språk. När du skapar en Function-app måste du välja en körnings stack för appen. Körnings stacken anges av [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) svärdet i program inställningarna. Detta krav har lagts till för att förbättra utrymme och start tid. När du utvecklar lokalt måste du också inkludera den här inställningen i [filen Local. Settings. JSON](functions-run-local.md#local-settings-file).
+* All functions in a function app must share the same language. When you create a function app, you must choose a runtime stack for the app. The runtime stack is specified by the [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) value in application settings. This requirement was added to improve footprint and startup time. When developing locally, you must also include this setting in the [local.settings.json file](functions-run-local.md#local-settings-file).
 
-* Standard tids gränsen för funktioner i en App Service plan ändras till 30 minuter. Du kan manuellt ändra tillbaka tids gränsen till obegränsad med hjälp av inställningen [functionTimeout](functions-host-json.md#functiontimeout) i Host. JSON.
+* The default timeout for functions in an App Service plan is changed to 30 minutes. You can manually change the timeout back to unlimited by using the [functionTimeout](functions-host-json.md#functiontimeout) setting in host.json.
 
-* HTTP-samtidighets begränsning implementeras som standard för förbruknings plan funktioner, med standardvärdet 100 samtidiga begär Anden per instans. Du kan ändra detta i [`maxConcurrentRequests`](functions-host-json.md#http) inställningen i Host. JSON-filen.
+* HTTP concurrency throttles are implemented by default for consumption plan functions, with a default of 100 concurrent requests per instance. You can change this in the [`maxConcurrentRequests`](functions-host-json.md#http) setting in the host.json file.
 
-* På grund av [begränsningar i .net Core](https://github.com/Azure/azure-functions-host/issues/3414)har F# stöd för skript funktioner (. FSX) tagits bort. Kompilerade F# funktioner (. FS) stöds fortfarande.
+* Because of [.NET core limitations](https://github.com/Azure/azure-functions-host/issues/3414), support for F# script (.fsx) functions has been removed. Compiled F# functions (.fs) are still supported.
 
-* URL-formatet för Event Grid trigger-webhookar har ändrats till `https://{app}/runtime/webhooks/{triggerName}`.
+* The URL format of Event Grid trigger webhooks has been changed to `https://{app}/runtime/webhooks/{triggerName}`.
 
-### <a name="migrating-a-locally-developed-application"></a>Migrera ett lokalt utvecklat program
+### <a name="migrating-a-locally-developed-application"></a>Migrating a locally developed application
 
-Du kan ha befintliga Function app-projekt som du har utvecklat lokalt med version 1. x-körningsmiljön. Om du vill uppgradera till version 2. x bör du skapa ett lokalt Function-projekt med version 2. x och port din befintliga kod i den nya appen. Du kan uppdatera det befintliga projektet och koden manuellt, en sortering av "på plats"-uppgraderingen. Det finns dock ett antal andra förbättringar mellan version 1. x och version 2. x som du kanske fortfarande måste göra. Till exempel har C# ett fel söknings objekt ändrats från `TraceWriter` till `ILogger`. Genom att skapa ett nytt version 2. x-projekt börjar du med uppdaterade funktioner baserat på de senaste version 2. x-mallarna.
+You may have existing function app projects that you developed locally using the version 1.x runtime. To upgrade to version 2.x, you should create a local function app project against version 2.x and port your existing code into the new app. You could manually update the existing project and code, a sort of "in-place" upgrade. However, there are a number of other improvements between version 1.x and version 2.x that you may still need to make. For example, in C# the debugging object was changed from `TraceWriter` to `ILogger`. By creating a new version 2.x project, you start off with updated functions based on the latest version 2.x templates.
 
-#### <a name="visual-studio-runtime-versions"></a>Visual Studio runtime-versioner
+#### <a name="visual-studio-runtime-versions"></a>Visual Studio runtime versions
 
-I Visual Studio väljer du kör tids versionen när du skapar ett projekt. Azure Functions Tools för Visual Studio stöder både huvud körnings versioner. Rätt version används vid fel sökning och publicering baserat på projekt inställningar. Versions inställningarna definieras i `.csproj`-filen i följande egenskaper:
+In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports both major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
 
-##### <a name="version-1x"></a>Version 1. x
+##### <a name="version-1x"></a>Version 1.x
 
 ```xml
 <TargetFramework>net461</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
-##### <a name="version-2x"></a>Version 2. x
+##### <a name="version-2x"></a>Version 2.x
 
 ```xml
 <TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-När du felsöker eller publicerar ditt projekt används rätt version av körnings miljön.
+When you debug or publish your project, the correct version of the runtime is used.
 
-#### <a name="vs-code-and-azure-functions-core-tools"></a>VS-kod och Azure Functions Core Tools
+#### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code and Azure Functions Core Tools
 
-[Azure Functions Core tools](functions-run-local.md) används för utveckling av kommando rader och även av [Azure Functions-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code. För att utveckla mot version 2. x, installerar du version 2. x av kärn verktygen. Version 1. x-utveckling kräver version 1. x av kärn verktygen. Mer information finns i [installera Azure Functions Core tools](functions-run-local.md#install-the-azure-functions-core-tools).
+[Azure Functions Core Tools](functions-run-local.md) is used for command line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. To develop against  version 2.x, install version 2.x of the Core Tools. Version 1.x development requires version 1.x of the Core Tools. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-För utveckling av Visual Studio-kod kan du också behöva uppdatera användar inställningen för `azureFunctions.projectRuntime` så att den matchar versionen av de installerade verktygen.  Den här inställningen uppdaterar även de mallar och språk som används när en funktion skapas.
+For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation.
 
-### <a name="changing-version-of-apps-in-azure"></a>Ändra versionen av appar i Azure
+### <a name="changing-version-of-apps-in-azure"></a>Changing version of apps in Azure
 
-Den version av Functions runtime som används av publicerade appar i Azure bestäms av inställningen för [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) program. Ett värde på `~2` riktar sig till version 2. x-körningen och `~1` riktar sig till version 1. x-körningsmiljön. Ändra inte den här inställningen godtyckligt, eftersom andra program inställnings ändringar och kod ändringar i dina funktioner troligen krävs. Information om det rekommenderade sättet att migrera din Function-app till en annan körnings version finns i [så här fungerar Azure Functions runtime-versioner](set-runtime-version.md).
+The version of the Functions runtime used by published apps in Azure is dictated by the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) application setting. A value of `~2` targets the version 2.x runtime and `~1` targets the version 1.x runtime. Don't arbitrarily change this setting, because other app setting changes and code changes in your functions are likely required. To learn about the recommended way to migrate your function app to a different runtime version, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## <a name="bindings"></a>Bindningar
 
-Från och med version 2. x använder körningen en ny [bindnings modell för bindning](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) som erbjuder följande fördelar:
+Starting with version 2.x, the runtime uses a new [binding extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) that offers these advantages:
 
-* Stöd för bindnings tillägg från tredje part.
+* Support for third-party binding extensions.
 
-* Fri koppling av körning och bindningar. Den här ändringen tillåter att bindnings tilläggen versions och släpps oberoende av varandra. Du kan till exempel välja att uppgradera till en version av ett tillägg som förlitar sig på en nyare version av ett underliggande SDK.
+* Decoupling of runtime and bindings. This change allows binding extensions to be versioned and released independently. You can, for example, opt to upgrade to a version of an extension that relies on a newer version of an underlying SDK.
 
-* En miljö med en ljusare körning där endast de bindningar som används är kända och läses in av körnings miljön.
+* A lighter execution environment, where only the bindings in use are known and loaded by the runtime.
 
-Med undantag för HTTP-och timer-utlösare måste alla bindningar uttryckligen läggas till i programmets projekt eller registreras i portalen. Mer information finns i [Registrera bindnings tillägg](./functions-bindings-expressions-patterns.md).
+With the exception of HTTP and timer triggers, all bindings must be explicitly added to the function app project, or registered in the portal. For more information, see [Register binding extensions](./functions-bindings-expressions-patterns.md).
 
-I följande tabell visas vilka bindningar som stöds i varje körnings version.
+The following table shows which bindings are supported in each runtime version.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
@@ -140,5 +136,5 @@ I följande tabell visas vilka bindningar som stöds i varje körnings version.
 Mer information finns i följande resurser:
 
 * [Koda och testa Azure Functions lokalt](functions-run-local.md)
-* [Så här riktar du Azure Functions runtime-versioner](set-runtime-version.md)
+* [How to target Azure Functions runtime versions](set-runtime-version.md)
 * [Viktig information](https://github.com/Azure/azure-functions-host/releases)
